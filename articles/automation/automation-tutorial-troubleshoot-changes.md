@@ -7,12 +7,12 @@ keywords: ändring, spårning, ändrings spårning, inventering, automatisering
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 211b34b4424fa5bc9b82dc1cc2a2da574ffc5d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743693"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185814"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Felsöka ändringar på en virtuell Azure-dator
 
@@ -30,12 +30,12 @@ I den här guiden får du lära du dig hur man:
 > * Visa ändringar
 > * Konfigurera varningar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Ett [Automation-konto](automation-offering-get-started.md) för att lagra övervakare och åtgärds-Runbooks och övervaknings aktiviteten.
+* Ett [Automation-konto](./index.yml) för att lagra övervakare och åtgärds-Runbooks och övervaknings aktiviteten.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som ska aktive ras för funktionen.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -54,7 +54,7 @@ Först måste du aktivera Ändringsspårning och inventering för den här själ
 
     ![Aktivera ändring](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Välj arbets ytan [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) . Den här arbets ytan samlar in data som genereras av funktioner som Ändringsspårning och inventering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
+3. Välj arbets ytan [Log Analytics](../azure-monitor/log-query/log-query-overview.md) . Den här arbets ytan samlar in data som genereras av funktioner som Ändringsspårning och inventering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -238,4 +238,4 @@ I den här självstudiekursen lärde du dig att:
 Fortsätt till översikten över funktionen Ändringsspårning och inventering för att lära dig mer om det.
 
 > [!div class="nextstepaction"]
-> [Översikt över Ändringsspårning och inventering](automation-change-tracking.md)
+> [Översikt över Ändringsspårning och inventering](./change-tracking.md)

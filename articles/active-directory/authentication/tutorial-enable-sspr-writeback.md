@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 353bc49ad6a64ff00a8a3ab8594fd76e02ca7913
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85551740"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202557"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Självstudie: Aktivera Azure Active Directory självbetjäning för återställning av lösen ord till en lokal miljö
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Aktivera alternativet för tillbakaskrivning av lösen ord i Azure AD Connect
 > * Aktivera tillbakaskrivning av lösen ord i Azure AD SSPR
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -43,7 +43,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs [Slutför du den föregående själv studie kursen för att aktivera Azure AD SSPR](tutorial-enable-sspr.md).
 * En befintlig lokal AD DS-miljö som kon figurer ATS med en aktuell version av Azure AD Connect.
     * Konfigurera vid behov Azure AD Connect med hjälp av inställningarna för [Express](../hybrid/how-to-connect-install-express.md) eller [anpassad](../hybrid/how-to-connect-install-custom.md) .
-    * Om du vill använda tillbakaskrivning av lösen ord måste domän kontrol Lanterna vara Windows Server 2008 R2 eller senare.
+    * Om du vill använda tillbakaskrivning av lösen ord måste domän kontrol Lanterna vara Windows Server 2012 eller senare.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Konfigurera konto behörigheter för Azure AD Connect
 
@@ -128,7 +128,7 @@ Utför följande steg för att aktivera tillbakaskrivning av lösen ord i SSPR:
 
 Om du inte längre vill använda funktionen SSPR tillbakaskrivning som du har konfigurerat som en del av den här självstudien utför du följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter och välj **Azure Active Directory**, Välj **lösen ords återställning**och välj sedan **lokal integrering**.
 1. Ange alternativet för **Skriv tillbaka lösen ord till din lokala katalog?** till *Nej*.
 1. Ange alternativet för **Tillåt att användare låser upp konton utan att återställa sina lösen ord?** till *Nej*.

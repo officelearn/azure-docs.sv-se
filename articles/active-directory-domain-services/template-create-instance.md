@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 01/14/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: d826a40073d243193f87d90ab80333b491a203b2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734223"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223014"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Skapa en Azure Active Directory Domain Services hanterad domän med hjälp av en Azure Resource Manager mall
 
 Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP, Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory. Du använder dessa domän tjänster utan att distribuera, hantera och korrigera domänkontrollanter själv. Azure AD DS integreras med din befintliga Azure AD-klient. Med den här integreringen kan användarna logga in med sina företags uppgifter, och du kan använda befintliga grupper och användar konton för att skydda åtkomsten till resurser.
 
-Den här artikeln visar hur du aktiverar Azure AD DS med hjälp av en Azure Resource Manager-mall. Stöd resurser skapas med hjälp av Azure PowerShell.
+Den här artikeln visar hur du skapar en hanterad domän med hjälp av en Azure Resource Manager-mall. Stöd resurser skapas med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här artikeln behöver du följande resurser:
 
@@ -51,7 +51,7 @@ När du skapar en Azure AD DS-hanterad domän anger du ett DNS-namn. Det finns n
 >
 > Du kan behöva skapa ytterligare DNS-poster för andra tjänster i din miljö, eller villkorliga DNS-vidarebefordrare mellan befintliga DNS-namn utrymmen i din miljö. Om du till exempel kör en webb server som är värd för en plats som använder rot-DNS-namnet, kan det finnas namn konflikter som kräver ytterligare DNS-poster.
 >
-> I dessa självstudier och instruktions artiklar används den anpassade domänen för *aaddscontoso.com* som ett kort exempel. I alla kommandon anger du ditt eget domän namn.
+> I det här exemplet och instruktions artiklar används den anpassade domänen för *aaddscontoso.com* som ett kort exempel. I alla kommandon anger du ditt eget domän namn.
 
 Följande DNS-namn begränsningar gäller också:
 
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Med *Administratörs gruppen för AAD-domänkontrollanten* skapad lägger du till en användare i gruppen med cmdleten [Add-AzureADGroupMember][Add-AzureADGroupMember] . Först får du ett objekt-ID för *AAD DC-administratörer* som använder cmdleten [Get-AzureADGroup][Get-AzureADGroup] och sedan den önskade användarens objekt-ID med hjälp av cmdleten [Get-AzureADUser][Get-AzureADUser] .
 
-I följande exempel är användar objekt-ID: t för kontot med UPN för `admin@aaddscontoso.onmicrosoft.com` . Ersätt det här användar kontot med UPN för den användare som du vill lägga till i *Administratörs* gruppen för AAD-domänkontrollant:
+I följande exempel är användar objekt-ID: t för kontot med UPN för `admin@contoso.onmicrosoft.com` . Ersätt det här användar kontot med UPN för den användare som du vill lägga till i *Administratörs* gruppen för AAD-domänkontrollant:
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,9 +124,9 @@ Som en del av resurs definitionen för Resource Manager krävs följande konfigu
 | Parameter               | Värde |
 |-------------------------|---------|
 | Namn              | DNS-domännamnet för din hanterade domän, med hänsyn till föregående punkter om namngivning av prefix och konflikter. |
-| filteredSync            | Med Azure AD DS kan du synkronisera *alla* användare och grupper som är tillgängliga i Azure AD, eller en *begränsad* synkronisering av enbart vissa grupper. Om du väljer att synkronisera alla användare och grupper kan du inte senare välja att bara utföra en omfångs synkronisering.<br /> Mer information om omfångs synkronisering finns i [Azure AD Domain Services omfångs synkronisering][scoped-sync].|
-| notificationSettings    | Om det finns aviseringar som genererats i den hanterade domänen kan e-postmeddelanden skickas ut. <br />*Globala administratörer* av Azure-klienten och medlemmar i gruppen *AAD DC-administratörer* kan *aktive ras* för dessa aviseringar.<br /> Om du vill kan du lägga till ytterligare mottagare för aviseringar när det finns aviseringar som kräver åtgärder.|
-| domainConfigurationType | Som standard skapas en hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Du behöver inte ange ett *domainConfiguration* -värde för att skapa en användar skog.<br /> En *resurs* skog synkroniserar bara användare och grupper som skapats direkt i Azure AD. Resurs skogar är för närvarande i för hands version. Ställ in värdet på *ResourceTrusting* för att skapa en resurs skog.<br />Mer information om *resurs* skogar, inklusive varför du kan använda en och hur du skapar skogs förtroenden med lokala AD DS-domäner finns i [Översikt över Azure AD DS resurs skogar][resource-forests].|
+| filteredSync            | Med Azure AD DS kan du synkronisera *alla* användare och grupper som är tillgängliga i Azure AD, eller en *begränsad* synkronisering av enbart vissa grupper.<br /><br /> Mer information om omfångs synkronisering finns i [Azure AD Domain Services omfångs synkronisering][scoped-sync].|
+| notificationSettings    | Om det finns aviseringar som genererats i den hanterade domänen kan e-postmeddelanden skickas ut. <br /><br />*Globala administratörer* av Azure-klienten och medlemmar i gruppen *AAD DC-administratörer* kan *aktive ras* för dessa aviseringar.<br /><br /> Om du vill kan du lägga till ytterligare mottagare för aviseringar när det finns aviseringar som kräver åtgärder.|
+| domainConfigurationType | Som standard skapas en hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Du behöver inte ange ett *domainConfiguration* -värde för att skapa en användar skog.<br /><br /> En *resurs* skog synkroniserar bara användare och grupper som skapats direkt i Azure AD. Resurs skogar är för närvarande i för hands version. Ställ in värdet på *ResourceTrusting* för att skapa en resurs skog.<br /><br />Mer information om *resurs* skogar, inklusive varför du kan använda en och hur du skapar skogs förtroenden med lokala AD DS-domäner finns i [Översikt över Azure AD DS resurs skogar][resource-forests].|
 
 I följande dekomprimerade Parameters-definition visas hur dessa värden deklareras. En användar skog med namnet *aaddscontoso.com* skapas med alla användare från Azure AD synkroniserat till den hanterade domänen:
 
@@ -331,7 +331,7 @@ När Azure Portal visar att den hanterade domänen har slutfört etableringen m�
 
 * Uppdatera DNS-inställningarna för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för domän anslutning eller autentisering.
     * Om du vill konfigurera DNS väljer du din hanterade domän i portalen. I **översikts** fönstret uppmanas du att konfigurera dessa DNS-inställningar automatiskt.
-* [Aktivera Lösenordssynkronisering till Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) så att slutanvändarna kan logga in på den hanterade domänen med sina företags uppgifter.
+* [Aktivera Lösenordssynkronisering till Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) så att slutanvändarna kan logga in på den hanterade domänen med sina företags uppgifter.
 
 ## <a name="next-steps"></a>Nästa steg
 

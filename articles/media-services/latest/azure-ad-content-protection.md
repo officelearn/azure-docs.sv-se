@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 92b3489113aff9d48940131c80df00aedcf45325
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172835"
+ms.locfileid: "86205166"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Självstudie: innehålls skydd från slut punkt till slut punkt med hjälp av Azure AD
 
@@ -39,7 +39,7 @@ Om du inte har en Azure Media Services-prenumeration skapar du ett [kostnads fri
 ### <a name="duration"></a>Varaktighet
 Kursen bör ta ungefär två timmar att slutföra efter att du har den nödvändiga tekniken redo att gå vidare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande nya teknik versioner och koncept används. Vi rekommenderar att du bekanta dig med dem innan du påbörjar den här självstudien.
 
@@ -120,18 +120,17 @@ SPA Player-appen Slutför följande åtgärder:
 * Dekryptering, avkoda och Visa.
 * Microsoft Graph API-anrop i fel söknings syfte. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
 
-<!--
-The screen for sign-in, token acquisition, token renewal, and token display:
+Skärmen för inloggning, token-förvärv, förnyelse av token och visning av token:
 
- ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
+ ![Skärm för inloggning, token-hämtning, token-förnyelse och token-visning](media/aad-ams-content-protection/token-acquisition.png)
 
-The screen for parsing JWT tokens (access_token or id_token):
+Skärmen för att parsa JWT-token (access_token eller id_token):
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens2.png)
+![skärm för parsning av JWT-token](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
-The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
+Skärmen för att testa skyddat innehåll med olika kombinationer av DRM/AES vs streaming-protokoll vs container format:
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content2.png)
+![skärm för parsning av JWT-token](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -163,7 +162,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 1. Välj **exponera ett API** från menyn. Vyn Lägg till en omfattning visas. (Azure tillhandahåller en program-ID-URI, men om du vill ändra det kan du redigera i fältet program-ID URI.)
 1. Klicka på **Spara och fortsätt**. Vyn kommer att ändras. För var och en av inställningarna i kolumnen inställning i tabellen nedan anger du värdet i kolumnen värde och klickar sedan på **Lägg till omfång**.
 
-| Inställningen | Värde | Beskrivning |
+| Inställning | Värde | Beskrivning |
 | ------- | ----- | ----------- |
 | Namn på sökomfång | *Rights. Licens. Delivery* | Hur omfånget visas när åtkomst till detta API begärs och i åtkomsttoken när omfattningen har beviljats till ett klient program. Detta måste vara unikt i det här programmet. Vi rekommenderar att du använder "Resource. operation. constraint" som ett mönster för att generera namnet. |
 | Vem kan godkänna? | *Administratörer och användare* | Anger om användare kan godkänna det här omfånget i kataloger där användar medgivande har Aktiver ATS. |
@@ -171,7 +170,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 | Beskrivning av administratörs medgivande * * | *Resurs omfång för leverans Server del för DRM-Licens* | En detaljerad beskrivning av det omfång som visas när klient administratörer utökar ett omfång på medgivande skärmen. |
 | Visningsnamn för användarmedgivande | *Rights. Licens. Delivery* | Vad scopet kommer att anropas på skärmen för medgivande när användare godkänner det här omfånget. |
 | Beskrivning av användarmedgivande | *Resurs omfång för leverans Server del för DRM-Licens* | Det här är en detaljerad beskrivning av det omfång som visas när användarna utökar ett omfång på medgivande skärmen. |
-| Status | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
+| Tillstånd | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
 
 ## <a name="register-the-client-app"></a>Registrera klient programmet
 
@@ -342,7 +341,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 
 *Grupp* anspråk är medlem i ett [begränsat anspråk som angetts](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) i Azure AD.
 
-#### <a name="test"></a>Testa
+#### <a name="test"></a>Test
 
 1. Logga in med det *premium_user* kontot. Du bör kunna spela det skyddade innehållet.
 1. Logga in med det *basic_user* kontot. Du får ett fel meddelande som anger att videon är krypterad, men det finns ingen nyckel för att dekryptera den. Om du visar händelserna, felen och nedladdningarna med list rutan längst ned i spelarens diagnostiska överlägg, bör fel meddelandet indikera licens hämtnings fel på grund av det saknade anspråks värdet för grupp anspråk i det JWT som utfärdats av Azure AD-token slut punkt.

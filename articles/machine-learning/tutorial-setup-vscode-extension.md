@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera Visual Studio Code-tillägget'
+title: 'Självstudie: Konfigurera Visual Studio Code Extension (för hands version)'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du konfigurerar Visual Studio Code Azure Machine Learning-tillägget.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/08/2020
-ms.openlocfilehash: 9d85e59e003cffdbe6fe6abe7bb053ae4c574b78
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/09/2020
+ms.openlocfilehash: 48fb2ce3672634af202500ccb256e7730933fff8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143481"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199764"
 ---
-# <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Konfigurera Azure Machine Learning Visual Studio Code-tillägg
+# <a name="set-up-azure-machine-learning-visual-studio-code-extension-preview"></a>Konfigurera Azure Machine Learning Visual Studio Code Extension (för hands version)
 
 Lär dig hur du installerar och kör skript med hjälp av tillägget Azure Machine Learning Visual Studio Code.
 
@@ -27,7 +27,7 @@ I den här självstudien går du igenom följande aktiviteter:
 > * Logga in på ditt Azure-konto från Visual Studio Code
 > * Använd Azure Machine Learning-tillägget för att köra ett exempel skript
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett kan du registrera dig och prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. Om du inte har det kan du [installera det](https://code.visualstudio.com/docs/setup/setup-overview).
@@ -38,7 +38,7 @@ I den här självstudien går du igenom följande aktiviteter:
 1. Öppna Visual Studio Code.
 1. Öppna vyn tillägg genom att välja **tilläggs** ikonen från **aktivitets fältet** .
 1. I vyn tillägg söker du efter "Azure Machine Learning".
-1. Välj **installera**.
+1. Välj **Installera**.
 
     > [!div class="mx-imgBorder"]
     > ![Installera Azure Machine Learning VS Code-tillägg](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG)

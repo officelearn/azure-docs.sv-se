@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6727a2c45187e0e6bb583bb65e176024067d81e2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80064422"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220003"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Självstudie: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play-enhet (för hands version) och ansluta den till ditt IoT Central-program
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > * Kör enhets koden i Windows och se att den är ansluten till ditt IoT Central-program.
 > * Visa den simulerade telemetri som enheten skickar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför snabb starten [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) för att skapa ett IoT Central program med hjälp av den **anpassade appen > anpassade program** .
 
@@ -39,7 +39,7 @@ För att slutföra den här självstudien måste du installera följande program
 * [Cmake](https://cmake.org/download/) – när du installerar **cmake**väljer du alternativet **Lägg till cmake i System Sök vägen**.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Node.js](https://nodejs.org/)
-* `dps-keygen` Verktyget:
+* `dps-keygen`Verktyget:
 
     ```cmd/sh
     npm i -g dps-keygen
@@ -86,7 +86,9 @@ Om du vill ansluta en enhet till ett IoT Central-program behöver du en enhets n
 
 1. Gå till **administrations** sidan och välj **enhets anslutning**.
 
-1. Anteckna **ID-omfånget** och den **primära nyckeln** som visas när du väljer **Visa nycklar**. Du använder dessa värden senare i den här självstudien.
+1. Anteckna **ID-omfånget**. Du använder det här värdet senare i den här självstudien.
+
+1. Välj registrerings gruppen **SAS-IoT-Devices** . Anteckna **primär nyckeln**. Du använder det här värdet senare i den här självstudien.
 
     ![Enhets anslutning](./media/tutorial-connect-pnp-device/device-connection.png)
 
@@ -98,15 +100,15 @@ Om du vill ansluta en enhet till ett IoT Central-program behöver du en enhets n
 
     Anteckna den genererade _enhets nyckeln_, du använder det här värdet i ett senare steg i den här självstudien.
 
-## <a name="download-your-model"></a>Ladda ned din modell
+## <a name="download-your-model"></a>Ladda ned modellen
 
 I den här självstudien använder du offentliga DCM för en MxChip IoT DevKit-enhet. Du behöver ingen faktisk DevKit-enhet för att köra koden. i den här självstudien kompilerar du koden som ska köras i Windows.
 
-1. Skapa en mapp med `central_app` namnet och öppna den i vs Code.
+1. Skapa en mapp `central_app` med namnet och öppna den i vs Code.
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten, ange **IoT plug and Play**och välj **Öppna modell lagrings plats**. Välj **offentlig lagrings plats**. VS Code visar en lista över DCMs i den offentliga modellens lagrings plats.
 
-1. Välj **MXChip IoT DevKit** DCM med ID `urn:mxchip:mxchip_iot_devkit:1`. Välj sedan **Ladda ned**. Nu har du en kopia av DCM i `central_app` mappen.
+1. Välj **MXChip IoT DevKit** DCM med ID `urn:mxchip:mxchip_iot_devkit:1` . Välj sedan **Ladda ned**. Nu har du en kopia av DCM i `central_app` mappen.
 
 ![Modell lagring och DCM](./media/tutorial-connect-pnp-device/public-repository.png)
 
@@ -134,7 +136,7 @@ Nu har du **MXChip IoT-DevKit** DCM och tillhör ande gränssnitt, kan du genere
 
 1. Välj **via Vcpkg** som metod för att inkludera SDK: n.
 
-1. VS Code öppnar ett nytt fönster med genererad enhets kod stub- `devkit_device` filer i mappen.
+1. VS Code öppnar ett nytt fönster med genererad enhets kod stub-filer i `devkit_device` mappen.
 
 ![Genererad enhets kod](./media/tutorial-connect-pnp-device/generated-code.png)
 
@@ -142,7 +144,7 @@ Nu har du **MXChip IoT-DevKit** DCM och tillhör ande gränssnitt, kan du genere
 
 Du kan använda enhets-SDK: n för att skapa den genererade enhets koden stub. Det program som du skapar simulerar en **MXChip IoT DevKit** -enhet och ansluter till ditt IoT Central-program. Programmet skickar telemetri och egenskaper och tar emot kommandon.
 
-1. I en kommando tolk, skapar du `cmake` en under katalog i `devkit_device` mappen och navigerar till mappen:
+1. I en kommando tolk, skapar du en under `cmake` katalog i `devkit_device` mappen och navigerar till mappen:
 
     ```cmd
     mkdir cmake

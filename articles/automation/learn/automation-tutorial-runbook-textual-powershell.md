@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: bf06515f98b21c24f5222b51e1b1c97b702c12d4
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e7c73bf45adba0638074b9d2ab1bab28970ed9b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714499"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185440"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Självstudie: skapa en PowerShell-Runbook
 
@@ -23,7 +23,7 @@ Den här självstudien beskriver steg för steg hur du skapar en [PowerShell-run
 > * Kör och spåra statusen för Runbook-jobbet
 > * Uppdatera runbooken för att starta en virtuell Azure-dator med Runbook-parametrar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -43,7 +43,7 @@ PowerShell-Runbooks har samma livs cykel, funktioner och hantering som PowerShel
 | Kommando körning | Endast stöd för seriell körning. | Stöd för både seriell och parallell körning.|
 | Körnings utrymme | En enskild körnings utrymme kör allt i ett skript. | En separat körnings utrymme kan användas för en aktivitet, ett kommando eller ett skript block. |
 
-Utöver dessa skillnader har PowerShell-Runbooks vissa [syntaktiska skillnader](https://technet.microsoft.com/magazine/dn151046.aspx) jämfört med PowerShell Workflow-Runbooks.
+Utöver dessa skillnader har PowerShell-Runbooks vissa [syntaktiska skillnader](/previous-versions/technet-magazine/dn151046(v=msdn.10)) jämfört med PowerShell Workflow-Runbooks.
 
 ## <a name="step-1---create-runbook"></a>Steg 1 – Skapa en runbook
 
@@ -131,7 +131,7 @@ Den Runbook som du har skapat är fortfarande i utkast läge. Den behöver publi
 
 Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. För att göra detta måste runbooken kunna autentisera med kör som-kontot som skapades automatiskt när du skapade ditt Automation-konto.
 
-Som du ser i exemplet nedan görs kör som-anslutningen med cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) . Om du hanterar resurser över flera prenumerationer måste du använda `AzContext` parametern med [Get-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
+Som du ser i exemplet nedan görs kör som-anslutningen med cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) . Om du hanterar resurser över flera prenumerationer måste du använda `AzContext` parametern med [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
 
 > [!NOTE]
 > För PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för `Connect-AzAccount` . Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](../automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
@@ -198,7 +198,7 @@ Som du ser i exemplet nedan görs kör som-anslutningen med cmdleten [Connect-Az
 
 Nu när din Runbook autentiseras till din Azure-prenumeration kan du hantera resurser. Nu ska vi lägga till ett kommando för att starta en virtuell dator. Du kan välja en virtuell dator i din Azure-prenumeration och bara hårdkoda det namnet i runbooken för tillfället.
 
-1. I Runbook-skriptet lägger du till cmdleten [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) för att starta den virtuella datorn. Som det visas nedan startar cmdleten en virtuell dator med namnet `VMName` och med en resurs grupp med namnet `ResourceGroupName` .
+1. I Runbook-skriptet lägger du till cmdleten [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) för att starta den virtuella datorn. Som det visas nedan startar cmdleten en virtuell dator med namnet `VMName` och med en resurs grupp med namnet `ResourceGroupName` .
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -274,9 +274,9 @@ Din Runbook startar för närvarande den virtuella datorn som du hårdkodade i r
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [PowerShell-dokument](/powershell/scripting/overview)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
-* [Skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md)
-* [Skapa en PowerShell Workflow-Runbook](automation-tutorial-runbook-textual.md)
-* [Azure Automation Runbook-typer](../automation-runbook-types.md)
-* [Inbyggt stöd för PowerShell-skript i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](/powershell/scripting/overview).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Information om hur du kommer igång med grafiska runbooks finns i [skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md).
+* Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [skapa en PowerShell Workflow-Runbook](automation-tutorial-runbook-textual.md).
+* Om du vill veta mer om Runbook-typer och deras fördelar och begränsningar, se [Azure Automation Runbook-typer](../automation-runbook-types.md).
+* Mer information om stöd funktionen för PowerShell-skript finns [i stöd för inbyggda PowerShell-skript i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).

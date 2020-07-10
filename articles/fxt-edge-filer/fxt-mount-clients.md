@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 43223db298e4ad170ea6d0687a342b3aee35500e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80130775"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231360"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Självstudie: montera klustret
 
@@ -47,7 +47,7 @@ Andra metoder för belastnings utjämning kan vara lämpliga för stora eller ko
 
 ## <a name="create-the-mount-command"></a>Skapa monterings kommandot
 
-Från klienten mappar ``mount`` kommandot den virtuella servern (vserver) på Azure FXT Edge-klustret till en sökväg i det lokala fil systemet.
+Från klienten ``mount`` mappar kommandot den virtuella servern (vserver) på Azure FXT Edge-klustret till en sökväg i det lokala fil systemet.
 
 Formatet är``mount <FXT cluster path> <local path> {options}``
 
@@ -93,14 +93,14 @@ För att säkerställa en sömlös klient montering måste du överföra dessa i
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Nödvändiga inställningar | |
+| Nödvändiga inställningar | Beskrivning |
 --- | ---
 ``hard`` | Mjuka monteringar till Azure FXT Edge-klustret är kopplade till program fel och eventuell data förlust.
 ``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.
 ``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverks fel för monterings åtgärder.
 ``retry=n`` | Ange ``retry=30`` för att undvika tillfälliga monterings problem. (Ett annat värde rekommenderas i förgrunds monteringar.)
 
-| Önskade inställningar  | |
+| Önskade inställningar  | Beskrivning |
 --- | ---
 ``nointr``            | Om klienterna använder äldre OS-kernel (före 2008) som har stöd för det här alternativet använder du det. Alternativet "intr" är standardvärdet.
 

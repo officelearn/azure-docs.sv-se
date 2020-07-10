@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75431460"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232193"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar F5 med Azure Active
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -42,11 +42,11 @@ För att komma igång behöver du följande objekt:
 * F5-aktiverad prenumeration med enkel inloggning (SSO).
 
 * Distribution av den gemensamma lösningen kräver följande licens:
-    * F5 BIG-IP® bästa paket (eller)
+    * F5 BIG-IP- &reg; bästa paket (eller)
 
-    * F5-fristående licens för BIG-IP Access Policy Manager™ (APM)
+    * F5-fristående licens för BIG-IP Access Policy Manager &trade; (APM)
 
-    * F5-tilläggsprogram för BIG-IP Access Policy Manager™ (APM) för en befintlig BIG IP F5 BIG-IP® lokala Traffic Manager™ (LTM).
+    * F5-tilläggsprogram för BIG-IP Access Policy Manager &trade; (APM) på en befintlig stor IP F5-LTM (Big-IP- &reg; lokal Traffic Manager &trade; ).
 
     * Förutom ovanstående licens kan F5-systemet också vara licensierat med:
 
@@ -177,7 +177,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Ett exempel är `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -223,7 +223,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Dessutom krävs **SSL-certifikat för program värd namnet. Gå till system > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. **Import typen** är **PKCS 12 (IIS)**. Ange ett **nyckel namn** (kommer att refereras till senare i konfigurationen) och ange PFX-filen. Ange **lösen ordet** för PFX-filen. Klicka på **Importera**.
 
     >[!NOTE]
-    >I exempel namnet `Kerbapp.superdemo.live`på appen använder vi ett jokertecken med vårt namn`WildCard-SuperDemo.live`
+    >I exempel namnet på appen `Kerbapp.superdemo.live` använder vi ett jokertecken med vårt namn`WildCard-SuperDemo.live`
 
     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure02.png) 
  
@@ -248,7 +248,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure07.png)  
 
-1. Under **Välj en pool**anger du **Skapa ny** (du kan också välja en pool som den redan finns). Låt andra värde vara standard. Under pooler anger du IP-adressen under **IP-adress/nodnamn**. Ange **porten**. Klicka på **spara & nästa**.
+1. Under **Välj en pool**anger du **Skapa ny** (du kan också välja en pool som den redan finns). Låt andra värde vara standard.    Under pooler anger du IP-adressen under **IP-adress/nodnamn**. Ange **porten**. Klicka på **spara & nästa**.
  
     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure08.png)
 
@@ -282,23 +282,23 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) för att ange domänkontrollanter och autentiseringsuppgifter för APM som ska användas för att autentisera användare.
 
-1.  På huvud fliken klickar du på **åtkomst princip > AAA-servrar > Active Directory**. Skärmen Active Directory servrar visas.
+1.    På huvud fliken klickar du på **åtkomst princip > AAA-servrar > Active Directory**. Skärmen Active Directory servrar visas.
 
-2.  Klicka på **Skapa**. Skärmen nya server Egenskaper öppnas.
+2.    Klicka på **Skapa**. Skärmen nya server Egenskaper öppnas.
 
-3.  I fältet **namn** anger du ett unikt namn för autentiseringsservern.
+3.    I fältet **namn** anger du ett unikt namn för autentiseringsservern.
 
-4.  I fältet **domän namn** skriver du namnet på Windows-domänen.
+4.    I fältet **domän namn** skriver du namnet på Windows-domänen.
 
-5.  Välj något av följande alternativ för inställningen **Server anslutning** :
+5.    Välj något av följande alternativ för inställningen **Server anslutning** :
 
     * Välj **Använd pool** för att konfigurera hög tillgänglighet för AAA-servern.
 
     * Välj **Direct** för att konfigurera AAA-servern för fristående funktioner.
 
-6.  Om du har valt **direkt**, anger du ett namn **i fältet domänkontrollant** .
+6.    Om du har valt **direkt**, anger du ett namn **i fältet domänkontrollant** .
 
-7.  Om du har valt Använd **pool**konfigurerar du poolen:
+7.    Om du har valt Använd **pool**konfigurerar du poolen:
 
     * Skriv ett namn i fältet **namn på domänkontrollantens pool** .
 
@@ -306,21 +306,21 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
     * För att övervaka hälso tillståndet för AAA-servern har du möjlighet att välja en hälso Övervakare: endast **gateway_icmps** övervakaren är lämplig i det här fallet. Du kan välja den från övervaknings listan för **serverpoolen** .
 
-8.  I fältet **admin-namn** skriver du ett skift läges känsligt namn för en administratör som har Active Directory administratörs behörighet. APM använder informationen i fälten **admin-namn** och **Administratörs lösen ord** för AD-fråga. Om Active Directory har kon figurer ATS för anonyma frågor behöver du inte ange ett administratörs namn. Annars behöver APM ett konto med tillräcklig behörighet för att binda till en Active Directory-Server, Hämta användar grupps information och hämta Active Directory lösen ords principer som stöder lösenordsbaserade funktioner. (APM måste hämta lösen ords principer, till exempel om du väljer alternativet uppmana användaren att ändra lösen ordet innan förfallo datum i en AD-fråga.) Om du inte anger information om administratörs kontot i den här konfigurationen använder APM användar kontot för att hämta information. Detta fungerar om användar kontot har tillräcklig behörighet.
+8.    I fältet **admin-namn** skriver du ett skift läges känsligt namn för en administratör som har Active Directory administratörs behörighet. APM använder informationen i fälten **admin-namn** och **Administratörs lösen ord** för AD-fråga. Om Active Directory har kon figurer ATS för anonyma frågor behöver du inte ange ett administratörs namn. Annars behöver APM ett konto med tillräcklig behörighet för att binda till en Active Directory-Server, Hämta användar grupps information och hämta Active Directory lösen ords principer som stöder lösenordsbaserade funktioner. (APM måste hämta lösen ords principer, till exempel om du väljer alternativet uppmana användaren att ändra lösen ordet innan förfallo datum i en AD-fråga.) Om du inte anger information om administratörs kontot i den här konfigurationen använder APM användar kontot för att hämta information. Detta fungerar om användar kontot har tillräcklig behörighet.
 
-9.  I fältet **Administratörs lösen ord** anger du det administratörs lösen ord som är associerat med domän namnet.
+9.    I fältet **Administratörs lösen ord** anger du det administratörs lösen ord som är associerat med domän namnet.
 
-10. I fältet **Verifiera administratörs lösen ord** anger du det administratörs lösen ord som är associerat med **domän namns** inställningen.
+10.    I fältet **Verifiera administratörs lösen ord** anger du det administratörs lösen ord som är associerat med **domän namns** inställningen.
 
-11. I fältet **gruppens cache livstid** anger du antalet dagar. Standard livs längden är 30 dagar.
+11.    I fältet **gruppens cache livstid** anger du antalet dagar. Standard livs längden är 30 dagar.
 
-12. Ange antalet dagar i fältet **livs längd för lösen ords säkerhets objektets cacheminne** . Standard livs längden är 30 dagar.
+12.    Ange antalet dagar i fältet **livs längd för lösen ords säkerhets objektets cacheminne** . Standard livs längden är 30 dagar.
 
-13. Från listan **Kerberos-typ för Kerberos-förautentisering** väljer du en krypterings typ. Standardvärdet är **none**. Om du anger en krypterings typ inkluderar BIG-IP-systemet Kerberos-Förautentiserings data i det första begäran om Autentiseringstjänsten (AS-REQ).
+13.    Från listan **Kerberos-typ för Kerberos-förautentisering** väljer du en krypterings typ. Standardvärdet är **none**. Om du anger en krypterings typ inkluderar BIG-IP-systemet Kerberos-Förautentiserings data i det första begäran om Autentiseringstjänsten (AS-REQ).
 
-14. I fältet **tids gräns** anger du ett timeout-intervall (i sekunder) för AAA-servern. (Den här inställningen är valfri.)
+14.    I fältet **tids gräns** anger du ett timeout-intervall (i sekunder) för AAA-servern. (Den här inställningen är valfri.)
 
-15. Klicka på **klart**. Den nya servern visas på listan. Detta lägger till den nya Active Directory servern i listan Active Directory servrar.
+15.    Klicka på **klart**. Den nya servern visas på listan. Detta lägger till den nya Active Directory servern i listan Active Directory servrar.
 
     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 
@@ -347,7 +347,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 1. Om du vill konfigurera SAML SP navigerar du till **åtkomst > Federation > SAML Service Provider > lokala SP-tjänster** och klickar på **skapa**. Slutför följande information och klicka på **OK**.
 
     * Typnamn: KerbApp200SAML
-    * Entitets-ID *:https://kerbapp200.superdemo.live
+    * Entitets-ID *:https://kerb-app.com.cutestat.com
     * Inställningar för SP-namn
     * Schema: https
     * Värd: kerbapp200. superdemo. Live
@@ -370,7 +370,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
     >[!Note]
     > Du behöver kontot för Kerberos-delegering för att kunna skapas och anges. Se avsnittet KCD (se tillägg för variabel referenser)
 
-    * **Användar namn källa**: session. SAML. Last. attr. Name. http\/:/schemas.xmlsoap.org/WS/2005/05/Identity/Claims/givenName
+    * **Användar namn källa**: session. SAML. Last. attr. Name. http: \/ /schemas.xmlSOAP.org/WS/2005/05/Identity/Claims/givenName
 
     * **Användar sfär källa**: session. logon. senaste. domän
 
@@ -461,7 +461,7 @@ Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) fö
 
     * Sam-konto namn: **Big-ipuser**
 
-    * New-ADUser-Name "APM Delegerings konto" host/big-ipuser.superdemo.live@superdemo.live -userPrincipalName-sAMAccountName "Big-ipuser"-PasswordNeverExpires $True-enabled $True-AccountPassword (Read-Host-AsSecureString "Password! 1234")
+    * New-ADUser-Name "APM Delegerings konto"-UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -sAMAccountName "Big-ipuser"-PasswordNeverExpires $True-enabled $True-AccountPassword (Read-Host-AsSecureString "Password! 1234")
 
 * **Steg 2:** Ange SPN (på kontot för APM-delegering)
 
@@ -491,7 +491,7 @@ När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova F5 med Azure AD](https://aad.portal.azure.com/)
 

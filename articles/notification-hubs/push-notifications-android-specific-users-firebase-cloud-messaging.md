@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16191dfd33d5211fbd082bc1f7e458a238bb2138
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75531130"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224238"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs
 
@@ -37,7 +37,7 @@ I den här självstudien gör du följande:
 > * Uppdatera Android-programmet.
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) innan du gör den här kursen.
 
@@ -151,7 +151,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
 
     Den grafiska layouten för `main_activity.xml` bör nu se ut som följande bild:
 
-    ![][A1]
+    ![Skärm bild av en emulator som visar hur den grafiska layouten för huvud aktivitet X M L kommer att se ut.][A1]
 3. Skapa en ny klass med namnet `RegisterClient` i samma paket som klassen `MainActivity`. Använd koden nedan för den nya klassfilen.
 
     ```java
@@ -261,7 +261,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     ```
 
     Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens Server del för att registrera sig för push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken som lagras i lokal lagring när du klickar på knappen **Logga in** .
-4. I din `MainActivity` klass och lägga till ett fält för `RegisterClient` klassen och en sträng för din ASP.net-backend-slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
+4. I din `MainActivity` klass och lägga till ett fält för `RegisterClient` klassen och en sträng för din ASP.net-backend-slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Ett exempel är `http://mybackend.azurewebsites.net`.
 
     ```java
     private RegisterClient registerClient;
@@ -412,7 +412,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     }
     ```
 
-    Hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (den representerar alla token som används i autentiseringsschemat) och använder `RegisterClient` sedan för att anropa Server delen för registrering. `login`
+    `login`Hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (den representerar alla token som används i autentiseringsschemat) och använder sedan `RegisterClient` för att anropa Server delen för registrering.
 
     `sendPush`-metoden anropar serverdelen för att utlösa ett säkert meddelande till användaren baserat på användartaggen. Plattformens meddelandetjänst som `sendPush` har som mål är beroende av `pns`-strängen som skickats.
 
@@ -472,7 +472,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-13. Om din app är riktad mot API-nivå 28 (Android 9,0) eller senare, inkluderar du följande deklaration `<application>` i- `AndroidManifest.xml`elementet i.
+13. Om din app är riktad mot API-nivå 28 (Android 9,0) eller senare, inkluderar du följande deklaration i- `<application>` elementet i `AndroidManifest.xml` .
 
     ```xml
     <uses-library
@@ -487,7 +487,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
 2. Ange ett användarnamn och lösenord i Android-appen. De måste båda ha samma strängvärde och får inte innehålla blanksteg eller specialtecken.
 3. Klicka på **Logga**in i Android-appen. Vänta på ett popup-meddelande om att tillstånd har **loggat in och registrerats**. Detta aktiverar knappen **Skicka meddelande**.
 
-    ![][A2]
+    ![Skärm bild av en emulator som visar hur appen Notification Hubs Avisera användare ser ut när du har loggat in.][A2]
 4. Klicka på växlingsknapparna för att aktivera alla plattformar där du körde appen och registrerade en användare.
 5. Ange namnet på den användare som får meddelandet. Användaren måste vara registrerad för meddelanden på målenheterna.
 6. Ange ett meddelande som användaren ska få som ett push-meddelande.

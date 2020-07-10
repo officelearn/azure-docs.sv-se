@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9c587ad9b791d953dce66df2337cf0e7dca52324
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559562"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185372"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Självstudie: skapa en python-Runbook
 
@@ -31,7 +31,7 @@ Den här självstudien vägleder dig genom skapandet av en [python-Runbook](../a
 För att kunna genomföra den här kursen behöver du följande:
 
 - En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Ett [Automation-konto för Azure](../automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
+- Ett [Automation-konto för Azure](../index.yml) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 - En virtuell dator i Azure. Eftersom du ska stoppa och starta den här datorn bör det inte vara en virtuell dator som finns i produktionsmiljön.
 
 ## <a name="create-a-new-runbook"></a>Skapa en ny Runbook
@@ -161,7 +161,7 @@ För att göra detta måste skriptet autentisera med hjälp av autentiseringsupp
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Lägg till kod för att skapa python Compute Client och starta den virtuella datorn
 
-Om du vill arbeta med virtuella Azure-datorer skapar du en instans av [Azure Compute-klienten för python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
+Om du vill arbeta med virtuella Azure-datorer skapar du en instans av [Azure Compute-klienten för python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Använd Compute-klienten för att starta den virtuella datorn. Lägg till följande kod i runbooken:
 

@@ -10,21 +10,21 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: a376c5d223121774b6c707b3bdc8edce42649e42
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 53731540c4a2861c77c02b1a4b25b60fd0e23872
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800065"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184148"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
 Med API:et för entitetsökning i Bing kan du söka efter information på webben om *entiteter* och *platser*. Du kan begära endera typ av resultat eller båda i en given fråga. Definitionerna av platser och entiteter visas nedan.
 
-|||
+| Resultat | Beskrivning |
 |-|-|
 |Entiteter|Välkända personer, platser och saker som du hittar med hjälp av namn|
-|Platser|Restauranger, hotell och andra lokala företag som du hittar med hjälp av namn *eller* efter typ (italienska restauranger)|
+|Placerar|Restauranger, hotell och andra lokala företag som du hittar med hjälp av namn *eller* efter typ (italienska restauranger)|
 
 I de här självstudierna skapar vi ett enkelsidigt program som använder API:et för entitetsökning i Bing för att visa sökresultat till höger på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
 
@@ -141,7 +141,7 @@ HTML-taggen `<body>` innehåller ett `onload`-attribut som anropar `getSearchSub
 
 HTML-formuläret innehåller följande kontroller:
 
-| | |
+| Kontroll | Beskrivning |
 |-|-|
 |`where`|En listruta för att välja marknad (plats och språk) som används för sökningen.|
 |`query`|Textfältet för att ange sökvillkor.|
@@ -411,7 +411,7 @@ Slutligen refererar `sidebar` till extra sökresultat. De kan visas i en faktisk
 
 Varje objekt i en `rankingResponse`-samling refererar till de faktiska sökresultatobjekten på två olika men likvärdiga sätt.
 
-| | |
+| Objekt | Beskrivning |
 |-|-|
 |`id`|`id` ser ut som en URL men ska inte användas för länkar. `id`-typen av ett rankningsresultat matchar `id` för antingen en ett sökresultatobjekt i en svarssamling *eller* en hel svarssamling (t.ex. `Entities`).
 |`answerType`<br>`resultIndex`|`answerType` refererar till den svarssamling på toppnivå som innehåller resultatet (till exempel `Entities`). `resultIndex` refererar till resultatets index i den samlingen. Om `resultIndex` är utelämnas refererar rankningsresultatet till hela samlingen.
@@ -452,7 +452,7 @@ searchItemRenderers = {
 
 En funktion för rendering kan acceptera följande parametrar:
 
-| | |
+| Parameter | Beskrivning |
 |-|-|
 |`item`|JavaScript-objekt som innehåller objektets egenskaper, som dess webbadress och en beskrivning.|
 |`index`|Index för resultatobjektet i en samling.|

@@ -4,12 +4,12 @@ description: Lär dig mer om att skapa och hantera Azure Service Fabric-kluster,
 ms.topic: sample
 ms.date: 11/29/2018
 ms.custom: mvc
-ms.openlocfilehash: f9ba1b4833b3aff13284a68c23f398ea47ef2ae2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4b85fd604eb27f0963af882b41e823d800005dda
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75645658"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187106"
 ---
 # <a name="azure-service-fabric-powershell-samples"></a>Azure Service Fabric PowerShell-exempel
 
@@ -17,7 +17,7 @@ Följande tabell innehåller länkar till PowerShell-exempelskript för att hant
 
 [!INCLUDE [links to azure CLI and service fabric CLI](../../includes/service-fabric-powershell.md)]
 
-| | |
+| Skript | Beskrivning |
 |-|-|
 | **Skapa kluster** ||
 | [Skapa ett kluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Skapar ett Azure Service Fabric-kluster. |

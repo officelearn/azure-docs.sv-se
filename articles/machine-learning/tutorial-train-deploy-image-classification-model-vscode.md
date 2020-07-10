@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: träna & distribuera modeller: VS Code'
+title: 'Självstudie: träna & distribuera modeller: VS Code (för hands version)'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar och distribuerar en bild klassificerings modell med TensorFlow och tillägget Azure Machine Learning Visual Studio Code.
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/08/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 1d7b712e27ad73516606564ea125298cb3dea314
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143231"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203547"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Träna och distribuera en bild klassificering TensorFlow modell med Azure Machine Learning Visual Studio Code-tillägget
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Träna och distribuera en bild klassificering TensorFlow modell med Azure Machine Learning Visual Studio Code Extension (för hands version)
 
 Lär dig hur du tränar och distribuerar en bild klassificerings modell för att identifiera handskrivna tal med TensorFlow och tillägget Azure Machine Learning Visual Studio Code.
 
@@ -33,7 +33,7 @@ I den här självstudien går du igenom följande aktiviteter:
 > * Registrera en modell
 > * Distribuera en modell
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett kan du registrera dig och prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 - Installera [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), en lätt, plattforms oberoende kod redigerare.

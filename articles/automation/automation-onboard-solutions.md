@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d55a47e4eb921c71ff3539d34b6db514684da073
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204080"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186137"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Aktivera Uppdateringshantering från en runbook
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs hur du kan använda en Runbook för att aktivera [u
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation-konto](automation-offering-get-started.md) för att hantera datorer.
+* [Automation-konto](./index.yml) för att hantera datorer.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-update-management"></a>Aktivera uppdateringshantering
@@ -50,7 +50,7 @@ Med Uppdateringshantering aktiverat kan du lägga till en virtuell Azure-dator f
 
 ## <a name="install-and-update-modules"></a>Installera och uppdatera moduler
 
-Du måste uppdatera till de senaste Azure-modulerna och importera modulen [AZ. OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) för att kunna aktivera uppdateringshantering för dina virtuella datorer.
+Du måste uppdatera till de senaste Azure-modulerna och importera modulen [AZ. OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) för att kunna aktivera uppdateringshantering för dina virtuella datorer.
 
 1. I ditt Automation-konto väljer du **moduler** under **delade resurser**. 
 2. Välj **Uppdatera Azure-moduler** för att uppdatera Azure-moduler till den senaste versionen. 

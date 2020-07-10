@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71212055"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220158"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till specifika användare med Azure Notification Hubs
 
@@ -46,7 +46,7 @@ I den här självstudien gör du följande:
 > * Uppdatera klientprojektets kod
 > * Testa programmet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här kursen bygger på meddelandehubben och det Visual Studio-projekt som du skapade i kursen [Självstudier: Skicka meddelanden till UWP-appar med Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Slutför den därför innan du påbörjar den här kursen.
 
@@ -128,7 +128,7 @@ I det här avsnittet kommer du att uppdatera koden i det projekt som du slutför
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-10. I `MainPage.xaml.cs` för projektet **WindowsApp** lägger du till följande medlem i klassen `MainPage`. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
+10. I `MainPage.xaml.cs` för projektet **WindowsApp** lägger du till följande medlem i klassen `MainPage`. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Ett exempel är `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
@@ -331,11 +331,11 @@ I det här avsnittet kommer du att uppdatera koden i det projekt som du slutför
 2. Ange **Användarnamn** och **Lösenord** så som visas på skärmen nedan. Det bör skilja sig från det användarnamn och lösenord som du anger på Windows Phone.
 3. Klicka på **Logga in och registrera** och en verifieringsdialogruta visar att du har loggat in. Den här koden aktiverar även knappen **Skicka Push**.
 
-    ![][14]
+    ![Skärm bild av Notification Hubs programmet som visar användar namn och lösen ord ifyllt.][14]
 5. Ange sedan det registrerade användarnamnet i fältet **Mottagarens användarnamnstagg**. Skriv ett aviseringsmeddelande och klicka på **Skicka Push**.
 6. Endast de enheter som har registrerats med matchande användarnamnstagg får aviseringsmeddelandet.
 
-    ![][15]
+    ![Skärm bild av Notification Hubs programmet som visar meddelandet som skickades.][15]
 
 ## <a name="next-steps"></a>Nästa steg
 

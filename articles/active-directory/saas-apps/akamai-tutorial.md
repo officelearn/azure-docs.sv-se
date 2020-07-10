@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026839"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232397"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Akamai
 
@@ -60,13 +61,13 @@ Akamai EAA konfigureras som ett enda program i Azure AD. Administratören kan ko
 
 - **Proffs**:
 
-• Du behöver bara konfigurera IDP en gång
+* Du behöver bara konfigurera IDP en gång
 
 **Nack delar**:
 
-• Användare får två program portaler
+* Användare har slut på två program portaler
 
-• Enskild gemensam CA-princip för alla program.
+* Enskild gemensam princip för certifikat utfärdare för alla program.
 
 ![Integrations scenario 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -76,17 +77,18 @@ Akamai EAA-programmet konfigureras separat på Azure AD-portalen. Administratör
 
 - **Proffs**:
 
-• Du kan definiera enskilda CA-principer
+* Du kan definiera enskilda CA-principer
 
-• Alla appar visas på panelen O365 Rutmärket och myApps.microsoft.com.
+* Alla appar visas på panelen 0365 Rutmärket och myApps.microsoft.com.
+
 
 **Nack delar**:
 
-• Du måste konfigurera flera IDP.
+* Du måste konfigurera flera IDP.
 
 ![Integrations scenario 2](./media/header-akamai-tutorial/scenario2.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -169,7 +171,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Ett exempel är `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -371,7 +373,7 @@ Klicka på **Spara och gå till avancerade inställningar**.
 
     ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser02.png)
 
-1. Villkorlig åtkomst
+1. Villkorsstyrd åtkomst
 
     ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
 
@@ -437,7 +439,7 @@ Klicka på Spara och gå till distribution
 
     ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser04.png)
 
-1. Villkorlig åtkomst
+1. Villkorsstyrd åtkomst
 
     ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
 
@@ -449,7 +451,7 @@ Klicka på Spara och gå till distribution
 
 ### <a name="kerberos-authentication"></a>Kerberos-autentisering
 
-I exemplet nedan kommer vi att publicera en intern webb server [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) och aktivera SSO med hjälp av KCD
+I exemplet nedan kommer vi att publicera en intern webb server <code>http://frp-app1.superdemo.live</code> och aktivera SSO med hjälp av KCD
 
 #### <a name="general-tab"></a>Fliken Allmänt
 
@@ -575,7 +577,7 @@ Tilldela identitets leverantören
 
     ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser04.png)
 
-1. Villkorlig åtkomst
+1. Villkorsstyrd åtkomst
 
     ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
 

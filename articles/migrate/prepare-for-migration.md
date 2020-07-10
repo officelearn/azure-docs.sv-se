@@ -4,11 +4,12 @@ description: Lär dig hur du förbereder lokala datorer för migrering med Azure
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044166"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223626"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
@@ -121,7 +122,7 @@ För andra versioner förbereder du datorer så att de sammanfattas i tabellen.
 --- | --- | ---
 **Installera Hyper-V Linux Integration Services** | Återskapa Linux init-avbildningen så att den innehåller de nödvändiga Hyper-V-drivrutinerna. Om du återskapar init-avbildningen ser du till att den virtuella datorn startar i Azure. | De flesta nya versioner av Linux-distributioner har detta inkluderat som standard.<br/><br/> Om den inte ingår installerar du manuellt för alla versioner utom de som anropas ovan.
 **Aktivera loggning av Azures serie konsol** | Genom att aktivera konsol loggning kan du felsöka. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen. Disk avbildningens start motsvarar en omstart för den nya virtuella datorn.<br/><br/> Följ [dessa instruktioner](../virtual-machines/troubleshooting/serial-console-linux.md) för att aktivera.
-**Uppdatera enhets mappnings fil** | Uppdatera enhets mappnings filen med enhets namn-till-volym-associationerna, så att du kan använda beständiga enhets identifierare. | Installera manuellt för alla versioner utom de som anropas ovan.
+**Uppdatera enhets mappnings fil** | Uppdatera enhets mappnings filen med enhets namn-till-volym-associationerna, så att du kan använda beständiga enhets identifierare. | Installera manuellt för alla versioner utom de som anropas ovan. (Endast tillämpligt i agent-baserade VMware-scenario)
 **Uppdatera fstab-poster** |  Uppdatera poster för att använda beständiga volym identifierare.    | Uppdatera manuellt för alla versioner utom de som anropas ovan.
 **Ta bort udev-regel** | Ta bort alla udev-regler som reserverar gränssnitts namn baserat på Mac-adress osv. | Ta bort manuellt för alla versioner utom de som anropas ovan.
 **Uppdatera nätverks gränssnitt** | Uppdatera nätverks gränssnitt för att ta emot IP-adresser baserat på DHCP. nst | Uppdatera manuellt för alla versioner utom de som anropas ovan.

@@ -1,5 +1,5 @@
 ---
-title: Pipelines i exempel designern & data uppsättningar
+title: Exempel på pipelines & data uppsättningar för designern (för hands version)
 titleSuffix: Azure Machine Learning
 description: Använd exempel i Azure Machine Learning designer för att komma igång med dina pipelines i Machine Learning.
 services: machine-learning
@@ -10,20 +10,20 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654567"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206326"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exempel på pipelines & data uppsättningar för Azure Machine Learning designer
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Exempel på pipelines & data uppsättningar för Azure Machine Learning designer (för hands version)
 
 Använd de inbyggda exemplen i Azure Machine Learning designer för att snabbt komma igång med att skapa dina egna maskin inlärnings pipeliner. Azure Machine Learning designer [GitHub-lagringsplatsen](https://github.com/Azure/MachineLearningDesigner) innehåller detaljerad dokumentation som hjälper dig att förstå några vanliga scenarier för maskin inlärning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree).
 * En Azure Machine Learning-arbetsyta med Enterprise SKU.
 
 ## <a name="use-sample-pipelines"></a>Använd exempel pipelines
@@ -111,7 +111,7 @@ Exempel data uppsättningarna finns i kategorin **data uppsättnings** - **exemp
 |Bil pris data (RAW)|Information om mobila enheter med märke och modeller, inklusive pris, funktioner, till exempel antalet cylindrar och MPG, samt en försäkrings risk poäng.<br/> Risk poängen är inlednings vis kopplad till automatiskt pris. Den justeras sedan för faktisk risk i en process som är känd för aktuarier som symbol. Värdet + 3 anger att det automatiska är riskabelt och att värdet-3 förmodligen är säkert.<br/>**Användning**: </b> förutsäga risk poängen med hjälp av funktioner, med regression eller multivarierad klassificering.<br/>**Relaterad forskning**: </b> Schlimmer, J.C. (1987). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap. |
 | CRM begär-etiketter delade |Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train_appetency. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
 |CRM omsättnings etiketter delade|Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train_churn. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
-|CRM-datauppsättning delad | Dessa data kommer från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train. data. zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Data uppsättningen innehåller 50 000-kunder från det franska telekom-företaget orange. Varje kund har 230 anonymiserats-funktioner, men 190 av som är numeriska och 40 är kategoriska. Funktionerna är mycket glesa. |
+|CRM-datauppsättning delad | Dessa data kommer från KDD-bägaren 2009 kund Relations förutsägelse kontroll ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Data uppsättningen innehåller 50 000-kunder från det franska telekom-företaget orange. Varje kund har 230 anonymiserats-funktioner, men 190 av som är numeriska och 40 är kategoriska. Funktionerna är mycket glesa. |
 |CRM försäljar etiketter delade|Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_large_train_upselling. labels](http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels)|
 |Data för flyg fördröjning|Prestanda data för passagerar flygning i tid som tagits från TranStats-datainsamlingen för USA: s transport ([i tid](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)).<br/>Data uppsättningen täcker den tids period som april – oktober 2013. Innan du överför till designern bearbetades data uppsättningen enligt följande: <br/>– Data uppsättningen har filtrerats för att endast avse 70 vanligaste-flyg platserna i kontinental USA <br/>-Avbrutna flygningar har märkts som fördröjda med mer än 15 minuter <br/>-Avlästa flygningar filtrerades bort <br/>– Följande kolumner valdes: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, avbruten|
 |German-datauppsättning för tyska kredit kort|Den Statlog (tyska kredit kort) data uppsättningen ([Statlog + tyska + kredit + data](https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data))), med hjälp av den tyska. data filen.<br/>Data uppsättningen klassificerar personer, som beskrivs av en uppsättning attribut, som små eller stora kredit risker. Varje exempel representerar en person. Det finns 20 funktioner, både numeriska och kategoriska och en binär etikett (kredit risk värde). Stora kredit risk poster har etikett = 2, låg kredit risk poster har etikett = 1. Kostnaden för att inte klassificera ett litet risk exempel som hög är 1, medan kostnaden för att klassificera ett högt risk exempel som låg är 5.|

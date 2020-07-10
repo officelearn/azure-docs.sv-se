@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 6c6620a83be2eade3b449553824116a4bea7e4d8
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144111"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220630"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -87,17 +87,7 @@ I det här steget ansluter du VPN-platsen till hubben.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Anslut VNet till hubben
 
-I det här steget skapar du anslutningen mellan hubben och ett VNet. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
-
-1. På sidan för det virtuella WAN-nätverket klickar du på **Virtuella nätverksanslutningar**.
-2. På sidan för virtuell nätverksanslutning klickar du på **+Lägg till anslutning**.
-3. Fyll i följande fält på sidan **Lägg till anslutning**:
-
-    * **Anslutningsnamn** – Namnge anslutningen.
-    * **Hubbar** – Välj den hubb du vill koppla till anslutningen.
-    * **Prenumeration** – Kontrollera prenumerationen.
-    * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket får inte ha någon befintlig gateway för virtuellt nätverk.
-4. Klicka på **OK** för att skapa anslutningen till det virtuella nätverket.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="download-vpn-configuration"></a><a name="device"></a>Ladda ned VPN-konfiguration
 

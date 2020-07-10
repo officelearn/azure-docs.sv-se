@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81616583"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202030"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Så här använder du Key Vault mjuk borttagning med CLI
 
@@ -23,7 +23,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 - Stöd för rekonstruerbar borttagning av ett nyckel valv
 - Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure CLI – om du inte har den här inställningen för din miljö kan du läsa [hantera Key Vault med Azure CLI](manage-with-cli2.md)).
 
@@ -35,7 +35,7 @@ Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkom
 
 | Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
-|Visa lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
+|Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
 |Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft. nyckel-valv/platser/deletedVaults/rensning/åtgärd|
 
@@ -207,7 +207,7 @@ Samma sak gäller för nyckel valvet. Om du vill ta bort ett mjukt borttaget nyc
 
 ### <a name="purging-a-key-vault"></a>Rensar ett nyckel valv
 
-När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder `az keyvault purge` du kommandot. Du kan hitta platsen som prenumerationens borttagna nyckel valv med hjälp av kommandot `az keyvault list-deleted`.
+När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder du `az keyvault purge` kommandot. Du kan hitta platsen som prenumerationens borttagna nyckel valv med hjälp av kommandot `az keyvault list-deleted` .
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
@@ -229,7 +229,7 @@ Om du visar borttagna Key Vault-objekt visas även när de är schemalagda att r
 
 När rensnings skyddet har Aktiver ATS kan ett valv eller ett objekt i Borttaget tillstånd inte rensas förrän kvarhållningsperioden på 90 dagar har passerat. Detta valv eller objekt kan fortfarande återställas. Den här funktionen ger ytterligare garantier för att ett valv eller ett objekt aldrig kan tas bort permanent förrän kvarhållningsperioden har passerat.
 
-Du kan bara aktivera rensnings skydd om alternativet mjuk borttagning också är aktiverat. 
+Du kan bara aktivera rensnings skydd om alternativet mjuk borttagning också är aktiverat. Inaktive ring av rensnings skydd stöds inte.
 
 Om du vill aktivera både mjuk borttagning och tömnings skydd när du skapar ett valv använder du kommandot AZ-kommandot för att [skapa](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) ett valv:
 

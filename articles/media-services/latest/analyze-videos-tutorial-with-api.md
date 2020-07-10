@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b7864d89cc14a1473fd43e94bfe74c368bcb391d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349487"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202842"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Självstudie: analysera videor med Media Services v3
 
@@ -42,9 +42,9 @@ I den här självstudiekursen lär du dig att:
  
 Som en viktig påminnelse måste du följa alla tillämpliga lagar i din användning av Video Indexer och du får inte använda Video Indexer eller andra Azure-tjänster på ett sätt som strider mot andras rättigheter eller som kan vara skadliga för andra. Innan du laddar upp videor, inklusive bio metriska data, till den Video Indexer tjänsten för bearbetning och lagring, måste du ha alla lämpliga rättigheter, inklusive alla lämpliga medgivanden, från enskilda eller enskilda i videon. För att lära dig om efterlevnad, sekretess och säkerhet i Video Indexer, [villkoren](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)för Microsoft Cognitive Services. Information om Microsofts sekretess avtal och hantering av dina data finns i Microsofts [sekretess policy](https://privacy.microsoft.com/PrivacyStatement), [Online Services-villkoren](https://www.microsoft.com/licensing/product-licensing/products) ("ost") och tillägget för [data bearbetning](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ytterligare sekretess information, inklusive information om datakvarhållning, borttagning/förstörelse, finns i OST-filen och [här](../video-indexer/faq.md). Genom att använda Video Indexer samtycker du till att vara kopplad till Cognitive Services villkor, OST, DPA och sekretess policyn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
 - Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
 
@@ -58,7 +58,7 @@ Klona en GitHub-lagringsplats som innehåller .NET-exemplet till din dator med f
 
 Du hittar exemplet i mappen [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-Öppna [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) i det nedladdade projektet. Ersätt värdena med de autentiseringsuppgifter som du har fått från [att komma åt API: er](access-api-cli-how-to.md).
+Öppna [appsettings.jspå](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) i det nedladdade projektet. Ersätt värdena med de autentiseringsuppgifter som du har fått från [att komma åt API: er](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Granska koden som analyserar den angivna videon
 
@@ -110,7 +110,7 @@ När du kodar eller bearbetar innehåll i Media Services, är det ett vanligt m�
 
 #### <a name="transform"></a>Transformering
 
-När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. **TransformOutput** är en obligatorisk parameter. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. I det här exemplet används **VideoAnalyzerPreset** för för inställning och språket ("en-US") skickas till dess konstruktor (`new VideoAnalyzerPreset("en-US")`). Med denna förinställning kan du extrahera flera ljud- och videoinsikter från en video. Du kan använda förinställningen **AudioAnalyzerPreset** om du vill extrahera flera ljudinsikter från en video.
+När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. **TransformOutput** är en obligatorisk parameter. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. I det här exemplet används **VideoAnalyzerPreset** för för inställning och språket ("en-US") skickas till dess konstruktor ( `new VideoAnalyzerPreset("en-US")` ). Med denna förinställning kan du extrahera flera ljud- och videoinsikter från en video. Du kan använda förinställningen **AudioAnalyzerPreset** om du vill extrahera flera ljudinsikter från en video.
 
 När du skapar en **transformering**kontrollerar du först om det redan finns en som redan finns med **Get** -metoden, som du ser i koden som följer. I Media Services v3 returnerar **Get**-metoderna i entiteter **null** om entiteten inte finns (skiftlägesokänslig kontroll av namnet).
 
@@ -148,7 +148,7 @@ Följande funktion hämtar resultatet från utmatnings [till gången](https://do
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 
-I allmänhet bör du rensa allt utom objekt som du planerar att återanvända (normalt återanvänder du transformeringar och persist StreamingLocators). Om du vill att ditt konto ska rensas efter experimentering tar du bort de resurser som du inte planerar att återanvända. Följande kod tar till exempel bort jobb:
+I allmänhet bör du rensa allt utom objekt som du planerar att återanvända (normalt återanvänder du transformeringar och persist StreamingLocators). Om du vill att ditt konto ska rensas efter experimentering tar du bort de resurser som du inte planerar att återanvända. Följande kod tar till exempel bort jobb-och utmatnings till gången:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 

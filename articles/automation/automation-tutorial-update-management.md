@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a701a5a9fd77bd801bb535fe1f26bfa17c97757b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204896"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185797"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -206,7 +206,7 @@ När din uppdaterings distribution har slutförts visas den avisering som du har
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om scope-konfigurationer finns i [begränsa uppdateringshantering distributions omfång](automation-scope-configurations-update-management.md).
-* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md).
 * Om du är färdig med distributioner, se [ta bort arbets ytan för att länka från Automation-kontot för uppdateringshantering](automation-unlink-workspace-update-management.md).
 * Information om hur du tar bort virtuella datorer från Uppdateringshantering finns i [ta bort virtuella datorer från uppdateringshantering](automation-remove-vms-from-update-management.md).
 * Information om hur du felsöker allmänna Uppdateringshantering fel finns i [felsöka uppdateringshantering problem](troubleshoot/update-management.md).

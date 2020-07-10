@@ -3,7 +3,7 @@ title: Själv studie kurs om en enkel sida med appar – Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur vinkel SPA-program kan anropa ett API som kräver åtkomsttoken från Microsoft Identity Platform-slutpunkten.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322778"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231700"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från ett särskilt program på en sida
 
@@ -35,7 +35,7 @@ I den här självstudien visas hur du kan:
 
 ### <a name="more-information"></a>Mer information
 
-Exempel programmet som skapas i den här självstudien gör det möjligt för ett vinkel SPA att fråga Microsoft Graph-API eller ett webb-API som accepterar token från Microsoft Identity Platform-slutpunkten. MSAL för vinkel bibliotek är en omslutning av kärnan MSAL. js-biblioteket. Det gör att du kan autentisera företags användare genom att använda Microsoft Azure Active Directory, Microsoft-konto användare och användare av sociala identiteter (till exempel Facebook, Google och LinkedIn). Biblioteket gör det också möjligt för programmen att få åtkomst till Microsofts moln tjänster eller Microsoft Graph.
+Exempel programmet som skapas i den här självstudien gör det möjligt för ett vinkel SPA att fråga Microsoft Graph-API eller ett webb-API som accepterar token från Microsoft Identity Platform-slutpunkten. MSAL för vinkel bibliotek är en omslutning av kärn MSAL.jss biblioteket. Det gör att du kan autentisera företags användare genom att använda Microsoft Azure Active Directory, Microsoft-konto användare och användare av sociala identiteter (till exempel Facebook, Google och LinkedIn). Biblioteket gör det också möjligt för programmen att få åtkomst till Microsofts moln tjänster eller Microsoft Graph.
 
 I det här scenariot begärs en åtkomsttoken efter att användaren loggar in och läggs till i HTTP-begäranden via Authorization-huvudet. Hämtning av token och förnyelse hanteras av MSAL.
 
@@ -45,18 +45,18 @@ I den här självstudien används följande bibliotek:
 
 |Bibliotek|Beskrivning|
 |---|---|
-|[msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script, vinkel beslutning|
+|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script, vinkel beslutning|
 
-Du hittar käll koden för biblioteket MSAL. js i [AzureAD/Microsoft-Authentication-Library-for-JS](https://github.com/AzureAD/microsoft-authentication-library-for-js) -lagringsplatsen på GitHub.
+Du hittar käll koden för MSAL.js bibliotek i [AzureAD/Microsoft-Authentication-Library-for-JS](https://github.com/AzureAD/microsoft-authentication-library-for-js) -lagringsplatsen på GitHub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna köra den här självstudien behöver du:
 
-* En lokal webb server, till exempel [Node. js](https://nodejs.org/en/download/). Anvisningarna i den här självstudien baseras på Node. js.
+* En lokal webb server, t. ex. [Node.js](https://nodejs.org/en/download/). Anvisningarna i den här självstudien baseras på Node.js.
 * En Integrated Development Environment (IDE), till exempel [Visual Studio Code](https://code.visualstudio.com/download), för att redigera projektfiler.
 
-## <a name="create-your-project"></a>Skapa ditt projekt
+## <a name="create-your-project"></a>Skapa projektet
 
 Generera ett nytt vinkel program med hjälp av följande NPM-kommandon:
 
@@ -138,7 +138,7 @@ Registrera ditt **omdirigerings-URI** -värde som **http://localhost:4200/** och
 3. Lägg till följande import uttryck överst i `src/app/app.component.ts` :
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## <a name="sign-in-a-user"></a>Logga in en användare
@@ -148,6 +148,8 @@ Lägg till följande kod för `AppComponent` att logga in en användare:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+    
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;

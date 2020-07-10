@@ -1,16 +1,16 @@
 ---
-title: Skydda Azure-fjärråter givning och modell lagring
+title: Skydda Azure Remote Rendering och modellagring
 description: Härdning av ett program för fjärråter givning för att skydda innehåll
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: fa9bc317203a28d8c4302c89ddf536507d747e82
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569842"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207802"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Självstudie: skydda Azure-fjärråter givning och modell lagring
 
@@ -22,7 +22,7 @@ I den här guiden får du lära dig att:
 > * Autentisera med Azure AD för att få åtkomst till din Azure Remote rendering-instans
 > * Använd Azure-autentiseringsuppgifter för Azure-fjärrrendering-autentisering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: förfina material, belysning och effekter](..\materials-lighting-effects\materials-lighting-effects.md).
 

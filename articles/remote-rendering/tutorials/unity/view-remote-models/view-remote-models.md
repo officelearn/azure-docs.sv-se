@@ -1,16 +1,16 @@
 ---
-title: Visa en fjärrrenderad modell
+title: Visa en modell som renderats på distans
 description: I självstudien "Hello World" i Azure Remote rendering visas en modell som återges via fjärr anslutning av Azure
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: f0b9bf1c7e085efd86f70f8246214d366265036a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bd9e9b6754c8626a8d858b9832a8e3547b72352d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569908"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231920"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Självstudie: Visa en fjärrrenderad modell
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Ansluta och koppla från sessioner
 > * Läs in modeller till en åter givnings session
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här självstudien behöver du:
 
@@ -101,7 +101,7 @@ Följande steg säkerställer att ditt projekt använder den senaste versionen a
 
 1. Ange **Rensa flaggor** till *solid färg*
 
-1. Ange **bakgrund** till *svart* (#000000), med full (255) alfa (a)
+1. Ange **bakgrund** till *svart* (#000000), med helt transparent (0) alpha (a)
 
     ![Färg hjul](./media/color-wheel-black.png)
 

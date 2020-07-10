@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 16c14774b1b032132040ea3fdcf810a4f9de8f18
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 38b723cb823547d4737a68576575c2b629f5eb67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077362"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206277"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera ditt första API
 
@@ -53,7 +53,7 @@ I det här avsnittet visas hur du importerar och publicerar ett OpenAPI-API för
 
    ![Skapa ett API](./media/api-management-import-and-publish/create-api.png)
 
-   |Inställningen|Värde|Beskrivning|
+   |Inställning|Värde|Beskrivning|
    |-------|-----|-----------|
    |**OpenAPI-specifikation**|*https: \/ /conferenceapi.azurewebsites.net? format = JSON*|Tjänsten som implementerar API: et. API-hanteringen vidarebefordrar begäranden till den här adressen.|
    |**Visningsnamn**|När du har angett föregående tjänst-URL fyller API Management det här fältet baserat på JSON.|Namnet som visas i Developer-portalen.|
@@ -63,7 +63,7 @@ I det här avsnittet visas hur du importerar och publicerar ett OpenAPI-API för
    |**API URL-suffix**|*konferens*|Suffixet som läggs till i bas-URL: en för API Managements tjänsten. API Management skiljer API: er från deras suffix så att suffixet måste vara unikt för varje-API för en specifik utgivare.|
    |**Taggar**| |Taggar för att ordna API: er för sökning, gruppering eller filtrering.|
    |**Produkter**|**Obegränsat**|Associering av en eller flera API: er. Varje API Management instans levereras med två exempel produkter: **starter** och **obegränsade**. Du publicerar ett API genom att associera API: et med en produkt, **obegränsat** i det här exemplet.<br/>Du kan inkludera flera API: er i en produkt och erbjuda dem till utvecklare via Developer-portalen. Om du vill lägga till detta API till en annan produkt skriver du eller väljer produkt namnet. Upprepa det här steget om du vill lägga till API: et till flera produkter. Du kan också lägga till API: er till produkter senare från sidan **Inställningar** .<br/>För att få åtkomst till API:et måste utvecklarna först prenumerera på en produkt. När de prenumererar får de en prenumerations nyckel som är lämplig för alla API: er i produkten. <br/>Om du har skapat API Management-instansen är du redan administratör, så du prenumererar på alla produkter i instansen.|
-   |**Gateways**|**Hanterad**|API-Gateway (er) som exponerar API: et. Det här fältet är endast tillgängligt i tjänster för **utvecklare** och **Premium** -nivån.<br/>**Hanterad** Gateway anger den gateway som är inbyggd i API Management tjänsten och som finns i Microsoft Azure. Andra gatewayer är [egna gateways](self-hosted-gateway-overview.md) och är bara tillgängliga i tjänst nivåerna Premium och Developer. Du kan distribuera dem i lokalt eller i andra moln.<br/>Om inga gatewayer har valts är API: et inte tillgängligt och API-begärandena lyckas inte.|
+   |**Gateways**|**Hanterade**|API-Gateway (er) som exponerar API: et. Det här fältet är endast tillgängligt i tjänster för **utvecklare** och **Premium** -nivån.<br/>**Hanterad** Gateway anger den gateway som är inbyggd i API Management tjänsten och som finns i Microsoft Azure. Andra gatewayer är [egna gateways](self-hosted-gateway-overview.md) och är bara tillgängliga i tjänst nivåerna Premium och Developer. Du kan distribuera dem i lokalt eller i andra moln.<br/>Om inga gatewayer har valts är API: et inte tillgängligt och API-begärandena lyckas inte.|
    |**Vilken är versionen för det här API:et?**|Markera eller avmarkera|Mer information om versions hantering finns i [publicera flera versioner av ditt API](api-management-get-started-publish-versions.md).|
 
    > [!NOTE]
@@ -97,8 +97,3 @@ Gå vidare till nästa självstudie och lär dig hur du skapar och publicerar en
 
 > [!div class="nextstepaction"]
 > [Skapa och publicera en produkt](api-management-howto-add-products.md)
-
-Vill du optimera och Spara på dina moln utgifter?
-
-> [!div class="nextstepaction"]
-> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

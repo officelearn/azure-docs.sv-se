@@ -17,12 +17,12 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 273827e68a81e87dcff15760f0b400b2d5ce8723
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80126867"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220872"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Självstudie: skicka meddelanden till vissa enheter med hjälp av Notification Hubs och Google Firebase Cloud Messaging
 
@@ -42,7 +42,7 @@ I den här självstudien gör du följande:
 > * Skicka taggade meddelanden.
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien bygger på den app som du skapade i [Självstudier: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md). Innan du börjar den här självstudien ska du slutföra [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
@@ -117,7 +117,7 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
 
     Den grafiska layouten för `main_activity.xml` bör se ut som på följande bild:
 
-    ![][A1]
+    ![Skärm bild av en emulator som visar hur den grafiska layouten för huvud aktivitet X M L kommer att se ut.][A1]
 3. Skapa en `Notifications`-klass i samma paket som din `MainActivity`-klass.
 
     ```java
@@ -204,7 +204,7 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
     ```
 
     Den här klassen använder lokal lagring för att lagra de nyhetskategorier som den här enheten ska ta emot. Den innehåller också metoder för att registrera dig för dessa kategorier.
-4. I din `MainActivity` klass lägger du till ett fält `Notifications`för:
+4. I din `MainActivity` klass lägger du till ett fält för `Notifications` :
 
     ```java
     private Notifications notifications;

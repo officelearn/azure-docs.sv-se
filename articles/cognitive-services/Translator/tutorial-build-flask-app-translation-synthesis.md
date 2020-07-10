@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: tracking-python
-ms.openlocfilehash: 6621967584ee79dd514b6d9d4a9d0e2d240e7905
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: b70ac801765461401a7bfa1d2f251fb41176dccb
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608119"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232771"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudie: Bygg en kolv-app med Azure Cognitive Services
 
@@ -36,7 +36,7 @@ Den här själv studie kursen beskriver följande:
 > [!TIP]
 > Om du vill hoppa framåt och se all kod samtidigt, är hela exemplet tillsammans med build-instruktioner tillgängliga på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Flask-App-Tutorial).
 
-## <a name="what-is-flask"></a>Vad är en kolv?
+## <a name="what-is-flask"></a>Vad är Flask?
 
 Kolv är ett mikroramverk för att skapa webb program. Det innebär att kolven ger dig verktyg, bibliotek och tekniker som gör det möjligt att bygga ett webb program. Det här webb programmet kan vara en del webb sidor, en blogg, en wiki eller en webbplats som är ett webbaserat kalender program eller en kommersiell webbplats.
 
@@ -45,7 +45,7 @@ För dem som vill ha djupet efter den här kursen är några användbara länkar
 * [Dokumentation om flaska](http://flask.pocoo.org/)
 * [Kolv för Dummies – en nybörjar guide till kolv](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi går igenom de program-och prenumerations nycklar som du behöver i den här kursen.
 
@@ -778,7 +778,7 @@ Nu när du har en funktion för att konvertera text till tal och en väg i din k
        <option value="(zh-CN, Kangkang, Apollo)">Chinese (Mainland) | Male | Kangkang, Apollo</option>
        <option value="(zh-HK, Tracy, Apollo)">Chinese (Hong Kong)| Female | Tracy, Apollo</option>
        <option value="(zh-HK, Danny, Apollo)">Chinese (Hong Kong) | Male | Danny, Apollo</option>
-       <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yaiting, Apollo</option>
+       <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yating, Apollo</option>
        <option value="(zh-TW, Zhiwei, Apollo)">Chinese (Taiwan) | Male | Zhiwei, Apollo</option>
        <option value="(hr-HR, Matej)">Croatian | Male | Matej</option>
        <option value="(en-US, AriaRUS)">English (US) | Female | AriaRUS</option>
@@ -798,7 +798,7 @@ Nu när du har en funktion för att konvertera text till tal och en väg i din k
        <option value="(it-IT, Cosimo, Apollo)">Italian | Male | Cosimo, Apollo</option>
        <option value="(ja-JP, Ichiro, Apollo)">Japanese | Male | Ichiro</option>
        <option value="(ja-JP, HarukaRUS)">Japanese | Female | HarukaRUS</option>
-       <option value="(ko-KR, HeamiRUS)">Korean | Female | Haemi</option>
+       <option value="(ko-KR, HeamiRUS)">Korean | Female | Heami</option>
        <option value="(pt-BR, HeloisaRUS)">Portuguese (Brazil) | Female | HeloisaRUS</option>
        <option value="(pt-BR, Daniel, Apollo)">Portuguese (Brazil) | Male | Daniel, Apollo</option>
        <option value="(pt-PT, HeliaRUS)">Portuguese (Portugal) | Female | HeliaRUS</option>

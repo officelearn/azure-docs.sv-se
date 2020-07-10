@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391935"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206546"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Bygg ut en lösning från slut punkt till slut punkt
 
@@ -120,7 +120,7 @@ I fönstret *Funktionsapp (Windows) – skapa nytt* , fyller du i fälten enligt
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publicera Azure Function i Visual Studio: Funktionsapp (Windows) – skapa ny":::
 
-Välj sedan **skapa**.
+Välj sedan **Skapa**.
 
 På så sätt kan du gå tillbaka till sidan *funktions instanser* där din nya Function-app nu visas under din resurs grupp. Tryck på *Slutför*.
 
@@ -205,8 +205,9 @@ Då öppnas sidan *Skapa händelse prenumeration* .
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Azure Portal: skapa händelse prenumeration":::
 
-Fyll i fälten på följande sätt:
+Fyll i fälten enligt följande (fält som är fyllda som standard berörs inte):
 * *information om*  >  händelse prenumeration **Namn**: ge din händelse prenumeration ett namn.
+* *ämnes information*  >  **System ämnets namn**: Ange ett namn som ska användas i avsnittet system. 
 * *händelse typer*  >  **Filtrera till händelse typer**: Välj *enhets telemetri* på Meny alternativen.
 * *slut punkts information*  >  **Slut punkts typ**: Välj *Azure Function* från meny alternativen.
 * *slut punkts information*  >  **Slut punkt**: Tryck på länken *Välj en slut punkt* . Då öppnas ett *Välj Azure Function* -fönster: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure Portal händelse prenumeration: Välj Azure Function" border="false":::
@@ -361,11 +362,9 @@ I [Azure Portal](https://portal.azure.com/)navigerar du till ditt event Grid-äm
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure Portal: Event Grid händelse prenumeration":::
 
-Stegen för att skapa den här händelse prenumerationen liknar när du prenumererade på den första Azure-funktionen för att IoT Hub tidigare i den här självstudien. Skillnaden är att du inte behöver ange *telemetri* som händelse typ för att lyssna efter och du ansluter till en annan Azure-funktion.
+Stegen för att skapa den här händelse prenumerationen liknar när du prenumererade på den första Azure-funktionen för att IoT Hub tidigare i den här självstudien. Den här gången behöver du inte ange *telemetri* som händelse typ att lyssna efter och du kommer att ansluta till en annan Azure-funktion.
 
-Här följer prenumerations stegen igen:
-
-På sidan *Skapa händelse prenumeration* fyller du i fälten enligt följande:
+På sidan *Skapa händelse prenumeration* fyller du i fälten enligt följande (fält som är fyllda som standard nämns inte):
 * *information om*  >  händelse prenumeration **Namn**: ge din händelse prenumeration ett namn.
 * *slut punkts information*  >  **Slut punkts typ**: Välj *Azure Function* från meny alternativen.
 * *slut punkts information*  >  **Slut punkt**: Tryck på länken *Välj en slut punkt* . Då öppnas ett *Välj Azure Function* -fönster:
@@ -398,7 +397,7 @@ Du bör se de direktsända uppdaterade temperaturerna *från din Azure Digital-i
 
 När du har verifierat att det fungerar som det ska kan du sluta köra båda projekten. Du kan också stänga Visual Studio-Fönstren, eftersom självstudien nu är slutförd.
 
-## <a name="review"></a>Granska
+## <a name="review"></a>Genomgång
 
 Här är en recension av scenariot som du skapade i den här självstudien.
 

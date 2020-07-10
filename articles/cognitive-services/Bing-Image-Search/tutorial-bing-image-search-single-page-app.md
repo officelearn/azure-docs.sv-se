@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 3d4ccc6ecf18eb2eecc3ccc69ed97bf1094b2035
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800912"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206470"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
@@ -118,7 +118,7 @@ Det här programmet använder ett HTML `<form>` för att inledningsvis skicka an
 
 Sökning i Bing tillhandahåller flera [filtrerfrågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) för att begränsa och filtrera sökresultaten. HTML-formulär i det här programmet använder och visar följande parameteralternativ:
 
-|              |                                                                                                                                                                                    |
+| Alternativ | Beskrivning |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `where`      | En listruta för att välja marknad (plats och språk) som används för sökningen.                                                                                             |
 | `query`      | Textfältet för att ange sökvillkor.                                                                                                                                 |

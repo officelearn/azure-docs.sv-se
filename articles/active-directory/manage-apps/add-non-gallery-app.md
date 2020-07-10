@@ -6,18 +6,18 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5db8aed0a47e7d8d928ef3287010d60efbc5e5da
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555123"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200450"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Lägg till ett ej listat program (ej Galleri) i din Azure AD-organisation
 
@@ -30,7 +30,7 @@ Förutom valen i [Azure AD-programgalleriet](https://azure.microsoft.com/documen
 
 I den här artikeln beskrivs hur du lägger till ett program som inte är ett galleri program till **företags program** i Azure Portal utan att skriva kod. Om du i stället vill lära dig mer om hur du integrerar anpassade appar med Azure AD, se [autentiserings scenarier för Azure AD](../develop/authentication-scenarios.md). När du utvecklar en app som använder ett modernt protokoll som [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) för att autentisera användare, kan du registrera den med Microsoft Identity Platform genom att använda [Appregistreringar](../develop/quickstart-register-app.md) upplevelse i Azure Portal.
 
-## <a name="add-a-non-gallery-application"></a>Lägg till ett program som inte är ett galleri program
+## <a name="add-a-non-gallery-application"></a>Lägg till ett program som inte finns i galleriet
 
 1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com/) med ditt administratörs konto för Microsoft Identity Platform.
 
@@ -73,9 +73,9 @@ I den här artikeln beskrivs hur du lägger till ett program som inte är ett ga
        | Program egenskap | Program egenskap | Program egenskap | Upplevelse för tilldelad användare | Upplevelse för tilldelad användare |
        |---|---|---|---|---|
        | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
-       | ja | ja | ja | ja | ja  |
-       | ja | ja | nej  | ja | nej   |
-       | ja | nej  | ja | ja | ja  |
+       | Ja | Ja | Ja | Ja | Ja  |
+       | Ja | ja | Nej  | ja | Nej   |
+       | ja | Nej  | ja | Ja | Ja  |
        | ja | nej  | nej  | ja | nej   |
        | nej  | ja | ja | nej  | nej   |
        | nej  | ja | nej  | nej  | nej   |
@@ -87,9 +87,9 @@ I den här artikeln beskrivs hur du lägger till ett program som inte är ett ga
        | Program egenskap | Program egenskap | Program egenskap | Upplevelse för ej tilldelade användare | Upplevelse för ej tilldelade användare |
        |---|---|---|---|---|
        | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
-       | ja | ja | ja | nej  | nej   |
+       | Ja | Ja | ja | nej  | nej   |
        | ja | ja | nej  | nej  | nej   |
-       | ja | nej  | ja | ja | nej   |
+       | ja | Nej  | ja | ja | Nej   |
        | ja | nej  | nej  | ja | nej   |
        | nej  | ja | ja | nej  | nej   |
        | nej  | ja | nej  | nej  | nej   |

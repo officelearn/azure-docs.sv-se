@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 4e40d26e392219fb751328bc54855d87e80bae19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c75c5074e8c75a7b2d5b7f141d5104c5cb59726
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80345999"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207576"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Självstudie: Ladda upp, koda och strömma videor med Media Services v3
 
@@ -40,9 +40,9 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
 - Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
 
@@ -56,7 +56,7 @@ Klona en GitHub-lagringsplats som har strömmande .NET-exempel till din dator me
 
 Du hittar exemplet i mappen [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-Öppna [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API:er](access-api-cli-how-to.md).
+Öppna [appsettings.jspå](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API:er](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Granska koden som överför, kodar och strömmar
 
@@ -164,7 +164,7 @@ Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 
-I allmänhet bör du rensa allt utom de objekt som du planerar att återanvända (normalt återanvänder du transformeringar och du behåller StreamingLocators osv.). Om du vill att ditt konto ska rensas efter experimentering tar du bort de resurser som du inte planerar att återanvända. Följande kod tar till exempel bort jobb:
+I allmänhet bör du rensa allt utom de objekt som du planerar att återanvända (normalt återanvänder du transformeringar och du behåller StreamingLocators osv.). Om du vill att ditt konto ska rensas efter experimentering tar du bort de resurser som du inte planerar att återanvända. Följande kod tar till exempel bort jobbet, skapade till gångar och innehålls nyckel princip:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 
@@ -184,7 +184,7 @@ I den här artikeln används Azure Media Player till att testa strömningen.
 > [!NOTE]
 > Om en spelare finns på en HTTPS-webbplats uppdaterar du URL:en till ”HTTPS”.
 
-1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. I rutan **URL:** klistrar du in en av de strömmande URL-värdena som du fick när du körde appen.
 3. Välj **uppdaterings spelaren**.
 

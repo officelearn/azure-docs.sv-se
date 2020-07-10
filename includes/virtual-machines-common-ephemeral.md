@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8d712e4eecb930b52a519a1aaddf97c744a24ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112065"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218057"
 ---
 Tillfälliga OS-diskar skapas på den lokala virtuella datorns lagrings plats (VM) och sparas inte på den fjärranslutna Azure Storage. Tillfälliga OS-diskar fungerar bra för tillstånds lösa arbets belastningar, där program är toleranta av enskilda VM-fel, men de påverkas mer av den virtuella datorns distributions tid eller avbildning av de enskilda VM-instanserna. Med en tillfällig OS-disk får du mindre Läs-/skriv fördröjning till operativ system disken och en snabbare avbildning av den virtuella datorn. 
  
@@ -30,17 +30,17 @@ Huvud funktionerna för tillfälliga diskar är:
  
 Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 
-|                             | Beständig OS-disk                          | Differentierande OS-disk                              |    |
+|                             | Beständig OS-disk                          | Differentierande OS-disk                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Storleks gräns för OS-disk      | 2 TiB                                                                                        | Cachestorlek för VM-storlek eller 2TiB, beroende på vilket som är mindre. Cache- **storleken i GIB**finns i [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)och [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| VM-storlekar som stöds          | Alla                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
-| Disk typs stöd           | Hanterad och ohanterad OS-disk                                                                | Endast hanterad OS-disk                                                               |
-| Stöd för regioner              | Alla regioner                                                                                  | Alla regioner                              |
-| Data persistens            | Operativ system disk data som skrivs till OS-disken lagras i Azure Storage                                  | Data som skrivs till OS-disken lagras på den lokala VM-lagringen och är inte kvar att Azure Storage. |
-| Stopp-frigjord tillstånd      | De virtuella datorerna och skalnings uppsättnings instanserna kan stoppas och startas om från det stoppade avallokerade läget | Virtuella datorer och skalnings uppsättnings instanser kan inte stoppas eller avallokeras                                  |
-| Stöd för specialiserade OS-diskar | Ja                                                                                          | Nej                                                                                 |
-| Storleks ändring av OS-disk              | Stöds under skapande av virtuell dator och när den virtuella datorn har stoppats                                | Stöds endast när en virtuell dator skapas                                                  |
-| Ändra storlek till en ny VM-storlek   | OS-disk data bevaras                                                                    | Data på OS-disken tas bort, OS har allokerats på nytt                                      |
+| **Storleks gräns för OS-disk**      | 2 TiB                                                                                        | Cachestorlek för VM-storlek eller 2TiB, beroende på vilket som är mindre. Cache- **storleken i GIB**finns i [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)och [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
+| **VM-storlekar som stöds**          | Alla                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Disk typs stöd**           | Hanterad och ohanterad OS-disk                                                                | Endast hanterad OS-disk                                                               |
+| **Stöd för regioner**              | Alla regioner                                                                                  | Alla regioner                              |
+| **Data persistens**            | Operativ system disk data som skrivs till OS-disken lagras i Azure Storage                                  | Data som skrivs till OS-disken lagras på den lokala VM-lagringen och är inte kvar att Azure Storage. |
+| **Stopp-frigjord tillstånd**      | De virtuella datorerna och skalnings uppsättnings instanserna kan stoppas och startas om från det stoppade avallokerade läget | Virtuella datorer och skalnings uppsättnings instanser kan inte stoppas eller avallokeras                                  |
+| **Stöd för specialiserade OS-diskar** | Ja                                                                                          | Nej                                                                                 |
+| **Storleks ändring av OS-disk**              | Stöds under skapande av virtuell dator och när den virtuella datorn har stoppats                                | Stöds endast när en virtuell dator skapas                                                  |
+| **Ändra storlek till en ny VM-storlek**   | OS-disk data bevaras                                                                    | Data på OS-disken tas bort, OS har allokerats på nytt                                      |
 
 ## <a name="size-requirements"></a>Storleks krav
 

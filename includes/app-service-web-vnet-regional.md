@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488806"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218289"
 ---
 Genom att använda regional VNet-integrering kan din app komma åt:
 
@@ -28,7 +28,7 @@ När du använder VNet-integrering med virtuella nätverk i samma region kan du 
 
 Som standard dirigerar din app endast RFC1918 trafik till ditt VNet. Om du vill dirigera all utgående trafik till ditt VNet använder du appens inställning WEBSITE_VNET_ROUTE_ALL till din app. Konfigurera appens inställning:
 
-1. Gå till **konfigurations** gränssnittet på din app-Portal. Välj **ny program inställning**.
+1. Gå till **konfigurations** gränssnittet på din app-Portal. Välj **Ny programinställning**.
 1. Ange **WEBSITE_VNET_ROUTE_ALL** i rutan **namn** och skriv **1** i rutan **värde** .
 
    ![Ange program inställning][4]
@@ -41,7 +41,7 @@ Om du dirigerar all utgående trafik till ditt VNet, omfattas den av NSG: er och
 Det finns vissa begränsningar med att använda VNet-integrering med virtuella nätverk i samma region:
 
 * Du kan inte komma åt resurser över global peering anslutningar.
-* Funktionen är endast tillgänglig från nyare Azure App Service skalnings enheter som stöder PremiumV2 App Service-planer.
+* Funktionen är endast tillgänglig från nyare Azure App Service skalnings enheter som stöder PremiumV2 App Service-planer. Observera att *detta inte innebär att din app måste köras på en PremiumV2-pris nivå*, bara att den måste köras i en app service plan där alternativet PremiumV2 är tillgängligt (vilket innebär att det är en nyare skalnings enhet där denna VNet-integrering också är tillgänglig).
 * Integrations under nätet kan bara användas av en App Service plan.
 * Funktionen kan inte användas av isolerade plan-appar som finns i en App Service-miljön.
 * Funktionen kräver ett oanvänt undernät som är a/27 med 32 adresser eller större i ett Azure Resource Manager VNet.

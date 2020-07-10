@@ -1,18 +1,18 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84317696"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218087"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -52,7 +52,7 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 |---|---|---|---|
 |myImage1|Contoso|Finance|Serverdel|
 |myImage2|Contoso|Finance|Klientdel|
-|myImage3|Testning|Finance|Klientdel|
+|myImage3|Test|Finance|Klientdel|
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
@@ -84,20 +84,7 @@ Specialiserade virtuella datorer har inte genomgått någon process för att ta 
 
 Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien Central och Australien, Central 2 måste du ha din prenumeration vit listas. Om du vill begära vit listning går du till:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-
-| Käll regioner        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Australien, centrala     | Kina, östra        | Indien, södra        | Europa, västra        |
-| Australien, centrala 2   | Kina, östra 2      | Sydostasien     | Storbritannien, södra           |
-| Australien, östra        | Kina, norra       | Japan, östra         | Storbritannien, västra            |
-| Australien, sydöstra   | Kina, norra 2     | Japan, västra         | USA DoD, centrala     |
-| Brasilien, södra          | Asien, östra         | Sydkorea, centrala      | USA DoD, östra        |
-| Kanada, centrala        | USA, östra           | Sydkorea, södra        | US Gov, Arizona     |
-| Kanada, östra           | USA, östra 2         | USA, norra centrala   | US Gov, Texas       |
-| Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | US Gov, Virginia    |
-| USA, centrala            | Frankrike, centrala    | USA, södra centrala   | Indien, västra         |
-| Centrala USA-EUAP       | Frankrike, södra      | USA, västra centrala    | USA, västra            |
-|                       |                   |                    | USA, västra 2          |
+> Australien, centrala, Kina, östra, södra Indien, västra Europa, Australien, centrala 2, Kina, östra 2, Sydostasien, Storbritannien, södra, östra Australien, Kina, norra, Japan, östra, Storbritannien, västra, sydöstra Australien, Kina, norra 2, västra Japan, US DoD, centrala, södra, Asien, östra, Korea, centrala, US DoD, östra, centrala Kanada, östra USA, södra centrala USA, US Gov, Arizona, Östra Kanada, östra USA 2, norra centrala USA , US Gov, Texas, Central Indien, östra USA 2 EUAP, norra Europa, US Gov, Virginia, centrala USA, centrala Frankrike, södra centrala USA, västra Indien, centrala USA-EUAP, Frankrike, södra centrala USA, västra USA, västra USA 2 |
 
 
 
@@ -139,7 +126,7 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Åtkomst
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
@@ -218,7 +205,7 @@ Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det
 
 Om du vill visa en lista över alla delade avbildnings Galleri resurser över prenumerationer som du har åtkomst till på Azure Portal följer du stegen nedan:
 
-1. Öppna [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Rulla ned på sidan och välj **alla resurser**.
 1. Välj alla prenumerationer som du vill lista alla resurser under.
 1. Sök efter resurser av typen **delade avbildnings Galleri**.

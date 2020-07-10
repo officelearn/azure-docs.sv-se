@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017620"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218386"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -25,7 +25,7 @@ I det här avsnittet kommer vi att diskutera vanliga prestanda indikatorer i sam
 
 IOPS-eller in-/utdata-åtgärder per sekund är antalet förfrågningar som programmet skickar till lagrings diskarna i en sekund. En in-/utdata-åtgärd kan läsas eller skrivas, sekventiellt eller slumpmässigt. OLTP-program (Online Transaction Processing) som en online-webbplats måste bearbeta många samtidiga användar förfrågningar omedelbart. Användar förfrågningarna infogar och uppdaterar intensiva databas transaktioner, vilket programmet måste bearbeta snabbt. Därför kräver OLTP-program mycket höga IOPS. Sådana program hanterar miljon tals små och slumpmässiga IO-begäranden. Om du har ett sådant program måste du utforma program infrastrukturen för att optimera för IOPS. I avsnittet senare, *optimera program prestanda*, diskuterar vi i detalj alla faktorer som du måste tänka på för att få hög IOPS.
 
-När du kopplar en premiumlagringsdisk till en virtuell dator på hög nivå tilldelar Azure ett garanterat antal IOPS enligt diskspecifikationen. Till exempel en P50-disk tilldelar 7500 IOPS. Varje storlek för virtuella datorer på hög nivå har en specifik IOPS-gräns. Till exempel har en standard GS5 VM 80 000 IOPS.
+När du kopplar en premiumlagringsdisk till en virtuell dator på hög nivå tilldelar Azure ett garanterat antal IOPS enligt diskspecifikationen. Exempel: en P50-disk ger 7500 IOPS. Varje storlek för virtuella datorer på hög nivå har en specifik IOPS-gräns. Till exempel har en standard GS5 VM 80 000 IOPS.
 
 ## <a name="throughput"></a>Dataflöde
 
@@ -92,7 +92,7 @@ Det bästa sättet att mäta prestanda kraven för ditt program är att använda
 
 PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk och fysisk disk på servern. När du använder Premium Storage-diskar med en virtuell dator är räknarna för fysiska diskar för varje Premium Storage-disk och räknare för logiska diskar för varje volym som skapas på Premium Storage-diskarna. Du måste samla in värdena för diskarna som är värdar för din program arbets belastning. Om det finns en till en mappning mellan logiska och fysiska diskar kan du referera till fysiska disk räknare. Se i övrigt räknare för logiska diskar. I Linux genererar kommandot iostat en processor-och disk användnings rapport. Disk användnings rapporten innehåller statistik per fysisk enhet eller partition. Om du har en databas server med data och loggar på separata diskar samlar du in dessa data för båda diskarna. I tabellen nedan beskrivs räknare för diskar, processorer och minne:
 
-| Räknare | Description | PerfMon | Iostat |
+| Räknare | Beskrivning | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Disk läsningar/SEK <br> Disk skrivningar/SEK |TPS <br> r/s <br> w/s |
 | **Disk läsningar och skrivningar** |% av Läs-och skriv åtgärder som utförts på disken. |% Disk Läs tid <br> Disk skrivnings tid i procent |r/s <br> w/s |
@@ -119,12 +119,12 @@ I tabellen nedan sammanfattas prestanda faktorer och de steg som krävs för att
 
 Mer information om storlekar på virtuella datorer och om IOPS, data flöde och svars tid som är tillgängliga för varje typ av virtuell dator finns i storlekar för [virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md) eller [storlekar för virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **IOPS** | **Dataflöde** | **Svarstid** |
+| | **IOPS** | **Dataflöde** | **Svarstid** |
 | --- | --- | --- | --- |
 | **Exempel scenario** |Enterprise OLTP-program som kräver mycket höga transaktioner per sekund. |Företags data lager hanterings program bearbetar stora mängder data. |Nära real tids program som kräver omedelbara svar på användar förfrågningar, t. ex. online-spel. |
-| Prestanda faktorer | &nbsp; | &nbsp; | &nbsp; |
+| **Prestanda faktorer** | &nbsp; | &nbsp; | &nbsp; |
 | **I/o-storlek** |Mindre IO-storlek ger högre IOPS. |Större IO-storlek för att ge högre data flöde. | &nbsp;|
-| **Storlek på virtuell dator** |Använd en VM-storlek som erbjuder IOPS som är större än ditt program krav. |Använd en VM-storlek med en data flödes gräns som är större än ditt program krav. |Använd en VM-storlek som ger större skalnings gränser än ditt program krav. |
+| **VM-storlek** |Använd en VM-storlek som erbjuder IOPS som är större än ditt program krav. |Använd en VM-storlek med en data flödes gräns som är större än ditt program krav. |Använd en VM-storlek som ger större skalnings gränser än ditt program krav. |
 | **Diskstorlek** |Använd en disk storlek som erbjuder IOPS som är större än ditt program krav. |Använd en disk storlek med data flödes gräns som är större än ditt program krav. |Använd en disk storlek som ger större skalnings gränser än ditt program krav. |
 | **Begränsningar för virtuell dator och disk skala** |IOPS-gränsen för den valda virtuella dator storleken ska vara större än det totala antalet IOPS som är kopplade till den. |Data flödes gränsen för den valda virtuella dator storleken ska vara större än det totala data flödet som styrs av Premium Storage-diskar som är anslutna till den |Skalnings gränserna för den valda virtuella dator storleken måste vara större än de sammanlagda skalnings gränserna för anslutna Premium Storage-diskar. |
 | **Diskcachelagring** |Aktivera ReadOnly-cache på Premium Storage-diskar med Läs tung-åtgärder för att få högre Läs-IOPS. | &nbsp; |Aktivera ReadOnly-cache på Premium Storage-diskar med klara tung åtgärder för att få mycket låg Läs fördröjning. |
@@ -177,7 +177,7 @@ Virtuella datorer med hög skalning är tillgängliga i olika storlekar med olik
 | Storlek på virtuell dator | Processorkärnor | Minne | Disk storlekar för virtuella datorer | Max. data diskar | Cachestorlek | IOPS | IO-gränser för bandbredds cache |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
 
 Om du vill visa en fullständig lista över alla tillgängliga storlekar för virtuella Azure-datorer, se storlekar på [virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md) eller [virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md). Välj en VM-storlek som kan mötas och skalas till önskade program prestanda krav. Förutom detta bör du ta hänsyn till följande viktiga överväganden när du väljer VM-storlekar.
 
@@ -252,7 +252,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -265,7 +265,7 @@ Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan 
 *ReadWrite*  
 Som standard har OS-diskar ReadWrite-cachelagring aktiverat. Vi har nyligen lagt till stöd för ReadWrite-cachelagring på data diskar även. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel att skriva cachelagrade data till de beständiga lagrings diskarna. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
 
-*Inga*  
+*Ingen*  
 För närvarande stöds **ingen** på data diskar. Den stöds inte på OS-diskar. Om du anger **ingen** på en operativ system disk åsidosätts detta internt och anges som **skrivskyddad**.
 
 Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på Premium Storage genom att göra följande:

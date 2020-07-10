@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561781"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218268"
 ---
 1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
 2. Använd `Get-HcsApplianceInfo` för att hämta information om enheten.
@@ -44,15 +44,15 @@ ms.locfileid: "82561781"
     ```
 
     Här är en tabell som sammanfattar en del av viktig enhets information:
-    
-    | Parameter                             | Beskrivning                                                                                                                                                  |   |
-    |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | Det egna namnet på enheten enligt konfigurationen via det lokala webb gränssnittet under enhets distributionen. Det egna standard namnet är enhetens serie nummer.  |   |
-    | Serienummer                   | Enhetens serie nummer är ett unikt nummer som tilldelas på fabriken.                                                                             |   |
-    | Modell                          | Modellen för din Azure Stack Edge-eller Data Box Gateway-enhet. Modellen är fysisk för Azure Stack Edge och Virtual för Data Box Gateway.                   |   |
-    | FriendlySoftwareVersion        | Den egna strängen som motsvarar enhetens program varu version. För ett system som kör för hands version blir den egna program varu versionen Data Box Edge 1902. |   |
-    | HcsVersion                     | HCS UPPDATERINGSKLIENTEN program varu version som körs på enheten. Till exempel är HCS UPPDATERINGSKLIENTEN-programvaran som motsvarar Data Box Edge 1902 1.4.771.324.            |   |
-    | LocalCapacityInMb              | Enhetens totala lokala kapacitet i megabit.                                                                                                        |   |
-    | IsRegistered                   | Det här värdet anger om enheten är aktive rad med tjänsten.                                                                                         |   |
+
+    | Parameter | Beskrivning |
+    |-----------|-------------|
+    | FriendlyName                   | Det egna namnet på enheten enligt konfigurationen via det lokala webb gränssnittet under enhets distributionen. Det egna standard namnet är enhetens serie nummer.  |
+    | Serienummer                   | Enhetens serie nummer är ett unikt nummer som tilldelas på fabriken.                                                                             |
+    | Modell                          | Modellen för din Azure Stack Edge-eller Data Box Gateway-enhet. Modellen är fysisk för Azure Stack Edge och Virtual för Data Box Gateway.                   |
+    | FriendlySoftwareVersion        | Den egna strängen som motsvarar enhetens program varu version. För ett system som kör för hands version blir den egna program varu versionen Data Box Edge 1902. |
+    | HcsVersion                     | HCS UPPDATERINGSKLIENTEN program varu version som körs på enheten. Till exempel är HCS UPPDATERINGSKLIENTEN-programvaran som motsvarar Data Box Edge 1902 1.4.771.324.            |
+    | LocalCapacityInMb              | Enhetens totala lokala kapacitet i megabit.                                                                                                        |
+    | IsRegistered                   | Det här värdet anger om enheten är aktive rad med tjänsten.                                                                                         |
 
 

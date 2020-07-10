@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 653a481efeeaac83215b1e46309944efab924d2e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5588920c860de09ea1561cf5ed4b28a08085438c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076495"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207774"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Kör Apache Hive frågor med PowerShell
 
@@ -52,16 +52,20 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HD
 
 2. Öppna en ny **Azure PowerShell** kommando tolk. Ändra kataloger till `hivejob.ps1` filens plats och Använd sedan följande kommando för att köra skriptet:
 
-        .\hivejob.ps1
+    ```azurepowershell
+    .\hivejob.ps1
+    ```
 
     När skriptet körs uppmanas du att ange kluster namnet och autentiseringsuppgifterna för HTTPS/Cluster-administratörskontot. Du kan också uppmanas att logga in på din Azure-prenumeration.
 
 3. När jobbet har slutförts returneras information som liknar följande text:
 
-        Display the standard output...
-        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
-        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
-        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```output
+    Display the standard output...
+    2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+    2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+    2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```
 
 4. Som tidigare nämnts `Invoke-Hive` kan användas för att köra en fråga och vänta på svaret. Använd följande skript för att se hur Invoke-Hive fungerar:
 
@@ -69,9 +73,11 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HD
 
     Utdata ser ut som följande text:
 
-        2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
-        2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
-        2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```output
+    2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
+    2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
+    2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```
 
    > [!NOTE]  
    > Du kan använda Azure PowerShell **hit-Strings-** cmdlet eller HiveQL-skriptfiler för längre HiveQL frågor. Följande fragment visar hur du använder `Invoke-Hive` cmdleten för att köra en HiveQL-skript fil. Skript filen HiveQL måste överföras till wasbs://.

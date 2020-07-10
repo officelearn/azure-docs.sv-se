@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076376"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207729"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med REST
 
@@ -22,7 +22,7 @@ Lär dig hur du använder Apache Hive WebHCat-REST API för att köra MapReduce-
 > [!NOTE]  
 > Om du redan är bekant med att använda Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, kan du läsa [vad du behöver veta om Linux-baserade Apache Hadoop på HDInsight-](../hdinsight-hadoop-linux-information.md) dokument.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -61,7 +61,7 @@ Antingen:
 
     Du får ett svar som liknar följande JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -83,9 +83,7 @@ Antingen:
      * **klass**: klassen som innehåller MapReduce-logiken
      * **arg**: argumenten som ska skickas till MapReduce-jobbet. I det här fallet är indatafilen och den katalog som används för utdata
 
-    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrol lera jobbets status:
-
-       job_1415651640909_0026
+    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrol lera jobbets status: `job_1415651640909_0026` .
 
 1. Använd följande kommando för att kontrol lera jobbets status. Ersätt värdet för `JOBID` med det **faktiska** värdet som returnerades i föregående steg. Ändra plats för **JQ** efter behov.
 
@@ -116,7 +114,7 @@ Antingen:
 
     Du får ett svar som liknar följande JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -146,9 +144,7 @@ Antingen:
     * **klass**: klassen som innehåller MapReduce-logiken
     * **arg**: argumenten som ska skickas till MapReduce-jobbet. I det här fallet är indatafilen och den katalog som används för utdata
 
-   Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrol lera jobbets status:
-
-       job_1415651640909_0026
+   Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrol lera jobbets status: `job_1415651640909_0026` .
 
 1. Använd följande kommando för att kontrol lera jobbets status:
 

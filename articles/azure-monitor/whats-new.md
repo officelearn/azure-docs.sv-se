@@ -5,17 +5,96 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 04/06/2020
-ms.openlocfilehash: 561767b6857f4b52b3ee1eb17fedd51ad409ee29
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 07/08/2020
+ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462982"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203750"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
 Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya eller som har uppdaterats markant. Den kommer att uppdateras den första veckan i varje månad för att inkludera artikel uppdateringar från föregående månad.
+
+## <a name="june-2020"></a>Juni 2020
+
+### <a name="general"></a>Allmänt
+- [Distribuera Azure Monitor](platform/deploy-scale.md) – ny artikel.
+- [Azure Monitor billingtype-egenskap med kundhanterad nyckel](platform/customer-managed-keys.md) uppdaterad. PowerShell-kommandon har lagts till.
+
+### <a name="agents"></a>Agenter
+- [Översikt över Log Analytics agent](platform/log-analytics-agent.md) – ytterligare python 2-krav har lagts till.
+
+### <a name="alerts"></a>Aviseringar
+- [Så här uppdaterar du aviserings regler eller åtgärds regler när deras mål resurs flyttas till en annan Azure-region](platform/alerts-resource-move.md) – ny artikel.
+- [Fel sökning av Azure Metric-aviseringar](platform/alerts-troubleshoot-metric.md) – ny artikel.
+- [Felsöka logg aviseringar i Azure Monitor](platform/alerts-troubleshoot-metric.md) – ny artikel.
+  
+### <a name="application-insights"></a>Application Insights
+- [Azure Application Insights för JavaScript-webbappar](app/javascript.md) – uppdatera till JavaScript SDK-avsnittet. Det uppdaterade kodfragmentet för att rapportera inläsnings problem.
+- [Konfigurera BYOS (ta med din egen lagring) för profiler & Snapshot debugger](app/profiler-bring-your-own-storage.md) – ny artikel.
+- [Spårning av inkommande begär anden i Azure Application insikter med Openräkningar python](app/opencensus-python-request.md) -uppdaterad loggning och konfiguration för openräkning.
+- [Övervaka en live ASP.NET-webbapp med Azure Application Insights](app/monitor-performance-live-website-now.md) – uppdaterat decprecation-datum för statusövervakare v1.
+- [Övervaka Node.js tjänster med Azure Application insikter](app/nodejs.md) – flera uppdateringar, inklusive migrering från tidigare-versioner och SDK-konfiguration
+- [Övervaka python-program med Azure Monitor (för hands version)](app/opencensus-python.md) – tillagt avsnitt om konfiguration av Azure Monitor exportörer.
+- [Övervaka dina appar utan kod ändringar – Auto-Instrumentation för Azure Monitor Application Insights](app/codeless-overview.md) nya artikeln.
+- [FELSÖKA SDK-inläsnings fel för JavaScript-webbprogram](app/javascript-sdk-load-failure.md) – ny artikel.
+
+### <a name="containers"></a>Containrar
+- [Så här slutar du övervaka ditt hybrid Kubernetes-kluster](insights/container-insights-optout-hybrid.md) för Arc-aktiverad Kubernetes.
+- [Konfigurera Azure Arc-aktiverat Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-enable-arc-enabled-clusters.md) – ny artikel.
+- [Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare](insights/container-insights-azure-redhat4-setup.md) – uppdaterade krav.
+- [Konfigurera Azure Monitor för behållare Live data (förhands granskning)](insights/container-insights-livedata-setup.md) -borttagen anmärkning om funktionen är inte tillgänglig i Azure amerikanska myndigheter.
+
+### <a name="insights"></a>Insikter
+- [Vanliga frågor och svar – övervakare av nätverksprestanda lösning i Azure](insights/network-performance-monitor-faq.md) – vanliga frågor och svar om ExpressRoute-övervakaren.
+
+### <a name="logs"></a>Loggar
+- [Ta bort och Återställ Azure-Log Analytics arbets ytan](platform/delete-workspace.md) – extra PowerShell-kommando. Uppdaterad fel sökning.
+- [Hantera Log Analytics arbets ytor i Azure Monitor](platform/manage-access.md) -lagt till exempel för tabeller som inte tillåts i RBAC-avsnittet.
+- [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – ytterligare information om beräkning av data storlek. Uppdaterade konfiguration av data volym aviseringar. Information om säkerhets data som samlas in av Azure Sentinel. Klargörande om data kap.
+- [Använd Azure Monitor loggar med Azure Logic Apps och Energiautomatiserade](platform/logicapp-flow-connector.md) conector-gränser.
+
+### <a name="metrics"></a>Mått
+- [Azure Monitor mått som stöds av resurs typ](platform/metrics-supported.md) – uppdaterade SQL Server mått.
+
+
+### <a name="platform-logs"></a>Plattformsloggar
+
+- [Exempel på Resource Manager-mallar för diagnostikinställningar](samples/resource-manager-diagnostic-settings.md) – korrigering för diagnostisk inställning för aktivitets loggen.
+- [Skicka Azure aktivitets logg till Log Analytics arbets ytan med Azure Portal](learn/quick-collect-activity-log-portal.md) – ny artikel.
+- [Skicka Azure aktivitets logg till Log Analytics arbets yta med Azure Resource Manager mall](learn/quick-collect-activity-log-arm.md) – ny artikel.
+
+#### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms logg innehåll
+- [Arkivera Azures resurs loggar till lagrings kontot](platform/resource-logs-collect-storage.md)
+- [Händelse schema för Azure aktivitets logg](platform/activity-log-schema.md)
+- [Azure aktivitets logg](platform/activity-log.md)
+- [Azure Monitor CLI-exempel](samples/cli-samples.md)
+- [Azure Monitor PowerShell-exempel](samples/powershell-samples.md)
+- [Genom gång av Azure Monitoring REST API](platform/rest-api-walkthrough.md)
+- [Tjänster och scheman som stöds av Azure-resurs loggar](platform/diagnostic-logs-schema.md)
+- [Azure resurs loggar](platform/resource-logs.md)
+- [Samla in och analysera Azure aktivitets logg i Azure Monitor](platform/activity-log-collect.md)
+- [Samla in Azures resurs loggar i Log Analytics arbets yta](platform/resource-logs-collect-workspace.md)
+- [Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](platform/diagnostic-settings.md)
+- [Exportera Azure aktivitets loggen](platform/activity-log-export.md)
+- [Översikt över Azures plattforms loggar](platform/platform-logs-overview.md)
+- [Strömma Azure-plattformar loggar till en händelsehubben](platform/resource-logs-stream-event-hubs.md)
+- [Visa Azure aktivitets logg händelser i Azure Monitor](platform/activity-log-view.md)
+
+### <a name="virtual-machines"></a>Virtuella datorer
+- [Aktivera Azure Monitor for VMS i Azure Portal](insights/vminsights-enable-single-vm.md) – uppdaterat för att inkludera Azure Arc.
+- [Aktivera Azure Monitor for VMS översikt](insights/vminsights-enable-overview.md) – uppdaterat med Azure Arc.
+- [Vad är Azure Monitor for VMs?](insights/vminsights-overview.md) – Uppdaterad för att inkludera Azure-båge.
+
+
+### <a name="visualizations"></a>Visualiseringar
+- [Azure Monitor arbets böcker-data källor](platform/workbooks-data-sources.md) – lägga till aviseringar och anpassade slut punkts avsnitt.
+- [Felsöka Azure Monitor arbetsböcker-baserade insikter](insights/troubleshoot-workbooks.md) – ny artikel.
+- [Uppgradera dina visualiseringar av Log Analytics-instrumentpanel](log-query/dashboard-upgrade.md) – ny artikel.
+
+
 
 ## <a name="may-2020"></a>Maj 2020
 
@@ -49,7 +128,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 ### <a name="application-insights"></a>Application Insights
 
 - [Övervaka program som körs på Azure Functions med Application Insights-Azure Monitor](app/monitor-functions.md) – ny artikel.
-- [Övervaka Node. js-tjänster med Azure Application Insights](app/nodejs.md) – allmänna uppdateringar inklusive nytt avsnitt om migrering från tidigare versioner.
+- [Övervaka Node.js tjänster med Azure Application Insights](app/nodejs.md) – allmänna uppdateringar inklusive nytt avsnitt om migrering från tidigare versioner.
 - [IP-adresser som används av Application Insights och Log Analytics](app/ip-addresses.md) -TILLAGDa IP-adresser för Webhooks och amerikanska myndigheter.
 - [Övervaka program på Azure Kubernetes service (AKS) med Application Insights-Azure Monitor](app/kubernetes-codeless.md) – ny artikel.
 - [Fel sökning av inga data-Application Insights för .net](app/asp-net-troubleshoot-no-data.md) -tillagt avsnitt om insamling av loggar med dotNet-trace.
@@ -354,7 +433,7 @@ Flera nya artiklar för konverterings guiden för Visa designer till arbets böc
 ### <a name="application-insights"></a>Application Insights
 
 - [Application Insights för Worker service-appar (icke-http-appar)](app/worker-service.md) – en standard loggnings nivå har lagts till i C#-koden. Uppdaterad paket referens version.
-- [ApplicationInsights. config-referens – Azure](app/configuration-with-applicationinsights-config.md) -uppdaterad exempel kod.
+- [ApplicationInsights.config referens – Azure](app/configuration-with-applicationinsights-config.md) -uppdaterad exempel kod.
 - [Automatisera Azure Application Insights med PowerShell](app/powershell.md) – uppdatera till Resource Manager-mall.
 - [Azure Monitor Application Insights NuGet-paket](app/nuget.md) – uppdaterade paket versioner.
 - [Skapa en ny Azure Application Insights-resurs](app/create-new-resource.md) -anteckning som har lagts till i globalt unikt namn.

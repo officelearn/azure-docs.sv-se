@@ -11,15 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 06/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661339545f2c3f01ffd2e07b0fad08de8ac90278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078874"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204034"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -27,7 +28,7 @@ ms.locfileid: "85078874"
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 - Global administratör eller användar administratör
@@ -105,7 +106,7 @@ Mer information finns i [licens krav](access-reviews-overview.md#license-require
 
 1. Om du vill ange ytterligare inställningar expanderar du avsnittet **Avancerade inställningar** .
 
-    ![Skapa en åtkomst granskning – avancerade inställningar](./media/create-access-review/advanced-settings.png)
+    ![Skapa en åtkomst granskning – avancerade inställningar](./media/create-access-review/advanced-settings-preview.png)
 
 1. Ange **Visa rekommendationer** för att **Aktivera** för att Visa granskarna system rekommendationer baserat på användarens åtkomst information.
 
@@ -113,9 +114,14 @@ Mer information finns i [licens krav](access-reviews-overview.md#license-require
 
 1. Ange **e-postaviseringar** för att **tillåta** att Azure AD skickar e-postmeddelanden till granskare när en åtkomst granskning startar och till administratörer när en granskning har slutförts.
 
-1. Ställ in **påminnelser** för att **tillåta** att Azure AD skickar påminnelser om åtkomst granskningar till granskare som inte har slutfört sin granskning.
+1. Ställ in **påminnelser** för att **tillåta** att Azure AD skickar påminnelser om åtkomst granskningar till granskare som inte har slutfört sin granskning. 
 
-    Som standard skickar Azure AD automatiskt en påminnelse när halva tiden före slutdatumet har gått till granskarna som ännu inte har svarat.
+    >[!NOTE]
+    > Som standard skickar Azure AD automatiskt en påminnelse som är halvvägs till slutdatumet för granskare som ännu inte har svarat
+
+1. Förhandsgranskningsvyn Innehållet i e-postmeddelandet som skickas till granskare genereras automatiskt baserat på gransknings informationen, till exempel gransknings namn, resurs namn, förfallo datum osv. Om du behöver ett sätt att kommunicera ytterligare information, till exempel ytterligare instruktioner eller kontakt information, kan du ange den här informationen i det extra innehållet för e-postmeddelandet i e-postmeddelandet som ska ingå i inbjudan och påminnelse e-postmeddelanden som skickas till tilldelade granskare. Det markerade avsnittet nedan visar var den här informationen kommer att visas.
+
+    ![Granska en användares åtkomst till en grupp](./media/create-access-review/review-users-access-group.png)
 
 ## <a name="start-the-access-review"></a>Starta åtkomst granskningen
 

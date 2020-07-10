@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508256"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204450"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Använda tjänsten StorSimple Enhetshanteraren för att hantera volymer (uppdatering 3 eller senare)
 
@@ -51,14 +51,14 @@ Om du använder den skiktade volymen för arkivering av data markerar du kryss r
 
 Se följande tabell för den högsta etablerade kapaciteten för varje enhet och typ av volym. (Observera att lokalt fästa volymer inte är tillgängliga på en virtuell enhet.)
 
-|  | Maximal volym storlek på nivå | Maximal storlek för lokalt fixerad volym |
+| Typ | Maximal volym storlek på nivå | Maximal storlek för lokalt fixerad volym |
 | --- | --- | --- |
 | **Fysiska enheter** | | |
 | 8100 |64 TB |8 TB |
 | 8600 |64 TB |20 TB |
 | **Virtuella enheter** | | |
-| 8010 |30 TB |E.t. |
-| 8020 |64 TB |E.t. |
+| 8010 |30 TB |Ej tillämpligt |
+| 8020 |64 TB |Ej tillämpligt |
 
 ## <a name="the-volumes-blade"></a>Bladet volymer
 
@@ -157,7 +157,7 @@ Din nya volym är nu redo att användas.
 
        ![Granska effekten av att ta volymen offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-5. Klicka på **Spara** för att spara dina ändringar. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. I Azure Portal visas ett uppdaterings volym meddelande. Ett meddelande visas när volymen har uppdaterats.
+5. Klicka på **Spara** för att spara ändringarna. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. I Azure Portal visas ett uppdaterings volym meddelande. Ett meddelande visas när volymen har uppdaterats.
 
     ![Granska effekten av att ta volymen offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 

@@ -1,36 +1,37 @@
 ---
-title: Spåra och logga Azure Data Box Azure Data Box Heavy händelser | Microsoft Docs
-description: Beskriver hur du spårar och loggar händelser i de olika stegen i din Azure Data Box och Azure Data Box Heavys ordning.
+title: Spåra och logga Azure Data Box Azure Data Box Heavy händelser för import ordningen | Microsoft Docs
+description: Beskriver hur du spårar och loggar händelser i de olika stegen i Azure Data Box och Azure Data Box Heavy import ordning.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676413"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204309"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy import ordning
 
-En Data Box-enhet-eller Data Box Heavys ordning går igenom följande steg: order, installation, data kopiering, retur, uppladdning till Azure och bekräfta och data radering. Som motsvarar varje steg i ordningen kan du utföra flera åtgärder för att kontrol lera åtkomsten till ordern, granska händelserna, spåra beställningen och tolka de olika loggar som genereras.
+En Data Box-enhet-eller Data Box Heavy import ordning går igenom följande steg: order, installation, data kopiering, retur, uppladdning till Azure och bekräfta och data radering. Som motsvarar varje steg i ordningen kan du utföra flera åtgärder för att kontrol lera åtkomsten till ordern, granska händelserna, spåra beställningen och tolka de olika loggar som genereras.
 
-I följande tabell visas en sammanfattning av Data Box-enhet eller Data Box Heavy ordnings steg och de verktyg som är tillgängliga för att spåra och granska beställningen under varje steg.
+I följande tabell visas en sammanfattning av Data Box-enhet eller Data Box Heavy import ordnings steg och de verktyg som är tillgängliga för att spåra och granska beställningen under varje steg.
 
-| Data Box-enhet order fas       | Verktyg för att spåra och granska                                                                        |
+| Data Box-enhet importera ordnings steg       | Verktyg för att spåra och granska                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order)                                                    |
-| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
+| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure-portalen </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
 | Konfigurera enhet              | Autentiseringsuppgifter [för åtkomst till](#query-activity-logs-during-setup) inloggnings uppgifter för enhet                                              |
 | Data kopiering till enhet        | [Visa *error.xml* filer](#view-error-log-during-data-copy) för data kopiering                                                             |
 | Förbereda för att skicka            | [Kontrol lera BOM-filerna](#inspect-bom-during-prepare-to-ship) eller manifest filerna på enheten                                      |
 | Data uppladdning till Azure       | [Granska kopierings loggar](#review-copy-log-during-upload-to-azure) för fel under data uppladdning i Azure Data Center                         |
 | Data radering från enhet   | [Visa kedja av vårdnads loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive gransknings loggar och order historik                |
 
-Den här artikeln beskriver i detalj de olika mekanismer och verktyg som är tillgängliga för att spåra och granska Data Box-enhet-eller Data Box Heavys ordning. Informationen i den här artikeln gäller både för Data Box-enhet och Data Box Heavy. I följande avsnitt gäller alla referenser till Data Box-enhet även för Data Box Heavy.
+Den här artikeln beskriver i detalj vilka olika mekanismer eller verktyg som är tillgängliga för att spåra och granska Data Box-enhet eller Data Box Heavy import ordning. Informationen i den här artikeln gäller både Data Box-enhet och Data Box Heavy import order. I följande avsnitt gäller alla referenser till Data Box-enhet även för Data Box Heavy.
 
 ## <a name="set-up-access-control-on-the-order"></a>Konfigurera åtkomst kontroll på ordern
 
@@ -294,7 +295,7 @@ Här är ett exempel på en kopierings logg där blobbar eller filer som inte ö
 
 När data har raderats från Data Box-enhet diskar enligt rikt linjerna för NIST SP 800-88 Revision 1 är kedjan med vårdnads loggar tillgänglig. Loggarna innehåller gransknings loggarna och order historiken. STRUKTURLISTE-eller manifest filerna kopieras också med gransknings loggarna.
 
-### <a name="audit-logs"></a>Granskningsloggar
+### <a name="audit-logs"></a>Spårningsloggar
 
 Gransknings loggar innehåller information om hur du kan sätta igång och få åtkomst till resurser på Data Box-enhet eller Data Box Heavy när de är utanför Azure-datacenter. Loggarna finns på:`storage-account/azuredatabox-chainofcustodylogs`
 

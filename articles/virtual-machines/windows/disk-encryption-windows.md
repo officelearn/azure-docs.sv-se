@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610581"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203673"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -138,7 +138,7 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_och _alla_. 
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | resizeOSDisk | Vill du ändra storlek på operativ systemets partition så att den upptar full OS VHD innan du delar upp system volymen. |
-| location | Plats för alla resurser. |
+| location | Platser för alla resurser. |
 
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nya virtuella IaaS-datorer som skapats från kund-krypterade VHD-och krypterings nycklar
@@ -238,6 +238,9 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md))
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
+- Använda [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) till virtuella datorer som krypterats av ade och vice versa.
+- Migrera en virtuell dator som har krypterats med ADE till [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

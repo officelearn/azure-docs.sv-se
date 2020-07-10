@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bff9873742d5d660f563eebcb58ff9bcca940d24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1dc1b14a917786e124775a4505c53f63238a383
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760190"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203857"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Det tar för lång tid att läsa in Application Proxy-programmet
 
@@ -31,8 +31,6 @@ Den här artikeln hjälper dig att förstå varför ett Azure AD-programproxy-pr
 Även om dina program fungerar kan de uppleva lång latens. Nätverks sto pol Ogin kan göra att du kan förbättra hastigheten. En utvärdering av olika topologier finns i [dokumentet om nätverks överväganden](application-proxy-network-topology.md).
 
 Förutom nätverk sto pol Ogin finns det för närvarande inga ytterligare rekommendationer för prestanda justering. När tjänsten Application Proxy expanderas kan det komma till ett Data Center som är fysiskt närmare. Närmare närhet kan hjälpa dig med svars tid. En lista över Azure-datacenter finns på [test sidan för svars tider](http://www.azurespeed.com/Azure/Latency). 
-
-Data Center med Application Proxy-tjänsten kan hittas med [test verktyget för anslutnings portar](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Feedback om platser för data Center i Application Proxy 
 Det kan finnas Azure-datacenter som ännu inte innehåller programproxy, men som leder till en bättre tids fördröjning. Skicka data Center platsen till aadapfeedback@microsoft.com . Microsoft använder din feedback för expansions planer.

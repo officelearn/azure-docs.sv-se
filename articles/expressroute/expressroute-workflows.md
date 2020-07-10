@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58914709838c72246678ce92005de5ac18695a1f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864374"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204169"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Arbetsflöden i ExpressRoute för kretsetablering och kretstillstånd
 Den här sidan vägleder dig genom tjänst etableringen och konfigurations arbets flöden för routning på en hög nivå.
@@ -54,33 +55,37 @@ I det här avsnittet visas en lista över möjliga tillstånd för en ExpressRou
 
 ExpressRoute-kretsen rapporterar följande tillstånd när en resurs skapas.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 **När anslutnings leverantören håller på att allokera kretsen**
 
 ExpressRoute-kretsen kommer att rapportera följande tillstånd när anslutnings leverantören arbetar för att etablera kretsen.
 
-    ServiceProviderProvisioningState : Provisioning
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioning
+Status                           : Enabled
+```
 
 **När anslutnings leverantören har slutfört etablerings processen**
 
 ExpressRoute-kretsen rapporterar följande tillstånd när anslutnings leverantören har kunnat allokera kretsen.
 
-    ServiceProviderProvisioningState : Provisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioned
+Status                           : Enabled
+```
 
 **När anslutnings leverantören avetablerar kretsen**
 
 Om ExpressRoute-kretsen behöver avetableras, kommer kretsen att rapportera följande tillstånd när tjänste leverantören har slutfört avetablerings processen.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 Du kan välja att återaktivera den om det behövs eller köra PowerShell-cmdletar för att ta bort kretsen.  
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984278"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203805"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -98,12 +98,22 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
 
 3. Om du har valt **Azure** som primär produkt väljer du upp till tre **lösnings områden**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Hoppa över det här steget om du inte har valt Azure.
 
-    | Lösnings områden | | | |
-    | --- | --- | --- | --- |
-    | Analys | Backup | DevOps | Migrering |
-    | App-modernisering | Stordata | Haveriberedskap | Nätverk |
-    | Arkiv | Data plattform | Identitet | Säkerhet |
-    | AI + Machine Learning | Data Center hantering | Sakernas Internet | Storage |
+    - Analytics
+    - App-modernisering
+    - Arkiv
+    - AI + Machine Learning
+    - Backup
+    - Stordata
+    - Data plattform
+    - Data Center hantering
+    - DevOps
+    - Haveriberedskap
+    - Identitet
+    - Internet of Things
+    - Migrering
+    - Nätverk
+    - Säkerhet
+    - Storage
 
 1. Om du har valt **Azure** som primär produkt har du möjlighet att välja upp till sex **branscher**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Se den fullständiga listan med branscher i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md). Hoppa över det här steget om du inte har valt Azure.
 1. Om du har valt en *annan* primär produkt än Azure väljer du upp till tre **tillämpliga produkter**. Detta gör det enklare för kunder i AppSource att hitta ditt erbjudande. Mer information finns i avsnittet [Microsoft AppSource konsult service](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) distail Guidelines (PDF).
@@ -131,7 +141,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Branscher
 5. Erbjudandets namn
 6. Sammanfattning
-7. Description
+7. Beskrivning
 8. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource (de priser som visas i listan är endast avsedda att avspegla faktiska kostnader):
@@ -146,11 +156,11 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Branscher
 5. Erbjudandets namn
 6. Sammanfattning
-7. Description
+7. Beskrivning
 8. Skärm bilder/videor
 9. Dokument
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -164,7 +174,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

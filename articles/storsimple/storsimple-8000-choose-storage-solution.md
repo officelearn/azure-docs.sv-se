@@ -7,11 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68965349"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203971"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Jämföra StorSimple med dataöverföringsalternativen Azure File Sync och Data Box Edge 
 
@@ -27,14 +28,14 @@ Det här dokumentet innehåller en översikt över alternativ för lokal data ö
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|Översikt         |Nivå hybrid lagring och arkivering|Allmän fil Server lagring med moln nivåer och synkronisering på flera platser.  |Lagrings lösning för att Förbearbeta data och skicka den via nätverket till Azure.        |
-|Scenarier        |Fil server, arkivering, säkerhets kopierings mål |Fil server, arkivering (flera platser)   |Data överföring, för bearbetning av data, inklusive ML inferencing, IoT, arkivering    |
-|Edge-beräkning     |Inte tillgänglig |Inte tillgänglig |Stöder körning av behållare med hjälp av Azure IoT Edge    |
-|Form faktor      |Fysisk enhet   |Agent som är installerad på Windows Server |Fysisk enhet   |
-|Maskinvara         |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten | Kunden tillhandahöll |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten  |
-|Dataformat      |Anpassat format   |Files         |Blobbar eller filer    |
-|Protokollstöd |iSCSI          |SMB, NFS    | SMB eller NFS      |
-|Prissättning          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|**Översikt**     |Nivå hybrid lagring och arkivering|Allmän fil Server lagring med moln nivåer och synkronisering på flera platser.  |Lagrings lösning för att Förbearbeta data och skicka den via nätverket till Azure.        |
+|**Scenarier**    |Fil server, arkivering, säkerhets kopierings mål |Fil server, arkivering (flera platser)   |Data överföring, för bearbetning av data, inklusive ML inferencing, IoT, arkivering    |
+|**Edge-beräkning** |Inte tillgänglig |Inte tillgänglig |Stöder körning av behållare med hjälp av Azure IoT Edge    |
+|**Form faktor**  |Fysisk enhet   |Agent som är installerad på Windows Server |Fysisk enhet   |
+|**Maskinvara**     |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten | Kunden tillhandahöll |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten  |
+|**Dataformat**  |Anpassat format   |Filer         |Blobbar eller filer    |
+|**Protokoll stöd** |iSCSI          |SMB, NFS    | SMB eller NFS      |
+|**Prissättning**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Nästa steg
 

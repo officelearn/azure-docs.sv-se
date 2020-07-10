@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382528"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170402"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -26,12 +26,12 @@ Exempel på mallar finns i:
 
 En Azure Functions distribution består vanligt vis av följande resurser:
 
-| Resurs                                                                           | Krav | Syntax och egenskaper-referens                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| En Function-app                                                                     | Obligatorisk    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |   |
-| Ett [Azure Storage](../storage/index.yml) konto                                   | Obligatorisk    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
-| En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Resurs                                                                           | Krav | Syntax och egenskaper-referens                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| En Function-app                                                                     | Krävs    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |
+| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |
+| En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> En värd plan krävs bara när du väljer att köra din Function-app i en [Premium-plan](./functions-premium-plan.md) eller på en [App Service plan](../app-service/overview-hosting-plans.md).
 
@@ -112,7 +112,7 @@ Dessutom måste instrument ställnings nyckeln tillhandahållas till Function-ap
 Definitionen av värd planen varierar och kan vara något av följande:
 * [Förbruknings plan](#consumption) (standard)
 * [Premiumplan](#premium)
-* [App Service plan](#app-service-plan)
+* [App Service-plan](#app-service-plan)
 
 ### <a name="function-app"></a>Funktionsapp
 
@@ -649,7 +649,7 @@ Du kan använda något av följande sätt för att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Azure-portalen](../azure-resource-manager/templates/deploy-portal.md)
 * [REST-API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen Distribuera till Azure

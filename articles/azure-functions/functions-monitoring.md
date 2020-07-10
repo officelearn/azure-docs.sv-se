@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207015"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170419"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -144,7 +144,7 @@ Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLe
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Ingen        | 6 |
+|Inget        | 6 |
 
 Logg nivån `None` förklaras i nästa avsnitt. 
 
@@ -359,7 +359,7 @@ Den här koden är ett alternativ till att anropa `trackMetric` med hjälp av No
 
 Det finns en Functions-speciell version av Application Insights SDK som du kan använda för att skicka anpassade telemetridata från dina funktioner till Application Insights: [Microsoft. Azure. WebJobs. logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Använd följande kommando från kommando tolken för att installera det här paketet:
 
-# <a name="command"></a>[Kommandoprompt](#tab/cmd)
+# <a name="command"></a>[Kommando](#tab/cmd)
 
 ```cmd
 dotnet add package Microsoft.Azure.WebJobs.Logging.ApplicationInsights --version <VERSION>
@@ -659,7 +659,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
@@ -689,27 +689,41 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-## <a name="scale-controller-logs"></a>Loggar för skalnings styrenhet
+## <a name="scale-controller-logs-preview"></a>Skalnings styrenhets loggar (för hands version)
 
-Den [Azure Functions skalnings styrenheten](./functions-scale.md#runtime-scaling) övervakar de funktions värd instanser som kör din app och fattar beslut om när du ska lägga till eller ta bort funktions värd instanser. Om du behöver förstå de beslut som skalnings styrenheten gör i ditt program kan du konfigurera den så att den genererar loggar till Application Insights eller Blob Storage.
+Den här funktionen är en förhandsversion. 
 
-> [!WARNING]
-> Den här funktionen är en förhandsversion. Vi rekommenderar inte att du lämnar den här funktionen aktive rad och du bör istället aktivera den när du behöver den information som samlas in och sedan inaktivera den.
+Den [Azure Functions skalnings styrenheten](./functions-scale.md#runtime-scaling) övervakar instanser av Azure Functions värden som appen körs på. Den här kontrollanten fattar beslut om när du ska lägga till eller ta bort instanser utifrån aktuella prestanda. Du kan låta skalnings styrenheten generera loggar till antingen Application Insights eller till Blob Storage för att bättre förstå de beslut som skalnings styrenheten gör för din Function-app.
 
-Om du vill aktivera den här funktionen lägger du till en ny program inställning med namnet `SCALE_CONTROLLER_LOGGING_ENABLED` . Värdet för den här inställningen måste ha formatet `{Destination}:{Verbosity}` , där:
-* `{Destination}`anger målet för loggarna som ska skickas till och måste vara antingen `AppInsights` eller `Blob` .
-* `{Verbosity}`anger den loggnings nivå som du vill ha och måste vara en av `None` , `Warning` eller `Verbose` .
+Om du vill aktivera den här funktionen lägger du till en ny program inställning med namnet `SCALE_CONTROLLER_LOGGING_ENABLED` . Värdet för den här inställningen måste ha formatet `<DESTINATION>:<VERBOSITY>` , baserat på följande:
 
-Om du till exempel vill logga utförlig information från skalnings styrenheten till Application Insights använder du värdet `AppInsights:Verbose` .
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
-> [!NOTE]
-> Om du aktiverar `AppInsights` måltypen måste du se till att du konfigurerar [Application Insights för din Function-app](#enable-application-insights-integration).
+Följande Azure CLI-kommando aktiverar till exempel utförlig loggning från skalnings styrenheten till Application Insights:
 
-Om du ställer in målet till `Blob` skapas loggarna i en BLOB-behållare med namnet i `azure-functions-scale-controller` lagrings kontot som angetts i `AzureWebJobsStorage` program inställningen.
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
 
-Om du ställer in verbose-värdet på `Verbose` , kommer skalnings styrenheten att logga en orsak för varje ändring i antalet arbets uppgifter, samt information om utlösare som deltar i skal kontrollens beslut. Loggarna inkluderar till exempel utlösare och de hashar som används av utlösarna innan och efter att skalnings styrenheten körs.
+I det här exemplet ersätter `<FUNCTION_APP_NAME>` och `<RESOURCE_GROUP_NAME>` med namnet på din Function-app och resurs gruppens namn. 
 
-Om du vill inaktivera loggning av skalnings styrenhet anger du värdet för `{Verbosity}` `None` eller ta bort `SCALE_CONTROLLER_LOGGING_ENABLED` program inställningen.
+Följande Azure CLI-kommando inaktiverar loggning genom att ange utförlighet till `None` :
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+Du kan också inaktivera loggning genom att ta bort `SCALE_CONTROLLER_LOGGING_ENABLED` inställningen med följande Azure CLI-kommando:
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
 
 ## <a name="disable-built-in-logging"></a>Inaktivera inbyggd loggning
 

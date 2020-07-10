@@ -5,17 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424082"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185882"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Översikt över Starta/stoppa virtuella datorer när de inte används
 
 Starta/stoppa virtuella datorer när de inte används funktionen startar eller stoppar aktiverade virtuella Azure-datorer. Den startar eller stoppar datorer enligt användardefinierade scheman, ger insikter via Azure Monitor loggar och skickar valfria e-postmeddelanden med hjälp av [Åtgärds grupper](../azure-monitor/platform/action-groups.md). Funktionen kan aktive ras på både Azure Resource Manager och klassiska virtuella datorer för de flesta scenarier. 
 
-Den här funktionen använder cmdleten [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) för att starta virtuella datorer. Den använder [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) för att stoppa virtuella datorer.
+Den här funktionen använder cmdleten [Start-AzVm](/powershell/module/az.compute/start-azvm) för att starta virtuella datorer. Den använder [Stop-AzVM](/powershell/module/az.compute/stop-azvm) för att stoppa virtuella datorer.
 
 > [!NOTE]
 > Medan Runbooks har uppdaterats för att använda de nya cmdletarna för Azure AZ-modulen använder de AzureRM-prefixet.
@@ -34,9 +35,9 @@ Följande är begränsningar med den aktuella funktionen:
 - Den hanterar virtuella datorer i vilken region som helst, men kan bara användas i samma prenumeration som ditt Azure Automation-konto.
 - Den är tillgänglig i Azure och Azure Government för alla regioner som stöder en Log Analytics arbets yta, ett Azure Automation-konto och aviseringar. Azure Government regioner stöder för närvarande inte e-postfunktioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Runbooks för funktionen starta/stoppa virtuella datorer under låg tid fungerar med ett [Kör som-konto i Azure](automation-create-runas-account.md). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösen ord som kan gå ut eller ändras ofta.
+Runbooks för funktionen starta/stoppa virtuella datorer under låg tid fungerar med ett [Kör som-konto i Azure](./manage-runas-account.md). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösen ord som kan gå ut eller ändras ofta.
 
 Vi rekommenderar att du använder ett separat Automation-konto för att arbeta med virtuella datorer som är aktiverade för Starta/stoppa virtuella datorer när de inte används funktionen. Azure-modulernas versioner uppgraderas ofta och deras parametrar kan ändras. Funktionen uppgraderas inte på samma takt och fungerar kanske inte med nyare versioner av de cmdletar som används. Du rekommenderas att testa modul uppdateringar i ett test Automation-konto innan du importerar dem till dina produktions Automation-konton.
 
@@ -107,7 +108,7 @@ Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Denna Runbook skapar aviseringar per resurs för det automatiska stopp scenariot.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true eller false  | Skapar eller uppdaterar Azures aviserings regler på virtuella datorer i mål prenumerationen eller resurs grupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer (utan blank steg), till exempel `vm1,vm2,vm3` .<br> `WhatIf`aktiverar validering av Runbook-logik utan att köra.|
-|AutoStop_Disable | Ingen | Inaktiverar automatiska stopp-aviseringar och standard schema.|
+|AutoStop_Disable | Inget | Inaktiverar automatiska stopp-aviseringar och standard schema.|
 |AutoStop_VM_Child | WebHookData | Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en klassisk virtuell dator.|
 |AutoStop_VM_Child_ARM | WebHookData |Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en virtuell dator.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: starta eller stoppa<br> VMList  | Utför åtgärden starta eller stoppa i den klassiska VM-gruppen genom att Cloud Services. |
@@ -121,7 +122,7 @@ Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true
 I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra endast variabler som föregås av `External` . Om du ändrar variabler med prefixet får du `Internal` oönskade effekter.
 
 > [!NOTE]
-> Begränsningar i VM-namn och resurs grupp är i stort sett resultatet av varierande storlek. Se [variabel till gångar i Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> Begränsningar i VM-namn och resurs grupp är i stort sett resultatet av varierande storlek. Se [variabel till gångar i Azure Automation](./shared-resources/variables.md).
 
 |Variabel | Beskrivning|
 |---------|------------|
@@ -176,7 +177,7 @@ Om du har fler än 20 virtuella datorer per moln tjänst är här några rekomme
 
 Annars, om automatiserings jobbet för den här funktionen körs mer än tre timmar, tas det tillfälligt bort eller stoppas enligt den [verkliga delnings](automation-runbook-execution.md#fair-share) gränsen.
 
-Azure CSP-prenumerationer stöder endast Azure Resource Managers modellen. Icke-Azure Resource Manager tjänster är inte tillgängliga i programmet. När Starta/stoppa virtuella datorer när de inte används funktionen körs kan du få fel eftersom den innehåller cmdlets för att hantera klassiska resurser. Läs mer om CSP i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Om du använder en CSP-prenumeration ska du ange [External_EnableClassicVMs](#variables) variabeln till falskt efter distributionen.
+Azure CSP-prenumerationer stöder endast Azure Resource Managers modellen. Icke-Azure Resource Manager tjänster är inte tillgängliga i programmet. När Starta/stoppa virtuella datorer när de inte används funktionen körs kan du få fel eftersom den innehåller cmdlets för att hantera klassiska resurser. Läs mer om CSP i [tillgängliga tjänster i CSP-prenumerationer](/azure/cloud-solution-provider/overview/azure-csp-available-services). Om du använder en CSP-prenumeration ska du ange [External_EnableClassicVMs](#variables) variabeln till falskt efter distributionen.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

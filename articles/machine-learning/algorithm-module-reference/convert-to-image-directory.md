@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904600"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171150"
 ---
 # <a name="convert-to-image-directory"></a>Konvertera till bildkatalog
 
@@ -24,11 +24,15 @@ Den här artikeln beskriver hur du använder modulen konvertera till avbildnings
 
 1.  Lägg till modulen **konvertera till avbildnings katalog** i experimentet. Du hittar den här modulen i kategorin "Visuellt innehåll/image data transformation" i listan modul. 
 
-2.  Anslut en avbildnings data uppsättning som indata. Kontrol lera att det finns en bild i indata-datauppsättningen.
+2.  [Registrera en avbildnings data uppsättning](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) och Anslut den till porten för modulens indataport. Kontrol lera att det finns en bild i indata-datauppsättningen. 
     Följande data uppsättnings format stöds:
 
     - Komprimerad fil i dessa tillägg: '. zip ', '. tar ', '. gz ', '. bz2 '.
     - Mapp som innehåller bilder. Vi **rekommenderar att du först komprimerar mappen och använder sedan den komprimerade filen som data uppsättning**.
+
+    > [!WARNING]
+    > Du **kan inte** använda modulen **Importera data** för att importera avbildnings data uppsättning eftersom utdatatypen för modulen **Importera data** är DataFrame Directory, som endast innehåller en sträng med fil Sök vägar.
+    
 
     > [!NOTE]
     > Om Använd bild data uppsättning i övervakad inlärning krävs etikett.
@@ -54,13 +58,13 @@ Utdata från **konvertering till avbildnings katalog** är i avbildnings katalog
 
 ###  <a name="expected-inputs"></a>Förväntade indata  
 
-| Name          | Typ                  | Beskrivning   |
+| Namn          | Typ                  | Beskrivning   |
 | ------------- | --------------------- | ------------- |
 | Indata-datauppsättning | AnyDirectory, ZipFile | Indata-datauppsättning |
 
-###  <a name="output"></a>Utdata  
+###  <a name="output"></a>Resultat  
 
-| Name                   | Typ           | Beskrivning            |
+| Namn                   | Typ           | Beskrivning            |
 | ---------------------- | -------------- | ---------------------- |
 | Avbildnings katalog för utdata | ImageDirect | Avbildnings katalog för utdata |
 

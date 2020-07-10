@@ -143,7 +143,7 @@ Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLe
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|Kritiskt    | 5 |
+|Kritisk    | 5 |
 |Inget        | 6 |
 
 Logg nivån `None` förklaras i nästa avsnitt. 

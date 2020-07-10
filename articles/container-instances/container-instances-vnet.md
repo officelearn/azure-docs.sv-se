@@ -2,14 +2,14 @@
 title: Distribuera behållar grupp till Azure Virtual Network
 description: Lär dig hur du distribuerar en behållar grupp till ett nytt eller befintligt virtuellt Azure-nätverk med hjälp av kommando rads gränssnittet i Azure.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: 7e54690efc7955eaaa88ca87a6f7a086dd3e19a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0e15b2e65be45e7f77e401b912ef7b784519b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583652"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169603"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera containerinstanser i ett virtuellt Azure-nätverk
 
@@ -77,7 +77,7 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-Utdata visar behållar gruppens IP-adress i det privata under nätet. Till exempel:
+Utdata visar behållar gruppens IP-adress i det privata under nätet. Exempel:
 
 ```console
 10.0.0.4
@@ -142,7 +142,7 @@ Exempel på utdata:
 När du har nätverks profil-ID: t kopierar du följande YAML till en ny fil med namnet *VNet-Deploy-ACI. yaml*. `networkProfile`Ersätt `id` värdet med det ID som du precis hämtade under och spara sedan filen. Den här YAML skapar en behållar grupp med namnet *appcontaineryaml* i ditt virtuella nätverk.
 
 ```YAML
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: westus
 name: appcontaineryaml
 properties:

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134616"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170351"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -23,7 +23,7 @@ Vi rekommenderar att du granskar [begränsningar och](#limitationsandconstraints
 
 [Kryptering i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)   är ett gemensamt sekretess-och säkerhets krav i organisationer.Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-eller krypterings nycklar.
 
-Azure Monitor säkerställer att alla data krypteras i vila med hjälp av Azure-hanterade nycklar.Azure Monitor innehåller också ett alternativ för data kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)   och som används av lagring med systemtilldelad autentisering med [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)   .Den här nyckeln kan vara antingen [program vara eller maskin vara-HSM skyddad](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila med hjälp av Microsoft-hanterade nycklar (MMK). Azure Monitor innehåller också ett alternativ för kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) och som används av lagring med systemtilldelad autentisering med [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) . Den här nyckeln (CMK) kan vara antingen [program vara eller maskin vara-HSM skyddad](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   fungerar.
 
@@ -80,7 +80,7 @@ Proceduren stöds inte i Azure Portal och etableringen utförs via PowerShell el
 > [!IMPORTANT]
 > Alla REST-begäranden måste innehålla en token Authorization-token i begär ande huvudet.
 
-Ett exempel:
+Exempel:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -235,7 +235,7 @@ Content-type: application/json
 
 Identiteten tilldelas till *kluster* resursen vid skapande tillfället.
 
-**Svar**
+**Response**
 
 200 OK och rubrik.
 
@@ -249,7 +249,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-**Svar**
+**Response**
 
 ```json
 {
@@ -334,7 +334,7 @@ Content-type: application/json
 
 "KeyVaultProperties" innehåller information om Key Vault-nyckel-ID.
 
-**Svar**
+**Response**
 
 200 OK och rubrik.
 Det tar några minuter att slutföra spridningen av nyckel identifieraren. Du kan kontrol lera uppdaterings statusen på två sätt:
@@ -401,7 +401,7 @@ Content-type: application/json
 }
 ```
 
-**Svar**
+**Response**
 
 200 OK och rubrik.
 
@@ -415,7 +415,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 Authorization: Bearer <token>
 ```
 
-**Svar**
+**Response**
 
 ```json
 {
@@ -546,7 +546,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   Authorization: Bearer <token>
   ```
 
-  **Svar**
+  **Response**
   
   ```json
   {
@@ -592,7 +592,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   Authorization: Bearer <token>
   ```
     
-  **Svar**
+  **Response**
     
   Samma svar som för "*kluster* resurser för en resurs grupp", men i prenumerations omfånget.
 
@@ -652,7 +652,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   Authorization: Bearer <token>
   ```
 
-  **Svar**
+  **Response**
 
   200 OK och rubrik.
 
@@ -684,7 +684,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   Authorization: Bearer <token>
   ```
 
-  **Svar**
+  **Response**
 
   200 OK
 

@@ -2,12 +2,13 @@
 title: Konfigurera readiness PROBE på behållar instansen
 description: Lär dig hur du konfigurerar en avsökning för att se till att behållare i Azure Container Instances ta emot begär Anden endast när de är klara
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76935681"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169671"
 ---
 # <a name="configure-readiness-probes"></a>Konfigurera beredskapsavsökning
 
@@ -25,7 +26,7 @@ Azure Container Instances också stöd för [direktmigreringar](container-instan
 Skapa till exempel en `readiness-probe.yaml` fil med följande kodfragment som innehåller en beredskaps avsökning. Den här filen definierar en behållar grupp som består av en behållare som kör en liten webbapp. Appen distribueras från den offentliga `mcr.microsoft.com/azuredocs/aci-helloworld` avbildningen. Den här appen med behållare visas också i [distribuera en behållar instans i Azure med hjälp av Azure CLI](container-instances-quickstart.md) och andra snabb starter.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:

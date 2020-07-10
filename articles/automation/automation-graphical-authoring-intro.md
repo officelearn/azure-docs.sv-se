@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849764"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186341"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Redigera grafiska runbooks i Azure Automation
 
@@ -60,7 +61,7 @@ Välj en aktivitet på arbets ytan för att konfigurera dess egenskaper och para
 
 En parameter uppsättning definierar de obligatoriska och valfria parametrarna som accepterar värden för en viss cmdlet. Alla cmdlets har minst en parameter uppsättning och några har flera uppsättningar. Om en cmdlet har flera parameter uppsättningar måste du välja den som ska användas innan du kan konfigurera parametrar. Du kan ändra den parameter uppsättning som används av en aktivitet genom att välja **parameter uppsättning** och välja en annan uppsättning. I det här fallet går alla parameter värden som du redan har konfigurerat förlorade.
 
-I följande exempel har cmdleten [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tre parameter uppsättningar. Exemplet använder en uppsättning som kallas **ListVirtualMachineInResourceGroupParamSet**, med en enda valfri parameter, för att returnera alla virtuella datorer i en resurs grupp. I exemplet används också **GetVirtualMachineInResourceGroupParamSet** -parametern för att ange den virtuella dator som ska returneras. Den här uppsättningen har två obligatoriska parametrar och en valfri parameter.
+I följande exempel har cmdleten [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tre parameter uppsättningar. Exemplet använder en uppsättning som kallas **ListVirtualMachineInResourceGroupParamSet**, med en enda valfri parameter, för att returnera alla virtuella datorer i en resurs grupp. I exemplet används också **GetVirtualMachineInResourceGroupParamSet** -parametern för att ange den virtuella dator som ska returneras. Den här uppsättningen har två obligatoriska parametrar och en valfri parameter.
 
 ![Parameter uppsättning](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -255,7 +256,7 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Name | Krävs. Parameterns namn. Namnet måste vara unikt inom runbooken. Det måste börja med en bokstav och får bara innehålla bokstäver, siffror och under streck. Namnet får inte innehålla blank steg. |
+| Namn | Krävs. Parameterns namn. Namnet måste vara unikt inom runbooken. Det måste börja med en bokstav och får bara innehålla bokstäver, siffror och under streck. Namnet får inte innehålla blank steg. |
 | Beskrivning |Valfritt. Beskrivning av syftet med indataparametern. |
 | Typ | Valfritt. Datatyp förväntas för parametervärdet. Azure Portal ger en lämplig kontroll för data typen för varje parameter när du uppmanas att ange indata. Parameter typer som stöds är sträng, Int32, Int64, decimal, Boolean, DateTime och Object. Om du inte väljer någon datatyp används strängen som standard.|
 | Obligatorisk | Valfritt. Inställning som anger om ett värde måste anges för parametern. Om du väljer `yes` måste du ange ett värde när Runbook startas. Om du väljer `no` krävs inget värde när runbooken startas och ett standardvärde kan användas. Det går inte att starta runbooken om du inte anger något värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
@@ -263,11 +264,11 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 
 ## <a name="handle-runbook-output"></a>Hantera Runbook-utdata
 
-Grafisk redigering sparar data som skapats av en aktivitet som inte har någon utgående länk till Runbook- [utdata](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). Utdata sparas med Runbook-jobbet och är tillgängligt för en överordnad runbook när runbooken används som underordnad.
+Grafisk redigering sparar data som skapats av en aktivitet som inte har någon utgående länk till Runbook- [utdata](./automation-runbook-output-and-messages.md). Utdata sparas med Runbook-jobbet och är tillgängligt för en överordnad runbook när runbooken används som underordnad.
 
 ## <a name="work-with-powershell-expressions"></a>Arbeta med PowerShell-uttryck
 
-En av fördelarna med grafisk redigering är att du kan skapa en Runbook med minimal kunskap om PowerShell. För närvarande behöver du veta lite av PowerShell för att fylla i vissa [parameter värden](#use-activities) och för att ange [länk villkor](#use-links-for-workflow). Det här avsnittet ger en snabb introduktion till PowerShell-uttryck. Fullständig information om PowerShell finns i [skript med Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+En av fördelarna med grafisk redigering är att du kan skapa en Runbook med minimal kunskap om PowerShell. För närvarande behöver du veta lite av PowerShell för att fylla i vissa [parameter värden](#use-activities) och för att ange [länk villkor](#use-links-for-workflow). Det här avsnittet ger en snabb introduktion till PowerShell-uttryck. Fullständig information om PowerShell finns i [skript med Windows PowerShell](/powershell/scripting/overview).
 
 ### <a name="use-a-powershell-expression-as-a-data-source"></a>Använda ett PowerShell-uttryck som en data Källa
 
@@ -322,7 +323,7 @@ Runbooken kan använda utdata från en aktivitet i ett mer komplext uttryck, til
 
 ### <a name="compare-values"></a>Jämför värden
 
-Använd [jämförelse operatorer](https://technet.microsoft.com/library/hh847759.aspx) för att jämföra värden eller bestämma om ett värde matchar ett angivet mönster. En jämförelse returnerar värdet true eller false.
+Använd [jämförelse operatorer](/powershell/module/microsoft.powershell.core/about/about_comparison_operators) för att jämföra värden eller bestämma om ett värde matchar ett angivet mönster. En jämförelse returnerar värdet true eller false.
 
 Följande villkor avgör till exempel om den virtuella datorn från en aktivitet som heter `Get-AzureVM` är stoppad.
 
@@ -336,7 +337,7 @@ Följande villkor avgör om samma virtuella dator är i något annat tillstånd 
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-Du kan koppla flera villkor i din Runbook med hjälp av en [logisk operator](https://technet.microsoft.com/library/hh847789.aspx), till exempel `-and` eller `-or` . Följande villkor kontrollerar till exempel om den virtuella datorn i föregående exempel är i tillståndet Stoppad eller stoppad.
+Du kan koppla flera villkor i din Runbook med hjälp av en [logisk operator](/powershell/module/microsoft.powershell.core/about/about_logical_operators), till exempel `-and` eller `-or` . Följande villkor kontrollerar till exempel om den virtuella datorn i föregående exempel är i tillståndet Stoppad eller stoppad.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -344,7 +345,7 @@ Du kan koppla flera villkor i din Runbook med hjälp av en [logisk operator](htt
 
 ### <a name="use-hashtables"></a>Använd hash
 
-[Hash](https://technet.microsoft.com/library/hh847780.aspx) är namn/värde-par som är användbara för att returnera en uppsättning värden. Du kan också se en hash-form som kallas för en ord lista. Egenskaper för vissa aktiviteter förväntar sig en hash i stället för ett enkelt värde.
+[Hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) är namn/värde-par som är användbara för att returnera en uppsättning värden. Du kan också se en hash-form som kallas för en ord lista. Egenskaper för vissa aktiviteter förväntar sig en hash i stället för ett enkelt värde.
 
 Skapa en hash-tabellen med hjälp av följande syntax. Det kan innehålla valfritt antal poster, men de definieras av ett namn och ett värde.
 
@@ -372,7 +373,7 @@ I följande exempel används utdata från en aktivitet `Get Twitter Connection` 
 
 ## <a name="authenticate-to-azure-resources"></a>Autentisera till Azure-resurser
 
-Runbooks i Azure Automation som hanterar Azure-resurser kräver autentisering till Azure. [Kör som-kontot](automation-create-runas-account.md), som även kallas för tjänstens huvud namn, är standard mekanismen som en Automation-Runbook använder för att få åtkomst till Azure Resource Manager resurser i din prenumeration. Du kan lägga till den här funktionen i en grafisk Runbook genom att lägga till `AzureRunAsConnection` anslutnings till gången, som använder PowerShell-cmdleten [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) till arbets ytan. Du kan också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Det här scenariot illustreras i följande exempel.
+Runbooks i Azure Automation som hanterar Azure-resurser kräver autentisering till Azure. [Kör som-kontot](./manage-runas-account.md), som även kallas för tjänstens huvud namn, är standard mekanismen som en Automation-Runbook använder för att få åtkomst till Azure Resource Manager resurser i din prenumeration. Du kan lägga till den här funktionen i en grafisk Runbook genom att lägga till `AzureRunAsConnection` anslutnings till gången, som använder PowerShell-cmdleten [Get-AutomationConnection](/system-center/sma/manage-global-assets) till arbets ytan. Du kan också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Det här scenariot illustreras i följande exempel.
 
 ![Aktiviteter för kör som-autentisering](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -389,7 +390,7 @@ Nästa aktivitet, `Connect-AzAccount` , lägger till det autentiserade kör som-
 
 För parameter fälten **APPLICATIONID**, **CERTIFICATETHUMBPRINT**och **TENANTID**anger du namnet på egenskapen för fält Sök vägen, eftersom aktiviteten matar ut ett objekt med flera egenskaper. Annars Miss lyckas den vid försök att autentisera när runbooken körs. Det här är vad du behöver för att autentisera din Runbook med kör som-kontot.
 
-Vissa prenumeranter skapar ett Automation-konto med hjälp av ett [Azure AD-användarkonto](automation-create-aduser-account.md) för att hantera den klassiska Azure-distributionen eller för Azure Resource Manager resurser. För att upprätthålla bakåtkompatibilitet för de här prenumeranterna är autentiseringen som används i din Runbook en `Add-AzureAccount` cmdlet med en [referens till gång](automation-credentials.md). Till gången representerar en Active Directory användare med åtkomst till Azure-kontot.
+Vissa prenumeranter skapar ett Automation-konto med hjälp av ett [Azure AD-användarkonto](./shared-resources/credentials.md) för att hantera den klassiska Azure-distributionen eller för Azure Resource Manager resurser. För att upprätthålla bakåtkompatibilitet för de här prenumeranterna är autentiseringen som används i din Runbook en `Add-AzureAccount` cmdlet med en [referens till gång](./shared-resources/credentials.md). Till gången representerar en Active Directory användare med åtkomst till Azure-kontot.
 
 Du kan aktivera den här funktionen för din grafiska Runbook genom att lägga till en inloggnings till gång till arbets ytan, följt av en `Add-AzureAccount` aktivitet som använder den som referens till gång. Se följande exempel.
 
@@ -434,4 +435,4 @@ Du kan välja att återgå till den publicerade versionen av en Runbook. Den hä
 * Information om hur du kommer igång med grafiska runbooks finns i [Självstudier: skapa en grafisk Runbook](learn/automation-tutorial-runbook-graphical.md).
 * Om du vill veta mer om Runbook-typer och deras fördelar och begränsningar, se [Azure Automation Runbook-typer](automation-runbook-types.md).
 * Information om hur du autentiserar med hjälp av Automation kör som-kontot finns i [Kör som-konto](automation-security-overview.md#run-as-account).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

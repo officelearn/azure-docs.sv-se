@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385560"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170113"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrera Trusona med Azure Active Directory B2C
 
 Trusona är en oberoende program varu leverantör (ISV) som hjälper till att säkra inloggning genom att aktivera autentisering med lösen ord, Multi-Factor Authentication och digital License scanning. I den här artikeln får du lära dig hur du lägger till Trusona som en identitets leverantör i Azure AD B2C att aktivera lösen ords lös autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du:
 
@@ -40,8 +40,7 @@ I det här scenariot fungerar Trusona som en identitets leverantör för Azure A
 
 ![Diagram över Trusona-arkitektur](media/partner-trusona/trusona-architecture-diagram.png)
 
-
-|  |  |
+| Steg | Beskrivning |
 |------|------|
 |1     | En användare försöker logga in på eller registrera sig med programmet. Användaren autentiseras via Azure AD B2C registrerings-och inloggnings princip. Under registreringen används användarens tidigare verifierade e-postadress från Trusona-appen.     |
 |2     | Azure B2C omdirigerar användaren till identitets leverantören Trusona OpenID Connect (OIDC) med det implicita flödet.     |

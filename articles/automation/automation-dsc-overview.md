@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206894"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186392"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
@@ -53,7 +53,7 @@ Azure Automation tillstånds konfiguration får samma hanterings skikt till [Pow
 
 Noder som hanteras med Azure Automation tillstånds konfiguration Skicka detaljerade rapporterings status data till den inbyggda hämtnings servern. Du kan konfigurera Azure Automation tillstånds konfiguration för att skicka dessa data till Log Analytics-arbetsytan. Se [vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Beakta kraven i det här avsnittet när du använder Azure Automation tillstånds konfiguration.
 
@@ -77,7 +77,7 @@ För noder som kör Linux stöder DSC Linux-tillägget alla Linux-distributioner
 
 ### <a name="dsc-requirements"></a>DSC-krav
 
-För alla Windows-noder som körs i Azure installeras [WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) när datorer är aktiverade. För noder som kör Windows Server 2012 och Windows 7 är [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) aktiverat.
+För alla Windows-noder som körs i Azure installeras [WMF 5,1](/powershell/scripting/wmf/setup/install-configure) när datorer är aktiverade. För noder som kör Windows Server 2012 och Windows 7 är [WinRM](/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) aktiverat.
 
 För alla Linux-noder som körs i Azure installeras [POWERSHELL DSC för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) när datorer är aktiverade.
 
@@ -90,7 +90,7 @@ Om noderna finns i ett privat nätverk krävs följande port och URL: er. De hä
 * Global URL för US Gov, Virginia: ***. Azure-Automation.us**
 * Agent tjänst: **https:// \<workspaceId\> . agentsvc.Azure-Automation.net**
 
-Om du använder DSC-resurser som kommunicerar mellan noder, till exempel [waitfor *-resurserna](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), måste du också tillåta trafik mellan noderna. Se dokumentationen för varje DSC-resurs för att förstå dessa nätverks krav.
+Om du använder DSC-resurser som kommunicerar mellan noder, till exempel [waitfor *-resurserna](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), måste du också tillåta trafik mellan noderna. Se dokumentationen för varje DSC-resurs för att förstå dessa nätverks krav.
 
 Information om klient kraven för TLS 1,2 finns i [TLS 1,2 Enforcement för Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -114,5 +114,4 @@ Vi rekommenderar att du använder de adresser som anges i tabellen [DNS-poster p
 - Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 - Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md).
 - Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

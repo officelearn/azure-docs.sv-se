@@ -6,19 +6,19 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 1a244cd17ecf1f6165936d86791f9b2e320666c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807160"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186749"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Skapa en anpassad avsökning för Azure Application Gateway med hjälp av PowerShell för Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure-portalen](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -90,7 +90,7 @@ Du konfigurerar alla konfigurations objekt innan du skapar programgatewayen. I f
 | **Komponent** | **Beskrivning** |
 |---|---|
 | **IP-konfiguration för gateway** | En IP-konfiguration för en Application Gateway.|
-| **Backend-pool** | En pool med IP-adresser, FQDN: er eller nätverkskort som är till de program servrar som är värdar för webb programmet|
+| **Serverdelspool** | En pool med IP-adresser, FQDN: er eller nätverkskort som är till de program servrar som är värdar för webb programmet|
 | **Hälsoavsökning** | En anpassad avsökning som används för att övervaka hälso tillståndet för medlemmar i backend-poolen|
 | **HTTP-inställningar** | En samling inställningar inklusive port, protokoll, cookie-baserad tillhörighet, avsökning och tids gräns.  De här inställningarna bestämmer hur trafik dirigeras till medlemmar i Server delen|
 | **Frontend-port** | Porten som Application Gateway lyssnar efter trafik på|

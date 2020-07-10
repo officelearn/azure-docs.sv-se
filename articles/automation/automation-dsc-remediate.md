@@ -9,11 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836863"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186375"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Reparera inkompatibla Azure Automation tillstånds konfigurations servrar
 
@@ -24,7 +25,7 @@ Det här dokumentet innehåller exempel skript för den här funktionen när du 
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Korrigera virtuella Windows-datorer med PowerShell
 
-Du kan korrigera drift av virtuella Windows-datorer med hjälp av `Run` kommando funktionen. Se [kör PowerShell-skript i din virtuella Windows-dator med kommandot kör](/azure/virtual-machines/windows/run-command).
+Du kan korrigera drift av virtuella Windows-datorer med hjälp av `Run` kommando funktionen. Se [kör PowerShell-skript i din virtuella Windows-dator med kommandot kör](../virtual-machines/windows/run-command.md).
 
 Använd cmdleten [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration) om du vill tvinga fram en nod för konfiguration av Azure Automation tillstånd för att ladda ned den senaste konfigurationen och tillämpa den.
 
@@ -42,5 +43,5 @@ För Hybrid-noder kan du korrigera driften med python-skripten. Se [utföra DSC-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md).

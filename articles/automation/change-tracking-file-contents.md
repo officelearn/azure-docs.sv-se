@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781199"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185610"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
 
@@ -78,10 +79,10 @@ Använd följande steg för att konfigurera fil spårning på Linux-datorer:
 
 ## <a name="track-file-contents"></a>Spåra fil innehåll
 
-Med fil innehålls spårning kan du visa innehållet i en fil före och efter en spårad ändring. Funktionen sparar fil innehållet till ett [lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview) när varje ändring sker. Här följer några regler som du följer när du spårar fil innehåll:
+Med fil innehålls spårning kan du visa innehållet i en fil före och efter en spårad ändring. Funktionen sparar fil innehållet till ett [lagrings konto](../storage/common/storage-account-overview.md) när varje ändring sker. Här följer några regler som du följer när du spårar fil innehåll:
 
 * Ett standard lagrings konto som använder distributions modellen för Resource Manager krävs för att lagra fil innehåll. 
-* Använd inte lagrings konton för Premium-och klassiska distributions modeller. Se [om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
+* Använd inte lagrings konton för Premium-och klassiska distributions modeller. Se [om Azure Storage-konton](../storage/common/storage-account-create.md).
 * Du kan bara ansluta lagrings kontot till ett Automation-konto.
 * [Ändringsspårning och inventering](change-tracking.md) måste vara aktiverat i ditt Automation-konto.
 
@@ -140,7 +141,7 @@ Använd följande steg för att konfigurera register nyckel spårning på Window
 
 Du kan utföra olika sökningar mot Azure Monitor loggar för ändrings poster. När sidan ändrings spårning är öppen klickar du på **Log Analytics** för att öppna sidan loggar. Följande tabell innehåller exempel på loggs ökningar för ändrings poster.
 
-|Söka i data  |Beskrivning  |
+|Fråga  |Beskrivning  |
 |---------|---------|
 |`ConfigurationData`<br>&#124;`where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Visar de senaste inventerings posterna för Microsoft-tjänster som har ställts in på auto men som har rapporter ATS som stoppade. Resultaten är begränsade till den senaste posten för det angivna program namnet och datorn.    |
 |`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Visar ändrings poster för borttagen program vara.|
@@ -169,7 +170,7 @@ Vi ska använda det här exemplet för att diskutera stegen för att skapa avise
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om scope-konfigurationer finns i [begränsa ändringsspårning och distributions omfång för lager](automation-scope-configurations-change-tracking.md).
-* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Om du behöver söka i loggar som lagras i din Log Analytics-arbetsyta, se [loggs ökningar i Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md).
 * Om du är färdig med distributioner kan du läsa [ta bort arbets ytan från Automation-kontot för ändringsspårning och inventering](automation-unlink-workspace-change-tracking.md).
 * Information om hur du tar bort virtuella datorer från Ändringsspårning och inventering finns i [ta bort virtuella datorer från ändringsspårning och inventering](automation-remove-vms-from-change-tracking.md).
 * Information om hur du felsöker funktions fel finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

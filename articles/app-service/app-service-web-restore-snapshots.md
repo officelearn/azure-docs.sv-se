@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255137"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169985"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Återställa en app i Azure från en ögonblicks bild
 Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) från en ögonblicks bild. Du kan återställa din app till ett tidigare tillstånd baserat på en av appens ögonblicks bilder. Du behöver inte aktivera säkerhets kopiering av ögonblicks bilder, plattformen sparar automatiskt en ögonblicks bild av alla appar för data återställnings syfte.
@@ -36,15 +37,15 @@ Att återställa från ögonblicks bilder är tillgängligt för appar som körs
 
 1. På sidan **Inställningar** i appen i [Azure Portal](https://portal.azure.com)klickar du på **säkerhets kopiering** för att visa sidan **säkerhets kopior** . Klicka sedan på **Återställ** under avsnittet **ögonblicks bild (för hands version)** .
    
-    ![](./media/app-service-web-restore-snapshots/1.png)
+    ![Skärm bild som visar hur du återställer en app från en ögonblicks bilds säkerhets kopia.](./media/app-service-web-restore-snapshots/1.png)
 
 2. På sidan **Återställ** väljer du den ögonblicks bild som ska återställas.
    
-    ![](./media/app-service-web-restore-snapshots/2.png)
+    ![Skärm bild som visar hur du väljer den ögonblicks bild som ska återställas. ](./media/app-service-web-restore-snapshots/2.png)
    
 3. Ange målet för appen Återställ i **återställnings målet**.
    
-    ![](./media/app-service-web-restore-snapshots/3.png)
+    ![Skärm bild som visar hur du anger återställnings målet.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > Om du väljer **Skriv över**raderas och ersätts alla befintliga data i appens aktuella fil system. Kontrol lera att det är det du vill göra innan du klickar på **OK**.
@@ -60,6 +61,6 @@ Att återställa från ögonblicks bilder är tillgängligt för appar som körs
 
 4. Du kan välja att återställa plats konfigurationen.
    
-    ![](./media/app-service-web-restore-snapshots/4.png)
+    ![Skärm bild som visar hur du återställer plats konfigurationen.](./media/app-service-web-restore-snapshots/4.png)
 
 5. Klicka på **OK**.

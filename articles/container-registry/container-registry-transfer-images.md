@@ -4,11 +4,12 @@ description: Överföra samlingar med avbildningar eller andra artefakter från 
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006331"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186936"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Överföra artefakter till ett annat register
 
@@ -29,7 +30,7 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 > [!IMPORTANT]
 > Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Behållar** register – du behöver ett befintligt käll register med artefakter att överföra och ett mål register. ACR-överföring är avsedd för förflyttning över fysiskt frånkopplade moln. För testning kan käll-och mål registren vara i samma eller en annan Azure-prenumeration, Active Directory klient organisation eller molnet. Om du behöver skapa ett register, se [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md). 
 * **Lagrings konton** – skapa käll-och mål lagrings konton i en prenumeration och plats som du väljer. I test syfte kan du använda samma prenumeration eller prenumerationer som käll-och mål register. I scenarier med flera moln kan du vanligt vis skapa ett separat lagrings konto i varje moln. Om det behövs skapar du lagrings kontona med [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) eller andra verktyg. 
@@ -57,7 +58,7 @@ Lagrings autentisering använder SAS-token som hanteras som hemligheter i nyckel
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** – resurs som används för att anropa antingen en ExportPipeline-eller ImportPipeline-resurs.  
   * Du kör ExportPipeline manuellt genom att skapa en PipelineRun-resurs och ange de artefakter som ska exporteras.  
   * Om en import utlösare aktive ras körs ImportPipeline automatiskt. Den kan också köras manuellt med hjälp av en PipelineRun. 
-  * För närvarande kan högst **10 artefakter** överföras med varje PipelineRun.
+  * För närvarande kan högst **50 artefakter** överföras med varje PipelineRun.
 
 ### <a name="things-to-know"></a>Saker att känna till
 * ExportPipeline och ImportPipeline kommer vanligt vis att finnas i olika Active Directory klienter som är kopplade till käll-och mål molnen. Det här scenariot kräver separata hanterade identiteter och nyckel valv för export-och import resurserna. I test syfte kan dessa resurser placeras i samma moln, vilket delar identiteter.
@@ -161,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Ett exempel:
+I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -207,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Ett exempel:
+Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -336,7 +337,7 @@ az deployment group delete \
 * **AzCopy problem**
   * Se [Felsöka AzCopy-problem](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Problem med att överföra artefakter**
-  * Alla artefakter eller inga artefakter överförs. Bekräfta stavningen av artefakter i export körningen och namn på BLOB i export-och import körningar. Bekräfta att du överför högst 10 artefakter.
+  * Alla artefakter eller inga artefakter överförs. Bekräfta stavningen av artefakter i export körningen och namn på BLOB i export-och import körningar. Bekräfta att du överför högst 50 artefakter.
   * Pipeline-körningen kanske inte har slutförts. En export-eller import körning kan ta lite tid. 
   * För andra pipeline-problem anger du distributions [korrelations-ID: t](../azure-resource-manager/templates/deployment-history.md) för export körningen eller import-körningen till Azure Container Registry-teamet.
 

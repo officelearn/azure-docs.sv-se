@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d34bb14dd0f474ff9350fec513c02fbb470d6738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7567302be8d717cda3627af303128bfb704bd014
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385662"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170147"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera IDology med Azure Active Directory B2C 
 
 I den här självstudien ger vi vägledning om hur du integrerar Azure AD B2C med [IDology](https://www.idology.com/solutions/). IDology är en identitets verifiering och en kontroll leverantör med flera lösningar. I det här exemplet kommer vi att behandla ExpectID-lösningen från IDology.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du:
 
@@ -41,7 +41,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![Diagram över IDology-arkitektur](media/partner-idology/idology-architecture-diagram.png)
 
-|      |      |
+| Steg | Beskrivning |
 |------|------|
 |1     | En användare kommer till inloggnings sidan. |
 |2     | Användaren väljer alternativet registrera för att skapa ett nytt konto och anger information på sidan. Azure AD B2C samlar in användarattribut. |
@@ -75,7 +75,7 @@ Du behöver URL: en för den distribuerade tjänsten för att konfigurera Azure 
 
 Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Obs! |
+| Programinställningar | Källa | Anteckningar |
 | :-------- | :------------| :-----------|
 |IdologySettings:ApiUsername | Konfiguration av IDology-konto |     |
 |IdologySettings:ApiPassword | Konfiguration av IDology-konto |     |

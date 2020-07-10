@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, tillstånds konfiguration, uppdater
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835282"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186188"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 
@@ -53,14 +53,14 @@ Azure Automation erbjuder ett antal delade funktioner, inklusive delade resurser
 
 Azure Automation består av en uppsättning delade resurser som gör det enklare att automatisera och konfigurera dina miljöer i större skala.
 
-* **[Scheman](automation-schedules.md)** – utlösa automatiserings åtgärder vid fördefinierade tidpunkter.
-* **[Moduler](automation-integration-modules.md)** – Hantera Azure och andra system. Du kan importera moduler till Automation-kontot för Microsoft, tredje part, community och anpassade cmdlets och DSC-resurser.
+* **[Scheman](./shared-resources/schedules.md)** – utlösa automatiserings åtgärder vid fördefinierade tidpunkter.
+* **[Moduler](./shared-resources/modules.md)** – Hantera Azure och andra system. Du kan importera moduler till Automation-kontot för Microsoft, tredje part, community och anpassade cmdlets och DSC-resurser.
 * **[Galleri för moduler](automation-runbook-gallery.md)** – stöder inbyggd integrering med PowerShell-galleriet så att du kan visa Runbooks och importera dem till Automation-kontot. Galleriet gör det möjligt för dig att snabbt komma igång med att integrera och redigera dina processer från PowerShell-galleriet och Microsoft Script Center.
 * **[Python 2-paket](python-packages.md)** – stöd för python 2-Runbooks för ditt Automation-konto.
-* **[Autentiseringsuppgifter](automation-credentials.md)** – lagra känslig information på ett säkert sätt som Runbooks och konfigurationer kan använda vid körning.
+* **[Autentiseringsuppgifter](./shared-resources/credentials.md)** – lagra känslig information på ett säkert sätt som Runbooks och konfigurationer kan använda vid körning.
 * **[Anslutningar](automation-connections.md)** – lagra namn-värde-par med gemensam information för anslutningar till system. Modulen författare definierar anslutningar i Runbooks och konfigurationer som ska användas vid körning.
-* **[Certifikat](automation-certificates.md)** – definiera information som ska användas vid autentisering och skydd av distribuerade resurser vid användning av RUNBOOKS eller DSC-konfigurationer vid körning. 
-* **[Variabler](automation-variables.md)** -Behåll innehåll som kan användas mellan Runbooks och konfigurationer. Du kan ändra variabel värden utan att behöva ändra någon av Runbooks eller konfigurationer som refererar till dem.
+* **[Certifikat](./shared-resources/certificates.md)** – definiera information som ska användas vid autentisering och skydd av distribuerade resurser vid användning av RUNBOOKS eller DSC-konfigurationer vid körning. 
+* **[Variabler](./shared-resources/variables.md)** -Behåll innehåll som kan användas mellan Runbooks och konfigurationer. Du kan ändra variabel värden utan att behöva ändra någon av Runbooks eller konfigurationer som refererar till dem.
 
 ### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 

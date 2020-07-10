@@ -5,11 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171097"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186290"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Aktivera Ändringsspårning och inventering från en runbook
 
@@ -18,10 +19,10 @@ I den här artikeln beskrivs hur du kan använda en Runbook för att aktivera [�
 > [!NOTE]
 > När du aktiverar Ändringsspårning och inventering, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation-konto](automation-offering-get-started.md) för att hantera datorer.
+* [Automation-konto](./index.yml) för att hantera datorer.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering 
@@ -50,7 +51,7 @@ Med Ändringsspårning och inventering aktive rad kan du lägga till en virtuell
 
 ## <a name="install-and-update-modules"></a>Installera och uppdatera moduler
 
-Du måste uppdatera till de senaste Azure-modulerna och importera modulen [AZ. OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) för att kunna aktivera ändringsspårning och inventering för den virtuella datorn.
+Du måste uppdatera till de senaste Azure-modulerna och importera modulen [AZ. OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) för att kunna aktivera ändringsspårning och inventering för den virtuella datorn.
 
 1. I ditt Automation-konto väljer du **moduler** under **delade resurser**. 
 2. Välj **Uppdatera Azure-moduler** för att uppdatera Azure-moduler till den senaste versionen. 

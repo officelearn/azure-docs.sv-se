@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: dd6ec2057ede076511b567c013fc1b6fa12d8281
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: ebb3e6ba777646d39e3732215aa6c8fdd12ca40a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669740"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186698"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Vad är nytt i Azure Application Gateway?
 
@@ -25,9 +25,10 @@ Azure Application Gateway uppdateras regelbundet. För att hålla dig uppdaterad
 
 ## <a name="new-features"></a>Nya funktioner
 
-|Funktion  |Description  |Tillagt den  |
+|Funktion  |Beskrivning  |Tillagt den  |
 |---------|---------|---------|
-| Application Gateway ingångs kontroll (AGIC) AKS-tillägg (för hands version) |Application Gateway ingress-kontrollanten kan nu distribueras som ett inbyggt AKS-tillägg på en rad via Azure CLI. Att vara ett AKS-tillägg gör det möjligt för AGIC att bli en fullständigt hanterad tjänst, samtidigt som den fortfarande körs i kundens AKS-kluster. Mer information finns i [AGIC-tilläggs skillnader](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |2020 juni |
+| Anpassad port för hälso avsökningar | Application Gateway v2 SKU ger nu möjlighet att tillhandahålla en anpassad port i hälso avsöknings konfigurationen. Mer information finns i [Översikt över hälso avsökning](application-gateway-probe-overview.md) | Juli 2020
+| Application Gateway ingångs kontroll (AGIC) AKS-tillägg (för hands version) |Application Gateway ingress-kontrollanten kan nu distribueras som ett inbyggt AKS-tillägg på en rad via Azure CLI. Att vara ett AKS-tillägg gör det möjligt för AGIC att bli en fullständigt hanterad tjänst, samtidigt som den fortfarande körs i kundens AKS-kluster. Mer information finns i [AGIC-tilläggs skillnader](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Juni 2020 |
 | Användardefinierade vägar (UDR) på v2 (för hands version) |Användardefinierade vägar stöds nu i vissa scenarier på Application Gateway v2-SKU: er. Mer information finns i [Application Gateway konfigurations översikt](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Mars 2020 |
 |Tillhörighets-cookie-ändringar |När cookie-baserad tillhörighet är aktive rad, infogar Application Gateway en annan identisk cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga ApplicationGatewayAffinity-cookien. *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till i den (*SameSite = none; Säker*) så att dina tröga sessioner upprätthålls även för frågor över andra ursprung. Mer information finns i [Application Gateway cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) . |Februari 2020 |
 |Avsöknings förbättringar |Med de anpassade avsöknings förbättringarna i Application Gateway v2 SKU: n, har vi förenklad [avsöknings konfiguration](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), under lätta [Server dels hälsotest på begäran](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) och ytterligare [diagnostikinformation](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) som hjälper dig att felsöka Server dels hälso problem.  |Oktober 2019 |

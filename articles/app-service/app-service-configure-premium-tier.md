@@ -6,17 +6,18 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fa64562f8d26297d2b2c8a13cd8b6a513c2c630
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74672213"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170028"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivån för Azure App Service
 
 Den nya pris nivån för **PremiumV2** ger dig snabbare processorer, SSD-lagring och dubblar förhållandet mellan minne och kärna för de befintliga pris nivåerna. Med prestanda fördelen kan du spara pengar genom att köra dina appar på färre instanser. I den här artikeln får du lära dig hur du skapar en app i **PremiumV2** -nivån eller skalar upp en app till **PremiumV2** -nivån.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skala upp en app till **PremiumV2**måste du ha en Azure App Service-app som körs på en pris nivå som är lägre än **PremiumV2**och appen måste köras i en app service-distribution som stöder PremiumV2.
 
@@ -42,7 +43,7 @@ När du konfigurerar App Service plan i <a href="https://portal.azure.com" targe
 
 Välj **produktion**, välj sedan **P1V2**, **P2V2**eller **P3V2**och klicka sedan på **Verkställ**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Skärm bild som visar de rekommenderade pris nivåerna för din app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Om du inte ser alternativen **P1V2**, **P2V2**och **P3V2** som alternativ, eller om alternativen är nedtonade, är **PremiumV2** troligen inte tillgängligt i den underliggande app service distribution som innehåller App Service plan. Se [skala upp från en resurs grupp och en region kombination som inte stöds](#unsupported) för mer information.
@@ -57,15 +58,15 @@ Beroende på din värd miljö kan det krävas ytterligare steg vid skalningen.
 
 I det vänstra navigerings fönstret på App Service app-sidan väljer du **skala upp (App Service plan)**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+![Skärm bild som visar hur du skalar upp din app service-plan.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
 Välj **produktion**, välj sedan **P1V2**, **P2V2**eller **P3V2**och klicka sedan på **Verkställ**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Skärm bild som visar de rekommenderade pris nivåerna för din app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 Om åtgärden slutförs, visar appens översikts sida att den nu finns på en **PremiumV2** -nivå.
 
-![](media/app-service-configure-premium-tier/finished.png)
+![Skärm bild som visar pris nivån PremiumV2 på appens översikts sida.](media/app-service-configure-premium-tier/finished.png)
 
 ### <a name="if-you-get-an-error"></a>Om du får ett fel meddelande
 
@@ -80,7 +81,7 @@ Om din app körs i en App Service distribution där **PremiumV2** inte är tillg
 - Skapa en **ny** resurs grupp och skapa sedan en **ny** app och App Service plan i den **nya** resurs gruppen och välj önskad Azure-region under skapande processen.  Du **måste** välja **PremiumV2** -planen vid den tidpunkt då den nya app service-planen skapas.  Detta garanterar att kombinationen av resurs grupp, App Service plan och Azure-region leder till att App Service plan skapas i en App Service-distribution som stöder **PremiumV2**.  Distribuera sedan program koden till den nyligen skapade appen och App Service-planen. Om du vill kan du skala App Service plan nedåt från **PremiumV2** för att spara kostnaderna, och du kan fortfarande skala upp igen i framtiden med **PremiumV2**.
 - Om din app redan körs på en befintlig **Premium** -nivå kan du klona din app med alla appinställningar, anslutnings strängar och distributions konfiguration till en ny app service-plan som använder **PremiumV2**.
 
-    ![](media/app-service-configure-premium-tier/clone-app.png)
+    ![Skärm bild som visar hur du klonar din app.](media/app-service-configure-premium-tier/clone-app.png)
 
     På sidan **klon app** kan du skapa en app service plan med **PremiumV2** i den region som du vill använda och ange de appinställningar och den konfiguration som du vill klona.
 

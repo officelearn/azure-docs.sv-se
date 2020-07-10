@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c60e851d61a5f33e1b050412b0e91b81e20a16
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430565"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169993"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metod tips och fel söknings guide för Node-program i Azure App Service Windows
 
@@ -169,7 +170,7 @@ Gå till fel söknings konsolens webbplats`https://yoursite.scm.azurewebsites.ne
 
 Gå till platsen/wwwroot-katalogen. Du ser en kommando tolk som visas i följande exempel:
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
+![Skärm bild som visar platsen/wwwroot-katalogen och kommando tolken.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 Kör kommandot `npm install v8-profiler`.
 
@@ -202,11 +203,11 @@ http.createServer(function (req, res) {
 
 Föregående kod profilerar WriteConsoleLog-funktionen och skriver sedan profil resultatet till filen Profile. cpuprofile under platsen wwwroot. Skicka en begäran till ditt program. Du ser en ' Profile. cpuprofile '-fil som skapats under platsens wwwroot.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![Skärm bild som visar filen Profile. cpuprofile.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
 Ladda ned den här filen och öppna den med Chrome F12-verktyg. Tryck på F12 på Chrome och välj sedan fliken **profiler** . Välj knappen **Läs in** . Välj din profil. cpuprofile-fil som du laddade ned. Klicka på den profil som du nyss läst in.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![Skärm bild som visar filen Profile. cpuprofile som du läste in.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 Du kan se att 95% av tiden har använts av funktionen WriteConsoleLog. Utdata visar också de exakta rad nummer och källfiler som orsakade problemet.
 

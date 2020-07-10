@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: c6ff105a03181b588a9074675c97930696ac5e87
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 30573eb3b35152ab5769c1aab9c4af052cb454a6
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850211"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171031"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestanda tips för Azure Cosmos DB Java SDK v4
 
@@ -37,52 +37,46 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 * **Anslutnings läge: Använd direkt läge**
 <a id="direct-connection"></a>
     
-    Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt vad gäller svars tid på klient sidan. *ConnectionMode* är en nyckel konfigurations inställning som är tillgänglig för konfigurering av klientens *ConnectionPolicy*. För Azure Cosmos DB Java SDK V4 är de två tillgängliga *ConnectionMode*s:  
-      
-    * [Gateway (standard)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
-    * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+    Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt vad gäller svars tid på klient sidan. Anslutnings läget är en nyckel konfigurations inställning som är tillgänglig för att konfigurera klienten. För Azure Cosmos DB Java SDK V4 är de två tillgängliga anslutnings lägena:  
 
-    Dessa *ConnectionMode*är i princip den väg som begär Anden tar från klient datorn till partitioner i Azure Cosmos DB backend. Normalt är Direct-läge det bästa alternativet för bästa prestanda – det gör att klienten kan öppna TCP-anslutningar direkt till partitioner i Azure Cosmos DB backend-och sändnings begär Anden *Direct*-ly utan mellanmedium. I Gateway-läge dirigeras begär Anden som görs av klienten till en så kallad "Gateway"-server i Azure Cosmos DB klient del, som i sin tur ger ut dina begär anden till lämpliga partitioner i Azure Cosmos DB backend. Om ditt program körs i ett företags nätverk med strikta brand Väggs begränsningar är Gateway-läget det bästa valet eftersom det använder standard-HTTPS-porten och en enda slut punkt. Prestanda kompromissen är dock att Gateway-läget omfattar ytterligare nätverks hopp (klient till gateway och gateway till partition) varje gång data läses eller skrivs till Azure Cosmos DB. Därför erbjuder Direct-läget bättre prestanda på grund av färre nätverks hopp.
+    * Direkt läge (standard)      
+    * Gateway-läge
 
-    *ConnectionMode* konfigureras under konstruktion av den Azure Cosmos DB klient instansen med parametern *ConnectionPolicy* :
+    Dessa anslutnings lägen är i princip den väg som data planet begär – dokument läsningar och skrivningar – tar från klient datorn till partitioner i Azure Cosmos DB backend. Normalt är Direct-läge det bästa alternativet för bästa prestanda – det gör att klienten kan öppna TCP-anslutningar direkt till partitioner i Azure Cosmos DB backend-och sändnings begär Anden *Direct*-ly utan mellanmedium. I Gateway-läge dirigeras begär Anden som görs av klienten till en så kallad "Gateway"-server i Azure Cosmos DB klient del, som i sin tur ger ut dina begär anden till lämpliga partitioner i Azure Cosmos DB backend. Om ditt program körs i ett företags nätverk med strikta brand Väggs begränsningar är Gateway-läget det bästa valet eftersom det använder standard-HTTPS-porten och en enda slut punkt. Prestanda kompromissen är dock att Gateway-läget omfattar ytterligare nätverks hopp (klient till gateway och gateway till partition) varje gång data läses eller skrivs till Azure Cosmos DB. Därför erbjuder Direct-läget bättre prestanda på grund av färre nätverks hopp.
+
+    Anslutnings läget för data Plans begär Anden konfigureras i Azure Cosmos DB client Builder med hjälp av metoderna *directMode ()* eller *gatewayMode ()* , som du ser nedan. Om du vill konfigurera något av de båda alternativen med standardinställningar anropar du någon av metoderna utan argument. Annars skickar du en klass instans för konfigurations inställningar som argument (*DirectConnectionConfig* för *directMode ()*, *GatewayConnectionConfig* för *gatewayMode ()*.)
     
-   #### <a name="async"></a>[Async](#tab/api-async)
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java v4 SDK
 
-   ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
+    # <a name="async"></a>[Async](#tab/api-async)
 
-    ```java
-    public ConnectionPolicy getConnectionPolicy() {
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setMaxPoolSize(1000);
-        return policy;
-    }
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    CosmosAsyncClient client = new CosmosClientBuilder()
-        .setEndpoint(HOST)
-        .setKey(MASTER)
-        .setConnectionPolicy(connectionPolicy)
-        .buildAsyncClient();
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientConnectionModeAsync)]
 
-    #### <a name="sync"></a>[Synkronisera](#tab/api-sync)
+    # <a name="sync"></a>[Synkronisera](#tab/api-sync)
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-connection-policy-sync"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
 
-    ```java
-    public ConnectionPolicy getConnectionPolicy() {
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setMaxPoolSize(1000);
-        return policy;
-    }
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientConnectionModeSync)]
 
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    CosmosClient client = new CosmosClientBuilder()
-        .setEndpoint(HOST)
-        .setKey(MASTER)
-        .setConnectionPolicy(connectionPolicy)
-        .buildClient();
-    ```
+    --- 
+
+    Metoden *directMode ()* har en ytterligare åsidosättning, av följande skäl. Kontroll Plans åtgärder som databas och container CRUD använder *alltid* Gateway-läge. När användaren har konfigurerat direkt läge för data Plans åtgärder, använder kontroll planens standardinställningar för gateway-läge. Detta passar de flesta användare. Användare som vill ha direkt läge för data Plans åtgärder samt tunability-parametrar för kontroll planens läge kan dock använda följande *directMode ()-* åsidosättning:
+
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Java v4 SDK
+
+    # <a name="async"></a>[Async](#tab/api-async)
+
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientDirectOverrideAsync)]
+
+    # <a name="sync"></a>[Synkronisera](#tab/api-sync)
+
+    Java SDK v4 (maven com. Azure:: Azure-Cosmos) Sync API
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientDirectOverrideSync)]
 
     --- 
 
@@ -156,7 +150,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
 * **Justera ConnectionPolicy**
 
-    Som standard görs direkt läge Cosmos DB begär Anden via TCP när du använder Azure Cosmos DB Java SDK v4. Internt använder SDK en särskild arkitektur för direkt läge för att dynamiskt hantera nätverks resurser och få bästa möjliga prestanda.
+    Som standard görs direkt läge Cosmos DB begär Anden via TCP när du använder Azure Cosmos DB Java SDK v4. Internt direkt läge använder en särskild arkitektur för att dynamiskt hantera nätverks resurser och få bästa möjliga prestanda.
 
     I Azure Cosmos DB Java SDK V4 är Direct-läget det bästa valet för att förbättra databasens prestanda med de flesta arbets belastningar. 
 
@@ -166,30 +160,21 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
         Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 **kanaler** på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
 
-    * ***ConnectionPolicy konfigurations alternativ för direkt läge***
+    * ***Konfigurations alternativ för direkt läge***
 
-        Dessa konfigurations inställningar styr beteendet för RNTBD-arkitekturen som styr SDK-beteendet för Direct-läge.
-        
-        I det första steget använder du följande rekommenderade konfigurations inställningar nedan. Dessa *ConnectionPolicy* -alternativ är avancerade konfigurations inställningar som kan påverka SDK-prestanda på oväntade sätt. Vi rekommenderar att användarna undviker att ändra dem om de inte känner sig för att förstå kompromisserna och det är absolut nödvändigt. Kontakta Azure Cosmos DB- [teamet](mailto:CosmosDBPerformanceSupport@service.microsoft.com) om du stöter på problem på det här specifika ämnet.
+        Om ett beteende som inte är standard för direkt läge önskas, skapar du en *DirectConnectionConfig* -instans och anpassar dess egenskaper och skickar sedan den anpassade egenskaps instansen till *directMode ()-* metoden i Azure Cosmos DB client Builder.
 
-        Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange *idleEndpointTimeout* till 0 (det vill säga ingen tids gräns).
+        Dessa konfigurations inställningar styr beteendet för den underliggande direkta läges arkitekturen som beskrivs ovan.
 
+        I det första steget använder du följande rekommenderade konfigurations inställningar nedan. Dessa *DirectConnectionConfig* -alternativ är avancerade konfigurations inställningar som kan påverka SDK-prestanda på oväntade sätt. Vi rekommenderar att användarna undviker att ändra dem om de inte känner sig för att förstå kompromisserna och det är absolut nödvändigt. Kontakta Azure Cosmos DB- [teamet](mailto:CosmosDBPerformanceSupport@service.microsoft.com) om du stöter på problem på det här specifika ämnet.
 
-        | Konfigurations alternativ       | Default    |
+        | Konfigurations alternativ       | Standard    |
         | :------------------:       | :-----:    |
-        | bufferPageSize             | 8192       |
-        | connectionTimeout          | "PT1M"     |
-        | idleChannelTimeout         | "PT0S"     |
-        | idleEndpointTimeout        | "PT1M10S"  |
-        | maxBufferCapacity          | 8388608    |
-        | maxChannelsPerEndpoint     | 10         |
-        | maxRequestsPerChannel      | 30         |
-        | receiveHangDetectionTime   | "PT1M5S"   |
-        | requestExpiryInterval      | "PT5S"     |
-        | requestTimeout             | "PT1M"     |
-        | requestTimerResolution     | "PT 0,5 S"   |
-        | sendHangDetectionTime      | "PT10S"    |
-        | shutdownTimeout            | "PT15S"    |
+        | idleConnectionTimeout      | "PT1M"     |
+        | maxConnectionsPerEndpoint  | "PT0S"     |
+        | connectTimeout             | "PT1M10S"  |
+        | idleEndpointTimeout        | 8388608    |
+        | maxRequestsPerConnection   | 10         |
 
 * **Justera parallella frågor för partitionerade samlingar**
 
@@ -322,21 +307,15 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     Den senare stöds men kommer att lägga till svars tid i ditt program. SDK måste parsa objektet och extrahera partitionsnyckel.
 
-## <a name="indexing-policy"></a>Indexeringspolicy
+## <a name="indexing-policy"></a>Indexeringsprincip
  
 * **Utesluta sökvägar som inte används från indexering för att få snabbare skrivning**
 
-    Med Azure Cosmos DB indexerings principen kan du ange vilka dokument Sök vägar som ska tas med eller undantas från indexering genom att använda indexerings Sök vägar (setIncludedPaths och setExcludedPaths). Användningen av indexerings Sök vägar kan ge bättre skriv prestanda och lägre index lagring för scenarier där fråge mönstren är kända i förväg, eftersom indexerings kostnader direkt korreleras med antalet unika sökvägar som indexeras. Följande kod visar till exempel hur du undantar en hel del av dokumenten (kallas även ett under träd) från indexering med jokertecknet "*".
+    Med Azure Cosmos DB indexerings principen kan du ange vilka dokument Sök vägar som ska tas med eller undantas från indexering genom att använda indexerings Sök vägar (setIncludedPaths och setExcludedPaths). Användningen av indexerings Sök vägar kan ge bättre skriv prestanda och lägre index lagring för scenarier där fråge mönstren är kända i förväg, eftersom indexerings kostnader direkt korreleras med antalet unika sökvägar som indexeras. Följande kod visar t. ex. hur du tar med och undantar hela delar av dokumenten (kallas även ett under träd) från indexering med jokertecknet "*".
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos)
-    ```java
-    Index numberIndex = Index.Range(DataType.Number);
-    indexes.add(numberIndex);
-    includedPath.setIndexes(indexes);
-    includedPaths.add(includedPath);
-    indexingPolicy.setIncludedPaths(includedPaths);        
-    containerProperties.setIndexingPolicy(indexingPolicy);
-    ``` 
+
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
 
     Mer information finns i [Azure Cosmos DB indexerings principer](indexing-policies.md).
 

@@ -7,12 +7,12 @@ keywords: dsc, configuration, automation
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e7fec2bee61844ac294e5463bd5bc88ec3fb5e98
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836727"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186086"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Konfigurera en virtuell dator med önskad tillstånds konfiguration
 
@@ -23,7 +23,7 @@ Genom att aktivera Azure Automation tillstånds konfiguration kan du hantera och
 Följande krävs för att slutföra den här snabbstarten:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/).
-* Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
+* Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](./manage-runas-account.md).
 * En Azure Resource Manager virtuell dator (inte klassisk) som kör Red Hat Enterprise Linux, CentOS eller Oracle Linux. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Linux-dator i Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -31,7 +31,7 @@ Logga in på Azure på https://portal.azure.com .
 
 ## <a name="enable-a-virtual-machine"></a>Aktivera en virtuell dator
 
-Det finns många olika metoder för att aktivera en dator för tillstånds konfigurations funktion. Den här snabb starten visar hur du aktiverar funktionen för en virtuell dator med ett Automation-konto. Du kan lära dig mer om olika metoder för att aktivera dina datorer för tillstånds konfiguration genom [att läsa aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
+Det finns många olika metoder för att aktivera en dator för tillstånds konfigurations funktion. Den här snabb starten visar hur du aktiverar funktionen för en virtuell dator med ett Automation-konto. Du kan lära dig mer om olika metoder för att aktivera dina datorer för tillstånds konfiguration genom [att läsa aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration](./automation-dsc-onboarding.md).
 
 1. I det vänstra fönstret i Azure Portal väljer du **Automation-konton**. Om den inte visas i den vänstra rutan klickar du på **alla tjänster** och söker i den resulterande vyn.
 1. Välj ett Automation-konto i listan.
@@ -39,7 +39,7 @@ Det finns många olika metoder för att aktivera en dator för tillstånds konfi
 2. Klicka på **Lägg till** att öppna sidan för att välja virtuell dator.
 3. Hitta den virtuella dator som du vill aktivera DSC för. Du kan använda sökfältet och filteralternativ för att hitta en viss virtuell dator.
 4. Klicka på den virtuella datorn och klicka sedan på **Anslut**
-5. Välj lämpliga DSC-inställningar för den virtuella datorn. Om du redan har för berett en konfiguration kan du ange den som `Node Configuration Name` . Du kan ställa in [konfigurationsläget](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) på att styra datorns konfigurationsbeteende.
+5. Välj lämpliga DSC-inställningar för den virtuella datorn. Om du redan har för berett en konfiguration kan du ange den som `Node Configuration Name` . Du kan ställa in [konfigurationsläget](/powershell/scripting/dsc/managing-nodes/metaConfig) på att styra datorns konfigurationsbeteende.
 6. Klicka på **OK**. När DSC-tillägget distribueras till den virtuella datorn visas statusen som `Connecting` .
 
 ![Aktivera en virtuell Azure-dator för DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -57,9 +57,9 @@ Moduler innehåller DSC-resurser och många hittar du i [PowerShell-galleriet](h
 
 ## <a name="import-the-configuration"></a>Importera konfigurationen
 
-I den här snabbstarten används en DSC-konfiguration som konfigurerar Apache HTTP Server, MySQL och PHP på datorn. Se [DSC-konfigurationer](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
+I den här snabbstarten används en DSC-konfiguration som konfigurerar Apache HTTP Server, MySQL och PHP på datorn. Se [DSC-konfigurationer](/powershell/scripting/dsc/configurations/configurations).
 
-Skriv följande i en text redigerare och spara den lokalt som **AMPServer. ps1**.
+Skriv följande i en text redigerare och spara den lokalt som **AMPServer.ps1**.
 
 ```powershell-interactive
 configuration LAMPServer {

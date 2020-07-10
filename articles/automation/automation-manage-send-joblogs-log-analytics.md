@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835263"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186205"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 
@@ -27,8 +28,8 @@ Azure Automation kan skicka Runbook-jobbets status och jobb strömmar till arbet
 
 För att börja skicka dina Automation-loggar till Azure Monitor loggar behöver du:
 
-* Den senaste versionen av [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* En Log Analytics-arbetsyta. Mer information finns i [Kom igång med Azure Monitor loggar](../log-analytics/log-analytics-get-started.md).
+* Den senaste versionen av [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* En Log Analytics-arbetsyta. Mer information finns i [Kom igång med Azure Monitor loggar](../azure-monitor/overview.md).
 * Resurs-ID för ditt Azure Automation-konto.
 
 Använd följande kommando för att hitta resurs-ID: t för ditt Azure Automation-konto:
@@ -185,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du skapar Sök frågor och granskar automatiserings jobb loggar med Azure Monitor loggar finns i [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Information om hur du skapar Sök frågor och granskar automatiserings jobb loggar med Azure Monitor loggar finns i [loggs ökningar i Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md).
 * Information om hur du skapar och hämtar utdata och fel meddelanden från Runbooks finns i [övervaka Runbook-utdata](automation-runbook-output-and-messages.md).
 * Mer information om Runbook-körning, hur du övervakar Runbook-jobb och annan teknisk information finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
-* Mer information om Azure Monitor loggar och data insamlings källor finns i [samla in Azure Storage-data i Azure Monitor loggar översikt](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Mer information om Azure Monitor loggar och data insamlings källor finns i [samla in Azure Storage-data i Azure Monitor loggar översikt](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 * Information om hur du felsöker Log Analytics finns i [fel sökning varför Log Analytics inte längre samlar in data](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

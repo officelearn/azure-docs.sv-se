@@ -3,12 +3,12 @@ title: AMQP 1,0 i Azure Service Bus-och Event Hubss protokoll guide | Microsoft 
 description: Protokoll guide till uttryck och beskrivning av AMQP 1,0 i Azure Service Bus och Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337892"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186919"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
 
@@ -223,7 +223,7 @@ Alla egenskaper som programmet måste definiera ska mappas till AMQP- `applicati
 | meddelande-ID |Programdefinierad, fri format identifierare för det här meddelandet. Används för dubblettidentifiering. |[Meddelande](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | användar-id |Programdefinierad användar identifierare, tolkas inte av Service Bus. |Inte tillgänglig via Service Bus API. |
 | till |Programdefinierad mål identifierare, tolkas inte av Service Bus. |[Att](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| motiv |Programdefinierad identifierare för meddelande syfte, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| Ämne |Programdefinierad identifierare för meddelande syfte, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | svar till |Programdefinierad svars Sök vägs indikator, tolkas inte av Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | korrelations-id |Programdefinierad korrelations identifierare, tolkas inte av Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | innehålls typ |Programdefinierad innehålls typ indikator för bröd texten, tolkas inte av Service Bus. |[Innehålls](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -264,8 +264,8 @@ Varje anslutning måste initiera en egen kontroll länk för att kunna starta oc
 
 För att starta transaktions arbetet. kontrollanten måste hämta en `txn-id` från koordinatorn. Det gör detta genom att skicka ett `declare` typ meddelande. Om deklarationen lyckas svarar koordinatorn med ett dispositions resultat som har tilldelats `txn-id` .
 
-| Klient (Controller) | | Service Bus (koordinator) |
-| --- | --- | --- |
+| Klient (Controller) | Riktning | Service Bus (koordinator) |
+| :--- | :---: | :--- |
 | Fäst<br/>namn = {Link Name},<br/>... ,<br/>roll =**avsändare**,<br/>Target =**koordinator**<br/>) | ------> |  |
 |  | <------ | Fäst<br/>namn = {Link Name},<br/>... ,<br/>Target = koordinator ()<br/>) |
 | Gireringsblankett<br/>leverans-ID = 0,...)<br/>{AmqpValue (**Declare ()**)}| ------> |  |
@@ -277,8 +277,8 @@ Styrenheten avslutar transaktions arbetet genom att skicka ett `discharge` medde
 
 > Obs!: misslyckande = sant refererar till återställning av en transaktion och redundansväxla = falskt refererar till genomför.
 
-| Klient (Controller) | | Service Bus (koordinator) |
-| --- | --- | --- |
+| Klient (Controller) | Riktning | Service Bus (koordinator) |
+| :--- | :---: | :--- |
 | Gireringsblankett<br/>leverans-ID = 0,...)<br/>{AmqpValue (declare ())}| ------> |  |
 |  | <------ | disposition <br/> första = 0, senaste = 0, <br/>State = deklarerad (<br/>TXN-ID = {transaktions-ID}<br/>))|
 | | . . . <br/>Transaktions arbete<br/>på andra länkar<br/> . . . |
@@ -289,8 +289,8 @@ Styrenheten avslutar transaktions arbetet genom att skicka ett `discharge` medde
 
 Alla transaktions arbeten görs med det transaktions leverans tillstånd `transactional-state` som bär TXN-ID: t. Vid sändning av meddelanden utförs transaktions statusen av meddelandets överförings ram. 
 
-| Klient (Controller) | | Service Bus (koordinator) |
-| --- | --- | --- |
+| Klient (Controller) | Riktning | Service Bus (koordinator) |
+| :--- | :---: | :--- |
 | Gireringsblankett<br/>leverans-ID = 0,...)<br/>{AmqpValue (declare ())}| ------> |  |
 |  | <------ | disposition <br/> första = 0, senaste = 0, <br/>State = deklarerad (<br/>TXN-ID = {transaktions-ID}<br/>))|
 | Gireringsblankett<br/>Referens = 1,<br/>leverans-ID = 1, <br/>**tillstånd = <br/> TransactionalState ( <br/> TXN-ID = 0)**)<br/>innehållet| ------> |  |
@@ -300,8 +300,8 @@ Alla transaktions arbeten görs med det transaktions leverans tillstånd `transa
 
 Meddelande dispositionen innehåller åtgärder som `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer` . Om du vill utföra dessa åtgärder i en transaktion måste du skicka `transactional-state` med dispositionen.
 
-| Klient (Controller) | | Service Bus (koordinator) |
-| --- | --- | --- |
+| Klient (Controller) | Riktning | Service Bus (koordinator) |
+| :--- | :---: | :--- |
 | Gireringsblankett<br/>leverans-ID = 0,...)<br/>{AmqpValue (declare ())}| ------> |  |
 |  | <------ | disposition <br/> första = 0, senaste = 0, <br/>State = deklarerad (<br/>TXN-ID = {transaktions-ID}<br/>))|
 | | <------ |Gireringsblankett<br/>referens = 2,<br/>leverans-ID = 11, <br/>State = null)<br/>innehållet|  
@@ -357,16 +357,16 @@ Protokoll-gesten är ett fråge-/svars utbyte som definieras av hanterings speci
 
 Begär ande meddelandet har följande program egenskaper:
 
-| Tangent | Valfritt | Värdetyp | Värde innehåll |
+| Nyckel | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| reparation |No |sträng |**Skicka token** |
-| typ |No |sträng |Typ av token som ska beställas. |
-| name |No |sträng |Mål gruppen som token gäller. |
+| reparation |Nej |sträng |**Skicka token** |
+| typ |Nej |sträng |Typ av token som ska beställas. |
+| name |Nej |sträng |Mål gruppen som token gäller. |
 | dag |Ja |timestamp |Utgångs tiden för token. |
 
 Egenskapen *Name* identifierar den entitet som token ska associeras med. I Service Bus är det sökvägen till kön, eller ämnet/prenumerationen. *Typ* egenskapen identifierar tokentypen:
 
-| Tokentyp | Beskrivning av token | Typ av brödtext | Obs! |
+| Tokentyp | Beskrivning av token | Typ av brödtext | Anteckningar |
 | --- | --- | --- | --- |
 | AMQP: JWT |JSON Web Token (JWT) |AMQP-värde (sträng) |Ännu inte tillgängligt. |
 | AMQP: SWT |Enkel webb-token (SWT) |AMQP-värde (sträng) |Stöds endast för SWT-token som utfärdats av AAD/ACS |
@@ -376,9 +376,9 @@ Tokens ger behörighet. Service Bus vet om tre grundläggande rättigheter: "Ski
 
 Svarsmeddelandet har följande *program egenskaps* värden
 
-| Tangent | Valfritt | Värdetyp | Värde innehåll |
+| Nyckel | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| status kod |No |int |HTTP-svarskod **[RFC2616]**. |
+| status kod |Nej |int |HTTP-svarskod **[RFC2616]**. |
 | status-Beskrivning |Ja |sträng |Beskrivning av status. |
 
 Klienten kan anropa in *-token* upprepade gånger och för alla entiteter i meddelande infrastrukturen. Token är begränsade till den aktuella klienten och fästs på den aktuella anslutningen, vilket innebär att servern släpper alla kvarhållna token när anslutningen uppkommer.
@@ -399,8 +399,8 @@ Med den här funktionen skapar du en avsändare och upprättar länken till `via
 
 > Obs! autentisering måste utföras för både *via-och-* målentiteten *innan* den här länken upprättas.
 
-| Klient | | Service Bus |
-| --- | --- | --- |
+| Klient | Riktning | Service Bus |
+| :--- | :---: | :--- |
 | Fäst<br/>namn = {Link Name},<br/>roll = avsändare,<br/>Källa = {klient länk-ID},<br/>mål =**{via-Entity}**,<br/>**Egenskaper = mappa [( <br/> com. Microsoft: Transfer-Address-address = <br/> {destination-entitet})]** ) | ------> | |
 | | <------ | Fäst<br/>namn = {Link Name},<br/>roll = mottagare,<br/>Källa = {klient länk-ID},<br/>mål = {via-Entity},<br/>egenskaper = Map [(<br/>com. Microsoft: Transfer-destination-Address =<br/>{destination – entitet})] ) |
 

@@ -3,12 +3,12 @@ title: Konfigurera utvecklings miljön i Linux
 description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När den här installationen är klar kan du börja bygga program.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8610feb68e16646c73c132c0577fd3ff198d74b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854799"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186902"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ Stegen i den här artikeln förutsätter att du installerar internt på Linux el
 Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Du kan hantera Service Fabric-entiteter som finns någon annanstans i molnet eller i den lokala infrastrukturen med kommandoradsgränssnittet (CLI) för Azure Service Fabric, som stöds. Information om hur du installerar kommandoradsgränssnittet finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande operativsystemversioner stöds för utveckling:
 
@@ -161,8 +161,8 @@ Service Fabric Runtime som medföljer SDK-installationen innehåller paketen i f
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1,8 | Implicit från npm | senaste |
-RHEL | - | OpenJDK 1.8 | Implicit från npm | senaste |
+**Ubuntu** | 2.0.0 | AzulJDK 1,8 | Implicit från npm | senaste |
+**RHEL** | - | OpenJDK 1.8 | Implicit från npm | senaste |
 
 ## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
 Starta ett lokalt kluster när installationen är klar.

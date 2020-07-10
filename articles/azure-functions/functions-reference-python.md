@@ -4,11 +4,12 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730755"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170385"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -337,7 +338,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 Om du vill hämta anrops kontexten för en funktion under körningen ska du inkludera [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argumentet i signaturen.
 
-Ett exempel:
+Exempel:
 
 ```python
 import azure.functions
@@ -427,17 +428,15 @@ När du är redo att publicera ser du till att alla dina offentligt tillgänglig
 
 Projektfiler och mappar som undantas från publicering, inklusive mappen för virtuella miljöer, visas i. funcignore-filen.
 
-Det finns tre Bygg åtgärder som stöds för att publicera ditt python-projekt till Azure:
+Det finns tre Bygg åtgärder som stöds för att publicera ditt python-projekt till Azure: fjärran sluten version, lokal version och build med anpassade beroenden.
 
-+ Fjärrversion: beroenden hämtas via fjärr anslutning baserat på innehållet i requirements.txts filen. [Fjärran slutet](functions-deployment-technologies.md#remote-build) är den rekommenderade build-metoden. Remote är också standard alternativet build för Azure-verktyg.
-+ Lokal version: beroenden hämtas lokalt baserat på innehållet i requirements.txts filen.
-+ Anpassade beroenden: ditt projekt använder paket som inte är offentligt tillgängliga för våra verktyg. (Kräver Docker.)
-
-[Använd Azure-pipeline](functions-how-to-azure-devops.md)för att bygga dina beroenden och publicera med ett kontinuerligt leverans system (CD).
+Du kan också använda Azure-pipelines för att bygga dina beroenden och publicera med kontinuerlig leverans (CD). Läs mer i [kontinuerlig leverans med hjälp av Azure-DevOps](functions-how-to-azure-devops.md).
 
 ### <a name="remote-build"></a>Fjärrversion
 
-Som standard begär Azure Functions Core Tools en fjärr anslutning när du använder följande [FUNC Azure functionapp Publish](functions-run-local.md#publish) -kommando för att publicera ditt python-projekt till Azure.
+När du använder fjärran sluten build matchas beroenden som återställs på servern och ursprungliga beroenden till produktions miljön. Detta resulterar i ett mindre distributions paket att ladda upp. Använd fjärran sluten skapande när du utvecklar python-appar i Windows. Om ditt projekt har anpassade beroenden kan du [använda fjärrbuild med extra index-URL](#remote-build-with-extra-index-url). 
+ 
+Beroenden hämtas via fjärr anslutning baserat på innehållet i requirements.txts filen. [Fjärran slutet](functions-deployment-technologies.md#remote-build) är den rekommenderade build-metoden. Som standard begär Azure Functions Core Tools en fjärr anslutning när du använder följande [FUNC Azure functionapp Publish](functions-run-local.md#publish) -kommando för att publicera ditt python-projekt till Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -449,7 +448,7 @@ Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
 ### <a name="local-build"></a>Lokal version
 
-Du kan förhindra en fjärran sluten version genom att använda följande [FUNC Azure functionapp Publish](functions-run-local.md#publish) -kommando för att publicera med en lokal version.
+Beroenden hämtas lokalt baserat på innehållet i requirements.txts filen. Du kan förhindra en fjärran sluten version genom att använda följande [FUNC Azure functionapp Publish](functions-run-local.md#publish) -kommando för att publicera med en lokal version.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -457,9 +456,21 @@ func azure functionapp publish <APP_NAME> --build local
 
 Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
-Med `--build local` alternativet läses projekt beroenden från requirements.txt-filen och de beroende paketen hämtas och installeras lokalt. Projektfiler och beroenden distribueras från den lokala datorn till Azure. Detta innebär att ett större distributions paket överförs till Azure. Om det av någon anledning inte går att hämta beroenden i requirements.txt-filen av kärn verktyg måste du använda alternativet anpassade beroenden för att publicera.
+Med `--build local` alternativet läses projekt beroenden från requirements.txt-filen och de beroende paketen hämtas och installeras lokalt. Projektfiler och beroenden distribueras från den lokala datorn till Azure. Detta innebär att ett större distributions paket överförs till Azure. Om det av någon anledning inte går att hämta beroenden i requirements.txt-filen av kärn verktyg måste du använda alternativet anpassade beroenden för att publicera. 
+
+Vi rekommenderar inte att du använder lokala versioner när du utvecklar lokalt i Windows.
 
 ### <a name="custom-dependencies"></a>Anpassade beroenden
+
+När projektet har beroenden som inte finns i [python-paketets index](https://pypi.org/), finns det två sätt att bygga projektet. Build-metoden beror på hur du bygger projektet.
+
+#### <a name="remote-build-with-extra-index-url"></a>Fjärrbuild med extra index-URL
+
+När dina paket är tillgängliga från ett tillgängligt anpassat paket index använder du en fjärran sluten version. Innan du publicerar bör du se till att [skapa en app-inställning](functions-how-to-use-azure-function-app-settings.md#settings) med namnet `PIP_EXTRA_INDEX_URL` . Värdet för den här inställningen är URL: en för det anpassade paket indexet. Med den här inställningen anger du att fjärrversionen ska köras `pip install` med `--extra-index-url` alternativet. Mer information finns i [installations dokumentationen för python pip](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format). 
+
+Du kan också använda grundläggande autentiseringsuppgifter för autentisering med dina extra paket index-URL: er. Mer information finns i [grundläggande autentiseringsuppgifter för autentisering](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) i python-dokumentationen.
+
+#### <a name="install-local-packages"></a>Installera lokala paket
 
 Om ditt projekt använder paket som inte är offentligt tillgängliga för våra verktyg kan du göra dem tillgängliga för din app genom att placera dem i \_ \_ appen \_ \_ /. python_packages-katalogen. Innan du publicerar kör du följande kommando för att installera beroendena lokalt:
 
@@ -467,7 +478,7 @@ Om ditt projekt använder paket som inte är offentligt tillgängliga för våra
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-När du använder anpassade beroenden bör du använda `--no-build` alternativet Publicera eftersom du redan har installerat beroendena.
+När du använder anpassade beroenden bör du använda `--no-build` alternativet Publicera eftersom du redan har installerat beroenden i projektmappen.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773661"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170827"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API 
 
@@ -32,32 +33,34 @@ Media Services tillhandahåller en REST API som accepterar både JSON-eller Atom
 
 Autentisering till Media Services REST API görs genom Azure Active Directory autentisering som beskrivs i artikeln [Använd Azure AD-autentisering för att få åtkomst till Azure Media Services API med rest](media-services-rest-connect-with-aad.md)
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Följande överväganden gäller när du använder REST.
 
 * När du frågar entiteter, finns det en gräns på 1000 entiteter som returneras vid en tidpunkt eftersom offentliga REST v2 begränsar frågeresultat till 1000-resultat. Du måste använda **hoppa över** och **ta** (.net)/ **Top** (rest) enligt beskrivningen i [det här .net-exemplet](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [REST API exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 * När du använder JSON och anger att ska använda **__metadata** nyckelordet i begäran (t. ex. för att referera till ett länkat objekt) måste du ange formatet för att **ta emot** sidhuvud till [JSON](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (se följande exempel). OData förstår inte **__metadata** egenskapen i begäran, om du inte anger den som utförlig.  
-  
-        POST https://media.windows.net/API/Jobs HTTP/1.1
-        Content-Type: application/json;odata=verbose
-        Accept: application/json;odata=verbose
-        DataServiceVersion: 3.0
-        MaxDataServiceVersion: 3.0
-        x-ms-version: 2.19
-        Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
-  
-        {
-            "Name" : "NewTestJob", 
-            "InputMediaAssets" : 
-                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-        . . . 
+
+    ```console
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.19
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.windows.net
+
+    {
+        "Name" : "NewTestJob", 
+        "InputMediaAssets" : 
+            [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+    . . . 
+   ```
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard-HTTP-begärandehuvuden som stöds av Media Services
 För varje anrop du gör i Media Services finns det en uppsättning obligatoriska huvuden som du måste inkludera i din begäran och även en uppsättning valfria huvuden som du kanske vill inkludera. I tabellen nedan visas de huvuden som krävs:
 
-| Sidhuvud | Typ | Värde |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
 | Auktorisering |Bearer |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
 | x-MS-version |Decimal |2,17 (eller senaste versionen)|
@@ -71,7 +74,7 @@ För varje anrop du gör i Media Services finns det en uppsättning obligatorisk
 
 Följande är en uppsättning valfria huvuden:
 
-| Sidhuvud | Typ | Värde |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
 | Datum |RFC 1123-datum |Tidsstämpel för begäran |
 | Acceptera |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
@@ -85,7 +88,7 @@ Följande är en uppsättning valfria huvuden:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standard-HTTP-svarshuvuden som stöds av Media Services
 Följande är en uppsättning huvuden som kan returneras till dig, beroende på vilken resurs du begärde och vilka åtgärder du avsåg att utföra.
 
-| Sidhuvud | Typ | Värde |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
 | begärande-ID |Sträng |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
 | klient-begärande-ID |Sträng |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
@@ -98,7 +101,7 @@ Följande är en fullständig lista över HTTP-verb som kan användas när du g�
 
 | Verb | Beskrivning |
 | --- | --- |
-| HÄMTA |Returnerar det aktuella värdet för ett objekt. |
+| GET |Returnerar det aktuella värdet för ett objekt. |
 | POST |Skapar ett objekt baserat på angivna data eller skickar ett kommando. |
 | PUT |Ersätter ett objekt, eller skapar ett namngivet objekt (om tillämpligt). |
 | DELETE |Tar bort ett objekt. |

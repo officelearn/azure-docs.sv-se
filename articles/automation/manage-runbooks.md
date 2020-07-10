@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9202eae49175615c4fffcd0b006ddda6e8281292
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb5eb18351f6411a8049e962deed35e5d8f181d9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718316"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185253"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -34,7 +35,7 @@ Skapa en ny Runbook i Azure Automation med hjälp av Azure Portal eller Windows 
 
 ### <a name="create-a-runbook-with-powershell"></a>Skapa en Runbook med PowerShell
 
-Använd cmdleten [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) för att skapa en tom Runbook. Använd `Type` parametern för att ange en av de definierade Runbook-typerna `New-AzAutomationRunbook` .
+Använd cmdleten [New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) för att skapa en tom Runbook. Använd `Type` parametern för att ange en av de definierade Runbook-typerna `New-AzAutomationRunbook` .
 
 I följande exempel visas hur du skapar en ny tom Runbook.
 
@@ -76,7 +77,7 @@ Du kan använda följande procedur för att importera en skript fil till Azure A
 
 ### <a name="import-a-runbook-with-windows-powershell"></a>Importera en Runbook med Windows PowerShell
 
-Använd cmdleten [import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) för att importera en skript fil som ett utkast till en Runbook. Om det redan finns en Runbook Miss lyckas importen om du inte använder `Force` parametern med cmdleten.
+Använd cmdleten [import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) för att importera en skript fil som ett utkast till en Runbook. Om det redan finns en Runbook Miss lyckas importen om du inte använder `Force` parametern med cmdleten.
 
 I följande exempel visas hur du importerar en skript fil till en Runbook.
 
@@ -191,7 +192,7 @@ Om din Runbook normalt körs inom en tids gräns, ska skriptet implementera logi
 
 ## <a name="work-with-multiple-subscriptions"></a>Arbeta med flera prenumerationer
 
-Din Runbook måste kunna arbeta med [prenumerationer](automation-runbook-execution.md#subscriptions). Om du till exempel vill hantera flera prenumerationer använder Runbook cmdleten [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Den här cmdleten säkerställer att autentiserings kontexten inte hämtas från en annan Runbook som körs i samma sandbox. Runbooken använder också `Get-AzContext` cmdleten för att hämta kontexten för den aktuella sessionen och tilldelar den till variabeln `$AzureContext` .
+Din Runbook måste kunna arbeta med [prenumerationer](automation-runbook-execution.md#subscriptions). Om du till exempel vill hantera flera prenumerationer använder Runbook cmdleten [disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Den här cmdleten säkerställer att autentiserings kontexten inte hämtas från en annan Runbook som körs i samma sandbox. Runbooken använder också `Get-AzContext` cmdleten för att hämta kontexten för den aktuella sessionen och tilldelar den till variabeln `$AzureContext` .
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -256,7 +257,7 @@ När du skapar eller importerar en ny Runbook måste du publicera den innan du k
 
 ### <a name="publish-a-runbook-using-powershell"></a>Publicera en Runbook med hjälp av PowerShell
 
-Använd cmdleten [Publish-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) för att publicera din Runbook. 
+Använd cmdleten [Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) för att publicera din Runbook. 
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -304,7 +305,7 @@ Du kan också Visa jobb sammanfattnings information för en angiven Runbook geno
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Hämta jobb status med PowerShell
 
-Använd cmdleten [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) för att hämta jobb som skapats för en Runbook och information om ett visst jobb. Om du startar en Runbook med `Start-AzAutomationRunbook` , returnerar den det resulterande jobbet. Använd [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) för att hämta jobbets utdata.
+Använd cmdleten [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) för att hämta jobb som skapats för en Runbook och information om ett visst jobb. Om du startar en Runbook med `Start-AzAutomationRunbook` , returnerar den det resulterande jobbet. Använd [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) för att hämta jobbets utdata.
 
 Följande exempel hämtar det senaste jobbet för en exempel-Runbook och visar dess status, de värden som har angetts för Runbook-parametrarna och jobbets utdata.
 

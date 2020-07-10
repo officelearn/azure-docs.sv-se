@@ -16,11 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8928e7293f184e8eb366df6a29e50cbea6a7c93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078207"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170504"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -53,7 +54,7 @@ Se följande videoklipp om du vill ha en demonstration av hur du lägger till en
 
 Följ anvisningarna i det här avsnittet om du vill lägga till en extern Azure AD-katalog eller domän som en ansluten organisation.
 
-**Nödvändig roll**: *Global administratör*, *användar administratör*eller *gäst deltagare*
+**Nödvändig roll**: *Global administratör* eller *användar administratör*
 
 1. I Azure Portal väljer du **Azure Active Directory**och väljer sedan **identitets styrning**.
 

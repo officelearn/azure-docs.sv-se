@@ -5,16 +5,16 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 35d408c636e20aef9495e72bc8535e0d7a99431e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955276"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170368"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
-Med Azure Functions Core Tools kan du utveckla och testa dina funktioner på den lokala datorn från kommando tolken eller terminalen. Dina lokala funktioner kan ansluta till Live Azure-tjänster, och du kan felsöka funktionerna på din lokala dator med hjälp av körnings funktionen för fullständiga funktioner. Du kan även distribuera en Function-app till din Azure-prenumeration.
+Med Azure Functions Core Tools kan du utveckla och testa funktioner på din lokala dator från kommandotolken eller terminalen. Dina lokala funktioner kan ansluta till Live Azure-tjänster, och du kan felsöka funktionerna på din lokala dator med hjälp av körnings funktionen för fullständiga funktioner. Du kan även distribuera en Function-app till din Azure-prenumeration.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
@@ -116,15 +116,15 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. Konfigurera listan med .NET-utvecklings källor innan du gör en APT uppdatering.
+1. Konfigurera APT-källistan innan du gör en APT-uppdatering.
 
-   Kör följande kommando för att ställa in APT-källistan för Ubuntu:
+    ##### <a name="ubuntu"></a>Ubuntu
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-   Kör följande kommando för att ställa in APT-källistan för Debian:
+    ##### <a name="debian"></a>Debian
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -136,6 +136,7 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
+    | Ubuntu 20,04    | `focal`     |
     | Ubuntu 19,04    | `disco`     |
     | Ubuntu 18,10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -204,24 +205,19 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init`stöder följande alternativ, som är version 3. x/2. x-Only, om inget annat anges:
 
-| Alternativ     | Description                            |
+| Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--csharp`**<br/> **`--dotnet`** | Initierar ett [C#-projekt (klass bibliotek)](functions-dotnet-class-library.md). |
-| **`--csx`** | Initierar ett [C#-skript (. CSX)-projekt](functions-reference-csharp.md). Du måste ange `--csx` i efterföljande kommandon. |
-| **`--docker`** | Skapa en Dockerfile för en behållare med hjälp av en bas avbildning som baseras på vald `--worker-runtime` . Använd det här alternativet när du planerar att publicera till en anpassad Linux-behållare. |
+| **`--csx`** | Skapar .NET-funktioner som C#-skript, vilket är beteendet för version 1. x. Endast giltig med `--worker-runtime dotnet` . |
+| **`--docker`** | Skapar en Dockerfile för en behållare med hjälp av en bas avbildning som baseras på vald `--worker-runtime` . Använd det här alternativet när du planerar att publicera till en anpassad Linux-behållare. |
 | **`--docker-only`** |  Lägger till en Dockerfile i ett befintligt projekt. Prompter för Worker-körning om inget anges eller anges i local.settings.jspå. Använd det här alternativet när du planerar att publicera ett befintligt projekt i en anpassad Linux-behållare. |
 | **`--force`** | Initiera projektet även när det finns befintliga filer i projektet. Den här inställningen skriver över befintliga filer med samma namn. Andra filer i projektmappen påverkas inte. |
-| **`--java`**  | Initierar ett [Java-projekt](functions-reference-java.md). |
-| **`--javascript`**<br/>**`--node`**  | Initierar ett [JavaScript-projekt](functions-reference-node.md). |
-| **`--no-source-control`**<br/>**`-n`** | Förhindrar att en git-lagringsplats skapas som standard i version 1. x. Git-lagringsplatsen skapas inte som standard i version 3. x/2. x. |
-| **`--powershell`**  | Initierar ett [PowerShell-projekt](functions-reference-powershell.md). |
-| **`--python`**  | Initierar ett [python-projekt](functions-reference-python.md). |
+| **`--language`** | Initierar ett språkspecifikt projekt. Stöds för närvarande när det är `--worker-runtime` inställt på `node` . Alternativen är `typescript` och `javascript` . Du kan också använda `--worker-runtime javascript` eller `--worker-runtime typescript` .  |
+| **`--managed-dependencies`**  | Installerar hanterade beroenden. För närvarande stöder bara PowerShell Worker runtime den här funktionen. |
 | **`--source-control`** | Anger om en git-lagringsplats skapas. Som standard skapas inte en lagrings plats. När `true` skapas en lagrings plats. |
-| **`--typescript`**  | Initierar ett [typescript-projekt](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är: `csharp` , `dotnet` ,, `java` `javascript` , `node` (Java Script), `powershell` , `python` , och `typescript` . När du inte har angett uppmanas du att välja din körning under initieringen. |
-
+| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är: `csharp` , `dotnet` , `javascript` , `node` (Java Script), `powershell` , `python` , och `typescript` . För Java använder du [maven](functions-reference-java.md#create-java-functions). När du inte har angett uppmanas du att välja din körning under initieringen. |
+|
 > [!IMPORTANT]
-> Som standard skapar version 3. x/2. x av kärn verktygen Function app-projekt för .NET-körningen som [C#-klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C#-skript (. CSX) som skapats i version 1. x och i portalen måste du inkludera `--csx` parametern när du skapar och distribuerar funktioner.
+> Som standard skapar version 2. x och senare versioner av kärn verktygen Function app-projekt för .NET-körningen som [C#-klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C#-skript (. CSX) som skapats i version 1. x och i portalen måste du inkludera `--csx` parametern när du skapar och distribuerar funktioner.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -235,6 +231,8 @@ Värdena för funktionen app-inställningar kan också läsas i koden som miljö
 * [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsStorage`] och emulatorn inte används visas följande fel meddelande:
 
@@ -305,12 +303,13 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Du kan också ange alternativen i kommandot med följande argument:
 
-| Argument     | Description                            |
+| Argument     | Beskrivning                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (Version 3. x/2. x) Genererar samma C#-skript (. CSX) mallar som används i version 1. x och i portalen. |
-| **`--language`**, **`-l`**| Programmeringsspråket för mallar, till exempel C#, F # eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet eller Välj ett språk som matchar Worker runtime i version 3. x/2. x. |
+| **`--csx`** | (Version 2. x och senare versioner.) Genererar samma C#-skript (. CSX) mallar som används i version 1. x och i portalen. |
+| **`--language`**, **`-l`**| Programmeringsspråket för mallar, till exempel C#, F # eller Java Script. Det här alternativet krävs i version 1. x. I version 2. x och senare versioner ska du inte använda det här alternativet eller välja ett språk som matchar Worker-körningen. |
 | **`--name`**, **`-n`** | Funktions namnet. |
 | **`--template`**, **`-t`** | Använd `func templates list` kommandot för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
+
 
 Om du till exempel vill skapa en JavaScript-HTTP-utlösare i ett enda kommando kör du:
 
@@ -364,14 +363,13 @@ npm start
 
 `func start`stöder följande alternativ:
 
-| Alternativ     | Description                            |
+| Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Skapa inte aktuellt projekt innan det körs. Endast för dotNET-projekt. Standardvärdet är inställt på falskt. Stöds inte för version 1. x. |
-| **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps` . Stöds inte för version 1. x. |
 | **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) stöds inte för version 1. x. |
 | **`--cors`** | En kommaavgränsad lista med CORS-ursprung, utan blank steg. |
 | **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Stöds inte för version 1. x. |
-| **`--nodeDebugPort`**, **`-n`** | Porten för Node.js fel söknings programmet som ska användas. Standard: ett värde från launch.jspå eller 5858. Endast version 1. x. |
+| **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps` . Stöds inte för version 1. x. |
 | **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert` . Stöds inte för version 1. x. |
 | **`--port`**, **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
@@ -405,7 +403,7 @@ Mer allmän information om testning av funktioner finns [i strategier för att t
 
 Du anropar följande slut punkt för att köra HTTP-och webhook-utlösta funktioner lokalt:
 
-```http
+```
 http://localhost:{port}/api/{function_name}
 ```
 
@@ -441,7 +439,7 @@ Du kan också skicka test data till körningen i bröd texten i POST-begäran. D
 
 Du anropar följande administratörs slut punkt för att utlösa icke-HTTP-funktioner:
 
-```http
+```
 http://localhost:{port}/admin/functions/{function_name}
 ```
 
@@ -474,7 +472,7 @@ I version 1. x kan du också anropa en funktion direkt genom att använda `func 
 
 `func run`stöder följande alternativ:
 
-| Alternativ     | Description                            |
+| Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Infogat innehåll. |
 | **`--debug`**, **`-d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
@@ -511,16 +509,16 @@ Det här kommandot publicerar till en befintlig Function-app i Azure. Du får et
 > När du skapar en Function-app i Azure Portal, använder den version 3. x av funktionens körning som standard. Om du vill att Function-appen ska använda version 1. x av körnings miljön följer du anvisningarna i [köra på version 1. x](functions-versions.md#creating-1x-apps).
 > Du kan inte ändra körnings versionen för en Function-app som har befintliga funktioner.
 
-Följande publicerings alternativ gäller för versionerna 3. x, 2. x och 1. x:
+Följande publicerings alternativ gäller för alla versioner:
 
-| Alternativ     | Description                            |
+| Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publicera inställningar i local.settings.jspå till Azure och ange överskrivning om inställningen redan finns. Om du använder Microsoft Azure Storage-emulator måste du först ändra appens inställning till en [faktisk lagrings anslutning](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Utelämna uppmaningen att skriva över app-inställningar när `--publish-local-settings -i` används.|
 
-Följande publicerings alternativ stöds bara i version 3. x och 2. x:
+Följande publicerings alternativ stöds bara för version 2. x och senare versioner:
 
-| Alternativ     | Description                            |
+| Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på. funcignore-filen. |
@@ -528,10 +526,10 @@ Följande publicerings alternativ stöds bara i version 3. x och 2. x:
 | **`--nozip`** | Stänger av standard `Run-From-Package` läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
 | **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
-| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Exempel: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Här är ett exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C#-skript (. CSX)-projekt. |
-| **`--no-build`** | Bygg inte funktioner i .NET-klass bibliotek. |
+| **`--no-build`** | Projektet har inte skapats under publiceringen. För python `pip install` utförs inte. |
 | **`--dotnet-cli-params`** | När du publicerar kompilerade C#-funktioner (. CSPROJ) anropar kärn verktygen "dotNet build--output bin/Publish". Alla parametrar som skickas till detta läggs till i kommando raden. |
 
 ### <a name="deploy-custom-container"></a>Distribuera anpassad behållare
@@ -544,7 +542,7 @@ func deploy
 
 Följande alternativ för distribution av anpassade behållare är tillgängliga:
 
-| Alternativ     | Description                            |
+| Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Namnet på ett Docker-register som den aktuella användaren har loggat in på. |
 | **`--platform`** | Värd plattform för Function-appen. Giltiga alternativ är`kubernetes` |
@@ -582,7 +580,7 @@ Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-prob
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure-portalen]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836846"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186358"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Redigera text-Runbooks i Azure Automation
 
@@ -56,7 +57,7 @@ Den här artikeln innehåller detaljerade anvisningar för hur du utför olika f
 1. Placera markören där du vill placera koden för underordnad Runbook i arbets ytans kontroll i text redigeraren.
 2. Expandera noden **till gångar** i biblioteks kontrollen.
 3. Expandera noden för önskad till gångs typ.
-4. Högerklicka på namnet på den till gång som du vill infoga och välj **Lägg till i arbets ytan**. För [variabel till gångar](automation-variables.md)väljer du antingen **Lägg till "Hämta variabel" på arbets ytan** eller **Lägg till "ange variabel" på arbets ytan**, beroende på om du vill hämta eller ange variabeln.
+4. Högerklicka på namnet på den till gång som du vill infoga och välj **Lägg till i arbets ytan**. För [variabel till gångar](./shared-resources/variables.md)väljer du antingen **Lägg till "Hämta variabel" på arbets ytan** eller **Lägg till "ange variabel" på arbets ytan**, beroende på om du vill hämta eller ange variabeln.
 5. Observera att koden för till gången infogas i runbooken.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Redigera en Azure Automation Runbook med hjälp av Windows PowerShell
@@ -95,9 +96,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Hantera Runbooks i Azure Automation](manage-runbooks.md).
 * [Utbildnings-PowerShell-arbetsflöde](automation-powershell-workflow.md).
 * [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
-* [Certifikat](automation-certificates.md).
+* [Certifikat](./shared-resources/certificates.md).
 * [Anslutningar](automation-connections.md).
-* [Inloggningsuppgifter](automation-credentials.md).
-* [Scheman](automation-schedules.md).
-* [Variabler](automation-variables.md).
-* [Referens för PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Inloggningsuppgifter](./shared-resources/credentials.md).
+* [Scheman](./shared-resources/schedules.md).
+* [Variabler](./shared-resources/variables.md).
+* [Referens för PowerShell-cmdlet](/powershell/module/az.automation/?view=azps-3.7.0#automation).

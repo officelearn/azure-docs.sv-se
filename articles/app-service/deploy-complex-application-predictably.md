@@ -5,11 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5e4c4d89a1119b0f59aa15885406cd7261d2f69
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75967384"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170011"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här självstudien visar hur du etablerar och distribuerar ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enda enhet och på ett förutsägbart sätt med hjälp av JSON-mallar för resurs grupper och PowerShell-skript. 
@@ -53,19 +54,19 @@ Nu ska vi komma åt det.
 2. I readme.md klickar **du på distribuera till Azure**.
 3. Du kommer till webbplatsen för att [distribuera till Azure](https://deploy.azure.com) och uppmanas att ange distributions parametrar. Observera att de flesta fält fylls med databas namnet och vissa slumpmässiga strängar åt dig. Du kan ändra alla fält om du vill, men de enda saker som du måste ange är SQL Server Administratörs inloggning och lösen ordet. Klicka sedan på **Nästa**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
+   ![Visar parametrarna för ingångs distribution på webbplatsen för distribution till Azure.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. Starta sedan distributions processen genom att klicka på **distribuera** . När processen har slutförts klickar du på länken http://todoapp *XXXX*. azurewebsites.net för att bläddra i det distribuerade programmet. 
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
+   ![Visar programmets distributions process.](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    Användar gränssnittet skulle vara lite långsamt när du först bläddrar till det eftersom apparna bara startas, men är övertygade om att det är ett fullständigt fungerande program.
 5. Tillbaka på sidan distribuera klickar du på länken **Hantera** för att se det nya programmet i Azure-portalen.
 6. I list rutan **Essentials** klickar du på länken resurs grupp. Observera också att appen redan är ansluten till GitHub-lagringsplatsen under **externt projekt**. 
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+   ![Visar länken resurs grupp i list rutan Essentials.](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. Observera att det redan finns två appar och en SQL Database i resurs gruppen på bladet resurs grupp.
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
+   ![Visar tillgängliga resurser i resurs gruppen.](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
 
 Allt som du precis såg på några få minuter är ett fullständigt distribuerat program med två mikrotjänster, med alla komponenter, beroenden, inställningar, databaser och kontinuerlig publicering, som konfigureras med ett automatiskt dirigering i Azure Resource Manager. Allt detta utfördes av två saker:
 
@@ -79,23 +80,23 @@ Nu ska vi titta på hur GitHub-lagringsplatsen har kon figurer ATS. Du kommer at
 
 1. Klona [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) -lagringsplatsen med ditt favoritbaserade git-verktyg. I skärm bilden nedan gör jag det här i team Explorer i Visual Studio 2013.
    
-   ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+   ![Visar hur du använder ett git-verktyg för att klona ToDoApp-lagringsplatsen.](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
 2. Från lagrings platsens rot öppnar du azuredeploy.jspå i Visual Studio. Om du inte ser JSON-dispositions fönstret måste du installera Azure .NET SDK.
    
-   ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
+   ![Visar fönstret JSON-disposition i Visual Studio.](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
 
 Jag kommer inte att beskriva varje detalj i JSON-formatet, men avsnittet [fler resurser](#resources) innehåller länkar för att lära sig om resurs gruppens språk. Här kommer jag bara att visa de intressanta funktionerna som kan hjälpa dig att komma igång med att skapa en egen anpassad mall för app-distribution.
 
-### <a name="parameters"></a>Parametrar
+### <a name="parameters"></a>Parameters (Parametrar)
 Ta en titt på avsnittet parametrar för att se att de flesta av dessa parametrar är vad som visas i knappen **distribuera till Azure** och du uppmanas att ange. Platsen bakom knappen **distribuera till Azure** fyller på indatamängds-gränssnittet med de parametrar som definierats i azuredeploy.jspå. Dessa parametrar används i alla resurs definitioner, t. ex. resurs namn, egenskaps värden osv.
 
-### <a name="resources"></a>Resurser
+### <a name="resources"></a>Resources (Resurser)
 I noden resurser kan du se att 4 toppnivå resurser definieras, inklusive en SQL Server instans, en App Service plan och två appar. 
 
 #### <a name="app-service-plan"></a>App Service-plan
 Vi börjar med en enkel resurs på rot nivå i JSON. I JSON-dispositionen klickar du på App Service plan med namnet **[hostingPlanName]** för att markera motsvarande JSON-kod. 
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
+![Visar avsnittet [hostingPlanName] i JSON-koden.](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
 Observera att `type` elementet anger en sträng för en app service plan (den kallades för en Server grupp för lång tid sedan) och andra element och egenskaper fylls i med hjälp av de parametrar som definierats i JSON-filen och den här resursen har inga kapslade resurser.
 
@@ -107,7 +108,7 @@ Observera att `type` elementet anger en sträng för en app service plan (den ka
 #### <a name="sql-server"></a>SQL Server
 Klicka sedan på SQL Server resursen med namnet **SQLServer** i JSON-dispositionen.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
+![Visar SQL Server resursen med namnet SQLServer i JSON-dispositionen.](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
 
 Observera följande om den markerade JSON-koden:
 
@@ -127,12 +128,12 @@ Nu ska vi gå vidare till själva apparna, vilket är mer komplicerat. Klicka p�
 ##### <a name="root-resource"></a>Rot resurs
 Appen är beroende av två olika resurser. Det innebär att Azure Resource Manager endast skapar appen när både App Service plan och SQL Server-instansen har skapats.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
+![Visar beroenden för appen på App Service plan och SQL Server-instansen.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
 ##### <a name="app-settings"></a>Appinställningar
 Inställningarna för appen definieras också som en kapslad resurs.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
+![Visar inställningarna för appen som definierats som en kapslad resurs i JSON-koden.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
 I `properties` -elementet för `config/appsettings` har du två app-inställningar i formatet `"<name>" : "<value>"` .
 
@@ -142,7 +143,7 @@ I `properties` -elementet för `config/appsettings` har du två app-inställning
 ##### <a name="connection-strings"></a>Anslutningssträngar
 Anslutnings strängarna definieras också som en kapslad resurs.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
+![Visar hur anslutnings strängarna definieras som en kapslad resurs i JSON-koden.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
 I `properties` `config/connectionstrings` -elementet definieras även varje anslutnings sträng som ett namn: värde-par med det speciella formatet `"<name>" : {"value": "…", "type": "…"}` . För `type` elementet är möjliga värden,, `MySql` `SQLServer` `SQLAzure` , och `Custom` .
 
@@ -154,7 +155,7 @@ I `properties` `config/connectionstrings` -elementet definieras även varje ansl
 ##### <a name="source-control"></a>Källkontroll
 Inställningarna för käll kontroll definieras också som en kapslad resurs. Azure Resource Manager använder den här resursen för att konfigurera kontinuerlig publicering (se villkoret `IsManualIntegration` senare) och även för att starta distributionen av program kod automatiskt under bearbetningen av JSON-filen.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
+![Visar hur käll kontroll inställningarna definieras som en kapslad resurs i JSON-koden.](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
 `RepoUrl`och `branch` bör vara ganska intuitivt och ska peka på git-lagringsplatsen och namnet på grenen att publicera från. Dessa definieras av indataparametrarna. 
 
@@ -170,11 +171,11 @@ Här kan du gå igenom alla appars blad i [Azure-portalen](https://portal.azure.
 
 När jag till exempel går till [Azure Resource Explorer](https://resources.azure.com) verktyget och expanderar noderna i Explorer, kan jag se resurs gruppen och de resurser på rot nivå som samlas in under respektive resurs typ.
 
-![](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
+![Visa resurs gruppen och rot nivå resurserna i det utökade verktyget Azure Resource Explorer.](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
 
 Om du ökar detalj nivån till en app bör du kunna se konfigurations information för appar som liknar skärm bilden nedan:
 
-![](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
+![Öka detalj nivån för att Visa konfigurations informationen i appen.](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
 
 Återigen bör de kapslade resurserna ha en hierarki som liknar dem i din JSON-mallfil och du bör se appinställningar, anslutnings strängar osv., som visas korrekt i JSON-fönstret. Frånvaron av inställningar här kan tyda på ett problem med JSON-filen och kan hjälpa dig att felsöka din JSON-mallfil.
 
@@ -184,44 +185,44 @@ Knappen **distribuera till Azure** är perfekt, men du kan distribuera resurs gr
 1. I Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt**.
 2. Klicka på **Visual C#**  >  **Cloud**  >  **Azure resurs grupp**och klicka sedan på **OK**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
+   ![Skapa ett nytt projekt som en Azure-resurs grupp i Azure .NET SDK.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. I **Välj Azure-mall**väljer du **tom mall** och klickar på **OK**.
 4. Dra azuredeploy.jstill mappen **mallar** i det nya projektet.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+   ![Visar resultatet av att dra azuredeploy.jspå filen till mappen mallar i projektet.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. Från Solution Explorer öppnar du den kopierade azuredeploy.jspå.
 6. För att vi ska kunna använda demonstrationen ska vi lägga till några standard program Insight-resurser i vår JSON-fil genom att klicka på **Lägg till resurs**. Om du bara är intresse rad av att distribuera JSON-filen kan du gå vidare till distributions stegen.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+   ![Visar knappen Lägg till resurs som du kan använda för att lägga till standard program Insight-resurser i JSON-filen.](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 7. Välj **Application Insights för Web Apps**, kontrol lera att en befintlig App Service plan och app är markerad och klicka sedan på **Lägg till**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
+   ![Visar urvalet av Application Insights för Web Apps, namn, App Service plan och webbapp.](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
    Nu kan du se flera nya resurser som, beroende på resurs och vad det gör, är beroende av antingen App Service plan eller appen. Dessa resurser har inte Aktiver ATS med den befintliga definitionen och du kommer att ändra den.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+   ![Visa de nya resurser som har beroenden för App Service plan eller appen.](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
 8. I JSON-dispositionen klickar du på **appInsights AutoScale** för att markera dess JSON-kod. Detta är skalnings inställningen för App Service plan.
 9. Leta upp och ange egenskaperna i den markerade JSON-koden `location` `enabled` och ange dem som visas nedan.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+   ![Visar plats och aktiverade egenskaper i appInsights-autoskalad JSON-kod och de värden som du ska ställa in dem på.](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 10. I JSON-dispositionen klickar du på **CPUHigh appInsights** för att markera dess JSON-kod. Detta är en avisering.
 11. Leta upp `location` och `isEnabled` Ange egenskaperna och ange dem som visas nedan. Gör samma sak för de andra tre aviseringarna (lila lökar).
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
+    ![Visar egenskaperna plats och isEnabled i CPUHigh appInsights JSON-koden och de värden som du ska ange dem för.](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
 12. Nu är du redo att distribuera. Högerklicka på projektet och välj **distribuera**  >  **ny distribution**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
+    ![Visar hur du distribuerar det nya projektet.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Logga in på ditt Azure-konto om du inte redan har gjort det.
 14. Välj en befintlig resurs grupp i din prenumeration eller skapa en ny, Välj **azuredeploy.jspå**och klicka sedan på **Redigera parametrar**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
+    ![Visar hur du redigerar parametrarna i azuredeploy.jsi filen.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
     Nu kan du redigera alla parametrar som definierats i mallfilen i en bra tabell. Parametrar som definierar standardvärden har redan sina standardvärden och parametrar som definierar en lista med tillåtna värden visas som List rutor.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
+    ![Visar parametrar som definierar en lista över tillåtna värden som List rutor.](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
 15. Fyll i alla tomma parametrar och Använd [GitHub lagrings platsen-adressen för ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) i **enhälle**. Klicka sedan på **Spara**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
+    ![Visar de nyligen fyllda parametrarna för azuredeploy.jsi filen.](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
     
     > [!NOTE]
     > Automatisk skalning är en funktion som erbjuds på **standard** -eller högre nivå, och aviseringar på plannivå är funktioner som erbjuds på nivån **Basic** eller högre. du måste ange **SKU** -parametern till **standard** eller **Premium** för att se att alla nya App Insights-resurser lyser upp.
@@ -239,7 +240,7 @@ Stegen i det här avsnittet gör det huvudsakligen följande:
 
 Det sista steget utförs enkelt med en PowerShell-cmdlet. Om du vill se vad Visual Studio gjorde när programmet distribuerades öppnar du Scripts\Deploy-AzureResourceGroup.ps1. Det finns mycket kod där, men jag kommer bara att markera all relevant kod som du behöver för att distribuera mallfilen med parameter filen.
 
-![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
+![Visar relevant kod i skriptet som du behöver använda för att distribuera mallfilen med parameter filen.](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
 Den sista cmdleten, `New-AzureResourceGroup` är den som faktiskt utför åtgärden. Allt detta bör Visa för dig att, med hjälp av verktyg, det är relativt enkelt att distribuera moln programmet. Varje gång du kör cmdleten på samma mall med samma parameter fil kommer du att få samma resultat.
 

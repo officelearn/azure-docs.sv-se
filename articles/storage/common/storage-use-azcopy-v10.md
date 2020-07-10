@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143006"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -31,7 +31,7 @@ Börja med att ladda ned den körbara filen AzCopy v10 till valfri katalog på d
 
 - [Windows 64-bitars](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bitars](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Filerna komprimeras som en zip-fil (Windows och Mac) eller en tar-fil (Linux). Information om hur du laddar ned och dekomprimerar filen tar i Linux finns i dokumentationen för din Linux-distribution.
@@ -65,9 +65,9 @@ Använd den här tabellen som en guide:
 
 | Lagringstyp | För närvarande stöds metoden för auktorisering |
 |--|--|
-|**Blob-lagring** | Azure AD & SAS |
+|**Blob Storage** | Azure AD & SAS |
 |**Blob Storage (hierarkiskt namn område)** | Azure AD & SAS |
-|**Fil lagring** | Endast SAS |
+|**File Storage** | Endast SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Alternativ 1: Använd Azure Active Directory
 
@@ -255,7 +255,7 @@ Du hittar exempel kommandon i någon av de här artiklarna.
 
 - [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
 
-- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 
 - [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
 

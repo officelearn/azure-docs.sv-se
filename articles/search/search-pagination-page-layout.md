@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561579"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146177"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
 
@@ -55,20 +55,26 @@ Resultatet av sid brytnings frågor är inte garanterat stabilt om det underligg
  
 Följande är ett exempel på hur du kan få dubbletter. Anta ett index med fyra dokument:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 Anta nu att du vill att resultat returnerades två i taget, sorterade efter klassificering. Du kör den här frågan för att få den första sidan med resultat: `$top=2&$skip=0&$orderby=rating desc` , som producerar följande resultat:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 I tjänsten antar vi att ett femte dokument läggs till i indexet i mellan fråga-anrop: `{ "id": "5", "rating": 4 }` .  Strax därefter kör du en fråga för att hämta den andra sidan: `$top=2&$skip=2&$orderby=rating desc` och får följande resultat:
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 Observera att dokument 2 hämtas två gånger. Detta beror på att det nya dokumentet 5 har ett större värde för klassificering, så det sorteras före dokument 2 och på den första sidan. Även om det här beteendet kan vara oväntat, är det vanligt av hur en sökmotor beter sig.
 

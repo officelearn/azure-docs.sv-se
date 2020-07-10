@@ -6,20 +6,21 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a872121ca6560b8ede86abc35294ab8c9b0c1b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022391"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141996"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Översikt över Azure Data Factory anslutning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory stöd för följande data lager och format via kopiera, data flöde, slå upp, hämta metadata och ta bort aktiviteter. Klicka på varje data lager för att lära dig vilka funktioner som stöds och motsvarande konfigurationer i detalj.
+Azure Data Factory stöd för följande data lager och format via kopiera, data flöde, uppslag, hämta metadata och ta bort aktiviteter. Klicka på varje data lager för att lära dig vilka funktioner som stöds och motsvarande konfigurationer i detalj.
 
 ## <a name="supported-data-stores"></a>Datalager som stöds
 
@@ -27,7 +28,16 @@ Azure Data Factory stöd för följande data lager och format via kopiera, data 
 
 ## <a name="supported-file-formats"></a>Filformat som stöds
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
+Azure Data Factory stöder följande fil format. Se varje artikel för formatbaserade inställningar.
+
+- [Avro-format](format-avro.md)
+- [Binärt format](format-binary.md)
+- [Common Data Model-formatet](format-common-data-model.md)
+- [Avgränsat textformat](format-delimited-text.md)
+- [Excel-format](format-excel.md)
+- [JSON-format](format-json.md)
+- [ORC-format](format-orc.md)
+- [Parquet-format](format-parquet.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

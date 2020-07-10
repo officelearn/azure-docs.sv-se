@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360307"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144722"
 ---
 # <a name="adsync-service-account"></a>ADSync-tjänstkonto
 Azure AD Connect installerar en lokal tjänst som dirigerar synkronisering mellan Active Directory och Azure Active Directory.  Microsoft Azure AD Sync-synkroniseringstjänsten (ADSync) körs på en server i din lokala miljö.  Autentiseringsuppgifterna för tjänsten ställs in som standard i Express installationer, men kan anpassas för att uppfylla organisationens säkerhets krav.  Dessa autentiseringsuppgifter används inte för att ansluta till dina lokala skogar eller Azure Active Directory.
@@ -46,9 +46,9 @@ Microsoft rekommenderar att du kör ADSync-tjänsten i kontexten för antingen e
 - hanterat tjänst konto – Använd en fristående eller grupp MSA som tillhandahålls av administratören
 - domän konto – Använd ett domän tjänst konto som tillhandahålls av administratören
 
-![](media/concept-adsync-service-account/adsync1.png)
+![Skärm bild av alternativ knapparna "anpassa" eller "Använd Express inställningar" på sidan Azure AD Connect Express-inställningar.](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![Skärm bild av sidan för Azure AD Connect installera nödvändiga komponenter med alternativet att använda ett befintligt hanterat tjänst konto valt.](media/concept-adsync-service-account/adsync2.png)
 
 ## <a name="diagnosing-adsync-service-account-changes"></a>Diagnostisera ändringar i ADSync-tjänstkontot
 Om du ändrar autentiseringsuppgifterna för ADSync-tjänsten efter installationen leder det till att tjänsten inte startar, förlorar åtkomst till databasen för synkronisering och att den inte kan autentiseras med dina anslutna kataloger (Azure och AD DS).  Det räcker inte att bevilja databas åtkomst till det nya ADSync-tjänstkontot för att kunna återställas från det här problemet. Ingen synkronisering sker förrän de ursprungliga autentiseringsuppgifterna har återställts.

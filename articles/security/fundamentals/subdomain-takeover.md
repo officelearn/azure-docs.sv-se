@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610871"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145979"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -45,7 +45,7 @@ Ett vanligt scenario för en under domän överköps:
 
 1. Nästan omedelbart efter att webbplatsen har tagits bort, identifierar en hot aktör den saknade platsen och skapar en egen webbplats på `app-contogreat-dev-001.azurewebsites.net` .
 
-    Nu är trafiken som är avsedd för `greatapp.contoso.com` att gå till hot skådespelarens Azure-webbplats och hot aktören kontroll över det innehåll som visas. 
+    Nu är trafiken avsedd för `greatapp.contoso.com` att gå till hot skådespelarens Azure-webbplats och hot aktörens kontroll av det innehåll som visas. 
 
     Dangling DNS utnyttjades och Contosos under domän "GreatApp" har varit ett skadelidande för under domän övertag Ande. 
 
@@ -61,7 +61,7 @@ Dangling DNS-poster gör det möjligt för hot aktörer att ta kontroll över de
 
 - **Förlust av kontroll över innehållet i under domänen** -negativ press om organisationens oförmåga att skydda dess innehåll, samt varumärkes skada och förtroende förlust.
 
-- **Cookie-fångst från misstänkta besökare** – det är vanligt att webbappar exponerar sessionscookies till under domäner (*. contoso.com), vilket innebär att alla under domäner kan komma åt dem. Hot aktörer kan använda under domän uppköp för att bygga en äkta utseende sida, lura obehöriga användare att besöka den och skörda sina cookies (även säkra cookies). En vanlig felbegrepp är att använda SSL-certifikat för att skydda din webbplats, och dina användares cookies, från en övertag Ande. En hot aktör kan dock använda den kapade under domänen som ska användas för och ta emot ett giltigt SSL-certifikat. Detta ger dem åtkomst till säkra cookies och kan öka den uppfattade giltighet för den skadliga webbplatsen ytterligare.
+- **Cookie-fångst från misstänkta besökare** – det är vanligt att webbappar exponerar sessionscookies till under domäner (*. contoso.com), vilket innebär att alla under domäner kan komma åt dem. Hot aktörer kan använda under domän uppköp för att bygga en äkta utseende sida, lura obehöriga användare att besöka den och skörda sina cookies (även säkra cookies). En vanlig felbegrepp är att använda SSL-certifikat för att skydda din webbplats, och dina användares cookies, från en övertag Ande. En hot aktör kan dock använda den kapade under domänen som ska användas för och ta emot ett giltigt SSL-certifikat. Giltiga SSL-certifikat ger dem åtkomst till säkra cookies och kan öka den uppfattade giltighet på den skadliga webbplatsen ytterligare.
 
 - **Phishing-kampanjer** – autentiska under domäner kan användas i nät fiske kampanjer. Detta gäller för skadliga webbplatser och även för MX-poster som gör det möjligt för hot aktör att ta emot e-post som är adresserade till en legitim under domän till ett säkert märke.
 
@@ -78,14 +78,14 @@ De förebyggande åtgärder som är tillgängliga för dig idag visas nedan.
 
 ### <a name="use-azure-dns-alias-records"></a>Använd Azure DNS Ali Aset poster
 
-Genom att nära koppla livs cykeln för en DNS-post med en Azure-resurs kan Azure DNSs [Ali Asets-poster](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) förhindra Dangling-referenser. Anta till exempel att du har en DNS-post som är kvalificerad som en aliasresurspost som pekar på en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-Ali-posten en tom post uppsättning. Den borttagna resursen är inte längre referenser till den. Det är viktigt att Observera att det finns gränser för vad du kan skydda med Ali Aset. I dag är listan begränsad till:
+Azure DNSs [Ali Asets](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) kan förhindra Dangling-referenser genom att koppla livs cykeln för en DNS-post med en Azure-resurs. Anta till exempel att du har en DNS-post som är kvalificerad som en aliasresurspost som pekar på en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-Ali-posten en tom post uppsättning. Den borttagna resursen är inte längre referenser till den. Det är viktigt att Observera att det finns gränser för vad du kan skydda med Ali Aset. I dag är listan begränsad till:
 
 - Azure Front Door
 - Traffic Manager-profiler
 - Slut punkter för Azure Content Delivery Network (CDN)
 - Offentliga IP-adresser
 
-Om du har resurser som kan skyddas från under domän överköps med Ali Aset, rekommenderar vi att du gör så trots de begränsade tjänst erbjudandena idag.
+Trots de begränsade tjänst erbjudandena idag rekommenderar vi att du använder Ali Asets för att skydda mot under domän övertag närhelst det är möjligt.
 
 [Lär dig mer](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) om funktionerna i Azure DNSs Ali Asets poster.
 
@@ -120,7 +120,7 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
         - **Exist** – fråga dina DNS-zoner efter resurser som pekar på Azure-underdomäner som *. azurewebsites.net eller *. cloudapp.Azure.com (se [den här referens listan](azure-domains.md)).
         - **Du äger** – bekräfta att du äger alla resurser som dina DNS-under domäner är riktade till.
 
-    - Underhålla en tjänst katalog för Azures fullständiga kvalificerade domän namn (FQDN) och program ägare. Om du vill skapa en tjänst katalog kör du följande Azure Resource Graph-fråga med parametrarna från tabellen nedan:
+    - Underhålla en tjänst katalog för Azures fullständiga kvalificerade domän namn (FQDN) och program ägare. Om du vill skapa en tjänst katalog kör du följande fråga i Azure Resource Graph (ARG) med parametrarna från tabellen nedan:
     
         >[!IMPORTANT]
         > **Behörigheter** – kör frågan som en användare med åtkomst till alla dina Azure-prenumerationer. 
@@ -139,9 +139,12 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
         
         Du kan också kombinera flera resurs typer. I den här exempel frågan returneras resurserna från Azure App Service **och** Azure App Service platser:
 
-        ```
+        ```azurepowershell
         Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
         ```
+
+
+        Per tjänst parametrar för ARG-frågan:
 
         |Resursnamn  |[ResourceType]  | [FQDNproperty]  |
         |---------|---------|---------|

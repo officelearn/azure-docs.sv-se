@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6809429b26eea30ca0569044634308d2e4dff9f7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025989"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147386"
 ---
 # <a name="about-virtual-hub-routing"></a>Om routning av virtuell hubb
 
@@ -24,6 +24,10 @@ Information om hur du konfigurerar routning finns i [så här konfigurerar du ro
 ## <a name="routing-concepts"></a><a name="concepts"></a>Routa koncept
 
 I följande avsnitt beskrivs viktiga begrepp i routning av virtuell hubb.
+
+> [!NOTE]
+> Några av dessa nya begrepp för NAV Route-tabellen, associationen, spridningen och statiska vägar i en virtuell nätverks anslutning kan fortfarande återställas och förväntas slutföras i veckan för aug tredje.
+>
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Hubb väg tabell
 
@@ -59,10 +63,6 @@ Det finns också en **tabell med ingen väg** för varje virtuell hubb. Spridnin
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Konfigurera statiska vägar i en virtuell nätverks anslutning
 
 Genom att konfigurera statiska vägar får du en mekanism för att styra trafik via en nästa hopp-IP, som kan vara en virtuell nätverks installation (NVA) etablerad i ett eker VNet som är kopplat till en virtuell hubb. Den statiska vägen består av ett väg namn, en lista över mål-prefix och en nästa hopp-IP.
-
-> [!NOTE]
-> Några av de här nya koncepten för Association, spridning och statiska vägar i en virtuell nätverks anslutning kan fortfarande distribueras och förväntas slutföras i veckan för aug tredje.
->
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Dirigera tabeller i grundläggande och standard-virtuella WAN-nätverk före funktions uppsättningen för Association och spridning
 

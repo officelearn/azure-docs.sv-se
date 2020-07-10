@@ -1,5 +1,5 @@
 ---
-title: Förstå reservationsrabatt för Azure SQL-databaser | Microsoft Docs
+title: Förstå reservationsrabatt för Azure SQL Database | Microsoft Docs
 description: Lär dig hur en reservationsrabatt tillämpas på Azure SQL-databaser som körs.
 author: yashesvi
 ms.reviewer: yashar
@@ -7,16 +7,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: e402eabce5fd7af6ca9f51a1d67175cd8e5e1ce4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 736e046b5254de9aa18c898994d7df11efc98a9a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726068"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037995"
 ---
-# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Så tillämpas en reservationsrabatt på Azure SQL-databaser
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Så tillämpas en reservationsrabatt på Azure SQL Database
 
-När du har köpt en reserverad Azure SQL Database-kapacitet tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation omfattar beräkningskostnaderna för din SQL Database. Du debiteras för programvara, lagring och nätverk enligt de vanliga priserna. Du kan täcka licenskostnaderna för SQL-databaser med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
+När du har köpt en reserverad Azure SQL Database-kapacitet tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation omfattar beräkningskostnaderna för din SQL Database. Du debiteras för programvara, lagring och nätverk enligt de vanliga priserna. Du kan täcka licenskostnaderna för SQL Database med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Observera att reservationsrabatter inte gäller för Azure SQL Database utan server.
 
@@ -28,9 +28,9 @@ Reservationsrabatter *går förlorade om de inte används*. Om du inte har någr
 
 När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
-## <a name="discount-applied-to-sql-databases"></a>Rabatt som tillämpas på SQL-databaser
+## <a name="discount-applied-to-running-sql-databases"></a>Rabatt som tillämpas på SQL-databaser som körs
 
- Rabatten för reserverad SQL Database-kapacitet tillämpas timvis på SQL-databaser som körs. Den reservation som du köper matchas mot den beräkningsanvändning som genereras av de SQL-databaser som körs. För SQL-databaser som inte körs timmen ut tillämpas reservationen automatiskt på andra SQL-databaser som matchar reservationsattributen. Rabatten kan gälla för SQL-databaser som körs samtidigt. Om du inte har några SQL-databaser som körs timmen ut och som matchar reservationsattributen får du inte den fullständiga fördelen med reservationsrabatten för den timmen.
+ Rabatten för reserverad SQL Database-kapacitet tillämpas timvis på SQL-databaser som körs. Den reservation som du köper matchas mot den beräkningsanvändning som genereras av de SQL-databaser som körs. För SQL-databaser som inte körs timmen ut tillämpas reservationen automatiskt på andra SQL-databaser som matchar reservationsattributen. Rabatten kan gälla för SQL-databaser som körs samtidigt. Om du inte har några SQL-databaser som körs timmen ut och som matchar reservationsattributen får du inte ut allt av reservationsrabatten för den timmen.
 
 I följande exempel visas hur rabatten för reserverad SQL Database-kapacitet tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 

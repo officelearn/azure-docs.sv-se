@@ -3,16 +3,16 @@ title: Fakturor för Azure Enterprise-registrering
 description: Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-faktura.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807803"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044880"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -46,14 +46,14 @@ Azure Enterprise-portalen genererar automatiskt ett standardmässigt inköpsorde
 
 ## <a name="azure-enterprise-billing-frequency"></a>Faktureringsfrekvens för Azure Enterprise
 
-Microsoft fakturerar årligen på registreringsdatumet köp som gjorts inom kundens åtagande för Microsoft Azure-tjänsterna. Microsoft fakturerar i efterskott för all användning som överstiger åtagandebeloppen.
+Microsoft fakturerar årligen på registreringsdatumet köp av Microsoft Azure-tjänsterna som betalas i förskott. Microsoft fakturerar i efterskott för all användning som överstiger beloppet för en förskottsbetalning.
 
-- Utfästelseavgifterna baseras på en månatlig avgift och faktureras per år i förväg.
+- Avgifter för förskottsbetalningar beräknas baserat på månadspris och faktureras årligen i förväg.
 - Avgifter för överförbrukning beräknas varje månad och faktureras i efterskott i slutet av faktureringsperioden.
 
 ### <a name="billing-intervals"></a>Faktureringsintervall
 
-Faktureringsintervallet beror på hur du väljer att göra dina åtagandeinköp. Det årliga åtagandet sammanfaller med antingen:
+Faktureringsintervallet beror på hur du väljer att göra dina köp med förskottsbetalning. Din årliga förskottsbetalning sammanfaller med antingen:
 
 - årsdagen för registreringen eller
 - giltighetsdatumet för din ettåriga tilläggsprenumeration.
@@ -62,12 +62,12 @@ Datumet du fick på överförbrukningsfakturan beror på startdatumet och konfig
 
 - **Direktregistreringar med startdatum före 1 maj 2018**:
   - Om du har ett Enterprise Azure-avtal (EA) med direktregistrering har du en årlig faktureringsperiod för Azure-tjänster, exklusive Azure Marketplace-tjänster. Din faktureringsperiod baseras på årsdagen: det datum då avtalet började gälla.
-  - Om du överskrider 150 % av ditt tröskelbelopp för ekonomiskt åtagande (MC) för EA kommer du automatiskt att konverteras till kvartalsvis fakturering som baseras på din årsdag. Du får också en överförbrukningsfaktura för Azure-tjänsten.
-  - Om du inte överskrider 150 % av ditt tröskelbelopp för betalningsåtagande kommer registreringen att behålla den årliga faktureringsperioden. Överförbrukningsfakturan erhålls i slutet av året för åtagandet.
+  - Om du överskrider 150 % av ditt tröskelbelopp för förskottsbetalning för Azure EA kommer du automatiskt att konverteras till kvartalsvis fakturering som baseras på din årsdag. Du får också en överförbrukningsfaktura för Azure-tjänsten.
+  - Om du inte överskrider 150 % av ditt tröskelbelopp för Azure-förskottsbetalning kommer registreringen att behålla den årliga faktureringsperioden. Överförbrukningsfakturan erhålls i slutet av året för förskottsbetalningen.
 
 - **Direktregistreringar med startdatum efter 1 maj 2018**:
   - Kundens Azure-förbrukning och avgifter faktureras på separata fakturor per månad.
-  - Avgifter som inte täcks av ditt betalningsåtagande betalas som överförbrukning.  
+  - Eventuella avgifter som inte täcks av din Azure-förskottsbetalning betalas som överförbrukning.  
 
 - **Indirekta registreringar med en registrering som startat före 1 maj 2018**:
 
@@ -77,21 +77,21 @@ Datumet du fick på överförbrukningsfakturan beror på startdatumet och konfig
 
   Du faktureras per månad.  
 
-### <a name="increase-your-monetary-commitment"></a>Öka ditt betalningsåtagande
+### <a name="increase-your-azure-prepayment"></a>Öka din Azure-förskottsbetalning
 
-Du kan när som helst öka ditt åtagande. Du debiteras för det återstående antalet månader för det årets åtagandeperiod. Om du till exempel registrerar dig för en ettårig tilläggsprenumeration och ökar åtagandet under månad sex, faktureras du för de återstående sex månaderna i den perioden. Ditt åtagande uppdateras sedan för de sista sex månaderna i din åtagandeperiod. Dessa nya kvantiteter används för att fastställa eventuella överförbrukningsavgifter.
+Du kan när som helst öka din förskottsbetalning. Du debiteras för det återstående antalet månader i det årets förskottsbetalningsperiod. Om du till exempel registrerar dig för en ettårig tilläggsprenumeration och ökar förskottsbetalningen under månad sex, faktureras du för de återstående sex månaderna i den perioden. Förskottsbetalningen uppdateras sedan för de sista sex månaderna i förskottsbetalningsperioden. Dessa nya kvantiteter används för att fastställa eventuella överförbrukningsavgifter.
 
 ### <a name="overage"></a>Överanvändning
 
-Du debiteras för överförbrukning för den användning eller de reservationer som överskrider ditt åtagande under faktureringsperioden. Om du vill veta hur överförbrukningen har beräknats för enskilda poster kan du se rapporten med en sammanfattning av användningen eller kontakta din kanalpartner.
+Du debiteras för överförbrukning för den användning eller de reservationer som överskrider förskottsbetalningen under faktureringsperioden. Om du vill veta hur överförbrukningen har beräknats för enskilda poster kan du se rapporten med en sammanfattning av användningen eller kontakta din kanalpartner.
 
 För varje post på fakturan visas:
 
 - **Beräknat belopp**: det totala antalet avgifter
-- **Utnyttjat åtagande**: beloppet för ditt åtagande som används för att täcka avgifterna
-- **Nettobelopp**: de avgifter som överstiger ditt åtagande
+- **Utnyttjad förskottsbetalning**: beloppet för din förskottsbetalning som används för att täcka avgifterna
+- **Nettobelopp**: de avgifter som överstiger din förskottsbetalning
 
-Tillämpliga skatter beräknas bara på det nettobelopp som överstiger åtagandet.
+Tillämpliga skatter beräknas bara på det nettobelopp som överstiger förskottsbetalningen.
 
 Faktureringen av överförbrukning sker automatiskt. Tiden för meddelanden och fakturor beror på slutdatumet för din faktureringsperiod.
 
@@ -130,18 +130,18 @@ Så här visar du krediter:
 1. I [Azure Enterprise-portalen](https://ea.azure.com) väljer du avsnittet **Rapporter**.
 1. Välj **Användningssammanfattning**.
 1. Ändra vyn **M** till **C** i det övre högra hörnet.
-1. Utöka justeringsfältet i tabellen med det ekonomiska åtagandet för Azure-tjänsten.
+1. Utöka justeringsfältet i tabellen med förskottsbetalningar för Azure-tjänsten.
 1. Därmed visas de krediter som används för registreringen och en kort förklaring. Ett exempel: Kredit enligt serviceavtal.
 
-## <a name="pay-your-overage-with-your-monetary-commitment"></a>Betala din överförbrukning med ditt ekonomiska åtagande
+## <a name="pay-your-overage-with-your-azure-prepayment"></a>Betala din överförbrukning med din Azure-förskottsbetalning
 
-Om du vill tillämpa ditt betalningsåtagande för överförbrukning måste du uppfylla följande kriterier:
+Om du vill använda din Azure-förskottsbetalning för överförbrukning måste du uppfylla följande kriterier:
 
 - Du har ådragit dig överförbrukningsavgifter som inte har betalats, och som gäller inom ett år efter den fakturerade tjänstens slutdatum.
-- Ditt tillgängliga ekonomiska åtagande omfattar det fullständiga antalet gällande avgifter, inklusive alla tidigare ej betalda Azure-fakturor.
+- Din tillgängliga Azure-förskottsbetalning omfattar det fullständiga antalet gällande avgifter, inklusive alla tidigare ej betalda Azure-fakturor.
 - Den faktureringsperiod som du vill slutföra för måste vara helt avslutad. Fakturering avslutas helt efter den femte dagen varje månad.
 - Den faktureringsperiod som du vill förskjuta för måste vara helt avslutad.
-- Din Azure-åtaganderabatt baseras på det faktiska nya åtagandet minus eventuella belopp som planeras för den tidigare förbrukningen. Detta krav gäller endast för aktuella överförbrukningsavgifter. Detta gäller endast för tjänster som förbrukar ekonomiskt åtagande, och gäller därmed inte Azure Marketplace-avgifter. Azure Marketplace-avgifter faktureras separat.
+- Din Azure-förskottsbetalningsrabatt baseras på den faktiska nya förskottsbetalningen minus eventuella belopp som planeras för den tidigare förbrukningen. Detta krav gäller endast för aktuella överförbrukningsavgifter. Detta gäller endast för tjänster som förbrukar Azure-förskottsbetalningar, och gäller därmed inte Azure Marketplace-avgifter. Azure Marketplace-avgifter faktureras separat.
 
 Om du vill slutföra en överförbrukningsförskjutning kan du eller kontoteamet skapa en supportbegäran. Ett e-postmeddelande med godkännande från företagsadministratören eller faktureringskontakten krävs.
 
@@ -178,13 +178,13 @@ I följande tabell visas Excel-formler som du kan använda för att modellera Az
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Konvertering mellan rapporten för användningsinformation och sidan med sammanfattning av användning
 
-I den nedladdningsbara rapporten med användningsdata kan du se rådata för resursanvändning med upp till sex decimaler. Men användningsdata som visas Azure Enterprise-portalen avrundas till fyra decimaler för åtagandeenheter och trunkerar till noll decimaler för överförbrukningsenheter. Rådata för användning avrundas först till fyra decimaler före konverteringen till enheter som används i Azure Enterprise-portalen. Sedan avrundas de konverterade Enterprise-enheterna om igen till fyra decimaler. Du kan endast se de faktiska förbrukade timmarna före konverteringen i den nedladdningsbara rapporten för användning och inte i Azure Enterprise-portalen.
+I den nedladdningsbara rapporten med användningsdata kan du se rådata för resursanvändning med upp till sex decimaler. Men användningsdata som visas på Azure Enterprise-portalen avrundas till fyra decimaler för förskottsbetalningsenheter och trunkeras till noll decimaler för överförbrukningsenheter. Rådata för användning avrundas först till fyra decimaler före konverteringen till enheter som används i Azure Enterprise-portalen. Sedan avrundas de konverterade Enterprise-enheterna om igen till fyra decimaler. Du kan endast se de faktiska förbrukade timmarna före konverteringen i den nedladdningsbara rapporten för användning och inte i Azure Enterprise-portalen.
 
 Ett exempel: Anta att 694.533404 är det faktiska antalet SQL Server-timmar som rapporteras i rapporten för användningsinformation. Dessa enheter konverteras till 6.94533404 enheter för 100 beräkningstimmar, och avrundas sedan till 6.9453 som visas i Azure Enterprise-portalen.
 
-- För att fastställa det beräknade faktureringsbeloppet multipliceras dessa enheter sedan med enhetspriset för åtagandet och resultatet trunkeras till två decimaler. För japanska yen (JPY) och koreanska won (Won) avrundas det beräknade beloppet till noll decimaler.
+- För att fastställa det beräknade faktureringsbeloppet multipliceras dessa enheter sedan med enhetspriset för förskottsbetalningar och resultatet trunkeras till två decimaler. För japanska yen (JPY) och koreanska won (Won) avrundas det beräknade beloppet till noll decimaler.
 - För överförbrukning trunkeras de fakturerbara enheterna till sex decimaler och multipliceras sedan med enhetspriset för överförbrukning för att fastställa det beräknade faktureringsbeloppet.
-- För fakturering av hanterad tjänstleverantör (MSP) trunkeras all användning som är kopplad till en avdelning som är markerad som MSP till noll decimaler efter konvertering till EA-måttenheten. Detta innebär att summan av den här användningen kan bli lägre än totalsumman av all användning i Azure Enterprise-portalen. Det beror på om MSP är inom saldot för betalningsåtagande eller om användningen räknas som överförbrukning.
+- För fakturering av hanterad tjänstleverantör (MSP) trunkeras all användning som är kopplad till en avdelning som är markerad som MSP till noll decimaler efter konvertering till EA-måttenheten. Detta innebär att summan av den här användningen kan bli lägre än totalsumman av all användning i Azure Enterprise-portalen. Det beror på om MSP är inom saldot för Azure-förskottsbetalningen eller om användningen räknas som överförbrukning.
 
 ### <a name="graduated-pricing"></a>Graderat pris
 
@@ -226,13 +226,13 @@ För de tjänster där zon och region påverkar prissättningen visar följande 
 
 Det finns inga kostnader för utgående data mellan tjänster i samma datacenter. Till exempel Microsoft 365 och Azure.
 
-### <a name="monetary-commitment-and-unbilled-usage"></a>Ekonomiskt åtagande och ej fakturerad användning
+### <a name="azure-prepayment-and-unbilled-usage"></a>Azure-förskottsbetalningar och ej fakturerad användning
 
-Ekonomiskt åtagande för Azure är ett belopp som förskottsbetalats för Azure-tjänster. Det ekonomiska åtagandet förbrukas allt eftersom tjänster används. Azure-tjänster från första part debiteras mot betalningsåtagandet. Men vissa avgifter debiteras separat och Azure Marketplace-tjänster använder inte Azures betalningsåtagande.
+Azure-förskottsbetalningar är ett belopp som betalas i förskott för Azure-tjänster. Azure-förskottsbetalningen förbrukas när tjänster används. Första parts Azure-tjänster debiteras mot Azure-förskottsbetalningar. Men vissa avgifter debiteras separat och Azure Marketplace-tjänster förbrukar inte Azure-förskottsbetalningar.
 
 ### <a name="charges-billed-separately"></a>Avgifter som debiteras separat
 
-Vissa produkter och tjänster från tredjepartskällor använder inte Azures betalningsåtagande. Dessa artiklar faktureras i stället separat som en del av fakturan för överförbrukning i standardfaktureringsperioden.
+Vissa produkter och tjänster från tredjepartskällor använder inte Azure-förskottsbetalningar. Dessa artiklar faktureras i stället separat som en del av fakturan för överförbrukning i standardfaktureringsperioden.
 
 Vi har slagit samman alla avgifter för Azure och Azure Marketplace till en enda faktura som sammanfaller med registreringens faktureringsperiod. Den kombinerade fakturan gäller inte för kunder i Australien, Japan eller Singapore.
 
@@ -265,7 +265,7 @@ Fakturorna släpps efter den månad då faktureringsperioden slutar. Om fakturer
 
    | Titel | Beskrivning | Filnamn |
    | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Visar aktiva tjänster och innefattar: <br>  <ul><li>tjänstekategori</li>   <li>beskrivande namn på tjänst</li>   <li>åtagandenamn och artikelnummer</li> <li>förbrukningsnamn och artikelnummer</li>   <li>måttenhet</li>   <li>konverteringsfaktorer mellan den rapporterade användningen och användningen som visas i Enterprise-portalen</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Visar aktiva tjänster och innefattar: <br>  <ul><li>tjänstekategori</li>   <li>beskrivande namn på tjänst</li>   <li>Förskottsbetalningar – namn och artikelnummer</li> <li>förbrukningsnamn och artikelnummer</li>   <li>måttenhet</li>   <li>konverteringsfaktorer mellan den rapporterade användningen och användningen som visas i Enterprise-portalen</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Det här kalkylbladet innehåller en lista över alla möjliga kombinationer av tjänsterelaterade fält i den nedladdningsbara användningsrapporten. | Service\_Download\_Fields.xlsx |
 
 - Information om hur du tolkar din faktura och dina kostnader finns i [Förstå fakturan för ditt Azure Enterprise-avtal](../understand/review-enterprise-agreement-bill.md).

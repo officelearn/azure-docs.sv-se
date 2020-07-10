@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85609477"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147412"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Lägg till analyser i API:er för Bing-sökresultat
 
@@ -53,7 +53,7 @@ Som standard visar diagram och grafer alla mått och data som du har åtkomst ti
 - **Tidsram**: rapporterings perioden. Du kan ange:
   - **Alla**: innehåller upp till 13 månader av data  
   - **Senaste 24 timmarna**: omfattar analys från de senaste 24 timmarna  
-  - **Senaste veckan**: omfattar analys från föregående sju dagar  
+  - **Senaste veckan**: omfattar analys från föregående 7 dagar  
   - **Senaste månaden**: omfattar analyser från de senaste 30 dagarna  
   - **Ett anpassat datum intervall**: inkluderar analyser från det angivna datum intervallet, om det är tillgängligt  
 

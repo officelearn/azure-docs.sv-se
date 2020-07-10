@@ -4,12 +4,12 @@ description: Första gången du använder Language Understanding (LUIS) behöver
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055774"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144633"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -24,7 +24,7 @@ Skriv-och körnings resurser för förutsägelse ger autentisering till din LUIS
 
 LUIS tillåter tre typer av Azure-resurser och en icke-Azure-resurs:
 
-|Tangent|Syfte|Kognitiv tjänst`kind`|Kognitiv tjänst`type`|
+|Nyckel|Syfte|Kognitiv tjänst`kind`|Kognitiv tjänst`type`|
 |--|--|--|--|
 |Redigerings nyckel|Få åtkomst till och hantera data för program med redigering, utbildning, publicering och testning. Skapa en LUIS redigerings nyckel om du tänker program mässigt redigera LUIS-appar.<br><br>Syftet med `LUIS.Authoring` nyckeln är att du ska kunna:<br>* hantera Language Understanding appar och modeller program mässigt, inklusive utbildning och publicering<br> * kontrol lera behörigheterna till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
 |Fråga förutsägelse nyckel| Slut punkts begär Anden för fråga. Skapa en LUIS-förutsägelse innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av start resursen. |`LUIS`|`Cognitive Services`|
@@ -102,7 +102,7 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Ägaren och alla deltagare har åtkomst för att redigera appen.
 
-|Redigerings åtkomst inkluderar|Obs!|
+|Redigerings åtkomst inkluderar|Anteckningar|
 |--|--|
 |Lägga till eller ta bort slut punkts nycklar||
 |Exporterar version||
@@ -154,9 +154,9 @@ Du kan styra vem som kan se slut punkts nyckeln för LUIS förutsägelse körnin
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Logga in på LUIS-portalen och börja redigera
 
 1. Logga in på [Luis-portalen](https://www.luis.ai) och godkänn användnings villkoren.
-1. Starta LUIS-appen genom att välja vilken typ av LUIS redigerings nyckel som du vill använda: kostnads fri utvärderings nyckel eller ny LUIS redigerings nyckel för Azure.
+1. Starta LUIS-appen genom att välja din Azure LUIS Authoring-nyckel.
 
-    ![Välj en typ av Language Understanding redigering av resurs](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Välj en typ av Language Understanding redigering av resurs](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. När du är färdig med din resurs urvals process [skapar du en ny app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
@@ -232,7 +232,7 @@ I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automati
 
     Detta POST-API kräver följande inställningar:
 
-    |Sidhuvud|Värde|
+    |Huvud|Värde|
     |--|--|
     |`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
     |`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
@@ -243,11 +243,11 @@ I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automati
 
     Detta POST-API kräver följande inställningar:
 
-    |Typ|Inställningen|Värde|
+    |Typ|Inställning|Värde|
     |--|--|--|
-    |Sidhuvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
-    |Sidhuvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
-    |Sidhuvud|`Content-type`|`application/json`|
+    |Huvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
+    |Huvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
+    |Huvud|`Content-type`|`application/json`|
     |Mängden|`appid`|LUIS-app-ID.
     |Brödtext||{"AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "ResourceGroup-2",<br>"AccountName": "Luis-USWest-S0-2"}|
 

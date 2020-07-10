@@ -8,12 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77505574"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147040"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -52,6 +53,7 @@ Du kan interagera med din arbets yta på följande sätt:
 + I valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + I valfri R-miljö med [Azure Machine Learning SDK för R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code-tillägg](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>Machine Learning med en arbets yta
 
@@ -69,13 +71,13 @@ Machine Learning-uppgifter läser och/eller skriver artefakter till din arbets y
 
 Du kan också utföra följande hanterings uppgifter för arbets ytan:
 
-| Arbets ytans hanterings aktivitet   | Portalen              | Studio | Python SDK/R SDK       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| Skapa en arbetsyta        | **&check;**     | | **&check;** | **&check;** |
-| Hantera åtkomst till arbets ytan    | **&check;**   || |  **&check;**    |
-| Uppgradera till Enterprise Edition    | **&check;** | **&check;**  | |     |
-| Skapa och hantera beräknings resurser    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Skapa en virtuell dator för Notebook |   | **&check;** | |     |
+| Arbets ytans hanterings aktivitet   | Portalen              | Studio | Python SDK/R SDK       | CLI        | VS Code
+|---------------------------|---------|---------|------------|------------|------------|
+| Skapa en arbetsyta        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Hantera åtkomst till arbets ytan    | **&check;**   || |  **&check;**    ||
+| Uppgradera till Enterprise Edition    | **&check;** | **&check;**  | |     ||
+| Skapa och hantera beräknings resurser    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Skapa en virtuell dator för Notebook |   | **&check;** | |     ||
 
 > [!WARNING]
 > Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
@@ -89,7 +91,7 @@ Det finns flera sätt att skapa en arbets yta:
 * Använd [Azure Portal](how-to-manage-workspace.md) för ett punkt-och-klick-gränssnitt för att vägleda dig genom varje steg.
 * Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) för att skapa en arbets yta i farten från Python-skript eller Jupiter-anteckningsböcker
 * Använd en [Azure Resource Manager mall](how-to-create-workspace-template.md) eller [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) när du behöver automatisera eller anpassa skapandet med företags säkerhets standarder.
-* Använd [vs Code-tillägget](tutorial-setup-vscode-extension.md)om du arbetar i Visual Studio Code.
+* Använd [vs Code-tillägget](how-to-manage-resources-vscode.md#create-a-workspace)om du arbetar i Visual Studio Code.
 
 > [!NOTE]
 > Namnet på arbets ytan är Skift läges okänsligt.

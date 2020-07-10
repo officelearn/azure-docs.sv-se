@@ -7,15 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143860"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrera brand Väggs principer för webb program med hjälp av Azure PowerShell
 
-Det här skriptet gör det enkelt att överta från en WAF-konfiguration eller en anpassad WAF-princip till en fullständig WAF-princip. Du kan se en varning i portalen om att *migrera till WAF-principen*, eller så kanske du vill ha den nya offentliga för hands versions WAF funktioner som t. ex. OmMatcha anpassade regler, per plats och per-URI WAF-princip eller bot-ruleset. Om du vill använda någon av dessa funktioner behöver du en fullständig WAF-princip som är kopplad till din Application Gateway. 
+Det här skriptet gör det enkelt att överta från en WAF-konfiguration eller en anpassad WAF-princip till en fullständig WAF-princip. Du kan se en varning i portalen om att *migrera till WAF-principen*, eller så kanske du vill ha de nya WAF-funktionerna, som t. ex. ommatchnings regler (för hands version), WAF-princip för enskilda platser och per URI-WAF (för hands version) eller i bot-ruleset (för hands version). Om du vill använda någon av dessa funktioner behöver du en fullständig WAF-princip som är kopplad till din Application Gateway. 
 
 Mer information om hur du skapar en ny WAF-princip finns i [skapa brand Väggs principer för webb program för Application Gateway](create-waf-policy-ag.md). Information om migrering finns i [migrera till WAF-princip](create-waf-policy-ag.md#migrate-to-waf-policy).
 

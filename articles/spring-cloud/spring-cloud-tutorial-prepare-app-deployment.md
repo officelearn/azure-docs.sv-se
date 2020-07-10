@@ -1,17 +1,17 @@
 ---
-title: Så här förbereder du ett Java våren-program för distribution i Azure våren Cloud
-description: I det här avsnittet förbereder du ett Java våren-program för distribution till Azure våren Cloud.
+title: Förbereda ett Java våren-program för distribution i Azure våren Cloud
+description: Lär dig hur du förbereder ett Java våren-program för distribution till Azure våren Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 0cbe91de889b787d6f417afbe74720b40c3026e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1840979fc1380f1e0d14f3a0a74eef5fa6df6538
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833391"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141868"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java våren-program för distribution i Azure våren Cloud
 
@@ -253,7 +253,7 @@ Inkludera följande `spring-cloud-starter-sleuth` och `spring-cloud-starter-zipk
 </dependency>
 ```
 
- Du måste också aktivera en Azure Application insikts-instans för att arbeta med din Azure våren Cloud Service-instans. Läs [självstudien Om distribuerad spårning](spring-cloud-tutorial-distributed-tracing.md) för att lära dig hur du använder Application Insights med Azure våren Cloud.
+ Du måste också aktivera en Azure Application insikts-instans för att arbeta med din Azure våren Cloud Service-instans. Information om hur du använder Application Insights med Azure våren Cloud finns i [dokumentationen om distribuerad spårning](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="see-also"></a>Se även
 * [Analysera program loggar och mått](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
@@ -264,9 +264,6 @@ Inkludera följande `spring-cloud-starter-sleuth` och `spring-cloud-starter-zipk
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här avsnittet har du lärt dig hur du konfigurerar ditt Java våren-program för distribution till Azure våren Cloud. Information om hur du konfigurerar en konfigurations Server instans finns i följande artikel.
-
-> [!div class="nextstepaction"]
-> [Lär dig hur du konfigurerar en konfigurations Server instans](spring-cloud-tutorial-config-server.md)
+I det här avsnittet har du lärt dig hur du konfigurerar ditt Java våren-program för distribution till Azure våren Cloud. Information om hur du konfigurerar en konfigurations Server instans finns i [Konfigurera en konfigurations Server instans](spring-cloud-tutorial-config-server.md).
 
 Fler exempel finns på GitHub: [Azure våren Cloud-exempel](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

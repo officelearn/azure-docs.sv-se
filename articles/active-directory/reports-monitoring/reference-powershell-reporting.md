@@ -13,15 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/12/2019
+ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2192c472e00d123780ec6bc5574e7b9fe326258b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75495304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144483"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
 
@@ -39,7 +40,7 @@ Med Azure Active Directory (Azure AD)-rapporter kan du få information om aktivi
 
 Den här artikeln innehåller en översikt över de PowerShell-cmdletar som används för gransknings loggar och inloggnings loggar.
 
-## <a name="audit-logs"></a>Granskningsloggar
+## <a name="audit-logs"></a>Spårningsloggar
 
 [Gransknings loggar](concept-audit-logs.md) ger spårning via loggar för alla ändringar som gjorts av olika funktioner i Azure AD. Exempel på gransknings loggar är ändringar som har gjorts i alla resurser i Azure AD, till exempel att lägga till eller ta bort användare, appar, grupper, roller och principer.
 
@@ -49,9 +50,9 @@ Du får åtkomst till gransknings loggarna med hjälp av cmdleten Get-AzureADAud
 | Scenario                      | PowerShell-kommando |
 | :--                           | :--                |
 | Programmets visnings namn      | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD-molnbaserad synkronisering "" |
-| Kategori                      | Get-AzureADAuditDirectoryLogs – filter "Category EQ" program hantering " |
+| Kategori                      | Get-AzureADAuditDirectoryLogs – filter "Category EQ" ApplicationManagement "" |
 | Datum/tid för aktivitet            | Get-AzureADAuditDirectoryLogs-filter "activityDateTime gt 2019-04-18" |
-| Samtliga av ovanstående              | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "och Category EQ" Application Management "och activityDateTime gt 2019-04-18"|
+| Alla alternativ ovan              | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "och Category EQ" ApplicationManagement "och activityDateTime gt 2019-04-18"|
 
 
 Följande bild visar ett exempel på det här kommandot. 
@@ -73,7 +74,7 @@ Du får åtkomst till inloggnings loggarna med hjälp av cmdleten Get-AzureADAud
 | Skapa datum och tid              | Get-AzureADAuditSignInLogs-filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (allting sedan 5:30 PM på 4/18) |
 | Status                        | Get-AzureADAuditSignInLogs-filter "status/errorCode EQ 50105" |
 | Programmets visnings namn      | Get-AzureADAuditSignInLogs-filter "appDisplayName EQ" StoreFrontStudio [wsfed Enabled] " |
-| Samtliga av ovanstående              | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "och status/errorCode Ne 0 och appDisplayName EQ StoreFrontStudio [wsfed Enabled]" |
+| Alla alternativ ovan              | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "och status/errorCode Ne 0 och appDisplayName EQ StoreFrontStudio [wsfed Enabled]" |
 
 
 Följande bild visar ett exempel på det här kommandot. 

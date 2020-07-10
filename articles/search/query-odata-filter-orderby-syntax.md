@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153884"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165217"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>OData-språk översikt för `$filter` , `$orderby` och `$select` i Azure kognitiv sökning
 
@@ -82,7 +83,9 @@ Betydelsen av en fält Sök väg varierar beroende på kontexten. I filter refer
 
 Överväg fält Sök vägen `Address/City` . I ett filter refererar detta till en enda stad för det aktuella dokumentet, t. ex. "San Francisco". `Rooms/Type`Till skillnad från, refererar till `Type` under fältet för många rum (som "standard" för det första rummet, "Deluxe" för det andra rummet osv.). Eftersom `Rooms/Type` inte refererar till en *enskild instans* av det underordnade fältet `Type` , kan den inte användas direkt i ett filter. Om du i stället vill filtrera efter rums typ använder du ett [lambda-uttryck](search-query-odata-collection-operators.md) med en intervall variabel, så här:
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 I det här exemplet visas variabeln Range `room` i `room/Type` fält Sök vägen. På så sätt `room/Type` refererar du till typen av aktuellt rum i det aktuella dokumentet. Det här är en enskild instans av `Type` under fältet, så den kan användas direkt i filtret.
 
@@ -92,7 +95,7 @@ Fält Sök vägar används i många parametrar för [Azure KOGNITIV sökning RES
 
 | API | Parameternamn | Begränsningar |
 | --- | --- | --- |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Ingen |
+| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Inget |
 | [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/text/weights` | Kan endast referera till **sökbara** fält |
 | [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/functions/fieldName` | Kan endast referera till **filter** bara fält |
 | [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`När `queryType` är`full` | Kan endast referera till **sökbara** fält |

@@ -11,11 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444258"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165778"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
 
@@ -101,14 +102,14 @@ Använd det här trädet för att bestämma alternativ för enheter som ägs av 
 
 iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tabell visas övergripande överväganden för Windows-klient enheter. Använd den som en översikt och utforska sedan de olika integrations metoderna i detalj.
 
-| | Azure AD-registrerad| Azure Active Directory-anslutning| Hybrid Azure Active Directory-anslutning |
+| Att tänka på | Azure AD-registrerad| Azure Active Directory-anslutning| Hybrid Azure Active Directory-anslutning |
 | - | - | - | - |
 | **Klient operativ system**| | |  |
 | Windows 10-enheter| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | Windows-enheter på äldre nivå (Windows 8,1 eller Windows 7)| | | ![markering](./media/plan-device-deployment/check.png) |
 |**Inloggnings alternativ**| | |  |
 | Lokala autentiseringsuppgifter för slutanvändare| ![markering](./media/plan-device-deployment/check.png)| |  |
-| lösenordsinställning| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
+| Lösenord| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | PIN-kod för enhet| ![markering](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![markering](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello för företag| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
@@ -117,8 +118,8 @@ iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tab
 |**De viktigaste funktionerna**| | |  |
 | SSO till moln resurser| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | Enkel inloggning till lokala resurser| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Villkorlig åtkomst <br> (Kräv att enheter markeras som kompatibla) <br> (Måste hanteras av MDM)| ![markering](./media/plan-device-deployment/check.png) | ![markering](./media/plan-device-deployment/check.png)|![markering](./media/plan-device-deployment/check.png) |
-Villkorlig åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![markering](./media/plan-device-deployment/check.png)
+| Villkorsstyrd åtkomst <br> (Kräv att enheter markeras som kompatibla) <br> (Måste hanteras av MDM)| ![markering](./media/plan-device-deployment/check.png) | ![markering](./media/plan-device-deployment/check.png)|![markering](./media/plan-device-deployment/check.png) |
+Villkorsstyrd åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![markering](./media/plan-device-deployment/check.png)
 | Lösen ords återställning via självbetjäning från Windows inloggnings skärm| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | PIN-återställning för Windows Hello| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | Företags tillstånd för nätverks växling mellan enheter| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |

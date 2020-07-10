@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103559"
+ms.locfileid: "86146996"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect sync: Scheduler
 I det här avsnittet beskrivs den inbyggda Schemaläggaren i Azure AD Connect Sync (Synkroniseringsmotorn).
@@ -41,8 +41,12 @@ Scheduler ansvarar för två uppgifter:
 Själva Scheduler körs alltid, men den kan konfigureras för att bara köra en eller inga av dessa uppgifter. Om du till exempel behöver ha en egen process för synkronisering, kan du inaktivera den här uppgiften i Schemaläggaren men fortfarande köra underhålls aktiviteten.
 
 >[!IMPORTANT]
->Du måste kontrol lera att en synkroniseringsprocess körs minst en gång var sjunde dag. Om du inte gör det kan det orsaka synkroniseringsproblem som kräver att du kör en fullständig synkronisering för att lösa problemet.
-
+>Som standard var 30: e minut en synkronisering körs. Om du har ändrat synkroniseringsfunktionen måste du kontrol lera att en synkroniseringsprocess körs minst en gång var sjunde dag. 
+>
+>* En Delta-synkronisering måste ske inom 7 dagar från den senaste synkroniseringen.
+>* En Delta-synkronisering (efter en fullständig synkronisering) måste ske inom 7 dagar från den tidpunkt då den senaste fullständiga synkroniseringen slutfördes.
+>
+>Om du inte gör det kan det orsaka synkroniseringsproblem som kräver att du kör en fullständig synkronisering för att lösa problemet. Detta gäller även för servrar i mellanlagrings läge.
 
 ## <a name="scheduler-configuration"></a>Scheduler-konfiguration
 Om du vill se dina aktuella konfigurations inställningar går du till PowerShell och kör `Get-ADSyncScheduler` . Du ser något som liknar den här bilden:

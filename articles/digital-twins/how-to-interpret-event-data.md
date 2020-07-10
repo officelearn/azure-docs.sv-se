@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f6794559c2296b02ef61d0e280d29456904ae607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609307"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142444"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
 
@@ -103,7 +103,7 @@ Meddelanden om livs cykel utlöses när:
 
 Här är fälten i bröd texten i ett meddelande om livs cykel.
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse. |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -125,6 +125,7 @@ Här är ett exempel på en brödtext för en [IoT plug and Play-enhet (PNP)](..
 ```json
 {
   "$dtId": "device-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "thermostat": {
     "temperature": 80,
     "humidity": 45,
@@ -157,6 +158,7 @@ Här är ett annat exempel på en digital, dubbel. Den här baseras på en [mode
 ```json
 {
   "$dtId": "logical-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
@@ -187,7 +189,7 @@ Här är ett annat exempel på en digital, dubbel. Den här baseras på en [mode
 
 Här är fälten i bröd texten för en Edge Change-avisering.
 
-| Name    | Värde |
+| Namn    | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse |
 | `source` | Namnet på den digitala Azure-instansen, till exempel *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -243,7 +245,7 @@ Här är ett exempel på ett meddelande om att skapa eller ta bort relationer:
 
 Här är fälten i bröd texten i ett digitalt meddelande om ändring av dubbla meddelanden.
 
-| Name    | Värde |
+| Namn    | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net*

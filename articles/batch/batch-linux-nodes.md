@@ -4,11 +4,12 @@ description: Lär dig att bearbeta dina parallella beräknings arbets belastning
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, tracking-python
-ms.openlocfilehash: 1a87b72b16c1d41e5569c4ce9e5e1a6e2c51a2e0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 05e23093a00eab70db683c10eae59ef27152d2f7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960086"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145037"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux Compute-noder i batch-pooler
 
@@ -28,7 +29,7 @@ En **Cloud Services-konfiguration** tillhandahåller *endast*Windows-beräknings
 
 ### <a name="virtual-machine-image-reference"></a>Referens för avbildning av virtuell dator
 
-Batch-tjänsten använder [skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för att tillhandahålla Compute-noder i konfigurationen för den virtuella datorn. Du kan ange en avbildning från [Azure Marketplace][vm_marketplace]eller ange en anpassad avbildning som du har för berett. Mer information om anpassade avbildningar finns i [skapa en pool med det delade avbildnings galleriet](batch-sig-images.md).
+Batch-tjänsten använder [skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/overview.md) för att tillhandahålla Compute-noder i konfigurationen för den virtuella datorn. Du kan ange en avbildning från [Azure Marketplace][vm_marketplace]eller ange en anpassad avbildning som du har för berett. Mer information om anpassade avbildningar finns i [skapa en pool med det delade avbildnings galleriet](batch-sig-images.md).
 
 När du konfigurerar en avbildnings referens för en virtuell dator anger du egenskaperna för avbildningen av den virtuella datorn. Följande egenskaper krävs när du skapar en avbildnings referens för en virtuell dator:
 

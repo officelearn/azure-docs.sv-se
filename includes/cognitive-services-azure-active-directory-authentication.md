@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86062686"
 ---
-## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
+## <a name="authenticate-with-azure-active-directory"></a>Autentisering via Azure Active Directory
 
 > [!IMPORTANT]
 > 1. För närvarande är det **bara** API för visuellt innehåll, Ansikts-API, API för textanalys, fördjupad läsare, formulär igenkänning, avvikelse detektor och alla Bing-tjänster utom anpassad sökning i Bing stöd för autentisering med Azure Active Directory (AAD).
@@ -125,7 +125,7 @@ Cognitive Services stöd Azure Active Directory (Azure AD)-autentisering med [ha
 
 Innan du kan använda hanterade identiteter för Azure-resurser för att ge åtkomst till Cognitive Services resurser från din virtuella dator måste du aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i:
 
-- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure-portalen](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
 - [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
 - [Azure Resource Manager-mall](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)

@@ -3,16 +3,16 @@ title: Använda Azure AD i Azure Kubernetes-tjänsten
 description: Lär dig hur du använder Azure AD i Azure Kubernetes service (AKS)
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
-ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 9cacd2454dc987f7d507bb4b677e742f0be0d391
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105956"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166509"
 ---
 # <a name="aks-managed-azure-active-directory-integration-preview"></a>AKS-hanterad Azure Active Directory-integration (för hands version)
 
@@ -26,10 +26,6 @@ AKS-hanterad Azure AD-integrering är utformad för att förenkla Azure AD-integ
 Kluster administratörer kan konfigurera Kubernetes-rollbaserad åtkomst kontroll (RBAC) baserat på användarens identitet eller katalog grupp medlemskap. Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][open-id-connect].
 
 Läs mer om AAD-integrerings flödet i [dokumentationen för Azure Active Directory integrations begrepp](concepts-identity.md#azure-active-directory-integration).
-
-## <a name="limitations"></a>Begränsningar
-
-* Du kan för närvarande inte uppgradera ett befintligt AKS Azure AD-integrerat kluster till den nya AKS-hanterade Azure AD-upplevelsen.
 
 > [!IMPORTANT]
 > AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:

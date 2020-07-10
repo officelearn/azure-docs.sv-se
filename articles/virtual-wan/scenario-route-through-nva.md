@@ -8,16 +8,22 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0716ca8f0457ca801098c97dd7a5e68751822d4d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142966"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
 
 När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I det här NVA-scenariot är målet att dirigera trafik via en NVA (virtuell nätverks installation) för gren till VNet och VNet till gren. Information om virtuell hubb routning finns i [om virtuell nav-routning](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> Vissa funktioner för routning kan fortfarande återställas. Om distributionen ännu inte har hänt i din region kan du använda stegen i dessa versioner av artiklarna under tiden:
+>* [Azure Portal artikel](virtual-wan-route-table-nva-portal.md)
+>* [PowerShell-artikel](virtual-wan-route-table-nva.md)
+>
 
 ## <a name="scenario-architecture"></a><a name="architecture"></a>Scenariots arkitektur
 

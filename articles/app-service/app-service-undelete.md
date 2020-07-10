@@ -5,11 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: d147c87e8fb0fa9e01ba2dbaf732adaae082bcd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167799"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146232"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Återställa borttagen App Service-app med hjälp av PowerShell
 
@@ -17,6 +18,10 @@ Om du har råkat ta bort din app av misstag i Azure App Service kan du återstä
 
 > [!NOTE]
 > Borttagna appar rensas från systemet 30 dagar efter den första borttagningen. När en app har rensats kan den inte återställas.
+>
+
+> [!NOTE]
+> Funktionen för att ångra borttagning stöds inte för förbruknings planen.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>Registrera App Service Resource Provider igen

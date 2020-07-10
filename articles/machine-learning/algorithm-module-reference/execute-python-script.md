@@ -10,18 +10,18 @@ ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
 ms.date: 06/16/2020
-ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907558"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147260"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
 Den här artikeln beskriver skript modulen kör python i Azure Machine Learning designer (för hands version).
 
-Använd den här modulen för att köra python-kod. Mer information om arkitektur och design principer för python finns i [den här artikeln](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
+Använd den här modulen för att köra python-kod. Mer information om arkitekturen och design principerna för python finns i så här [kör du python-kod i Azure Machine Learning designer](../how-to-designer-python.md).
 
 Med python kan du utföra uppgifter som befintliga moduler inte stöder, till exempel:
 

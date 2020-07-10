@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 5ad92fe9f243cf9884f29536cf6ebb66202338d5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d205f3ccc0adef7e2390274bb7f4511c6f994027
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299969"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038012"
 ---
 # <a name="azure-ea-pricing"></a>Azure EA-priser
 
@@ -24,7 +24,7 @@ Det här avsnittet innehåller information om hur användningen beräknas. I avs
 
 ### <a name="price-protection"></a>Prisskydd
 
-Som kund eller kanalpartner är du garanterad att få priser till, eller under, de priser som visas i din kundprislista (CPS) eller det pris som gäller vid datumet för ditt Azure-köp. Det här priset kallas för baspriset. För tjänster som har införts efter ditt Azure-köp debiteras du priset som gäller för rabatten på den aktuella nivån när tjänsten först introducerades. Det här prisskyddet gäller för åtagandeperioden, som kan vara ett eller tre år beroende på ditt Enterprise-avtal.
+Som kund eller kanalpartner är du garanterad att få priser till, eller under, de priser som visas i din kundprislista (CPS) eller det pris som gäller vid datumet för ditt Azure-köp. Det här priset kallas för baspriset. För tjänster som har införts efter ditt Azure-köp debiteras du priset som gäller för rabatten på den aktuella nivån när tjänsten först introducerades. Det här prisskyddet gäller för förskottsbetalningsperioden, som kan vara ett eller tre år beroende på ditt Enterprise-avtal.
 
 ### <a name="price-changes"></a>Prisändringar
 

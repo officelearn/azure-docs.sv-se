@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fef582048d1e1093a4a4d69229185e8a3d8dc229
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659874"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144863"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -85,7 +86,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funktioner för generation 1 vs. generation 2
 
-| Kapacitet | Generation 1 | Generation 2 |
+| Funktion | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
 | OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |
@@ -191,6 +192,9 @@ Du kan också skapa virtuella datorer i generation 2 med hjälp av skalnings upp
 * **Stöder virtuella datorer i generation 2 stöd för accelererat nätverk?**  
     Ja. Mer information finns i [skapa en virtuell dator med accelererat nätverk](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
+* **Har generation 2-VM-datorer stöd för säker start eller vTPM i Azure?**
+    Både virtuella datorer i generation 1 och generation 2 i Azure stöder inte säker start eller vTPM. 
+    
 * **Stöds VHDX i generation 2?**  
     Nej, generation 2-VM: ar stöder bara VHD.
 

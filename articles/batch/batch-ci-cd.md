@@ -5,11 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956669"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145270"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -48,7 +49,7 @@ Kodbas-strukturen som används i det här exemplet liknar följande:
 Det här avsnittet förutsätter att du är bekant med versions kontroll och hur du utformar Resource Manager-mallar. Om du inte är bekant med dessa begrepp kan du se följande sidor för mer information.
 
 * [Vad är käll kontroll?](/azure/devops/user-guide/source-control?view=azure-devops)
-* [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md)
+* [Förstå strukturen och syntaxen för Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
@@ -188,7 +189,7 @@ Nästa mall visar ett exempel på hur du skapar en Azure Batch pool (backend-dat
 
 Slutligen har vi en mall som fungerar ungefär som en Orchestrator. Den här mallen ansvarar för distributionen av Capabilities-mallarna.
 
-Du kan också få mer information om hur du [skapar länkade Azure Resource Manager mallar](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) i en separat artikel.
+Du kan också få mer information om hur du [skapar länkade Azure Resource Manager mallar](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) i en separat artikel.
 
 ```json
 {

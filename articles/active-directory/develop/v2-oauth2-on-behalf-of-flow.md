@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/8/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a0d4d205e82f377d6ea02c91fbd6db7820c3868
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553548"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165880"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow
 
@@ -47,7 +47,7 @@ Stegen som följer utgör OBO-flödet och förklaras med hjälp av följande dia
 > [!NOTE]
 > I det här scenariot har mellanskikts tjänsten ingen användar åtgärd för att få användarens medgivande att få åtkomst till det underordnade API: et. Alternativet för att bevilja åtkomst till underordnad API visas därför som en del av godkännande steget under autentisering. Information om hur du konfigurerar detta för din app finns i [få medgivande för program på mellan nivå](#gaining-consent-for-the-middle-tier-application).
 
-## <a name="service-to-service-access-token-request"></a>Begäran om tjänst-till-tjänst-åtkomsttoken
+## <a name="middle-tier-access-token-request"></a>Begäran om åtkomsttoken på mellan nivå
 
 Om du vill begära en åtkomsttoken gör du ett HTTP-inlägg till den klient-/regionspecifika slut punkten för Microsoft Identity Platform-token med följande parametrar.
 
@@ -63,12 +63,12 @@ När du använder en delad hemlighet innehåller en begäran om tjänst-till-tj�
 
 | Parameter | Typ | Description |
 | --- | --- | --- |
-| `grant_type` | Obligatorisk | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Obligatorisk | Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `client_secret` | Obligatorisk | Den klient hemlighet som du genererade för din app på sidan Azure Portal-Appregistreringar. |
-| `assertion` | Obligatorisk | Värdet för den token som används i begäran.  Denna token måste ha en mål grupp för appen som gör denna OBO-begäran (appen avgränsad av `client-id` fältet). |
-| `scope` | Obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md). |
-| `requested_token_use` | Obligatorisk | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
+| `grant_type` | Krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
+| `client_id` | Krävs | Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
+| `client_secret` | Krävs | Den klient hemlighet som du genererade för din app på sidan Azure Portal-Appregistreringar. |
+| `assertion` | Krävs | Den åtkomsttoken som skickades till API: t mellan nivå.  Denna token måste ha en Audience ( `aud` )-anspråks ansökan () för att appen ska kunna utföra denna OBO-begäran (appen avgränsade med `client-id` fältet). Program kan inte lösa in en token för en annan app (så t. ex. om en klient skickar en API till en token som är avsedd för MS Graph kan API: t inte lösa det med OBO.  Den bör istället avvisa token.  |
+| `scope` | Krävs | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md). |
+| `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
 
 #### <a name="example"></a>Exempel
 
@@ -95,13 +95,13 @@ En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåll
 
 | Parameter | Typ | Description |
 | --- | --- | --- |
-| `grant_type` | Obligatorisk | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Obligatorisk |  Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `client_assertion_type` | Obligatorisk | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` . |
-| `client_assertion` | Obligatorisk | En kontroll (en JSON-webbtoken) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Information om hur du registrerar ditt certifikat och formatet på intyget finns i autentiseringsuppgifter för [certifikat](active-directory-certificate-credentials.md). |
-| `assertion` | Obligatorisk | Värdet för den token som används i begäran. |
-| `requested_token_use` | Obligatorisk | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
-| `scope` | Obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md).|
+| `grant_type` | Krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
+| `client_id` | Krävs |  Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
+| `client_assertion_type` | Krävs | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` . |
+| `client_assertion` | Krävs | En kontroll (en JSON-webbtoken) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Information om hur du registrerar ditt certifikat och formatet på intyget finns i autentiseringsuppgifter för [certifikat](active-directory-certificate-credentials.md). |
+| `assertion` | Krävs |  Den åtkomsttoken som skickades till API: t mellan nivå.  Denna token måste ha en Audience ( `aud` )-anspråks ansökan () för att appen ska kunna utföra denna OBO-begäran (appen avgränsade med `client-id` fältet). Program kan inte lösa in en token för en annan app (så t. ex. om en klient skickar en API till en token som är avsedd för MS Graph kan API: t inte lösa det med OBO.  Den bör istället avvisa token.  |
+| `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
+| `scope` | Krävs | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md).|
 
 Observera att parametrarna är nästan desamma som i fallet med delad hemlighet, förutom att `client_secret` parametern ersätts av två parametrar: a `client_assertion_type` och `client_assertion` .
 
@@ -125,7 +125,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## <a name="service-to-service-access-token-response"></a>Svar på tjänst till tjänst åtkomst-token
+## <a name="middle-tier-access-token-response"></a>Svar mellan åtkomst-token på mellan nivå
 
 Ett lyckat svar är ett JSON OAuth 2,0-svar med följande parametrar.
 

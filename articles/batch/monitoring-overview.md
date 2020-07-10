@@ -3,25 +3,26 @@ title: Övervaka Azure Batch
 description: Lär dig mer om Azures övervaknings tjänster, statistik, diagnostikloggar och andra övervakningsfunktioner för Azure Batch.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723535"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144938"
 ---
 # <a name="monitor-batch-solutions"></a>Övervaka Batch-lösningar
 
 Azure och batch-tjänsten tillhandahåller en mängd tjänster, verktyg och API: er för att övervaka dina batch-lösningar. I den här översikts artikeln får du hjälp att välja en övervaknings metod som passar dina behov.
 
-En översikt över de Azure-komponenter och-tjänster som är tillgängliga för övervakning av Azure-resurser finns i [övervaka Azure-program och-resurser](../monitoring-and-diagnostics/monitoring-overview.md).
+En översikt över de Azure-komponenter och-tjänster som är tillgängliga för övervakning av Azure-resurser finns i [övervaka Azure-program och-resurser](../azure-monitor/overview.md).
 
 ## <a name="subscription-level-monitoring"></a>Övervakning på prenumerations nivå
 
-På prenumerations nivå, som innehåller batch-konton, samlar [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md) in drifts händelse data i [flera kategorier](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
+På prenumerations nivå, som innehåller batch-konton, samlar [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md) in drifts händelse data i [flera kategorier](../azure-monitor/platform/activity-log.md#view-the-activity-log).
 
 För batch-konton är det specifikt att samla in händelser som rör skapande och borttagning av konton och nyckel hantering i aktivitets loggen.
 
-Ett sätt att hämta händelser från aktivitets loggen är att använda Azure Portal. Klicka på **alla tjänster**  >  **aktivitets logg**. Du kan också fråga efter händelser med hjälp av Azure CLI, PowerShell-cmdletar eller Azure Monitor REST API. Du kan också exportera aktivitets loggen eller konfigurera [aktivitets logg aviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Ett sätt att hämta händelser från aktivitets loggen är att använda Azure Portal. Klicka på **alla tjänster**  >  **aktivitets logg**. Du kan också fråga efter händelser med hjälp av Azure CLI, PowerShell-cmdletar eller Azure Monitor REST API. Du kan också exportera aktivitets loggen eller konfigurera [aktivitets logg aviseringar](../azure-monitor/platform/alerts-activity-log.md).
 
 ## <a name="batch-account-level-monitoring"></a>Övervakning av batch-konto-nivå
 
@@ -32,7 +33,7 @@ Ett sätt att hämta händelser från aktivitets loggen är att använda Azure P
 
 ## <a name="batch-resource-monitoring"></a>Batch-resurs-övervakning
 
-I batch-programmen använder du batch-API: erna för att övervaka eller fråga efter status för dina resurser, inklusive jobb, aktiviteter, noder och pooler. Ett exempel:
+I batch-programmen använder du batch-API: erna för att övervaka eller fråga efter status för dina resurser, inklusive jobb, aktiviteter, noder och pooler. Exempel:
 
 * [Räkna aktiviteter och Compute-noder efter tillstånd](batch-get-resource-counts.md)
 * [Skapa frågor för att lista batch-resurser effektivt](batch-efficient-list-queries.md)

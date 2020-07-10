@@ -4,12 +4,12 @@ description: Registrera och analysera diagnostiska logg händelser för Azure Ba
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960732"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145098"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
  
@@ -66,7 +66,7 @@ Så här konfigurerar du en mått avisering i Azure Portal:
 3. Klicka på **Välj villkor**och välj sedan ett mått. Bekräfta värdena för **diagram period**, **tröskel typ**, **operator**och **sammansättnings typ**och ange ett **tröskelvärde**. Välj sedan **Done** (Klar).
 4. Lägg till en åtgärds grupp i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 5. I avsnittet **aviserings regel information** anger du ett namn och en **Beskrivning** för **varnings regeln** och väljer **allvarlighets grad**
-6. Välj **Skapa aviseringsregel**.
+6. Välj **Skapa varningsregel**.
 
 Mer information om hur du skapar mått aviseringar finns i [förstå hur mått varningar fungerar i Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) och [skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
@@ -87,8 +87,8 @@ Ett vanligt scenario är att välja ett Azure Storage konto som mål för loggen
 
 Alternativt kan du:
 
-- Strömma logg händelser för batch-diagnostikloggar till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan mata in miljon tals händelser per sekund, som du sedan kan omvandla och lagra med valfri analys-Provider i real tid. 
-- Skicka diagnostikloggar till [Azure Monitor loggar](../log-analytics/log-analytics-overview.md)där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
+- Strömma logg händelser för batch-diagnostikloggar till en [Azure Event Hub](../event-hubs/event-hubs-about.md). Event Hubs kan mata in miljon tals händelser per sekund, som du sedan kan omvandla och lagra med valfri analys-Provider i real tid. 
+- Skicka diagnostikloggar till [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md)där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
 
 > [!NOTE]
 > Du kan debiteras ytterligare kostnader för att lagra eller bearbeta diagnostikdata med Azure-tjänster. 
@@ -119,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Ett exempel:
+Exempel:
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
@@ -135,7 +135,7 @@ Nedan visas ett exempel på en `PoolResizeCompleteEvent` post i en `PT1H.json` l
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Mer information om schemat för diagnostikloggar i lagrings kontot finns i [arkivera Azures resurs loggar till lagrings kontot](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Använd Storage-API: er för att komma åt loggarna i ditt lagrings konto program mässigt.
+Mer information om schemat för diagnostikloggar i lagrings kontot finns i [arkivera Azures resurs loggar till lagrings kontot](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Använd Storage-API: er för att komma åt loggarna i ditt lagrings konto program mässigt.
 
 ### <a name="service-log-events"></a>Tjänst logg händelser
 
@@ -178,4 +178,3 @@ Tjänst logg händelser som genereras av batch-tjänsten inkluderar följande:
 
 - Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 - Lär dig mer om att [övervaka batch-lösningar](monitoring-overview.md).
-

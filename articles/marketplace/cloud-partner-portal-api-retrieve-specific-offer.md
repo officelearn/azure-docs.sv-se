@@ -49,7 +49,7 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |  |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**          |   **Värde**            |
@@ -62,7 +62,7 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 <a name="body-example"></a>Body-exempel
 ------------
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Åtgärd
 
 ``` json
 {
@@ -211,5 +211,5 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |  Körs                    | Överföring av erbjudande bearbetas.          |
 |  Lyckades                  | Bearbetningen av erbjudandet har slutförts.    |
 |  Avbrutna                   | Överföring av erbjudande avbröts.                |
-|  Misslyckades                     | Det gick inte att skicka erbjudandet.                      |
+|  Misslyckad                     | Det gick inte att skicka erbjudandet.                      |
 |  |  |

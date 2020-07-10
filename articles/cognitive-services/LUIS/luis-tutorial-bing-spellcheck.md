@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98f35d0b3f37a7bb181f83b83a48ef113e02f1e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ee0c659cf510eb0a438ae0c78a554c98dccffa89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344143"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144276"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Korrigera felstavade ord med Stavningskontroll i Bing
 
@@ -24,17 +24,9 @@ Du kan integrera din LUIS-app med [API för stavningskontroll i Bing v7](https:/
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
-
-## <a name="create-first-key-for-bing-spell-check-v7"></a>Skapa första nyckeln för Stavningskontroll i Bing v7
-
-Din [första API för stavningskontroll i Bing v7-nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) är kostnads fri.
-
-![Skapa en kostnads fri nyckel](./media/luis-tutorial-bing-spellcheck/free-key.png)
-
-<a name="create-subscription-key"></a>
-
 ## <a name="create-endpoint-key"></a>Skapa slut punkts nyckel
-Om den kostnads fria nyckeln har upphört att gälla skapar du en slut punkts nyckel.
+
+Följ dessa instruktioner om du vill skapa en Stavningskontroll i Bing resurs i Azure Portal:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 

@@ -3,16 +3,16 @@ title: Azure EA-avtal och ändringar
 description: I den här artikeln förklaras hur Azure EA-avtal och ändringar påverkar din användning av Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 50f7a1bab17b9a98b7ca282387def52b24d448c4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298150"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044914"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA-avtal och ändringar
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs hur Azure EA-avtal och ändringar kan påverka åtk
 
 ## <a name="enrollment-provisioning-status"></a>Status för registreringens etablering
 
-Startdatumet för ett nytt ekonomiskt åtagande definieras som det datum då det regionala åtgärdscentret bearbetade det. Eftersom beställningar med ekonomiskt åtagande via Azure EA-portalen och bearbetas i UTC-tidszonen kan det uppstå en fördröjning om din inköpsorder med ekonomiskt åtagande har bearbetats i en annan region. Du ser startdatumet för det ekonomiska åtagandet som startdatumet för täckningen i inköpsordern på https://www.explore.ms. Startdatumet för täckningen är när det ekonomiska åtagandet visas i Azure EA-portalen.
+Startdatumet för en ny Azure-förskottsbetalning definieras som det datum då det regionala åtgärdscentret bearbetade det. Eftersom Azure-förskottsbetalningsorder via Azure EA-portalen bearbetas i UTC-tidszonen, kan det uppstå en fördröjning om din Azure-förskottsbetalningsorder bearbetades i en annan region. Startdatumet för täckningen för inköpsordern på https://www.explore.ms är startdatumet för Azure-förskottsbetalningen. Startdatumet för täckningen är det datum då Azure-förskottsbetalningen visas på Azure EA-portalen.
 
 ## <a name="support-for-enterprise-customers"></a>Support för Enterprise-kunder
 
@@ -36,7 +36,7 @@ Registreringar har något av följande statusvärden. Varje värde avgör hur du
 
 **Obegränsad utökad giltighet** – statusen Obegränsad utökad giltighet tilldelas efter Enterprise-avtalets slutdatum. Innan EA-registreringen når Enterprise-avtalets slutdatum bör registreringsadministratören välja att:
 
-- Förnya registreringen genom att lägga till ett nytt ekonomiskt åtagande
+- Förnya registreringen genom att utöka Azure-förskottsbetalningen
 - Överföra den befintliga registreringen till en ny registrering
 - Migrera till MOSP-programmet (Microsoft Online Subscription program)
 - Bekräfta inaktiveringen av alla tjänster som är kopplade till registreringen
@@ -51,7 +51,7 @@ Från och med den 1 augusti 2019 godkänns inte nya avanmälningsformulär för 
 
 Påläggen för partner förbättrar kundernas kostnadsrapportering i Azure EA-portalen. I Azure EA-portalen visas den användning och de priser som partnern har konfigurerat för kunden.
 
-Påläggen gör att partneradministratörer kan lägga till ett procentuellt prispålägg på de indirekta Enterprise-avtalen. Det procentuella pålägget gäller för alla Microsofts förstapartstjänster i Azure EA-portalen, till exempel mätarpriser, ekonomiska åtaganden och beställningar. När partnern har publicerat pålägget ser kunderna kostnaderna för Azure i Azure EA-portalen. Några exempel är användningssammanfattningar, prislistor och nedladdade användningsrapporter.
+Påläggen gör att partneradministratörer kan lägga till ett procentuellt prispålägg på de indirekta Enterprise-avtalen. Det procentuella pålägget gäller för alla Microsofts förstapartstjänster på Azure EA-portalen, till exempel mätarpriser, Azure-förskottsbetalning och beställningar. När partnern har publicerat pålägget ser kunderna kostnaderna för Azure i Azure EA-portalen. Några exempel är användningssammanfattningar, prislistor och nedladdade användningsrapporter.
 
 Från och med september 2019 kan en partner lägga till påslag när som helst under en tidsperiod. De behöver inte vänta till nästa tidsperiod för att tillämpa pålägget.
 
@@ -61,7 +61,7 @@ Microsoft använder inte det angivna pålägget och tillhörande priser för nå
 
 Licenstjänsteleverantören tillhandahåller ett enda procentvärde i EA-portalen.  All kommersiell information på portalen lyfts upp av procenttalet som anges av licenstjänsteleverantören. Exempel:
 
-- Kunden registrerar ett Enterprise-avtal med ekonomiskt åtagande på 100 000 USD.
+- Kunden signerar ett EA med en Azure-förskottsbetalning på 100 000 USD.
 - Mätarpriset för tjänst A är 10 USD/timme.
 - Licenstjänsteleverantören anger en påläggsprocent på 10 % på EA-portalen.
 - Exemplet nedan är hur kunden ser den kommersiella informationen:
@@ -72,10 +72,10 @@ Licenstjänsteleverantören tillhandahåller ett enda procentvärde i EA-portale
 
 ### <a name="when-to-use-a-markup"></a>När du ska använda ett pålägg
 
-Använd funktionen om du anger samma påläggsprocent på ALLA kommersiella transaktioner inom Enterprise-avtalet. Det vill säga – om du gör ett pålägg på det ekonomiska åtagandets information, mätarpriserna, beställningsinformationen osv.
+Använd funktionen om du anger samma påläggsprocent på ALLA kommersiella transaktioner inom Enterprise-avtalet. Det vill säga – om du gör ett pålägg på Azure-förskottsbetalningsinformationen, mätarpriserna, beställningsinformationen osv.
 
 Använd inte påläggsfunktionen om:
-- Du använder olika priser mellan priser för ekonomiskt åtagande och mätare.
+- Du använder olika priser mellan priser för Azure-förskottsbetalning och mätare.
 - Du använder olika priser för olika mätare.
 
 Om du använder olika priser för olika mätare rekommenderar vi att utveckla en anpassad lösning utifrån API-nyckeln, som kan tillhandahållas av kunden, för att hämta förbrukningsdata och tillhandahålla rapporter.
@@ -97,11 +97,11 @@ Se till att granska den kommersiella informationen – saldo, prislista osv inna
 
 **Steg två: Granska och verifiera**
 
-Granska påläggspriset i _Usage Summary_ (Användningssammanfattning) för åtagandeperioden i kundvyn. Microsoft-priset är fortfarande tillgängligt i partnervyn. Vyerna kan växlas med hjälp av partnerpåläggets växlingsknapp för personer högst upp till höger.
+Granska påläggspriset i _Sammanfattning av användning_ för förskottsbetalningsperioden i kundvyn. Microsoft-priset är fortfarande tillgängligt i partnervyn. Vyerna kan växlas med hjälp av partnerpåläggets växlingsknapp för personer högst upp till höger.
 
 1. Granska priserna i prisdokumentet.
 1. Du kan göra ändringar innan du publicerar genom att välja **Edit** (Redigera) på fliken _View Usage Summary > Customer View_ (Visa användningssammanfattning > Kundvy).  
-  Pålägg görs för både tjänsterna och åtagandesaldon med samma procentsatser. Om du har olika procentsatser för saldo och mätarpriser, eller olika procentsatser för olika tjänster, ska du inte använda den här funktionen.
+  Pålägg görs för både tjänsterna och förskottsbetalningssaldon med samma procentsatser. Om du har olika procentsatser för saldo och mätarpriser, eller olika procentsatser för olika tjänster, ska du inte använda den här funktionen.
 
 **Steg tre: Publicera**
 
@@ -121,7 +121,7 @@ När partnerpålägg har publicerats får den indirekta kunden åtkomst till må
 Partners kan använda påläggsfunktionen (på Azure EA) efter att ett byte av kanalpartner har bearbetats. Du behöver inte vänta på nästa årsperiod.
 
 
-## <a name="resource-commitment-and-requesting-quota-increases"></a>Resursåtagande och begära kvotökningar
+## <a name="resource-prepayment-and-requesting-quota-increases"></a>Resursförskottsbetalning och begära kvotökningar
 
 **Systemet tillämpar följande standardkvoter per prenumeration:**
 
@@ -135,11 +135,11 @@ Partners kan använda påläggsfunktionen (på Azure EA) efter att ett byte av k
 | Åtkomstkontroll | 50 namnområden per konto. 100 miljoner Access Control-transaktioner per månad |   |
 | Service Bus | 50 namnområden per konto. 40 Service Bus-anslutningar | Kunder som köper Service Bus-anslutningar via anslutningspaket får kvoter som motsvarar mittpunkten mellan anslutningspaketet de har köpt och det näst högsta anslutningspaketstorleken. Kunder som väljer ett 500-paket har en kvot på 750. |
 
-## <a name="resource-commitment"></a>Resursåtagande
+## <a name="resource-prepayment"></a>Resursförskottsbetalning
 
-Microsoft tillhandahåller tjänster till dig upp till minst den associerade användningsnivå som ingår i det månatliga åtagandet du köpt (tjänståtagandet), men alla andra ändringar i användningsnivå gällande tjänsteresurserna (t.ex. ett högre antal beräkningsinstanser som körs eller en ökning av det använda lagringsutrymmet) gäller under förutsättning att dessa tjänsteresurser finns tillgängliga.
+Microsoft tillhandahåller tjänster till dig upp till minst den associerade användningsnivå som ingår i den månatliga förskottsbetalning du köpt (förskottsbetalningen för tjänster), men all annan ökning av användningsnivån för tjänstresurser (t.ex. om du behöver lägga till fler beräkningsinstanser eller mer lagringsutrymme) beror på tjänstresursernas tillgänglighet.
 
-Kvoter som beskrivs ovan är inte ett tjänståtagande. För att kunna bestämma det antal samtidiga mindre beräkningsinstanser (eller motsvarande) som Microsoft ska tillhandahålla under tjänståtagandet, bestäms detta genom att dividera det antal bekräftade timmar med mindre beräkningsinstanser som köps under en månad med antalet timmar under årets kortaste månad (dvs. februari – 672 timmar).
+Eventuella kvoter som beskrivs ovan utgör inte en förskottsbetalning för tjänster. Antalet samtidiga mindre beräkningsinstanser (eller motsvarande) som Microsoft ska tillhandahålla under en förskottsbetalning för tjänster beräknas genom att antalet bekräftade timmar med mindre beräkningsinstanser som köps under en månad divideras med antalet timmar under årets kortaste månad (dvs. februari – 672 timmar).
 
 ## <a name="requesting-a-quota-increase"></a>Begära en kvotökning
 

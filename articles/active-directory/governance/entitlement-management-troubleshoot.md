@@ -16,11 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338186"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145777"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Felsöka hantering av Azure AD-berättigande
 
@@ -94,7 +95,9 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 Om ett fel uppfylls efter att en begäran om att bearbeta ett åtkomst paket har utlösts måste du vänta medan systemet ombearbeta begäran. Systemet försöker flera gånger att bearbeta igen under flera timmar, så du kan inte tvinga ombearbetning under den här tiden. 
 
-Du kan bara ombearbeta en begäran som har statusen **levererad** eller **delvis levererad** och ett avslutat datum som är mindre än en vecka.
+Du kan bara ombearbeta en begäran som har statusen **levererad** eller **delvis levererad** och ett avslutat datum som är mindre än en vecka. Knappen för att **bearbeta** ska tonas ut annars.
+
+![Knappen för att bearbeta om nedtonad](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - Om felet har åtgärd ATS under utvärderings perioden ändras status för begäran till **leverera**. Begäran kommer att bearbetas igen utan ytterligare åtgärder från användaren.
 
@@ -116,7 +119,7 @@ Du kan bara ombearbeta en begäran som har statusen **levererad** eller **delvis
 
 ### <a name="cancel-a-pending-request"></a>Avbryt en väntande begäran
 
-Du kan bara avbryta en väntande begäran som ännu inte har levererats eller vars leverans har misslyckats.
+Du kan bara avbryta en väntande begäran som ännu inte har levererats eller vars leverans har misslyckats. Knappen **Avbryt** visas annars nedtonad.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 

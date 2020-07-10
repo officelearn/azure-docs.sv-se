@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201192"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145704"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrahera information i Excel med Textanalys och energi automatisering 
 
@@ -31,9 +31,9 @@ I den här självstudien får du lära dig att:
 > * Extrahera text från Excel och skicka den till API för textanalys 
 > * Använd informationen från API: et för att uppdatera ett Excel-blad.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Ett Microsoft Azure-konto. [Starta en kostnadsfri utvärdering](https://azure.microsoft.com/free/) eller [Logga in](https://portal.azure.com/).
+- Ett Microsoft Azure-konto. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/cognitive-services/) eller [Logga](https://portal.azure.com/)in.
 - En Textanalys resurs. Om du inte har någon kan du [skapa en i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) och använda den kostnads fria nivån för att slutföra den här självstudien.
 - Den [nyckel och slut punkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som genererades åt dig under registreringen.
 - Ett kalkyl blad som innehåller klient problem. Exempel data tillhandahålls på GitHub
@@ -58,11 +58,11 @@ Gå till [webbplatsen för Energis par automatisering](https://preview.flow.micr
 
 På sidan **Bygg ett schemalagt flöde** initierar du ditt flöde med följande fält:
 
-|Field |Värde  |
+|Fält |Värde  |
 |---------|---------|
 |**Flödesnamn**     | **Schemalagd granskning** eller ett annat namn.         |
-|**Leds**     |  Ange aktuellt datum och aktuell tid.       |
-|**Upprepa varje**     | **1 timme**        |
+|**Startar**     |  Ange aktuellt datum och aktuell tid.       |
+|**Upprepa varje**     | **1 timme**        |
 
 ## <a name="add-variables-to-the-flow"></a>Lägg till variabler i flödet
 
@@ -76,7 +76,7 @@ Skapa variabler som representerar den information som ska läggas till i Excel-f
 
 Lägg till följande information till de variabler som du har skapat. De representerar kolumnerna i Excel-filen. Om några variabler är komprimerade kan du klicka på dem för att expandera dem.
 
-| Action |Name   | Typ | Värde |
+| Åtgärd |Namn   | Typ | Värde |
 |---------|---------|---|---|
 | Initiera variabel | var_person | Sträng | Person |
 | Initiera variabel 2 | var_phone | Sträng | Phone_Number |
@@ -121,9 +121,9 @@ Ange följande information i ditt flöde för att skapa en ny Textanalys-anslutn
 > [!NOTE]
 > Om du redan har skapat en Textanalys anslutning och vill ändra din anslutnings information, klickar du på ellipsen i det övre högra hörnet och klickar på **+ Lägg till ny anslutning**.
 
-| Field           | Värde                                                                                                             |
+| Fält           | Värde                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Anslutningsnamn | Ett namn på anslutningen till din Textanalys-resurs. Till exempel `TAforPowerAutomate`. |
+| Anslutningsnamn | Ett namn på anslutningen till din Textanalys-resurs. Ett exempel är `TAforPowerAutomate`. |
 | Kontonyckel     | Nyckeln till din Textanalys-resurs.                                                                                   |
 | Webbplats-URL        | Slut punkten för Textanalys resursen.                                                       |
 
@@ -182,7 +182,7 @@ Minimera åtgärden **tillämpa på varje 2** genom att klicka på namnet. Lägg
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Lägg till Textanalys autentiseringsuppgifter till ditt flöde.":::
 
-I **tillämpa på varje 3 lägger du**till en **villkors** kontroll. Det får namnet **villkor 2**. I den första text rutan söker du efter och lägger till **entitetstypen** från fönstret med dynamiskt innehåll. Se till att rutan Center är inställt på **är lika**med. Ange `var_phone`sedan i den högra text rutan. 
+I **tillämpa på varje 3 lägger du**till en **villkors** kontroll. Det får namnet **villkor 2**. I den första text rutan söker du efter och lägger till **entitetstypen** från fönstret med dynamiskt innehåll. Se till att rutan Center är inställt på **är lika**med. Ange sedan i den högra text rutan `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Lägg till Textanalys autentiseringsuppgifter till ditt flöde.":::
@@ -203,15 +203,15 @@ Minimera **gäller för varje 3** genom att klicka på namnet. Skapa sedan en an
 
 Sedan kontrollerar flödet om problemet är beskrivningen från tabell raden i Excel innehåller ordet "rörning". Om ja, läggs "rörning" i kolumnen IssueType. Annars anger vi "Övrigt".
 
-Lägg till en **villkors** kontroll inuti alternativet **tillämpa på varje 4** -åtgärd. Det kommer att heta **villkor 3**. I den första text rutan söker du efter och lägger till **Beskrivning** från Excel-filen med hjälp av det dynamiska innehålls fönstret. Se till att rutan i mitten **innehåller**. Leta sedan upp och välj `var_plumbing`i den högra text rutan. 
+Lägg till en **villkors** kontroll inuti alternativet **tillämpa på varje 4** -åtgärd. Det kommer att heta **villkor 3**. I den första text rutan söker du efter och lägger till **Beskrivning** från Excel-filen med hjälp av det dynamiska innehålls fönstret. Se till att rutan i mitten **innehåller**. Leta sedan upp och välj i den högra text rutan `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Lägg till Textanalys autentiseringsuppgifter till ditt flöde.":::
 
 
-I villkoret **om ja** klickar du på **Lägg till en åtgärd**och väljer **Uppdatera en rad**. Ange sedan informationen som tidigare. I kolumnen IssueType väljer `var_plumbing`du. När du gör det används en "rör"-etikett på raden.
+I villkoret **om ja** klickar du på **Lägg till en åtgärd**och väljer **Uppdatera en rad**. Ange sedan informationen som tidigare. I kolumnen IssueType väljer du `var_plumbing` . När du gör det används en "rör"-etikett på raden.
 
-I **om inget** villkor klickar du på **Lägg till en åtgärd**och väljer **Uppdatera en rad**. Ange sedan informationen som tidigare. I kolumnen IssueType väljer `var_other`du. Då används etiketten "Övrigt" på raden.
+I **om inget** villkor klickar du på **Lägg till en åtgärd**och väljer **Uppdatera en rad**. Ange sedan informationen som tidigare. I kolumnen IssueType väljer du `var_other` . Då används etiketten "Övrigt" på raden.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Lägg till Textanalys autentiseringsuppgifter till ditt flöde.":::

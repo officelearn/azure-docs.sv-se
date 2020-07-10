@@ -1,6 +1,6 @@
 ---
-title: Översikt över SQL-databas | Microsoft Docs
-description: Hjälpinnehåll för översikt över SQL-databas på Azure Portal
+title: Översikt över SQL Database | Microsoft Docs
+description: Hjälpinnehåll för SQL Database-översikt på Azure-portalen
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
-ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6d4f0c50f57661576f97ddd3772d78b9fa293153
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "61244467"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040528"
 ---
 # <a name="sql-database-documentation"></a>Dokumentation om SQL Database
 
@@ -29,7 +29,7 @@ Med Azure SQL Database kan du enkelt utföra grundläggande hanteringsuppgifter 
 
 ## <a name="step-by-step-tutorials"></a>Steg för steg-självstudier
 
-Lär dig att skapa, hantera och migrera databaser med SQL DB.
+Lär dig att skapa, hantera och migrera databaser med SQL Database.
 
 - Kom igång med en [enkel databas](/azure/sql-database/sql-database-single-database-quickstart-guide) med hjälp av vår snabbstartsguide
 - Skapa och utforma schemat för en ny enkel databas med [SQL Server Management Studio](/azure/sql-database/sql-database-design-first-database) eller [.NET](/azure/sql-database/sql-database-design-first-database-csharp)

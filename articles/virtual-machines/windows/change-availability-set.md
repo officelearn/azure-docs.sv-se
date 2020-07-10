@@ -6,11 +6,12 @@ author: cynthn
 ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e014dbe440f1b7baf39c290b8b7ab8fcaea0bada
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964931"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165863"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Ändra tillgänglighetsuppsättning för en virtuell dator
 Följande steg beskriver hur du ändrar tillgänglighets uppsättningen för en virtuell dator med hjälp av Azure PowerShell. En virtuell dator kan bara läggas till i en tillgänglighets uppsättning när den skapas. Om du vill ändra tillgänglighets uppsättningen måste du ta bort och sedan återskapa den virtuella datorn. 
@@ -18,6 +19,8 @@ Följande steg beskriver hur du ändrar tillgänglighets uppsättningen för en 
 Den här artikeln gäller både virtuella Linux-och Windows-datorer.
 
 Den här artikeln testades senast 2/12/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/powershell) och [AZ PowerShell-modulens](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0.
+
+I det här exemplet kontrol leras inte om den virtuella datorn är kopplad till en belastningsutjämnare. Om den virtuella datorn är kopplad till en belastningsutjämnare måste du uppdatera skriptet för att hantera det fallet. 
 
 
 ## <a name="change-the-availability-set"></a>Ändra tillgänglighets uppsättning 

@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c774d3f56eaf666a31ff73f433a3b4a5a363ce2f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466076"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142490"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Java Script för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
@@ -20,7 +21,7 @@ Den här artikeln visar hur du använder Java Script för att skapa och hantera 
 
 [Paket (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [Exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [Ge feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -89,11 +90,11 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 > [!NOTE]
 > Fler exempel finns i dokumentationen [för Azure Identity Client library för JS](https://www.npmjs.com/package/@azure/identity) .
 
-## <a name="create-a-file-system"></a>Skapa ett filsystem
+## <a name="create-a-container"></a>Skapa en container
 
-Ett fil system fungerar som en behållare för dina filer. Du kan skapa en genom att hämta en **FileSystemClient** -instans och sedan anropa metoden **FileSystemClient. Create** .
+En behållare fungerar som ett fil system för dina filer. Du kan skapa en genom att hämta en **FileSystemClient** -instans och sedan anropa metoden **FileSystemClient. Create** .
 
-I det här exemplet skapas ett fil system med namnet `my-file-system` . 
+I det här exemplet skapas en behållare med namnet `my-file-system` . 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -111,7 +112,7 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 Skapa en katalog referens genom att hämta en **DirectoryClient** -instans och anropa sedan metoden **DirectoryClient. Create** .
 
-Det här exemplet lägger till en katalog med namnet `my-directory` i ett fil system. 
+Det här exemplet lägger till en katalog med namnet `my-directory` i en behållare. 
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {

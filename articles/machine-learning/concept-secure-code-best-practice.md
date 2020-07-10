@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: larryfr
 author: larryfr
 ms.date: 11/12/2019
-ms.openlocfilehash: 8932640a69ad68e0fd30b8577ba95768dbf8b9b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e41323d05f1a81fbc73a9158cf30c2b0f7953f3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660886"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147067"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Metod tips för säker kod med Azure Machine Learning
 
-I Azure Machine Learning kan du ladda upp filer och innehåll från vilken källa som helst. Innehåll i Jupyter-anteckningsböcker eller-skript kan potentiellt läsa data från dina sessioner, komma åt data i din organisation i Azure eller köra skadliga processer för din räkning.
+I Azure Machine Learning kan du ladda upp filer och innehåll från valfri källa till Azure. Innehåll i Jupyter-anteckningsböcker eller skript som du läser in kan eventuellt läsa data från dina sessioner, komma åt data i din organisation i Azure eller köra skadliga processer för din räkning.
 
 > [!IMPORTANT]
 > Kör bara antecknings böcker eller skript från betrodda källor. Till exempel där du eller ditt säkerhets team har granskat antecknings boken eller skriptet.
@@ -59,7 +60,7 @@ __Möjliga hot__:
 * Förfalskning av begäran mellan webbplatser (CSRF)
 
 Åtgärder __som tillhandahålls av Azure Machine Learning__:
-* Inga. Jupyter-och Jupyter-labb är program med öppen källkod som finns på Azure Machine Learning Compute-instansen.
+* Inget. Jupyter-och Jupyter-labb är program med öppen källkod som finns på Azure Machine Learning Compute-instansen.
 
 __Rekommenderade åtgärder__:
 * Kontrol lera att innehållet i filerna är tillförlitligt innan du laddar upp till Studio. När du laddar upp måste du bekräfta att du överför betrodda filer.

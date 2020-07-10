@@ -3,12 +3,12 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107486"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166390"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -39,14 +39,14 @@ Här är en sammanfattning av vad du får med respektive väg:
 
 |  | Byggtid | Körtid |
 | --- | --- | --- |
-| Förfrågningar och undantag |Ja |Ja |
-| [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
-| [Beroendediagnostik](../../azure-monitor/app/asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
-| [Systemprestandaräknare](../../azure-monitor/app/performance-counters.md) |Ja |Ja |
-| [API för anpassad telemetri][api] |Yes |Nej |
-| [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |Nej |
-| [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Yes |Nej |
-| Du måste återskapa koden |Yes | Nej |
+| **Begär & undantag** |Ja |Ja |
+| **[Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md)** | |Ja |
+| **[Beroendediagnostik](../../azure-monitor/app/asp-net-dependencies.md)** |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
+| **[Systemprestandaräknare](../../azure-monitor/app/performance-counters.md)** |Ja |Ja |
+| **[API för anpassad telemetri][api]** |Ja |Nej |
+| **[Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md)** |Ja |Nej |
+| **[Sid visning & användar data](../../azure-monitor/app/javascript.md)** |Ja |Nej |
+| **Du måste återskapa koden** |Ja | Nej |
 
 
 

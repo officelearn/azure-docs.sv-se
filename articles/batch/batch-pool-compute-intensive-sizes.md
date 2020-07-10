@@ -3,16 +3,16 @@ title: Använd beräknings intensiva virtuella Azure-datorer med batch
 description: Hur du kan dra nytta av virtuella datorer i HPC och GPU i Azure Batch pooler. Lär dig mer om OS-beroenden och se flera scenario exempel.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147332"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använd RDMA-eller GPU-instanser i batch-pooler
 
-Om du vill köra vissa batch-jobb kan du dra nytta av Azure VM-storlekar som har utformats för storskalig beräkning. Ett exempel:
+Om du vill köra vissa batch-jobb kan du dra nytta av Azure VM-storlekar som har utformats för storskalig beräkning. Exempel:
 
 * Om du vill köra [MPI-arbetsbelastningar](batch-mpi.md)med flera instanser väljer du H-serien eller andra storlekar som har ett nätverks gränssnitt för RDMA (Remote Direct Memory Access). Dessa storlekar ansluter till ett InfiniBand-nätverk för kommunikation mellan noder, vilket kan påskynda MPI-program. 
 
@@ -20,9 +20,9 @@ Om du vill köra vissa batch-jobb kan du dra nytta av Azure VM-storlekar som har
 
 Den här artikeln innehåller vägledning och exempel för att använda vissa av Azures specialiserade storlekar i batch-pooler. För specifikationer och bakgrund, se:
 
-* Hög prestanda beräkning VM-storlekar ([Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md)) 
+* Hög prestanda beräkning VM-storlekar ([Linux](../virtual-machines/sizes-hpc.md), [Windows](../virtual-machines/sizes-hpc.md)) 
 
-* GPU-aktiverade VM-storlekar ([Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md)) 
+* GPU-aktiverade VM-storlekar ([Linux](../virtual-machines/sizes-gpu.md), [Windows](../virtual-machines/sizes-gpu.md)) 
 
 > [!NOTE]
 > Vissa VM-storlekar kanske inte är tillgängliga i de regioner där du skapar dina batch-konton. Om du vill kontrol lera att en storlek är tillgänglig går du till [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/) och [väljer en VM-storlek för en batch-pool](batch-pool-vm-sizes.md).
@@ -33,21 +33,21 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Linux-pooler – konfiguration av virtuell dator
 
-| Storlek | Kapacitet | Operativsystem | Programvara som krävs | Inställningar för pool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för pool |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16,04 LTS eller<br/>CentOS-baserat HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera körning av samtidiga aktiviteter |
-| [NC, NCv2, NCv3, NDv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Ubuntu 16,04 LTS eller<br/>CentOS 7,3 eller 7,4<br/>(Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner | E.t. | 
-| [NV, NVv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16,04 LTS eller<br/>CentOS 7,3<br/>(Azure Marketplace) | NVIDIA GRID-drivrutiner | E.t. |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16,04 LTS eller<br/>CentOS-baserat HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera körning av samtidiga aktiviteter |
+| [NC, NCv2, NCv3, NDv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Ubuntu 16,04 LTS eller<br/>CentOS 7,3 eller 7,4<br/>(Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner | Ej tillämpligt | 
+| [NV, NVv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16,04 LTS eller<br/>CentOS 7,3<br/>(Azure Marketplace) | NVIDIA GRID-drivrutiner | Ej tillämpligt |
 
 <sup>*</sup>RDMA-kompatibla N-seriens storlekar inkluderar också NVIDIA Tesla GPU: er
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows-pooler – konfiguration av virtuell dator
 
-| Storlek | Kapacitet | Operativsystem | Programvara som krävs | Inställningar för pool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 eller<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera körning av samtidiga aktiviteter |
-| [NC, NCv2, NCv3, ND, NDv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner| E.t. | 
-| [NV, NVv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID-drivrutiner | E.t. |
+| [NC, NCv2, NCv3, ND, NDv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner| Ej tillämpligt | 
+| [NV, NVv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID-drivrutiner | Ej tillämpligt |
 
 <sup>*</sup>RDMA-kompatibla N-seriens storlekar inkluderar också NVIDIA Tesla GPU: er
 
@@ -57,7 +57,7 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 > N-seriens storlekar stöds inte i batch-pooler med moln tjänst konfigurationen.
 >
 
-| Storlek | Kapacitet | Operativsystem | Programvara som krävs | Inställningar för pool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för pool |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 eller<br/>2008 R2 (gäst operativ system familj) | Microsoft MPI 2012 R2 eller senare, eller<br/>Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder,<br/> Inaktivera körning av samtidiga aktiviteter |
 
@@ -97,7 +97,7 @@ Om du vill köra CUDA-program på en pool med Windows NC-noder måste du install
 3. Ladda upp paketet till ditt batch-konto. Anvisningar finns i vägledningen för [programpaket](batch-application-packages.md) . Ange ett program-ID, till exempel *GPUDriver*, och en version som *411,82*.
 1. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool i konfigurationen för den virtuella datorn med önskat antal noder och skalning. I följande tabell visas exempel inställningar för att installera NVIDIA GPU-drivrutinerna tyst med en start aktivitet:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ---- | ----- | 
 | **Avbildningstyp** | Marketplace (Linux/Windows) |
 | **Publisher** | MicrosoftWindowsServer |
@@ -118,7 +118,7 @@ Om du vill köra CUDA-program på en pool med Linux NC-noder måste du installer
 4. Skapa ett batch-konto i en region som stöder NC-VM: ar.
 5. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av den anpassade avbildningen](batch-sig-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Anpassad avbildning |
 | **Anpassad bild** | *Namn på avbildningen* |
@@ -136,7 +136,7 @@ Om du vill köra Windows MPI-program på en pool med virtuella Azure H16r-noder 
 1. Följ stegen för att skapa en [bild för ett delat bild galleri](batch-sig-images.md) för batch.
 1. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av det delade avbildnings galleriet](batch-sig-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Anpassad avbildning |
 | **Anpassad bild** | *Namn på avbildningen* |
@@ -151,7 +151,7 @@ För att köra MPI-program på en pool med Linux H-serien noder, är ett alterna
 
 Med hjälp av batch-API: erna eller Azure Portal skapar du en pool med hjälp av den här avbildningen och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Marketplace (Linux/Windows) |
 | **Publisher** | OpenLogic |

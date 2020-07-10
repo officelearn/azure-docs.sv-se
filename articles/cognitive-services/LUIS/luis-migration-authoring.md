@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055468"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145621"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -226,7 +226,7 @@ Vi rekommenderar att du gör följande:
 ## <a name="troubleshooting-the-migration-process"></a>Felsöka migreringsprocessen
 
 När du försöker migrera men inte kan hitta din Azure-prenumeration i list rutan:
-* Se till att du har en giltig Azure-prenumeration som har behörighet att skapa Cognitive Services-resurser. Gå till [Azure Portal](https://ms.portal.azure.com) och kontrol lera status för prenumerationen. Om du inte har ett kan du [skapa en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
+* Se till att du har en giltig Azure-prenumeration som har behörighet att skapa Cognitive Services-resurser. Gå till [Azure Portal](https://ms.portal.azure.com) och kontrol lera status för prenumerationen. Om du inte har ett kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/cognitive-services/).
 * Se till att du är i rätt klient som är associerad med din giltiga prenumeration. Du kan byta innehavare från avataren till vänster om dina initialer i det här verktygsfältet: ![ verktygsfält där du kan växla klienter](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Om du har en befintlig redigerings resurs men inte kan hitta den när du väljer alternativet **Använd befintlig redigerings resurs** :

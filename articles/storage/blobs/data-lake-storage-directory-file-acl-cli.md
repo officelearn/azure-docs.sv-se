@@ -9,19 +9,20 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 8fdcad18ccec2748761cf35f2cd0b8efe9749958
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159f3c63a647ff565e838b01dbaaadf947fb8ada
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466144"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142616"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Azure CLI för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
 Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har ett hierarkiskt namn område. 
 
-[Gen1 till Gen2-mappning](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)  |  [Ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
+[Exempel](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -64,39 +65,39 @@ Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)
 > [!NOTE]
 > Exemplet som presenteras i den här artikeln visar Azure Active Directory (AD) auktorisering. Mer information om autentiseringsmetoder finns i [bevilja åtkomst till BLOB-eller Queue-data med Azure CLI](../common/authorize-data-operations-cli.md).
 
-## <a name="create-a-file-system"></a>Skapa ett filsystem
+## <a name="create-a-container"></a>Skapa en container
 
-Ett fil system fungerar som en behållare för dina filer. Du kan skapa en med hjälp av `az storage fs create` kommandot. 
+En behållare fungerar som ett fil system för dina filer. Du kan skapa en med hjälp av `az storage fs create` kommandot. 
 
-I det här exemplet skapas ett fil system med namnet `my-file-system` .
+I det här exemplet skapas en behållare med namnet `my-file-system` .
 
 ```azurecli
 az storage fs create -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="show-file-system-properties"></a>Visa egenskaper för fil system
+## <a name="show-container-properties"></a>Visa behållar egenskaper
 
-Du kan skriva ut egenskaperna för ett fil system till-konsolen med hjälp av `az storage fs show` kommandot.
+Du kan skriva ut egenskaperna för en behållare till-konsolen med hjälp av `az storage fs show` kommandot.
 
 ```azurecli
 az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="list-file-system-contents"></a>Lista fil system innehåll
+## <a name="list-container-contents"></a>Lista behållarens innehåll
 
 Lista innehållet i en katalog med hjälp av `az storage fs file list` kommandot.
 
-I det här exemplet visas innehållet i ett fil system med namnet `my-file-system` .
+I det här exemplet visas innehållet i en behållare med namnet `my-file-system` .
 
 ```azurecli
 az storage fs file list -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="delete-a-file-system"></a>Ta bort ett fil system
+## <a name="delete-a-container"></a>Ta bort en container
 
-Ta bort ett fil system med hjälp av `az storage fs delete` kommandot.
+Ta bort en behållare med hjälp av `az storage fs delete` kommandot.
 
-Det här exemplet tar bort ett fil system med namnet `my-file-system` . 
+I det här exemplet tas en behållare med namnet `my-file-system` . 
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -106,7 +107,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 Skapa en katalog referens med hjälp av `az storage fs directory create` kommandot. 
 
-Det här exemplet lägger till en katalog med namnet i `my-directory` ett fil system med namnet `my-file-system` som finns i ett konto med namnet `mystorageaccount` .
+I det här exemplet läggs en katalog `my-directory` till som heter i en behållare med namnet `my-file-system` som finns i ett konto med namnet `mystorageaccount` .
 
 ```azurecli
 az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -124,13 +125,13 @@ az storage fs directory show -n my-directory -f my-file-system --account-name my
 
 Byt namn på eller flytta en katalog med hjälp av `az storage fs directory move` kommandot.
 
-I det här exemplet byter namn på en katalog från namnet `my-directory` till namnet `my-new-directory` i samma fil system.
+I det här exemplet byter namn på en katalog från namnet `my-directory` till namnet `my-new-directory` i samma behållare.
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
 ```
 
-I det här exemplet flyttas en katalog till ett fil system med namnet `my-second-file-system` .
+I det här exemplet flyttas en katalog till en behållare med namnet `my-second-file-system` .
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
@@ -148,9 +149,9 @@ az storage fs directory delete -n my-directory -f my-file-system  --account-name
 
 ## <a name="check-if-a-directory-exists"></a>Kontrol lera om en katalog finns
 
-Ta reda på om en katalog finns i fil systemet med hjälp av `az storage fs directory exists` kommandot.
+Ta reda på om en angiven katalog finns i behållaren med hjälp av `az storage fs directory exists` kommandot.
 
-Det här exemplet visar om en katalog med namnet `my-directory` finns i `my-file-system` fil systemet. 
+Det här exemplet visar om en katalog med namnet `my-directory` finns i `my-file-system` behållaren. 
 
 ```azurecli
 az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
@@ -170,7 +171,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 Lista innehållet i en katalog med hjälp av `az storage fs file list` kommandot.
 
-I det här exemplet visas innehållet i en katalog med namnet `my-directory` som finns i `my-file-system` fil systemet för ett lagrings konto med namnet `mystorageaccount` . 
+I det här exemplet visas innehållet i en katalog med namnet `my-directory` som finns i `my-file-system` behållaren för ett lagrings konto med namnet `mystorageaccount` . 
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -309,7 +310,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ## <a name="see-also"></a>Se även
 
-* [Gen1 till Gen2-mappning](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
+* [Exempel](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Lämna feedback](https://github.com/Azure/azure-cli-extensions/issues)
 * [Kända problem](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 

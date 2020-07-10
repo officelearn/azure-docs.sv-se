@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 3d6b2b5896242ff85c6fb96071b747083893b03a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343174"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144392"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i LUIS-portalen eller via LUIS redigerings- [API: er](developer-reference-resource.md).
@@ -45,7 +45,7 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
 ## <a name="create-new-app-in-luis"></a>Skapa en ny app i LUIS
 
-1. På sidan **Mina appar** väljer du din **prenumeration**och **redigerar resurs** och sedan **skapa**. Om du använder en kostnads fri utvärderings nyckel lär du dig hur du [skapar en redigerings resurs](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. På sidan **Mina appar** väljer du din **prenumeration**och **redigerar resurs** och sedan **skapa**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista över LUIS-appar](./media/create-app-in-portal.png)

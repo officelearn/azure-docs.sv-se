@@ -12,11 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db7a1489b877544cd36627f3962b6b4e1b8c462
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433273"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146444"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Var du ska spara och skriva filer för Azure Machine Learning experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +30,9 @@ När du startar utbildning körs på ett [beräknings mål](how-to-set-up-traini
 
 Innan du kan påbörja ett experiment på ett beräknings mål eller på den lokala datorn måste du se till att de nödvändiga filerna är tillgängliga för det beräknings målet, till exempel beroende filer och datafiler som din kod måste köra.
 
-Azure Machine Learning kör utbildnings skript genom att kopiera hela mappen Script till mål beräknings kontexten och sedan ta en ögonblicks bild. Lagringsgränsen för experimentögonblicksbilder är 300 MB och/eller 2 000 filer.
+Azure Machine Learning kör utbildnings skript genom att kopiera hela käll katalogen. Om du har känsliga data som du inte vill överföra använder du en [. IGNORE-fil](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) eller inkluderar den inte i käll katalogen. I stället kan du komma åt dina data med hjälp av ett data [lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+
+Lagringsgränsen för experimentögonblicksbilder är 300 MB och/eller 2 000 filer.
 
 Därför rekommenderar vi följande:
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295448"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166373"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Använda Azure AD-autentisering för att ansluta till API:et för Media Services med REST
 
@@ -49,7 +49,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
 - Läs artikeln om att [komma åt Azure Media Services API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md) .
 - Installera [Postman](https://www.getpostman.com/) rest-klienten för att köra REST-API: erna som visas i den här artikeln. 
@@ -62,7 +62,7 @@ I den här guiden får du lära dig att:
 
 Du måste samla in följande data punkter för att få åtkomst till Media Services API.
 
-|Inställningen|Exempel|Beskrivning|
+|Inställning|Exempel|Beskrivning|
 |---|-------|-----|
 |Azure Active Directory klient domän|microsoft.onmicrosoft.com|Azure AD som en STS-slutpunkt (Secure token service) skapas med följande format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> . Azure AD utfärdar en JWT för att få åtkomst till resurser (en åtkomsttoken).|
 |Slutpunkt för REST-API:t|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Detta är den slut punkt mot vilken alla Media Services REST API samtal i ditt program görs.|
@@ -137,8 +137,10 @@ Det här avsnittet visar hur du använder **Postman** för att köra en REST API
 
     Du kan också klicka på **massredigera** länkar till höger om fönstret Postman och klistra in följande kod.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. Tryck på fliken **brödtext** .
 7. Ange information om brödtext med hjälp av data rutnätet "nyckel/värde" (Ersätt klient-ID och hemliga värden). 
@@ -147,10 +149,12 @@ Det här avsnittet visar hur du använder **Postman** för att köra en REST API
 
     Du kan också klicka på **Mass redigering** till höger om fönstret Postman och klistra in följande text (Ersätt klient-ID och hemliga värden):
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. Tryck på **Skicka**.
 
@@ -180,11 +184,13 @@ Det här avsnittet visar hur du kommer åt **till gångs** -API: et med **Postma
 5. Klicka på **Mass redigerings** länk till höger i fönstret Postman.
 6. Klistra in följande rubriker:
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. Tryck på **Skicka**.
 

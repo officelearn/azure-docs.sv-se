@@ -4,12 +4,12 @@ description: Anpassade bildpooler är ett effektivt sätt att konfigurera datorn
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851720"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147287"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 
@@ -30,10 +30,10 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 - **Förinstallera program.** Förinstallerade program på operativ system disken är mer effektivt och mindre fel känsliga än att installera program när du har upprättat Compute-noderna med en start uppgift.
 - **Kopiera stora mängder data en gång.** Gör statisk data del av den hanterade delade avbildningen genom att kopiera den till en hanterad avbildnings data diskar. Detta måste bara göras en gång och göra data tillgängliga för varje nod i poolen.
 - **Utöka pooler till större storlekar.** Med det delade avbildnings galleriet kan du skapa större pooler med dina anpassade avbildningar tillsammans med fler delade avbildnings repliker.
-- **Bättre prestanda än att bara använda en hanterad avbildning som en anpassad avbildning.** För en anpassad avbildning av en delad avbildning är tiden för att uppnå stabilt tillstånd upp till 25% snabbare och fördröjningen för den virtuella datorn är upp till 30% kortare.
+- **Bättre prestanda än att bara använda en hanterad avbildning som en anpassad avbildning.** För en anpassad avbildning av en delad avbildning, är tiden för att uppnå stabilt tillstånd upp till 25% snabbare och den inaktiva fördröjningen för den virtuella datorn är upp till 30% kortare.
 - **Avbildnings version och gruppering för enklare hantering.** Definitionen för avbildnings gruppering innehåller information om varför avbildningen skapades, vilket operativ system den är för och information om hur du använder avbildningen. Gruppering av avbildningar möjliggör enklare bild hantering. Mer information finns i [bild definitioner](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]
 > Du måste autentisera med hjälp av Azure AD. Om du använder Shared Key auth får du ett autentiseringsfel.  
@@ -83,7 +83,7 @@ Om du vill skapa en hanterad avbildning från en ögonblicks bild använder du k
 
 ### <a name="create-a-shared-image-gallery"></a>Skapa ett Shared Image Gallery
 
-När du har skapat den hanterade avbildningen måste du skapa ett delat avbildnings Galleri för att göra din anpassade avbildning tillgänglig. Information om hur du skapar ett delat avbildnings Galleri för dina avbildningar finns i [skapa ett delat avbildnings galleri med Azure CLI](../virtual-machines/linux/shared-images.md) eller [skapa ett delat avbildnings galleri med hjälp av Azure Portal](../virtual-machines/linux/shared-images-portal.md).
+När du har skapat den hanterade avbildningen måste du skapa ett delat avbildnings Galleri för att göra din anpassade avbildning tillgänglig. Information om hur du skapar ett delat avbildnings Galleri för dina avbildningar finns i [skapa ett delat avbildnings galleri med Azure CLI](../virtual-machines/shared-images-cli.md) eller [skapa ett delat avbildnings galleri med hjälp av Azure Portal](../virtual-machines/linux/shared-images-portal.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Skapa en pool från en delad avbildning med hjälp av Azure CLI
 
@@ -203,7 +203,7 @@ client.pool.add(new_pool)
 
 Använd följande steg för att skapa en pool från en delad avbildning i Azure Portal.
 
-1. Öppna [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Gå till **batch-konton** och välj ditt konto.
 1. Välj **pooler** och **Lägg** sedan till för att skapa en ny pool.
 1. I avsnittet **avbildnings typ** väljer du **delat avbildnings Galleri**.

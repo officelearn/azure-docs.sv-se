@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: a0846a07fd8107a87483753c8dbff1301fda4a0c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: ff10d9ec9b92b85d057e556a21c144b9e8f155cf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299918"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043282"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise-överföringar
 
@@ -49,7 +49,7 @@ Här är några andra saker du bör tänka på innan en kontoöverföring:
 
 En registreringsöverföring är lämpligt när:
 
-- Åtagandeperioden för en aktuell registrering har gått ut.
+- Förskottsbetalningsperioden för en aktuell registrering har gått ut.
 - En registrering har status som förfallen/förlängd och ett nytt avtal förhandlas.
 - Du har flera registreringar och vill kombinera alla konton och faktureringen under en enda registrering.
 
@@ -60,7 +60,7 @@ När du begär att en hel företagsregistrering ska överföras till en ny regis
 - Alla tjänster, prenumerationer, konton, avdelningar och hela registreringsstrukturen, inklusive alla EA-avdelningsadministratörer, överförs till en ny målregistrering.
 - Registreringsstatus ställs in som _Överförd_. Den överförda registreringen är bara tillgänglig för rapporter om historisk användning.
 - Du kan inte lägga till roller eller prenumerationer i en överförd registrering. Statusen Överförd förhindrar ytterligare användning mot registreringen.
-- Eventuella saldon för ekonomiska åtaganden i registreringen går förlorade, inklusive framtida avtal.
+- Eventuellt återstående saldo för en Azure-förskottsbetalning i avtalet går förlorad, inklusive framtida perioder.
 -    Om registreringen du överför från innehåller RI-köp blir inköpspriset för RI kvar källregistreringen, men alla RI-förmåner överförs för användning i den nya registreringen.
 -    Engångsavgiften för köp på Marketplace och alla månatliga fasta avgifter som redan påförts på den gamla registreringen överförs inte till den nya registreringen. Förbrukningsbaserade Marketplace-debiteringar överförs.
 
@@ -68,7 +68,7 @@ När du begär att en hel företagsregistrering ska överföras till en ny regis
 
 Den effektiva överföringsdagen kan vara på eller efter startdatumet för målregistreringen.
 
-Användning i källregistreringen debiteras mot det ekonomiska åtagandet eller som en överförbrukning. Användning efter det effektiva överföringsdatumet överförs till den nya registreringen och debiteras där.
+Användning i källregistreringen debiteras mot Azure-förskottsbetalningen eller som överförbrukning. Användning efter det effektiva överföringsdatumet överförs till den nya registreringen och debiteras där.
 
 ### <a name="prerequisites"></a>Krav
 
@@ -84,9 +84,9 @@ Här är några andra saker du bör tänka på innan du överför en registrerin
 - Om överföring av en registrering inte uppfyller dina behov kan du överväga en kontoöverföring.
 - Källregistreringens status uppdateras till Överförd och är bara tillgänglig för rapportering av tidigare användning.
 
-### <a name="monetary-commitment"></a>Ekonomiskt åtagande
+### <a name="azure-prepayment"></a>Azure-förskottsbetalning
 
-Ekonomiska åtaganden kan inte överföras mellan registreringar. Saldon för ekonomiska åtaganden är avtalsmässigt bundna till den registrering där åtagandet beställdes. Ekonomiska åtaganden överförs inte när konton eller registreringar överförs.
+Azure-förskottsbetalningar kan inte överföras mellan registreringar. Saldot för en Azure-förskottsbetalning är avtalsmässigt bunden till den registrering där den beställdes. Azure-förskottsbetalningar överförs inte när konton eller registreringar överförs.
 
 ### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Inga tjänster påverkas av konto- och registreringsöverföringar
 

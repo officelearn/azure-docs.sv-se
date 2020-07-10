@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Batch fil konventions bibliotek fö
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965203"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147172"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-fil konventioner för .NET
 
@@ -55,7 +55,7 @@ Om du vill spara utdata för att Azure Storage med hjälp av biblioteket fil kon
 
 Om du vill spara jobb-och uppgifts utmatnings data med biblioteket fil konventioner skapar du en behållare i Azure Storage och sparar sedan utdata i behållaren. Använd [Azure Storage klient bibliotek för .net](https://www.nuget.org/packages/WindowsAzure.Storage) i din uppgifts kod för att överföra Uppgiftsutdata till behållaren.
 
-Mer information om hur du arbetar med behållare och blobbar i Azure Storage finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Mer information om hur du arbetar med behållare och blobbar i Azure Storage finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 > [!WARNING]
 > Alla utdata för jobb och uppgifter sparas i biblioteket med fil konventioner, lagras i samma behållare. Om ett stort antal aktiviteter försöker spara filer samtidigt kan Azure Storage begränsnings gränser vara tvingande. Mer information om begränsnings gränser finns i [Check lista för prestanda och skalbarhet för Blob Storage](../storage/blobs/storage-performance-checklist.md).

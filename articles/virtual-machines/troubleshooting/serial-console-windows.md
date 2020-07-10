@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135249"
+ms.locfileid: "86146636"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
 
@@ -100,8 +100,7 @@ Om du behöver aktivera Windows Start inläsnings meddelanden för att visa i se
 
 1. Anslut till serie konsolen. Om du har anslutit är meddelandet **SAC>**:
 
-    ![Anslut till SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
+   ![Anslut till SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. Ange `cmd` om du vill skapa en kanal som har en cmd-instans.
 
 1. Ange `ch -si 1` eller tryck på `<esc>+<tab>` kortkommandon för att växla till den kanal som kör cmd-instansen.
@@ -112,7 +111,7 @@ Om du behöver aktivera Windows Start inläsnings meddelanden för att visa i se
 
 1. Starta en PowerShell-instans genom att ange `PowerShell` i cmd-instansen och tryck på **RETUR**.
 
-    ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Använda serie konsolen för NMI-anrop
 Ett icke-maskbart avbrott (NMI) är utformat för att skapa en signal som program varan på en virtuell dator inte kommer att ignorera. Historiskt sett har NMIs använts för att övervaka maskin varu problem på system som krävde specifika svars tider. Idag använder programmerare programmerare och system administratörer ofta NMI som en mekanism för att felsöka eller felsöka system som inte svarar.
@@ -147,7 +146,7 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ### <a name="channel-security"></a>Kanal säkerhet
 Alla data som skickas fram och tillbaka krypteras i kabeln.
 
-### <a name="audit-logs"></a>Granskningsloggar
+### <a name="audit-logs"></a>Spårningsloggar
 All åtkomst till serie konsolen är för närvarande inloggad i [Start](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
 
 > [!CAUTION]

@@ -7,17 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488757"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141944"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhands granskning)
 
 Du kan implementera maskin inlärnings modeller som en användardefinierad funktion (UDF) i dina Azure Stream Analytics jobb för att utföra resultat i real tid och förutsägelser på dina strömmande indata. Med [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) kan du använda alla populära verktyg för öppen källkod, till exempel Tensorflow, scikit-lära eller PyTorch, för att prepa, träna och distribuera modeller.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande steg innan du lägger till en Machine Learning-modell som en funktion i Stream Analytics jobbet:
 
@@ -27,7 +28,7 @@ Slutför följande steg innan du lägger till en Machine Learning-modell som en 
 
 3. Kontrol lera att din webb tjänst accepterar och returnerar JSON-serialiserade data.
 
-4. Distribuera din modell på [Azure Kubernetes service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktions distributioner. Om webb tjänsten inte kan hantera antalet begär Anden som kommer från jobbet försämras prestanda för ditt Stream Analytics jobb, vilket påverkar svars tiden. Modeller som distribueras på Azure Container Instances stöds bara när du använder Azure Portal.
+4. Distribuera din modell på [Azure Kubernetes service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktions distributioner. Om webb tjänsten inte kan hantera antalet begär Anden som kommer från jobbet försämras prestanda för ditt Stream Analytics jobb, vilket påverkar svars tiden. Modeller som distribueras på Azure Container Instances stöds bara när du använder Azure Portal. Modeller som skapats med [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) stöds ännu inte i Stream Analytics.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Lägga till en maskin inlärnings modell i ditt jobb
 

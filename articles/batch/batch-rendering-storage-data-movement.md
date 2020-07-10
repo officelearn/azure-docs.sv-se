@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965271"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147305"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Alternativ för lagring och data förflyttning för åter givning av till gångar och utdatafiler
 
@@ -87,7 +87,7 @@ Eftersom filer bara är blobbar i Azure Storage kan standard-BLOB-API: er, verkt
 
 [Azure Files](../storage/files/storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet.  Azure Files baseras på Azure Blob Storage; Det är [kostnads effektivt](https://azure.microsoft.com/pricing/details/storage/files/) och kan konfigureras med datareplikering till en annan region så globalt redundant.  [Skala mål](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) bör granskas för att avgöra om Azure Files ska användas med prognostiserad pool storlek och antal till gångs filer.
 
-Det finns ett [blogg inlägg](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) och [dokumentation](../storage/files/storage-how-to-use-files-windows.md) som beskriver hur du monterar en Azure-filresurs.
+Det finns [dokumentation](../storage/files/storage-how-to-use-files-windows.md) som beskriver hur du monterar en Azure-filresurs.
 
 ### <a name="mounting-an-azure-files-share"></a>Montera en Azure Files resurs
 

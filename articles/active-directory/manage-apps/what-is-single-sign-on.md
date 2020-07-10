@@ -1,5 +1,5 @@
 ---
-title: Enkel inloggning till program – Azure Active Directory | Microsoft Docs
+title: Vad är enkel inloggning i Azure?
 description: Lär dig hur du väljer en enkel inloggnings metod när du konfigurerar program i Azure Active Directory (Azure AD). Använd enkel inloggning så att användarna inte behöver komma ihåg lösen ord för varje program och för att förenkla administrationen av konto hantering.
 services: active-directory
 author: kenwith
@@ -12,14 +12,14 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144594"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
+# <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
 Enkel inloggning (SSO) ger säkerhet och bekvämlighet när användare loggar in på program i Azure Active Directory (Azure AD). I den här artikeln beskrivs metoder för enkel inloggning och det hjälper dig att välja den lämpligaste SSO-metoden när du konfigurerar dina program.
 
@@ -56,7 +56,7 @@ När du utvecklar nya program bör du använda moderna protokoll som OpenID Conn
 
 Mer information finns i:
 
-- [OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md)
+- [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
 - [Microsoft Identity Platform Developer-Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
@@ -99,8 +99,8 @@ Lösenordsbaserad enkel inloggning stöds för alla molnbaserade program som har
 - Microsoft Edge på Windows 10-jubileums version eller senare
 - Microsoft Edge för iOS och Android
 - Intune Managed Browser
-- Chrome på Windows 7 eller senare och på MacOS X eller senare
-- Firefox 26,0 eller senare på Windows XP SP2 eller senare och på Mac OS X 10,6 eller senare
+- Chrome på Windows 7 eller senare och på macOS X eller senare
+- Firefox 26,0 eller senare på Windows XP SP2 eller senare och på macOS X 10,6 eller senare
 
 Information om hur du konfigurerar ett moln program för lösenordsbaserad enkel inloggning finns i [Konfigurera enkel inloggning för lösen ord](configure-password-single-sign-on-non-gallery-applications.md).
 

@@ -23,11 +23,11 @@ ms.locfileid: "80879228"
 
 1. Ange alla nödvändiga inställningar:
 
-    |Name|Syfte|
+    |Namn|Syfte|
     |--|--|
     |Prenumerationens namn| den prenumeration som ska faktureras för resursen.|
     |Resursgrupp| Ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering.|
-    |Name| Ett anpassat namn som du väljer, används som anpassad under domän för dina redigerings-och förutsägelse slut punkts frågor.|
+    |Namn| Ett anpassat namn som du väljer, används som anpassad under domän för dina redigerings-och förutsägelse slut punkts frågor.|
     |Redigerings plats|Den region som är associerad med din modell.|
     |Redigera pris nivå|Pris nivån avgör den högsta transaktionen per sekund och månad.|
     |Körnings plats|Den region som är kopplad till den publicerade slut punkts körningen för förutsägelse.|

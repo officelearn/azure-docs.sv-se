@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678026"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045152"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Hantera Azure Enterprise-roller
 
@@ -84,7 +84,7 @@ Du kan läsa mer om att lägga till en avdelningsadministratör under [Skapa en 
 
 |Aktiviteter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad) |Kontoägare| Partner|
 |---|---|---|---|---|---|---|
-|Visa kreditsaldo inklusive ekonomiska åtaganden|✔|✔|✘|✘|✘|✔|
+|Visa kreditsaldo inklusive Azure-förskottsbetalning|✔|✔|✘|✘|✘|✔|
 |Visa avdelningens utgiftskvot|✔|✔|✘|✘|✘|✔|
 |Ange avdelningens utgiftskvot|✔|✘|✘|✘|✘|✘|
 |Visa organisationens EA-prisdokument|✔|✔|✘|✘|✘|✔|

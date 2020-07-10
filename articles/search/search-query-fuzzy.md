@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81262442"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146127"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Fuzzy-sökning för att korrigera fel stavningar och skrivfel
 
@@ -85,37 +86,49 @@ Anta att följande sträng finns i ett `"Description"` fält i ett Sök dokument
 
 Börja med en Fuzzy-sökning på "Special" och Lägg till träff markeringar i fältet Beskrivning:
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 Eftersom du har lagt till träff markering i svaret används formateringen till "Special" som matchnings villkor.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Försök igen, stava stavfel "Special" genom att ta bort flera bokstäver ("PE"):
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 Hittills, ingen ändring av svaret. Om du använder standardvärdet på 2 grader, tar du bort två tecken "PE" från "Special", vilket gör det möjligt för en lyckad matchning på den termen.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Om du försöker med en mer begäran kan du ändra Sök termen ytterligare genom att ta bort ett sista bokstavs antal tre borttagningar (från "Special" till "skal"):
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Observera att samma svar returneras, men nu i stället för att matcha "Special", är den suddiga matchningen på "SQL".
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 Punkten för det här expanderade exemplet är att illustrera den klarhet som träff markeringar kan få till tvetydiga resultat. I samtliga fall returneras samma dokument. Var du tvungen att använda dokument-ID: n för att verifiera en matchning. du kan ha missat skiftet från "Special" till "SQL".
 

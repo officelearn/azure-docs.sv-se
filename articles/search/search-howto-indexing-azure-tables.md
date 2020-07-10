@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6670966b4cf74510df5dd26c994e0c53b219ba9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563133"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145252"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexera tabeller från Azure Table Storage med Azure Kognitiv sökning
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du använder Azure Kognitiv sökning för att indexe
 
 Du kan konfigurera en Azure Table Storage-indexerare med hjälp av följande resurser:
 
-* [Azure Portal](https://ms.portal.azure.com)
+* [Azure-portalen](https://ms.portal.azure.com)
 * Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Kognitiv sökning [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
@@ -49,6 +49,7 @@ För tabell indexering måste data källan ha följande egenskaper:
 
 Så här skapar du en data Källa:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -59,6 +60,7 @@ Så här skapar du en data Källa:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
+```
 
 Mer information om API för att skapa data källor finns i [skapa data källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
@@ -81,6 +83,7 @@ Indexet anger fält i ett dokument, attributen och andra konstruktioner som form
 
 Så här skapar du ett index:
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -92,6 +95,7 @@ Så här skapar du ett index:
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
           ]
     }
+```
 
 Mer information om hur du skapar index finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -100,6 +104,7 @@ En indexerare ansluter en data källa med ett mål Sök index och ger ett schema
 
 När indexet och data källan har skapats är du redo att skapa indexeraren:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -110,6 +115,7 @@ När indexet och data källan har skapats är du redo att skapa indexeraren:
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Indexeraren körs var två: e timme. (Schema intervallet är inställt på "PT2H".) Om du vill köra en indexerare var 30: e minut anger du intervallet till "PT30M". Det kortaste intervall som stöds är fem minuter. Schemat är valfritt. om detta utelämnas körs en indexerare bara en gång när den skapas. Du kan dock köra en indexerare på begäran när du vill.   
 
@@ -135,6 +141,7 @@ När du ställer in en tabell Indexer så att den körs enligt ett schema, index
 
 Om du vill ange att vissa dokument måste tas bort från indexet kan du använda en strategi för mjuk borttagning. I stället för att ta bort en rad lägger du till en egenskap för att visa att den har tagits bort och konfigurerar en princip för att upptäcka en mjuk borttagning på data källan. Följande princip anser till exempel att en rad tas bort om raden har en egenskap `IsDeleted` med värdet `"true"` :
 
+```http
     PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -146,6 +153,7 @@ Om du vill ange att vissa dokument måste tas bort från indexet kan du använda
         "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+```
 
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda

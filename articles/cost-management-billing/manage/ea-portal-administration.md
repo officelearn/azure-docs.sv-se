@@ -3,16 +3,16 @@ title: Administration i Azure EA-portalen
 description: I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456563"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044897"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -33,7 +33,7 @@ Företagsadministratörer kan associera befintliga konton till avdelningar under
 
 ## <a name="department-spending-quotas"></a>Avdelningens utgiftskvoter
 
-EA-kunder kan ange eller ändra utgiftskvoter för varje avdelning under en registrering. Utgiftskvotens belopp anges för det aktuella åtagandeperioden. I slutet av den aktuella åtagandeperioden förlänger systemet den befintliga utgiftskvoten till nästa åtagandeperiod om inte värdena uppdateras.
+EA-kunder kan ange eller ändra utgiftskvoter för varje avdelning under en registrering. Utgiftskvotens belopp anges för den aktuella förskottsbetalningsperioden. I slutet av den aktuella förskottsbetalningsperioden förlänger systemet den befintliga utgiftskvoten till nästa förskottsbetalningsperiod om inte värdena uppdateras.
 
 Avdelningsadministratören kan visa utgiftskvoten utan bara företagsadministratören kan uppdatera kvotbeloppet. Företagsadministratören och avdelningsadministratören får meddelanden när kvoten har nått 50 %, 75 %, 90 % och 100%.
 
@@ -48,9 +48,9 @@ Avdelningsadministratören kan visa utgiftskvoten utan bara företagsadministrat
     - Avdelningsnamnet och kostnadsstället kan också redigeras nu.
  1. Välj **Spara**.
 
-Avdelningens utgiftskvot syns nu i vyn Department List (Avdelningslista) under fliken Department (Avdelning). I slutet av det aktuella åtagandet behåller Azure EA-portalen utgiftskvoterna till nästa åtagandeperiod.
+Avdelningens utgiftskvot syns nu i vyn Department List (Avdelningslista) under fliken Department (Avdelning). I slutet av den aktuella förskottsbetalningen behåller Azure EA-portalen utgiftskvoterna till nästa förskottsbetalningsperiod.
 
-Avdelningskvotens belopp är oberoende av det aktuella betalningsåtagandet, och kvotbeloppet och aviseringarna gäller bara för förstapartsanvändning. Avdelningens utgiftskvot är bara för information och tillämpar inte utgiftsgränser.
+Avdelningskvotens belopp är oberoende av den aktuella Azure-förskottsbetalningen, och kvotbeloppet och aviseringarna gäller bara för förstapartsanvändning. Avdelningens utgiftskvot är bara för information och tillämpar inte utgiftsgränser.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Avdelningsadministratör för att visa kvoten:
 
@@ -174,7 +174,7 @@ I det här dokumentet besvaras frågor som rör ägarskapet för kontoprenumerat
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Hur många Azure-kontoinnehavare kan du ha per prenumeration?
 
-Bara en kontoinnehavare tillåts per prenumeration.  Ytterligare roller kan läggas till med rollbaserad åtkomst eller Åtkomstkontroll (IAM) på prenumerationsfliken i det övre vänstra hörnet på sidan på [portal.azure.com]](https://portal.azure.com).
+Bara en kontoinnehavare tillåts per prenumeration.  Ytterligare roller kan läggas till med rollbaserad åtkomst eller Åtkomstkontroll (IAM) på prenumerationsfliken i det övre vänstra hörnet på sidan på [Azure-portalen](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Kan en Azure-kontoinnehavare listas under mer än en avdelning?
 

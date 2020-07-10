@@ -4,11 +4,12 @@ description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: c1621bbbe6676144176636346f3f5c34db169b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693166"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143532"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 
@@ -30,8 +31,8 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | Basic A | Alla storlekar *utom* Basic_A0 (a0) |
 | A | Alla storlekar *utom* Standard_A0 |
 | AV2 | Alla storlekar |
-| B | Ingen |
-| DC | Ingen |
+| B | Inget |
+| DC | Inget |
 | Dv2, DSv2 | Alla storlekar |
 | Dv3, Dsv3 | Alla storlekar |
 | Dav4<sup>1</sup> | Ingen – ännu inte tillgänglig |
@@ -59,8 +60,8 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | NDv2<sup>1</sup> | Ingen – ännu inte tillgänglig |
 | NV | Alla storlekar |
 | NVv3<sup>1</sup> | Alla storlekar |
-| NVv4 | Ingen |
-| SAP HANA | Ingen |
+| NVv4 | Inget |
+| SAP HANA | Inget |
 
 <sup>1</sup> dessa VM-storlekar kan allokeras i batch-pooler i konfigurationen av den virtuella datorn, men du måste skapa ett nytt batch-konto och begära en bestämd [kvot ökning](batch-quota-limit.md#increase-a-quota). Den här begränsningen tas bort när vCPU-kvoten per VM-serien har fullt stöd för batch-konton.
 
@@ -75,7 +76,7 @@ Batch-pooler i moln tjänst konfigurationen har stöd [för alla VM-storlekar f�
 
 ## <a name="size-considerations"></a>Överväganden gällande storlek
 
-* **Program krav** – beakta egenskaperna och kraven för det program som ska köras på noderna. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. För [MPI arbets belastningar](batch-mpi.md) eller CUDA-program med flera instanser bör du överväga specialiserade [HPC](../virtual-machines/linux/sizes-hpc.md) [-eller GPU-aktiverade VM-](../virtual-machines/linux/sizes-gpu.md) storlekar. (Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).)
+* **Program krav** – beakta egenskaperna och kraven för det program som ska köras på noderna. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. För [MPI arbets belastningar](batch-mpi.md) eller CUDA-program med flera instanser bör du överväga specialiserade [HPC](../virtual-machines/sizes-hpc.md) [-eller GPU-aktiverade VM-](../virtual-machines/sizes-gpu.md) storlekar. (Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).)
 
 * **Aktiviteter per nod** – det är vanligt att välja en Node-storlek förutsatt att en aktivitet körs på en nod i taget. Det kan dock vara fördelaktigt att ha flera aktiviteter (och därför flera program instanser) [som körs parallellt](batch-parallel-node-tasks.md) på datornoderna under jobb körningen. I det här fallet är det vanligt att välja en storlek för flera kärnor för att hantera den ökade efter frågan av parallell körning.
 

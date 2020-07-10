@@ -13,7 +13,7 @@ ms.locfileid: "80159427"
 ---
 Posterna i `inferenceconfig.json` dokument översikten till parametrarna för klassen [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrarna för-metoden:
 
-| JSON-entitet | Metod parameter | Description |
+| JSON-entitet | Metod parameter | Beskrivning |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Sökväg till en lokal fil som innehåller koden som ska köras för avbildningen. |
 | `sourceDirectory` | `source_directory` | Valfritt. Sökväg till mappar som innehåller alla filer för att skapa avbildningen, vilket gör det enkelt att komma åt filer i den här mappen eller undermappen. Du kan ladda upp en hel mapp från den lokala datorn som beroenden för WebService. Obs! dina entry_script, conda_file och extra_docker_file_steps sökvägar är relativa sökvägar till source_directory sökvägen. |

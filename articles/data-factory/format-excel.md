@@ -7,13 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8b4876377501209e19ac496d605d228208d2323d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46108ed06659d234907c6eaa6841dc18022c73bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670924"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144158"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel-format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,16 +27,16 @@ Excel-formatet stöds för följande anslutningar: [Amazon S3](connector-amazon-
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Excel-datauppsättningen.
 
-| Egenskap         | Beskrivning                                                  | Obligatorisk |
+| Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | typ             | Data uppsättningens typ-egenskap måste anges till **Excel**.   | Ja      |
 | location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . | Ja      |
 | Inställda SheetName        | Namnet på Excel-kalkylbladet för att läsa data.                       | Ja      |
-| intervall            | Cell området i det aktuella kalkyl bladet för att hitta de selektiva data, t. ex. `A3:H5` (en tabell från a3 till H5), `A3` (en tabell som börjar från cell A3), `A3:A3` (enkel cell). Om inget anges läser ADF-filen från hela kalkyl bladet som en tabell. | No       |
-| firstRowAsHeader | Anger om den första raden i angivet kalkyl blad/intervall ska behandlas som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | No       |
-| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | No       |
-| compressionCodec | Komprimerings-codec som används för att läsa Excel-filer. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. Standardvärdet är inte komprimerat. <br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate". <br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** -filer och skriva till filbaserat mottagar data lager, extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/` . | No       |
-| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| intervall            | Cell området i det aktuella kalkyl bladet för att hitta de selektiva data, t. ex. `A3:H5` (en tabell från a3 till H5), `A3` (en tabell som börjar från cell A3), `A3:A3` (enkel cell). Om inget anges läser ADF-filen från hela kalkyl bladet som en tabell. | Nej       |
+| firstRowAsHeader | Anger om den första raden i angivet kalkyl blad/intervall ska behandlas som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | Nej       |
+| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | Nej       |
+| compressionCodec | Komprimerings-codec som används för att läsa Excel-filer. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. Standardvärdet är inte komprimerat. <br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate". <br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** -filer och skriva till filbaserat mottagar data lager, extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/` . | Nej       |
+| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nej       |
 
 Nedan visas ett exempel på en Excel-datauppsättning på Azure Blob Storage:
 
@@ -71,7 +72,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** .
 
-| Egenskap      | Beskrivning                                                  | Obligatorisk |
+| Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
 | typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ExcelSource**. | Ja      |
 | storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | Nej       |
@@ -94,6 +95,54 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
         ...
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
+
+I data flöden för mappning kan du läsa Excel-formatet i följande data lager: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)och [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Du kan peka på Excel-filer antingen med Excel-datauppsättning eller med en [infogad data uppsättning](data-flow-source.md#inline-datasets).
+
+### <a name="source-properties"></a>Käll egenskaper
+
+I tabellen nedan visas de egenskaper som stöds av en Excel-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** . När du använder en infogad data uppsättning visas ytterligare fil inställningar som är desamma som de egenskaper som beskrivs i avsnittet [Egenskaper för data mängd](#dataset-properties) .
+
+| Namn                      | Beskrivning                                                  | Krävs | Tillåtna värden                                            | Skript egenskap för data flöde         |
+| ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
+| Jokertecken sökvägar           | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | Nej       | Sträng []                                                  | wildcardPaths                     |
+| Partitionens rot Sök väg       | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | Nej       | Sträng                                                    | partitionRootPath                 |
+| Lista över filer             | Om källan pekar på en textfil som visar en lista över filer som ska bearbetas | Nej       | `true` eller `false`                                         | fileList                          |
+| Kolumn som ska lagra fil namn | Skapa en ny kolumn med käll filens namn och sökväg       | Nej       | Sträng                                                    | rowUrlColumn                      |
+| Efter slut för ande          | Ta bort eller flytta filerna efter bearbetning. Fil Sök vägen börjar från container roten | Nej       | Ta bort: `true` eller`false` <br> Fart`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Filtrera efter senast ändrad   | Välj att filtrera filer baserat på när de senast ändrades | Nej       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+
+### <a name="source-example"></a>Käll exempel
+
+Bilden nedan är ett exempel på en konfiguration av en Excel-källa i mappa data flöden med data uppsättnings läge.
+
+![Excel-källa](media/data-flow/excel-source.png)
+
+Det associerade data flödes skriptet är:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    wildcardPaths:['*.xls']) ~> ExcelSource
+```
+
+Om du använder en infogad data uppsättning visas följande käll alternativ i data flödet för att mappa data.
+
+![Infogad Excel-datakälla](media/data-flow/excel-source-inline-dataset.png)
+
+Det associerade data flödes skriptet är:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'excel',
+    fileSystem: 'container',
+    folderPath: 'path',
+    fileName: 'sample.xls',
+    sheetName: 'worksheet',
+    firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
 ## <a name="next-steps"></a>Nästa steg

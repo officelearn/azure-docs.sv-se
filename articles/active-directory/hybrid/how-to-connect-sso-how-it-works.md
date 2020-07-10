@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357927"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144701"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: tekniskt djup
 
@@ -45,6 +45,9 @@ Sömlös SSO aktive ras med Azure AD Connect som visas [här](how-to-connect-sso
 
 >[!IMPORTANT]
 > `AZUREADSSOACC`Dator kontot måste vara starkt skyddat av säkerhets skäl. Endast domän administratörer bör kunna hantera dator kontot. Se till att Kerberos-delegering på dator kontot är inaktiverat och att inget annat konto i Active Directory har Delegerings behörighet för `AZUREADSSOACC` dator kontot. Lagra dator kontot i en organisationsenhet (OU) där de är säkra från oavsiktliga borttagningar och där endast domän administratörer har åtkomst. Krypterings nyckeln för Kerberos på dator kontot bör också behandlas som känslig. Vi rekommenderar starkt att du [rullar igenom Kerberos-dekrypterings nyckeln](how-to-connect-sso-faq.md) för `AZUREADSSOACC` dator kontot minst var 30: e dag.
+
+>[!IMPORTANT]
+> Sömlös SSO stöder AES256_HMAC_SHA1, AES128_HMAC_SHA1 och RC4_HMAC_MD5 krypterings typer för Kerberos. Det rekommenderas att krypterings typen för AzureADSSOAcc $-kontot har angetts till AES256_HMAC_SHA1, eller en av AES-typerna vs. RC4 för ytterligare säkerhet. Krypterings typen lagras i attributet msDS-SupportedEncryptionTypes för kontot i din Active Directory.  Om krypterings typen för AzureADSSOAcc $-kontot har angetts till RC4_HMAC_MD5 och du vill ändra den till en av AES-krypterings typerna, se till att du först rullar över Kerberos-dekrypterings nyckeln för AzureADSSOAcc $-kontot enligt beskrivningen i [FAQ-dokumentet](how-to-connect-sso-faq.md) under den aktuella frågan, annars sker ingen sömlös SSO.
 
 När installationen är klar fungerar sömlös enkel inloggning på samma sätt som andra inloggningar som använder integrerad Windows-autentisering (IWA).
 

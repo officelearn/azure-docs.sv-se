@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 7c2484892f3de3c8eca3f766793be83bc7a29dc8
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445550"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146966"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begär anden till Azure Cognitive Services
 
@@ -24,17 +24,17 @@ Varje begäran till en Azure-kognitiv tjänst måste innehålla ett Authenticati
 * Autentisera med en [token](#authenticate-with-an-authentication-token)
 * Autentisera med [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du gör en förfrågan behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto har vi en guide som hjälper dig att konfigurera på några minuter: [skapa ett Cognitive Services konto för Azure](cognitive-services-apis-create-account.md).
 
-Du kan hämta prenumerations nyckeln från [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) när du har skapat ditt konto eller aktivera en [kostnads fri utvärderings version](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Du kan hämta din prenumerations nyckel från [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) när du har [skapat ditt konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="authentication-headers"></a>Autentiseringsscheman
 
 Vi går snabbt igenom de autentiseringsscheman som är tillgängliga för användning med Azure Cognitive Services.
 
-| Sidhuvud | Description |
+| Huvud | Beskrivning |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Använd den här rubriken för att autentisera med en prenumerations nyckel för en enskild tjänst eller en prenumerations nyckel för flera tjänster. |
 | OCP-APIM-Subscription-region | Den här rubriken krävs bara när du använder en prenumerations nyckel för flera tjänster med [tjänsten Translator](./Translator/reference/v3-0-reference.md). Använd den här rubriken för att ange prenumerations region. |
@@ -75,7 +75,7 @@ Prenumerations nyckeln anges i varje begäran som `Ocp-Apim-Subscription-Key` ru
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
-När du använder prenumerations nyckeln för flera tjänster för att göra en begäran till `api.cognitive.microsoft.com` måste du inkludera regionen i URL: en. Exempel: `westus.api.cognitive.microsoft.com`.
+När du använder prenumerations nyckeln för flera tjänster för att göra en begäran till `api.cognitive.microsoft.com` måste du inkludera regionen i URL: en. Här är ett exempel: `westus.api.cognitive.microsoft.com`.
 
 När du använder en prenumerations nyckel för flera tjänster med Translator-tjänsten måste du ange prenumerations region med `Ocp-Apim-Subscription-Region` rubriken.
 

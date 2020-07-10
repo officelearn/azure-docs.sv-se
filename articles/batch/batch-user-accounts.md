@@ -4,19 +4,19 @@ description: Lär dig olika typer av användar konton och hur du konfigurerar de
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 514a104c879a8d601bb03e2ed1c59b69516bc621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209733"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142676"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kör uppgifter under användar konton i batch
 
 > [!NOTE]
 > Användar kontona som beskrivs i den här artikeln skiljer sig från användar konton som används för Remote Desktop Protocol (RDP) eller Secure Shell (SSH) av säkerhets skäl.
 >
-> Om du vill ansluta till en nod som kör konfigurationen för virtuella Linux-datorer via SSH, se [Använd fjärr skrivbord till en virtuell Linux-dator i Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Information om hur du ansluter till noder som kör Windows via RDP finns i [ansluta till en virtuell Windows Server-dator](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Om du vill ansluta till en nod som kör konfigurationen för virtuella Linux-datorer via SSH, se [Använd fjärr skrivbord till en virtuell Linux-dator i Azure](../virtual-machines/linux/use-remote-desktop.md). Information om hur du ansluter till noder som kör Windows via RDP finns i [ansluta till en virtuell Windows Server-dator](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Om du vill ansluta till en nod som kör moln tjänst konfigurationen via RDP, se [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 En aktivitet i Azure Batch körs alltid under ett användar konto. Som standard körs aktiviteter under standard användar konton utan administratörs behörighet. I vissa fall kanske du vill konfigurera det användar konto som du vill att en aktivitet ska köras under. I den här artikeln beskrivs olika typer av användar konton och hur du konfigurerar dem för ditt scenario.

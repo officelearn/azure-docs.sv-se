@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 4721d8dbe5973baf2ac82124ff516a89398227cb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: acb818cf2a892a3a71f2f59b0a44041767b846d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298201"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044931"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -20,7 +20,7 @@ I den här artikeln förklarar vi hur EA-kunder och -partner kan se Marketplace-
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace för EA-kunder
 
-För direktkunder visas Azure Marketplace-avgifter i Azure Enterprise-portalen. Azure Marketplace-köp och -förbrukning debiteras utanför betalningsåtagandet och debiteras kvartalsvis eller månadsvis och i efterskott.
+För direktkunder visas Azure Marketplace-avgifter i Azure Enterprise-portalen. Azure Marketplace-köp och -förbrukning debiteras utanför Azure-förskottsbetalningar och debiteras kvartalsvis eller månadsvis och i efterskott.
 
 Indirekta kunder kan se sina Azure Marketplace-prenumerationer på sidan **Hantera prenumerationer** i Azure Enterprise-portalen, men priserna är dolda. Kunderna bör kontakta sin LSP (leverantör av licenslösningar) för information om Azure Marketplace-avgifter.
 
@@ -28,7 +28,7 @@ Nya månatliga eller årligen återkommande Azure Marketplace-köp debiteras hel
 
 Befintliga månatliga återkommande avgifter fortsätter att förnyas den första i varje kalendermånad. Årsavgifter förnyas på årsdagen för inköpet.
 
-Vissa tjänster från tredjepartsåterförsäljare på Azure Marketplace ingår nu i EA-betalningsåtagandet och påverkar saldot. Tidigare fakturerades dessa tjänster separat och ingick inte i EA-betalningsåtagandet. EA-betalningsåtagandet för dessa tjänster på Azure Marketplace förenklar hanteringen av köp och betalningar från kunder. En fullständig lista över tjänster som ingår i betalningsåtagandet finns i [uppdateringen från 6 mars 2018 på Azure-webbplatsen](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+Nu förbrukar vissa tjänster från tredjepartsåterförsäljare på Azure Marketplace ditt saldo för Azure EA-förskottsbetalningar. Tidigare debiterades dessa tjänster utanför Azure EA-förskottsbetalningar och fakturerades separat. Azure EA-förskottsbetalningar för dessa tjänster på Azure Marketplace förenklar hanteringen av köp och betalningar från kunder. En fullständig lista över tjänster som förbrukar Azure-förskottsbetalningar finns i [uppdateringen från 6 mars 2018 på Azure-webbplatsen](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 ### <a name="partners"></a>Partner
 
@@ -75,41 +75,41 @@ Om du har ett Enterprise-avtal betalar du för Azure RemoteApp baserat på prisn
 
 ## <a name="azure-marketplace-faq"></a>Vanliga frågor och svar om Azure Marketplace
 
-I det här avsnittet förklaras hur ditt Azure-betalningsåtagande kan tillämpas för återförsäljartjänster från tredje part i Azure Marketplace.
+Det här avsnittet förklarar hur din Azure-förskottsbetalning kan tillämpas med tjänster från tredjepartsåterförsäljare på Azure Marketplace.
 
-### <a name="what-changed-with-azure-marketplace-services-and-ea-monetary-commitment"></a>Vad har ändrats när det gäller Azure Marketplace-tjänster och EA-betalningsåtagandet?
+### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>På vilket sätt har Azure Marketplace-tjänster och Azure EA-förskottsbetalningar ändrats?
 
-Från och med 1 mars 2018 används EA-betalningsåtagandet för vissa återförsäljartjänster från tredje part. Förutom för Azure Reserved VM Instances fakturerades tjänsterna tidigare separat utanför EA-betalningsåtagandet.
+Sedan den 1 mars 2018 förbrukar en del tjänster från tredjepartsåterförsäljare Azure EA-förskottsbetalningar. Förutom för reserverade VM-instanser i Azure fakturerades tjänsterna tidigare separat utanför Azure EA-förskottsbetalningar.
 
-Vi har utökat användningen av betalningsåtagandet till att nu omfatta några av de mest köpta Azure Marketplace-tjänster som publicerats av tredje part. EA-betalningsåtagandet för dessa tjänster på Azure Marketplace förenklar hanteringen av ditt köp och dina betalningar.
+Vi har utökat användningen av Azure-förskottsbetalningar till att nu omfatta några av de mest köpta Azure Marketplace-tjänster som publicerats av tredje part. Azure EA-förskottsbetalningar för dessa tjänster på Azure Marketplace förenklar hanteringen av ditt köp och dina betalningar.
 
 ### <a name="why-did-we-make-this-change"></a>Varför har vi gjort den här ändringen?
 
-Kunder letar ständigt efter nya sätt att dra nytta av förskottsbetalningen som de har gjort i form av Azure-betalningsåtagandet. Vi uppfyller en vanlig förfrågan som påverkar en stor del av våra Azure Marketplace-kunder.
+Kunder letar ständigt efter nya sätt att dra nytta av förskottsbetalningarna som de har gjort i form av Azure-förskottsbetalningar. Vi uppfyller en vanlig förfrågan som påverkar en stor del av våra Azure Marketplace-kunder.
 
 ### <a name="how-do-you-benefit"></a>Vad innebär det för fördel för dig?
 
-Du får en enklare faktureringsupplevelse och kan se till att du utnyttjar ditt Azure-betalningsåtagande. Eftersom dessa tjänster ingår i det förbetalda betalningsåtagandet skapas ytterligare värde för Azure-betalningsåtagandet.
+Faktureringsupplevelsen blir enklare och du kan använda din Azure EA-förskottsbetalning på ett bättre sätt. Eftersom dessa tjänster förbrukar Azure-förskottsbetalningar blir din Azure EA-förskottsbetalning ännu mer värdefull.
 
-### <a name="what-azure-marketplace-services-use-ea-monetary-commitment-and-how-do-i-know"></a>För vilka Azure Marketplace-tjänster används EA-betalningsåtagandet och hur vet jag det?
+### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>Vilka Azure Marketplace-tjänster använder Azure EA-förskottsbetalningar och hur vet jag vilka de är?
 
-När du köper en tjänst som använder betalningsåtagandet visas en ansvarsfriskrivning i Azure Marketplace. För närvarande stöds vissa tjänster som publiceras av Red Hat, SUSE, Autodesk och Oracle. Tjänster som har liknande namngivningskonventioner men som publiceras av andra parter, dras inte av från betalningsåtagandet. En fullständig lista finns i slutet av dessa vanliga frågor och svar.
+När du köper en tjänst som använder Azure-förskottsbetalningar visas en ansvarsfriskrivning på Azure Marketplace. För närvarande stöds vissa tjänster som publiceras av Red Hat, SUSE, Autodesk och Oracle. Tjänster som har liknande namngivningskonventioner men som publiceras av andra parter, dras inte av från Azure-förskottsbetalningar. En fullständig lista finns i slutet av dessa vanliga frågor och svar.
 
-### <a name="what-if-my-ea-monetary-commitment-runs-out"></a>Vad händer om EA-betalningsåtagandet tar slut?
+### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>Vad händer om min Azure EA-förskottsbetalning tar slut?
 
-När du har förbrukat betalningsåtagandet övergår användningen till överförbrukning, och avgifterna för dessa tjänster visas på din nästa överförbrukningsfaktura tillsammans med andra förbrukningstjänster. Före ändringen 1 mars 2018 fakturerades dessa avgifter med andra Azure Marketplace-tjänster.
+När du har förbrukat din Azure-förskottsbetalning övergår användningen till överförbrukning, och avgifterna för dessa tjänster visas på din nästa överförbrukningsfaktura tillsammans med andra förbrukningstjänster. Före ändringen 1 mars 2018 fakturerades dessa avgifter med andra Azure Marketplace-tjänster.
 
-### <a name="why-dont-all-azure-marketplaces-consume-ea-monetary-commitment"></a>Varför används inte EA-betalningsåtagandet för alla Azure Marketplace-köp?
+### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>Varför förbrukar inte alla Azure Marketplace-tjänster Azure EA-förskottsbetalningar?
 
-Vi arbetar ständigt med att skapa den bästa kundupplevelsen för EA-betalningsåtagande. Den här ändringen påverkade ett stort antal kunder och en stor del av de totala köpen i Azure Marketplace. Andra tjänster kan läggas till i framtiden.
+Vår ambition är att leverera den bästa kundupplevelsen för Azure EA-förskottsbetalningar. Den här ändringen påverkade ett stort antal kunder och en stor del av de totala köpen i Azure Marketplace. Andra tjänster kan läggas till i framtiden.
 
 ### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>Hur påverkar detta indirekt registrering och partner?
 
-Det påverkar inte vår indirekta registrering för kunder eller partner. Dessa tjänster har samma påläggsmöjligheter för partner som andra konsumtionstjänster. Det enda som ändras är att debiteringarna visas på en annan faktura och att betalningen av avgifterna kommer från kundens EA-betalningsåtagande.
+Det påverkar inte vår indirekta registrering för kunder eller partner. Dessa tjänster har samma påläggsmöjligheter för partner som andra konsumtionstjänster. Det enda som ändras är att debiteringarna visas på en annan faktura och att betalningen av avgifterna kommer från kundens Azure EA-förskottsbetalning.
 
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-ea-monetary-commitment"></a>Finns det en lista över de Azure Marketplace-tjänster som använder EA-betalningsåtagandet?
+### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>Finns det någon lista över Azure Marketplace-tjänster som förbrukar Azure EA-förskottsbetalningar?
 
-Specifika Azure Marketplace-erbjudanden kan använda betalningsåtagandemedel. Se [tjänster från tredje part som använder betalningsåtagande](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) för en fullständig lista över produkter som medverkar i det här programmet.
+Specifika Azure Marketplace-erbjudanden kan förbruka Azure-förskottsbetalningssaldot. Se avsnittet om [tjänster från tredje part som använder Azure-förskottsbetalningar](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) för en fullständig lista över produkter som ingår i det här programmet.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -16,7 +16,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85378597"
 ---
-| Beräkningsmål | Används för | GPU-stöd | FPGA-stöd | Description |
+| Beräkningsmål | Används för | GPU-stöd | FPGA-stöd | Beskrivning |
 | ----- | ----- | ----- | ----- | ----- |
 | [Lokal &nbsp; webb &nbsp; tjänst](../articles/machine-learning/how-to-deploy-and-where.md#local) | Testning/fel sökning | &nbsp; | &nbsp; | Används för begränsad testning och fel sökning. Maskin varu accelerationen beror på användningen av bibliotek i det lokala systemet.
 | [Azure Machine Learning Compute instance &nbsp; - &nbsp; webbtjänst](../articles/machine-learning/how-to-deploy-and-where.md#notebookvm) | Testning/fel sökning | &nbsp; | &nbsp; | Används för begränsad testning och fel sökning.
@@ -25,7 +25,7 @@ ms.locfileid: "85378597"
 | [Azure Machine Learning-beräkningskluster](../articles/machine-learning/how-to-use-parallel-run-step.md) | Batch- &nbsp; härledning | [Ja](../articles/machine-learning/how-to-use-parallel-run-step.md) (Machine Learning-pipeline) | &nbsp;  | Kör batch-poängsättning vid Server lös beräkning. Stöder normal och låg prioritet för virtuella datorer. |
 | [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | Förhandsgranskningsvyn Real tids härledning | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | Förhandsgranskningsvyn IoT- &nbsp; modul |  &nbsp; | &nbsp; | Distribuera och hantera ML-modeller på IoT-enheter. |
-| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Yes | Distribuera och hantera ML-modeller på IoT-enheter. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Ja | Distribuera och hantera ML-modeller på IoT-enheter. |
 
 > [!NOTE]
 > Även om Compute-mål som lokala, Azure Machine Learning beräknings instans och Azure Machine Learning beräknings kluster stöder GPU för utbildning och experimentering, kan du använda GPU: n för __en härledning när den distribueras som en webb tjänst__ endast stöds i Azure Kubernetes-tjänsten.

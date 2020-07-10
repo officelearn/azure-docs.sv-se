@@ -4,12 +4,12 @@ description: Övervaka din webbapp i real tid med anpassade mått och diagnostis
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507354"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166492"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: övervaka & diagnostisera med en andra svars tid
 
@@ -49,12 +49,12 @@ Kontrol lera att de [utgående portarna för Live Metrics Stream](../../azure-mo
 
 | |Direktsänd ström | Metrics Explorer och analys |
 |---|---|---|
-|Svarstid|Data som visas inom en sekund|Sammanställt över minuter|
-|Ingen kvarhållning|Data sparas medan de finns i diagrammet och ignoreras sedan|[Data kvarhållna i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|På begäran|Data strömmas endast när Live Metrics-fönstret är öppet |Data skickas när SDK är installerat och aktiverat|
-|Kostnadsfri|Det kostar inget att Live Stream data|Omfattas av [prissättning](../../azure-monitor/app/pricing.md)
-|Samling|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
-|Kontroll kanal|Filter kontroll signaler skickas till SDK: n. Vi rekommenderar att du skyddar den här kanalen.|Kommunikation är ett sätt, till portalen|
+|**Svarstid**|Data som visas inom en sekund|Sammanställt över minuter|
+|**Ingen kvarhållning**|Data sparas medan de finns i diagrammet och ignoreras sedan|[Data kvarhållna i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**På begäran**|Data strömmas endast när Live Metrics-fönstret är öppet |Data skickas när SDK är installerat och aktiverat|
+|**Kostnadsfri**|Det kostar inget att Live Stream data|Omfattas av [prissättning](../../azure-monitor/app/pricing.md)
+|**Sampling**|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Kontroll kanal**|Filter kontroll signaler skickas till SDK: n. Vi rekommenderar att du skyddar den här kanalen.|Kommunikation är ett sätt, till portalen|
 
 ## <a name="select-and-filter-your-metrics"></a>Välj och filtrera dina mått
 

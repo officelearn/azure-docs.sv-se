@@ -11,11 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: aa8fa9ff6973e908d6af700f7c2965a844e87b04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170995"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145661"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -111,6 +112,8 @@ För närvarande har ett DNS-alias följande begränsningar:
 ## <a name="related-resources"></a>Relaterade resurser
 
 - [Översikt över affärs kontinuitet med Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), inklusive haveri beredskap.
+- [Azure REST API-referens](https://docs.microsoft.com/rest/api/azure/)
+- [API för Server DNS-alias](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>Nästa steg
 

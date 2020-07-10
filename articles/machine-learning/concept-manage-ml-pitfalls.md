@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210192"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147102"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Förhindra överanpassning och obalanserade data med automatiserad maskin inlärning
 
@@ -29,7 +29,7 @@ Tänk på följande utbildade modeller och deras motsvarande tåg-och test noggr
 
 | Modell | Träna precision | Test noggrannhet |
 |-------|----------------|---------------|
-| A | 99,9 % | 95% |
+| A | 99,9 % | 95 % |
 | B | 87% | 87% |
 | C | 99,9 % | 45 % |
 
@@ -71,7 +71,7 @@ Med automatisk ML implementeras även explicita **begränsningar för modell kom
 **Kors validering (ka)** är en process där du tar många del mängder av dina fullständiga tränings data och tränar en modell på varje delmängd. Idén är att en modell kan få "fram" och ha stor precision med en delmängd, men genom att använda många del uppsättningar kan modellen inte uppnå denna höga noggrannhet varje gång. När du gör CV anger du en data uppsättning för en verifierings spärr, anger dina CV-vikningar (antal del mängder) och automatiserade ML tränar din modell och justerar de båda parametrarna för att minimera fel i validerings uppsättningen. En ka-vikning kan vara överdrivet, men genom att använda många av dem minskar sannolikheten att den slutliga modellen är överdrivet. Kompromissen är att ka resulterar i längre inlärnings tider och därmed högre kostnad, eftersom i stället för att träna en modell en gång, träna den en gång för varje *n* CV-deluppsättning. 
 
 > [!NOTE]
-> Kors validering är inte aktiverat som standard. den måste konfigureras i automatiserade ML-inställningar. Men när kors validering har kon figurer ATS och en verifierings data uppsättning har angetts automatiseras processen. Se 
+> Kors validering är inte aktiverat som standard. den måste konfigureras i automatiserade ML-inställningar. Men när kors validering har kon figurer ATS och en verifierings data uppsättning har angetts automatiseras processen. Läs mer om [konfiguration av kors validering i Auto ml](how-to-configure-cross-validation-data-splits.md)
 
 <a name="imbalance"></a>
 
@@ -93,7 +93,7 @@ Som en del av målet att förenkla arbets flödet för Machine Learning **har au
 
 - En **Vikt kolumn**: automatisk ml har stöd för en kolumn med vikter som indata, vilket gör att rader i data kan viktas upp eller ned, vilket kan användas för att göra en klass mer eller mindre viktig.
 
-- Algoritmerna som används av automatiserad ML kan hantera obalans på upp till 20:1 korrekt, vilket innebär att den vanligaste klassen kan ha 20 gånger fler rader i data än den minsta gemensamma klassen.
+- Algoritmerna som används av automatiserad ML identifierar obalans när antalet prover i minoritets klassen är lika med eller mindre än 20% av antalet prover i den största klassen, där minoritets klass refererar till den med minsta möjliga exempel och majoritets klass refererar till den som har flest exempel. Därefter kommer AutoML att köra ett experiment med undersamplade data för att kontrol lera om klass vikter skulle åtgärda problemet och förbättra prestandan. Om det ger bättre prestanda genom det här experimentet tillämpas denna påföljd.
 
 - Använd ett prestanda mått som fungerar bättre med obalanserade data. AUC_weighted är till exempel ett primärt mått som beräknar bidraget för varje klass baserat på det relativa antalet prover som representerar klassen, och därför är mer robust mot obalans.
 

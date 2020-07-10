@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -25,10 +25,10 @@ Azure Functions gör det enkelt att lägga till Application Insights integration
 
 1. Expandera **ändra din resurs** och skapa en Application Insights resurs genom att använda de inställningar som anges i följande tabell.  
 
-    | Inställningen      | Föreslaget värde  | Description                                        |
+    | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nytt resursnamn** | Unikt namn på App | Det är enklast att använda samma namn som din Function-app, vilket måste vara unikt i din prenumeration. | 
-    | **Position** | Europa, västra | Använd om möjligt samma [region](https://azure.microsoft.com/regions/) som din Function-app eller en som är nära den regionen. |
+    | **Plats** | Europa, västra | Använd om möjligt samma [region](https://azure.microsoft.com/regions/) som din Function-app eller en som är nära den regionen. |
 
     :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Skapa en Application Insights resurs":::
 

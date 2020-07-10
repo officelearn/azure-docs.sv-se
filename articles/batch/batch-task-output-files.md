@@ -4,12 +4,12 @@ description: Lär dig hur du använder batch-tjänstens API för att spara batch
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965135"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143511"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara uppgifts data till Azure Storage med batch-tjänstens API
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Hämta en signatur för delad åtkomst för behållaren
 
-När du har skapat behållaren får du en signatur för delad åtkomst (SAS) med skriv åtkomst till behållaren. En SAS ger delegerad åtkomst till behållaren. SAS beviljar åtkomst med en angiven uppsättning behörigheter och under ett angivet tidsintervall. Batch-tjänsten behöver en SAS med Skriv behörighet för att skriva Uppgiftsutdata till behållaren. Mer information om SAS finns i [använda säkerhets associationer för delade Access-signaturer \( \) i Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+När du har skapat behållaren får du en signatur för delad åtkomst (SAS) med skriv åtkomst till behållaren. En SAS ger delegerad åtkomst till behållaren. SAS beviljar åtkomst med en angiven uppsättning behörigheter och under ett angivet tidsintervall. Batch-tjänsten behöver en SAS med Skriv behörighet för att skriva Uppgiftsutdata till behållaren. Mer information om SAS finns i [använda säkerhets associationer för delade Access-signaturer \( \) i Azure Storage](../storage/common/storage-sas-overview.md).
 
 När du får en SAS med hjälp av Azure Storage API: er, returnerar API: et en SAS-token-sträng. Denna token-sträng innehåller alla parametrar för SAS, inklusive behörigheter och intervallet som SAS är giltig för. Om du vill använda SAS för att komma åt en behållare i Azure Storage måste du lägga till SAS-token-strängen i resurs-URI: n. Resurs-URI: n, tillsammans med den bifogade SAS-token, ger autentiserad åtkomst till Azure Storage.
 

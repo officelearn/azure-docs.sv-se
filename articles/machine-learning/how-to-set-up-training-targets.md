@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515815"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147446"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,7 +389,7 @@ Mer information finns i [resurs hantering](reference-azure-machine-learning-cli.
 
 ## <a name="set-up-with-vs-code"></a>Konfigurera med VS Code
 
-Du kan komma åt, skapa och hantera de beräknings mål som är kopplade till din arbets yta med [vs Code-tillägget](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) för Azure Machine Learning.
+Du kan komma åt, skapa och hantera de beräknings mål som är kopplade till din arbets yta med [vs Code-tillägget](how-to-manage-resources-vscode.md#compute-clusters) för Azure Machine Learning.
 
 ## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Skicka utbildnings körning med hjälp av Azure Machine Learning SDK
 

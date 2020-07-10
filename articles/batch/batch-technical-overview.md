@@ -3,12 +3,12 @@ title: Azure Batch kör stora parallella jobb i molnet
 description: Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 03c958f44f707e7c5b6ac5c4414bdb5fd4963635
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965084"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142803"
 ---
 # <a name="what-is-azure-batch"></a>Vad är Azure Batch?
 
@@ -34,10 +34,10 @@ Några exempel på parallella arbetsbelastningar som du kan använda i Batch:
 * Datainhämtning, bearbetning och ETL-åtgärder
 * Testkörning av programvara
 
-Du kan också använda Batch för att [köra nära kopplade arbetsbelastningar](batch-mpi.md). Det är arbetsbelastningar där de program som du kör måste kommunicera med varandra, istället för att köras oberoende av varandra. Nära kopplade program använder normalt Message Passing Interface (MPI) API. Du kan köra dina nära kopplade arbetsbelastningar med Batch med [Microsoft MPI](/message-passing-interface/microsoft-mpi) eller Intel MPI. Förbättra programmets prestanda med särskilda [HPC](../virtual-machines/linux/sizes-hpc.md) och [GPU-optimerade](../virtual-machines/linux/sizes-gpu.md) VM-storlekar.
+Du kan också använda Batch för att [köra nära kopplade arbetsbelastningar](batch-mpi.md). Det är arbetsbelastningar där de program som du kör måste kommunicera med varandra, istället för att köras oberoende av varandra. Nära kopplade program använder normalt Message Passing Interface (MPI) API. Du kan köra dina nära kopplade arbetsbelastningar med Batch med [Microsoft MPI](/message-passing-interface/microsoft-mpi) eller Intel MPI. Förbättra programmets prestanda med särskilda [HPC](../virtual-machines/sizes-hpc.md) och [GPU-optimerade](../virtual-machines/sizes-gpu.md) VM-storlekar.
 
 Några exempel på nära kopplade arbetsbelastningar:
-* Analys av finita element
+* Analys med finita elementmetoden
 * Vätskedynamik
 * AI-utbildning med flera noder
 
@@ -83,4 +83,3 @@ Kom igång med Azure Batch med någon av dessa snabbstarter:
 * [Kör ditt första Batch-jobb med Azure-portalen](quick-create-portal.md)
 * [Kör ditt första Batch-jobb med hjälp av .NET API](quick-run-dotnet.md)
 * [Kör ditt första Batch-jobb med hjälp av Python API](quick-run-python.md)
-

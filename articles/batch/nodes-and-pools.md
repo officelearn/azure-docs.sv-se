@@ -3,12 +3,12 @@ title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964050"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144923"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
@@ -111,7 +111,7 @@ Information om priser för både låg prioritet och dedikerade noder finns i [ba
 
 ## <a name="node-size"></a>Node-storlek
 
-När du skapar en Azure Batch-pool kan du välja bland nästan alla VM-familjer och storlekar i Azure. Azure erbjuder ett utbud av VM-storlekar för olika arbetsbelastningar, som särskilda [HPC](../virtual-machines/linux/sizes-hpc.md)- eller [GPU-aktiverade](../virtual-machines/linux/sizes-gpu.md) VM-storlekar. 
+När du skapar en Azure Batch-pool kan du välja bland nästan alla VM-familjer och storlekar i Azure. Azure erbjuder ett utbud av VM-storlekar för olika arbetsbelastningar, som särskilda [HPC](../virtual-machines/sizes-hpc.md)- eller [GPU-aktiverade](../virtual-machines/sizes-gpu.md) VM-storlekar. 
 
 Mer information finns i [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Välja VM-storlek för beräkningsnoder i Azure Batch-poolen).
 

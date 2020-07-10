@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158290"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147265"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Använda analys för att analysera enhets data
 
@@ -86,9 +86,11 @@ När du har frågat dina data kan du börja visualisera dem i linje diagrammet. 
 
   ![Zooma in data](media/howto-create-analytics/zoom.png)
 
-Under ellipsen finns det flera diagram kontroller för att interagera med data.
+Under ellipsen finns det flera diagram kontroller för att interagera med data:
 
 - **Visa rutnät:** Resultaten är tillgängliga i ett tabell format så att du kan se det exakta värdet för varje data punkt.
+
+- **Hämta som CSV:** Resultaten är tillgängliga för export som en fil med kommaavgränsade värden (CSV). CSV-filen innehåller data för varje enhet. Resultaten exporteras med angivet intervall och tidsram. 
 
 - **Släpp en markör:** Med släpp markör-kontrollen kan du fästa vissa data punkter i diagrammet. Det är användbart när du försöker jämföra data för flera rader över olika tids perioder.
 

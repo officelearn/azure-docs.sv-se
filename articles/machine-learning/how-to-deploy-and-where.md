@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
+ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: aa961cb94816b50aa515532e69454fce9b370c54
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083089"
+ms.locfileid: "86146555"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Följande kod visar hur du ansluter till en Azure Machine Learning-arbetsyta med
 
 + **Använda Visual Studio Code**
 
-   När du använder Visual Studio Code väljer du arbets ytan med hjälp av ett grafiskt gränssnitt. Mer information finns i [distribuera och hantera modeller](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) i Visual Studio Code Extension-dokumentationen.
+   När du använder Visual Studio Code väljer du arbets ytan med hjälp av ett grafiskt gränssnitt. Mer information finns i [distribuera och hantera modeller](how-to-manage-resources-vscode.md#endpoints) i Visual Studio Code Extension-dokumentationen.
 
 ## <a name="register-your-model"></a><a id="registermodel"></a>Registrera din modell
 
@@ -608,13 +608,13 @@ Under modell distributionen kan tjänst tillstånds ändringen visas när den di
 
 I följande tabell beskrivs de olika tjänst tillstånden:
 
-| Webservice-tillstånd | Description | Slutligt tillstånd?
+| Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
-| Övergår | Tjänsten håller på att distribueras. | No |
-| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | No |
-| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | No |
-| Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Yes |
-| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Yes |
+| Övergår | Tjänsten håller på att distribueras. | Nej |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
+| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
+| Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
+| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Beräknings instans webb tjänst (dev/test)
 
@@ -998,7 +998,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Ett exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1227,7 +1227,7 @@ def run(request):
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
 * [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
-* [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
+* [Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Skapa händelse aviseringar och utlösare för modell distributioner](how-to-use-event-grid.md)

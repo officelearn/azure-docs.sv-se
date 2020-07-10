@@ -3,16 +3,16 @@ title: Reserverade instanser av virtuella Azure EA-datorer
 description: I den här artikeln går vi igenom hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735429"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044863"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Reserverade instanser av virtuella Azure EA-datorer
 
@@ -83,9 +83,9 @@ Om du inte har använt Azure Hybrid-förmånen för att köpa reserverad instans
 
 ### <a name="reserved-instance-billing"></a>Fakturering för reserverad instans
 
-För företagskunder kan betalningsåtaganden användas för att köpa reserverade instanser för virtuell Azure-dator. Om registreringen har ett tillräckligt stort betalningsåtagandesaldo för att täcka köpet av den reserverade instansen dras beloppet av från betalningsåtagandesaldot och du får ingen faktura för köpet.
+För företagskunder används Azure-förskottsbetalningar för att köpa reserverade VM-instanser i Azure. Om registreringen har ett tillräckligt stort Azure-förskottsbetalningssaldo för att täcka köpet av den reserverade instansen dras beloppet av från Azure-förskottsbetalningssaldot och du får ingen faktura för köpet.
 
-Om Azure EA-kunder redan har använt alla sina betalningsåtaganden kan reserverade VM-instanser ändå köpas. Dessa inköp faktureras då på nästa faktura för överförbrukning. Om det finns överförbrukning av reserverade instanser blir den en del av din vanliga överförbrukningsfaktura.
+Om Azure EA-kunder redan har använt hela sina Azure-förskottsbetalningar kan reserverade VM-instanser ändå köpas. Dessa inköp faktureras då på nästa faktura för överförbrukning. Om det finns överförbrukning av reserverade instanser blir den en del av din vanliga överförbrukningsfaktura.
 
 ### <a name="reserved-instance-expiration"></a>Upphörande av reserverad instans
 

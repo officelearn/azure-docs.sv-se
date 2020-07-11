@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168130"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232533"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon mat ris rekommendationer
 
@@ -27,7 +27,7 @@ Tal enheter SDK fungerar bäst med en mikrofon som har utformats enligt följand
 
 Följande array-Geometries rekommenderas för användning med Microsoft Audio-stacken. Platsen för ljud källor och avvisande av omgivande brus har förbättrats med ett större antal mikrofoner med beroenden för vissa program, användar scenarier och enhets form faktorn.
 
-|     | Cirkulär matris |     | Linjär matris |     |
+| MICS & Geometry | Cirkulär matris | Cirkulär matris | Linjär matris | Linjär matris |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | \#Mics | 7 | 4 | 4 | 2 |

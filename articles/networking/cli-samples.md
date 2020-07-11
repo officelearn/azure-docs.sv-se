@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: 84754a61bfe9537e928759aefbcb5dcddce33089
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 397f2999821e97a1f12362e2aa2fa20b20e78596
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81457968"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232414"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Azure CLI-exempel för nätverk
 
 Följande tabell innehåller länkar till bash-skript som skapats med hjälp av Azure CLI.
 
-| | |
+| Skript | Beskrivning |
 |-|-|
 |**Anslutning mellan Azure-resurser**||
 | [Skapa ett virtuellt nätverk för flernivåprogram](./scripts/virtual-network-cli-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Skapar ett virtuellt nätverk med klient- och serverdelsundernät. Trafik till klientdelsundernätet är begränsad till HTTP och SSH, medan trafik till serverdelsundernätet är begränsad till MySQL, port 3306. |

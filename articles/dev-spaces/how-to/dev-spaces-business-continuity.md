@@ -8,23 +8,24 @@ ms.topic: conceptual
 description: Lär dig att använda Azure dev Spaces och Azure Kubernetes Services för att ge affärs kontinuitet och förbereda för haveri beredskap
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
-ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996932"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232431"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Granska katastrof återställnings vägledning för Azure Kubernetes service (AKS)
 
-Azure dev Spaces är en funktion i Azure Kubernetes service (AKS). Du bör vara medveten om rikt linjerna för haveri beredskap i AKS och fundera över om de gäller för de AKS-kluster som du använder för dev Spaces. Mer information finns [i metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
+Azure dev Spaces är en funktion i Azure Kubernetes service (AKS). Du bör vara medveten om rikt linjerna för haveri beredskap i AKS och fundera över om de gäller för de AKS-kluster som du använder för dev Spaces. Mer information finns [i metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)](../../aks/operator-best-practices-multi-region.md)
 
 ## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>Aktivera dev Spaces på AKS-kluster i olika regioner
 
 Genom att aktivera dev Spaces på AKS-kluster i olika regioner kan du återuppta användningen av dev-utrymmen direkt efter ett Azure-regions fel.
 
-Allmän information om distributioner av flera regioner i AKS finns i [Planera för distribution i flera regioner](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
+Allmän information om distributioner av flera regioner i AKS finns i [Planera för distribution i flera regioner](../../aks/operator-best-practices-multi-region.md#plan-for-multiregion-deployment)
 
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Aktivera dev Spaces via Azure CLI
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422901"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232244"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Aktivera eller inaktivera en brandväggsregel i gästoperativsystemet på en virtuell Azure-dator
 
@@ -107,7 +107,7 @@ Om den virtuella datorn är online och kan nås på en annan virtuell dator i sa
     
         Ändra sedan **aktiv = falskt** till **aktiv = sant** i strängen:
 
-        **v-2.22 | Åtgärd = Tillåt | Active = TRUE | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =% systemroot% \system32\svchost.exe| SVC = TermService | Namn = \@FirewallAPI.dll,-28775 | Desc = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
     
     * Om du vill inaktivera en regel öppnar du följande register värde:
     
@@ -115,7 +115,7 @@ Om den virtuella datorn är online och kan nås på en annan virtuell dator i sa
 
         Ändra sedan **aktiv = sant** till **aktiv = falskt**:
         
-        **v-2.22 | Åtgärd = Tillåt | Aktiv = falskt | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =% systemroot% \system32\svchost.exe| SVC = TermService | Namn = \@FirewallAPI.dll,-28775 | Desc = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 3.  Starta om den virtuella datorn för att tillämpa ändringarna.
 
@@ -154,7 +154,7 @@ Innan du följer dessa steg ska du ta en ögonblicks bild av system disken för 
         
         Ändra sedan **aktiv = falskt** till **aktiv = sant**.
         
-        **v-2.22 | Åtgärd = Tillåt | Active = TRUE | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =% systemroot% \system32\svchost.exe| SVC = TermService | Namn = \@FirewallAPI.dll,-28775 | Desc = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
     3.  Om du vill inaktivera en regel öppnar du följande register nyckel:
 
@@ -162,7 +162,7 @@ Innan du följer dessa steg ska du ta en ögonblicks bild av system disken för 
 
         Ändra sedan **aktiv = sant** till **aktiv = falskt**.
         
-        **v-2.22 | Åtgärd = Tillåt | Aktiv = falskt | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =% systemroot% \system32\svchost.exe| SVC = TermService | Namn = \@FirewallAPI.dll,-28775 | Desc = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 9.  Markera **BROKENSYSTEM**och välj sedan **Arkiv**  >  **ta bort Hive** från menyn.
 

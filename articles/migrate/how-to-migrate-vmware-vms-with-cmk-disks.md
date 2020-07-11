@@ -7,11 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79269489"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232176"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrera virtuella VMware-datorer till virtuella Azure-datorer med kryptering på Server sidan och Kundhanterade nycklar
 
@@ -23,7 +24,7 @@ I exemplen i den här artikeln används [Azure PowerShell](/powershell/azure/new
 
 [Lär dig mer](../virtual-machines/windows/disk-encryption.md) om Server Side Encryption (SSE) med Kundhanterade nycklar (CMK) för hanterade diskar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 - [Gå igenom självstudien](tutorial-migrate-vmware.md) om migrering av virtuella VMware-datorer till Azure med agent lös replikering för att förstå verktygs kraven.
 - [Följ de här anvisningarna](how-to-add-tool-first-time.md) för att skapa ett Azure Migrate-projekt och lägga till **Azure Migrate: Migreringsverktyg för Server** i projektet.
@@ -57,7 +58,7 @@ Portalen för Server Migration fören klar förberedelsen av infrastrukturen fö
 
 Ett objekt med en disk krypterings uppsättning mappar Managed Disks till en Key Vault som innehåller den CMK som ska användas för SSE. Om du vill replikera virtuella datorer med CMK skapar du en disk krypterings uppsättning och skickar den som en indatatyp till replikeringsåtgärden.
 
-Följ exemplet [här](../virtual-machines/windows/disk-encryption.md#powershell) för att skapa en disk krypterings uppsättning med hjälp av Azure PowerShell. Se till att disk krypterings uppsättningen har skapats i mål prenumerationen som de virtuella datorerna migreras till och i Azure-regionen för migreringen.
+Följ exemplet [här](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) för att skapa en disk krypterings uppsättning med hjälp av Azure PowerShell. Se till att disk krypterings uppsättningen har skapats i mål prenumerationen som de virtuella datorerna migreras till och i Azure-regionen för migreringen.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

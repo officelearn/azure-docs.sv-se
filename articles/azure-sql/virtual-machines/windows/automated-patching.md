@@ -14,19 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ed973b6ea5bbcd2b23e30d381e909ef2ab03b917
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f1f564a36a3f0103832bc81bbbc65d2818c03143
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921667"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232021"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Automatiserad uppdatering för SQL Server på Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
-
-> [!div class="op_single_selector"]
-> * [Resource Manager](automated-patching.md)
-> * [Klassisk](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 Automatiserad uppdatering upprättar en underhålls period för en virtuell Azure-dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under den här underhållsperioden. För SQL Server säkerställer den här begränsningen att systemuppdateringar och eventuella tillhörande omstarter sker på bästa möjliga tid för databasen. 
 
@@ -35,7 +31,7 @@ Automatiserad uppdatering upprättar en underhålls period för en virtuell Azur
 
 Automatiserad uppdatering beror på [SQL Server infrastruktur som tjänst (IaaS) Agent tillägg](sql-server-iaas-agent-extension-automate-management.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 Om du vill använda automatisk uppdatering bör du tänka på följande:
 
 **Operativ system**:
@@ -67,7 +63,7 @@ Om du vill använda automatisk uppdatering bör du tänka på följande:
 ## <a name="settings"></a>Inställningar
 I följande tabell beskrivs de alternativ som kan konfigureras för automatisk uppdatering. De faktiska konfigurations stegen varierar beroende på om du använder Azure Portal-eller Azure Windows PowerShell-kommandon.
 
-| Inställningen | Möjliga värden | Beskrivning |
+| Inställning | Möjliga värden | Beskrivning |
 | --- | --- | --- |
 | **Automatisk korrigering** |Aktivera/inaktivera (inaktive rad) |Aktiverar eller inaktiverar automatisk uppdatering för en virtuell Azure-dator. |
 | **Underhållsschema** |Varje dag, måndag, tisdag, onsdag, torsdag, fredag, lördag, söndag |Schemat för att ladda ned och installera Windows-, SQL Server-och Microsoft-uppdateringar för den virtuella datorn. |

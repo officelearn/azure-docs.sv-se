@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 4bdfe1609d80a0e3198a9e428a148be2f28c72d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adee8064a97c7757ae7a6d3c9475bc5a3044e50d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392122"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232312"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkron Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -26,7 +27,7 @@ ms.locfileid: "85392122"
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * FLESTA (/rest/api
-> * [REST-resursprovider](/rest/apier/)
+> * [REST-resursprovider](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
 > * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)

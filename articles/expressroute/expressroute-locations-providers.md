@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: a19a4414cd31c2a4f0261ba0214b99fa12490ecb
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 412574bc9f994b522ef10b15c2f4efcfe69e07c0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856796"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232363"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -75,7 +75,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 
 
 ### <a name="global-commercial-azure"></a>Global kommersiell Azure
-| **Position** | **Adress** | **Fraktzon** | **Lokala Azure-regioner** | **ER direkt** | **Tjänst leverantörer** |
+| **Plats** | **Adress** | **Zon** | **Lokala Azure-regioner** | **ER direkt** | **Tjänst leverantörer** |
 | --- | --- | --- | --- | --- | --- |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | Europa, västra | 10G, 100G | Aryaka Networks, på&T netobligation, British Telecom, Colt, Equinix, euNetworks, GÉANT, intercloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, orange, Tata Communications, telefon ICA, Telenor, Telia transport, Verizon, Zayo |
 | **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa, västra | 10G, 100G | CenturyLink Cloud Connect, Colt, L'-CIX, euNetworks, Interxion, orange, Vodafone |
@@ -129,7 +129,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | USA, södra centrala | 10G, 100G | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brasilien, södra | saknas | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | USA, västra 2 | 10G, 100G | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
-| **Söul** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | Sydkorea, centrala | 10G, 100G | KINX, KT, LG CNS, Sejong telekom |
+| **Söul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Sydkorea, centrala | 10G, 100G | KINX, KT, LG CNS, Sejong telekom |
 | **Silicon Valley** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | USA, västra | 10G, 100G | Aryaka Networks, på&T netobligation, British Telecom, CenturyLink Cloud Connect, Colt, Comcast, Coresite, Equinix, intercloud, Internet2, IX Reach, paket, PacketFabric, Level 3 Communications, Megaport, orange, Sprint, Tata kommunikation, Telia-bärvåg, Verizon, Zayo |
 | **Silicon Valley2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | USA, västra | 10G, 100G | Colt, Coresite | 
 | **Singapore** | [Equinix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | Sydostasien | 10G, 100G | Aryaka Networks, på&T netobligation, British Telecom, Kina Mobile International, Epsilon global kommunikation, Equinix, intercloud, Level 3 Communications, Megaport, NTT Communications, orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
@@ -154,7 +154,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 De nationella Azure-molnen är isolerade från varandra och från globala affärs Azure. ExpressRoute för ett Azure-moln kan inte ansluta till Azure-regionerna i de andra.
 
 ### <a name="us-government-cloud"></a>U.S. Government-moln
-| **Position** | **Adress** | **Lokala Azure-regioner**| **ER direkt** | **Tjänst leverantörer** |
+| **Plats** | **Adress** | **Lokala Azure-regioner**| **ER direkt** | **Tjänst leverantörer** |
 | --- | --- | --- | --- | --- |
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | saknas | 10G, 100G | Equinix |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | saknas | 10G, 100G | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -167,7 +167,7 @@ De nationella Azure-molnen är isolerade från varandra och från globala affär
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD, östra US Gov, Virginia | 10G, 100G | PÅ&T netobligation, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>Kina
-| **Position** | **Tjänst leverantörer** |
+| **Plats** | **Tjänst leverantörer** |
 | --- | --- |
 | **Peking** |China Telecom |
 | **Beijing2** | Kina, telekom, Kina, Unicom, GDS |
@@ -177,7 +177,7 @@ De nationella Azure-molnen är isolerade från varandra och från globala affär
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Tyskland
-| **Position** | **Tjänst leverantörer** |
+| **Plats** | **Tjänst leverantörer** |
 | --- | --- |
 | **Stockholm** |e-shelter, Megaport+, T-Systems |
 | **Frankfurt** |Colt, Equinix, Interxion |
@@ -209,7 +209,7 @@ Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforsk
 * [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="connectivity-through-additional-service-providers"></a><a name="c1partners"></a>Anslutning via ytterligare tjänst leverantörer
-| **Position** | **Exchange** | **Anslutningsleverantörer** |
+| **Plats** | **Exchange** | **Anslutningsleverantörer** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Interxion, nivå 3-kommunikation | BICS, CloudXpress, euro fiber, Fastweb S. p. A, Bridge International, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, POST telekom Luxembourg, Proximus, RETN, TDC Erhverv, telekom Italia gnistrande, telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Kron Castle

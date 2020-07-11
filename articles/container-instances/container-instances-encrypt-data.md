@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080368"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232448"
 ---
 # <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
 
@@ -25,10 +26,10 @@ Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina beh�
 
 |    |    Microsoft-hanterade nycklar     |     Kundhanterade nycklar     |
 |----|----|----|
-|    Kryptering/dekryptering    |    Azure    |    Azure    |
-|    Nyckel lagring    |    Microsoft nyckel lager    |    Azure Key Vault    |
-|    Största ansvar för nyckel rotation    |    Microsoft    |    Kund    |
-|    Nyckel åtkomst    |    Endast Microsoft    |    Microsoft, kund    |
+|    **Kryptering/dekryptering**    |    Azure    |    Azure    |
+|    **Nyckel lagring**    |    Microsoft nyckel lager    |    Azure Key Vault    |
+|    **Största ansvar för nyckel rotation**    |    Microsoft    |    Kund    |
+|    **Nyckel åtkomst**    |    Endast Microsoft    |    Microsoft, kund    |
 
 Resten av dokumentet beskriver de steg som krävs för att kryptera dina ACI-distributions data med din nyckel (kundhanterad nyckel). 
 

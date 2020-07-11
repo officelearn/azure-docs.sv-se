@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 543ed51cc10cce017e0e57a1a351ce382f1ca35f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083516"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232329"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Så här aktiverar du kapslad virtualisering i en virtuell Azure-dator
 
@@ -181,3 +181,4 @@ I det här exemplet ska du använda en adress i intervallet 192.168.0.0/24.
 Öppna webbläsaren i den virtuella gäst datorn och navigera till en webb sida.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
+Instruktioner för hur du aktiverar transparent anslutning mellan virtuella gäst datorer och virtuella Azure-datorer finns i [det här dokumentet](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

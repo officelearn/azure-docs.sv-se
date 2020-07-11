@@ -3,12 +3,12 @@ title: Använd portalen för att ladda upp, koda och strömma innehåll – Azur
 description: Den här snabb starten visar hur du använder portalen för att ladda upp, koda och strömma innehåll med Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: b023a4ed68aa7cfa41661e986dcd4ad6819b810d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988961"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232482"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Snabb start: Ladda upp, koda och strömma innehåll med portalen
 
@@ -46,7 +46,7 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
     * [Filter](filters-concept.md)
 * Du kan skydda ditt innehåll genom att kryptera det med Advanced Encryption Standard (AES-128) eller/och något av de tre stora DRM-systemen: Microsoft PlayReady, Google Widevine och Apple FairPlay. [Kryptera innehåll med Azure Portal](encrypt-content-quickstart.md) snabb start visar hur du konfigurerar innehålls skydd.
         
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,7 +58,7 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
 1. Leta upp och klicka på ditt Media Services-konto.
 1. Välj **till gångar (ny)**.
 1. Tryck på **överför** överst i fönstret. 
-1. Dra och släpp eller bläddra till en fil Tha som du vill ladda upp.
+1. Dra och släpp eller bläddra till en fil som du vill ladda upp.
 
 Om du navigerar till fönstret till gångar, ser du att en ny till gång har lagts till i listan:
 

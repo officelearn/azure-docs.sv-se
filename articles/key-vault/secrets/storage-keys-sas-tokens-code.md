@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault hanterat lagrings konto – PowerShell-version
+title: Hämta token för signaturer för delad åtkomst i kod | Azure Key Vault
 description: Funktionen hanterat lagrings konto ger en sömlös integrering mellan Azure Key Vault och ett Azure Storage-konto.
 ms.topic: conceptual
 ms.service: key-vault
@@ -8,36 +8,41 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 7307741e56c7fc912f60d0496979243eb4be77a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e429115ce2624685c413ae252229964feee70137
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431272"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232601"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Hämta token för signaturer för delad åtkomst i kod
 
-Du kan hantera ditt lagrings konto med [signatur-token för delad åtkomst](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) i ditt nyckel valv. Den här artikeln innehåller exempel på C#-kod som hämtar en SAS-token och utför åtgärder med den.  Information om hur du skapar och lagrar SAS-token finns i [Hantera lagrings konto nycklar med Key Vault och Azure CLI](overview-storage-keys.md) eller [Hantera lagrings konto nycklar med Key Vault och Azure PowerShell](overview-storage-keys-powershell.md).
+Du kan hantera ditt lagrings konto med SAS-token (signatur för delad åtkomst) som lagras i ditt nyckel valv. Mer information finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS](../../storage/common/storage-sas-overview.md).
+
+Den här artikeln innehåller exempel på .NET-kod som hämtar en SAS-token och utför åtgärder med den. Information om hur du skapar och lagrar SAS-token finns i [Hantera lagrings konto nycklar med Key Vault och Azure CLI](overview-storage-keys.md) eller [Hantera lagrings konto nycklar med Key Vault och Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Kodexempel
 
-I det här exemplet hämtar koden en SAS-token från ditt nyckel valv, använder den för att skapa ett nytt lagrings konto och skapar en ny Blob Service-klient.  
+I det här exemplet hämtar koden en SAS-token från ditt nyckel valv, använder den för att skapa ett nytt lagrings konto och skapar en ny Blob Service-klient.
 
 ```cs
-// After you get a security token, create KeyVaultClient with vault credentials.
-var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
+// The shared access signature is stored as a secret in keyvault. 
+// After you get a security token, create a new SecretClient with vault credentials and the key vault URI.
+// The format for the key vault URI (kvuri) is https://<YourKeyVaultName>.vault.azure.net
 
-// Get a shared access signature token for your storage from Key Vault.
-// The format for SecretUri is https://<YourKeyVaultName>.vault.azure.net/secrets/<ExamplePassword>
-var sasToken = await kv.GetSecretAsync("SecretUri");
+var kv = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
 
-// Create new storage credentials by using the shared access signature token.
-var accountSasCredential = new StorageCredentials(sasToken.Value);
+// Now retrive your storage SAS token from Key Vault using the name of the secret (secretName).
 
-// Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
-var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null);
+KeyVaultSecret secret = client.GetSecret(secretName);
+var sasToken = secret.Value;
 
-var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
+// Create new storage credentials using the SAS token.
+StorageCredentials accountSAS = new StorageCredentials(sasToken);
+
+// Use these credentials and your storage account name to create a Blob service client.
+CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, "<storage-account>", endpointSuffix: null, useHttps: true);
+CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
 ```
 
 Om signaturens token för delad åtkomst håller på att gå ut kan du hämta signatur-token för delad åtkomst från ditt nyckel valv och uppdatera koden.
@@ -45,12 +50,13 @@ Om signaturens token för delad åtkomst håller på att gå ut kan du hämta si
 ```cs
 // If your shared access signature token is about to expire,
 // get the shared access signature token again from Key Vault and update it.
-sasToken = await kv.GetSecretAsync("SecretUri");
-accountSasCredential.UpdateSASToken(sasToken);
+KeyVaultSecret secret = client.GetSecret(secretName);
+var sasToken = secret.Value;
+accountSAS.UpdateSASToken(sasToken);
 ```
 
 
 ## <a name="next-steps"></a>Nästa steg
+- Lär dig hur du [ger begränsad åtkomst till Azure Storage-resurser med hjälp av SAS](../../storage/common/storage-sas-overview.md).
 - Lär dig hur du [hanterar lagrings konto nycklar med Key Vault och Azure CLI](overview-storage-keys.md) eller [Azure PowerShell](overview-storage-keys-powershell.md).
 - Se [nyckel exempel för hanterade lagrings konton](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
-- [Key Vault PowerShell-referens](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

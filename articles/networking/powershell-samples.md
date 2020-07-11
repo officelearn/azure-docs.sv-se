@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: ca6ac145db0536d3cf7e5bcc72a58d72101ab12a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98b72dbb9f3b62fd5985f6245e52293ec31fc682
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459125"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232550"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Azure PowerShell exempel för nätverk
 
 Följande tabell innehåller länkar till skript som skapats med Azure PowerShell.
 
-| | |
+| Skript | Beskrivning |
 |-|-|
 |**Anslutning mellan Azure-resurser**||
 | [Skapa ett virtuellt nätverk för flernivåprogram](./scripts/virtual-network-powershell-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Skapar ett virtuellt nätverk med klient- och serverdelsundernät. Trafik till klientdelsundernätet är begränsad till HTTP, medan trafik till serverdelsundernätet är begränsad till SQL, port 1433. |

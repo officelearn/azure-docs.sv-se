@@ -10,11 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 20ab78aa67fa5d59dac774559b3c43561cf75fbc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5e8ea56de84f3d6b92bc23c0e3ab139d03bd68a9
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040715"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232261"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights (förhandsversion)?
 
@@ -75,7 +76,7 @@ Azure Time Series Insights ger en skalbar pris modell enligt principen betala pe
  
 I introduktionen av de här viktiga industriella IoT-funktionerna har Time Series Insights även följande viktiga fördelar.  
 
-| | |
+| Funktion | Fördelar |
 | ---| ---|
 | Lagring med flera lager för IoT-Scale Time Series-data | Med en data behandlings pipeline för delade data för att mata in data kan du mata in data i både varma och kalla butiker. Använd varmt Store för interaktiva frågor och kall lagring för lagring av stora mängder data. Om du vill veta mer om hur du kan dra nytta av högpresterande till gångs frågor, se [frågor](./concepts-query-overview.md). |
 | Tidsseriemodell för att kontextualisera råtelemetridata och härleda tillgångsbaserade insikter | Du kan använda Time Series-modellen för att skapa instanser, hierarkier, typer och variabler för dina Time Series-data. Mer information om tids serie modellen finns i [tids serie modell](./concepts-model-overview.md).  |

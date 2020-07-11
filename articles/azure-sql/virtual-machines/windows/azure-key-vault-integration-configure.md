@@ -14,18 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 966daa52652846004d163e230fab227a78c20f7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f1a8e2768c7ea9f252a35ab58480c613d3face6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669264"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231972"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Konfigurera Azure Key Vault-integrering för SQL Server på virtuella Azure-datorer (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
-
-> [!div class="op_single_selector"]
-> * [Resource Manager](azure-key-vault-integration-configure.md)
-> * [Klassisk](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 Det finns flera SQL Server krypterings funktioner, till exempel [transparent data kryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (Column Level Encryption)](https://msdn.microsoft.com/library/ms173744.aspx)och [kryptering av säkerhets kopior](https://msdn.microsoft.com/library/dn449489.aspx). Dessa krypterings former kräver att du hanterar och lagrar de kryptografiska nycklar som du använder för kryptering. Tjänsten Azure Key Vault är utformad för att förbättra säkerheten och hanteringen av dessa nycklar på en säker plats med hög tillgänglighet. Med [SQL Server-anslutning](https://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server använda nycklarna från Azure Key Vault.
 

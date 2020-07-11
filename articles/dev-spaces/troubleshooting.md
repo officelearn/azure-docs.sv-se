@@ -5,11 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309653"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232499"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -59,13 +60,13 @@ Du kan återskapa kontroll enheten från CLI eller Visual Studio. Se [team utvec
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
-Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Ett exempel:
+Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Till exempel:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Ett exempel:
+Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Till exempel:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -131,7 +132,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Timeout vid "väntar på att behållar avbildningen byggs..." steg med virtuella AKS-noder
 
-Denna tids gräns inträffar när du försöker använda dev Spaces för att köra en tjänst som är konfigurerad för att köras på en [virtuell AKS-nod](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces stöder för närvarande inte skapande eller fel sökning av tjänster på virtuella noder.
+Denna tids gräns inträffar när du försöker använda dev Spaces för att köra en tjänst som är konfigurerad för att köras på en [virtuell AKS-nod](../aks/virtual-nodes-portal.md). Dev Spaces stöder för närvarande inte skapande eller fel sökning av tjänster på virtuella noder.
 
 Om du kör `azds up` med `--verbose` växeln eller aktiverar utförlig loggning i Visual Studio visas ytterligare information:
 
@@ -169,7 +170,7 @@ Anta till exempel att du använder ett Helm-kommando för att köra hela program
 
 Azure dev Spaces kan konfigureras så att de pekar på en viss _Dockerfile_ i ditt projekt. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
 
-Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Ett exempel:
+Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Till exempel:
 
 ```yaml
 ...
@@ -216,7 +217,7 @@ install:
 
 Du kanske ser det här felet när det inte går att starta en tjänst kod. Orsaken är ofta i användar kod. Om du vill ha mer diagnostikinformation aktiverar du mer detaljerad loggning när du startar tjänsten.
 
-På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Ett exempel:
+På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Till exempel:
 
 ```cmd
 azds up --verbose --output json
@@ -327,7 +328,7 @@ Om du vill visa information om den hanterade identiteten kör du följande komma
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Ett exempel:
+Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Till exempel:
 
 ```json
 {
@@ -368,7 +369,7 @@ kubectl apply -f clusteridentity.yaml
 kubectl apply -f clusteridentitybinding.yaml
 ```
 
-När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Ett exempel:
+När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Till exempel:
 
 ```yaml
 apiVersion: apps/v1
@@ -452,7 +453,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Auktoriseringsfel "Microsoft. DevSpaces/register/Action"
 
-Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Ett exempel:
+Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Till exempel:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -612,7 +613,7 @@ Så här åtgärdar du problemet:
 
 När [du har roterat certifikaten i AKS-klustret](../aks/certificate-rotation.md), kan vissa åtgärder, t `azds space list` . ex. och inte, utföras `azds up` . Du måste också uppdatera certifikaten på Azure dev Spaces-kontrollanten när du har roterat certifikaten i klustret.
 
-Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` och kör sedan `azds controller refresh-credentials` kommandot. Ett exempel:
+Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` och kör sedan `azds controller refresh-credentials` kommandot. Exempel:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

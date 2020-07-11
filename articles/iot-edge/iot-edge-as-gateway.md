@@ -11,11 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 916eeaa60bc054301af039164ce1c14e77ceb91a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7c924af297d9a315b61351b69d2fe6346bc1178
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733520"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232635"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Så kan en IoT Edge-enhet användas som gateway
 
@@ -23,11 +24,11 @@ Gatewayer i IoT Edge lösningar ger enhets anslutning och gräns analys till IoT
 
 ## <a name="patterns"></a>Mönster
 
-Det finns tre mönster för att använda en IoT Edge enhet som en gateway: transparent, protokoll översättning och identitets översättning:
+Det finns tre mönster för användning av en IoT Edge-enhet som en gateway: transparent, protokollöversättning och identitetsöversättning:
 
-* **Transparent** – enheter som teoretiskt sett kan ansluta till IoT Hub kan ansluta till en gateway-enhet i stället. De underordnade enheterna har sina egna IoT Hub identiteter och använder något av MQTT-, AMQP-eller HTTP-protokollen. Gatewayen skickar bara kommunikation mellan enheterna och IoT Hub. Både enheter och användare som interagerar med dem via IoT Hub är inte medvetna om att en gateway är underställd deras kommunikation. Detta brist på medvetenhet innebär att gatewayen anses vara *transparent*. Se [skapa en transparent Gateway](how-to-create-transparent-gateway.md) för information om hur du använder en IoT Edge enhet som en transparent Gateway.
-* **Protokoll översättning** – även känt som ett ogenomskinligt Gateway-mönster, enheter som inte stöder MQTT, AMQP eller http kan använda en gateway-enhet för att skicka data till IoT Hub för deras räkning. Gatewayen förstår det protokoll som används av de underordnade enheterna och är den enda enhet som har en identitet i IoT Hub. All information ser ut som om den kommer från en enhet, gatewayen. Underordnade enheter måste bädda in ytterligare identifierings information i sina meddelanden om moln program vill analysera data per enhet. Dessutom är IoT Hub primitiver som dubbla och metoder bara tillgängliga för gateway-enheten, inte underordnade enheter.
-* **Identitets översättning** – enheter som inte kan ansluta till IoT Hub kan ansluta till en gateway-enhet i stället. Gatewayen tillhandahåller IoT Hub identitets-och protokoll översättning för de efterföljande enheterna. Gatewayen är tillräckligt smart för att förstå det protokoll som används av de underordnade enheterna, ge dem identitet och översätta IoT Hub primitiver. Underordnade enheter visas i IoT Hub som enheter med en första klass med dubbla och metoder. En användare kan interagera med enheterna i IoT Hub och är inte medvetna om den mellanliggande gateway-enheten.
+* **Transparent** – enheter som teoretiskt sett kan ansluta till IoT Hub kan ansluta till en gateway-enhet i stället. Nedströmsenheterna har egna IoT Hub-identiteter och använder något av protokollen MQTT, AMQP eller HTTP. Gatewayen skickar helt enkelt kommunikation mellan enheterna och IoT Hub. Både enheter och användare som interagerar med dem via IoT Hub är inte medvetna om att en gateway är underställd deras kommunikation. Detta brist på medvetenhet innebär att gatewayen anses vara *transparent*. Närmare information om hur du använder en IoT Edge-enhet som en transparent gateway finns i [Skapa en transparent gateway](how-to-create-transparent-gateway.md).
+* **Protokoll översättning** – även känt som ett ogenomskinligt Gateway-mönster, enheter som inte stöder MQTT, AMQP eller http kan använda en gateway-enhet för att skicka data till IoT Hub för deras räkning. Gatewayen förstår det protokoll som används av nedströmsenheterna och är den enda enhet som har en identitet i IoT Hub. All information ser ut som om den kommer från en enhet, gatewayen. Nedströmsenheter måste bädda in ytterligare identifierande information i sina meddelanden om molnprogram vill analysera data för varje enhet. Dessutom är IoT Hub-primitiver såsom tvillingar och metoder endast tillgängliga för gatewayenheten, inte för nedströmsenheter.
+* **Identitets översättning** – enheter som inte kan ansluta till IoT Hub kan ansluta till en gateway-enhet i stället. Gatewayen tillhandahåller IoT Hub-identitet och protokollöversättning för nedströmsenheternas räkning. Gatewayen är smart nog att förstå det protokoll som används av nedströmsenheterna, ge den identitet och översätta IoT Hub-primitiver. Nedströmsenheter visas i IoT Hub som enheter av första klass med tvillingar och metoder. Användare kan interagera med enheterna i IoT Hub och känner inte till den mellanliggande gatewayenheten.
 
 ![Diagram – transparenta, protokoll och identitets-Gateway-mönster](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
@@ -49,7 +50,7 @@ En gateway som har identitets översättning tillhandahåller fördelarna med pr
 
 Här är ett snabbt lathund-blad som jämför IoT Hub primitiver när du använder transparent, ogenomskinlig (protokoll) och proxy-gatewayer.
 
-| &nbsp; | Transparent Gateway | Protokoll Översättning | Identitets Översättning |
+| SMI | Transparent Gateway | Protokoll Översättning | Identitets Översättning |
 |--------|-------------|--------|--------|
 | Identiteter lagrade i IoT Hub identitets registret | Identiteter för alla anslutna enheter | Endast gateway-enhetens identitet | Identiteter för alla anslutna enheter |
 | Enhetstvilling | Varje ansluten enhet har sin egen enhet | Endast gatewayen har en enhet och modul är dubbla | Varje ansluten enhet har sin egen enhet |

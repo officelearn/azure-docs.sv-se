@@ -8,13 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 05/19/2020
+ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 39c694f4e2afbf5d781a8fde43a7db9c4a255466
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392682"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232159"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -25,21 +26,18 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Om du vill använda en mall från en CLI behöver du antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="resource-manager-template"></a>Resource Manager-mall
+## <a name="workspace-resource-manager-template"></a>Resource Manager-mall för arbets yta
 
-Följande Resource Manager-mall kan användas för att skapa en Azure Machine Learning arbets yta och associerade Azure-resurser:
-
-[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
+Den Azure Resource Manager-mall som används i det här dokumentet finns i katalogen [201-Machine-Learning-Avancerat](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) i GitHub-lagringsplatsen för Azure snabb starts mal len.
 
 Den här mallen skapar följande Azure-tjänster:
 
-* Azure-resurs grupp
 * Azure Storage-konto
 * Azure Key Vault
 * Azure Application Insights
@@ -48,13 +46,13 @@ Den här mallen skapar följande Azure-tjänster:
 
 Resurs gruppen är den behållare som innehåller tjänsterna. De olika tjänsterna krävs av Azure Machine Learning-arbetsytan.
 
-Exempel mal len har två parametrar:
+Exempel mal len har två **obligatoriska** parametrar:
 
-* Den **plats** där resurs gruppen och tjänsterna ska skapas.
+* Den **plats** där resurserna kommer att skapas.
 
     Mallen kommer att använda den plats du väljer för de flesta resurser. Undantaget är Application Insights tjänst, som inte är tillgänglig på alla platser som de andra tjänsterna är. Om du väljer en plats där den inte är tillgänglig kommer tjänsten att skapas på platsen södra centrala USA.
 
-* **Namnet på arbets ytan**, som är det egna namnet på Azure Machine Learning arbets ytan.
+* **WorkspaceName**, som är det egna namnet på arbets ytan Azure Machine Learning.
 
     > [!NOTE]
     > Namnet på arbets ytan är Skift läges okänsligt.
@@ -74,7 +72,82 @@ Mer information om mallar finns i följande artiklar:
 * [Distribuera ett program med Azure Resource Manager mallar](../azure-resource-manager/templates/deploy-powershell.md)
 * [Resurs typer för Microsoft. MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-### <a name="advanced-template"></a>Avancerad mall
+## <a name="deploy-template"></a>Distribuera mallen
+
+Om du vill distribuera mallen måste du skapa en resurs grupp.
+
+Se avsnittet [Azure Portal](#use-the-azure-portal) om du föredrar att använda det grafiska användar gränssnittet.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az group create --name "examplegroup" --location "eastus"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroup -Name "examplegroup" -Location "eastus"
+```
+
+---
+
+När resurs gruppen har skapats distribuerar du mallen med följande kommando:
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" location="eastus"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus"
+```
+
+---
+
+Som standard är alla resurser som skapats som en del av mallen nya. Du kan dock också välja att använda befintliga resurser. Genom att ange ytterligare parametrar för mallen kan du använda befintliga resurser. Om du till exempel vill använda ett befintligt lagrings konto anger du **storageAccountOption** -värdet till **befintlig** och anger namnet på ditt lagrings konto i parametern **storageAccountName** .
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      storageAccountOption="existing" \
+      storageAccountName="existingstorageaccountname"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -storageAccountOption "existing" `
+  -storageAccountName "existingstorageaccountname"
+```
+
+---
+
+## <a name="deploy-an-encrypted-workspace"></a>Distribuera en krypterad arbets yta
 
 Följande exempel-mall visar hur du skapar en arbets yta med tre inställningar:
 
@@ -86,6 +159,7 @@ Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-secu
 
 > [!IMPORTANT]
 > Det finns vissa särskilda krav som din prenumeration måste uppfylla innan du använder den här mallen:
+>
 > * __Azure Machine Learning__ programmet måste vara __deltagare__ i din Azure-prenumeration.
 > * Du måste ha en befintlig Azure Key Vault som innehåller en krypterings nyckel.
 > * Du måste ha en åtkomst princip i Azure Key Vault som beviljar __Get__-, __wrap__-och __unwrap__ -åtkomst till __Azure Cosmos DB__ programmet.
@@ -93,110 +167,482 @@ Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-secu
 
 Använd följande kommandon __för att lägga till Azure Machine Learning-appen som deltagare__:
 
-1. Använd följande kommando för att autentisera till Azure från CLI:
+1. Logga in på ditt Azure-konto och hämta ditt prenumerations-ID. Den här prenumerationen måste vara samma som innehåller din Azure Machine Learning-arbetsyta.  
 
-    ```azurecli-interactive
-    az login
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az account list --query '[].[name,id]' --output tsv
     ```
-    
-    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
+
+    > [!TIP]
+    > Om du vill välja en annan prenumeration använder du `az account set -s <subscription name or ID>` kommandot och anger det prenumerations namn eller-ID som du vill växla till. Mer information om val av prenumeration finns i [använda flera Azure-prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzSubscription
+    ```
+
+    > [!TIP]
+    > Om du vill välja en annan prenumeration använder du `Az-SetContext -SubscriptionId <subscription ID>` kommandot och anger det prenumerations namn eller-ID som du vill växla till. Mer information om val av prenumeration finns i [använda flera Azure-prenumerationer](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
+
+    ---
 
 1. Använd följande kommando för att hämta objekt-ID: t för Azure Machine Learning-appen. Värdet kan vara ett annat för var och en av dina Azure-prenumerationer:
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
+    ```
+
+    ---
     Det här kommandot returnerar objekt-ID: t, som är ett GUID.
 
-1. Använd följande kommando om du vill lägga till objekt-ID som deltagare i din prenumeration. Ersätt `<object-ID>` med GUID från föregående steg. Ersätt `<subscription-ID>` med namnet eller ID: t för din Azure-prenumeration:
+1. Använd följande kommando om du vill lägga till objekt-ID som deltagare i din prenumeration. Ersätt `<object-ID>` med objekt-ID: t för tjänstens huvud namn. Ersätt `<subscription-ID>` med namnet eller ID: t för din Azure-prenumeration:
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
     ```
 
-Om du __vill lägga till en nyckel till din Azure Key Vault__använder du informationen i avsnittet [lägga till en nyckel, ett hemligt eller certifikat i nyckel valvet](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) i artikeln __Hantera Key Vault med Azure CLI__ .
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
+    ```
+
+    ---
+
+1. Om du vill generera en nyckel i en befintlig Azure Key Vault använder du något av följande kommandon. Ersätt `<keyvault-name>` med namnet på nyckel valvet. Ersätt `<key-name>` med namnet som ska användas för nyckeln:
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
+    ```
+    --- 
 
 __Om du vill lägga till en åtkomst princip i nyckel valvet använder du följande kommandon__:
 
 1. Använd följande kommando för att hämta objekt-ID: t för Azure Cosmos DB-appen. Värdet kan vara ett annat för var och en av dina Azure-prenumerationer:
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
     ```
-    
-    Det här kommandot returnerar objekt-ID: t, som är ett GUID.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
+    ```
+    ---
+
+    Det här kommandot returnerar objekt-ID: t, som är ett GUID. Spara den för senare
 
 1. Använd följande kommando för att ange principen. Ersätt `<keyvault-name>` med namnet på den befintliga Azure Key Vault. Ersätt `<object-ID>` med GUID från föregående steg:
 
-    ```azurecli-interactive
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    
+    ```azurepowershell
+    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
+    ```
+    ---    
 
 Använd följande steg __för att hämta värdena__ för `cmk_keyvault` (ID för Key Vault) och `resource_cmk_uri` PARAMETRARNA (nyckel-URI) som behövs för den här mallen:
 
 1. Använd följande kommando för att hämta Key Vault-ID:
 
-    ```azurecli-interactive
-    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv
     ```
 
-    Det här kommandot returnerar ett värde som liknar `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault` .
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
+    ```
+    ---
+
+    Det här kommandot returnerar ett värde som liknar `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>` .
 
 1. Använd följande kommando för att hämta värdet för URI: n för den hanterade nyckeln för kunden:
 
-    ```azurecli-interactive
-    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
     ```
 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
+    ```
+    ---
+
     Det här kommandot returnerar ett värde som liknar `https://mykeyvault.vault.azure.net/keys/mykey/{guid}` .
-
-__Exempel mal len__
-
-:::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
 
 > [!IMPORTANT]
 > När en arbets yta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckel valv-ID eller nyckel identifierare. Om du vill ändra dessa värden måste du skapa en ny arbets yta med de nya värdena.
 
+När du har slutfört stegen ovan distribuerar du mallen som vanligt. Om du vill aktivera användning av Kundhanterade nycklar anger du följande parametrar:
+
+* **encryption_status** till **aktive rad**.
+* **cmk_keyvault** till `cmk_keyvault` värdet som hämtades i föregående steg.
+* **resource_cmk_uri** till `resource_cmk_uri` värdet som hämtades i föregående steg.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      encryption_status="Enabled" \
+      cmk_keyvault="/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" \
+      resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -encryption_status "Enabled" `
+  -cmk_keyvault "/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" `
+  -resource_cmk_uri "https://mykeyvault.vault.azure.net/keys/mykey/{guid}"
+```
+---
+
+När du använder en kundhanterad nyckel skapar Azure Machine Learning en sekundär resurs grupp som innehåller Cosmos DB-instansen. Mer information finns i avsnittet om [kryptering i rest-Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+
+En ytterligare konfiguration som du kan tillhandahålla för dina data är att ställa in **confidential_data** parametern på **True**. Gör så här:
+
+* Startar kryptering av den lokala virtuella datorn för Azure Machine Learning beräknings kluster, förutsatt att du inte har skapat några tidigare kluster i din prenumeration. Om du tidigare har skapat ett kluster i prenumerationen öppnar du ett support ärende för att ha kryptering av den virtuella hård disken som är aktive rad för dina beräknings kluster.
+* Rensar upp den lokala Scratch-disken mellan körningar.
+* Skickar autentiseringsuppgifter på ett säkert sätt för lagrings kontot, behållar registret och SSH-kontot från körnings skiktet till dina beräknings kluster med hjälp av Key Vault.
+* Aktiverar IP-filtrering för att säkerställa att underliggande batch-pooler inte kan anropas av andra externa tjänster än AzureMachineLearningService.
+
+  Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-security.md#encryption-at-rest)läge.
+
+## <a name="deploy-workspace-behind-a-virtual-network"></a>Distribuera arbets ytan bakom ett virtuellt nätverk
+
+Genom att ange `vnetOption` parametervärdet till antingen `new` eller `existing` kan du skapa de resurser som används av en arbets yta bakom ett virtuellt nätverk.
+
+> [!IMPORTANT]
+> Endast "Premium"-SKU stöds för container Registry.
+
+> [!IMPORTANT]
+> Application Insights stöder inte distribution bakom ett virtuellt nätverk.
+
+### <a name="only-deploy-workspace-behind-private-endpoint"></a>Distribuera endast arbets ytan bakom privat slut punkt
+
+Om de associerade resurserna inte ligger bakom ett virtuellt nätverk kan du ange parametern **privateEndpointType** till `AutoAproval` eller `ManualApproval` för att distribuera arbets ytan bakom en privat slut punkt.
+
+> [!IMPORTANT]
+> Distributionen är endast giltig i regioner som stöder privata slut punkter.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+### <a name="use-a-new-virtual-network"></a>Använd ett nytt virtuellt nätverk
+
+Om du vill distribuera en resurs bakom ett nytt virtuellt nätverk anger du **vnetOption** till **New** tillsammans med inställningarna för det virtuella nätverket för respektive resurs. I distributionen nedan visas hur du distribuerar en arbets yta med lagrings konto resursen bakom ett nytt virtuellt nätverk.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true"
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+Du kan också distribuera flera eller alla beroende resurser bakom ett virtuellt nätverk.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium"
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+  -keyVaultBehindVNet "true" `
+  -containerRegistryBehindVNet "true" `
+  -containerRegistryOption "new" `
+  -containerRegistrySku "Premium"
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      privateEndpointType="AutoApproval"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -privateEndpointType "AutoApproval"
+```
+
+--- -->
+
+### <a name="use-an-existing-virtual-network--resources"></a>Använda ett befintligt virtuellt nätverk & resurser
+
+Om du vill distribuera en arbets yta med befintliga kopplade resurser måste du ange parametern **vnetOption** till **befintlig** tillsammans med under näts parametrar. Du måste dock skapa tjänst slut punkter i det virtuella nätverket för var och en av resurserna **innan** du distribuerar. Precis som med nya virtuella nätverks distributioner kan du ha en eller flera av dina resurser bakom ett virtuellt nätverk.
+
+> [!IMPORTANT]
+> Under nätet måste ha `Microsoft.Storage` tjänst slut punkt
+
+> [!IMPORTANT]
+> Undernät tillåter inte att privata slut punkter skapas. Inaktivera privat slut punkt för att aktivera undernät.
+
+1. Aktivera tjänstens slut punkter för resurserna.
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.KeyVault"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.ContainerRegistry" | Set-AzVirtualNetwork
+    ```
+
+    ---
+
+1. Distribuera arbets ytan
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="existing" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="examplegroup" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium" \
+      subnetName="examplesubnet" \
+      subnetOption="existing"
+      privateEndpointType="AutoApproval"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -Name "exampledeployment" `
+      -ResourceGroupName "examplegroup" `
+      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+      -workspaceName "exampleworkspace" `
+      -location "eastus" `
+      -vnetOption "existing" `
+      -vnetName "examplevnet" `
+      -vnetResourceGroupName "examplegroup" `
+      -storageAccountBehindVNet "true"
+      -keyVaultBehindVNet "true" `
+      -containerRegistryBehindVNet "true" `
+      -containerRegistryOption "new" `
+      -containerRegistrySku "Premium" `
+      -subnetName "examplesubnet" `
+      -subnetOption "existing"
+      -privateEndpointType "AutoApproval"
+    ```
+    ---
+
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="existing" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="rg" \
+      privateEndpointType="AutoApproval" \
+      subnetName="subnet" \
+      subnetOption="existing"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "existing" `
+  -vnetName "examplevnet" `
+  -vnetResourceGroupName "rg"
+  -privateEndpointType "AutoApproval"
+  -subnetName "subnet"
+  -subnetOption "existing"
+```
+
+--- -->
+
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. Följ stegen i [distribuera resurser från den anpassade mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du kommer till skärmen __Redigera mall__ klistrar du in mallen från det här dokumentet.
-1. Välj __Spara__ för att använda mallen. Ange följande information och godkänn de allmänna villkor som anges:
+1. Följ stegen i [distribuera resurser från den anpassade mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du kommer till skärmen __Välj en mall__ väljer du mallen **201-Machine-Learning-Avancerat** i list rutan.
+1. Välj __Välj mall__ för att använda mallen. Ange följande obligatoriska information och andra parametrar beroende på ditt distributions scenario.
 
    * Prenumeration: Välj den Azure-prenumeration som ska användas för dessa resurser.
    * Resurs grupp: Välj eller skapa en resurs grupp som ska innehålla tjänsterna.
+   * Region: Välj den Azure-region där resurserna ska skapas.
    * Namn på arbets yta: namnet som ska användas för Azure Machine Learning arbets ytan som ska skapas. Arbets ytans namn måste innehålla mellan 3 och 33 tecken. Det får bara innehålla alfanumeriska tecken och "-".
    * Plats: Välj den plats där resurserna ska skapas.
+1. Välj __Granska + skapa__.
+1. På skärmen __Granska + skapa__ godkänner du de angivna villkoren och väljer __skapa__.
 
 Mer information finns i [distribuera resurser från en anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
-
-## <a name="use-azure-powershell"></a>Använda Azure PowerShell
-
-I det här exemplet förutsätter vi att du har sparat mallen till en fil med namnet `azuredeploy.json` i den aktuella katalogen:
-
-```powershell
-New-AzResourceGroup -Name examplegroup -Location "East US"
-new-azresourcegroupdeployment -name exampledeployment `
-  -resourcegroupname examplegroup -location "East US" `
-  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
-```
-
-Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
-
-## <a name="use-the-azure-cli"></a>Använda Azure CLI
-
-I det här exemplet förutsätter vi att du har sparat mallen till en fil med namnet `azuredeploy.json` i den aktuella katalogen:
-
-```azurecli-interactive
-az group create --name examplegroup --location "East US"
-az group deployment create \
-  --name exampledeployment \
-  --resource-group examplegroup \
-  --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace location=eastus sku=basic
-```
-
-Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -216,7 +662,7 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
 
 * Granska Key Vault åtkomst principer och Använd sedan dessa principer för att ange `accessPolicies` mallens egenskap. Om du vill visa åtkomst principerna använder du följande Azure CLI-kommando:
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
@@ -287,7 +733,7 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
 
     Om du vill hämta ID: t för Key Vault kan du referera till utdata från den ursprungliga mallen, köra eller använda Azure CLI. Följande kommando är ett exempel på hur du använder Azure CLI för att hämta Key Vault resurs-ID:
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
     ```
 

@@ -3,12 +3,12 @@ title: Vanliga frågor om migrering av Azure Migrate Server
 description: Få svar på vanliga frågor om att använda Azure Migrate Server-migrering för att migrera datorer.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744331"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224136"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
 
@@ -27,7 +27,7 @@ Granska de geografiska områden som stöds för [offentliga moln](migrate-suppor
 
 Metoden för att lösa in utan agent för VMware använder VMware-ögonblicksbilder och VMware-KANALBINDNINGSTOKEN (changed block tracking).
 
-Så här ser processen ut:
+Så här gör du:
 
 1. När du startar replikering schemaläggs en inledande replikeringscykel. I den första cykeln tas en ögonblicks bild av den virtuella datorn. Ögonblicks bilden används för att replikera VM-VMDK: er (diskar). 
 2. När den inledande replikeringen har slutförts schemaläggs delta-replikering med jämna mellanrum.
@@ -66,6 +66,9 @@ Nej. Azure-tillgänglighetszoner stöds inte för Azure Migrate migrering.
 ## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Vilket transport protokoll använder Azure Migrate under replikeringen?
 
 Azure Migrate använder protokollet för Network Block Device (NBD) med TLS-kryptering.
+
+## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>Hur överförs data från lokal-miljön till Azure? Krypteras den före överföringen? 
+Den Azure Migrate-installationen i skift läges beredskapen för replikering komprimerar data och krypterar dem innan de överförs. Data överförs via en säker kommunikations kanal över https och använder TLS 1,2 eller senare. Dessutom krypteras dina data automatiskt i Azure Storage när de sparas i molnet (kryptering vid vila).  
 
 ## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Vilken lägsta vCenter Server version krävs för migrering?
 

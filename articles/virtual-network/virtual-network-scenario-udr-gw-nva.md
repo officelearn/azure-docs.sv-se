@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81455370"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231717"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario för Virtual-apparat
 Ett vanligt scenario mellan större Azure-kunder är att du måste tillhandahålla ett program med två nivåer som exponeras för Internet, samtidigt som du får åtkomst till bak nivån från ett lokalt Data Center. Det här dokumentet vägleder dig genom ett scenario med hjälp av användardefinierade vägar (UDR), en VPN Gateway och virtuella nätverks enheter för att distribuera en miljö med två nivåer som uppfyller följande krav:
@@ -33,12 +33,12 @@ Det här är ett standard nätverk för perimeter (kallas även DMZ) med ett DMZ
 
 |  | Fördelar | Nackdelar |
 | --- | --- | --- |
-| NSG |Ingen kostnad. <br/>Integrerad i Azure RBAC. <br/>Regler kan skapas i Azure Resource Manager mallar. |Komplexiteten kan variera i större miljöer. |
-| Brandvägg |Fullständig kontroll över data planet. <br/>Central hantering via brand Väggs konsolen. |Kostnad för brand Väggs utrustning. <br/>Inte integrerat med Azure RBAC. |
+| **NSG** |Ingen kostnad. <br/>Integrerad i Azure RBAC. <br/>Regler kan skapas i Azure Resource Manager mallar. |Komplexiteten kan variera i större miljöer. |
+| **Brandvägg** |Fullständig kontroll över data planet. <br/>Central hantering via brand Väggs konsolen. |Kostnad för brand Väggs utrustning. <br/>Inte integrerat med Azure RBAC. |
 
 I lösningen nedan används virtuella brand väggar för att implementera ett perimeternätverk (DMZ)/Protected nätverks scenario.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 Du kan distribuera miljön som beskrivs ovan i Azure med hjälp av olika funktioner som är tillgängliga idag, enligt följande.
 
 * **Virtuellt nätverk (VNet)** . Ett Azure VNet fungerar på samma sätt som ett lokalt nätverk och kan delas upp i ett eller flera undernät för att ge trafik isolering och separering av problem.

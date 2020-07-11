@@ -3,12 +3,12 @@ title: Exportera med hjälp av Stream Analytics från Azure Application Insights
 description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera data som du exporterar från Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110495"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224527"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för att bearbeta data som [exporter ATS från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från flera olika källor. Den kan transformera och filtrera data och sedan dirigera den till en rad olika mottagare.
@@ -60,7 +60,7 @@ Kontinuerlig export matar alltid ut data till ett Azure Storage-konto, så du m�
     Informationen kommer också att exporteras till lagringen. 
 2. Granska exporterade data. I Visual Studio väljer du **Visa/Cloud Explorer**och öppna Azure/Storage. (Om du inte har det här meny alternativet måste du installera Azure SDK: öppna dialog rutan nytt projekt och öppna Visual C#/Cloud/Get Microsoft Azure SDK för .NET.)
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![Skärm bild som visar hur du ställer in de händelse typer som du vill se.](./media/export-stream-analytics/04-data.png)
    
     Anteckna den gemensamma delen av Sök vägs namnet, som härleds från program namnet och Instrumentation-nyckeln. 
 
@@ -69,21 +69,21 @@ Händelserna skrivs till BLOB-filer i JSON-format. Varje fil kan innehålla en e
 ## <a name="create-an-azure-stream-analytics-instance"></a>Skapa en Azure Stream Analytics-instans
 Välj tjänsten Azure Stream Analytics från [Azure Portal](https://portal.azure.com/)och skapa ett nytt Stream Analytics jobb:
 
-![](./media/export-stream-analytics/SA001.png)
+![Skärm bild som visar huvud sidan för att skapa Stream Analytics jobb i Azure Portal.](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![Skärm bild som visar den information som behövs när du skapar ett nytt Stream Analytics jobb.](./media/export-stream-analytics/SA002.png)
 
 När det nya jobbet skapas väljer **du gå till resurs**.
 
-![](./media/export-stream-analytics/SA003.png)
+![Skärm bild som visar meddelandet som togs emot när den nya Stream Analytics jobb distributionen har slutförts.](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>Lägg till en ny inmatare
 
-![](./media/export-stream-analytics/SA004.png)
+![Skärm bild som visar hur du lägger till indata till Stream Analytics jobbet.](./media/export-stream-analytics/SA004.png)
 
 Ange att den ska ta med inmatad från din kontinuerliga export-BLOB:
 
-![](./media/export-stream-analytics/SA0005.png)
+![Skärm bild som visar hur du konfigurerar Stream Analyticss jobbet för att ta inmatat från en kontinuerlig export-blob.](./media/export-stream-analytics/SA0005.png)
 
 Nu behöver du den primära åtkomst nyckeln från ditt lagrings konto, som du noterade tidigare. Ange detta som lagrings konto nyckel.
 
@@ -109,7 +109,7 @@ I det här exemplet:
 ## <a name="add-new-output"></a>Lägg till nya utdata
 Välj nu jobbet > **utdata**  >  **Lägg till**.
 
-![](./media/export-stream-analytics/SA006.png)
+![Skärm bild som visar hur du väljer Stream Analytics jobb för att lägga till en ny utmatning.](./media/export-stream-analytics/SA006.png)
 
 
 ![Välj den nya kanalen, klicka på utdata, Lägg till Power BI](./media/export-stream-analytics/SA010.png)

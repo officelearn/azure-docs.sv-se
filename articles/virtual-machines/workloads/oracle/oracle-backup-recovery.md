@@ -3,7 +3,7 @@ title: Säkerhetskopiera och återställa en Oracle Database 12C-databas på en 
 description: Lär dig hur du säkerhetskopierar och återställer en Oracle Database 12C-databas i din Azure-miljö.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
+author: rgardler
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687007"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224459"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator
 
@@ -171,7 +172,7 @@ Programkonsekventa säkerhets kopieringar är en ny funktion i Azure Backup. Du 
 
 4. Redigera JSON-filen.
 
-    Redigera VMSnapshotScriptPluginConfig.jspå fil för att inkludera `PreScriptLocation` parametrarna och `PostScriptlocation` . Ett exempel:
+    Redigera VMSnapshotScriptPluginConfig.jspå fil för att inkludera `PreScriptLocation` parametrarna och `PostScriptlocation` . Till exempel:
 
     ```output
     {
@@ -507,7 +508,7 @@ När den virtuella datorn har återställts konfigurerar du den offentliga IP-ad
 
     ![Lista över offentliga IP-adresser](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  Klicka på **Lägg till**på bladet **offentliga IP-adresser** . På bladet **skapa offentlig IP-adress** väljer **du namnet på**den offentliga IP-adressen. För **resursgrupp**, väljer du **använd befintlig**. Klicka på **Skapa**.
+2.  Klicka på **Lägg till**på bladet **offentliga IP-adresser** . På bladet **skapa offentlig IP-adress** väljer **du namnet på**den offentliga IP-adressen. För **resursgrupp**, väljer du **använd befintlig**. Klicka sedan på **skapa**.
 
     ![Skapa IP-adress](./media/oracle-backup-recovery/create_ip_01.png)
 

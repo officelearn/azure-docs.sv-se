@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121477"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229456"
 ---
 # <a name="what-is-a-test-drive"></a>Vad är en provkörning?
 
@@ -24,7 +24,7 @@ Som utgivare hanterar och konfigurerar du inställningarna för test enheten i P
 
 Potentiella kunder identifierar test enheten på den kommersiella marknaden. De ger sina kontakt uppgifter och samtycker till ditt erbjudandes villkor och sekretess policy och får sedan till gång till förkonfigurerad miljö för att testa den under en viss tids period. Kunderna får en praktisk, själv guidad utvärderings version av produktens viktiga funktioner och fördelar och du får en värdefull lead.
 
-## <a name="how-does-it-work"></a>Hur fungerar den?
+## <a name="how-does-it-work"></a>Hur fungerar det?
 
 Som utgivare hanterar och konfigurerar du inställningarna för test enheten i Partner Center. Efter installationen blir den en hanterad instans som kommer att distribueras på begäran för kunden som begär det. När en test enhets instans har tilldelats är den tillgänglig för användning under en angiven tids period och tas sedan bort för att skapa utrymme för en annan kund.
 
@@ -74,7 +74,7 @@ Processen att aktivera en arkitektur av resurser till en test enhet kan vara avs
 
 ## <a name="generate-leads-from-your-test-drive"></a>Generera leads från test enheten
 
-En extern Marketplace-testenhet är ett utmärkt verktyg för marknads förare. Vi rekommenderar att du införlivar det i din marknads verksamhet när du startar för att generera fler leads för ditt företag. Mer detaljerad information finns i [kund leads från ditt kommersiella Marketplace-erbjudande](https://github.com/partner-center-portal/commercial-marketplace-get-customer-leads.md).
+En extern Marketplace-testenhet är ett utmärkt verktyg för marknads förare. Vi rekommenderar att du införlivar det i din marknads verksamhet när du startar för att generera fler leads för ditt företag. Mer detaljerad information finns i [kund leads från ditt kommersiella Marketplace-erbjudande](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 Om du stänger ett avtal med en testen het måste du registrera det på [Microsoft partner Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Vi skulle också älska att höra om din kund vinner där en testenhet spelade en roll.
 

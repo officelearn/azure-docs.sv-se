@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463730"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224901"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Aktivera och hantera mjuk borttagning för blobbar
 
@@ -39,31 +40,31 @@ Aktivera mjuk borttagning för blobbar på ditt lagrings konto med hjälp av Azu
 
 5. Välj knappen **Spara** för att bekräfta dina data skydds inställningar
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Skärm bild av Azure-portalen med den valda Blob-tjänsten för data skydd.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 Om du vill visa mjuka borttagna blobbar markerar du kryss rutan **Visa borttagna blobbar** .
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Skärm bild av sidan för data skydds-Blob-tjänsten med alternativet Visa borttagna blobbar markerat.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 Om du vill visa mjuka borttagna ögonblicks bilder för en specifik BLOB väljer du bloben och klickar sedan på **Visa ögonblicks bilder**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Skärm bild av sidan Data Protection BLOB service med alternativet Visa ögonblicks bilder markerat.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Kontrol lera att kryss rutan **Visa borttagna ögonblicks bilder** är markerad.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Skärm bild av sidan Visa ögonblicks bilder med alternativet Visa borttagna blobbar markerat.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 Lägg märke till de nya blobb egenskaperna när du klickar på en mjuk borttagen BLOB eller ögonblicks bild. De anger när objektet togs bort och hur många dagar som återstår tills BLOB-eller BLOB-ögonblicksbilden har gått ut permanent. Om det mjuka borttagna objektet inte är en ögonblicks bild, kan du också välja att ta bort det.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Skärm bild av information om ett Soft borttaget objekt.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Kom ihåg att om du tar bort en BLOB raderas även alla associerade ögonblicks bilder. Om du vill ta bort mjuka borttagna ögonblicks bilder för en aktiv BLOB, klickar du på blobben och väljer **ångra borttagning av alla ögonblicks bilder**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Skärm bild av information om en mjuk borttagen blob.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 När du tar bort en blobs ögonblicks bilder kan du klicka på **befordra** för att kopiera en ögonblicks bild över rot-bloben så att bloben kan återställas till ögonblicks bilden.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Skärm bild av sidan Visa ögonblicks bilder med alternativet befordra markerat.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

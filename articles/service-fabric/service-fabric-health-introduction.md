@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 82e61b2bf127ba86d06aba3110a000ed28a79833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a6e8b2baa400e1221ac1e8271e04cdaa912aff6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392768"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224153"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälso modell som ger omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Modellen möjliggör real tids övervakning av klustrets tillstånd och de tjänster som körs i den. Du kan enkelt få hälso information och åtgärda eventuella problem innan de överlappar varandra och orsakar enorma avbrott. I den typiska modellen skickar tjänster rapporter baserat på deras lokala vyer och den informationen aggregeras för att ge en övergripande vy på kluster nivå.
@@ -64,7 +65,7 @@ Möjliga [hälso tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric
 * **OK**. Entiteten är felfri. Inga kända problem har rapporter ATS för den eller dess underordnade (om tillämpligt).
 * **Varning**. Entiteten innehåller vissa problem, men den kan fortfarande fungera korrekt. Det finns till exempel fördröjningar, men de orsakar inga funktionella problem än. I vissa fall kan varnings villkoret korrigeras utan extern åtgärd. I dessa fall kan hälso rapporter höja medvetenheten och ge insyn i vad som händer. I andra fall kan varnings villkoret försämras till ett allvarligt problem utan åtgärder från användaren.
 * **Fel**. Enheten är inte felfri. Åtgärden bör vidtas för att åtgärda status för entiteten, eftersom den inte kan fungera korrekt.
-* **Okänd**. Enheten finns inte i hälso arkivet. Det här resultatet kan hämtas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Till exempel går frågan Hämta lista över noder till **FailoverManager**, **ClusterManager**och **HealthManager**; Hämta program lista fråga går till **ClusterManager** och **HealthManager**. Dessa frågor sammankopplar resultat från flera system komponenter. Om en annan system komponent returnerar en entitet som inte finns i Health Store har det sammanslagna resultatet okänt hälso tillstånd. En entitet är inte i arkivet eftersom hälso rapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagning.
+* **Okänt**. Enheten finns inte i hälso arkivet. Det här resultatet kan hämtas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Till exempel går frågan Hämta lista över noder till **FailoverManager**, **ClusterManager**och **HealthManager**; Hämta program lista fråga går till **ClusterManager** och **HealthManager**. Dessa frågor sammankopplar resultat från flera system komponenter. Om en annan system komponent returnerar en entitet som inte finns i Health Store har det sammanslagna resultatet okänt hälso tillstånd. En entitet är inte i arkivet eftersom hälso rapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagning.
 
 ## <a name="health-policies"></a>Hälso principer
 Hälso lagret tillämpar hälso principer för att avgöra om en entitet är felfri baserat på dess rapporter och dess underordnade.
@@ -83,7 +84,7 @@ Kluster hälso principen innehåller:
 * [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
 * [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Anger den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel.
 * [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Anger den maximala procent andelen av de noder som kan vara felfria innan klustret betraktas som ett fel. I stora kluster är vissa noder alltid nere eller ut för reparationer, så den här procent andelen bör konfigureras för att tolerera.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Princip mappningen för program typens hälso princip kan användas vid utvärdering av kluster hälsa för att beskriva särskilda program typer. Som standard placeras alla program i en pool och utvärderas med MaxPercentUnhealthyApplications. Om vissa program typer ska behandlas annorlunda kan de tas bort från den globala poolen. I stället utvärderas de mot procent andelen som är kopplade till deras program typs namn i kartan. I ett kluster finns det till exempel tusentals program av olika typer och några kontroll program instanser av en särskild program typ. Kontroll programmen ska aldrig ha fel. Du kan ange globala MaxPercentUnhealthyApplications till 20% för att tolerera vissa problem, men för program typen "ControlApplicationType" anger du MaxPercentUnhealthyApplications till 0. På så sätt kommer klustret att utvärderas som varning om några av de många programmen inte är felfria, men lägre än den globala procent andelen. En varnings hälso tillstånd påverkar inte kluster uppgraderingen eller annan övervakning som utlöses av fel hälso tillstånd. Men till och med ett kontroll program i fel skulle klustret bli ohälsosamt, vilket utlöser eller pausar kluster uppgraderingen, beroende på uppgraderings konfigurationen.
+* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Princip mappningen för program typens hälso princip kan användas vid utvärdering av kluster hälsa för att beskriva särskilda program typer. Som standard placeras alla program i en pool och utvärderas med MaxPercentUnhealthyApplications. Om vissa program typer ska behandlas annorlunda kan de tas bort från den globala poolen. I stället utvärderas de mot procent andelen som är kopplade till deras program typs namn i kartan. I ett kluster finns det till exempel tusentals program av olika typer och några kontroll program instanser av en särskild program typ. Kontroll programmen ska aldrig ha fel. Du kan ange globala MaxPercentUnhealthyApplications till 20% för att tolerera vissa problem, men för program typen "ControlApplicationType" anger du MaxPercentUnhealthyApplications till 0. På så sätt kommer klustret att utvärderas som varning om några av de många programmen inte är felfria, men lägre än den globala procent andelen. En varnings hälso tillstånd påverkar inte kluster uppgraderingen eller annan övervakning som utlöses av fel hälso tillstånd. Men till och med ett kontroll program i fel skulle klustret vara skadat, vilket utlöser återställnings-eller pausar kluster uppgraderingen, beroende på uppgraderings konfigurationen.
   För de program typer som definierats i kartan tas alla program instanser bort från den globala poolen med program. De utvärderas baserat på det totala antalet program av program typen, med hjälp av den specifika MaxPercentUnhealthyApplications från kartan. Alla resten av programmen finns kvar i den globala poolen och utvärderas med MaxPercentUnhealthyApplications.
 
 Följande exempel är ett utdrag från ett kluster manifest. Om du vill definiera poster i program typs mappningen, anger du parameter namnet med "ApplicationTypeMaxPercentUnhealthyApplications-", följt av programmets typ namn.
@@ -186,7 +187,7 @@ För att skicka hälso data till hälso lagret måste en rapportör identifiera 
 * **SourceId**. En sträng som unikt identifierar rapportören för hälso händelsen.
 * **Enhets identifierare**. Identifierar den entitet där rapporten används. Det skiljer sig beroende på [enhets typen](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Flernodskluster. Inga.
+  * Flernodskluster. Inget.
   * Nodfel. Nodnamn (sträng).
   * Applicering. Program namn (URI). Representerar namnet på den program instans som distribueras i klustret.
   * Telefonitjänstprovider. Tjänst namn (URI). Representerar namnet på den tjänst instans som distribueras i klustret.

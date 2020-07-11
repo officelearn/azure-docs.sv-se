@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792038"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223303"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure Page blobbar
 
@@ -123,7 +123,7 @@ Så snart en skrivbegäran för en sekventiell uppsättning sidor lyckas i Blob-
 
 Diagrammet nedan visar 2 separata Skriv åtgärder:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![Ett diagram som visar de två separata Skriv alternativen.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  En Skriv åtgärd som börjar vid förskjutningen 0 med längden 1024 byte 
 2.  En Skriv åtgärd som börjar vid förskjutningen 4096 med längden 1024 
@@ -151,7 +151,7 @@ På så sätt kan du ladda ned hela blobben eller ett intervall med byte som bö
 
 Följande bild visar en Läs åtgärd med en förskjutning på 256 och en intervall storlek på 4352. Returnerade data är markerade i orange. Nollor returneras för NUL-sidor.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![Ett diagram som visar en Läs åtgärd med en förskjutning på 256 och en intervall storlek på 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 Om du har en sparse-ifylld BLOB kanske du bara vill hämta giltiga sid regioner för att undvika att betala för utgående av noll byte och för att minska hämtnings fördröjningen.  
 

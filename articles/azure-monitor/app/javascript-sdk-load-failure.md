@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84451069"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229541"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Felsöka SDK-inläsnings fel för JavaScript-webbappar
 
@@ -28,7 +29,7 @@ Undantags felet för SDK-inläsningen skapas och rapporteras av JavaScript-kodfr
 
 Stack informationen innehåller grundläggande information med URL: erna som används av slutanvändaren.
 
-| Name                      | Beskrivning                                                                                                  |
+| Namn                      | Beskrivning                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN- &nbsp; slutpunkt&gt; | Den URL som användes (och misslyckades) för att hämta SDK: n.                                                      |
 | &lt;Hjälp &nbsp; länk&gt;    | En URL som länkar till fel söknings dokumentation (den här sidan).                                              |
@@ -75,11 +76,11 @@ Om du bekräftar att det finns ett avbrott kan du [skapa ett nytt support ärend
 När kodfragmentet och dess konfiguration returneras av programmet som en del av varje genererad sida kan du ändra kodfragment- `src` konfigurationen så att den använder en annan URL för SDK: n. Genom att använda den här metoden kan du kringgå det blockerade CDN-problemet eftersom den nya URL: en inte ska blockeras.
 
 Nuvarande Application Insights JavaScript SDK CDN-slutpunkter
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> https://js.monitor.azure.com/Slut punkten är ett alias som gör att vi kan växla mellan CDN-leverantörer inom cirka 5 minuter, utan att du behöver ändra någon konfiguration. Detta gör att vi kan åtgärda identifierade CDN-relaterade problem snabbare om en CDN-provider har regionala eller globala problem utan att alla behöver ändra sina inställningar.
+> `https://js.monitor.azure.com/`Slut punkten är ett alias som gör att vi kan växla mellan CDN-leverantörer inom cirka 5 minuter, utan att du behöver ändra någon konfiguration. Detta gör att vi kan åtgärda identifierade CDN-relaterade problem snabbare om en CDN-provider har regionala eller globala problem utan att alla behöver ändra sina inställningar.
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>Det gick inte att initiera SDK efter inläsning av skriptet
 

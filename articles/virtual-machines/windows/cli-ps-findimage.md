@@ -1,28 +1,26 @@
 ---
-title: Välj virtuella Windows-avbildningar i Azure
+title: Hitta och använda Azure Marketplace-avbildningar
 description: Använd Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för VM-avbildningar på Marketplace.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083373"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224255"
 ---
-# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell
+# <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta och Använd VM-avbildningar på Azure Marketplace med Azure PowerShell
 
-Den här artikeln beskriver hur du använder Azure PowerShell för att hitta VM-avbildningar på Azure Marketplace. Du kan sedan ange en Marketplace-avbildning när du skapar en virtuell dator program mässigt med PowerShell, Resource Manager-mallar eller andra verktyg.
+Den här artikeln beskriver hur du använder Azure PowerShell för att hitta VM-avbildningar på Azure Marketplace. Du kan sedan ange en Marketplace-avbildning när du skapar en virtuell dator.
 
 Du kan också söka efter tillgängliga bilder och erbjudanden med hjälp av [Azure Marketplace](https://azuremarketplace.microsoft.com/) -butik, [Azure Portal](https://portal.azure.com)eller [Azure CLI](../linux/cli-ps-findimage.md). 
 
- 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -318,7 +316,6 @@ Sedan skickar du VM-konfigurationen tillsammans med nätverks konfigurations obj
 
 För att snabbt skapa en virtuell dator med `New-AzVM` cmdleten med hjälp av grundläggande avbildnings information, se [skapa en virtuell Windows-dator med PowerShell](quick-create-powershell.md).
 
-
-Se ett exempel på PowerShell-skript för att [skapa en fullständigt konfigurerad virtuell dator](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Mer information om hur du använder Azure Marketplace-avbildningar för att skapa anpassade avbildningar i ett delat avbildnings Galleri finns i [tillhandahålla Azure Marketplace inköps plan information när du skapar bilder](../marketplace-images.md).
 
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 1413676eb5f3ab6f472648335996c1e607bc8b27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771027"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224629"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via öppen hubb med Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,10 +38,10 @@ Du kan kopiera data från SAP Business Warehouse via öppna hubbar till alla mot
 
 Mer specifikt stöder detta SAP Business Warehouse Open Hub Connector:
 
-- SAP Business Warehouse **version 7,01 eller senare (i en senaste SAP-support paket stack som publicerats efter året 2015)**.
+- SAP Business Warehouse **version 7,01 eller senare (i en senaste SAP-support paket stack som publicerats efter året 2015)**. SAP BW4/HANA stöds inte av den här anslutningen.
 - Kopiera data via den lokala mål destinations tabellen som under kan vara DSO, InfoCube, multitillhandahållare, DataSource osv.
 - Kopiera data med grundläggande autentisering.
-- Ansluter till program Server.
+- Ansluta till en SAP-program Server eller SAP Message Server.
 
 ## <a name="sap-bw-open-hub-integration"></a>SAP BW integrering med öppen hubb 
 
@@ -73,7 +74,7 @@ Du lagrar vanligt vis det maximala kopierade förfrågnings-ID: t i den senaste 
 
 För korrekt delta hantering kan det inte ha fråge-ID: n från olika DTPs i samma öppna Hub-tabell. Därför får du inte skapa fler än en DTP för varje Open Hub-destination (OHD). När du behöver fullständig och delta extrahering från samma InfoProvider bör du skapa två OHDs för samma InfoProvider. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Om du vill använda den här SAP Business Warehouse-anslutningen med öppen hubb måste du:
 
@@ -104,15 +105,15 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för SAP Business Warehouse-länkad hubb:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **SapOpenHub** | Ja |
 | server | Namnet på den server där SAP BW-instansen finns. | Ja |
 | systemNumber | System numret för det SAP BW systemet.<br/>Tillåtet värde: tvåsiffrigt decimal tal representeras som en sträng. | Ja |
-| messageServer | Värd namnet för SAP Message Server.<br/>Använd för att ansluta till en SAP-meddelande Server. | No |
-| messageServerService | Tjänst namnet eller port numret för meddelande servern.<br/>Använd för att ansluta till en SAP-meddelande Server. | No |
-| systemId | ID: t för det SAP-system där tabellen finns.<br/>Använd för att ansluta till en SAP-meddelande Server. | No |
-| logonGroup | Inloggnings gruppen för SAP-systemet.<br/>Använd för att ansluta till en SAP-meddelande Server. | No |
+| messageServer | Värd namnet för SAP Message Server.<br/>Använd för att ansluta till en SAP-meddelande Server. | Nej |
+| messageServerService | Tjänst namnet eller port numret för meddelande servern.<br/>Använd för att ansluta till en SAP-meddelande Server. | Nej |
+| systemId | ID: t för det SAP-system där tabellen finns.<br/>Använd för att ansluta till en SAP-meddelande Server. | Nej |
+| logonGroup | Inloggnings gruppen för SAP-systemet.<br/>Använd för att ansluta till en SAP-meddelande Server. | Nej |
 | ClientID | Klient-ID för klienten i SAP W-systemet.<br/>Tillåtet värde: tre-siffrigt decimal tal representeras som en sträng. | Ja |
 | language | Språk som används i SAP-systemet. | Nej (Standardvärdet är **en**)|
 | userName | Namnet på den användare som har åtkomst till SAP-servern. | Ja |
@@ -150,7 +151,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från och till SAP BW öppna hubben, anger du egenskapen type för data uppsättningen till **SapOpenHubTable**. Följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **SapOpenHubTable**.  | Ja |
 | openHubDestinationName | Namnet på det öppna hubb målet att kopiera data från. | Ja |
@@ -184,11 +185,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SAP BW öppna hubben, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SapOpenHubSource**. | Ja |
 | excludeLastRequest | Om posterna för den senaste begäran ska uteslutas. | Nej (standard är **Sant**) |
-| baseRequestId | ID för begäran om delta inläsning. När den har angetts hämtas endast data med requestId som är **större än** värdet för den här egenskapen.  | No |
+| baseRequestId | ID för begäran om delta inläsning. När den har angetts hämtas endast data med requestId som är **större än** värdet för den här egenskapen.  | Nej |
 
 >[!TIP]
 >Om den öppna Hub-tabellen bara innehåller de data som genereras av ID: t för en enskild begäran, till exempel, gör du alltid fullständig belastning och skriver över befintliga data i tabellen, eller så kör du bara DTP en gång för test, kom ihåg att avmarkera alternativet "excludeLastRequest" för att kopiera data.

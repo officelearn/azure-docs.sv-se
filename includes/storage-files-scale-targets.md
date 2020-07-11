@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c130fb2e032a24384f52f11957632319093e1e3
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536459"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226395"
 ---
 | Resurs | Standard fil resurser | Premium fil resurser |
 |----------|---------------|------------------------------------------|
@@ -22,7 +22,7 @@ ms.locfileid: "81536459"
 | Mål data flöde för en enskild fil resurs | upp till 300 MiB/SEK *, upp till 60 MiB/s,  | Se ingress och utgående värden för Premium-filresurs|
 | Maximalt utgående för en enskild fil resurs | Se standard data flöde för fil resurs | Upp till 6 204 MiB/s |
 | Maximalt antal inkommande data för en enda fil resurs | Se standard data flöde för fil resurs | Upp till 4 136 MiB/s |
-| Maximalt antal öppna referenser per fil | 2 000 öppna referenser | 2 000 öppna referenser |
+| Maximalt antal öppna referenser per fil eller katalog | 2 000 öppna referenser | 2 000 öppna referenser |
 | Maximalt antal resurs ögonblicks bilder | 200 resurs ögonblicks bilder | 200 resurs ögonblicks bilder |
 | Namn längd för maximalt objekt (kataloger och filer) | 2 048 tecken | 2 048 tecken |
 | Maximal Sök vägs komponent (i sökvägen \A\B\C\D är varje bokstav en komponent) | 255 tecken | 255 tecken |

@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884636"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223796"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Mjuk borttagning för Blob Storage
 
@@ -53,7 +54,7 @@ Mjuk borttagning bevarar dina data i många fall där objekt tas bort eller skri
 
 När en BLOB skrivs över med hjälp av **Lägg till BLOB**, **Ange blockeringslistan**eller **Kopiera BLOB**, genereras en version eller ögonblicks bild av blobens tillstånd innan Skriv åtgärden genereras automatiskt. Det här objektet är osynligt om inte mjuka borttagna objekt anges explicit. I [återställnings](#recovery) avsnittet finns information om hur du visar mjuka borttagna objekt.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Ett diagram som visar hur ögonblicks bilder av blobbar lagras när de skrivs över med hjälp av kommandot reblob, list block eller Copy blob.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *Mjuk borttagning av data är grått, medan aktiva data är blå. Mer nyligen skrivna data visas under äldre data. När B0 skrivs över med B1 genereras en mjuk borttagen ögonblicks bild av B0. När B1 skrivs över med B2 genereras en mjuk raderad ögonblicks bild av B1.*
 
@@ -65,13 +66,13 @@ När en BLOB skrivs över med hjälp av **Lägg till BLOB**, **Ange blockeringsl
 
 När **Delete BLOB** anropas för en ögonblicks bild markeras den ögonblicks bilden som mjuk borttagen. En ny ögonblicks bild skapas inte.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Ett diagram som visar hur ögonblicks bilder av blobbar är mjuka borttagna när du använder ta bort blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *Mjuk borttagning av data är grått, medan aktiva data är blå. Mer nyligen skrivna data visas under äldre data. När en **ögonblicks bilds-BLOB** anropas blir B0 en ögonblicks bild och B1 är det aktiva läget för blobben. När B0-ögonblicksbilden tas bort markeras den som mjuk borttagen.*
 
 När **Delete BLOB** anropas på en bas-BLOB (en blob som inte är en ögonblicks bild) markeras denna blob som mjuk borttagen. I överensstämmelse med föregående beteende, anropar **ta bort BLOB** på en blob som har aktiva ögonblicks bilder som returnerar ett fel. Anrop av **Delete BLOB** i en blob med mjuka borttagna ögonblicks bilder returnerar inte ett fel. Du kan fortfarande ta bort en blob och alla dess ögonblicks bilder i en enskild åtgärd när mjuk borttagning är aktiverat. Då markeras bas-blob och ögonblicks bilder som mjuk borttagning.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![Ett diagram som visar vad som händer när ta bort blogg anropas på en bas-blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *Mjuk borttagning av data är grått, medan aktiva data är blå. Mer nyligen skrivna data visas under äldre data. Här görs ett **Delete BLOB** -anrop för att ta bort B2 och alla associerade ögonblicks bilder. Den aktiva blobben, B2 och alla associerade ögonblicks bilder markeras som mjuk borttagen.*
 
@@ -91,7 +92,7 @@ Följande tabell information förväntas när mjuk borttagning är aktiverat:
 | [Kopiera blob](/rest/api/storageservices/copy-blob) | Blockera, lägga till och Page blobbar | Kopierar en käll-blob till en mål-BLOB i samma lagrings konto eller i ett annat lagrings konto. | Om den används för att ersätta en befintlig BLOB genereras en ögonblicks bild av blobens tillstånd före anropet automatiskt. Detta gäller även för en tidigare mjuk borttagen BLOB om den ersätts av en blob av samma typ (block, tillägg eller sida). Om den ersätts av en blob av en annan typ, kommer alla befintliga data för mjuk borttagning att upphöra att gälla permanent. |
 | [Spärra block](/rest/api/storageservices/put-block) | Blockblobar | Skapar ett nytt block som ska allokeras som en del av en Block-Blob. | Om det används för att genomföra ett block till en blob som är aktiv, sker ingen ändring. Om den används för att genomföra ett block till en blob som är mjuk borttagning, skapas en ny blob och en ögonblicks bild skapas automatiskt för att avbilda statusen för den mjuka borttagna blobben. |
 | [Lista över blockerade](/rest/api/storageservices/put-block-list) | Blockblobar | Genomför en BLOB genom att ange den uppsättning block-ID: n som utgör block-bloben. | Om den används för att ersätta en befintlig BLOB genereras en ögonblicks bild av blobens tillstånd före anropet automatiskt. Detta gäller även för en tidigare mjuk borttagen BLOB om det är en Block-Blob. Om den ersätts av en blob av en annan typ, kommer alla befintliga data för mjuk borttagning att upphöra att gälla permanent. |
-| [Placerings sida](/rest/api/storageservices/put-page) | Sidblobbar | Skriver ett intervall med sidor till en sid-blob. | Ingen ändring. Sid-BLOB-data som skrivs över eller rensas med den här åtgärden sparas inte och går inte att återskapa. |
+| [Placerings sida](/rest/api/storageservices/put-page) | Sidblobar | Skriver ett intervall med sidor till en sid-blob. | Ingen ändring. Sid-BLOB-data som skrivs över eller rensas med den här åtgärden sparas inte och går inte att återskapa. |
 | [Lägg till block](/rest/api/storageservices/append-block) | Tilläggsblobar | Skriver ett data block till slutet av en tilläggs-BLOB | Ingen ändring. |
 | [Ange BLOB-egenskaper](/rest/api/storageservices/set-blob-properties) | Blockera, lägga till och Page blobbar | Anger värden för system egenskaper som definierats för en blob. | Ingen ändring. Det går inte att återskapa de överskrivna BLOB-egenskaperna. |
 | [Ange BLOB-metadata](/rest/api/storageservices/set-blob-metadata) | Blockera, lägga till och Page blobbar | Anger användardefinierade metadata för angiven blob som ett eller flera namn/värde-par. | Ingen ändring. Överskrivna BLOB-metadata går inte att återskapa. |
@@ -104,7 +105,7 @@ Om du anropar [Undelete-blobben](/rest/api/storageservices/undelete-blob) i en m
 
 Om du vill återställa en blob till en angiven mjuk, borttagen ögonblicks bild kan du anropa **Undelete BLOB** på bas-bloben. Sedan kan du kopiera ögonblicks bilden över den nu aktiva blobben. Du kan också kopiera ögonblicks bilden till en ny blob.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![Ett diagram som visar vad som händer när Undelete-BLOB används.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *Mjuk borttagning av data är grått, medan aktiva data är blå. Mer nyligen skrivna data visas under äldre data. Här kallas **Undelete BLOB** i BLOB B, vilket återställer bas-bloben, B1 och alla associerade ögonblicks bilder, precis B0, som aktiva. I det andra steget kopieras B0 över bas-bloben. Den här kopierings åtgärden genererar en mjuk borttagen ögonblicks bild av B1.*
 

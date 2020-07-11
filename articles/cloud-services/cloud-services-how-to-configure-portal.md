@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811408"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223745"
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du Cloud Services
 
@@ -47,7 +48,7 @@ Om du behöver ange en speciell operativ Systems version som mål kan du ange de
 
 Du kan lägga till aviseringar till moln tjänsten. Klicka på **Inställningar**  >  **varnings regler**  >  **Lägg till avisering**.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Skärm bild av inställningarna panorera med alternativet varnings regler markerat och visas i rött och alternativet Lägg till avisering som anges i rött.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 Härifrån kan du konfigurera en avisering. Med list rutan **mått** kan du ställa in en avisering för följande typer av data.
 
@@ -57,7 +58,7 @@ Härifrån kan du konfigurera en avisering. Med list rutan **mått** kan du stä
 * Nätverk – utgående
 * CPU-procent
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![Skärm bild av fönstret Lägg till en varnings regel med alla konfigurations alternativ inställda.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurera övervakning från en mått panel
 

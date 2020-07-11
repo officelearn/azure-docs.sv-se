@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b66ef1a28faf97759045d40ea0f649282b2d837
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91360776c50ce514985ad36242606223becbd933
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392956"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230884"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Anpassad e-postverifiering med MailJet
 
@@ -44,20 +44,20 @@ Sedan lagrar du MailJet API-nyckeln i en Azure AD B2C princip nyckel för dina p
 1. På sidan **Översikt** väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar**och välj sedan **Lägg till**.
 1. För **alternativ**väljer du **manuell**.
-1. Ange ett **namn** för princip nyckeln. Till exempel `MailjetApiKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. Ange ett **namn** för princip nyckeln. Ett exempel är `MailjetApiKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du din MailJet **API-nyckel** som du tidigare har spelat in.
 1. För **nyckel användning**väljer du **signatur**.
 1. Välj **Skapa**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du **manuell**.
-1. Ange ett **namn** för princip nyckeln. Till exempel `MailjetSecretKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. Ange ett **namn** för princip nyckeln. Ett exempel är `MailjetSecretKey`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du din MailJet- **hemliga nyckel** som du tidigare har spelat in.
 1. För **nyckel användning**väljer du **signatur**.
 1. Välj **Skapa**.
 
 ## <a name="create-a-mailjet-template"></a>Skapa en MailJet-mall
 
-När ett MailJet-konto har skapats och MailJet-API-nyckeln som lagras i en Azure AD B2C-princip nyckel skapar du en MailJet [dynamisk transaktionell mall](https://Mailjet.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+När ett MailJet-konto har skapats och MailJet-API-nyckeln som lagras i en Azure AD B2C-princip nyckel skapar du en MailJet [dynamisk transaktionell mall](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
 1. Öppna sidan [transaktionella mallar](https://app.mailjet.com/templates/transactional) på MailJet-webbplatsen och välj **skapa en ny mall**.
 1. Välj **genom att koda den i HTML**och välj sedan **kod från början**.

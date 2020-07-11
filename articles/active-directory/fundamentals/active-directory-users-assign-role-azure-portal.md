@@ -1,5 +1,5 @@
 ---
-title: Tilldela katalog roller till användare – Azure Active Directory | Microsoft Docs
+title: Tilldela Azure AD-roller till användare – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du tilldelar roller som administratör och icke-administratör till användare med Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -8,37 +8,42 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 06/15/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87b063a4d51d5d5d1e3d7949be3754ccbe74acca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5dc42d8308b8e20a647f5f64867fd78a1a09c96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604122"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224039"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Tilldela roller som administratör och icke-administratör till användare med Azure Active Directory
-Om en användare i din organisation behöver behörighet att hantera Azure Active Directory (Azure AD)-resurser måste du tilldela användaren en lämplig roll i Azure AD, baserat på de åtgärder som användaren behöver behörighet att utföra.
 
-Mer information om tillgängliga roller finns [i tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Mer information om hur du lägger till användare finns i [lägga till nya användare i Azure Active Directory](add-users-azure-active-directory.md).
+Om en av dina användare behöver behörighet för att hantera Azure AD-resurser i Azure Active Directory (Azure AD) måste du tilldela dem till en roll som tillhandahåller de behörigheter som de behöver. Information om vilka roller som hanterar Azure-resurser och vilka roller som hanterar Azure AD-resurser finns i [klassisk prenumerations administratörs roller, Azure-roller och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Mer information om tillgängliga Azure AD-roller finns [i tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Information om hur du lägger till användare finns i [lägga till nya användare i Azure Active Directory](add-users-azure-active-directory.md).
 
 ## <a name="assign-roles"></a>Tilldela roller
-Ett vanligt sätt att tilldela Azure AD-roller till en användare finns på sidan **katalog roll** för en användare.
 
-Du kan också tilldela roller med Privileged Identity Management (PIM). Mer detaljerad information om hur du använder PIM finns [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Ett vanligt sätt att tilldela Azure AD-roller till en användare finns på sidan **tilldelade roller** för en användare. Du kan också använda den för att få en högre inaktivitet i en roll med hjälp av Privileged Identity Management (PIM). Mer information om hur du använder PIM finns [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
-### <a name="to-assign-a-role-to-a-user"></a>Tilldela en roll till en användare
-1. Gå till [Azure Portal](https://portal.azure.com/) och logga in med ett globalt administratörs konto för katalogen. 
+> [!Note]
+> Om du har en Azure AD Premium P2-licens plan och redan använder PIM utförs alla roll hanterings aktiviteter i [Privileged Identity Managements upplevelsen](../users-groups-roles/directory-manage-roles-portal.md).
+>
+> ![Azure AD-roller som hanteras i PIM för användare som redan använder PIM och har en Premium P2-licens](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
+
+## <a name="assign-a-role-to-a-user"></a>Tilldela en användare en roll
+
+1. Gå till [Azure Portal](https://portal.azure.com/) och logga in med ett globalt administratörs konto för katalogen.
 
 2. Sök efter och välj **Azure Active Directory**.
 
       ![Azure Portal Sök efter Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
-
-3. Välj **användare**.
+3. Välj **Användare**.
 
 4. Sök efter och välj den användare som ska få roll tilldelningen. Till exempel _Alain Charon_.
 
@@ -46,16 +51,17 @@ Du kan också tilldela roller med Privileged Identity Management (PIM). Mer deta
 
 5. På sidan **Alain Charon-Profile** väljer du **tilldelade roller**.
 
-    Sidan **Alain Charon-Directory-roll** visas.
+    Sidan **Alain Charon-administrativa roller** visas.
 
-6. Välj **Lägg till tilldelning**, Välj den roll som du vill tilldela till Alain (till exempel _program administratör_) och välj sedan **Välj**.
+6. Välj **Lägg till tilldelningar**, Välj den roll som du vill tilldela till Alain (till exempel _program administratör_) och välj sedan **Välj**.
 
     ![Sidan tilldelade roller – visar den valda rollen](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-    Rollen program administratör tilldelas Alain Charon och visas på sidan **Alain Charon-Directory roll** .
+    Rollen program administratör tilldelas Alain Charon och visas på sidan **Alain Charon-administrativa roller** .
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
-Om du behöver ta bort roll tilldelningen från en användare kan du också göra det från **Alain Charon-Directory roll-** sidan.
+
+Om du behöver ta bort roll tilldelningen från en användare kan du också göra det från sidan **Alain Charon-administrativa roller** .
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>Ta bort en roll tilldelning från en användare
 
@@ -65,15 +71,14 @@ Om du behöver ta bort roll tilldelningen från en användare kan du också gör
 
     ![Sidan tilldelade roller, som visar den valda rollen och alternativet ta bort](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
-    Rollen program administratör tas bort från Alain Charon och visas inte längre på sidan **Alain Charon-Directory roll** .
+    Rollen program administratör tas bort från Alain Charon och visas inte längre på sidan **Alain Charon-administrativa roller** .
 
 ## <a name="next-steps"></a>Nästa steg
+
 - [Lägga till eller ta bort användare](add-users-azure-active-directory.md)
 
 - [Lägga till eller ändra profil information](active-directory-users-profile-azure-portal.md)
 
 - [Lägga till gästanvändare från annan katalog](../b2b/what-is-b2b.md)
 
-Du kan också utföra andra användar hanterings uppgifter, till exempel tilldela ombud, använda principer och dela användar konton. Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).
-
-
+Andra användar hanterings uppgifter som du kan checka ut finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).

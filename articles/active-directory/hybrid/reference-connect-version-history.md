@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf5e161b46b9ec6e39702ddd8435a7c7672111f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550129"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230391"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -26,7 +26,7 @@ Den här artikeln är utformad för att hjälpa dig att hålla koll på de versi
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Ämne |  Information
+Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
 Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
@@ -47,6 +47,22 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 >Om du har aktiverat Azure AD Connect för synkronisering börjar du snart att automatiskt få hälso aviseringar som varnar dig om kommande inläsningar när du kör någon av de äldre versionerna.
 >
 >Mer information om hur du uppgraderar Azure AD Connect till den senaste versionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
+## <a name="15420"></a>1.5.42.0
+
+### <a name="release-status"></a>Versionsstatus
+07/10/2020: har släppts för nedladdning
+
+### <a name="functional-changes"></a>Funktionella ändringar
+Den här versionen innehåller en offentlig för hands version av funktionerna för att exportera konfigurationen av en befintlig Azure AD Connect-Server till en. JSON-fil som sedan kan användas när du installerar en ny Azure AD Connect-Server för att skapa en kopia av den ursprungliga servern.
+
+En detaljerad beskrivning av den här nya funktionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+- En bugg har åtgärd ATS där det skulle finnas en falsk varning om den lokala databas storleken på lokaliserade versioner under uppgraderingen.
+- En bugg har åtgärd ATS där det skulle finnas ett falskt fel i app-händelserna för konto namnet/domän namns växlingen.
+- Ett fel inträffade där Azure AD Connect inte gick att installera på en DOMÄNKONTROLLANT, vilket ger fel meddelandet "medlemmen hittades inte".
+
 
 ## <a name="15300"></a>1.5.30.0
 
@@ -569,7 +585,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Name                          | Access               | Gäller för
+Typ     | Namn                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |

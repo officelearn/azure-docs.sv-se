@@ -3,12 +3,12 @@ title: Data kvarhållning och lagring i Azure Application Insights | Microsoft D
 description: Policy för kvarhållning och sekretess policy
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601368"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224493"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -62,7 +62,7 @@ Huvud kategorierna är:
 ## <a name="how-can-i-verify-whats-being-collected"></a>Hur kan jag verifiera vad som samlas in?
 Om du utvecklar appen med Visual Studio kör du appen i fel söknings läge (F5). Telemetrin visas i fönstret utdata. Därifrån kan du kopiera den och formatera den som JSON för enkel granskning. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Skärm bild som visar hur du kör appen i fel söknings läge i Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 Det finns också en mer lättläst vy i fönstret diagnostik.
 
@@ -213,7 +213,7 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 | Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1,2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
-|Windows Vista | Stöds inte. | E.t.
+|Windows Vista | Stöds inte. | Ej tillämpligt
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
 
@@ -255,7 +255,7 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
 | [Samtals spår *][api] |Händelse namn<br/>**Egenskaper** |
 | [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaper** |
-| SDK kan inte samla in data. Ett exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
+| SDK kan inte samla in data. Till exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
 
 För [SDK: er för andra plattformar][platforms], se deras dokument.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4a732bd81b65c0c6b0cc227e1ed82de7bae3a1a0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146881"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230714"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Konfigurera cachelagring för stegvis berikning i Azure Kognitiv sökning
 
@@ -174,7 +174,7 @@ I följande tabell sammanfattas hur olika API: er relaterar till cachen:
 | [Skapa indexerare (2020-06-30-för hands version)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | Skapar och kör en indexerare vid första användningen, inklusive att skapa en cache om din Indexer-definition anger den. |
 | [Köra indexerare](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Kör en anriknings pipeline på begäran. Detta API läser från cachen om det finns eller skapar en cache om du har lagt till cachelagring i en uppdaterad index definition. När du kör en indexerare som har cachelagring aktiverat utelämnar indexeraren steg om cachelagrade utdata kan användas. Du kan använda den allmänt tillgängliga eller för hands versionen av API-versionen av detta API.|
 | [Återställ indexerare](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Rensar indexeraren för all stegvis indexerings information. Nästa indexerare körs (antingen på begäran eller schema) är fullständig ombearbetning från grunden, inklusive att köra om alla kunskaper och återskapa cacheminnet. Den fungerar som likvärdig för att ta bort indexeraren och återskapa den. Du kan använda den allmänt tillgängliga eller för hands versionen av API-versionen av detta API.|
-| [Återställ kunskaper](https://docs.microsoft.com/rest/api/searchservice/reset-skills) | Anger vilka kunskaper som ska köras igen vid nästa indexerare, även om du inte har ändrat några kunskaper. Cachen uppdateras i enlighet med detta. Utdata, t. ex. ett kunskaps lager eller sökindex, uppdateras med återanvändbara data från cachen plus nytt innehåll per uppdaterad kunskap. |
+| [Återställ kunskaper](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | Anger vilka kunskaper som ska köras igen vid nästa indexerare, även om du inte har ändrat några kunskaper. Cachen uppdateras i enlighet med detta. Utdata, t. ex. ett kunskaps lager eller sökindex, uppdateras med återanvändbara data från cachen plus nytt innehåll per uppdaterad kunskap. |
 
 Mer information om hur du styr vad som händer med cachen finns i [Cache Management](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

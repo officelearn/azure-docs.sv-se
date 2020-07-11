@@ -3,12 +3,12 @@ title: Förbättra kunskaps basen – QnA Maker
 description: Förbättra kvaliteten på din kunskaps bas med aktiv inlärning. Granska, acceptera eller avvisa, Lägg till utan att ta bort eller ändra befintliga frågor.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650775"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231785"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Acceptera föreslagna frågor om aktiva utbildningar i kunskaps basen
 
@@ -127,12 +127,12 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Egenskap för HTTP-begäran|Name|Typ|Syfte|
+|Egenskap för HTTP-begäran|Namn|Typ|Syfte|
 |--|--|--|--|
 |URL-rutt parameter|Kunskaps bas-ID|sträng|Din kunskaps bas-GUID.|
 |Anpassad under domän|Resurs namn för QnAMaker|sträng|Resurs namnet används som anpassad under domän för QnA Maker. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. Den visas som `host` .|
-|Sidhuvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är:`application/json`|
-|Sidhuvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
+|Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är:`application/json`|
+|Huvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
 |Publicera brödtext|JSON-objekt|JSON|Feedback om utbildningen|
 
 JSON-texten har flera inställningar:
@@ -199,7 +199,7 @@ Din bot Framework-kod måste anropa tågets API, om användarens fråga ska anv�
 * Avgöra om frågan ska användas för aktiv inlärning
 * Skicka tillbaka frågan till QnA Makers tåg-API för aktiv inlärning
 
-I [Azure bot-exemplet](https://aka.ms/activelearningsamplebot)har båda dessa aktiviteter programmerats.
+I [Azure bot-exemplet](https://github.com/microsoft/BotBuilder-Samples)har båda dessa aktiviteter programmerats.
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Exempel C#-kod för träna API med bot Framework 4. x
 
@@ -264,7 +264,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 }
 ```
 
-### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Exempel på Node. js-kod för träna API med bot Framework 4. x
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Exempel Node.js kod för träna API med bot Framework 4. x
 
 Följande kod visar hur du skickar information tillbaka till QnA Maker med träna-API.
 

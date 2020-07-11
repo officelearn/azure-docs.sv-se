@@ -3,12 +3,12 @@ title: Hur gör jag för att... i Azure Application Insights | Microsoft Docs
 description: Vanliga frågor och svar i Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 665d98378fc52e972986111847872ae30701f631
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bda0091fe06c93150d5b3cae27f278f3fd9a91ea
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110240"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224476"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
@@ -18,7 +18,7 @@ Ange ett [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-ap
 ### <a name="email-if-my-site-is-overloaded"></a>E-posta om min webbplats är överbelastad
 Ange en [avisering](../../azure-monitor/platform/alerts-log.md) på **Server svars tiden**. Ett tröskelvärde mellan 1 och 2 sekunder bör fungera.
 
-![](./media/how-do-i/030-server.png)
+![Skärm bild som visar hur du ställer in en avisering på Server svars tiden.](./media/how-do-i/030-server.png)
 
 Din app kan också visa tecken på stammar genom att returnera felkoder. Ange en avisering om **misslyckade förfrågningar**.
 
@@ -53,11 +53,11 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 Skapa ett diagram i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md) för att se ditt larm:
 
-![](./media/how-do-i/010-alarm.png)
+![Skärm bild som visar hur du skapar ett diagram i Metric Explorer för att se ditt larm.](./media/how-do-i/010-alarm.png)
 
 Nu ska du ange en avisering för att utlösa när måttet hamnar ovanför ett värde för en kort period:
 
-![](./media/how-do-i/020-threshold.png)
+![Skärm bild som visar hur du ställer in en avisering för att utlösa när måttet är över mitt värde under en kort period.](./media/how-do-i/020-threshold.png)
 
 Ställ in genomsnitts perioden på minimivärdet.
 
@@ -106,11 +106,11 @@ Sedan kan du:
 
 * Sök efter vissa användar-ID: n
 
-![](./media/how-do-i/110-search.png)
+![Skärm bild som visar alternativen för search i vissa användar-ID: n.](./media/how-do-i/110-search.png)
 
 * Filtrera mått till antingen anonyma eller autentiserade användare
 
-![](./media/how-do-i/115-metrics.png)
+![Skärm bild som visar filtrering av metrixs till antingen anonyma eller autentiserade användare.](./media/how-do-i/115-metrics.png)
 
 ## <a name="modify-property-names-or-values"></a>Ändra egenskaps namn eller värden
 Skapa ett [filter](../../azure-monitor/app/api-filtering-sampling.md#filtering). På så sätt kan du ändra eller filtrera telemetri innan det skickas från din app till Application Insights.

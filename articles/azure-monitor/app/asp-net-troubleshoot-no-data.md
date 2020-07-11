@@ -3,11 +3,12 @@ title: Felsökning utan data, Application Insights för .NET
 description: Ser du inte data i Azure Application Insights? Prova här.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1c4a741bf092ab89638fdca130a52d96318157
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485158"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221042"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
 
@@ -123,7 +124,7 @@ Löser
 *Jag körde appen och öppnade Application Insights tjänsten i Microsoft Azure, men i alla diagram visas "Lär dig mer om att samla in..." eller "inte konfigurerad".* Eller, *endast sid visning och användar data, men inga Server data.*
 
 * Kör programmet i fel söknings läge i Visual Studio (F5). Använd programmet så att du kan generera vissa telemetri. Kontrol lera att du kan se händelser som loggats i Visual Studio output-fönstret.  
-  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+  ![Skärm bild som visar hur du kör programmet i fel söknings läge i Visual Studio.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Öppna [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)i Application Insights-portalen. Data visas vanligt vis här först.
 * Klicka på knappen Uppdatera. Bladet uppdateras regelbundet, men du kan också göra det manuellt. Uppdaterings intervallet är längre för större tidsintervall.
 * Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights.config i projektet i Visual Studio och leta upp `<instrumentationkey>` . Kontrol lera att de två nycklarna är lika. Om inte:  

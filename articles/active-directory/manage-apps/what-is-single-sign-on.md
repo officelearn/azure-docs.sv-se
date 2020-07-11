@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144594"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223898"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
@@ -90,6 +90,9 @@ Välj lösenordsbaserad enkel inloggning när:
 - Ett program har inte stöd för SAML-protokoll för enkel inloggning.
 - Ett program autentiseras med ett användar namn och lösen ord i stället för åtkomst-tokens och-rubriker.
 
+>[!NOTE]
+>Du kan inte tillämpa principer för villkorlig åtkomst eller Multi-Factor Authentication för lösenordsbaserad SSO.
+
 Lösenordsbaserad enkel inloggning stöds för alla molnbaserade program som har en HTML-baserad inloggnings sida. Användaren kan använda någon av följande webbläsare:
 
 - Internet Explorer 11 i Windows 7 eller senare
@@ -136,6 +139,9 @@ Länkad inloggning gör det möjligt för Azure AD att tillhandahålla enkel inl
 Länkad inloggning kan ge en konsekvent användar upplevelse när du migrerar program under en viss tids period. Om du migrerar program till Azure Active Directory kan du använda länkad inloggning för att snabbt publicera länkar till alla program som du vill migrera.  Användarna kan hitta alla länkar i portalen för mina [appar](../user-help/active-directory-saas-access-panel-introduction.md) eller [Office 365-programmet](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Användare vet inte att de har åtkomst till ett länkat program eller ett migrerat program.  
 
 När en användare har autentiserats med ett länkat program måste en konto post skapas innan slutanvändaren ges åtkomst till enkel inloggning. Etableringen av den här konto posten kan antingen ske automatiskt, eller så kan den utföras manuellt av en administratör.
+
+>[!NOTE]
+>Du kan inte tillämpa principer för villkorlig åtkomst eller Multi-Factor Authentication i ett länkat program. Detta beror på att ett länkat program inte tillhandahåller funktioner för enkel inloggning via Azure AD. När du konfigurerar ett länkat program lägger du helt enkelt till en länk som visas i appen starta eller portalen för appar. 
 
 ## <a name="disabled-sso"></a>Inaktive rad SSO
 

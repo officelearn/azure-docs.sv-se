@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981315"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224714"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
 
 Även om de många funktionerna för åtkomst och hantering tillhandahåller en omfattande uppsättning alternativ, kan den här variationen medföra betydande risker för en molndistribution. Det kan vara svårt att hantera, spåra och granska administrativa åtgärder. Den här variationen kan också innebära säkerhetshot via oreglerad åtkomst till klientslutpunkter som används för att hantera molntjänster. Med hjälp av allmänna eller personliga arbetsstationer för att utveckla och hantera infrastrukturen öppnas oförutsägbara hotvektorer, till exempel webbsurfning (t.ex. vattenhålsattacker) eller mejl (t.ex. social manipulation och nätfiskewebbplatser).
 
-![](./media/management/typical-management-network-topology.png)
+![Ett diagram som visar olika sätt som ett hot kan montera ett angrepp på.](./media/management/typical-management-network-topology.png)
 
 Risken för angrepp ökar i den här typen av miljöer. Det beror på att det är svårt att konstruera säkerhetsprinciper och mekanismer för att hantera åtkomst till Azure-gränssnitt på korrekt sätt (till exempel SMAPI) från många olika slutpunkter.
 
@@ -156,12 +157,12 @@ Med en fristående strikt dator  har administratörer en stationär eller bärba
 
 I situationen med den fristående strikta datorn (visas nedan) har den lokala instansen av Windows-brandväggen (eller en klientbrandvägg från en annan leverantör än Microsoft) konfigurerats för att blockera inkommande anslutningar, till exempel RDP. Administratören kan logga in på strikt arbetsstationen och starta en RDP-session som ansluter till Azure när du har etablerat en VPN-anslutning ansluta med ett virtuellt Azure-nätverk men det går inte att logga in på en dator som företagets och RDP för att ansluta till strikt arbetsstationen själva.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![Ett diagram som visar det fristående strikta arbets Stations scenariot.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>Företagets dator som virtuell dator
 I fall där en separat fristående strikt dator är kostnadshindrande eller olämplig kan den vara värd för en virtuell dator för icke-administrativa uppgifter.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![Ett diagram som visar den skärpta arbets station som är värd för en virtuell dator för att utföra icke-administrativa uppgifter.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 Du kan undvika flera säkerhetsrisker som kan uppstå när du använder en dator för systemhantering och andra dagliga arbetsuppgifter genom att distribuera en virtuell Windows Hyper-V-dator till den strikta datorn. Den här virtuella datorn kan användas som företagets dator. Företagsdatorn kan förbli isolerad från värden, vilket minskar dess angreppsyta och tar bort användarens dagliga aktiviteter (till exempel mejl) så att de inte finns tillsammans med känsliga administrativa uppgifter.
 

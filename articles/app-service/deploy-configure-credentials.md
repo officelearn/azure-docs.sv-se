@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649114"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223864"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S-distribution](deploy-ftp.md). Autentiseringsuppgifterna är inte desamma som dina autentiseringsuppgifter för Azure-prenumerationen.
@@ -39,17 +40,17 @@ I Azure Portal måste du ha minst en app innan du kan komma åt sidan autentiser
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **app Services**  >  **\<any_app>**  >  **distributions Center**  >  **FTP-**  >  **instrumentpanel**på menyn till vänster.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Visar hur du kan välja FTP-instrumentpanelen från distributions centret i Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     Eller, om du redan har konfigurerat Git-distribution väljer du **app Services**  >  ** &lt; any_app>**  >  **distributions Center**  >  **FTP/autentiseringsuppgifter**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Visar hur du kan välja FTP-instrumentpanelen från distributions centret i Azure App Services för din konfigurerade Git-distribution.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Välj **användarautentiseringsuppgifter, konfigurera användar namn**och lösen ord och välj sedan **Spara autentiseringsuppgifter**.
 
 När du har angett dina autentiseringsuppgifter för distribution kan du hitta användar namnet för *git* -distributionen på appens **översikts** sida.
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Visar hur du hittar användar namnet för git-distributionen på appens översikts sida.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 Om Git-distribution har kon figurer ATS visar sidan ett **användar namn för Git/distribution**; annars är ett **FTP-/distributions användar namn**.
 

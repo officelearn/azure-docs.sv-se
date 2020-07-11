@@ -1,5 +1,5 @@
 ---
-title: Kopiera en avbildnings version från ett annat galleri
+title: Kopiera en avbildnings version från ett annat galleri med hjälp av CLI
 description: Kopiera en avbildnings version från ett annat galleri med Azure CLI.
 author: cynthn
 ms.service: virtual-machines
@@ -9,13 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797063"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224340"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Kopiera en bild från ett annat galleri
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Kopiera en bild från ett annat galleri med hjälp av Azure CLI
 
 Om du har flera gallerier i din organisation kan du också skapa avbildnings versioner från befintliga avbildnings versioner som lagras i andra gallerier. Du kan till exempel ha ett utvecklings-och test Galleri för att skapa och testa nya avbildningar. När de är redo att användas i produktionen kan du kopiera dem till ett produktions galleri med hjälp av det här exemplet. Du kan också skapa en bild från en bild i ett annat galleri med hjälp av [Azure PowerShell](image-version-another-gallery-powershell.md).
 
@@ -161,3 +162,5 @@ az sig image-version create \
 Skapa en virtuell dator från en [generaliserad](vm-generalized-image-version-cli.md) eller [specialiserad](vm-specialized-image-version-cli.md) avbildnings version.
 
 Prova också att använda [Azure Image Builder (för hands version)](./linux/image-builder-overview.md) för att automatisera avbildnings versionen, du kan även använda den för att uppdatera och [skapa en ny avbildnings version från en befintlig avbildnings version](./linux/image-builder-gallery-update-image-version.md). 
+
+Information om hur du anger information om inköps planer finns i [tillhandahålla information om inköps plan för Azure Marketplace när du skapar avbildningar](marketplace-images.md).

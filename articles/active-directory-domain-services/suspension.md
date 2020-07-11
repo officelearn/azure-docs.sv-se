@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734290"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223405"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Förstå hälso tillstånden och lösa inaktiverade domäner i Azure Active Directory Domain Services
 
@@ -38,7 +39,7 @@ En hanterad domän kan vara i något av följande tillstånd:
 
 ## <a name="running-state"></a>Kör tillstånd
 
-En hanterad domän som är korrekt konfigurerad och körs utan problem är i *körnings* läge. Detta är det önskade läget för en hanterad domän.
+En hanterad domän som är korrekt konfigurerad och utan problem är i *körnings* tillstånd. Detta är det önskade läget för en hanterad domän.
 
 ### <a name="what-to-expect"></a>Vad som ska förväntas
 
@@ -49,7 +50,9 @@ En hanterad domän som är korrekt konfigurerad och körs utan problem är i *k�
 
 ## <a name="needs-attention-state"></a>Kräver Attention-tillstånd
 
-En hanterad domän med ett eller flera problem som måste åtgärdas är i *Åtgärds läget krav* . Sidan hälso tillstånd för den hanterade domänen visar aviseringarna och visar var det finns ett problem. Vissa aviseringar är tillfälliga och löses automatiskt av Azure-plattformen. För andra aviseringar kan du åtgärda problemet genom att följa de lösnings steg som anges. Det finns en kritisk varning. [öppna en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
+En hanterad domän med ett eller flera problem som måste åtgärdas är i *Åtgärds läget krav* . Sidan hälso tillstånd för den hanterade domänen visar aviseringarna och visar var det finns ett problem.
+
+Vissa aviseringar är tillfälliga och löses automatiskt av Azure-plattformen. För andra aviseringar kan du åtgärda problemet genom att följa de lösnings steg som anges. Det finns en kritisk varning. [öppna en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 Ett exempel på en avisering är när det finns en begränsande nätverks säkerhets grupp. I den här konfigurationen kanske inte Azure-plattformen kan uppdatera och övervaka den hanterade domänen. En avisering genereras och statusen ändras till *kräver en åtgärd*.
 
@@ -57,7 +60,7 @@ Mer information finns i [fel sökning av aviseringar för en hanterad domän][re
 
 ### <a name="what-to-expect"></a>Vad som ska förväntas
 
-När en hanterad domän är i *behovs* känslig status kan Azure-plattformen kanske inte övervaka, korrigera, uppdatera eller säkerhetskopiera data regelbundet. I vissa fall, t. ex. med en ogiltig nätverks konfiguration, kan det hända att domän kontrol Lanterna för den hanterade domänen inte kan kontaktas.
+När en hanterad domän är i *behovs* känslig status kan Azure-plattformen kanske inte övervaka, korrigera, uppdatera eller säkerhetskopiera data regelbundet. I vissa fall, till exempel en ogiltig nätverks konfiguration, kan det hända att domän kontrol Lanterna för den hanterade domänen inte kan kontaktas.
 
 * Den hanterade domänen är i ett ohälsosamt tillstånd och pågående hälso övervakning kan sluta tills aviseringen har åtgärd ATS.
 * Domänkontrollanter för den hanterade domänen kan inte korrigeras eller uppdateras.
@@ -101,7 +104,7 @@ Slutför följande steg för att återställa hälsan för en hanterad domän so
 
 En hanterad domän kan bara återställas till datumet för den senaste säkerhets kopieringen. Datumet för den senaste säkerhets kopieringen visas på sidan **hälsa** i den hanterade domänen. Eventuella ändringar som inträffat efter den senaste säkerhets kopieringen återställs inte. Säkerhets kopior för en hanterad domän lagras i upp till 30 dagar. Säkerhets kopieringar som är äldre än 30 dagar tas bort.
 
-När du har löst aviseringar när den hanterade domänen är i *paus* läge [öppnar du en support förfrågan för Azure][azure-support] för att återgå till felfritt tillstånd. Om det finns en säkerhets kopia som är mindre än 30 dagar kan Azure-supporten återställa den hanterade domänen.
+När du har löst aviseringar när den hanterade domänen är i *paus* läge [öppnar du en support förfrågan för Azure][azure-support] för att återgå till felfritt tillstånd. Om det finns en säkerhets kopia som är mindre än 30 dagar gammal kan Azure-supporten återställa den hanterade domänen.
 
 ## <a name="deleted-state"></a>Borttaget läge
 
@@ -112,7 +115,7 @@ Om en hanterad domän förblir i *pausat* tillstånd i 15 dagar tas den bort. De
 När en hanterad domän går in i det *borttagna* läget visas följande:
 
 * Alla resurser och säkerhets kopior för den hanterade domänen tas bort.
-* Du kan inte återställa den hanterade domänen och du måste skapa en ersättande hanterad domän för åter användning av Azure AD DS.
+* Du kan inte återställa den hanterade domänen. Du måste skapa en ersättande hanterad domän för åter användning av Azure AD DS.
 * När den har tagits bort debiteras du inte för den hanterade domänen.
 
 ## <a name="next-steps"></a>Nästa steg

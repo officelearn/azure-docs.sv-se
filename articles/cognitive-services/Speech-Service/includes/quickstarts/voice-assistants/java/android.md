@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671816"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226425"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar ska du se till att:
 
@@ -36,7 +36,7 @@ Innan du börjar ska du se till att:
 
 ## <a name="create-user-interface"></a>Skapa användargränssnitt
 
-I det här avsnittet ska vi skapa ett grundläggande användar gränssnitt (UI) för programmet. Vi börjar med att öppna huvud aktiviteten: `activity_main.xml`. Den grundläggande mallen innehåller en namn List med programmets namn och en `TextView` med meddelandet "Hello World!".
+I det här avsnittet ska vi skapa ett grundläggande användar gränssnitt (UI) för programmet. Vi börjar med att öppna huvud aktiviteten: `activity_main.xml` . Den grundläggande mallen innehåller en namn List med programmets namn och en `TextView` med meddelandet "Hello World!".
 
 Ersätt sedan innehållet i `activity_main.xml` med följande kod:
 
@@ -89,17 +89,17 @@ Ersätt sedan innehållet i `activity_main.xml` med följande kod:
 
 I den här XML-koden definieras ett enkelt gränssnitt för att interagera med din robot.
 
-- `button` Elementet initierar en interaktion och anropar `onBotButtonClicked` metoden vid klickning.
+- `button`Elementet initierar en interaktion och anropar `onBotButtonClicked` metoden vid klickning.
 - I `recoText` elementet visas tal-till-text-resultatet när du pratar med din robot.
-- - `activityText` ELEMENTET visar JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
+- - `activityText` Elementet visar JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
 
 Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här:
 
-![](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
+![Skärm bild av hur du pratar med ditt bot-gränssnitt bör se ut.](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Öppna `MainActivity.java`och ersätt innehållet med följande kod:
+1. Öppna `MainActivity.java` och ersätt innehållet med följande kod:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -241,11 +241,11 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
     }
    ```
 
-   * `onCreate` Metoden inkluderar kod som begär mikrofon-och Internet-behörigheter.
+   * `onCreate`Metoden inkluderar kod som begär mikrofon-och Internet-behörigheter.
 
    * Metoden `onBotButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapp tryckning utlöser en enda interaktion ("Vänd") med din robot.
 
-   * `registerEventListeners` Metoden visar de händelser som används av `DialogServiceConnector` och grundläggande hantering av inkommande aktiviteter.
+   * `registerEventListeners`Metoden visar de händelser som används av `DialogServiceConnector` och grundläggande hantering av inkommande aktiviteter.
 
 1. I samma fil ersätter du konfigurations strängarna så att de matchar dina resurser:
 
@@ -253,13 +253,13 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
     * Ersätt `YourServiceRegion` med den [region](~/articles/cognitive-services/speech-service/regions.md) som är associerad med din prenumeration. endast en delmängd av tal service regionerna stöds för närvarande med direkt linje tal. Mer information finns i [regioner](~/articles/cognitive-services/speech-service/regions.md#voice-assistants).
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
 1. Anslut din Android-enhet till utvecklingsdatorn. Kontrollera att du har aktiverat [utvecklingsläge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten.
 
-1. Skapa programmet genom att trycka på CTRL + F9 eller välja **skapa** > **skapa projekt** på Meny raden.
+1. Skapa programmet genom att trycka på CTRL + F9 eller välja **skapa**  >  **skapa projekt** på Meny raden.
 
-1. Starta programmet genom att trycka på SKIFT + F10 eller välja **Kör** > **Kör "app"**.
+1. Starta programmet genom att trycka på SKIFT + F10 eller välja **Kör**  >  **Kör "app"**.
 
 1. Välj din Android-enhet i målfönstret för distribution som visas.
 

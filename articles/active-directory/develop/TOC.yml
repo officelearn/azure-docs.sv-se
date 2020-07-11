@@ -4,8 +4,6 @@
   items:
     - name: Vad är Microsofts identitetsplattform?
       href: v2-overview.md
-    - name: Utvecklingen av Microsofts identitetsplattform
-      href: about-microsoft-identity-platform.md
 - name: Snabbstarter
   expanded: true
   items:

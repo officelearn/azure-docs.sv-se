@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828890"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229626"
 ---
 # <a name="use-source-control-integration"></a>Använda källkontrollsintegrering
 
@@ -25,7 +26,7 @@ Azure Automation stöder tre typer av käll kontroll:
 * Azure-databaser (git)
 * Azure-databaser (TFVC)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
@@ -72,8 +73,7 @@ Använd den här proceduren för att konfigurera käll kontroll med Azure Portal
 
 ### <a name="configure-source-control-in-powershell"></a>Konfigurera käll kontroll i PowerShell
 
-Du kan också använda PowerShell för att konfigurera käll kontroll i Azure Automation. Om du vill använda PowerShell-cmdletar för den här åtgärden behöver du en personlig åtkomsttoken (PAT). Använd cmdleten [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
-) för att skapa käll kontroll anslutningen. Denna cmdlet kräver en säker sträng för PAT. Information om hur du skapar en säker sträng finns i [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Du kan också använda PowerShell för att konfigurera käll kontroll i Azure Automation. Om du vill använda PowerShell-cmdletar för den här åtgärden behöver du en personlig åtkomsttoken (PAT). Använd cmdleten [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) för att skapa käll kontroll anslutningen. Denna cmdlet kräver en säker sträng för PAT. Information om hur du skapar en säker sträng finns i [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 Följande underavsnitt illustrerar PowerShell-skapande av käll kontroll anslutningen för GitHub, Azure databaser (git) och Azure databaser (TFVC). 
 
@@ -122,7 +122,7 @@ I följande tabell definieras de lägsta PAT-behörigheter som krävs för GitHu
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Lägsta PAT-behörigheter för Azure databaser
 
-I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure databaser. Mer information om hur du skapar en PAT i Azure databaser finns i [autentisera åtkomst med personliga](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)åtkomsttoken.
+I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure databaser. Mer information om hur du skapar en PAT i Azure databaser finns i [autentisera åtkomst med personliga](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)åtkomsttoken.
 
 | Omfång  |  Åtkomst typ  |
 |---------| ----------|
@@ -195,14 +195,14 @@ Så här kopplar du bort från en lagrings plats för käll kontroll:
 
 ## <a name="handle-encoding-issues"></a>Hantera kodnings problem
 
-Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Uppdatera PAT
 
 För närvarande kan du inte använda Azure Portal för att uppdatera PAT i käll kontrollen. När din PAT har upphört att gälla eller återkallats kan du uppdatera käll kontrollen med en ny åtkomsttoken på något av följande sätt:
 
-* Använd [REST API](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Använd cmdleten [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol) .
+* Använd [REST API](/rest/api/automation/sourcecontrol/update).
+* Använd cmdleten [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Nästa steg
 

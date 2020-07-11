@@ -1,5 +1,5 @@
 ---
-title: Kopiera en bild från ett annat galleri
+title: Kopiera en bild från ett annat galleri med hjälp av PowerShell
 description: Kopiera en bild från ett annat galleri med hjälp av Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796933"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221229"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Kopiera en bild från ett annat galleri
+# <a name="copy-an-image-from-another-gallery-using-powershell"></a>Kopiera en bild från ett annat galleri med hjälp av PowerShell
 
 Om du har flera gallerier i din organisation kan du skapa bilder från bilder som lagras i andra gallerier. Du kan till exempel ha ett utvecklings-och test Galleri för att skapa och testa nya avbildningar. När de är redo att användas i produktionen kan du kopiera dem till ett produktions galleri med hjälp av det här exemplet. Du kan också skapa en avbildning från en avbildning i ett annat galleri med hjälp av [Azure CLI](image-version-another-gallery-cli.md).
 
@@ -165,3 +165,5 @@ $job.State
 Skapa en virtuell dator från en [generaliserad](vm-generalized-image-version-powershell.md) eller [specialiserad](vm-specialized-image-version-powershell.md) avbildnings version.
 
 [Azure Image Builder (för hands version)](./linux/image-builder-overview.md) kan hjälpa dig att automatisera avbildnings versionen, du kan även använda den för att uppdatera och [skapa en ny avbildnings version från en befintlig avbildnings version](./linux/image-builder-gallery-update-image-version.md). 
+
+Information om hur du anger information om inköps planer finns i [tillhandahålla information om inköps plan för Azure Marketplace när du skapar avbildningar](marketplace-images.md).

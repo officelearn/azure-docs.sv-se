@@ -3,12 +3,12 @@ title: Flera-turn-konversationer – QnA Maker
 description: Använd prompter och kontext för att hantera flera sätt, så kallade flera varv, för din robot från en fråga till en annan. Med flera varv kan du få en snabb konversation där föregående frågas sammanhang påverkar nästa fråga och svar.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 8ef244e1b6baf480189bb90ea5ff53138a6f377a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81261473"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229354"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
@@ -52,7 +52,7 @@ När du väljer det här alternativet extraherar QnA Maker hierarkin som finns i
 
 Flera-turn-strukturen kan bara härledas från URL: er, PDF-filer eller DOCX-filer. Ett exempel på en struktur finns i en bild av en [manuell PDF-fil för Microsoft Surface-användare](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![! [Exempel på en struktur i en Användar handbok] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+![! [Exempel på en struktur i en Användar handbok] (.. /Media/Conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
 ### <a name="building-your-own-multi-turn-document"></a>Skapa ett eget dokument med flera vändare
 
@@ -62,7 +62,7 @@ Kom ihåg följande rikt linjer om du skapar ett dokument med flera vändare:
 
 * Första bokstaven i rubriken måste vara kapitaliserad.
 
-* Avsluta inte en rubrik med ett frågetecken, `?`.
+* Avsluta inte en rubrik med ett frågetecken, `?` .
 
 * Du kan använda [exempel dokumentet](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) som ett exempel för att skapa ett eget dokument med flera dokument.
 
@@ -92,7 +92,7 @@ Välj **visnings alternativ**och välj sedan **Visa kontext**. I listan visas fr
 
 Kontexten för flera turn visas i den första kolumnen.
 
-![! [Kolumnen "kontext (förhands granskning)"] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![! [Kolumnen "kontext (förhands granskning)"] (.. /Media/Conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
 I föregående bild anger **#1** fet text i kolumnen som visar den aktuella frågan. Den överordnade frågan är det översta objektet på raden. Alla frågor nedan är de länkade frågorna och svars paren. Dessa objekt är valbara, så att du kan gå direkt till andra kontext objekt.
 
@@ -108,7 +108,7 @@ Lägg till en uppföljnings fråga till ett befintligt fråga-och-svar-par som i
 1. Välj **Lägg till uppföljnings fråga**i kolumnen **svar** i raden för att **Logga in**.
 1. Ange följande värden i fälten i popup-fönstret för **uppföljnings prompten** :
 
-    |Field|Värde|
+    |Fält|Värde|
     |--|--|
     |Visningstext|Ange **Stäng av enheten**. Det här är en anpassad text som visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende| Markera den här kryss rutan. Ett svar returneras bara om frågan anger sammanhang.|
@@ -145,7 +145,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 1. Välj **Lägg till uppföljnings fråga**i **svars** kolumnen för den här frågan.
 1. Under **uppföljnings prompt (för hands version)** skapar du en ny uppföljning genom att ange följande värden:
 
-    |Field|Värde|
+    |Fält|Värde|
     |--|--|
     |Visningstext|*Skapa ett Windows-konto*. Den anpassade text som ska visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende|Markera den här kryss rutan. Svaret returneras endast om frågan anger sammanhang.|
@@ -167,7 +167,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 
     Den överordnade frågan visar en ny fråga som ett alternativ.
 
-    ![! [Kontext kolumnen för båda frågorna indikerar en uppföljnings relation] (.. /media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![! [Kontext kolumnen för båda frågorna indikerar en uppföljnings relation] (.. /Media/Conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
 1. När du har lagt till uppföljnings anvisningarna väljer du **Spara och träna** i det övre navigerings fältet.
 
@@ -260,7 +260,7 @@ Föregående avsnitt begärde ett svar och eventuella uppföljnings frågor till
 }
 ```
 
-`prompts` Matrisen innehåller text i `displayText` egenskapen och `qnaId` värdet. Du kan visa svaren som nästa alternativ i konversations flödet och sedan skicka `qnaId` tillbaka tillbaka till QNA Maker i följande begäran.
+`prompts`Matrisen innehåller text i `displayText` egenskapen och `qnaId` värdet. Du kan visa svaren som nästa alternativ i konversations flödet och sedan skicka `qnaId` tillbaka tillbaka till QNA Maker i följande begäran.
 
 <!--
 
@@ -350,7 +350,7 @@ _GenerateAnswer_ JSON-svaret innehåller följande prompter i `context` egenskap
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Fråga kunskaps basen med QnA Maker-ID
 
-Om du skapar ett anpassat program med hjälp av funktionen för flera sätt. Vid den första frågans svar returneras eventuella uppföljnings frågor och dess associerade `qnaId` . Nu när du har ID: t kan du skicka detta i begär ande texten för uppföljnings frågan. Om texten i begäran innehåller `qnaId`, och objektet context (som innehåller föregående QNA Maker egenskaper), returnerar GenerateAnswer den exakta frågan efter ID, i stället för att använda rangordnings algoritmen för att hitta svaret från frågetexten.
+Om du skapar ett anpassat program med hjälp av funktionen för flera sätt. Vid den första frågans svar returneras eventuella uppföljnings frågor och dess associerade `qnaId` . Nu när du har ID: t kan du skicka detta i begär ande texten för uppföljnings frågan. Om texten i begäran innehåller `qnaId` , och objektet context (som innehåller föregående QNA Maker egenskaper), returnerar GenerateAnswer den exakta frågan efter ID, i stället för att använda rangordnings algoritmen för att hitta svaret från frågetexten.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Visnings ordningen stöds i uppdaterings-API: et
@@ -367,7 +367,7 @@ QnA Maker stöder versions kontroll genom att inkludera konversations steg med f
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om sammanhangsbaserade konversationer från det här [dialog exemplet](https://aka.ms/qnamakermultiturnsample) eller Lär dig mer om [konceptuella robot design för flera-turn-konversationer](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Lär dig mer om sammanhangsbaserade konversationer från det här [dialog exemplet](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) eller Lär dig mer om [konceptuella robot design för flera-turn-konversationer](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migrera en kunskapsbas](../Tutorials/migrate-knowledge-base.md)

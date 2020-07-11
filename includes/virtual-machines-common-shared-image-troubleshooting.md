@@ -1,21 +1,21 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772839"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226442"
 ---
-Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Fel söknings läge har Aktiver ATS genom att skicka växeln **-Debug** med CLI och växeln **-Debug** med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
+Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Fel söknings läge aktive ras genom att skicka `--debug` växeln med CLI och `-Debug` växeln med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Det går inte att skapa ett delat bildgalleri
@@ -43,7 +43,7 @@ Tillåtna tecken för bild definition är versaler eller gemener, siffror, punkt
 
 Egenskaperna, till exempel namn, utgivare, erbjudande, SKU och OS-typ är obligatoriska. Kontrol lera om alla egenskaper har skickats.
 
-Kontrol lera att **OSType**, antingen Linux eller Windows, för avbildnings definitionen är samma som den hanterade avbildningen som du använder för att skapa avbildnings versionen. 
+Kontrol lera att **OSType**, antingen Linux eller Windows, för avbildnings definitionen är samma som den källa som du använder för att skapa avbildnings versionen. 
 
 
 ## <a name="unable-to-create-an-image-version"></a>Det går inte att skapa en bildversion 
@@ -84,7 +84,7 @@ Kontrol lera att den region som du försöker skapa en virtuell dator eller skal
 
 *Skapandet av skalnings uppsättningen för virtuella datorer eller virtuella datorer tar lång tid.*
 
-Kontrol lera att **OSType** för den avbildnings version som du försöker skapa den virtuella datorn eller den virtuella datorns skalnings uppsättning från har samma **OSType** som den hanterade käll avbildningen som du använde för att skapa avbildnings versionen. 
+Kontrol lera att **OSType** för den avbildnings version som du försöker skapa den virtuella datorn eller den virtuella datorns skalnings uppsättning från har samma **OSType** som den källa som du använde för att skapa avbildnings versionen. 
 
 ## <a name="unable-to-share-resources"></a>Det går inte att dela resurser
 

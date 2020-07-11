@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a7ff8a0cf23bf0701a7cc35cb137ec0965f295ec
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145979"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223983"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -117,8 +117,8 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
 
     - Granska dina DNS-poster regelbundet för att säkerställa att dina under domäner är mappade till Azure-resurser som:
 
-        - **Exist** – fråga dina DNS-zoner efter resurser som pekar på Azure-underdomäner som *. azurewebsites.net eller *. cloudapp.Azure.com (se [den här referens listan](azure-domains.md)).
-        - **Du äger** – bekräfta att du äger alla resurser som dina DNS-under domäner är riktade till.
+        - Exist – fråga dina DNS-zoner efter resurser som pekar på Azure-underdomäner som *. azurewebsites.net eller *. cloudapp.azure.com (se [den här referens listan](azure-domains.md)).
+        - Du äger – bekräfta att du äger alla resurser som dina DNS-under domäner är riktade till.
 
     - Underhålla en tjänst katalog för Azures fullständiga kvalificerade domän namn (FQDN) och program ägare. Om du vill skapa en tjänst katalog kör du följande fråga i Azure Resource Graph (ARG) med parametrarna från tabellen nedan:
     
@@ -127,26 +127,15 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
         >
         > **Begränsningar** – Azure Resource Graph har begränsnings-och växlings gränser som du bör tänka på om du har en stor Azure-miljö. [Lär dig mer](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) om att arbeta med stora data uppsättningar för Azure-resurser.  
 
-        ```
-        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
+        ```powershell
+        Search-AzGraph -Query "resources | where type == '<ResourceType>' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = <FQDNproperty>"
         ``` 
-        
-        Den här frågan returnerar till exempel resurserna från Azure App Service:
-
-        ```
-        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-        
-        Du kan också kombinera flera resurs typer. I den här exempel frågan returneras resurserna från Azure App Service **och** Azure App Service platser:
-
-        ```azurepowershell
-        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-
 
         Per tjänst parametrar för ARG-frågan:
 
-        |Resursnamn  |[ResourceType]  | [FQDNproperty]  |
+        |Resursnamn  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
         |Azure Front Door|Microsoft. Network/frontdoors|egenskaper. cName|
         |Azure Blob Storage|Microsoft. Storage/storageaccounts|Properties. blobar. blob|
@@ -157,6 +146,23 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
         |Azure API Management|Microsoft. API Management/Service|Properties. hostnameConfigurations. hostName|
         |Azure App Service|Microsoft. Web/Sites|egenskaper. defaultHostName|
         |Azure App Service-platser|Microsoft. Web/Sites/lotss|egenskaper. defaultHostName|
+
+        
+        **Exempel 1** – den här frågan returnerar resurserna från Azure App Service: 
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = properties.defaultHostName"
+        ```
+        
+        **Exempel 2** – den här frågan kombinerar flera resurs typer för att returnera resurser från Azure App Service **och** Azure App Service platser:
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
+        'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, 
+        resourceGroup, name, endpoint = properties.defaultHostName"
+        ```
 
 
 - **Skapa procedurer för reparation:**
@@ -173,4 +179,4 @@ Mer information om relaterade tjänster och Azure-funktioner som du kan använda
 
 - [Använd domän verifierings-ID: t när du lägger till anpassade domäner i Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
 
--    [Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)

@@ -2,13 +2,13 @@
 title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/10/2020
+ms.openlocfilehash: 86aed87be2d65a78b2485d0ce71ce1f674ea9407
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131880"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224646"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -59,9 +59,6 @@ Portar | 443 som används för kontroll av kanal dirigering<br/>9443 för data t
 ## <a name="replicated-machines"></a>Replikerade datorer
 
 Site Recovery stöder replikering av alla arbets belastningar som körs på en dator som stöds.
-
-> [!Note]
-> I följande tabell visas stödet för datorer med BIOS-start. I [lagrings](#storage) avsnittet finns stöd för UEFI-baserade datorer.
 
 **Komponent** | **Detaljer**
 --- | ---
@@ -149,8 +146,8 @@ Filsystem | ext3, ext4, XFS, BTRFS (villkor som gäller enligt den här tabellen
 Etablering av hantering av logiska volymer (LVM)| Tjock etablering – Ja <br></br> Tunn etablering – nej
 Volym hanterare | -LVM stöds.<br/> -/Boot på LVM stöds från [Samlad uppdatering 31](https://support.microsoft.com/help/4478871/) (version 9,20 av mobilitets tjänsten) och senare. Den stöds inte i tidigare mobilitets tjänst versioner.<br/> -Flera operativ system diskar stöds inte.
 Paravirtualiserade lagrings enheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
-Block-i/o-enheter med flera köer | Stöds inte.
-Fysiska servrar med HP CCISS Storage Controller | Stöds inte.
+Block-i/o-enheter med flera köer | Stöds ej.
+Fysiska servrar med HP CCISS Storage Controller | Stöds ej.
 Namngivnings konvention för enhet/monterings punkt | Enhets namnet eller monterings punktens namn måste vara unikt.<br/> Se till att inga enheter/monterings punkter har Skift läges känsliga namn. Exempelvis stöds inte namngivning av enheter för samma virtuella dator som *device1* och *device1* .
 Kataloger | Om du kör en tidigare version av mobilitets tjänsten än version 9,20 (Publicerad i [Samlad uppdatering 31](https://support.microsoft.com/help/4478871/)) gäller följande begränsningar:<br/><br/> – Dessa kataloger (om de har ställts in som separata partitioner/fil system) måste finnas på samma OS-disk på käll servern:/(rot),/boot,/usr,/usr/local,/var,/etc.</br> -/Boot-katalogen bör finnas på en diskpartition och inte vara en LVM-volym.<br/><br/> Dessa begränsningar gäller inte från version 9,20 och senare. 
 Start Katalog | – Start diskarna får inte vara i GPT-format. Detta är en begränsning för Azure-arkitekturen. GPT-diskar stöds som data diskar.<br/><br/> Det finns inte stöd för flera start diskar på en virtuell dator<br/><br/> -/Boot på en LVM-volym över mer än en disk stöds inte.<br/> -En dator utan en start disk kan inte replikeras.
@@ -163,7 +160,7 @@ BTRFS | BTRFS stöds från samlad [uppdatering 34](https://support.microsoft.com
 **Åtgärd** | **Detaljer**
 --- | ---
 Ändra storlek på disk på replikerad virtuell dator | Stöds på den virtuella käll datorn före redundans, direkt i egenskaperna för den virtuella datorn. Du behöver inte inaktivera/återaktivera replikering.<br/><br/> Om du ändrar den virtuella käll datorn efter redundansväxlingen, fångas inte ändringarna.<br/><br/> Om du ändrar disk storleken på den virtuella Azure-datorn efter redundansväxlingen, skapar Site Recovery en ny virtuell dator med uppdateringarna när du växlar tillbaka.
-Lägg till disk på replikerad virtuell dator | Stöds inte.<br/> Inaktivera replikering för den virtuella datorn, Lägg till disken och aktivera sedan replikering igen.
+Lägg till disk på replikerad virtuell dator | Stöds ej.<br/> Inaktivera replikering för den virtuella datorn, Lägg till disken och aktivera sedan replikering igen.
 
 ## <a name="network"></a>Nätverk
 
@@ -181,73 +178,76 @@ Gäst-/Server nätverk statisk IP (Linux) | Ja. <br/><br/>Virtuella datorer konf
 Gäst-/Server nätverk flera nätverkskort | Ja.
 
 
+
 ## <a name="azure-vm-network-after-failover"></a>Azure VM-nätverk (efter redundans)
 
 **Komponent** | **Stöds**
 --- | ---
-Azure ExpressRoute | Yes
-ILB | Yes
-ELB | Yes
-Azure Traffic Manager | Yes
-Multi-NIC | Yes
-Reserverad IP adress | Yes
-IPv4 | Yes
-Behåll Källans IP-adress | Yes
-Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Yes
-Snabbare nätverk | No
+Azure ExpressRoute | Ja
+ILB | Ja
+ELB | Ja
+Azure Traffic Manager | Ja
+Multi-NIC | Ja
+Reserverad IP adress | Ja
+IPv4 | Ja
+Behåll Källans IP-adress | Ja
+Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Ja
+Snabbare nätverk | Nej
 
 ## <a name="storage"></a>Storage
 **Komponent** | **Stöds**
 --- | ---
 Dynamisk disk | OS-disken måste vara en standard disk. <br/><br/>Data diskar kan vara dynamiska diskar
-Konfiguration av Docker-disk | No
+Konfiguration av Docker-disk | Nej
 Värd-NFS | Ja för VMware<br/><br/> Nej för fysiska servrar
-Värd-SAN (iSCSI/FC) | Yes
+Värd-SAN (iSCSI/FC) | Ja
 Värd virtuellt San | Ja för VMware<br/><br/> Ej tillämpligt för fysiska servrar
 Värd-multisökväg (MPIO) | Ja, testad med Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM för CLARiiON
 Virtuella värd volymer (VVols) | Ja för VMware<br/><br/> Ej tillämpligt för fysiska servrar
-Gäst/Server VMDK | Yes
-Gäst-/Server delad kluster disk | No
-Gäst/Server-krypterad disk | No
-Gäst-/Server-NFS | No
+Gäst/Server VMDK | Ja
+Gäst-/Server delad kluster disk | Nej
+Gäst/Server-krypterad disk | Nej
+Gäst-/Server-NFS | Nej
 Gäst-/Server-iSCSI | För migrering – Ja<br/>Vid haveri beredskap – nej kommer iSCSI att återställas efter fel som en ansluten disk till den virtuella datorn
-Gäst/Server SMB 3,0 | No
-Gäst/Server-RDM | Yes<br/><br/> Ej tillämpligt för fysiska servrar
+Gäst/Server SMB 3,0 | Nej
+Gäst/Server-RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
 Gäst-/Server disk > 1 TB | Ja, disken måste vara större än 1024 MB<br/><br/>Upp till 8 192 GB vid replikering till hanterade diskar (9,26-version och senare)<br></br> Upp till 4 095 GB vid replikering till lagrings konton
-Gäst/Server-disk med fysisk och fysisk sektor storlek för 4K | No
-Gäst-/Server disk med en fysisk sektor storlek på 4K och 512 byte | No
-Gäst-/Server volym med Striped disk >4 TB | Yes
+Gäst/Server-disk med fysisk och fysisk sektor storlek för 4K | Nej
+Gäst-/Server disk med en fysisk sektor storlek på 4K och 512 byte | Nej
+Gäst-/Server volym med Striped disk >4 TB | Ja
 Hantering av logiska volymer (LVM)| Tjocka etablering – Ja <br></br> Tunn allokering – nej
-Gäst/Server – lagrings utrymmen | No
-Gäst/Server Hot Lägg till/ta bort disk | No
-Gäst/Server – exkludera disk | Yes
-Multisökväg för gäst/Server (MPIO) | No
+Gäst/Server – lagrings utrymmen | Nej
+Gäst/Server Hot Lägg till/ta bort disk | Nej
+Gäst/Server – exkludera disk | Ja
+Multisökväg för gäst/Server (MPIO) | Nej
 GPT-partitioner för gäst/Server | Det finns stöd för fem partitioner från samlad [uppdatering 37](https://support.microsoft.com/help/4508614/) (version 9,25 av mobilitets tjänsten) och senare. Tidigare fyra stöddes.
 ReFS | Elastiskt fil system stöds med mobilitets tjänst version 9,23 eller senare
-Gäst/Server-EFI/UEFI-start | – Stöds för Windows Server 2012 eller senare, SLES 12 SP4 och RHEL 8,0 med Mobility agent version 9,30 och senare<br/> -Start typen för säker UEFI stöds inte. [Läs mer.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Gäst/Server-EFI/UEFI-start | – Stöds för alla [UEFI-operativ system för Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) med Site Recovery Mobility agent version 9,30 och senare. <br/> -Start typen för säker UEFI stöds inte. [Läs mer.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanaler för replikering
 
 |**Typ av replikering**   |**Stöds**  |
 |---------|---------|
-|Avlästa data överföringar (ODX)    |       No  |
-|Seeding offline        |   No      |
-| Azure Data Box | No
+|Avlästa data överföringar (ODX)    |       Nej  |
+|Seeding offline        |   Nej      |
+| Azure Data Box | Nej
 
 ## <a name="azure-storage"></a>Azure-lagring
 
 **Komponent** | **Stöds**
 --- | ---
-Lokalt redundant lagring | Yes
-Geografiskt redundant lagring | Yes
-Geo-redundant lagring med läsbehörighet (RA-GRS) | Yes
-Cool Storage | No
-Frekvent lagring| No
-Blockblobar | No
-Kryptering vid vila (SSE)| Yes
+Lokalt redundant lagring | Ja
+Geo-redundant lagring | Ja
+Geo-redundant lagring med läsbehörighet (RA-GRS) | Ja
+Cool Storage | Nej
+Frekvent lagring| Nej
+Blockblobar | Nej
+Kryptering vid vila (SSE)| Ja
 Kryptering vid vila (CMK)| Ja (via PowerShell AZ 3.3.0-modul och senare)
-Premium Storage | Yes
-Import/export-tjänst | No
+Dubbel kryptering i vila | Ja (via PowerShell AZ 3.3.0-modul och senare). Läs mer om regioner som stöds för [Windows](../virtual-machines/windows/disk-encryption.md) och [Linux](../virtual-machines/linux/disk-encryption.md).
+Premium Storage | Ja
+Alternativ för säker överföring | Ja
+Import/export-tjänst | Nej
 Azure Storage brand väggar för virtuella nätverk | Ja.<br/> Konfigurerat på mål lagring/cache lagrings konto (används för att lagra replikeringsdata).
 Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (transaktions kostnader är betydligt högre för v2 jämfört med v1)
 
@@ -255,10 +255,10 @@ Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (
 
 **Funktion** | **Stöds**
 --- | ---
-Tillgänglighetsuppsättningar | Yes
-Tillgänglighetszoner | No
-) | Yes
-Hanterade diskar | Yes
+Tillgänglighetsuppsättningar | Ja
+Tillgänglighetszoner | Nej
+) | Ja
+Hanterade diskar | Ja
 
 ## <a name="azure-vm-requirements"></a>Virtuella Azure VMware-datorer
 
@@ -273,9 +273,9 @@ Antal operativsystemdiskar | 1 | Kontrollen Miss lyckas om den inte stöds.
 Antal datadiskar | 64 eller mindre. | Kontrollen Miss lyckas om den inte stöds.
 Data disk storlek | Upp till 8 192 GB vid replikering till hanterad disk (9,26-version och senare)<br></br>Upp till 4 095 GB vid replikering till lagrings konto| Kontrollen Miss lyckas om den inte stöds.
 Nätverkskort | Flera nätverkskort stöds. |
-Delad VHD | Stöds inte. | Kontrollen Miss lyckas om den inte stöds.
-FC-disk | Stöds inte. | Kontrollen Miss lyckas om den inte stöds.
-BitLocker | Stöds inte. | BitLocker måste inaktive ras innan du aktiverar replikering för en dator. |
+Delad VHD | Stöds ej. | Kontrollen Miss lyckas om den inte stöds.
+FC-disk | Stöds ej. | Kontrollen Miss lyckas om den inte stöds.
+BitLocker | Stöds ej. | BitLocker måste inaktive ras innan du aktiverar replikering för en dator. |
 VM-namn | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck.<br/><br/> Dator namnet måste börja och sluta med en bokstav eller en siffra. |  Uppdatera värdet i dator egenskaperna i Site Recovery.
 
 ## <a name="resource-group-limits"></a>Resurs grupps gränser
@@ -302,7 +302,7 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 **Källans dataomsättning** | **Övre gräns**
 ---|---
 Högsta dataomsättning av alla diskar på en virtuella dator | 54 MB/s
-Maximal dataomsättning per dag som stöds av en processerver | 2 TB
+Maximal dataomsättning per dag som stöds av en processerver | 2 TB
 
 - Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 procent.
 - Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen.
@@ -312,10 +312,10 @@ Maximal dataomsättning per dag som stöds av en processerver | 2 TB
 
 **Åtgärd** | **Stöds**
 --- | ---
-Flytta valv över resurs grupper | No
-Flytta valvet inom och över prenumerationer | No
-Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper | No
-Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer. | No
+Flytta valv över resurs grupper | Nej
+Flytta valvet inom och över prenumerationer | Nej
+Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper | Nej
+Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer. | Nej
 
 
 ## <a name="obtain-latest-components"></a>Hämta de senaste komponenterna

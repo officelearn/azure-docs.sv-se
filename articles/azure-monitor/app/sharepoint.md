@@ -3,11 +3,12 @@ title: Övervaka en SharePoint-webbplats med Application Insights
 description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671451"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221059"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
 Azure Application Insights övervakar dina appars tillgänglighet, prestanda och användning. Här lär du dig att ställa in det för en SharePoint-webbplats.
@@ -48,18 +49,18 @@ Om du kan redigera webbplatsens huvudsida kan du övervaka alla sidor på webbpl
 
 Spara huvudsidan och redigera den med hjälp av SharePoint Designer eller någon annan redigerare.
 
-![](./media/sharepoint/03-master.png)
+![Skärm bild som visar hur du redigerar huvud sidan med Serviceadministratör designer eller någon annan redigerare.](./media/sharepoint/03-master.png)
 
 Lägg till koden precis före </head> taggredigerare. 
 
-![](./media/sharepoint/04-code.png)
+![Skärm bild som visar var du kan lägga till koden på din webbplats sida.](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>Eller på enskilda sidor
 Lägg till skript på varje enskild sida som du vill övervaka. 
 
 Infoga en webbdel och bädda in kodfragmentet i den.
 
-![](./media/sharepoint/05-page.png)
+![Skärm bild som visar hur du lägger till skriptet för att övervaka en begränsad uppsättning sidor.](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>Visa data om din app
 Distribuera om din app.
@@ -68,7 +69,7 @@ Gå tillbaka till ditt programblad i [Azure Portal](https://portal.azure.com).
 
 De första händelserna visas i sökningen. 
 
-![](./media/sharepoint/09-search.png)
+![Skärm bild som visar nya data som du kan visa i appen.](./media/sharepoint/09-search.png)
 
 Klicka på Uppdatera efter några sekunder om du väntade dig mer data.
 
@@ -77,7 +78,7 @@ Kodfragmentet för standardwebbplatsen hämtar inte användar-ID från SharePoin
 
 1. Kopiera din apps instrumentationsnyckeln från Essentials listrutan i Application Insights. 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Skärm bild som visar hur du kopierar appens Instrumentation från den grundläggande List rutan i Application Insights.](./media/sharepoint/02-props.png)
 
 1. Ersätta instrumentationsnyckeln 'XXXX' i kodfragmentet nedan. 
 2. Bädda in skriptet i en SharePoint-app i stället för utdraget som du får från portalen.

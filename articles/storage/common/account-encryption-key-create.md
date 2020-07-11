@@ -10,12 +10,12 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf7d72e6f16605827b55e3a460a9b28010842d2f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805700"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220838"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Skapa ett konto som stöder Kundhanterade nycklar för tabeller och köer
 
@@ -29,7 +29,7 @@ Om du vill skapa ett lagrings konto som förlitar sig på konto krypterings nyck
 
 Du kan skapa ett lagrings konto som förlitar sig på konto krypterings nyckeln för kö-och tabell lagring i följande regioner:
 
-- USA, östra
+- East US
 - USA, södra centrala
 - USA, västra 2  
 
@@ -61,7 +61,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Ej tillämpligt
 
 ---
 
@@ -93,7 +93,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Ej tillämpligt
 
 ---
 
@@ -119,7 +119,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Ej tillämpligt
 
 ---
 
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Du kan kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln genom att anropa kommandot [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `keyType` fältet för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account` .
+Om du vill kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln anropar du kommandot [AZ Storage Account show](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter `keyType` fältet för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account` .
 
 ```azurecli
 az storage account show /
@@ -247,7 +247,7 @@ az storage account show /
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Ej tillämpligt
 
 ---
 

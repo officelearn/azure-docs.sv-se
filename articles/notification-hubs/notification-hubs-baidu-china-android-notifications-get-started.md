@@ -14,12 +14,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
-ms.openlocfilehash: b9ca241b5deebc4d23e0ff648eddee0782617e0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaaaedbd6d2262f632bd47aa6eefb4cc83ab1abd
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79536997"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223966"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Kom igång med Notification Hubs genom att använda Baidu
 
@@ -29,7 +29,7 @@ Baidu Cloud Push är en kinesisk molntjänst som du kan använda för att skicka
 
 Eftersom Google Play och FCM (Firebase Cloud Messaging) inte är tillgängliga i Kina, är det nödvändigt att använda andra appbutiker och push-tjänster. Baidu är en av dem och den som för tillfället används av Notification Hub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Förhandskrav
 
 För den här kursen behöver du:
 
@@ -415,8 +415,8 @@ Anteckna `DefaultListenSharedAccessSignature` och `DefaultFullSharedAccessSignat
 
 Du kan snabbt testa att ta emot meddelanden från [Azure Portal]: använd knappen **Skicka** på konfigurationsskärmen i meddelandehubben, som det visas på följande skärmar:
 
-![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
-![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
+![Skärm bild av Azure-portalen med alternativet testa skicka som beskrivs i rött och en röd pil som pekar på den. ](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+ ![ Skärm bild till sidan Baidu test Send i Azure Portal.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 Push-meddelanden skickas vanligtvis i en serverdelstjänst som Mobile Services eller ASP.NET med hjälp av ett kompatibelt bibliotek. Om ett bibliotek inte är tillgängligt för din serverdel, kan du använda REST-API:et direkt för att skicka meddelanden.
 
@@ -436,7 +436,7 @@ I det här avsnittet kommer du att lära dig hur du skickar meddelanden med hjä
 
 1. Skapa en ny Visual C#-konsolapp:
 
-    ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
+    ![Skärm bild av dialog rutan nytt projekt med alternativet konsol program Visual C# markerat.](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. I fönstret för Package Manager-konsolen ställer du in **standardprojektet** till det nya projektet för konsolappen. Sedan kör du följande kommando i konsolfönstret:
 
@@ -446,7 +446,7 @@ I det här avsnittet kommer du att lära dig hur du skickar meddelanden med hjä
 
     Med den här instruktionen läggs en referens till i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![Skärm bild av dialog rutan Package Manager-konsolen med alternativet Skicka till meddelande hubb inringat i rött.](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Öppna filen `Program.cs` och lägg till följande med hjälp av uttryck:
 

@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5f6c6970ad8bb697ceb118b6725b37e93ca80b5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 94f9aca38ebe6fef50b555fa0d5b09050d996366
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213065"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230629"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Läs in data på ett säkert sätt med Synapse SQL
 
@@ -23,10 +23,10 @@ Den här artikeln beskriver och innehåller exempel på mekanismer för säker a
 
 I följande matris beskrivs de autentiseringsmetoder som stöds för varje filtyp och lagrings konto. Detta gäller för käll lagrings platsen och fel filens plats.
 
-|                      |                CSV                |              Parquet              |                ORC                |
-| :------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  Azure Blob Storage  | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |              SAS/NYCKEL              |              SAS/NYCKEL              |
-| Azure Data Lake Gen2 | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |
+|                          |                CSV                |              Parquet              |                ORC                |
+| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
+|  **Azure Blob Storage**  | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |              SAS/NYCKEL              |              SAS/NYCKEL              |
+| **Azure Data Lake Gen2** | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Lagrings konto nyckel med LF som rad avgränsare (UNIX-typ ny rad)
 
@@ -68,7 +68,7 @@ WITH (
 
 Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat till ett VNet. 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förhandskrav
 
 1. Installera Azure PowerShell med hjälp av den här [guiden](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -129,7 +129,7 @@ Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat ti
 >
 > - Ange **lagrings** **data** ägare, deltagare eller Reader RBAC-roll. De här rollerna skiljer sig från de inbyggda Azure-rollerna för ägare, deltagare och läsare. 
 
-## <a name="e-service-principal-authentication"></a>E. Autentisering av tjänstens huvud namn
+## <a name="e-service-principal-authentication"></a>E. Autentisering av tjänstens huvudnamn
 #### <a name="steps"></a>Steg
 
 1. [Skapa ett Azure Active Directory-program (AAD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)

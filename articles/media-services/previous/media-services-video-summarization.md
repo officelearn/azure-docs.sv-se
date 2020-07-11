@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918345"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231853"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video Thumbnails för att skapa en video Sammanfattning  
 
@@ -66,10 +67,10 @@ För närvarande kan du ändra följande parametrar:
 
 I följande tabell beskrivs standard varaktigheten när **maxMotionThumbnailInSecs** inte används.
 
-|  |  |  |
+|  | Liten | Större |
 | --- | --- | --- |
-| Video varaktighet |d < 3 min |3 min < d < 15 min |
-| Miniatyrens varaktighet |15 SEK (2-3 scener) |30 sekunder (3-5 scener) |
+| **Video varaktighet** |d < 3 min |3 min < d < 15 min |
+| **Miniatyrens varaktighet** |15 SEK (2-3 scener) |30 sekunder (3-5 scener) |
 
 Följande JSON anger tillgängliga parametrar.
 

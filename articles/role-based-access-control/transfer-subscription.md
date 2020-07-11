@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: f169cf45702d4a5051f9f6908b77c645c7a0018f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042398"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230850"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)
 
@@ -76,14 +76,14 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 | Azure Data Lake Storage Gen1 | Ja |  |  | Du måste återskapa alla ACL: er. |
 | Azure Files | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure File Sync | Ja | Ja |  |  |
-| Azure Managed Disks | Ja | E.t. |  |  |
+| Azure Managed Disks | Ja | Ej tillämpligt |  |  |
 | Azure Container Services för Kubernetes | Ja | Ja |  |  |
 | Azure Active Directory Domain Services | Ja | Nej |  |  |
 | Appregistreringar | Ja | Ja |  |  |
 
 Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som inte finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Du behöver följande för att slutföra de här stegen:
 
@@ -189,7 +189,7 @@ Hanterade identiteter uppdateras inte när en prenumeration överförs till en a
 
 1. Granska [listan över Azure-tjänster som har stöd för hanterade identiteter](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) för att notera var du kan använda hanterade identiteter.
 
-1. Använd [AZ AD SP-lista](/azure/ad/sp#az-ad-sp-list) för att visa en lista över tilldelade och användarspecifika hanterade identiteter.
+1. Använd [AZ AD SP-lista](/cli/azure/identity?view=azure-cli-latest#az-identity-list) för att visa en lista över tilldelade och användarspecifika hanterade identiteter.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"

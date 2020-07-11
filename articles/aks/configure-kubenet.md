@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 740c5dfb7dd4bece32aa2df5ef47d5f87091445b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055502"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231649"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -20,7 +20,7 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
@@ -54,7 +54,7 @@ Med *Azure cni*är ett vanligt problem att det tilldelade IP-adressintervallet �
 
 Som en kompromiss kan du skapa ett AKS-kluster som använder *Kubernetes* och ansluter till ett befintligt undernät för virtuella nätverk. Med den här metoden kan noderna ta emot definierade IP-adresser, utan att behöva reservera ett stort antal IP-adresser fram för alla potentiella poddar som kan köras i klustret.
 
-Med *Kubernetes*kan du använda ett mycket mindre IP-adressintervall och kunna stödja stora kluster och program krav. Till exempel med ett */27* IP-adressintervall kan du köra ett 20-25-nods kluster med tillräckligt utrymme för att skala eller uppgradera. Den här kluster storleken har stöd för upp till *2200-2750* poddar (med ett standardvärde på högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *Kubernetes* i AKS är 110.
+Med *Kubernetes*kan du använda ett mycket mindre IP-adressintervall och kunna stödja stora kluster och program krav. Till exempel, även med ett */27* IP-adressintervall i ditt undernät, kan du köra ett 20-25-nods-kluster med tillräckligt utrymme för att skala eller uppgradera. Den här kluster storleken har stöd för upp till *2200-2750* poddar (med ett standardvärde på högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *Kubernetes* i AKS är 110.
 
 Följande grundläggande beräkningar Jämför skillnaden i nätverks modeller:
 

@@ -9,11 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765105"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224867"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
@@ -45,7 +46,7 @@ Certifikat består av tre relaterade resurser som är länkade tillsammans som e
 **Steg 3** – en Contoso-administratör, tillsammans med en Contoso-anställd (Key Vault användare) som äger certifikat, beroende på certifikat utfärdaren, kan hämta ett certifikat från administratören eller direkt från kontot med certifikat utfärdaren.  
 
 - Påbörja åtgärden Lägg till autentiseringsuppgift till ett nyckel valv genom att [Ange en resurs för certifikat utfärdare](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) . En certifikat utfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat; utfärdarens namn, Provider, autentiseringsuppgifter och annan administrativ information.
-  - t.ex. MyDigiCertIssuer  
+  - Till exempel MyDigiCertIssuer  
     -   Leverantör  
     -   Autentiseringsuppgifter – autentiseringsuppgifter för CA-konto. Varje certifikat utfärdare har sina egna specifika data.  
 
@@ -80,6 +81,9 @@ OBS! den här processen, genom steg 3,1, är en Databasmigrering-åtgärd.
       -   Status: slutförd, misslyckades med fel information eller, avbruten  
       -   En avbrotts åtgärd kan initieras på grund av fördröjningen att skapa. Det går inte att avbryta eller så är det inte effektivt.  
 
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Nätverks säkerhets-och åtkomst principer som är associerade med integrerad CA
+Key Vault tjänsten skickar förfrågningar till CA: n (utgående trafik). Därför är den helt kompatibel med brand Väggs aktiverade nyckel valv. Key Vault delar inte åtkomst principer med certifikat utfärdaren. CA: n måste vara konfigurerad för att godkänna signerings förfrågningar oberoende av varandra. [Guide för integrering av betrodd certifikat utfärdare](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+
 ## <a name="import-a-certificate"></a>Importera ett certifikat  
  Alternativt – ett certifikat kan importeras till Key Vault – PFX eller PEM.  
 
@@ -92,7 +96,7 @@ OBS! den här processen, genom steg 3,1, är en Databasmigrering-åtgärd.
 
 -   Om det inte finns några ytterligare åtgärder skickas ett meddelande om att det första är Key Vault. 
 
--   Användaren kan också redigera principen, som fungerar vid tidpunkten för importen, men som innehåller standardinställningar där ingen information har angetts vid import. t.ex. ingen information om utfärdare  
+-   Användaren kan också redigera principen, som fungerar vid tidpunkten för importen, men som innehåller standardinställningar där ingen information har angetts vid import. Till exempel ingen information om utfärdare  
 
 ### <a name="formats-of-import-we-support"></a>Format för import vi stöder
 Azure Key Vault stöder. pem-och. pfx-certifikatfiler för att importera certifikat till Key Vault.

@@ -7,11 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75360845"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223694"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en moln tjänst i portalen
 
@@ -20,7 +21,7 @@ Villkor kan anges för en arbets roll för en moln tjänst som utlöser en skaln
 > [!NOTE]
 > Den här artikeln fokuserar på webb-och arbets roller i moln tjänster. När du skapar en virtuell dator (klassisk) direkt är den värdbaserad i en moln tjänst. Du kan skala en virtuell standard dator genom att associera den med en [tillgänglighets uppsättning](../virtual-machines/windows/classic/configure-availability-classic.md) och aktivera eller inaktivera dem manuellt.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 Du bör fundera över följande information innan du konfigurerar skalning för programmet:
 
 * Skalning påverkas av kärn användning.
@@ -42,10 +43,10 @@ När du har valt moln tjänsten bör du se till att moln tjänst bladet är synl
 1. På bladet moln tjänst väljer du namnet på moln tjänsten på panelen **roller och instanser** .   
    **Viktigt**: se till att klicka på moln tjänst rollen, inte roll instansen som är under rollen.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Skärm bild av panelen roller och instanser med arbets rollen med alternativet S B Queue 1 som beskrivs i rött.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Välj **skalnings** panelen.
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Skärm bild av sidan åtgärder med försäljnings panelen som beskrivs i rött.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Automatisk skalning
 Du kan konfigurera skalnings inställningar för en roll med antingen två lägen **manuellt** eller **automatiskt**. Manuellt är så som du förväntar dig, ställer du in det absoluta antalet instanser. Med automatisk kan du ange regler som styr hur mycket du ska skala.
@@ -88,7 +89,7 @@ Regler läggs till i en profil och representerar ett villkor som utlöser skalan
 
 Regel utlösaren baseras på ett mått för moln tjänsten (processor användning, disk aktivitet eller nätverks aktivitet) som du kan lägga till ett villkorligt värde i. Du kan också ha utlösaren baserat på en meddelandekö eller en annan Azure-resurs som är associerad med din prenumeration.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Skärm bild av dialog rutan regel med alternativet för mått namn som anges i rött.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 När du har konfigurerat regeln väljer du knappen **OK** längst ned på bladet regel.
 

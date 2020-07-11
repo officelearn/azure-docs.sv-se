@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: yulili
-ms.openlocfilehash: d114e75a08f31a664772b84e19ec4d93b453af0b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8f3a6c808cec28d3c2184bfd99aa2f5b1f6f88a3
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274759"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226420"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar ska du se till att:
 
@@ -29,13 +29,13 @@ Innan du börjar ska du se till att:
 
 Vi skapar ett grundläggande användargränssnitt för programmet. Redigera layouten för din huvudsakliga aktivitet, `activity_main.xml`. Inledningsvis innehåller layouten en namnlist med programmets namn och en TextView med texten ”Hello World!”.
 
-1. Klicka på elementet TextView. Ändra dess ID-attribut i det övre högra hörnet till `outputMessage`och dra det till den nedre skärmen. Ta bort dess text.
+1. Klicka på elementet TextView. Ändra dess ID-attribut i det övre högra hörnet till `outputMessage` och dra det till den nedre skärmen. Ta bort dess text.
 
 1. I paletten i det övre vänstra hörnet i fönstret `activity_main.xml` drar du en knapp till det tomma utrymmet ovanför texten.
 
 1. I knappens attribut till höger, i värdet för attributet `onClick` anger du `onSpeechButtonClicked`. Vi skriver en metod med det här namnet att hantera knapphändelsen.  Ändra dess ID-attribut i det övre högra hörnet till `button`.
 
-1. Dra en oformaterad text till utrymmet ovanför knappen. ändra dess ID-attribut `speakText`till och ändra attributet text till `Hi there!`.
+1. Dra en oformaterad text till utrymmet ovanför knappen. ändra dess ID-attribut till `speakText` och ändra attributet text till `Hi there!` .
 
 1. Använd trollstavsikonen överst i designern för att härleda layoutbegränsningar.
 
@@ -44,7 +44,7 @@ Vi skapar ett grundläggande användargränssnitt för programmet. Redigera layo
 
 Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här:
 
-![](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
+![Skärm bild av hur ditt användar gränssnitt bör se ut.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/text-to-speech/app/src/main/res/layout/activity_main.xml)]
 
@@ -60,13 +60,13 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 1. Ersätt även strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri utvärderingsversion).
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
 1. Anslut din Android-enhet till utvecklingsdatorn. Kontrollera att du har aktiverat [utvecklingsläge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten. Du kan också skapa en [Android-emulator](https://developer.android.com/studio/run/emulator).
 
-1. Skapa programmet genom att trycka på CTRL + F9 eller välja **skapa** > **skapa projekt** på Meny raden.
+1. Skapa programmet genom att trycka på CTRL + F9 eller välja **skapa**  >  **skapa projekt** på Meny raden.
 
-1. Starta programmet genom att trycka på SKIFT + F10 eller välja **Kör** > **Kör "app"**.
+1. Starta programmet genom att trycka på SKIFT + F10 eller välja **Kör**  >  **Kör "app"**.
 
 1. I fönstret distributions mål som visas väljer du din Android-enhet eller emulator.
 

@@ -8,16 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bfc7f194730545469e7d17d46c47f7293f016e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728902"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221290"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visa och tilldela administratörs roller i Azure Active Directory
 
@@ -25,29 +26,50 @@ Nu kan du se och hantera alla medlemmar i administratörs rollerna i Azure Activ
 
 ## <a name="view-all-roles"></a>Visa alla roller
 
-Sök efter och välj **Azure Active Directory**. Välj **roller och administratörer** om du vill se en lista över alla tillgängliga roller.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Azure Active Directory**.
 
-Öppna den detaljerade beskrivningen av rollen genom att klicka på ellipsen till höger om varje rad.
+1. Välj **roller och administratörer** om du vill se en lista över alla tillgängliga roller.
 
-![lista över roller i Azure AD Portal](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
+1. Välj ellipsen till höger om varje rad för att se behörigheterna för rollen. Välj en roll om du vill visa de användare som har tilldelats rollen. Om något skiljer sig från följande bild läser du anteckningen i [Visa tilldelningar för privilegierade roller](#view-assignments-for-privileged-roles) för att kontrol lera om du är i PRIVILEGED Identity Management (PIM).
+
+    ![lista över roller i Azure AD Portal](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## <a name="view-my-roles"></a>Visa mina roller
 
 Det är enkelt att visa dina egna behörigheter. Välj **din roll** på sidan **roller och administratörer** för att se de roller som för närvarande är tilldelade till dig.
 
-## <a name="view-assignments-for-a-role"></a>Visa tilldelningar för en roll
+## <a name="view-assignments-for-privileged-roles"></a>Visa tilldelningar för privilegierade roller
 
-Klicka på en roll om du vill visa de användare som har tilldelats rollen. Du kan välja **Hantera i PIM** för ytterligare hanterings funktioner. Privilegierade roll administratörer kan ändra "permanent" (alltid aktivt i rollen) tilldelningar till "kvalificerat" (i rollen endast när det har förhöjds). Om du inte har PIM kan du fortfarande välja **Hantera i PIM** för att registrera dig för en utvärderings version. Privileged Identity Management kräver en [Azure AD Premium P2-licens plan](../privileged-identity-management/subscription-requirements.md).
+Du kan välja **Hantera i PIM** för ytterligare hanterings funktioner. Privilegierade roll administratörer kan ändra "permanent" (alltid aktivt i rollen) tilldelningar till "kvalificerat" (i rollen endast när det har förhöjds). Om du inte har Privileged Identity Management kan du fortfarande välja **Hantera i PIM** för att registrera dig för en utvärderings version. Privileged Identity Management kräver en [Azure AD Premium P2-licens plan](../privileged-identity-management/subscription-requirements.md).
 
 ![lista över medlemmar i en administratörs roll](./media/directory-manage-roles-portal/member-list.png)
 
 Om du är global administratör eller administratör för privilegierade roller kan du enkelt lägga till eller ta bort medlemmar, filtrera listan eller välja en medlem för att se deras aktiva tilldelade roller.
+
+> [!Note]
+> Om du har en Azure AD Premium P2-licens och du redan använder Privileged Identity Management, utförs alla roll hanterings uppgifter i Privileged Identity Management och inte i Azure AD.
+>
+> ![Azure AD-roller som hanteras i PIM för användare som redan använder PIM och har en Premium P2-licens](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
 ## <a name="view-a-users-role-permissions"></a>Visa en användares roll behörigheter
 
 När du visar en Rolls medlemmar väljer du **Beskrivning** för att se en fullständig lista över behörigheter som beviljats av roll tilldelningen. Sidan innehåller länkar till relevant dokumentation för att hjälpa dig att hantera katalog roller.
 
 ![lista över behörigheter för en administratörs roll](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="assign-a-role"></a>Tilldela en roll
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med behörigheterna global administratör eller privilegie rad roll administratör och välj **Azure Active Directory**.
+
+1. Välj **roller och administratörer** om du vill se en lista över alla tillgängliga roller.
+
+1. Välj en roll för att se dess tilldelningar.
+
+    ![lista över behörigheter för en administratörs roll](./media/directory-manage-roles-portal/member-list.png)
+
+1. Välj **Lägg till tilldelningar** och välj de roller som du vill tilldela. Du kan välja **Hantera i PIM** för ytterligare hanterings funktioner. Om något skiljer sig från följande bild läser du anteckningen i [Visa tilldelningar för privilegierade roller](#view-assignments-for-privileged-roles) för att kontrol lera om du är i Pim.
+
+    ![lista över behörigheter för en administratörs roll](./media/directory-manage-roles-portal/directory-role-select-role.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

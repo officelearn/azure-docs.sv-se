@@ -7,13 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733406"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223048"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Granska säkerhets gransknings händelser i Azure Active Directory Domain Services att använda Azure Monitor arbets böcker
 
@@ -31,8 +32,8 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
     * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
-* Säkerhets gransknings händelser som är aktiverade för din Azure Active Directory Domain Services hanterade domän som strömmar data till en Log Analytics arbets yta.
-    * Om det behövs [aktiverar du säkerhets granskningar för Azure Active Directory Domain Services][enable-security-audits].
+* Säkerhets gransknings händelser som är aktiverade för din hanterade domän och strömma data till en Log Analytics-arbetsyta.
+    * Om det behövs [aktiverar du säkerhets granskningar för Azure AD DS][enable-security-audits].
 
 ## <a name="azure-monitor-workbooks-overview"></a>Översikt över Azure Monitor arbets böcker
 
@@ -60,11 +61,13 @@ Slutför följande steg för att få åtkomst till arbets boks mal len för säk
     ![Välj meny alternativet arbets böcker i Azure Portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Välj **rapporten säkerhets översikt**.
-1. Välj din Azure-prenumeration på den nedrullningsbara menyn längst upp i arbets boken och Azure Monitor arbets ytan. Välj ett **tidsintervall**, till exempel de *senaste 7 dagarna*.
+1. Välj din Azure-prenumeration på den nedrullningsbara menyn längst upp i arbets boken och sedan en Azure Monitor arbets yta.
+
+    Välj ett **tidsintervall**, till exempel de *senaste 7 dagarna*, som du ser i följande exempel skärm bild:
 
     ![Välj meny alternativet arbets böcker i Azure Portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
-    Du kan också **ändra visnings alternativ och** **diagram visnings** alternativ för att analysera och visualisera data efter behov
+    Du kan också **ändra visnings alternativ och** **diagram visnings** alternativ för att analysera och visualisera data som du vill.
 
 1. Om du vill öka detalj nivån till en speciell händelse typ väljer du en av **inloggnings resultat** korten, till exempel *kontot låst*, som du ser i följande exempel:
 
@@ -84,7 +87,11 @@ Utför följande steg för att få åtkomst till arbets boks mal len för konto 
 1. Välj din hanterade domän, till exempel *aaddscontoso.com*
 1. På menyn till vänster väljer du **övervakning > arbets böcker**
 1. Välj **rapporten konto aktivitet**.
-1. Välj din Azure-prenumeration på den nedrullningsbara menyn längst upp i arbets boken och Azure Monitor arbets ytan. Välj ett **tidsintervall**, till exempel de *senaste 30 dagarna*, och sedan hur du vill att **visnings** området ska representera data. Du kan filtrera efter **konto användar namn**, till exempel *Felix*, som du ser i följande exempel rapport:
+1. Välj din Azure-prenumeration på den nedrullningsbara menyn längst upp i arbets boken och sedan en Azure Monitor arbets yta.
+
+    Välj ett **tidsintervall**, till exempel de *senaste 30 dagarna*, och sedan hur du vill att **visnings** området ska representera data.
+
+    Du kan filtrera efter **konto användar namn**, till exempel *Felix*, som du ser i följande exempel rapport:
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 

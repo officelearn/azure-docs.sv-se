@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589660"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224595"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Förbättra syntesen med verktyget för att skapa ljud innehåll
 
@@ -23,11 +23,13 @@ Att [skapa ljud innehåll](https://aka.ms/audiocontentcreation) är ett online v
 
 Verktyget för att skapa ljud innehåll baseras på [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md). För att förenkla anpassningen och justeringen kan du med hjälp av ljud innehåll visuellt inspektera dina text till tal-utdata i real tid.
 
+Se [video guiden](https://www.youtube.com/watch?v=O1wIJ7mts_w) för att skapa ljud innehåll.
+
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
 Det här diagrammet visar de steg som krävs för att finjustera text till tal-utdata. Använd länkarna nedan för att lära dig mer om varje steg.
 
-![](media/audio-content-creation/audio-content-creation-diagram.jpg)
+![Ett diagram över de steg som krävs för att finjustera text till tal-utdata.](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
 1. [Konfigurera ditt Azure-konto och din tal resurs](#set-up-your-azure-account-and-speech-resource) för att komma igång.
 2. [Skapa en fil för ljud justering](#create-an-audio-tuning-file) med hjälp av oformaterad text eller SSML-skript.
@@ -64,7 +66,7 @@ Det finns två sätt att hämta innehåll till verktyget för att skapa ljud inn
 
    | Egenskap | Värde/anteckningar |
    |----------|---------------|
-   | Fil format | Oformaterad text (. txt)<br/> SSML text (. txt)<br/> Zip-filer stöds inte |
+   | Filformat | Oformaterad text (. txt)<br/> SSML text (. txt)<br/> Zip-filer stöds inte |
    | Kodnings format | UTF-8 |
    | Filnamn | Varje fil måste ha ett unikt namn. Dubbletter stöds inte. |
    | Text längd | Textfiler får inte överstiga 20 000 tecken. |

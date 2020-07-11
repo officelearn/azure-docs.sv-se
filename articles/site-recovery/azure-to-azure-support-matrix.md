@@ -2,14 +2,14 @@
 title: Support mat ris för haveri beredskap i Azure VM med Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella Azure-datorer till en sekundär region med Azure Site Recovery.
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 07/10/2020
 ms.author: raynew
-ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d56a507586c9d62fdbeae01d47bb734b98bf385b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132674"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223813"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -31,10 +31,10 @@ Den här artikeln sammanfattar support och krav för haveri beredskap för virtu
 **Resurs åtgärd** | **Detaljer**
 --- | ---
 **Flytta valv över resurs grupper** | Stöds inte
-**Flytta beräknings-/lagrings-/nätverks resurser över resurs grupper** | Stöds inte.<br/><br/> Om du flyttar en virtuell dator eller tillhör ande komponenter, till exempel lagring/nätverk när den virtuella datorn har repliker ATS, måste du inaktivera och sedan återaktivera replikering för den virtuella datorn.
+**Flytta beräknings-/lagrings-/nätverks resurser över resurs grupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhör ande komponenter, till exempel lagring/nätverk när den virtuella datorn har repliker ATS, måste du inaktivera och sedan återaktivera replikering för den virtuella datorn.
 **Replikera virtuella Azure-datorer från en prenumeration till en annan för haveri beredskap** | Stöds inom samma Azure Active Directory-klient.
 **Migrera virtuella datorer mellan regioner inom de geografiska kluster som stöds (inom och över prenumerationer)** | Stöds inom samma Azure Active Directory-klient.
-**Migrera virtuella datorer inom samma region** | Stöds inte.
+**Migrera virtuella datorer inom samma region** | Stöds ej.
 
 ## <a name="region-support"></a>Stöd för regioner
 
@@ -205,7 +205,7 @@ Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad f
 Maximal storlek för data disk | 8192 GB för Managed disks<br></br>4095 GB för ohanterade diskar|
 Minsta storlek för data disk | Ingen begränsning för ohanterade diskar. 2 GB för hanterade diskar |
 Högsta antal data diskar | Upp till 64, i enlighet med stöd för en speciell storlek på virtuell Azure-dator | [Läs mer](../virtual-machines/windows/sizes.md) om storlekar på virtuella datorer.
-Ändrings takt för data disk | Högst 10 MBps per disk för Premium Storage. Högst 2 Mbit/s per disk för standard lagring. | Om genomsnitts data ändrings takten på disken kontinuerligt är högre än det högsta antalet kommer replikering inte att fångas upp.<br/><br/>  Men om det maximala värdet överskrids sporadisk, kan replikeringen fångas upp, men du kan se något fördröjda återställnings punkter.
+Ändrings takt för data disk | Högst 20 Mbit/s per disk för Premium Storage. Högst 2 Mbit/s per disk för standard lagring. | Om genomsnitts data ändrings takten på disken kontinuerligt är högre än det högsta antalet kommer replikering inte att fångas upp.<br/><br/>  Men om det maximala värdet överskrids sporadisk, kan replikeringen fångas upp, men du kan se något fördröjda återställnings punkter.
 Data disk-standard lagrings konto | Stöds |
 Data disk – Premium Storage-konto | Stöds | Om en virtuell dator har diskar som sprids över Premium-och standard lagrings konton kan du välja ett annat mål lagrings konto för varje disk, så att du har samma lagrings konfiguration i mål regionen.
 Hanterad disk – standard | Stöds i Azure-regioner där Azure Site Recovery stöds. |
@@ -216,6 +216,7 @@ Kylning och frekvent lagring | Stöds inte | VM-diskar stöds inte på låg frek
 Lagringsutrymmen | Stöds |
 Kryptering i rest (SSE) | Stöds | SSE är standardinställningen på lagrings konton.
 Kryptering i vilo läge (CMK) | Stöds | Både program-och HSM-nycklar stöds för hanterade diskar
+Dubbel kryptering i vila | Stöds | Läs mer om regioner som stöds för [Windows](../virtual-machines/windows/disk-encryption.md) och [Linux](../virtual-machines/linux/disk-encryption.md)
 Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. <br/><br/> Kryptering av enskilda volymer på en enskild disk stöds inte. |
 Azure Disk Encryption (ADE) för Linux OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. <br/><br/> Kryptering av enskilda volymer på en enskild disk stöds inte. |
 Frekvent tillägg    | Stöds | Att aktivera replikering för en datadisk som du lägger till i en replikerad virtuell Azure-dator stöds för virtuella datorer som använder hanterade diskar. <br/><br/> Det går bara att lägga till en hård disk i taget till en virtuell Azure-dator. Det finns inte stöd för att lägga till flera diskar parallellt. |
@@ -234,6 +235,7 @@ Generell användning v2-lagrings konton (både frekvent och låg frekvent nivå)
 Generation 2 (UEFI-start) | Stöds
 NVMe-diskar | Stöds inte
 Delade diskar i Azure | Stöds inte
+Alternativ för säker överföring | Stöds
 
 >[!IMPORTANT]
 > Undvik prestanda problem genom att följa skalbarhet för virtuella dator diskar och prestanda mål för virtuella [Linux](../virtual-machines/linux/disk-scalability-targets.md) -eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) -datorer. Om du använder standardinställningarna skapar Site Recovery de nödvändiga diskarna och lagrings kontona baserat på käll konfigurationen. Om du anpassar och väljer dina egna inställningar följer du diskens skalbarhet och prestanda mål för dina virtuella käll datorer.
@@ -282,5 +284,7 @@ IPv6  | Stöds inte | Blandade konfigurationer som inkluderar både IPv4 och IPv
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Läs [nätverks vägledning](./azure-to-azure-about-networking.md) för replikering av virtuella Azure-datorer.
 - Distribuera haveri beredskap genom att [Replikera virtuella Azure-datorer](./azure-to-azure-quickstart.md).
+

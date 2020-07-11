@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253876"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223320"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrera den aktuella användaren för push-meddelanden med ASP.NET
 
@@ -44,11 +44,11 @@ Det här avsnittet visar hur du begär registrering av push-meddelanden med Azur
 
      I det här läget ser din storyboard ut ungefär så här:
 
-     ![][0]
+     ![Skärm bild av appen MainStoryboard_iPhone. storyboard med de komponenter som lagts till.][0]
 
 2. I assistent redigeraren skapar du utlämnade alternativ för alla växlade kontroller och anropar dem, ansluter textfälten med visnings styrenheten (ombud) och skapar en **åtgärd** för knappen **Logga in** .
 
-    ![][1]
+    ![Skärm bild av assistent redigeraren i MainStoryboard_iPhone. storyboard-appen][1]
 
     Din BreakingNewsViewController. h-fil bör nu innehålla följande kod:
 

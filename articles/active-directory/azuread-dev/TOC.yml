@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: Begrepp
   items:
+    - name: Utvecklingen av Microsofts identitetsplattform
+      href: about-microsoft-identity-platform.md
     - name: Varför du bör uppdatera till v2.0
       href: azure-ad-endpoint-comparison.md
     - name: Programtyper

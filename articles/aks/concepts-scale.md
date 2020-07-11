@@ -4,11 +4,12 @@ description: Lär dig mer om skalning i Azure Kubernetes service (AKS), inklusiv
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c9c3cf159d67d2f4acaaab943ecf9d99263ae55
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465345"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223847"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service
 
@@ -79,7 +80,7 @@ Om du snabbt vill skala ditt AKS-kluster kan du integrera med Azure Container In
 
 ![Kubernetes burst-skalning till ACI](media/concepts-scale/burst-scaling.png)
 
-Med ACI kan du snabbt distribuera behållar instanser utan ytterligare infrastruktur belastning. När du ansluter med AKS blir ACI ett säkert, logiskt tillägg för ditt AKS-kluster. Komponenten [virtuella noder][virtual-nodes-cli] , som baseras på [Virtual Kubelet][virtual-kubelet], installeras i ditt AKS-kluster som presenterar ACI som en virtuell Kubernetes-nod. Kubernetes kan sedan schemalägga poddar som körs som ACI-instanser via virtuella noder, inte som poddar på VM-noder direkt i ditt AKS-kluster. Virtuella noder är för närvarande för hands versioner i AKS.
+Med ACI kan du snabbt distribuera behållar instanser utan ytterligare infrastruktur belastning. När du ansluter med AKS blir ACI ett säkert, logiskt tillägg för ditt AKS-kluster. Komponenten [virtuella noder][virtual-nodes-cli] , som baseras på [Virtual Kubelet][virtual-kubelet], installeras i ditt AKS-kluster som presenterar ACI som en virtuell Kubernetes-nod. Kubernetes kan sedan schemalägga poddar som körs som ACI-instanser via virtuella noder, inte som poddar på VM-noder direkt i ditt AKS-kluster.
 
 Programmet kräver ingen ändring för att använda virtuella noder. Distributioner kan skalas över AKS och ACI och utan fördröjning som kluster autoskalning distribuerar nya noder i ditt AKS-kluster.
 

@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846725"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231307"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifikationer för Azure FXT Edge-filer
 
@@ -46,7 +46,7 @@ Azure FXT Edge-filer har utformats för att passa i ett standardiserat "utrustni
 
 <!-- 10x2.5 inches version -->
 
-| Filter för filer           |                          |
+| Filter för filer            | Värde                    |
 |-----------------------------|--------------------------|
 | Höjd                      | 42,8 mm (1,68 tum)    |
 | Bredd (inklusive rack öron) | 482,0 mm (18,97 tum)  |
@@ -56,7 +56,7 @@ Azure FXT Edge-filer har utformats för att passa i ett standardiserat "utrustni
 | Djup – rack öron till längst fram protrusion, utan ram | 22,0 mm (0,87 tum)  |
 | Djup – rack öron till längst fram-protrusion, med panel    | 35,84 mm (1,41 tum) |
 
-| Vikt | |
+| Vikt | Värde |
 |-----------------|----------------------|
 | Node vikt (utan emballage, utan tillbehör) | 40 kg (18,1 kg) |
 | Netto vikt (utan paketering, inklusive tillbehör) | 51 kg (23,1 kg)|

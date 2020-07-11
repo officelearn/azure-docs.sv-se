@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856001"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230833"
 ---
 # <a name="key-vault-versions"></a>Key Vault-versioner
 
@@ -55,7 +55,7 @@ Nya funktioner som lanseras i år:
 ## <a name="2015"></a>2015
 
 Nya funktioner som lanseras i år:
-- Certifikat hantering. Lades till som en funktion i GA version 2015-06-01 den 26 september 2016.
+- Certifikathantering. Lades till som en funktion i GA version 2015-06-01 den 26 september 2016.
 
 Allmän tillgänglighet (version 2015-06-01) presenterades den 24 juni 2015. Följande ändringar har gjorts i den här versionen: 
 - Ta bort ett fält för nyckel användning borttaget.
@@ -64,7 +64,7 @@ Allmän tillgänglighet (version 2015-06-01) presenterades den 24 juni 2015. Fö
 - Återställa en nyckel-"use"-fält som har tagits bort.     
 - Ändrade "RSA_OAEP" till "RSA-OAEP" för RSA-algoritmer. Se [om nycklar, hemligheter och certifikat](about-keys-secrets-certificates.md).    
  
-Den andra för hands versionen (version 2015-02-01-för hands version) presenterades 20 april 2015. Mer information finns i blogg inlägget [REST API Update](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) . Följande uppgifter har uppdaterats:
+Den andra för hands versionen (version 2015-02-01-för hands version) presenterades 20 april 2015. Mer information finns i blogg inlägget [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) . Följande uppgifter har uppdaterats:
  
 - Visa en lista med nycklarna i ett valv som har lagt till stöd för sid brytning.
 - Visar en lista över versioner av en åtgärd som har lagts till för att visa en lista över versioner av en nyckel.  

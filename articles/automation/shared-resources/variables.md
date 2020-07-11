@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744969"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187327"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Hantera variabler i Azure Automation
 
@@ -44,14 +45,14 @@ När du skapar en variabel med Azure Portal måste du ange en datatyp i list rut
 * Boolesk
 * Null
 
-Variabeln är inte begränsad till den angivna data typen. Du måste ange variabeln med hjälp av Windows PowerShell om du vill ange ett värde av en annan typ. Om du anger `Not defined` anges värdet för variabeln till null. Du måste ange värdet med cmdleten [set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) eller den interna `Set-AutomationVariable` cmdleten.
+Variabeln är inte begränsad till den angivna data typen. Du måste ange variabeln med hjälp av Windows PowerShell om du vill ange ett värde av en annan typ. Om du anger `Not defined` anges värdet för variabeln till null. Du måste ange värdet med cmdleten [set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) eller den interna `Set-AutomationVariable` cmdleten.
 
 Du kan inte använda Azure Portal för att skapa eller ändra värdet för en komplex variabel typ. Du kan dock ange ett värde av vilken typ som helst med hjälp av Windows PowerShell. Komplexa typer hämtas som en [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Du kan lagra flera värden i en enskild variabel genom att skapa en matris eller hash och spara den i variabeln.
 
 >[!NOTE]
->Variabler för virtuella dator namn får bestå av högst 80 tecken. Variabler för resurs grupper får bestå av högst 90 tecken. Se [namngivnings regler och begränsningar för Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
+>Variabler för virtuella dator namn får bestå av högst 80 tecken. Variabler för resurs grupper får bestå av högst 90 tecken. Se [namngivnings regler och begränsningar för Azure-resurser](../../azure-resource-manager/management/resource-name-rules.md).
 
 ## <a name="powershell-cmdlets-to-access-variables"></a>PowerShell-cmdletar för att få åtkomst till variabler
 
@@ -59,10 +60,10 @@ Cmdletarna i följande tabell skapar och hanterar Automation-variabler med Power
 
 | Cmdlet | Beskrivning |
 |:---|:---|
-|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Hämtar värdet för en befintlig variabel. Om värdet är en enkel typ hämtas samma typ. Om det är en komplex typ hämtas en `PSCustomObject` typ. <br>**Obs:**  Du kan inte använda denna cmdlet för att hämta värdet för en krypterad variabel. Det enda sättet att göra detta är genom att använda den interna `Get-AutomationVariable` cmdleten i en Runbook-eller DSC-konfiguration. Se [interna cmdlets för att få åtkomst till variabler](#internal-cmdlets-to-access-variables). |
-|[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Skapar en ny variabel och anger dess värde.|
-|[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Tar bort en befintlig variabel.|
-|[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Ställer in värdet för en befintlig variabel. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Hämtar värdet för en befintlig variabel. Om värdet är en enkel typ hämtas samma typ. Om det är en komplex typ hämtas en `PSCustomObject` typ. <br>**Obs:**  Du kan inte använda denna cmdlet för att hämta värdet för en krypterad variabel. Det enda sättet att göra detta är genom att använda den interna `Get-AutomationVariable` cmdleten i en Runbook-eller DSC-konfiguration. Se [interna cmdlets för att få åtkomst till variabler](#internal-cmdlets-to-access-variables). |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Skapar en ny variabel och anger dess värde.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Tar bort en befintlig variabel.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Ställer in värdet för en befintlig variabel. |
 
 ## <a name="internal-cmdlets-to-access-variables"></a>Interna cmdletar för att få åtkomst till variabler
 
@@ -126,7 +127,7 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-I följande exempel visas hur du skapar en variabel med en komplex typ och sedan hämtar dess egenskaper. I det här fallet används ett virtuellt dator objekt från [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) .
+I följande exempel visas hur du skapar en variabel med en komplex typ och sedan hämtar dess egenskaper. I det här fallet används ett virtuellt dator objekt från [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) .
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"

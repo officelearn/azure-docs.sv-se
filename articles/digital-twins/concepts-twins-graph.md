@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6b6da2a15441564ef0b67e76ee5a0e0c85839a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609324"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142413"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
@@ -97,6 +98,7 @@ När ett digitalt objekt visas som ett JSON-objekt visas följande fält:
 | Fältnamn | Beskrivning |
 | --- | --- |
 | `$dtId` | En användardefinierad sträng som representerar ID: t för den digitala dubbla |
+| `$etag` | Standard-HTTP-fält som tilldelas av webb servern |
 | `$conformance` | En uppräkning som innehåller proformat-tillståndet för denna digitala garn (*överensstämmande*, *icke-överensstämmande*, *okänd*) |
 | `{propertyName}` | Värdet för en egenskap i JSON ( `string` , tal typ eller objekt) |
 | `$relationships` | URL till sökvägen till Relations samlingen. Det här fältet saknas om det digitala området inte har några utgående Relations kanter. |
@@ -115,6 +117,7 @@ Här är ett exempel på en digital, dubbels formaterad som ett JSON-objekt:
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -162,6 +165,7 @@ När den visas som ett JSON-objekt, visas följande fält i en relation från en
 | Fältnamn | Beskrivning |
 | --- | --- |
 | `$relationshipId` | En användardefinierad sträng som representerar ID: t för den här relationen. Den här strängen är unik i kontexten för källan Digital, som också innebär att `sourceId`  +  `relationshipId` är unik i kontexten för Azure Digitals-instansen. |
+| `$etag` | Standard-HTTP-fält som tilldelas av webb servern |
 | `$sourceId` | ID: t för den digitala källan |
 | `$targetId` | ID: t för målets digitala dubbla |
 | `$relationshipName` | Namnet på relationen |

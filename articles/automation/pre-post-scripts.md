@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246fcdb27737e99bb677e23216f0305037f54526
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100383"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187463"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Hantera förskript och efterskript
 
@@ -147,7 +147,7 @@ Aktiviteter och aktiviteter körs som Runbooks och körs inte internt på dina v
 * Ett Kör som-konto
 * En Runbook som du vill köra
 
-Om du vill interagera med Azure-datorer ska du använda cmdleten [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) för att interagera med dina virtuella Azure-datorer. Ett exempel på hur du gör detta finns i Runbook-exemplet [uppdateringshantering – kör skript med kommandot kör](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+Om du vill interagera med Azure-datorer ska du använda cmdleten [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) för att interagera med dina virtuella Azure-datorer. Ett exempel på hur du gör detta finns i Runbook-exemplet [uppdateringshantering – kör skript med kommandot kör](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
 ### <a name="interact-with-non-azure-machines"></a>Interagera med datorer som inte är Azure-datorer
 
@@ -158,7 +158,7 @@ Aktiviteter och aktiviteter som körs i Azure-kontexten och som inte har åtkoms
 * En Runbook som du vill köra lokalt
 * En överordnad Runbook
 
-För att interagera med datorer som inte är Azure-datorer körs en överordnad Runbook i Azure-kontexten. Denna Runbook anropar en underordnad Runbook med cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Du måste ange `RunOn` parametern och ange namnet på Hybrid Runbook Worker som skriptet ska köras på. Se Runbook-exemplet [uppdateringshantering – kör skriptet lokalt](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+För att interagera med datorer som inte är Azure-datorer körs en överordnad Runbook i Azure-kontexten. Denna Runbook anropar en underordnad Runbook med cmdleten [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Du måste ange `RunOn` parametern och ange namnet på Hybrid Runbook Worker som skriptet ska köras på. Se Runbook-exemplet [uppdateringshantering – kör skriptet lokalt](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Avbryt korrigerings distribution
 
@@ -243,7 +243,7 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> För icke-grafiska PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
+> För icke-grafiska PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
 
 ## <a name="next-steps"></a>Nästa steg
 

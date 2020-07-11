@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701838"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220702"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
@@ -27,13 +28,13 @@ I den här självstudien visas hur du skapar webbappar och App Service-planer i 
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 I den här självstudien förutsätter vi att du har skapat en App Service-miljön. Om du inte har gjort det ännu kan du läsa [skapa en app service-miljön](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 1. I [Azure-portalen](https://portal.azure.com/)klickar du på **skapa en resurs > webb och mobilt >-webbapp**. 
    
-    ![][1]
+    ![Skärm bild som visar var du kan skapa en webbapp i Azure Portal.][1]
 2. Välj din prenumeration.  
    
     Om du har flera prenumerationer som är medvetna om att du ska skapa en app i App Service-miljön måste du använda samma prenumeration som du använde när du skapade miljön. 
@@ -46,7 +47,7 @@ I den här självstudien förutsätter vi att du har skapat en App Service-milj�
    
     Du kan identifiera App Service planer i din ASE genom att titta på den plats som anges under prenumerations namnet.  
    
-    ![][5]
+    ![Skärm bild som visar var att Visa App Service planer i din ASE.][5]
    
     Om du vill använda en App Service plan som redan finns i App Service-miljön väljer du den planen. Om du vill skapa en ny App Service plan går du till följande avsnitt i den här självstudien och [skapar en app service plan i en app service-miljön](#createplan).
 5. Ange namnet på din webbapp och klicka sedan på **skapa**. 
@@ -68,18 +69,18 @@ Följande instruktioner visar hur du skapar en App Service plan när du skapar e
    
     Eftersom en App Service-miljön är i princip en privat distributions plats visas den under plats. 
    
-    ![][2]
+    ![Skärm bild som visar plats väljaren för att välja de ASE som du vill använda.][2]
    
     När du har valt en ASE i plats väljaren, uppdateras de App Service plan att skapa användar gränssnitt.  Platsen visar nu namnet på ASE-systemet och regionen som det finns i och pris avtals väljaren ersätts med en väljare för arbetare.  
    
-    ![][3]
+    ![Skärm bild som visar ASE system information när du har valt ASE i plats väljaren.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Välja en arbets grupp
 Normalt i Azure App Service och utanför en App Service-miljön, finns det 3 beräknings storlekar som är tillgängliga med valet av en dedikerad pris plan.  På samma sätt kan du för en ASE definiera upp till 3 pooler med arbetare och ange den beräknings storlek som används för den arbets gruppen.  Vad det innebär för klienter i ASE är att i stället för att välja en pris plan med beräknings storlek för din App Service plan väljer du vad som kallas för en *arbets grupp*.  
 
 I användar gränssnittet för anslutningspoolen visas den beräknings storlek som används för den arbets gruppen under namnet.  Den tillgängliga kvantiteten avser hur många beräknings instanser som är tillgängliga för användning i poolen.  Den totala poolen kan faktiskt ha fler instanser än det här antalet, men det här värdet avser bara hur många som inte används.  Om du behöver justera App Service-miljön för att lägga till fler beräknings resurser, se [Konfigurera din app service-miljön](app-service-web-configure-an-app-service-environment.md).
 
-![][4]
+![Skärm bild som visar fönstret för arbets gruppen där du kan välja Worker-pooler för ASE.][4]
 
 I det här exemplet ser du bara två tillgängliga arbets grupper. Det beror på att ASE-administratören endast allokerade värdar till de två arbetspoolerna.  Den tredje visas när virtuella datorer allokeras till den.  
 

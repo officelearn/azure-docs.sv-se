@@ -9,15 +9,16 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ebd4bf0ff91342229edb4295489f0cbd0970699a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 918e34114faa7a57e54ec45c1cca8036462a8fa1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745033"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187395"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Hantera certifikat i Azure Automation
 
-Azure Automation lagrar certifikat säkert för åtkomst av Runbooks och DSC-konfigurationer med hjälp av cmdleten [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) för Azure Resource Manager-resurser. Med säker certifikat lagring kan du skapa Runbooks och DSC-konfigurationer som använder certifikat för autentisering, eller lägga till dem i Azure eller från resurser från tredje part.
+Azure Automation lagrar certifikat säkert för åtkomst av Runbooks och DSC-konfigurationer med hjälp av cmdleten [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) för Azure Resource Manager-resurser. Med säker certifikat lagring kan du skapa Runbooks och DSC-konfigurationer som använder certifikat för autentisering, eller lägga till dem i Azure eller från resurser från tredje part.
 
 >[!NOTE]
 >Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Automation med hjälp av en unik nyckel som genereras för varje Automation-konto. Automation lagrar nyckeln i den systemhanterade Key Vaults tjänsten. Innan du lagrar en säker till gång läser Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
@@ -28,10 +29,10 @@ Cmdletarna i följande tabell skapar och hanterar Automation-certifikat med Powe
 
 |Cmdlet |Beskrivning|
 | --- | ---|
-|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Hämtar information om ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Du kan bara hämta själva certifikatet med hjälp av den interna `Get-AutomationCertificate` cmdleten.|
-|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Skapar ett nytt certifikat i Automation.|
-|[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Tar bort ett certifikat från Automation.|
-|[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikat filen och inställning av lösen ordet för en **PFX** -fil.|
+|[Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Hämtar information om ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Du kan bara hämta själva certifikatet med hjälp av den interna `Get-AutomationCertificate` cmdleten.|
+|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Skapar ett nytt certifikat i Automation.|
+|[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Tar bort ett certifikat från Automation.|
+|[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikat filen och inställning av lösen ordet för en **PFX** -fil.|
 
 Cmdleten [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) kan också användas för att ladda upp ett tjänst certifikat för den angivna moln tjänsten.
 
@@ -126,7 +127,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## <a name="get-a-certificate"></a>Hämta ett certifikat
 
-Använd den interna cmdleten för att hämta ett certifikat `Get-AutomationCertificate` . Du kan inte använda cmdleten [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) eftersom den returnerar information om certifikat till gången, men inte själva certifikatet.
+Använd den interna cmdleten för att hämta ett certifikat `Get-AutomationCertificate` . Du kan inte använda cmdleten [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) eftersom den returnerar information om certifikat till gången, men inte själva certifikatet.
 
 ### <a name="textual-runbook-example"></a>Exempel på text Runbook
 

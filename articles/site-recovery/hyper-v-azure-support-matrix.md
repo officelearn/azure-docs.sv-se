@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
-ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132408"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219886"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -55,8 +55,8 @@ Gästoperativsystem | Alla gäst operativ system [som stöds för Azure](../clou
 
 **Åtgärd** | **Detaljer**
 --- | ---
-Ändra storlek på disk på replikerad virtuell Hyper-V-dator | Stöds inte. Inaktivera replikering, gör ändringen och återaktivera replikering för den virtuella datorn.
-Lägg till disk på replikerad virtuell Hyper-V-dator | Stöds inte. Inaktivera replikering, gör ändringen och återaktivera replikering för den virtuella datorn.
+Ändra storlek på disk på replikerad virtuell Hyper-V-dator | Stöds ej. Inaktivera replikering, gör ändringen och återaktivera replikering för den virtuella datorn.
+Lägg till disk på replikerad virtuell Hyper-V-dator | Stöds ej. Inaktivera replikering, gör ändringen och återaktivera replikering för den virtuella datorn.
 
 ## <a name="hyper-v-network-configuration"></a>Nätverks konfiguration för Hyper-V
 
@@ -68,11 +68,12 @@ Värd nätverk: IPv4 | Ja | Ja
 Värd nätverk: IPv6 | Nej | Nej
 Gäst-VM-nätverk: NIC Teaming | Nej | Nej
 Gäst-VM-nätverk: IPv4 | Ja | Ja
-Gäst-VM-nätverk: IPv6 | No | Yes
+Gäst-VM-nätverk: IPv6 | Nej | Ja
 Gäst-VM-nätverk: statisk IP (Windows) | Ja | Ja
 Gäst-VM-nätverk: statisk IP (Linux) | Nej | Nej
 Gäst-VM-nätverk: multi-NIC | Ja | Ja
 Https-proxy | Nej | Nej
+
 
 
 
@@ -94,7 +95,7 @@ Accelererat nätverk | Nej | Nej
 
 ## <a name="hyper-v-host-storage"></a>Lagring av Hyper-V-värd
 
-**Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
+**Lagring** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Ja | Ja
@@ -103,7 +104,7 @@ Multipath (MPIO). Testat med:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC
 
 ## <a name="hyper-v-vm-guest-storage"></a>Gäst lagring för Hyper-V-VM
 
-**Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
+**Lagring** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Ja | Ja
@@ -129,18 +130,20 @@ Multipath (MPIO) | Ja | Ja
 **Komponent** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | ---
 Lokalt redundant lagring | Ja | Ja
-Geografiskt redundant lagring | Ja | Ja
+Geo-redundant lagring | Ja | Ja
 Geo-redundant lagring med läsbehörighet (RA-GRS) | Ja | Ja
 Cool Storage | Nej | Nej
 Frekvent lagring| Nej | Nej
 Blockblobar | Nej | Nej
 Kryptering i rest (SSE)| Ja | Ja
 Kryptering i vilo läge (CMK) <br></br> (Endast för redundans till Managed Disks)| Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
+Dubbel kryptering i vila <br></br> (Endast för redundans till Managed Disks) <br></br> Läs mer om regioner som stöds för [Windows](../virtual-machines/windows/disk-encryption.md) och [Linux](../virtual-machines/linux/disk-encryption.md) | Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
 Premium Storage | Ja | Ja
 Standard Storage | Ja | Ja
 Import/export-tjänst | Nej | Nej
 Azure Storage konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
-Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | No
+Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | Nej
+Alternativ för säker överföring | Ja
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure

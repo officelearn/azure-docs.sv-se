@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 4d048bb348b8093db7d3bf92ef0fc93aead35055
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762300"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187021"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -40,8 +40,7 @@ Tabellerna nedan visar Azure Security Center funktioner som är tillgängliga f�
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
+|[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|-|-|-|Standard|
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
@@ -66,7 +65,7 @@ Tabellerna nedan visar Azure Security Center funktioner som är tillgängliga f�
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Standard|
@@ -100,8 +99,8 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 | Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
 | Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
 | McAfee v10 + | Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Linux Server-serien  | No | Ja**\*** |
-| Sophos v9 +| Linux Server-serien  | No | Ja**\***  |
+| McAfee v10 + | Linux Server-serien  | Nej | Ja**\*** |
+| Sophos v9 +| Linux Server-serien  | Nej | Ja**\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 

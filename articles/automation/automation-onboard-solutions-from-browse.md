@@ -5,11 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0af0848f057b5c225471e9ac13f14db2468d838c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204930"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186103"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Aktivera Uppdateringshantering i Azure-portalen
 
@@ -20,10 +21,10 @@ Antalet resurs grupper som du kan använda för att hantera dina virtuella dator
 > [!NOTE]
 > När du aktiverar Uppdateringshantering, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation-konto](automation-offering-get-started.md) för att hantera datorer.
+* [Automation-konto](./index.yml) för att hantera datorer.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure

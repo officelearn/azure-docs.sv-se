@@ -9,11 +9,12 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836931"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186426"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Arbeta med Azure Desired State Configuration Extension versions historik
 
@@ -98,7 +99,7 @@ Den här artikeln innehåller information om varje version av Azure DSC VM-till�
 - **Miljö:** Azure
 - **Anmärkningar:** Den här versionen använder DSC som ingår i Windows Server 2016; för andra Windows-operativ system installerar den [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (installation av WMF kräver en omstart). För Nano Server installeras DSC-rollen på den virtuella datorn.
 - **Nya funktioner:**
-  - Fel korrigeringar & förbättringar som fören klar användningen av DSC-Azure Automation via användar gränssnittet för portalen samt Resource Manager-mall. Mer information finns i [standard konfigurations skript](/azure/virtual-machines/extensions/dsc-overview) i dokumentationen för DSC-tillägget.
+  - Fel korrigeringar & förbättringar som fören klar användningen av DSC-Azure Automation via användar gränssnittet för portalen samt Resource Manager-mall. Mer information finns i [standard konfigurations skript](../virtual-machines/extensions/dsc-overview.md) i dokumentationen för DSC-tillägget.
 
 ### <a name="version-226"></a>Version 2.26
 
@@ -249,6 +250,6 @@ Den här artikeln innehåller information om varje version av Azure DSC VM-till�
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om PowerShell DSC finns i [PowerShell Documentation Center](/powershell/scripting/dsc/overview/overview).
-- Granska [Resource Manager-mallen för DSC-tillägget](/azure/virtual-machines/extensions/dsc-template).
+- Granska [Resource Manager-mallen för DSC-tillägget](../virtual-machines/extensions/dsc-template.md).
 - Om du vill ha fler funktioner och resurser som du kan hantera med PowerShell DSC kan du bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Mer information om hur du skickar känsliga parametrar till konfigurationer finns i [Hantera autentiseringsuppgifter säkert med DSC-tilläggs hanteraren](/azure/virtual-machines/extensions/dsc-credentials).
+- Mer information om hur du skickar känsliga parametrar till konfigurationer finns i [Hantera autentiseringsuppgifter säkert med DSC-tilläggs hanteraren](../virtual-machines/extensions/dsc-credentials.md).

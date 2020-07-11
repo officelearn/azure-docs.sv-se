@@ -3,11 +3,12 @@ title: Azure Resource Manager-mallexempel
 description: Hitta Azure Resource Manager Template-exempel för att distribuera Azure Container Instances i olika konfigurationer
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299765"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169654"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager mallar för Azure Container Instances
 
@@ -17,7 +18,7 @@ Information om distributions alternativ finns i avsnittet [distribution](#deploy
 
 ## <a name="sample-templates"></a>Exempelmallar
 
-| | |
+| Mall | Beskrivning |
 |-|-|
 | **Program** ||
 | [WordPress][app-wp] | Skapar en WordPress-webbplats och dess MySQL-databas i en behållar grupp. WordPress-webbplatsens innehåll och MySQL-databasen är bestående av en Azure Files-resurs. Skapar också en Programgateway för att exponera offentlig nätverks åtkomst till WordPress. |

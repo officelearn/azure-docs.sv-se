@@ -2,12 +2,13 @@
 title: Konfigurera direktmigreringens avsökning på behållar instansen
 description: Lär dig hur du konfigurerar direktmigreringens avsökningar för att starta om felaktiga behållare i Azure Container Instances
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934167"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169705"
 ---
 # <a name="configure-liveness-probes"></a>Konfigurera liveavsökningar
 
@@ -25,7 +26,7 @@ Azure Container Instances också stöd för [beredskaps avsökningar](container-
 Skapa en `liveness-probe.yaml` fil med följande kodfragment. Den här filen definierar en behållar grupp som består av en NGNIX-behållare som slutligen blir skadad.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: livenesstest
 properties:

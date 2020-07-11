@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 184e65c929d43e7a5d4ca3be8bd93770c55cd2a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836574"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185933"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook-typer
 
@@ -67,15 +68,15 @@ PowerShell-Runbooks baseras på Windows PowerShell. Du redigerar koden för runb
 * Du måste vara bekant med PowerShell-skript.
 * Runbooks kan inte använda [parallell bearbetning](automation-powershell-workflow.md#use-parallel-processing) för att köra flera åtgärder parallellt.
 * Runbooks kan inte använda [kontroll punkter](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) för att återuppta Runbook om det uppstår ett fel.
-* Du kan inkludera endast PowerShell Workflow-Runbooks och grafiska runbooks som underordnade Runbooks med hjälp av cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , som skapar ett nytt jobb.
+* Du kan inkludera endast PowerShell Workflow-Runbooks och grafiska runbooks som underordnade Runbooks med hjälp av cmdleten [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , som skapar ett nytt jobb.
 
 ### <a name="known-issues"></a>Kända problem
 
 Följande är aktuella kända problem med PowerShell-Runbooks:
 
-* PowerShell-Runbooks kan inte hämta en okrypterad [variabel till gång](automation-variables.md) med ett null-värde.
+* PowerShell-Runbooks kan inte hämta en okrypterad [variabel till gång](./shared-resources/variables.md) med ett null-värde.
 * PowerShell-Runbooks kan inte hämta en variabel till gång med `*~*` i namnet.
-* En [Get-process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) -åtgärd i en slinga i en PowerShell-Runbook kan krascha efter cirka 80 iterationer.
+* En [Get-process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) -åtgärd i en slinga i en PowerShell-Runbook kan krascha efter cirka 80 iterationer.
 * En PowerShell-Runbook kan inte köras om den försöker skriva en stor mängd data till utdataströmmen samtidigt. Du kan vanligt vis undvika det här problemet genom att låta Runbook-jobbet bara mata ut den information som behövs för att arbeta med stora objekt. I stället för att använda `Get-Process` utan begränsningar kan du till exempel låta cmdleten bara mata in de nödvändiga parametrarna som i `Get-Process | Select ProcessName, CPU` .
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell Workflow-Runbooks

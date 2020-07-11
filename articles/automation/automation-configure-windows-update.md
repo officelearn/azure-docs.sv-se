@@ -5,15 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea05e75c0d1db1ef27ae2e8e9364327528a7c8ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30d1606a3928f421d2155e2d1abac0c8a6872aa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837169"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186647"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Konfigurera Windows Update inställningar för Azure Automation Uppdateringshantering
 
-Azure Automation Uppdateringshantering använder [Windows Update-klienten](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) för att ladda ned och installera Windows-uppdateringar. Det finns vissa inställningar som används av den Windows Update klienten vid anslutning till Windows Server Update Services (WSUS) eller Windows Update. Många av de här inställningarna kan hanteras med:
+Azure Automation Uppdateringshantering använder [Windows Update-klienten](/windows/deployment/update/windows-update-overview) för att ladda ned och installera Windows-uppdateringar. Det finns vissa inställningar som används av den Windows Update klienten vid anslutning till Windows Server Update Services (WSUS) eller Windows Update. Många av de här inställningarna kan hanteras med:
 
 - Redigerare för lokal gruppolicy
 - Grupprincip
@@ -22,7 +23,7 @@ Azure Automation Uppdateringshantering använder [Windows Update-klienten](https
 
 Uppdateringshantering respekterar många av de inställningar som anges för att kontrol lera Windows Update-klienten. Om du använder inställningar för att aktivera uppdateringar som inte kommer från Windows kan Uppdateringshantering även hantera dessa uppdateringar. Om du vill aktivera nedladdning av uppdateringar innan en uppdaterings distribution sker kan uppdaterings distributionen bli snabbare, mer effektiv och mindre troligt att överskrida underhålls perioden.
 
-Ytterligare rekommendationer för att konfigurera WSUS i din Azure-prenumeration och se till att dina virtuella Windows-datorer hålls uppdaterade genom att [Planera distributionen för uppdatering av virtuella Windows-datorer i Azure med hjälp av WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
+Ytterligare rekommendationer för att konfigurera WSUS i din Azure-prenumeration och se till att dina virtuella Windows-datorer hålls uppdaterade genom att [Planera distributionen för uppdatering av virtuella Windows-datorer i Azure med hjälp av WSUS](/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>För nedladdning av uppdateringar
 
@@ -57,7 +58,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 Uppdateringshantering stöder WSUS-inställningar. Du kan ange källor för genomsökning och hämtning av uppdateringar med hjälp av anvisningarna i [Ange intranät Microsoft Update tjänst plats](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Som standard är Windows Update-klienten konfigurerad för att hämta uppdateringar från Windows Update. När du anger en WSUS-server som källa för dina datorer, om uppdateringarna inte är godkända i WSUS, Miss lyckas uppdaterings distributionen. 
 
-Om du vill begränsa datorerna till den interna uppdaterings tjänsten anger [du Anslut inte till någon Windows Update Internet-platser](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
+Om du vill begränsa datorerna till den interna uppdaterings tjänsten anger [du Anslut inte till någon Windows Update Internet-platser](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
 ## <a name="next-steps"></a>Nästa steg
 

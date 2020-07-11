@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790899"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146659"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell
 
@@ -26,7 +27,7 @@ ms.locfileid: "84790899"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
@@ -108,7 +109,7 @@ Det finns ett par gånger när ett roll namn kan ändras, till exempel:
 Om du vill lägga till en roll tilldelning med det unika roll-ID: t i stället för roll namnet använder du [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -Scope <resource_group_name/resource/management groups>
 ```
 
 I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *Alain \@ example.com* -användare i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller se [inbyggda Azure-roller](built-in-roles.md).

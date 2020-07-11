@@ -5,23 +5,23 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b613e89fbe29074160d83a96d2cd13505244994a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648403"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186730"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Översikt över Application Gateway Health Monitoring
 
-Azure Application Gateway övervakar som standard hälsan för alla resurser i sin backend-pool och tar automatiskt bort alla resurser som betraktas som felaktiga från poolen. Application Gateway fortsätter att övervaka de felaktiga instanserna och lägger till dem i den felfria serverdelpoolen när de är tillgängliga och svarar på hälsokontroller. Application Gateway skickar hälso avsökningar med samma port som definieras i Server delens HTTP-inställningar. Den här konfigurationen säkerställer att avsökningen testar samma port som kunderna skulle använda för att ansluta till Server delen. 
+Azure Application Gateway övervakar som standard hälsan för alla resurser i sin backend-pool och tar automatiskt bort alla resurser som betraktas som felaktiga från poolen. Application Gateway fortsätter att övervaka de felaktiga instanserna och lägger till dem i den felfria serverdelpoolen när de är tillgängliga och svarar på hälsokontroller. Som standard skickar Application Gateway hälso avsökningar med samma port som definieras i Server dels-HTTP-inställningarna. En anpassad avsöknings port kan konfigureras med en anpassad hälso avsökning.
 
 Käll-IP-adressen Application Gateway använder för hälso avsökningar beror på backend-poolen:
  
-- Om backend-poolen är en offentlig slut punkt är käll adressen den offentliga IP-adressen för Application Gateway-frontend.
-- Om backend-poolen är en privat slut punkt kommer käll-IP-adressen från det privata IP-adressutrymmet i Application Gateway-undernätet.
-
+- Om Server adressen i backend-poolen är en offentlig slut punkt är käll adressen programgatewayens offentliga IP-adress för klient delen.
+- Om Server adressen i backend-poolen är en privat slut punkt kommer käll-IP-adressen från det privata IP-adressutrymmet i Application Gateway-undernätet.
 
 ![exempel på avsökning av Application Gateway][1]
 
@@ -31,11 +31,47 @@ Förutom att använda övervakning av standard hälso avsökning kan du också a
 
 ## <a name="default-health-probe"></a>Standard hälso avsökning
 
-En Programgateway konfigurerar automatiskt en standard hälso avsökning när du inte konfigurerar någon anpassad avsöknings konfiguration. Övervaknings beteendet fungerar genom att göra en HTTP-begäran till IP-adresserna som har kon figurer ATS för backend-poolen. För standard avsökningar om http-inställningarna för Server delen har kon figurer ATS för HTTPS, använder avsökningen HTTPS och testar hälso tillståndet för Server delen.
+En Programgateway konfigurerar automatiskt en standard hälso avsökning när du inte konfigurerar någon anpassad avsöknings konfiguration. Övervaknings beteendet fungerar genom att göra en HTTP GET-begäran till IP-adresserna eller FQDN som kon figurer ATS i backend-poolen. För standard avsökningar om http-inställningarna för Server delen har kon figurer ATS för HTTPS använder avsökningen HTTPS för att testa backend-servrarnas hälso tillstånd.
 
-Exempel: du konfigurerar din Programgateway att använda backend-servrar A, B och C för att ta emot HTTP-nätverkstrafik på port 80. Standard hälso övervakningen testar de tre servrarna var 30: e sekund för ett felfritt HTTP-svar. Ett felfritt HTTP-svar har en [status kod](https://msdn.microsoft.com/library/aa287675.aspx) mellan 200 och 399.
+Exempel: du konfigurerar din Programgateway att använda backend-servrar A, B och C för att ta emot HTTP-nätverkstrafik på port 80. Standard hälso övervakningen testar de tre servrarna var 30: e sekund för ett felfritt HTTP-svar med 30 sekunders tids gräns för varje begäran. Ett felfritt HTTP-svar har en [status kod](https://msdn.microsoft.com/library/aa287675.aspx) mellan 200 och 399. I det här fallet kommer HTTP GET-begäran för hälso avsökningen att se ut http://127.0.0.1/ .
 
-Om standard avsöknings kontrollen Miss lyckas för Server A, tar programgatewayen bort den från sin backend-pool och nätverks trafiken slutar flöda till den här servern. Standard avsökningen fortsätter fortfarande att söka efter servern var 30: e sekund. När servern svarar på en begäran från en standard hälso avsökning, läggs den tillbaka som felfritt till backend-poolen och trafik börjar flöda till servern igen.
+Om standard avsöknings kontrollen Miss lyckas för Server A slutar programgatewayen att vidarebefordra begär anden till den här servern. Standard avsökningen fortsätter fortfarande att söka efter servern var 30: e sekund. När servern svarar på en begäran från en standard hälso avsökning börjar Application Gateway vidarebefordra förfrågningarna till servern igen.
+
+### <a name="default-health-probe-settings"></a>Inställningar för standard hälso avsökning
+
+| Egenskapen avsökning | Värde | Beskrivning |
+| --- | --- | --- |
+| Avsöknings-URL |\<protocol\>://127.0.0.1:\<port\>/ |Protokollet och porten ärvs från Server delens HTTP-inställningar som avsökningen är kopplad till |
+| Intervall |30 |Vänte tiden i sekunder innan nästa hälso avsökning skickas.|
+| Timeout |30 |Hur lång tid i sekunder som Application Gateway väntar på ett avsöknings svar innan avsökningen markeras som ohälsosam. Om en avsökning returneras som felfri markeras motsvarande Server del omedelbart som felfri.|
+| Tröskelvärde för ej felfri |3 |Reglerar hur många avsökningar som ska skickas om det uppstår ett fel i den normala hälso avsökningen. I v1 SKU skickas dessa ytterligare hälso avsökningar i snabb följd för att snabbt fastställa Server serverns hälso tillstånd och inte vänta på avsöknings intervallet. I händelse av v2 SKU: er väntar hälso avsökningar på intervallet. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
+
+Standard avsökningen ser bara ut på \<protocol\> : \/ /127.0.0.1: \<port\> för att fastställa hälso status. Om du behöver konfigurera hälso avsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar. Mer information om HTTPS-avsökningar finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md#for-probe-traffic).
+
+### <a name="probe-intervals"></a>Avsöknings intervall
+
+Alla instanser av Application Gateway avsöker Server delen oberoende av varandra. Samma avsöknings konfiguration gäller för varje Application Gateway instans. Om avsöknings konfigurationen till exempel skickar hälso avsökningar var 30: e sekund och programgatewayen har två instanser, skickar båda instanserna hälso avsökningen var 30: e sekund.
+
+Även om det finns flera lyssnare avsöks varje lyssnare av Server delen oberoende av varandra. Om det till exempel finns två lyssnare som pekar på samma backend-pool på två olika portar (konfigurerade av två http-inställningar för Server delen), avsöker varje lyssnare samma server del oberoende av varandra. I det här fallet finns det två avsökningar från varje Application Gateway-instans för de två lyssnarna. Om det finns två instanser av Application Gateway i det här scenariot visas fyra avsökningar per det konfigurerade avsöknings intervallet i den virtuella datorns Server del.
+
+## <a name="custom-health-probe"></a>Anpassad hälso avsökning
+
+Med anpassade avsökningar kan du få mer detaljerad kontroll över hälso övervakningen. När du använder anpassade avsökningar kan du konfigurera ett anpassat värdnamn, URL-sökväg, avsöknings intervall och hur många misslyckade svar som ska accepteras innan du markerar backend-instansen som ohälsosam, osv.
+
+### <a name="custom-health-probe-settings"></a>Inställningar för anpassad hälso avsökning
+
+Följande tabell innehåller definitioner av egenskaperna för en anpassad hälso avsökning.
+
+| Egenskapen avsökning | Beskrivning |
+| --- | --- |
+| Namn |Namn på avsökningen. Det här namnet används för att identifiera och referera till avsökningen i Server dels-HTTP-inställningar. |
+| Protokoll |Protokoll som används för att skicka avsökningen. Detta måste överensstämma med det protokoll som definierats i Server dels-HTTP-inställningarna som det är kopplat till|
+| Värd |Värd namn att skicka avsökningen med. I v1 SKU används det här värdet endast för värd rubriken för avsöknings förfrågan. I v2 SKU används både som värd huvud och SNI |
+| Sökväg |Den relativa sökvägen för avsökningen. En giltig sökväg börjar med "/" |
+| Port |Om det här alternativet definieras används det som mål Port. Annars används samma port som de HTTP-inställningar som den är kopplad till. Den här egenskapen är endast tillgänglig i v2-SKU: n
+| Intervall |Avsöknings intervall i sekunder. Det här värdet är tidsintervallet mellan två på varandra följande avsökningar |
+| Timeout |Timeout för avsökning i sekunder. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad  |
+| Tröskelvärde för ej felfri |Antal nya försök för avsökning. Backend-servern är markerad när det efterföljande antalet avsöknings fel når tröskelvärdet |
 
 ### <a name="probe-matching"></a>Avsöknings matchning
 
@@ -48,55 +84,13 @@ Följande är matchnings villkor:
 
 Matchnings villkor kan anges med hjälp av `New-AzApplicationGatewayProbeHealthResponseMatch` cmdleten.
 
-Ett exempel:
+Till exempel:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 När matchnings villkoren har angetts kan den kopplas till avsöknings konfigurationen med hjälp av en `-Match` parameter i PowerShell.
-
-### <a name="default-health-probe-settings"></a>Inställningar för standard hälso avsökning
-
-| Egenskapen avsökning | Värde | Beskrivning |
-| --- | --- | --- |
-| Avsöknings-URL |http://127.0.0.1:\<port\>/ |URL-sökväg |
-| Intervall |30 |Vänte tiden i sekunder innan nästa hälso avsökning skickas.|
-| Timeout |30 |Hur lång tid i sekunder som Application Gateway väntar på ett avsöknings svar innan avsökningen markeras som ohälsosam. Om en avsökning returneras som felfri markeras motsvarande Server del omedelbart som felfri.|
-| Tröskelvärde för ej felfri |3 |Reglerar hur många avsökningar som ska skickas om det uppstår ett fel i den normala hälso avsökningen. Dessa ytterligare hälso avsökningar skickas i snabb följd för att snabbt fastställa hälso tillståndet för Server delen och inte vänta på avsöknings intervallet. Det här beteendet är endast v1 SKU. I händelse av v2 SKU: er väntar hälso avsökningar på intervallet. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
-
-> [!NOTE]
-> Porten är samma port som server delens HTTP-inställningar.
-
-Standard avsökningen ser bara ut på http: \/ /127.0.0.1: \<port\> för att fastställa hälso status. Om du behöver konfigurera hälso avsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar. Mer information om HTTP-avsökningar finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md#for-probe-traffic).
-
-### <a name="probe-intervals"></a>Avsöknings intervall
-
-Alla instanser av Application Gateway avsöker Server delen oberoende av varandra. Samma avsöknings konfiguration gäller för varje Application Gateway instans. Om avsöknings konfigurationen till exempel skickar hälso avsökningar var 30: e sekund och programgatewayen har två instanser, skickar båda instanserna hälso avsökningen var 30: e sekund.
-
-Även om det finns flera lyssnare avsöks varje lyssnare av Server delen oberoende av varandra. Om det till exempel finns två lyssnare som pekar på samma backend-pool på två olika portar (konfigurerade av två http-inställningar för Server delen), avsöker varje lyssnare samma server del oberoende av varandra. I det här fallet finns det två avsökningar från varje Application Gateway-instans för de två lyssnarna. Om det finns två instanser av Application Gateway i det här scenariot visas fyra avsökningar per det konfigurerade avsöknings intervallet i den virtuella datorns Server del.
-
-## <a name="custom-health-probe"></a>Anpassad hälso avsökning
-
-Med anpassade avsökningar kan du få en mer detaljerad kontroll över hälso övervakningen. När du använder anpassade avsökningar kan du konfigurera avsöknings intervallet, URL: en och sökvägen som ska testas och hur många misslyckade svar som ska accepteras innan du markerar backend-poolens instans som ohälsosam.
-
-### <a name="custom-health-probe-settings"></a>Inställningar för anpassad hälso avsökning
-
-Följande tabell innehåller definitioner av egenskaperna för en anpassad hälso avsökning.
-
-| Egenskapen avsökning | Beskrivning |
-| --- | --- |
-| Name |Namn på avsökningen. Det här namnet används för att referera till avsökningen i HTTP-inställningarna på backend-sidan. |
-| Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definierats i Server delens HTTP-inställningar |
-| Värd |Värdnamn för att skicka avsökningen. Använd annars 127.0.0.1 om flera platser har kon figurer ATS på Application Gateway. Det här värdet skiljer sig från värd namnet för den virtuella datorn. |
-| Sökväg |Den relativa sökvägen för avsökningen. Den giltiga sökvägen börjar från/. |
-| Intervall |Avsöknings intervall i sekunder. Det här värdet är tidsintervallet mellan två på varandra följande avsökningar. |
-| Timeout |Timeout för avsökning i sekunder. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad.  |
-| Tröskelvärde för ej felfri |Antal nya försök för avsökning. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
-
-> [!IMPORTANT]
-> Om Application Gateway har kon figurer ATS för en enda plats, som standard, ska värd namnet anges som 127.0.0.1, om inget annat anges i anpassad avsökning.
-> För att referera till en anpassad avsökning skickas till \<protocol\> :// \<host\> : \<port\> \<path\> . Porten som används är samma port som definieras i Server delens HTTP-inställningar.
 
 ## <a name="nsg-considerations"></a>NSG överväganden
 

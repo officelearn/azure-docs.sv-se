@@ -1,5 +1,5 @@
 ---
-title: inkludera fil
+title: ta med fil
 description: file
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

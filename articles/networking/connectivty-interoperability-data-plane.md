@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 635a8fc5409e18da9529763b06e4a531a36d0156
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80518253"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169212"
 ---
 # <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilitet i Azure: analys av data planet
 
@@ -29,13 +29,15 @@ Data Plans analys undersöker sökvägen som tas av paket som passerar från ett
 
 Peering för virtuella nätverk (VNet) emulerar funktionen för nätverks bryggor mellan de två virtuella nätverk som är peer-kopplat. Traceroute-utdata från ett hubb-VNet till en virtuell dator i det virtuella eker-nätverket visas här:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.11.30.4
+  1     2 ms     1 ms     1 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Följande bild visar vyn grafisk anslutning för hubbens VNet och eker VNet från perspektivet Azure Network Watcher:
 
@@ -46,15 +48,17 @@ Följande bild visar vyn grafisk anslutning för hubbens VNet och eker VNet frå
 
 Traceroute-utdata från ett hubb-VNet till en virtuell dator i grenen VNet visas här:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms     1 ms     1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     2 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms     1 ms     1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     2 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet VPN-gatewayen i Azure VPN Gateway av hubbens VNet. Det andra hoppet är VPN-gatewayen för grenens VNet. IP-adressen för VPN-gatewayen för grenens VNet annonseras inte i hubbens VNet. Det tredje hoppet är den virtuella datorn i grenens VNet.
 
@@ -70,16 +74,18 @@ För samma anslutning visar följande figur rutnätsvy i Network Watcher:
 
 Traceroute-utdata från ett hubb-VNet till en virtuell dator på den lokala platsen 1 visas här:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     2 ms     2 ms     2 ms  10.2.30.10
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     2 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet Azure ExpressRoute Gateway-tunnelns slut punkt till en Microsoft Enterprise Edge-router (MSEE: N). De andra och tredje hoppen är kundens (CE) router och lokal plats 1 LAN-IP. Dessa IP-adresser annonseras inte i hubbens VNet. Det fjärde hoppet är den virtuella datorn på den lokala platsen 1.
 
@@ -88,16 +94,18 @@ I den här traceroute är det första hoppet Azure ExpressRoute Gateway-tunnelns
 
 Traceroute-utdata från ett hubb-VNet till en virtuell dator på den lokala platsen 2 visas här:
 
-    C:\Users\rb>tracert 10.1.31.10
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-      1    76 ms    75 ms    75 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
+  1    76 ms    75 ms    75 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet ExpressRoute Gateway-tunnelns slut punkt till en MSEE: N. Den andra och tredje hoppen är CE-routern och den lokala platsen 2 LAN IP-adresser. Dessa IP-adresser annonseras inte i hubbens VNet. Det fjärde hoppet är den virtuella datorn på den lokala platsen 2.
 
@@ -105,15 +113,17 @@ I den här traceroute är det första hoppet ExpressRoute Gateway-tunnelns slut 
 
 Traceroute-utdata från ett hubb-VNet till en virtuell dator i det virtuella fjärrnätverket visas här:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    69 ms  10.17.30.4
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet ExpressRoute Gateway-tunnelns slut punkt till en MSEE: N. Det andra hoppet är Gateway-IP för fjärrnätverket. Det andra hoppets IP-intervall annonseras inte i hubbens VNet. Det tredje hoppet är den virtuella datorn på fjärrnätverket.
 
@@ -125,27 +135,31 @@ Det eker-VNet som delar nätverks visningen av hubbens VNet. Med hjälp av VNet-
 
 Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator i hubbens VNet visas här:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet"></a>Sökväg till grenens VNet
 
 Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator i grenen VNet visas här:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms    <1 ms    <1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet VPN-gatewayen för hubbens VNet. Det andra hoppet är VPN-gatewayen för grenens VNet. IP-adressen för VPN-gatewayen för grenens VNet annonseras inte inom hubben/ekraret VNet. Det tredje hoppet är den virtuella datorn i grenens VNet.
 
@@ -153,16 +167,18 @@ I den här traceroute är det första hoppet VPN-gatewayen för hubbens VNet. De
 
 Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator på den lokala platsen 1 visas här:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+  1    24 ms     2 ms     3 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     3 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tunnel slut punkt till en MSEE: N. Den andra och tredje hoppen är CE-routern och den lokala platsen 1 LAN-IP. Dessa IP-adresser annonseras inte i hubben/ekraret VNet. Det fjärde hoppet är den virtuella datorn på den lokala platsen 1.
 
@@ -170,17 +186,18 @@ I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tu
 
 Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator på den lokala platsen 2 visas här:
 
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    C:\Users\rb>tracert 10.1.31.10
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+  1    76 ms    75 ms    76 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-      1    76 ms    75 ms    76 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
-
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tunnel slut punkt till en MSEE: N. Den andra och tredje hoppen är CE-routern och den lokala platsen 2 LAN IP-adresser. Dessa IP-adresser annonseras inte i hubben/eker-virtuella nätverk. Det fjärde hoppet är den virtuella datorn på den lokala platsen 2.
 
@@ -188,15 +205,17 @@ I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tu
 
 Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator i det virtuella fjärrnätverket visas här:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.10.30.133
-      2     *        *        *     Request timed out.
-      3    71 ms    70 ms    70 ms  10.17.30.4
+  1     2 ms     1 ms     1 ms  10.10.30.133
+  2     *        *        *     Request timed out.
+  3    71 ms    70 ms    70 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tunnel slut punkt till en MSEE: N. Det andra hoppet är Gateway-IP för fjärrnätverket. Det andra hoppets IP-intervall annonseras inte i hubben/ekraret VNet. Det tredje hoppet är den virtuella datorn på fjärrnätverket.
 
@@ -206,15 +225,17 @@ I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tu
 
 Traceroute-utdata från gren-VNet till en virtuell dator i hubbens VNet visas här:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. Det andra hoppet är VPN-gatewayen för hubbens VNet. IP-adressen för VPN-gatewayen för hubbens VNet annonseras inte i fjärrnätverket. Det tredje hoppet är den virtuella datorn i hubbens VNet.
 
@@ -222,15 +243,17 @@ I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. De
 
 Traceroute-utdata från gren-VNet till en virtuell dator i eker VNet visas här:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     1 ms    <1 ms     1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     2 ms  10.11.30.4
+  1     1 ms    <1 ms     1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. Det andra hoppet är VPN-gatewayen för hubbens VNet. IP-adressen för VPN-gatewayen för hubbens VNet annonseras inte i fjärrnätverket. Det tredje hoppet är den virtuella datorn i eker VNet.
 
@@ -238,17 +261,19 @@ I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. De
 
 Traceroute-utdata från gren-VNet till en virtuell dator på den lokala platsen 1 visas här:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.2.30.125
-      4     *        *        *     Request timed out.
-      5     3 ms     3 ms     3 ms  10.2.30.10
+  1     1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.2.30.125
+  4     *        *        *     Request timed out.
+  5     3 ms     3 ms     3 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. Det andra hoppet är VPN-gatewayen för hubbens VNet. IP-adressen för VPN-gatewayen för hubbens VNet annonseras inte i fjärrnätverket. Det tredje hoppet är VPN-tunnelns avslutnings plats på den primära CE-routern. Det fjärde hoppet är en intern IP-adress för den lokala platsen 1. Den här nätverks-IP-adressen annonseras inte utanför CE-routern. Det femte hoppet är den virtuella mål datorn på den lokala platsen 1.
 
@@ -256,27 +281,29 @@ I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. De
 
 Som vi diskuterat i kontroll Plans analysen har grenen VNet ingen synlighet för antingen lokal plats 2 eller fjärr-VNet enligt nätverks konfigurationen. Följande ping-resultat bekräftar: 
 
-    C:\Users\rb>ping 10.1.31.10
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Pinging 10.1.31.10 with 32 bytes of data:
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-    C:\Users\rb>ping 10.17.30.4
+C:\Users\rb>ping 10.17.30.4
 
-    Pinging 10.17.30.4 with 32 bytes of data:
+Pinging 10.17.30.4 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.17.30.4:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.17.30.4:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ## <a name="data-path-from-on-premises-location-1"></a>Data Sök väg från lokal plats 1
 
@@ -284,17 +311,19 @@ Som vi diskuterat i kontroll Plans analysen har grenen VNet ingen synlighet för
 
 Traceroute-utdata från den lokala platsen 1 till en virtuell dator i hubbens VNet visas här:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     2 ms     2 ms     2 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     2 ms     2 ms     2 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 I den här traceroute är de första två hoppen en del av det lokala nätverket. Det tredje hoppet är det primära MSEE: N-gränssnittet som passar för CE-routern. Det fjärde hoppet är ExpressRoute-gatewayen för hubbens VNet. IP-intervallet för ExpressRoute-gatewayen för hubbens VNet annonseras inte till det lokala nätverket. Det femte hoppet är den virtuella mål datorn.
 
@@ -306,15 +335,17 @@ Följande bild visar topologin för den lokala plats 1 VM-anslutningen till den 
 
 Som tidigare nämnts använder test installationen en plats-till-plats-VPN som säkerhets kopierings anslutning för ExpressRoute mellan den lokala platsen 1 och hubbens VNet. För att testa säkerhets kopian av säkerhets kopierings data, ska vi orsaka ett ExpressRoute länkfel mellan den lokala primära och den lokala platsen 1 primära CE-router och motsvarande MSEE: N. Om du vill inducera ett ExpressRoute-länkfel stänger du av det CE-gränssnitt som är MSEE: N:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Följande bild visar topologin för den lokala plats 1 VM-anslutningen till den virtuella datorn i hubbens VNet via VPN-anslutning från plats till plats när ExpressRoute-anslutningen är avstängd:
 
@@ -326,17 +357,19 @@ Traceroute-utdata från den lokala platsen 1 till en virtuell dator i det virtue
 
 Nu ska vi gå tillbaka till den primära ExpressRoute-anslutningen för att utföra data Sök vägs analysen mot eker VNet:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     3 ms     2 ms     2 ms  10.11.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     3 ms     2 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Ta upp den primära ExpressRoute 1-anslutningen för resten av data Sök vägs analysen.
 
@@ -344,46 +377,52 @@ Ta upp den primära ExpressRoute 1-anslutningen för resten av data Sök vägs a
 
 Traceroute-utdata från lokal plats 1 till en virtuell dator i grenen VNet visas här:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-on-premises-location-2"></a>Sökväg till lokal plats 2
 
 När vi diskuterar i [kontroll Plans analysen][Control-Analysis]har den lokala platsen 1 ingen synlighet för lokal plats 2 per nätverks konfigurationen. Följande ping-resultat bekräftar: 
 
-    C:\Users\rb>ping 10.1.31.10
-    
-    Pinging 10.1.31.10 with 32 bytes of data:
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Request timed out.
-    ...
-    Request timed out.
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Request timed out.
+...
+Request timed out.
+
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ### <a name="path-to-the-remote-vnet"></a>Sökväg till fjärrnätverket
 
 Traceroute-utdata från lokal plats 1 till en virtuell dator i det virtuella fjärrnätverket visas här:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2     2 ms     5 ms     7 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5    69 ms    70 ms    69 ms  10.17.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2     2 ms     5 ms     7 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5    69 ms    70 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ## <a name="data-path-from-on-premises-location-2"></a>Data Sök väg från lokal plats 2
 
@@ -391,32 +430,36 @@ Traceroute-utdata från lokal plats 1 till en virtuell dator i det virtuella fj�
 
 Traceroute-utdata från den lokala platsen 2 till en virtuell dator i hubbens VNet visas här:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.4
-      3    <1 ms    <1 ms    <1 ms  192.168.31.22
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.4
+  3    <1 ms    <1 ms    <1 ms  192.168.31.22
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Sökväg till eker VNet
 
 Traceroute-utdata från den lokala platsen 2 till en virtuell dator i det virtuella eker-nätverket visas här:
 
-    C:\Windows\system32>tracert 10.11.30.4
+```console
+C:\Windows\system32>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
-      1    <1 ms    <1 ms     1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.0
-      3    <1 ms    <1 ms    <1 ms  192.168.31.18
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.11.30.4
+Tracing route to 10.11.30.4 over a maximum of 30 hops
+  1    <1 ms    <1 ms     1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.0
+  3    <1 ms    <1 ms    <1 ms  192.168.31.18
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Sökväg till gren-VNet, lokal plats 1 och fjärrnätverket
 
@@ -428,29 +471,33 @@ När vi diskuterar i [kontroll Plans analysen][Control-Analysis]har den lokala p
 
 Traceroute-utdata från fjärrnätverket till en virtuell dator i hubbens VNet visas här:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    65 ms    65 ms    65 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    68 ms  10.10.30.4
+  1    65 ms    65 ms    65 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    68 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Sökväg till eker VNet
 
 Traceroute-utdata från fjärrnätverket till en virtuell dator i det virtuella eker-nätverket visas här:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    71 ms    69 ms    69 ms  10.11.30.4
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    71 ms    69 ms    69 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Sökväg till gren-VNet och lokal plats 2
 
@@ -460,17 +507,18 @@ När vi diskuterar i [kontroll Plans analysen][Control-Analysis]har fjärrnätve
 
 Traceroute-utdata från fjärrnätverket till en virtuell dator på den lokala platsen 1 visas här:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    69 ms    69 ms    69 ms  10.2.30.10
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    69 ms    69 ms    69 ms  10.2.30.10
 
-    Trace complete.
-
+Trace complete.
+```
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute och plats-till-plats VPN-anslutning i tandem
 

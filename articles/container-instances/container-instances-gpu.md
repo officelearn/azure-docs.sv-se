@@ -2,12 +2,13 @@
 title: Distribuera GPU-aktiverad container instans
 description: Lär dig hur du distribuerar Azure Container instances för att köra beräknings intensiva behållar appar med GPU-resurser.
 ms.topic: article
-ms.date: 02/19/2020
-ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77525298"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169756"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållar instanser som använder GPU-resurser
 
@@ -72,7 +73,7 @@ Ett sätt att lägga till GPU-resurser är att distribuera en behållar grupp me
 
 ```YAML
 additional_properties: {}
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -138,7 +139,7 @@ Ett annat sätt att distribuera en behållar grupp med GPU-resurser är att anv�
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2019-12-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -167,10 +168,10 @@ Ett annat sätt att distribuera en behållar grupp med GPU-resurser är att anv�
 }
 ```
 
-Distribuera mallen med kommandot [AZ Group Deployment Create][az-group-deployment-create] . Du måste ange namnet på en resurs grupp som har skapats i en region, till exempel *öster* som stöder GPU-resurser.
+Distribuera mallen med kommandot [AZ Deployment Group Create][az-deployment-group-create] . Du måste ange namnet på en resurs grupp som har skapats i en region, till exempel *öster* som stöder GPU-resurser.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
+az deployment group create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
 Distributionen tar normalt flera minuter för att slutföras. Sedan startar behållaren och kör TensorFlow-jobbet. Kör kommandot [AZ container logs][az-container-logs] för att Visa loggens utdata:
@@ -208,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Eftersom det kan vara kostsamt att använda GPU-resurser, se till att dina behållare inte körs utan förvarning under långa perioder. Övervaka dina behållare i Azure Portal eller kontrol lera statusen för en behållar grupp med kommandot [AZ container show][az-container-show] . Ett exempel:
+Eftersom det kan vara kostsamt att använda GPU-resurser, se till att dina behållare inte körs utan förvarning under långa perioder. Övervaka dina behållare i Azure Portal eller kontrol lera statusen för en behållar grupp med kommandot [AZ container show][az-container-show] . Till exempel:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table
@@ -239,4 +240,4 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

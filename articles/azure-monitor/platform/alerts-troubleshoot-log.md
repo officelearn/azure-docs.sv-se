@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ab6ee597cfdc5d169bd33b77a061880b19e134b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300311"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165642"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Felsöka logg aviseringar i Azure Monitor  
 
@@ -182,9 +183,10 @@ Varje logg aviserings regel som skapas i Azure Monitor som en del av konfigurati
 - Det finns inget data flöde för analys plattformen. [Frågekörningen ger ett fel](https://dev.loganalytics.io/documentation/Using-the-API/Errors) eftersom det inte finns några data för den angivna frågan.
 - Ändringar i [frågespråket](https://docs.microsoft.com/azure/kusto/query/) innehåller ett ändrat format för kommandon och funktioner. Den fråga som tillhandahölls tidigare i en varnings regel är inte längre giltig.
 
-[Azure Advisor](../../advisor/advisor-overview.md) varnar dig om det här beteendet. En rekommendation läggs till för den speciella logg aviserings regeln på Azure Advisor, under kategorin med hög tillgänglighet med medelhög påverkan och en beskrivning av "reparera din logg aviserings regel för att säkerställa övervakning". Om en varnings fråga i logg varnings regeln inte är rättad efter att Azure Advisor har angett en rekommendation i sju dagar, inaktiverar Azure Monitor logg aviseringen och ser till att du inte faktureras i onödan om regeln inte kan köras kontinuerligt för en justerbar period (t. ex. en vecka).
+[Azure Advisor](../../advisor/advisor-overview.md) varnar dig om det här beteendet. En rekommendation läggs till för den speciella logg aviserings regeln på Azure Advisor, under kategorin med hög tillgänglighet med medelhög påverkan och en beskrivning av "reparera din logg aviserings regel för att säkerställa övervakning".
 
-Du hittar den exakta tiden när Azure Monitor inaktiverade logg aviserings regeln genom att leta efter en händelse i [Azure aktivitets loggen](../../azure-resource-manager/management/view-activity-logs.md).
+> [!NOTE]
+> Om en varnings fråga i logg varnings regeln inte har åtgärd ATS efter att Azure Advisor har angett en rekommendation i sju dagar, inaktiverar Azure Monitor logg aviseringen och ser till att du inte faktureras i onödan om regeln inte kan köras kontinuerligt under en storleks tids period (7 dagar). Du hittar den exakta tiden när Azure Monitor inaktiverade logg aviserings regeln genom att leta efter en händelse i [Azure aktivitets loggen](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

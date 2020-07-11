@@ -5,13 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656815"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187718"
 ---
-# <a name="troubleshoot"></a>Felsök
+# <a name="troubleshoot"></a>Felsöka
 
 Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vårt [support forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller skicka e-post till oss farmbeatssupport@microsoft.com .
 
@@ -313,3 +314,39 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 1. Gå till resurs gruppen FarmBeats Datahub.
 2. Välj **App Service**.  
 3. Gå till sidan för att skala upp [App Service priser](https://azure.microsoft.com/pricing/details/app-service/windows/)och välj sedan en lämplig pris nivå.
+
+## <a name="weather-data-job-failures"></a>Data jobbs avbrott för väder
+
+**Fel**: du kan köra jobb för att få väder data men jobbet Miss lyckas
+
+### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>Samla in loggar för att felsöka väder data jobb fel
+
+1. Gå till resurs gruppen FarmBeats i Azure Portal.
+2. Klicka på den Data Factory-tjänst som är en del av resurs gruppen. Tjänsten kommer att ha en tagg "SKU: Datahub"
+
+> [!NOTE]
+> Om du vill visa taggarna för tjänsterna i resurs gruppen klickar du på "Redigera kolumner" och lägger till "Taggar" i vyn resurs grupp
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Project-FarmBeats":::
+
+3. På sidan Översikt i data fabriken klickar du på **författare och övervakare**. En ny flik öppnas i webbläsaren. Klicka på **övervakaren**
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Project-FarmBeats":::
+
+4. Du ser en lista över pipeline-körningar som ingår i körningen av väder jobb. Klicka på det jobb som du vill samla in loggar för
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Project-FarmBeats":::
+
+5. På sidan Översikt över pipelinen visas en lista över aktivitets körningar. Anteckna körnings-ID: na för de aktiviteter som du vill samla in loggar för
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Project-FarmBeats":::
+
+6. Gå tillbaka till resurs gruppen FarmBeats i Azure Portal och klicka på lagrings kontot med namnet **datahublogs-xxxx**
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Project-FarmBeats":::
+
+7. Klicka på **behållare**  ->  **adfjobs**. I rutan Sök anger du det jobb körnings-ID som du antecknade i steg 5 ovan.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Project-FarmBeats":::
+
+8. Sök resultatet innehåller mappen som innehåller de loggar som hör till jobbet. Hämta loggarna och skicka den till farmbeatssupport@microsoft.com för att få hjälp med att felsöka problemet.

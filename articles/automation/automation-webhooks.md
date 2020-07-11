@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361684"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185644"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Starta ett Runbook-flöde från en webhook
 
-Med en webhook kan en extern tjänst starta en viss Runbook i Azure Automation via en enda HTTP-begäran. Externa tjänster omfattar Azure DevOps Services, GitHub, Azure Monitor loggar och anpassade program. En sådan tjänst kan använda en webhook för att starta en Runbook utan att implementera fullständig Azure Automation-API. Du kan jämföra Webhooks med andra metoder för att starta en runbook när du [startar en Runbook i Azure Automation](automation-starting-a-runbook.md).
+Med en webhook kan en extern tjänst starta en viss Runbook i Azure Automation via en enda HTTP-begäran. Externa tjänster omfattar Azure DevOps Services, GitHub, Azure Monitor loggar och anpassade program. En sådan tjänst kan använda en webhook för att starta en Runbook utan att implementera fullständig Azure Automation-API. Du kan jämföra Webhooks med andra metoder för att starta en runbook när du [startar en Runbook i Azure Automation](./start-runbooks.md).
 
 > [!NOTE]
 > Det finns inte stöd för att använda en webhook för att starta en python-Runbook.
@@ -29,7 +29,7 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Name |Webhookens namn. Du kan ange vilket namn du vill, eftersom det inte visas för klienten. Den används bara för att identifiera runbooken i Azure Automation. Vi rekommenderar att du ger webhooken ett namn som är relaterat till klienten som använder den. |
+| Namn |Webhookens namn. Du kan ange vilket namn du vill, eftersom det inte visas för klienten. Den används bara för att identifiera runbooken i Azure Automation. Vi rekommenderar att du ger webhooken ett namn som är relaterat till klienten som använder den. |
 | URL |Webhookens URL. Detta är den unika adress som en klient anropar med ett HTTP-inlägg för att starta den Runbook som är länkad till webhooken. Den skapas automatiskt när du skapar webhooken. Du kan inte ange en anpassad URL. <br> <br> URL: en innehåller en säkerhetstoken som gör det möjligt för ett system från tredje part att anropa runbooken utan ytterligare autentisering. Därför bör du behandla URL: en som ett lösen ord. Av säkerhets skäl kan du bara Visa webb adressen i Azure Portal när du skapar webhooken. Notera URL: en på en säker plats för framtida användning. |
 | Förfallodatum | Utgångs datum för webhooken, efter vilken den inte längre kan användas. Du kan ändra utgångs datumet efter att webhooken har skapats, så länge webhooken inte har upphört att gälla. |
 | Enabled | Anger om webhooken är aktive rad som standard när den skapas. Om du ställer in den här egenskapen på inaktive rad kan inte klienten använda webhooken. Du kan ange den här egenskapen när du skapar webhooken eller någon annan gång när den har skapats. |
@@ -133,7 +133,7 @@ Förutsatt att begäran lyckas innehåller webhook-svaret jobb-ID i JSON-format 
 {"JobIds":["<JobId>"]}
 ```
 
-Klienten kan inte avgöra när Runbook-jobbet har slutförts eller om dess slut för ande status från webhooken är slutförd. Den här informationen kan ta reda på den här informationen med jobb-ID: t med en annan mekanism, till exempel [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) eller [Azure Automation-API](/rest/api/automation/job).
+Klienten kan inte avgöra när Runbook-jobbet har slutförts eller om dess slut för ande status från webhooken är slutförd. Den här informationen kan ta reda på den här informationen med jobb-ID: t med en annan mekanism, till exempel [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) eller [Azure Automation-API](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Förnya en webhook
 
@@ -151,7 +151,7 @@ Du kan utöka en webhook som inte har nått sin förfallo tid. Så här utökar 
 Följande exempel-Runbook accepterar webhook-data och startar de virtuella datorer som anges i begär ande texten. Om du vill testa denna Runbook klickar du på **skapa en Runbook**i Automation-kontot under **Runbooks**. Om du inte vet hur du skapar en Runbook, se [skapa en Runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> För icke-grafiska PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
+> För icke-grafiska PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
 
 ```powershell
 param

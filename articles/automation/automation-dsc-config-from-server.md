@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 775fae09c4d618551327669362cd28a0ae2cc801
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f376fb383e50a39f0f12d45cf9b5ae47ad6fcbb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837016"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186511"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Skapa konfigurationer från befintliga servrar
 
@@ -37,8 +38,8 @@ Den senaste versionen har flera [extraherings lägen](https://github.com/Microso
 
 Resultatet av att använda lösningen är att skapa [konfigurations data](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) som ska användas med konfigurations skript för SharePointDSC.
 
-När datafilerna har genererats kan du använda dem med [DSC-konfigurations skript](/powershell/scripting/dsc/overview/overview) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) för att hämta konfigurationer.
+När datafilerna har genererats kan du använda dem med [DSC-konfigurations skript](/powershell/scripting/dsc/overview/overview) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Registrera sedan dina servrar från antingen [lokalt](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) eller [i Azure](./automation-dsc-onboarding.md#enable-azure-vms) för att hämta konfigurationer.
 
 Om du vill testa ReverseDSC går du till [PowerShell-galleriet](https://www.powershellgallery.com/packages/ReverseDSC/) och laddar ned lösningen eller klickar på "Project site" för att visa [dokumentationen](https://github.com/Microsoft/sharepointDSC.reverse).
 

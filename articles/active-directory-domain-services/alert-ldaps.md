@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/18/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 68798cf98bf01697e5d854f5b539c1c381642c3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d987bbbe2a35dd24341b75d5663bab33d8c3bdb9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735038"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220260"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Kända problem: säkert LDAP aviseringar i Azure Active Directory Domain Services
 
@@ -35,7 +36,7 @@ När du aktiverar säker LDAP rekommenderar vi att du skapar ytterligare regler 
 
 1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
 1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*, och välj sedan **inkommande säkerhets regler**
-1. **+ Lägg till** en regel för TCP-port 636. Om det behövs väljer du **Avancerat** i fönstret för att skapa en regel.
+1. Välj **+ Lägg** till för att skapa en regel för TCP-port 636. Om det behövs väljer du **Avancerat** i fönstret för att skapa en regel.
 1. För **källan**väljer du *IP-adresser* på den nedrullningsbara menyn. Ange de käll-IP-adresser som du vill bevilja åtkomst för säker LDAP-trafik.
 1. Välj *valfri* som **mål**och ange sedan *636* för **mål ports intervall**.
 1. Ange **protokollet** som *TCP* och **åtgärden** som ska *tillåtas*.

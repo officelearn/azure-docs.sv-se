@@ -9,15 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 540ae25b22b2c134a47f91ad5b8b19089c7f2acb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745000"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187412"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Hantera autentiseringsuppgifter i Azure Automation
 
-En inloggnings till gång innehåller ett objekt som innehåller autentiseringsuppgifter, till exempel ett användar namn och ett lösen ord. Runbooks och DSC-konfigurationer använder cmdletar som accepterar ett [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) -objekt för autentisering. De kan också extrahera användar namn och lösen ord för `PSCredential` objektet för att tillhandahålla ett program eller en tjänst som kräver autentisering. 
+En inloggnings till gång innehåller ett objekt som innehåller autentiseringsuppgifter, till exempel ett användar namn och ett lösen ord. Runbooks och DSC-konfigurationer använder cmdletar som accepterar ett [PSCredential](/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) -objekt för autentisering. De kan också extrahera användar namn och lösen ord för `PSCredential` objektet för att tillhandahålla ett program eller en tjänst som kräver autentisering. 
 
 >[!NOTE]
 >Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Azure Automation att använda en unik nyckel som genereras för varje Automation-konto. Azure Automation lagrar nyckeln i systemhanterade Key Vault. Innan du lagrar en säker till gång läser Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
@@ -30,7 +31,7 @@ Cmdletarna i följande tabell skapar och hanterar autentiseringsuppgifter för A
 
 | Cmdlet | Beskrivning |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Hämtar ett [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) -objekt som innehåller metadata om autentiseringsuppgifterna. Cmdlet: en hämtar inte `PSCredential` själva objektet.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Hämtar ett [CredentialInfo](/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) -objekt som innehåller metadata om autentiseringsuppgifterna. Cmdlet: en hämtar inte `PSCredential` själva objektet.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Skapar en ny Automation-autentiseringsuppgift. |
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Tar bort en Automation-autentiseringsuppgift. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Anger egenskaperna för en befintlig Automation-autentiseringsuppgift. |
@@ -42,8 +43,8 @@ Cmdletarna i följande tabell används för att komma åt autentiseringsuppgifte
 | Cmdlet | Beskrivning |
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Hämtar ett `PSCredential` objekt som ska användas i en Runbook-eller DSC-konfiguration. Oftast bör du använda den här [interna cmdleten](modules.md#internal-cmdlets) i stället för `Get-AzAutomationCredential` cmdleten, eftersom den senare bara hämtar autentiseringsinformation. Den här informationen är normalt inte användbar för att skicka till en annan cmdlet. |
-| [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Hämtar autentiseringsuppgifter med en prompt för användar namn och lösen ord. Denna cmdlet är en del av standard modulen Microsoft. PowerShell. Security. Se [standardmoduler](modules.md#default-modules).|
-| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Skapar en inloggnings till gång. Denna cmdlet är en del av Azures standard-modul. Se [standardmoduler](modules.md#default-modules).|
+| [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Hämtar autentiseringsuppgifter med en prompt för användar namn och lösen ord. Denna cmdlet är en del av standard modulen Microsoft. PowerShell. Security. Se [standardmoduler](modules.md#default-modules).|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Skapar en inloggnings till gång. Denna cmdlet är en del av Azures standard-modul. Se [standardmoduler](modules.md#default-modules).|
 
 Om du vill hämta `PSCredential` objekt i din kod måste du importera `Orchestrator.AssetManagement.Cmdlets` modulen. Mer information finns i [Hantera moduler i Azure Automation](modules.md).
 
@@ -103,7 +104,7 @@ En Runbook-eller DSC-konfiguration hämtar en inloggnings till gång med den int
 > [!NOTE]
 > `Get-AzAutomationCredential`Cmdleten hämtar inte ett `PSCredential` objekt som kan användas för autentisering. Den ger bara information om autentiseringsuppgifterna. Om du behöver använda autentiseringsuppgifter i en Runbook måste du hämta det som ett `PSCredential` objekt med hjälp av `Get-AutomationPSCredential` .
 
-Du kan också använda metoden [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) för att hämta ett [NetworkCredential](/dotnet/api/system.net.networkcredential) -objekt som representerar en oskyddad version av lösen ordet.
+Du kan också använda metoden [GetNetworkCredential](/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) för att hämta ett [NetworkCredential](/dotnet/api/system.net.networkcredential) -objekt som representerar en oskyddad version av lösen ordet.
 
 ### <a name="textual-runbook-example"></a>Exempel på text Runbook
 

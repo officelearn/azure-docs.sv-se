@@ -6,11 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 1bab503004876a2680286204de28631ce26b9069
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87504625c298c4fb858ff90430d707081e87cd5a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197110"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186579"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurera kontinuerlig distribution med Chocolatey
 
@@ -212,6 +213,5 @@ Från den tidpunkten är det upp till de virtuella datorer som är beroende av d
 - En översikt finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md).
 - För att komma igång med funktionen, se [Kom igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md).
 - Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
-- En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828941"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187344"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Använd käll kontroll integrering i Azure Automation-bakåtkompatibelt
 
@@ -55,7 +56,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 5. När du klickar på **OK**är käll kontroll integrering nu konfigurerad för ditt Automation-konto och bör uppdateras med din GitHub-information. Nu kan du klicka på den här delen för att visa all din käll kontroll för synkronisering av jobb historik.  
 
     ![Värden för den aktuella konfigurerade käll kontroll konfigurationen](media/source-control-integration-legacy/automation-RepoValues.png)
-6. När du har konfigurerat käll kontroll skapas två [variabel till gångar](automation-variables.md) i ditt Automation-konto. Dessutom läggs ett auktoriserat program till i ditt GitHub-konto.
+6. När du har konfigurerat käll kontroll skapas två [variabel till gångar](./shared-resources/variables.md) i ditt Automation-konto. Dessutom läggs ett auktoriserat program till i ditt GitHub-konto.
 
    * Variabeln **Microsoft. Azure. Automation. SourceControl. Connection** innehåller värdena för anslutnings strängen, som visas nedan.  
 
@@ -83,7 +84,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
 Med Runbook checka in kan du skicka de ändringar du har gjort till en Runbook i Azure Automation till lagrings platsen för käll kontroll. Nedan visas stegen för att checka in en Runbook:
 
-1. Från ditt Automation-konto [skapar du en ny text Runbook](automation-first-runbook-textual.md)eller [redigerar en befintlig, text-Runbook](automation-edit-textual-runbook.md). Denna Runbook kan vara antingen ett PowerShell-arbetsflöde eller en PowerShell-skript Runbook.  
+1. Från ditt Automation-konto [skapar du en ny text Runbook](./learn/automation-tutorial-runbook-textual.md)eller [redigerar en befintlig, text-Runbook](automation-edit-textual-runbook.md). Denna Runbook kan vara antingen ett PowerShell-arbetsflöde eller en PowerShell-skript Runbook.  
 2. När du har redigerat din Runbook sparar du den och klickar på **checka** in på sidan Redigera.  
 
     ![Ett fönster som visar knappen för att checka in till GitHub](media/source-control-integration-legacy/automation-CheckinButton.png)

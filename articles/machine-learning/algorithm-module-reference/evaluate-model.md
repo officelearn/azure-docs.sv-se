@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/24/2020
-ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564353"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171131"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -35,10 +35,10 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 ## <a name="how-to-use-evaluate-model"></a>Använda utvärdera modell
 1. Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från [tilldela data till kluster](./assign-data-to-clusters.md) till den vänstra Indataporten för **utvärdera modell**. 
-  > [!NOTE] 
-  > Om du använder moduler som "Välj kolumner i data uppsättning" för att välja en del av data uppsättningen för indata, se till att kolumnen verklig etikett (används i träning), kolumnen "beräknade sannolikheter" och "score etiketter" finns för att beräkna mått som AUC, precision för binära klassificering/avvikelse identifiering.
-  > Den faktiska etikett kolumnen, kolumnen scored etiketter finns för att beräkna mått för klassificering/regression i flera klasser.
-  > Kolumnen tilldelningar, kolumnerna DistancesToClusterCenter nej. X ' (X är centroid-index, sträcker sig från 0,..., antal centroids-1) för att beräkna mått för klustring.
+    > [!NOTE] 
+    > Om du använder moduler som "Välj kolumner i data uppsättning" för att välja en del av data uppsättningen för indata, se till att kolumnen verklig etikett (används i träning), kolumnen "beräknade sannolikheter" och "score etiketter" finns för att beräkna mått som AUC, precision för binära klassificering/avvikelse identifiering.
+    > Den faktiska etikett kolumnen, kolumnen scored etiketter finns för att beräkna mått för klassificering/regression i flera klasser.
+    > Kolumnen tilldelningar, kolumnerna DistancesToClusterCenter nej. X ' (X är centroid-index, sträcker sig från 0,..., antal centroids-1) för att beräkna mått för klustring.
 
 2. Valfritt Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från tilldela data till kluster för den andra modellen till den **högra** Indataporten för **utvärdera modell**. Du kan enkelt jämföra resultat från två olika modeller på samma data. De två indatavärdena ska vara av samma typ av algoritm. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
 
@@ -49,7 +49,12 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 ## <a name="results"></a>Resultat
 
-När du har kört **utvärdera modell**väljer du modulen för att öppna navigerings panelen **utvärdera modell** till höger.  Välj sedan fliken **utdata + loggar** och på den fliken har avsnittet **data utdata** flera ikoner.   **Visualiserings** ikonen har en stapeldiagram och är ett första sätt att se resultatet.
+När du har kört **utvärdera modell**väljer du modulen för att öppna navigerings panelen **utvärdera modell** till höger.  Välj sedan fliken **utdata + loggar** och på den fliken har avsnittet **data utdata** flera ikoner. **Visualiserings** ikonen har en stapeldiagram och är ett första sätt att se resultatet.
+
+När du har klickat på **visualiserings** ikonen för binär klassificering kan du visualisera den binära förvirring i matrisen.
+För flera klassificeringar kan du hitta filen för förvirring i mat ris ritningen på fliken **utdata + loggar** , till exempel följande:
+> [!div class="mx-imgBorder"]
+> ![Förhands granskning av Uppladdad bild](media/module/multi-class-confusion-matrix.png)
 
 Om du ansluter data uppsättningar till båda indata för **utvärdera modell**kommer resultatet att innehålla mått för båda data uppsättningarna eller båda modellerna.
 Modellen eller data som är kopplade till den vänstra porten visas först i rapporten följt av måtten för data uppsättningen eller modellen som är kopplad till rätt port.  
@@ -70,7 +75,8 @@ I det här avsnittet beskrivs de mått som returneras för de olika typerna av m
 
 ### <a name="metrics-for-classification-models"></a>Mått för klassificerings modeller
 
-Följande mått rapporteras när klassificerings modeller utvärderas.
+
+Följande mått rapporteras när du utvärderar binära klassificerings modeller.
   
 -   **Noggrannhet** mäter en klassificerings modells lämplighet som andel sanna resultat av totalt antal fall.  
   
@@ -78,13 +84,10 @@ Följande mått rapporteras när klassificerings modeller utvärderas.
   
 -   **Återkallande** är bråk delen av alla korrekta resultat som returneras av modellen.  
   
--   **F-score** beräknas som viktat medelvärde för precision och åter kallelse mellan 0 och 1, där det idealiska värdet F-Poäng är 1.  
+-   **F1-poängen** beräknas som viktat medelvärde för precision och återkallande mellan 0 och 1, där det idealiska värdet för F1 är 1.  
   
 -   **AUC** mäter ytan under kurvan som ritas med sant positiva resultat på y-axeln och falska positiva identifieringar på x-axeln. Det här måttet är användbart eftersom det innehåller ett enda nummer som gör det möjligt att jämföra modeller av olika typer.  
-  
-- **Genomsnittlig logg förlust** är ett enda poäng som används för att uttrycka sanktionen för fel resultat. Det beräknas som skillnaden mellan två sannolikhets fördelningar – det sanna, och den som finns i modellen.  
-  
-- **Inlärnings logg förlusten** är en enda poäng som representerar fördelen med klassificeraren över en slumpmässig förutsägelse. Logg förlusten mäter osäkerheten för din modell genom att jämföra sannolikheten att den matas till kända värden (mark sanningen) i etiketterna. Du vill minimera logg förlusten för modellen som helhet.
+
 
 ### <a name="metrics-for-regression-models"></a>Mät värden för Regressions modeller
  

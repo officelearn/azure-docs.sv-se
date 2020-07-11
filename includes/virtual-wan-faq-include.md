@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 98b82047c1744fbd63ecd3665e804e9d8f6c5221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565971"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143900"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -25,7 +25,7 @@ Det finns två varianter för virtuella WAN-nätverk: Basic och standard. I grun
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Hur hanteras Tillgänglighetszoner och återhämtning i virtuella WAN-nätverk?
 
-Virtuellt WAN är en samling nav och tjänster som görs tillgängliga i hubben. Användaren kan ha så många virtuella WAN-nätverk som behövs. I en virtuell WAN-hubb finns det flera tjänster som VPN, ExpressRoute osv. Var och en av dessa tjänster distribueras i en Tillgänglighetszoner region, om regionen har stöd för Tillgänglighetszoner. Om en region blir en tillgänglighets zon efter den första distributionen i hubben, kan användaren återskapa gatewayerna, vilket utlöser en tillgänglighets zon distribution. Alla gatewayer är etablerade i en hubb som aktiv-aktiv, vilket innebär att det finns återhämtnings kapacitet inbyggd i ett nav. Användare kan ansluta till flera hubbar om de vill ha återhämtning över flera regioner. Även om begreppet virtuellt WAN-nätverk är globalt, är den faktiska virtuella WAN-resursen Resource Manager-baserad och distribuerad i regionalt läge. Om den virtuella WAN-regionen själva skulle ha ett problem, kommer alla hubbar i det virtuella WAN-nätverket fortsätta att fungera som det är, men användaren kan inte skapa nya hubbar förrän den virtuella WAN-regionen är tillgänglig.
+Virtuellt WAN är en samling nav och tjänster som görs tillgängliga i hubben. Användaren kan ha så många virtuella WAN-nätverk som behövs. I en virtuell WAN-hubb finns det flera tjänster som VPN, ExpressRoute osv. Var och en av dessa tjänster (utom Azure-brandväggen) distribueras i en Tillgänglighetszoner region, det vill säga om regionen stöder Tillgänglighetszoner. Om en region blir en tillgänglighets zon efter den första distributionen i hubben, kan användaren återskapa gatewayerna, vilket utlöser en tillgänglighets zon distribution. Alla gatewayer är etablerade i en hubb som aktiv-aktiv, vilket innebär att det finns återhämtnings kapacitet inbyggd i ett nav. Användare kan ansluta till flera hubbar om de vill ha återhämtning över flera regioner. Även om begreppet virtuellt WAN-nätverk är globalt, är den faktiska virtuella WAN-resursen Resource Manager-baserad och distribuerad i regionalt läge. Om den virtuella WAN-regionen själva skulle ha ett problem, kommer alla hubbar i det virtuella WAN-nätverket fortsätta att fungera som det är, men användaren kan inte skapa nya hubbar förrän den virtuella WAN-regionen är tillgänglig.
 
 ### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Vilken klient gör Azure Virtual WAN-användaren VPN (punkt-till-plats) support?
 

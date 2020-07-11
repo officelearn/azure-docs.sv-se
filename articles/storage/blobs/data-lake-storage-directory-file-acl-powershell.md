@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d22b83e1f3464f6d87d2bc3821682b25e05d947b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961208"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142542"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du använder PowerShell för att skapa och hantera k
 
 [Gen1 till Gen2-mappning](#gen1-gen2-map)  |  [Ge feedback](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -81,11 +81,11 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-file-system"></a>Skapa ett filsystem
+## <a name="create-a-container"></a>Skapa en container
 
-Ett fil system fungerar som en behållare för dina filer. Du kan skapa en med hjälp av `New-AzStorageContainer` cmdleten. 
+En behållare fungerar som ett fil system för dina filer. Du kan skapa en med hjälp av `New-AzStorageContainer` cmdleten. 
 
-I det här exemplet skapas ett fil system med namnet `my-file-system` .
+I det här exemplet skapas en behållare med namnet `my-file-system` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -96,7 +96,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 Skapa en katalog referens med hjälp av `New-AzDataLakeGen2Item` cmdleten. 
 
-Det här exemplet lägger till en katalog med namnet `my-directory` i ett fil system.
+Det här exemplet lägger till en katalog med namnet `my-directory` i en behållare.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -202,7 +202,7 @@ $properties.Group
 $properties.Owner
 ```
 
-Om du vill visa innehållet i ett fil system utelämnar du `-Path` parametern från kommandot.
+Om du vill visa innehållet i en behållare utelämnar du `-Path` parametern från kommandot.
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 
@@ -270,7 +270,7 @@ Du kan hämta, ange och uppdatera åtkomst behörigheter för kataloger och file
 
 Hämta ACL för en katalog eller fil med hjälp av `Get-AzDataLakeGen2Item` cmdleten.
 
-Det här exemplet hämtar ACL: en för rot katalogen i ett **fil system** och skriver sedan ut ACL: en till-konsolen.
+Det här exemplet hämtar ACL: en för rot katalogen för en **behållare** och skriver sedan ut ACL: en till-konsolen.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ I det här exemplet har ägande användaren Läs-, skriv-och körnings behörigh
 
 Använd `set-AzDataLakeGen2ItemAclObject` cmdleten för att skapa en ACL för ägande användare, ägande grupp eller andra användare. Använd sedan `Update-AzDataLakeGen2Item` cmdleten för att genomföra ACL: en.
 
-I det här exemplet anges ACL: en för rot katalogen i ett **fil system** för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
+I det här exemplet anges ACL: en för rot katalogen för en **behållare** för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -349,9 +349,9 @@ Följande bild visar utdata när du har angett ACL för en fil.
 I det här exemplet har ägande användare och ägande grupp bara Läs-och Skriv behörighet. Alla andra användare har Skriv-och körnings behörighet. Mer information om åtkomst kontrol listor finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
-### <a name="set-acls-on-all-items-in-a-file-system"></a>Ange ACL: er för alla objekt i ett fil system
+### <a name="set-acls-on-all-items-in-a-container"></a>Ange ACL: er för alla objekt i en behållare
 
-Du kan använda `Get-AzDataLakeGen2Item` `-Recurse` parametern och tillsammans med `Update-AzDataLakeGen2Item` cmdleten för att rekursivt ange ACL för kataloger och filer i ett fil system. 
+Du kan använda `Get-AzDataLakeGen2Item` `-Recurse` parametern och tillsammans med `Update-AzDataLakeGen2Item` cmdleten för att rekursivt ange ACL för kataloger och filer i en behållare. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -411,7 +411,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 I följande tabell visas hur cmdletarna som används för Data Lake Storage Gen1 mappas till-cmdletarna för Data Lake Storage Gen2.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Obs! |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Anteckningar |
 |--------|---------|-----|
 |Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|Som standard listar get-AzDataLakeGen2ChildItem-cmdlet endast den första nivån underordnade objekt. Parametern-rekursivt listar underordnade objekt rekursivt. |
 |Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Utgående objekt i get-AzDataLakeGen2Item-cmdleten har följande egenskaper: ACL, ägare, grupp, behörighet.|

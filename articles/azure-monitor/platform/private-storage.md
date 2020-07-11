@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610074"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184505"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Kundägda lagrings konton för logg inmatning i Azure Monitor
 
@@ -39,7 +40,7 @@ Lagrings kontot måste uppfylla följande krav:
 
 - Tillgängligt för resurser i ditt VNet som skriver loggar till lagringen.
 - Måste finnas i samma region som arbets ytan som den är länkad till.
-- Explicit tillåten Log Analytics att läsa loggar från lagrings kontot genom att välja *Tillåt BETRODDA MS-tjänster för att få åtkomst till det här lagrings kontot*.
+- Tillåt Azure Monitor-åtkomst – om du har valt att begränsa åtkomsten till ditt lagrings konto för att välja nätverk, se till att tillåta detta undantag: *Tillåt betrodda Microsoft-tjänster att komma åt det här lagrings kontot*.
 
 ## <a name="process-to-configure-customer-owned-storage"></a>Process för att konfigurera kundägda lagrings enheter
 Den grundläggande processen med att använda ditt eget lagrings konto för inmatning är följande:
@@ -50,7 +51,12 @@ Den grundläggande processen med att använda ditt eget lagrings konto för inma
 
 Den enda metoden som är tillgänglig för att skapa och ta bort länkar är via REST API. Information om den speciella API-begäran som krävs för varje process finns i avsnitten nedan.
 
-## <a name="api-request-values"></a>Värden för API-begäran
+## <a name="command-line-and-rest-api"></a>Kommando rad och REST API
+
+### <a name="command-line"></a>Kommandorad
+Om du vill skapa och hantera länkade lagrings konton använder du [AZ Monitor Log-Analytics arbets yta länkad lagring](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Med det här kommandot kan du länka och ta bort länkar till lagrings konton från en arbets yta och lista de länkade lagrings kontona.
+
+### <a name="request-and-cli-values"></a>Request-och CLI-värden
 
 #### <a name="datasourcetype"></a>dataSourceType 
 
@@ -72,37 +78,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
-
-## <a name="get-current-links"></a>Hämta aktuella länkar
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Hämta länkade lagrings konton för en bestämd typ av data Källa
-
-#### <a name="api-request"></a>API-begäran
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Svar 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### <a name="get-all-linked-storage-accounts"></a>Hämta alla länkade lagrings konton
+### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Hämta länkade lagrings konton för alla typer av data källor
 
 #### <a name="api-request"></a>API-begäran
 
@@ -110,7 +86,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts?api-version=2019-08-01-preview  
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```json
 {
@@ -147,6 +123,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
+
+### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Hämta länkade lagrings konton för en bestämd typ av data Källa
+
+#### <a name="api-request"></a>API-begäran
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### <a name="response"></a>Svarsåtgärder 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
+}
+```
+
 ## <a name="create-or-modify-a-link"></a>Skapa eller ändra en länk
 
 När du länkar ett lagrings konto till en arbets yta börjar Log Analytics att använda det i stället för det lagrings konto som ägs av tjänsten. Du kan registrera en lista över lagrings konton samtidigt, och du kan använda samma lagrings konto för flera arbets ytor.
@@ -174,7 +178,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 ```json
 {
@@ -217,7 +221,7 @@ Agent konfigurationen kommer att uppdateras efter några minuter och de växlar 
 
 ## <a name="manage-storage-account"></a>Hantera lagrings konto
 
-### <a name="load"></a>Läsa in
+### <a name="load"></a>Inläsning
 
 Lagrings konton kan hantera en viss belastning av Läs-och skriv förfrågningar innan de startar begränsnings begär Anden. Begränsningen påverkar hur lång tid det tar att mata in loggar och kan leda till förlorade data. Om lagringen är överbelastad registrerar du ytterligare lagrings konton och sprider belastningen mellan dem. 
 

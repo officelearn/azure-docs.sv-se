@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856973"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185015"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
@@ -41,6 +41,7 @@ Följande vanliga frågor och svar gäller grundläggande begrepp och frågor om
 * [Vad ska jag använda Azure cache för Redis-erbjudande och storlek?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Azure cache för Redis-prestanda](#azure-cache-for-redis-performance)
 * [I vilken region ska jag hitta mitt cacheminne?](#in-what-region-should-i-locate-my-cache)
+* [Var finns mina cachelagrade data?](#where-do-my-cached-data-reside)
 * [Hur faktureras jag för Azure cache för Redis?](#how-am-i-billed-for-azure-cache-for-redis)
 * [Kan jag använda Azure cache för Redis med Azure Government moln, Azure Kina-moln eller Microsoft Azure Tyskland?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -128,7 +129,7 @@ I den här tabellen kan vi Rita följande slut satser:
 | Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | värde storlek 1 KB | värde storlek 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standardcache-storlekar** | | |**Megabit per sekund (MB/s)/megabyte per sekund (MB/s)** |**Begär Anden per sekund (RPS) icke-SSL** |**Begär Anden per sekund (RPS) SSL** |
-| CO | 250 MB | Delad | 100/12,5  |  15 000 |   7 500 |
+| CO | 250 MB | Delad | 100/12,5  |  15 000 |   7 500 |
 | C1 |   1 GB | 1      | 500/62,5  |  38 000 |  20 720 |
 | C2 | 2,5 GB | 2      | 500/62,5  |  41 000 |  37 000 |
 | C3 |   6 GB | 4      | 1000/125  | 100 000 |  90 000 |
@@ -148,6 +149,13 @@ Anvisningar om hur du konfigurerar stunnelserver eller laddar ned Redis-verktyg 
 
 ### <a name="in-what-region-should-i-locate-my-cache"></a>I vilken region ska jag hitta mitt cacheminne?
 För bästa prestanda och lägsta latens, letar du upp Azure-cachen för Redis i samma region som ditt cache-klientcertifikat.
+
+### <a name="where-do-my-cached-data-reside"></a>Var finns mina cachelagrade data?
+Azure cache för Redis lagrar dina program data i RAM-minnet för virtuella datorer eller virtuella datorer, beroende på nivån, som är värd för din cache. Dina data finns endast i den Azure-region som du har valt som standard. Det finns två fall där dina data kan lämna en region:
+  1. När du aktiverar persistence i cacheminnet, kommer Azure cache för Redis att säkerhetskopiera dina data till ett Azure Storage-konto som du äger. Om det lagrings konto som du anger ska finnas i en annan region, kommer en kopia av dina data att sluta fungera där.
+  1. Om du ställer in geo-replikering och din sekundära cache finns i en annan region, vilket är fallet normalt, kommer dina data att replikeras till den regionen.
+
+Du måste uttryckligen konfigurera Azure cache för Redis att använda dessa funktioner. Du har också fullständig kontroll över den region där lagrings kontot eller den sekundära cachen finns.
 
 <a name="cache-billing"></a>
 
@@ -196,7 +204,7 @@ Vanligt vis räcker standardvärdena för-klienten. Du kan finjustera alternativ
   * Använd en enda ConnectionMultiplexer-instans för programmet. Du kan använda en LazyConnection för att skapa en enda instans som returneras av en anslutnings egenskap, som du ser i [Anslut till cachen med klassen ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ange `ConnectionMultiplexer.ClientName` egenskapen till ett unikt namn för App-instansen.
   * Använd flera `ConnectionMultiplexer` instanser för anpassade arbets belastningar.
-      * Du kan följa den här modellen om du har varierande belastning i ditt program. Ett exempel:
+      * Du kan följa den här modellen om du har varierande belastning i ditt program. Till exempel:
       * Du kan ha en multiplexor för att hantera stora nycklar.
       * Du kan ha en multiplexor för att hantera små nycklar.
       * Du kan ange olika värden för timeout för anslutningar och omprövnings logik för varje ConnectionMultiplexer som du använder.
@@ -215,20 +223,20 @@ Det finns ingen lokal emulator för Azure cache för Redis, men du kan köra MSO
 
 ```csharp
 private static Lazy<ConnectionMultiplexer>
-      lazyConnection = new Lazy<ConnectionMultiplexer>
-    (() =>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
     {
-        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        // Connect to a locally running instance of Redis to simulate
+        // a local cache emulator experience.
         return ConnectionMultiplexer.Connect("127.0.0.1:6379");
     });
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
 ```
 
 Om du vill kan du konfigurera en [Redis. conf](https://redis.io/topics/config) -fil så att den stämmer bättre överens med [standardcache-inställningarna](cache-configure.md#default-redis-server-configuration) för din online Azure-cache för Redis.
@@ -367,11 +375,11 @@ I princip innebär det att när antalet upptagna trådar är större än minsta 
 
 Om vi tittar på ett exempel fel meddelande från StackExchange. Redis (build 1.0.450 eller senare), kommer du att se att den nu skriver ut trådpool-statistik (se IOCP och WORKer-information nedan).
 
-```output
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
+System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 ```
 
 I det tidigare exemplet kan du se att för IOCP-tråden det finns sex upptagna trådar och att systemet är konfigurerat att tillåta fyra minsta trådar. I det här fallet skulle klienten troligt vis sett 2 500-ms fördröjningar, eftersom 6 > 4.
@@ -384,22 +392,22 @@ Med hänsyn till den här informationen rekommenderar vi starkt att kunderna ang
 
 Så här konfigurerar du den här inställningen:
 
-* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs` . Ett exempel:
+* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs` . Till exempel:
 
-```cs
-private readonly int minThreads = 200;
-void Application_Start(object sender, EventArgs e)
-{
-    // Code that runs on application startup
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-    BundleConfig.RegisterBundles(BundleTable.Bundles);
-    ThreadPool.SetMinThreads(minThreads, minThreads);
-}
-```
+    ```csharp
+    private readonly int minThreads = 200;
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        AreaRegistration.RegisterAllAreas();
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        ThreadPool.SetMinThreads(minThreads, minThreads);
+    }
+    ```
 
-  > [!NOTE]
-  > Värdet som anges av den här metoden är en global inställning som påverkar hela AppDomain. Om du till exempel har en dator med 4 kärnor och vill ställa in *minWorkerThreads* och *minIoThreads* på 50 per processor under körningen använder du **trådpool. SetMinThreads (200, 200)**.
+    > [!NOTE]
+    > Värdet som anges av den här metoden är en global inställning som påverkar hela AppDomain. Om du till exempel har en dator med 4 kärnor och vill ställa in *minWorkerThreads* och *minIoThreads* på 50 per processor under körningen använder du **trådpool. SetMinThreads (200, 200)**.
 
 * Du kan också ange minsta antal trådar genom att använda [konfigurations inställningen *MinIoThreads* eller *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under `<processModel>` konfigurations elementet i, som `Machine.config` vanligt vis finns på `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **Att ställa in antalet minsta trådar på det här sättet rekommenderas vanligt vis inte, eftersom det är en systemtäckande inställning.**
 
@@ -455,7 +463,7 @@ Följande är några vanliga orsaker till att en cache kopplas från.
   * Gränserna för bandbredds tröskeln har uppnåtts.
   * PROCESSOR bindnings åtgärder tog för lång tid att slutföra.
 * Orsaker på Server Sidan
-  * I standard-cachen initierade Azure cache för Redis-tjänsten en redundans från den primära noden till den sekundära noden.
+  * I standard-cachen initierade Azure cache för Redis-tjänsten en redundans från den primära noden till noden replikering.
   * Azure har korrigerat den instans där cachen distribuerades
     * Detta kan vara för redis-server uppdateringar eller underhåll av den virtuella datorn.
 

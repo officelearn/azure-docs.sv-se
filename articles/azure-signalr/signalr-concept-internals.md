@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f06b8f9a2d41fc5400aa0fa610a2be3f31e21f1c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82105768"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169807"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service – internt
 
@@ -84,7 +84,9 @@ När en klient är ansluten till SignalR Service hittar service runtime en serve
 
 Programservern får då en händelse med information från den nya klienten. En logisk anslutning till klienten skapas i programservern. Datakanalen upprättas från klienten till programservern via SignalR Service.
 
-SignalR service skickar data från klienten till den kopplade programservern. Data från programservern kommer att skickas till de mappade klienterna.
+Signalerar tjänsten överför data från klienten till länknings applikations servern. Data från programservern kommer att skickas till de mappade klienterna.
+
+SignalR-tjänsten sparar eller lagrar inte kund information, alla mottagna kund uppgifter överförs till mål servern eller klienterna i real tid.
 
 Som du ser är Azure SignalR Service i grunden ett logiskt transportlager mellan programserver och klienter. Alla beständiga anslutningar avlastas till SignalR Service.
 Programservern behöver bara hantera affärslogiken i hubbklassen, utan att tänka på klientanslutningar.

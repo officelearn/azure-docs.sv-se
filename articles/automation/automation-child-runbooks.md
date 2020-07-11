@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828652"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169892"
 ---
 # <a name="create-modular-runbooks"></a>Skapa modulära runbooks
 
@@ -19,12 +20,12 @@ Det finns två sätt att anropa en underordnad Runbook och det finns distinkta s
 
 |  | Infogad | Cmdlet |
 |:--- |:--- |:--- |
-| Jobb |Underordnade runbooks körs i samma jobb som överordnade. |Ett separat jobb skapas för den underordnade runbooken. |
-| Körnings- |Överordnad runbook väntar på att underordnad runbook ska slutföras innan du fortsätter. |Överordnad Runbook fortsätter omedelbart efter att underordnad Runbook har startats *eller* överordnad Runbook väntar tills det underordnade jobbet har slutförts. |
-| Utdata |Överordnad runbook kan hämta utdata direkt från underordnad runbook. |Överordnad Runbook måste hämta utdata från underordnat Runbook-jobb *eller* överordnad Runbook kan hämta utdata direkt från underordnad Runbook. |
-| Parametrar |Värden för parametrar i underordnad runbook anges separat och kan använda alla datatyper. |Värden för underordnade Runbook-parametrar måste kombineras till en enskild hash. Den här hash-koden kan bara innehålla enkla, matris-och objekt data typer som använder JSON-serialisering. |
-| Automation-konto |Överordnad Runbook kan bara använda underordnad Runbook i samma Automation-konto. |Överordnad Runbooks kan använda en underordnad Runbook från alla Automation-konton, från samma Azure-prenumeration och till och med från en annan prenumeration som du har en anslutning till. |
-| Publicera |Underordnad runbook måste publiceras innan överordnad runbook publiceras. |Underordnad Runbook publiceras när som helst innan överordnad Runbook startas. |
+| **Jobb** |Underordnade runbooks körs i samma jobb som överordnade. |Ett separat jobb skapas för den underordnade runbooken. |
+| **Körnings-** |Överordnad runbook väntar på att underordnad runbook ska slutföras innan du fortsätter. |Överordnad Runbook fortsätter omedelbart efter att underordnad Runbook har startats *eller* överordnad Runbook väntar tills det underordnade jobbet har slutförts. |
+| **Resultat** |Överordnad runbook kan hämta utdata direkt från underordnad runbook. |Överordnad Runbook måste hämta utdata från underordnat Runbook-jobb *eller* överordnad Runbook kan hämta utdata direkt från underordnad Runbook. |
+| **Parametrar** |Värden för parametrar i underordnad runbook anges separat och kan använda alla datatyper. |Värden för underordnade Runbook-parametrar måste kombineras till en enskild hash. Den här hash-koden kan bara innehålla enkla, matris-och objekt data typer som använder JSON-serialisering. |
+| **Automation-konto** |Överordnad Runbook kan bara använda underordnad Runbook i samma Automation-konto. |Överordnad Runbooks kan använda en underordnad Runbook från alla Automation-konton, från samma Azure-prenumeration och till och med från en annan prenumeration som du har en anslutning till. |
+| **Publicera** |Underordnad runbook måste publiceras innan överordnad runbook publiceras. |Underordnad Runbook publiceras när som helst innan överordnad Runbook startas. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Anropa en underordnad Runbook med intern körning
 

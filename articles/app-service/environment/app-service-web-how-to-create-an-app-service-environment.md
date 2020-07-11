@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477792"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220583"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en App Service-miljön v1 
 
@@ -26,7 +26,7 @@ App Service-miljön (ASE) är ett premium tjänst alternativ för Azure App Serv
 ### <a name="before-you-create-your-ase"></a>Innan du skapar din ASE
 Det är viktigt att vara medveten om de saker som du inte kan ändra. De aspekter som du inte kan ändra om din ASE när den har skapats är:
 
-* Location
+* Plats
 * Prenumeration
 * Resursgrupp
 * VNet används
@@ -40,11 +40,11 @@ Om du vill skapa en app service-miljön v1 kan du söka i Azure Marketplace efte
 
 1. Ange namnet på din ASE. Det namn som du anger för ASE kommer att användas för de appar som skapas i ASE. Om namnet på ASE är appsvcenvdemo skulle under domän namnet vara: *appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*skulle den vara adresserbar vid *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda blank steg i namnet på din ASE. Om du använder versaler i namnet blir domän namnet den totala gemena versionen av det namnet. Om du använder en ILB används inte ditt ASE-namn i under domänen, men anges i stället uttryckligen när ASE skapas.
    
-    ![][1]
+    ![Skärm bild som visar hur du skapar en App Service-miljön (ASE).][1]
 2. Välj din prenumeration. Prenumerationen som du använder för din ASE gäller även för alla appar som du skapar i den ASE. Du kan inte placera din ASE i ett VNet som finns i en annan prenumeration.
 3. Välj eller ange en ny resurs grupp. Resurs gruppen som används för din ASE måste vara samma som används för ditt VNet. Om du väljer ett befintligt virtuellt nätverk kommer resurs grupps valet för din ASE att uppdateras för att avspegla detta för ditt VNet.
    
-    ![][2]
+    ![Skärm bild som visar hur du kan välja eller ändra en ny resurs grupp.][2]
 4. Gör dina val för Virtual Network och plats. Du kan välja att skapa ett nytt VNet eller välja ett befintligt VNet. Om du väljer ett nytt virtuellt nätverk kan du ange ett namn och en plats. Det nya virtuella nätverket kommer att ha adress intervallet 192.168.250.0/23 och ett undernät med namnet **default** som definieras som 192.168.250.0/24. Du kan också välja ett redan befintligt klassiskt eller Resource Manager VNet. Valet av VIP-typ avgör om din ASE kan nås direkt från Internet (extern) eller om den använder en intern Load Balancer (ILB). Om du vill veta mer om hur de läser [använder du ett internt Load Balancer med ett App Service-miljön][ILBASE]. Om du väljer en VIP-typ som är extern kan du välja hur många externa IP-adresser som systemet ska skapas med i IP SSL syfte. Om du väljer intern måste du ange den under domän som din ASE ska använda. ASE kan distribueras i virtuella nätverk som använder *antingen* offentliga adress intervall *eller* RFC1918 adress utrymmen (dvs. privata adresser). För att du ska kunna använda ett virtuellt nätverk med ett offentligt adress intervall måste du skapa VNet i förväg. När du väljer ett befintligt virtuellt nätverk måste du skapa ett nytt undernät när ASE skapas. **Du kan inte använda ett i förväg skapade undernät i portalen. Du kan skapa en ASE med ett redan befintligt undernät om du skapar din ASE med hjälp av en Resource Manager-mall.** Om du vill skapa en ASE från en mall använder du informationen här, [skapar en app service-miljön från mallen][ILBAseTemplate] och [skapar en ILB-App Service-miljön från mallen][ASEfromTemplate].
 
 ### <a name="details"></a>Information

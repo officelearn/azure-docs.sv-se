@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 146cf01d99ccc00a972c98128d8e93e1ed5fb690
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830777"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185712"
 ---
 # <a name="query-update-management-logs"></a>Fråga Uppdateringshanteringsloggar
 
@@ -39,7 +40,7 @@ En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar so
 | TimeGenerated | Datum och tid då posten skapades. | 
 | Typ | *Uppdatera* | 
 | UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhets uppdateringar*<br> *Samlade uppdateringar*<br> *Funktionspaket*<br> *Service Pack*<br> *Definitionsuppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhetsuppdateringar*<br> *Övrigt* |
-| UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Kritiskt*<br> *Viktigt*<br> *Medel*<br> *Låg* |
+| UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Kritisk*<br> *Viktigt*<br> *Måttlig*<br> *Låg* |
 | UpdateTitle | Uppdateringens rubrik.|
 
 ### <a name="query-update-record"></a>Uppdatera post för fråga
@@ -54,7 +55,7 @@ En post med en typ av `Update` skapas som representerar uppdateringar som är ti
 | Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
 | ComputerEnvironment | Miljö. Möjliga värden är Azure eller icke-Azure. |
 | MSRCBulletinID | ID-nummer för säkerhetsbulletin. | 
-| MSRCSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> Kritiskt<br> Viktigt<br> Medel<br> Låg |  
+| MSRCSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> Kritisk<br> Viktigt<br> Måttlig<br> Lågt |  
 | KBID | Kunskaps bas artikel-ID för Windows Update. |
 | ManagementGroupName | Namnet på Operations Manager hanterings gruppen eller arbets ytan Log Analytics. |
 | UpdateID | Unikt ID för program uppdateringen. |
@@ -69,7 +70,7 @@ En post med en typ av `Update` skapas som representerar uppdateringar som är ti
 | SourceSystem | Käll systemet för posten. Värdet är `OperationsManager` . | 
 | TimeGenerated | Datum och tid då posten skapades. | 
 | SourceComputerId | Unik identifierare som representerar käll datorn. | 
-| Rubrik | Uppdateringens rubrik. |
+| Titel | Uppdateringens rubrik. |
 | PublishedDate (UTC) | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update.  |
 | UpdateState | Uppdateringens aktuella tillstånd. | 
 | Produkt | De produkter som uppdateringen gäller. |
@@ -126,7 +127,7 @@ En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterin
 | SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
 | SucceededOnRetry | Värde som anger om uppdaterings körningen misslyckades för det första försöket och den aktuella åtgärden är ett försök att försöka igen. |
 | TimeGenerated | Datum och tid då posten skapades. |
-| Rubrik | Uppdateringens rubrik. |
+| Titel | Uppdateringens rubrik. |
 | Typ | Typ av uppdatering. Värdet är `UpdateRunProgress` . |
 | UpdateId | Unikt ID för program uppdateringen. |
 | VMUUID | Unik identifierare för den virtuella datorn. |
@@ -193,7 +194,7 @@ På en Windows-dator kan du granska följande information för att verifiera age
 1. Öppna **Microsoft Monitoring Agent**i kontroll panelen. På fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Log Analytics**.
 2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats på Log Analytics-arbetsytan och tar emot konfigurationen.
 
-Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
+Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../azure-monitor/learn/quick-collect-linux-computer.md).
 
 > [!NOTE]
 > Om Linux-systemen har kon figurer ATS för att kommunicera med en proxy eller Log Analytics gateway och du aktiverar Uppdateringshantering, uppdaterar du `proxy.conf` behörigheterna för att ge behörigheten omiuser Group Läs behörighet för filen genom att använda följande kommandon:
@@ -408,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Azure Monitor-loggar finns i [Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
+* Mer information om Azure Monitor-loggar finns i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md).
 * Hjälp med aviseringar finns i [Konfigurera aviseringar](automation-tutorial-update-management.md#configure-alerts).

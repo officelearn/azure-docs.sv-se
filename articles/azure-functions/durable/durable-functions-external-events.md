@@ -4,11 +4,12 @@ description: Lär dig hur du hanterar externa händelser i Durable Functions-til
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262970"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165557"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i Durable Functions (Azure Functions)
 
@@ -19,7 +20,7 @@ Orchestrator-funktioner kan vänta och lyssna efter externa händelser. Den här
 
 ## <a name="wait-for-events"></a>Vänta på händelser
 
-`WaitForExternalEvent`Metoderna (.net) och `waitForExternalEvent` (Java Script) i [Orchestration trigger-bindningen](durable-functions-bindings.md#orchestration-trigger) gör att en Orchestrator-funktion asynkront kan vänta och lyssna efter en extern händelse. Den lyssnande Orchestrator-funktionen deklarerar *namnet* på händelsen och *formen på de data* som det förväntar sig att ta emot.
+Metoderna [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.net) och `waitForExternalEvent` (Java Script) i [Dirigerings utlösaren](durable-functions-bindings.md#orchestration-trigger) tillåter att en Orchestrator-funktion asynkront väntar och lyssnar efter en extern händelse. Den lyssnande Orchestrator-funktionen deklarerar *namnet* på händelsen och *formen på de data* som det förväntar sig att ta emot.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -172,7 +173,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Skicka händelser
 
-`RaiseEventAsync`Metoden (.net) eller `raiseEvent` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) skickar händelser som `WaitForExternalEvent` (.net) eller `waitForExternalEvent` (Java Script) väntar på.  `RaiseEventAsync`Metoden tar *EventName* och *eventData* som parametrar. Händelse data måste vara JSON-serialiserbar.
+Du kan använda metoderna [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.net) eller `raiseEventAsync` (Java Script) för att skicka en extern händelse till ett Orchestration. Dessa metoder exponeras av [Dirigerings klientens](durable-functions-bindings.md#orchestration-client) bindning. Du kan också använda den inbyggda funktionen för att skapa en extern händelse i [HTTP-API: et](durable-functions-http-api.md#raise-event) för att skicka en extern händelse till ett Orchestration.
+
+En utlöst händelse innehåller ett *instans-ID*, en *EventName*och *eventData* som parametrar. Orchestrator Functions hanterar dessa händelser med `WaitForExternalEvent` API: erna (.net) eller `waitForExternalEvent` (Java Script). *EventName* måste matcha både sändnings-och mottagnings slut för att händelsen ska kunna bearbetas. Händelse data måste också vara JSON-serialiserbar.
+
+Internt kallas "Utlös Event"-mekanismer ett meddelande som hämtas av den väntande Orchestrator-funktionen. Om instansen inte väntar på det angivna *händelse namnet* läggs händelse meddelandet till i en kö i minnet. Om Orchestration-instansen senare börjar lyssna efter detta *händelse namn,* kommer den att söka efter händelse meddelanden i kön.
+
+> [!NOTE]
+> Om det inte finns någon Dirigerings instans med angivet *instans-ID*, ignoreras händelse meddelandet.
 
 Nedan visas ett exempel på en Queue-utlöst funktion som skickar en "godkännande"-händelse till en Orchestrator Function-instans. Dirigerings instansens ID kommer från bröd texten i Queue-meddelandet.
 
@@ -208,6 +216,19 @@ Internt, `RaiseEventAsync` (.net) eller `raiseEvent` (Java Script), köas ett me
 
 > [!NOTE]
 > Om det inte finns någon Dirigerings instans med angivet *instans-ID*, ignoreras händelse meddelandet.
+
+### <a name="http"></a>HTTP
+
+Följande är ett exempel på en HTTP-begäran som genererar en "godkännande"-händelse till en Orchestration-instans. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+I det här fallet är instans-ID: t hårdkodad som *MyInstanceId*.
 
 ## <a name="next-steps"></a>Nästa steg
 

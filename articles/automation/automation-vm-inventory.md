@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
 ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603119"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185729"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Hantera inventeringsinsamling från virtuella datorer
 
@@ -43,7 +43,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
    ![Visa integreringsalternativ](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Ett statusfält meddelar dig att funktionen Ändringsspårning och inventering är aktive rad. Processen kan ta upp till 15 minuter. Under den här tiden kan du stänga fönstret, eller så kan du hålla det öppet och meddela dig när funktionen är aktive rad. Du kan övervaka distributionsstatusen via meddelandefönstret.
+    Ett statusfält meddelar dig att funktionen Ändringsspårning och inventering är aktive rad. Det här kan ta upp till 15 minuter. Under den här tiden kan du stänga fönstret, eller så kan du hålla det öppet och meddela dig när funktionen är aktive rad. Du kan övervaka distributionsstatusen via meddelandefönstret.
 
    ![Visa inventering](./media/automation-vm-inventory/inventory-onboarded.png)
 
@@ -131,5 +131,5 @@ Ta bort den virtuella datorn från Ändringsspårning och inventerings hantering
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du arbetar med funktionen finns i [hantera ändringsspårning och inventering](change-tracking-file-contents.md).
-* Om du vill veta mer om spårning av program varu ändringar, se [spåra program varu ändringar i din miljö med ändringsspårning](../log-analytics/log-analytics-change-tracking.md).
+* Om du vill veta mer om spårning av program varu ändringar, se [spåra program varu ändringar i din miljö med ändringsspårning](./change-tracking.md).
 * Information om hur du felsöker allmänna problem med funktionen finns i [felsöka ändringsspårning-och inventerings problem](troubleshoot/change-tracking.md).

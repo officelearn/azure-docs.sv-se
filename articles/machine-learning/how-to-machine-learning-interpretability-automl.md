@@ -1,5 +1,5 @@
 ---
-title: Förklaring i automatiserad ML
+title: Förklaring i automatiserad ML (för hands version)
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du får förklaringar för hur din automatiserade ML-modell fastställer funktions prioritet och gör förutsägelser när du använder Azure Machine Learning SDK.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 03/11/2020
-ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: af3fe7bffbf985936a1648088daaf1a294a69905
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430524"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206603"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Tolkning: modell förklaringar i automatiserad maskin inlärning
+# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Tolkning: modell förklaringar i automatiserad Machine Learning (för hands version)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -29,7 +30,7 @@ I den här artikeln kan du se hur du:
 - Aktivera visualiseringar så att du kan se mönster i data och förklaringar.
 - Implementera tolkning under härledning eller poängsättning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 - Tolknings funktioner. Kör `pip install azureml-interpret azureml-contrib-interpret` för att hämta de nödvändiga paketen.
 - Kunskap om att skapa automatiserade ML-experiment. Mer information om hur du använder Azure Machine Learning SDK finns i [själv studie kursen om regressions modell](tutorial-auto-train-models.md) eller hur du [konfigurerar automatiserade ml-experiment](how-to-configure-auto-train.md).

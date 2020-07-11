@@ -5,11 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: a45aa8299d61e89f2a21bc9c53de3a88f88cbb93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55c7522ad1dc6c7f91fae608a777dab3cd67d2ed
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827904"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183179"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurera datorer till ett önskat tillstånd
 
@@ -24,10 +25,10 @@ Med Azure Automation tillstånds konfiguration kan du ange konfigurationer för 
 
 I den här självstudien använder vi en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/configurations) som garanterar att IIS är installerat på den virtuella datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
-- Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
-- En Azure Resource Manager virtuell dator (inte klassisk) som kör Windows Server 2008 R2 eller senare. Anvisningar om hur du skapar en virtuell dator finns [i skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](./manage-runas-account.md).
+- En Azure Resource Manager virtuell dator (inte klassisk) som kör Windows Server 2008 R2 eller senare. Anvisningar om hur du skapar en virtuell dator finns [i skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 - Azure PowerShell modul version 3,6 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
 - Förtrogen med önskad tillstånds konfiguration (DSC). Information om DSC finns i [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
@@ -35,13 +36,13 @@ I den här självstudien använder vi en enkel [DSC-konfiguration](/powershell/s
 
 Azure Automation tillstånds konfiguration stöder [partiella konfigurationer](/powershell/scripting/dsc/pull-server/partialconfigs). I det här scenariot konfigureras DSC för att hantera flera konfigurationer oberoende och varje konfiguration hämtas från Azure Automation. Men bara en konfiguration kan tilldelas till en nod per Automation-konto. Det innebär att om du använder två konfigurationer för en nod behöver du två Automation-konton.
 
-Mer information om hur du registrerar en del konfiguration från en pull-tjänst finns i dokumentationen för [partiella konfigurationer](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+Mer information om hur du registrerar en del konfiguration från en pull-tjänst finns i dokumentationen för [partiella konfigurationer](/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
 Mer information om hur team kan samar beta för att hantera servrar med konfiguration som kod finns i [förstå DSC-rollen i en CI/CD-pipeline](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på din Azure-prenumeration med cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med cmdleten [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzAccount
@@ -67,7 +68,7 @@ configuration TestConfig {
 > [!NOTE]
 > I mer avancerade scenarier där du kräver att flera moduler importeras som tillhandahåller DSC-resurser, se till att varje modul har en unik `Import-DscResource` rad i konfigurationen.
 
-Anropa cmdleten [import-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) för att överföra konfigurationen till ditt Automation-konto.
+Anropa cmdleten [import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) för att överföra konfigurationen till ditt Automation-konto.
 
 ```powershell
  Import-AzAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
@@ -77,7 +78,7 @@ Anropa cmdleten [import-AzAutomationDscConfiguration](https://docs.microsoft.com
 
 En DSC-konfiguration måste kompileras till en noduppsättning innan den kan tilldelas till en nod. Se [DSC-konfigurationer](/powershell/scripting/dsc/configurations/configurations).
 
-Anropa cmdleten [Start-AzAutomationDscCompilationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) för att kompilera `TestConfig` konfigurationen till en Node-konfiguration med namnet `TestConfig.WebServer` i ditt Automation-konto.
+Anropa cmdleten [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) för att kompilera `TestConfig` konfigurationen till en Node-konfiguration med namnet `TestConfig.WebServer` i ditt Automation-konto.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
@@ -87,7 +88,7 @@ Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGro
 
 Du kan använda Azure Automation tillstånds konfiguration för att hantera virtuella Azure-datorer (både klassiska och Resource Manager), lokala virtuella datorer, Linux-datorer, virtuella AWS-datorer och lokala fysiska datorer. I det här avsnittet beskriver vi hur du registrerar endast Azure Resource Manager virtuella datorer. Information om hur du registrerar andra typer av datorer finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-Anropa cmdleten [register-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) för att registrera din virtuella dator med Azure Automation tillstånds konfiguration som en hanterad nod. 
+Anropa cmdleten [register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) för att registrera din virtuella dator med Azure Automation tillstånds konfiguration som en hanterad nod. 
 
 ```powershell
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
@@ -124,7 +125,7 @@ Detta tilldelar nodens konfiguration med namnet `TestConfig.WebServer` till den 
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Kontrol lera status för efterlevnad för en hanterad nod
 
-Du kan få rapporter om kompatibilitetsstatus för en hanterad nod med hjälp av cmdleten [Get-AzAutomationDscNodeReport](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0) .
+Du kan få rapporter om kompatibilitetsstatus för en hanterad nod med hjälp av cmdleten [Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0) .
 
 ```powershell
 # Get the ID of the DSC node
@@ -145,7 +146,7 @@ Om du väljer att ta bort noden från tjänsten kan du göra det med hjälp av a
 > [!NOTE]
 > När du avregistrerar en nod från tjänsten anges bara de lokala Configuration Manager inställningarna så att noden inte längre ansluter till tjänsten.
 > Detta påverkar inte den konfiguration som för närvarande används på noden.
-> Om du vill ta bort den aktuella konfigurationen använder du [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) eller tar bort den lokala konfigurations filen (detta är det enda alternativet för Linux-noder).
+> Om du vill ta bort den aktuella konfigurationen använder du [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) eller tar bort den lokala konfigurations filen (detta är det enda alternativet för Linux-noder).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -156,7 +157,7 @@ Klicka på **avregistrera**i vyn Node som öppnas.
 
 ### <a name="powershell"></a>PowerShell
 
-Om du vill avregistrera en nod från Azure Automation tillstånds konfigurations tjänst med PowerShell följer du dokumentationen för cmdleten [unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+Om du vill avregistrera en nod från Azure Automation tillstånds konfigurations tjänst med PowerShell följer du dokumentationen för cmdleten [unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -165,5 +166,4 @@ Om du vill avregistrera en nod från Azure Automation tillstånds konfigurations
 - Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 - Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [Konfigurera kontinuerlig distribution med choklad](automation-dsc-cd-chocolatey.md).
 - Pris information finns i pris information för [Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77f2e78fa3df6c7ac6a422a03335f93d2a19d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85256004"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169348"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimera omautentiserings-prompter och förstå sessionens livs längd för Azure Multi-Factor Authentication
 
@@ -122,10 +122,10 @@ Om du har aktiverat konfigurerbara livs längder för token kommer den här funk
 
 I följande tabell sammanfattas rekommendationerna baserat på licenser:
 
-|                              | Azure AD Free-och Office 365-appar | Azure AD Premium |
+|              | Azure AD Free-och Office 365-appar | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
-| Enkel inloggning                          | [Azure AD Join](../devices/concept-azure-ad-join.md) eller [hybrid Azure AD Join](../devices/concept-azure-ad-join-hybrid.md)eller [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md) för ohanterade enheter. | Azure Active Directory-anslutning<br />Hybrid Azure Active Directory-anslutning |
-| Inställningar för omautentisering    | Förbli inloggad                  | Använd principer för villkorlig åtkomst för inloggnings frekvens och beständig webbläsarsession |
+| **Enkel inloggning**                      | [Azure AD Join](../devices/concept-azure-ad-join.md) eller [hybrid Azure AD Join](../devices/concept-azure-ad-join-hybrid.md)eller [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md) för ohanterade enheter. | Azure Active Directory-anslutning<br />Hybrid Azure Active Directory-anslutning |
+| **Inställningar för omautentisering** | Förbli inloggad                  | Använd principer för villkorlig åtkomst för inloggnings frekvens och beständig webbläsarsession |
 
 ## <a name="next-steps"></a>Nästa steg
 

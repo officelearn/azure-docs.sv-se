@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8229864acc80a27994ae3c795213dc2a65d22db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385577"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170130"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Konfigurera itsme OpenID Connect (OIDC) med Azure Active Directory B2C
 
 Med appen itsme Digital ID kan du logga in på ett säkert sätt utan kort läsare, lösen ord, tvåfaktorautentisering eller flera PIN-koder. Itsme-appen ger stark kundautentisering med en verifierad identitet. I den här artikeln lär du dig att integrera Azure AD B2C-autentisering med itsme OpenID Connect (OIDC) med hjälp av en användar flödes princip för klient hemlighet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 För att komma igång behöver du:
 
@@ -40,7 +40,7 @@ För att komma igång behöver du:
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-|   |   |
+| Steg | Beskrivning |
 |------|------|
 |1     | På din webbplats eller i ditt program inkluderar du knappen **Logga in med itsme** genom att anpassa i Azure AD B2C användar flödet. Interaktions flödet startar när användaren klickar på den här knappen.  |
 |2     | Azure AD B2C startar OpenID Connect-flödet genom att skicka en auktoriserad begäran till itsme-klientens hemliga API. En välkänd/OpenID-konfigurations slut punkt finns tillgänglig som innehåller information om slut punkterna.  |
@@ -127,7 +127,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 3. Se till att Multi-Factor Authentication är **inaktiverat**.
 
-4. Välj **Registrera**.
+4. Välj **Register** (Registrera).
 
    a. I test syfte väljer du **autentisering**och under **implicit tilldelning**markerar du kryss rutorna **åtkomsttoken** och **ID-token** .  
 

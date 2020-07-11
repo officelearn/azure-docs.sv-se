@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5fc374cdb60d20896ef01c34f57897c902bbe532
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52cb701312f598b1b8492226709a7d2767db9600
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828873"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187276"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 
@@ -21,8 +22,8 @@ I följande tabell får du hjälp att avgöra hur du ska starta en Runbook i Azu
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Anropa från kommando raden med Windows PowerShell-cmdletar.<br> <li>Kan inkluderas i automatiserad funktion med flera steg.<br> <li>Begäran autentiseras med certifikat eller användar huvud/tjänstens huvud namn för OAuth-användare.<br> <li>Ange enkla och komplexa parameter värden.<br> <li>Spåra jobb status.<br> <li>Klienten krävde för att stödja PowerShell-cmdletar. |
 | [Azure Automation-API](/rest/api/automation/) |<li>Den mest flexibla metoden, men även mest komplex.<br> <li>Anropa från en anpassad kod som kan göra HTTP-förfrågningar.<br> <li>Begäran autentiserad med certifikat eller användar huvud för OAuth/tjänstens huvud namn.<br> <li>Ange enkla och komplexa parameter värden. *Om du anropar en python-Runbook med API: t måste JSON-nyttolasten serialiseras.*<br> <li>Spåra jobb status. |
 | [Webhooks](automation-webhooks.md) |<li>Starta Runbook från en enskild HTTP-begäran.<br> <li>Autentiserad med säkerhetstoken i URL.<br> <li>Klienten kan inte åsidosätta parameter värden som anges när webhooken skapades. En Runbook kan definiera en enda parameter som är ifylld med HTTP-begärans information.<br> <li>Det går inte att spåra jobb status via webhook-URL. |
-| [Svara på Azure-avisering](../log-analytics/log-analytics-alerts.md) |<li>Starta en Runbook som svar på Azure-aviseringen.<br> <li>Konfigurera webhook för Runbook och länka till avisering.<br> <li>Autentiserad med säkerhetstoken i URL. |
-| [Schema](automation-schedules.md) |<li>Starta automatiskt Runbook på varje timme, varje dag, varje vecka eller månads schema.<br> <li>Manipulera schemat via Azure Portal, PowerShell-cmdletar eller Azure API.<br> <li>Ange parameter värden som ska användas med schemat. |
+| [Svara på Azure-avisering](../azure-monitor/platform/alerts-overview.md) |<li>Starta en Runbook som svar på Azure-aviseringen.<br> <li>Konfigurera webhook för Runbook och länka till avisering.<br> <li>Autentiserad med säkerhetstoken i URL. |
+| [Schema](./shared-resources/schedules.md) |<li>Starta automatiskt Runbook på varje timme, varje dag, varje vecka eller månads schema.<br> <li>Manipulera schemat via Azure Portal, PowerShell-cmdletar eller Azure API.<br> <li>Ange parameter värden som ska användas med schemat. |
 | [Från en annan Runbook](automation-child-runbooks.md) |<li>Använd en Runbook som en aktivitet i en annan Runbook.<br> <li>Användbart för funktioner som används av flera Runbooks.<br> <li>Ange parameter värden för underordnad Runbook och Använd utdata i överordnad Runbook. |
 
 Följande bild illustrerar en detaljerad steg-för-steg-process i livs cykeln för en Runbook. Den innehåller olika sätt som en Runbook startar i Azure Automation, vilka komponenter som krävs för att Hybrid Runbook Worker ska kunna köra Azure Automation runbooks och samverkan mellan olika komponenter. Information om hur du kör Automation-runbooks i ditt data Center finns i [hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
@@ -110,7 +111,7 @@ Smith
 
 ### <a name="credentials"></a>Autentiseringsuppgifter
 
-Om parametern är datatyp `PSCredential` kan du ange namnet på en Azure Automation [behörighet till till gång](automation-credentials.md). Runbooken hämtar autentiseringsuppgiften med det namn som du anger. Följande test-Runbook accepterar en parameter med namnet `credential` .
+Om parametern är datatyp `PSCredential` kan du ange namnet på en Azure Automation [behörighet till till gång](./shared-resources/credentials.md). Runbooken hämtar autentiseringsuppgiften med det namn som du anger. Följande test-Runbook accepterar en parameter med namnet `credential` .
 
 ```powershell
 Workflow Test-Parameters
@@ -144,13 +145,13 @@ jsmith
 
 ## <a name="start-a-runbook-with-powershell"></a>Starta en Runbook med PowerShell
 
-Du kan använda [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) för att starta en Runbook med Windows PowerShell. Följande exempel kod startar en Runbook med namnet **test-Runbook**.
+Du kan använda [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) för att starta en Runbook med Windows PowerShell. Följande exempel kod startar en Runbook med namnet **test-Runbook**.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook`Returnerar ett jobb objekt som du kan använda för att spåra status när runbooken har startats. Du kan sedan använda detta jobb objekt med [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) för att bestämma status för jobbet och [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) för att hämta dess utdata. I följande exempel startas en Runbook med namnet **test-Runbook**, väntar tills den har slutförts och visar sedan dess utdata.
+`Start-AzAutomationRunbook`Returnerar ett jobb objekt som du kan använda för att spåra status när runbooken har startats. Du kan sedan använda detta jobb objekt med [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) för att bestämma status för jobbet och [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) för att hämta dess utdata. I följande exempel startas en Runbook med namnet **test-Runbook**, väntar tills den har slutförts och visar sedan dess utdata.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"
@@ -169,7 +170,7 @@ While ($doLoop) {
 Get-AzAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Om Runbook kräver parametrar måste du ange dem som en [hash](https://technet.microsoft.com/library/hh847780.aspx)-form. Nyckeln för hash-tabellen måste matcha parameter namnet och värdet är parametervärdet. I följande exempel visas hur du startar en Runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbook-parametrar](#work-with-runbook-parameters).
+Om Runbook kräver parametrar måste du ange dem som en [hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables)-form. Nyckeln för hash-tabellen måste matcha parameter namnet och värdet är parametervärdet. I följande exempel visas hur du startar en Runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbook-parametrar](#work-with-runbook-parameters).
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -179,5 +180,5 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om Runbook-hantering finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
-* Information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).
+* Information om PowerShell finns i [PowerShell-dokument](/powershell/scripting/overview).
 * Information om hur du felsöker problem med Runbook-körning finns i [Felsöka Runbook-problem](troubleshoot/runbooks.md).

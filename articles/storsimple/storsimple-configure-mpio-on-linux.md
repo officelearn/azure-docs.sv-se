@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05a67ab33c12e9f2bdbc0cd0098c39252db37e8e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511600"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187089"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 I den här artikeln beskrivs de steg som krävs för att konfigurera multipath i/o (MPIO) på din CentOS 6,6-värd Server. Värd servern är ansluten till din Microsoft Azure StorSimple enhet för hög tillgänglighet via iSCSI-initierare. Den beskriver i detalj den automatiska identifieringen av flera Sök vägs enheter och den speciella installationen enbart för StorSimple volymer.
@@ -60,7 +60,7 @@ En StorSimple-enhet som är ansluten till en Linux-värd kan konfigureras för h
 
 Följande procedur beskriver hur du konfigurerar flera sökvägar när en StorSimple-enhet med två nätverks gränssnitt är ansluten till en värd med två nätverks gränssnitt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 I det här avsnittet beskrivs konfigurations kraven för CentOS-servern och din StorSimple-enhet.
 
 ### <a name="on-centos-host"></a>På CentOS-värd
@@ -70,35 +70,37 @@ I det här avsnittet beskrivs konfigurations kraven för CentOS-servern och din 
    
     I följande exempel visas utdata när två nätverks gränssnitt ( `eth0` och `eth1` ) finns på värden.
    
-        [root@centosSS ~]# ifconfig
-        eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
-          inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
-          inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
-          inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-         RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
-   
-        eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
-          inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
-          inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
-          inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
-   
-        loLink encap:Local Loopback  
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          inet6 addr: ::1/128 Scope:Host
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:12 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0
-          RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
+    ```output
+    [root@centosSS ~]# ifconfig
+    eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
+        inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
+        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
+        inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
+
+    eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
+        inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
+        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
+        inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
+
+    loLink encap:Local Loopback  
+        inet addr:127.0.0.1  Mask:255.0.0.0
+        inet6 addr: ::1/128 Scope:Host
+        UP LOOPBACK RUNNING  MTU:65536  Metric:1
+        RX packets:12 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:0
+        RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
+    ```
 1. Installera *iSCSI-Initiator-utils* på din CentOS-Server. Utför följande steg för att installera *iSCSI-Initiator-utils*.
    
    1. Logga in som `root` CentOS-värd.
@@ -119,8 +121,10 @@ I det här avsnittet beskrivs konfigurations kraven för CentOS-servern och din 
       
        Ett exempel på utdata visas nedan.
       
-           iscsi   0:off   1:off   2:on3:on4:on5:on6:off
-           iscsid  0:off   1:off   2:on3:on4:on5:on6:off
+        ```output
+        iscsi   0:off   1:off   2:on3:on4:on5:on6:off
+        iscsid  0:off   1:off   2:on3:on4:on5:on6:off
+        ```
       
        I ovanstående exempel kan du se att din iSCSI-miljö körs vid start på körnings nivå 2, 3, 4 och 5.
 1. Installera *device-mapper-multipath*. Ange:
@@ -149,9 +153,11 @@ Din StorSimple-enhet bör ha:
 * ISCSI-gränssnitten på din StorSimple-enhet bör kunna kontaktas från CentOS-servern.
       För att verifiera detta måste du ange IP-adresserna för dina StorSimple-iSCSI-aktiverade nätverks gränssnitt på värd servern. De kommandon som används och motsvarande utdata med DATA2 (10.126.162.25) och DATA3 (10.126.162.26) visas nedan:
   
-        [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
-        10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
-        10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+    ```console
+    [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
+    10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+    10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+    ```
 
 ### <a name="hardware-configuration"></a>Maskin varu konfiguration
 Vi rekommenderar att du ansluter de två iSCSI-nätverks gränssnitten på separata sökvägar för redundans. Figuren nedan visar den rekommenderade maskin varu konfigurationen för hög tillgänglighet och belastnings utjämning av flera sökvägar för CentOS-servern och StorSimple-enheten.
@@ -197,11 +203,13 @@ Enheter som stöds för flera sökvägar kan identifieras och konfigureras autom
    
     Detta ändrar standard avsnittet i `multipath.conf` som visas nedan:
    
-        defaults {
-        find_multipaths yes
-        user_friendly_names yes
-        path_grouping_policy multibus
-        }
+    ```config
+    defaults {
+    find_multipaths yes
+    user_friendly_names yes
+    path_grouping_policy multibus
+    }
+    ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Steg 2: Konfigurera flera sökvägar för StorSimple-volymer
 Som standard är alla enheter svarta i listan över flera sökvägar. conf-filen och kommer att kringgås. Du måste skapa Black-undantag för att tillåta flera sökvägar för volymer från StorSimple-enheter.
@@ -211,16 +219,18 @@ Som standard är alla enheter svarta i listan över flera sökvägar. conf-filen
     `vi /etc/multipath.conf`
 1. Leta upp avsnittet blacklist_exceptions i filen multipath. conf. Din StorSimple-enhet måste anges som ett svartlistat undantag i det här avsnittet. Du kan ta bort kommentaren till relevanta rader i den här filen om du vill ändra den enligt nedan (Använd endast den enhets modell som du använder):
    
-        blacklist_exceptions {
-            device {
-                       vendor  "MSFT"
-                       product "STORSIMPLE 8100*"
-            }
-            device {
-                       vendor  "MSFT"
-                       product "STORSIMPLE 8600*"
-            }
-           }
+    ```config
+    blacklist_exceptions {
+        device {
+                    vendor  "MSFT"
+                    product "STORSIMPLE 8100*"
+        }
+        device {
+                    vendor  "MSFT"
+                    product "STORSIMPLE 8600*"
+        }
+    }
+    ```
 
 ### <a name="step-3-configure-round-robin-multipathing"></a>Steg 3: Konfigurera resursallokering (Round-Robin) för flera sökvägar
 Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera sökvägar till den aktiva styrenheten i ett balanserat, resursallokering.
@@ -230,10 +240,12 @@ Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera s
     `vi /etc/multipath.conf`
 1. Under `defaults` avsnittet ställer du in på `path_grouping_policy` `multibus` . `path_grouping_policy`Anger den standard Sök vägs princip som ska användas för ospecificerade flera sökvägar. Standard avsnittet ser ut som visas nedan.
    
-        defaults {
-                user_friendly_names yes
-                path_grouping_policy multibus
-        }
+    ```config
+    defaults {
+            user_friendly_names yes
+            path_grouping_policy multibus
+    }
+    ```
 
 > [!NOTE]
 > De vanligaste värdena `path_grouping_policy` är:
@@ -249,21 +261,21 @@ Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera s
     `service multipathd restart`
 1. Utdata visas nedan:
    
-        [root@centosSS ~]# service multipathd start
-        Starting multipathd daemon:  [OK]
+    ```output
+    [root@centosSS ~]# service multipathd start
+    Starting multipathd daemon:  [OK]
+    ```
 
 ### <a name="step-5-verify-multipathing"></a>Steg 5: kontrol lera flera sökvägar
 1. Se först till att iSCSI-anslutningen upprättas med StorSimple-enheten enligt följande:
    
    a. Identifiera din StorSimple-enhet. Ange:
       
-    ```
-    iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
-    ```
+    `iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
     
     Utdata när IP-adressen för DATA0 är 10.126.162.25 och port 3260 öppnas på StorSimple-enheten för utgående iSCSI-trafik enligt nedan:
     
-    ```
+    ```output
     10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
     10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
     ```
@@ -272,13 +284,11 @@ Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera s
 
    b. Anslut till enheten med mål-IQN. StorSimple-enheten är iSCSI-målet här. Ange:
 
-    ```
-    iscsiadm -m node --login -T <IQN of iSCSI target>
-    ```
+      `iscsiadm -m node --login -T <IQN of iSCSI target>`
 
     I följande exempel visas utdata med ett mål-IQN för `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target` . Utdata indikerar att du har anslutit till de två iSCSI-aktiverade nätverks gränssnitten på enheten.
 
-    ```
+    ```output
     Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
     Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
     Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
@@ -295,33 +305,31 @@ Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera s
 
 1. Verifiera tillgängliga sökvägar. Ange:
 
-      ```
-      multipath -l
-      ```
+    `multipath -l`
 
       I följande exempel visas utdata för två nätverks gränssnitt på en StorSimple-enhet som är ansluten till ett enda värd nätverks gränssnitt med två tillgängliga sökvägar.
 
-        ```
-        mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-        size=100G features='0' hwhandler='0' wp=rw
-        `-+- policy='round-robin 0' prio=0 status=active
-        |- 7:0:0:1 sdc 8:32 active undef running
-        `- 6:0:0:1 sdd 8:48 active undef running
-        ```
+    ```output
+    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+    |- 7:0:0:1 sdc 8:32 active undef running
+    `- 6:0:0:1 sdd 8:48 active undef running
+    ```
 
-        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
+    I följande exempel visas utdata för två nätverks gränssnitt på en StorSimple-enhet som är ansluten till två värd nätverks gränssnitt med fyra tillgängliga sökvägar.
 
-        ```
-        mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-        size=100G features='0' hwhandler='0' wp=rw
-        `-+- policy='round-robin 0' prio=0 status=active
-        |- 17:0:0:0 sdb 8:16 active undef running
-        |- 15:0:0:0 sdd 8:48 active undef running
-        |- 14:0:0:0 sdc 8:32 active undef running
-        `- 16:0:0:0 sde 8:64 active undef running
-        ```
+    ```output
+    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+    |- 17:0:0:0 sdb 8:16 active undef running
+    |- 15:0:0:0 sdd 8:48 active undef running
+    |- 14:0:0:0 sdc 8:32 active undef running
+    `- 16:0:0:0 sde 8:64 active undef running
+    ```
 
-        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
+    När Sök vägarna har kon figurer ATS, se de instruktioner som finns på värd operativ systemet (CentOS 6,6) för att montera och formatera volymen.
 
 ## <a name="troubleshoot-multipathing"></a>Felsöka flera sökvägar
 Det här avsnittet innehåller några användbara tips om du stöter på problem under konfigurationen av flera sökvägar.
@@ -330,7 +338,7 @@ F. Jag ser inte ändringarna i `multipath.conf` filen börjar att fungera.
 
 A. Om du har gjort ändringar i `multipath.conf` filen måste du starta om tjänsten flera sökvägar. Ange följande kommando:
 
-    service multipathd restart
+`service multipathd restart`
 
 F. Jag har aktiverat två nätverks gränssnitt på StorSimple-enheten och två nätverks gränssnitt på värden. När jag visar en lista över tillgängliga sökvägar visas bara två sökvägar. Jag förväntade dig att se fyra tillgängliga sökvägar.
 
@@ -362,52 +370,54 @@ Det kan också vara värt att kontrol lera att du faktiskt kan se vissa diskar e
 
 En mindre sannolik men möjlig orsak kan också vara inaktuellt iSCSI-PID. Använd följande kommando för att logga ut från iSCSI-sessionerna:
 
-    iscsiadm -m node --logout -p <Target_IP>
+`iscsiadm -m node --logout -p <Target_IP>`
 
 Upprepa det här kommandot för alla anslutna nätverks gränssnitt på iSCSI-målet, som är din StorSimple-enhet. När du har loggat ut från alla iSCSI-sessioner använder du iSCSI-målets IQN för att återupprätta iSCSI-sessionen. Ange följande kommando:
 
-    iscsiadm -m node --login -T <TARGET_IQN>
+`iscsiadm -m node --login -T <TARGET_IQN>`
 
 
 F. Jag är inte säker på att min enhet är vit listas.
 
 A. För att kontrol lera om enheten är vit listas, Använd följande interaktiva kommando för fel sökning:
 
-    multipathd -k
-    multipathd> show devices
-    available block devices:
-    ram0 devnode blacklisted, unmonitored
-    ram1 devnode blacklisted, unmonitored
-    ram2 devnode blacklisted, unmonitored
-    ram3 devnode blacklisted, unmonitored
-    ram4 devnode blacklisted, unmonitored
-    ram5 devnode blacklisted, unmonitored
-    ram6 devnode blacklisted, unmonitored
-    ram7 devnode blacklisted, unmonitored
-    ram8 devnode blacklisted, unmonitored
-    ram9 devnode blacklisted, unmonitored
-    ram10 devnode blacklisted, unmonitored
-    ram11 devnode blacklisted, unmonitored
-    ram12 devnode blacklisted, unmonitored
-    ram13 devnode blacklisted, unmonitored
-    ram14 devnode blacklisted, unmonitored
-    ram15 devnode blacklisted, unmonitored
-    loop0 devnode blacklisted, unmonitored
-    loop1 devnode blacklisted, unmonitored
-    loop2 devnode blacklisted, unmonitored
-    loop3 devnode blacklisted, unmonitored
-    loop4 devnode blacklisted, unmonitored
-    loop5 devnode blacklisted, unmonitored
-    loop6 devnode blacklisted, unmonitored
-    loop7 devnode blacklisted, unmonitored
-    sr0 devnode blacklisted, unmonitored
-    sda devnode whitelisted, monitored
-    dm-0 devnode blacklisted, unmonitored
-    dm-1 devnode blacklisted, unmonitored
-    dm-2 devnode blacklisted, unmonitored
-    sdb devnode whitelisted, monitored
-    sdc devnode whitelisted, monitored
-    dm-3 devnode blacklisted, unmonitored
+```console
+multipathd -k
+multipathd> show devices
+available block devices:
+ram0 devnode blacklisted, unmonitored
+ram1 devnode blacklisted, unmonitored
+ram2 devnode blacklisted, unmonitored
+ram3 devnode blacklisted, unmonitored
+ram4 devnode blacklisted, unmonitored
+ram5 devnode blacklisted, unmonitored
+ram6 devnode blacklisted, unmonitored
+ram7 devnode blacklisted, unmonitored
+ram8 devnode blacklisted, unmonitored
+ram9 devnode blacklisted, unmonitored
+ram10 devnode blacklisted, unmonitored
+ram11 devnode blacklisted, unmonitored
+ram12 devnode blacklisted, unmonitored
+ram13 devnode blacklisted, unmonitored
+ram14 devnode blacklisted, unmonitored
+ram15 devnode blacklisted, unmonitored
+loop0 devnode blacklisted, unmonitored
+loop1 devnode blacklisted, unmonitored
+loop2 devnode blacklisted, unmonitored
+loop3 devnode blacklisted, unmonitored
+loop4 devnode blacklisted, unmonitored
+loop5 devnode blacklisted, unmonitored
+loop6 devnode blacklisted, unmonitored
+loop7 devnode blacklisted, unmonitored
+sr0 devnode blacklisted, unmonitored
+sda devnode whitelisted, monitored
+dm-0 devnode blacklisted, unmonitored
+dm-1 devnode blacklisted, unmonitored
+dm-2 devnode blacklisted, unmonitored
+sdb devnode whitelisted, monitored
+sdc devnode whitelisted, monitored
+dm-3 devnode blacklisted, unmonitored
+```
 
 
 Mer information finns i [fel sökning för flera sökvägar](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).

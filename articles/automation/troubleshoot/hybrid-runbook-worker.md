@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681000"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187208"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Felsöka problem med Hybrid Runbook Worker
 
@@ -57,7 +58,7 @@ Kontrol lera händelse loggen för **Microsoft-SMA** för en motsvarande händel
 
 #### <a name="issue"></a>Problem
 
-Hybrid Runbook Worker tar emot händelse 15011, vilket indikerar att ett frågeresultat inte är giltigt. Följande fel visas när arbets tagaren försöker öppna en anslutning med [signal servern](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Hybrid Runbook Worker tar emot händelse 15011, vilket indikerar att ett frågeresultat inte är giltigt. Följande fel visas när arbets tagaren försöker öppna en anslutning med [signal servern](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -237,7 +238,7 @@ Hybrid Worker skickar [Runbook-utdata och meddelanden](../automation-runbook-out
 
 #### <a name="issue"></a>Problem
 
-Ett skript som körs på en Windows-Hybrid Runbook Worker kan inte ansluta som förväntat till Office 365 i ett Orchestrator-läge. Skriptet använder [Connect-MSOLService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) för anslutning. 
+Ett skript som körs på en Windows-Hybrid Runbook Worker kan inte ansluta som förväntat till Office 365 i ett Orchestrator-läge. Skriptet använder [Connect-MSOLService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) för anslutning. 
 
 Om du justerar **Orchestrator.Sandbox.exe.config** för att ställa in proxyn och bypass-listan, ansluts inte sand lådan ändå korrekt. En **Powershell_ise.exe.config** -fil med samma inställningar för proxy och kringgå lista verkar fungera som förväntat. Service Management Automation (SMA) loggar och PowerShell-loggar tillhandahåller inte någon information om proxyn.
 
@@ -247,9 +248,9 @@ Anslutningen till Active Directory Federation Services (AD FS) (AD FS) på serve
 
 #### <a name="resolution"></a>Lösning
 
-Du kan lösa problemet för Orchestrator sandbox genom att migrera skriptet så att det använder Azure Active Directory moduler i stället för MSOnline-modulen för PowerShell-cmdletar. Mer information finns i [Migrera från Orchestrator till Azure Automation (beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Du kan lösa problemet för Orchestrator sandbox genom att migrera skriptet så att det använder Azure Active Directory moduler i stället för MSOnline-modulen för PowerShell-cmdletar. Mer information finns i [Migrera från Orchestrator till Azure Automation (beta)](../automation-orchestrator-migration.md).
 
-Om du vill fortsätta att använda MSOnline-modulens cmdlets ändrar du skriptet för att använda [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Ange värden för `ComputerName` parametrarna och `Credential` . 
+Om du vill fortsätta att använda MSOnline-modulens cmdlets ändrar du skriptet för att använda [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Ange värden för `ComputerName` parametrarna och `Credential` . 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential

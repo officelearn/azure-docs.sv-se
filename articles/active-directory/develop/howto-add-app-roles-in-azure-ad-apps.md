@@ -3,7 +3,7 @@ title: Lägg till app-roller och hämta dem från en token | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du lägger till app-roller i ett program som är registrerat i Azure Active Directory, tilldela användare och grupper till dessa roller och ta emot dem i `roles` anspråket i token.
 services: active-directory
-author: kkrishna
+author: kalyankrishna1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: aedf5d710b82185cb634fcd92e6981a2c358ad52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477897"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187038"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -122,7 +122,7 @@ När du har lagt till app-roller i ditt program kan du tilldela de här rollerna
 ## <a name="more-information"></a>Mer information
 
 - [Lägg till auktorisering med hjälp av app-roller & roller anspråk till en ASP.NET Core webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Använda säkerhets grupper och program roller i dina appar (video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Implementera auktorisering i dina program med Microsoft Identity Platform (video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, nu med grupp anspråk och program roller](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory-appmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [AAD-åtkomsttoken](access-tokens.md)

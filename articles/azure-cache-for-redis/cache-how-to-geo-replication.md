@@ -6,15 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74129425"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184981"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Så här konfigurerar du geo-replikering för Azure cache för Redis
 
-Geo-replikering är en mekanism för att länka två Premium-nivåer i Azure-cache för Redis-instanser. Ett cacheminne har valts som primärt länkat cache och den andra som sekundär länkad cache. Den sekundära länkade cachen blir skrivskyddad och data som skrivs till den primära cachen replikeras till den sekundära länkade cachen. Den här funktionen kan användas för att replikera en cache i Azure-regioner. Den här artikeln innehåller en guide för hur du konfigurerar geo-replikering för Azure-cache på Premium nivå för Redis-instanser.
+Geo-replikering är en mekanism för att länka två Premium-nivåer i Azure-cache för Redis-instanser. Ett cacheminne har valts som primärt länkat cache och den andra som sekundär länkad cache. Den sekundära länkade cachen blir skrivskyddad och data som skrivs till den primära cachen replikeras till den sekundära länkade cachen. Data överföring mellan de primära och sekundära cache-instanserna skyddas av TLS. Geo-replikering kan användas för att konfigurera ett cacheminne som omfattar två Azure-regioner. Den här artikeln innehåller en guide för hur du konfigurerar geo-replikering för Azure-cache på Premium nivå för Redis-instanser.
+
+> [!NOTE]
+> Geo-replikering är utformad som en katastrof återställnings lösning. Som standard skrivs ditt program till och läses från den primära regionen. Det kan också konfigureras för att läsa från den sekundära regionen. Geo-replikering ger inte automatisk redundans på grund av problem med extra nätverks fördröjning mellan regioner om resten av programmet finns kvar i den primära regionen. Du måste hantera och initiera redundansväxlingen genom att ta bort länken till det sekundära cacheminnet. Detta upphöjer den till den nya primära instansen.
 
 ## <a name="geo-replication-prerequisites"></a>Krav för geo-replikering
 

@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680840"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187140"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Felsöka problem med uppdateringsagenten i Windows
 
@@ -54,7 +55,7 @@ Resultaten visas på sidan när de är klara. I avsnittet kontroller visas vad s
 
 Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av de operativ system som visas i nästa tabell.
 
-|Operativsystem  |Obs!  |
+|Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2012 och senare |.NET Framework 4,6 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers).)<br/> Windows PowerShell 5,1 krävs.  ([Ladda ned Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).)        |
 
@@ -109,7 +110,7 @@ Mer information om den här händelsen finns [i händelse 4502 i Operations Mana
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Felsöka offline
 
-Du kan använda fel sökaren på en Hybrid Runbook Worker offline genom att köra skriptet lokalt. Hämta följande skript från PowerShell-galleriet: [Felsök-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). För att köra skriptet måste du ha WMF 4,0 eller senare installerat. Information om hur du hämtar den senaste versionen av PowerShell finns i [installera olika versioner av PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+Du kan använda fel sökaren på en Hybrid Runbook Worker offline genom att köra skriptet lokalt. Hämta följande skript från PowerShell-galleriet: [Felsök-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). För att köra skriptet måste du ha WMF 4,0 eller senare installerat. Information om hur du hämtar den senaste versionen av PowerShell finns i [installera olika versioner av PowerShell](/powershell/scripting/install/installing-powershell).
 
 Utdata från det här skriptet ser ut som i följande exempel:
 

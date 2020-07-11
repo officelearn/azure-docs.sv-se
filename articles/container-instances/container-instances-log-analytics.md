@@ -2,13 +2,14 @@
 title: Samla in & analysera resurs loggar
 description: Lär dig hur du skickar resurs loggar och händelse data från behållar grupper i Azure Container Instances till Azure Monitor loggar
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892401"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169739"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
 
@@ -23,11 +24,11 @@ I följande avsnitt beskrivs hur du skapar en loggnings aktive rad behållar gru
 > [!NOTE]
 > För närvarande kan du bara skicka händelse data från Linux container instances till Log Analytics.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 
-* [Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (eller [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Hämta Log Analytics-autentiseringsuppgifter
@@ -41,7 +42,7 @@ Gör följande för att hämta ID och den primära nyckeln för Log Analytics-ar
 1. Välj **anslutna källor**  >  **Windows-servrar** (eller **Linux-servrar**--ID: t och nycklarna är desamma för båda)
 1. Anteckna:
    * **ARBETSYTE-ID**
-   * **Primär nyckel**
+   * **PRIMÄR NYCKEL**
 
 ## <a name="create-container-group"></a>Skapa containergrupp
 
@@ -67,7 +68,7 @@ az container create \
 Använd den här metoden om du föredrar att distribuera containergrupper med YAML. Följande YAML definierar en containergrupp med en enda container. Kopiera YAML-koden till en ny fil och ersätt `LOG_ANALYTICS_WORKSPACE_ID` och `LOG_ANALYTICS_WORKSPACE_KEY` med värdena du hämtade i föregående steg. Spara filen som **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:

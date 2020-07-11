@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: e1dd20514fcb14e411fbb7efee4157b670d462b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389708"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165675"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -287,24 +287,7 @@ Här följer några exempel på NCRONTAB-uttryck som du kan använda för timer-
 
 Talen i ett CRON-uttryck refererar till en tid och ett datum, inte ett tidsintervall. Till exempel refererar en 5 i `hour` fältet till 5:00 am, inte var 5: e timme.
 
-Standard tids zonen som används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att ditt CRON-uttryck ska baseras på en annan tidszon skapar du en app-inställning för din Function-app med namnet `WEBSITE_TIME_ZONE` . Ange värdet till namnet på den önskade tids zonen som visas i [Microsoft Time Zone-indexet](https://technet.microsoft.com/library/cc749073).
-
-  > [!NOTE]
-  > `WEBSITE_TIME_ZONE`stöds för närvarande inte i Linux-förbruknings planen.
-
-Till exempel är *Eastern Standard Time* UTC-05:00. Använd följande NCRONTAB-uttryck som kontona för UTC-tidszonen för att utlösa timer-utlösare vid 10:00 AM EST per dag:
-
-```
-"0 0 15 * * *"
-``` 
-
-Eller skapa en app-inställning för din Function-app med namnet `WEBSITE_TIME_ZONE` och Ställ in värdet på **Eastern, normal tid**.  Använder sedan följande NCRONTAB-uttryck: 
-
-```
-"0 0 10 * * *"
-``` 
-
-När du använder `WEBSITE_TIME_ZONE` , justeras tiden för tid ändringar i den angivna tids zonen, t. ex. sommar tid. 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## <a name="timespan"></a>TimeSpan
 
@@ -329,7 +312,7 @@ Om en Function-app skalar ut till flera instanser, körs bara en instans av en t
 
 Om du delar lagrings konton över Function-appar som inte har distribuerats till App Service kan du uttryckligen behöva tilldela värd-ID till varje app.
 
-| Funktions version | Inställningen                                              |
+| Funktions version | Inställning                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (och högre)  | `AzureFunctionsWebHost__hostid`miljö variabel |
 | 1.x               | `id`i *host.jspå*                                  |

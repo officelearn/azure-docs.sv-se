@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4919ce9ecaa3dc4f621aa5658b44aa53fad0bbf3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704003"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201031"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportera resurs grupper som innehåller VM-tillägg
 
@@ -32,18 +33,7 @@ Många tillägg för virtuella datorer är tillgängliga. Det går inte att expo
 
 Följande tillägg kan exporteras med Automation-skript funktionen.
 
-| Anknytning ||||
-|---|---|---|---|
-| Acronis-säkerhetskopiering | Datadog Windows-agent | OS-uppdatering för Linux | Linux för VM-ögonblicksbild
-| Acronis Backup Linux | Docker-tillägg | Puppet-agent |
-| BG-information | DSC-tillägg | Insikter om webbplats dygnet runt |
-| BMC CTM-agent Linux | DynaTrace Linux | Plats 24 Linux-Server |
-| BMC CTM agent Windows | DynaTrace Windows | Plats dygnet runt Windows Server |
-| Chefs klient | HPE Security Application Defender | Trend Micro DSA |
-| Anpassat skript | IaaS mot skadlig kod | Trend Micro DSA Linux |
-| Anpassat skripttillägg | IaaS-diagnostik | VM-åtkomst för Linux |
-| Anpassat skript för Linux | Linux chef-klient | VM-åtkomst för Linux |
-| Datadog Linux-Agent | Linux-diagnostik | VM-ögonblicksbild |
+> Acronis säkerhets kopiering, Acronis Backup Linux, BG info, BMC CTM agent Linux, BMC CTM agent Windows, chefs klient, anpassat skript, anpassat skript tillägg, anpassat skript för Linux, Datadog Linux-Agent, Datadog Windows-agent, Docker-tillägg, DSC-tillägg, dynaTrace Linux, dynaTrace Windows, HPE Security Application Defender, IaaS antimalware, IaaS-diagnostik, Linux kock-klient, Linux-diagnostik, OS-uppdatering för Linux, Puppet-agent, plats dygnet , Platsens 24: a Linux-server, plats dygnet runt Windows Server, Trend Micro DSA, Trend Micro DSA Linux, VM-åtkomst för Linux, VM-åtkomst för Linux, VM-ögonblicksbild, VM-ögonblicksbild Linux
 
 ## <a name="export-the-resource-group"></a>Exportera resurs gruppen
 

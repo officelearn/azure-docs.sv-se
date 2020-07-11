@@ -3,12 +3,12 @@ title: Övervaka Azure App Services-prestanda | Microsoft Docs
 description: Övervakning av program prestanda för Azure App Services. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733472"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169943"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -58,7 +58,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
  
  Nedan visas en sammanfattning av data som samlas in för varje väg:
         
-|  | .NET Basic-samling | Rekommenderad .NET-samling |
+| Data | .NET Basic-samling | Rekommenderad .NET-samling |
 | --- | --- | --- |
 | Lägger till trender för processor-, minnes- och I/O-användning |Ja |Ja |
 | Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
@@ -116,9 +116,9 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 * Välj **inställningar** > * * * * program inställningar * * * *
    * Under program inställningar lägger du till ett nytt namn och **värde**för **appens inställning** :
 
-     Namn:`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Värde:`true`
+     Värde: `true`
 
    * **Spara** inställningarna och **starta om** din app.
 
@@ -137,7 +137,7 @@ Om du av någon anledning vill inaktivera övervakning på klient sidan:
 
      Namn:`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Värde:`false`
+     Värde: `false`
 
    * **Spara** inställningarna och **starta om** din app.
 
@@ -376,7 +376,7 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 
 Tabellen nedan innehåller en mer detaljerad förklaring av vad dessa värden innebär, deras underliggande orsaker och rekommenderade korrigeringar:
 
-|Problem värde|Förklaring|Snabbkorrigering
+|Problem värde|Förklaring|Åtgärda
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Det här värdet anger att tillägget har identifierat att en aspekt av SDK: n redan finns i programmet och kommer att stängas av. Det kan bero på en referens till `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` eller`Microsoft.ApplicationInsights`  | Ta bort referenserna. Vissa av dessa referenser läggs till som standard från vissa Visual Studio-mallar och äldre versioner av Visual Studio kan lägga till referenser till `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Om programmet är riktat mot .NET Core 2,1 eller 2,2, och refererar till [Microsoft. AspNetCore. all](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-paket, kommer det att finnas i Application Insights och tillägget kommer att återställas. | Kunder på .NET Core 2.1, 2.2 [rekommenderar](https://github.com/aspnet/Announcements/issues/287) att du använder Microsoft. AspNetCore. app-meta-paketet i stället.|

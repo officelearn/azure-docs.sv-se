@@ -6,11 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd228add317b5c4cd19f1d0daefa90ce3c937b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76547497"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184879"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Så här övervakar du Azure cache för Redis
 
@@ -93,7 +94,7 @@ Varje mått innehåller två versioner. Ett mått mäter prestanda för hela cac
 > 
 > 
 
-| Metric | Beskrivning |
+| Mått | Beskrivning |
 | --- | --- |
 | Cacheträffar |Antalet lyckade nyckels ökningar under det angivna rapporterings intervallet. Det här numret mappar till `keyspace_hits` från Redis [information](https://redis.io/commands/info) -kommandot. |
 | Fördröjning för cache (för hands version) | Svars tiden för cachen beräknas utifrån mellannodens svars tid för cachen. Det här måttet mäts i mikrosekunder och har tre dimensioner: `Avg` , `Min` och `Max` , som representerar genomsnitt, minsta och högsta svars tid för cachen under det angivna rapporterings intervallet. |
@@ -102,13 +103,13 @@ Varje mått innehåller två versioner. Ett mått mäter prestanda för hela cac
 | Cacheskrivning |Mängden data som skrivs till cachen i megabyte per sekund (MB/s) under det angivna rapporterings intervallet. Det här värdet härleds från de nätverkskort som har stöd för den virtuella datorn som är värd för cachen och som inte är Redis. Det här värdet motsvarar nätverks bandbredden för data som skickas till cacheminnet från klienten. |
 | Anslutna klienter |Antalet klient anslutningar till cacheminnet under det angivna rapporterings intervallet. Det här numret mappar till `connected_clients` från REDIS information-kommandot. När [anslutnings gränsen](cache-configure.md#default-redis-server-configuration) har uppnåtts kommer efterföljande anslutnings försök till cacheminnet att Miss lyckas. Även om det inte finns några aktiva klient program kan det fortfarande finnas några instanser av anslutna klienter på grund av interna processer och anslutningar. |
 | Processor |CPU-användningen av Azure-cachen för Redis-servern som en procent andel under det angivna rapporterings intervallet. Det här värdet mappar till operativ systemets `\Processor(_Total)\% Processor Time` prestanda räknare. |
-| Fel | Specifika fel och prestanda problem som cachen kan ha under ett angivet rapporterings intervall. Det här måttet har åtta dimensioner som representerar olika fel typer, men kan ha fler tillägg i framtiden. De fel typer som visas nu är följande: <br/><ul><li>**Redundans** – när en cache växlar över (underordnad till Master)</li><li>**DataLoss** – när det finns data förlust i cacheminnet</li><li>**UnresponsiveClients** – när klienterna inte läser data från servern tillräckligt snabbt</li><li>**AOF** – när det finns ett problem relaterat till AOF persistence</li><li>**RDB** – när det finns ett problem relaterat till RDB persistence</li><li>**Importera** – när det finns ett problem som rör import RDB</li><li>**Exportera** – när det finns ett problem som rör export RDB</li></ul> |
+| Fel | Specifika fel och prestanda problem som cachen kan ha under ett angivet rapporterings intervall. Det här måttet har åtta dimensioner som representerar olika fel typer, men kan ha fler tillägg i framtiden. De fel typer som visas nu är följande: <br/><ul><li>**Redundans** – när en cache växlar över (underordnade befordras till primär)</li><li>**DataLoss** – när det finns data förlust i cacheminnet</li><li>**UnresponsiveClients** – när klienterna inte läser data från servern tillräckligt snabbt</li><li>**AOF** – när det finns ett problem relaterat till AOF persistence</li><li>**RDB** – när det finns ett problem relaterat till RDB persistence</li><li>**Importera** – när det finns ett problem som rör import RDB</li><li>**Exportera** – när det finns ett problem som rör export RDB</li></ul> |
 | Avlägsnade nycklar |Antalet objekt som tagits bort från cacheminnet under det angivna rapporterings intervallet på grund av `maxmemory` gränsen. Det här numret mappar till `evicted_keys` från REDIS information-kommandot. |
 | Utgångna nycklar |Antalet objekt som har upphört att gälla från cachen under det angivna rapporterings intervallet. Det här värdet mappar till `expired_keys` från REDIS information-kommandot.|
 | Hämtningar |Antalet get-åtgärder från cachen under det angivna rapporterings intervallet. Det här värdet är summan av följande värden från Redis-information alla kommando:,,,,,, och `cmdstat_get` `cmdstat_hget` `cmdstat_hgetall` `cmdstat_hmget` `cmdstat_mget` `cmdstat_getbit` `cmdstat_getrange` motsvarar summan av cacheträffar och missar under rapporterings intervallet. |
 | Åtgärder per sekund | Det totala antalet kommandon som bearbetas per sekund av cache-servern under det angivna rapporterings intervallet.  Det här värdet mappar till "instantaneous_ops_per_sec" från kommandot Redis INFO. |
 | Redis server-belastning |Procent andelen cykler där Redis-servern är upptagen och väntar inte på inaktivitet för meddelanden. Om den här räknaren når 100 innebär det att Redis-servern har uppnått ett prestanda tak och att processorn inte kan bearbeta arbetet snabbare. Om du ser hög redis server belastning visas timeout-undantag i klienten. I detta fall bör du överväga att skala upp eller partitionera data i flera cacheminnen. |
-| Inställningar |Antalet set-åtgärder som ska cachelagras under det angivna rapporterings intervallet. Det här värdet är summan av följande värden från Redis information all-kommando:,,,,,,,,, `cmdstat_set` `cmdstat_hset` `cmdstat_hmset` `cmdstat_hsetnx` `cmdstat_lset` `cmdstat_mset` `cmdstat_msetnx` `cmdstat_setbit` `cmdstat_setex` `cmdstat_setrange` och `cmdstat_setnx` . |
+| Uppsättningar |Antalet set-åtgärder som ska cachelagras under det angivna rapporterings intervallet. Det här värdet är summan av följande värden från Redis information all-kommando:,,,,,,,,, `cmdstat_set` `cmdstat_hset` `cmdstat_hmset` `cmdstat_hsetnx` `cmdstat_lset` `cmdstat_mset` `cmdstat_msetnx` `cmdstat_setbit` `cmdstat_setex` `cmdstat_setrange` och `cmdstat_setnx` . |
 | Totalt antal nycklar  | Det maximala antalet nycklar i cacheminnet under den förflutna tids perioden för rapportering. Det här numret mappar till `keyspace` från REDIS information-kommandot. På grund av en begränsning i det underliggande mått systemet, returnerar totalt antal nycklar det maximala antalet nycklar för Shard som hade det maximala antalet nycklar under rapporterings intervallet.  |
 | Totalt antal åtgärder |Det totala antalet kommandon som bearbetas av cache-servern under det angivna rapporterings intervallet. Det här värdet mappar till `total_commands_processed` från REDIS information-kommandot. När Azure cache för Redis används rent för pub/sub, kommer det inte att finnas några mått för `Cache Hits` , `Cache Misses` ,, `Gets` eller `Sets` , men det kommer att finnas `Total Operations` mått som återspeglar cache-användningen för pub/sub-åtgärder. |
 | Använt minne |Mängden cache-minne som används för nyckel/värde-par i cacheminnet i MB under det angivna rapporterings intervallet. Det här värdet mappar till `used_memory` från REDIS information-kommandot. Det här värdet inkluderar inte metadata eller fragmentering. |

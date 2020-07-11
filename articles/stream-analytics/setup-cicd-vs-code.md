@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 75db20bdb746e7d15bef56ce7ac0a064993d3f3a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045832"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187769"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Distribuera ett Azure Stream Analytics jobb med CI/CD NPM-paket 
 
@@ -41,15 +41,11 @@ När ett Stream Analytics Visual Studio Code-projekt skapas, genererar det följ
 
 * Resource Manager-mallfil
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * Parameter fil för Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```   
+   `[ProjectName].JobTemplate.parameters.json`   
 
 Standard parametrarna i parameters.jsi filen är från inställningarna i ditt Visual Studio Code-projekt. Om du vill distribuera till en annan miljö ersätter du parametrarna på motsvarande sätt.
 
@@ -151,13 +147,13 @@ När du har lagt till åtgärderna NPM, kommando rad, kopiera filer och publicer
 
 2. Välj **+** Nästa **Agent jobb** och Sök efter *Azure Resource Group-distribution*. Ange följande parametrar:
 
-   |Inställningen|Värde|
+   |Inställning|Värde|
    |-|-|
    |Visningsnamn| *Distribuera myASAJob*|
    |Azure-prenumeration| Välj din prenumeration.|
    |Åtgärd| *Skapa eller uppdatera resursgrupp*|
    |Resursgrupp| Välj ett namn för den test resurs grupp som ska innehålla ditt Stream Analytics jobb.|
-   |Location|Välj platsen för test resurs gruppen.|
+   |Plats|Välj platsen för test resurs gruppen.|
    |Mallens plats| *Länkad artefakt*|
    |Mall| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jspå |
    |Mallparametrar|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jspå|
@@ -168,13 +164,13 @@ När du har lagt till åtgärderna NPM, kommando rad, kopiera filer och publicer
 
 4. Välj **+** Nästa **Agent jobb** och Sök efter *Azure Resource Group-distribution*. Ange följande parametrar:
 
-   |Inställningen|Värde|
+   |Inställning|Värde|
    |-|-|
    |Visningsnamn| *Distribuera myASAJob*|
    |Azure-prenumeration| Välj din prenumeration.|
    |Åtgärd| *Skapa eller uppdatera resursgrupp*|
    |Resursgrupp| Välj ett namn för den produktions resurs grupp som ska innehålla ditt Stream Analytics jobb.|
-   |Location|Välj platsen för produktions resurs gruppen.|
+   |Plats|Välj platsen för produktions resurs gruppen.|
    |Mallens plats| *Länkad artefakt*|
    |Mall| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jspå |
    |Mallparametrar|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jspå|

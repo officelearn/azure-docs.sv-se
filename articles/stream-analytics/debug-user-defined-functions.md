@@ -1,18 +1,18 @@
 ---
 title: Felsöka användardefinierade funktioner i Azure Stream Analytics
 description: I den här artikeln beskrivs hur du felsöker användardefinierade funktioner i Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: jenssuessmeyer
+ms.author: jenss
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: a6c2e390af39b496a871ae9b5799288ea3609bca
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 46aa9879af4bda1cd4a5e06894ea2d964f838f32
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981511"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181360"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Felsöka användardefinierade funktioner i Azure Stream Analytics 
 
@@ -48,7 +48,7 @@ Eftersom det inte finns något fel söknings stöd för JavaScript-funktioner i 
 
 I följande exempel visas hur du felsöker JavaScript-UDF: er med vissa begränsningar i en integrerad körnings miljö i [Visual Studio Code](quick-create-vs-code.md).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar ska du se till att Azure Stream Analytics-projektet har följande objekt:
 

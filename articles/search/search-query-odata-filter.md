@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 959adec9f74a8cda7fde941ccea7db75e981a650
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692809"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201546"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>OData $filter-syntax i Azure Kognitiv sökning
 
@@ -83,20 +84,28 @@ Om du skriver ett filter uttryck utan parentes runt dess under uttryck, kommer A
 
 En operator som är högre i tabellen ovan blir "bind mer tätt" till dess operander än andra operatorer. Till exempel `and` är högre prioritet än `or` och jämförelse operatorer har högre prioritet än någon av dem, så följande två uttryck är likvärdiga:
 
+```odata-filter-expr
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
+```
 
 `not`Operatorn har högst prioritet för alla – ännu högre än jämförelse operatorerna. Det är därför om du försöker skriva ett filter så här:
 
+```odata-filter-expr
     not Rating gt 5
+```
 
 Du får det här fel meddelandet:
 
+```text
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
+```
 
 Det här felet beror på att operatorn bara är kopplad till `Rating` fältet, vilket är av typen `Edm.Int32` och inte med hela jämförelse uttrycket. Korrigeringen är att ge operanden `not` i parentes:
 
+```odata-filter-expr
     not (Rating gt 5)
+```
 
 <a name="bkmk_limits"></a>
 
@@ -111,87 +120,129 @@ Det finns gränser för storlek och komplexitet för filter uttryck som du kan s
 
 Hitta alla hotell med minst ett rum med en bas taxa som är mindre än $200 som klassificeras enligt eller över 4:
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
+```
 
 Hitta alla andra hotell än "sto View Motel" som har renovated sedan 2010:
 
+```odata-filter-expr
     $filter=HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
 Hitta alla hotell som var renovated i 2010 eller senare. Datetime-literalen innehåller tids zons information för Pacific, normal tid:  
 
+```odata-filter-expr
     $filter=LastRenovationDate ge 2010-01-01T00:00:00-08:00
+```
 
 Hitta alla hotell som har parkera och där alla rum är icke-rökning:
 
+```odata-filter-expr
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
+```
 
  \-Eller  
 
+```odata-filter-expr
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
+```
 
 Hitta alla hotell som är lyxen eller innehåller parkering och har en klassificering på 5:  
 
+```odata-filter-expr
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
+```
 
 Hitta alla hotell med taggen "WiFi" i minst ett rum (där varje rum har Taggar lagrade i ett `Collection(Edm.String)` fält):  
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
+```
 
 Hitta alla hotell med alla rum:  
 
+```odata-filter-expr
     $filter=Rooms/any()
+```
 
 Hitta alla hotell som inte har några rum:
 
+```odata-filter-expr
     $filter=not Rooms/any()
+```
 
 Hitta alla hotell inom 10 kilo meter från en viss referens punkt (där `Location` är ett fält av typen `Edm.GeographyPoint` ):
 
+```odata-filter-expr
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där `Location` är ett fält av typen EDM. GeographyPoint). Polygonen måste vara stängd, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. Dessutom [måste punkterna visas i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 Hitta alla hotell där fältet Beskrivning är null. Fältet kommer att vara null om det aldrig har angetts, eller om det uttryckligen har angetts till null:  
 
+```odata-filter-expr
     $filter=Description eq null
+```
 
 Hitta alla hotell med namn som motsvarar antingen "Sea View Motel" eller "budget hotell"). Dessa fraser innehåller blank steg och blank steg är en standard avgränsare. Du kan ange en alternativ avgränsare i enkla citat tecken som den tredje sträng parametern:  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Hitta alla hotell med namn som är lika med "Sea View Motel" eller "budget hotellet", separerade med "|"):  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Hitta alla hotell där alla rum har taggen "WiFi" eller "tub":
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+```
 
 Hitta en matchning på fraser i en samling, t. ex. "uppvärmd hand duks-rack" eller "Hairdryer ingår" i taggar.
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en [search-begäran](https://docs.microsoft.com/rest/api/searchservice/search-documents) med `search=waterfront` .
 
+```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
+```
 
 Hitta dokument med ordet "Hostel" och klassificera större eller lika med 4 eller dokument med ordet "Motel" och betyget är lika med 5. Den här begäran kunde inte uttryckas utan `search.ismatchscoring` funktionen eftersom den kombinerar full texts ökning med filter åtgärder med hjälp av `or` .
 
+```odata-filter-expr
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+```
 
 Hitta dokument utan ordet "lyxen".
 
+```odata-filter-expr
     $filter=not search.ismatch('luxury')
+```
 
 Hitta dokument med frasen "oceanen" eller klassificeringen lika med 5. `search.ismatchscoring`Frågan körs bara mot fält `HotelName` och `Description` . Dokument som matchade bara den andra satsen i disknuten returneras för--hotell med `Rating` lika med 5. De dokumenten kommer att returneras med poängen lika med noll för att det ska vara uppenbart att de inte matchar någon av de förväntade delarna i uttrycket.
 
+```odata-filter-expr
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
+```
 
 Hitta hotell där villkoren "hotell" och "flyg plats" inte innehåller fler än fem ord i beskrivningen och där alla rum är icke-rökning. Den här frågan använder det [fullständiga Lucene-frågespråket](query-lucene-syntax.md).
 
+```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
 
 ## <a name="next-steps"></a>Nästa steg  
 

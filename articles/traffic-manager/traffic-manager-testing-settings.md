@@ -10,11 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: b2ac056ef9140b4187eeb1850e56ba09b9755abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894f01244fef94e9f5a60823ba06ff38c01288a1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704037"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187004"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verifiera Traffic Manager-inställningar
 
@@ -34,7 +35,9 @@ I följande exempel kan du testa din Traffic Manager-profil.
 2. Typ `ipconfig /flushdns` för att tömma DNS-matcharens cacheminne.
 3. Skriv `nslookup <your Traffic Manager domain name>`. Följande kommando kontrollerar till exempel domän namnet med prefixet *MyApp. contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     Ett typiskt resultat visar följande information:
 

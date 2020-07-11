@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 741569740713fef72f714f7cbce38a3c6f075684
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836693"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186016"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Lär dig mer om PowerShell-arbetsflöde för Azure Automation
 
@@ -20,7 +21,7 @@ När ett arbets flöde skrivs med Windows PowerShell-syntax och startas av Windo
 > [!NOTE]
 > Ett PowerShell-arbetsflöde skript liknar ett Windows PowerShell-skript men har några viktiga skillnader som kan vara förvirrande för en ny användare. Därför rekommenderar vi att du bara skriver dina Runbooks med hjälp av PowerShell-arbetsflöde om du behöver använda [kontroll punkter](#use-checkpoints-in-a-workflow). 
 
-Fullständig information om ämnena i den här artikeln finns [komma igång med Windows PowerShell-arbetsflöde](https://technet.microsoft.com/library/jj134242.aspx).
+Fullständig information om ämnena i den här artikeln finns [komma igång med Windows PowerShell-arbetsflöde](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11)).
 
 ## <a name="use-workflow-keyword"></a>Använd arbets flödets nyckelord
 
@@ -45,9 +46,9 @@ PowerShell-arbetsflödet ser nästan likadant ut som skript kod med PowerShell f
 
 En aktivitet är en speciell uppgift i ett arbets flöde som utförs i en sekvens. När ett arbetsflöde körs i Windows PowerShell konverteras många Windows PowerShell-cmdletar automatiskt till aktiviteter. När du anger en av dessa cmdletar i din runbook körs motsvarande aktivitet med Windows Workflow Foundation. 
 
-Om en cmdlet saknar motsvarande aktivitet, kör Windows PowerShell-arbetsflöde automatiskt cmdleten i en [InlineScript](#use-inlinescript) -aktivitet. Vissa cmdletar undantas och kan inte användas i ett arbets flöde om du inte uttryckligen inkluderar dem i ett InlineScript-block. Mer information finns i [använda aktiviteter i skript arbets flöden](https://technet.microsoft.com/library/jj574194.aspx).
+Om en cmdlet saknar motsvarande aktivitet, kör Windows PowerShell-arbetsflöde automatiskt cmdleten i en [InlineScript](#use-inlinescript) -aktivitet. Vissa cmdletar undantas och kan inte användas i ett arbets flöde om du inte uttryckligen inkluderar dem i ett InlineScript-block. Mer information finns i [använda aktiviteter i skript arbets flöden](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574194(v=ws.11)).
 
-Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Se [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Se [about_WorkflowCommonParameters](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### <a name="positional-parameters"></a>Positions parametrar
 
@@ -150,7 +151,7 @@ Workflow Stop-MyService
 * Du kan inte använda [parallell körning](#use-parallel-processing) i ett InlineScript-block.
 * InlineScript påverkar skalbarheten för arbets flödet eftersom den innehåller Windows PowerShell-sessionen för hela längden på InlineScript-blocket.
 
-Mer information om hur du använder InlineScript finns [i köra Windows PowerShell-kommandon i ett arbets flöde](https://technet.microsoft.com/library/jj574197.aspx) och [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
+Mer information om hur du använder InlineScript finns [i köra Windows PowerShell-kommandon i ett arbets flöde](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574197(v=ws.11)) och [about_InlineScript](/powershell/module/psworkflow/about/about_inlinescript).
 
 ## <a name="use-parallel-processing"></a>Använd parallell bearbetning
 
@@ -260,7 +261,7 @@ Workflow Copy-Files
 }
 ```
 
-Eftersom autentiseringsuppgifter för användar namn inte är sparade när du anropar aktiviteten [pausa – arbets flöde](https://technet.microsoft.com/library/jj733586.aspx) eller efter den senaste kontroll punkten, måste du ange autentiseringsuppgifterna som null och sedan hämta dem igen från till gångs lagret efter det att `Suspend-Workflow` kontroll punkten har anropats.  Annars kan du få följande fel meddelande:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Eftersom autentiseringsuppgifter för användar namn inte är sparade när du anropar aktiviteten [pausa – arbets flöde](/powershell/module/psworkflow/about/about_suspend-workflow) eller efter den senaste kontroll punkten, måste du ange autentiseringsuppgifterna som null och sedan hämta dem igen från till gångs lagret efter det att `Suspend-Workflow` kontroll punkten har anropats.  Annars kan du få följande fel meddelande:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Följande kod visar hur du hanterar den här situationen i dina PowerShell Workflow-Runbooks.
 
@@ -289,9 +290,9 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> För icke-grafiska PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto. Du behöver inte använda dessa cmdlets om du autentiserar med ett Kör som-konto som kon figurer ATS med ett huvud namn för tjänsten.
+> För icke-grafiska PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto. Du behöver inte använda dessa cmdlets om du autentiserar med ett Kör som-konto som kon figurer ATS med ett huvud namn för tjänsten.
 
-Mer information om kontroll punkter finns i [lägga till kontroll punkter i ett skript arbets flöde](https://technet.microsoft.com/library/jj574114.aspx).
+Mer information om kontroll punkter finns i [lägga till kontroll punkter i ett skript arbets flöde](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11)).
 
 ## <a name="next-steps"></a>Nästa steg
 

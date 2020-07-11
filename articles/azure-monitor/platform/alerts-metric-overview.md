@@ -1,14 +1,15 @@
 ---
 title: Förstå hur mått varningar fungerar i Azure Monitor.
 description: Få en översikt över vad du kan göra med mått aviseringar och hur de fungerar i Azure Monitor.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248829"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187531"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -125,18 +126,22 @@ Hittills har du sett hur du kan använda en enda mått avisering för att överv
 
 Den här funktionen stöds för närvarande för plattforms mått (inte anpassade mått) för följande tjänster i följande Azure-moln:
 
-| Tjänst | Offentlig Azure | Government | Kina |
+| Tjänst | Offentlig Azure | Myndigheter | Kina |
 |:--------|:--------|:--------|:--------|
 | Virtuella datorer  | **Ja** | Nej | Nej |
-| SQL Server-databaser | **Ja** | **Ja** | No |
-| Elastiska SQL Server-pooler | **Ja** | **Ja** | No |
-| Data Box Edge-enheter | **Ja** | **Ja** | No |
+| SQL Server-databaser | **Ja** | **Ja** | Nej |
+| Elastiska SQL Server-pooler | **Ja** | **Ja** | Nej |
+| Data Box Edge-enheter | **Ja** | **Ja** | Nej |
 
 Du kan ange omfattningen för övervakning av en regel för en enskild måtts avisering på ett av tre sätt. Med virtuella datorer kan du till exempel ange omfånget som:  
 
-- en lista över virtuella datorer i en Azure-region inom en prenumeration
+- en lista med virtuella datorer (i en Azure-region) i en prenumeration
 - alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper i en prenumeration
 - alla virtuella datorer (i en Azure-region) i en prenumeration
+
+> [!NOTE]
+>
+> Omfattningen för en varnings regel för flera resurser måste innehålla minst en resurs av den valda resurs typen.
 
 Skapa mått varnings regler som övervakar flera resurser, till exempel att [skapa alla andra mått varningar](alerts-metric.md) som övervakar en enskild resurs. Den enda skillnaden är att du väljer alla resurser som du vill övervaka. Du kan också skapa dessa regler genom att [Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje övervakad resurs.
 

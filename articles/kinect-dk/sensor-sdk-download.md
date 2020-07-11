@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, Hämta uppdatering, senaste, tillgänglig, installera
-ms.openlocfilehash: 2c23977c7e01a9137b72b44d1bdc0e1373bafa0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48cdd35a80d68a7ec0d900639c0fca3a2c66787e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277737"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171796"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Ladda ned Azure Kinect sensor SDK
 
@@ -28,7 +28,7 @@ Den här sidan innehåller nedladdnings länkarna för varje version av Azure Ki
 
 ## <a name="windows-download-link"></a>Länk till Windows-nedladdning
 
-[Microsoft Installer](https://download.microsoft.com/download/4/5/a/45aa3917-45bf-4f24-b934-5cff74df73e1/Azure%20Kinect%20SDK%201.4.0.exe)  |  [GitHub käll kod](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
+[Microsoft Installer](https://download.microsoft.com/download/3/d/6/3d6d9e99-a251-4cf3-8c6a-8e108e960b4b/Azure%20Kinect%20SDK%201.4.1.exe)  |  [GitHub käll kod](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
 
 > [!NOTE]
 > När du installerar SDK måste du komma ihåg vilken sökväg du installerar till. Till exempel "C:\Program Files\Azure Kinect SDK 1,2". Du hittar de verktyg som refereras till i artiklar i den här sökvägen.

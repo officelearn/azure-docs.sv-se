@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057814"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186868"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livsc
 
 Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -67,6 +67,9 @@ Du kan också [Aktivera Azure Private-länken](how-to-configure-private-link.md)
 
 Om dina data lagras i ett virtuellt nätverk måste du använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för arbets ytan för att ge Studio åtkomst till dina data.
 
+> [!IMPORTANT]
+> Även om de flesta Studio fungerar med data som lagras i ett virtuellt nätverk gör integrerade antecknings böcker __inte__det. Integrerade antecknings böcker stöder inte användning av lagring som finns i ett virtuellt nätverk. I stället kan du använda Jupyter-anteckningsböcker från en beräknings instans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok](#access-data-in-a-compute-instance-notebook) .
+
 Om du inte ger åtkomst till Studio får du det här felet `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` och inaktiverar följande åtgärder:
 
 * Förhandsgranska data i Studio.
@@ -85,7 +88,7 @@ Studio har stöd för läsning av data från följande data lager typer i ett vi
 
 Lägg till din arbets yta och ditt lagrings konto i samma virtuella nätverk så att de kan komma åt varandra.
 
-1. [Aktivera Azure Private-länken](how-to-configure-private-link.md)om du vill ansluta din arbets yta till det virtuella nätverket.
+1. [Aktivera Azure Private-länken](how-to-configure-private-link.md)om du vill ansluta din arbets yta till det virtuella nätverket. Den här funktionen är för närvarande en för hands version och är tillgänglig i regionerna USA, östra, västra USA, västra 2, södra centrala USA.
 
 1. Om du vill ansluta ditt lagrings konto till det virtuella nätverket [konfigurerar du inställningarna för brand väggar och virtuella nätverk](#use-a-storage-account-for-your-workspace).
 

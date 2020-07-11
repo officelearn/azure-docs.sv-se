@@ -6,11 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699234"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184539"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Felsöka dataförlust i Azure Cache for Redis
 
@@ -22,7 +23,7 @@ Den här artikeln beskriver hur du diagnostiserar faktiska eller uppfattade data
 
 ## <a name="partial-loss-of-keys"></a>Partiell förlust av nycklar
 
-Azure cache för Redis tar inte bort nycklar när de har lagrats i minnet. Den tar dock bort nycklar som svar på principer för förfallo datum eller borttagning och till explicita kommandon för nyckel borttagning. Nycklar som har skrivits till huvudnoden i en Premium-eller standard-Azure-cache för Redis-instansen kanske inte heller är tillgängliga på en replik omedelbart. Data replikeras från huvud servern till repliken i ett asynkront och icke-blockerande sätt.
+Azure cache för Redis tar inte bort nycklar när de har lagrats i minnet. Den tar dock bort nycklar som svar på principer för förfallo datum eller borttagning och till explicita kommandon för nyckel borttagning. Nycklar som har skrivits till den primära noden i en Premium-eller standard-Azure-cache för Redis-instansen kanske inte heller är tillgängliga på en replik direkt. Data replikeras från den primära till repliken i ett asynkront och icke-blockerande sätt.
 
 Om du upptäcker att nycklarna har försvunnit från cacheminnet kontrollerar du följande möjliga orsaker:
 
@@ -79,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Asynkron replikering
 
-Alla Azure cache för Redis-instanser på standard-eller Premium-nivån konfigureras med en huvud nod och minst en replik. Data kopieras från huvud servern till en replik asynkront med hjälp av en bakgrunds process. [Redis.io](https://redis.io/topics/replication) -webbplatsen beskriver hur Redis-datareplikering fungerar i allmänhet. För scenarier där klienter skriver till Redis ofta kan partiell data förlust uppstå, eftersom replikeringen inte garanterat är omedelbar. Om huvud servern till exempel slutar fungera *när* en klient skriver en nyckel, men *innan* bakgrunds processen har möjlighet att skicka nyckeln till repliken, försvinner nyckeln när repliken tar över som den nya huvud servern.
+Alla Azure cache för Redis-instanser på standard-eller Premium-nivån konfigureras med en primär nod och minst en replik. Data kopieras från den primära till en replik asynkront med en bakgrunds process. [Redis.io](https://redis.io/topics/replication) -webbplatsen beskriver hur Redis-datareplikering fungerar i allmänhet. För scenarier där klienter skriver till Redis ofta kan partiell data förlust uppstå, eftersom replikeringen inte garanterat är omedelbar. Till exempel, om den primära slutar *när* en klient skriver en nyckel till den, men *innan* bakgrunds processen har möjlighet att skicka nyckeln till repliken, går nyckeln förlorad när repliken tar över som den nya primära.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Huvud eller fullständig förlust av nycklar
 
@@ -111,7 +112,7 @@ Azure cache för Redis använder **DB0** -databasen som standard. Om du växlar 
 
 Redis är ett minnes intern data lager. Data lagras på fysiska eller virtuella datorer som är värdar för Redis-cachen. En Azure cache för Redis-instans på Basic-nivån körs bara på en enskild virtuell dator (VM). Om den virtuella datorn är nere går alla data som du har lagrat i cacheminnet förlorade. 
 
-Cacheminnen på standard-och Premium-nivåerna ger mycket högre återhämtning mot data förlust genom att använda två virtuella datorer i en replikerad konfiguration. När huvudnoden i en sådan cache Miss lyckas, tar replik noden över för att betjäna data automatiskt. De här virtuella datorerna finns i separata domäner för fel och uppdateringar för att minimera risken för att båda blir otillgängliga samtidigt. Om ett allvarligt Data Center avbrott inträffar kan de virtuella datorerna fortfarande gå ner tillsammans. Dina data kommer att gå förlorade i dessa sällsynta fall.
+Cacheminnen på standard-och Premium-nivåerna ger mycket högre återhämtning mot data förlust genom att använda två virtuella datorer i en replikerad konfiguration. När den primära noden i en sådan cache Miss lyckas, tar replik noden över för att betjäna data automatiskt. De här virtuella datorerna finns i separata domäner för fel och uppdateringar för att minimera risken för att båda blir otillgängliga samtidigt. Om ett allvarligt Data Center avbrott inträffar kan de virtuella datorerna fortfarande gå ner tillsammans. Dina data kommer att gå förlorade i dessa sällsynta fall.
 
 Överväg att använda [Redis data beständighet](https://redis.io/topics/persistence) och [geo-replikering](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) för att förbättra skyddet av dina data mot de här infrastruktur felen.
 

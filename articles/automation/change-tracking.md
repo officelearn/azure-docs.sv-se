@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555037"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185593"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -48,11 +49,11 @@ Följande problem har uppstått för Ändringsspårning och inventering:
 
 - Uppdateringar av snabb korrigeringar samlas inte in på Windows Server 2016 Core RS3-datorer.
 
-- Linux-demon kan visa ett ändrat tillstånd även om ingen ändring har skett. Det här problemet uppstår på grund av hur `SvcRunLevels` data i Azure Monitor [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) -loggen fångas.
+- Linux-demon kan visa ett ändrat tillstånd även om ingen ändring har skett. Det här problemet uppstår på grund av hur `SvcRunLevels` data i Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) -loggen fångas.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Ändringsspårning och inventering stöds på alla operativ system som uppfyller Log Analytics agent krav. De officiella versionerna av operativ systemet är Windows Server 2008 SP1 eller senare och Windows 7 SP1 eller senare. Funktionen stöds också på ett antal Linux-operativsystem. Information om operativ system som stöder Log Analytics finns i [Översikt över Log Analytics-agenten](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Ändringsspårning och inventering stöds på alla operativ system som uppfyller Log Analytics agent krav. De officiella versionerna av operativ systemet är Windows Server 2008 SP1 eller senare och Windows 7 SP1 eller senare. Funktionen stöds också på ett antal Linux-operativsystem. Information om operativ system som stöder Log Analytics finns i [Översikt över Log Analytics-agenten](../azure-monitor/platform/log-analytics-agent.md).
 
 Information om klient kraven för TLS 1,2 finns i [TLS 1,2 Enforcement för Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -79,7 +80,7 @@ Du kan klicka på en ändring eller händelse om du vill visa information om den
 
 - Händelser
 - Daemons
-- Files
+- Filer
 - Register
 - Programvara
 - Microsoft-tjänster
@@ -90,7 +91,7 @@ Du kan lägga till, ändra eller ta bort varje ändring. Exemplet nedan visar en
 
 ## <a name="fim-support-in-azure-security-center"></a>FIM-stöd i Azure Security Center
 
-Ändringsspårning och inventering använder [Azure Security Center fil integritets övervakning (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Även om FIM övervakar filer och register, innehåller den fullständiga Ändringsspårning-och inventerings funktionen även spårning för:
+Ändringsspårning och inventering använder [Azure Security Center fil integritets övervakning (FIM)](../security-center/security-center-file-integrity-monitoring.md). Även om FIM övervakar filer och register, innehåller den fullständiga Ändringsspårning-och inventerings funktionen även spårning för:
 
 - Program varu ändringar
 - Microsoft-tjänster
@@ -105,7 +106,7 @@ För att spåra ändringar i filer på både Windows och Linux använder Ändrin
 
 ## <a name="tracking-of-file-content-changes"></a>Spårning av ändringar i fil innehåll
 
-Med Ändringsspårning och inventering kan du visa innehållet i en Windows-eller Linux-fil. För varje ändring i en fil lagrar Ändringsspårning och lager innehållet i filen i ett [Azure Storage konto](../storage/common/storage-create-storage-account.md). När du spårar en fil kan du visa dess innehåll före eller efter en ändring. Fil innehållet kan visas antingen i rad eller sida vid sida. 
+Med Ändringsspårning och inventering kan du visa innehållet i en Windows-eller Linux-fil. För varje ändring i en fil lagrar Ändringsspårning och lager innehållet i filen i ett [Azure Storage konto](../storage/common/storage-account-create.md). När du spårar en fil kan du visa dess innehåll före eller efter en ändring. Fil innehållet kan visas antingen i rad eller sida vid sida. 
 
 ![Visa ändringar i en fil](./media/change-tracking/view-file-changes.png)
 
@@ -170,7 +171,7 @@ I följande tabell visas gränserna för spårade objekt per dator för Ändring
 |Tjänster|250|
 |Daemons|250|
 
-Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad, beroende på din miljö. Med funktionen användning och uppskattade kostnader i arbets ytan Log Analytics kan du visa data som matas in av Ändringsspårning och inventering i ett användnings diagram. Använd den här datavyn för att utvärdera din data användning och ta reda på hur den påverkar din faktura. Se [förstå användningen och beräkna kostnaderna](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad, beroende på din miljö. Med funktionen användning och uppskattade kostnader i arbets ytan Log Analytics kan du visa data som matas in av Ändringsspårning och inventering i ett användnings diagram. Använd den här datavyn för att utvärdera din data användning och ta reda på hur den påverkar din faktura. Se [förstå användningen och beräkna kostnaderna](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Microsoft-tjänstedata
 
@@ -187,7 +188,7 @@ För att optimera prestanda spårar Log Analytics-agenten bara ändringar. Om du
 
 En viktig funktion i Ändringsspårning och inventering är aviseringar om ändringar i konfigurations läget för din hybrid miljö. Många användbara åtgärder är tillgängliga för att utlösa svar på aviseringar, till exempel åtgärder på Azure Functions, Automation-runbooks, Webhooks och liknande. Aviseringar om ändringar i **c:\Windows\System32\drivers\etc\hosts** -filen för en dator är en lämplig applikation av aviseringar för ändringsspårning-och inventerings data. Det finns många fler scenarier för aviseringar, inklusive de fråge scenarier som definierats i nästa tabell.
 
-|Söka i data  |Beskrivning  |
+|Fråga  |Beskrivning  |
 |---------|---------|
 |ConfigurationChange <br>&#124; där ConfigChangeType = = "Files" och FileSystemPath innehåller "c: \\ Windows \\ system32- \\ drivrutiner \\ "|Användbart för att spåra ändringar i systemkritiska filer.|
 |ConfigurationChange <br>&#124; där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c: \\ Windows \\ system32- \\ drivrutiner \\ osv \\ "|Användbart för att spåra ändringar i nyckel konfigurationsfiler.|

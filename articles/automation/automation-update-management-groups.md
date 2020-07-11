@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25a306b3281079e8476a67ee70c2ca2cfffdd30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830947"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185746"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Använd dynamiska grupper med Uppdateringshantering
 
@@ -20,7 +21,7 @@ Med Uppdateringshantering kan du rikta en dynamisk grupp med virtuella Azure-dat
 
 Du kan definiera dynamiska grupper för Azure-datorer eller icke-Azure-datorer från **uppdaterings hantering** i Azure Portal. Se [Hantera uppdateringar för flera virtuella Azure-datorer](manage-update-multi.md).
 
-En dynamisk grupp definieras av en fråga som Azure Automation utvärderas vid distributions tiden. Även om en dynamisk grupp fråga hämtar ett stort antal datorer, kan Azure Automation bearbeta högst 1000 datorer i taget. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#update-management). 
+En dynamisk grupp definieras av en fråga som Azure Automation utvärderas vid distributions tiden. Även om en dynamisk grupp fråga hämtar ett stort antal datorer, kan Azure Automation bearbeta högst 1000 datorer i taget. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-resource-manager/management/azure-subscription-service-limits.md#update-management). 
 
 > [!NOTE]
 > Om du förväntar dig att uppdatera fler än 1000 datorer, rekommenderar vi att du delar upp uppdateringarna mellan flera uppdaterings scheman. 

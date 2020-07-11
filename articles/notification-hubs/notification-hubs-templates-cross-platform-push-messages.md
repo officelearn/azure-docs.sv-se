@@ -16,13 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76263752"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219971"
 ---
-# <a name="templates"></a>Mallar
+# <a name="notification-hubs-templates"></a>Notification Hubs mallar
 
 Mallar gör det möjligt för ett klient program att ange det exakta formatet för de meddelanden som ska tas emot. Med hjälp av mallar kan en app inse flera olika fördelar, inklusive följande:
 
@@ -61,7 +62,7 @@ Med funktionen Notification Hubs mall kan du skapa särskilda registreringar, ti
 
 Följande bild illustrerar processen:
 
-![](./media/notification-hubs-templates/notification-hubs-hello.png)
+![Diagram som visar processen för att använda mallar mellan plattformar](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 Mallen för iOS client app-registreringen är följande:
 
@@ -120,7 +121,7 @@ Meddelandet som skickas till Notification Hub innehåller alla följande egenska
 
 Genom att använda det här mönstret skickar Server delen bara ett enda meddelande utan att behöva lagra vissa anpassnings alternativ för användarna i appen. Följande bild illustrerar det här scenariot:
 
-![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
+![Diagram som visar hur Server delen bara skickar ett enda meddelande till varje plattform.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Så här registrerar du mallar
 
@@ -144,7 +145,7 @@ Följande tabell visar det språk som tillåts i mallar:
 
 Uttrycken kan vara något av de föregående formulären.
 
-När du använder sammanfogning måste hela uttrycket omges av `{}` . Till exempel `{$(prop) + ‘ - ’ + $(prop2)}`.
+När du använder sammanfogning måste hela uttrycket omges av `{}` . Ett exempel är `{$(prop) + ‘ - ’ + $(prop2)}`.
 
 Följande mall är till exempel inte en giltig XML-mall:
 
@@ -158,7 +159,7 @@ Följande mall är till exempel inte en giltig XML-mall:
 </tile>
 ```
 
-Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Ett exempel:
+Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Till exempel:
 
 ```xml
 <tile>

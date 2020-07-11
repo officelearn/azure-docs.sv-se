@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837118"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186613"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använda en avisering för att utlösa en Azure Automation Runbook
 
@@ -44,14 +45,14 @@ Enligt beskrivningen i föregående avsnitt har varje typ av avisering ett annat
 
 I det här exemplet används en avisering från en virtuell dator. Den hämtar VM-data från nytto lasten och använder sedan denna information för att stoppa den virtuella datorn. Anslutningen måste konfigureras i Automation-kontot där runbooken körs. När du använder aviseringar för att utlösa Runbooks, är det viktigt att kontrol lera aviserings statusen i den Runbook som utlöses. Runbooken utlöses varje tillfälle som aviseringen ändrar tillstånd. Aviseringar har flera tillstånd, med de två vanligaste som aktive ras och löses. Kontrol lera om det finns tillstånd i din Runbook-logik för att säkerställa att Runbook inte körs mer än en gång. Exemplet i den här artikeln visar hur du söker efter aviseringar med endast tillstånd aktiverat.
 
-Runbooken använder `AzureRunAsConnection` [Kör som-kontot](automation-create-runas-account.md) för anslutnings till gång för att autentisera med Azure för att utföra hanterings åtgärden mot den virtuella datorn.
+Runbooken använder `AzureRunAsConnection` [Kör som-kontot](./manage-runas-account.md) för anslutnings till gång för att autentisera med Azure för att utföra hanterings åtgärden mot den virtuella datorn.
 
 Använd det här exemplet för att skapa en Runbook med namnet **Stop-AzureVmInResponsetoVMAlert**. Du kan ändra PowerShell-skriptet och använda det med många olika resurser.
 
 1. Gå till ditt Azure Automation-konto.
 2. Under **process automatisering**väljer du **Runbooks**.
 3. Längst upp i listan över Runbooks väljer du **+ skapa en Runbook**.
-4. På sidan **Lägg till Runbook** anger du **Stop-AzureVmInResponsetoVMAlert** som Runbook-namn. För Runbook-typen väljer du **PowerShell**. Välj sedan **skapa**.  
+4. På sidan **Lägg till Runbook** anger du **Stop-AzureVmInResponsetoVMAlert** som Runbook-namn. För Runbook-typen väljer du **PowerShell**. Välj sedan **Skapa**.  
 5. Kopiera följande PowerShell-exempel till sidan **Redigera** .
 
     ```powershell-interactive
@@ -191,7 +192,7 @@ Aviseringar använder åtgärds grupper, som är samlingar av åtgärder som utl
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du startar en Runbook med en webhook finns i [starta en Runbook från en webhook](automation-webhooks.md).
-* Information om hur du startar en Runbook på olika sätt finns i [starta en Runbook](automation-starting-a-runbook.md).
+* Information om hur du startar en Runbook på olika sätt finns i [starta en Runbook](./start-runbooks.md).
 * Information om hur du skapar en aktivitets logg avisering finns i [skapa aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Information om hur du skapar en nästan real tids avisering finns [i skapa en varnings regel i Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

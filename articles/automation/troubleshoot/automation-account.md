@@ -8,11 +8,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680078"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187293"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Felsöka Azure Automation konto problem
 
@@ -44,7 +45,7 @@ Registrera automatiserings resurs leverantören genom att följa de här stegen 
 
 4. Kontrol lera att **Microsoft. Automation** Resource Provider är registrerad i listan över resurs leverantörer.
 
-5. Om providern inte finns med i listan registrerar du den enligt beskrivningen i [lösa fel för registrering av resurs leverantör](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Om providern inte finns med i listan registrerar du den enligt beskrivningen i [lösa fel för registrering av resurs leverantör](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

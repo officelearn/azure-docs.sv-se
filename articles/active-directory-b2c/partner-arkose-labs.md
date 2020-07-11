@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4e5dfe26af7e1d92c20cf15e3519563e600b256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385713"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170232"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Arkose Labs med Azure Active Directory B2C
 
 I den här självstudien lär du dig att integrera Azure AD B2C-autentisering med Arkose Labs. Arkose Labs hjälper organisationer mot bot-attacker, konto upptagnings attacker och falska konto öppningar.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 För att komma igång behöver du:
 
@@ -35,7 +35,7 @@ I följande diagram beskrivs hur Arkose Labs integreras med Azure AD B2C.
 
 ![Arkitektur diagram för Arkose Labs](media/partner-arkose-labs/arkose-architecture-diagram.png)
 
-|   |   |
+| Steg  | Beskrivning |
 |---|---|
 |1     | En användare loggar in med ett konto som skapats tidigare. När användaren väljer Skicka, visas en tvingande Arkose Labs-utmaning. När användaren har slutfört utmaningen skickas statusen till Arkose Labs för att generera en token.        |
 |2     |  Arkose Labs skickar tillbaka token till Azure AD B2C.       |

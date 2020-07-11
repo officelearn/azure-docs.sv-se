@@ -17,11 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e94448debe3e846e37dcffa81a6a6a28f0f7d757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561182"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220073"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Använda Notification Hubs från python
 
@@ -382,7 +383,7 @@ Om du kör python-koden bör du skapa ett meddelande som visas på mål enheten.
 
 När du aktiverar fel söknings flaggan vid initieringen av NotificationHub visas detaljerad HTTP-begäran och svars dumpning samt NotificationOutcome som följande där du kan förstå vilka HTTP-huvuden som skickas i begäran och vilket HTTP-svar som har tagits emot från Notification Hub:
 
-![][1]
+![Skärm bild av en-konsol med information om H T T P t P-begäran och svars dumpning och meddelanden om meddelande resultat som beskrivs i rött.][1]
 
 Du ser ett detaljerat resultat för aviserings hubben.
 
@@ -403,7 +404,7 @@ Lägg märke till huvuden som skickas ut när du skickar ett popup-meddelande f�
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![Skärm bild av en konsol med information om H T T P-begäran och Service Bus meddelande format och X W N S typ värden som beskrivs i rött.][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Skicka meddelande som anger en tagg (eller ett tagg uttryck)
 
@@ -413,7 +414,7 @@ Observera taggarna HTTP-huvud, som läggs till i HTTP-begäran (i exemplet nedan
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![Skärm bild av en konsol med information om H T T P-begäran och Service Bus meddelande format, Service Bus Notification-Taggar och X W N S typ värden som anges i rött.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Skicka meddelande som anger flera taggar
 
@@ -424,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![Skärm bild av en konsol med information om H T T P-begäran och Service Bus meddelande format, Service Bus Notification-Taggar och X W N S typ värden som anges i rött.][4]
 
 ### <a name="templated-notification"></a>Meddelande om mall
 
@@ -443,7 +444,7 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![Skärm bild av en-konsol med information om H T T P P-begäran och innehålls typ och Service Buss format värden som anges i rött.][5]
 
 ## <a name="next-steps"></a>Nästa steg
 

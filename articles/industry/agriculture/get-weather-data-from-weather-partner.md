@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078745"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187786"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Hämta väder data från väder partner
 
@@ -211,6 +211,11 @@ Följ stegen nedan om du vill fråga efter väder data med FarmBeats REST API:
 
 I föregående exempel har svaret data för två tidsstämplar tillsammans med mått namnet ("temperatur") och värden för rapporterade väder data i de två tidsstämplarna. Du måste referera till den associerade väder data modellen (enligt beskrivningen i steg 2 ovan) för att tolka typen och enheten för de rapporterade värdena.
 
+## <a name="troubleshoot-job-failures"></a>Felsöka jobb fel
+
+Om du vill felsöka jobb fel kan du söka efter jobb loggarna. Följ [anvisningarna här](troubleshoot-azure-farmbeats.md#weather-data-job-failures) för samma.
+
+
 ## <a name="appendix"></a>Bilaga
 
 |        Partner   |  Information   |
@@ -224,7 +229,7 @@ I föregående exempel har svaret data för två tidsstämplar tillsammans med m
 | DockerDetails - partnerCredentials | autentiseringsuppgifter för anrop av partner-API i Docker. Partnern måste ge den här informationen till sina kunder baserat på mekanismen för autentisering som stöds, t. ex. Användar namn/lösen ord eller API-nycklar. |
 | partnerType | "Väder" (andra partner typer i FarmBeats är "sensor" och "bilder")  |
 |  name   |   Partnerns önskade namn i FarmBeats-systemet   |
-|  description |  Beskrivning   |
+|  beskrivning |  Beskrivning   |
 
 ## <a name="next-steps"></a>Nästa steg
 

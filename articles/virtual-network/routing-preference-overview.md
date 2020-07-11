@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193370"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187446"
 ---
 # <a name="what-is-routing-preference-preview"></a>Vad är cirkulations inställningar (för hands version)?
 
@@ -65,7 +65,7 @@ Alternativet för offentlig IP-adress med Routning val "Microsoft globalt nätve
 För lagring använder primära slut punkter alltid **Microsofts globala nätverk**. Du kan aktivera sekundära slut punkter med **Internet** som du väljer för trafik dirigering. De lagrings tjänster som stöds är:
 
 * Blobar
-* Files
+* Filer
 * Webb
 * Azure DataLake
 
@@ -88,7 +88,7 @@ Pris skillnaden mellan båda alternativen återspeglas i priset för utgående d
 
 Stöd för routnings inställningar är tillgängligt i följande regioner för tjänster som virtuell dator och Internetbaserad belastningsutjämnare som använder en offentlig IP-adress för Internet utgående Europa, Västeuropa, Västeuropa, södra, Storbritannien, södra, östra USA, norra centrala USA, södra centrala USA, västra USA, västra centrala USA, Sydostasien, Tyskland, västra centrala, Schweiz, västra, Japan, östra och Japan, västra.
 
-Stöd för routning av inställningar för lagrings konto är tillgängligt i följande Azure-regioner – Frankrike, norra centrala USA, västra centrala USA, Östra Japan, västra Japan, Tyskland, västra centrala och Schweiz, västra.
+Stöd för routning av inställningar för lagrings konto är tillgängligt i följande Azure-regioner – norra centrala USA, västra centrala USA, södra centrala USA, östra USA, västra USA, norra Europa, Frankrike, södra, Tyskland, västra centrala, Schweiz, västra, Asien, sydöstra, Japan, östra och Japan, västra.
 ## <a name="limitations"></a>Begränsningar
 
 * Dirigerings inställningen är endast kompatibel med standard-SKU: n för offentlig IP-adress. Grundläggande SKU för offentlig IP-adress stöds inte.

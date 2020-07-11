@@ -5,11 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343062"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186171"
 ---
 # <a name="management-of-azure-automation-data"></a>Hantera Azure Automation-data
 
@@ -36,9 +37,9 @@ Information om stöd för TLS 1,2 med Log Analytics-agenten för Windows och Lin
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
 |Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd.  | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
-| Windows 8,0-10 | Stöds och är aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
+| Windows 8,0-10 | Stöds och är aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 
 ## <a name="data-retention"></a>Datakvarhållning
 
@@ -50,7 +51,7 @@ I följande tabell sammanfattas bevarande principen för olika resurser.
 |:--- |:--- |
 | Konton |Ett konto tas bort permanent 30 dagar efter att användaren tagit bort det. |
 | Tillgångar |En till gång tas bort permanent 30 dagar efter att användaren tagit bort den, eller 30 dagar efter att en användare har tagit bort ett konto som innehåller till gången. |
-| DSC-noder |En DSC-nod tas bort permanent 30 dagar efter att ha avregistrerats från ett Automation-konto med hjälp av Azure Portal eller [unregister-AzAutomationDscNode-](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdleten i Windows PowerShell. En nod tas också bort permanent 30 dagar efter att användaren tagit bort det konto som innehåller noden. |
+| DSC-noder |En DSC-nod tas bort permanent 30 dagar efter att ha avregistrerats från ett Automation-konto med hjälp av Azure Portal eller [unregister-AzAutomationDscNode-](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdleten i Windows PowerShell. En nod tas också bort permanent 30 dagar efter att användaren tagit bort det konto som innehåller noden. |
 | Jobb |Ett jobb tas bort och tas bort permanent 30 dagar efter ändringar, till exempel när jobbet har slutförts, stoppats eller har pausats. |
 | Moduler |En modul tas bort permanent 30 dagar efter att användaren tagit bort den eller 30 dagar efter att användaren tagit bort det konto som innehåller modulen. |
 | Nodkonfigurationer/MOF-filer |En gammal Node-konfiguration tas bort permanent 30 dagar efter att en ny nod har skapats. |
@@ -65,7 +66,7 @@ När du tar bort ett Automation-konto i Azure raderas alla objekt i kontot. Obje
 
 ### <a name="runbooks"></a>Runbooks
 
-Du kan exportera dina runbooks till skriptfiler med antingen Azure Portal-eller [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) -cmdleten i Windows PowerShell. Du kan importera dessa skriptfiler till ett annat Automation-konto, enligt beskrivningen i [Hantera Runbooks i Azure Automation](manage-runbooks.md).
+Du kan exportera dina runbooks till skriptfiler med antingen Azure Portal-eller [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) -cmdleten i Windows PowerShell. Du kan importera dessa skriptfiler till ett annat Automation-konto, enligt beskrivningen i [Hantera Runbooks i Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Integreringsmoduler
 
@@ -79,8 +80,7 @@ Du kan inte hämta värdena för krypterade variabler eller lösen ords fält f�
 
 ### <a name="dsc-configurations"></a>DSC-konfigurationer
 
-Du kan exportera DSC-konfigurationerna till skriptfiler med antingen Azure Portal eller cmdleten [export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
-) i Windows PowerShell. Du kan importera och använda dessa konfigurationer i ett annat Automation-konto.
+Du kan exportera DSC-konfigurationerna till skriptfiler med antingen Azure Portal eller cmdleten [export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) i Windows PowerShell. Du kan importera och använda dessa konfigurationer i ett annat Automation-konto.
 
 ## <a name="geo-replication-in-azure-automation"></a>Geo-replikering i Azure Automation
 
@@ -102,4 +102,4 @@ Tjänsten Automation geo-Replication är inte tillgänglig direkt för externa k
 
 * Mer information om säkra till gångar i Azure Automation finns i [kryptering av säkra till gångar i Azure Automation](automation-secure-asset-encryption.md).
 
-* Mer information om geo-replikering finns i [skapa och använda aktiv geo-replikering](../sql-database/sql-database-active-geo-replication.md).
+* Mer information om geo-replikering finns i [skapa och använda aktiv geo-replikering](../azure-sql/database/active-geo-replication-overview.md).

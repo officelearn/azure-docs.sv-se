@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a65065a6f3cbc7264a8efb9bcf128b06897aacf
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734800"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220277"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Konfigurera Azure Active Directory Domain Services som stöder synkronisering av användar profiler för SharePoint Server
 
@@ -41,18 +42,18 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 
 ## <a name="service-accounts-overview"></a>Översikt över tjänst konton
 
-I en hanterad domän finns en säkerhets grupp med namnet **AAD DC-tjänstekonton** som en del av *användarnas* organisationsenhet (OU). Medlemmar i den här säkerhets gruppen har delegerats följande privilegier:
+I en hanterad domän finns en säkerhets grupp med namnet *AAD DC-tjänstekonton* som en del av *användarnas* organisationsenhet (OU). Medlemmar i den här säkerhets gruppen har delegerats följande privilegier:
 
 - **Replikera katalog ändringar** privilegium på rot-DSE.
 - **Replikera katalog ändringar** privilegium i *konfigurationens* namngivnings kontext ( `cn=configuration` behållare).
 
-Säkerhets gruppen **AAD DC service-konton** är också medlem i den inbyggda gruppen **för Windows 2000-kompatibel åtkomst**.
+Säkerhets gruppen *AAD DC service-konton* är också medlem i den inbyggda gruppen *för Windows 2000-kompatibel åtkomst*.
 
 När det läggs till i den här säkerhets gruppen, beviljas tjänst kontot för SharePoint Server-synkroniseringstjänsten för användar profiler den behörighet som krävs för att fungera korrekt.
 
 ## <a name="enable-support-for-sharepoint-server-user-profile-sync"></a>Aktivera stöd för synkronisering av SharePoint Server-användarprofil
 
-Tjänst kontot för SharePoint Server måste ha tillräcklig behörighet för att replikera ändringar till katalogen och låta synkroniseringen av användar profiler för SharePoint Server fungera korrekt. Om du vill ange de här behörigheterna lägger du till tjänst kontot som används för synkronisering av SharePoint-användarprofil till **AAD DC Service accounts** Group.
+Tjänst kontot för SharePoint Server måste ha tillräcklig behörighet för att replikera ändringar till katalogen och låta synkroniseringen av användar profiler för SharePoint Server fungera korrekt. Om du vill ange de här behörigheterna lägger du till tjänst kontot som används för synkronisering av SharePoint-användarprofil till *AAD DC Service accounts* Group.
 
 Utför följande steg från din Azure AD DS Management VM:
 

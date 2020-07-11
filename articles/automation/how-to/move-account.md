@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3cfc63b29b51b70cb41c476c49bc17f5e9cbd308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746620"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185559"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Flytta ditt Azure Automation-konto till en annan prenumeration
 
@@ -40,7 +41,7 @@ Om du vill ta bort länken till arbets ytan från ditt Automation-konto måste d
 
     ![Skärm bild som visar hur du tar bort funktions resurser från Azure Portal](../media/move-account/delete-solutions.png)
 
-Om du vill kan du ta bort resurserna med hjälp av cmdleten [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
+Om du vill kan du ta bort resurserna med hjälp av cmdleten [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -79,7 +80,7 @@ För Starta/stoppa virtuella datorer när de inte används måste du också ta b
 
     ![Skärm bild av sidan åtgärds grupp](../media/move-account/delete-action-group.png)
 
-Om du vill kan du ta bort din åtgärds grupp med hjälp av cmdleten [Remove-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) :
+Om du vill kan du ta bort din åtgärds grupp med hjälp av cmdleten [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) :
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -146,7 +147,7 @@ När du har återskapat kör som-kontona måste du återaktivera de funktioner s
 
 När flyttningen är klar kontrollerar du att funktionerna i listan nedan är aktiverade. 
 
-|Kapacitet|Tester|Felsökning|
+|Funktion|Tester|Felsökning|
 |---|---|---|
 |Runbooks|En Runbook kan köra och ansluta till Azure-resurser.|[Felsöka runbook-flöden](../troubleshoot/runbooks.md)
 |Källkontroll|Du kan köra en manuell synkronisering på käll kontrollens lagrings plats.|[Källkontrollsintegrering](../source-control-integration.md)|

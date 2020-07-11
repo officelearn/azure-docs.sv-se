@@ -1,21 +1,22 @@
 ---
-title: Implementera differentiell sekretess med WhiteNoise-paketet
+title: Implementera differentiell sekretess med WhiteNoise-paketet (förhands granskning)
 titleSuffix: Azure Machine Learning
 description: Lär dig vad differentiell sekretess är och hur WhiteNoise-paketet kan hjälpa dig att implementera differentiella privata system som bevarar data sekretess.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/03/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982670"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199797"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Bevara data sekretessen med hjälp av differentiell sekretess och WhiteNoise-paketet
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Bevara data sekretessen med hjälp av differentiell sekretess och WhiteNoise-paketet (för hands version)
 
 Lär dig vad differentiell sekretess är och hur WhiteNoise-paketet kan hjälpa dig att implementera Differentiellt privata system.
 
@@ -66,7 +67,7 @@ Kärn biblioteket innehåller följande sekretessfunktioner för att implementer
 |---------|---------|
 |Analys     | En diagram Beskrivning av godtyckliga beräkningar. |
 |Systemhälsoverifierare     | Ett Rust-bibliotek som innehåller en uppsättning verktyg för att kontrol lera och härleda de nödvändiga villkoren för en analys som är Differentiellt privat.          |
-|Körmiljö     | Mediet för att köra analysen. Referens körningen skrivs i Rust men körningar kan skrivas med hjälp av alla beräknings ramverk som SQL och Spark beroende på dina data behov.        |
+|Körning     | Mediet för att köra analysen. Referens körningen skrivs i Rust men körningar kan skrivas med hjälp av alla beräknings ramverk som SQL och Spark beroende på dina data behov.        |
 |Bindningar     | Språk bindningar och hjälp bibliotek för att bygga analyser. För närvarande tillhandahåller WhiteNoise python-bindningar. |
 
 ### <a name="system"></a>System

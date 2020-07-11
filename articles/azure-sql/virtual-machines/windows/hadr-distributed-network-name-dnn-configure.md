@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae9b6bf41d90b0a9111414302b2eafea3c8332d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965629"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169824"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Konfigurera ett distribuerat nätverks namn för en FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ På Azure Virtual Machines används det distribuerade nätverks namnet (DNN) fö
 
 I den här artikeln lär du dig att konfigurera en DNN för att dirigera trafik till din skyddas med SQL Server på virtuella Azure-datorer för hög tillgänglighet och haveri beredskap (HADR). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du slutför stegen i den här artikeln bör du redan ha:
 
@@ -80,6 +80,10 @@ Set-ClusterParameter -Name DnsName -Value FCIDNN
 ```
 
 Klienterna kommer nu att anges `FCIDNN` i anslutnings strängen när de ansluter till SQL Server FCI. 
+
+   > [!WARNING]
+   > Ta inte bort det aktuella virtuella nätverks namnet (VNN) eftersom det är en nödvändig komponent i FCI-infrastrukturen. 
+
 
 ### <a name="rename-the-vnn"></a>Byt namn på VNN 
 

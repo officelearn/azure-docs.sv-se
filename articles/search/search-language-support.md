@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 344b3bb30c9a92046a5fbd13c35b0efc7e6f3a23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54def7f03e28acb201d613ab5a13d9077cff121b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560832"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146754"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Så här skapar du ett index för flera språk i Azure Kognitiv sökning
 
@@ -52,6 +52,7 @@ Du kan fråga ditt index från portalen med hjälp av [**Sök Utforskaren**](sea
 
 Ibland är språket för den agent som utfärdar en fråga inte känt, och i så fall kan frågan utfärdas mot alla fält samtidigt. Om det behövs kan du definiera resultat för ett visst språk med hjälp av [bedömnings profiler](index-add-scoring-profiles.md). I exemplet nedan kommer matchningar som hittas i beskrivningen på engelska att bli högre jämfört med matchningar i polska och franska:
 
+```http
     "scoringProfiles": [
       {
         "name": "englishFirst",
@@ -60,6 +61,7 @@ Ibland är språket för den agent som utfärdar en fråga inte känt, och i så
         }
       }
     ]
+```
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2020-06-30`
 

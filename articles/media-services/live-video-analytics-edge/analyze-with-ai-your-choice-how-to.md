@@ -3,11 +3,12 @@ title: Analysera direktsänd video med AI som du väljer – Azure
 description: I den här artikeln får du lära dig hur du skapar en IoT Edge-modul som kan integreras med real tids analys på IoT Edge för att analysera direktsänd video med en valfri modell för visuellt innehåll.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 0ac2af280eefd5ce293a8be422551d5ee6f6d3f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1ea3ebd8c7de4c691d7a982dbc08e9d08d9e38
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261263"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182873"
 ---
 # <a name="analyze-live-video-with-ai-of-your-choice"></a>Analysera livevideo med valfri AI
 
@@ -45,7 +46,7 @@ HTTP-kontraktet definieras enligt följande:
 
 Förfrågningar från Live Video Analytics-modulen till modulen är följande:
 
-|||
+| Tangent | Värde |
 |---|---|
 |POST| `https://hostname/optional-path?optional-query`|
 |Acceptera|Application/JSON,*/*|
@@ -67,11 +68,11 @@ Content-Length: 519222
 (Image Binary Content)
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svar från modulen till video analys modulen i real tid bör vara följande
 
-|||
+| Tangent | Värde |
 |---|---|
 |Statuskoder|200 OK-Härlednings resultat hittades<br/>204 inget innehåll – inget innehåll hittades av AI-filen<br/>400 Felaktig begäran-inte förväntades<br/>500 internt Server fel-ej förväntat<br/>503 servern är upptagen – AMS kommer att stängas av baserat på sidhuvudet "retry-after" eller baserat på en standard tids period i fall rubriken inte är förinställd.|
 |Content-Type|application/json|
@@ -264,7 +265,7 @@ Exemplet nedan innehåller en enskild händelse med alla typer av härledning so
  
 ## <a name="sample-http-extension-modules"></a>Testa moduler för HTTP-tillägg
 
-Några exempel på moduler för HTTP-tillägg finns i [Live Video Analytics-GitHub lagrings platsen](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). En av dessa [video analys exempel](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) visar hur du använder [Yolov3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) -modellen för att bygga en IoT Edge-modul för objekt identifiering. Du kan använda samma metod för att bygga en egen modul med en valfri AI-modell.
+Några exempel på moduler för HTTP-tillägg finns i [Live Video Analytics-GitHub lagrings platsen](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). En av dessa [video analys exempel](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) visar hur du använder [YOLOv3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) -modellen för att bygga en IoT Edge-modul för objekt identifiering. Ett annat [video analys exempel](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx-tiny) visar hur du använder små YOLOv3, en låg version av YOLOv3 ONNX-modellen. Du kan använda samma metod för att bygga en egen modul med en valfri AI-modell.
 
 ## <a name="next-steps"></a>Nästa steg
 

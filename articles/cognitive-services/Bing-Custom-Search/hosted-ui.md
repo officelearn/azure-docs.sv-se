@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ec407b7f6baf56f0a2fe724089826d8f9303b85
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68854073"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186851"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera värdbaserad UI-upplevelse
 
@@ -35,13 +35,11 @@ Följ dessa steg om du vill konfigurera ett värdbaserat användar gränssnitt f
   
 4. Välj en layout.
 
-    |  |  |
-    |---------|---------|
-    |Sökfält och resultat (standard)    | Visar en sökruta med Sök Resultat nedanför.         |
-    |Endast resultat     | Visar endast Sök resultat, utan en sökruta. När du använder den här layouten måste du ange Sök frågan`&q=<query string>`(). Lägg till frågeparametern i fråge-URL: en i JavaScript-kodfragmentet eller på HTML-slutpunktens länk.        |
-    |Popup-över     | Innehåller en sökruta och visar Sök resultatet i ett glidande överlägg.        |
-    
-5. Välj ett färgtema. Du kan anpassa färgerna så att de passar ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg anger du antingen RGB HEX-värdet (till exempel `#366eb8`) som färg eller klickar på förhands visningen av färg.
+    - Sökfält och resultat (standard): visar en sökruta med Sök Resultat nedanför.
+    - Endast resultat: visar endast Sök resultat, utan en sökruta. När du använder den här layouten måste du ange Sök frågan ( `&q=<query string>` ). Lägg till frågeparametern i fråge-URL: en i JavaScript-kodfragmentet eller på HTML-slutpunktens länk.
+    - Pop-on: innehåller en sökruta och visar Sök resultatet i ett glidande överlägg.
+
+5. Välj ett färgtema. Du kan anpassa färgerna så att de passar ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg anger du antingen RGB HEX-värdet (till exempel) som färg `#366eb8` eller klickar på förhands visningen av färg.
 
    Du kan förhandsgranska dina ändringar på höger sida av portalen. Om du klickar på **Återställ till standard** återställs dina ändringar till standard färgerna för det valda temat.
 
@@ -96,55 +94,38 @@ Du kan konfigurera beteendet för ditt värdbaserade gränssnitt genom att klick
 
 ### <a name="web-search-configurations"></a>Konfigurationer för Webbs ökning
 
-|  |  |
-|---------|---------|
-|Webb resultat har Aktiver ATS    | Anger om Webbs ökning är aktiverat (en webbflik visas längst upp på sidan)        |
-|Aktivera automatiska förslag     | Anger om anpassad autoföreslå har Aktiver ATS (se [prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) för ytterligare kostnad).        |
-|Webb resultat per sida    | Antal Webbs öknings resultat som ska visas i taget (det högsta är 50 resultat per sida).        |
-|Bild text   | Anger om bilder visas med Sök resultat.|
-
+- Webb resultat har Aktiver ATS: avgör om Webbs ökning är aktiverat (en webbflik visas längst upp på sidan)
+- Aktivera automatiska förslag: anger om anpassad autoföreslå är aktiverat (se [prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) för ytterligare kostnad).
+- Webb resultat per sida: antal Webbs öknings resultat som ska visas i taget (det högsta är 50 resultat per sida).
+- Bild beskrivning: anger om bilder visas med Sök resultat.
 
 Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**:
 
-
-|  | |
-|---------|---------|
-|Markera ord     | Anger om resultat visas med Sök termer i fetstil.         |
-|Länka mål    |  Anger om webb sidan öppnas i en ny flik i webbläsaren (tom) eller samma flik i webbläsaren (Self) när användaren klickar på ett Sök resultat.        |
+- Markera ord: anger om resultat visas med Sök termer i fetstil.
+- Länk mål: anger om webb sidan öppnas i en ny flik i webbläsaren (tom) eller samma flik i webbläsaren (Self) när användaren klickar på ett Sök resultat.
 
 ### <a name="image-search-configurations"></a>Konfigurationer för avbildnings sökning
 
-| | |
-|---------|---------|
-|Bild resultat har Aktiver ATS     | Anger om bilds ökning är aktiverat (fliken bilder visas överst på sidan).            |
-|Bild resultat per sida     | Antal bilds öknings resultat som ska visas i taget (det högsta är 150 resultat per sida).          |
+- Bild resultat har Aktiver ATS: avgör om bilds ökning är aktiverat (fliken bilder visas överst på sidan).
+- Bild resultat per sida: antal bilds öknings resultat som ska visas i taget (det högsta är 150 resultat per sida).
 
 Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
   
-| | |
-|---------|---------|
-| Aktivera filter     | Lägger till filter som användaren kan använda för att filtrera de bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten enbart för animerade GIF-filer.|
+- Aktivera filter: lägger till filter som användaren kan använda för att filtrera de bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten enbart för animerade GIF-filer.
 
 ### <a name="video-search-configurations"></a>Konfigurationer för videos ökning
 
-|  | |
-|---------|---------|
-|Video resultat har Aktiver ATS     | Anger om Videos ökning är aktiverat (du ser fliken videor överst på sidan).           |
-|Video resultat per sida   | Antal video Sök resultat som ska visas i taget (det högsta är 150 resultat per sida).        |
+- Video resultat har Aktiver ATS: avgör om Videos ökning är aktiverat (fliken videor visas överst på sidan).
+- Video resultat per sida: antal video Sök resultat som ska visas i taget (det högsta är 150 resultat per sida).
 
 Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
   
-|  | |
-|---------|---------|
-|Aktivera filter    | Lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en bestämd upplösning eller videor som identifierats under de senaste 24 timmarna.          |
+- Aktivera filter: lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en bestämd upplösning eller videor som identifierats under de senaste 24 timmarna.
 
 ### <a name="miscellaneous-configurations"></a>Diverse konfigurationer
 
-
-| |  |
-|---------|---------|
-|Sidrubrik   | Text som visas i rubrik ytan på sidan Sök resultat (inte för popup-överlayout).        |
-|Verktygsfälts tema    | Anger bakgrunds färgen för rubrik ytan på Sök Resultat sidan. |
+- Sid rubrik: text som visas i rubrik ytan på sidan Sök resultat (inte för popup-överlayout).
+- Verktygsfälts tema: anger bakgrunds färgen för rubrik ytan på Sök Resultat sidan.
 
 Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**.  
 

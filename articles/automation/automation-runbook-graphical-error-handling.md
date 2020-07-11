@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 26a4a3dbd54256fbc193fba299d0f7504f407254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8af64f2189625bcff5271855d6c0102551d1a535
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83832273"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185967"
 ---
 # <a name="handle-errors-in-graphical-runbooks"></a>Hantera fel i grafiska runbooks
 
@@ -46,7 +47,7 @@ Den rekommenderade metoden är att skapa en dedikerad fel hanterings-Runbook med
 1. Skickar ett meddelande om det här problemet.
 2. Startar en annan Runbook som automatiskt etablerar en ny virtuell dator i stället.
 
-En lösning är att ha en fellänk i Runbook som pekar på en aktivitet som hanterar steg ett. Runbooken kan till exempel ansluta `Write-Warning` cmdleten till en aktivitet för steg två, till exempel cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
+En lösning är att ha en fellänk i Runbook som pekar på en aktivitet som hanterar steg ett. Runbooken kan till exempel ansluta `Write-Warning` cmdleten till en aktivitet för steg två, till exempel cmdleten [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
 
 Du kan också generalisera detta beteende för användning i många runbooks genom att placera dessa två aktiviteter i en separat Runbook för fel hantering. Innan den ursprungliga runbooken anropar den här fel hanterings runbooken kan den skapa ett anpassat meddelande från dess data och sedan skicka det som en parameter till den fel hanterings-runbooken.
 
@@ -58,7 +59,7 @@ När du har aktiverat konfigurations inställningen måste din Runbook skapa en 
 
 I följande exempel hämtar en Runbook en variabel som innehåller dator namnet på en virtuell dator. Den försöker sedan starta den virtuella datorn med nästa aktivitet.<br><br> ![Exempel på fel hantering av Automation-Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-`Get-AutomationVariable`Aktiviteten och cmdleten [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) har kon figurer ATS för att konvertera undantag till fel. Om det uppstår problem med att hämta variabeln eller att starta den virtuella datorn genererar koden fel.<br><br> ![Fel hanterings aktivitets inställningar för Automation Runbook ](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png) .
+`Get-AutomationVariable`Aktiviteten och cmdleten [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) har kon figurer ATS för att konvertera undantag till fel. Om det uppstår problem med att hämta variabeln eller att starta den virtuella datorn genererar koden fel.<br><br> ![Fel hanterings aktivitets inställningar för Automation Runbook ](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png) .
 
 Fel länkar flödar från dessa aktiviteter till en enskild `error management` kod aktivitet. Den här aktiviteten har kon figurer ATS med ett enkelt PowerShell-uttryck som använder `throw` nyckelordet för att stoppa bearbetningen, tillsammans med `$Error.Exception.Message` för att hämta det meddelande som beskriver det aktuella undantaget.<br><br> ![Fel hanterings kod exempel för Automation Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

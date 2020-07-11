@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830590"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185661"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Spåra uppdaterade filer med en bevakare-uppgift
 
@@ -19,7 +20,7 @@ Azure Automation använder en bevakare-uppgift för att söka efter händelser o
 > Övervaknings uppgifter stöds inte i Azure Kina Vianet 21.
 
 > [!IMPORTANT]
-> Från och med maj 2020 är det möjligt att använda Azure Logic Apps för att övervaka händelser, schemalägga återkommande uppgifter och utlösa åtgärder. Se [schemalägga och köra återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> Från och med maj 2020 är det möjligt att använda Azure Logic Apps för att övervaka händelser, schemalägga återkommande uppgifter och utlösa åtgärder. Se [schemalägga och köra återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Den här självstudien vägleder dig genom att skapa en bevakare-uppgift som ska övervakas när en ny fil läggs till i en katalog. Lär dig att:
 
@@ -31,12 +32,12 @@ Den här självstudien vägleder dig genom att skapa en bevakare-uppgift som ska
 > * Utlös en övervakare
 > * Granska utdata
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Följande krävs för att genomföra kursen:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation-konto](automation-offering-get-started.md) för att lagra övervakare och åtgärds-Runbooks och övervaknings aktiviteten.
+* [Automation-konto](./index.yml) för att lagra övervakare och åtgärds-Runbooks och övervaknings aktiviteten.
 * En [hybrid Runbook Worker](automation-hybrid-runbook-worker.md) där övervaknings aktiviteten körs.
 * PowerShell-Runbooks. PowerShell Workflow-Runbooks stöds inte av bevakade uppgifter.
 
@@ -60,7 +61,7 @@ Du kan också importera denna Runbook till ditt Automation-konto från portalen 
 
 ## <a name="create-an-automation-variable"></a>Skapa en Automation-variabel
 
-En [Automation-variabel](automation-variables.md) används för att lagra tidsstämplar som föregående Runbook läser och lagrar från varje fil.
+En [Automation-variabel](./shared-resources/variables.md) används för att lagra tidsstämplar som föregående Runbook läser och lagrar från varje fil.
 
 1. Välj **variabler** under **delade resurser** och klicka på **+ Lägg till en variabel**.
 1. Ange Watch-NewFileTimestamp som namn.

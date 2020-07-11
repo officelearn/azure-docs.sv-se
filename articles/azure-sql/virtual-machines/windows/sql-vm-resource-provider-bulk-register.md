@@ -13,11 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58f2b1828bcc63ce11c234847bc20f90944aba18
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 74757b2f5e272c7e7dbc0dc7f033c7899be1414b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960392"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184340"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrera flera virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +31,7 @@ Registrerings processen har ingen risk, har ingen stillestånds tid och kommer i
 
 Mer information om resurs leverantören finns i [SQL VM Resource Provider](sql-vm-resource-provider-register.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Du behöver följande för att kunna registrera SQL Server VM med resurs leverantören: 
 
@@ -133,7 +134,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="resister-all-vms-in-a-resource-group"></a>Resyster alla virtuella datorer i en resurs grupp
+## <a name="register-all-vms-in-a-resource-group"></a>Registrera alla virtuella datorer i en resurs grupp
 
 Använd följande cmdlet för att registrera alla SQL Server virtuella datorer i en enda resurs grupp: 
 
@@ -214,7 +215,7 @@ Rapporten skapas som en `.txt` fil med namnet `RegisterSqlVMScriptReport<Timesta
 | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server på Windows | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server eller inte är en virtuell Windows-dator. De virtuella datorerna visas i formatet `SubscriptionID, Resource Group, Virtual Machine` . | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Logga 
+### <a name="log"></a>Loggas 
 
 Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` , där tidsstämpel är den tid då skriptet startade. Om felet finns på prenumerations nivån innehåller loggen det kommaavgränsade prenumerations-ID: t och fel meddelandet. Om felet är med den virtuella dator registreringen innehåller loggen prenumerations-ID, resurs gruppens namn, namn på virtuell dator, felkod och meddelande avgränsade med kommatecken. 
 

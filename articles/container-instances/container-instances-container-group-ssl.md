@@ -2,12 +2,13 @@
 title: Aktivera TLS med sidvagn container
 description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs i Azure Container Instances genom att köra nginx i en sidvagn-behållare
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80984614"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169858"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Aktivera en TLS-slutpunkt i en sidvagn-behållare
 
@@ -39,7 +40,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Följ anvisningarna för att lägga till identifierings informationen. För eget namn anger du det värdnamn som är associerat med certifikatet. När du uppmanas att ange ett lösen ord trycker du på RETUR utan att skriva för att hoppa över tillägg av lösen ord.
 
-Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Ett exempel:
+Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Till exempel:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -146,7 +147,7 @@ code deploy-aci.yaml
 Ange innehållet i base64-kodade filer som anges under `secret` . Till exempel var och en `cat` av de base64-kodade filerna för att se dess innehåll. Under distributionen läggs de här filerna till i en [hemlig volym](container-instances-volume-secret.md) i behållar gruppen. I det här exemplet monteras den hemliga volymen till behållaren nginx.
 
 ```YAML
-api-version: 2018-10-01
+api-version: 2019-12-01
 location: westus
 name: app-with-ssl
 properties:

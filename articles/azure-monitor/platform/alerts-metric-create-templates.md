@@ -5,13 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 6/2/2020
+ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d8ec0c76259a8567906e9ac415864e2cd37a9cd
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299374"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187582"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
@@ -1520,7 +1521,9 @@ I det här avsnittet beskrivs Azure Resource Manager mallar för tre scenarier f
 
 > [!NOTE]
 >
-> I en regel för mått varningar som övervakar flera resurser, tillåts endast ett villkor.
+> I en regel för mått varningar som övervakar flera resurser gäller följande begränsningar:
+> - Aviserings regelns omfång måste innehålla minst en resurs av den valda resurs typen.
+> - Varnings regeln får bara innehålla ett villkor.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Varning för statisk tröskel på alla virtuella datorer i en eller flera resurs grupper
 

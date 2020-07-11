@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 56fb677ca80c047fb90c58a3e0aedb41e6d4a3f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045101"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187667"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Använd Azure Stream Analytics CI/CD NuGet-paketet för integrering och utveckling 
 Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paketet för att skapa en kontinuerlig integrering och distributions process.
@@ -36,15 +36,11 @@ När en Stream Analytics Visual Studio-projekt skapas, genererar det följande t
 
 * Resource Manager-mallfil
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * Parameter fil för Resource Manager
    
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```
+   `[ProjectName].JobTemplate.parameters.json`
 
 Standard parametrarna i parameters.jsi filen är från inställningarna i Visual Studio-projektet. Om du vill distribuera till en annan miljö ersätter du parametrarna på motsvarande sätt.
 

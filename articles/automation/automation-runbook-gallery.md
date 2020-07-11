@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf2a60e1387ccdfb24ff5c5e166780c00506bac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2bf058ddce81ab9f04e97787a4dc93e44036b1b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83832307"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186120"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Använd runbooks och moduler i PowerShell-galleriet
 
@@ -100,12 +101,11 @@ Python-Runbooks är tillgängliga i [Script Center-galleriet](https://gallery.te
 
 ## <a name="request-a-runbook-or-module"></a>Begär en Runbook eller modul
 
-Du kan skicka förfrågningar till [användar rösten](https://feedback.azure.com/forums/246290-azure-automation/).  Om du behöver hjälp med att skriva en Runbook eller om du har en fråga om PowerShell, kan du skicka en fråga till vår [sida om Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-automation.html).
+Du kan skicka förfrågningar till [användar rösten](https://feedback.azure.com/forums/246290-azure-automation/).  Om du behöver hjälp med att skriva en Runbook eller om du har en fråga om PowerShell, kan du skicka en fråga till vår [sida om Microsoft Q&en fråga](/answers/topics/azure-automation.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du kommer igång med en PowerShell-Runbook finns i [Självstudier: skapa en PowerShell-Runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * Information om hur du arbetar med Runbooks finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
-* Mer information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).
-* * En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Mer information om PowerShell finns i [PowerShell-dokument](/powershell/scripting/overview).
+* * En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

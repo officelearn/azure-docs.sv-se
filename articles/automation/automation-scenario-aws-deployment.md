@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67e2639c2d4b168babeb7c29ef977d39d9e11cb
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 456a7e4f07b2416e1d2037205574f2e7149e70e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855299"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185950"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Distribuera en Amazon Web Services virtuell dator med en Runbook
 
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i din AWS-prenumeration (Amazon Web Service) och ge den virtuella datorn ett särskilt namn – som AWS refererar till som "tagga" den virtuella datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Du måste ha ett Azure Automation-konto och en Amazon Web Services-prenumeration (AWS). Mer information om hur du konfigurerar ett Azure Automation konto och konfigurerar det med dina autentiseringsuppgifter för AWS-prenumerationer, finns [i Konfigurera autentisering med Amazon Web Services](automation-config-aws-account.md). Det här kontot ska skapas eller uppdateras med dina autentiseringsuppgifter för AWS-prenumeration innan du fortsätter, när du refererar till det här kontot i avsnitten nedan.
 
@@ -29,7 +29,7 @@ Din VM-etablering av Runbook använder AWS PowerShell-modulen för att utföra s
 3. Välj det Automation-konto som ska användas och klicka på **OK** för att starta distributionen.
 
    > [!NOTE]
-   > När Azure Automation importerar en PowerShell-modul extraheras cmdletarna. Aktiviteterna visas inte förrän Automation har slutfört importen av modulen och extraherat cmdletarna. Den här processen kan ta ett par minuter.  
+   > När Azure Automation importerar en PowerShell-modul extraheras cmdletarna. Aktiviteterna visas inte förrän Automation har slutfört importen av modulen och extraherat cmdletarna. Den här processen kan ta några minuter.  
    > <br>
 
 1. Öppna ditt Automation-konto på Azure Portal.
@@ -101,7 +101,6 @@ Se till att AWS PowerShell-modulen har importer ATS till Azure Automation.
  
 * För att ta reda på vilka Runbooks som stöds, se[Azure Automation Runbook-typer](automation-runbook-types.md).
 * Information om hur du arbetar med Runbooks finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
-* Mer information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).
+* Mer information om PowerShell finns i [PowerShell-dokument](/powershell/scripting/overview).
 * Skript stöd finns i [stöd för interna PowerShell-skript i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

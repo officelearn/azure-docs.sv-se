@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f953b21a221967c2310b2fc70056d48863149821
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75530739"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220056"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Push-meddelanden på ett säkert sätt från Azure Notification Hubs
 
@@ -93,7 +94,7 @@ Nästa steg är att skapa komponenten push-bakgrund.
 1. I Solution Explorer högerklickar du på noden på översta nivån i lösningen (**lösningens SecurePush** i det här fallet) och klickar sedan på **Lägg till**och sedan på **nytt projekt**.
 2. Expandera **Store-appar**, klicka på **Windows Phone appar**och klicka sedan på **Windows Runtime komponent (Windows Phone)**. Namnge projektet **PushBackgroundComponent**och klicka sedan på **OK** för att skapa projektet.
 
-    ![][12]
+    ![Skärm bild av dialog rutan Lägg till nytt projekt med alternativet Windows Runtime komponent (Windows Phone) Visual C# markerat.][12]
 3. I Solution Explorer högerklickar du på projektet **PushBackgroundComponent (Windows Phone 8,1)** och klickar sedan på **Lägg till**och sedan på **klass**. Ge den nya klassen ett namn `PushBackgroundTask.cs` . Klicka på **Lägg till** för att skapa klassen.
 4. Ersätt hela innehållet i `PushBackgroundComponent` namn områdes definitionen med följande kod och ersätt plats hållaren `{back-end endpoint}` med backend-slutpunkten när du distribuerade Server delen:
 
@@ -161,12 +162,12 @@ Nästa steg är att skapa komponenten push-bakgrund.
 11. I Solution Explorer i projektet **NotifyUserWindowsPhone (Windows Phone 8,1)** högerklickar du på **referenser**och klickar sedan på **Lägg till referens...**. I dialog rutan referens hanterare markerar du kryss rutan bredvid **PushBackgroundComponent**och klickar sedan på **OK**.
 12. I Solution Explorer dubbelklickar du på **Package. appxmanifest** i **NotifyUserWindowsPhone-projektet (Windows Phone 8,1)** . Under **aviseringar**ställer du in **popup-funktion** till **Ja**.
 
-    ![][3]
+    ![Skärm bild av Solution Explorers fönstret som fokuserar på Package. appxmanifest med alternativet för popup-alternativ inställt på Ja visas i rött.][3]
 13. Klicka fortfarande på menyn **deklarationer** längst upp i **Package. appxmanifest**. I list rutan **tillgängliga deklarationer** klickar du på **bakgrunds aktiviteter**och sedan på **Lägg till**.
 14. I **Package. appxmanifest**, under **Egenskaper**, kontrollerar du **push-meddelande**.
 15. I **Package. appxmanifest**under **appinställningar**skriver du **PushBackgroundComponent. PushBackgroundTask** i fältet **Start punkt** .
 
-    ![][13]
+    ![Skärm bild av Solution Explorers fönstret som fokuserar på Package. appxmanifest med tillgängliga deklarationer, deklarationer som stöds, push-meddelanden och start punkts alternativ som beskrivs i rött.][13]
 16. Från **Arkiv**-menyn klickar du på **Spara alla**.
 
 ## <a name="run-the-application"></a>Kör programmet

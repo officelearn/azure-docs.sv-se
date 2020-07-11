@@ -3,12 +3,12 @@ title: Kryptering i Azure Backup
 description: Lär dig mer om hur krypterings funktioner i Azure Backup hjälper dig att skydda dina säkerhets kopierings data och uppfylla affärs behoven.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116564"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171830"
 ---
 # <a name="encryption-in-azure-backup"></a>Kryptering i Azure Backup
 
@@ -26,8 +26,7 @@ Som standard krypteras alla dina data med hjälp av plattforms hanterade nycklar
 
 När du säkerhetskopierar Azure-Virtual Machines kan du nu kryptera dina data med hjälp av nycklar som ägs och hanteras av dig. Med Azure Backup kan du använda dina RSA-nycklar som lagras i Azure Key Vault för kryptering av dina säkerhets kopior. Krypterings nyckeln som används för kryptering av säkerhets kopior kan skilja sig från den som används för källan. Data skyddas med en AES 256-baserad data krypterings nyckel (DEK), som i sin tur skyddas med hjälp av dina nycklar. Detta ger dig fullständig kontroll över data och nycklar. För att tillåta kryptering krävs det att Recovery Services valvet beviljas åtkomst till krypterings nyckeln i Azure Key Vault. Du kan inaktivera nyckeln eller återkalla åtkomst när det behövs. Du måste dock aktivera kryptering med dina nycklar innan du försöker skydda några objekt i valvet.
 
->[!NOTE]
->Den här funktionen har för närvarande begränsad tillgänglighet. Fyll i [den här undersökningen](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) och skicka e-post till oss på AskAzureBackupTeam@microsoft.com om du vill kryptera dina säkerhetskopierade data med hjälp av Kundhanterade nycklar. Observera att möjligheten att använda den här funktionen omfattas av godkännande från Azure Backups tjänsten.
+Läs mer om hur du krypterar dina säkerhetskopierade data med Kundhanterade nycklar [här](encryption-at-rest-with-cmk.md).
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Säkerhets kopiering av hanterade virtuella hård diskar krypterade med Kundhanterade nycklar
 
@@ -38,7 +37,7 @@ Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som anv
 Förutom att kryptera dina data i Recovery Services valvet med Kundhanterade nycklar kan du också välja att ha ett extra krypterings lager konfigurerat på lagrings infrastrukturen. Den här infrastruktur krypteringen hanteras av plattformen och tillsammans med kryptering i vila med Kundhanterade nycklar, vilket möjliggör kryptering med två lager av dina säkerhets kopierings data. Det bör noteras att infrastruktur kryptering bara kan konfigureras om du först väljer att använda dina egna nycklar för kryptering i vila. Infrastruktur kryptering använder plattforms hanterade nycklar för att kryptera data.
 
 >[!NOTE]
->Infrastruktur kryptering är för närvarande i begränsad för hands version och är endast tillgängligt i USA, östra, USA West2 och södra centrala USA-regioner. Om du vill använda funktionen i någon av dessa regioner kan du fylla i [det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) och skicka e-post till oss [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>Infrastruktur kryptering är för närvarande i begränsad för hands version och är tillgängligt i östra USA, USA West2, södra centrala USA, US Gov, Arizona och US GOV Virginia-regioner. Om du vill använda funktionen i någon av dessa regioner kan du fylla i [det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) och skicka e-post till oss [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Säkerhets kopiering av virtuella datorer som har krypterats med ADE
 

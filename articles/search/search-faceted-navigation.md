@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836098"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171949"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasettisk navigering i Azure Kognitiv sökning
 
@@ -283,10 +284,12 @@ I fasetter kan du vanligt vis bara inkludera dokument som har fasett svärdet i 
 
 Fasett-resultat är dokument som finns i Sök resultaten som matchar en fasett-term. I följande exempel i Sök Resultat för *molnbaserad data behandling*har 254-objekt även *intern specifikation* som en innehålls typ. Objekt är inte alltid ömsesidigt uteslutande. Om ett objekt uppfyller kriterierna för båda filtren räknas det i vart och ett. Den här dupliceringen är möjlig vid aspektering av `Collection(Edm.String)` fält som ofta används för att implementera dokument taggning.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 I allmänhet rekommenderar vi att du lägger till fler filter för att ge användarna fler alternativ för att begränsa sökningen, om du upptäcker att fasett-resultatet är konsekvent för stort.
 
@@ -344,7 +347,7 @@ För numeriska data kan du använda en värde lista.  Ta hänsyn till aspekt int
 
 Om du vill ange ett fasett-intervall som det som finns i föregående skärm bild, använder du en värde lista:
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Varje intervall skapas med 0 som start punkt, ett värde från listan som en slut punkt och rensas sedan det föregående intervallet för att skapa diskreta intervall. Azure Kognitiv sökning gör dessa saker som en del av den fasettiska navigeringen. Du behöver inte skriva kod för att strukturera varje intervall.
 
@@ -378,7 +381,7 @@ När du arbetar med Sök resultat kan du titta på URL: en för ändringar i fr�
 
 1. Om du vill använda kart funktionen i demonstrations appen hämtar du en Bing Maps-nyckel från [Bing Maps dev Center](https://www.bingmapsportal.com/). Klistra in det över den befintliga nyckeln på `index.cshtml` sidan. `BingApiKey`Inställningen i `Web.config` filen används inte. 
 
-2. Kör appen. Ta den valfria rund turen eller Stäng dialog rutan.
+2. Kör programmet. Ta den valfria rund turen eller Stäng dialog rutan.
    
 3. Ange en sökterm, till exempel "analytikert" och klicka på Sök ikonen. Frågan körs snabbt.
    
@@ -394,7 +397,7 @@ När du arbetar med Sök resultat kan du titta på URL: en för ändringar i fr�
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 Titta på [Azure kognitiv sökning djupgående](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demonstration om hur du implementerar ansikte.
 
 För mer information om design principer för fasett-navigering rekommenderar vi följande länkar:

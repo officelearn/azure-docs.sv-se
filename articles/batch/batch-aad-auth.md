@@ -4,11 +4,12 @@ description: Batch stöder Azure AD för autentisering från batch-tjänsten. L�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958216"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170317"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -62,7 +63,7 @@ När du har registrerat ditt program visas program-ID: t:
 
 ![Registrera ditt batch-program med Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Mer information om hur du registrerar ett program med Azure AD finns i [autentiserings scenarier för Azure AD](../active-directory/develop/authentication-scenarios.md).
+Mer information om hur du registrerar ett program med Azure AD finns i [autentiserings scenarier för Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Hämta klient-ID: t för din Active Directory
 
@@ -426,8 +427,8 @@ Använd autentiseringsuppgifterna för tjänstens huvud namn för att öppna ett
 
 - Ett python-exempel på hur du skapar en batch-klient autentiserad med hjälp av en Azure AD-token finns i avsnittet [distribuera Azure Batch anpassad avbildning med ett Python-skript](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) exempel.
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Vad är Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Autentiserings scenarier för Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrera program med Azure Active Directory"
+[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "Vad är Azure Active Directory?"
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Autentiserings scenarier för Azure AD"
+[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Integrera program med Azure Active Directory"
 [azure_portal]: https://portal.azure.com

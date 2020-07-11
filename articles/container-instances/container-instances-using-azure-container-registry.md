@@ -3,21 +3,21 @@ title: Distribuera behållar avbildning från Azure Container Registry
 description: Lär dig hur du distribuerar behållare i Azure Container Instances genom att hämta behållar avbildningar från ett Azure Container Registry.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81453531"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169620"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserad, hanterad behållare register tjänst som används för att lagra privata Docker-behållar avbildningar. Den här artikeln beskriver hur du hämtar behållar avbildningar som lagras i ett Azure Container Registry när du distribuerar till Azure Container Instances. Ett rekommenderat sätt att konfigurera register åtkomst är att skapa ett Azure Active Directory tjänstens huvud namn och lösen ord och lagra inloggnings uppgifterna i ett Azure Key Vault.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Förhandskrav
 
 **Azure Container Registry**: du behöver ett Azure Container Registry-och minst en behållar avbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register kan du läsa [skapa ett behållar register med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -136,7 +136,7 @@ Du kan ange egenskaperna för ditt Azure Container Registry i en Azure Resource 
 [...]
 ```
 
-För fullständiga inställningar för container grupper, se [referens för Resource Manager-mallen](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+För fullständiga inställningar för container grupper, se [referens för Resource Manager-mallen](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 Mer information om hur du refererar Azure Key Vault hemligheter i en Resource Manager-mall finns i [använda Azure Key Vault för att skicka säker parameter värde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md).
 

@@ -4,24 +4,25 @@ description: Den här artikeln beskriver hur du använder Azure Automation för 
 services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322e2a3679ed29ab9ecc4cdc3c6e1fe4d0f20276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91f5ac0c3adabf9880078d7a4d3703e2757cb97f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831183"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185321"
 ---
 # <a name="manage-office-365-services"></a>Hantera Office 365-tjänster
 
-Du kan använda Azure Automation för hantering av Office 365-prenumerations tjänster för produkter som Microsoft Word och Microsoft Outlook. Interaktioner med Office 365 aktive ras av [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Se [använda Azure AD i Azure Automation för att autentisera till Azure](automation-use-azure-ad.md).
+Du kan använda Azure Automation för hantering av Office 365-prenumerations tjänster för produkter som Microsoft Word och Microsoft Outlook. Interaktioner med Office 365 aktive ras av [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). Se [använda Azure AD i Azure Automation för att autentisera till Azure](automation-use-azure-ad.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Du behöver följande för att kunna hantera Office 365-prenumerations tjänster i Azure Automation.
 
-* En Azure-prenumeration. Se [Guide för prenumerations beslut](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/).
-* Ett Automation-objekt i Azure för att lagra användar kontots autentiseringsuppgifter och Runbooks. Se [en introduktion till Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro).
+* En Azure-prenumeration. Se [Guide för prenumerations beslut](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+* Ett Automation-objekt i Azure för att lagra användar kontots autentiseringsuppgifter och Runbooks. Se [en introduktion till Azure Automation](./automation-intro.md).
 * Azure AD. Se [använda Azure AD i Azure Automation för att autentisera till Azure](automation-use-azure-ad.md).
-* En Office 365-klient, med ett konto. Se [Konfigurera din Office 365-klient](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant).
+* En Office 365-klient, med ett konto. Se [Konfigurera din Office 365-klient](/sharepoint/dev/spfx/set-up-your-developer-tenant).
 
 ## <a name="install-the-msonline-and-msonlineext-modules"></a>Installera MSOnline-och MSOnlineExt-modulerna
 
@@ -51,7 +52,7 @@ Det är valfritt att skapa en inloggnings till gång för den administrativa Off
 
 ## <a name="create-an-office-365-service-account"></a>Skapa ett Office 365-tjänst konto
 
-Om du vill köra Office 365-prenumerations tjänster behöver du ett konto för Office 365-tjänsten med behörighet att göra vad du vill. Du kan använda ett globalt administratörs konto, ett konto per tjänst eller en funktion eller ett skript som ska köras. I alla fall kräver tjänst kontot ett komplext och säkert lösen ord. Se [Konfigurera Office 365 för företag](https://docs.microsoft.com/microsoft-365/admin/setup/setup?view=o365-worldwide). 
+Om du vill köra Office 365-prenumerations tjänster behöver du ett konto för Office 365-tjänsten med behörighet att göra vad du vill. Du kan använda ett globalt administratörs konto, ett konto per tjänst eller en funktion eller ett skript som ska köras. I alla fall kräver tjänst kontot ett komplext och säkert lösen ord. Se [Konfigurera Office 365 för företag](/microsoft-365/admin/setup/setup?view=o365-worldwide). 
 
 ## <a name="connect-to-the-azure-ad-online-service"></a>Ansluta till Azure AD online-tjänsten
 
@@ -60,7 +61,7 @@ Om du vill köra Office 365-prenumerations tjänster behöver du ett konto för 
 
 Du kan använda MSOnline-modulen för att ansluta till Azure AD från Office 365-prenumerationen. Anslutningen använder ett Office 365-användar namn och lösen ord eller använder Multi-Factor Authentication (MFA). Du kan ansluta med hjälp av Azure Portal eller en Windows PowerShell-kommandotolk (behöver inte vara förhöjd).
 
-Ett PowerShell-exempel visas nedan. Cmdleten [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) efterfrågar autentiseringsuppgifter och lagrar dem i `Msolcred` variabeln. Sedan använder cmdleten [Connect-MSOLService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) autentiseringsuppgifterna för att ansluta till Azure Directory online-tjänsten. Om du vill ansluta till en speciell Azure-miljö använder du `AzureEnvironment` parametern.
+Ett PowerShell-exempel visas nedan. Cmdleten [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) efterfrågar autentiseringsuppgifter och lagrar dem i `Msolcred` variabeln. Sedan använder cmdleten [Connect-MSOLService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) autentiseringsuppgifterna för att ansluta till Azure Directory online-tjänsten. Om du vill ansluta till en speciell Azure-miljö använder du `AzureEnvironment` parametern.
 
 ```powershell
 $Msolcred = Get-Credential
@@ -70,7 +71,7 @@ Connect-MsolService -Credential $MsolCred -AzureEnvironment "AzureCloud"
 Om du inte får några fel har du Anslut ATS. Ett snabb test är att köra en Office 365-cmdlet, till exempel, `Get-MsolUser` och se resultatet. Observera att ett vanligt problem är ett felaktigt lösen ord om du får fel.
 
 >[!NOTE]
->Du kan också använda AzureRM-modulen eller AZ-modulen för att ansluta till Azure AD från Office 365-prenumerationen. Huvud anslutnings-cmdleten är [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0). Denna cmdlet stöder `AzureEnvironmentName` parametern för vissa Office 365-miljöer.
+>Du kan också använda AzureRM-modulen eller AZ-modulen för att ansluta till Azure AD från Office 365-prenumerationen. Huvud anslutnings-cmdleten är [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0). Denna cmdlet stöder `AzureEnvironmentName` parametern för vissa Office 365-miljöer.
 
 ## <a name="create-a-powershell-runbook-from-an-existing-script"></a>Skapa en PowerShell-Runbook från ett befintligt skript
 
@@ -95,22 +96,22 @@ $O365Licenses -SmtpServer $emailSMTPServer -UseSSL
 
 Du kan använda ditt skript i en Azure Automation Runbook. I exempel syfte använder vi PowerShell-runbooken.
 
-1. Skapa en ny PowerShell-Runbook. Se [skapa en Azure Automation Runbook](https://docs.microsoft.com/azure/automation/automation-quickstart-create-runbook).
+1. Skapa en ny PowerShell-Runbook. Se [skapa en Azure Automation Runbook](./automation-quickstart-create-runbook.md).
 2. Från ditt Automation-konto väljer du **Runbooks** under **process automatisering**.
 3. Välj den nya runbooken och klicka på **Redigera**.
 4. Kopiera skriptet och klistra in det i text redigeraren för runbooken.
 5. Välj **till gångar**och expandera sedan **autentiseringsuppgifter** och kontrol lera att Office 365-autentiseringsuppgiften finns där.
 6. Klicka på **Spara**.
-7. Välj **test fönster**och klicka sedan på **Starta** för att börja testa din Runbook. Se [Hantera Runbooks i Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
+7. Välj **test fönster**och klicka sedan på **Starta** för att börja testa din Runbook. Se [Hantera Runbooks i Azure Automation](./manage-runbooks.md).
 8. När testningen är klar avslutar du från test-fönstret.
 
 ## <a name="publish-and-schedule-the-runbook"></a>Publicera och Schemalägg Runbook
 
-Om du vill publicera och sedan schemalägga din Runbook, se [Hantera Runbooks i Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
+Om du vill publicera och sedan schemalägga din Runbook, se [Hantera Runbooks i Azure Automation](./manage-runbooks.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om användning av autentiseringsuppgifter finns [i Hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md).
 * Information om moduler finns [i hantera moduler i Azure Automation](shared-resources/modules.md).
 * Om du behöver starta en Runbook kan du läsa [starta en Runbook i Azure Automation](start-runbooks.md).
-* Information om PowerShell finns i [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview).
+* Information om PowerShell finns i [PowerShell-dokument](/powershell/scripting/overview).

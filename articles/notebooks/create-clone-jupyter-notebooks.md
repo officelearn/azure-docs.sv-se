@@ -3,12 +3,12 @@ title: Skapa och klona Jupyter-anteckningsböcker – Azure Notebooks för hands
 description: Azure Notebooks förhandsgranska projekt hanterar en samling antecknings böcker och relaterade filer, som du kan använda för att skapa nya eller klona från en annan källa.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831292"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181512"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Skapa och klona projekt i Azure Notebooks för hands version
 
@@ -68,13 +68,33 @@ När du använder kommandot **+ nytt projekt** visas Azure Notebooks popup-föns
 
 Följande reserverade ord kan inte användas själva som projekt-ID. Dessa reserverade ord kan dock användas som en del av längre projekt-ID.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| om | konto | administration | api | blogg | klassrum |
-| innehåll | instrumentpanel | utforska | Assurance | Hjälp | html |
-| start | importera | bibliotek | management | ny | 1150 |
-| notebooks | pdf | preview | priset | profil | sök |
-| status | support | test | | | |
+- om
+- konto
+- administration
+- api
+- blogg
+- klassrum
+- innehåll
+- instrumentpanel
+- utforska
+- Assurance
+- Hjälp
+- html
+- start
+- importera
+- bibliotek
+- management
+- ny
+- 1150
+- notebooks
+- pdf
+- preview
+- priset
+- profil
+- sök
+- status
+- support
+- test
 
 Om du försöker använda något av dessa ord som projekt-ID visas popup-fönster för att **skapa nya projekt** -och **projekt inställningar** , "biblioteks-ID är en reserverad identifierare".
 

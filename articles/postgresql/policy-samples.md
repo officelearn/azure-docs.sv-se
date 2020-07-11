@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Database for PostgreSQL
 description: Visar Azure Policy inbyggda princip definitioner för Azure Database for PostgreSQL. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 109c3ca274e46324a8c93ba089abf3db3b5cac68
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: f2db6d592eb7a06f4863e9e5ffa9d13c75473d3e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321447"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276623"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Azure Policy inbyggda definitioner för Azure Database for PostgreSQL
 

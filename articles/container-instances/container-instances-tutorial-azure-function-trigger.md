@@ -4,12 +4,12 @@ description: Skapa en HTTP-utlöst, Server lös PowerShell-funktion för att aut
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: ''
-ms.openlocfilehash: d5fa4acf7ac5a7d0b9103458636adff4befcc3d9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 298cf1452e514ede540e23d4e64f6dd1059cceab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144865"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259742"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudie: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
 
@@ -25,7 +25,7 @@ Lär dig att:
 > * Ändra och publicera om PowerShell-funktionen för att automatisera distributionen av en container grupp med en behållare.
 > * Verifiera den HTTP-utlösta distributionen av containern.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Se [skapa din första funktion i Azure med Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) för krav för att installera och använda Visual Studio code med Azure Functions tillägget på ditt operativ system.
 
@@ -33,7 +33,7 @@ Ytterligare steg i den här artikeln använder Azure PowerShell. Om du behöver 
 
 ## <a name="create-a-basic-powershell-function"></a>Skapa en grundläggande PowerShell-funktion
 
-Följ stegen i [skapa din första PowerShell-funktion i Azure](../azure-functions/functions-create-first-function-powershell.md) för att skapa en PowerShell-funktion med hjälp av http-utlösaren. Använd standard namnet **HttpTrigger**i Azure function. Som du ser i snabb starten, testa funktionen lokalt och publicera projektet till en Function-app i Azure. Det här exemplet är en grundläggande HTTP-utlöst funktion som returnerar en text sträng. I senare steg i den här artikeln ändrar du funktionen för att skapa en behållar grupp.
+Följ stegen i [skapa din första PowerShell-funktion i Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) för att skapa en PowerShell-funktion med hjälp av http-utlösaren. Använd standard namnet **HttpTrigger**i Azure function. Som du ser i snabb starten, testa funktionen lokalt och publicera projektet till en Function-app i Azure. Det här exemplet är en grundläggande HTTP-utlöst funktion som returnerar en text sträng. I senare steg i den här artikeln ändrar du funktionen för att skapa en behållar grupp.
 
 I den här artikeln förutsätter vi att du publicerar projektet med namnet *myfunctionapp*i en Azure-resurs grupp automatiskt med namnet enligt namnet på Function-appen (även *myfunctionapp*). Ersätt namnet på din unika Function-app och resurs grupps namnet i senare steg.
 
@@ -201,7 +201,7 @@ I den här självstudien har du skapat en Azure-funktion som tar en HTTP-förfr�
 
 Ett detaljerat exempel för att starta och övervaka ett behållar jobb finns i avsnittet om [händelse drivna serverbaserade behållare för blogg inlägg med PowerShell Azure Functions och Azure Container instances](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) och tillhör ande [kod exempel](https://github.com/anthonychu/functions-powershell-run-aci).
 
-I [Azure Functions-dokumentationen](/azure/azure-functions/) finns detaljerad information om hur du skapar Azure Functions och publicerar ett Functions-projekt. 
+I [Azure Functions-dokumentationen](../azure-functions/index.yml) finns detaljerad information om hur du skapar Azure Functions och publicerar ett Functions-projekt. 
 
 <!-- IMAGES -->
 

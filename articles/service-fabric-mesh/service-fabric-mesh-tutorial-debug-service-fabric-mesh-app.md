@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 586641d721d0c29bcd6d7b42fc8ca9141df96c66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75494954"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261303"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudie: felsök ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
 
@@ -33,7 +33,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
@@ -71,13 +71,13 @@ Gör din första felsökningskörning (F5) mycket snabbare genom att följa inst
 
 Det har uppstått ett problem som gör att anropet till `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` inte ansluter till tjänsten. Detta kan inträffa när värdens IP-adress ändras. Lösning:
 
-1. Ta bort appen från det lokala klustret (i Visual Studio, **Bygg** > **ren lösning**).
+1. Ta bort appen från det lokala klustret (i Visual Studio, **Bygg**  >  **ren lösning**).
 2. Från Service Fabric Local Cluster Manager väljer du **Stop Local CLuster** (Stoppa lokalt kluster) och sedan **Start Local Cluster** (Starta lokalt kluster).
 3. Distribuera om appen (i Visual Studio **F5**).
 
 Om felet **No Service Fabric local cluster is running** (Inget lokalt Service Fabric-kluster körs) returneras kontrollerar du att LCM (Service Fabric Local Custer Manager) körs. Högerklicka på LCM-ikonen i uppgiftsfältet och klicka på **Starta lokalt kluster**. När starten är klar återgår du till Visual Studio och trycker på **F5**.
 
-Om ett fel av typen **404** returneras när appen startar innebär det förmodligen att miljövariablerna i **service.yaml** är felaktiga. Se till att `ApiHostPort` och `ToDoServiceName` är rätt inställda enligt instruktionerna i dokumentationen om att [skapa miljövariabler](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+Om ett fel av typen **404** returneras när appen startar innebär det förmodligen att miljövariablerna i **service.yaml** är felaktiga. Se till att `ApiHostPort` och `ToDoServiceName` är rätt inställda enligt instruktionerna i dokumentationen om att [skapa miljövariabler](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables).
 
 Om det uppstår kompileringsfel i **service.yaml** kontrollerar du att blanksteg används för att dra in linjerna. Det går inte att använda tabbar. För närvarande måste du skapa appen med engelska som nationella inställningar.
 

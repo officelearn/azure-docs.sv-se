@@ -4,16 +4,16 @@ description: I den här självstudien får du lära dig hur du distribuerar ett 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611670"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245066"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric kluster som kör Windows till ett virtuellt Azure-nätverk
 
-Den här självstudien ingår i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-kluster som kör Windows till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) och en [nätverks säkerhets grupp](../virtual-network/virtual-networks-nsg.md) med hjälp av PowerShell och en mall. När du är klar har du ett kluster som körs i molnet som du kan distribuera program till. Information om hur du skapar ett Linux-kluster som använder Azure CLI finns i [skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Den här självstudien ingår i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-kluster som kör Windows till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) och en [nätverks säkerhets grupp](../virtual-network/virtual-network-vnet-plan-design-arm.md) med hjälp av PowerShell och en mall. När du är klar har du ett kluster som körs i molnet som du kan distribuera program till. Information om hur du skapar ett Linux-kluster som använder Azure CLI finns i [skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 I den här självstudien beskrivs ett produktionsscenario. Om du vill skapa ett mindre kluster i test syfte, se [skapa ett test kluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -42,13 +42,13 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installera [modulen Service Fabric SDK och PowerShell](service-fabric-get-started.md).
-* Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Installera [Azure PowerShell](/powershell/azure/install-az-ps).
 * Granska viktiga begrepp i [Azure-kluster](service-fabric-azure-clusters-overview.md).
 * [Planera och förbereda](service-fabric-cluster-azure-deployment-preparation.md) för distribution av produktions kluster.
 
@@ -111,7 +111,7 @@ Följande regler för inkommande trafik är aktiverade i resursen **Microsoft.Ne
 Om andra program portar behövs måste du justera **Microsoft. Network/belastningsutjämnare** -resursen och resursen **Microsoft. Network/networkSecurityGroups** för att tillåta trafiken i.
 
 ### <a name="windows-defender"></a>Windows Defender
-Som standard installeras [Windows Defender Antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) och fungerar på windows Server 2016. Användar gränssnittet installeras som standard på vissa SKU: er, men det är inte obligatoriskt. För varje nodtyp/VM-skalningsuppsättning som deklareras i mallen används [Azure VM Antimalware-tillägget](/azure/virtual-machines/extensions/iaas-antimalware-windows) för att utesluta Service Fabric-katalogerna och -processerna:
+Som standard installeras [Windows Defender Antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) och fungerar på windows Server 2016. Användar gränssnittet installeras som standard på vissa SKU: er, men det är inte obligatoriskt. För varje nodtyp/VM-skalningsuppsättning som deklareras i mallen används [Azure VM Antimalware-tillägget](../virtual-machines/extensions/iaas-antimalware-windows.md) för att utesluta Service Fabric-katalogerna och -processerna:
 
 ```json
 {
@@ -143,12 +143,12 @@ Som standard installeras [Windows Defender Antivirus program](/windows/security/
 
 Parameterfilen [azuredeploy.parameters.json][parameters] deklarerar många värden som används till att distribuera klustret och associerade resurser. Följande är parametrar som ska ändras för distributionen:
 
-**Parameter** | **Exempel värde** | **Anteckningar** 
+**Parameter** | **Exempel värde** | **Kommentarer** 
 |---|---|---|
-|adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. [Användar namns krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösen ords krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. [Användar namns krav för virtuell dator](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
+|adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösen ords krav för virtuell dator](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Namnet på klustret. Får endast innehålla bokstäver och siffror. Längden ska vara mellan 3 och 23 tecken.|
-|location|southcentralus| Klustrets placering. |
+|location|USA, södra centrala| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
 |certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https: \/ /mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
@@ -172,7 +172,7 @@ Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla stege
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Skapa Azure AD-program och tilldela användare till roller
 Skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program. När du har skapat programmen som ska representera klustret, tilldelar du användarna de roller som [stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddad och administratör.
 
-Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar. Ange användar namn och lösen ord för användarna. Ett exempel:
+Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar. Ange användar namn och lösen ord för användarna. Till exempel:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -249,7 +249,7 @@ I [azuredeploy.json][template] konfigurerar du Azure AD i avsnittet **Microsoft.
 }
 ```
 
-Lägg till parametervärdena i parameterfilen [azuredeploy.parameters.json][parameters]. Ett exempel:
+Lägg till parametervärdena i parameterfilen [azuredeploy.parameters.json][parameters]. Till exempel:
 
 ```json
 "aadTenantId": {
@@ -703,7 +703,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-De andra artiklarna i den här själv studie serien använder det kluster som du har skapat. Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustret](service-fabric-cluster-delete.md) för att undvika kostnader.
+De andra artiklarna i den här själv studie serien använder det kluster som du har skapat. Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustret](./service-fabric-tutorial-delete-cluster.md) för att undvika kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 

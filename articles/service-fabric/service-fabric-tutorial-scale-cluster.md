@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du skalar ett Servic
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611653"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257112"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudie: Skala ut ett Service Fabric-kluster i Azure
 
@@ -33,12 +33,12 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installera [Azure PowerShell](/powershell/azure/install-az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Viktiga överväganden och rikt linjer
@@ -64,7 +64,7 @@ Mer information finns i [kluster kapacitets vägledning](service-fabric-cluster-
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exportera mallen för resursgruppen
 
-När du har skapat ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) och konfigurerat resurs gruppen, exporterar du Resource Manager-mallen för resurs gruppen. Genom att exportera mallen kan du automatisera framtida distributioner av klustret och dess resurser, eftersom mallen innehåller all fullständig infrastruktur.  Mer information om hur du exporterar mallar finns i [hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+När du har skapat ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) och konfigurerat resurs gruppen, exporterar du Resource Manager-mallen för resurs gruppen. Genom att exportera mallen kan du automatisera framtida distributioner av klustret och dess resurser, eftersom mallen innehåller all fullständig infrastruktur.  Mer information om hur du exporterar mallar finns i [hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. I [Azure Portal](https://portal.azure.com)går du till resurs gruppen som innehåller klustret (**sfclustertutorialgroup**om du följer den här självstudien). 
 

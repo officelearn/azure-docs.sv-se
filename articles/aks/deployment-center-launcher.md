@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: b0a9597e370648faab3787218c7d038798dbd455
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048116"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251781"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Distributions Center för Azure-Kubernetes
 
@@ -24,7 +24,7 @@ I de här självstudierna får du:
 > * Kontrol lera pipelinen för kontinuerlig leverans (CD).
 > * Rensa resurserna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -34,7 +34,7 @@ I de här självstudierna får du:
 
 1. Logga in på din [Azure Portal](https://portal.azure.com/).
 
-1. Välj alternativet [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) på höger sida av meny raden i Azure Portal.
+1. Välj alternativet [Cloud Shell](../cloud-shell/overview.md) på höger sida av meny raden i Azure Portal.
 
 1. Kör följande kommandon för att skapa AKS-klustret:
 
@@ -54,9 +54,9 @@ I de här självstudierna får du:
 
 1. Välj AKS-klustret och välj sedan **Deployment Center (för hands version)** på det vänstra bladet. Välj **Kom igång**.
 
-   ![settings](media/deployment-center-launcher/settings.png)
+   ![inställningar](media/deployment-center-launcher/settings.png)
 
-1. Välj plats för koden och välj **Nästa**. Välj sedan en av de databaser som stöds för närvarande: **[Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** eller **GitHub**.
+1. Välj plats för koden och välj **Nästa**. Välj sedan en av de databaser som stöds för närvarande: **[Azure databaser](/azure/devops/repos/index?view=azure-devops)** eller **GitHub**.
 
     Azure databaser är en uppsättning versions kontroll verktyg som hjälper dig att hantera din kod. Oavsett om ditt program varu projekt är stort eller litet, är det en bra idé att använda versions kontroll så tidigt som möjligt.
 
@@ -77,7 +77,7 @@ I de här självstudierna får du:
 
     ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. Välj ett befintligt behållar register eller skapa ett, och välj sedan **Slutför**. Pipelinen skapas automatiskt och köar en version i Azure- [pipeliner](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
+1. Välj ett befintligt behållar register eller skapa ett, och välj sedan **Slutför**. Pipelinen skapas automatiskt och köar en version i Azure- [pipeliner](/azure/devops/pipelines/index?view=azure-devops).
 
     Azure-pipelines är en moln tjänst som du kan använda för att automatiskt bygga och testa ditt kod projekt och göra det tillgängligt för andra användare. Azure-pipeliner kombinerar kontinuerlig integrering och kontinuerlig leverans för att ständigt testa och bygga koden och skicka den till alla mål.
 

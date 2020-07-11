@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad25ab219cdb83227d39f86109d18b2c8402c38f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 035fc4840b08a0a9807c228cb5f63c191efc524a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612358"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256891"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Självstudie: Konfigurera tjänst aviseringar
 
@@ -49,7 +49,7 @@ Vi rekommenderar att du skapar tjänst aviseringar för följande typer av häls
 
 Konfigurera tjänst aviseringar:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **service Health.**
 3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) för att konfigurera aviseringar och meddelanden.
 
@@ -58,4 +58,4 @@ Konfigurera tjänst aviseringar:
 I den här självstudien har du lärt dig hur du konfigurerar och använder Azure Service Health för att övervaka tjänst problem och hälso rekommendationer för virtuella Windows-datorer. Om du vill veta mer om hur du loggar in på det virtuella Windows-skrivbordet fortsätter du till instruktionen Anslut till Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Ansluta till fjärr skrivbords klienten på Windows 7 och Windows 10](./connect-windows-7-and-10.md)
+> [Ansluta till fjärr skrivbords klienten på Windows 7 och Windows 10](./connect-windows-7-10.md)

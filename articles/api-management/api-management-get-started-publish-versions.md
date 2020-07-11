@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b683910180e597cb8cbfa642bb2d9ac3200b42ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73176834"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255038"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicera flera versioner av ditt API 
 
-Ibland måste man kunna låta anropare använda olika versioner av ditt API. Om anropare vill uppgradera till en senare version ska de kunna göra det på ett enkelt sätt. Detta går att göra genom att använda **versioner** i Azure API Management. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
+Ibland måste man kunna låta anropare använda olika versioner av ditt API. Om anropare vill uppgradera till en senare version ska de kunna göra det på ett enkelt sätt. Detta går att göra genom att använda **versioner** i Azure API Management. Mer information finns i avsnittet om [versioner & revisioner](https://azure.microsoft.com/blog/versions-revisions/).
 
 I den här guiden får du lära dig att:
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 ![Versionen som visas på utvecklarportalen](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -112,4 +112,4 @@ I den här guiden får du lära dig att:
 Gå vidare till nästa kurs:
 
 > [!div class="nextstepaction"]
-> [Anpassa stilen på utvecklingsportalens sidor](api-management-customize-styles.md)
+> [Anpassa stilen på utvecklarportalens sidor](api-management-customize-styles.md)

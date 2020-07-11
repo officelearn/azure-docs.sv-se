@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75494936"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248398"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudie: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
@@ -34,7 +34,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
@@ -171,7 +171,7 @@ Föregående resultatet bekräftar förekomsten av `azure-mesh-todo-service:1.0-
 ## <a name="retrieve-credentials-for-the-registry"></a>Hämta autentiseringsuppgifterna för registret
 
 > [!IMPORTANT]
-> Du rekommenderas inte att aktivera administratörsanvändare på en ACR-instans för produktionsscenarier. Här gör vi det endast för att underlätta. I produktionsscenarier ska du använda [tjänstens huvudnamn](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) för både användar- och systemautentisering i produktionsscenarier.
+> Du rekommenderas inte att aktivera administratörsanvändare på en ACR-instans för produktionsscenarier. Här gör vi det endast för att underlätta. I produktionsscenarier ska du använda [tjänstens huvudnamn](../container-registry/container-registry-auth-service-principal.md) för både användar- och systemautentisering i produktionsscenarier.
 
 Du måste ange autentiseringsuppgifterna för registret när du ska distribuera en containerinstans från registret som du skapat. Aktivera först administratörsanvändaren i registret med följande kommando:
 
@@ -191,7 +191,7 @@ Använd det returnerade inloggningsservernamnet för ACR, användarnamn och lös
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>Ladda ned och titta närmare på mall- och parameterfiler
 
-Ett program för Service Fabric-nät är en Azure-resurs som du kan distribuera och hantera med hjälp av mallar för Azure Resource Manager (RM). Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar kan du läsa mer i [Översikt över Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) och [Förstå strukturen och syntaxen för RM-mallar](/azure/azure-resource-manager/resource-group-authoring-templates).
+Ett program för Service Fabric-nät är en Azure-resurs som du kan distribuera och hantera med hjälp av mallar för Azure Resource Manager (RM). Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar kan du läsa mer i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md) och [Förstå strukturen och syntaxen för RM-mallar](../azure-resource-manager/templates/template-syntax.md).
 
 Den här självstudien använder exempelprogrammet att göra-lista som ett exempel.  Istället för att skapa nya mall- och parameterfiler kan du hämta filerna [mesh_rp.windows.json-distributionsmallen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) och [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
@@ -342,8 +342,8 @@ Uppdatera följande parametervärden i parameterfilen:
 |registryPassword|Lösenordet som du fick tidigare i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry). Den här parametern i mallen är en säker sträng och visas inte i distributionens status eller `az mesh service show`-kommandon.|
 |registryUserName|Användarnamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
 |registryServer|Registerservernamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
-|frontEndImage|Containeravbildning för klientdelstjänsten.  Till exempel `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
-|serviceImage|Containeravbildning för serverdelstjänsten.  Till exempel `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
+|frontEndImage|Containeravbildning för klientdelstjänsten.  Ett exempel är `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|Containeravbildning för serverdelstjänsten.  Ett exempel är `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Om du vill distribuera programmet kör du följande:
 

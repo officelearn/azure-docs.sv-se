@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f16f9b3fe6cd17b9fb6eb1cb2bd3ef1f42824701
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a1df804681f0066fda025a60e0baddedc51f7a78
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312778"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276907"
 ---
-|Name |Beskrivning |Principer |Version |
+|Namn |Beskrivning |Principer |Version |
 |---|---|---|---|
 |[Granska virtuella Linux-datorer som inte har de angivna programmen installerade](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_InstalledApplicationLinux.json) |Detta initiativ distribuerar princip kraven och granskar virtuella Linux-datorer som inte har de angivna programmen installerade. Mer information om principer för gäst konfiguration finns på[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
 |[Granska virtuella Linux-datorer som har de angivna programmen installerade](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApplicationLinux.json) |Detta initiativ distribuerar princip kraven och granskar virtuella Linux-datorer som har de angivna programmen installerade. Mer information om principer för gäst konfiguration finns på[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
@@ -37,4 +37,3 @@ ms.locfileid: "85312778"
 |[Granska virtuella Windows-datorer som har de angivna programmen installerade](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |Det här initiativet distribuerar princip kraven och granskar virtuella Windows-datorer som har de angivna programmen installerade. Mer information om principer för gäst konfiguration finns på[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Granska virtuella Windows-datorer med en väntande omstart](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |Detta initiativ distribuerar princip kraven och granskar virtuella Windows-datorer med en väntande omstart. Mer information om principer för gäst konfiguration finns på[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Granska Windows-webbservrar som inte använder säkra kommunikations protokoll](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |Detta initiativ distribuerar princip kraven och granskar Windows-webbservrar som inte använder säkra kommunikations protokoll (TLS 1,1 eller TLS 1,2). Mer information om principer för gäst konfiguration finns på[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
-|[Distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |Det här initiativet lägger till en systemtilldelad hanterad identitet och distribuerar den plattforms lämpliga gäst konfigurations tillägget till virtuella datorer som är berättigade att övervakas av principer för gäst konfiguration. Detta är en förutsättning för alla principer för gäst konfiguration och måste tilldelas princip tilldelnings omfånget innan du använder någon princip för gäst konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |4 |1.0.0 – för hands version |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2422204a809e0b13f4e337d49b851a0338681853
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77913709"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249214"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrera från Google Maps till Azure Maps
 
@@ -74,7 +74,7 @@ Här följer några relaterade resurser för Azure Maps:
 Följande är en uppgraderings plan med höga nivåer.
 
 1. Ta inventering av Google Maps SDK: er och tjänster som används i programmet. Kontrol lera att Azure Maps tillhandahåller alternativa SDK: er och tjänster.
-2. Om du inte redan har ett kan du skapa en Azure- [https://azure.com](https://azure.com)prenumeration på.
+2. Om du inte redan har ett kan du skapa en Azure-prenumeration på [https://azure.com](https://azure.com) .
 3. Skapa ett Azure Maps konto ([dokumentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) och en autentiseringsnyckel eller Azure Active Directory ([dokumentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
 4. Migrera din program kod.
 5. Testa det migrerade programmet.
@@ -92,7 +92,7 @@ Här är en lista över användbara tekniska resurser för Azure Maps.
 - Blogg[https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Teknisk blogg:[https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Azure Maps feedback (UserVoice):[https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
-- [Azure Maps Jupyter Notebook] [https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook]
+- [Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
 
 ## <a name="migration-support"></a>Stöd för migrering
 

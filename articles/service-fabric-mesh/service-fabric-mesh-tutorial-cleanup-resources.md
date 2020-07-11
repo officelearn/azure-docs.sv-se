@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8ce3c795bc9ad212331ce1c1f413fe7fd6da909
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75351875"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246765"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Självstudie: Ta bort Azure-resurser
 
@@ -31,7 +31,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
@@ -62,4 +62,4 @@ Nu när du har slutfört publiceringen av Service Fabric Mesh-programmet till Az
 * Om du vill se ett annat exempel på tjänst-till-tjänst-kommunikation kan du utforska [exempelröstningsprogrammet](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp)
 * Mer information om Service Fabric-resursmodellen finns i avsnittet om [Service Fabric Mesh-resursmodellen](service-fabric-mesh-service-fabric-resources.md).
 * Mer information om Service Fabric Mesh finns i [översikten över Service Fabric Mesh](service-fabric-mesh-overview.md).
-* Läs mer om [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Läs mer om [Cloud Shell](../cloud-shell/overview.md)

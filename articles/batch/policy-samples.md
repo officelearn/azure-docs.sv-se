@@ -1,15 +1,15 @@
 ---
 title: Inbyggda princip definitioner för Azure Batch
 description: Visar Azure Policy inbyggda princip definitioner för Azure Batch. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 855c04c84ae55574dab9bd4e46d10aacdbde67a5
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 499dc52fec9055638677f5ac35d86d3f5a17c990
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319003"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276097"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Azure Policy inbyggda definitioner för Azure Batch
 

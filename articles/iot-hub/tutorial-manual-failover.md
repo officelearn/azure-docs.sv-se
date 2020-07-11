@@ -11,16 +11,16 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769912"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252580"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Självstudie: utföra manuell redundans för en IoT-hubb
 
-Manuell redundans är en funktion i IoT Hub-tjänsten som gör att kunder kan utföra [redundans](https://en.wikipedia.org/wiki/Failover) för hubbens åtgärder från en primär region till motsvarande geoparade Azure-region. Manuell redundans kan utföras i händelse av ett regionalt haveri eller ett längre tjänstavbrott. Du kan även utföra en planerad redundans för att testa din haveriberedskap, men vi rekommenderar att du använder en IoT-testhubb i stället för en som körs i produktion. Funktionen för manuell redundans erbjuds till kunder utan extra kostnad.
+Manuell redundans är en funktion i IoT Hub-tjänsten som gör att kunder kan utföra [redundans](https://en.wikipedia.org/wiki/Failover) för hubbens åtgärder från en primär region till motsvarande geoparade Azure-region. Manuell redundans kan utföras i händelse av ett regionalt haveri eller ett längre tjänstavbrott. Du kan även utföra en planerad redundans för att testa din haveriberedskap, men vi rekommenderar att du använder en IoT-testhubb i stället för en som körs i produktion. Funktionen manuell redundans erbjuds till kunder utan extra kostnad för IoT Hub som skapats efter 18 maj 2017.
 
 I den här självstudien utför du följande åtgärder:
 
@@ -31,13 +31,13 @@ I den här självstudien utför du följande åtgärder:
 > * Utför en återställning efter fel för att återställa IoT-hubbens åtgärder till den primära platsen. 
 > * Bekräfta att hubben körs korrekt på rätt plats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 
@@ -73,7 +73,7 @@ Observera att det finns en gräns på två redundanser och två återställninga
 
    ![Skärmbild som visar fönsterrutan med egenskaper för IoT Hub](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-1. I fönstret manuell redundans visas den **aktuella platsen** och **platsen för redundans**. Den aktuella platsen anger alltid den plats där hubben är aktiv för närvarande. Platsen för redundans är den standardiserade [Azure geo-kopplade regionen](../best-practices-availability-paired-regions.md) som är länkad till den aktuella platsen. Du kan inte ändra platsvärdena. För den här självstudien är `West US 2` den aktuella platsen och platsen för `West Central US`redundans.
+1. I fönstret manuell redundans visas den **aktuella platsen** och **platsen för redundans**. Den aktuella platsen anger alltid den plats där hubben är aktiv för närvarande. Platsen för redundans är den standardiserade [Azure geo-kopplade regionen](../best-practices-availability-paired-regions.md) som är länkad till den aktuella platsen. Du kan inte ändra platsvärdena. För den här självstudien är den aktuella platsen `West US 2` och platsen för redundans `West Central US` .
 
    ![Skärmbild som visar fönsterrutan för manuell redundans](./media/tutorial-manual-failover/trigger-failover-02.png)
 
@@ -93,11 +93,11 @@ Observera att det finns en gräns på två redundanser och två återställninga
 
    ![Skärm bild som visar IoT Hub redundansväxling pågår](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   När den är färdig, vänds de aktuella områdena och redundansväxlingen på sidan manuell redundans och hubben är aktiv igen. I det här exemplet är den aktuella platsen nu `WestCentralUS` och platsen för redundans är nu `West US 2`. 
+   När den är färdig, vänds de aktuella områdena och redundansväxlingen på sidan manuell redundans och hubben är aktiv igen. I det här exemplet är den aktuella platsen nu `WestCentralUS` och platsen för redundans är nu `West US 2` . 
 
    ![Skärmbild som visar att redundansen är klar](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   På sidan Översikt visas också en banderoll som anger att redundansväxlingen är klar och IoT Hub körs i `West Central US`.
+   På sidan Översikt visas också en banderoll som anger att redundansväxlingen är klar och IoT Hub körs i `West Central US` .
 
    ![Skärm bild som visar att redundansväxlingen är klar på översikts Sidan](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -118,7 +118,7 @@ En återställning efter fel utförs precis som en manuell redundans. Det här �
 
    ![Skärmbild på manuell begäran om återställning efter fel](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Banderollerna visas enligt beskrivning i avsnittet utföra en redundans. När återställningen är klar visas `West US 2` den igen som den aktuella platsen och `West Central US` som platsen för redundans enligt inställningen ursprungligen.
+   Banderollerna visas enligt beskrivning i avsnittet utföra en redundans. När återställningen är klar visas den igen `West US 2` som den aktuella platsen och `West Central US` som platsen för redundans enligt inställningen ursprungligen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 

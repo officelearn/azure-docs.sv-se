@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd309b7c3b37e338b1d8e69635247cc90511b34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204752"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256857"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
 
@@ -33,7 +33,7 @@ Uppgifterna i den här självstudien innehåller:
 > * Anslut de virtuella datorerna till Active Directory-domänen.
 > * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Förhandskrav
 
 * En klient i virtuellt skriv bord. En tidigare [självstudie](tenant-setup-azure-active-directory.md) skapar en klient.
 * [PowerShell-modul för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
@@ -58,7 +58,7 @@ Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspoo
 
 Efter det följer du anvisningarna i nästa avsnitt för att ange informationen för lämpliga flikar.
 
-### <a name="basics"></a>Grunderna
+### <a name="basics"></a>Grunder
 
 Det här kan du göra på fliken **grundläggande** :
 
@@ -115,7 +115,7 @@ På fliken **Windows-klient för virtuella Skriv bords information** :
    Om du har slutfört [guiden skapa tjänst huvud namn och roll tilldelningar med PowerShell](create-service-principal-role-powershell.md)väljer du **tjänstens huvud namn**.
 
 1. För **tjänstens huvud namn**anger du administratörs kontot för Azure AD-instansen som innehåller tjänstens huvud namn för klient **-ID för Azure AD**. Det finns bara stöd för tjänst huvud namn med autentiseringsuppgifter för lösen ord.
-1. Välj **Nästa: granska + skapa**.
+1. Välj **Nästa: Granska + skapa**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Slutför installationen och skapa den virtuella datorn
 
@@ -154,7 +154,7 @@ Användare som du lägger till i gruppen Skriv bords program kan logga in på Wi
 
 Här är de klienter som stöds:
 
-* [Fjärr skrivbords klient för Windows 7 och Windows 10](../connect-windows-7-and-10.md)
+* [Fjärr skrivbords klient för Windows 7 och Windows 10](connect-windows-7-10-2019.md)
 * [Webb klient för Windows Virtual Desktop](connect-web-2019.md)
 
 ## <a name="next-steps"></a>Nästa steg

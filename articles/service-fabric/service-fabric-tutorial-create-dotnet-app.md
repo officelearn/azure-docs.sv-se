@@ -4,12 +4,12 @@ description: I den här självstudien får du se hur du skapar ett program med e
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: f7bad66d15cc2f9fb1885e440f95e76e12ea458a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: dc869dce536449a901826db3b0d964bf17abbbec
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214034"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257129"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera en app med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
@@ -32,16 +32,16 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15,5 eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Skapa en ASP.NET Core Web API-tjänst som en tillförlitlig tjänst
 
-Skapa först webbklientdelen i röstningsprogrammet med ASP.NET Core. ASP.NET Core är ett lätt, plattformsoberoende utvecklingsverktyg som du kan använda för att skapa moderna webbgränssnitt och webb-API: er. För att du ska förstå hur ASP.NET Core kan integreras med Service Fabric rekommenderar vi att du läser igenom artikeln [ASP.NET Core i Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md). Just nu kan du bara följa den här kursen och komma igång snabbt. Läs mer om ASP.NET Core i [ASP.NET Core-dokumentationen](https://docs.microsoft.com/aspnet/core/).
+Skapa först webbklientdelen i röstningsprogrammet med ASP.NET Core. ASP.NET Core är ett lätt, plattformsoberoende utvecklingsverktyg som du kan använda för att skapa moderna webbgränssnitt och webb-API: er. För att du ska förstå hur ASP.NET Core kan integreras med Service Fabric rekommenderar vi att du läser igenom artikeln [ASP.NET Core i Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md). Just nu kan du bara följa den här kursen och komma igång snabbt. Läs mer om ASP.NET Core i [ASP.NET Core-dokumentationen](/aspnet/core/).
 
 1. Starta Visual Studio som **administratör**.
 
@@ -641,4 +641,4 @@ I den här självstudiedelen lärde du dig att:
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [Distribuera programmet till Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Distribuera appen till Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)

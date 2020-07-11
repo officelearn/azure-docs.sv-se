@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f06387ea317029f5648ab0884cea80262e8640a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159957"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245015"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudie: Övervaka och diagnostisera en ASP.NET Core-app för Service Fabric med Application Insights
 
@@ -32,11 +32,11 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Konfigurera övervakning och diagnostik för programmet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
@@ -65,7 +65,7 @@ När du har fyllt i informationen som krävs, klickar du på **Skapa** för att 
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Lägga till Application Insights i tillämpningstjänsterna
 
-Starta Visual Studio 2019 med utökade privilegier genom att högerklicka på Visual Studio-ikonen på Start-menyn och välja **Kör som administratör**.  > Klicka **på****Öppna** > **projekt/lösning** och navigera till röstnings programmet (som antingen skapats i del ett av själv studie kursen eller git-klonad). Öppna *röstning. SLN*. Om du uppmanas att återställa programmets NuGet-paket klickar du på **Ja**.
+Starta Visual Studio 2019 med utökade privilegier genom att högerklicka på Visual Studio-ikonen på Start-menyn och välja **Kör som administratör**. Klicka **på**  >  **Öppna**  >  **projekt/lösning** och navigera till röstnings programmet (som antingen skapats i del ett av själv studie kursen eller git-klonad). Öppna *röstning. SLN*. Om du uppmanas att återställa programmets NuGet-paket klickar du på **Ja**.
 
 Följ dessa steg om du vill konfigurera Application Insights för både VotingWeb-och VotingData-tjänsterna:
 
@@ -102,14 +102,14 @@ Så här konfigurerar du NuGet-paketet:
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Klicka på **OK** i dialog rutan *Förhandsgranska ändringar* som visas och godkänn *licens godkännandet*. Du är nu klar med att lägga till NuGet till tjänsterna.
 6. Nu måste du konfigurera telemetriinitieraren i de två tjänsterna. Det gör du genom att öppna *VotingWeb.cs* och *VotingData.cs*. Gör följande i båda två:
-    1. Lägg till dessa två *using* -satser överst i varje * \<ServiceName>. cs*, efter de befintliga *using* -satserna:
+    1. Lägg till dessa två *using* -uttryck högst upp i varje * \<ServiceName> . cs*, efter de befintliga *using* -satserna:
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. I båda filerna i den kapslade *Return* -instruktionen för *CreateServiceInstanceListeners ()* eller *CreateServiceReplicaListeners ()* under *ConfigureServices* > *Services*, med de andra singleton-tjänsterna deklarerad, lägger du till:
+    2. I båda filerna i den kapslade *Return* -instruktionen för *CreateServiceInstanceListeners ()* eller *CreateServiceReplicaListeners ()* under *ConfigureServices*  >  *Services*, med de andra singleton-tjänsterna deklarerad, lägger du till:
     ```csharp
     .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
     ```
@@ -168,7 +168,7 @@ Nu är du redo att distribuera programmet. Klicka på **Start** överst (eller *
 >[!NOTE]
 >Du kan få ett build-fel om du inte har en uppdaterad version av .NET Core SDK installerad.
 
-När programmet har distribuerats går du till `localhost:8080`, där du bör kunna se röstnings exemplet med ett enda webb program. Rösta på några olika objekt för att skapa exempeldata och telemetri – jag valde efterrätter!
+När programmet har distribuerats går `localhost:8080` du till, där du bör kunna se röstnings exemplet med ett enda webb program. Rösta på några olika objekt för att skapa exempeldata och telemetri – jag valde efterrätter!
 
 ![Röstning i AI-exempel](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-När du har gjort dessa ändringar **startar** du programmet så att den senaste versionen skapas och distribueras. När programmet har distribuerats går du till `localhost:8080`och lägger till och tar bort några röstnings alternativ. Gå sedan tillbaka till Application Insights-resursen för att se spårningarna för den senaste körningen (det kan som sagt ta 1–2 minuter innan spårningar visas i Application Insights). För alla röster som du har lagt till och tagit bort, bör du nu se en ”Anpassad händelse”\* samt all svarstelemetri.
+När du har gjort dessa ändringar **startar** du programmet så att den senaste versionen skapas och distribueras. När programmet har distribuerats går du till och `localhost:8080` lägger till och tar bort några röstnings alternativ. Gå sedan tillbaka till Application Insights-resursen för att se spårningarna för den senaste körningen (det kan som sagt ta 1–2 minuter innan spårningar visas i Application Insights). För alla röster som du har lagt till och tagit bort, bör du nu se en ”Anpassad händelse”\* samt all svarstelemetri.
 
 ![anpassade händelser](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
@@ -268,4 +268,4 @@ Nu när du har slutfört konfigurationen av övervakning och diagnostik för dit
 
 * [Utforska övervakning och diagnostik ytterligare i Service Fabric](service-fabric-diagnostics-overview.md)
 * [Service Fabric-händelseanalys med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* Mer information om Application Insights finns [Application Insights-dokumentationen](https://docs.microsoft.com/azure/application-insights/)
+* Mer information om Application Insights finns [Application Insights-dokumentationen](/azure/application-insights/)

@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Arc-aktiverade Kubernetes
 description: Visar Azure Policy inbyggda princip definitioner för Azure Arc-aktiverade Kubernetes. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.service: azure-arc
 author: mlearned
 ms.author: mlearned
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 8f1b7f6842ce298fd5131c670eb611ef8bd7c8a5
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 95fa1244012a911f18c01138a90a1f02d5d0ef5e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85316263"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275943"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Azure Policy inbyggda definitioner för Azure Arc-aktiverade Kubernetes
 

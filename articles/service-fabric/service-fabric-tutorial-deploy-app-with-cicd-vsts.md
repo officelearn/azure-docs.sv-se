@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du ställer in konti
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 992d720d86fc2e7fedd8e7fd4b559220ff3c0512
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75614153"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260359"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
@@ -31,15 +31,15 @@ I den här självstudieserien får du lära du dig att:
 > * Konfigurera CI/CD med hjälp av Azure Pipelines
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 * Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Skapa en [Azure DevOps-organisation](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). På så sätt kan du skapa ett projekt i Azure DevOps och använda Azure Pipelines.
+* Skapa en [Azure DevOps-organisation](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). På så sätt kan du skapa ett projekt i Azure DevOps och använda Azure Pipelines.
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet Röstning
 
@@ -61,7 +61,7 @@ Välj en målprofil inom programprojektet att använda för arbetsflödet för d
 
 Dela programkällfilerna till ett projekt i Azure DevOps så att du kan generera byggen.
 
-Skapa en ny lokal git-lagrings platsen för projektet genom att välja **Lägg till i käll kontroll** -> **git** i statusfältet i det nedre högra hörnet av Visual Studio.
+Skapa en ny lokal git-lagrings platsen för projektet genom att välja **Lägg till i käll kontroll**  ->  **git** i statusfältet i det nedre högra hörnet av Visual Studio.
 
 I vyn för **Push-överföring ** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
 
@@ -111,7 +111,7 @@ Välj fliken **Pipelines** och sedan **Versioner** och **+Ny pipeline**.  I **V�
 
 ![Välj versionsmall][select-release-template]
 
-Välj **uppgifter**->**miljö 1** och sedan **+ ny** för att lägga till en ny kluster anslutning.
+Välj **uppgifter** -> **miljö 1** och sedan **+ ny** för att lägga till en ny kluster anslutning.
 
 ![Lägga till klusteranslutning][add-cluster-connection]
 
@@ -131,7 +131,7 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 ![Aktivera utlösare][enable-trigger]
 
-Välj **+ släpp** -> **skapa en version** -> **skapa** för att skapa en version manuellt. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
+Välj **+ släpp**  ->  **skapa en version**  ->  **skapa** för att skapa en version manuellt. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
 
 Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 

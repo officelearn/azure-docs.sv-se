@@ -6,16 +6,16 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985696"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260674"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
-I den här självstudien, som är del ett av tre, förbereder du din miljö för att skapa ett Azure Red Hat OpenShift-kluster som kör OpenShift 4 och skapar ett kluster. Du lär dig att göra följande:
+I den här självstudien, som är del ett av tre, förbereder du din miljö för att skapa ett Azure Red Hat OpenShift-kluster som kör OpenShift 4 och skapar ett kluster. Du lär dig hur du:
 > [!div class="checklist"]
 > * Konfigurera förutsättningarna och skapa det virtuella nätverk och undernät som krävs
 > * Distribuera ett kluster
@@ -87,11 +87,26 @@ När du kör `az aro create` kommandot kan du referera till din pull-hemlighet m
 
 Om du kopierar din pull-hemlighet eller refererar till den i andra skript, ska din pull-hemlighet formateras som en giltig JSON-sträng.
 
+### <a name="prepare-a-custom-domain-for-your-cluster-optional"></a>Förbered en anpassad domän för klustret (valfritt)
+
+När du kör `az aro create` kommandot kan du ange en anpassad domän för klustret med hjälp av- `--domain foo.example.com` parametern.
+
+Om du anger en anpassad domän för klustret noterar du följande punkter:
+
+* När du har skapat klustret måste du skapa två DNS-poster på DNS-servern för de `--domain` angivna:
+    * **API** – peka på API-servern
+    * ** \* . apps** – peka på ingressen
+    * Hämta dessa värden genom att köra följande kommando: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'` .
+
+* OpenShift-konsolen är tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com` , i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
+
+* Som standard använder OpenShift självsignerade certifikat för alla vägar som skapas på `*.apps.<random>.<location>.aroapp.io` .  Om du väljer att använda anpassad DNS när du har anslutit till klustret måste du följa den OpenShift-dokumentationen för att [Konfigurera en anpassad certifikat utfärdare för din](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) ingångs kontroll och en [anpassad ca för din API-Server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Skapa ett virtuellt nätverk som innehåller två tomma undernät
 
 Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undernät.
 
-1. **Ange följande variabler.**
+1. **Ange följande variabler i den gränssnitts miljö där du ska köra `az` kommandona.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -99,9 +114,9 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Skapa en resursgrupp**
+1. **Skapa en resurs grupp.**
 
-    En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med kommandot [AZ Group Create] [AZ-Group-Create].
+    En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resursgrupp med hjälp av kommandot [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -126,7 +141,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
 
     Azure Red Hat OpenShift-kluster som kör OpenShift 4 kräver ett virtuellt nätverk med två tomma undernät för Master-och Worker-noderna.
 
-    Skapa ett nytt virtuellt nätverk i samma resurs grupp som du skapade tidigare.
+    Skapa ett nytt virtuellt nätverk i samma resurs grupp som du skapade tidigare:
 
     ```azurecli-interactive
     az network vnet create \
@@ -189,10 +204,12 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-Kör följande kommando för att skapa ett kluster. Du kan också [skicka din Red Hat pull-hemlighet](#get-a-red-hat-pull-secret-optional) som gör det möjligt för ditt kluster att komma åt Red Hat container-register tillsammans med ytterligare innehåll.
+Kör följande kommando för att skapa ett kluster. Om du väljer att använda något av följande alternativ ändrar du kommandot enligt följande:
+* Du kan också [skicka din Red Hat pull-hemlighet](#get-a-red-hat-pull-secret-optional) som gör det möjligt för ditt kluster att komma åt Red Hat container-register tillsammans med ytterligare innehåll. Lägg till `--pull-secret @pull-secret.txt` argumentet i kommandot.
+* Du kan också [använda en anpassad domän](#prepare-a-custom-domain-for-your-cluster-optional). Lägg till `--domain foo.example.com` argumentet i kommandot och Ersätt `foo.example.com` med din egen anpassade domän.
 
->[!NOTE]
-> Om du kopierar/klistrar in kommandon och använder en av de valfria parametrarna, se till att ta bort de inledande hashtagg-objekten och den avslutande kommentars texten. Stäng också argumentet på den föregående raden i kommandot med ett avslutande omvänt snedstreck.
+> [!NOTE]
+> Om du lägger till valfria argument i kommandot måste du stänga argumentet på den föregående raden i kommandot med ett avslutande snedstreck.
 
 ```azurecli-interactive
 az aro create \
@@ -201,17 +218,9 @@ az aro create \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
-  # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
 När du har kört `az aro create` kommandot tar det vanligt vis cirka 35 minuter att skapa ett kluster.
-
->[!IMPORTANT]
-> Om du väljer att ange en anpassad domän, till exempel **foo.example.com**, blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com` , i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
->
-> Som standard använder OpenShift självsignerade certifikat för alla vägar som skapas på `*.apps.<random>.<location>.aroapp.io` .  Om du väljer att använda anpassad DNS när du har anslutit till klustret måste du följa den OpenShift-dokumentationen för att [Konfigurera en anpassad certifikat utfärdare för din](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) ingångs kontroll och en [anpassad ca för din API-Server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
->
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75614068"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244811"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Självstudie: övervaka Windows-behållare på Service Fabric med hjälp av Azure Monitor loggar
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -37,7 +37,7 @@ Innan du börjar de här självstudierna bör du:
 Om du använde [mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) i den första delen av självstudiekursen bör den omfatta följande tillägg till en allmän Service Fabric Azure Resource Manager-mall. Om du har ett eget kluster som du vill konfigurera för övervakning av behållare med Azure Monitor loggar:
 
 * göra följande ändringar i Resource Manager-mallen
-* distribuera med PowerShell för att uppgradera klustret genom att [distribuera mallen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager ser att resursen finns, så den lanseras som en uppgradering.
+* distribuera med PowerShell för att uppgradera klustret genom att [distribuera mallen](./service-fabric-cluster-creation-via-arm.md). Azure Resource Manager ser att resursen finns, så den lanseras som en uppgradering.
 
 ### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>Lägga till Azure Monitor loggar i kluster mal len
 
@@ -76,7 +76,7 @@ Gör följande ändringar i *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Lägg till Microsoft Monitoring Agent som ett tillägg för virtuella datorer. Hitta resurs för skalnings uppsättningar för virtuella datorer: *resurser* > *"API version": "[Variables (' vmssApiVersion ')]"*. Under *egenskaperna* > *virtualMachineProfile* > *extensionProfile*extensionProfile > *Extensions*lägger du till följande tilläggs Beskrivning under *ServiceFabricNode* -tillägget: 
+3. Lägg till Microsoft Monitoring Agent som ett tillägg för virtuella datorer. Hitta resurs för skalnings uppsättningar för virtuella datorer: *resurser*  >  *"API version": "[Variables (' vmssApiVersion ')]"*. Under *egenskaperna*  >  *virtualMachineProfile*  >  *extensionProfile*  >  *Extensions*lägger du till följande tilläggs Beskrivning under *ServiceFabricNode* -tillägget: 
     
     ```json
     {
@@ -212,8 +212,8 @@ En annan fördel med att använda Log Analytics-agenten är möjligheten att än
 
 Det leder till Log Analytics-arbetsytan där du kan se dina lösningar, skapa anpassade instrumentpaneler och konfigurera Log Analytics-agenten. 
 * Klicka på **Avancerade inställningar** för att öppna menyn Avancerade inställningar.
-* Klicka på **anslutna källor** > **Windows-servrar** för att kontrol lera att du har *5 anslutna Windows-datorer*.
-* Klicka på **data** > **Windows-prestandaräknare** om du vill söka efter och lägga till nya prestanda räknare. Här visas en lista med rekommendationer från Azure Monitor loggar för prestanda räknare som du kan samla in samt alternativet för att söka efter andra räknare. Kontrollera att räknarna **Processor(_Total)\% Processortid** och **Minne (*) \Tillgängliga megabyte** samlas in.
+* Klicka på **anslutna källor**  >  **Windows-servrar** för att kontrol lera att du har *5 anslutna Windows-datorer*.
+* Klicka på **data**  >  **Windows-prestandaräknare** om du vill söka efter och lägga till nya prestanda räknare. Här visas en lista med rekommendationer från Azure Monitor loggar för prestanda räknare som du kan samla in samt alternativet för att söka efter andra räknare. Kontrollera att räknarna **Processor(_Total)\% Processortid** och **Minne (*) \Tillgängliga megabyte** samlas in.
 
 **Uppdatera** övervakningslösningen för containrar efter ett par minuter. Du ska nu se information om *Datorprestanda* komma in. Det här hjälper dig att förstå hur dina resurser används. Du kan också använda de här måtten till att fatta rätt beslut om skalning av klustret och för att bekräfta om ett kluster balanserar ut belastningen som förväntat.
 
@@ -233,6 +233,6 @@ I den här självstudiekursen lärde du dig att:
 Nu när du har ställt in övervakning för programmet i containern kan du testa följande:
 
 * Konfigurera Azure Monitor loggar för ett Linux-kluster genom att följa liknande steg som ovan. Referera till [den här mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) och gör ändringar i Resource Manager-mallen.
-* Konfigurera Azure Monitor loggar för att ställa in [automatiserad avisering](../log-analytics/log-analytics-alerts.md) för identifiering och diagnostik.
+* Konfigurera Azure Monitor loggar för att ställa in [automatiserad avisering](../azure-monitor/platform/alerts-overview.md) för identifiering och diagnostik.
 * Utforska Service Fabric-listan över [rekommenderade prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) för att konfigurera klustren.
-* Bekanta dig med funktionerna för [loggs ökning och frågor](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor loggar.
+* Bekanta dig med funktionerna för [loggs ökning och frågor](../azure-monitor/log-query/log-query-overview.md) som erbjuds som en del av Azure Monitor loggar.

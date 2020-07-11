@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513815"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245338"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Självstudie: bygga och distribuera en anpassad kunskap med Azure Machine Learning 
 
@@ -30,7 +30,10 @@ Det finns två angivna data uppsättningar. Om du vill träna modellen själv, k
 > * Länka en pipeline för AI-anrikning till den distribuerade modellen
 > * Mata in utdata från distribuerad modell som en anpassad färdighet
 
-## <a name="prerequisites"></a>Krav
+> [!IMPORTANT] 
+> Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för .NET SDK.
+
+## <a name="prerequisites"></a>Förhandskrav
 
 * Azure-prenumeration – hämta en [kostnads fri prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Kognitiv sökning tjänst](https://docs.microsoft.com/azure/search/search-get-started-arm)
@@ -84,7 +87,7 @@ I portalen går du till färdigheter och väljer färdigheter definition (JSON).
 
 Kopiera färdigheter-mallen från fönstret och klistra in den i färdigheter-definitionen till vänster. Redigera mallen för att ange de värden som saknas för:
 
-* Name
+* Namn
 * Beskrivning
 * Kontext
 * namn och källa för indata
@@ -96,7 +99,7 @@ När du har sparat färdigheter går du till indexeraren och väljer indexs defi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

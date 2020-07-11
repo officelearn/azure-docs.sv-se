@@ -3,16 +3,16 @@ title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234225"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258879"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
-I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](/azure/sql-database/sql-database-technical-overview).
+I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
 I den här guiden får du lära dig att:
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Förhandskrav
 
 1. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra containrar i Windows 10.
@@ -55,7 +55,7 @@ I den här guiden får du lära dig att:
 
 När du kör Fabrikam Fiber CallCenter-programmet i produktion måste data sparas i en databas. Det finns för närvarande inget sätt att garantera beständiga data i en container. Därför kan du inte lagra produktionsdata i SQL Server i en container.
 
-Vi rekommenderar [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Konfigurera och kör en hanterad SQL Server-databas i Azure genom att köra följande skript.  Ändra skriptvariablerna efter behov. *clientIP* är utvecklingsdatorns IP-adress. Anteckna namnet på den server som genererade skriptet.
+Vi rekommenderar [Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md). Konfigurera och kör en hanterad SQL Server-databas i Azure genom att köra följande skript.  Ändra skriptvariablerna efter behov. *clientIP* är utvecklingsdatorns IP-adress. Anteckna namnet på den server som genererade skriptet.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -126,7 +126,7 @@ Tryck på **F5** för att köra och felsöka programmet i en container i det lok
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Nu när programmet körs lokalt kan du börja förbereda distributionen till Azure.  Containeravbildningar måste lagras i ett containerregister.  Skapa ett [Azure-containerregister](/azure/container-registry/container-registry-intro) med hjälp av följande skript. Containerregisternamnet är synligt för andra Azure-prenumerationer så det måste vara unikt.
+Nu när programmet körs lokalt kan du börja förbereda distributionen till Azure.  Containeravbildningar måste lagras i ett containerregister.  Skapa ett [Azure-containerregister](../container-registry/container-registry-intro.md) med hjälp av följande skript. Containerregisternamnet är synligt för andra Azure-prenumerationer så det måste vara unikt.
 Innan du distribuerar programmet till Azure skickar du containeravbildningen via push-teknik till det här registret.  När programmet distribueras till klustret i Azure hämtas containeravbildningen från det här registret.
 
 ```powershell
@@ -179,7 +179,7 @@ När du skapar klustret:
 
 ## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Tillåt att ditt program körs i Azure för att få åtkomst till SQL Database
 
-Tidigare skapade du en SQL-brandväggsregel som gav åtkomst till programmet som körs lokalt.  Nu måste du ge programmet som körs i Azure åtkomst till SQL DB-databasen.  Skapa en [tjänstslutpunkt för virtuellt nätverk](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) för Service Fabric-klustret och skapa sedan en regel som ger slutpunkten åtkomst till SQL-databasen. Glöm inte att ange variabeln för klusterresursgruppen som du antecknade när du skapade klustret.
+Tidigare skapade du en SQL-brandväggsregel som gav åtkomst till programmet som körs lokalt.  Nu måste du ge programmet som körs i Azure åtkomst till SQL DB-databasen.  Skapa en [tjänstslutpunkt för virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md) för Service Fabric-klustret och skapa sedan en regel som ger slutpunkten åtkomst till SQL-databasen. Glöm inte att ange variabeln för klusterresursgruppen som du antecknade när du skapade klustret.
 
 ```powershell
 # Create a virtual network service endpoint
@@ -227,13 +227,13 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
   -VirtualNetworkSubnetId $subnetID;
 ```
 
-## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
+## <a name="deploy-the-application-to-azure"></a>Distribuera appen till Azure
 
 Nu när programmet är klart kan du distribuera det till klustret i Azure direkt från Visual Studio.  Högerklicka på **FabrikamFiber.CallCenterApplication**-programprojektet i Solution Explorer och välj **Publicera**.  I **Anslutningens slutpunkt** väljer du slutpunkten för klustret som du skapade tidigare.  I **Azure Container Registry** väljer du behållarregistret som du skapade tidigare.  Publicera programmet till klustret i Azure genom att klicka på **Publicera**.
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
+Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Ett exempel är `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 

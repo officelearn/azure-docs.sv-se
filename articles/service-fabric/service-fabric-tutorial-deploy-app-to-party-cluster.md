@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75646015"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244998"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudie: Distribuera en Service Fabric-app till ett kluster i Azure
 
@@ -30,11 +30,11 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förhandskrav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Installera Visual Studio 2019](https://www.visualstudio.com/)och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md).
 
@@ -53,7 +53,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
-Nu när programmet är klart kan du skapa ett Service Fabric-kluster och sedan distribuera programmet till klustret. Ett [Service Fabric kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i.
+Nu när programmet är klart kan du skapa ett Service Fabric-kluster och sedan distribuera programmet till klustret. Ett [Service Fabric kluster](./service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i.
 
 I den här självstudien får du skapa ett nytt testkluster med tre noder i Visual Studio IDE och sedan publicera programmet till klustret. Se [självstudien om att skapa och hantera ett kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) för att få information om hur du skapar ett produktionskluster. Du kan också distribuera programmet till ett befintligt kluster som du skapade tidigare via [Azure-portalen](https://portal.azure.com), med hjälp av [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- eller [Azure CLI](./scripts/cli-create-cluster.md)-skript, eller från en [Azure Resource Manager-mall](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -101,7 +101,7 @@ Högerklicka på **Voting** i Solution Explorer och välj **Publicera**. Dialogr
 I **Anslutningens slutpunkt** väljer du slutpunkten för klustret som du skapade i föregående steg.  Till exempel ”mytestcluster.southcentral.cloudapp.azure.com:19000”. Om du väljer **Advanced Connection Parameters** (Avancerade anslutningsparametrar) bör certifikatinformationen fyllas i automatiskt.  
 ![Publicera ett Service Fabric-program](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-Välj **Publicera**.
+Välj **Publish** (Publicera).
 
 När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen följt av **:8080**. Alternativt anger du en annan port om en sådan har konfigurerats. Ett exempel är `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Du ser nu att programmet körs i klustret i Azure. På röstningswebbplatsen provar du att lägga till och ta bort röstningsalternativ och rösta för ett eller flera av dessa alternativ.
 

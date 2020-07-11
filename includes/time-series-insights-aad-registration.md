@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 ms.topic: include
 ms.custom: include file
 services: time-series-insights

@@ -10,16 +10,18 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: f45cf27f427625571a58022c199391cac9a05bd2
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146930"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223762"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
 Azure Cognitive Services är API: er, SDK: er och tjänster som hjälper utvecklare att bygga intelligenta program utan att ha direkta AI-eller data vetenskaps kunskaper eller kunskap. Azure Cognitive Services gör det möjligt för utvecklare att enkelt lägga till kognitiva funktioner i sina program. Målet med Azure Cognitive Services är att hjälpa utvecklare att skapa program som kan se, höra, tala, förstå och till och med börja på skäl. Katalogen med tjänster i Azure Cognitive Services kan kategoriseras i fem huvud pelare, tal, språk, Webbsökning och beslut.
+
+Vill du se vad som är nytt och uppdaterat Cognitive Services dokumentationen? Kolla [in vad som är nytt i Cognitive Services dokument](whats-new-docs.md).
 
 ## <a name="vision-apis"></a>Vision-API: er
 

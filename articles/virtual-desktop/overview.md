@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/07/2020
+ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 0d6cc523a56c9235360e6476b69303c51dc4d893
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125812"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224357"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -87,47 +87,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste v
 >[!NOTE]
 >Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
 
-De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till följande URL: er:
-
-|Adress|Utgående TCP-port|Syfte|Service tag|
-|---|---|---|---|
-|*. wvd.microsoft.com|443|Tjänst trafik|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Uppdateringar av agent-och SXS-stack|AzureCloud|
-|*.core.windows.net|443|Agent trafik|AzureCloud|
-|*.servicebus.windows.net|443|Agent trafik|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Agent trafik|AzureCloud|
-|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
-|kms.core.windows.net|1688|Windows-aktivering|Internet|
-|wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
-
->[!IMPORTANT]
->Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
->
->Vi rekommenderar att du använder FQDN-taggar eller tjänst Taggar i stället för URL: er för att förhindra tjänst problem. URL: er och taggar i listan motsvarar endast Windows virtuella Skriv bords webbplatser och resurser. De omfattar inte URL: er för andra tjänster som Azure Active Directory.
-
-I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
-
-|Adress|Utgående TCP-port|Syfte|Service tag|
-|---|---|---|---|
-|*.microsoftonline.com|443|Autentisering till Microsoft Online Services|Inga|
-|*. events.data.microsoft.com|443|Telemetri-tjänst|Inga|
-|www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Inga|
-|*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Inga|
-|login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|Inga|
-|*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|Inga|
-|*. digicert.com|443|Återkallnings kontroll av certifikat|Inga|
-
-
->[!NOTE]
->Det finns för närvarande ingen lista över IP-adressintervall som du kan vitlista för att tillåta nätverks trafik i det virtuella Windows-skrivbordet. Vi stöder bara vit listning-angivna URL: er just nu.
->
->En lista över Office-relaterade URL: er, inklusive nödvändiga Azure Active Directory-relaterade URL: er, finns i [Office 365-URL: er och IP-adressintervall](/office365/enterprise/urls-and-ip-address-ranges).
->
->Du måste använda jokertecknet (*) för URL: er som involverar tjänst trafiken. Om du inte vill använda * för agent-relaterad trafik så här hittar du URL: erna utan jokertecken:
->
->1. Registrera dina virtuella datorer på Windows-poolen för virtuella skriv bord.
->2. Öppna **logg boken** och navigera till **Windows-loggar**  >  **Application**  >  **WVD-agent** och leta efter händelse-ID 3702.
->3. Vitlista de URL: er som du hittar under händelse-ID 3702. URL: erna under händelse-ID 3702 är landsspecifika. Du måste upprepa vit listning-processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
+För en lista över URL: er som ska avblockeras för distribution av virtuella Windows-datorer för att fungera korrekt, se vår [lista över säkra URL](safe-url-list.md): er.
 
 Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Skriv bord och appar kan distribueras på virtuella datorer i valfri Azure-region och hanterings lösningen och data för dessa virtuella datorer finns i USA. Detta kan leda till att data överförs till USA.
 
@@ -153,20 +113,7 @@ Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 > [!IMPORTANT]
 > Windows Virtual Desktop stöder för närvarande inte fjärr skrivbords klienten från Windows Store. Support för den här klienten kommer att läggas till i en framtida version.
 
-Fjärr skrivbords klienterna måste ha åtkomst till följande URL: er:
-
-|Adress|Utgående TCP-port|Syfte|Klient (er)|
-|---|---|---|---|
-|*. wvd.microsoft.com|443|Tjänst trafik|Alla|
-|*.servicebus.windows.net|443|Felsöka data|Alla|
-|go.microsoft.com|443|Microsoft-FWLinks|Alla|
-|aka.ms|443|Microsoft URL-kortare|Alla|
-|docs.microsoft.com|443|Dokumentation|Alla|
-|privacy.microsoft.com|443|Sekretesspolicy|Alla|
-|query.prod.cms.rt.microsoft.com|443|Klient uppdateringar|Windows-skrivbordet|
-
->[!IMPORTANT]
->Att öppna dessa URL: er är viktigt för en tillförlitlig klient upplevelse. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara klientens platser och resurser och inkluderar inte URL: er för andra tjänster som Azure Active Directory.
+Om du vill veta mer om webb adresser måste du häva blockeringen för att använda fjärrklienterna i [listan säker URL](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>OS-avbildningar för virtuella datorer som stöds
 
@@ -186,13 +133,13 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 |Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 multi-session, version 1809|Ja|Ja|Inga|Inga|
+|Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|
 |Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 Enterprise, version 1809|Ja|Ja|Inga|Inga|
-|Windows 7 Enterprise|Ja|Ja|Inga|Inga|
-|Windows Server 2019|Ja|Ja|Inga|Inga|
+|Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|
+|Windows 7 Enterprise|Ja|Ja|Nej|Nej|
+|Windows Server 2019|Ja|Ja|Nej|Nej|
 |Windows Server 2016|Ja|Ja|Ja|Ja|
-|Windows Server 2012 R2|Ja|Ja|Inga|Inga|
+|Windows Server 2012 R2|Ja|Ja|Nej|Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 

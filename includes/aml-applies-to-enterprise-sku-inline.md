@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning

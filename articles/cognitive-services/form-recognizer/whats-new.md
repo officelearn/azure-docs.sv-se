@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: bbf098feccaf760718b97b1afb2d24bc55eef9ad
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 09eba483a258c1e88b15a5795d32b3b4a029a175
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027043"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232720"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -26,14 +26,14 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 ## <a name="july-2020"></a>Juli 2020
 
 ### <a name="new-features"></a>Nya funktioner
-* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)och [Java Script](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre), [python](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)och [Java Script](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 * Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i anpassade tåg utan etiketter. 
 * **Valuta stöd** Identifiering och extrahering av globala valuta symboler.
 * **Azure-gov** Formulär igenkänning är nu också tillgängligt i Azure gov.
-*   **Förbättrade säkerhetsfunktioner**: 
-    *   **Ta med din egen nyckel**  Formulär tolken krypterar dina data automatiskt när de sparas i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration Microsoft-hanterade krypterings nycklar. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
+*    **Förbättrade säkerhetsfunktioner**: 
+    *    **Ta med din egen nyckel**  Formulär tolken krypterar dina data automatiskt när de sparas i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration Microsoft-hanterade krypterings nycklar. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
 ), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.  
-    *   **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk.](https://docs.microsoft.com/azure/private-link/private-link-overview)
+    *    **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk.](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 
 ## <a name="june-2020"></a>Juni 2020
@@ -51,10 +51,10 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 * **SDK-stöd för Forms IGENKÄNNING API v 2.0 offentlig för hands version** Den här månaden utökade vi vår tjänst support för att inkludera en för hands versions-SDK för formulär igenkännings versionen v 2.0 (för hands version). Använd länkarna nedan för att komma igång med ditt val av språk: 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)
    * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
+   * [Python SDK](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer)
+   * [JavaScript SDK](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)
 
   Den nya SDK: n stöder alla funktioner i v 2.0-REST API för formulär igenkänning. Du kan till exempel träna en modell med eller utan etiketter och extrahera text, nyckel värde par och tabeller från dina formulär, extrahera data från kvitton med den förbyggda tjänsten för inaktuella inleveranser och extrahera text och tabeller med layout tjänsten från dina dokument. Du kan dela din feedback på SDK: erna via [feedback-formuläret för SDK](https://aka.ms/FR_SDK_v1_feedback).
  

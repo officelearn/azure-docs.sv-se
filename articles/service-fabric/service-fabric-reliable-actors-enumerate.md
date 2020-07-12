@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 1516c9005a7c4dd0adcb279e9954e5f882c575c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e462cc5fa82b8692304f58ef6cf0ea0e2db8725
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645607"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245984"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Räkna upp Service Fabric Reliable Actors
 Med tjänsten Reliable Actors kan en klient räkna upp metadata om de aktörer som tjänsten är värd för. Eftersom aktörs tjänsten är en partitionerad tillstånds känslig tjänst utförs uppräkningen per partition. Eftersom varje partition kan innehålla många aktörer returneras uppräkningen som en uppsättning växlade resultat. Sidorna upprepas tills alla sidor har lästs. I följande exempel visas hur du skapar en lista över alla aktiva aktörer i en partition av en aktörs tjänst:
@@ -60,7 +61,7 @@ while (continuationToken != null);
 ## <a name="next-steps"></a>Nästa steg
 * [Hantering av aktörs tillstånd](service-fabric-reliable-actors-state-management.md)
 * [Aktörs livs cykel och skräp insamling](service-fabric-reliable-actors-lifecycle.md)
-* [Dokumentation om aktörers API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Dokumentation om aktörers API-referens](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET-exempel kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

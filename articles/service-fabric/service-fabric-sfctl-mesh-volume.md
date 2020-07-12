@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57efca87aefad346fda175b073409868d21564ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905907"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245524"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Hämta och ta bort volym resurser.
@@ -18,7 +19,7 @@ Hämta och ta bort volym resurser.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort volym resursen. |
+| ta bort | Tar bort volym resursen. |
 | lista | Visar en lista över alla volym resurser. |
 | visa | Hämtar volym resursen med det aktuella namnet. |
 
@@ -82,4 +83,4 @@ Hämtar information om volym resursen med det aktuella namnet. Informationen ink
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

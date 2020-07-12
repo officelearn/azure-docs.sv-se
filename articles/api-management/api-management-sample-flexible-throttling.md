@@ -1,5 +1,5 @@
 ---
-title: Advanced request throttling with Azure API Management (Avancerad begränsning av begäranden med Azure API Management)
+title: Avancerad begränsning av begäranden med Azure API Management
 description: Lär dig hur du skapar och tillämpar flexibla kvot-och hastighets begränsnings principer med Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc36211eeb58f18546e4eae24ad003c6b2ae761b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71066760"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243179"
 ---
-# <a name="advanced-request-throttling-with-azure-api-management"></a>Advanced request throttling with Azure API Management (Avancerad begränsning av begäranden med Azure API Management)
+# <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerad begränsning av begäranden med Azure API Management
 Att kunna begränsa inkommande begär Anden är en viktig roll i Azure API Management. Antingen genom att kontrol lera antalet begär Anden eller de totala begär Anden/data som överförs, tillåter API Management att API-providers skyddar sina API: er från missbruk och skapar värden för olika API-produktsortiment.
 
 ## <a name="product-based-throttling"></a>Produkt-baserad begränsning
@@ -32,7 +32,7 @@ Hittills har frekvens begränsnings funktionerna begränsats till en viss produk
 > [!NOTE]
 > - `rate-limit-by-key` Och- `quota-by-key` principerna är inte tillgängliga när du arbetar på användnings nivån i Azure API Management. 
 
-De nya principerna för [hastighets begränsning](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) och [kvot-till-nyckel](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) ger en mer flexibel lösning för trafik kontroll. Med de här nya principerna kan du definiera uttryck för att identifiera de nycklar som används för att spåra användning av trafiken. Sättet det här fungerar är enkelt att illustrera med ett exempel. 
+De nya principerna för [hastighets begränsning](./api-management-access-restriction-policies.md#LimitCallRateByKey) och [kvot-till-nyckel](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) ger en mer flexibel lösning för trafik kontroll. Med de här nya principerna kan du definiera uttryck för att identifiera de nycklar som används för att spåra användning av trafiken. Sättet det här fungerar är enkelt att illustrera med ett exempel. 
 
 ## <a name="ip-address-throttling"></a>IP-adress begränsning
 Följande principer begränsar en enskild klients IP-adress till endast 10 anrop varje minut, med totalt 1 000 000 anrop och 10 000 KB bandbredd per månad. 
@@ -62,10 +62,10 @@ Om en slutanvändare autentiseras kan en begränsnings nyckel genereras baserat 
 Det här exemplet visar hur du extraherar Authorization-huvudet, konverterar det till- `JWT` objekt och använder ämnet för token för att identifiera användaren och använda den som begränsnings nyckel. Om användar identiteten lagras i `JWT` som en av de andra anspråken, kan det värdet användas i sitt ställe.
 
 ## <a name="combined-policies"></a>Kombinerade principer
-Även om de nya begränsnings principerna ger mer kontroll än befintliga begränsnings principer finns det fortfarande värde som kombinerar båda funktionerna. Begränsning av produkt prenumerations nyckel ([begränsa anrops frekvensen per](/azure/api-management/api-management-access-restriction-policies#LimitCallRate) prenumeration och [Ange användnings kvoten för prenumerationen](/azure/api-management/api-management-access-restriction-policies#SetUsageQuota)) är ett bra sätt att aktivera monetarisering av ett API genom att debiteras baserat på användnings nivåer. Den bättre korniga kontrollen av att kunna begränsas av användaren är kompletterande och förhindrar en användares beteende från att försämra upplevelsen av en annan. 
+Även om de nya begränsnings principerna ger mer kontroll än befintliga begränsnings principer finns det fortfarande värde som kombinerar båda funktionerna. Begränsning av produkt prenumerations nyckel ([begränsa anrops frekvensen per](./api-management-access-restriction-policies.md#LimitCallRate) prenumeration och [Ange användnings kvoten för prenumerationen](./api-management-access-restriction-policies.md#SetUsageQuota)) är ett bra sätt att aktivera monetarisering av ett API genom att debiteras baserat på användnings nivåer. Den bättre korniga kontrollen av att kunna begränsas av användaren är kompletterande och förhindrar en användares beteende från att försämra upplevelsen av en annan. 
 
 ## <a name="client-driven-throttling"></a>Klient driven begränsning
-När begränsnings nyckeln definieras med ett [princip uttryck](/azure/api-management/api-management-policy-expressions)är det den API-provider som väljer hur begränsningen är begränsad. En utvecklare kan dock vilja styra hur de begränsar sina egna kunder. Detta kan aktive ras av API-providern genom att introducera en anpassad rubrik så att utvecklarens klient program kan kommunicera nyckeln till API: et.
+När begränsnings nyckeln definieras med ett [princip uttryck](./api-management-policy-expressions.md)är det den API-provider som väljer hur begränsningen är begränsad. En utvecklare kan dock vilja styra hur de begränsar sina egna kunder. Detta kan aktive ras av API-providern genom att introducera en anpassad rubrik så att utvecklarens klient program kan kommunicera nyckeln till API: et.
 
 ```xml
 <rate-limit-by-key calls="100"
@@ -80,4 +80,3 @@ Azure API Management ger pris-och offert begränsning till både skydda och läg
 
 ## <a name="next-steps"></a>Nästa steg
 Ge oss din feedback som ett GitHub-problem för det här ämnet. Det skulle vara bra att höra om andra potentiella nyckel värden som har varit ett logiskt val i dina scenarier.
-

@@ -3,12 +3,12 @@ title: Skala ett Service Fabric kluster in eller ut
 description: Skala ett Service Fabric kluster i eller ut för att matcha efter frågan genom att ange regler för automatisk skalning för varje nodtyp/virtuell dators skalnings uppsättning. Lägga till eller ta bort noder i ett Service Fabric-kluster
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c72f8eca9bc054446ceec35448c930098c5f81fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610259"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246494"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Skala in eller ut ett kluster
 
@@ -24,7 +24,7 @@ Skala beräknings resurser till Källa din program arbets belastning kräver avs
 Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du kan använda för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Service Fabric kluster har kon figurer ATS som en separat skalnings uppsättning för virtuella datorer. Varje nodtyp kan sedan skalas in eller ut oberoende av varandra, ha olika port uppsättningar öppna och kan ha olika kapacitets mått. Läs mer om det i dokumentet [Service Fabric Node types](service-fabric-cluster-nodetypes.md) . Eftersom Service Fabric-nodtypen i klustret består av virtuella datorers skalnings uppsättningar på Server delen måste du konfigurera regler för automatisk skalning för varje nodtyp/virtuell dators skalnings uppsättning.
 
 > [!NOTE]
-> Prenumerationen måste ha tillräckligt många kärnor för att lägga till de nya virtuella datorerna som utgör klustret. Det finns för närvarande ingen modell validering, så du får ett distributions tids haveri, om någon av kvot gränserna uppnåddes. Dessutom kan en enda nodtyp inte bara överstiga 100 noder per VMSS. Du kan behöva lägga till VMSS för att uppnå den aktuella skalan, och automatisk skalning kan inte automatiskt lägga till VMSS. Att lägga till VMSS på plats i ett Live-kluster är en utmanings uppgift, och vanligt vis ger användare etablering av nya kluster med lämpliga nodtyper som skapas vid skapande tillfället. [Planera kluster kapaciteten](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) enligt detta. 
+> Prenumerationen måste ha tillräckligt många kärnor för att lägga till de nya virtuella datorerna som utgör klustret. Det finns för närvarande ingen modell validering, så du får ett distributions tids haveri, om någon av kvot gränserna uppnåddes. Dessutom kan en enda nodtyp inte bara överstiga 100 noder per VMSS. Du kan behöva lägga till VMSS för att uppnå den aktuella skalan, och automatisk skalning kan inte automatiskt lägga till VMSS. Att lägga till VMSS på plats i ett Live-kluster är en utmanings uppgift, och vanligt vis ger användare etablering av nya kluster med lämpliga nodtyper som skapas vid skapande tillfället. [Planera kluster kapaciteten](./service-fabric-cluster-capacity.md) enligt detta. 
 > 
 > 
 
@@ -52,7 +52,7 @@ För närvarande styrs funktionen för automatisk skalning inte av de belastning
 Följ de här anvisningarna [för att ställa in automatisk skalning för varje skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> I en skala i scenariot, om inte nodtypen har en [hållbarhets nivå][durability] på guld eller silver, måste du anropa [Remove-ServiceFabricNodeState-cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) : en med rätt nodnamn. För brons-hållbarhet rekommenderar vi inte att du skalar på mer än en nod i taget.
+> I en skala i scenariot, om inte nodtypen har en [hållbarhets nivå][durability] på guld eller silver, måste du anropa [Remove-ServiceFabricNodeState-cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) : en med rätt nodnamn. För brons-hållbarhet rekommenderar vi inte att du skalar på mer än en nod i taget.
 > 
 > 
 
@@ -229,7 +229,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Beteenden som du kan studera i Service Fabric Explorer
-När du skalar ut ett kluster visas Service Fabric Explorer det antal noder (skalnings uppsättnings instanser för virtuella datorer) som ingår i klustret.  När du skalar ett kluster i visas dock den borttagna noden/VM-instansen som visas i ett ohälsosamt tillstånd om du inte anropar [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) med lämpligt nodnamn.   
+När du skalar ut ett kluster visas Service Fabric Explorer det antal noder (skalnings uppsättnings instanser för virtuella datorer) som ingår i klustret.  När du skalar ett kluster i visas dock den borttagna noden/VM-instansen som visas i ett ohälsosamt tillstånd om du inte anropar [Remove-ServiceFabricNodeState cmd](/powershell/module/servicefabric/remove-servicefabricnodestate) med lämpligt nodnamn.   
 
 Här är en förklaring till det här beteendet.
 
@@ -240,7 +240,7 @@ För att se till att en nod tas bort när en virtuell dator tas bort har du två
 1. Välj en hållbarhets nivå på guld eller silver för nodtyper i klustret, vilket ger dig infrastruktur integrering. Sedan tas noderna automatiskt bort från systemet med system tjänster (FM) när du skalar i.
 Läs [informationen om hållbarhets nivåer här](service-fabric-cluster-capacity.md)
 
-2. När den virtuella dator instansen har skalats i måste du anropa [cmdleten Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
+2. När den virtuella dator instansen har skalats i måste du anropa [cmdleten Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > Service Fabric kluster kräver ett visst antal noder för att kunna upprätthålla tillgänglighet och bevara tillstånd – kallas "Kvarhåll kvorum". Därför är det vanligt vis osäkert att stänga av alla datorer i klustret, såvida du inte har gjort en [fullständig säkerhets kopia av ditt tillstånd](service-fabric-reliable-services-backup-restore.md).

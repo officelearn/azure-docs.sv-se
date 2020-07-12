@@ -5,11 +5,12 @@ author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fc0239dd18fc7071823a129a7dbc4f102023d66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645675"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246205"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Om inställningen ImageStoreConnectionString
 
@@ -37,7 +38,7 @@ Fil system leverantören används i stället för den Avbildningsarkiv tjänsten
 
 Dessutom bör inte fil system leverantören eller Azure Storage leverantören användas som en metod för att dela ett Avbildningsarkiv mellan flera kluster – detta leder till att kluster konfigurations data skadas eftersom varje kluster kan skriva motstridiga data till Avbildningsarkiv. Om du vill dela etablerade programpaket mellan flera kluster använder du [sfpkg][12] -filer i stället, som kan överföras till en extern lagrings plats med en nedladdnings-URI.
 
-Så medan ImageStoreConnectionString kan konfigureras använder du bara standardinställningen. När du publicerar till Azure via Visual Studio, anges parametern automatiskt åt dig. För program mässig distribution till kluster som finns i Azure är anslutnings strängen alltid "Fabric: avbildnings Arkiv". Även om det är tveksamt kan värdet alltid verifieras genom att hämta kluster manifestet av [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.net](https://msdn.microsoft.com/library/azure/mt161375.aspx)eller [rest](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Både lokala test-och produktions kluster bör alltid konfigureras för användning av Avbildningsarkiv tjänst leverantören.
+Så medan ImageStoreConnectionString kan konfigureras använder du bara standardinställningen. När du publicerar till Azure via Visual Studio, anges parametern automatiskt åt dig. För program mässig distribution till kluster som finns i Azure är anslutnings strängen alltid "Fabric: avbildnings Arkiv". Även om det är tveksamt kan värdet alltid verifieras genom att hämta kluster manifestet av [PowerShell](/powershell/module/servicefabric/get-servicefabricclustermanifest), [.net](/previous-versions/azure/reference/mt161375(v=azure.100))eller [rest](/rest/api/servicefabric/get-a-cluster-manifest). Både lokala test-och produktions kluster bör alltid konfigureras för användning av Avbildningsarkiv tjänst leverantören.
 
 ### <a name="next-steps"></a>Nästa steg
 [Distribuera och ta bort program med PowerShell][10]

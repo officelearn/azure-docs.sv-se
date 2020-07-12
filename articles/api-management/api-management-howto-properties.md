@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649210"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243485"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Använda namngivna värden i Azure API Management-principer
 
@@ -33,9 +34,9 @@ Varje API Management tjänst instans har en samling nyckel/värde-par, som kalla
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
 
-Namngivna värden kan innehålla litterala strängar och [princip uttryck](/azure/api-management/api-management-policy-expressions). Värdet för är till exempel `Expression` ett princip uttryck som returnerar en sträng som innehåller aktuellt datum och aktuell tid. Det namngivna värdet `Credential` är markerat som en hemlighet, så värdet visas inte som standard.
+Namngivna värden kan innehålla litterala strängar och [princip uttryck](./api-management-policy-expressions.md). Värdet för är till exempel `Expression` ett princip uttryck som returnerar en sträng som innehåller aktuellt datum och aktuell tid. Det namngivna värdet `Credential` är markerat som en hemlighet, så värdet visas inte som standard.
 
-| Name       | Värde                      | Hemlighet | Taggar          |
+| Namn       | Värde                      | Hemlighet | Taggar          |
 | ---------- | -------------------------- | ------ | ------------- |
 | Värde      | 42                         | Falskt  | vitala siffror |
 | Autentiseringsuppgift | ••••••••••••••••••••••     | Sant   | security      |
@@ -109,8 +110,8 @@ Namngivna värden kan innehålla princip uttryck, de får inte innehålla andra 
 
 -   Lär dig mer om att arbeta med principer
     -   [Principer i API Management](api-management-howto-policies.md)
-    -   [Principreferens](/azure/api-management/api-management-policies)
-    -   [Principuttryck](/azure/api-management/api-management-policy-expressions)
+    -   [Principreferens](./api-management-policies.md)
+    -   [Principuttryck](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbd461072a137bf32874805e5c6171d1102ef0c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84013606"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245355"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -394,8 +395,8 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    
      | URL-format | WWS-API-version som används | XPATH-ändringar krävs |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v-21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName | v-21.1 | Nej |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | Nej |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Ja |
 
       > [!NOTE]
@@ -683,12 +684,7 @@ Ersätt variablerna [proxy-server] och [proxy-port] proxyserverns namn och portv
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Hur gör jag för att se till att etablerings agenten kan kommunicera med Azure AD-klienten och inga brand väggar blockerar portar som krävs av agenten?
 
-Du kan också kontrol lera om du har alla nödvändiga portar öppna genom att öppna [test verktyget för anslutnings portar](https://aadap-portcheck.connectorporttest.msappproxy.net/) från ditt lokala nätverk. Mer gröna markeringar innebär större återhämtning.
-
-För att se till att verktyget ger dig rätt resultat, se till att:
-
-* Öppna verktyget i en webbläsare från den server där du har installerat etablerings agenten.
-* Se till att alla proxyservrar eller brand väggar som är tillämpliga på din etablerings agent också tillämpas på den här sidan. Detta kan göras i Internet Explorer genom att gå till **Inställningar-> Internet alternativ – > anslutningar – > LAN-inställningar**. På den här sidan ser du fältet "Använd en proxyserver för ditt LAN". Markera den här rutan och Lägg till proxyadress i fältet "adress".
+Du kan också kontrol lera om alla [nödvändiga portar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) är öppna.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Kan en etablerings agent konfigureras för att etablera flera AD-domäner?
 

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b805b7047b00f416664a001f02f311f6b387af19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baf4e843eea859fc16ed6e3bcd509785cc4db8bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76896271"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245593"
 ---
 # <a name="sfctl-settings"></a>sfctl settings
 Konfigurera lokala inställningar för den här instansen av sfctl.
@@ -17,9 +18,9 @@ Konfigurera lokala inställningar för den här instansen av sfctl.
 ## <a name="subgroups"></a>Under grupper
 |Under grupp|Beskrivning|
 | --- | --- |
-| [telemetridata](service-fabric-sfctl-settings-telemetry.md) | Konfigurera inställningar för telemetri lokalt till den här instansen av sfctl. |
+| [telemetri](service-fabric-sfctl-settings-telemetry.md) | Konfigurera inställningar för telemetri lokalt till den här instansen av sfctl. |
 
 
 ## <a name="next-steps"></a>Nästa steg   
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.   
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

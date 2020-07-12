@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259481"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246562"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Beskriv ett Service Fabric kluster med hjälp av kluster resurs hanteraren
 Kluster resurs hanterarens funktion i Azure Service Fabric ger flera mekanismer för att beskriva ett kluster:
@@ -35,7 +36,7 @@ I Azure-miljön använder Service Fabric fel domän information som tillhandahå
 > [!WARNING]
 > Det är viktigt att fel domän informationen som tillhandahålls Service Fabric är korrekt. Anta till exempel att Service Fabric klustrets noder körs i 10 virtuella datorer, som körs på 5 fysiska värdar. I det här fallet, även om det finns 10 virtuella datorer, finns det bara fem olika (toppnivå) fel domäner. Att dela samma fysiska värd gör att virtuella datorer delar samma rot Fels domän, eftersom de virtuella datorerna upplever ett koordinerat fel om deras fysiska värden Miss lyckas.  
 >
-> Service Fabric förväntar sig att fel domänen för en nod inte ska ändras. Andra metoder för att säkerställa hög tillgänglighet för de virtuella datorerna, t. ex. [ha virtuella datorer](https://technet.microsoft.com/library/cc967323.aspx), kan orsaka konflikter med Service Fabric. Dessa mekanismer använder transparent migrering av virtuella datorer från en värd till en annan. De omkonfigureras inte eller meddelar den aktiva koden i den virtuella datorn. Därför *stöds de inte* som miljöer för att köra Service Fabric kluster. 
+> Service Fabric förväntar sig att fel domänen för en nod inte ska ändras. Andra metoder för att säkerställa hög tillgänglighet för de virtuella datorerna, t. ex. [ha virtuella datorer](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10)), kan orsaka konflikter med Service Fabric. Dessa mekanismer använder transparent migrering av virtuella datorer från en värd till en annan. De omkonfigureras inte eller meddelar den aktiva koden i den virtuella datorn. Därför *stöds de inte* som miljöer för att köra Service Fabric kluster. 
 >
 > Service Fabric bör vara den enda teknik med hög tillgänglighet som används. Mekanismer som direktmigrering av virtuella datorer och San är inte nödvändiga. Om dessa mekanismer används tillsammans med Service Fabric _minskar_ de programmets tillgänglighet och tillförlitlighet. Anledningen är att de tillför ytterligare komplexitet, lägger till centraliserade källor med problem och använder strategier för tillförlitlighet och tillgänglighet som är i konflikt med dem i Service Fabric. 
 >
@@ -236,7 +237,7 @@ I föregående layout, om värdet **TargetReplicaSetSize** är fem och N1 tas bo
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |E.t. |E.t. |E.t. |E.t. |E.t. |E.t. |
+| **UD0** |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -346,7 +347,7 @@ Ibland (i själva verket) vill du förmodligen se till att vissa arbets belastni
 
 Ett bra exempel på att rikta maskin vara till vissa arbets belastningar är nästan alla n-nivåers arkitektur. Vissa datorer fungerar som klient delen eller API-betjäna sidan av programmet och exponeras för klienter eller Internet. Olika datorer, ofta med olika maskin varu resurser, hanterar arbetet för beräknings-eller lagrings skikten. Dessa är vanligt vis _inte_ direkt exponerade för klienter eller Internet. 
 
-Service Fabric förväntar sig i vissa fall att vissa arbets belastningar kan behöva köras på specifika maskinvarukonfigurationer. Ett exempel:
+Service Fabric förväntar sig i vissa fall att vissa arbets belastningar kan behöva köras på specifika maskinvarukonfigurationer. Exempel:
 
 * Ett befintligt n-Nivåprogram har "lyfts upp och flyttats" till en Service Fabric-miljö.
 * En arbets belastning måste köras på speciell maskin vara för prestanda-, skalnings-eller säkerhets isolerings skäl.

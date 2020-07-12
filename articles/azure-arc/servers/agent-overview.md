@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206627"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242958"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Översikt över Azure Arc for servers agent
 
@@ -62,7 +62,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
     |Mapp |Beskrivning |
     |-------|------------|
-    |C:\Program Files\AzureConnectedMachineAgent |Standard installations Sök väg som innehåller agentens stödfiler.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Standard installations Sök väg som innehåller agentens stödfiler.|
     |%ProgramData%\AzureConnectedMachineAgent |Innehåller konfigurationsfilerna för agenten.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Innehåller de hämtade token.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Innehåller agent konfigurations filen `agentconfig.json` som registrerar registrerings informationen med tjänsten.|
@@ -99,7 +99,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande artefakter tas inte bort under avinstallationen av agenten.
 
-    * C:\Program Files\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent och under kataloger
     * %ProgramData%\GuestConfig
 
@@ -151,7 +151,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
     * /var/opt/azcmagent
     * /opt/logs
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -170,9 +170,9 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 
 ### <a name="required-permissions"></a>Nödvändiga behörigheter
 
-- För att publicera datorer är du medlem i rollen **Azure Connected Machine onboarding** .
+* För att publicera datorer är du medlem i rollen **Azure Connected Machine onboarding** .
 
-- Om du vill läsa, ändra, återställa och ta bort en dator är du medlem i rollen **resurs administratör för Azure Connected Machine** . 
+* Om du vill läsa, ändra, återställa och ta bort en dator är du medlem i rollen **resurs administratör för Azure Connected Machine** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
 
@@ -195,8 +195,8 @@ Om den utgående anslutningen begränsas av din brand vägg eller proxyserver ko
 
 Service märken:
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 Er
 
@@ -218,8 +218,8 @@ URL: erna i föregående tabell krävs utöver informationen om tjänst Tagns IP
 
 Azure båg for-servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
 
-- **Microsoft. HybridCompute**
-- **Microsoft. GuestConfiguration**
+* **Microsoft. HybridCompute**
+* **Microsoft. GuestConfiguration**
 
 Om de inte är registrerade kan du registrera dem med hjälp av följande kommandon:
 

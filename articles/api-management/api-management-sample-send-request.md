@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac5f6b4d2d197bbd4f4aff9236837eab062b4a63
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190018"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243315"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Använda externa tjänster från Azure API Management-tjänsten
 De principer som är tillgängliga i Azure API Management-tjänsten kan göra en mängd användbart arbete baserat enbart på inkommande begäran, utgående svar och grundläggande konfigurations information. Men att kunna interagera med externa tjänster från API Management principer öppnar flera fler möjligheter.
@@ -26,7 +27,7 @@ De principer som är tillgängliga i Azure API Management-tjänsten kan göra en
 Du har tidigare sett hur du interagerar med [tjänsten Azure Event Hub för loggning, övervakning och analys](api-management-log-to-eventhub-sample.md). Den här artikeln visar principer som gör att du kan interagera med en extern HTTP-baserad tjänst. Dessa principer kan användas för att utlösa fjärrhändelser eller för att hämta information som används för att ändra den ursprungliga begäran och svaret på något sätt.
 
 ## <a name="send-one-way-request"></a>Skicka – envägs-begäran
-Den enklaste externa interaktionen är förmodligen en brand-och-glöm-stil för begäran som gör det möjligt för en extern tjänst att meddelas av någon typ av viktig händelse. Kontroll flödes principen `choose` kan användas för att identifiera vilken typ av villkor som du är intresse rad av.  Om villkoret är uppfyllt kan du göra en extern HTTP-begäran med hjälp av principen för att [skicka en-enkelriktad begäran](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) . Detta kan vara en begäran till ett meddelande system som HipChat eller slack, eller ett e-post-API som SendGrid eller MailChimp, eller för kritiska support ärenden som PagerDuty. Alla dessa meddelande system har enkla HTTP-API: er som kan anropas.
+Den enklaste externa interaktionen är förmodligen en brand-och-glöm-stil för begäran som gör det möjligt för en extern tjänst att meddelas av någon typ av viktig händelse. Kontroll flödes principen `choose` kan användas för att identifiera vilken typ av villkor som du är intresse rad av.  Om villkoret är uppfyllt kan du göra en extern HTTP-begäran med hjälp av principen för att [skicka en-enkelriktad begäran](./api-management-advanced-policies.md#SendOneWayRequest) . Detta kan vara en begäran till ett meddelande system som HipChat eller slack, eller ett e-post-API som SendGrid eller MailChimp, eller för kritiska support ärenden som PagerDuty. Alla dessa meddelande system har enkla HTTP-API: er som kan anropas.
 
 ### <a name="alerting-with-slack"></a>Avisering med slack
 Följande exempel visar hur du skickar ett meddelande till ett slack chatt-rum om HTTP-svarets status kod är större än eller lika med 500. Ett fel av 500-intervall indikerar ett problem med Server dels-API: et som klienten för API: et inte kan lösa sig själva. Det krävs vanligt vis en viss typ av åtgärder på API Management del.  
@@ -61,7 +62,7 @@ Slacket har begreppet inkommande Webhooks. När du konfigurerar en inkommande We
 ![Slack-webbhook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Är brand och glömma tillräckligt?
-Det finns vissa kompromisser när du använder en Fire-och-glömma-typ av begäran. Om det av någon anledning Miss lyckas, kommer begäran inte att rapporteras. I den här situationen är komplexiteten med att ha ett sekundärt rapporterings system och den ytterligare prestanda kostnaden för att vänta på responsen inte berättigad. För scenarier där det är viktigt att kontrol lera svaret är det ett bättre alternativ att [skicka begäran](/azure/api-management/api-management-advanced-policies#SendRequest) .
+Det finns vissa kompromisser när du använder en Fire-och-glömma-typ av begäran. Om det av någon anledning Miss lyckas, kommer begäran inte att rapporteras. I den här situationen är komplexiteten med att ha ett sekundärt rapporterings system och den ytterligare prestanda kostnaden för att vänta på responsen inte berättigad. För scenarier där det är viktigt att kontrol lera svaret är det ett bättre alternativ att [skicka begäran](./api-management-advanced-policies.md#SendRequest) .
 
 ## <a name="send-request"></a>Skicka begäran
 `send-request`Principen gör det möjligt att använda en extern tjänst för att utföra komplexa bearbetnings funktioner och returnera data till API Management-tjänsten som kan användas för ytterligare princip bearbetning.
@@ -212,7 +213,7 @@ När du har den här informationen kan du göra förfrågningar till alla Server
 Dessa begär Anden körs i följd, vilket inte är idealiskt. 
 
 ### <a name="responding"></a>Tillgodose
-Om du vill skapa ett sammansatt svar kan du använda [Return-Response-](/azure/api-management/api-management-advanced-policies#ReturnResponse) principen. `set-body`Elementet kan använda ett uttryck för att skapa en ny `JObject` med alla komponent representationer inbäddade som egenskaper.
+Om du vill skapa ett sammansatt svar kan du använda [Return-Response-](./api-management-advanced-policies.md#ReturnResponse) principen. `set-body`Elementet kan använda ett uttryck för att skapa en ny `JObject` med alla komponent representationer inbäddade som egenskaper.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -286,4 +287,3 @@ I konfigurationen av plats hållar åtgärden kan du konfigurera instrument pane
 
 ## <a name="summary"></a>Sammanfattning
 Azure API Management-tjänsten ger flexibla principer som kan tillämpas selektivt på HTTP-trafik och möjliggör sammansättning av backend-tjänster. Oavsett om du vill förbättra API-gatewayen med aviserings funktioner, verifiering, verifierings funktioner eller skapa nya sammansatta resurser baserat på flera backend-tjänster, `send-request` öppnar och relaterade principerna en värld av möjligheter.
-

@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374533"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244233"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
@@ -67,7 +67,7 @@ API-serverns slut punkt har ingen offentlig IP-adress. Om du vill hantera API-se
 
 Att skapa en virtuell dator i samma VNET som AKS-klustret är det enklaste alternativet.  Express Route och VPN lägger till kostnader och kräver ytterligare nätverks komplexitet.  Peering av virtuella nätverk kräver att du planerar dina nätverks-CIDR-intervall för att se till att det inte finns några överlappande intervall.
 
-## <a name="virtual-network-peering"></a>Virtuell nätverkspeering
+## <a name="virtual-network-peering"></a>Peering för virtuella nätverk
 
 Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du vill använda VNet-peering måste du konfigurera en länk mellan det virtuella nätverket och den privata DNS-zonen.
     
@@ -83,7 +83,7 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hubb och eker med anpassad DNS
 
-[Hubbs-och eker-arkitekturer](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) används ofta för att distribuera nätverk i Azure. I många av dessa distributioner är DNS-inställningar i eker-virtuella nätverk konfigurerade för att referera till en central DNS-vidarebefordrare för att tillåta lokal och Azure-baserad DNS-matchning. När du distribuerar ett AKS-kluster till en sådan nätverks miljö finns det några särskilda överväganden som måste beaktas.
+[Hubbs-och eker-arkitekturer](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) används ofta för att distribuera nätverk i Azure. I många av dessa distributioner är DNS-inställningar i eker-virtuella nätverk konfigurerade för att referera till en central DNS-vidarebefordrare för att tillåta lokal och Azure-baserad DNS-matchning. När du distribuerar ett AKS-kluster till en sådan nätverks miljö finns det några särskilda överväganden som måste beaktas.
 
 ![Hubb och eker för privata kluster](media/private-clusters/aks-private-hub-spoke.png)
 
@@ -116,9 +116,9 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview#limitations
+[private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690039"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243162"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Data modell referens för Azure API Management-mall
 I det här avsnittet beskrivs entitets-och typ representationer för vanliga objekt som används i data modellerna för utvecklares Portal mallar i Azure API Management.  
   
- Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -37,7 +38,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 -   [Kodexempel](#Sample)  
 -   [Kommentar](#Comment)  
 -   [Filtrering](#Filtering)  
--   [Sidfot](#Header)  
+-   [Huvud](#Header)  
 -   [HTTP-begäran](#HTTPRequest)  
 -   [HTTP-svar](#HTTPResponse)  
 -   [Problem](#Issue)  
@@ -66,7 +67,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`serviceUrl`|sträng|Absolut URL för backend-tjänsten som implementerar detta API.|  
 |`path`|sträng|En relativ URL som unikt identifierar detta API och alla dess resurs Sök vägar inom API Management tjänst instansen. Den läggs till i API-slutpunktens bas-URL som anges när tjänst instansen skapas för att bilda en offentlig URL för detta API.|  
 |`protocols`|matris med tal|Beskriver på vilka protokoll som åtgärderna i detta API kan anropas. Tillåtna värden är `1 - http` och `2 - https` , eller både och.|  
-|`authenticationSettings`|[Autentiseringsinställningar för verifiering av Server](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Samling autentiseringsinställningar som ingår i detta API.|  
+|`authenticationSettings`|[Autentiseringsinställningar för verifiering av Server](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Samling autentiseringsinställningar som ingår i detta API.|  
 |`subscriptionKeyParameterNames`|objekt|Valfri egenskap som kan användas för att ange anpassade namn för fråge-och/eller rubrik parametrar som innehåller prenumerations nyckeln. När den här egenskapen finns måste den innehålla minst en av de två följande egenskaperna.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="api-summary"></a><a name="APISummary"></a>API-Sammanfattning  

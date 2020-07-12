@@ -3,12 +3,12 @@ title: Läs mer om Azure Service Fabric
 description: Lär dig mer om grundläggande begrepp och viktiga områden i Azure Service Fabric. Ger en utökad översikt över Service Fabric och hur du skapar mikrotjänster.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578d6b3e0232d0733097d68bac22af566b2083
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791858"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246269"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vill du veta mer om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort ytdiagram, men det är mycket att lära sig.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver viktiga begrepp, programmerings modeller, program livs cykel, testning, kluster och hälso övervakning. Läs [översikten](service-fabric-overview.md) och [Vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller ingen omfattande innehålls lista, men länkar till översikt och att komma igång-artiklar för varje Service Fabric. 
@@ -66,7 +66,7 @@ Varför har tillstånds känsliga mikrotjänster tillsammans med tillstånds lö
 ## <a name="supported-programming-models"></a>Programmeringsmodeller som stöds
 Service Fabric erbjuder flera olika sätt att skriva och hantera dina tjänster. Tjänster kan använda Service Fabric API: er för att dra full nytta av plattformens funktioner och program ramverk. Tjänster kan också vara alla kompilerade körbara program som skrivits på valfritt språk och som finns på ett Service Fabric-kluster. Mer information finns i [programmerings modeller som stöds](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 Som standard distribuerar Service Fabric och aktiverar tjänster som processer. Service Fabric kan även distribuera tjänster i [behållare](service-fabric-containers-overview.md). Det är viktigt att du blandar tjänster i processer och tjänster i behållare i samma program. Service Fabric stöder distribution av Linux-behållare och Windows-behållare på Windows Server 2016. Du kan distribuera befintliga program, tillstånds lösa tjänster eller tillstånds känsliga tjänster i behållare. 
 
 ### <a name="reliable-services"></a>Reliable Services
@@ -87,7 +87,7 @@ En [körbar gäst](service-fabric-guest-executables-introduction.md) är en befi
 ## <a name="application-lifecycle"></a>Programlivscykel
 Precis som med andra plattformar går ett program på Service Fabric vanligt vis igenom följande faser: design, utveckling, testning, distribution, uppgradering, underhåll och borttagning. Service Fabric ger förstklassig support för hela program livs cykeln för moln program, från utveckling genom distribution, daglig hantering och underhåll av eventuell inaktive ring. Tjänste modellen gör det möjligt för flera olika roller att delta oberoende av programmets livs cykel. [Service Fabric-programmets livs cykel](service-fabric-application-lifecycle.md) ger en översikt över API: erna och hur de används av de olika rollerna under faserna i Service Fabric programmets livs cykel. 
 
-Hela appens livs cykel kan hanteras med [PowerShell-cmdletar](/powershell/module/ServiceFabric/), [CLI-kommandon](service-fabric-sfctl.md), [C# API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/overview/azure/servicefabric): er och [REST API: er](/rest/api/servicefabric/). Du kan också ställa in kontinuerlig integrering/kontinuerliga distributions pipeline med verktyg som [Azure-pipeliner](service-fabric-set-up-continuous-integration.md) eller [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Hela appens livs cykel kan hanteras med [PowerShell-cmdletar](/powershell/module/ServiceFabric/), [CLI-kommandon](service-fabric-sfctl.md), [C# API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/overview/azure/servicefabric): er och [REST API: er](/rest/api/servicefabric/). Du kan också ställa in kontinuerlig integrering/kontinuerliga distributions pipeline med verktyg som [Azure-pipeliner](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) eller [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 ## <a name="test-applications-and-services"></a>Testa program och tjänster
 För att skapa verkliga molnbaserade tjänster är det viktigt att kontrol lera att dina program och tjänster kan motstå verkliga problem. Tjänsten fel analys är utformad för att testa tjänster som bygger på Service Fabric. Med [fel analys tjänsten](service-fabric-testability-overview.md)kan du orsaka meningsfulla fel och köra fullständiga test scenarier mot dina program. Dessa fel och scenarier använder och validerar de många tillstånd och över gångar som en tjänst kommer att uppleva under hela sin livs längd, allt på ett kontrollerat, säkert och konsekvent sätt.
@@ -112,7 +112,7 @@ Service Fabric kluster kan skapas på virtuella eller fysiska datorer som kör W
 ### <a name="clusters-on-azure"></a>Kluster i Azure
 Om du kör Service Fabric kluster i Azure kan du integrera med andra Azure-funktioner och-tjänster, vilket gör det enklare och mer tillförlitligt att utföra driften och hanteringen av klustret. Ett kluster är en Azure Resource Manager resurs, så du kan modellera kluster som andra resurser i Azure. Resource Manager ger också enkel hantering av alla resurser som används av klustret som en enda enhet. Kluster i Azure är integrerade med Azure Diagnostics och Azure Monitor loggar. Typer av klusternoder är [skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets/index), så att funktionen för automatisk skalning är inbyggd.
 
-Du kan skapa ett kluster på Azure via [Azure Portal](service-fabric-cluster-creation-via-portal.md), från en [mall](service-fabric-cluster-creation-via-arm.md)eller från [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
+Du kan skapa ett kluster på Azure via [Azure Portal](service-fabric-cluster-creation-via-portal.md), från en [mall](service-fabric-cluster-creation-via-arm.md)eller från [Visual Studio](./service-fabric-cluster-creation-via-arm.md).
 
 Med Service Fabric på Linux kan du bygga, distribuera och hantera hög tillgängliga, skalbara program på Linux precis som i Windows. Service Fabric Framework (Reliable Services och Reliable Actors) är tillgängliga i Java på Linux, förutom C# (.NET Core). Du kan också bygga [gästbaserade körbara tjänster](service-fabric-guest-executables-introduction.md) med valfritt språk eller ramverk. Dirigering av Docker-behållare stöds också. Docker-behållare kan köra körbara gäst program eller interna Service Fabric tjänster, som använder Service Fabric Framework. Mer information finns [i om Service Fabric på Linux](service-fabric-deploy-anywhere.md).
 
@@ -191,7 +191,7 @@ Det finns flera produkter som beskriver dessa tre områden och du kan välja oli
 * Lär dig att [Hantera och dirigera kluster resurser](service-fabric-cluster-resource-manager-introduction.md).
 * Titta på [Service Fabric exemplen](https://aka.ms/servicefabricsamples).
 * Läs mer om [Service Fabric support alternativ](service-fabric-support.md).
-* Läs [Team bloggen](https://blogs.msdn.microsoft.com/azureservicefabric/) för artiklar och meddelanden.
+* Läs [Team bloggen](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) för artiklar och meddelanden.
 
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png

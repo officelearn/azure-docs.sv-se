@@ -5,11 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 326075b947ea61384681fb2353c27d3e1450156d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d9ebf77862f7b9b019507613e269126501abfd8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735344"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244930"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy inbyggd i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter.
@@ -116,7 +117,7 @@ Service Fabric reverse proxy försöker matcha en tjänst adress igen och förs�
 
 Repliker eller tjänst instanser kan dock dela en värd process och kan också dela en port som finns på en http.sys-baserad webb server, inklusive:
 
-* [System .net. HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
+* [System .net. HttpListener](/dotnet/api/system.net.httplistener?view=netcore-3.1)
 * [ASP.NET Core weblyssnare](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
@@ -154,7 +155,7 @@ Service Fabric tjänster som körs i Docker-behållare kräver särskilda filen 
 * [Diagnostisera omvända proxy-händelser](service-fabric-reverse-proxy-diagnostics.md)
 * Se ett exempel på HTTP-kommunikation mellan tjänster i ett [exempel projekt på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Fjärran rop med Reliable Services fjärr kommunikation](service-fabric-reliable-services-communication-remoting.md)
-* [Webb-API som använder OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Webb-API som använder OWIN i Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [WCF-kommunikation med hjälp av Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png

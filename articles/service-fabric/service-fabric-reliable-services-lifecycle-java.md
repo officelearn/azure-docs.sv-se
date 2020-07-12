@@ -5,11 +5,12 @@ author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86f68126825f146a50ed21edf2acbda2b5181cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639606"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245185"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services-livscykel
 > [!div class="op_single_selector"]
@@ -114,7 +115,7 @@ Tjänster som inte kan hantera avbrott kan drabba flera problem. De här åtgär
 
 Eftersom tjänsterna är tillstånds känsliga är det också troligt att tjänsterna använder [pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md). I Service Fabric, när en primär degraderas, är en av de första saker som händer att skriv åtkomst till det underliggande läget återkallas. Detta leder till en andra uppsättning problem som kan påverka livs cykeln för tjänsten. Samlingarna returnerar undantag baserat på tids inställningen och om repliken flyttas eller stängs av. Det är viktigt att hantera dessa undantag korrekt. 
 
-Undantag som har utlösts av Service Fabric är antingen permanenta [( `FabricException` )](https://docs.microsoft.com/java/api/system.fabric.exception) eller tillfälliga [( `FabricTransientException` )](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). Permanenta undantag ska loggas och utlöstes. Tillfälliga undantag kan provas igen baserat på logik för omprövning.
+Undantag som har utlösts av Service Fabric är antingen permanenta [( `FabricException` )](/java/api/system.fabric.exception) eller tillfälliga [( `FabricTransientException` )](/java/api/system.fabric.exception.fabrictransientexception). Permanenta undantag ska loggas och utlöstes. Tillfälliga undantag kan provas igen baserat på logik för omprövning.
 
 En viktig del av att testa och verifiera Reliable Services hanterar undantagen som kommer från att använda `ReliableCollections` tillsammans med tjänstens livs cykel händelser. Vi rekommenderar att du alltid kör tjänsten under belastning. Du bör också utföra uppgraderingar och [kaos-testning](service-fabric-controlled-chaos.md) innan du distribuerar till produktion. Dessa grundläggande steg hjälper till att säkerställa att din tjänst implementeras korrekt och att den hanterar livs cykel händelser på rätt sätt.
 
@@ -129,4 +130,3 @@ En viktig del av att testa och verifiera Reliable Services hanterar undantagen s
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Reliable Services snabb start](service-fabric-reliable-services-quick-start-java.md)
-

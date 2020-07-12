@@ -3,11 +3,12 @@ title: Azure Service Fabric – använda referenser för Service Fabric-program 
 description: Den här artikeln förklarar hur du använder Service Fabric KeyVaultReference-stöd för program hemligheter.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76545491"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246171"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
 
@@ -157,4 +158,4 @@ KeyVaultReference är en typ som stöds för container RepositoryCredentials. ne
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Dokumentation om Azure-valv](https://docs.microsoft.com/azure/key-vault/)
+* [Dokumentation om Azure-valv](../key-vault/index.yml)

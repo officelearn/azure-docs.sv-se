@@ -4,11 +4,12 @@ description: Lär dig mer om att hantera certifikat i ett Service Fabric kluster
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324750"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246715"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Certifikat hantering i Service Fabric kluster
 
@@ -75,8 +76,8 @@ Dessa steg illustreras nedan. Observera skillnaderna i etableringen mellan certi
 ![Etablering av certifikat som deklarerats av subjektets nätverks namn][Image2]
 
 ### <a name="certificate-enrollment"></a>Certifikat registrering
-Det här avsnittet beskrivs i detalj i Key Vault- [dokumentationen](../key-vault/create-certificate.md). Vi inkluderar en sammanfattning här för kontinuitet och enklare referens. Om du fortsätter med Azure som kontext och använder Azure Key Vault som hemlig hanterings tjänst måste en auktoriserad certifikat utfärdare ha minst certifikat hanterings behörigheter för valvet, vilket beviljas av valv ägaren. beställaren registreras sedan i ett certifikat på följande sätt:
-    - skapar en certifikat princip i Azure Key Vault (AKV), som anger domän/ämne för certifikatet, önskad utfärdare, nyckel typ och längd, avsedd nyckel användning och mer. Mer information finns i [certifikat i Azure Key Vault](../key-vault/certificate-scenarios.md) . 
+Det här avsnittet beskrivs i detalj i Key Vault- [dokumentationen](../key-vault/certificates/create-certificate.md). Vi inkluderar en sammanfattning här för kontinuitet och enklare referens. Om du fortsätter med Azure som kontext och använder Azure Key Vault som hemlig hanterings tjänst måste en auktoriserad certifikat utfärdare ha minst certifikat hanterings behörigheter för valvet, vilket beviljas av valv ägaren. beställaren registreras sedan i ett certifikat på följande sätt:
+    - skapar en certifikat princip i Azure Key Vault (AKV), som anger domän/ämne för certifikatet, önskad utfärdare, nyckel typ och längd, avsedd nyckel användning och mer. Mer information finns i [certifikat i Azure Key Vault](../key-vault/certificates/certificate-scenarios.md) . 
     - skapar ett certifikat i samma valv med principen som anges ovan. Detta skapar i sin tur ett nyckel par som valv objekt, en begäran om certifikat signering som signerats med den privata nyckeln och som sedan vidarebefordras till den utsedda utfärdaren för signering
     - När utfärdaren (certifikat utfärdaren) svarar med det signerade certifikatet, slås resultatet samman i valvet och certifikatet är tillgängligt för följande åtgärder:
       - under {vaultUri}/certificates/{Name}: certifikatet inklusive offentlig nyckel och metadata
@@ -209,7 +210,7 @@ Som nämnts tidigare hämtas ett certifikat som tillhandahålls som en hemlighet
 
 Alla efterföljande utdrag bör distribueras concomitantly – de anges individuellt för analys och förklaringar av Play-för-Play.
 
-Definiera först en tilldelad identitet (standardvärden ingår som exempel) – Läs den [officiella dokumentationen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity) för uppdaterad information:
+Definiera först en tilldelad identitet (standardvärden ingår som exempel) – Läs den [officiella dokumentationen](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity) för uppdaterad information:
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -240,7 +241,7 @@ Definiera först en tilldelad identitet (standardvärden ingår som exempel) –
   ]}
 ```
 
-Ge sedan denna identitets åtkomst till valv hemligheterna – Läs den [officiella dokumentationen](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy) för aktuell information:
+Ge sedan denna identitets åtkomst till valv hemligheterna – Läs den [officiella dokumentationen](/rest/api/keyvault/vaults/updateaccesspolicy) för aktuell information:
 ```json
   "resources":
   [{
@@ -265,7 +266,7 @@ Ge sedan denna identitets åtkomst till valv hemligheterna – Läs den [officie
 I nästa steg ska vi:
   - tilldela den användardefinierade identiteten till den virtuella datorns skal uppsättning
   - deklarera skalnings uppsättningen för den virtuella datorn beroende på hur den hanterade identiteten skapas och på resultatet av att ge åtkomst till valvet
-  - deklarera det virtuella nyckel valvets tillägg, vilket kräver att det hämtar observerade certifikat vid start ([officiell dokumentation](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows))
+  - deklarera det virtuella nyckel valvets tillägg, vilket kräver att det hämtar observerade certifikat vid start ([officiell dokumentation](../virtual-machines/extensions/key-vault-windows.md))
   - uppdatera definitionen för Service Fabric VM-tillägget till beroende av KVVM-tillägget och för att konvertera kluster certifikatet till ett eget namn (vi gör dessa ändringar i ett enda steg eftersom de befinner sig under samma resurs omfång).
 
 ```json
@@ -419,12 +420,12 @@ KVVM-tillägget, som en etablerings agent, körs kontinuerligt enligt en fördef
 #### <a name="certificate-linking-explained"></a>Certifikat länkning, förklarad
 Du kanske har märkt flaggan "linkOnRenewal" för KVVM-tillägget och det faktum att det är inställt på false. Vi riktar in dig på djupet beteende som styrs av den här flaggan och dess konsekvenser för ett klusters drift. Observera att det här beteendet är speciellt för Windows.
 
-Enligt dess [definition](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows#extension-schema):
+Enligt dess [definition](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
 
-Certifikat som används för att upprätta en TLS-anslutning [erhålls vanligt vis som en referens](https://docs.microsoft.com/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) via S-Channel Security Support Provider – det vill säga att klienten inte direkt kommer åt den privata nyckeln för själva certifikatet. S-Channel stöder omdirigering (länkning) av autentiseringsuppgifter i form av ett certifikat tillägg ([CERT_RENEWAL_PROP_ID](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)): om den här egenskapen anges representerar dess värde tumavtrycket för certifikatet "förnyelse", och så att S-kanal istället försöker läsa in det länkade certifikatet. I själva verket kommer den här länkade (och förhoppnings vis acykliska) listan att gå till tills den slutar med det slutgiltiga certifikatet – ett utan ett förnyelse märke. Den här funktionen, när den används sparsamt, är en bra minskning mot förlust av tillgänglighet som orsakas av utgångna certifikat (till exempel). I andra fall kan det vara orsaken till avbrott som är svåra att diagnostisera och minska. S-Channel kör en genom gång av certifikat i sina förnyelse egenskaper utan villkorliga, oberoende av ämne, utfärdare eller andra speciella attribut som deltar i verifieringen av det resulterande certifikatet av klienten. Det är möjligt att det resulterande certifikatet inte har någon associerad privat nyckel eller att nyckeln inte har ACLed till sin potentiella konsument. 
+Certifikat som används för att upprätta en TLS-anslutning [erhålls vanligt vis som en referens](/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) via S-Channel Security Support Provider – det vill säga att klienten inte direkt kommer åt den privata nyckeln för själva certifikatet. S-Channel stöder omdirigering (länkning) av autentiseringsuppgifter i form av ett certifikat tillägg ([CERT_RENEWAL_PROP_ID](/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)): om den här egenskapen anges representerar dess värde tumavtrycket för certifikatet "förnyelse", och så att S-kanal istället försöker läsa in det länkade certifikatet. I själva verket kommer den här länkade (och förhoppnings vis acykliska) listan att gå till tills den slutar med det slutgiltiga certifikatet – ett utan ett förnyelse märke. Den här funktionen, när den används sparsamt, är en bra minskning mot förlust av tillgänglighet som orsakas av utgångna certifikat (till exempel). I andra fall kan det vara orsaken till avbrott som är svåra att diagnostisera och minska. S-Channel kör en genom gång av certifikat i sina förnyelse egenskaper utan villkorliga, oberoende av ämne, utfärdare eller andra speciella attribut som deltar i verifieringen av det resulterande certifikatet av klienten. Det är möjligt att det resulterande certifikatet inte har någon associerad privat nyckel eller att nyckeln inte har ACLed till sin potentiella konsument. 
  
 Om länkning är aktive rad försöker det virtuella dator tillägget för det virtuella nyckel valvet, vid hämtning av ett observerat certifikat från valvet, försöka hitta matchande befintliga certifikat för att koppla dem via egenskapen förnya tillägg. Matchningen är (enbart) baserat på alternativt namn för certifikat mottagare (SAN) och fungerar som WINS nedan.
 Anta två befintliga certifikat enligt följande: A: CN = "Alices tillbehör", SAN = {"alice.universalexports.com"}, förnyelse = ' ' B: CN = "Bob ' s bitar", SAN = {"bob.universalexports.com", "bob.universalexports.net"}, förnyelse = ""
@@ -491,4 +492,3 @@ S *: skaffa*ett certifikat med det avsedda ämnet och Lägg till det i klustrets
 
 [Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
-

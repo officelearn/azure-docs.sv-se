@@ -5,16 +5,17 @@ author: motanv
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33ad837195c747a4e7f9a4609d745659be69dc9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463167"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246188"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Inducera kontrollerade kaos i Service Fabric kluster
 Storskaliga distribuerade system som moln infrastrukturer är mycket otillförlitliga. Med Azure Service Fabric kan utvecklare skriva pålitliga distribuerade tjänster ovanpå en otillförlitlig infrastruktur. För att kunna skriva robusta distribuerade tjänster ovanpå en otillförlitlig infrastruktur måste utvecklare kunna testa stabiliteten hos sina tjänster medan den underliggande otillförlitliga infrastrukturen går igenom komplicerade tillstånds över gångar på grund av fel.
 
-[Fel inmatningen och kluster analys tjänsten](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (även kallat fel analys tjänsten) ger utvecklare möjlighet att inducera fel för att testa sina tjänster. De här riktade, simulerade felen, som att [starta om en partition](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kan hjälpa de vanligaste tillstånds över gångarna. De riktade simulerade felen är dock fördelade efter definition och kan därför missa buggar som bara visar upp till en svår och komplicerad sekvens av tillstånds över gångar. För en systematisk testning kan du använda kaos.
+[Fel inmatningen och kluster analys tjänsten](./service-fabric-testability-overview.md) (även kallat fel analys tjänsten) ger utvecklare möjlighet att inducera fel för att testa sina tjänster. De här riktade, simulerade felen, som att [starta om en partition](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kan hjälpa de vanligaste tillstånds över gångarna. De riktade simulerade felen är dock fördelade efter definition och kan därför missa buggar som bara visar upp till en svår och komplicerad sekvens av tillstånds över gångar. För en systematisk testning kan du använda kaos.
 
 Kaos simulerar periodiska, överlagrade fel (både korrekt och oäkta) i hela klustret under en längre tid. Ett korrekt fel består av en uppsättning Service Fabric-API-anrop, till exempel om ett fel uppstår vid omstart av repliker, eftersom det här är en nära följd av en öppen på en replik. Ta bort replikering, flytta den primära repliken och flytta sekundär replik är de andra fel som genomförs av kaos. Inaktiva fel är process avslutningar, t. ex. Starta om nod och starta om kod paket. 
 
@@ -24,7 +25,7 @@ När du har konfigurerat kaos med frekvensen och typen av fel kan du starta kaos
 > I det aktuella formuläret inducerar kaos endast säkra fel, vilket innebär att om externa fel inträffar, eller om data förluster aldrig uppstår.
 >
 
-Medan kaos körs, genererar den olika händelser som avbildar körnings status för tillfället. Till exempel innehåller en ExecutingFaultsEvent alla fel som kaos har valt att köra i den iterationen. En ValidationFailedEvent innehåller information om ett verifierings fel (hälso tillstånd eller stabilitets problem) som påträffades under valideringen av klustret. Du kan anropa GetChaosReport-API: et (C#, PowerShell eller REST) för att hämta rapporten över kaos-körningar. Dessa händelser sparas i en [tillförlitlig ord lista](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), som har en trunkisk princip som styrs av två konfigurationer: **MaxStoredChaosEventCount** (standardvärdet är 25000) och **StoredActionCleanupIntervalInSeconds** (Standardvärdet är 3600). Varje *StoredActionCleanupIntervalInSeconds* kaos-kontroll och alla de senaste *MaxStoredChaosEventCount* -händelserna rensas bort från den tillförlitliga ord listan.
+Medan kaos körs, genererar den olika händelser som avbildar körnings status för tillfället. Till exempel innehåller en ExecutingFaultsEvent alla fel som kaos har valt att köra i den iterationen. En ValidationFailedEvent innehåller information om ett verifierings fel (hälso tillstånd eller stabilitets problem) som påträffades under valideringen av klustret. Du kan anropa GetChaosReport-API: et (C#, PowerShell eller REST) för att hämta rapporten över kaos-körningar. Dessa händelser sparas i en [tillförlitlig ord lista](./service-fabric-reliable-services-reliable-collections.md), som har en trunkisk princip som styrs av två konfigurationer: **MaxStoredChaosEventCount** (standardvärdet är 25000) och **StoredActionCleanupIntervalInSeconds** (Standardvärdet är 3600). Varje *StoredActionCleanupIntervalInSeconds* kaos-kontroll och alla de senaste *MaxStoredChaosEventCount* -händelserna rensas bort från den tillförlitliga ord listan.
 
 ## <a name="faults-induced-in-chaos"></a>Fel som inducerats i kaos
 Kaos genererar fel i hela Service Fabric kluster och komprimerar fel som visas på månader eller år till några timmar. Kombinationen av överlagrade fel med den höga fel frekvensen hittar hörn fall som annars kan missas. Den här övningen av kaos leder till en betydande förbättring av tjänstens kod kvalitet.

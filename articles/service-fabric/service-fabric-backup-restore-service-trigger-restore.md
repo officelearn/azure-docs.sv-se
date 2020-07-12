@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75377913"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246698"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställa säkerhets kopia i Azure Service Fabric
 
@@ -51,7 +52,7 @@ En återställning kan utlösas i följande scenarier:
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Data återställning vid haveri beredskap
 
-Om ett helt Service Fabric-kluster förloras kan du återställa data för partitionerna för den tillförlitliga tillstånds känsliga tjänsten och Reliable Actors. Du kan välja önskad säkerhets kopia i listan när du använder [GetBackupAPI med information om lagrings utrymme för säkerhets kopior](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Uppräkningen av säkerhets kopiering kan vara för ett program, en tjänst eller en partition.
+Om ett helt Service Fabric-kluster förloras kan du återställa data för partitionerna för den tillförlitliga tillstånds känsliga tjänsten och Reliable Actors. Du kan välja önskad säkerhets kopia i listan när du använder [GetBackupAPI med information om lagrings utrymme för säkerhets kopior](/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Uppräkningen av säkerhets kopiering kan vara för ett program, en tjänst eller en partition.
 
 I följande exempel förutsätter vi att det förlorade klustret är samma kluster som det hänvisas till i att [Aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). I det här fallet `SampleApp` distribueras med säkerhets kopierings principen aktive rad och säkerhets kopiorna konfigureras för att Azure Storage.
 
@@ -165,7 +166,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Du begär återställningen mot säkerhets kopierings klustrets partition genom att använda följande [återställnings-API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
+Du begär återställningen mot säkerhets kopierings klustrets partition genom att använda följande [återställnings-API](/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
 
@@ -305,7 +306,7 @@ $restoreResponse | Format-List
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout**: ett tillstånd _för timeout_ -återställning indikerar att begäran har en tids gräns. Skapa en ny Restore-begäran med fler [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Standardvärdet för timeout är 10 minuter. Se till att partitionen inte är i ett data förlust tillstånd innan du begär återställning igen.
+    - **Timeout**: ett tillstånd _för timeout_ -återställning indikerar att begäran har en tids gräns. Skapa en ny Restore-begäran med fler [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Standardvärdet för timeout är 10 minuter. Se till att partitionen inte är i ett data förlust tillstånd innan du begär återställning igen.
      
         ```
         RestoreState  : Timeout
@@ -319,12 +320,12 @@ $restoreResponse | Format-List
 Du kan konfigurera pålitliga tillstånds känsliga tjänster och Reliable Actors partitioner i Service Fabric-klustret för _Automatisk återställning_. I säkerhets kopierings principen har angetts `AutoRestore` till _True_. Aktivering av _Automatisk återställning_ återställer automatiskt data från den senaste säkerhets kopian när data går förlorade. Mer information finns i:
 
 - [Automatisk återställnings aktivering i säkerhets kopierings princip](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [RestorePartition API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [GetPartitionRestoreProgress API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [RestorePartition API-referens](/rest/api/servicefabric/sfclient-api-restorepartition)
+- [GetPartitionRestoreProgress API-referens](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## <a name="next-steps"></a>Nästa steg
 - [Förstå konfiguration av regelbunden säkerhetskopiering](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [REST API referens för säkerhets kopierings återställning](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [REST API referens för säkerhets kopierings återställning](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
 [3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

@@ -3,11 +3,12 @@ title: Tillförlitlig serialisering av samlings objekt
 description: Lär dig mer om Azure Service Fabric Reliable Collections-objekt serialisering, inklusive standard strategin och hur du definierar anpassad serialisering.
 ms.topic: conceptual
 ms.date: 5/8/2017
-ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a0dc56c181ddd6a98ab0e263180c222368dafb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639555"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246001"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Tillförlitlig serialisering av samlings objekt i Azure Service Fabric
 Reliable Collections replikerar och bevarar sina objekt för att se till att de är varaktiga över maskin haverier och strömavbrott.
@@ -18,7 +19,7 @@ Reliable State Manager innehåller inbyggda serialiserare och gör det möjligt 
 
 ## <a name="built-in-serializers"></a>Inbyggda serialiserare
 
-Reliable State Manager innehåller inbyggd serialisering för några vanliga typer, så att de kan serialiseras effektivt som standard. För andra typer är Reliable State Manager tillbaka för att använda [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
+Reliable State Manager innehåller inbyggd serialisering för några vanliga typer, så att de kan serialiseras effektivt som standard. För andra typer är Reliable State Manager tillbaka för att använda [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
 Inbyggda serialiserare är mer effektiva eftersom de vet att deras typer inte kan ändras och att de inte behöver inkludera information om typen, t. ex. typ namn.
 
 En tillförlitlig tillstånds hanterare har inbyggd serialisering för följande typer: 
@@ -31,7 +32,7 @@ En tillförlitlig tillstånds hanterare har inbyggd serialisering för följande
 - sträng
 - decimal
 - double
-- float
+- flyt
 - int
 - uint
 - long
@@ -43,7 +44,7 @@ En tillförlitlig tillstånds hanterare har inbyggd serialisering för följande
 
 Anpassade serialiserare används ofta för att öka prestandan eller för att kryptera data via kabeln och på disk. Bland annat är anpassade serialiserare ofta mer effektiva än allmän serialisering eftersom de inte behöver serialisera information om typen. 
 
-[IReliableStateManager. TryAddStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialiserare för den aktuella typen T. Registreringen bör ske i StatefulServiceBase för att säkerställa att innan återställningen startar, har alla pålitliga samlingar åtkomst till den relevanta serialiseraren för att läsa sina sparade data.
+[IReliableStateManager. TryAddStateSerializer \<T> ](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialiserare för den aktuella typen T. Registreringen bör ske i StatefulServiceBase för att säkerställa att innan återställningen startar, har alla pålitliga samlingar åtkomst till den relevanta serialiseraren för att läsa sina sparade data.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -61,7 +62,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Implementera en anpassad serialiserare
 
-En anpassad serialisering måste implementera [IStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) -gränssnittet.
+En anpassad serialisering måste implementera [IStateSerializer \<T> ](/dotnet/api/microsoft.servicefabric.data.istateserializer-1) -gränssnittet.
 
 > [!NOTE]
 > IStateSerializer \<T> innehåller en överlagring för skrivning och läsning som tar i ett ytterligare T-kallat bas värde. Detta API är för differentiell serialisering. Funktionen för för närvarande differentiell serialisering visas inte. Dessa två överlagringar anropas därför inte förrän differentiell serialisering exponeras och aktive ras.
@@ -130,7 +131,7 @@ Om du använder inbyggd serialisering behöver du inte bekymra dig om kompatibil
 Men om du använder en anpassad serialiserare eller DataContractSerializer måste data vara oändligt baklänges och vidarebefordras.
 Med andra ord måste varje version av serialiseraren kunna serialisera och deserialisera alla versioner av typen.
 
-Data kontrakts användare bör följa de väldefinierade versions reglerna för att lägga till, ta bort och ändra fält. Data kontrakt har också stöd för att hantera okända fält, ansluta till serialiserings-och avserialiserings processen och hantera klass arvet. Mer information finns i [använda data kontrakt](https://msdn.microsoft.com/library/ms733127.aspx).
+Data kontrakts användare bör följa de väldefinierade versions reglerna för att lägga till, ta bort och ändra fält. Data kontrakt har också stöd för att hantera okända fält, ansluta till serialiserings-och avserialiserings processen och hantera klass arvet. Mer information finns i [använda data kontrakt](/dotnet/framework/wcf/feature-details/using-data-contracts).
 
 Anpassade serialiserare måste följa rikt linjerna för den serialiserare som de använder för att kontrol lera att de är baklänges och vidarebefordrar kompatibla.
 Vanliga sätt att stödja alla versioner är att lägga till storleks information i början och bara lägga till valfria egenskaper.
@@ -138,7 +139,7 @@ På så sätt kan varje version läsa så mycket som möjligt och hoppa över de
 
 ## <a name="next-steps"></a>Nästa steg
   * [Serialisering och uppgradering](service-fabric-application-upgrade-data-serialization.md)
-  * [Referens för utvecklare för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Referens för utvecklare för tillförlitliga samlingar](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   * Genom [att uppgradera programmet med Visual Studio](service-fabric-application-upgrade-tutorial.md) går du igenom en program uppgradering med Visual Studio.
   * Genom [att uppgradera ditt program med hjälp av PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) får du en program uppgradering med PowerShell.
   * Styr hur programmet uppgraderas med hjälp av [uppgraderings parametrar](service-fabric-application-upgrade-parameters.md).

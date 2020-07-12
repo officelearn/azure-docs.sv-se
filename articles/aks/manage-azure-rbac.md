@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 84800f978790a114b80c415a5e5e3dad77eaf8da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122369"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244268"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Använda Azure RBAC för Kubernetes-auktorisering (för hands version)
+# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
 
 Idag kan du redan utnyttja [integrerad autentisering mellan Azure Active Directory (Azure AD) och AKS](managed-aad.md). När den här integrationen är aktive rad kan kunder använda Azure AD-användare,-grupper eller tjänstens huvud namn som ämnen i Kubernetes RBAC, se mer [här](azure-ad-rbac.md).
 Den här funktionen gör att du kan hantera användar identiteter och autentiseringsuppgifter separat för Kubernetes. Du måste dock fortfarande konfigurera och hantera Azure RBAC och Kubernetes RBAC separat. Mer information om autentisering, auktorisering och RBAC på AKS finns [här](concepts-identity.md).
@@ -31,7 +31,7 @@ Möjligheten att hantera RBAC för Kubernetes-resurser från Azure ger dig möjl
 > - [Support principer för AKS](support-policies.md)
 > - [Vanliga frågor och svar om support för Azure](faq.md)
 
-### <a name="prerequisites"></a>Förutsättningar 
+### <a name="prerequisites"></a>Krav 
 - Registrera dig för för hands versionen <https://aka.ms/aad-rbac-sign-up-form> .
 - Se till att `EnableAzureRBACPreview` funktions flaggan är aktive rad.
 - Se till att `AAD-V2` funktions flaggan är aktive rad.
@@ -122,7 +122,7 @@ En lyckad skapande av ett kluster med Azure AD-integrering och Azure RBAC för K
 AKS tillhandahåller följande fyra inbyggda roller:
 
 
-| Roll                                | Description  |
+| Roll                                | Beskrivning  |
 |-------------------------------------|--------------|
 | RBAC-visningsprogrammet i Azure Kubernetes service  | Tillåter skrivskyddad åtkomst för att se de flesta objekt i ett namn område. Den tillåter inte visning av roller eller roll bindningar. Den här rollen tillåter inte visning `Secrets` , eftersom läsning av innehållet i hemligheter ger åtkomst till ServiceAccount-autentiseringsuppgifter i namn området, vilket skulle tillåta API-åtkomst som valfri ServiceAccount i namn området (en form av behörighets eskalering)  |
 | RBAC-skrivare för Azure Kubernetes service | Tillåter Läs-/skriv åtkomst till de flesta objekt i ett namn område. Den här rollen tillåter inte visning eller ändring av roller eller roll bindningar. Den här rollen tillåter dock åtkomst `Secrets` och körning av poddar som alla ServiceAccount i namn området, så att den kan användas för att få åtkomst nivåer för API: er för alla ServiceAccount i namn området. |
@@ -215,7 +215,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> Du behöver den inbyggda rollen [Azure Kubernetes service Cluster-användare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) för att kunna utföra steget ovan.
+> Du behöver den inbyggda rollen [Azure Kubernetes service Cluster-användare](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) för att kunna utföra steget ovan.
 
 Nu kan du använda kubectl till, till exempel en lista över noderna i klustret. Första gången du kör det måste du logga in och efterföljande kommandon använder respektive åtkomsttoken.
 

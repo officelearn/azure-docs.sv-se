@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791579"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242482"
 ---
 # <a name="drawing-package-requirements"></a>Krav för ritningspaket
 
@@ -30,7 +31,7 @@ Ord lista med termer som används i det här dokumentet.
 
 | Term  | Definition |
 |:-------|:------------|
-| Lager | Ett AutoCAD DWG-lager.|
+| Skikt | Ett AutoCAD DWG-lager.|
 | Nivå | Ett del i en byggnad med en angiven höjning. Till exempel en byggnads golv. |
 | XREF  |En fil i AutoCAD DWG-filformat (. dwg) som är kopplad till den primära ritningen som en extern referens.  |
 | Funktion | Ett objekt som kombinerar en geometri med ytterligare metadatainformation. |
@@ -76,13 +77,13 @@ Alla lager enheter måste vara en av följande typer: linje, polylinje, polygon,
 
 I tabellen nedan beskrivs de entitetstyper som stöds och funktioner som stöds för varje lager. Om ett lager innehåller enhets typer som inte stöds, ignorerar [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) dessa entiteter.  
 
-| Lager | Entitetstyper | Funktioner |
+| Skikt | Entitetstyper | Funktioner |
 | :----- | :-------------------| :-------
 | [Yttre](#exterior-layer) | Polygon, PolyLine (stängd), cirkel | Nivåer
-| [Processor](#unit-layer) |  Polygon, PolyLine (stängd), cirkel | Lodräta inträngare, enheter
+| [Enhet](#unit-layer) |  Polygon, PolyLine (stängd), cirkel | Lodräta inträngare, enheter
 | [Byggnad](#wall-layer)  | Polygon, PolyLine (stängd), cirkel | Inte tillämpligt. Mer information finns i [vägg lagret](#wall-layer).
 | [Door](#door-layer) | Polygon, PolyLine, linje, CircularArc, cirkel | Öppningar
-| [Fraktzon](#zone-layer) | Polygon, PolyLine (stängd), cirkel | Zon
+| [Zon](#zone-layer) | Polygon, PolyLine (stängd), cirkel | Zon
 | [UnitLabel](#unitlabel-layer) | Text (enskild linje) | Inte tillämpligt. Det här lagret kan bara lägga till egenskaper till enhets funktionerna från enhets skiktet. Mer information finns i UnitLabel- [skiktet](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Text (enskild linje) | Inte tillämpligt. Det här lagret kan bara lägga till egenskaper till zon funktioner från ZonesLayer. Mer information finns i ZoneLabel- [skiktet](#zonelabel-layer)
 
@@ -207,7 +208,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `buildingLevels`Objektet innehåller en JSON-matris med byggnader-nivåer.
 
-| Egenskap  | Typ | Obligatorisk | Beskrivning |
+| Egenskap  | Typ | Krävs | Beskrivning |
 |-----------|------|----------|-------------|
 |levelName    |sträng    |true |    Namn på beskrivande nivå. Till exempel: våning 1, lobbyn, blå parkering, Basement och så vidare.|
 |numret | heltal |    true | Ordnings tal används för att bestämma den lodräta ordningen för nivåer. Varje funktion måste ha en nivå med ordnings tal 0. |
@@ -217,7 +218,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 ### <a name="georeference"></a>referens
 
-| Egenskap  | Typ | Obligatorisk | Beskrivning |
+| Egenskap  | Typ | Krävs | Beskrivning |
 |-----------|------|----------|-------------|
 |koder    | numeric |    true |    Decimal representation av grader latitud vid ritningens ursprung. Ursprungets koordinater måste vara i WGS84 Web Mercator ( `EPSG:3857` ).|
 |lon    |numeric|    true|    Decimal representation av grader longitud vid ritningens ursprung. Ursprungets koordinater måste vara i WGS84 Web Mercator ( `EPSG:3857` ). |
@@ -225,7 +226,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| Egenskap  | Typ | Obligatorisk | Beskrivning |
+| Egenskap  | Typ | Krävs | Beskrivning |
 |-----------|------|----------|-------------|
 |yttre    |Strängmatris|    true|    Namn på lager (n) som definierar den yttre skapande profilen.|
 |unit|    Strängmatris|    true|    Namn på skikt som definierar enheter.|
@@ -239,7 +240,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `unitProperties`Objektet innehåller en JSON-matris med enhets egenskaper.
 
-| Egenskap  | Typ | Obligatorisk | Beskrivning |
+| Egenskap  | Typ | Krävs | Beskrivning |
 |-----------|------|----------|-------------|
 |unitName    |sträng    |true    |Namnet på den enhet som ska associeras med den här `unitProperty` posten. Den här posten är endast giltig när en etikett matchning finns `unitName` i `unitLabel` lager. |
 |categoryName|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |
@@ -259,7 +260,7 @@ Nästa avsnitt innehåller information om kraven för varje objekt.
 
 `zoneProperties`Objektet innehåller en JSON-matris med zon egenskaper.
 
-| Egenskap  | Typ | Obligatorisk | Beskrivning |
+| Egenskap  | Typ | Krävs | Beskrivning |
 |-----------|------|----------|-------------|
 |Zonnamn        |sträng    |true    |Namnet på zonen som ska associeras med `zoneProperty` posten. Posten är endast giltig när en etikett matchning `zoneName` hittas i `zoneLabel` zonens skikt.  |
 |categoryName|    sträng|    falskt    |Kategori namn. En fullständig lista över kategorier finns i [Kategorier](https://aka.ms/pa-indoor-spacecategories). |

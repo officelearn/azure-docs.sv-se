@@ -6,11 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 041767474fbc56ee7a53bcbd54f27873d17dab77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 216705ef4ff7c235179c1f1be38a993ecd2fe782
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413645"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244420"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -19,7 +20,7 @@ Lösningen för HTTP-programroutning gör det enkelt att komma åt program som d
 När tillägget har Aktiver ATS skapas en DNS-zon i din prenumeration. Mer information om DNS-kostnader finns i [DNS-priser][dns-pricing].
 
 > [!CAUTION]
-> Tillägget för att dirigera HTTP-program är utformat så att du snabbt kan skapa en ingångs kontroll och få åtkomst till dina program. Det här tillägget rekommenderas inte för produktions användning. För drift färdiga distributioner som inkluderar flera repliker och TLS-stöd, se [skapa en https](https://docs.microsoft.com/azure/aks/ingress-tls)ingångs kontroll.
+> Tillägget för att dirigera HTTP-program är utformat så att du snabbt kan skapa en ingångs kontroll och få åtkomst till dina program. Det här tillägget rekommenderas inte för produktions användning. För drift färdiga distributioner som inkluderar flera repliker och TLS-stöd, se [skapa en https](./ingress-tls.md)ingångs kontroll.
 
 ## <a name="http-routing-solution-overview"></a>Översikt över HTTP-routning
 
@@ -227,7 +228,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Upprepa föregående `kubectl delete` steg för alla *tillägg-http-app-routing-* resurser som funnits i klustret.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 Använd kommandot [kubectl logs][kubectl-logs] för att visa program loggarna för det externa DNS-programmet. Loggarna bör bekräfta att en A-och TXT DNS-post har skapats.
 

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674269"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243553"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Felhantering i API Management-principer
 
@@ -50,7 +51,7 @@ Under bearbetningen av en begäran utförs inbyggda steg tillsammans med alla pr
 `on-error`Princip avsnittet kan användas i valfri omfattning. API-utgivare kan konfigurera anpassade beteenden, t. ex. loggning av fel till händelse nav eller att skapa ett nytt svar som ska returneras till anroparen.
 
 > [!NOTE]
-> `on-error`Avsnittet finns inte i principer som standard. Om du vill lägga till `on-error` avsnittet i en princip bläddrar du till önskad princip i princip redigeraren och lägger till den. Mer information om hur du konfigurerar principer finns [i principer i API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> `on-error`Avsnittet finns inte i principer som standard. Om du vill lägga till `on-error` avsnittet i en princip bläddrar du till önskad princip i princip redigeraren och lägger till den. Mer information om hur du konfigurerar principer finns [i principer i API Management](./api-management-howto-policies.md).
 >
 > Om det inte finns något `on-error` avsnitt får anroparna 400 eller 500 HTTP-svarsmeddelanden om ett fel inträffar.
 
@@ -79,15 +80,15 @@ Följande principer kan användas i `on-error` avsnittet princip.
 
 När ett fel uppstår och styr hopp till `on-error` princip avsnittet lagras felet i [kontexten. LastError](api-management-policy-expressions.md#ContextVariables) -egenskap, som kan nås av principer i `on-error` avsnittet. LastError har följande egenskaper.
 
-| Name       | Typ   | Beskrivning                                                                                               | Obligatorisk |
+| Namn       | Typ   | Beskrivning                                                                                               | Krävs |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | sträng | Namnger elementet där felet inträffade. Kan vara antingen en princip eller ett inbyggt steg namn för pipelinen.      | Ja      |
-| `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | No       |
+| `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | Nej       |
 | `Message`  | sträng | Fel Beskrivning av människo läsbarhet.                                                                         | Ja      |
-| `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | No       |
-| `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | No       |
-| `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | No       |
-| `PolicyId` | sträng | Värdet för `id` attributet, om det anges av kunden, på principen där felet uppstod             | No       |
+| `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | Nej       |
+| `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | Nej       |
+| `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | Nej       |
+| `PolicyId` | sträng | Värdet för `id` attributet, om det anges av kunden, på principen där felet uppstod             | Nej       |
 
 > [!TIP]
 > Du kan komma åt status koden via kontexten. Response. StatusCode.
@@ -99,7 +100,7 @@ När ett fel uppstår och styr hopp till `on-error` princip avsnittet lagras fel
 
 Följande fel är fördefinierade för fel villkor som kan uppstå under utvärderingen av de inbyggda bearbetnings stegen.
 
-| Källa        | Villkor                                 | Anledning                  | Meddelande                                                                                                                |
+| Källa        | Villkor                                 | Orsak                  | Meddelande                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | konfiguration | URI: n matchar inte någon API eller åtgärd | OperationNotFound       | Det gick inte att matcha inkommande begäran till en åtgärd.                                                                      |
 | auktorisering | Ingen prenumerations nyckel har angetts             | SubscriptionKeyNotFound | Åtkomst nekad på grund av saknad prenumerations nyckel. Se till att inkludera prenumerations nyckel när du gör förfrågningar till detta API. |
@@ -112,7 +113,7 @@ Följande fel är fördefinierade för fel villkor som kan uppstå under utvärd
 
 Följande fel är fördefinierade för fel villkor som kan uppstå under utvärdering av principer.
 
-| Källa       | Villkor                                                       | Anledning                    | Meddelande                                                                                                                              |
+| Källa       | Villkor                                                       | Orsak                    | Meddelande                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | hastighets begränsning   | Hastighets gränsen har överskridits                                             | RateLimitExceeded         | Hastighets gränsen har överskridits                                                                                                               |
 | kvot        | Kvoten överskreds                                                  | QuotaExceeded             | Slut på kvot för samtalsvolym. Kvoten kommer att fyllas i XX: XX: xx. -eller-slut på bandbredds kvot. Kvoten kommer att fyllas i XX: XX: xx. |
@@ -188,5 +189,5 @@ Mer information om hur du arbetar med principer finns i:
 
 -   [Principer i API Management](api-management-howto-policies.md)
 -   [Transformera API: er](transform-api.md)
--   [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
+-   [Princip referens](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar
 -   [Princip exempel](policy-samples.md)

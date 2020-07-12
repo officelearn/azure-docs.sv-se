@@ -5,11 +5,12 @@ description: Lär dig hur du skapar och använder en statisk IP-adress med AKS-b
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3055b5d32055d0ed0e3870f16f6af95407a68cd9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886746"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243944"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använd en statisk offentlig IP-adress och DNS-etikett med belastningsutjämnaren för Azure Kubernetes service (AKS)
 
@@ -62,7 +63,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Skapa en tjänst med hjälp av den statiska IP-adressen
 
-Innan du skapar en tjänst kontrollerar du att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen. Ett exempel:
+Innan du skapar en tjänst kontrollerar du att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen. Exempel:
 
 ```azurecli-interactive
 az role assignment create \
@@ -101,7 +102,7 @@ kubectl apply -f load-balancer-service.yaml
 
 Om tjänsten använder en dynamisk eller statisk offentlig IP-adress kan du använda tjänst anteckningen `service.beta.kubernetes.io/azure-dns-label-name` för att ange en offentlig DNS-etikett. Detta publicerar ett fullständigt kvalificerat domän namn för tjänsten med Azures offentliga DNS-servrar och toppnivå domänen. Anteckning svärdet måste vara unikt inom Azure-platsen, så vi rekommenderar att du använder en tillräckligt kvalificerad etikett.   
 
-Azure lägger sedan automatiskt till ett standard under nät, till exempel `<location>.cloudapp.azure.com` (där platsen är den region som du har valt) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Ett exempel:
+Azure lägger sedan automatiskt till ett standard under nät, till exempel `<location>.cloudapp.azure.com` (där platsen är den region som du har valt) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Exempel:
 
 ```yaml
 apiVersion: v1
@@ -121,7 +122,7 @@ spec:
 > [!NOTE] 
 > Information om hur du publicerar tjänsten på din domän finns i [Azure DNS][azure-dns-zone] och det [externa-DNS-][external-dns] projektet.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 Om den statiska IP-adressen som definierats i *loadBalancerIP* -egenskapen för Kubernetes-tjänst manifestet inte finns eller inte har skapats i resurs gruppen för noden och inga ytterligare delegeringar har kon figurer ATS, Miss lyckas skapandet av tjänsten för belastningsutjämnare. Du kan felsöka genom att granska tjänstens skapande händelser med kommandot [kubectl beskriver][kubectl-describe] . Ange namnet på tjänsten enligt vad som anges i YAML-manifestet, som du ser i följande exempel:
 
@@ -172,4 +173,4 @@ Om du vill ha ytterligare kontroll över nätverks trafiken till dina program ka
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku
+[ip-sku]: ../virtual-network/public-ip-addresses.md#sku

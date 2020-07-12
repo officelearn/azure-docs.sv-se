@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458370"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246579"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurations inställningar för ett fristående Windows-kluster
 I den här artikeln beskrivs konfigurations inställningar för ett fristående Azure Service Fabric-kluster som kan anges i *ClusterConfig.jspå* filen. Du kommer att använda den här filen för att ange information om klustrets noder, säkerhetskonfigurationer och nätverks sto pol Ogin vad gäller fel-och uppgraderings domäner.  När du har ändrat eller lagt till konfigurations inställningar kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -88,7 +89,7 @@ I avsnittet diagnosticsStore kan du konfigurera parametrar för att aktivera dia
 }
 ```
 
-Metadata är en beskrivning av kluster diagnosen och kan ställas in enligt din installation. Dessa variabler bidrar till att samla in ETW-spårnings loggar och krasch dum par samt prestanda räknare. Mer information om ETW-spårnings loggar finns i [tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) och [ETW-spårning](https://msdn.microsoft.com/library/ms751538.aspx). Alla loggar, inklusive [krasch dum par](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) och [prestanda räknare](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), kan dirigeras till ConnectionString-mappen på din dator. Du kan också använda AzureStorage för att lagra diagnostik. Se följande exempel-kodfragment:
+Metadata är en beskrivning av kluster diagnosen och kan ställas in enligt din installation. Dessa variabler bidrar till att samla in ETW-spårnings loggar och krasch dum par samt prestanda räknare. Mer information om ETW-spårnings loggar finns i [tracelog](/windows-hardware/drivers/devtest/tracelog) och [ETW-spårning](/dotnet/framework/wcf/samples/etw-tracing). Alla loggar, inklusive [krasch dum par](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) och [prestanda räknare](/windows/win32/perfctrs/performance-counters-portal), kan dirigeras till ConnectionString-mappen på din dator. Du kan också använda AzureStorage för att lagra diagnostik. Se följande exempel-kodfragment:
 
 ```json
 "diagnosticsStore": {
@@ -192,7 +193,7 @@ Konfigurera tilläggs funktioner genom att konfigurera API version som 04-2017 e
     ]
 }
 ```
-Alla tillgängliga tilläggs funktioner kan visas i [Service Fabric REST API-referensen](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
+Alla tillgängliga tilläggs funktioner kan visas i [Service Fabric REST API-referensen](/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Stöd för containrar
 Om du vill aktivera stöd för behållare för både Windows Server-behållare och Hyper-V-behållare för fristående kluster måste DNS service-tilläggs funktionen vara aktive rad.
@@ -203,4 +204,3 @@ När du har en fullständig *ClusterConfig.jspå* en fil som har kon figurer ATS
 Om du har ett fristående kluster distribuerat kan du också [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Lär dig hur du [visualiserar ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-

@@ -5,11 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f2361bf76bd4f9d297fbe541b950840f13966cc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614493"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246409"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Felsöka Java Service Fabric program med hjälp av Sol förmörkelse
 > [!div class="op_single_selector"]
@@ -40,5 +41,5 @@ Om programmet kraschar kanske du också vill aktivera coredumps. Kör `ulimit -c
 
 ### <a name="next-steps"></a>Nästa steg
 
-* [Samla in loggar med Linux Azure-diagnostik](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Samla in loggar med Linux Azure-diagnostik](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

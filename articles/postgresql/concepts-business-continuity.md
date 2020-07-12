@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981921"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245314"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
 
@@ -51,6 +52,11 @@ Funktionen geo-Restore återställer servern med geo-redundanta säkerhets kopie
 
 ## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
 Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av PostgreSQL-teknik för fysisk replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
+
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Var lagrar Azure Database for PostgreSQL kund information?
+Som standard flyttar Azure Database for PostgreSQL eller lagrar inte kund information från den region som den distribueras i. Kunder kan dock välja att aktivera [geo-redundanta säkerhets kopieringar](concepts-backup.md#backup-redundancy-options) eller skapa en [skrivskyddad replik i flera regioner](concepts-read-replicas.md#cross-region-replication) för att lagra data i en annan region.
+
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om de [automatiska säkerhets kopieringarna i Azure Database for PostgreSQL](concepts-backup.md). 

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2b2c444bb492fa6c6b945a82090e91963fb1a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905991"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245868"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Hämta och ta bort nätverks resurser för nätverk.
@@ -18,7 +19,7 @@ Hämta och ta bort nätverks resurser för nätverk.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort nätverks resursen. |
+| ta bort | Tar bort nätverks resursen. |
 | lista | Visar en lista över alla nätverks resurser. |
 | visa | Hämtar nätverks resursen med det aktuella namnet. |
 
@@ -82,4 +83,4 @@ Hämtar information om nätverks resursen med det aktuella namnet. Informationen
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

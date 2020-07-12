@@ -5,15 +5,16 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692690"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246834"
 ---
 # <a name="state-management-with-service-fabric"></a>Tillstånds hantering med Service Fabric
 
-Service Fabric stöder många olika alternativ för tillstånds lagring. En konceptuell översikt över mönstren för tillstånds hantering och Service Fabric finns i [Service Fabric begrepp: tillstånd](/azure/service-fabric/service-fabric-concepts-state). Alla dessa koncept gäller oavsett om tjänsterna körs i eller utanför Service Fabric nät. 
+Service Fabric stöder många olika alternativ för tillstånds lagring. En konceptuell översikt över mönstren för tillstånds hantering och Service Fabric finns i [Service Fabric begrepp: tillstånd](../service-fabric/service-fabric-concepts-state.md). Alla dessa koncept gäller oavsett om tjänsterna körs i eller utanför Service Fabric nät. 
 
 Med Service Fabric nät kan du enkelt distribuera ett nytt program och ansluta det till ett befintligt data lager som finns i Azure. Förutom att använda en fjärran sluten databas finns det flera alternativ för att lagra data, beroende på om tjänsten är lokal eller Fjärrlagring. 
 

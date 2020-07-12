@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233490"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243604"
 ---
 # <a name="azure-api-management-faqs"></a>Vanliga frågor och svar om Azure API Management
 Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
@@ -68,7 +68,7 @@ Ja, du kan hantera API Management program mässigt genom att använda:
 
 * [API Management REST API](/rest/api/apimanagement/).
 * [Microsoft Azure API Management Service Management Library SDK](https://aka.ms/apimsdk).
-* [Distributions-](https://docs.microsoft.com/powershell/module/wds) och [tjänst hanterings](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell-cmdletar.
+* [Distributions-](/powershell/module/wds) och [tjänst hanterings](/powershell/azure/servicemanagement/overview) PowerShell-cmdletar.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Hur gör jag för att lägga till en användare i gruppen Administratörer?
 Så här kan du lägga till en användare i gruppen Administratörer:
@@ -77,7 +77,7 @@ Så här kan du lägga till en användare i gruppen Administratörer:
 2. Gå till den resurs grupp som har den API Management-instans som du vill uppdatera.
 3. I API Management tilldelar du rollen **API Management Service Contributor** till användaren.
 
-Nu kan den nyligen tillagda deltagaren använda Azure PowerShell- [cmdletar](https://docs.microsoft.com/powershell/azure/overview). Så här loggar du in som administratör:
+Nu kan den nyligen tillagda deltagaren använda Azure PowerShell- [cmdletar](/powershell/azure/overview). Så här loggar du in som administratör:
 
 1. Använd `Connect-AzAccount` cmdleten för att logga in.
 2. Ange kontexten till den prenumeration som har tjänsten med hjälp av `Set-AzContext -SubscriptionID <subscriptionGUID>` .
@@ -85,7 +85,7 @@ Nu kan den nyligen tillagda deltagaren använda Azure PowerShell- [cmdletar](htt
 4. Använd URL: en för att få åtkomst till administrations portalen.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Varför är den princip som jag vill lägga till otillgänglig i princip redigeraren?
-Om den princip som du vill lägga till visas nedtonad eller skuggad i princip redigeraren, kontrollerar du att du har rätt omfattning för principen. Varje princips ATS är utformad för att användas i avsnitt med vissa områden och principer. Om du vill granska princip avsnitten och omfattningarna för en princip, se principens användnings avsnitt i [API Management principer](/azure/api-management/api-management-policies).
+Om den princip som du vill lägga till visas nedtonad eller skuggad i princip redigeraren, kontrollerar du att du har rätt omfattning för principen. Varje princips ATS är utformad för att användas i avsnitt med vissa områden och principer. Om du vill granska princip avsnitten och omfattningarna för en princip, se principens användnings avsnitt i [API Management principer](./api-management-policies.md).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Hur gör jag för att konfigurera flera miljöer i ett enda API?
 Om du vill konfigurera flera miljöer, till exempel en test miljö och en produktions miljö, i ett enda API, har du två alternativ. Du kan:
@@ -94,7 +94,7 @@ Om du vill konfigurera flera miljöer, till exempel en test miljö och en produk
 * Var värd för samma API: er på olika klienter.
 
 ### <a name="can-i-use-soap-with-api-management"></a>Kan jag använda SOAP med API Management?
-Stöd för [SOAP-vidarekoppling](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) är nu tillgängligt. Administratörer kan importera WSDL för sin SOAP-tjänst och Azure API Management skapar en SOAP-klient. Dokumentation om utvecklings portalen, test konsolen, principer och analyser är alla tillgängliga för SOAP-tjänster.
+Stöd för [SOAP-vidarekoppling](https://azure.microsoft.com/blog/soap-pass-through/) är nu tillgängligt. Administratörer kan importera WSDL för sin SOAP-tjänst och Azure API Management skapar en SOAP-klient. Dokumentation om utvecklings portalen, test konsolen, principer och analyser är alla tillgängliga för SOAP-tjänster.
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>Kan jag konfigurera en OAuth 2,0-Authorization-server med AD FS säkerhet?
 Information om hur du konfigurerar en OAuth 2,0-Authorization-server med Active Directory Federation Services (AD FS) (AD FS) säkerhet finns [i använda ADFS i API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
@@ -109,7 +109,7 @@ Ja. Se snabb starts mallar för [Azure API Management Service](https://aka.ms/ap
 Ja. Detta kan göras via PowerShell eller genom att skicka direkt till API: et. Detta inaktiverar verifiering av certifikat kedjan och gör att du kan använda självsignerade eller privat signerade certifikat när du kommunicerar från API Management till Server dels tjänsterna.
 
 #### <a name="powershell-method"></a>PowerShell-metod ####
-Använd [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (för ny server del) eller [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintlig server del) PowerShell-cmdletar och ange `-SkipCertificateChainValidation` parametern till `True` .
+Använd [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (för ny server del) eller [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintlig server del) PowerShell-cmdletar och ange `-SkipCertificateChainValidation` parametern till `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

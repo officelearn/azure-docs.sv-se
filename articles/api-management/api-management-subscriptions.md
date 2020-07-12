@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70073408"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243298"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Prenumerationer i Azure API Management
 
@@ -33,7 +33,7 @@ En prenumeration krävs för att få en prenumerations nyckel för åtkomst till
 > API Management stöder också andra metoder för att skydda åtkomsten till API: er, inklusive följande exempel:
 > - [OAuth 2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Klient certifikat](api-management-howto-mutual-certificates-for-clients.md)
-> - [IP-vit listning](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
+> - [IP-vit listning](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## <a name="scope-of-subscriptions"></a>Prenumerations omfång
 

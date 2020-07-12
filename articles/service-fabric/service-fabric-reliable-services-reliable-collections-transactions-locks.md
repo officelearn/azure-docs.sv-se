@@ -4,11 +4,12 @@ description: Azure Service Fabric Reliable State Manager och Reliable Collection
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938915"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245117"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transaktioner och lås lägen i Azure Service Fabric Reliable Collections
 
@@ -18,7 +19,7 @@ En transaktion är en sekvens med åtgärder som utförs som en enda logisk arbe
 
 * **Atomicer**: en transaktion måste vara en atomisk arbets enhet. Med andra ord utförs antingen alla data ändringar eller ingen av dem.
 * **Konsekvens**: när det är slutfört måste en transaktion lämna alla data i ett konsekvent tillstånd. Alla interna data strukturer måste vara korrekta i slutet av transaktionen.
-* **Isolering**: ändringar gjorda av samtidiga transaktioner måste isoleras från ändringar som gjorts av andra samtidiga transaktioner. Isolerings nivån som används för en åtgärd i en [ITransaction](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) bestäms av [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) som utför åtgärden.
+* **Isolering**: ändringar gjorda av samtidiga transaktioner måste isoleras från ändringar som gjorts av andra samtidiga transaktioner. Isolerings nivån som används för en åtgärd i en [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) bestäms av [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) som utför åtgärden.
 * **Hållbarhet**: när en transaktion har slutförts, är dess effekter permanent på plats i systemet. Ändringarna är kvar även om ett systemfel inträffar.
 
 ### <a name="isolation-levels"></a>Isoleringsnivåer
@@ -67,7 +68,7 @@ Ett uppdaterings lås är ett asymmetriskt lås som används för att förhindra
 
 Matrisen för att låsa kompatibilitet finns i följande tabell:
 
-| Begäran har beviljats | Ingen | Delad | Uppdatera | Öppna |
+| Begäran har beviljats | Inga | Delad | Uppdatera | Öppna |
 | --- |:--- |:--- |:--- |:--- |
 | Delad |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |
 | Uppdatera |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |
@@ -84,4 +85,4 @@ I det här fallet har en eller båda åtgärderna nått sin tids gräns. I det h
 * [Reliable Services meddelanden](service-fabric-reliable-services-notifications.md)
 * [Reliable Services säkerhets kopiering och återställning (haveri beredskap)](service-fabric-reliable-services-backup-restore.md)
 * [Tillförlitlig tillstånds hanterarens konfiguration](service-fabric-reliable-services-configuration.md)
-* [Referens för utvecklare för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Referens för utvecklare för tillförlitliga samlingar](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

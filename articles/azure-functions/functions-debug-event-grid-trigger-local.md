@@ -2,14 +2,15 @@
 title: Azure Functions Event Grid lokal fel sökning
 description: Lär dig att lokalt felsöka Azure-funktioner som utlöses av en Event Grid-händelse
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340863"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242754"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Lokal felsökning av Event Grid-utlösare i Azure Functions
 
@@ -80,7 +81,7 @@ När du har angett rätt värde klickar du på **Bekräfta markering**.
 > [!IMPORTANT]
 > Varje gång du startar *ngrok*återskapas HTTPS-URL: en och värdet ändras. Därför måste du skapa en ny händelse prenumeration varje gången du exponerar din funktion för Azure via *ngrok*.
 
-## <a name="upload-a-file"></a>Överför en fil
+## <a name="upload-a-file"></a>Ladda upp en fil
 
 Nu kan du ladda upp en fil till ditt lagrings konto för att utlösa en Event Grid händelse för din lokala funktion att hantera. 
 

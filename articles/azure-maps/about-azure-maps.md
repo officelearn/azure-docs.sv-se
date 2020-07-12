@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191755"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242889"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
-Azure Maps är en samling geospatiala tjänster som använder nya mappnings data för att tillhandahålla geografisk kontext till webb-och mobil program. Azure Maps tillhandahåller:
+Azure Maps är en samling geospatiala tjänster som använder nya kartdata för att tillhandahålla en geografisk kontext till webb- och mobilprogram. Azure Maps tillhandahåller:
 
 * REST API: er för rendering av kartor i flera format och i satellit-bilder.
 * Sök efter tjänster för att hitta adresser, platser och intressanta platser i världen.
@@ -165,17 +165,25 @@ Azure Maps har skapats för mobilitet och kan hjälpa dig att utveckla plattform
 
 Azure Maps erbjuder också en praktisk [JavaScript-mappning](https://docs.microsoft.com/javascript/api/azure-maps-control) med en enkel programmerings modell. Utvecklingen är snabb och enkel för både webb-och mobil program.
 
+## <a name="power-bi-visual"></a>Visuellt Power BI-objekt
+
+Azure Maps visualiseringen för Power BI ger en omfattande uppsättning data visualiseringar för spatialdata ovanpå en karta. Det uppskattas att över 80% av affärs data har ett plats sammanhang. Azure Maps Visual erbjuder en lösning utan kod för att få insikter om hur den här plats kontexten relaterar till och påverkar dina affärs data.
+
+![Power BI Station ära datorer med Azure Maps visuell visning av affärs data](media/power-bi-visual/azure-maps-visual-hero.png)
+
+Mer information finns i avsnittet komma igång med [Azure Maps Power BI visuell](power-bi-visual-getting-started.md) dokumentation.
+
 ## <a name="usage"></a>Användning
 
 Att komma åt Azure Maps-tjänsterna är en fråga om att gå till [Azure Portal](https://portal.azure.com) och skapa ett Azure Maps-konto.
 
 I Azure Maps används ett schema för nyckelbaserad autentisering. Ditt konto har två nycklar som redan har skapats för dig, Använd båda nycklarna. Börja integrera de här plats funktionerna i programmet och gör förfrågningar till de Azure Maps tjänsterna.
 
-Obs! Azure Maps delar kundens adress/plats frågor ("frågor") med tredje part i TomTom för att mappa funktionalitet. Frågor är inte länkade till någon kund eller slutanvändare när de delas med TomTom och kan inte användas för att identifiera individer. Microsoft håller på att lägga till TomTom i listan över online tjänster. Observera att mobilitets-och väder tjänster som inkluderar integrering med Moovit och AccuWeather för närvarande finns i för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Obs! Azure Maps delar kund adress/plats frågor ("frågor") med TomTom från tredje part för att mappa funktionaliteten. Frågor är inte kopplade till någon kund eller slutanvändare när de delas med TomTom och kan inte användas för att identifiera individer. Microsoft håller på att lägga till TomTom i listan över online tjänster. Observera att mobilitets-och väder tjänsterna, inklusive integrering med Moovit och AccuWeather, finns för närvarande i för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Azure Maps-API: er är för närvarande tillgängliga i alla länder och regioner, förutom följande:
+Azure Maps-API: er är för närvarande tillgängliga i alla länder och regioner förutom följande:
 
 * Kina
 * Sydkorea

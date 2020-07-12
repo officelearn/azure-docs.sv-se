@@ -5,16 +5,17 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f883457c2d6da6d2776bb2119caf5d09565170
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259379"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246426"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuera ett Azure Service Fabric-kluster över Tillgänglighetszoner
 Tillgänglighetszoner i Azure är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. En tillgänglighets zon är en unik fysisk plats utrustad med oberoende strömförsörjning, kylning och nätverk inom en Azure-region.
 
-Service Fabric stöder kluster som sträcker sig över flera Tillgänglighetszoner genom att distribuera nodtyper som är fästa på vissa zoner. Detta säkerställer hög tillgänglighet för dina program. Azure-tillgänglighetszoner är bara tillgängliga i SELECT-regioner. Mer information finns i [Azure-tillgänglighetszoner översikt](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Service Fabric stöder kluster som sträcker sig över flera Tillgänglighetszoner genom att distribuera nodtyper som är fästa på vissa zoner. Detta säkerställer hög tillgänglighet för dina program. Azure-tillgänglighetszoner är bara tillgängliga i SELECT-regioner. Mer information finns i [Azure-tillgänglighetszoner översikt](../availability-zones/az-overview.md).
 
 Exempel på mallar är tillgängliga: [Service Fabric kors tillgänglighets zons mal len](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
@@ -135,7 +136,7 @@ Belastnings utjämningens inkommande NAT-regler ska matcha NAT-poolerna från de
 ```
 
 ### <a name="standard-sku-load-balancer-outbound-rules"></a>Standard-SKU Load Balancer utgående regler
-Standard Load Balancer och standard offentlig IP introducerar nya funktioner och olika beteenden för utgående anslutning jämfört med att använda Basic SKU: er. Om du vill använda utgående anslutningar när du arbetar med standard-SKU: er måste du uttryckligen definiera det antingen med offentliga IP-adresser eller offentliga standard Load Balancer. Mer information finns i [utgående anslutningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) och [Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+Standard Load Balancer och standard offentlig IP introducerar nya funktioner och olika beteenden för utgående anslutning jämfört med att använda Basic SKU: er. Om du vill använda utgående anslutningar när du arbetar med standard-SKU: er måste du uttryckligen definiera det antingen med offentliga IP-adresser eller offentliga standard Load Balancer. Mer information finns i [utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md) och [Azure standard Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 > Standard mal len refererar till en NSG som tillåter all utgående trafik som standard. Inkommande trafik är begränsad till de portar som krävs för Service Fabric hanterings åtgärder. NSG-reglerna kan ändras för att uppfylla dina krav.

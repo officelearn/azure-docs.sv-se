@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d55a0726000a6ed55f049ac4a4146f66421a7085
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83677814"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242584"
 ---
 # <a name="creator-for-indoor-maps"></a>Skapare för inomhus Maps
 
@@ -48,7 +49,7 @@ Använd data uppsättnings tjänsten för att skapa en data uppsättning från e
 Använd TILESET-tjänsten för att skapa en vektorbaserad representation av en data uppsättning. Program kan använda en TILESET för att presentera en visuell panel baserad vy av data uppsättningen.
 * [Funktions tillstånds tjänst](https://docs.microsoft.com/rest/api/maps/featurestate). Använd funktions tillstånds tjänsten för att stödja dynamisk Map-formatering. Med dynamisk kart stil kan program avspegla real tids händelser på utrymmen i IoT-systemet.
 
-### <a name="datasets"></a>Datauppsättningar
+### <a name="datasets"></a>Datamängder
 
 En data uppsättning är en samling funktioner i insamlings kartor. Funktionerna i den inställda kartan representerar anläggningar som definierats i ett konverterat ritnings paket. När du har skapat en data uppsättning med [data uppsättnings tjänsten](https://docs.microsoft.com/rest/api/maps/dataset/createpreview)kan du skapa valfritt antal [tilesets](#tilesets) -eller [funktions statesets](#feature-statesets).
 

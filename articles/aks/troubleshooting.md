@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054397"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243689"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -22,7 +22,7 @@ Det finns också en [fel söknings guide](https://github.com/feiskyer/kubernetes
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Jag får ett fel meddelande om att kvoten överskreds vid skapandet eller uppgraderingen. Vad ska jag göra? 
 
- [Begär flera kärnor](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Begär flera kärnor](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Vad är den maximala inställningen för poddar per nod för AKS?
 
@@ -34,7 +34,7 @@ Den maximala inställningen för poddar per nod är 110 som standard om du distr
 Det här felet anger att ett undernät som används för ett kluster inte längre har tillgängliga IP-adresser i CIDR för lyckad resurs tilldelning. För Kubernetes-kluster är kravet tillräckligt med IP-utrymme för varje nod i klustret. För Azure CNI-kluster är kravet tillräckligt med IP-utrymme för varje nod och Pod i klustret.
 Läs mer om [utformningen av Azure-cni för att tilldela IP-adresser till poddar](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Dessa fel finns också i AKS- [diagnostik](https://docs.microsoft.com/azure/aks/concepts-diagnostics) som proaktivt utsätter problem som en otillräcklig under näts storlek.
+Dessa fel finns också i AKS- [diagnostik](./concepts-diagnostics.md) som proaktivt utsätter problem som en otillräcklig under näts storlek.
 
 Följande tre (3) ärenden orsakar ett otillräckligt näts storleks fel:
 
@@ -197,14 +197,14 @@ Kontrol lera att inställningarna inte står i konflikt med några av de obligat
 
 I Kubernetes version 1,10 kan MountVolume. WaitForAttach Miss lyckas med en ommontering av Azure-disk.
 
-I Linux kan du se ett felaktigt format fel för DevicePath. Ett exempel:
+I Linux kan du se ett felaktigt format fel för DevicePath. Exempel:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-I Windows kan du se fel numret för DevicePath (LUN). Ett exempel:
+I Windows kan du se fel numret för DevicePath (LUN). Exempel:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -217,7 +217,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | E.t. |
+| 1,12 och senare | Ej tillämpligt |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
@@ -251,7 +251,7 @@ spec:
   >[!NOTE]
   > Eftersom GID och UID monteras som rot eller 0 som standard. Om GID eller UID anges som icke-rot, till exempel 1000, används Kubernetes för `chown` att ändra alla kataloger och filer under den disken. Den här åtgärden kan ta lång tid och kan göra det mycket långsamt att montera disken.
 
-* Använd `chown` i initContainers för att ange GID och UID. Ett exempel:
+* Använd `chown` i initContainers för att ange GID och UID. Exempel:
 
 ```yaml
 initContainers:
@@ -274,7 +274,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Ej tillämpligt |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -293,7 +293,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Ej tillämpligt |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -402,7 +402,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | E.t. |
+| 1,14 och senare | Ej tillämpligt |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 
@@ -410,13 +410,13 @@ Om din lagrings konto nyckel har ändrats kan du se Azure Files Mount-felen.
 
 Du kan åtgärda problemet genom att manuellt uppdatera `azurestorageaccountkey` fältet manuellt i en Azure-filhemlighet med din base64-kodade lagrings konto nyckel.
 
-Du kan använda för att koda lagrings konto nyckeln i base64 `base64` . Ett exempel:
+Du kan använda för att koda lagrings konto nyckeln i base64 `base64` . Exempel:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Om du vill uppdatera din Azure-hemlig fil använder du `kubectl edit secret` . Ett exempel:
+Om du vill uppdatera din Azure-hemlig fil använder du `kubectl edit secret` . Exempel:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445516"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243417"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -146,7 +146,7 @@ I det här exemplet är Developer-konsolen klient-app. I följande steg beskrivs
 
 1. Om du använder **v1** -slutpunkter lägger du till en Body-parameter med namnet **Resource**. Använd **program-ID: t** för backend-appen för värdet för den här parametern. 
 
-1. Om du använder **v2** -slutpunkter använder du den omfattning som du skapade för backend-appen i fältet **standard omfång** . Se också till att ange värdet för [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) egenskapen till `2` i [program manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+1. Om du använder **v2** -slutpunkter använder du den omfattning som du skapade för backend-appen i fältet **standard omfång** . Se också till att ange värdet för [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) egenskapen till `2` i [program manifestet](../active-directory/develop/reference-app-manifest.md).
 
 1. Ange sedan klientens autentiseringsuppgifter. Detta är autentiseringsuppgifterna för klient-app.
 
@@ -168,7 +168,7 @@ Nästa steg är att aktivera OAuth 2,0-användarauktorisering för ditt API. På
 
 1. Bläddra till API Management-instansen och gå till **API: er**.
 
-1. Välj det API som du vill skydda. Till exempel `Echo API`.
+1. Välj det API som du vill skydda. Ett exempel är `Echo API`.
 
 1. Gå till **Inställningar**.
 
@@ -203,7 +203,7 @@ Vid det här tillfället uppmanas användaren att logga in när en användare f�
 
 Men vad händer om någon anropar ditt API utan token eller med en ogiltig token? Om du till exempel försöker anropa API: et utan `Authorization` sidhuvudet går det fortfarande att ringa. Anledningen är att API Management inte validerar åtkomsttoken i det här läget. Den skickar bara `Authorization` rubriken till Server dels-API: et.
 
-Använd [Verifiera JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) -principen för att förauktorisera begär anden i API Management, genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token, API Management blockerar den. Lägg till exempel till följande princip i `<inbound>` avsnittet princip i `Echo API` . Den kontrollerar mål grupps anspråket i en åtkomsttoken och returnerar ett fel meddelande om token inte är giltig. Information om hur du konfigurerar principer finns i [Ange eller redigera principer](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Använd [Verifiera JWT](./api-management-access-restriction-policies.md#ValidateJWT) -principen för att förauktorisera begär anden i API Management, genom att verifiera åtkomsttoken för varje inkommande begäran. Om en begäran inte har en giltig token, API Management blockerar den. Lägg till exempel till följande princip i `<inbound>` avsnittet princip i `Echo API` . Den kontrollerar mål grupps anspråket i en åtkomsttoken och returnerar ett fel meddelande om token inte är giltig. Information om hur du konfigurerar principer finns i [Ange eller redigera principer](./set-edit-policies.md).
 
 
 ```xml
@@ -228,7 +228,7 @@ I den här guiden använde du Developer-konsolen i API Management som exempel kl
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Azure Active Directory och OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
+- Läs mer om [Azure Active Directory och OAuth 2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Se fler [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API Management.
 - Andra sätt att skydda Server dels tjänsten finns i [ömsesidig certifikatautentisering](./api-management-howto-mutual-certificates.md).
 - [Skapa en API Management tjänst instans](./get-started-create-service-instance.md).

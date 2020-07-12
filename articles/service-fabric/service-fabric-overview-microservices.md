@@ -4,11 +4,12 @@ description: En översikt över varför det är viktigt att skapa moln program m
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792876"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246028"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Varför ska man använda en mikrotjänst metod för att skapa program
 
@@ -130,7 +131,7 @@ Hälsan skiljer sig från diagnostiken. Hälso tillståndet för den mikrotjäns
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Vägledning för att utforma mikrotjänster på Azure
 
-Besök Azure Architecture Center för att få hjälp med att [utforma och skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+Besök Azure Architecture Center för att få hjälp med att [utforma och skapa mikrotjänster på Azure](/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric som plattform för mikrotjänster
 
@@ -190,7 +191,7 @@ Målet med Service Fabric är att minska komplexiteten för att skapa mikrotjän
 ## <a name="next-steps"></a>Nästa steg
 
 * [Mikrotjänster: en program revolution som drivs av molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Azure Architecture Center: skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Azure Architecture Center: skapa mikrotjänster på Azure](/azure/architecture/microservices/)
 * [Metod tips för Azure Service Fabric-program och-kluster](service-fabric-best-practices-overview.md)
 * [Översikt över Service Fabric terminologi](service-fabric-technical-overview.md)
 

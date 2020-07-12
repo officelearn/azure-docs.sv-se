@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: b8f97bb27b3eb45c731b20ad51e35fde9b6a394a
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126916"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242975"
 ---
 # <a name="api-management-policy-samples"></a>API Management-principexempel
 
@@ -34,7 +34,7 @@ ms.locfileid: "85126916"
 | [Auktorisera begäran med extern auktoriserare](./authorize-request-using-external-authorizer.md)                                                   | Visar hur du använder en extern auktoriserare för att skydda API-åtkomst.                                                                                                                                                               |
 | [Auktorisera åtkomst med hjälp av Google OAuth-token](./use-google-as-oauth-token-provider.md)                                            | Visar hur du beviljar åtkomst till dina slutpunkter med Google som en OAuth-tokenprovider.                                                                                                                                    |
 | [Filtrera IP-adresser när du använder en Application Gateway](./filter-ip-addresses-when-using-appgw.md) | Visar hur du filtrerar IP-adresser i principer när API Management-instansen nås via en Application Gateway
-| [Generera en signatur för delad åtkomst och vidarebefordra begäran till Azure-lagring](./generate-shared-access-signature.md)                  | Visar hur du skapar [Signatur för delad åtkomst](../../storage/storage-dotnet-shared-access-signature-part-1.md) med uttryck och vidarebefordrar begäran till Azure-lagring med principer för omarbetnings-uri. |
+| [Generera en signatur för delad åtkomst och vidarebefordra begäran till Azure-lagring](./generate-shared-access-signature.md)                  | Visar hur du skapar [Signatur för delad åtkomst](../../storage/common/storage-sas-overview.md) med uttryck och vidarebefordrar begäran till Azure-lagring med principer för omarbetnings-uri. |
 | [Hämta OAuth2-token från AAD och vidarebefordra den till serverdelen](./use-oauth2-for-authorization.md)                             | Ger exempel på hur du använder OAuth2 för auktorisering mellan gateway och en serverdel. Det visar hur du får en åtkomsttoken från AAD och vidarebefordrar den till serverdelen.                                                    |
 | [Hämta X-CSRF-token från SAP-gateway med hjälp av sändarbegärandeprincip](./get-x-csrf-token-from-sap-gateway.md)                           | Visar hur du implementerar X CSRF-mönster som används av många API:er. Det här exemplet är specifikt för SAP-gateway.                                                                                                                           |
 | [Vidarebefordra begäran baserat på storleken på innehållet](./route-requests-based-on-size.md)                                            | Visar hur du dirigerar förfrågningar baserat på storleken på deras innehåll.                                                                                                                                                       |

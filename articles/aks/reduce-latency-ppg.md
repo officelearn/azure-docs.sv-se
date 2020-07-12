@@ -5,11 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444275"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244080"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Minska latens med närhets placerings grupper (förhands granskning)
 
@@ -73,7 +74,7 @@ Den första resurs som du distribuerar med en närhets placerings grupp kopplas 
 
 I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i den *centrala* regionen. Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . 
 
-Accelererat nätverk förbättrar nätverks prestandan för virtuella datorer avsevärt. Vi rekommenderar att du använder närhets placerings grupper tillsammans med accelererat nätverk. Som standard använder AKS accelererat nätverk på [virtuella dator instanser som stöds](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), som inkluderar de flesta virtuella Azure-datorer med två eller flera virtuella processorer.
+Accelererat nätverk förbättrar nätverks prestandan för virtuella datorer avsevärt. Vi rekommenderar att du använder närhets placerings grupper tillsammans med accelererat nätverk. Som standard använder AKS accelererat nätverk på [virtuella dator instanser som stöds](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), som inkluderar de flesta virtuella Azure-datorer med två eller flera virtuella processorer.
 
 Skapa ett nytt AKS-kluster med en närhets placerings grupp:
 
@@ -163,4 +164,3 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

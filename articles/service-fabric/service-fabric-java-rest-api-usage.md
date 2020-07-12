@@ -5,11 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c093958b9a8c5a21cb6996db891705ec8c3d21ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451668"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246290"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>API: er för Azure Service Fabric Java-klient
 
@@ -124,5 +125,4 @@ För varje API kommer du att se fyra överlagringar av implementeringen. Om det 
     * Den här varianten av API-anrop kan användas om du vill använda reaktiv asynkron programmering och hantera RAW rest-svar
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [REST-API: er för Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/)
-
+* Läs mer om [REST-API: er för Service Fabric](/rest/api/servicefabric/)

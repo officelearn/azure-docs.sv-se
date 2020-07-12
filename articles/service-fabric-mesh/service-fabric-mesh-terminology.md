@@ -5,11 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcd17c64ac41056420a22e328d13862e52bd99bd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75351980"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246732"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologi för Service Fabric nät
 
@@ -17,13 +18,13 @@ Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utv
 
 ## <a name="service-fabric"></a>Service Fabric
 
-[Service Fabric](/azure/service-fabric/) är en plattform för distribuerade system med öppen källkod som gör det enkelt att paketera, distribuera och hantera skalbara och pålitliga mikrotjänster. Service Fabric är den Orchestrator som ger Service Fabric nät. Service Fabric innehåller alternativ för hur du kan skapa och köra dina mikrotjänster-program. Du kan använda valfritt ramverk för att skriva dina tjänster och välja var du vill köra programmet från flera miljö val.
+[Service Fabric](../service-fabric/index.yml) är en plattform för distribuerade system med öppen källkod som gör det enkelt att paketera, distribuera och hantera skalbara och pålitliga mikrotjänster. Service Fabric är den Orchestrator som ger Service Fabric nät. Service Fabric innehåller alternativ för hur du kan skapa och köra dina mikrotjänster-program. Du kan använda valfritt ramverk för att skriva dina tjänster och välja var du vill köra programmet från flera miljö val.
 
 ## <a name="application-and-service-concepts"></a>Program-och tjänst koncept
 
-**Service Fabric nätprogram**: Service Fabric nätprogram beskrivs av [resurs modellen](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources) (yaml och JSON-resursfiler) och kan distribueras till alla miljöer där Service Fabric körs.
+**Service Fabric nätprogram**: Service Fabric nätprogram beskrivs av [resurs modellen](./service-fabric-mesh-service-fabric-resources.md) (yaml och JSON-resursfiler) och kan distribueras till alla miljöer där Service Fabric körs.
 
-**Service Fabric internt program**: Service Fabric inbyggda program beskrivs av den [interna program modellen](/azure/service-fabric/service-fabric-application-model) (XML-baserade program-och tjänst manifest).  Service Fabric inbyggda program kan inte köras i Service Fabric nät.
+**Service Fabric internt program**: Service Fabric inbyggda program beskrivs av den [interna program modellen](../service-fabric/service-fabric-application-model.md) (XML-baserade program-och tjänst manifest).  Service Fabric inbyggda program kan inte köras i Service Fabric nät.
 
 **Program**: ett Service Fabric nätprogram är enhets distribution, versions hantering och livs längd för ett nät program. Livs cykeln för varje program instans kan hanteras separat.  Program består av ett eller flera service kod paket och inställningar. Ett program definieras med hjälp av Azure Resource Model-schemat (RM).  Tjänster beskrivs som egenskaper för program resursen i en RM-mall.  Nätverk och volymer som används av programmet refereras av programmet.  När du skapar ett program, modelleras program, tjänster, nätverk och volym (er) med hjälp av Service Fabric resurs modell.
 
@@ -41,14 +42,14 @@ Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utv
 Om du vill distribuera dina tjänster måste du beskriva hur de ska köras. Service Fabric stöder tre olika distributions modeller:
 
 ### <a name="resource-model"></a>Resursmodell
-Service Fabric resurser är allt som kan distribueras individuellt för att Service Fabric; inklusive program, tjänster, nätverk och volymer. Resurser definieras med hjälp av en JSON-fil som kan distribueras till en kluster slut punkt.  För Service Fabric nät används Azures resurs modell schema. Ett YAML-filschema kan också användas för att enklare utforma definitionsfiler. Resurser kan distribueras var som helst Service Fabric körs. Resurs modellen är det enklaste sättet att beskriva Service Fabric-program. Huvud fokus är vid enkel distribution och hantering av behållare tjänster. Läs mer i [Introduktion till Service Fabric resurs modell](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
+Service Fabric resurser är allt som kan distribueras individuellt för att Service Fabric; inklusive program, tjänster, nätverk och volymer. Resurser definieras med hjälp av en JSON-fil som kan distribueras till en kluster slut punkt.  För Service Fabric nät används Azures resurs modell schema. Ett YAML-filschema kan också användas för att enklare utforma definitionsfiler. Resurser kan distribueras var som helst Service Fabric körs. Resurs modellen är det enklaste sättet att beskriva Service Fabric-program. Huvud fokus är vid enkel distribution och hantering av behållare tjänster. Läs mer i [Introduktion till Service Fabric resurs modell](./service-fabric-mesh-service-fabric-resources.md).
 
 ### <a name="native-model"></a>Inbyggd modell
 Den inbyggda program modellen ger dina program fullständig åtkomst till Service Fabric. Program och tjänster definieras som registrerade typer i XML-MANIFEST filer.
 
 Den inbyggda modellen stöder Reliable Services Framework, som ger åtkomst till API: erna för Service Fabric körning och kluster hantering i C# och Java. Den inbyggda modellen stöder också godtyckliga behållare och körbara filer.
 
-Den inbyggda modellen stöds inte i Service Fabric nät miljön.  Mer information finns i [Översikt över programmerings modellen](/azure/service-fabric/service-fabric-choose-framework).
+Den inbyggda modellen stöds inte i Service Fabric nät miljön.  Mer information finns i [Översikt över programmerings modellen](../service-fabric/service-fabric-choose-framework.md).
 
 ### <a name="docker-compose"></a>Docker-sammanställning 
 [Docker Compose](https://docs.docker.com/compose/) är en del av Docker-projektet. Service Fabric ger begränsat stöd för distribution av program med hjälp av Docker-modellen.
@@ -59,7 +60,7 @@ Service Fabric är en plattforms teknik med öppen källkod som flera olika tjä
 
  - **Service Fabric nät**: en fullständigt hanterad tjänst för att köra Service Fabric program i Microsoft Azure.
  - **Azure-Service Fabric**: det värd erbjudande som Azure hosted Service Fabric. Den ger integration mellan Service Fabric och Azure-infrastrukturen, tillsammans med uppgradering och konfigurations hantering av Service Fabric-kluster.
- - **Fristående Service Fabric**: en uppsättning installations-och konfigurations verktyg för att [distribuera Service Fabric kluster var som helst](/azure/service-fabric/service-fabric-deploy-anywhere) (lokalt eller i valfri moln leverantör). Hanteras inte av Azure.
+ - **Fristående Service Fabric**: en uppsättning installations-och konfigurations verktyg för att [distribuera Service Fabric kluster var som helst](../service-fabric/service-fabric-deploy-anywhere.md) (lokalt eller i valfri moln leverantör). Hanteras inte av Azure.
  - **Service Fabric utvecklings kluster**: tillhandahåller en lokal utvecklings miljö för Windows, Linux eller Mac för utveckling av Service Fabric program.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Support mat ris för miljö-, Ramverks-och distributions modell

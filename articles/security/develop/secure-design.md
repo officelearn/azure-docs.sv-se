@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857170"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246817"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -26,7 +27,7 @@ Följande SDL-faser beskrivs i den här artikeln:
 
 - Utbildning
 - Krav
-- Design
+- Utforma
 
 ## <a name="training"></a>Utbildning
 Innan du börjar utveckla ditt moln program tar du tid att förstå säkerheten och sekretessen på Azure. Genom att göra det här steget kan du minska antalet sårbarheter och allvarlighets graden för sårbarheter i ditt program. Du är mer beredd att reagera på lämpligt sätt för att åtgärda det ständigt föränderliga hotet.
@@ -96,7 +97,7 @@ Du vill dock även anta att [en överträdelse](https://docs.microsoft.com/azure
 
   - Hur ska jag återställa från angreppet som data läckor eller manipulering?
 
-## <a name="design"></a>Design
+## <a name="design"></a>Utforma
 
 Design fasen är avgörande för att skapa bästa metoder för design och funktionella specifikationer. Det är också viktigt att utföra riskanalyser som bidrar till att minska säkerhets-och integritets problem i ett projekt.
 
@@ -153,11 +154,11 @@ Att modellera program designen och räkna upp [kliv](https://docs.google.com/vie
 | Hot | Säkerhets egenskap | Potentiell Azure-plattforms minskning |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Förfalskning               | Autentisering        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Avvislighet            | Oavvislig het       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
+| Manipulering              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
+| Avvislighet            | Oavvislighet       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
 | Avslöjande av information | Konfidentialitet       | Kryptera känsliga data i [vila](../fundamentals/encryption-atrest.md) och [under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
-| Denial of service      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
-| Behörighets höjning | Auktorisering         | Använd Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Denial of Service      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
+| Höjning av privilegier | Auktorisering         | Använd Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Minska attack ytan
 
@@ -208,7 +209,7 @@ Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standa
 
 Använd de mekanismer för autentisering och auktorisering som tillhandahålls av plattformen i stället för anpassad kod. Detta beror på att det kan vara lätt att utveckla anpassad autentiseringsnyckel. Kommersiell kod (till exempel från Microsoft) är ofta en omfattande granskning av säkerhet. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) är Azure-lösningen för identitets-och åtkomst hantering. Dessa Azure AD-verktyg och-tjänster hjälper till med säker utveckling:
 
-- [Azure AD Identity Platform (Azure AD för utvecklare)](../../active-directory/develop/about-microsoft-identity-platform.md) är en moln identitets tjänst som utvecklare använder för att bygga appar som kan logga in användare på ett säkert sätt. Azure AD hjälper utvecklare som utvecklar appar för en enda klient, verksamhetsspecifika appar och utvecklare som vill utveckla appar för flera klient organisationer. Förutom grundläggande inloggning kan appar som har skapats med hjälp av Azure AD anropa Microsoft API: er och anpassade API: er som bygger på Azure AD-plattformen. Azure AD Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
+- [Microsoft Identity Platform](/azure/active-directory/develop/) är en uppsättning komponenter som utvecklare använder för att skapa appar som kan logga in användare på ett säkert sätt. Plattformen hjälper utvecklare som utvecklar appar för en enda klient, verksamhetsspecifika appar och utvecklare som vill utveckla appar för flera klient organisationer. Förutom grundläggande inloggning kan appar som skapats med hjälp av Microsoft Identity Platform anropa Microsoft API: er och anpassade API: er. Microsoft Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) är en tjänst för identitets hantering som du kan använda för att anpassa och styra hur kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklats för iOS, Android och .NET, bland annat. Azure AD B2C aktiverar de här åtgärderna samtidigt som kundernas identiteter skyddas.
 

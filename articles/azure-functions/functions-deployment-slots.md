@@ -2,14 +2,15 @@
 title: Azure Functions distributions platser
 description: Lär dig att skapa och använda distributions fack med Azure Functions
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8abc670535f240d436e90c34f7245a3d176f517
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122603"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242788"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions distributions platser
 

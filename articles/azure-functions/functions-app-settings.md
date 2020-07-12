@@ -3,12 +3,12 @@ title: Referens för appinställningar för Azure Functions
 description: Referens dokumentation för Azure Functions app-inställningar eller miljövariabler.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: adb11f29460bd6dee7171fa97a6ebfc958cfad12
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169925"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242771"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -17,6 +17,9 @@ App-inställningar i en Function-app innehåller globala konfigurations alternat
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Det finns andra globala konfigurations alternativ i [host.jspå](functions-host-json.md) filen och i [local.settings.js](functions-run-local.md#local-settings-file) filen.
+
+> [!NOTE]  
+> Du kan använda program inställningarna för att åsidosätta host.jsatt ange värden utan att behöva ändra host.jspå själva filen. Detta är användbart för scenarier där du behöver konfigurera eller ändra vissa host.jspå Inställningar för en speciell miljö. Detta gör det också möjligt att ändra host.jspå inställningar utan att behöva publicera projektet på annat sätt. Mer information finns i [referens artikelnhost.js](functions-host-json.md#override-hostjson-values).  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 

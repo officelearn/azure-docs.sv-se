@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106993"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243859"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -75,7 +75,7 @@ Microsoft tillhandahåller inte teknisk support för följande:
   > Microsoft kan tillhandahålla bästa möjliga support för projekt med öppen källkod från tredje part, till exempel Helm och Kured. Om verktyget med öppen källkod integrerar med Kubernetes Azure-molnet eller andra AKS buggar, stöder Microsoft exempel och program från Microsoft-dokumentationen.
 * Program vara från sluten program vara från tredje part. Den här program varan kan innehålla verktyg för säkerhets genomsökning och nätverks enheter eller program.
 * Problem om multimoln eller multileverantörs-build-timeout. Microsoft stöder till exempel inte problem som rör körning av en federerad lösning för en federerad multipublik moln leverantör.
-* Andra nätverks anpassningar än de som anges i [AKS-dokumentationen](https://docs.microsoft.com/azure/aks/).
+* Andra nätverks anpassningar än de som anges i [AKS-dokumentationen](./index.yml).
   > [!NOTE]
   > Microsoft stöder problem och buggar som är relaterade till nätverks säkerhets grupper (NSG: er). Microsoft Support kan till exempel svara på frågor om ett NSG-fel för att uppdatera eller en oväntad NSG eller belastnings Utjämnings funktion.
 

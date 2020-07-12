@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 1780cb47696813b5d26035f54e0685969482dba6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5b311dd9b0cd2c2b007bc19994aee771b2c4360f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058120"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246388"
 ---
 # <a name="scaling-in-service-fabric"></a>Skalning i Service Fabric
 Azure Service Fabric gör det enkelt att bygga skalbara program genom att hantera tjänsterna, partitionerna och replikerna på noderna i ett kluster. Att köra många arbets belastningar på samma maskin vara möjliggör maximal resursutnyttjande, men ger också flexibilitet när det gäller hur du väljer att skala dina arbets belastningar. Den här kanalen 9-videon beskriver hur du kan bygga skalbara mikrotjänster-program:
@@ -63,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Skalning genom att skapa eller ta bort nya namngivna tjänster
 En namngiven tjänst instans är en specifik instans av en tjänst typ (se [Service Fabric livs cykel för program](service-fabric-application-lifecycle.md)) inom en namngiven program instans i klustret. 
 
-Nya namngivna tjänst instanser kan skapas (eller tas bort) när tjänster blir mer eller mindre upptagna. Detta gör att förfrågningar kan spridas över fler tjänst instanser, vilket vanligt vis tillåter att befintliga tjänster laddas ned. När du skapar tjänster placerar Service Fabric Cluster Resource Manager tjänsterna i klustret på ett distribuerat sätt. De exakta besluten styrs av [måtten](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placerings regler. Tjänster kan skapas på flera olika sätt, men de vanligaste är antingen genom administrativa åtgärder som någon som ringer [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) , eller genom kod anrop [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) . `CreateServiceAsync`kan till och med anropas från andra tjänster som körs i klustret.
+Nya namngivna tjänst instanser kan skapas (eller tas bort) när tjänster blir mer eller mindre upptagna. Detta gör att förfrågningar kan spridas över fler tjänst instanser, vilket vanligt vis tillåter att befintliga tjänster laddas ned. När du skapar tjänster placerar Service Fabric Cluster Resource Manager tjänsterna i klustret på ett distribuerat sätt. De exakta besluten styrs av [måtten](service-fabric-cluster-resource-manager-metrics.md) i klustret och andra placerings regler. Tjänster kan skapas på flera olika sätt, men de vanligaste är antingen genom administrativa åtgärder som någon som ringer [`New-ServiceFabricService`](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) , eller genom kod anrop [`CreateServiceAsync`](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) . `CreateServiceAsync`kan till och med anropas från andra tjänster som körs i klustret.
 
 Att skapa tjänster dynamiskt kan användas i alla typer av scenarier och är ett vanligt mönster. Anta till exempel en tillstånds känslig tjänst som representerar ett visst arbets flöde. Anrop som representerar arbete kommer att visas i den här tjänsten och den här tjänsten kommer att utföra stegen för arbets flödet och registrera förloppet. 
 

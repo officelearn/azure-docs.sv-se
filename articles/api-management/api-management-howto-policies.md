@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc19c5ea7a45f78110818bc6c8cea8fbe25981c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70072312"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243451"
 ---
 # <a name="policies-in-azure-api-management"></a>Principer i Azure API Management
 
@@ -58,7 +58,7 @@ Konfigurationen är indelad i `inbound` ,, `backend` `outbound` och `on-error` .
 </policies> 
 ```
 
-Om det uppstår ett fel under bearbetningen av en begäran, hoppas eventuella återstående steg i-,-och- `inbound` `backend` `outbound` avsnitten över och körnings hopp till instruktionerna i `on-error` avsnittet. Genom att placera princip instruktioner i `on-error` avsnittet kan du granska felet genom att använda `context.LastError` -egenskapen, inspektera och anpassa fel svaret med hjälp av `set-body` principen och konfigurera vad som händer om ett fel inträffar. Det finns felkoder för inbyggda steg och för fel som kan uppstå under bearbetningen av princip satser. Mer information finns [i fel hantering i API Management principer](/azure/api-management/api-management-error-handling-policies).
+Om det uppstår ett fel under bearbetningen av en begäran, hoppas eventuella återstående steg i-,-och- `inbound` `backend` `outbound` avsnitten över och körnings hopp till instruktionerna i `on-error` avsnittet. Genom att placera princip instruktioner i `on-error` avsnittet kan du granska felet genom att använda `context.LastError` -egenskapen, inspektera och anpassa fel svaret med hjälp av `set-body` principen och konfigurera vad som händer om ett fel inträffar. Det finns felkoder för inbyggda steg och för fel som kan uppstå under bearbetningen av princip satser. Mer information finns [i fel hantering i API Management principer](./api-management-error-handling-policies.md).
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Så här konfigurerar du principer
 
@@ -66,7 +66,7 @@ Information om hur du konfigurerar principer finns i [Ange eller redigera princi
 
 ## <a name="policy-reference"></a>Princip referens
 
-Se [princip referensen](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar.
+Se [princip referensen](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar.
 
 ## <a name="policy-samples"></a>Princip exempel
 
@@ -118,17 +118,17 @@ Om du vill begränsa inkommande begär Anden och bara acceptera de från IP-adre
 Mer information om hur du arbetar med principer finns i:
 
 + [Transformera API: er](transform-api.md)
-+ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip referens](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar
 + [Princip exempel](policy-samples.md)   
 
-[Policy Reference]: api-management-policy-reference.md
+[Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
-[Operation]: api-management-howto-add-operations.md
+[Operation]: ./mock-api-responses.md
 
-[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: ./api-management-advanced-policies.md
+[Control flow]: ./api-management-advanced-policies.md#choose
+[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Policy expressions]: ./api-management-policy-expressions.md
 
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png

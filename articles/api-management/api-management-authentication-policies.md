@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557978"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243723"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -48,19 +48,19 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Obligatorisk|
+|Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
 |autentisering – grundläggande|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Obligatorisk|Default|
+|Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
-|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|E.t.|
-|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|E.t.|
+|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|Ej tillämpligt|
+|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](./api-management-howto-policies.md#sections) och [områden](./api-management-howto-policies.md#scopes).
 
 -   **Princip avsnitt:** inkommande
 
@@ -97,21 +97,21 @@ I det här exemplet anges klient certifikatet i principen i stället för att h�
 
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Obligatorisk|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |autentisering-certifikat|Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Obligatorisk|Default|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|E.t.|
-|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|E.t.|
-|body|Klient certifikat som en byte mat ris.|No|E.t.|
-|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|E.t.|
+|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
+|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
+|body|Klient certifikat som en byte mat ris.|Nej|Ej tillämpligt|
+|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|Ej tillämpligt|
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](./api-management-howto-policies.md#sections) och [områden](./api-management-howto-policies.md#scopes).  
   
 -   **Princip avsnitt:** inkommande  
   
@@ -174,21 +174,21 @@ Både systemtilldelad identitet och någon av de flera användare som tilldelats
 
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Obligatorisk|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |autentisering-hanterad-identitet |Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Obligatorisk|Default|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|E.t.|
-|klient-ID|Sträng. App-ID: t för den användarspecifika identiteten i Azure Active Directory.|No|systemtilldelad identitet|
-|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |No|E.t.|  
-|Ignorera-fel|Booleskt. Om detta är inställt på `true` , fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|No|falskt|  
+|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Ej tillämpligt|
+|klient-ID|Sträng. App-ID: t för den användarspecifika identiteten i Azure Active Directory.|Nej|systemtilldelad identitet|
+|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |Nej|Ej tillämpligt|  
+|Ignorera-fel|Booleskt. Om detta är inställt på `true` , fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Nej|falskt|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](./api-management-howto-policies.md#sections) och [områden](./api-management-howto-policies.md#scopes).  
   
 -   **Princip avsnitt:** inkommande  
   
@@ -199,5 +199,5 @@ Mer information om hur du arbetar med principer finns i:
 
 + [Principer i API Management](api-management-howto-policies.md)
 + [Transformera API: er](transform-api.md)
-+ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip referens](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar
 + [Princip exempel](policy-samples.md)

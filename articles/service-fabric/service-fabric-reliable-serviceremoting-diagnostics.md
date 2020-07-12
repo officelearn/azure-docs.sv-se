@@ -5,14 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692571"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245933"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostik-och prestanda övervakning för Reliable service Remoting
-Den Reliable ServiceRemoting-körningen genererar [prestanda räknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur ServiceRemoting fungerar och hjälper till med fel sökning och prestanda övervakning.
+Den Reliable ServiceRemoting-körningen genererar [prestanda räknare](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Dessa ger insikter om hur ServiceRemoting fungerar och hjälper till med fel sökning och prestanda övervakning.
 
 
 ## <a name="performance-counters"></a>Prestandaräknare
@@ -25,7 +26,7 @@ Den Reliable ServiceRemoting-körningen definierar följande kategorier för pre
 
 Var och en av de föregående kategorierna har en eller flera räknare.
 
-[Windows prestanda övervaknings](https://technet.microsoft.com/library/cc749249.aspx) programmet som är tillgängligt som standard i Windows-operativsystemet kan användas för att samla in och Visa prestanda räknar data. [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestanda räknar data och ladda upp den till Azure-tabeller.
+[Windows prestanda övervaknings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) programmet som är tillgängligt som standard i Windows-operativsystemet kan användas för att samla in och Visa prestanda räknar data. [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestanda räknar data och ladda upp den till Azure-tabeller.
 
 ### <a name="performance-counter-instance-names"></a>Instans namn för prestanda räknare
 Ett kluster som har ett stort antal ServiceRemoting-tjänster eller partitioner har ett stort antal prestanda räknar instanser. Instans namn för prestanda räknaren kan hjälpa till att identifiera den angivna partitionen och tjänst metoden (om tillämpligt) som prestanda räknar instansen är associerad med.
@@ -35,7 +36,7 @@ För kategorin `Service Fabric Service` är räknar instans namnen i följande f
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metoden med format specificeraren "D".
+*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metoden med format specificeraren "D".
 
 *ServiceReplicaOrInstanceId* är sträng representationen av Service Fabric replik/instans-ID som prestanda räknar instansen är associerad med.
 
@@ -56,7 +57,7 @@ För kategorin `Service Fabric Service Method` är räknar instans namnen i föl
 
 *ServiceRuntimeMethodId* är en sträng representation av ett 32-bitars heltal som genereras av Fabric service runtime för intern användning. Detta ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra instans namn för prestanda räknaren. Användare bör inte försöka tolka den här delen av prestanda räknarens instans namn.
 
-*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metoden med format specificeraren "D".
+*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metoden med format specificeraren "D".
 
 *ServiceReplicaOrInstanceId* är sträng representationen av Service Fabric replik/instans-ID som prestanda räknar instansen är associerad med.
 
@@ -91,4 +92,4 @@ När en klient anropar en metod via ett proxyobjekt, resulterar det i att ett be
 
 ## <a name="next-steps"></a>Nästa steg
 * [Exempelkod](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
-* [EventSource-providers i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [EventSource-providers i PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/10/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83868071"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277922"
 ---
 Azure Shared disks (för hands version) är en ny funktion för Azure Managed disks som möjliggör anslutning av en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
 
@@ -41,7 +41,7 @@ Den mesta Windows-baserade klustringen bygger på WSFC, som hanterar all kärnin
 
 Några populära program som körs på WSFC är:
 
-- Redundansklusterinstanser för SQL (SQL Server Failover Cluster Instances (FCI))
+- [Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Skalbar filserver (Scale-out File Server (SoFS))
 - Filserver för allmän användning (IW-arbetsbelastning)
 - Användarprofildisk för fjärrskrivbordsserver (Remote Desktop Server User Profile Disk (RDS UPD))
@@ -87,7 +87,12 @@ Ultra disks ger ytterligare en begränsning, för totalt två begränsningar. P�
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar den skrivskyddade eller Läs-/Skriv behörighet för reservations innehavaren, registrerad och andra.":::
 
-## <a name="ultra-disk-performance-throttles"></a>Prestanda begränsningar för Ultra disk
+## <a name="performance-throttles"></a>Prestanda begränsningar
+
+### <a name="premium-ssd-performance-throttles"></a>Prestanda begränsningar för Premium SSD
+Med Premium SSD åtgärdas disken IOPS och genom strömningen, t. ex. IOPS av en P30 är 5000. Det här värdet är kvar om disken delas mellan två virtuella datorer eller 5 virtuella datorer. Disk gränserna kan nås från en enskild virtuell dator eller delas upp på två eller flera virtuella datorer. 
+
+### <a name="ultra-disk-performance-throttles"></a>Prestanda begränsningar för Ultra disk
 
 Ultra disks har en unik funktion som gör att du kan ställa in prestanda genom att exponera ändrings bara attribut och göra det möjligt att ändra dem. Som standard finns det bara två ändrings bara attribut, men delade Ultra disks har två ytterligare attribut.
 
@@ -111,23 +116,23 @@ Följande formler förklarar hur prestanda-attribut kan anges, eftersom de är �
     - Data flödes gränsen på en enskild disk är 256 KiB/s för varje etablerad IOPS, upp till högst 2000 Mbit/s per disk
     - Lägsta garanterade data flöde per disk är 4KiB/s för varje etablerad IOPS med en total bas linje i minst 1 Mbit/s
 
-### <a name="examples"></a>Exempel
+#### <a name="examples"></a>Exempel
 
 I följande exempel beskrivs några scenarier som visar hur begränsningen kan fungera med delade Ultra disks, särskilt.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Två noder kluster med klusterdelade volymer
+##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Två noder kluster med klusterdelade volymer
 
 Följande är ett exempel på en WSFC med två noder som använder klusterdelade volymer. Med den här konfigurationen har båda de virtuella datorerna samtidig skriv åtkomst till disken, vilket leder till att ReadWrite-begränsningen delas mellan de två virtuella datorerna och att den skrivskyddade begränsningen inte används.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV två-noder, Ultra-exempel":::
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Två nods kluster utan kluster resurs volymer
+##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Två nods kluster utan kluster resurs volymer
 
 Följande är ett exempel på en WSFC-kluster med två noder som inte använder klusterdelade volymer. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som används av den sekundära.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Två noder för CSV: inga CSV Ultra disk-exempel":::
 
-#### <a name="four-node-linux-cluster"></a>Linux-kluster med fyra noder
+##### <a name="four-node-linux-cluster"></a>Linux-kluster med fyra noder
 
 Följande är ett exempel på en 4-nods Linux-kluster med en enda skrivare och tre skalbara läsare. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som delas av de sekundära virtuella datorerna.
 

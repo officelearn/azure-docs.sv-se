@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd83cd164415f45929049541a8731f80a4ba146d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774052"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273514"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure-anläggningar, lokal och fysisk säkerhet
 I den här artikeln beskrivs vad Microsoft gör för att skydda Azure-infrastrukturen.
@@ -29,7 +30,7 @@ Azure består av en [globalt distribuerad Data Center infrastruktur](https://azu
 
 Infrastrukturen är utformad för att ge program närmare användare runtom i världen, bevara data placering och erbjuder omfattande alternativ för efterlevnad och återhämtning för kunder. Azure har 58 regioner i hela världen och är tillgänglig i 140 länder/regioner.
 
-En region är en uppsättning data Center som är sammankopplade via ett massivt och elastiskt nätverk. Nätverket omfattar innehålls distribution, belastnings utjämning, redundans och kryptering som standard. Med fler globala regioner än någon annan moln leverantör ger Azure dig flexibiliteten att distribuera program där du behöver dem.
+En region är en uppsättning data Center som är sammankopplade via ett massivt och elastiskt nätverk. Nätverket omfattar kryptering av innehålls distribution, belastnings utjämning, redundans och [data länks skikt som standard](encryption-overview.md#encryption-of-data-in-transit) för all Azure-trafik inom en region eller resa mellan regioner. Med fler globala regioner än någon annan moln leverantör ger Azure dig flexibiliteten att distribuera program där du behöver dem.
 
 Azure-regioner är indelade i geografiska områden. En Azure-geografi säkerställer att data placering, suveränitet, efterlevnad och återhämtnings krav uppfylls inom geografiska gränser.
 

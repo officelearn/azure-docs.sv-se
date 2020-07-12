@@ -1,5 +1,5 @@
 ---
-title: Mass inläsning av data med Synapse SQL
+title: 'Snabb start: Mass inläsning av data med Synapse kv'
 description: Använd Synapse Studio för att läsa in data i Synapse SQL
 services: synapse-analytics
 author: kevinvngo
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 959742ec3c0434213d19b0f92fe523671fd60f33
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7f840d4a75be72a4317860dcf4a6708642369a24
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964557"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274228"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Mass inläsning med Synapse SQL
 
@@ -26,7 +26,7 @@ Du kan nu enkelt Mass inläsning av data med hjälp av SQL-pooler med enkel hög
 
 - En fil eller mapp från ett Azure Storage-konto som är kopplat till din arbets yta genom ![ att högerklicka på en fil eller mapp från ett lagrings konto](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Den här guiden genererar en COPY-instruktion som använder AAD-vidarekoppling för authentcation. Din [AAD-användare måste ha åtkomst](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) till arbets ytan med en RBAC-roll för Storage BLOB data Contributor till ADLS Gen2 kontot.
 

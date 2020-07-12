@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en Apache Spark pool (förhands granskning) med Synapse Studio
+title: 'Snabb start: skapa en Apache Spark pool (förhands granskning) med Synapse Studio'
 description: Skapa en ny Apache Spark pool med Synapse Studio genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c945e56aa0b6f851f54cf7679276558190b4bc10
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 87fcbef5a3cedab3142fe9ad47c68752515fdd2e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194984"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274347"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Snabb start: skapa en Apache Spark pool (förhands granskning) med Synapse Studio
 
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/)
+Logga in på [Azure-portalen](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Navigera till arbets ytan Synapse
 
@@ -61,11 +61,11 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 
 1. Ange följande information på fliken **grundläggande** :
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **Namn på Apache Spark bassäng** | contosospark | Detta är det namn som Apache Spark-poolen kommer att ha. |
     | **Node-storlek** | Liten (4 vCPU/32 GB) | Ange den minsta storleken för att minska kostnaderna för den här snabb starten |
-    | **Automatisk skalning** | Disabled | Vi behöver inte autoskalning i den här snabb starten |
+    | **Automatisk skalning** | Inaktiverad | Vi behöver inte autoskalning i den här snabb starten |
     | **Antal noder** | 8 | Begränsa kostnaderna i den här snabb starten med en liten storlek|
     
     ![Synapse Studio New Apache Spark pool form.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)

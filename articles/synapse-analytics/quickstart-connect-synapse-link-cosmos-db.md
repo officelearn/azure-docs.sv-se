@@ -1,5 +1,5 @@
 ---
-title: Anslut till Azure Synapse-länken för Azure Cosmos DB
+title: 'Snabb start: ansluta till Azure Synapse-länken för Azure Cosmos DB'
 description: Så här ansluter du en Azure Cosmos DB till en Synapse-arbetsyta med Synapse-länk
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 81cc7745790c7a89576dc5d0ff925dbaff2b2334
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 56b018326e8673e6ac9e625a5732a08238f982fd
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700379"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274330"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Anslut till Azure Synapse-länken för Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Från data Object Explorer kan du ansluta en Azure Cosmos DB databas direkt geno
 5. Namnge den länkade tjänsten. Namnet visas i Object Explorer och används av Synapse körnings tider för att ansluta till databasen och behållarna. Vi rekommenderar att du använder ett eget namn.
 6. Välj det **Cosmos DB konto namnet** och **databas namnet**
 7. Valfritt Om ingen region anges dirigeras Synapse kör tids åtgärder till den närmaste region där analys lagret är aktiverat. Du kan dock ange manuellt vilken region du vill att användarna ska ha åtkomst till Cosmos DB analys lager. Välj **ytterligare anslutnings egenskaper** och sedan **ny**. Under **egenskaps namn**skriver du ***PreferredRegions*** och anger **värdet** till den region som du vill ha (exempel: WestUS2, det finns inget blank steg mellan ord och siffror)
-8. Välj ***skapa***
+8. Välj ***Skapa***
 
 Azure Cosmos DB-databaser visas under den flik som är **länkad** i avsnittet Azure Cosmos dB. Du kan skilja en HTAP-aktiverad Azure Cosmos DB-behållare från en skrivskyddad OLTP-behållare med följande ikoner:
 

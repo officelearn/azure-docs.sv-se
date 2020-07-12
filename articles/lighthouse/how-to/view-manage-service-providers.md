@@ -1,14 +1,14 @@
 ---
 title: Visa och hantera tjänstleverantörer
 description: Kunder kan använda sidan tjänst leverantörer i Azure Portal för att visa information om tjänst leverantörer, Service Provider-erbjudanden och delegerade resurser.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111634"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273786"
 ---
 # <a name="view-and-manage-service-providers"></a>Visa och hantera tjänstleverantörer
 
@@ -19,7 +19,7 @@ För att få åtkomst till sidan **tjänst leverantörer** i Azure Portal kan ku
 > [!NOTE]
 > För att kunna visa sidan **tjänst leverantörer** måste en användare i kundens klient organisation ha den [inbyggda rollen läsare](../../role-based-access-control/built-in-roles.md#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst).
 >
-> För att lägga till erbjudanden, delegera resurser och ta bort erbjudanden måste användaren ha den [inbyggda rollen ägare](../../role-based-access-control/built-in-roles.md#owner) för prenumerationen.
+> För att lägga till eller uppdatera erbjudanden, delegera resurser och ta bort erbjudanden måste användaren ha den [inbyggda rollen ägare](../../role-based-access-control/built-in-roles.md#owner) för prenumerationen.
 
 Tänk på att sidan **tjänst leverantörer** endast visar information om de tjänst leverantörer som har åtkomst till kundens prenumerationer eller resurs grupper via Azure Lighthouse. Om en kund arbetar med ytterligare tjänst leverantörer som inte använder Azure-Lighthouse för att få åtkomst till kundens resurser visas inte information om dessa tjänst leverantörer här.
 

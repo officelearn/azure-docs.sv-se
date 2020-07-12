@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113980"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273769"
 ---
 # <a name="backend-pool-management"></a>Hantering av Server dels pooler
 Backend-poolen är en kritisk komponent i belastningsutjämnaren. Backend-poolen definierar den grupp av resurser som kommer att betjäna trafik för en specifik belastnings Utjämnings regel.
@@ -22,9 +22,9 @@ Det finns två sätt att konfigurera en backend-pool:
 * Nätverks gränssnitts kort (NIC)
 * Kombinations resurs-ID för IP-adress och Virtual Network (VNET)
 
-Konfigurera din backend-pool med NIC när du använder virtuella datorer och skalnings uppsättningar för virtuella datorer. Den här metoden skapar den mest direkta länken mellan resursen och backend-poolen. 
+Konfigurera din backend-pool med NIC när du använder befintliga virtuella datorer och skalnings uppsättningar för virtuella datorer. Den här metoden skapar den mest direkta länken mellan resursen och backend-poolen. 
 
-I scenarier där ett nätverkskort inte är tillgängligt, till exempel behållare eller Kubernetes-poddar, konfigurerar du din backend-pool med kombinationen IP-adress och VNET-ID.
+När du förallokerar din backend-pool med ett IP-adressintervall som du planerar att senare skapa virtuella datorer och skalnings uppsättningar för virtuella datorer, konfigurerar du din backend-pool med en kombination av IP-adress och VNET-ID.
 
 Konfigurations avsnitten i den här artikeln kommer att fokuseras på:
 
@@ -249,7 +249,7 @@ Text för JSON-begäran:
 Följ den här [snabb starts guiden](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) för att distribuera en belastningsutjämnare och virtuella datorer och lägga till de virtuella datorerna i backend-poolen via nätverks gränssnittet.
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Konfigurera backend-poolen med IP-adress och virtuellt nätverk
-Använd IP och Virtual Network i scenarier med behållare eller en förifylld backend-pool med IP-adresser.
+Använd IP och Virtual Network i scenarier med förifyllda backend-pooler.
 
 All hantering av backend-pooler görs direkt på objektet för Server delen som marker ATS i exemplen nedan.
 

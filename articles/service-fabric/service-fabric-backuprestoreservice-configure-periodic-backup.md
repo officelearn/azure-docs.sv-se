@@ -5,11 +5,12 @@ author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610156"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261220"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric
 
@@ -157,23 +158,23 @@ Anta att dessa programs krav för säkerhets kopiering av data är följande
 
 För att åtgärda dessa krav för säkerhets kopiering, skapas säkerhets kopierings principer BP_1 BP_5 skapas och säkerhets kopiering aktive ras enligt följande.
 1. MyApp_A
-    1. Skapa säkerhets kopierings princip, _BP_1_, med frekvens-baserat säkerhets kopierings schema där frekvensen är inställd på 24 timmar. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för _MyApp_A_ program MyApp_A [att använda Aktivera API för program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) . Den här åtgärden möjliggör säkerhets kopiering av data med hjälp av säkerhets kopierings princip _BP_1_ för alla partitioner med _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ som hör till program _MyApp_A_.
+    1. Skapa säkerhets kopierings princip, _BP_1_, med frekvens-baserat säkerhets kopierings schema där frekvensen är inställd på 24 timmar. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för _MyApp_A_ program MyApp_A [att använda Aktivera API för program säkerhets kopiering](/rest/api/servicefabric/sfclient-api-enableapplicationbackup) . Den här åtgärden möjliggör säkerhets kopiering av data med hjälp av säkerhets kopierings princip _BP_1_ för alla partitioner med _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ som hör till program _MyApp_A_.
 
-    2. Skapa säkerhets kopierings princip, _BP_2_, med frekvens-baserat säkerhets kopierings schema där frekvensen anges till 1 timme. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för tjänst- _SvcA3_ med hjälp av Aktivera API för [säkerhets kopiering av tjänst](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Den här åtgärden åsidosätter den spridda princip _BP_1_ genom uttryckligen aktiverade säkerhets kopierings principer _BP_2_ för alla _SvcA3_ som leder till data säkerhets kopiering med säkerhets kopierings princip _BP_2_ för dessa partitioner.
+    2. Skapa säkerhets kopierings princip, _BP_2_, med frekvens-baserat säkerhets kopierings schema där frekvensen anges till 1 timme. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för tjänst- _SvcA3_ med hjälp av Aktivera API för [säkerhets kopiering av tjänst](/rest/api/servicefabric/sfclient-api-enableservicebackup) . Den här åtgärden åsidosätter den spridda princip _BP_1_ genom uttryckligen aktiverade säkerhets kopierings principer _BP_2_ för alla _SvcA3_ som leder till data säkerhets kopiering med säkerhets kopierings princip _BP_2_ för dessa partitioner.
 
-    3. Skapa säkerhets kopierings princip, _BP_3_, med frekvens-baserat säkerhets kopierings schema där frekvensen är inställd på 24 timmar. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore2_. Aktivera den här principen för partition _SvcA1_P2_ att använda API för [att aktivera partitions säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Den här åtgärden åsidosätter den spridda princip _BP_1_ genom uttryckligen aktiverade säkerhets kopierings principer _BP_3_ för partition _SvcA1_P2_.
+    3. Skapa säkerhets kopierings princip, _BP_3_, med frekvens-baserat säkerhets kopierings schema där frekvensen är inställd på 24 timmar. och lagring av säkerhets kopior som kon figurer ATS för att använda lagrings platsen _BackupStore2_. Aktivera den här principen för partition _SvcA1_P2_ att använda API för [att aktivera partitions säkerhets kopiering](/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Den här åtgärden åsidosätter den spridda princip _BP_1_ genom uttryckligen aktiverade säkerhets kopierings principer _BP_3_ för partition _SvcA1_P2_.
 
 2. MyApp_B
-    1. Skapa säkerhets kopierings princip, _BP_4_, med tidsbaserat säkerhets kopierings schema där schema frekvens typ är inställd på veckovis, körnings dagar är inställt på söndag och körnings tiderna är inställt på 8:00. Säkerhets kopierings lagring som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för tjänst- _SvcB1_ med hjälp av Aktivera API för [säkerhets kopiering av tjänst](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Den här åtgärden aktiverar data säkerhets kopiering med säkerhets kopierings princip _BP_4_ för alla partitioner för service _SvcB1_.
+    1. Skapa säkerhets kopierings princip, _BP_4_, med tidsbaserat säkerhets kopierings schema där schema frekvens typ är inställd på veckovis, körnings dagar är inställt på söndag och körnings tiderna är inställt på 8:00. Säkerhets kopierings lagring som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för tjänst- _SvcB1_ med hjälp av Aktivera API för [säkerhets kopiering av tjänst](/rest/api/servicefabric/sfclient-api-enableservicebackup) . Den här åtgärden aktiverar data säkerhets kopiering med säkerhets kopierings princip _BP_4_ för alla partitioner för service _SvcB1_.
 
-    2. Skapa säkerhets kopierings princip, _BP_5_, med tidsbaserat säkerhets kopierings schema där schema frekvens typ är inställd på daglig och kör tid är inställd på 8:00. Säkerhets kopierings lagring som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för partition _SvcB2_P1_ att använda API för [att aktivera partitions säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Den här åtgärden aktiverar data säkerhets kopiering med säkerhets kopierings princip _BP_5_ för partition _SvcB2_P1_.
+    2. Skapa säkerhets kopierings princip, _BP_5_, med tidsbaserat säkerhets kopierings schema där schema frekvens typ är inställd på daglig och kör tid är inställd på 8:00. Säkerhets kopierings lagring som kon figurer ATS för att använda lagrings platsen _BackupStore1_. Aktivera den här principen för partition _SvcB2_P1_ att använda API för [att aktivera partitions säkerhets kopiering](/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Den här åtgärden aktiverar data säkerhets kopiering med säkerhets kopierings princip _BP_5_ för partition _SvcB2_P1_.
 
 Följande diagram illustrerar uttryckligen aktiverade säkerhets kopierings principer och distribuerade säkerhets kopierings principer.
 
 ![Service Fabric programhierarki][0]
 
 ## <a name="disable-backup"></a>Inaktivera säkerhets kopiering
-Säkerhets kopierings principer kan inaktive ras när det inte finns några behov av att säkerhetskopiera data. Säkerhets kopierings principen som är aktive rad i ett _program_ kan bara inaktive ras i samma _program_ med hjälp av inaktivera API för [program säkerhets](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) kopiering. säkerhets kopierings principen som är aktive rad på en _tjänst_ kan inaktive ras _på samma_ _tjänst_ som använder inaktivera [API för](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) [tjänst säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) och säkerhets kopierings principen som är aktive rad på en _partition_ kan
+Säkerhets kopierings principer kan inaktive ras när det inte finns några behov av att säkerhetskopiera data. Säkerhets kopierings principen som är aktive rad i ett _program_ kan bara inaktive ras i samma _program_ med hjälp av inaktivera API för [program säkerhets](/rest/api/servicefabric/sfclient-api-disableapplicationbackup) kopiering. säkerhets kopierings principen som är aktive rad på en _tjänst_ kan inaktive ras _på samma_ _tjänst_ som använder inaktivera [API för](/rest/api/servicefabric/sfclient-api-disablepartitionbackup) [tjänst säkerhets kopiering](/rest/api/servicefabric/sfclient-api-disableservicebackup) och säkerhets kopierings principen som är aktive rad på en _partition_ kan
 
 * Om du inaktiverar säkerhets kopierings principen för ett _program_ stoppas alla periodiska data säkerhets kopieringar på grund av spridningen av säkerhets kopierings principen till pålitliga tillstånds känsliga diskpartitioner eller tillförlitliga aktörs partitioner.
 
@@ -191,19 +192,19 @@ Säkerhets kopierings principer kan inaktive ras när det inte finns några beho
 ## <a name="suspend--resume-backup"></a>Pausa & återuppta säkerhets kopieringen
 En viss situation kan kräva tillfällig fjädring av regelbunden säkerhets kopiering av data. I sådana fall, beroende på vad som krävs, kan du inaktivera säkerhets kopierings-API: et för ett _program_, en _tjänst_eller en _partition_. Regelbunden SUS Pension är transitiv över under trädet för programmets hierarki från den punkt som används. 
 
-* När SUS Pension används i ett _program_ med hjälp av inaktivera API för [program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) pausas alla tjänster och partitioner under det här programmet för regelbunden säkerhets kopiering av data.
+* När SUS Pension används i ett _program_ med hjälp av inaktivera API för [program säkerhets kopiering](/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) pausas alla tjänster och partitioner under det här programmet för regelbunden säkerhets kopiering av data.
 
-* När SUS Pension används på en _tjänst_ med hjälp av [suspend-tjänsten för säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) inaktive ras alla partitioner under den här tjänsten för regelbunden säkerhets kopiering av data.
+* När SUS Pension används på en _tjänst_ med hjälp av [suspend-tjänsten för säkerhets kopiering](/rest/api/servicefabric/sfclient-api-suspendservicebackup) inaktive ras alla partitioner under den här tjänsten för regelbunden säkerhets kopiering av data.
 
-* När SUS Pension används på en _partition_ med hjälp av [pausa partitions säkerhets kopierings](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) -API, pausas partitioner under den här tjänsten för regelbunden säkerhets kopiering av data.
+* När SUS Pension används på en _partition_ med hjälp av [pausa partitions säkerhets kopierings](/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) -API, pausas partitioner under den här tjänsten för regelbunden säkerhets kopiering av data.
 
 När behovet av SUS Pension är över kan den periodiska säkerhets kopian återställas med respektive återuppta säkerhets kopierings-API. Regelbunden säkerhets kopiering måste återupptas på samma _program_, _tjänst_eller _partition_ där det pausades.
 
-* Om SUS Pension har tillämpats på ett _program_ska den återupptas med hjälp av [återuppta program säkerhets kopierings](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) -API. 
+* Om SUS Pension har tillämpats på ett _program_ska den återupptas med hjälp av [återuppta program säkerhets kopierings](/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) -API. 
 
-* Om SUS Pension har tillämpats på en _tjänst_ska den återupptas med hjälp av [återuppta service backup-](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
+* Om SUS Pension har tillämpats på en _tjänst_ska den återupptas med hjälp av [återuppta service backup-](/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
-* Om SUS Pension har tillämpats på en _partition_, ska den återupptas med hjälp av [återuppta partitions säkerhets kopierings](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) -API.
+* Om SUS Pension har tillämpats på en _partition_, ska den återupptas med hjälp av [återuppta partitions säkerhets kopierings](/rest/api/servicefabric/sfclient-api-resumepartitionbackup) -API.
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Skillnaden mellan pausa och inaktivera säkerhets kopieringar
 Inaktivera säkerhets kopiering ska användas när säkerhets kopiering inte längre krävs för ett visst program, en tjänst eller en partition. En kan anropa inaktivera begäran om säkerhets kopiering tillsammans med parametern för rensade säkerhets kopior så att alla befintliga säkerhets kopior också tas bort. Pausa är dock att användas i scenarier där en vill inaktivera säkerhets kopieringar tillfälligt, till exempel när den lokala disken blir full eller om det inte går att ladda upp säkerhets kopieringen på grund av kända nätverks problem osv. 
@@ -216,7 +217,7 @@ Inaktive ring kan bara anropas på en nivå som tidigare har Aktiver ATS för s�
 När Service Fabric upptäcker att partitionen har data förlust, anropar den `OnDataLossAsync` gränssnitts metod på partitionen och förväntar sig att partitionen ska vidta den nödvändiga åtgärden för att ta bort data förlust. I det här fallet `AutoRestoreOnDataLoss` `true` utlöses återställningen automatiskt med den senaste tillgängliga säkerhets kopian för den här partitionen, om den gällande säkerhets kopierings principen vid partitionen har angetts till.
 
 ## <a name="get-backup-configuration"></a>Hämta säkerhets kopierings konfiguration
-Separata API: er görs tillgängliga för att hämta konfigurations information för säkerhets kopiering i en _program_-, _tjänst_-och _partition_ omfattning. [Hämta konfigurations information för program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Hämta konfigurations information för tjänst säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)och [Hämta konfigurations information för säkerhets kopiering av partitioner](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) är dessa API: er Huvudsakligen returnerar dessa API: er den tillämpliga säkerhets kopierings principen, omfattning som säkerhets kopierings principen tillämpas på och information om SUS pension. Följande är en kort beskrivning av returnerade resultat från dessa API: er.
+Separata API: er görs tillgängliga för att hämta konfigurations information för säkerhets kopiering i en _program_-, _tjänst_-och _partition_ omfattning. [Hämta konfigurations information för program säkerhets kopiering](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Hämta konfigurations information för tjänst säkerhets kopiering](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)och [Hämta konfigurations information för säkerhets kopiering av partitioner](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) är dessa API: er Huvudsakligen returnerar dessa API: er den tillämpliga säkerhets kopierings principen, omfattning som säkerhets kopierings principen tillämpas på och information om SUS pension. Följande är en kort beskrivning av returnerade resultat från dessa API: er.
 
 - Konfigurations information för program säkerhets kopiering: innehåller information om säkerhets kopierings policyn som tillämpas på programmet och alla åsidosättande principer på tjänster och partitioner som hör till programmet. Den innehåller också information om SUS pension för programmet och IT-tjänster och partitioner.
 
@@ -232,13 +233,13 @@ Dessa API: er stöder också sid brytning av resultaten, när _MaxResults_ -para
 
 Nedan följer en kort information om vilka varianter som stöds.
 
-- [Hämta program säkerhets kopierings lista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): returnerar en lista med tillgängliga säkerhets kopior för varje partition som hör till Service Fabric program.
+- [Hämta program säkerhets kopierings lista](/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): returnerar en lista med tillgängliga säkerhets kopior för varje partition som hör till Service Fabric program.
 
-- [Hämta säkerhets kopie lista för tjänsten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): returnerar en lista med tillgängliga säkerhets kopior för varje partition som hör till den Service Fabric tjänsten.
+- [Hämta säkerhets kopie lista för tjänsten](/rest/api/servicefabric/sfclient-api-getservicebackuplist): returnerar en lista med tillgängliga säkerhets kopior för varje partition som hör till den Service Fabric tjänsten.
  
-- [Hämta säkerhets kopie lista för partitioner](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): returnerar en lista med tillgängliga säkerhets kopior för den angivna partitionen.
+- [Hämta säkerhets kopie lista för partitioner](/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): returnerar en lista med tillgängliga säkerhets kopior för den angivna partitionen.
 
 ## <a name="next-steps"></a>Nästa steg
-- [REST API referens för säkerhets kopierings återställning](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [REST API referens för säkerhets kopierings återställning](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

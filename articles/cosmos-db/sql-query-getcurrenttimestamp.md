@@ -4,18 +4,19 @@ description: Lär dig mer om SQL system Function GetCurrentTimestamp i Azure Cos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 07/09/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b816c63da56025fe6e9cbaece2cde5dcd01585d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c35f83ce7a9a478f706e9ed560d884d9bf5e508
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71351005"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261294"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
- Returnerar antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970. 
+
+ Returnerar antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970.
   
 ## <a name="syntax"></a>Syntax
   

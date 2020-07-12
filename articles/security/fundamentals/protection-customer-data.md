@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d723e60afe543808c88b1ae040e2979412ff324c
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811423"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273480"
 ---
 # <a name="azure-customer-data-protection"></a>Data skydd för Azure-kunder   
-Till gång till kund information av Microsoft-åtgärder och support personal nekas som standard. När åtkomst till kunddata beviljas krävs ledarskaps godkännande och åtkomsten hanteras noga och loggas. Kraven för åtkomst kontroll upprättas av följande Azure-säkerhets princip:
+Till gång till kund information av Microsoft-åtgärder och support personal nekas som standard. När åtkomst till data som rör ett support ärende beviljas, beviljas det bara med en just-in-Time (JIT)-modell med principer som granskas och testats mot våra efterlevnads-och sekretess principer.  Kraven för åtkomst kontroll upprättas av följande Azure-säkerhets princip:
 
 - Ingen åtkomst till kund information, som standard.
 - Inga användar-eller administratörs konton på kundens virtuella datorer (VM).
@@ -37,14 +38,11 @@ Azure ger kunderna stark data säkerhet, både som standard och som kund alterna
 
 **Data uppdelning**: Azure är en tjänst för flera innehavare, vilket innebär att flera kund distributioner och virtuella datorer lagras på samma fysiska maskin vara. Azure använder logisk isolering för att åtskilja varje kunds data från andra data. Åtskillnad ger skalbarhet och ekonomiska fördelar med tjänster för flera innehavare samtidigt som kunder kan komma åt en annans data.
 
-**Data skydd i vila**: kunderna är ansvariga för att säkerställa att data som lagras i Azure krypteras i enlighet med deras standarder. Azure erbjuder en mängd olika krypterings funktioner, vilket ger kunderna möjlighet att välja den lösning som bäst uppfyller deras behov. Azure Key Vault hjälper kunderna att enkelt upprätthålla kontrollen över nycklar som används av moln program och-tjänster för att kryptera data. Azure Disk Encryption gör det möjligt för kunderna att kryptera virtuella datorer. Med Azure Storage tjänst kryptering kan du kryptera alla data som placeras i en kunds lagrings konto.
+**Data skydd i vila**: kunderna är ansvariga för att säkerställa att data som lagras i Azure krypteras i enlighet med deras standarder. Azure erbjuder en mängd olika krypterings funktioner, vilket ger kunderna möjlighet att välja den lösning som bäst uppfyller deras behov. Azure Key Vault hjälper kunderna att enkelt upprätthålla kontrollen över nycklar som används av moln program och-tjänster för att kryptera data. Azure Disk Encryption gör det möjligt för kunderna att kryptera virtuella datorer. Azure Storage tjänst kryptering gör det möjligt att kryptera alla data som placeras i en kunds lagrings konto.
 
-**Data skydd under överföring**: kunder kan aktivera kryptering för trafik mellan sina egna virtuella datorer och slutanvändare. Azure skyddar data i överföring till eller från externa komponenter och data som överförs internt, till exempel mellan två virtuella nätverk. Azure använder Transport Layer Security-protokollet (TLS) 1,2 eller senare med 2 048-bitars RSA/SHA256 krypterings nycklar, som rekommenderas av CESG/NCSC, för att kryptera kommunikation mellan:
+**Data skydd under överföring**: Microsoft tillhandahåller ett antal alternativ som kan användas av kunder för att skydda data i överföring internt i Azure-nätverket och externt via Internet till slutanvändaren.  Dessa inkluderar kommunikation via virtuella privata nätverk (användning av IPsec/IKE-kryptering), Transport Layer Security (TLS) 1,2 eller senare (via Azure-komponenter som Application Gateway eller Azure-frontend), protokoll direkt på de virtuella Azure-datorerna (t. ex. Windows IPsec eller SMB) med mera. 
 
-- Kunden och molnet.
-- Internt mellan Azure-system och data Center.
-
-**Kryptering**: kryptering av data i lagring och under överföring kan distribueras av kunder som bästa praxis för att säkerställa konfidentialitet och integritet för data. Det är enkelt för kunderna att konfigurera sina Azure-Molntjänster att använda TLS för att skydda kommunikation från Internet och även mellan sina virtuella datorer i Azure.
+Dessutom är "kryptering som standard" med MACsec (en IEEE-standard på data länk skiktet) aktive rad för all Azure-trafik mellan Azure-datacenter för att säkerställa konfidentialitet och integritet hos kunddata. 
 
 **Dataredundans**: Microsoft hjälper till att säkerställa att data skyddas om det finns en cyberattack eller fysisk skada på ett Data Center. Kunder kan välja mellan:
 

@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en Synapse SQL-pool (för hands version) med Synapse Studio
+title: 'Snabb start: skapa en Synapse SQL-pool (för hands version) med Synapse Studio'
 description: Skapa en ny Synapse SQL-pool med Synapse Studio genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f93eb55b888c58ad111bd67b2011ba9c996b16bb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960273"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274279"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Snabb start: skapa en Synapse SQL-pool (för hands version) med Synapse Studio
 
@@ -25,14 +25,14 @@ I den här snabb starten beskrivs stegen för att skapa en SQL-pool i en Synapse
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse-arbetsyta](quickstart-create-workspace.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/)
+Logga in på [Azure-portalen](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Navigera till arbets ytan Synapse
 
@@ -59,7 +59,7 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 
 1. Ange följande information på fliken **grundläggande** :
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **SQL-poolnamn** | contosoedw | Detta är det namn som SQL-poolen kommer att ha. |
     | **Prestanda nivå** | DW100c | Ange den minsta storleken för att minska kostnaderna för den här snabb starten |

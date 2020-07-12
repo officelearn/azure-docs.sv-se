@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en Synapse-arbetsyta
+title: 'Snabb start: skapa en Synapse-arbetsyta'
 description: Skapa en Synapse-arbetsyta genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: pimorano
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e5896d1eabaf43afcbab7513d7abb0b1de4efe51
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: a069ee40c2db99b05e9620cf83c06c49cc9e29fc
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656701"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274245"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/)
+Logga in på [Azure-portalen](https://portal.azure.com/)
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal
 
@@ -38,7 +38,7 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 ![Kommando för att skapa en ny Azure dataSynapses-arbetsyta är markerat.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Fyll i formuläret för **Azure DataSynapses-arbetsyta** med följande information:
 
-    | Inställningen | Föreslaget värde | Description |
+    | Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **Prenumeration** | *Din prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
     | **Resursgrupp** | *Alla resurs grupper* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |

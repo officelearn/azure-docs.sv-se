@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1171c07a754b056fb9df2cee73ddf224427037cc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77123174"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277811"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Allmän tillgänglighet och för hands versions jämförelse
 
@@ -22,16 +22,16 @@ I följande tabell sammanfattas flera viktiga skillnader mellan Azure Time Serie
 
 | | Allmän tillgänglighet (GA) | Förhandsgranskning |
 | --- | --- | ---|
-| Medborgare i första klass | Händelse-centrerad | Tidsserien – centrerad |
-| Semantiska orsaker | Lågnivå (referens data) | Hög nivå (modeller) |
-| Data contextualization | Ej enhets nivå | Enhets-och icke-enhets nivå |
-| Beräkning av logik lagring | No | Lagrad i typen variabler del av modellen |
-| Lagring och åtkomst kontroll | No | Aktive rad via modell |
-| Agg regeringar/sampling | No | Event viktad och tids viktad |
-| Återuppbyggnad av signal | No | Interpol |
-| Produktion av härledd tids serie | No | Ja, sammanslagningar och kopplingar |
-| Språk flexibilitet | Ej sammanställnings bar | Sammansättnings bar |
-| Uttrycksspråk | Predikat-sträng | Tids serie uttryck (predikaa strängar, värden, uttryck och funktioner) |
+| **Medborgare i första klass** | Händelse-centrerad | Tidsserien – centrerad |
+| **Semantiska orsaker** | Lågnivå (referens data) | Hög nivå (modeller) |
+| **Data contextualization** | Ej enhets nivå | Enhets-och icke-enhets nivå |
+| **Beräkning av logik lagring** | Nej | Lagrad i typen variabler del av modellen |
+| **Lagring och åtkomst kontroll** | Nej | Aktive rad via modell |
+| **Agg regeringar/sampling** | Nej | Event viktad och tids viktad |
+| **Återuppbyggnad av signal** | Nej | Interpol |
+| **Produktion av härledd tids serie** | Nej | Ja, sammanslagningar och kopplingar |
+| **Språk flexibilitet** | Ej sammanställnings bar | Sammansättnings bar |
+| **Uttrycks språk** | Predikat-sträng | Tids serie uttryck (predikaa strängar, värden, uttryck och funktioner) |
 
 ### <a name="property-limits"></a>Egenskaps gränser
 

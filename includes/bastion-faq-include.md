@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8d30e7fe3138a26d9b64ec35d18260933df7999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82780323"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276130"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Vilka regioner är tillgängliga?
 
@@ -48,6 +48,10 @@ För närvarande stöds endast text kopiering och inklistring. Funktioner som fi
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Vilka webbläsare stöds?
 
 Använd Microsoft Edge-webbläsaren eller Google Chrome i Windows. För Apple Mac använder du Google Chrome-webbläsaren. Microsoft Edge-krom stöds också både för Windows och Mac.
+
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Var lagrar Azure skydds kund information?
+
+Azure-skydds flyttar eller lagrar inte kund information från den region som den distribueras i.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>Krävs det några roller för att få åtkomst till en virtuell dator?
 

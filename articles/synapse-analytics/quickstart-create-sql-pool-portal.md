@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en Synapse SQL-pool (för hands version) med hjälp av Azure Portal
+title: 'Snabb start: skapa en Synapse SQL-pool (för hands version) med hjälp av Azure Portal'
 description: Skapa en ny Synapse SQL-pool med hjälp av Azure Portal genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 966ca099c44ba8b0f2d3241c391f4d7a101afb26
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 768b559ddaf7364726cb26a34d12f357d4126426
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955105"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274262"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Snabb start: skapa en Synapse SQL-pool (för hands version) med hjälp av Azure Portal
 
@@ -24,14 +24,14 @@ I den här snabb starten får du lära dig hur du skapar en SQL-pool på en Syna
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse-arbetsyta](./quickstart-create-workspace.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/)
+Logga in på [Azure-portalen](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Navigera till arbets ytan Synapse
 
@@ -46,7 +46,7 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 ![Översikt över Synapse-arbetsytan med en röd ruta runt kommandot för att skapa en ny SQL-pool.](media/quickstart-create-sql-pool/create-sql-pool-portal-01.png)
 2. Ange följande information på fliken **grundläggande** :
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **SQL-poolnamn** | Valfritt giltigt namn | SQL-poolens namn. |
     | **Prestanda nivå** | DW100c | Ställ in på den minsta storleken för att minska kostnaderna för den här snabb starten |

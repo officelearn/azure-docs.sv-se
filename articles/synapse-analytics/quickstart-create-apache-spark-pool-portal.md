@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en Apache Spark pool (förhands granskning) med hjälp av Azure Portal
+title: 'Snabb start: skapa en Apache Spark pool (förhands granskning) med hjälp av Azure Portal'
 description: Skapa en ny Apache Spark pool med hjälp av Azure Portal genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2b199848e6c84370bd9d8711eed25dbf6c3f4dfa
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194941"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274364"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Snabb start: skapa en ny Apache Spark pool (förhands granskning) med hjälp av Azure Portal
 
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/)
+Logga in på [Azure-portalen](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Navigera till arbets ytan Synapse 
 1. Gå till arbets ytan Synapse där Apache Spark-poolen skapas genom att skriva tjänst namnet (eller resurs namnet direkt) i Sök fältet.
@@ -49,11 +49,11 @@ Logga in på [Azure Portal](https://portal.azure.com/)
     ![Översikt över Synapse-arbetsytan med en röd ruta runt kommandot för att skapa en ny Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
 2. Ange följande information på fliken **grundläggande** :
 
-    |Inställningen | Föreslaget värde | Beskrivning |
+    |Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **Namn på Apache Spark bassäng** | Ett giltigt poolnamn | Detta är det namn som Apache Spark-poolen kommer att ha. |
     | **Node-storlek** | Liten (4 vCPU/32 GB) | Ange den minsta storleken för att minska kostnaderna för den här snabb starten |
-    | **Automatisk skalning** | Disabled | Den här snabb starten behöver inte autoskalas |
+    | **Automatisk skalning** | Inaktiverad | Den här snabb starten behöver inte autoskalas |
     | **Antal noder** | 5 | Begränsa kostnaderna för den här snabb starten med en liten storlek |
 
 

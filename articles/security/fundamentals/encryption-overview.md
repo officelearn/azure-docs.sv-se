@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84012984"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276540"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -116,9 +117,13 @@ Tre typer av nycklar används för att kryptera och dekryptera data: huvud krypt
 
 Azure erbjuder många mekanismer för att hålla data privata när de flyttas från en plats till en annan.
 
-### <a name="tlsssl-encryption-in-azure"></a>TLS/SSL-kryptering i Azure
+### <a name="data-link-layer-encryption-in-azure"></a>Kryptering av data länk skikt i Azure
 
-Microsoft använder TLS-protokollet ( [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) ) för att skydda data när de reser mellan moln tjänster och kunder. Microsoft-datacentren förhandlar en TLS-anslutning med klient system som ansluter till Azure-tjänster. TLS ger stark autentisering, meddelande sekretess och integritet (aktiverar identifiering av meddelande manipulation, avlyssning och förfalskning), samverkan, algoritm flexibilitet och enkel distribution och användning.
+När Azure-kundtrafiken flyttas mellan data Center – utanför fysiska gränser som inte styrs av Microsoft (eller på uppdrag av Microsoft) – en krypterings metod för data länk nivå som använder [IEEE 802.1 AE Mac Security Standards](https://1.ieee802.org/security/802-1ae/) (kallas även MACsec) tillämpas från punkt-till-plats över den underliggande nätverks maskin varan.  Paketen krypteras och dekrypteras på enheterna innan de skickas, vilket förhindrar fysiska "man-in-the-Middle"-eller snooping/wiretapping-attacker.  Eftersom den här tekniken är integrerad i själva nätverks maskin varan tillhandahåller den en kryptering på nätverks maskin varan utan en mätbar fördröjning för länk fördröjning.  Den här MACsec-krypteringen är aktive ras som standard för all Azure-trafik inom en region eller mellan regioner, och ingen åtgärd krävs för kundernas del att aktivera. 
+
+### <a name="tls-encryption-in-azure"></a>TLS-kryptering i Azure
+
+Microsoft ger kunderna möjlighet att använda [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) -protokollet (TLS) för att skydda data när de reser mellan moln tjänster och kunder. Microsoft-datacentren förhandlar en TLS-anslutning med klient system som ansluter till Azure-tjänster. TLS ger stark autentisering, meddelande sekretess och integritet (aktiverar identifiering av meddelande manipulation, avlyssning och förfalskning), samverkan, algoritm flexibilitet och enkel distribution och användning.
 
 Perfect [Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) skyddar anslutningar mellan kunders klient system och Microsoft Cloud Services genom unika nycklar. Anslutningar använder även RSA-baserade 2 048-bitars krypterings nyckel längd. Den här kombinationen gör det svårt för någon att avlyssna och komma åt data som är under överföring.
 
@@ -140,7 +145,7 @@ När SMB-kryptering har Aktiver ATS för en resurs eller server har som standard
 
 ## <a name="in-transit-encryption-in-vms"></a>Kryptering under överföring i virtuella datorer
 
-Data som överförs till, från och mellan virtuella datorer som kör Windows krypteras på flera olika sätt, beroende på anslutningens typ.
+Data som överförs till, från och mellan virtuella datorer som kör Windows kan krypteras på flera olika sätt, beroende på anslutningens typ.
 
 ### <a name="rdp-sessions"></a>RDP-sessioner
 

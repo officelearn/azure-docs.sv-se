@@ -7,11 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773792"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255259"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Söka efter Kubernetes metodtips i ditt kluster
 
@@ -28,7 +29,7 @@ Kube-verktyget kan rapportera om resurs begär Anden och gränser som saknas i P
 
 ## <a name="running-kube-advisor"></a>Köra Kube-Advisor
 
-För att köra verktyget på ett kluster som har kon figurer ATS för [rollbaserad åtkomst kontroll (RBAC)](azure-ad-integration.md), använder du följande kommandon. Det första kommandot skapar ett Kubernetes-tjänstkonto. Det andra kommandot kör verktyget i en POD med det tjänst kontot och konfigurerar Pod för borttagning när det har avslut ATS. 
+För att köra verktyget på ett kluster som har kon figurer ATS för [rollbaserad åtkomst kontroll (RBAC)](./azure-ad-integration-cli.md), använder du följande kommandon. Det första kommandot skapar ett Kubernetes-tjänstkonto. Det andra kommandot kör verktyget i en POD med det tjänst kontot och konfigurerar Pod för borttagning när det har avslut ATS. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

@@ -5,18 +5,18 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 1798d57f9fc4004fd2c7d1f1901fcddf850626c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d055a480748ef012120aac4d329d474491e2c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193334"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258591"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurera ett Linux Service Fabric-kluster på Windows Developer-datorn
 
 Det här dokumentet beskriver hur du konfigurerar en lokal Linux-Service Fabric på Windows Development-datorer. Det är praktiskt att konfigurera ett lokalt Linux-kluster för att snabbt testa program som är riktade mot Linux-kluster, men som utvecklas på en Windows-dator.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Linux-baserade Service Fabric kluster körs inte internt i Windows. För att köra ett lokalt Service Fabric-kluster tillhandahålls en förkonfigurerad Docker-behållar avbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne
@@ -113,7 +113,7 @@ Om du vill konfigurera en lokal Docker-behållare och ha ett Service Fabric-klus
  * DNS-tjänsten körs inte och stöds inte [Problem 132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom igång med [Sol förmörkelse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
+* Kom igång med [Sol förmörkelse](./service-fabric-get-started-eclipse.md)
 * Kolla ut andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

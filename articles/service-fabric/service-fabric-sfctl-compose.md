@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1e40ca4e3c5ec8b7566646aa7ef723bd4c9e45a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e84b35ff3dfa7be0c848a4d7b906c622d9b88914
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906126"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257345"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Skapa, ta bort och hantera Docker Compose-program.
@@ -204,4 +205,4 @@ Returnerar information om tillståndet för uppgraderingen av Skriv distribution
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

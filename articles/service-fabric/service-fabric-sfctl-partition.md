@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: c038ef3266a727bf6984a5bd88ca540a589380db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff569c586548d84ed55018764363ad7f05e526d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905849"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257095"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Fråga och hantera partitioner för alla tjänster.
@@ -399,4 +400,4 @@ Hämtar namnet på tjänsten för den angivna partitionen. Ett 404-fel returnera
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

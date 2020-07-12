@@ -3,12 +3,12 @@ title: Arbeta med Reliable Collections
 description: Lär dig metod tips för att arbeta med pålitliga samlingar i ett Azure Service Fabric-program.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374703"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255803"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillstånds känslig programmerings modell som är tillgänglig för .NET-utvecklare via pålitliga samlingar. Mer specifikt Service Fabric tillhandahåller tillförlitliga ord listor och Reliable Queue-klasser. När du använder dessa klasser partitioneras ditt tillstånd (för skalbarhet), replikeras (för tillgänglighet) och överförs inom en partition (för sur semantik). Nu ska vi titta på en typisk användning av ett tillförlitligt Dictionary-objekt och se vad det faktiskt gör.
@@ -219,10 +219,10 @@ Dessutom uppgraderas Service koden till en uppgraderings domän i taget. Under e
 Alternativt kan du utföra vad som vanligt vis kallas för en uppgradering. Med en uppgradering i två faser uppgraderar du tjänsten från v1 till v2: v2 innehåller koden som känner till hur den nya schema ändringen fungerar, men den här koden körs inte. När v2-koden läser v1-data, körs den på den och skriver v1-data. Efter att uppgraderingen har slutförts i alla uppgraderings domäner kan du på andra sätt signalera till de v2-instanser som uppgraderingen har slutförts. (Ett sätt att signalera detta är att distribuera en konfigurations uppgradering. det här gör du till en uppgradering i två steg.) V2-instanserna kan nu läsa v1-data, konvertera den till v2-data, använda den och skriva ut den som v2-data. När andra instanser läser v2-data behöver de inte konvertera den, de fungerar bara på den och skriva ut v2-data.
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du skapar Forward-kompatibla data kontrakt finns i [vidarebefordra-kompatibla data kontrakt](https://msdn.microsoft.com/library/ms731083.aspx)
+Information om hur du skapar Forward-kompatibla data kontrakt finns i [vidarebefordra-kompatibla data kontrakt](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
 
-För att lära dig metod tips om versions data kontrakt, se [data kontrakt version](https://msdn.microsoft.com/library/ms731138.aspx)
+För att lära dig metod tips om versions data kontrakt, se [data kontrakt version](/dotnet/framework/wcf/feature-details/data-contract-versioning)
 
-Information om hur du implementerar versions tolerans data kontrakt finns i [versions tolerans återanrop för serialisering](https://msdn.microsoft.com/library/ms733734.aspx)
+Information om hur du implementerar versions tolerans data kontrakt finns i [versions tolerans återanrop för serialisering](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Information om hur du tillhandahåller en data struktur som kan samverka över flera versioner finns i [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+Information om hur du tillhandahåller en data struktur som kan samverka över flera versioner finns i [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)

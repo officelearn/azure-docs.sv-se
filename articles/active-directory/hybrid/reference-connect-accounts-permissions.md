@@ -17,11 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681746"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255786"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -101,7 +102,7 @@ Följande är en sammanfattning av sidorna i guiden Express installation, autent
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| E.t. |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
+| Ej tillämpligt |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut till AD DS |Lokala Active Directory autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar AD DS-anslutningsprogrammet i Active Directory och beviljar behörigheter till det. Det här skapade kontot används för att läsa och skriva katalog information under synkroniseringen.</li> |
 
@@ -118,7 +119,7 @@ Följande är en sammanfattning av sidorna för anpassade installations guider, 
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| E.t. |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
+| Ej tillämpligt |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
 | Installera Synchronization Services, tjänst konto alternativ |Autentiseringsuppgifter för AD eller lokalt användar konto |Användare, behörigheter beviljas av installations guiden |Om administratören anger ett konto används det här kontot som tjänst konto för synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut dina kataloger |Lokala Active Directory autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna beror på vilka funktioner du aktiverar och hur du hittar dem i skapa AD DS-anslutnings kontot |Det här kontot används för att läsa och skriva katalog information under synkroniseringen. |
@@ -201,7 +202,6 @@ Förklaring:
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassad | Fjärr-SQL</br>Anpassad |
 | --- | --- | --- | --- |
-| **fristående/arbets grupps dator** | Stöds inte | **ATTRIBUTET**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
 | **domänansluten dator** | **ATTRIBUTET**</br>Lokalt konto (2008) | **ATTRIBUTET**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA, gMSA | **gMSA**</br>Domänkonto |
 | **Domänkontrollant** | **Domänkonto** | *gMSA*</br>**Domänkonto**</br>sMSA| *gMSA*</br>**Domänkonto**|
 
@@ -259,7 +259,7 @@ Mer information om hur du hanterar eller återställer lösen ordet för Azure A
 ## <a name="related-documentation"></a>Relaterad dokumentation
 Om du inte läst dokumentationen om [att integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)innehåller följande tabell länkar till närliggande ämnen.
 
-|Ämne |Länk|  
+|Avsnitt |Länk|  
 | --- | --- |
 |Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](how-to-connect-install-express.md)|

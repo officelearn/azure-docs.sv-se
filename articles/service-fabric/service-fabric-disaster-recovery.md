@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371655"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257515"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveri beredskap i Azure Service Fabric
 En viktig del av att leverera hög tillgänglighet säkerställer att tjänsterna kan överleva alla olika typer av problem. Detta är särskilt viktigt för problem som är oplanerade och utanför din kontroll. 
@@ -171,7 +172,7 @@ Följande åtgärder kan leda till data förlust. Kontrol lera innan du följer 
 >
 
 - Använd `Repair-ServiceFabricPartition -PartitionId` eller- `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API: et. Med det här API: et kan du ange partitionens ID för att ta bort förlorade kvorum och till potentiell data förlust.
-- Om ditt kluster stöter på frekventa fel som gör att tjänster kan hamna i ett kvorum med kvorum och risken för _data förlust är acceptabel_, kan tjänsten automatiskt återställas genom att ange ett lämpligt [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) -värde. Service Fabric väntar på det angivna `QuorumLossWaitDuration` värdet (Standardvärdet är oändligt) innan återställningen utförs. Vi rekommenderar *inte* den här metoden eftersom den kan orsaka oväntade data förluster.
+- Om ditt kluster stöter på frekventa fel som gör att tjänster kan hamna i ett kvorum med kvorum och risken för _data förlust är acceptabel_, kan tjänsten automatiskt återställas genom att ange ett lämpligt [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) -värde. Service Fabric väntar på det angivna `QuorumLossWaitDuration` värdet (Standardvärdet är oändligt) innan återställningen utförs. Vi rekommenderar *inte* den här metoden eftersom den kan orsaka oväntade data förluster.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Service Fabric klustrets tillgänglighet
 I allmänhet är Service Fabric Cluster en mycket distribuerad miljö utan några enskilda fel punkter. Ett fel på en nod kan inte orsaka tillgänglighets-eller Tillförlitlighets problem för klustret, främst på grund av att Service Fabric system tjänster följer samma rikt linjer som tidigare. Det innebär att de alltid körs med tre eller fler repliker som standard, och system tjänster som är tillstånds lösa körs på alla noder. 
@@ -207,17 +208,17 @@ I båda fristående Service Fabric kluster och Azure är den primära nodtypen d
 - Lär dig hur du simulerar olika fel med hjälp av [test ramverket](service-fabric-testability-overview.md).
 - Läs andra haveri beredskap och resurser med hög tillgänglighet. Microsoft har publicerat en stor mängd vägledning om dessa ämnen. Även om vissa av dessa resurser refererar till en viss teknik för användning i andra produkter, innehåller de många allmänna metod tips som du kan använda i Service Fabric-kontexten:
   - [Tillgänglighetschecklista](/azure/architecture/checklist/resiliency-per-service)
-  - [Utföra en katastrof återställnings granskning](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Utföra en katastrof återställnings granskning](../azure-sql/database/disaster-recovery-drills.md)
   - [Haveriberedskap och hög tillgänglighet för Azure-program][dr-ha-guide]
 - Läs mer om [Service Fabric support alternativ](service-fabric-support.md).
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[repair-partition-ps]: /windows/win32/perfctrs/specifying-a-counter-path
 [azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
-[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[dr-ha-guide]: /previous-versions/azure/dn251004(v=azure.100)
 
 
 <!-- Images -->

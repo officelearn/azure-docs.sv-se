@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c795e6077bc5a7b755a388a6f50848ad6094d48
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 070d933394b19ea38a9632f25909812943f7bff8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921810"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255838"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Använda externa tabeller med Synapse SQL
 
@@ -95,16 +95,15 @@ data_source_name
 
 Anger det användardefinierade namnet för data källan. Namnet måste vara unikt i databasen.
 
-#### <a name="location"></a>Location
+#### <a name="location"></a>Plats
 LOCATION = `'<prefix>://<path>'` -tillhandahåller anslutnings protokollet och sökvägen till den externa data källan. Följande mönster kan användas på platsen:
 
 | Extern data Källa        | Location-prefix | Sökväg till plats                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
-|                             | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
-| Azure Data Lake Store gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
-| Azure Data Lake Store gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
-|                             | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+| Azure Blob Storage          | `http[s]`       | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
+| Azure Data Lake Store gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
+| Azure Data Lake Store gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
 
 `https:`prefix gör att du kan använda undermappen i sökvägen.
 
@@ -115,7 +114,7 @@ Externa data källor utan autentiseringsuppgifter i SQL-poolen kan också använ
 - I SQL-poolen kan databasens begränsade autentiseringsuppgifter ange anpassad program identitet, hanterad identitet för arbets yta eller SAK nyckel. 
 - I SQL på begäran kan databas områdes behörighet ange den som anropar Azure AD-identitet, arbets ytans hanterade identitet eller SAS-nyckel. 
 
-#### <a name="type"></a>TYPE
+#### <a name="type"></a>TYP
 TYPE = `HADOOP` är ett obligatoriskt alternativ i SQL-poolen och anger att PolyBase-tekniken används för att komma åt underliggande filer. Den här parametern kan inte användas i SQL-tjänsten på begäran som använder inbyggd inbyggd läsare.
 
 ### <a name="example-for-create-external-data-source"></a>Exempel på Skapa extern DATA källa
@@ -346,7 +345,7 @@ SELECT TOP 1 * FROM census_external_table
 
 Med hjälp av Data Lake utforsknings funktioner kan du nu skapa och skicka frågor till en extern tabell med SQL-poolen eller SQL på begäran med en enkel högerklickning på filen.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Du måste ha åtkomst till arbets ytan med minst Storage BLOB data Contributor-åtkomst roll till ADLS Gen2 kontot
 

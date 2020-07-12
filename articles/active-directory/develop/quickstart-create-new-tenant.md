@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308497"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256704"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Snabb start: Konfigurera en klient
 
@@ -34,7 +34,7 @@ Det finns två typer av miljöer som du kan skapa. Att bestämma vilken du behö
 * Arbets- och skolkonton (Azure AD-konton) eller Microsof-konton (t.ex. outlook.com och live.com)
 * Sociala och lokala konton (Azure AD B2C)
 
-Snabbstarten är indelad i två scenarier beroende på vilken app du vill skapa. Om du behöver hjälp med rikta in dig på en identitetstyp kan du ta en titt på avsnittet [om Microsoft Identity-plattformen](about-microsoft-identity-platform.md)
+Snabbstarten är indelad i två scenarier beroende på vilken app du vill skapa.
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Arbets- och skolkonton eller personliga Microsoft-konton
 

@@ -272,12 +272,12 @@
     - name: Videoklipp
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-api-management.html'
+      href: /answers/topics/azure-api-management.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-api-management'
     - name: Vägledning för API-design
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+      href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Vägledning för API-implementering
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+      href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Värdnamnsfelen kunde inte uppdateras under felsökningen
       href: api-management-troubleshoot-cannot-add-custom-domain.md

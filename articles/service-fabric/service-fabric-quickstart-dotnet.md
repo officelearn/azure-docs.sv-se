@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: e3d984fee75dcdb8d4e14e7b454e74a3f7c629f2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b88dfedd5454d708386afa6912a26dac41c6d6b4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75730152"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258564"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en .NET-app (tillförlitliga tjänster) till Service Fabric
 
@@ -52,7 +52,7 @@ När du har installerat runtime, SDK:er, Visual Studio Tools, Docker och har Doc
 > Även om det är inte nödvändigt för den här specifika snabbstarten ingår anvisningen om att ha Docker körandes när du skapar klustret som bästa praxis.
 > Testa att Docker körs genom att öppna ett terminalfönster och köra `docker ps` för att se om det uppstår något fel. Om svaret inte indikerar något fel körs Docker och du är redo att skapa ett kluster.
 >
-> [Konfigurera Windows 10 eller Windows Server för behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
+> [Konfigurera Windows 10 eller Windows Server för behållare](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Öppna ett nytt, upphöjt PowerShell-fönster som administratör.
 2. Kör följande PowerShell-kommando för att skapa till ett utvecklingskluster:
@@ -70,7 +70,7 @@ När du har installerat runtime, SDK:er, Visual Studio Tools, Docker och har Doc
 > Exempelprogrammet i denna snabbstart använder funktioner som inte är tillgängliga på Windows 7.
 >
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 
 Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
 
@@ -170,7 +170,7 @@ Gör så här om du vill uppgradera programmet:
 
     Du kan fortfarande använda programmet när uppgraderingen körs. Eftersom du har två instanser av tjänsten som körs i klustret kan en del förfrågningar få en uppgraderad version av programmet, medan andra kan få den gamla versionen.
 
-11. Öppna webbläsaren och bläddra till klusteradressen på port 19080. Till exempel `http://localhost:19080/`.
+11. Öppna webbläsaren och bläddra till klusteradressen på port 19080. Ett exempel är `http://localhost:19080/`.
 12. Klicka på noden **Program** i trädvyn och sedan **Pågående uppgraderingar** i det högra fönstret. Du kan se hur uppgraderingen går igenom uppgraderingsdomänerna i klustret och ser till att varje domän fungerar som den ska innan den går vidare till nästa. En uppgraderingsdomän i förloppsfältet visas som grön när domänens hälsotillstånd har verifierats.
     ![Uppgraderingsvy i Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

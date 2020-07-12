@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2114f5392da788bb440589e69e704a148731e02
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609918"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258614"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestanda övervakning med Windows Azure-diagnostik-tillägget
 
@@ -192,5 +193,5 @@ Här är ett exempel på en konfiguration med räknaren för den *totala process
 
 ## <a name="next-steps"></a>Nästa steg
 * Samla in fler prestanda räknare för klustret. Se [prestanda mått](service-fabric-diagnostics-event-generation-perf.md) för en lista med räknare som du bör samla in.
-* [Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](../virtual-machines/windows/extensions-diagnostics-template.md) för att göra ytterligare ändringar i `WadCfg` , inklusive att konfigurera ytterligare lagrings konton för att skicka diagnostikdata till.
+* [Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](../virtual-machines/extensions/diagnostics-template.md) för att göra ytterligare ändringar i `WadCfg` , inklusive att konfigurera ytterligare lagrings konton för att skicka diagnostikdata till.
 * Besök [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) för att skapa en mall från grunden och kontrol lera att syntaxen är korrekt. ( https://azure.github.io/azure-diagnostics-tools/config-builder/) om du vill skapa en mall från grunden och kontrol lera att syntaxen är korrekt.

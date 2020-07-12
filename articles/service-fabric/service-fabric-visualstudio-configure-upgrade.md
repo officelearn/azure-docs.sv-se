@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464077"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256058"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurera uppgraderingen av ett Service Fabric program i Visual Studio
 Visual Studio Tools för Azure Service Fabric ger uppgraderings stöd för publicering till lokala eller fjärranslutna kluster. Det finns tre scenarier där du vill uppgradera programmet till en nyare version i stället för att ersätta programmet under testning och fel sökning:
@@ -56,7 +57,7 @@ Om du använder Visual Studio-Service Fabric verktyg för att uppgradera ett Ser
 3. Om du väljer UnmonitoredManual uppgraderings läge måste du starta en PowerShell-konsol manuellt för att fortsätta och slutföra uppgraderings processen. Läs mer i [Service Fabric program uppgradering: avancerade ämnen](service-fabric-application-upgrade-advanced.md) för att lära dig hur manuell uppgradering fungerar.
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>Uppgradera ett program med hjälp av PowerShell
-Du kan använda PowerShell-cmdletar för att uppgradera ett Service Fabric-program. Mer information finns i [självstudien om Service Fabric program uppgradering](service-fabric-application-upgrade-tutorial.md) och [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) .
+Du kan använda PowerShell-cmdletar för att uppgradera ett Service Fabric-program. Mer information finns i [självstudien om Service Fabric program uppgradering](service-fabric-application-upgrade-tutorial.md) och [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) .
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Ange en hälso kontroll princip i program manifest filen
 Varje tjänst i ett Service Fabric program kan ha egna hälso princip parametrar som åsidosätter standardvärdena. Du kan ange dessa parameter värden i program manifest filen.

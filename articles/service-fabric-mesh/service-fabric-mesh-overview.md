@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: d6522d417556104a1ece703c725f3fbeab49d683
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75458983"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257797"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Vad är Service Fabric Mesh?
 
@@ -42,7 +42,7 @@ Med Service Fabric Mesh kan du:
 
 - Distribuera och hantera program utan att explicit etablera och hantera infrastruktur.  Service Fabric Mesh etablerar, uppgraderar, korrigeringar och underhåller den underliggande infrastrukturen åt dig.
 - Konfigurera kontinuerlig integrering med integrerade verktyg för att enkelt paketera och distribuera program.
-- Utnyttja alla funktioner i Azure Resource Manager-resurser. Exempel på dessa funktioner är Gransknings logg och [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview). Alla resurser som du distribuerar till Service Fabric nät tjänsten i Azure är Azure Resource Manager resurser. Dessa resurser omfattar program, tjänster, hemligheter och så vidare.
+- Utnyttja alla funktioner i Azure Resource Manager-resurser. Exempel på dessa funktioner är Gransknings logg och [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md). Alla resurser som du distribuerar till Service Fabric nät tjänsten i Azure är Azure Resource Manager resurser. Dessa resurser omfattar program, tjänster, hemligheter och så vidare.
 - Distribuera och hantera resurser med hjälp av [Azure-portalen](https://portal.azure.com), Resource Manager-mallar eller Azure CLI/PowerShell-bibliotek.
 - Konfigurera driftsövervakning och -avisering med hjälp av [Application Insights](/azure/application-insights/) (eller valfritt verktyg) för att registrera spårningar för drifts- och diagnostikdata från plattformen.
 - Få diagnostikinformation för program som skickas ut från programmodellen med hjälp av [Application Insights](/azure/application-insights/) eller valfritt verktyg.
@@ -50,14 +50,14 @@ Med Service Fabric Mesh kan du:
 
 ## <a name="mission-critical-platform-capabilities"></a>Uppdragskritiska plattformsfunktioner
 
-Service Fabric Mesh skapar en samling av kluster som sträcker sig över [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) och/eller geopolitiska regionala gränser. Service Fabric nät beskriver program med en uppsättning syften som skalning, maskin varu krav, hållbarhets krav och säkerhets principer.  När programmet distribueras hittar Service Fabric Mesh den optimala platsen för att köra det.
+Service Fabric Mesh skapar en samling av kluster som sträcker sig över [Azure-tillgänglighetszoner](../availability-zones/az-overview.md) och/eller geopolitiska regionala gränser. Service Fabric nät beskriver program med en uppsättning syften som skalning, maskin varu krav, hållbarhets krav och säkerhets principer.  När programmet distribueras hittar Service Fabric Mesh den optimala platsen för att köra det.
 
 Med Service Fabric Mesh kan du:
 
 - Dra nytta av hög tillgänglighet, skalning in och ut, orkestrering, meddelandehantering, tillförlitliga meddelanden, uppgraderingar utan nedtid, hantering av säkerhet/hemligheter, katastrofåterställning, tillståndshantering, konfigurationshantering och distribuerade transaktioner.
 - Välj mellan flera programmodeller när du skapar program.
 - Använd plattformsfunktioner som exponeras via REST-slutpunkter genom att förbruka språkspecifika bindningar som genereras med Swagger.
-- Distribuera program över [tillgänglighetszoner](/azure/availability-zones/az-overview) och flera regioner för geotillförlitlighet.
+- Distribuera program över [tillgänglighetszoner](../availability-zones/az-overview.md) och flera regioner för geotillförlitlighet.
 - Använd alla säkerhets- och efterlevnadsfunktioner som Azure tillhandahåller.
 
 ## <a name="next-steps"></a>Nästa steg

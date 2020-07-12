@@ -8,11 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308786"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257843"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Hantera certifikat på en IoT Edge enhet
 
@@ -47,6 +48,9 @@ Du bör använda din egen certifikat utfärdare för att skapa följande filer:
 
 I den här artikeln refererar vi till som *rot certifikat utfärdare* är inte den översta certifikat utfärdaren för en organisation. Det är den översta certifikat utfärdaren för IoT Edge scenariot, som IoT Edge Hub-modulen, användarattribut och eventuella underordnade enheter använder för att upprätta förtroende mellan varandra.
 
+> [!NOTE]
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050.
+
 Om du vill se ett exempel på dessa certifikat granskar du skripten som skapar demo certifikat i [Hantera test CA-certifikat för exempel och självstudier](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
 ### <a name="install-certificates-on-the-device"></a>Installera certifikat på enheten
@@ -68,7 +72,7 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
    * Aktivitets`C:\ProgramData\iotedge\config.yaml`
    * Linux`/etc/iotedge/config.yaml`
 
-1. Ange **certifikat** egenskaperna i config. yaml till fil-URI-sökvägen till certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort tecknen innan du tar bort dem från `#` certifikat egenskaperna för att ta bort kommentarer till de fyra raderna. Se till att det inte finns några föregående blank steg i raden **certifikat:** rad och att kapslade objekt är indragna med två blank steg. Ett exempel:
+1. Ange **certifikat** egenskaperna i config. yaml till fil-URI-sökvägen till certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort tecknen innan du tar bort dem från `#` certifikat egenskaperna för att ta bort kommentarer till de fyra raderna. Se till att det inte finns några föregående blank steg i raden **certifikat:** rad och att kapslade objekt är indragna med två blank steg. Exempel:
 
    * Windows:
 
@@ -108,7 +112,7 @@ Mer information om funktionen för de olika certifikaten på en IoT Edge-enhet f
 För dessa två automatiskt genererade certifikat har du möjlighet att ställa in **auto_generated_ca_lifetime_days** -flaggan i config. yaml för att konfigurera antalet dagar för certifikatens livs längd.
 
 >[!NOTE]
->Det finns ett tredje automatiskt genererat certifikat som IoT Edge Security Manager skapar, **IoT Edge Hub-servercertifikat**. Det här certifikatet har alltid en 90 dag, men förnyas automatiskt innan det upphör att gälla. **Auto_generated_ca_lifetime_days** -värdet påverkar inte det här certifikatet.
+>Det finns ett tredje automatiskt genererat certifikat som IoT Edge Security Manager skapar, **IoT Edge Hub-servercertifikat**. Det här certifikatet har alltid en livs längd på 90 dagar, men förnyas automatiskt innan det upphör att gälla. **Auto_generated_ca_lifetime_days** -värdet påverkar inte det här certifikatet.
 
 Om du vill konfigurera certifikatets giltighets tid till något annat än standardvärdet 90 dagar lägger du till värdet i dagar i avsnittet **certifikat** i filen config. yaml.
 
@@ -119,6 +123,9 @@ certificates:
   trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
   auto_generated_ca_lifetime_days: <value>
 ```
+
+> [!NOTE]
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050.
 
 Om du har angett dina egna enhets certifikat för certifikat UTFÄRDAre, gäller det här värdet fortfarande för arbets Belastningens CA-certifikat, förutsatt att det angivna livs längd svärdet är kortare än livs längden för enhetens CA-certifikat.
 

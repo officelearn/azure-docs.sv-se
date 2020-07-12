@@ -3,12 +3,12 @@ title: Nätverks mönster för Azure Service Fabric
 description: Beskriver vanliga nätverks mönster för Service Fabric och hur du skapar ett kluster med hjälp av funktioner i Azure-nätverk.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106624"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258529"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric nätverks mönster
 Du kan integrera ditt Azure Service Fabric-kluster med andra funktioner i Azure-nätverk. I den här artikeln visar vi hur du skapar kluster som använder följande funktioner:
@@ -598,10 +598,9 @@ Efter distributionen kan du se två belastningsutjämnare i resurs gruppen. Om d
 
 ## <a name="notes-for-production-workloads"></a>Kommentarer till produktions arbets belastningar
 
-Ovanstående GitHub-mallar är utformade för att fungera med standard-SKU: n för Azure Standard Load Balancer (SLB), den grundläggande SKU: n. Detta SLB har inget service avtal för produktions arbets belastningar som standard-SKU: n ska användas. Mer information finns i [Översikt över Azure-standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Alla Service Fabric kluster som använder standard-SKU: n för SLB måste se till att varje nodtyp har en regel som tillåter utgående trafik på port 443. Detta är nödvändigt för att slutföra kluster installationen och alla distributioner utan sådan regel kommer att Miss lyckas. I exemplet ovan i en "intern" belastningsutjämnare måste ytterligare en extern belastningsutjämnare läggas till i mallen med en regel som tillåter utgående trafik för port 443.
+Ovanstående GitHub-mallar är utformade för att fungera med standard-SKU: n för Azure Standard Load Balancer (SLB), den grundläggande SKU: n. Detta SLB har inget service avtal för produktions arbets belastningar som standard-SKU: n ska användas. Mer information finns i [Översikt över Azure-standard Load Balancer](../load-balancer/load-balancer-overview.md). Alla Service Fabric kluster som använder standard-SKU: n för SLB måste se till att varje nodtyp har en regel som tillåter utgående trafik på port 443. Detta är nödvändigt för att slutföra kluster installationen och alla distributioner utan sådan regel kommer att Miss lyckas. I exemplet ovan i en "intern" belastningsutjämnare måste ytterligare en extern belastningsutjämnare läggas till i mallen med en regel som tillåter utgående trafik för port 443.
 
 ## <a name="next-steps"></a>Nästa steg
 [Skapa ett kluster](service-fabric-cluster-creation-via-arm.md)
 
 Efter distributionen kan du se två belastningsutjämnare i resurs gruppen. Om du bläddrar i belastningsutjämnare kan du se den offentliga IP-adressen och hanterings slut punkter (portarna 19000 och 19080) som är kopplade till den offentliga IP-adressen. Du kan också se den statiska interna IP-adressen och program slut punkten (port 80) som har tilldelats till den interna belastningsutjämnaren. Båda belastnings utjämningarna använder samma pool för skalnings uppsättning för virtuella datorer.
-

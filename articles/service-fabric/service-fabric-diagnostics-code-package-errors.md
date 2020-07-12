@@ -5,11 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463111"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256500"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnostisera vanliga kod paket fel med hjälp av Service Fabric
 
@@ -51,11 +52,11 @@ Slutkod | Beskrivning
 Slutkod | HEXADECIMALT värde | Kort beskrivning | Rotorsak | Möjlig åtgärd
 --------- | --------- | ----------------- | ---------- | -------------
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Det här felet innebär ibland att datorn har slut på heap-utrymmet på Skriv bordet. Den här orsaken är särskilt sannolik om du har flera processer som hör till ditt program som körs på noden. | Om programmet inte har skapats för att svara på CTRL + C-signaler kan du aktivera inställningen **EnableActivateNoWindow** i kluster manifestet. Att aktivera den här inställningen innebär att kod paketet körs utan ett GUI-fönster och inte får CTRL + C-signaler. Den här åtgärden minskar också mängden Skriv bords utrymme som varje process förbrukar. Om ditt kod paket måste ta emot CTRL + C-signaler kan du öka storleken på nodens Skriv bords heap.
-3762504530 | 0xe0434352 | E.t. | Det här värdet representerar felkoden för ett ohanterat undantag från hanterad kod (det vill säga .NET). | Den här avslutnings koden visar att ditt program utlöste ett undantag som inte hanteras och som avbröt processen. I det första steget när du avgör vad som utlöste det här felet kan du felsöka programmets loggar och dumpfiler.
+3762504530 | 0xe0434352 | Ej tillämpligt | Det här värdet representerar felkoden för ett ohanterat undantag från hanterad kod (det vill säga .NET). | Den här avslutnings koden visar att ditt program utlöste ett undantag som inte hanteras och som avbröt processen. I det första steget när du avgör vad som utlöste det här felet kan du felsöka programmets loggar och dumpfiler.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om att [diagnostisera andra vanliga scenarier](service-fabric-diagnostics-common-scenarios.md).
-* Få en mer detaljerad översikt över Azure Monitor loggar och vad de erbjuder genom att läsa [Azure Monitor översikt](../operations-management-suite/operations-management-suite-overview.md).
-* Lär dig mer om Azure Monitor loggar [varningar](../log-analytics/log-analytics-alerts.md) för hjälp vid identifiering och diagnostik.
-* Bekanta dig med [loggs ökningen och fråge](../log-analytics/log-analytics-log-searches.md) funktionerna som ingår i Azure Monitor loggar.
+* Få en mer detaljerad översikt över Azure Monitor loggar och vad de erbjuder genom att läsa [Azure Monitor översikt](../azure-monitor/overview.md).
+* Lär dig mer om Azure Monitor loggar [varningar](../azure-monitor/platform/alerts-overview.md) för hjälp vid identifiering och diagnostik.
+* Bekanta dig med [loggs ökningen och fråge](../azure-monitor/log-query/log-query-overview.md) funktionerna som ingår i Azure Monitor loggar.

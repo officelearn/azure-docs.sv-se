@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458238"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257770"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Anslut och kommunicera med tjänster i Service Fabric
 I Service Fabric körs en tjänst någonstans i ett Service Fabric kluster, vanligt vis distribuerat över flera virtuella datorer. Den kan flyttas från en plats till en annan, antingen av tjänstens ägare eller automatiskt av Service Fabric. Tjänsterna är inte statiskt bundna till en viss dator eller adress.
@@ -162,14 +163,14 @@ Det är viktigt att komma ihåg att Azure Load Balancer och avsökningen bara ve
 Reliable Services Framework levereras med flera fördefinierade kommunikations alternativ. Beslutet om vad som passar bäst för dig beror på valet av programmerings modell, kommunikations ramverk och det programmeringsspråk som dina tjänster är skrivna i.
 
 * **Inget enskilt protokoll:**  Om du inte har något särskilt val av kommunikations ramverk, men du vill att något ska köras snabbt, så är det idealiska alternativet för dig att [betjäna fjärr kommunikation](service-fabric-reliable-services-communication-remoting.md), som tillåter starkt skrivna fjärrprocedurs anrop för Reliable Services och Reliable Actors. Detta är det enklaste och snabbaste sättet att komma igång med tjänst kommunikation. Service Remoting hanterar matchning av tjänst adresser, anslutning, återförsök och fel hantering. Detta är tillgängligt för både C#-och Java-program.
-* **Http**: för oberoende kommunikation tillhandahåller http ett val av bransch standard med verktyg och http-servrar som är tillgängliga på många olika språk, vilket stöds av Service Fabric. Tjänster kan använda alla HTTP-stackar som är tillgängliga, inklusive [ASP.net Web API](service-fabric-reliable-services-communication-webapi.md) för C#-program. Klienter som är skrivna i C# kan `ICommunicationClient` `ServicePartitionClient` använda klasserna och, och för Java, använda- `CommunicationClient` och- `FabricServicePartitionClient` klasser [för tjänst upplösning, http-anslutningar och försök att](service-fabric-reliable-services-communication.md)göra om slingor.
+* **Http**: för oberoende kommunikation tillhandahåller http ett val av bransch standard med verktyg och http-servrar som är tillgängliga på många olika språk, vilket stöds av Service Fabric. Tjänster kan använda alla HTTP-stackar som är tillgängliga, inklusive [ASP.net Web API](./service-fabric-reliable-services-communication-aspnetcore.md) för C#-program. Klienter som är skrivna i C# kan `ICommunicationClient` `ServicePartitionClient` använda klasserna och, och för Java, använda- `CommunicationClient` och- `FabricServicePartitionClient` klasser [för tjänst upplösning, http-anslutningar och försök att](service-fabric-reliable-services-communication.md)göra om slingor.
 * **WCF**: om du har en befintlig kod som använder WCF som kommunikations ramverk kan du använda `WcfCommunicationListener` för-Server sidan och `WcfCommunicationClient` och- `ServicePartitionClient` klasserna för-klienten. Detta är dock endast tillgängligt för C#-program i Windows-baserade kluster. Mer information finns i den här artikeln om [WCF-baserad implementering av kommunikations stacken](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Använda anpassade protokoll och andra ramverk för kommunikation
 Tjänster kan använda alla protokoll eller ramverk för kommunikation, oavsett om det är ett anpassat binärt protokoll över TCP-socketar eller strömmande händelser via [azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) eller [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric tillhandahåller kommunikations-API: er som du kan använda för att ansluta din kommunikations stack till, medan allt arbete att identifiera och ansluta är abstrakt från dig. Mer information finns i den här artikeln om den [Reliable-tjänst kommunikations modellen](service-fabric-reliable-services-communication.md) .
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om de begrepp och API: er som är tillgängliga i [Reliable Services kommunikations modellen](service-fabric-reliable-services-communication.md)och kom sedan igång snabbt med [tjänst-Remoting](service-fabric-reliable-services-communication-remoting.md) eller gå djupare och lär dig hur du skriver en kommunikations lyssnare med hjälp av [webb-API med OWIN Self-Host](service-fabric-reliable-services-communication-webapi.md).
+Lär dig mer om de begrepp och API: er som är tillgängliga i [Reliable Services kommunikations modellen](service-fabric-reliable-services-communication.md)och kom sedan igång snabbt med [tjänst-Remoting](service-fabric-reliable-services-communication-remoting.md) eller gå djupare och lär dig hur du skriver en kommunikations lyssnare med hjälp av [webb-API med OWIN Self-Host](./service-fabric-reliable-services-communication-aspnetcore.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
 [2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png

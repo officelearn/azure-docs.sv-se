@@ -5,20 +5,20 @@ author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846598"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258463"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
-Reliable Actors körningen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser och [prestanda räknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur körningen fungerar och hjälper till med fel sökning och prestanda övervakning.
+Reliable Actors körningen genererar [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -händelser och [prestanda räknare](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Dessa ger insikter om hur körningen fungerar och hjälper till med fel sökning och prestanda övervakning.
 
 ## <a name="eventsource-events"></a>EventSource-händelser
 EventSource Provider-namnet för Reliable Actors runtime är "Microsoft-ServiceFabric-skådespelare". Händelser från den här händelse källan visas i fönstret [diagnostik-händelser](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) när aktörs programmet [felsöks i Visual Studio](service-fabric-debugging-your-application.md).
 
-Exempel på verktyg och tekniker som hjälper dig att samla in och/eller Visa EventSource-händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantisk loggning](https://msdn.microsoft.com/library/dn774980.aspx)och [Microsoft TraceEvent-biblioteket](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exempel på verktyg och tekniker som hjälper dig att samla in och/eller Visa EventSource-händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantisk loggning](/previous-versions/msp-n-p/dn774980(v=pandp.10))och [Microsoft TraceEvent-biblioteket](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Nyckelord
 Alla händelser som tillhör Reliable Actors EventSource är associerade med ett eller flera nyckelord. Detta möjliggör filtrering av händelser som samlas in. Följande nyckelords bitar har definierats.
@@ -40,7 +40,7 @@ Reliable Actors runtime definierar följande prestanda räknar kategorier.
 
 Var och en av kategorierna ovan har en eller flera räknare.
 
-[Windows prestanda övervaknings](https://technet.microsoft.com/library/cc749249.aspx) programmet som är tillgängligt som standard i Windows-operativsystemet kan användas för att samla in och Visa prestanda räknar data. [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestanda räknar data och ladda upp den till Azure-tabeller.
+[Windows prestanda övervaknings](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) programmet som är tillgängligt som standard i Windows-operativsystemet kan användas för att samla in och Visa prestanda räknar data. [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestanda räknar data och ladda upp den till Azure-tabeller.
 
 ### <a name="performance-counter-instance-names"></a>Instans namn för prestanda räknare
 Ett kluster som har ett stort antal aktörs tjänster eller aktörs tjänst partitioner kommer att ha ett stort antal instanser av prestanda räknaren för aktör. Instans namn för prestanda räknaren kan hjälpa till att identifiera den angivna [partitionen](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) och aktörs metoden (om tillämpligt) som prestanda räknar instansen är associerad med.
@@ -50,7 +50,7 @@ För kategorin `Service Fabric Actor` är räknar instans namnen i följande for
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metoden med format specificeraren "D".
+*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metoden med format specificeraren "D".
 
 *ActorRuntimeInternalID* är en sträng representation av ett 64-bitars heltal som genereras av Fabric-aktörernas kör tid för intern användning. Detta ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra instans namn för prestanda räknaren. Användare bör inte försöka tolka den här delen av prestanda räknarens instans namn.
 
@@ -69,7 +69,7 @@ För kategorin `Service Fabric Actor Method` är räknar instans namnen i följa
 
 *ActorsRuntimeMethodId* är en sträng representation av ett 32-bitars heltal som genereras av Fabric-aktörernas kör tid för intern användning. Detta ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra instans namn för prestanda räknaren. Användare bör inte försöka tolka den här delen av prestanda räknarens instans namn.
 
-*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metoden med format specificeraren "D".
+*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metoden med format specificeraren "D".
 
 *ActorRuntimeInternalID* är en sträng representation av ett 64-bitars heltal som genereras av Fabric-aktörernas kör tid för intern användning. Detta ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra instans namn för prestanda räknaren. Användare bör inte försöka tolka den här delen av prestanda räknarens instans namn.
 
@@ -161,6 +161,6 @@ När en klient anropar en metod via ett aktörs objekt, resulterar det i ett med
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hur Reliable Actors använder Service Fabrics plattformen](service-fabric-reliable-actors-platform.md)
-* [Dokumentation om aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Dokumentation om aktörs-API-referens](/previous-versions/azure/dn971626(v=azure.100))
 * [Exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [EventSource-providers i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [EventSource-providers i PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

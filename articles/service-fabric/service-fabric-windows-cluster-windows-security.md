@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 360bba2ffc344175214c44e2c9c1d3c0859ac3e5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76774448"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255973"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet
 För att förhindra obehörig åtkomst till ett Service Fabric-kluster måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktions arbets belastningar. Den här artikeln beskriver hur du konfigurerar säkerhet för nod-till-nod-och klient-till-nod med hjälp av Windows-säkerhet i filen *ClusterConfig.JS* .  Processen motsvarar steget Konfigurera säkerhets steg i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).
@@ -20,7 +21,7 @@ För att förhindra obehörig åtkomst till ett Service Fabric-kluster måste du
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Konfigurera Windows-säkerhet med gMSA  
-Exempel *ClusterConfig.gMSA.Windows.MultiMachine.JSi* konfigurations filen som hämtats med [Microsoft. Azure. ServiceFabric. Windows Server. \<version> zip](https://go.microsoft.com/fwlink/?LinkId=730690) -fristående kluster paket innehåller en mall för att konfigurera Windows-säkerhet med [grupphanterat tjänst konto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+Exempel *ClusterConfig.gMSA.Windows.MultiMachine.JSi* konfigurations filen som hämtats med [Microsoft. Azure. ServiceFabric. Windows Server. \<version> zip](https://go.microsoft.com/fwlink/?LinkId=730690) -fristående kluster paket innehåller en mall för att konfigurera Windows-säkerhet med [grupphanterat tjänst konto (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
 
 ```
 "security": {
@@ -53,8 +54,8 @@ Exempel *ClusterConfig.gMSA.Windows.MultiMachine.JSi* konfigurations filen som h
 > [!NOTE]
 > ClustergMSAIdentity-värdet måste vara i formatet " mysfgmsa@mydomain ".
 
-[Nod-till-nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när Service Fabric måste köras under gMSA. För att kunna bygga förtroende relationer mellan noder måste de göras medvetna om varandra. Detta kan åstadkommas på två olika sätt: Ange det grupphanterade tjänst kontot som innehåller alla noder i klustret eller ange domän dator gruppen som innehåller alla noder i klustret. Vi rekommenderar starkt att du använder [gMSA-metoden (Group Managed Service Account)](https://technet.microsoft.com/library/hh831782.aspx) , särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att växa eller krympa.  
-Den här metoden kräver inte att en domän grupp skapas för vilken kluster administratörer har beviljats behörighet att lägga till och ta bort medlemmar. Dessa konton är också användbara för automatisk lösen ords hantering. Mer information finns i [komma igång med grupphanterade tjänst konton](https://technet.microsoft.com/library/jj128431.aspx).  
+[Nod-till-nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när Service Fabric måste köras under gMSA. För att kunna bygga förtroende relationer mellan noder måste de göras medvetna om varandra. Detta kan åstadkommas på två olika sätt: Ange det grupphanterade tjänst kontot som innehåller alla noder i klustret eller ange domän dator gruppen som innehåller alla noder i klustret. Vi rekommenderar starkt att du använder [gMSA-metoden (Group Managed Service Account)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) , särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att växa eller krympa.  
+Den här metoden kräver inte att en domän grupp skapas för vilken kluster administratörer har beviljats behörighet att lägga till och ta bort medlemmar. Dessa konton är också användbara för automatisk lösen ords hantering. Mer information finns i [komma igång med grupphanterade tjänst konton](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)).  
  
 [Säkerhet för klient till nod](service-fabric-cluster-security.md#client-to-node-security) konfigureras med hjälp av **ClientIdentities**. För att upprätta förtroende mellan en klient och klustret måste du konfigurera klustret för att veta vilka klient identiteter som det kan lita på. Detta kan göras på två olika sätt: Ange de domän grupps användare som kan ansluta eller ange de domänanslutna användare som kan ansluta. Service Fabric stöder två olika åtkomst kontroll typer för klienter som är anslutna till ett Service Fabric-kluster: administratör och användare. Åtkomst kontroll ger kluster administratören möjlighet att begränsa åtkomsten till vissa typer av kluster åtgärder för olika grupper av användare, vilket gör klustret säkrare.  Administratörer har fullständig åtkomst till hanterings funktioner (inklusive Läs-och skriv funktioner). Användare har som standard endast Läs behörighet till hanterings funktioner (till exempel fråge funktioner) och möjligheten att lösa program och tjänster. Mer information om åtkomst kontroller finns i [rollbaserad åtkomst kontroll för Service Fabric klienter](service-fabric-cluster-security-roles.md).  
  
@@ -102,7 +103,7 @@ Den här modellen är inaktuell. Rekommendationen är att använda gMSA enligt b
 | Identitet |Lägg till domän användaren, domän \ användar namn, för klient identiteten. |  
 | IsAdmin |Ange till true för att ange att domän användaren har administratörs åtkomst eller falskt för användar klient åtkomst. |  
 
-[Nod-till-nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att konfigurera med **ClusterIdentity** om du vill använda en dator grupp i en Active Directory-domän. Mer information finns i [skapa en dator grupp i Active Directory](https://msdn.microsoft.com/library/aa545347(v=cs.70).aspx).
+[Nod-till-nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att konfigurera med **ClusterIdentity** om du vill använda en dator grupp i en Active Directory-domän. Mer information finns i [skapa en dator grupp i Active Directory](/previous-versions/commerce-server/aa545347(v=cs.70)).
 
 [Klient-till-nod-säkerhet](service-fabric-cluster-security.md#client-to-node-security) konfigureras med hjälp av **ClientIdentities**. Om du vill upprätta förtroende mellan en klient och klustret måste du konfigurera klustret för att känna till de klient identiteter som klustret kan lita på. Du kan upprätta förtroende på två olika sätt:
 

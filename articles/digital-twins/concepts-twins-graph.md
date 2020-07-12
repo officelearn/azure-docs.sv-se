@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142413"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258205"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
@@ -21,11 +21,27 @@ I en Azure digital-lösning för dubbla lösningar representeras entiteterna i d
 > [!TIP]
 > "Azure Digital-dubbla" syftar på den här Azure-tjänsten som helhet. "Digitals dubbla (s)" eller "dubbla (s)" syftar på enskilda dubbla noder i din instans av tjänsten.
 
-## <a name="creating-digital-twins"></a>Skapa digitala dubbla
+## <a name="digital-twins"></a>Digitala dubbla
 
 Innan du kan skapa en digital i din Azure Digitals-instans måste du ha en *modell* som överförs till tjänsten. En modell beskriver uppsättningen egenskaper, telemetri-meddelanden och relationer som en viss, t. ex. kan ha, bland annat. Information om vilka typer av information som definieras i en modell finns i [begrepp: anpassade modeller](concepts-models.md).
 
 När du har skapat och laddat upp en modell kan ditt klient program skapa en instans av typen. Detta är en digital, dubbel. När du har skapat en *vånings*modell kan du till exempel skapa en eller flera digitala garn som använder den här typen (t. ex. en typ av *golv*som kallas *GroundFloor*, en annan som kallas *Floor2*osv.). 
+
+## <a name="relationships-a-graph-of-digital-twins"></a>Relationer: ett diagram över digitala dubbla
+
+Dubbla är anslutna till ett dubbel diagram av deras relationer. Relationerna som en snöre kan ha definieras som en del av modellen.  
+
+Modell *ytan* kan till exempel definiera en *contains* -relation som är riktad mot varandra av typen *Room*. Med den här definitionen kan du med hjälp av Azure Digitals dubbla sammanhållen *skapa relationer* från valfri *våning* till *rummets* dubbla (inklusive dubbla som är av *Room* -undertyper). 
+
+Resultatet av den här processen är en uppsättning noder (de digitala dubbla) som är anslutna via gränser (deras relationer) i ett diagram.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## <a name="create-with-the-apis"></a>Skapa med API: er
+
+Det här avsnittet visar hur det ser ut för att skapa digitala dubbla objekt och relationer från ett klient program. Den innehåller exempel på .NET-kod som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md)för att ge ytterligare kontext för vad som händer i var och en av dessa begrepp.
+
+### <a name="create-digital-twins"></a>Skapa digitala dubbla
 
 Nedan visas ett fragment med klient koden som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md) för att instansiera ett garn av typen *Room*.
 
@@ -59,11 +75,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## <a name="relationships-creating-a-graph-of-digital-twins"></a>Relationer: skapa en graf med digitala dubbla
-
-Dubbla är anslutna till ett dubbel diagram av deras relationer. Relationerna som en snöre kan ha definieras som en del av modellen.  
-
-Modell *ytan* kan till exempel definiera en *contains* -relation som är riktad mot varandra av typen *Room*. Med den här definitionen kan du med hjälp av Azure Digitals dubbla sammanhållen *skapa relationer* från valfri *våning* till *rummets* dubbla (inklusive dubbla som är av *Room* -undertyper). 
+### <a name="create-relationships"></a>Skapa relationer
 
 Här är ett exempel på en klient kod som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md) för att bygga en relation mellan en *vånings*typ, Digital, som kallas *GroundFloor* och en av *rums*typen digital, som kallas *Cafe*.
 
@@ -84,8 +96,6 @@ try
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
 }
 ```
-
-Resultatet av den här processen är en uppsättning noder (de digitala dubbla) som är anslutna via gränser (deras relationer) i ett diagram.
 
 ## <a name="json-representations-of-graph-elements"></a>JSON-representationer av diagram element
 

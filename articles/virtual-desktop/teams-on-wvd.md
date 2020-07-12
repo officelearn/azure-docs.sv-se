@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564452"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255667"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -32,7 +32,7 @@ Med medie optimering för Microsoft team, hanterar Windows Skriv bords klienten 
 Innan du kan använda Microsoft Teams på Windows Virtual Desktop måste du göra följande saker:
 
 - [Förbered ditt nätverk](/microsoftteams/prepare-network/) för Microsoft-team.
-- Installera [Windows Skriv bords klient](connect-windows-7-and-10.md) på en Windows 10-eller Windows 10 IoT Enterprise-enhet som uppfyller Microsoft Teams [maskin varu krav för team på en Windows-dator](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Installera [Windows Skriv bords klient](connect-windows-7-10.md) på en Windows 10-eller Windows 10 IoT Enterprise-enhet som uppfyller Microsoft Teams [maskin varu krav för team på en Windows-dator](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Anslut till en virtuell Windows 10-dator med flera sessioner eller Windows 10 Enterprise (VM).
 - Installera Teams Desktop-appen på värden med hjälp av installation per dator. Medie optimering för Microsoft Teams kräver Teams Desktop app-version 1.3.00.4461 eller senare.
 
@@ -47,7 +47,7 @@ Om du vill aktivera medie optimering för team anger du följande register nycke
 1. Från Start-menyn kör du **regedit** som administratör. Navigera till **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
 2. Skapa följande värde för team nyckeln:
 
-| Name             | Typ   | Data/värde  |
+| Namn             | Typ   | Data/värde  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 

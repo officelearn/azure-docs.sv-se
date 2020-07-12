@@ -4,11 +4,12 @@ description: Lär dig mer om att använda hanterade identiteter för Azure med S
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 786d9b4b577f4a686367a103542ae4f8fa5453da
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710311"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257633"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Använda hanterade identiteter för Azure med Service Fabric
 
@@ -23,7 +24,7 @@ En vanlig utmaning när du bygger moln program är att på ett säkert sätt han
 
 Hanterade identiteter för Azure baseras på flera viktiga begrepp:
 
-- **Klient-ID** – en unik identifierare som genererats av Azure AD och som är kopplad till ett program och tjänstens huvud namn under dess första etablering (se även [program-ID](/azure/active-directory/develop/developer-glossary#application-id-client-id).)
+- **Klient-ID** – en unik identifierare som genererats av Azure AD och som är kopplad till ett program och tjänstens huvud namn under dess första etablering (se även [program-ID](../active-directory/develop/developer-glossary.md#application-id-client-id).)
 
 - **Huvud-ID** – objekt-ID för tjänstens huvud namn för din hanterade identitet som används för att bevilja rollbaserad åtkomst till en Azure-resurs.
 

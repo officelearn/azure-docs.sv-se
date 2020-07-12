@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d6ff37024a3181a43b67d2af26b067225654fe
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196987"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257479"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Hantera program för flera miljöer
 
@@ -39,8 +40,8 @@ Konfigurationen du anger kan delas upp i två kategorier:
 
 När du skapar en namngiven program instans i Service Fabric kan du välja att skicka parametrarna. Hur du gör det beror på hur du skapar program instansen.
 
-  - I PowerShell [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) använder cmdleten program parametrarna som en hash-modul.
-  - Med hjälp av sfctl [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) tar kommandot parametrar som en JSON-sträng. Install.sh-skriptet använder sfctl.
+  - I PowerShell [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) använder cmdleten program parametrarna som en hash-modul.
+  - Med hjälp av sfctl [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) tar kommandot parametrar som en JSON-sträng. Install.sh-skriptet använder sfctl.
   - Med Visual Studio får du en uppsättning parameter-filer i mappen parametrar i programprojektet. Dessa parameter-filer används vid publicering från Visual Studio med hjälp av Azure DevOps Services eller Azure DevOps Server. I Visual Studio skickas parametervärdena till Deploy-FabricApplication.ps1-skriptet.
 
 ## <a name="next-steps"></a>Nästa steg

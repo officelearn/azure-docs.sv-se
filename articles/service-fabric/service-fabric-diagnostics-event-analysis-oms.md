@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464738"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257661"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Händelse analys och visualisering med Azure Monitor loggar
  Azure Monitor loggar samlar in och analyserar telemetri från program och tjänster som finns i molnet och tillhandahåller analys verktyg som hjälper dig att maximera deras tillgänglighet och prestanda. Den här artikeln beskriver hur du kör frågor i Azure Monitor loggar för att få insikter och felsöka vad som händer i klustret. Följande vanliga frågor behandlas:
@@ -103,6 +104,6 @@ Frågespråket för Kusto är kraftfullt. En annan värdefull fråga som du kan 
 
 * Om du vill aktivera övervakning av infrastrukturen, t. ex. prestanda räknare, överhuvud till att [lägga till Log Analytics agenten](service-fabric-diagnostics-oms-agent.md). Agenten samlar in prestanda räknare och lägger till dem i din befintliga arbets yta.
 * För lokala kluster erbjuder Azure Monitor-loggar en gateway (HTTP Forward proxy) som kan användas för att skicka data till Azure Monitor loggar. Läs mer om det i [ansluta datorer utan Internet åtkomst till Azure Monitor loggar med hjälp av Log Analytics Gateway](../azure-monitor/platform/gateway.md).
-* Konfigurera [automatiserad avisering](../log-analytics/log-analytics-alerts.md) till stöd för identifiering och diagnostik.
-* Bekanta dig med funktionerna för [loggs ökning och frågor](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor loggar.
-* Få en mer detaljerad översikt över Azure Monitor loggar och vad den erbjuder, Läs [Vad är Azure Monitor loggar?](../operations-management-suite/operations-management-suite-overview.md).
+* Konfigurera [automatiserad avisering](../azure-monitor/platform/alerts-overview.md) till stöd för identifiering och diagnostik.
+* Bekanta dig med funktionerna för [loggs ökning och frågor](../azure-monitor/log-query/log-query-overview.md) som erbjuds som en del av Azure Monitor loggar.
+* Få en mer detaljerad översikt över Azure Monitor loggar och vad den erbjuder, Läs [Vad är Azure Monitor loggar?](../azure-monitor/overview.md).

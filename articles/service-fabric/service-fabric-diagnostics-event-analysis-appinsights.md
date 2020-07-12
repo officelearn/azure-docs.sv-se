@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a912b7a6d918a40aaae54c9b177250dc3c30c84d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701890"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256568"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelse analys och visualisering med Application Insights
 
@@ -37,7 +38,7 @@ Application Insights har en angiven vy för frågor mot alla data som ingår i. 
 
 ![Information om Application Insights begäran](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-För att ytterligare utforska funktionerna i Application Insights-portalen går du till [Application Insights Portal-dokumentationen](../azure-monitor/app/app-insights-dashboards.md).
+För att ytterligare utforska funktionerna i Application Insights-portalen går du till [Application Insights Portal-dokumentationen](../azure-monitor/app/overview-dashboard.md).
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Konfigurera Application Insights med EventFlow
 
@@ -66,11 +67,11 @@ Om du utvecklar i .NET och kommer att använda några av Service Fabrics program
 
 När du har konfigurerat Application Insights som utdata för dina händelser och loggar, ska information börja visas i din Application Insights-resurs om några minuter. Navigera till Application Insights resurs, som tar dig till Application Insights resurs instrument panel. Klicka på **Sök** i Application Insights aktivitets fältet för att se de senaste spårningarna som har tagits emot och för att kunna filtrera genom dem.
 
-*Metrics Explorer* är ett användbart verktyg för att skapa anpassade instrument paneler baserat på mått som dina program, tjänster och kluster kan rapportera. Se [utforska mått i Application Insights](../azure-monitor/app/metrics-explorer.md) för att skapa några diagram för dig själv baserat på de data som du samlar in.
+*Metrics Explorer* är ett användbart verktyg för att skapa anpassade instrument paneler baserat på mått som dina program, tjänster och kluster kan rapportera. Se [utforska mått i Application Insights](../azure-monitor/platform/metrics-charts.md) för att skapa några diagram för dig själv baserat på de data som du samlar in.
 
-Genom att klicka på **analys** går du till Application Insights Analytics-portalen där du kan fråga händelser och spår med bättre omfattning och frivillighet. Läs mer om det här i [analys i Application Insights](../azure-monitor/app/analytics.md).
+Genom att klicka på **analys** går du till Application Insights Analytics-portalen där du kan fråga händelser och spår med bättre omfattning och frivillighet. Läs mer om det här i [analys i Application Insights](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera aviseringar i AI](/azure/azure-monitor/platform/alerts-log) för att få meddelanden om förändringar i prestanda eller användning
+* [Konfigurera aviseringar i AI](../azure-monitor/platform/alerts-log.md) för att få meddelanden om förändringar i prestanda eller användning
 * [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till Application Insights för att varna dig om potentiella prestanda problem

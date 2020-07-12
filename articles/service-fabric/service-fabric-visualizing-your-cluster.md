@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79258192"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256262"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -131,7 +132,7 @@ Följande åtgärder är möjliga:
 * Utlös och spåra säkerhets kopiering av en partition.
 * Utlös och spåra återställning för en partition.
 
-Mer information om säkerhets kopierings-och återställnings tjänsten finns i [REST API referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Mer information om säkerhets kopierings-och återställnings tjänsten finns i [REST API referens](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric program distribution med PowerShell](service-fabric-deploy-remove-applications.md)

@@ -5,11 +5,12 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: f2da9fbb04f9d1fa696250967db404864a3cce82
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: ae49a59c2629d9f9461d298ada555d314c0c9f22
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921824"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256976"
 ---
 # <a name="azure-service-fabric-support-options"></a>Support alternativ för Azure Service Fabric
 
@@ -25,9 +26,9 @@ Läs mer om:
 - [Microsoft Premier-Support](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Kluster som körs på en brons Tillförlitlighets nivå eller ett kluster med en nod kan bara köra test arbets belastningar. Om du får problem med ett kluster som körs på brons tillförlitlighet eller ett kluster med en enda nod, kommer Microsoft support team att hjälpa dig att lösa problemet, men det kommer inte att utföra en rotor Saks analys. Mer information finns i [klustrets Tillförlitlighets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) .
+> Kluster som körs på en brons Tillförlitlighets nivå eller ett kluster med en nod kan bara köra test arbets belastningar. Om du får problem med ett kluster som körs på brons tillförlitlighet eller ett kluster med en enda nod, kommer Microsoft support team att hjälpa dig att lösa problemet, men det kommer inte att utföra en rotor Saks analys. Mer information finns i [klustrets Tillförlitlighets egenskaper](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) .
 >
-> Mer information om vad som krävs för ett produktions klart kluster finns i [Check listan för produktions beredskap](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Mer information om vad som krävs för ett produktions klart kluster finns i [Check listan för produktions beredskap](./service-fabric-production-readiness-checklist.md).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -44,7 +45,7 @@ Läs mer om:
 
 Vi har konfigurerat en GitHub-lagrings platsen för rapportering Service Fabric problem.  Vi arbetar också aktivt med att övervaka följande forum.
 
-### <a name="github-repo"></a>GitHub lagrings platsen 
+### <a name="github-repo"></a>GitHub-lagringsplats 
 
 Rapportera Azure Service Fabric problem på [Service-Fabric-problem git-lagrings platsen](https://github.com/Azure/service-fabric-issues). Den här lagrings platsen är avsedd för rapportering och spårning av problem med Azure Service Fabric och för att göra små funktions förfrågningar. **Använd inte detta för att rapportera problem med Live-webbplatser**.
 
@@ -58,15 +59,15 @@ Rapportera Azure Service Fabric problem på [Service-Fabric-problem git-lagrings
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric för hands versioner – stöds inte för produktions användning
 
-Från och med tiden kommer vi att lansera versioner som har viktiga funktioner som vi vill ha feedback om, vilket publiceras som för hands versioner. Dessa för hands versioner bör endast användas i test syfte. Ditt produktions kluster bör alltid köra en stabil, stabil Service Fabric version som stöds. En för hands version börjar alltid med ett större och lägre versions nummer på 255. Om du till exempel ser en Service Fabric version 255.255.5703.949 är den versionen bara att användas i test kluster och är en för hands version. De här för hands versionerna visas också i [Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric) och innehåller information om de funktioner som ingår.
-Det finns inget betalt support alternativ för dessa för hands versioner. Använd något av alternativen som anges under [rapportera Azure-Service Fabric problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) för att ställa frågor eller ge feedback.
+Från och med tiden kommer vi att lansera versioner som har viktiga funktioner som vi vill ha feedback om, vilket publiceras som för hands versioner. Dessa för hands versioner bör endast användas i test syfte. Ditt produktions kluster bör alltid köra en stabil, stabil Service Fabric version som stöds. En för hands version börjar alltid med ett större och lägre versions nummer på 255. Om du till exempel ser en Service Fabric version 255.255.5703.949 är den versionen bara att användas i test kluster och är en för hands version. De här för hands versionerna visas också i [Service Fabric teamets blogg](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) och innehåller information om de funktioner som ingår.
+Det finns inget betalt support alternativ för dessa för hands versioner. Använd något av alternativen som anges under [rapportera Azure-Service Fabric problem](#report-azure-service-fabric-issues) för att ställa frågor eller ge feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Service Fabric versioner som stöds](service-fabric-versions.md)
 
 <!--references-->
-[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
+[Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

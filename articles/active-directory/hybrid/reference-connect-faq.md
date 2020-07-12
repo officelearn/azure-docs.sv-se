@@ -15,11 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827156"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256687"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
@@ -256,6 +257,16 @@ I sällsynta fall startar inte tjänsten Azure AD Connect när du har utfört up
 
 **F: Jag är inte säker på vad riskerna är när jag uppgraderar till en nyare version av Azure AD Connect. Kan du ringa mig för att hjälpa mig med uppgraderingen?**  
 Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Connect öppnar du ett support ärende i [skapa en tjänstbegäran för att kontakta Office 365-supporten](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+
+## <a name="operational-best-practice"></a>Metod tips för användning    
+Nedan följer några metod tips som du bör implementera när du synkroniserar mellan Windows Server Active Directory och Azure Active Directory.
+
+**Använd Multi-Factor Authentication för alla synkroniserade konton** Azure Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som användarnas skull bibehålls. Den ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering via en rad enkla att använda autentiseringsmetoder. Användare kan kanske inte anropas för MFA baserat på konfigurations beslut som en administratör gör. Du kan läsa mer om MFA här:https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+**Följ säkerhets rikt linjerna för Azure AD Connect Server** Azure AD Connect servern innehåller kritiska identitets data och bör behandlas som en komponent på nivå 0 som dokumenteras i den [Active Directory administrativa nivå modellen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Läs även våra [rikt linjer för att skydda din AADConnect-Server](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+
+**Aktivera PHS för identifiering av läckta autentiseringsuppgifter** Hash-synkronisering av lösen ord möjliggör även [läcka autentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) för ditt hybrid konto. Microsoft arbetar tillsammans med mörka webb forskare och juridiska myndigheter för att hitta offentligt tillgängliga användar namn/lösen ord. Om något av dessa par matchar användarens, flyttas det associerade kontot till hög risk. 
+
 
 ## <a name="troubleshooting"></a>Felsökning
 **F: Hur kan jag få hjälp med Azure AD Connect?**

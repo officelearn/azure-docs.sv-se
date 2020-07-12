@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfdf1263ccee78b57ccf79c63efcc01d95dd13c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392258"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258111"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
@@ -20,6 +21,8 @@ Hjärtat i Azure Digitals flätas är det [dubbla diagrammet](concepts-twins-gra
 När du har en fungerande [Azure Digital-instans](how-to-set-up-instance.md) och har konfigurerat [autentisering](how-to-authenticate-client.md) för din klient app, kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md) för att skapa, ändra och ta bort digitala dubbla och deras relationer i en Azure Digital-instans. Du kan också använda [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md).
 
 Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet. information om hur du arbetar med enskilda digitala dubbla, finns i [så här gör du: hantera digitala dubbla](how-to-manage-twin.md).
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Skapa relationer
 
@@ -229,12 +232,12 @@ Tänk på följande data tabell, som beskriver en uppsättning digitala dubbla o
 | Modell    | ID | Överordnad | Relations namn | Andra data |
 | --- | --- | --- | --- | --- |
 | maximal    | Floor01 | | | … |
-| rum    | Room10 | Floor01 | innehåller | … |
-| rum    | Room11 | Floor01 | innehåller | … |
-| rum    | Room12 | Floor01 | innehåller | … |
+| rum    | Room10 | Floor01 | contains | … |
+| rum    | Room11 | Floor01 | contains | … |
+| rum    | Room12 | Floor01 | contains | … |
 | maximal    | Floor02 | | | … |
-| rum    | Room21 | Floor02 | innehåller | … |
-| rum    | Room22 | Floor02 | innehåller | … |
+| rum    | Room21 | Floor02 | contains | … |
+| rum    | Room22 | Floor02 | contains | … |
 
 I följande kod används [Microsoft Graph API](https://docs.microsoft.com/graph/overview) för att läsa ett kalkyl blad och skapa ett digitalt Azure-elektroniskt diagram från resultaten.
 

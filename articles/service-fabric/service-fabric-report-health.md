@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392649"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256313"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Lägg till anpassade Service Fabric hälso rapporter
 Azure Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) som har utformats för att flagga kluster och program villkor på vissa enheter. Hälso modellen använder **hälso rapporter** (system komponenter och övervaknings rapporter). Målet är enkelt och snabbt att diagnostisera och reparera. Service Writers måste vara på väg om hälso tillståndet. Alla villkor som kan påverka hälsan bör rapporteras, särskilt om det kan hjälpa till att flagga problem nära roten. Hälso informationen kan spara tid och ansträngning för fel sökning och undersökning. Användbarheten är särskilt tydlig när tjänsten är igång och körs i molnet (privat eller Azure).
@@ -37,7 +38,7 @@ Som nämnts kan rapportering göras från:
 > 
 > 
 
-När hälso rapport designen är klar kan hälso rapporter skickas enkelt. Du kan använda [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) för att rapportera hälso tillstånd om klustret inte är [säkert](service-fabric-cluster-security.md) eller om Fabric-klienten har administratörs behörighet. Rapportering kan göras via API: et genom att använda [FabricClient. HealthManager. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), via PowerShell eller genom rest. Konfigurations rattar batch rapporter för bättre prestanda.
+När hälso rapport designen är klar kan hälso rapporter skickas enkelt. Du kan använda [FabricClient](/dotnet/api/system.fabric.fabricclient) för att rapportera hälso tillstånd om klustret inte är [säkert](service-fabric-cluster-security.md) eller om Fabric-klienten har administratörs behörighet. Rapportering kan göras via API: et genom att använda [FabricClient. HealthManager. ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), via PowerShell eller genom rest. Konfigurations rattar batch rapporter för bättre prestanda.
 
 > [!NOTE]
 > Rapport hälsan är synkron och representerar bara verifierings arbetet på klient sidan. Det faktum att rapporten accepteras av hälso klienten eller att- `Partition` eller- `CodePackageActivationContext` objekten inte innebär att den används i butiken. Den skickas asynkront och kan eventuellt grupperas med andra rapporter. Bearbetningen på servern kan fortfarande Miss lyckas: sekvensnumret kan vara inaktuellt, den entitet som rapporten ska tillämpas på har tagits bort, osv.
@@ -57,7 +58,7 @@ Hälso rapporterna skickas till hälso tillstånds hanteraren via en hälso klie
 > 
 
 Buffringen på klienten tar hänsyn till att rapporterna är unika. Om till exempel en viss felaktig rapportering rapporterar 100 rapporter per sekund på samma egenskap för samma entitet, ersätts rapporterna med den senaste versionen. Högst en sådan rapport finns i klient kön. Om batchbearbetning har kon figurer ATS är antalet rapporter som skickas till Health Manager bara ett per sändnings intervall. Den här rapporten är den senast tillagda rapporten, som visar det mest aktuella status för entiteten.
-Ange konfigurations parametrar när `FabricClient` har skapats genom att skicka [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) med de önskade värdena för hälso relaterade poster.
+Ange konfigurations parametrar när `FabricClient` har skapats genom att skicka [FabricClientSettings](/dotnet/api/system.fabric.fabricclientsettings) med de önskade värdena för hälso relaterade poster.
 
 I följande exempel skapas en Fabric-klient och anger att rapporterna ska skickas när de läggs till. Vid timeout och fel som kan göras igen sker nya försök var 40 sekund.
 
@@ -71,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Vi rekommenderar att du behåller standard klient inställningarna för infrastruktur resurser, som är `HealthReportSendInterval` 30 sekunder. Den här inställningen säkerställer optimala prestanda på grund av batchering. För kritiska rapporter som måste skickas så snart som möjligt använder du `HealthReportSendOptions` med omedelbar `true` i [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Omedelbara rapporter kringgår batch-intervallet. Använd den här flaggan i försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt. Omedelbar sändning är också användbart när Fabric-klienten stängs (till exempel om processen har avgjort ett ogiltigt tillstånd och måste stängas för att förhindra sido effekter). Den ser till att det är en god ansträngnings överföring av de ackumulerade rapporterna. När en rapport läggs till med en omedelbar flagga, slår hälso klienten ihop alla ackumulerade rapporter sedan den senaste sändningen.
+Vi rekommenderar att du behåller standard klient inställningarna för infrastruktur resurser, som är `HealthReportSendInterval` 30 sekunder. Den här inställningen säkerställer optimala prestanda på grund av batchering. För kritiska rapporter som måste skickas så snart som möjligt använder du `HealthReportSendOptions` med omedelbar `true` i [FabricClient. HealthClient. ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Omedelbara rapporter kringgår batch-intervallet. Använd den här flaggan i försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt. Omedelbar sändning är också användbart när Fabric-klienten stängs (till exempel om processen har avgjort ett ogiltigt tillstånd och måste stängas för att förhindra sido effekter). Den ser till att det är en god ansträngnings överföring av de ackumulerade rapporterna. När en rapport läggs till med en omedelbar flagga, slår hälso klienten ihop alla ackumulerade rapporter sedan den senaste sändningen.
 
 Samma parametrar kan anges när en anslutning till ett kluster skapas via PowerShell. I följande exempel startas en anslutning till ett lokalt kluster:
 
@@ -113,12 +114,12 @@ För REST skickas rapporterna till Service Fabric Gateway, som har en intern Fab
 ## <a name="report-from-within-low-privilege-services"></a>Rapportera inifrån tjänster med låg behörighet
 Om Service Fabric Services inte har administratörs åtkomst till klustret kan du rapportera hälso tillståndet för entiteter från den aktuella kontexten via `Partition` eller `CodePackageActivationContext` .
 
-* För tillstånds lösa tjänster använder du [IStatelessServicePartition. ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) för att rapportera om den aktuella tjänst instansen.
-* För tillstånds känsliga tjänster använder du [IStatefulServicePartition. ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) för att rapportera om den aktuella repliken.
-* Använd [IServicePartition. ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) för att rapportera om den aktuella partitionen.
-* Använd [CodePackageActivationContext. ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) för att rapportera om det aktuella programmet.
-* Använd [CodePackageActivationContext. ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) för att rapportera om det aktuella program som distribuerats på den aktuella noden.
-* Använd [CodePackageActivationContext. ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) för att rapportera om ett tjänst paket för det program som distribueras på den aktuella noden.
+* För tillstånds lösa tjänster använder du [IStatelessServicePartition. ReportInstanceHealth](/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) för att rapportera om den aktuella tjänst instansen.
+* För tillstånds känsliga tjänster använder du [IStatefulServicePartition. ReportReplicaHealth](/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) för att rapportera om den aktuella repliken.
+* Använd [IServicePartition. ReportPartitionHealth](/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) för att rapportera om den aktuella partitionen.
+* Använd [CodePackageActivationContext. ReportApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) för att rapportera om det aktuella programmet.
+* Använd [CodePackageActivationContext. ReportDeployedApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) för att rapportera om det aktuella program som distribuerats på den aktuella noden.
+* Använd [CodePackageActivationContext. ReportDeployedServicePackageHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) för att rapportera om ett tjänst paket för det program som distribueras på den aktuella noden.
 
 > [!NOTE]
 > Internt, `Partition` och `CodePackageActivationContext` innehåller en hälso klient som kon figurer ATS med standardinställningar. Som förklaras för [hälso klienten](service-fabric-report-health.md#health-client), grupperas och skickas rapporterna på en timer. Objekten bör hållas aktiva för att få möjlighet att skicka rapporten.
@@ -289,7 +290,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Skicka hälso rapporter med REST med POST-begäranden som går till önskad entitet och har i texten hälso rapport beskrivningen. Se till exempel hur du skickar REST-rapporter för [kluster hälsa](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) eller [tjänste hälso rapporter](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Alla entiteter stöds.
+Skicka hälso rapporter med REST med POST-begäranden som går till önskad entitet och har i texten hälso rapport beskrivningen. Se till exempel hur du skickar REST-rapporter för [kluster hälsa](/rest/api/servicefabric/report-the-health-of-a-cluster) eller [tjänste hälso rapporter](/rest/api/servicefabric/report-the-health-of-a-service). Alla entiteter stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 Beroende på hälso data kan tjänst skribenter och kluster/program administratörer tänka på hur du använder informationen. De kan till exempel ställa in aviseringar baserat på hälso status för att fånga allvarliga problem innan de provoke avbrott. Administratörer kan också konfigurera reparations system för att åtgärda problem automatiskt.
@@ -305,4 +306,3 @@ Beroende på hälso data kan tjänst skribenter och kluster/program administrat�
 [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric program uppgradering](service-fabric-application-upgrade.md)
-

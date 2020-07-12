@@ -111,7 +111,7 @@
 - name: Exempel
   items:
     - name: Kodexempel
-      href: 'https://docs.microsoft.com/samples/browse/'
+      href: /samples/browse/
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
@@ -491,7 +491,7 @@
             - name: Konfigurera ReliableDictionaryActorStateProvider
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Skapa en ASP.NET Core-tjänst
-          href: service-fabric-add-a-web-frontend.md
+          href: ./service-fabric-reliable-services-communication-aspnetcore.md
         - name: Skapa en Apache Tomcat-tjänstcontainer på Linux
           href: service-fabric-get-started-tomcat.md
         - name: Konfigurera säkerhet
@@ -628,7 +628,7 @@
         - name: Konfigurera kontinuerlig integrering
           items:
             - name: Konfigurera kontinuerlig integrering med Azure Pipelines
-              href: service-fabric-set-up-continuous-integration.md
+              href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Distribuera ditt Linux-program med Jenkins
               href: service-fabric-cicd-your-linux-applications-with-jenkins.md
     - name: Konfigurera och ställa in omvänd proxy
@@ -897,7 +897,7 @@
     - name: Vanliga frågor
       href: service-fabric-common-questions.md
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-service-fabric.html'
+      href: /answers/topics/azure-service-fabric.html
     - name: Skyddsräcken för Azure Resource Manager-distribution
       href: service-fabric-azure-resource-manager-guardrails.md
     - name: Prissättning

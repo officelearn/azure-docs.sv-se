@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737129"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258010"
 ---
 # <a name="what-is-azure-digital-twins"></a>Vad är Azure Digital Twins?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **Azure Digitals dubbla** är en IoT-plattform som gör det möjligt att skapa omfattande digitala modeller av hela miljöer. De här miljöerna kan vara byggnader, fabriker, anläggningar, energi nät, järnvägar, stadium med mera, även hela städer. Dessa digitala modeller kan användas för att få insikter om bättre produkter, optimerade åtgärder, lägre kostnader och revolutionerande kund upplevelser.
 
@@ -46,6 +43,12 @@ DTDL används för data modeller i andra Azure IoT-tjänster, inklusive [IoT plu
 ### <a name="live-execution-environment"></a>Miljö för Live-körning
 
 Digitala modeller i digitala Azure-sändningar är Live, uppdaterade representationer av den verkliga världen. Med hjälp av relationerna i dina anpassade DTDL-modeller kan du ansluta dubbla till en **levande graf** som representerar din miljö.
+
+Du kan visa en visualisering av ditt Azure Digitals-diagram genom att använda ett exempel program, en [**Azure Digital-Utforskare**](https://github.com/Azure-Samples/digital-twins-explorer).
+
+Så här ser exempel visualiseringen ut:
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Skärm bild av exempel programmet för Azure Digitals flätad Utforskare som visar ett diagram över noder som representerar digitala dubbla" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 Azure Digitals dubbla är ett omfattande **händelse system** för att hålla diagrammet aktuellt med data behandling och affärs logik. Du kan ansluta externa beräknings resurser, till exempel [Azure Functions](../azure-functions/functions-overview.md), för att köra den här data bearbetningen på ett flexibelt och anpassat sätt.
 

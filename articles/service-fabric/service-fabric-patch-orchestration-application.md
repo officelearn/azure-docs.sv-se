@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82608923"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258605"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigera operativ systemet Windows i Service Fabric-klustret
 
@@ -28,7 +28,7 @@ ms.locfileid: "82608923"
 > Från och med den 30 april 2019 stöds inte längre uppdaterings program version 1,2. *. Se till att uppgradera till den senaste versionen.
 
 > [!NOTE]
-> Att hämta [automatiska operativ system avbildningar på den virtuella datorns skalnings uppsättning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) är den bästa metoden för att hålla operativ systemet uppdaterad i Azure. För skalnings uppsättningar för virtuella datorer som baseras på automatiska uppgraderingar av OS-avbildningar krävs silver eller större hållbarhet på en skalnings uppsättning.
+> Att hämta [automatiska operativ system avbildningar på den virtuella datorns skalnings uppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) är den bästa metoden för att hålla operativ systemet uppdaterad i Azure. För skalnings uppsättningar för virtuella datorer som baseras på automatiska uppgraderingar av OS-avbildningar krävs silver eller större hållbarhet på en skalnings uppsättning.
 >
 
  POA (patch Orchestration Application) är en omslutning runt Azure Service Fabric Repair Manager-tjänsten, som möjliggör konfigurations-baserad operativ Systems uppdaterings schemaläggning för icke-Azure-värdbaserade kluster. POA krävs inte för icke-Azure-värdbaserade kluster, men planerings korrigerings installation av uppdaterings domän krävs för att korrigera Service Fabric kluster värdar utan att det uppstår avbrott.
@@ -63,7 +63,7 @@ POA består av följande del komponenter:
 > [!NOTE]
 > POA använder tjänsten Service Fabric Repair Manager för att inaktivera eller aktivera noden och utföra hälso kontroller. Den reparations uppgift som skapas av POA spårar Windows Update förloppet för varje nod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]
 > Den lägsta .NET Framework versionen som krävs är 4,6.
@@ -82,9 +82,9 @@ Du kan aktivera Repair Manager från Azure Portal när du konfigurerar klustret.
 ![Bild av att aktivera Repair Manager från Azure Portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="the-azure-resource-manager-deployment-model"></a>Distributions modellen för Azure Resource Manager
-Du kan också använda [Azure Resource Manager distributions modell](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) för att aktivera tjänsten Repair Manager på nya och befintliga Service Fabric-kluster. Hämta mallen för det kluster som du vill distribuera. Du kan antingen använda exempel mallarna eller skapa en anpassad mall för Azure Resource Manager distributions modell. 
+Du kan också använda [Azure Resource Manager distributions modell](./service-fabric-cluster-creation-via-arm.md) för att aktivera tjänsten Repair Manager på nya och befintliga Service Fabric-kluster. Hämta mallen för det kluster som du vill distribuera. Du kan antingen använda exempel mallarna eller skapa en anpassad mall för Azure Resource Manager distributions modell. 
 
-Gör så här om du vill aktivera Repair Manager tjänsten med hjälp av [mallen för Azure Resource Manager distributions modell](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Gör så här om du vill aktivera Repair Manager tjänsten med hjälp av [mallen för Azure Resource Manager distributions modell](./service-fabric-cluster-creation-via-arm.md):
 
 1. Kontrol lera att `apiVersion` är inställt på *2017-07-01 – för hands version* för resursen *Microsoft. ServiceFabric/Clusters* . Om den är annorlunda måste du uppdatera `apiVersion` till *2017-07-01-för hands version* eller senare:
 
@@ -113,11 +113,11 @@ Gör så här om du vill aktivera Repair Manager tjänsten med hjälp av [mallen
 
 ### <a name="standalone-on-premises-clusters"></a>Fristående lokala kluster
 
-Om du vill aktivera Repair Manager tjänsten på ett nytt eller befintligt Service Fabric-kluster kan du använda [konfigurations inställningarna för fristående Windows-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
+Om du vill aktivera Repair Manager tjänsten på ett nytt eller befintligt Service Fabric-kluster kan du använda [konfigurations inställningarna för fristående Windows-kluster](./service-fabric-cluster-manifest.md).
 
 Så här aktiverar du tjänsten Repair Manager:
 
-1. Kontrol lera att `apiVersion` i [allmänna klusterkonfigurationer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) är inställt på *04-2017* eller senare, som du ser här:
+1. Kontrol lera att `apiVersion` i [allmänna klusterkonfigurationer](./service-fabric-cluster-manifest.md#general-cluster-configurations) är inställt på *04-2017* eller senare, som du ser här:
 
     ```json
     {
@@ -139,7 +139,7 @@ Så här aktiverar du tjänsten Repair Manager:
     ],
     ```
 
-1. Uppdatera ditt kluster manifest med de här ändringarna genom att använda det uppdaterade kluster manifestet [skapa ett nytt kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) eller [uppgradera kluster konfigurationen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). 
+1. Uppdatera ditt kluster manifest med de här ändringarna genom att använda det uppdaterade kluster manifestet [skapa ett nytt kluster](./service-fabric-cluster-creation-for-windows-server.md) eller [uppgradera kluster konfigurationen](./service-fabric-cluster-upgrade-windows-server.md). 
 
    När klustret har körts med ett uppdaterat kluster manifest kan du se Repair Manager-tjänsten som körs i klustret. Den heter *Fabric:/system/RepairManagerService*och finns i avsnittet system tjänster i Service Fabric Explorer.
 
@@ -160,7 +160,7 @@ Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt stan
 |MaxResultsToCache    |Lång                              | Det maximala antalet Windows Update resultat som ska cachelagras. <br><br>Standardvärdet är 3000, förutsatt att: <br> &nbsp;&nbsp;-Antalet noder är 20. <br> &nbsp;&nbsp;– Antalet uppdateringar till en nod per månad är 5. <br> &nbsp;&nbsp;-Antalet resultat per åtgärd kan vara 10. <br> &nbsp;&nbsp;-Resultaten för de senaste tre månaderna bör lagras. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy anger den princip som ska användas av koordinator tjänsten för att installera Windows-uppdateringar över Service Fabric klusternoder.<br><br>De tillåtna värdena är: <br>*NodeWise*: Windows-uppdateringar installeras en nod i taget. <br> *UpgradeDomainWise*: Windows-uppdateringar installeras en uppdaterings domän i taget. (Högst, kan alla noder som tillhör en uppdaterings domän gå för en Windows Update.)<br><br> Information om vilka principer som passar bäst för klustret finns i avsnittet [vanliga frågor och svar](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: *1024*)               | Den maximala storleken för loggning av korrigeringsfiler för att dirigera om i MB, som kan sparas lokalt på noder.
-| WUQuery               | sträng<br>(Standard: *IsInstalled = 0*)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | sträng<br>(Standard: *IsInstalled = 0*)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search)
 | InstallWindowsOSOnlyUpdates | *Boolesk* <br> (standard: falskt)                 | Använd den här flaggan för att styra vilka uppdateringar som ska hämtas och installeras. Följande värden är tillåtna <br>True – installerar endast uppdateringar för Windows-operativsystem.<br>false-installerar alla tillgängliga uppdateringar på datorn.          |
 | WUOperationTimeOutInMinutes | Int <br>(Standard: *90*)                   | Anger tids gränsen för alla Windows Update åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte slutförs inom den angivna tids gränsen avbryts den.       |
 | WURescheduleCount     | Int <br> (Standard: *5*)                  | Det maximala antalet gånger som tjänsten omplanerar Windows Update om en åtgärd Miss lyckas beständigt.          |
@@ -174,7 +174,7 @@ Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt stan
 ## <a name="deploy-poa"></a>Distribuera POA
 
 1. Slutför alla nödvändiga steg för att förbereda klustret.
-1. Distribuera POA som andra Service Fabric-appar. Information om hur du distribuerar den med hjälp av PowerShell finns i [distribuera och ta bort program med hjälp av PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+1. Distribuera POA som andra Service Fabric-appar. Information om hur du distribuerar den med hjälp av PowerShell finns i [distribuera och ta bort program med hjälp av PowerShell](./service-fabric-deploy-remove-applications.md).
 1. Om du vill konfigurera programmet vid tidpunkten för distributionen skickar `ApplicationParameter` du till `New-ServiceFabricApplication` cmdleten. För din bekvämlighet har vi tillhandahållit skriptet Deploy.ps1 tillsammans med programmet. Använda skriptet:
 
     - Anslut till ett Service Fabric-kluster med hjälp av `Connect-ServiceFabricCluster` .
@@ -185,11 +185,11 @@ Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt stan
 
 ## <a name="upgrade-poa"></a>Uppgradera POA
 
-Om du vill uppgradera POA-versionen med hjälp av PowerShell följer du anvisningarna i [Service Fabric program uppgradering med PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
+Om du vill uppgradera POA-versionen med hjälp av PowerShell följer du anvisningarna i [Service Fabric program uppgradering med PowerShell](./service-fabric-application-upgrade-tutorial-powershell.md).
 
 ## <a name="remove-poa"></a>Ta bort POA
 
-Om du vill ta bort programmet följer du anvisningarna i [distribuera och ta bort program med hjälp av PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+Om du vill ta bort programmet följer du anvisningarna i [distribuera och ta bort program med hjälp av PowerShell](./service-fabric-deploy-remove-applications.md).
 
 För din bekvämlighet har vi tillhandahållit Undeploy.ps1-skriptet tillsammans med programmet. Använda skriptet:
 
@@ -240,7 +240,7 @@ Fält | Värden | Information
 OperationResult under pågående | 0-lyckades<br> 1 – lyckades med fel<br> 2 – misslyckades<br> 3-avbruten<br> 4 – avbruten med timeout | Visar resultatet av den övergripande åtgärden, som normalt innebär installation av en eller flera uppdateringar.
 ResultCode | Samma som OperationResult under pågående | Det här fältet visar resultatet av installations åtgärden för en enskild uppdatering.
 OperationType | 1 – installation<br> 0-Sök och hämta| Som standard är installationen den enda OperationType som visas i resultaten.
-WindowsUpdateQuery | Standardvärdet är "IsInstalled = 0" | Den Windows Update-fråga som användes för att söka efter uppdateringar. Mer information finns i [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+WindowsUpdateQuery | Standardvärdet är "IsInstalled = 0" | Den Windows Update-fråga som användes för att söka efter uppdateringar. Mer information finns i [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search).
 RebootRequired | True-omstart krävs<br> false-omstart krävs inte | Anger om en omstart krävs för att slutföra installationen av uppdateringar.
 OperationStartTime | DateTime | Anger tiden då åtgärden (hämtning/installation) startades.
 OperationTime | DateTime | Anger tiden då åtgärden (hämtning/installation) slutfördes.
@@ -258,7 +258,7 @@ Om den omvända proxyn är aktive rad i klustret, kan du även komma åt webb ad
 
 Den slut punkt som du måste trycka på är *http:// &lt; SERVERURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*.
 
-Om du vill aktivera omvänd proxy i klustret följer du anvisningarna i [omvänd proxy i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
+Om du vill aktivera omvänd proxy i klustret följer du anvisningarna i [omvänd proxy i Azure Service Fabric](./service-fabric-reverseproxy.md). 
 
 > 
 > [!WARNING]
@@ -271,17 +271,17 @@ I det här avsnittet beskrivs hur du felsöker eller diagnostiserar problem med 
 > [!NOTE]
 > För att få många av följande utgångna, själv diagnos förbättringar bör du ha POA version 1.4.0 eller senare installerad.
 
-Node agent-NTService skapar [reparations uppgifter](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) för att installera uppdateringar på noderna. Varje aktivitet förbereds sedan av koordinator tjänsten enligt principen för godkännande av aktiviteter. Slutligen godkänns de för beredda uppgifterna av Repair Manager, som inte godkänner någon aktivitet om klustret är i ett ohälsosamt tillstånd. 
+Node agent-NTService skapar [reparations uppgifter](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) för att installera uppdateringar på noderna. Varje aktivitet förbereds sedan av koordinator tjänsten enligt principen för godkännande av aktiviteter. Slutligen godkänns de för beredda uppgifterna av Repair Manager, som inte godkänner någon aktivitet om klustret är i ett ohälsosamt tillstånd. 
 
 För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska vi gå igenom steg för steg:
 
 1. NodeAgentNTService, som körs på varje nod, söker efter tillgängliga Windows-uppdateringar på den schemalagda tiden. Om det finns uppdateringar, hämtas de på noden.
 
-1. När uppdateringarna har hämtats skapar Node-agentens NTService en motsvarande reparations uppgift för noden med namnet *POS___ \<unique_id> *. Du kan visa dessa reparations uppgifter med hjälp av cmdleten [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) eller använda SFX i avsnittet Node details. När reparations uppgiften har skapats flyttas den snabbt till [ *begärt* tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. När uppdateringarna har hämtats skapar Node-agentens NTService en motsvarande reparations uppgift för noden med namnet *POS___ \<unique_id> *. Du kan visa dessa reparations uppgifter med hjälp av cmdleten [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) eller använda SFX i avsnittet Node details. När reparations uppgiften har skapats flyttas den snabbt till [ *begärt* tillstånd](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. Koordinator tjänsten söker regelbundet efter reparations uppgifter i *begärt* tillstånd och uppdaterar dem sedan för att *förbereda* tillstånd baserat på TaskApprovalPolicy. Om TaskApprovalPolicy har kon figurer ATS att vara NodeWise, förbereds en reparations uppgift som motsvarar en nod bara om ingen annan reparations aktivitet för närvarande *förbereder*, *godkänt*, *Kör*eller *återställer* tillstånd. 
 
-   På samma sätt har UpgradeWise-TaskApprovalPolicy endast uppgifter i föregående steg för noder som tillhör samma uppdaterings domän. När en reparations aktivitet har flyttats till *förberedelse* tillståndet [inaktive ras](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) motsvarande Service Fabric nod med den avsikt som är inställd för *omstart*.
+   På samma sätt har UpgradeWise-TaskApprovalPolicy endast uppgifter i föregående steg för noder som tillhör samma uppdaterings domän. När en reparations aktivitet har flyttats till *förberedelse* tillståndet [inaktive ras](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) motsvarande Service Fabric nod med den avsikt som är inställd för *omstart*.
 
    POA-versioner 1.4.0 och senare skickar händelser med egenskapen ClusterPatchingStatus på CoordinatorService för att visa de noder som korrigeras. Uppdateringarna installeras på _poanode_0, som du ser i följande bild:
 
@@ -300,7 +300,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
    [![Bild av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   Du kan också få information genom att använda PowerShell. Det gör du genom att ansluta till klustret och hämta tillståndet för reparations uppgiften med hjälp av [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   Du kan också få information genom att använda PowerShell. Det gör du genom att ansluta till klustret och hämta tillståndet för reparations uppgiften med hjälp av [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
    I följande exempel är aktiviteten "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" i *DownloadComplete* -tillstånd. Det innebär att uppdateringar har laddats ned på *poanode_2* -noden och att installationen görs när aktiviteten flyttas till *körnings* tillstånd.
 
@@ -334,7 +334,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
 Uppdaterings program loggar samlas in som en del av Service Fabric körnings loggar.
 
-Du kan samla in loggar med hjälp av det diagnostikverktyg eller den pipeline som du väljer. POA använder följande fasta Provider-ID: n för att logga händelser via [händelse källa](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
+Du kan samla in loggar med hjälp av det diagnostikverktyg eller den pipeline som du väljer. POA använder följande fasta Provider-ID: n för att logga händelser via [händelse källa](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ A: POA installerar inte uppdateringar när klustret inte är felfritt. Försök 
 
 **F: ska jag ange TaskApprovalPolicy som "NodeWise" eller "UpgradeDomainWise" för mitt kluster?**
 
-A: inställningen "UpgradeDomainWise" påskyndar den övergripande kluster reparationen genom att uppdatera parallellt alla noder som tillhör en uppdaterings domän. Under processen är noder som tillhör en hel uppdaterings domän otillgängliga (i [ *inaktiverat* tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A: inställningen "UpgradeDomainWise" påskyndar den övergripande kluster reparationen genom att uppdatera parallellt alla noder som tillhör en uppdaterings domän. Under processen är noder som tillhör en hel uppdaterings domän otillgängliga (i [ *inaktiverat* tillstånd](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
 
 Inställningen "NodeWise" uppdaterar däremot bara en nod i taget, vilket skulle innebära att den övergripande kluster korrigeringen kan ta längre tid. Men endast en nod som mest skulle vara otillgänglig (i *inaktiverat* tillstånd) under korrigerings processen.
 
@@ -405,9 +405,9 @@ S: den tid som krävs för att korrigera ett helt kluster är beroende av:
     - För "NodeWise": ~ 20 timmar.
     - För "UpgradeDomainWise": ~ 5 timmar.
 
-- Kluster belastningen. Varje uppdaterings åtgärd kräver omlokalisering av kund arbets belastningen till andra tillgängliga noder i klustret. En nod som korrigeras skulle ha [ *inaktiverat* tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) under den här tiden. Om klustret körs nära högsta belastning tar det längre tid att inaktivera processen. Därför kan den övergripande uppdaterings processen förefalla vara långsam under sådana ingångs förhållanden.
+- Kluster belastningen. Varje uppdaterings åtgärd kräver omlokalisering av kund arbets belastningen till andra tillgängliga noder i klustret. En nod som korrigeras skulle ha [ *inaktiverat* tillstånd](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) under den här tiden. Om klustret körs nära högsta belastning tar det längre tid att inaktivera processen. Därför kan den övergripande uppdaterings processen förefalla vara långsam under sådana ingångs förhållanden.
 
-- Kluster hälso fel under uppdatering. Eventuell [försämring](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) [av klustrets hälsa](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) skulle avbryta korrigerings processen. Det här problemet skulle läggas till den sammanlagda tid som krävs för att korrigera hela klustret.
+- Kluster hälso fel under uppdatering. Eventuell [försämring](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) [av klustrets hälsa](./service-fabric-health-introduction.md) skulle avbryta korrigerings processen. Det här problemet skulle läggas till den sammanlagda tid som krävs för att korrigera hela klustret.
 
 **F: Varför visas några uppdateringar i Windows Update resultat som hämtas via REST API, men inte under Windows Update historik på datorn?**
 
@@ -415,11 +415,11 @@ A: vissa produkt uppdateringar visas endast i sin egen uppdaterings-eller korrig
 
 **F: kan POA användas för att uppdatera mitt dev-kluster (kluster med en nod)?**
 
-A: Nej, POA kan inte användas för att korrigera ett kluster med en nod. Den här begränsningen är avsiktligt, eftersom [Service Fabric system tjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) eller andra kund program skulle ådra sig drift stopp. Därför godkänns patcha reparations jobb aldrig av Repair Manager.
+A: Nej, POA kan inte användas för att korrigera ett kluster med en nod. Den här begränsningen är avsiktligt, eftersom [Service Fabric system tjänster](./service-fabric-technical-overview.md#system-services) eller andra kund program skulle ådra sig drift stopp. Därför godkänns patcha reparations jobb aldrig av Repair Manager.
 
 **F: Hur gör jag för att korrigerar du klusternoder på Linux?**
 
-A: information om hur du dirigerar uppdateringar i Linux finns i [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+A: information om hur du dirigerar uppdateringar i Linux finns i [skalnings uppsättningar för virtuella Azure-datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 **F: Varför tar uppdaterings cykeln så länge?**
 

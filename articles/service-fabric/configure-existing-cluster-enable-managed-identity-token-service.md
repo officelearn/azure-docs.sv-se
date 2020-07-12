@@ -4,12 +4,12 @@ description: Så här aktiverar du stöd för hanterade identiteter i ett befint
 ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
-ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 722c507300cc5766d162f336f77f60293c5c90dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415679"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257620"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Konfigurera stöd för hanterad identitet i ett befintligt Service Fabric-kluster
 
@@ -40,7 +40,7 @@ Om du vill aktivera tjänsten hanterad identitets-token i ett befintligt kluster
 ]
 ```
 
-För att ändringarna ska träda i kraft måste du också ändra uppgraderings principen för att ange en tvingande omstart av Service Fabric runtime på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade system tjänsten startas och körs på varje nod. I kodfragmentet nedan `forceRestart` är den viktigaste inställningen för att aktivera omstart. Använd värden som beskrivs nedan eller använd befintliga anpassade värden som redan har angetts för kluster resursen för de återstående parametrarna. Anpassade inställningar för uppgraderings principen för infrastruktur (' upgradeDescription ') kan visas från Azure Portal genom att välja alternativet för Fabric-uppgraderingar på Service Fabric resurs eller resources.azure.com. Standard alternativ för uppgraderings principen (' upgradeDescription ') kan inte visas från PowerShell eller resources.azure.com. Mer information finns i [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) .  
+För att ändringarna ska träda i kraft måste du också ändra uppgraderings principen för att ange en tvingande omstart av Service Fabric runtime på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade system tjänsten startas och körs på varje nod. I kodfragmentet nedan `forceRestart` är den viktigaste inställningen för att aktivera omstart. Använd värden som beskrivs nedan eller använd befintliga anpassade värden som redan har angetts för kluster resursen för de återstående parametrarna. Anpassade inställningar för uppgraderings principen för infrastruktur (' upgradeDescription ') kan visas från Azure Portal genom att välja alternativet för Fabric-uppgraderingar på Service Fabric resurs eller resources.azure.com. Standard alternativ för uppgraderings principen (' upgradeDescription ') kan inte visas från PowerShell eller resources.azure.com. Mer information finns i [ClusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) .  
 
 ```json
 "upgradeDescription": {

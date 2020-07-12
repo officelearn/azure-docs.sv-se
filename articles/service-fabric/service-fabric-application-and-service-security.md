@@ -3,12 +3,12 @@ title: Lär dig mer om Azure Service Fabric program säkerhet
 description: En översikt över hur du på ett säkert sätt kör mikrotjänster-program på Service Fabric. Lär dig hur du kör tjänster och start skript under olika säkerhets konton, autentiserar och auktoriserar användare, hanterar program hemligheter, säker tjänst kommunikation, använder en API-gateway och skyddar program data i vila.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f17840f31d2a4c12a1d4618bd16e81dcc2cc8a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461437"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256585"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric program-och tjänst säkerhet
 En arkitektur för mikrotjänster kan få [många fördelar](service-fabric-overview-microservices.md). Att hantera säkerheten för mikrotjänster är dock en utmaning och skiljer sig från att hantera traditionell monolitisk program säkerhet. 
@@ -35,7 +35,7 @@ Efter autentiseringen måste tjänster auktorisera användar åtkomst eller best
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Begränsa och skydda åtkomst med hjälp av en API-Gateway
 Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. En [API-Gateway](/azure/architecture/microservices/gateway) är placerad mellan klienter och tjänster och är start punkten för alla tjänster som ditt program tillhandahåller. Den fungerar som en omvänd proxy och dirigerar begär Anden från klienter till tjänster. Det kan också utföra olika aktiviteter, till exempel autentisering och auktorisering, TLS-avslutning och hastighets begränsning. Om du inte distribuerar en gateway måste klienterna skicka begär Anden direkt till klient dels tjänster.
 
-I Service Fabric kan en gateway vara en tillstånds lös tjänst, till exempel ett [ASP.net Core program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som har utformats för trafik ingångar, till exempel [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)eller [Azure API Management](https://docs.microsoft.com/azure/api-management).
+I Service Fabric kan en gateway vara en tillstånds lös tjänst, till exempel ett [ASP.net Core program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som har utformats för trafik ingångar, till exempel [Traefik](https://docs.traefik.io/), [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml)eller [Azure API Management](../api-management/index.yml).
 
 API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till Server delens Service Fabric tjänster.  Du kan skydda åtkomsten till backend-tjänster, förhindra DOS-attacker genom att använda begränsning eller verifiera API-nycklar, JWT-token, certifikat och andra autentiseringsuppgifter. Läs mer i [Service Fabric med Azure API Management-översikt](service-fabric-api-management-overview.md).
 
@@ -85,7 +85,7 @@ Du kan upprätta en säker anslutning mellan omvänd proxy och tjänster och på
 Reliable Services Application Framework innehåller några inbyggda kommunikations stackar och verktyg som du kan använda för att förbättra säkerheten. Lär dig hur du kan förbättra säkerheten när du använder tjänstens fjärr kommunikation (i [C#](service-fabric-reliable-services-secure-communication.md) eller [Java](service-fabric-reliable-services-secure-communication-java.md)) eller med [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Kryptera program data i vila
-Varje [nodtyp](service-fabric-cluster-nodetypes.md) i ett Service Fabric kluster som körs i Azure backas upp av en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Genom att använda en Azure Resource Manager-mall, kan du ansluta datadiskar till skalningsuppsättningen som utgör Service Fabric-klustret.  Om dina tjänster sparar data till en ansluten data disk kan du [kryptera dessa data diskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) för att skydda dina program data.
+Varje [nodtyp](service-fabric-cluster-nodetypes.md) i ett Service Fabric kluster som körs i Azure backas upp av en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/overview.md). Genom att använda en Azure Resource Manager-mall, kan du ansluta datadiskar till skalningsuppsättningen som utgör Service Fabric-klustret.  Om dina tjänster sparar data till en ansluten data disk kan du [kryptera dessa data diskar](../virtual-machine-scale-sets/disk-encryption-powershell.md) för att skydda dina program data.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af5399be44d2946775622598c5c1db3d8355f7cd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905624"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257078"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Utför grundläggande åtgärder på filnivå på klustrets avbildnings lager.
@@ -18,7 +19,7 @@ Utför grundläggande åtgärder på filnivå på klustrets avbildnings lager.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort befintligt bild lagrings innehåll. |
+| ta bort | Tar bort befintligt bild lagrings innehåll. |
 | rot-info | Hämtar innehålls informationen i roten för avbildnings arkivet. |
 | indikerar | Hämtar innehålls informationen för avbildnings arkivet. |
 
@@ -90,4 +91,4 @@ Returnerar informationen om avbildningens lagrings innehåll på angiven content
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

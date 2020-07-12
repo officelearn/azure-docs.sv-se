@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c6be98eeca4433798ad8ed2bacb9338331b112
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: cbf811fdb8ff051ec1bb782eb3da12ea45b29bdf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170453"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256824"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -259,7 +259,7 @@ Vi har infört en ny riskEventsTypes_v2 (String)-egenskap för inloggningar v 1.
 **Produkt kapacitet:** & skydd för identitets säkerhet
  
 
-Vi gör följande ändringar i MFA-e-postaviseringar för MFA:
+Vi gör följande ändringar i e-postmeddelandena för Cloud MFA:
 
 E-postaviseringar kommer att skickas från följande adress: azure-noreply@microsoft.com och msonlineservicesteam@microsoftonline.com . Vi uppdaterar innehållet i meddelanden om bedrägeri aviseringar för att bättre illustrera de steg som krävs för att avblockera användningen.
 

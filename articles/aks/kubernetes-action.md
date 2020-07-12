@@ -6,11 +6,12 @@ author: azooinmyluggage
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4f8a41df64c3bcbbd85438e4d340d44d5f16351
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77595373"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255225"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub-åtgärder för att distribuera till Kubernetes-tjänsten
 
@@ -23,14 +24,14 @@ För ett arbets flöde som riktar sig till AKS har filen tre delar:
 |Avsnitt  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | Logga in på ett privat container Registry (ACR) |
-|**Utveckla** | Bygg & push-överför behållar avbildningen  |
+|**Skapa** | Bygg & push-överför behållar avbildningen  |
 |**Distribuera** | 1. Ange mål AKS-klustret |
 | |2. skapa en allmän/Docker-register hemlighet i Kubernetes-kluster  |
 ||3. distribuera till Kubernetes-klustret|
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Du kan skapa ett [huvud namn för tjänsten](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
+Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -57,7 +58,7 @@ Följ stegen för att konfigurera hemligheterna:
 
     ![secrets](media/kubernetes-action/secrets.png)
 
-2. Klistra in innehållet i ovanstående `az cli` kommando som värde för den hemliga variabeln. Till exempel `AZURE_CREDENTIALS`.
+2. Klistra in innehållet i ovanstående `az cli` kommando som värde för den hemliga variabeln. Ett exempel är `AZURE_CREDENTIALS`.
 
 3. På samma sätt definierar du följande ytterligare hemligheter för autentiseringsuppgifterna för behållar registret och anger dem i Docker login login-åtgärd. 
 

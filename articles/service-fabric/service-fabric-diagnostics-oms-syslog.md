@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645760"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258632"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux-kluster händelser i syslog
 
@@ -25,7 +26,7 @@ Varje syslog-händelse har 4 komponenter
 * Anläggning
 * Identitet
 * Meddelande
-* Severity
+* Allvarlighetsgrad
 
 SyslogConsumer skriver alla plattforms händelser med hjälp av funktionen `Local0` . Du kan uppdatera till en giltig funktion genom att ändra konfigurations konfigurationen. Den identitet som används är `ServiceFabric` . Meddelande fältet innehåller hela händelsen serialiserad i JSON, så att den kan frågas och konsumeras av en rad olika verktyg. 
 
@@ -112,6 +113,6 @@ Exemplet ovan är en NodeDown-händelse. Du kan visa en fullständig lista över
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera Log Analytics agenten](service-fabric-diagnostics-oms-agent.md) på noderna för att samla in prestanda räknare och samla Docker statistik och loggar för dina behållare
-* Bekanta dig med funktionerna för [loggs ökning och frågor](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor loggar
-* [Använd Visa designer för att skapa anpassade vyer i Azure Monitor loggar](../log-analytics/log-analytics-view-designer.md)
-* Referens för hur du [Azure Monitor loggar integrering med syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Bekanta dig med funktionerna för [loggs ökning och frågor](../azure-monitor/log-query/log-query-overview.md) som erbjuds som en del av Azure Monitor loggar
+* [Använd Visa designer för att skapa anpassade vyer i Azure Monitor loggar](../azure-monitor/platform/view-designer.md)
+* Referens för hur du [Azure Monitor loggar integrering med syslog](../azure-monitor/platform/data-sources-syslog.md).

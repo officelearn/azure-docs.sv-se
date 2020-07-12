@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar och konfigurerar tjänsten reverse pro
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80476666"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256336"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurera och konfigurera omvänd proxy i Azure Service Fabric
 Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du konfigurerar och konfigurerar omvänd proxy i klustret. 
@@ -37,7 +37,7 @@ För ett nytt kluster kan du [skapa en anpassad Resource Manager-mall](service-f
 
 Du hittar exempel på Resource Manager-mallar som kan hjälpa dig att konfigurera säker omvänd proxy för ett Azure-kluster i [Sample-mallarna för säker omvänd proxy](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) på GitHub. Se [Konfigurera https omvänd proxy i ett säkert kluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) i Readme-filen för instruktioner och mallar som ska användas för att konfigurera säker omvänd proxy med ett certifikat och för att hantera certifikat förnyelse.
 
-För ett befintligt kluster kan du exportera Resource Manager-mallen för klustrets resurs grupp med hjälp av [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [POWERSHELL](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)eller [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
+För ett befintligt kluster kan du exportera Resource Manager-mallen för klustrets resurs grupp med hjälp av [Azure Portal](../azure-resource-manager/templates/export-template-portal.md), [POWERSHELL](../azure-resource-manager/management/manage-resources-powershell.md)eller [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md).
 
 När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande steg:
 
@@ -52,7 +52,7 @@ När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande
         }
     },
     ```
-2. Ange porten för varje NodeType-objekt i avsnittet [**Microsoft. ServiceFabric/Clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) ( [resurs typ](../azure-resource-manager/templates/template-syntax.md)).
+2. Ange porten för varje NodeType-objekt i avsnittet [**Microsoft. ServiceFabric/Clusters**](/azure/templates/microsoft.servicefabric/clusters) ( [resurs typ](../azure-resource-manager/templates/template-syntax.md)).
 
     Porten identifieras av parameter namnet reverseProxyEndpointPort.
 
@@ -74,7 +74,7 @@ När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande
         ...
     }
     ```
-3. Om du vill konfigurera TLS/SSL-certifikat på porten för den omvända proxyn lägger du till certifikatet i ***reverseProxyCertificate*** -egenskapen i [avsnittet resurs typ](../resource-group-authoring-templates.md)för **Microsoft. ServiceFabric/Clusters** .
+3. Om du vill konfigurera TLS/SSL-certifikat på porten för den omvända proxyn lägger du till certifikatet i ***reverseProxyCertificate*** -egenskapen i [avsnittet resurs typ](../azure-resource-manager/templates/template-syntax.md)för **Microsoft. ServiceFabric/Clusters** .
 
     ```json
     {
@@ -98,7 +98,7 @@ När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Stöd för ett reverse proxy-certifikat som skiljer sig från kluster certifikatet
- Om det omvända proxy-certifikatet skiljer sig från det certifikat som skyddar klustret, ska det tidigare angivna certifikatet installeras på den virtuella datorn och läggas till i åtkomst kontrol listan (ACL) så att Service Fabric kan komma åt det. Detta kan göras i avsnittet [**Microsoft. Compute/virtualMachineScaleSets-**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [resurs typ](../resource-group-authoring-templates.md). För installation lägger du till certifikatet i osProfile. Tilläggs avsnittet i mallen kan uppdatera certifikatet i ACL: en.
+ Om det omvända proxy-certifikatet skiljer sig från det certifikat som skyddar klustret, ska det tidigare angivna certifikatet installeras på den virtuella datorn och läggas till i åtkomst kontrol listan (ACL) så att Service Fabric kan komma åt det. Detta kan göras i avsnittet [**Microsoft. Compute/virtualMachineScaleSets-**](/azure/templates/microsoft.compute/virtualmachinescalesets) [resurs typ](../azure-resource-manager/templates/template-syntax.md). För installation lägger du till certifikatet i osProfile. Tilläggs avsnittet i mallen kan uppdatera certifikatet i ACL: en.
 
   ```json
   {
@@ -252,50 +252,50 @@ Om du vill exponera omvänd proxy offentligt för ett fristående kluster, beror
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Exponera den omvända proxyn via Resource Manager-mallar
 
-Följande JSON refererar till samma mall som används i [Aktivera omvänd proxy via Azure Resource Manager mallar](#enable-reverse-proxy-via-azure-resource-manager-templates). Läs avsnittet i dokumentet om du vill ha information om hur du skapar en Resource Manager-mall eller exporterar en mall för ett befintligt kluster.  Ändringarna görs i avsnittet [**Microsoft. Network/belastningsutjämnare**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [resurs typ](../resource-group-authoring-templates.md).
+Följande JSON refererar till samma mall som används i [Aktivera omvänd proxy via Azure Resource Manager mallar](#enable-reverse-proxy-via-azure-resource-manager-templates). Läs avsnittet i dokumentet om du vill ha information om hur du skapar en Resource Manager-mall eller exporterar en mall för ett befintligt kluster.  Ändringarna görs i avsnittet [**Microsoft. Network/belastningsutjämnare**](/azure/templates/microsoft.network/loadbalancers) [resurs typ](../azure-resource-manager/templates/template-syntax.md).
 
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
+```json
+{
+    "apiVersion": "[variables('lbApiVersion')]",
+    "type": "Microsoft.Network/loadBalancers",
+    ...
+    ...
+    "loadBalancingRules": [
         ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
+        {
+            "name": "LBSFReverseProxyRule",
+            "properties": {
+                "backendAddressPool": {
+                    "id": "[variables('lbPoolID0')]"
+                },
+                "backendPort": "[parameters('SFReverseProxyPort')]",
+                "enableFloatingIP": "false",
+                "frontendIPConfiguration": {
+                    "id": "[variables('lbIPConfig0')]"
+                },
+                "frontendPort": "[parameters('SFReverseProxyPort')]",
+                "idleTimeoutInMinutes": "5",
+                "probe": {
+                    "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                },
+                "protocol": "tcp"
             }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
+        }
+    ],
+    "probes": [
+        ...
+        {
+            "name": "SFReverseProxyProbe",
+            "properties": {
+                "intervalInSeconds": 5,
+                "numberOfProbes": 2,
+                "port":     "[parameters('SFReverseProxyPort')]",
+                "protocol": "tcp"
+            }
+        }  
+    ]
+}
+```
 
 
 ## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Anpassa beteendet för omvänd proxy med hjälp av infrastruktur inställningar

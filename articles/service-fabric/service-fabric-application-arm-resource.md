@@ -3,11 +3,12 @@ title: Distribuera och uppgradera med Azure Resource Manager
 description: Lär dig hur du distribuerar program och tjänster till ett Service Fabric kluster med en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610258"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256517"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager resurser
 
@@ -260,13 +261,12 @@ Att bara ta bort Microsoft. ServiceFabric/kluster/program från ARM-mallen aveta
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Hantera ett befintligt program via Resource Manager
 
-Om klustret redan är igång och vissa program som du vill hantera som Resource Manager-resurser redan har distribuerats på den, kan du använda ett anrop med samma API: er för att få programmen att bekräftas som Resource Manager-resurser. Mer information finns i [Vad är Service Fabric-programmets resurs modell?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Om klustret redan är igång och vissa program som du vill hantera som Resource Manager-resurser redan har distribuerats på den, kan du använda ett anrop med samma API: er för att få programmen att bekräftas som Resource Manager-resurser. Mer information finns i [Vad är Service Fabric-programmets resurs modell?](./service-fabric-concept-resource-model.md)
 
 > [!NOTE]
-> Om du vill tillåta en kluster uppgradering att ignorera ohälsosama appar kan kunden ange "maxPercentUnhealthyApplications: 100" i avsnittet "upgradeDescription/healthPolicy". detaljerade beskrivningar för alla inställningar finns i [service fabric REST API dokumentation om kluster uppgraderings principer](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Om du vill tillåta en kluster uppgradering att ignorera ohälsosama appar kan kunden ange "maxPercentUnhealthyApplications: 100" i avsnittet "upgradeDescription/healthPolicy". detaljerade beskrivningar för alla inställningar finns i [service fabric REST API dokumentation om kluster uppgraderings principer](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd [Service Fabric CLI](service-fabric-cli.md) eller [PowerShell](service-fabric-deploy-remove-applications.md) för att distribuera andra program till klustret. 
 * [Uppgradera Service Fabric-klustret](service-fabric-cluster-upgrade.md)
-

@@ -5,11 +5,12 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8633a5018e6faeaca842a3ecffb4c4921358e191
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614170"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257360"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Säker WCF-baserad kommunikation för en tjänst
 Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Services Application Framework innehåller några inbyggda kommunikations stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln visar hur du kan förbättra säkerheten när du använder tjänstens fjärr kommunikation.
@@ -119,4 +120,4 @@ Vi använder ett befintligt [exempel](service-fabric-reliable-services-communica
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-I nästa steg ska du läsa [webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+I nästa steg ska du läsa [webb-API med OWIN i Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md).

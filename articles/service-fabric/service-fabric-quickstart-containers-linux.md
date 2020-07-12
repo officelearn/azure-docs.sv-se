@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d765168ea2eddaf42715536b5da67f15bb8a8cee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75372694"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258550"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-containrar till Service Fabric
 
@@ -108,7 +108,7 @@ Mozilla Firefox är standardwebbläsaren i Ubuntu 16.04. Klicka på menyknappen 
     ./install.sh
     ```
 
-3. Öppna en webbläsare och gå till Service Fabric Explorer-slutpunkten för klustret. Slut punkten har följande format: **https://\<My-Azure-Service-Fabric-cluster-URL>:19080/Explorer**; till exempel `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Öppna en webbläsare och gå till Service Fabric Explorer-slutpunkten för klustret. Slut punkten har följande format: **https:// \<my-azure-service-fabric-cluster-url> : 19080/Explorer**; till exempel `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer` . </br>
 
 4. Expandera noden **Program** för att se att det nu finns en post för röstningsprogramtypen och instansen som du skapade.
 
@@ -178,8 +178,8 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Ett exempel:
-- I Windows: Använd [MMC-snapin-modulen Certifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Välj **Mitt användarkonto** när du lägger till snapin-modulen. Gå till `Certificates - Current User\Personal\Certificates` och ta bort certifikatet.
+Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Exempel:
+- I Windows: Använd [MMC-snapin-modulen Certifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Välj **Mitt användarkonto** när du lägger till snapin-modulen. Gå till `Certificates - Current User\Personal\Certificates` och ta bort certifikatet.
 - I Mac: Använd nyckelringsappen.
 - I Ubuntu: Följ stegen som du använde för att visa certifikat och ta bort certifikatet.
 

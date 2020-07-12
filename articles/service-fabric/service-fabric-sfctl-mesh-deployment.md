@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb2adafab88eb1d3855cdec8268601fb4e15dcbb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906038"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257279"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Skapa Service Fabric nät resurser.
@@ -62,4 +63,4 @@ sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

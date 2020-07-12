@@ -3,12 +3,12 @@ title: Uppgradera klusternoder för att använda Azure Managed disks
 description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611636"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255905"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure Managed disks
 
@@ -16,7 +16,7 @@ ms.locfileid: "85611636"
 
 Den allmänna strategin för att uppgradera en Service Fabric klusternod till att använda hanterade diskar är att:
 
-1. Distribuera en annan virtuell dators skalnings uppsättning för den nodtypen, men med [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) -objektet tillagt i `osDisk` avsnittet i distributions mal len för skalnings uppsättning för virtuell dator. Den nya skalnings uppsättningen ska bindas till samma belastningsutjämnare/IP-adress som den ursprungliga, så att dina kunder inte upplever avbrott i tjänsten under migreringen.
+1. Distribuera en annan virtuell dators skalnings uppsättning för den nodtypen, men med [managedDisk](/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) -objektet tillagt i `osDisk` avsnittet i distributions mal len för skalnings uppsättning för virtuell dator. Den nya skalnings uppsättningen ska bindas till samma belastningsutjämnare/IP-adress som den ursprungliga, så att dina kunder inte upplever avbrott i tjänsten under migreringen.
 
 2. När båda de ursprungliga och uppgraderade skalnings uppsättningarna körs sida vid sida inaktiverar du de ursprungliga instans instanserna en i taget så att system tjänsterna (eller replikerna av tillstånds känsliga tjänster) migreras till den nya skalnings uppsättningen.
 
@@ -25,7 +25,7 @@ Den allmänna strategin för att uppgradera en Service Fabric klusternod till at
 Den här artikeln beskriver steg för steg hur du uppgraderar den primära nodtypen i ett exempel kluster för att använda hanterade diskar, samtidigt som du undviker eventuella avbrott i klustret (se OBS!). Det första stadiet i exempel-test klustret består av en nodtyp av [silver tålighet](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), med en enda skalnings uppsättning med fem noder.
 
 > [!CAUTION]
-> Du får bara ett avbrott med den här proceduren om du har beroenden för kluster-DNS (till exempel vid åtkomst till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Bästa praxis för klient dels tjänster](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) är att ha någon typ av belastningsutjämnare framför dina nodtyper för att göra det möjligt att växla [mellan](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) noder utan avbrott.
+> Du får bara ett avbrott med den här proceduren om du har beroenden för kluster-DNS (till exempel vid åtkomst till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Bästa praxis för klient dels tjänster](/azure/architecture/microservices/design/gateway) är att ha någon typ av belastningsutjämnare framför dina nodtyper för att göra det möjligt att växla [mellan](/azure/architecture/guide/technology-choices/load-balancing-overview) noder utan avbrott.
 
 Här följer [mallar och cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) för Azure Resource Manager som vi använder för att slutföra uppgraderings scenariot. Mal lin liga ändringar kommer att förklaras i [distribuera en uppgraderad skalnings uppsättning för den primära nodtypen](#deploy-an-upgraded-scale-set-for-the-primary-node-type) nedan.
 

@@ -4,11 +4,11 @@ ms.service: active-directory
 ms.topic: include
 ms.date: 04/30/2019
 ms.author: daveba
-ms.openlocfilehash: 5e430b16bbdebf97c1499d997fe2c30771270987
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c262982fc24215462559772e01f8d85dd00d2d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73523916"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256668"
 ---
-Om du använder den här funktionen krävs en Azure AD Premium P2-licens. Information om rätt licens för dina krav finns i [jämföra allmänt tillgängliga funktioner i versionerna kostnads fri, Basic och Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+Om du använder den här funktionen krävs en Azure AD Premium P2-licens. Information om rätt licens för dina krav finns i [jämföra allmänt tillgängliga funktioner i kostnads fria, Office 365-appar och Premium-versioner](https://azure.microsoft.com/pricing/details/active-directory/).

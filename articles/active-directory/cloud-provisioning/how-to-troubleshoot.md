@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360800"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256874"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Fel sökning av moln etablering
 
@@ -22,7 +22,7 @@ Moln etablering vidrör många olika saker och har många olika beroenden. Detta
 
 ## <a name="common-troubleshooting-areas"></a>Vanliga fel söknings områden
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |-----|-----|
 |[Agent problem](#agent-problems)|Kontrol lera att agenten har installerats korrekt och att den kommunicerar med Azure Active Directory (Azure AD).|
 |[Problem med synkronisering av objekt](#object-synchronization-problems)|Använd etablerings loggar för att felsöka problem med synkronisering av objekt.|
@@ -55,9 +55,7 @@ Följ dessa steg för att kontrol lera att agenten visas av Azure och är felfri
 
 ### <a name="verify-the-port"></a>Verifiera porten
 
-För att kontrol lera att Azure lyssnar på port 443 och att agenten kan kommunicera med den, använder du följande verktyg:
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Kontrol lera att Azure lyssnar på port 443 och att agenten kan kommunicera med den. 
 
 Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port 443. Öppna en webbläsare och gå till föregående URL från servern där agenten är installerad.
 

@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201279"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242074"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-enskild server
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg buntar samman flera relaterade SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Efter att ha lästs in i databasen, fungerar utöknings funktionen som inbyggda funktioner.
@@ -25,7 +26,7 @@ Azure Database for PostgreSQL stöder en delmängd av nyckel tillägg som anges 
 Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som har postgres version 11. 
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning**| **Tilläggsversion** | **Beskrivning** |
+> | **Filnamnstillägg**| **Tilläggsversion** | **Beskrivning** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Används för att parsa en adress till komponent element. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exempel på adress Standardiserare för data uppsättning|
@@ -70,7 +71,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som har postgres version 10.
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning**| **Tilläggsversion** | **Beskrivning** |
+> | **Filnamnstillägg**| **Tilläggsversion** | **Beskrivning** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Används för att parsa en adress till komponent element. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exempel på adress Standardiserare för data uppsättning|
@@ -116,7 +117,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som har postgres version 9,6.
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning**| **Tilläggsversion** | **Beskrivning** |
+> | **Filnamnstillägg**| **Tilläggsversion** | **Beskrivning** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | Används för att parsa en adress till komponent element. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Exempel på adress Standardiserare för data uppsättning|
@@ -162,7 +163,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som har postgres version 9,5.
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning**| **Tilläggsversion** | **Beskrivning** |
+> | **Filnamnstillägg**| **Tilläggsversion** | **Beskrivning** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | Används för att parsa en adress till komponent element. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Exempel på adress Standardiserare för data uppsättning|
@@ -211,7 +212,7 @@ Det uppstår en kompromiss mellan information om körningen pg_stat_statements t
 ## <a name="dblink-and-postgres_fdw"></a>dbLink och postgres_fdw
 med [dbLink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) och [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) kan du ansluta från en postgresql-server till en annan, eller till en annan databas på samma server. Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen. När du använder dessa tillägg för att ansluta mellan Azure Database for PostgreSQL-servrar kan du göra detta genom att ange "Tillåt åtkomst till Azure-tjänster" till på. Detta behövs även om du vill använda tilläggen för att återgå till samma server. Inställningen "Tillåt åtkomst till Azure-tjänster" finns på Azure Portal sidan för postgres-servern under anslutnings säkerhet. Att aktivera "Tillåt åtkomst till Azure-tjänster" på placerar alla Azure IP-adresser i listan över tillåtna.
 
-För närvarande stöds inte utgående anslutningar från Azure Database for PostgreSQL, förutom för anslutningar till andra Azure Database for PostgreSQL-servrar.
+För närvarande stöds inte utgående anslutningar från Azure Database for PostgreSQL, förutom för anslutningar till andra Azure Database for PostgreSQL-servrar i samma region.
 
 ## <a name="uuid"></a>uuid
 Om du planerar att använda `uuid_generate_v4()` från [UUID-ossp-tillägget](https://www.postgresql.org/docs/current/uuid-ossp.html)kan du jämföra med med `gen_random_uuid()` pgcrypto- [tillägget](https://www.postgresql.org/docs/current/pgcrypto.html) för prestanda förmåner.

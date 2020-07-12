@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ac4df0b63d48e590bfdfc49f1c8b5607b4651cd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c18a09b494de7ecb639fbc5639b7162bdb02d2a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310197"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241989"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
@@ -22,7 +23,7 @@ Azure Maps har inte samma nivå av information och exakthet för alla länder oc
 
 Följande tabell innehåller information om vilken typ av väder information som du kan begära från varje land/region.
 
-| Symbol | Innebörd |
+| Symbol | Betydelse |
 |--------|---------|
 |*       |Täcker väder utmed väg, aktuella villkor, Tim prognos, kvartals dags prognos och dagliga prognos-API: er |
 
@@ -110,7 +111,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Tchad                        | ✓               |                              |        ✓| 
 | Komorerna                     | ✓               |                              |        ✓| 
 | Kongo (DR)                 | ✓               |                              |        ✓|
-| Côte D' Ivoire               | ✓               |                              |        ✓| 
+| Côte d'Ivoire               | ✓               |                              |        ✓| 
 | Djibouti                    | ✓               |                              |        ✓| 
 | Egypten                       | ✓               |                              |        ✓| 
 | Ekvatorialguinea           | ✓               |                              |        ✓| 

@@ -9,11 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988608"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242312"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panelskikt till en karta
 
@@ -36,6 +37,7 @@ Panel-URL: en som skickas till ett panel lager måste vara en http-eller HTTPS-U
 * `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
 * `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
 * `{subdomain}`– En plats hållare för under domänens värden, om den är angiven, `subdomain` kommer att läggas till.
+* `{azMapsDomain}`– En plats hållare för att justera domänen och autentiseringen av panel begär Anden med samma värden som används av kartan.
 
 ## <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
 

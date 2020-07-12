@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207235"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241904"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverks lägen för Service Fabric behållare
 
@@ -21,7 +21,7 @@ Om du har en container service med en statisk slut punkt i tjänst manifestet ka
 När en behållar tjänst startas om eller flyttas till en annan nod i klustret ändras IP-adressen. Därför rekommenderar vi inte att du använder den dynamiskt tilldelade IP-adressen för att identifiera behållar tjänster. Endast Service Fabric Naming Service eller DNS-tjänsten ska användas för tjänst identifiering. 
 
 >[!WARNING]
->Azure ger totalt 65 356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet behållar tjänst instanser (som använder öppet läge) får inte överstiga 65 356 IP-adresser i ett virtuellt nätverk. För scenarier med hög densitet rekommenderar vi NAT-nätverkets läge. Dessutom kommer andra beroenden som belastningsutjämnaren att ha andra [begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) att överväga. För närvarande är upp till 50 IP-adresser per nod testat och beprövat stabilt. 
+>Azure ger totalt 65 356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet behållar tjänst instanser (som använder öppet läge) får inte överstiga 65 356 IP-adresser i ett virtuellt nätverk. För scenarier med hög densitet rekommenderar vi NAT-nätverkets läge. Dessutom kommer andra beroenden som belastningsutjämnaren att ha andra [begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) att överväga. För närvarande är upp till 50 IP-adresser per nod testat och beprövat stabilt. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Konfigurera öppet nätverks läge
@@ -263,6 +263,6 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
  
 ## <a name="next-steps"></a>Nästa steg
 * [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)
-* [Läs mer om resurser för Service Fabric tjänst manifest](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Läs mer om resurser för Service Fabric tjänst manifest](./service-fabric-service-manifest-resources.md)
 * [Distribuera en Windows-behållare till Service Fabric på Windows Server 2016](service-fabric-get-started-containers.md)
 * [Distribuera en Docker-behållare till Service Fabric på Linux](service-fabric-get-started-containers-linux.md)

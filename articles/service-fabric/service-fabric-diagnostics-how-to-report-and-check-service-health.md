@@ -5,18 +5,19 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241938"
 ---
 # <a name="report-and-check-service-health"></a>Rapportera och kontrollera hälsan hos tjänster
 När dina tjänster drabbas av problem kan din möjlighet att svara på och åtgärda incidenter och avbrott bero på din möjlighet att snabbt upptäcka problemen. Om du rapporterar problem och fel i Azure Service Fabric Health Manager från Service koden kan du använda standard verktyg för hälso övervakning som Service Fabric visar för att kontrol lera hälso statusen.
 
 Det finns tre sätt som du kan rapportera hälsan från tjänsten:
 
-* Använd [partitioner](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) eller [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) -objekt.  
+* Använd [partitioner](/dotnet/api/system.fabric.istatefulservicepartition) eller [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) -objekt.  
   Du kan använda- `Partition` och- `CodePackageActivationContext` objekten för att rapportera hälso tillståndet för element som ingår i den aktuella kontexten. Kod som körs som en del av en replik kan till exempel endast rapportera hälso tillståndet på den repliken, den partition som den tillhör och det program som den är en del av.
 * Använd `FabricClient`.   
   Du kan använda `FabricClient` för att rapportera hälso tillstånd från Service koden om klustret inte är [säkert](service-fabric-cluster-security.md) eller om tjänsten körs med administratörs behörighet. De flesta verkliga scenarier använder inte oskyddade kluster eller ger administratörs behörighet. Med `FabricClient` kan du rapportera hälsa för alla entiteter som ingår i klustret. Vi rekommenderar dock bara service code att skicka rapporter som är relaterade till sitt eget hälso tillstånd.
@@ -140,6 +141,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 
 ## <a name="next-steps"></a>Nästa steg
 * [Djupgående Service Fabric hälsa](service-fabric-health-introduction.md)
-* [REST API för repor ting service Health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
-* [REST API för rapportering av program hälsa](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
+* [REST API för repor ting service Health](/rest/api/servicefabric/report-the-health-of-a-service)
+* [REST API för rapportering av program hälsa](/rest/api/servicefabric/report-the-health-of-an-application)

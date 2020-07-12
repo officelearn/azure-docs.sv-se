@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615336"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241683"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop-miljö
 
@@ -67,5 +67,5 @@ Information om hur du konfigurerar en Windows Virtual Desktop-klient finns i [sk
 
 Information om hur du ansluter till virtuella Windows-datorer finns i någon av följande artiklar:
 
-- [Ansluta från Windows 10 eller Windows 7](../connect-windows-7-and-10.md)
+- [Ansluta från Windows 10 eller Windows 7](connect-windows-7-10-2019.md)
 - [Ansluta från en webbläsare](connect-web-2019.md)

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 74fdfb9f3a3f59f55b0f0ed4865601c0ddb7b7f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086559"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241972"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Förstå affärs kontinuitet i Azure Database for MySQL
 
@@ -51,6 +51,10 @@ Det andra alternativet är att använda Azure Database for MySQL ' geo-Restore-f
 ## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
 
 Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med MySQL: s binära logg teknik för replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
+
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+### <a name="where-does-azure-database-for-mysql-store-customer-data"></a>Var lagrar Azure Database for MySQL kund information?
+Som standard flyttar Azure Database for MySQL eller lagrar inte kund information från den region som den distribueras i. Kunder kan dock välja att aktivera [geo-redundanta säkerhets kopieringar](concepts-backup.md#backup-redundancy-options) eller skapa en [skrivskyddad replik i flera regioner](concepts-read-replicas.md#cross-region-replication) för att lagra data i en annan region.
 
 ## <a name="next-steps"></a>Nästa steg
 

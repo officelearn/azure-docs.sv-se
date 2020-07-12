@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334028"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242108"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Mappnings format som stöds Azure Maps
 Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
@@ -28,6 +28,7 @@ En **väg** karta är en standard karta som visar vägar, naturliga och artifici
 * [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
+* Visuellt Power BI-objekt
 
 ## <a name="blank-and-blank_accessible"></a>Tom och blank_accessible
 
@@ -48,6 +49,7 @@ De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yt
 * [Satellit panel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
+* Visuellt Power BI-objekt
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå satellit-och antenn bilder.
@@ -57,6 +59,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
+* Visuellt Power BI-objekt
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gråskala** är en mörk version av vägens kart stil.
@@ -68,6 +71,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 * [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kart kontroll för webb-SDK 
 * Kontroll av Android-kartning
+* Visuellt Power BI-objekt
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
+* Visuellt Power BI-objekt
 
 
 ## <a name="night"></a>natt
@@ -88,6 +93,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
+* Visuellt Power BI-objekt
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts med hjälp av jordens profiler.
@@ -98,6 +104,7 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 * [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
+* Visuellt Power BI-objekt
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
+* Visuellt Power BI-objekt
 
 ## <a name="next-steps"></a>Nästa steg
 

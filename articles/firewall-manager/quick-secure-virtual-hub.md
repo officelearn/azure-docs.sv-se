@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563693"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242023"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Snabb start: skydda din virtuella hubb med Azure Firewall Manager – Resource Manager-mall
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Snabb start: skydda din virtuella hubb med Azure Firewall Manager – ARM-mall
 
-I den här snabb starten använder du en Resource Manager-mall för att skydda den virtuella hubben med hjälp av Azure Firewall Manager. Den distribuerade brand väggen har en program regel som tillåter anslutningar till `www.microsoft.com` . Två virtuella Windows Server 2019-datorer distribueras för att testa brand väggen. En hopp Server används för att ansluta till arbets belastnings servern. Från arbets belastnings servern kan du bara ansluta till `www.microsoft.com` .
+I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skydda den virtuella hubben med hjälp av Azure Firewall Manager. Den distribuerade brand väggen har en program regel som tillåter anslutningar till `www.microsoft.com` . Två virtuella Windows Server 2019-datorer distribueras för att testa brand väggen. En hopp Server används för att ansluta till arbets belastnings servern. Från arbets belastnings servern kan du bara ansluta till `www.microsoft.com` .
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Mer information om Azure Firewall Manager finns i [Vad är Azure Firewall Manager?](overview.md).
 
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-secured-virtual-hub"></a>Skapa en säker virtuell hubb
+## <a name="review-the-template"></a>Granska mallen
 
 Den här mallen skapar en säker virtuell hubb med Azure Firewall Manager, tillsammans med nödvändiga resurser för att stödja scenariot.
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -51,9 +53,9 @@ Flera Azure-resurser definieras i mallen:
 - [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-Distribuera Resource Manager-mall till Azure:
+Distribuera ARM-mallen till Azure:
 
 1. Välj **distribuera till Azure** för att logga in på Azure och öppna mallen. Mallen skapar en Azure-brandvägg, ett virtuellt WAN-nätverk och en virtuell hubb, nätverks infrastrukturen och två virtuella datorer.
 
@@ -86,7 +88,7 @@ Testa nu brand Väggs reglerna för att bekräfta att den fungerar som förvänt
 
 Nu har du verifierat att brand Väggs reglerna fungerar:
 
-* Du kan bläddra till en tillåten FQDN, men inte till andra.
+- Du kan bläddra till en tillåten FQDN, men inte till andra.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

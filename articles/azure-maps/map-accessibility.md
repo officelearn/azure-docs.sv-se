@@ -8,11 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648571"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242380"
 ---
 # <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
 
@@ -45,6 +46,7 @@ Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och 
 - Med kartan fokuserad använder du minus tecknet, bindestrecket ( `-` ) eller under streck ( `_` ) för att zooma ut en nivå.
 - Använd zoomnings kontrollen med musen, touch eller tangent bord/ange nycklar.
 - Tryck på och håll ned `Shift` knappen och tryck på vänster musknapp ned på kartan och dra för att rita ut ett område för att zooma kartan till.
+- Använd lite multi-touch-pad, dra två fingrar upp för att zooma ut eller ned för att zooma in.
 
 **Panorera kartan**
 
@@ -88,11 +90,11 @@ eller Använd:
 map.getMapContainer().classList.contains("high-contrast-light")
 ```
 
-## <a name="keyboard-shortcuts"></a>Kortkommandon
+## <a name="keyboard-shortcuts"></a>Kortkommandon för tangentbord
 
 Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda kartan. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Tangent      | Åtgärd                            |
+| Nyckel      | Åtgärd                            |
 |----------|-----------------------------------|
 | `Tab` | Navigera bland kontrollerna och popup-fönster i kartan. |
 | `ESC` | Flytta fokus från valfritt element i kartan till kart elementet på översta nivån. |

@@ -3,12 +3,12 @@ title: Använd hanterad identitet med ett program
 description: Använda hanterade identiteter i Azure Service Fabric program kod för att få åtkomst till Azure-tjänster.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461573"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253651"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster
 
@@ -371,7 +371,7 @@ Vi rekommenderar att begär Anden som Miss lyckas på grund av begränsningen pr
 | 5 | Vänta 16 sekunder och försök igen |
 
 ## <a name="resource-ids-for-azure-services"></a>Resurs-ID för Azure-tjänster
-Se [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md) för en lista över resurser som stöder Azure AD och deras respektive resurs-ID.
+Se [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) för en lista över resurser som stöder Azure AD och deras respektive resurs-ID.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera ett Azure Service Fabric-program med en systemtilldelad hanterad identitet](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

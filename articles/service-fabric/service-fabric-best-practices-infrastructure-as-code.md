@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551836"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253685"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktur som kod
 
@@ -43,7 +44,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Azure Service Fabric-resurser
 
-Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Azure Resource Manager. Mer information finns i [hantera program och tjänster som Azure Resource Managers resurser](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) . Följande är bästa praxis Service Fabric programspecifika resurser som du kan ta med i resurserna i Resource Manager-mallen.
+Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Azure Resource Manager. Mer information finns i [hantera program och tjänster som Azure Resource Managers resurser](./service-fabric-application-arm-resource.md) . Följande är bästa praxis Service Fabric programspecifika resurser som du kan ta med i resurserna i Resource Manager-mallen.
 
 ```json
 {
@@ -72,7 +73,7 @@ Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Az
 }
 ```
 
-För att distribuera ditt program med hjälp av Azure Resource Manager måste du först [skapa ett sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric-programpaket. Följande Python-skript är ett exempel på hur du skapar en sfpkg:
+För att distribuera ditt program med hjälp av Azure Resource Manager måste du först [skapa ett sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) Service Fabric-programpaket. Följande Python-skript är ett exempel på hur du skapar en sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -90,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Konfiguration av automatisk uppgradering av virtuella Azure-datorns operativ system 
-Uppgraderingen av dina virtuella datorer är en initierad användare och vi rekommenderar att du använder [skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för Azure Service Fabric kluster hantering av värd korrigering för Azure-kluster. Uppdaterings Orchestration-programmet är en alternativ lösning som är avsedd för när den ligger utanför Azure, även om POA kan användas i Azure, men med att vara värd för POA i Azure är det ett vanligt skäl att föredra den virtuella datorns operativ system automatisk uppgradering över POA. Här följer de egenskaper för Resource Manager-mallen för beräkning av virtuella datorer som aktiverar automatisk uppgradering av operativ system:
+Uppgraderingen av dina virtuella datorer är en initierad användare och vi rekommenderar att du använder [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) för Azure Service Fabric kluster hantering av värd korrigering för Azure-kluster. Uppdaterings Orchestration-programmet är en alternativ lösning som är avsedd för när den ligger utanför Azure, även om POA kan användas i Azure, men med att vara värd för POA i Azure är det ett vanligt skäl att föredra den virtuella datorns operativ system automatisk uppgradering över POA. Här följer de egenskaper för Resource Manager-mallen för beräkning av virtuella datorer som aktiverar automatisk uppgradering av operativ system:
 
 ```json
 "upgradePolicy": {

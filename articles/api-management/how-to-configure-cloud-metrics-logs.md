@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: d0fbdcb877e91a703306f15fdc7507fd19d534f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205136"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254542"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurera moln mått och loggar för Azure API Management egen värd-Gateway
 
@@ -30,7 +30,7 @@ Som standard avger gatewayen för egen värd ett antal mått genom [Azure Monito
 
 Funktionen kan aktive ras eller inaktive ras med `telemetry.metrics.cloud` nyckeln i ConfigMap för gateway-distributionen. Nedan visas en uppdelning av de tillgängliga konfigurationerna:
 
-| Fält  | Default | Beskrivning |
+| Fält  | Standard | Beskrivning |
 | ------------- | ------------- | ------------- |
 | telemetri. Metrics. Cloud  | `true` | Aktiverar loggning via Azure Monitor. Värdet kan vara `true` , `false` . |
 
@@ -49,7 +49,7 @@ Här är en exempel konfiguration:
 
 Den egen värdbaserade gatewayen avger för närvarande följande mått genom Azure Monitor:
 
-| Metric  | Beskrivning |
+| Mått  | Beskrivning |
 | ------------- | ------------- |
 | Begäranden  | Antal API-begäranden under perioden |
 | Varaktighet för gateway-begäranden | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |
@@ -57,14 +57,12 @@ Den egen värdbaserade gatewayen avger för närvarande följande mått genom Az
 
 ## <a name="logs"></a>Loggar
 
-Den egen värdbaserade gatewayen skickar för närvarande inte [diagnostikloggar](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) till molnet. Det är dock möjligt att [Konfigurera och Spara loggar lokalt](how-to-configure-local-metrics-logs.md) där gatewayen för egen värd distribueras. 
+Den egen värdbaserade gatewayen skickar för närvarande inte [diagnostikloggar](./api-management-howto-use-azure-monitor.md#activity-logs) till molnet. Det är dock möjligt att [Konfigurera och Spara loggar lokalt](how-to-configure-local-metrics-logs.md) där gatewayen för egen värd distribueras. 
 
-Om en gateway distribueras i [Azure Kubernetes-tjänsten](https://azure.microsoft.com/services/kubernetes-service/)kan du aktivera [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) för att samla in loggar från dina behållare och visa dem i Log Analytics. 
+Om en gateway distribueras i [Azure Kubernetes-tjänsten](https://azure.microsoft.com/services/kubernetes-service/)kan du aktivera [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) för att samla in loggar från dina behållare och visa dem i Log Analytics. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om den egen värdbaserade gatewayen finns i [Översikt över Azure API Management egen Gateway](self-hosted-gateway-overview.md)
 * Lär dig mer om att [Konfigurera och Spara loggar lokalt](how-to-configure-local-metrics-logs.md)
-
-

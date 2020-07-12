@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 672a5afe36449aaa486ca6980f510ba52cf6daf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361582"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250965"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA för Azure Kubernetes service (AKS) drift tid
 
@@ -40,7 +40,7 @@ SLA för drift tid är en betald funktion och aktive rad per kluster. SLA-priser
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 eller senare
+* Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 eller senare
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Skapa ett nytt kluster med SLA för drift tid
 

@@ -5,11 +5,12 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: b90c5a10c64e273f1c8f48c7bf5713859796db65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d977b6fea71d246610b0e6ef2d9e17d587f1e9ad
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645624"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253549"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Ta bort Reliable Actors och deras tillstånd
 Skräp insamling av inaktiverade aktörer rensar bara aktörs objekt, men tar inte bort data som lagras i en aktörs tillstånds hanterare. När en aktör återaktiveras, blir dess data återigen tillgängliga för den via tillstånds hanteraren. I de fall där aktörer lagrar data i tillstånds hanteraren och inaktive ras men aldrig återaktiveras, kan det vara nödvändigt att rensa data.
@@ -48,7 +49,7 @@ Läs följande om du vill ha mer information om Reliable Actors:
 * [Aktörs händelser](service-fabric-reliable-actors-events.md)
 * [Aktör återinträde](service-fabric-reliable-actors-reentrancy.md)
 * [Aktörens diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md)
-* [Dokumentation om aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Dokumentation om aktörs-API-referens](/previous-versions/azure/dn971626(v=azure.100))
 * [Exempel kod för C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

@@ -4,11 +4,12 @@ description: Lär dig mer om de grundläggande kluster-och arbets belastnings ko
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336626"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251866"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -37,7 +38,7 @@ Ett Kubernetes-kluster är uppdelat i två komponenter:
 
 ## <a name="control-plane"></a>Kontrollplan
 
-När du skapar ett AKS-kluster skapas och konfigureras ett kontroll plan automatiskt. Det här kontroll planet tillhandahålls som en hanterad Azure-resurs som är abstrakt från användaren. Det finns ingen kostnad för kontroll planet, bara de noder som ingår i AKS-klustret.
+När du skapar ett AKS-kluster skapas och konfigureras ett kontroll plan automatiskt. Det här kontroll planet tillhandahålls som en hanterad Azure-resurs som är abstrakt från användaren. Det finns ingen kostnad för kontroll planet, bara de noder som ingår i AKS-klustret. Kontroll planet och dess resurser finns bara i den region där du skapade klustret.
 
 Kontroll planet innehåller följande kärn Kubernetes-komponenter:
 
@@ -48,7 +49,7 @@ Kontroll planet innehåller följande kärn Kubernetes-komponenter:
 
 AKS tillhandahåller ett kontroll plan för en enskild klient, med en dedikerad API-Server, Scheduler, osv. Du definierar antalet och storleken på noderna, och Azure-plattformen konfigurerar den säkra kommunikationen mellan kontroll planet och noderna. Interaktion med kontroll planet sker via Kubernetes-API: er, till exempel `kubectl` eller Kubernetes-instrumentpanelen.
 
-Det här hanterade kontroll planet innebär att du inte behöver konfigurera komponenter som en hög tillgänglig *etcd* -butik, men det innebär också att du inte kan komma åt kontroll planet direkt. Uppgraderingar av Kubernetes dirigeras via Azure CLI eller Azure Portal, som uppgraderar kontroll planet och noderna. Om du vill felsöka eventuella problem kan du granska kontroll Plans loggarna via Azure Monitor loggar.
+Detta hanterade kontroll plan innebär att du inte behöver konfigurera komponenter som en hög tillgänglig *etcd* -butik, men det innebär också att du inte kan komma åt kontroll planet direkt. Uppgraderingar av Kubernetes dirigeras via Azure CLI eller Azure Portal, som uppgraderar kontroll planet och noderna. Om du vill felsöka eventuella problem kan du granska kontroll Plans loggarna via Azure Monitor loggar.
 
 Om du behöver konfigurera kontroll planet på ett visst sätt eller behöver direkt åtkomst till det kan du distribuera ditt eget Kubernetes-kluster med [AKS-Engine][aks-engine].
 
@@ -72,9 +73,9 @@ Om du behöver använda ett annat värd operativ system, container runtime eller
 
 ### <a name="resource-reservations"></a>Resurs reservationer
 
-Node-resurser används av AKS för att göra Node-funktionen som en del av klustret. Detta kan skapa en avvikelse mellan nodens totala resurser och de resurser som allocatable när de används i AKS. Detta är viktigt att notera när du ställer in förfrågningar och begränsningar för användare som har distribuerat poddar.
+Node-resurser används av AKS för att göra Node-funktionen som en del av klustret. Den här användningen kan skapa en avvikelse mellan nodens totala resurser och de resurser som allocatable när de används i AKS. Den här informationen är viktig för att notera när du ställer in förfrågningar och begränsningar för användare som har distribuerat poddar.
 
-Så här söker du efter en nods allocatable resurser:
+Om du vill hitta en nods allocatable-resurser kör du:
 ```kubectl
 kubectl describe node [NODE_NAME]
 
@@ -85,7 +86,7 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
 >[!NOTE]
 > Användning av AKS-tillägg som container Insights (OMS) kommer att använda ytterligare resurs resurser.
 
-- **CPU** -reserverad CPU är beroende av nodtypen och kluster konfigurationen vilket kan orsaka mindre allocatable CPU på grund av att ytterligare funktioner körs
+- **CPU** -reserverad CPU är beroende av nodtypen och kluster konfigurationen, vilket kan orsaka mindre allocatable CPU på grund av att ytterligare funktioner körs
 
 | PROCESSOR kärnor på värd | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
@@ -93,7 +94,7 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
 
 - **Minnes** minne som används av AKS inkluderar summan av två värden.
 
-1. Daemon för kubelet har installerats på alla Kubernetes-agent-noder för att hantera skapande och avslutning av behållare. Som standard har daemonen följande borttagnings regel i AKS: *minne. available<750Mi*, vilket innebär att en nod alltid måste ha minst 750 mi allocatable.  När en värd unders tiger den tröskeln för tillgängligt minne, kommer kubelet att avsluta en av de poddar som körs för att frigöra minne på värddatorn och skydda den. Detta är en reaktiv åtgärd när det tillgängliga minnet minskar efter 750Mi tröskel.
+1. Daemon för kubelet har installerats på alla Kubernetes-agent-noder för att hantera skapande och avslutning av behållare. Som standard har daemonen följande borttagnings regel i AKS: *minne. available<750Mi*, vilket innebär att en nod alltid måste ha minst 750 mi allocatable.  När en värd unders tiger den tröskeln för tillgängligt minne, kommer kubelet att avsluta en av de poddar som körs för att frigöra minne på värddatorn och skydda den. Den här åtgärden utlöses när det tillgängliga minnet minskar efter 750Mi tröskel.
 
 2. Det andra värdet är en autoregressiva hastighet för de minnes reservationer som kubelet-daemonen ska fungera korrekt (Kube-reserverad).
     - 25% av de första 4 GB minne
@@ -102,7 +103,7 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
     - 6% av nästa 112 GB minne (upp till 128 GB)
     - 2% av ett minne över 128 GB
 
-Reglerna ovan för minne och PROCESSORALLOKERING används för att hålla agent-noderna felfria, inklusive vissa värd system poddar som är viktiga för kluster hälsan. Dessa allokeringsregler ger också noden att rapportera mindre allocatable minne och CPU än om den inte var en del av ett Kubernetes-kluster. Det går inte att ändra resurs reservationerna ovan.
+Reglerna ovan för minne och PROCESSORALLOKERING används för att hålla agent-noderna felfria, inklusive vissa värd system poddar som är viktiga för kluster hälsan. Dessa allokeringsregler leder också till att noden rapporterar mindre allocatable minne och CPU än vanligt vis om den inte var en del av ett Kubernetes-kluster. Det går inte att ändra resurs reservationerna ovan.
 
 Om en nod till exempel erbjuder 7 GB, kommer den att rapportera 34% av minnet som inte allocatable, inklusive 750Mi för hård borttagning.
 
@@ -152,7 +153,7 @@ När du skapar en POD kan du definiera *resurs begär Anden* för att begära en
 
 Mer information finns i [Kubernetes poddar][kubernetes-pods] och [Kubernetes Pod Lifecycle][kubernetes-pod-lifecycle].
 
-En pod är en logisk resurs, men behållarna är där program arbets belastningarna körs. Poddar är vanligt vis tillfälliga, disponibla resurser och individuellt schemalagda poddar saknar några av funktionerna för hög tillgänglighet och redundans Kubernetes ger. I stället distribueras och hanteras poddar vanligt vis av Kubernetes- *kontrollanter*, till exempel distributions styrenheten.
+En pod är en logisk resurs, men behållarna är där program arbets belastningarna körs. Poddar är vanligt vis tillfälliga, disponibla resurser och individuellt schemalagda poddar saknar några av funktionerna för hög tillgänglighet och redundans Kubernetes ger. I stället distribueras och hanteras poddar av Kubernetes- *kontrollanter*, till exempel distributions styrenheten.
 
 ## <a name="deployments-and-yaml-manifests"></a>Distributioner och YAML-manifest
 
@@ -162,9 +163,9 @@ Du kan uppdatera distributioner för att ändra konfigurationen för poddar, beh
 
 De flesta tillstånds lösa program i AKS bör använda distributions modellen i stället för att schemalägga enskilda poddar. Kubernetes kan övervaka hälso tillstånd och status för distributioner för att säkerställa att antalet repliker som krävs körs i klustret. När du bara schemalägger enskilda poddar startas poddar om, om det uppstår ett problem och inte omplaneras på felfria noder om deras aktuella nod påträffar ett problem.
 
-Om ett program kräver ett kvorum av instanser för att alltid vara tillgängligt för hanterings beslut, vill du inte att en uppdaterings process ska störa den möjligheten. *Pod avbrott i budgetar* kan användas för att definiera hur många repliker i en distribution som kan tas offline under en uppdatering eller nod-uppgradering. Om du till exempel har *fem* repliker i distributionen kan du definiera ett Pod-avbrott på *4* för att bara tillåta att en replik tas bort/ombokas i taget. Precis som med Pod resurs gränser är det en bra idé att definiera Pod avbrotts budgetar för program som kräver att det alltid finns ett minsta antal repliker.
+Om ett program kräver ett kvorum av instanser för att alltid vara tillgängligt för hanterings beslut, vill du inte att en uppdaterings process ska störa den möjligheten. *Pod avbrott i budgetar* kan användas för att definiera hur många repliker i en distribution som kan tas offline under en uppdatering eller nod-uppgradering. Om du till exempel har *fem (5)* repliker i distributionen kan du definiera ett Pod-avbrott på *4* för att endast tillåta att en replik tas bort/ombokas i taget. Precis som med Pod resurs gränser är det en bra idé att definiera Pod avbrotts budgetar för program som kräver att det alltid finns ett minsta antal repliker.
 
-Distributioner skapas och hanteras vanligt vis med `kubectl create` eller `kubectl apply` . Om du vill skapa en distribution definierar du en manifest fil i formatet YAML (YAML Ain't Markup Language). I följande exempel skapas en grundläggande distribution av NGINX-webbservern. I distributionen anges *tre* repliker som ska skapas och port *80* vara öppen i behållaren. Resurs begär Anden och gränser definieras också för processor och minne.
+Distributioner skapas och hanteras vanligt vis med `kubectl create` eller `kubectl apply` . Om du vill skapa en distribution definierar du en manifest fil i formatet YAML (YAML Ain't Markup Language). I följande exempel skapas en grundläggande distribution av NGINX-webbservern. I distributionen anges *tre (3)* repliker som ska skapas, och port *80* måste vara öppen på behållaren. Resurs begär Anden och gränser definieras också för processor och minne.
 
 ```yaml
 apiVersion: apps/v1

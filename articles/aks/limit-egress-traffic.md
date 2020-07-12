@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
 author: palma21
-ms.openlocfilehash: 6aed6c84439e65646c15367cdad3bf13c5573256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831741"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251322"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -239,7 +239,7 @@ Nedan visas en exempel arkitektur för distributionen:
   * Begär Anden från AKS agent-noder följer en UDR som har placerats i under nätet som AKS-klustret distribuerades till.
   * Azure-brandväggen går ut från det virtuella nätverket från en offentlig IP-klient
   * Åtkomst till offentliga Internet eller andra Azure-tjänster flödar till och från brand Väggs klient delens IP-adress
-  * Åtkomst till AKS-kontroll planet skyddas av [API-serverns auktoriserade IP-intervall](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), vilket omfattar IP-adress för brand Väggs offentlig klient.
+  * Åtkomst till AKS-kontroll planet skyddas av [API-serverns auktoriserade IP-intervall](./api-server-authorized-ip-ranges.md), vilket omfattar IP-adress för brand Väggs offentlig klient.
 * Intern trafik
   * Du kan också, i stället för en [offentlig Load Balancer](load-balancer-standard.md) använda en [intern Load Balancer](internal-lb.md) för intern trafik, som du kan isolera i sitt eget undernät också.
 
@@ -353,7 +353,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> Om du använder säker åtkomst till AKS-API-servern med [auktoriserade IP-adressintervall](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)måste du lägga till den offentliga brand väggen i det AUKTORISERAde IP-intervallet.
+> Om du använder säker åtkomst till AKS-API-servern med [auktoriserade IP-adressintervall](./api-server-authorized-ip-ranges.md)måste du lägga till den offentliga brand väggen i det AUKTORISERAde IP-intervallet.
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Skapa en UDR med hopp till Azure-brandväggen
 
@@ -389,7 +389,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-Mer information om Azure Firewall-tjänsten finns i [dokumentationen för Azure-brandväggen](https://docs.microsoft.com/azure/firewall/overview) .
+Mer information om Azure Firewall-tjänsten finns i [dokumentationen för Azure-brandväggen](../firewall/overview.md) .
 
 ### <a name="associate-the-route-table-to-aks"></a>Koppla routningstabellen till AKS
 
@@ -722,7 +722,7 @@ kubectl apply -f example.yaml
 ### <a name="add-a-dnat-rule-to-azure-firewall"></a>Lägg till en DNAT-regel i Azure-brandväggen
 
 > [!IMPORTANT]
-> När du använder Azure-brandväggen för att begränsa utgående trafik och skapar en användardefinierad väg (UDR) för att tvinga all utgående trafik, se till att du skapar en lämplig DNAT-regel i brand väggen för att tillåta inträngande trafik korrekt. Genom att använda Azure-brandväggen med en UDR avbryter du ingångs inställningen på grund av asymmetrisk routning. (Problemet uppstår om AKS-undernätet har en standard väg som går till brand väggens privata IP-adress, men du använder en offentlig belastningsutjämnare – ingress eller Kubernetes-tjänst av typen: LoadBalancer). I det här fallet tas den inkommande belastnings Utjämnings trafiken emot via dess offentliga IP-adress, men retur vägen går genom brand väggens privata IP-adress. Eftersom brand väggen är tillstånds känslig, släpps det returnerade paketet eftersom brand väggen inte är medveten om en etablerad session. Information om hur du integrerar Azure-brandväggen med ingångs-eller tjänst belastnings utjämning finns i [integrera Azure-brandväggen med azure standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> När du använder Azure-brandväggen för att begränsa utgående trafik och skapar en användardefinierad väg (UDR) för att tvinga all utgående trafik, se till att du skapar en lämplig DNAT-regel i brand väggen för att tillåta inträngande trafik korrekt. Genom att använda Azure-brandväggen med en UDR avbryter du ingångs inställningen på grund av asymmetrisk routning. (Problemet uppstår om AKS-undernätet har en standard väg som går till brand väggens privata IP-adress, men du använder en offentlig belastningsutjämnare – ingress eller Kubernetes-tjänst av typen: LoadBalancer). I det här fallet tas den inkommande belastnings Utjämnings trafiken emot via dess offentliga IP-adress, men retur vägen går genom brand väggens privata IP-adress. Eftersom brand väggen är tillstånds känslig, släpps det returnerade paketet eftersom brand väggen inte är medveten om en etablerad session. Information om hur du integrerar Azure-brandväggen med ingångs-eller tjänst belastnings utjämning finns i [integrera Azure-brandväggen med azure standard Load Balancer](../firewall/integrate-lb.md).
 
 
 Om du vill konfigurera inkommande anslutning måste en DNAT-regel skrivas till Azure-brandväggen. För att testa anslutningen till klustret definieras en regel för den offentliga IP-adressen för brand Väggs-frontend att dirigera till den interna IP-adressen som exponeras av den interna tjänsten.

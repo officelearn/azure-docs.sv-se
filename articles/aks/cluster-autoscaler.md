@@ -4,11 +4,12 @@ description: Lär dig hur du använder kluster autoskalning för att automatiskt
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730024"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252036"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
@@ -144,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Ett exempel:
+När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Exempel:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -161,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ställ in klustrets profil för autoskalning när du skapar ett AKS-kluster
 
-Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Ett exempel:
+Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Exempel:
 
 ```azurecli-interactive
 az aks create \
@@ -212,7 +213,7 @@ AKS hanterar klustrets automatiska skalning åt dig och kör det i det hanterade
 
 Följ dessa steg om du vill konfigurera loggar som ska överföras från klustrets autoskalning till Log Analytics.
 
-1. Konfigurera en regel för resurs loggar för att skicka ett push-kluster med automatiska skalnings loggar till Log Analytics. [Instruktioner beskrivs här](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), se till att du markerar kryss rutan `cluster-autoscaler` när du väljer alternativ för "loggar".
+1. Konfigurera en regel för resurs loggar för att skicka ett push-kluster med automatiska skalnings loggar till Log Analytics. [Instruktioner beskrivs här](./view-master-logs.md#enable-resource-logs), se till att du markerar kryss rutan `cluster-autoscaler` när du väljer alternativ för "loggar".
 1. Klicka på avsnittet "loggar" i klustret via Azure Portal.
 1. Mata in följande exempel fråga i Log Analytics:
 

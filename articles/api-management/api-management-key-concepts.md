@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690208"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254664"
 ---
 # <a name="about-api-management"></a>Om API Management
 
@@ -38,15 +38,15 @@ Administratörer skapar API:er för att använda API Management. Varje API best�
 
 Systemet består av följande komponenter:
 
-* **API-gatewayen** är slutpunkten som:
+* **API-gatewayen** är den slut punkt som:
   
   * Accepterar API-anrop och dirigerar dem till serverdelen.
   * Verifierar API-nycklar, JWT-token, certifikat och andra autentiseringsuppgifter.
-  * Tillämpar användningskvoter och hastighetsbegränsningar.
-  * Transformerar ditt API direkt utan kodändringar.
-  * Cachelagrar backend-svar om detta konfigurerats.
+  * Framtvingar användningskvoter och hastighetsbegränsningar.
+  * Transformerar ditt API i farten utan kodändringar.
+  * Cachelagrar serverdelssvar där de konfigureras.
   * Loggar metadata i anrop för analysändamål.
-* **Azure-portalen** är det administrativa gränssnittet där du konfigurerar ditt API-program. Använd portalen om du vill:
+* **Azure Portal** är det administrativa gränssnittet där du konfigurerar ditt API-program. Använd portalen om du vill:
   
   * Definiera eller importera API-schemat.
   * Paketera API:er till produkter.
@@ -55,9 +55,9 @@ Systemet består av följande komponenter:
   * Hantera användare.
 * **Developer-portalen** fungerar som den huvudsakliga webb förekomsten för utvecklare, där de kan:
   
-  * Få tillgång till API-dokumentation.
+  * Läsa API-dokumentation.
   * Testa ett API via den interaktiva konsolen.
-  * Skapa ett konto och börja prenumerera på API-nycklar.
+  * Skapa ett konto och prenumerera för att få API-nycklar.
   * Komma åt analyser om deras egen användning.
 
 Mer information finns i PDF-dokumentet [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper). Det här introduktionsdokumentet om API Management av CITO Research innehåller bland annat följande avsnitt: 
@@ -102,7 +102,7 @@ Mer information finns i [Skapa eller bjuda in utvecklare][How to create or invit
 ## <a name="policies"></a><a name="policies"> </a> Principer
 Principer är en kraftfull funktion i API Management som gör att Azure-portalen kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Exempel på populära instruktioner är formatkonvertering från XML till JSON och begränsning av anropsfrekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många andra principer är också tillgängliga.
 
-Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](/azure/api-management/api-management-advanced-policies#choose) och [Ange variabel](/azure/api-management/api-management-advanced-policies#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) och [Principuttryck](/azure/api-management/api-management-policy-expressions).
+Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](./api-management-advanced-policies.md#choose) och [Ange variabel](./api-management-advanced-policies.md#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](./api-management-advanced-policies.md#AdvancedPolicies) och [Principuttryck](./api-management-policy-expressions.md).
 
 
 En fullständig lista över API Management-principer finns i [Principreferens][Policy reference]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management policies]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][How create and configure advanced product settings].
@@ -135,17 +135,13 @@ Slutför följande snabbstart och börja använda Azure API Management:
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: api-management-howto-create-apis.md
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create APIs]: ./import-and-publish.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
-[Policy reference]: api-management-policy-reference.md
+[Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-
-
-
-

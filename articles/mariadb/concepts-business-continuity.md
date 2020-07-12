@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076580"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252274"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Förstå affärs kontinuitet i Azure Database for MariaDB
 
@@ -51,6 +51,10 @@ Det andra alternativet är att använda Azure Database for MariaDB ' geo-Restore
 ## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
 
 Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av MariaDB-teknik för binär replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
+
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+### <a name="where-does-azure-database-for-mariadb-store-customer-data"></a>Var lagrar Azure Database for MariaDB kund information?
+Som standard flyttar Azure Database for MariaDB eller lagrar inte kund information från den region som den distribueras i. Kunder kan dock välja att aktivera [geo-redundanta säkerhets kopieringar](concepts-backup.md#backup-redundancy-options) eller skapa en [skrivskyddad replik i flera regioner](concepts-read-replicas.md#cross-region-replication) för att lagra data i en annan region.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259144"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254752"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Så integrerar du Azure API Management med Azure Application Insights
 
@@ -50,7 +51,7 @@ Innan du kan använda Azure Application insikter måste du först skapa en insta
     ![App Insights-loggning](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Efter scenen skapas en [loggad](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) entitet i API Management-instansen som innehåller Instrumentation-nyckeln för Application Insights-instansen.
+> Efter scenen skapas en [loggad](/rest/api/apimanagement/2019-12-01/logger/createorupdate) entitet i API Management-instansen som innehåller Instrumentation-nyckeln för Application Insights-instansen.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera Application Insights loggning för ditt API
 
@@ -69,7 +70,7 @@ Innan du kan använda Azure Application insikter måste du först skapa en insta
 > Att åsidosätta standardvärdet **0** i fältet **första byte i brödtext** kan avsevärt minska prestandan för dina API: er.
 
 > [!NOTE]
-> Från scenen skapas en [diagnostisk](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entitet med namnet "applicationinsights" på API-nivå.
+> Från scenen skapas en [diagnostisk](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entitet med namnet "applicationinsights" på API-nivå.
 
 | Inställningsnamn                        | Värdetyp                        | Beskrivning                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -125,5 +126,5 @@ Att hoppa över loggning av rubriker och brödtext för förfrågningar och svar
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Läs mer om [Azure Application insikter](https://docs.microsoft.com/azure/application-insights/).
++ Läs mer om [Azure Application insikter](/azure/application-insights/).
 + Överväg att [Logga med Azure Event Hubs](api-management-howto-log-event-hubs.md).

@@ -12,21 +12,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 1d6773b4daac256234c33bf50fb3736d585ac505
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e995d008b441e122f9e93e5f7c29f0bb9bf9c53
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75481001"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254698"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Använda Azure API Management med mikrotjänster som distribueras i Azure Kubernetes-tjänsten
 
-Mikrotjänster är perfekta för att skapa API: er. Med [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) kan du snabbt distribuera och använda en [mikrotjänster-baserad arkitektur](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/microservices) i molnet. Du kan sedan använda [Azure API Management](https://aka.ms/apimrocks) (API Management) för att publicera mikrotjänster som API: er för intern och extern konsumtion. I den här artikeln beskrivs alternativen för att distribuera API Management med AKS. Det förutsätter grundläggande kunskaper om Kubernetes, API Management och Azure-nätverk. 
+Mikrotjänster är perfekta för att skapa API: er. Med [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) kan du snabbt distribuera och använda en [mikrotjänster-baserad arkitektur](/azure/architecture/guide/architecture-styles/microservices) i molnet. Du kan sedan använda [Azure API Management](https://aka.ms/apimrocks) (API Management) för att publicera mikrotjänster som API: er för intern och extern konsumtion. I den här artikeln beskrivs alternativen för att distribuera API Management med AKS. Det förutsätter grundläggande kunskaper om Kubernetes, API Management och Azure-nätverk. 
 
 ## <a name="background"></a>Bakgrund
 
 När du publicerar mikrotjänster som API: er för förbrukning kan det vara svårt att hantera kommunikationen mellan mikrotjänster och de klienter som använder dem. Det finns en mängd olika frågor om överstyckning, till exempel autentisering, auktorisering, begränsning, cachelagring, omvandling och övervakning. Dessa problem är giltiga oavsett om mikrotjänster exponeras för interna eller externa klienter. 
 
-[API Gateway](https://docs.microsoft.com/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) -mönstret behandlar dessa frågor. En API-gateway fungerar som en front dörr för mikrotjänster, frigör klienter från mikrotjänster, lägger till ett extra säkerhets lager och minskar komplexiteten hos mikrotjänster genom att ta bort belastningen på att hantera överskotts problem. 
+[API Gateway](/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) -mönstret behandlar dessa frågor. En API-gateway fungerar som en front dörr för mikrotjänster, frigör klienter från mikrotjänster, lägger till ett extra säkerhets lager och minskar komplexiteten hos mikrotjänster genom att ta bort belastningen på att hantera överskotts problem. 
 
 [Azure API Management](https://aka.ms/apimrocks) är en nyckel färdig lösning för att lösa dina behov av API-Gateway. Du kan snabbt skapa en konsekvent och modern Gateway för dina mikrotjänster och publicera dem som API: er. Som en API Management-lösning med fullständig livs cykel ger den också ytterligare funktioner som till exempel en självbetjänings utvecklares Portal för API-identifiering, API-livscykel hantering och API-analys.
 
@@ -52,7 +53,7 @@ Det finns några alternativ för att distribuera API Management framför ett AKS
 
 ### <a name="option-1-expose-services-publicly"></a>Alternativ 1: exponera tjänster offentligt
 
-Tjänster i ett AKS-kluster kan exponeras offentligt med [tjänst typer](https://docs.microsoft.com/azure/aks/concepts-network) av NodePort, Loadbalancer eller ExternalName. I det här fallet är tjänsterna tillgängliga direkt från det offentliga Internet. När du har distribuerat API Management framför klustret måste du se till att all inkommande trafik går igenom API Management genom att använda autentisering i mikrotjänster. API Management kan till exempel inkludera en åtkomsttoken i varje begäran som görs till klustret. Varje mikrotjänst ansvarar för att verifiera token innan begäran bearbetas. 
+Tjänster i ett AKS-kluster kan exponeras offentligt med [tjänst typer](../aks/concepts-network.md) av NodePort, Loadbalancer eller ExternalName. I det här fallet är tjänsterna tillgängliga direkt från det offentliga Internet. När du har distribuerat API Management framför klustret måste du se till att all inkommande trafik går igenom API Management genom att använda autentisering i mikrotjänster. API Management kan till exempel inkludera en åtkomsttoken i varje begäran som görs till klustret. Varje mikrotjänst ansvarar för att verifiera token innan begäran bearbetas. 
 
 
 Detta kan vara det enklaste alternativet att distribuera API Management framför AKS, särskilt om du redan har autentiserings logik som implementerats i mikrotjänsterna. 
@@ -72,7 +73,7 @@ Nack delar
 
 Även om alternativ 1 kan vara enklare, har det blivit mycket bättre nack delar som nämnts ovan. Om en API Management instans inte finns i klustrets VNet är ömsesidig TLS-autentisering (mTLS) ett robust sätt att säkerställa att trafiken är säker och betrodd i båda riktningarna mellan en API Management instans och ett AKS-kluster. 
 
-Ömsesidig TLS-autentisering [stöds internt](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) av API Management och kan aktive ras i Kubernetes genom att en ingångs [kontroll installeras](https://docs.microsoft.com/azure/aks/ingress-own-tls) (figur 3). Det innebär att autentiseringen utförs i ingångs styrenheten, vilket fören klar mikrotjänsterna. Dessutom kan du lägga till IP-adresserna för API Management i listan över tillåtna av ingångs adresser för att se till att endast API Management har åtkomst till klustret.  
+Ömsesidig TLS-autentisering [stöds internt](./api-management-howto-mutual-certificates.md) av API Management och kan aktive ras i Kubernetes genom att en ingångs [kontroll installeras](../aks/ingress-own-tls.md) (figur 3). Det innebär att autentiseringen utförs i ingångs styrenheten, vilket fören klar mikrotjänsterna. Dessutom kan du lägga till IP-adresserna för API Management i listan över tillåtna av ingångs adresser för att se till att endast API Management har åtkomst till klustret.  
 
  
 ![Publicera via en ingångs kontroll](./media/api-management-aks/ingress-controller.png)
@@ -96,7 +97,7 @@ En prenumeration krävs för att få en prenumerations nyckel för åtkomst till
 
 I vissa fall kan kunder med reglerande villkor eller strikta säkerhets krav hitta alternativ 1 och 2 icke-lönsamma lösningar på grund av allmänt utsatta slut punkter. I andra kan AKS-klustret och de program som förbrukar mikrotjänster finnas i samma VNet, och därför finns det ingen anledning att exponera klustret som all API-trafik kommer att finnas kvar i det virtuella nätverket. I dessa scenarier kan du distribuera API Management till klustrets VNet. [API Management Premium-nivån](https://aka.ms/apimpricing) stöder VNet-distribution. 
 
-Det finns två lägen för att [distribuera API Management till ett VNet](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet) – externt och internt. 
+Det finns två lägen för att [distribuera API Management till ett VNet](./api-management-using-with-vnet.md) – externt och internt. 
 
 Om API-konsumenter inte finns i klustrets VNet, ska det externa läget (figur 4) användas. I det här läget injiceras API Management Gateway i klustrets VNet, men kan nås från offentliga Internet via en extern belastningsutjämnare. Det hjälper dig att dölja klustret helt samtidigt som du fortfarande tillåter att externa klienter använder mikrotjänsterna. Dessutom kan du använda funktioner i Azure-nätverk som nätverks säkerhets grupper (NSG) för att begränsa nätverks trafiken.
 
@@ -119,10 +120,5 @@ Nack delar
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [nätverks koncept för program i AKS](https://docs.microsoft.com/azure/aks/concepts-network)
-* Lär dig mer om [hur du använder API Management med virtuella nätverk](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
-
-
-
-
-
+* Lär dig mer om [nätverks koncept för program i AKS](../aks/concepts-network.md)
+* Lär dig mer om [hur du använder API Management med virtuella nätverk](./api-management-using-with-vnet.md)

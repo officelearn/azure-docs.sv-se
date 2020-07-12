@@ -5,11 +5,12 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16dcfd23ec00a144b17244e811e91a92db9e6995
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639572"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253056"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services meddelanden
 Meddelanden låter klienter spåra ändringar som görs i ett objekt som de är intresserade av. Två typer av objekt har stöd för meddelanden: *tillförlitlig tillstånds hanterare* och *tillförlitlig ord lista*.
@@ -209,5 +210,4 @@ Här är några saker att tänka på:
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services snabb start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services säkerhets kopiering och återställning (haveri beredskap)](service-fabric-reliable-services-backup-restore.md)
-* [Referens för utvecklare för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Referens för utvecklare för tillförlitliga samlingar](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

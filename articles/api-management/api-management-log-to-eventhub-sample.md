@@ -15,16 +15,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ace0ef2660a44af41d8942cfe4d225bc1a03228e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75442529"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254596"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Moesif
 [Tjänsten API Management](api-management-key-concepts.md) tillhandahåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till http-API: et. Förekomsten av begär Anden och svar är dock tillfällig. Begäran görs och den flödar via API Management tjänsten till Server dels-API: et. Ditt API bearbetar begäran och ett svar flödar tillbaka till API-konsumenten. I API Managements tjänsten finns viktig statistik om API: erna för visning i Azure Portals instrument panel, men utöver detta är informationen borta.
 
-Genom att använda logg-till-eventhub-principen i API Managements tjänsten kan du skicka all information från begäran och svaret till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Det finns en mängd olika orsaker till varför du kanske vill skapa händelser från HTTP-meddelanden som skickas till dina API: er. Några exempel är gransknings historik för uppdateringar, användnings analys, undantags varningar och integreringar från tredje part.
+Genom att använda logg-till-eventhub-principen i API Managements tjänsten kan du skicka all information från begäran och svaret till en [Azure Event Hub](../event-hubs/event-hubs-about.md). Det finns en mängd olika orsaker till varför du kanske vill skapa händelser från HTTP-meddelanden som skickas till dina API: er. Några exempel är gransknings historik för uppdateringar, användnings analys, undantags varningar och integreringar från tredje part.
 
 Den här artikeln visar hur du fångar hela HTTP-begäran och svarsmeddelanden, skickar det till en Händelsehubben och sedan vidarebefordrar det meddelandet till en tjänst från tredje part som tillhandahåller HTTP-loggning och övervaknings tjänster.
 
@@ -47,7 +48,7 @@ En Event Hub accepterar händelse data som en enkel sträng. Innehållet i den s
 
 Ett alternativt alternativ var att använda `application/http` medie typen enligt beskrivningen i HTTP-specifikationen [RFC 7230](https://tools.ietf.org/html/rfc7230). Den här medie typen använder exakt samma format som används för att skicka HTTP-meddelanden via kabeln, men hela meddelandet kan placeras i bröd texten i en annan HTTP-begäran. I vårt fall kommer vi bara att använda bröd texten som vårt meddelande att skicka till Event Hubs. Bekvämt finns det en tolk som finns i klient biblioteken [Microsoft ASP.net Web API 2,2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) som kan tolka det här formatet och konvertera det till det `HttpRequestMessage` ursprungliga `HttpResponseMessage` objektet och objekten.
 
-För att kunna skapa det här meddelandet måste vi dra nytta av C#-baserade [princip uttryck](/azure/api-management/api-management-policy-expressions) i Azure API Management. Här är principen, som skickar ett meddelande om HTTP-begäran till Azure Event Hubs.
+För att kunna skapa det här meddelandet måste vi dra nytta av C#-baserade [princip uttryck](./api-management-policy-expressions.md) i Azure API Management. Här är principen, som skickar ett meddelande om HTTP-begäran till Azure Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -296,7 +297,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 `MoesifHttpMessageProcessor`Drar nytta av ett [C# API-bibliotek för Moesif](https://www.moesif.com/docs/api?csharp#events) som gör det enkelt att skicka http-Datadata till deras tjänster. Du behöver ett konto och ett program-ID för att kunna skicka HTTP-data till Moesif Collector-API: et. Du får ett Moesif program-ID genom att skapa ett konto på [Moesif-webbplatsen](https://www.moesif.com) och gå sedan till den _översta högra menyn_för att  ->  _ställa in appar_.
 
 ## <a name="complete-sample"></a>Fullständigt exempel
-[Käll koden](https://github.com/dgilling/ApimEventProcessor) och testerna för exemplet finns på GitHub. Du behöver en [API Management tjänst](get-started-create-service-instance.md), [en ansluten Händelsehubben](api-management-howto-log-event-hubs.md)och ett [lagrings konto](../storage/common/storage-create-storage-account.md) för att köra exemplet själv.   
+[Käll koden](https://github.com/dgilling/ApimEventProcessor) och testerna för exemplet finns på GitHub. Du behöver en [API Management tjänst](get-started-create-service-instance.md), [en ansluten Händelsehubben](api-management-howto-log-event-hubs.md)och ett [lagrings konto](../storage/common/storage-account-create.md) för att köra exemplet själv.   
 
 Exemplet är bara ett enkelt konsol program som lyssnar efter händelser som kommer från Händelsehubben, konverterar dem till en Moesif `EventRequestModel` och `EventResponseModel` objekt och vidarebefordrar dem sedan till Moesif Collector-API: et.
 
@@ -310,9 +311,9 @@ Azure API Management-tjänsten är en idealisk plats där du kan samla in HTTP-t
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Azure Event Hubs
   * [Kom igång med Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Ta emot meddelanden med EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Ta emot meddelanden med EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Programmerings guide för Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Läs mer om API Management och Event Hubs-integrering
   * [Logga händelser till Azure Event Hubs i Azure API Management](api-management-howto-log-event-hubs.md)
-  * [Referens för entiteten loggning](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [logg-till-eventhub-princip referens](/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Referens för entiteten loggning](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [logg-till-eventhub-princip referens](./api-management-advanced-policies.md#log-to-eventhub)

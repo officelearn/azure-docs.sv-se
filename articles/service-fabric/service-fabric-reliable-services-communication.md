@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0899e33e875fea4a1708e593876b7ef771004677
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462949"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253192"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Använda API: erna för Reliable Services kommunikation
 Azure Service Fabric som en plattform är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar är acceptabla, från UDP till HTTP. Det är upp till tjänste utvecklaren att välja hur tjänsterna ska kommunicera. Reliable Services Application Framework innehåller inbyggda kommunikations stackar och API: er som du kan använda för att skapa anpassade kommunikations komponenter.
@@ -187,7 +188,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric innehåller API: er som gör det möjligt för klienter och andra tjänster att fråga efter den här adressen efter tjänst namn. Detta är viktigt eftersom tjänst adressen inte är statisk. Tjänster flyttas runt i klustret för resurs balansering och tillgänglighets syfte. Detta är den mekanism som gör att klienter kan matcha lyssnings adressen för en tjänst.
 
 > [!NOTE]
-> En fullständig genom gång av hur du skriver en kommunikations lyssnare finns i [Service Fabric Web API-tjänster med OWIN Self-hosting](service-fabric-reliable-services-communication-webapi.md) för C#, medan du kan skriva en egen http-server implementering i avsnittet EchoServer program på https://github.com/Azure-Samples/service-fabric-java-getting-started .
+> En fullständig genom gång av hur du skriver en kommunikations lyssnare finns i [Service Fabric Web API-tjänster med OWIN Self-hosting](./service-fabric-reliable-services-communication-aspnetcore.md) för C#, medan du kan skriva en egen http-server implementering i avsnittet EchoServer program på https://github.com/Azure-Samples/service-fabric-java-getting-started .
 >
 >
 
@@ -206,7 +207,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Om du vill ansluta till tjänster i ett annat kluster kan du skapa en ServicePartitionResolver med en uppsättning av kluster-Gateway-slutpunkter. Observera att Gateway-slutpunkter bara är olika slut punkter för att ansluta till samma kluster. Ett exempel:
+Om du vill ansluta till tjänster i ett annat kluster kan du skapa en ServicePartitionResolver med en uppsättning av kluster-Gateway-slutpunkter. Observera att Gateway-slutpunkter bara är olika slut punkter för att ansluta till samma kluster. Exempel:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

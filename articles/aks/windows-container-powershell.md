@@ -4,12 +4,12 @@ description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar 
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 735869da1432c241927597789f00a0bd2aea63f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207965"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250931"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med PowerShell
 
@@ -47,7 +47,7 @@ Följande ytterligare begränsningar gäller för Windows Server Node-pooler:
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En [Azure-resurs grupp](/azure/azure-resource-manager/resource-group-overview) är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med cmdlet: en [New-AzResourceGroup][new-azresourcegroup] .
+En [Azure-resurs grupp](../azure-resource-manager/management/overview.md) är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med cmdlet: en [New-AzResourceGroup][new-azresourcegroup] .
 
 I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på platsen **eastus**.
 
@@ -70,7 +70,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-Använd `ssh-keygen` kommando rads verktyget för att generera ett SSH-nyckelpar. Mer information finns i [snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+Använd `ssh-keygen` kommando rads verktyget för att generera ett SSH-nyckelpar. Mer information finns i [snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 Om du vill köra ett AKS-kluster som har stöd för resurspooler för Windows Server-behållare måste klustret använda en nätverks princip som använder [Azure cni][azure-cni-about] (avancerat) nätverks-plugin. Mer detaljerad information om hur du planerar ut nödvändiga undernät och nätverks överväganden finns i [Konfigurera Azure cni Networking][use-advanced-networking]. Använd cmdleten [New-AzAks][new-azaks] nedan om du vill skapa ett AKS-kluster med namnet **myAKSCluster**. I följande exempel skapas nödvändiga nätverks resurser om de inte finns.
 
@@ -125,7 +125,7 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 
 En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här artikeln används ett manifest för att skapa alla objekt som behövs för att köra ASP.NET-exempel programmet i en Windows Server-behållare. Det här manifestet innehåller en [Kubernetes-distribution][kubernetes-deployment] för exempel programmet ASP.net och en extern [Kubernetes-tjänst][kubernetes-service] för att komma åt programmet från Internet.
 

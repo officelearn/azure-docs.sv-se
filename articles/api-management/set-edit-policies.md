@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 5670be6d4c45644ac8318702822c37ed82a81caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9249cb1ac64bf61b405bc3537523cc85bca3f00c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205755"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252801"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Så anger eller redigerar du Azure API Management-principer
 
@@ -135,5 +135,5 @@ API-omfång har kon figurer ATS för **alla åtgärder** för det valda API: et.
 Se följande Närliggande avsnitt:
 
 + [Transformera API: er](transform-api.md)
-+ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip referens](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar
 + [Princip exempel](policy-samples.md)

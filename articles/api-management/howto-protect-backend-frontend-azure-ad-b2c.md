@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202884"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253702"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-backend med OAuth 2,0, Azure Active Directory B2C och Azure API Management
 
@@ -31,7 +31,7 @@ Vi ska se hur API Management kan användas i ett förenklat scenario med Azure F
 
 För att få skydd i djupet använder vi EasyAuth för att validera token igen inuti Server dels-API: et.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att följa stegen i den här artikeln måste du ha:
 * Ett Azure (StorageV2) Generell användning v2-lagrings konto som värd för frontend JS-appen med en sida
 * En Azure API Management-instans 
@@ -458,7 +458,7 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 Stegen ovan kan anpassas och redige ras för att tillåta många olika användningar av Azure AD B2C med API Management.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [Azure Active Directory och OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
+* Läs mer om [Azure Active Directory och OAuth 2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Se fler [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API Management.
 * Andra sätt att skydda Server dels tjänsten finns i [ömsesidig certifikatautentisering](api-management-howto-mutual-certificates.md).
 * [Skapa en API Management tjänst instans](get-started-create-service-instance.md).

@@ -3,11 +3,12 @@ title: Samla in & analysera resurs loggar
 description: Registrera och analysera resurs logg händelser för Azure Container Registry, till exempel autentisering, avbildnings-push och image pull.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343191"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252495"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Azure Container Registry loggar för diagnostisk utvärdering och granskning
 
@@ -141,10 +142,9 @@ ContainerRegistryLoginEvents
 
 Förutom att skicka loggarna till Log Analytics, eller som ett alternativ, är ett vanligt scenario att välja ett Azure Storage konto som ett logg mål. Om du vill arkivera loggar i Azure Storage skapar du ett lagrings konto innan du aktiverar arkivering genom diagnostiska inställningar.
 
-Du kan också strömma diagnostikloggar till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan mata in miljon tals händelser per sekund, som du sedan kan omvandla och lagra med valfri analys-Provider i real tid. 
+Du kan också strömma diagnostikloggar till en [Azure Event Hub](../event-hubs/event-hubs-about.md). Event Hubs kan mata in miljon tals händelser per sekund, som du sedan kan omvandla och lagra med valfri analys-Provider i real tid. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om att använda [Log Analytics](../azure-monitor/log-query/get-started-portal.md) och skapa [logg frågor](../azure-monitor/log-query/get-started-queries.md).
 * Se [Översikt över Azures plattforms loggar](../azure-monitor/platform/platform-logs-overview.md) för att lära dig om plattforms loggar som är tillgängliga på olika lager i Azure.
-

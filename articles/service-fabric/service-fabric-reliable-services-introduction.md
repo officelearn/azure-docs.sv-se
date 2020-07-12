@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66fc58941de206d0bff086f44852d0f2a31587f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083518"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253090"
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
 
@@ -36,7 +37,7 @@ Reliable Services ger dig en enkel, kraftfull programmerings modell på översta
   * Använd de [tillförlitliga samlingarna](service-fabric-reliable-services-reliable-collections.md)
   * Få till gång till många andra funktioner från en första klass programmerings modell i flera programmeringsspråk.
 * En enkel modell för att köra din egen kod som fungerar som andra välbekanta programmerings modeller. Din kod har en väldefinierad start punkt och enkelt hanterad livs cykel.
-* En pluggbar kommunikations modell. Använd den transport du väljer, till exempel HTTP med [webb-API](service-fabric-reliable-services-communication-webapi.md), WebSockets, anpassade TCP-protokoll eller något annat. Reliable Services innehåller några bra alternativ som du kan använda, eller så kan du ange en egen.
+* En pluggbar kommunikations modell. Använd den transport du väljer, till exempel HTTP med [webb-API](./service-fabric-reliable-services-communication-aspnetcore.md), WebSockets, anpassade TCP-protokoll eller något annat. Reliable Services innehåller några bra alternativ som du kan använda, eller så kan du ange en egen.
 * För tillstånds känsliga tjänster låter Reliable Services programmerings modellen konsekvent och tillförlitligt lagra ditt tillstånd direkt i tjänsten med hjälp av [pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md). Pålitliga samlingar är en enkel uppsättning med hög tillgängliga samlings klasser som är bekanta för alla som har använt C#-samlingar. Traditionellt förekommande tjänster behövde externa system för tillförlitlig hantering av tillstånd. Med Reliable Collections kan du lagra ditt tillstånd bredvid din beräkning med samma hög tillgänglighet och tillförlitlighet som du kommer att förväntar dig från hög tillgängliga externa butiker. Den här modellen förbättrar också svars tiden eftersom du samplacerar den beräkning och det tillstånd som den behöver för att fungera.
 
 ## <a name="what-makes-reliable-services-different"></a>Vad gör Reliable Services olika
@@ -52,7 +53,7 @@ Reliable Services skiljer sig från tjänster som du kanske har skrivit tidigare
 
 Oavsett om tjänsten är tillstånds känslig eller tillstånds lös Reliable Services tillhandahålla en enkel livs cykel som gör det möjligt att snabbt ansluta din kod och komma igång.  Att komma igång med en ny tjänst kräver att du implementerar två metoder:
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** – den här metoden är platsen där tjänsten definierar den eller de kommunikations stackar som den vill använda. Kommunikations stacken, till exempel [webb-API](service-fabric-reliable-services-communication-webapi.md), är det som definierar lyssnings slut punkten eller slut punkterna för tjänsten (hur klienter når tjänsten). Den definierar också hur meddelanden som visas interagerar med resten av Service koden.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** – den här metoden är platsen där tjänsten definierar den eller de kommunikations stackar som den vill använda. Kommunikations stacken, till exempel [webb-API](./service-fabric-reliable-services-communication-aspnetcore.md), är det som definierar lyssnings slut punkten eller slut punkterna för tjänsten (hur klienter når tjänsten). Den definierar också hur meddelanden som visas interagerar med resten av Service koden.
 * **RunAsync** – den här metoden är den plats där din tjänst kör sin affärs logik och där den skulle starta alla bakgrunds aktiviteter som ska köras under tjänstens livs längd. Den token för avbrutna token som tillhandahålls är en signal för när det här arbetet ska stoppas. Till exempel, om tjänsten behöver hämta meddelanden från en tillförlitlig kö och bearbeta dem, är det här arbetet.
 
 Om du lär dig mer om pålitliga tjänster för första gången läser du på! Om du vill ha en detaljerad genom gång av livs cykeln för tillförlitliga tjänster kan du läsa [Reliable Services Lifecycle-översikten](service-fabric-reliable-services-lifecycle.md).
@@ -67,7 +68,7 @@ En *tillstånds lös tjänst* är en plats där det inte finns någon status i t
 
 Anta till exempel att du har en kalkylator som inte har minne och som tar emot alla villkor och åtgärder som kan utföras samtidigt.
 
-I det här fallet `RunAsync()` kan (C#) eller `runAsync()` (Java) för tjänsten vara tom eftersom det inte finns någon aktivitets bearbetning i bakgrunden som tjänsten behöver göra. När kalkylator-tjänsten skapas returneras en `ICommunicationListener` (C#) eller `CommunicationListener` (Java) (till exempel [webb-API](service-fabric-reliable-services-communication-webapi.md)) som öppnar en lyssnande slut punkt på en viss port. Den här lyssnande slut punkten kopplar upp till olika beräknings metoder (exempel: "Add (N1, N2)") som definierar Kalkylatorns offentliga API.
+I det här fallet `RunAsync()` kan (C#) eller `runAsync()` (Java) för tjänsten vara tom eftersom det inte finns någon aktivitets bearbetning i bakgrunden som tjänsten behöver göra. När kalkylator-tjänsten skapas returneras en `ICommunicationListener` (C#) eller `CommunicationListener` (Java) (till exempel [webb-API](./service-fabric-reliable-services-communication-aspnetcore.md)) som öppnar en lyssnande slut punkt på en viss port. Den här lyssnande slut punkten kopplar upp till olika beräknings metoder (exempel: "Add (N1, N2)") som definierar Kalkylatorns offentliga API.
 
 När ett anrop görs från en klient anropas lämplig metod, och kalkylator tjänsten utför åtgärderna för de data som angetts och returnerar resultatet. Ingen status lagras.
 

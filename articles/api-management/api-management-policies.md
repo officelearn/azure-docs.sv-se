@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128722"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252865"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](api-management-howto-policies.md).  
@@ -50,23 +50,23 @@ Det här avsnittet innehåller en referens för följande API Managements princi
     -   [Ange variabel](api-management-advanced-policies.md#set-variable) – Behåll ett värde i en namngiven kontext variabel för senare åtkomst.  
     -   [Ange metod för begäran](api-management-advanced-policies.md#SetRequestMethod) – gör att du kan ändra http-metoden för en begäran.  
     -   [Ange status kod](api-management-advanced-policies.md#SetStatus) – ändrar HTTP-statuskoden till det angivna värdet.  
-    -   [Trace](api-management-advanced-policies.md#Trace) – lägger till anpassade spårningar i [API-kontrollens](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata, Application Insights telemetrivärden och resurs loggar.  
+    -   [Trace](api-management-advanced-policies.md#Trace) – lägger till anpassade spårningar i [API-kontrollens](./api-management-howto-api-inspector.md) utdata, Application Insights telemetrivärden och resurs loggar.  
     -   [Vänta](api-management-advanced-policies.md#Wait) – väntar på en bifogad [sändnings förfrågan](api-management-advanced-policies.md#SendRequest), [hämtar värdet från cachen](api-management-caching-policies.md#GetFromCacheByKey)eller [styr flödes](api-management-advanced-policies.md#choose) principer som ska slutföras innan du fortsätter.  
 -   [Autentiseringsprinciper](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autentisera med Basic](api-management-authentication-policies.md#Basic) -autentisera med en backend-tjänst med grundläggande autentisering.  
     -   [Autentisera med klient certifikat](api-management-authentication-policies.md#ClientCertificate) – autentisera med en backend-tjänst med hjälp av klient certifikat.  
-    -   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) – autentisera med en backend-tjänst med hjälp av en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) – autentisera med en backend-tjänst med hjälp av en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md).  
 -   [Cachelagringsprinciper](api-management-caching-policies.md#CachingPolicies)  
     -   [Hämta från cache](api-management-caching-policies.md#GetFromCache) – utför cache leta upp och returnera ett giltigt cachelagrat svar när det är tillgängligt.  
     -   [Lagra i cache](api-management-caching-policies.md#StoreToCache) – cachelagrar svar enligt den angivna konfigurationen för cache-kontroll.  
     -   [Hämta värde från cache](api-management-caching-policies.md#GetFromCacheByKey) – hämta ett cachelagrat objekt efter nyckel.  
     -   [Lagra värdet i cache](api-management-caching-policies.md#StoreToCacheByKey) – lagra ett objekt i cacheminnet efter nyckel.  
     -   [Ta bort värdet från cache](api-management-caching-policies.md#RemoveCacheByKey) – ta bort ett objekt i cache by-nyckeln.  
--   [Principer mellan domäner](api-management-cross-domain-policies.md#CrossDomainPolicies)  
+-   [Korsdomänprinciper](api-management-cross-domain-policies.md#CrossDomainPolicies)  
     -   [Tillåt kors domän anrop](api-management-cross-domain-policies.md#AllowCrossDomainCalls) – gör API: et tillgängligt från webbläsarbaserade Adobe Flash-och Microsoft Silverlight-baserade klienter.  
     -   [CORS](api-management-cross-domain-policies.md#CORS) – lägger till CORS-stöd (Cross-Origin Resource Sharing) till en åtgärd eller ett API för att tillåta kors domän anrop från webbläsarbaserade klienter.  
     -   [JSONP](api-management-cross-domain-policies.md#JSONP) – lägger till JSON med JSONP-stöd (JSON with utfyllnad) till en åtgärd eller ett API för att tillåta kors domän anrop från Java Script browser-baserade klienter.  
--   [Omvandlingsprinciper](api-management-transformation-policies.md#TransformationPolicies)  
+-   [Transformeringsprinciper](api-management-transformation-policies.md#TransformationPolicies)  
     -   [Konvertera JSON till XML](api-management-transformation-policies.md#ConvertJSONtoXML) – konverterar begäran eller svars text från JSON till XML.  
     -   [Konvertera XML till JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) – konverterar begäran eller svars text från XML till JSON.  
     -   [Sök och ersätt sträng i brödtext](api-management-transformation-policies.md#Findandreplacestringinbody) – söker efter en begäran eller svars under sträng och ersätter den med en annan under sträng.  

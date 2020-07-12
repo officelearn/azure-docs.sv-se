@@ -7,15 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668299"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251204"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)
 
-När du hanterar kluster i Azure Kubernetes service (AKS) blir programmets drift tid viktig. Som standard ger AKS hög tillgänglighet genom att använda flera noder i en [skalnings uppsättning för virtuella datorer (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Men dessa flera noder skyddar inte systemet från ett regions haveri. Du kan maximera drift tiden genom att planera i förväg för att upprätthålla affärs kontinuiteten och förbereda för haveri beredskap.
+När du hanterar kluster i Azure Kubernetes service (AKS) blir programmets drift tid viktig. Som standard ger AKS hög tillgänglighet genom att använda flera noder i en [skalnings uppsättning för virtuella datorer (VMSS)](../virtual-machine-scale-sets/overview.md). Men dessa flera noder skyddar inte systemet från ett regions haveri. Du kan maximera drift tiden genom att planera i förväg för att upprätthålla affärs kontinuiteten och förbereda för haveri beredskap.
 
 Den här artikeln fokuserar på hur du planerar för verksamhets kontinuitet och haveri beredskap i AKS. Lär dig att:
 
@@ -32,8 +33,8 @@ Den här artikeln fokuserar på hur du planerar för verksamhets kontinuitet och
 
 Ett AKS-kluster distribueras till en enda region. Om du vill skydda systemet från regions fel kan du distribuera programmet till flera AKS-kluster i olika regioner. När du planerar var du ska distribuera ditt AKS-kluster bör du tänka på följande:
 
-* [**AKS region tillgänglighet**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Välj regioner som är nära dina användare. AKS utökas kontinuerligt till nya regioner.
-* [**Azure-kopplade regioner**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Välj två regioner i det geografiska område som är kopplade till varandra. Kopplade regioner koordinerar plattforms uppdateringar och prioriterar återställnings ansträngningar vid behov.
+* [**AKS region tillgänglighet**](./quotas-skus-regions.md#region-availability): Välj regioner som är nära dina användare. AKS utökas kontinuerligt till nya regioner.
+* [**Azure-kopplade regioner**](../best-practices-availability-paired-regions.md): Välj två regioner i det geografiska område som är kopplade till varandra. Kopplade regioner koordinerar plattforms uppdateringar och prioriterar återställnings ansträngningar vid behov.
 * **Tjänst tillgänglighet**: Bestäm om dina kopplade regioner ska vara frekvent/frekvent, varm/varm eller varm/kall. Vill du köra båda regionerna samtidigt, och en region är *redo* att börja betjäna trafik? Eller vill du att en region ska ha tid att bli redo att betjäna trafiken?
 
 AKS regions tillgänglighet och kopplade regioner är ett gemensamt övervägande. Distribuera dina AKS-kluster i kopplade regioner som är utformade för att hantera Disaster Recovery för regioner tillsammans. Till exempel är AKS tillgängligt i USA, östra och västra USA. Dessa regioner är kopplade till varandra. Välj dessa två regioner när du skapar en AKS BC/DR-strategi.
@@ -44,7 +45,7 @@ När du distribuerar ditt program lägger du till ett annat steg till din CI/CD-
 
 **Bästa praxis**: Azure Traffic Manager kan dirigera kunder till sitt närmaste AKS-kluster och program instans. För bästa prestanda och redundans ska du dirigera all program trafik genom Traffic Manager innan den går till ditt AKS-kluster.
 
-Om du har flera AKS-kluster i olika regioner använder du Traffic Manager för att styra hur trafiken flödar till de program som körs i varje kluster. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) är en DNS-baserad trafikbelastnings utjämning som kan distribuera nätverks trafik över flera regioner. Använd Traffic Manager för att dirigera användare baserat på kluster svars tid eller baserat på geografi.
+Om du har flera AKS-kluster i olika regioner använder du Traffic Manager för att styra hur trafiken flödar till de program som körs i varje kluster. [Azure Traffic Manager](../traffic-manager/index.yml) är en DNS-baserad trafikbelastnings utjämning som kan distribuera nätverks trafik över flera regioner. Använd Traffic Manager för att dirigera användare baserat på kluster svars tid eller baserat på geografi.
 
 ![AKS med Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
@@ -54,15 +55,15 @@ Kunder som har ett enda AKS-kluster ansluter vanligt vis till tjänstens IP-adre
 
 Traffic Manager utför DNS-sökningar och returnerar en användares lämpligaste slut punkt. Kapslade profiler kan prioritera en primär plats. Till exempel bör användare vanligt vis ansluta till deras närmaste geografiska region. Om den här regionen har ett problem kan Traffic Manager i stället dirigera användarna till en sekundär region. Den här metoden säkerställer att kunder kan ansluta till en program instans även om deras närmaste geografiska region inte är tillgänglig.
 
-Information om hur du konfigurerar slut punkter och routning finns i [Konfigurera principen för geografisk trafik cirkulation med hjälp av Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Information om hur du konfigurerar slut punkter och routning finns i [Konfigurera principen för geografisk trafik cirkulation med hjälp av Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Layer 7-programroutning med Azure-tjänsten för front dörr
 
-Traffic Manager använder DNS (skikt 3) för att forma trafik. [Azure frontend-tjänsten](https://docs.microsoft.com/azure/frontdoor/front-door-overview) tillhandahåller ett alternativ för att dirigera http/https (Layer 7). Ytterligare funktioner i Azures frontend-tjänst omfattar TLS-terminering, anpassad domän, brand vägg för webb program, URL-omskrivning och tillhörighet mellan sessioner. Granska behoven hos din program trafik för att förstå vilken lösning som passar bäst.
+Traffic Manager använder DNS (skikt 3) för att forma trafik. [Azure frontend-tjänsten](../frontdoor/front-door-overview.md) tillhandahåller ett alternativ för att dirigera http/https (Layer 7). Ytterligare funktioner i Azures frontend-tjänst omfattar TLS-terminering, anpassad domän, brand vägg för webb program, URL-omskrivning och tillhörighet mellan sessioner. Granska behoven hos din program trafik för att förstå vilken lösning som passar bäst.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnect-regioner med global peering för virtuella nätverk
 
-Om klustren måste kommunicera med varandra kan du ansluta båda virtuella nätverken till varandra via [peering för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Den här tekniken sammankopplar virtuella nätverk till varandra med hög bandbredd i Microsofts stamnät nätverk, även i olika geografiska regioner.
+Om klustren måste kommunicera med varandra kan du ansluta båda virtuella nätverken till varandra via [peering för virtuella nätverk](../virtual-network/virtual-network-peering-overview.md). Den här tekniken sammankopplar virtuella nätverk till varandra med hög bandbredd i Microsofts stamnät nätverk, även i olika geografiska regioner.
 
 En förutsättning för att peer-koppla virtuella nätverk där AKS-kluster körs är att använda standard Load Balancer i ditt AKS-kluster, så att Kubernetes-tjänsterna kan uppnås i det virtuella nätverkets peering.
 
@@ -82,7 +83,7 @@ När du använder Container Registry geo-replikering för att hämta avbildninga
 * **Mer tillförlitligt**: om en region inte är tillgänglig hämtar ditt AKS-kluster avbildningarna från ett tillgängligt behållar register.
 * **Billigare**: det finns ingen utgående nätverks belastning mellan data Center.
 
-Geo-replikering är en funktion i de register för *Premium* SKU-behållare. Information om hur du konfigurerar geo-replikering finns [container Registry geo-replikering](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+Geo-replikering är en funktion i de register för *Premium* SKU-behållare. Information om hur du konfigurerar geo-replikering finns [container Registry geo-replikering](../container-registry/container-registry-geo-replication.md).
 
 ## <a name="remove-service-state-from-inside-containers"></a>Ta bort tjänst tillstånd från behållare i behållare
 
@@ -97,7 +98,7 @@ Behållare och mikrotjänster är mest elastiska när processer som körs inuti 
 Information om hur du skapar bärbara program finns i följande rikt linjer:
 
 * [Den 12-Factor app-metoden](https://12factor.net/)
-* [Köra ett webb program i flera Azure-regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+* [Köra ett webb program i flera Azure-regioner](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## <a name="create-a-storage-migration-plan"></a>Skapa en plan för lagringsmigrering
 

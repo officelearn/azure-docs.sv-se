@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3f19d1240c2dcf1e62d5723c40b4f7c8b2154f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433874"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253294"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Tjänst-Remoting i C# med Reliable Services
 
@@ -64,7 +65,7 @@ class MyService : StatelessService, IMyService
 ```
 
 > [!NOTE]
-> Argumenten och retur typerna i tjänst gränssnittet kan vara alla enkla, komplexa eller anpassade typer, men de måste kunna serialiseras av .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
+> Argumenten och retur typerna i tjänst gränssnittet kan vara alla enkla, komplexa eller anpassade typer, men de måste kunna serialiseras av .NET [DataContractSerializer](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer).
 >
 >
 
@@ -88,19 +89,19 @@ Skapande av Tjänstproxy är en förenklad åtgärd, så att du kan skapa så m�
 
 ### <a name="service-proxy-factory-lifetime"></a>Service proxyns fabriks livstid
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar proxy-instanser för olika fjärr kommunikations gränssnitt. Om du använder API: et `ServiceProxyFactory.CreateServiceProxy` för att skapa en proxyserver skapar ramverket en proxy för singleton-tjänsten.
-Det är praktiskt att skapa en manuellt när du behöver åsidosätta [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) -egenskaper.
+[ServiceProxyFactory](/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar proxy-instanser för olika fjärr kommunikations gränssnitt. Om du använder API: et `ServiceProxyFactory.CreateServiceProxy` för att skapa en proxyserver skapar ramverket en proxy för singleton-tjänsten.
+Det är praktiskt att skapa en manuellt när du behöver åsidosätta [IServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) -egenskaper.
 Fabriks skapandet är en dyr åtgärd. En Tjänstproxy hanterar ett internt cacheminne för kommunikations klienten.
 Vi rekommenderar att du cachelagrar tjänstens proxy-fabrik så länge som möjligt.
 
 ## <a name="remoting-exception-handling"></a>Undantags hantering för fjärr kommunikation
 
-Alla fjärrundantag som har utlösts av tjänst-API: et skickas tillbaka till klienten som AggregateException. Fjärrundantag bör kunna serialiseras av DataContract. Om de inte gör det genererar proxy-API: et [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) med fel meddelandet.
+Alla fjärrundantag som har utlösts av tjänst-API: et skickas tillbaka till klienten som AggregateException. Fjärrundantag bör kunna serialiseras av DataContract. Om de inte gör det genererar proxy-API: et [ServiceException](/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) med fel meddelandet.
 
 Tjänstproxyn hanterar alla undantags fel för den tjänstmall som den skapas för. Den löser in slut punkterna igen om det finns undantags fel (icke-tillfälliga undantag) och försöker anropa anropet på nytt med rätt slut punkt. Antalet återförsök för fel i redundans är obegränsade.
 Om tillfälliga undantag uppstår, försöker proxyservern att ringa upp igen.
 
-Standard parametrarna för återförsök tillhandahålls av [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Standard parametrarna för återförsök tillhandahålls av [OperationRetrySettings](/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 
 En användare kan konfigurera dessa värden genom att skicka OperationRetrySettings-objektet till ServiceProxyFactory-konstruktorn.
 
@@ -160,7 +161,7 @@ De här stegen ändrar mallkod för att använda v2-stacken med hjälp av explic
    </Resources>
    ```
 
-2. Använd [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) från `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` namn området.
+2. Använd [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet) från `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` namn området.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -176,7 +177,7 @@ De här stegen ändrar mallkod för att använda v2-stacken med hjälp av explic
     }
    ```
 
-3. Använd [FabricTransportServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) från `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` namn området för att skapa klienter.
+3. Använd [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) från `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` namn området för att skapa klienter.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -255,7 +256,7 @@ Följ dessa steg om du vill ändra till en V2_1 stack.
     }
    ```
 
-3. Lägg till ett [Assembly-attribut](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) för fjärr kommunikations gränssnitt.
+3. Lägg till ett [Assembly-attribut](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) för fjärr kommunikations gränssnitt.
 
    ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -279,7 +280,7 @@ Följ de här stegen:
    </Resources>
    ```
 
-2. Använd [Remoting v2-lyssnaren](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Standard resurs namnet för tjänst slut punkten är "ServiceEndpointV2_1". Den måste definieras i tjänst manifestet.
+2. Använd [Remoting v2-lyssnaren](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Standard resurs namnet för tjänst slut punkten är "ServiceEndpointV2_1". Den måste definieras i tjänst manifestet.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -297,7 +298,7 @@ Följ de här stegen:
     }
    ```
 
-3. Använd v2- [klient fabriken](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Använd v2- [klient fabriken](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -548,6 +549,6 @@ Följ de här stegen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Webb-API med OWIN i Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Windows Communication Foundation kommunikation med Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Säker kommunikation för Reliable Services](service-fabric-reliable-services-secure-communication.md)

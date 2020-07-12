@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205071"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254511"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurera lokala mått och loggar för Azure API Management egen värd-Gateway
 
@@ -149,7 +149,7 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 Nu när både statistik-och Prometheus har distribuerats kan vi uppdatera konfigurationerna för den egna värdbaserade gatewayen för att börja generera mått via statistik. Funktionen kan aktive ras eller inaktive ras med `telemetry.metrics.local` nyckeln i ConfigMap för lokal gateway-distribution med ytterligare alternativ. Nedan visas en uppdelning av tillgängliga alternativ:
 
-| Fält  | Default | Beskrivning |
+| Fält  | Standard | Beskrivning |
 | ------------- | ------------- | ------------- |
 | telemetri. Metrics. local  | `none` | Aktiverar loggning via statistik. Värdet kan vara `none` , `statsd` . |
 | telemetri. Metrics. local. statal. Endpoint  | saknas | Anger den statistikbaserade slut punkten. |
@@ -189,7 +189,7 @@ Nu har vi allt distribuerat och konfigurerat, den egna värdbaserade gatewayen b
 
 Gör vissa API-anrop via den egen värdbaserade gatewayen, om allt är korrekt konfigurerat, bör du kunna visa nedanstående mått:
 
-| Metric  | Beskrivning |
+| Mått  | Beskrivning |
 | ------------- | ------------- |
 | Begäranden  | Antal API-begäranden under perioden |
 | DurationInMS | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |
@@ -204,11 +204,11 @@ Den egen värdbaserade gatewayen matar ut loggar till `stdout` och `stderr` som 
 kubectl logs <pod-name>
 ```
 
-Om din egen värdbaserade Gateway distribueras i Azure Kubernetes-tjänsten kan du aktivera [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) för att samla in `stdout` och `stderr` från dina arbets belastningar och visa loggarna i Log Analytics. 
+Om din egen värdbaserade Gateway distribueras i Azure Kubernetes-tjänsten kan du aktivera [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) för att samla in `stdout` och `stderr` från dina arbets belastningar och visa loggarna i Log Analytics. 
 
 Den egna värdbaserade gatewayen stöder också ett antal protokoll `localsyslog` , inklusive, `rfc5424` och `journal` . I tabellen nedan sammanfattas alla alternativ som stöds. 
 
-| Fält  | Default | Beskrivning |
+| Fält  | Standard | Beskrivning |
 | ------------- | ------------- | ------------- |
 | telemetri. logs. STD  | `text` | Aktiverar loggning till standard strömmar. Värdet kan vara `none` , `text` ,`json` |
 | telemetri. logs. local  | `none` | Aktiverar lokal loggning. Värdet kan vara `none` ,,, `auto` `localsyslog` `rfc5424` ,`journal`  |
@@ -236,4 +236,3 @@ Här är en exempel konfiguration av lokal loggning:
 
 * Mer information om den egen värdbaserade gatewayen finns i [Översikt över Azure API Management egen Gateway](self-hosted-gateway-overview.md)
 * Lär dig mer om att [Konfigurera och Spara loggar i molnet](how-to-configure-local-metrics-logs.md)
-

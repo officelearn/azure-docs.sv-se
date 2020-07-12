@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 55fd27d473bd47fd3321bdb2e730e4ef2d35352f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106192"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251730"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ Från inifrån Kubernetes-klustret används webhook-token-autentisering för att
 
 Som du ser i bilden ovan anropar API-servern AKS-webhook-servern och utför följande steg:
 
-1. Azure AD-klientprogrammet används av kubectl för att logga in användare med [OAuth 2,0-enhetens Authorization-flöde](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+1. Azure AD-klientprogrammet används av kubectl för att logga in användare med [OAuth 2,0-enhetens Authorization-flöde](../active-directory/develop/v2-oauth2-device-code.md).
 2. Azure AD tillhandahåller en access_token, id_token och en refresh_token.
 3. Användaren gör en begäran till kubectl med en access_token från kubeconfig.
 4. Kubectl skickar access_token till APIServer.
@@ -138,7 +138,7 @@ Med den här funktionen kan du till exempel inte bara ge användare behörighet 
 
 AKS tillhandahåller följande fyra inbyggda roller. De liknar de [inbyggda rollerna Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) , men med några skillnader som stöd för CRDs. En fullständig lista över åtgärder som tillåts av varje inbyggd roll finns [här](../role-based-access-control/built-in-roles.md).
 
-| Roll                                | Description  |
+| Roll                                | Beskrivning  |
 |-------------------------------------|--------------|
 | RBAC-visningsprogrammet i Azure Kubernetes service  | Tillåter skrivskyddad åtkomst för att se de flesta objekt i ett namn område. Den tillåter inte visning av roller eller roll bindningar. Den här rollen tillåter inte visning `Secrets` , eftersom läsning av innehållet i hemligheter ger åtkomst till `ServiceAccount` autentiseringsuppgifter i namn området, vilket skulle tillåta API-åtkomst `ServiceAccount` i namn området (en form av behörighets eskalering)  |
 | RBAC-skrivare för Azure Kubernetes service | Tillåter Läs-/skriv åtkomst till de flesta objekt i ett namn område. Den här rollen tillåter inte visning eller ändring av roller eller roll bindningar. Den här rollen tillåter dock åtkomst `Secrets` och körning av poddar som alla ServiceAccount i namn området, så att den kan användas för att få åtkomst nivåer för API: er för alla ServiceAccount i namn området. |

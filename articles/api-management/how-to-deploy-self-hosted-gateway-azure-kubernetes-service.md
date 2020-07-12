@@ -10,18 +10,18 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: abf7e6d7032e7e5dc35b2f4397a5630d45d762de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205123"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254392"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Distribuera till Azure Kubernetes Service
 
 Den här artikeln innehåller steg för att distribuera en lokal gateway-komponent i Azure API Management till [Azure Kubernetes-tjänsten](https://azure.microsoft.com/services/kubernetes-service/). Om du vill distribuera en lokal gateway till ett Kubernetes-kluster ser du det här[dokumentet](how-to-deploy-self-hosted-gateway-kubernetes.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - [Skapa ett Azure Kubernetes-kluster](../aks/kubernetes-walkthrough-portal.md)
@@ -36,7 +36,7 @@ Den här artikeln innehåller steg för att distribuera en lokal gateway-kompone
 5. Kontrol lera att **Kubernetes** är markerat under **distributions skript**.
 6. Hämta filen genom att välja **<Gateway-name>. yml-** fillänk bredvid **distribution** .
 7. Justera port mappningarna och behållar namnet i YML-filen efter behov.
-8. Beroende på ditt scenario kan du behöva ändra [tjänst typen](https://docs.microsoft.com/azure/aks/concepts-network#services). Standardvärdet är `NodePort`.
+8. Beroende på ditt scenario kan du behöva ändra [tjänst typen](../aks/concepts-network.md#services). Standardvärdet är `NodePort`.
 9. Välj **kopierings** ikonen längst till höger i text rutan **distribuera** för att spara `kubectl` kommandot till Urklipp.
 10. Klistra in kommandot i terminalfönstret (eller kommando fönstret). Observera att kommandot förväntar sig att den nedladdade miljö filen finns i den aktuella katalogen.
 ```console
@@ -63,10 +63,6 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om den egen värdbaserade gatewayen finns i [Översikt över Azure API Management egen Gateway](self-hosted-gateway-overview.md)
-* Läs mer om [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+* Läs mer om [Azure Kubernetes-tjänsten](../aks/intro-kubernetes.md)
 * Lär dig [hur du konfigurerar och beständiga loggar i molnet](how-to-configure-cloud-metrics-logs.md)
 * * Lär dig [hur du konfigurerar och beständiga loggar lokalt](how-to-configure-local-metrics-logs.md)
-
-
-
-

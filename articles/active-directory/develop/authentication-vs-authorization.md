@@ -13,11 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 2e9a50553a12c57c0043c7f2924245f6a907242a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83825966"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252121"
 ---
 # <a name="authentication-vs-authorization"></a>Autentisering mot auktorisering
 
@@ -37,7 +38,7 @@ I stället för att skapa appar som var och en upprätthåller sin egen använda
 
 Azure Active Directory (Azure AD) är en centraliserad identitets leverantör i molnet. Genom att delegera autentisering och auktorisering till det kan du använda scenarier som principer för villkorlig åtkomst som kräver att en användare befinner sig på en speciell plats, användningen av [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) (kallas ibland för TVÅFAKTORAUTENTISERING eller 2fa), samt att göra det möjligt för en användare att logga in en gång och sedan loggas in automatiskt på alla webbappar som delar samma centrala katalog. Den här funktionen kallas **enkel inloggning (SSO)**.
 
-Microsoft Identity Platform fören klar auktorisering och autentisering för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar som hjälper dig att snabbt komma igång med att koda. Det gör det möjligt för utvecklare att skapa program som loggar in alla Microsoft-identiteter, Hämta token för att anropa [Microsoft Graph](https://developer.microsoft.com/graph/), andra Microsoft API: er eller API: er som utvecklare har skapat. Mer information finns i [utvecklingen av Microsoft Identity Platform](about-microsoft-identity-platform.md).
+Microsoft Identity Platform fören klar auktorisering och autentisering för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar som hjälper dig att snabbt komma igång med att koda. Det gör det möjligt för utvecklare att skapa program som loggar in alla Microsoft-identiteter, Hämta token för att anropa [Microsoft Graph](https://developer.microsoft.com/graph/), andra Microsoft API: er eller API: er som utvecklare har skapat.
 
 Följande är en kort jämförelse av de olika protokoll som används av Microsoft Identity Platform:
 

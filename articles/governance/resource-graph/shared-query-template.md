@@ -4,30 +4,32 @@ description: I den här snabb starten använder du en Azure Resource Manager mal
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969815"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252376"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Snabb start: skapa en delad fråga med hjälp av en Azure Resource Manager mall
+# <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Snabb start: skapa en delad fråga med en ARM-mall
 
 Resurs diagram frågor kan sparas som en _privat fråga_ eller en _delad fråga_. En privat fråga sparas i användarens Portal profil och är inte synlig för andra. En delad fråga är ett Resource Manager-objekt som kan delas med andra via behörigheter och rollbaserad åtkomst. En delad fråga ger gemensam och konsekvent körning av resurs identifiering. I den här snabb starten används en Azure Resource Manager-mall (ARM-mall) för att skapa en delad fråga.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera ARM-mallen för att skapa en delad fråga till Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="create-a-shared-query"></a>Skapa en delad fråga
+## <a name="review-the-template"></a>Granska mallen
 
 I den här snabb starten skapar du en delad fråga som heter _antal virtuella datorer av OS_. Om du vill testa den här frågan i SDK eller i portalen med resurs diagram Utforskaren, se [exempel-Count Virtual Machines by OS Type](./samples/starter.md#count-os).
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
 :::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
 
@@ -35,7 +37,7 @@ Den resurs som definierats i mallen är:
 
 - [Microsoft. ResourceGraph/frågor](/azure/templates/microsoft.resourcegraph/queries)
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 > [!NOTE]
 > Azure Resource Graph-tjänsten är kostnads fri. Mer information finns i [Översikt över Azure Resource Graph](./overview.md).
@@ -46,11 +48,11 @@ Den resurs som definierats i mallen är:
 
 1. Välj eller ange följande värden:
 
-   | Name | Värde |
+   | Namn | Värde |
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
    | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. |
-   | Location | Välj en region. Välj till exempel **USA, centrala**. |
+   | Plats | Välj en region. Välj till exempel **USA, centrala**. |
    | Frågenamn | Lämna standardvärdet **antal virtuella datorer per operativ system**. |
    | Fråga kod | Låt standardvärdet vara kvar`Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
    | Beskrivning av fråga | Lämna standardvärdet **den här delade frågan räknar alla virtuella dator resurser och sammanfattar av OS-typen.** |

@@ -2,14 +2,15 @@
 title: Utlösare och bindningar i Azure Functions
 description: Lär dig att använda utlösare och bindningar för att ansluta din Azure-funktion till online-händelser och molnbaserade tjänster.
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687658"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252699"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Utlösare och bindningar i Azure Functions
 
@@ -17,7 +18,7 @@ I den här artikeln lär du dig de övergripande koncepten som omger funktions u
 
 Utlösare är orsaken till att en funktion körs. En utlösare definierar hur en funktion anropas och en funktion måste ha exakt en utlösare. Utlösare har associerade data, vilka vanligtvis är nyttolasten för funktionen. 
 
-Bindning till en funktion är ett sätt att på ett sätt ansluta en annan resurs till funktionen. bindningar kan vara anslutna som *indata-bindningar*, *utgående bindningar*eller både och. Data från bindningar anges för funktionen som parametrar.
+Bindning till en funktion är ett sätt att på ett sätt ansluta en annan resurs till funktionen. bindningar kan vara anslutna som *indata-bindningar*, *utgående bindningar*eller både och. Data från bindningar skickas som parametrar till funktionen.
 
 Du kan blanda och matcha olika bindningar så att de passar dina behov. Bindningar är valfria och en funktion kan ha en eller flera indata- och/eller utdatabindningar.
 
@@ -27,10 +28,10 @@ Tänk på följande exempel på hur du kan implementera olika funktioner.
 
 | Exempelscenario | Utlösare | Binda in | Utgående bindning |
 |-------------|---------|---------------|----------------|
-| Ett nytt Queue-meddelande anländer som kör en funktion för att skriva till en annan kö. | Köjobb<sup>*</sup> | *Inga* | Köjobb<sup>*</sup> |
+| Ett nytt Queue-meddelande anländer som kör en funktion för att skriva till en annan kö. | Köjobb<sup>*</sup> | *Ingen* | Köjobb<sup>*</sup> |
 |Ett schemalagt jobb läser Blob Storage innehåll och skapar ett nytt Cosmos DB-dokument. | Timer | Blob Storage | Cosmos DB |
 |Event Grid används för att läsa en avbildning från Blob Storage och ett dokument från Cosmos DB för att skicka ett e-postmeddelande. | Event Grid | Blob Storage och Cosmos DB | SendGrid |
-| En webhook som använder Microsoft Graph för att uppdatera ett Excel-blad. | HTTP | *Inga* | Microsoft Graph |
+| En webhook som använder Microsoft Graph för att uppdatera ett Excel-blad. | HTTP | *Ingen* | Microsoft Graph |
 
 <sup>\*</sup>Representerar olika köer
 

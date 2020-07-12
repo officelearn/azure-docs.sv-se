@@ -9,11 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82854105"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254290"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuera en gateway med egen värd till Kubernetes
 
@@ -64,7 +65,7 @@ Den här artikeln beskriver stegen för att distribuera den lokala gateway-kompo
 ### <a name="access-token"></a>Åtkomsttoken
 Utan en giltig åtkomsttoken kan en lokal gateway inte komma åt och hämta konfigurations data från slut punkten för den associerade API Managements tjänsten. Åtkomsttoken kan vara giltig i högst 30 dagar. Den måste återskapas och klustret har kon figurer ATS med en ny token, antingen manuellt eller via automatisering innan det går ut. 
 
-När du automatiserar uppdatering av token ska du använda [denna hanterings-API-åtgärd](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) för att generera en ny token. Information om hur du hanterar Kubernetes-hemligheter finns på [Kubernetes-webbplatsen](https://kubernetes.io/docs/concepts/configuration/secret).
+När du automatiserar uppdatering av token ska du använda [denna hanterings-API-åtgärd](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) för att generera en ny token. Information om hur du hanterar Kubernetes-hemligheter finns på [Kubernetes-webbplatsen](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Namnområde
 Kubernetes- [namnområden](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) hjälper till att dela upp ett enskilt kluster mellan flera team, projekt eller program. Namn områden tillhandahåller ett omfång för resurser och namn. De kan associeras med en resurs kvot och principer för åtkomst kontroll.

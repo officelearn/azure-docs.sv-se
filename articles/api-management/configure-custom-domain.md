@@ -12,11 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83004751"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252903"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
@@ -63,15 +64,15 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 1. Välj den slut punkt som du vill uppdatera.
 1. I fönstret till höger klickar du på **anpassad**.
 
-    - I det **anpassade domän namnet**anger du det namn som du vill använda. Till exempel `api.contoso.com`.
+    - I det **anpassade domän namnet**anger du det namn som du vill använda. Ett exempel är `api.contoso.com`.
     - I **certifikatet**väljer du ett certifikat från Key Vault. Du kan också ladda upp en giltig. PFX-fil och ange **lösen ord**, om certifikatet är skyddat med ett lösen ord.
 
     > [!NOTE]
     > Domän namn för jokertecken, t. ex. `*.contoso.com` stöds i alla nivåer förutom förbruknings nivån.
 
     > [!TIP]
-    > Vi rekommenderar att du använder [Azure Key Vault för att hantera certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) och ställa in dem för att förnya.
-    > Om du använder Azure Key Vault för att hantera det anpassade domän-TLS/SSL-certifikatet kontrollerar du att certifikatet har infogats i Key Vault [som ett _certifikat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), inte en _hemlighet_.
+    > Vi rekommenderar att du använder [Azure Key Vault för att hantera certifikat](../key-vault/certificates/about-certificates.md) och ställa in dem för att förnya.
+    > Om du använder Azure Key Vault för att hantera det anpassade domän-TLS/SSL-certifikatet kontrollerar du att certifikatet har infogats i Key Vault [som ett _certifikat_](/rest/api/keyvault/createcertificate/createcertificate), inte en _hemlighet_.
     >
     > Om du vill hämta ett TLS/SSL-certifikat måste API Management ha behörigheterna lista och hämta hemligheter på den Azure Key Vault som innehåller certifikatet. När du använder Azure Portal alla de nödvändiga konfigurations stegen att utföras automatiskt. När du använder kommando rads verktyg eller hanterings-API måste dessa behörigheter beviljas manuellt. Detta görs i två steg. Använd först sidan hanterade identiteter på din API Management-instans för att se till att den hanterade identiteten är aktive rad och anteckna det huvud-ID som visas på sidan. Andra, ge behörighets listan och hämta hemligheter till detta huvud namns-ID på den Azure Key Vault som innehåller certifikatet.
     >

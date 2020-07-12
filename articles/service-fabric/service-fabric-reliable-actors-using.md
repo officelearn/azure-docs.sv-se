@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8bf54f9909125030e067bc483ca2fb7e3dc68a7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502279"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253362"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementera service nivå funktioner i aktörs tjänsten
 
@@ -215,7 +215,7 @@ Den här ändringen är en uppgradering i två steg. Följ stegen i den här sek
 
 * [Hantering av aktörs tillstånd](service-fabric-reliable-actors-state-management.md)
 * [Aktörs livs cykel och skräp insamling](service-fabric-reliable-actors-lifecycle.md)
-* [Dokumentation om aktörers API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Dokumentation om aktörers API-referens](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET-exempel kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

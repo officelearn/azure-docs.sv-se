@@ -5,11 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbcf552cee8a96636920f04472843b1fea5c845
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433865"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253243"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-baserad kommunikations stack för Reliable Services
 Reliable Services Framework gör det möjligt för tjänst författarna att välja den kommunikations stack som de vill använda för tjänsten. De kan ansluta till kommunikations stacken som de väljer via **ICommunicationListener** som returneras från [CreateServiceReplicaListeners-eller CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) -metoderna. Ramverket innehåller en implementering av kommunikations stacken baserat på Windows Communication Foundation (WCF) för tjänst författare som vill använda WCF-baserad kommunikation.
@@ -115,6 +116,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ## <a name="next-steps"></a>Nästa steg
 * [Fjärran rop med Reliable Services fjärr kommunikation](service-fabric-reliable-services-communication-remoting.md)
-* [Webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Webb-API med OWIN i Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Skydda kommunikation för Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
-

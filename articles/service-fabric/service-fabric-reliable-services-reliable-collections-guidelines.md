@@ -3,12 +3,12 @@ title: Rikt linjer för pålitliga samlingar
 description: Rikt linjer och rekommendationer för att använda Service Fabric pålitliga samlingar i ett Azure Service Fabric-program.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f196df4b58f1acb01a497b5fa08e9af99a4707d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483133"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260917"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Rikt linjer och rekommendationer för tillförlitliga samlingar i Azure Service Fabric
 Det här avsnittet innehåller rikt linjer för att använda pålitliga tillstånds hanteraren och pålitliga samlingar. Målet är att hjälpa användarna att undvika vanliga fall GRO par.
@@ -59,9 +59,9 @@ När du bestämmer dig för att använda volatile Reliable Collections bör du t
 * [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Hantera data
   * [Säkerhets kopiering och återställning](service-fabric-reliable-services-backup-restore.md)
-  * [Meddelanden](service-fabric-reliable-services-notifications.md)
+  * [Aviseringar](service-fabric-reliable-services-notifications.md)
   * [Serialisering och uppgradering](service-fabric-application-upgrade-data-serialization.md)
   * [Tillförlitlig tillstånds hanterarens konfiguration](service-fabric-reliable-services-configuration.md)
 * Andra
   * [Reliable Services snabb start](service-fabric-reliable-services-quick-start.md)
-  * [Referens för utvecklare för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Referens för utvecklare för tillförlitliga samlingar](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

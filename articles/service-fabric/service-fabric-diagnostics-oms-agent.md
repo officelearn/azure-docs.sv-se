@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366753"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258685"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestanda övervakning med Azure Monitor loggar
 
@@ -22,7 +23,7 @@ Den här artikeln beskriver hur du lägger till Log Analytics agenten som ett ti
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Lägg till agent tillägget via Azure CLI
 
-Det bästa sättet att lägga till Log Analytics agent i klustret är via de API: er för skalnings uppsättningen för virtuella datorer som är tillgängliga med Azure CLI. Om du inte har konfigurerat Azure CLI ännu går du till Azure Portal och öppnar en [Cloud Shell](../cloud-shell/overview.md) instans eller [installerar Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Det bästa sättet att lägga till Log Analytics agent i klustret är via de API: er för skalnings uppsättningen för virtuella datorer som är tillgängliga med Azure CLI. Om du inte har konfigurerat Azure CLI ännu går du till Azure Portal och öppnar en [Cloud Shell](../cloud-shell/overview.md) instans eller [installerar Azure CLI](/cli/azure/install-azure-cli).
 
 1. När din Cloud Shell har begärts kontrollerar du att du arbetar i samma prenumeration som din resurs. Kontrol lera detta med `az account show` och se till att värdet "name" stämmer överens med klustrets prenumeration.
 
@@ -72,7 +73,7 @@ Nu när du har lagt till Log Analytics-agenten går du till Log Analytics Portal
 
 3. Klicka på **Avancerade inställningar**.
 
-4. Klicka på **data**och sedan på **Windows-eller Linux-prestandaräknare**. Det finns en lista med standard räknare som du kan välja att aktivera och du kan ange intervallet för samling. Du kan också lägga till [ytterligare prestanda räknare](service-fabric-diagnostics-event-generation-perf.md) som ska samlas in. Rätt format refereras till i den här [artikeln](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+4. Klicka på **data**och sedan på **Windows-eller Linux-prestandaräknare**. Det finns en lista med standard räknare som du kan välja att aktivera och du kan ange intervallet för samling. Du kan också lägga till [ytterligare prestanda räknare](service-fabric-diagnostics-event-generation-perf.md) som ska samlas in. Rätt format refereras till i den här [artikeln](/windows/win32/perfctrs/specifying-a-counter-path).
 
 5. Klicka på **Spara**och sedan på **OK**.
 
@@ -91,5 +92,5 @@ Nu när du har lagt till Log Analytics-agenten går du till Log Analytics Portal
 ## <a name="next-steps"></a>Nästa steg
 
 * Samla in relevanta [prestanda räknare](service-fabric-diagnostics-event-generation-perf.md). Om du vill konfigurera Log Analytics agenten för att samla in vissa prestanda räknare granskar du [konfigurationen av data källor](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Konfigurera Azure Monitor loggar för att ställa in [automatiserad avisering](../log-analytics/log-analytics-alerts.md) till hjälp vid identifiering och diagnostik
+* Konfigurera Azure Monitor loggar för att ställa in [automatiserad avisering](../azure-monitor/platform/alerts-overview.md) till hjälp vid identifiering och diagnostik
 * Alternativt kan du samla in prestanda räknare via [Azure-diagnostik tillägget och skicka dem till Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

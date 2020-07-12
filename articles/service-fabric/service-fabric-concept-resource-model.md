@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en översikt över hur du hanterar et
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682631"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258732"
 ---
 # <a name="service-fabric-application-resource-model"></a>Service Fabric program resurs modell
 
@@ -40,13 +40,13 @@ Om du vill ha mer information kan du Visa [Paketera ett program](service-fabric-
 
 Sedan skapar du en Resource Manager-mall, uppdaterar parameter filen med programinformation och distribuerar mallen på Service Fabric klustret. [Utforska exempel](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Om du vill distribuera ett program från en Resource Manager-mall måste du ha ett lagrings konto. Lagrings kontot används för att mellanlagra program avbildningen. 
 
 Du kan återanvända ett befintligt lagrings konto eller så kan du skapa ett nytt lagrings konto för att mellanlagra dina program. Om du använder ett befintligt lagrings konto kan du hoppa över det här steget. 
 
-![skapar ett lagringskonto][CreateStorageAccount]
+![Skapa ett lagringskonto][CreateStorageAccount]
 
 ### <a name="configure-your-storage-account"></a>Konfigurera ditt lagrings konto
 
@@ -56,7 +56,7 @@ Resurser i klustret kan skyddas genom att ange den offentliga åtkomst nivån ti
 
 * Ge åtkomst till blobbar och köer med hjälp av [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
 * Bevilja åtkomst till Azure blob-och Queue-data genom [att använda RBAC i Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
-* Delegera åtkomst med hjälp av en [signatur för delad åtkomst](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
+* Delegera åtkomst med hjälp av en [signatur för delad åtkomst](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 I exemplet på följande skärm bild används anonym Läs åtkomst för blobbar.
 
@@ -166,13 +166,13 @@ Du kan uppgradera ett program som redan har distribuerats till ett Service Fabri
 
 Ta bort ett program som har distribuerats med hjälp av program resurs modellen i Resource Manager:
 
-1. Använd cmdleten [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) för att hämta resurs-ID: t för programmet:
+1. Använd cmdleten [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) för att hämta resurs-ID: t för programmet:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Använd cmdleten [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) för att ta bort program resurserna:
+1. Använd cmdleten [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) för att ta bort program resurserna:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

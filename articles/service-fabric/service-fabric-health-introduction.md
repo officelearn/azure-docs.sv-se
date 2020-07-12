@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4a6e8b2baa400e1221ac1e8271e04cdaa912aff6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224153"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258854"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälso modell som ger omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Modellen möjliggör real tids övervakning av klustrets tillstånd och de tjänster som körs i den. Du kan enkelt få hälso information och åtgärda eventuella problem innan de överlappar varandra och orsakar enorma avbrott. I den typiska modellen skickar tjänster rapporter baserat på deras lokala vyer och den informationen aggregeras för att ge en övergripande vy på kluster nivå.
@@ -60,7 +60,7 @@ Planera för att investera i hur du ska rapportera och reagera på hälsan under
 ## <a name="health-states"></a>Hälso tillstånd
 Service Fabric använder tre hälso tillstånd för att beskriva om en entitet är felfri eller inte: OK, varning och fel. Alla rapporter som skickas till hälso arkivet måste ange något av dessa tillstånd. Resultatet av hälso utvärderingen är ett av dessa tillstånd.
 
-Möjliga [hälso tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) är:
+Möjliga [hälso tillstånd](/dotnet/api/system.fabric.health.healthstate) är:
 
 * **OK**. Entiteten är felfri. Inga kända problem har rapporter ATS för den eller dess underordnade (om tillämpligt).
 * **Varning**. Entiteten innehåller vissa problem, men den kan fortfarande fungera korrekt. Det finns till exempel fördröjningar, men de orsakar inga funktionella problem än. I vissa fall kan varnings villkoret korrigeras utan extern åtgärd. I dessa fall kan hälso rapporter höja medvetenheten och ge insyn i vad som händer. I andra fall kan varnings villkoret försämras till ett allvarligt problem utan åtgärder från användaren.
@@ -78,13 +78,13 @@ Hälso lagret tillämpar hälso principer för att avgöra om en entitet är fel
 Som standard tillämpar Service Fabric strikta regler (allting måste vara felfria) för den överordnade och underordnade hierarkiska relationen. Om även en av de underordnade objekten har en händelse som inte är felfri betraktas den överordnade aktiviteten som ohälsosam.
 
 ### <a name="cluster-health-policy"></a>Kluster hälso princip
-[Kluster hälso principen](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) används för att utvärdera hälso tillståndet för klustret och nodens hälso tillstånd. Principen kan definieras i kluster manifestet. Om den inte finns används standard principen (noll tolererade Miss lyckas).
+[Kluster hälso principen](/dotnet/api/system.fabric.health.clusterhealthpolicy) används för att utvärdera hälso tillståndet för klustret och nodens hälso tillstånd. Principen kan definieras i kluster manifestet. Om den inte finns används standard principen (noll tolererade Miss lyckas).
 Kluster hälso principen innehåller:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
-* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Anger den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel.
-* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Anger den maximala procent andelen av de noder som kan vara felfria innan klustret betraktas som ett fel. I stora kluster är vissa noder alltid nere eller ut för reparationer, så den här procent andelen bör konfigureras för att tolerera.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Princip mappningen för program typens hälso princip kan användas vid utvärdering av kluster hälsa för att beskriva särskilda program typer. Som standard placeras alla program i en pool och utvärderas med MaxPercentUnhealthyApplications. Om vissa program typer ska behandlas annorlunda kan de tas bort från den globala poolen. I stället utvärderas de mot procent andelen som är kopplade till deras program typs namn i kartan. I ett kluster finns det till exempel tusentals program av olika typer och några kontroll program instanser av en särskild program typ. Kontroll programmen ska aldrig ha fel. Du kan ange globala MaxPercentUnhealthyApplications till 20% för att tolerera vissa problem, men för program typen "ControlApplicationType" anger du MaxPercentUnhealthyApplications till 0. På så sätt kommer klustret att utvärderas som varning om några av de många programmen inte är felfria, men lägre än den globala procent andelen. En varnings hälso tillstånd påverkar inte kluster uppgraderingen eller annan övervakning som utlöses av fel hälso tillstånd. Men till och med ett kontroll program i fel skulle klustret vara skadat, vilket utlöser återställnings-eller pausar kluster uppgraderingen, beroende på uppgraderings konfigurationen.
+* [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
+* [MaxPercentUnhealthyApplications](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Anger den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel.
+* [MaxPercentUnhealthyNodes](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Anger den maximala procent andelen av de noder som kan vara felfria innan klustret betraktas som ett fel. I stora kluster är vissa noder alltid nere eller ut för reparationer, så den här procent andelen bör konfigureras för att tolerera.
+* [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Princip mappningen för program typens hälso princip kan användas vid utvärdering av kluster hälsa för att beskriva särskilda program typer. Som standard placeras alla program i en pool och utvärderas med MaxPercentUnhealthyApplications. Om vissa program typer ska behandlas annorlunda kan de tas bort från den globala poolen. I stället utvärderas de mot procent andelen som är kopplade till deras program typs namn i kartan. I ett kluster finns det till exempel tusentals program av olika typer och några kontroll program instanser av en särskild program typ. Kontroll programmen ska aldrig ha fel. Du kan ange globala MaxPercentUnhealthyApplications till 20% för att tolerera vissa problem, men för program typen "ControlApplicationType" anger du MaxPercentUnhealthyApplications till 0. På så sätt kommer klustret att utvärderas som varning om några av de många programmen inte är felfria, men lägre än den globala procent andelen. En varnings hälso tillstånd påverkar inte kluster uppgraderingen eller annan övervakning som utlöses av fel hälso tillstånd. Men till och med ett kontroll program i fel skulle klustret vara skadat, vilket utlöser återställnings-eller pausar kluster uppgraderingen, beroende på uppgraderings konfigurationen.
   För de program typer som definierats i kartan tas alla program instanser bort från den globala poolen med program. De utvärderas baserat på det totala antalet program av program typen, med hjälp av den specifika MaxPercentUnhealthyApplications från kartan. Alla resten av programmen finns kvar i den globala poolen och utvärderas med MaxPercentUnhealthyApplications.
 
 Följande exempel är ett utdrag från ett kluster manifest. Om du vill definiera poster i program typs mappningen, anger du parameter namnet med "ApplicationTypeMaxPercentUnhealthyApplications-", följt av programmets typ namn.
@@ -101,20 +101,20 @@ Följande exempel är ett utdrag från ett kluster manifest. Om du vill definier
 ```
 
 ### <a name="application-health-policy"></a>Program hälso princip
-[Program hälso principen](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) beskriver hur utvärderingen av händelser och sammansättning av underordnade tillstånd görs för program och deras underordnade. Den kan definieras i applikations manifestet **ApplicationManifest.xml**i programpaketet. Om inga principer anges förutsätter Service Fabric att enheten inte är felfri om den har en hälso rapport eller en underordnad i varnings-eller fel hälso tillståndet.
+[Program hälso principen](/dotnet/api/system.fabric.health.applicationhealthpolicy) beskriver hur utvärderingen av händelser och sammansättning av underordnade tillstånd görs för program och deras underordnade. Den kan definieras i applikations manifestet **ApplicationManifest.xml**i programpaketet. Om inga principer anges förutsätter Service Fabric att enheten inte är felfri om den har en hälso rapport eller en underordnad i varnings-eller fel hälso tillståndet.
 De konfigurerbara principerna är:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
-* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Anger den maximala procent andelen av distribuerade program som kan vara felfria innan programmet betraktas som ett fel. Den här procent satsen beräknas genom att dividera antalet ej hälsodistribuerade program över antalet noder som programmen för närvarande har distribuerat i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. Standard procents ATS: noll.
-* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Anger standard hälso principen för tjänst typen, som ersätter standard hälso principen för alla tjänst typer i programmet.
-* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Innehåller en karta över tjänst hälso principer per tjänst typ. Dessa principer ersätter standard hälso principerna för tjänst typen för varje angiven tjänst typ. Om ett program till exempel har en tillstånds lös tjänst typ för gateway och en tillstånds känslig motor tjänst typ, kan du konfigurera hälso principerna för utvärderingen på olika sätt. När du anger princip per tjänst typ kan du få mer detaljerad kontroll över hälso tillståndet för tjänsten.
+* [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
+* [MaxPercentUnhealthyDeployedApplications](/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Anger den maximala procent andelen av distribuerade program som kan vara felfria innan programmet betraktas som ett fel. Den här procent satsen beräknas genom att dividera antalet ej hälsodistribuerade program över antalet noder som programmen för närvarande har distribuerat i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. Standard procents ATS: noll.
+* [DefaultServiceTypeHealthPolicy](/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Anger standard hälso principen för tjänst typen, som ersätter standard hälso principen för alla tjänst typer i programmet.
+* [ServiceTypeHealthPolicyMap](/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Innehåller en karta över tjänst hälso principer per tjänst typ. Dessa principer ersätter standard hälso principerna för tjänst typen för varje angiven tjänst typ. Om ett program till exempel har en tillstånds lös tjänst typ för gateway och en tillstånds känslig motor tjänst typ, kan du konfigurera hälso principerna för utvärderingen på olika sätt. När du anger princip per tjänst typ kan du få mer detaljerad kontroll över hälso tillståndet för tjänsten.
 
 ### <a name="service-type-health-policy"></a>Hälso princip för tjänst typ
-[Hälso principen för tjänst typen](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) anger hur du ska utvärdera och aggregera tjänsterna och underordnade tjänster. Principen innehåller:
+[Hälso principen för tjänst typen](/dotnet/api/system.fabric.health.servicetypehealthpolicy) anger hur du ska utvärdera och aggregera tjänsterna och underordnade tjänster. Principen innehåller:
 
-* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Anger den maximala procent andelen av felaktiga partitioner innan en tjänst betraktas som ohälsosam. Standard procents ATS: noll.
-* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Anger den maximala procent andelen av felaktiga repliker innan en partition anses vara ohälsosam. Standard procents ATS: noll.
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Anger den maximala procent andelen av felaktiga tjänster innan programmet betraktas som ohälsosamt. Standard procents ATS: noll.
+* [MaxPercentUnhealthyPartitionsPerService](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Anger den maximala procent andelen av felaktiga partitioner innan en tjänst betraktas som ohälsosam. Standard procents ATS: noll.
+* [MaxPercentUnhealthyReplicasPerPartition](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Anger den maximala procent andelen av felaktiga repliker innan en partition anses vara ohälsosam. Standard procents ATS: noll.
+* [MaxPercentUnhealthyServices](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Anger den maximala procent andelen av felaktiga tjänster innan programmet betraktas som ohälsosamt. Standard procents ATS: noll.
 
 Följande exempel är ett utdrag från ett program manifest:
 
@@ -179,10 +179,10 @@ När hälso insamlingen har utvärderat alla underordnade, aggregerar de sina h�
 ## <a name="health-reporting"></a>Hälso rapportering
 System komponenter, system Fabric-program och interna/externa övervaknings enheter kan rapportera mot Service Fabric entiteter. Rapporterna gör *lokala* bestämningar av hälsan hos de övervakade enheterna, baserat på de villkor som de övervakar. De behöver inte titta på några globala eller aggregerade data. Det önskade beteendet är att ha enkla rapporter och inte komplexa organismer som behöver titta på många saker för att härleda vilken information som ska skickas.
 
-För att skicka hälso data till hälso lagret måste en rapportör identifiera den berörda enheten och skapa en hälso rapport. Om du vill skicka rapporten använder du [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapportera hälso-API: er som exponeras på `Partition` `CodePackageActivationContext` objekten eller, PowerShell-cmdlets eller rest.
+För att skicka hälso data till hälso lagret måste en rapportör identifiera den berörda enheten och skapa en hälso rapport. Om du vill skicka rapporten använder du [FabricClient. HealthClient. ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapportera hälso-API: er som exponeras på `Partition` `CodePackageActivationContext` objekten eller, PowerShell-cmdlets eller rest.
 
 ### <a name="health-reports"></a>Hälso rapporter
-[Hälso rapporter](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) för var och en av entiteterna i klustret innehåller följande information:
+[Hälso rapporter](/dotnet/api/system.fabric.health.healthreport) för var och en av entiteterna i klustret innehåller följande information:
 
 * **SourceId**. En sträng som unikt identifierar rapportören för hälso händelsen.
 * **Enhets identifierare**. Identifierar den entitet där rapporten används. Det skiljer sig beroende på [enhets typen](service-fabric-health-introduction.md#health-entities-and-hierarchy):
@@ -205,7 +205,7 @@ För att skicka hälso data till hälso lagret måste en rapportör identifiera 
 Dessa fyra delar av information--SourceId, enhets identifierare, egenskap och hälso tillstånd – krävs för varje hälso rapport. Det går inte att starta en SourceId-sträng med prefixet**system.**, som är reserverat för system rapporter. För samma entitet finns det bara en rapport för samma källa och egenskap. Flera rapporter för samma källa och egenskap åsidosätter varandra, antingen på hälso klient sidan (om de är grupperade) eller på hälso Arkiv sidan. Ersättningen baseras på serie nummer. nyare rapporter (med högre ordnings nummer) ersätter äldre rapporter.
 
 ### <a name="health-events"></a>Hälso händelser
-Internt bevarar hälso [tillståndet hälso händelser](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent)som innehåller all information från rapporterna och ytterligare metadata. Metadata innehåller den tid som rapporten fick till hälso klienten och den tid som den ändrades på Server sidan. Hälso tillstånds händelser returneras av [hälso frågor](service-fabric-view-entities-aggregated-health.md#health-queries).
+Internt bevarar hälso [tillståndet hälso händelser](/dotnet/api/system.fabric.health.healthevent)som innehåller all information från rapporterna och ytterligare metadata. Metadata innehåller den tid som rapporten fick till hälso klienten och den tid som den ändrades på Server sidan. Hälso tillstånds händelser returneras av [hälso frågor](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 De tillagda metadatana innehåller:
 
@@ -306,4 +306,3 @@ Hälso modellen används kraftigt för övervakning och diagnostik för att utv�
 [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric program uppgradering](service-fabric-application-upgrade.md)
-

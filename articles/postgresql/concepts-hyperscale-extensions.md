@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: ba8f4591782a4e34fbde26d9669ef01f24450486
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: de2579868ad72bdf4cf78c552e9553f289ecabd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146421"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259067"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -31,7 +31,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ### <a name="data-types-extensions"></a>Tillägg för data typer
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Innehåller en Skift läges okänslig tecken sträng typ. |
 > | [kuben](https://www.postgresql.org/docs/current/static/cube.html) | Tillhandahåller en datatyp för flerdimensionella kuber. |
@@ -46,7 +46,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ### <a name="full-text-search-extensions"></a>Full texts öknings tillägg
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [dict \_ int](https://www.postgresql.org/docs/current/static/dict-int.html) | Innehåller en mall för text Sök lexikon för heltal. |
 > | [dict \_ xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Mall för text Sök lexikon för utökad synonym bearbetning. |
@@ -55,7 +55,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ### <a name="functions-extensions"></a>Funktions tillägg
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | Funktioner för att autoöka fält. |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | Ger ett sätt att beräkna fantastiska avstånd på jordens yta. |
@@ -77,7 +77,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ### <a name="hyperscale-extensions"></a>Skalnings tillägg
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus distribuerad databas. |
 > | Shard- \_ ombalanser | På ett säkert sätt balansera om data i en Server grupp i händelse av nod tillägg eller borttagning. |
@@ -85,7 +85,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ### <a name="index-types-extensions"></a>Tillägg för index typer
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [hinna](https://www.postgresql.org/docs/current/bloom.html) | Anslutnings metod för blomma – Signature filbaserat index. |
 > | [b \_ gin](https://www.postgresql.org/docs/current/static/btree-gin.html) | Tillhandahåller exempel på GIN operator klasser som implementerar B-träd-liknande beteenden för vissa data typer. |
@@ -94,14 +94,14 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ### <a name="language-extensions"></a>Språk tillägg
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | PL/pgSQL-inbelastnings förfarande språk. |
 
 ### <a name="miscellaneous-extensions"></a>Diverse tillägg
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [adminpaket](https://www.postgresql.org/docs/current/adminpack.html) | Administrativa funktioner för PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funktioner för att verifiera Relations integritet. |
@@ -127,7 +127,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ### <a name="postgis-extensions"></a>PostGIS-tillägg
 
 > [!div class="mx-tableFixed"]
-> | **Anknytning** | **Beskrivning** |
+> | **Filnamnstillägg** | **Beskrivning** |
 > |---|---|
 > | [Postgis](https://www.postgis.net/), postgis \_ -topologi, postgis \_ Tiger \_ -kod, postgis \_ sfcgal | Spatialdata och geografiska objekt för PostgreSQL. |
 > | adress \_ standardiserare, adress \_ standardiserade \_ data \_ US | Används för att parsa en adress till komponent element. Används för att stödja kod normaliserings steg för den här adressen. |
@@ -144,6 +144,6 @@ Inställningen `pg_stat_statements.track` styr vilka instruktioner som räknas a
 Det är en kompromiss mellan information om körning av fråga pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på `none` . Vissa övervaknings tjänster från tredje part kan vara beroende av pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 
 ## <a name="dblink-and-postgres_fdw"></a>dbLink och postgres_fdw
-Du kan använda dbLink och postgres_fdw för att ansluta från en PostgreSQL-server till en annan, eller till en annan databas på samma server. Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen. Om du vill använda dessa tillägg för att ansluta mellan Azure Database for PostgreSQL-servrar anger du **Tillåt åtkomst till Azure-tjänster** till på. Du måste också aktivera den här inställningen om du vill använda tilläggen för att återgå till samma server. Du hittar inställningen **Tillåt åtkomst till Azure-tjänster** på Azure Portal sidan för postgres-servern under **anslutnings säkerhet**. Aktivera **Tillåt åtkomst till Azure-tjänster** på whitelists alla Azure IP-adresser.
 
-För närvarande stöds inte utgående anslutningar från Azure Database for PostgreSQL, förutom för anslutningar till andra Azure Database for PostgreSQL-servrar.
+Du kan använda dbLink och postgres \_ FDW för att ansluta från en postgresql-server till en annan, eller till en annan databas på samma server.  Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen.  Om du vill använda dessa tillägg för att ansluta mellan Azure Database for PostgreSQL servrar eller citus-servergrupper, anger du **Tillåt att Azure-tjänster och-resurser får åtkomst till den här server gruppen (eller servern)** till på.  Du måste också aktivera den här inställningen om du vill använda tilläggen för att återgå till samma server.
+Inställningen **Tillåt att Azure-tjänster och-resurser får åtkomst till den här server gruppen** finns på sidan Azure Portal för Server gruppen för citus-Server under **nätverk**.  För närvarande stöds inte utgående anslutningar från Azure Database for PostgreSQL enskild server och storskalig (citus), förutom för anslutningar till andra Azure Database for PostgreSQL servrar och citus-servergrupper ().

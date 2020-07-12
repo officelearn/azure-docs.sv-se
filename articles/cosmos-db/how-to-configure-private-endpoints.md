@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en privat Azure-länk för att få åt
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/10/2020
 ms.author: thweiss
-ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb1310d0f45f945fc150e0ae011ede0d102a5918
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261638"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259107"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -35,19 +35,19 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 
 1. I fönstret **skapa en privat slut punkt – grundläggande** anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | **Projekt information** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj en resursgrupp.|
     | **Instans information** |  |
-    | Name | Ange ett namn för din privata slut punkt. Om det här namnet tas skapar du ett unikt. |
+    | Namn | Ange ett namn för din privata slut punkt. Om det här namnet tas skapar du ett unikt. |
     |Region| Välj den region där du vill distribuera privat länk. Skapa den privata slut punkten på samma plats som det virtuella nätverket finns på.|
     |||
 1. Välj **Nästa: resurs**.
 1. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj **Anslut till en Azure-resurs i min katalog**. <br/><br/> Du kan sedan välja en av dina resurser för att konfigurera en privat länk. Eller så kan du ansluta till någon annans resurs genom att använda ett resurs-ID eller alias som de har delat med dig.|
     | Prenumeration| Välj din prenumeration. |
@@ -59,7 +59,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 1. Välj **Nästa: konfiguration**.
 1. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |**Nätverk**| |
     | Virtuellt nätverk| Välj ditt virtuella nätverk. |
@@ -398,7 +398,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Ett exempel:
+I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Exempel:
 
 * Ett Gremlin-API-konto kan nås från både Gremlin-och SQL-API-konton.
 * Ett Tabell-API konto kan nås från både tabell-och SQL-API-konton.
@@ -655,8 +655,6 @@ Följande begränsningar gäller när du använder en privat länk med ett Azure
 * När du använder en Azure Cosmos DBs API för MongoDB-konto som har en privat länk, kanske vissa verktyg eller bibliotek inte fungerar eftersom de automatiskt utsträckar `appName` parametern från anslutnings strängen. Den här parametern krävs för att ansluta till kontot över en privat slut punkt. Vissa verktyg, t. ex. Visual Studio Code, tar inte bort den här parametern från anslutnings strängen och är därför kompatibel.
 
 * En nätverks administratör bör minst beviljas `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` behörigheten i Azure Cosmos-kontots omfång för att skapa automatiskt godkända privata slut punkter.
-
-* Direkt läge stöds inte för närvarande i Kina-baserade Azure-regioner.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Begränsningar för integrering av privata DNS-zoner
 

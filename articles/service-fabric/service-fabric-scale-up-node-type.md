@@ -3,12 +3,12 @@ title: Skala upp en typ av Azure-Service Fabric Node
 description: Lär dig hur du skalar ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a42e33fa87b6cf7966368481ef6d3920511919e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610701"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260463"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en primär nodtyp för Service Fabric-klustret
 Den här artikeln beskriver hur du skalar upp en Service Fabric-klusters primära nodtyp genom att öka resurserna för virtuella datorer. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala en typ av klusternod lodrätt (ändra resurserna för noderna) eller uppgradera operativ systemet för de virtuella datorernas nodtyper.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -49,7 +49,7 @@ Logga sedan in på ditt Azure-konto.
 Login-AzAccount -SubscriptionId "<your subscription ID>"
 ```
 
-Den här självstudien vägleder dig genom scenariot med att skapa ett självsignerat certifikat. Om du vill använda ett befintligt certifikat från Azure Key Vault hoppar du över steget nedan och speglar i stället stegen i [använda ett befintligt certifikat för att distribuera klustret](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
+Den här självstudien vägleder dig genom scenariot med att skapa ett självsignerat certifikat. Om du vill använda ett befintligt certifikat från Azure Key Vault hoppar du över steget nedan och speglar i stället stegen i [använda ett befintligt certifikat för att distribuera klustret](./upgrade-managed-disks.md#use-an-existing-certificate-to-deploy-the-cluster).
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generera ett självsignerat certifikat och distribuera klustret
 
@@ -251,4 +251,3 @@ Klustrets primära Node-typ har nu uppgraderats. Kontrol lera att alla distribue
 * [Skala ett Azure-kluster in eller ut](service-fabric-tutorial-scale-cluster.md).
 * [Skala ett Azure-kluster program mässigt](service-fabric-cluster-programmatic-scaling.md) med hjälp av Fluent Azure Compute SDK.
 * [Skala ett fristående kluster in eller ut](service-fabric-cluster-windows-server-add-remove-nodes.md).
-

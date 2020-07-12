@@ -3,11 +3,12 @@ title: Ansluta säkert till ett Azure Service Fabric-kluster
 description: Beskriver hur du autentiserar klient åtkomst till ett Service Fabric kluster och hur du skyddar kommunikationen mellan klienter och ett kluster.
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d3598b283a91645f0db648be81c73dffde8b46
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701227"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259243"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 
@@ -29,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Om PFX-filen inte är lösenordsskyddad använder du-Passin pass: för den sista parametern.
 
-Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i `--pem` argumentet. Ett exempel:
+Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i `--pem` argumentet. Exempel:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -43,7 +44,7 @@ Om du vill ange ett certifikat använder nyckel paret `--cert` `--key` argumente
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du `--no-verify` alternativet. Ett exempel:
+Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du `--no-verify` alternativet. Exempel:
 
 > [!WARNING]
 > Använd inte `no-verify` alternativet när du ansluter till produktions Service Fabric kluster.
@@ -52,7 +53,7 @@ Ibland kan certifikat som används för att skydda test-eller dev-kluster inte v
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet för att ange dessa sökvägar `--ca` . Ett exempel:
+Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet för att ange dessa sökvägar `--ca` . Exempel:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -144,7 +145,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 <a id="connectsecureclusterfabricclient"></a>
 
 ## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Ansluta till ett kluster med FabricClient-API: erna
-Service Fabric SDK tillhandahåller [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) -klassen för kluster hantering. Om du vill använda FabricClient-API: erna hämtar du Microsoft. ServiceFabric NuGet-paketet.
+Service Fabric SDK tillhandahåller [FabricClient](/dotnet/api/system.fabric.fabricclient) -klassen för kluster hantering. Om du vill använda FabricClient-API: erna hämtar du Microsoft. ServiceFabric NuGet-paketet.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Ansluta till ett oskyddat kluster
 
@@ -162,7 +163,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till ett säkert kluster med ett klient certifikat
 
-Noderna i klustret måste ha giltiga certifikat vars nätverks namn eller DNS-namn i SAN visas i [RemoteCommonNames-egenskapen](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) som angetts för [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Genom att följa den här processen möjliggörs ömsesidig autentisering mellan klienten och klusternoderna.
+Noderna i klustret måste ha giltiga certifikat vars nätverks namn eller DNS-namn i SAN visas i [RemoteCommonNames-egenskapen](/dotnet/api/system.fabric.x509credentials) som angetts för [FabricClient](/dotnet/api/system.fabric.fabricclient). Genom att följa den här processen möjliggörs ömsesidig autentisering mellan klienten och klusternoderna.
 
 ```csharp
 using System.Fabric;
@@ -230,7 +231,7 @@ catch (Exception e)
 
 Följande exempel är beroende av Microsoft. IdentityModel. clients. ActiveDirectory, version: 2.19.208020213.
 
-Mer information om hämtning av AAD-token finns i [Microsoft. IdentityModel. clients. ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+Mer information om hämtning av AAD-token finns i [Microsoft. IdentityModel. clients. ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

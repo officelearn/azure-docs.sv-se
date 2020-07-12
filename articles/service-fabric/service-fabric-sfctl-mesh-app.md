@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 835369116b07b74c666fba271476f1cba5a708b8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906068"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259943"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 Hämta och ta bort program resurser.
@@ -18,7 +19,7 @@ Hämta och ta bort program resurser.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort program resursen. |
+| ta bort | Tar bort program resursen. |
 | lista | Visar en lista över alla program resurser. |
 | visa | Hämtar program resursen med det aktuella namnet. |
 
@@ -82,4 +83,4 @@ Hämtar information om program resursen med det aktuella namnet. Informationen i
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

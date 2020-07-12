@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392581"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260181"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter tillhandahåller system hälso rapporter på alla entiteter i klustret direkt. [Hälso arkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort entiteter baserat på system rapporter. Den organiserar också dem i en hierarki som fångar interaktionen mellan entiteter.
@@ -73,17 +74,17 @@ Varnings rapporten för status för Dirigerings nod visar en lista över alla fe
 * **Nästa steg**: om den här varningen visas i klustret följer du anvisningarna nedan för att åtgärda det: för kluster som kör Service Fabric version 6,5 eller högre: för Service Fabric kluster i Azure försöker Service Fabric ändra den till en nod som inte är en Seed-nod automatiskt. Detta gör du genom att kontrol lera att antalet icke-startnoder i den primära nodtypen är större eller lika med antalet startnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen för att uppnå detta.
 Beroende på kluster status kan det ta lite tid att åtgärda problemet. När detta är klart rensas varnings rapporten automatiskt.
 
-För att Service Fabric fristående kluster för att rensa varnings rapporten måste alla startnoder bli felfria. Beroende på varför dirigeringsrouters inte är felfria, måste olika åtgärder vidtas: om noden Seed är nere måste användarna ta med den noden. om noden Seed tas bort eller är okänd måste den här Dirigerings noden tas [bort från klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+För att Service Fabric fristående kluster för att rensa varnings rapporten måste alla startnoder bli felfria. Beroende på varför dirigeringsrouters inte är felfria, måste olika åtgärder vidtas: om noden Seed är nere måste användarna ta med den noden. om noden Seed tas bort eller är okänd måste den här Dirigerings noden tas [bort från klustret](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 Varnings rapporten rensas automatiskt när alla startnoder blir felfria.
 
 För kluster som kör Service Fabric version som är äldre än 6,5: i det här fallet måste varnings rapporten rensas manuellt. **Användarna bör se till att alla startnoder blir felfria innan de rensar rapporten**: om noden Seed är nere måste användarna ta den noden. om noden Seed tas bort eller är okänd måste den noden tas bort från klustret.
-När alla startnoderna blivit felfria använder du följande kommando från PowerShell för att [Rensa varnings rapporten](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+När alla startnoderna blivit felfria använder du följande kommando från PowerShell för att [Rensa varnings rapporten](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -138,7 +139,7 @@ System. hosting rapporterar en varning om den definierade nodens kapacitet i klu
 ## <a name="application-system-health-reports"></a>Hälso rapporter för program system
 System.CM, som representerar kluster hanterarens tjänst, är den myndighet som hanterar information om ett program.
 
-### <a name="state"></a>Status
+### <a name="state"></a>Tillstånd
 System.CM rapporter som OK när programmet har skapats eller uppdaterats. Det informerar hälso lagret när programmet tas bort så att det kan tas bort från Store.
 
 * **SourceId**: system.cm
@@ -171,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Hälso rapporter för tjänst system
 System.FM, som representerar den Redundanshanteraren tjänsten, är den myndighet som hanterar information om tjänster.
 
-### <a name="state"></a>Status
+### <a name="state"></a>Tillstånd
 System.FM rapporter som OK när tjänsten har skapats. Enheten tas bort från hälso arkivet när tjänsten tas bort.
 
 * **SourceId**: system.fm
@@ -213,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Partitionera system hälso rapporter
 System.FM, som representerar tjänsten Redundanshanteraren, är den myndighet som hanterar information om diskpartitioner.
 
-### <a name="state"></a>Status
+### <a name="state"></a>Tillstånd
 System.FM rapporterar som OK när partitionen har skapats och är felfri. Enheten tas bort från hälso arkivet när partitionen tas bort.
 
 Om partitionen är lägre än det lägsta antalet repliker, rapporteras ett fel. Om partitionen inte är lägre än det lägsta antalet repliker, men den är lägre än antalet mål repliker, rapporterar den en varning. Om partitionen förlorar kvorum rapporterar System.FM ett fel.
@@ -390,7 +391,7 @@ I ett fall som till exempel krävs ytterligare undersökning. Undersök hälso t
 ## <a name="replica-system-health-reports"></a>Hälso rapporter för replik system
 **System. ra**, som representerar komponenten för omkonfiguration av agent, är utfärdare för replik status.
 
-### <a name="state"></a>Status
+### <a name="state"></a>Tillstånd
 System. RA-rapporter är OK när repliken har skapats.
 
 * **SourceId**: system. ra
@@ -646,7 +647,7 @@ Egenskapen och texten visar vilket API som har fastnat. Nästa steg som ska vidt
 
 - **IStatefulServiceReplica. ChangeRole (P)**: det vanligaste fallet är att tjänsten inte har returnerat någon uppgift från `RunAsync` .
 
-Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Ett exempel:
+Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Exempel:
 
 - **IReplicator. CatchupReplicaSet**: den här varningen anger ett av två saker. Det finns inte tillräckligt med repliker. Se om detta är fallet genom att titta på replikernas replik status i partitionen eller System.FM hälso rapport för en fastnad omkonfiguration. Eller också är replikerna inte åtgärdade. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att bestämma förloppet för alla repliker. Problemet beror på repliker vars `LastAppliedReplicationSequenceNumber` värde ligger bakom det primära `CommittedSequenceNumber` värdet.
 
@@ -674,7 +675,7 @@ Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Ett exemp
 * **Property**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på replik rollen.
 
 ### <a name="slow-naming-operations"></a>Långsamma namngivnings åtgärder
-**System. NamingService** rapporterar hälso tillståndet för den primära repliken när en namngivnings åtgärd tar längre tid än acceptabelt. Exempel på namngivnings åtgärder är [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) eller [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Fler metoder hittar du under FabricClient. De kan till exempel hittas under [Service Management-metoder](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) eller [egenskaps hanterings metoder](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System. NamingService** rapporterar hälso tillståndet för den primära repliken när en namngivnings åtgärd tar längre tid än acceptabelt. Exempel på namngivnings åtgärder är [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) eller [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Fler metoder hittar du under FabricClient. De kan till exempel hittas under [Service Management-metoder](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) eller [egenskaps hanterings metoder](/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > Namngivnings tjänsten matchar tjänst namn till en plats i klustret. Användare kan använda den för att hantera tjänst namn och egenskaper. Det är en Service Fabric partitionerad, beständig tjänst. En av partitionerna representerar *auktoritets ägaren*, som innehåller metadata om alla Service Fabric namn och tjänster. Service Fabric namn mappas till olika partitioner, så kallade *namn på ägarnoder* , så att tjänsten är utöknings bar. Läs mer om [namngivnings tjänsten](service-fabric-architecture.md).
@@ -879,4 +880,3 @@ System. hosting rapporterar en varning om nodens kapacitet inte har definierats 
 * [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Service Fabric program uppgradering](service-fabric-application-upgrade.md)
-

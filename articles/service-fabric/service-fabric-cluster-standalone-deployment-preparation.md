@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079342"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261031"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda din Service Fabric fristående kluster distribution
 
@@ -58,10 +59,10 @@ Här är rekommenderade specifikationer för datorer i ett Service Fabric kluste
 * Anslutning till ett säkert nätverk eller nätverk för alla datorer
 * Windows Server OS installerat (giltiga versioner: 2012 R2, 2016, 1709 eller 1803). Service Fabric version 6.4.654.9590 och senare stöder också Server 2019 och 1809.
 * [.NET Framework 4.5.1 eller senare](https://www.microsoft.com/download/details.aspx?id=40773), fullständig installation
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* [RemoteRegistry-tjänsten](https://technet.microsoft.com/library/cc754820) ska köras på alla datorer
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [RemoteRegistry-tjänsten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) ska köras på alla datorer
 * **Service Fabric installations enhet måste vara NTFS-filsystem**
-* **Prestanda loggar för Windows-tjänster *&-aviseringar* och *Windows-händelseloggen* måste [vara aktiverade](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))**.
+* **Prestanda loggar för Windows-tjänster *&-aviseringar* och *Windows-händelseloggen* måste [vara aktiverade](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
 
 > [!IMPORTANT]
 > Kluster administratören som distribuerar och konfigurerar klustret måste ha [administratörs behörighet](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) på var och en av datorerna. Du kan inte installera Service Fabric på en domänkontrollant.
@@ -156,7 +157,7 @@ Passed                     : True
 För närvarande verifierar den här konfigurations testnings modulen säkerhets konfigurationen så att detta måste göras oberoende.
 
 > [!NOTE]
-> Vi gör kontinuerligt förbättringar för att göra den här modulen mer robust, så om det uppstår ett fel eller saknat fall som du anser inte har fångats av TestConfiguration, så låt oss ta reda på våra [Support kanaler](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+> Vi gör kontinuerligt förbättringar för att göra den här modulen mer robust, så om det uppstår ett fel eller saknat fall som du anser inte har fångats av TestConfiguration, så låt oss ta reda på våra [Support kanaler](./service-fabric-support.md).
 >
 >
 

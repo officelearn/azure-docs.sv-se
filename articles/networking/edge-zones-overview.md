@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086899"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260075"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Om för hands versionen av Azure Edge Zone
 
@@ -75,6 +75,8 @@ Typiska användnings fall är:
 Gräns zoner kommer att erbjudas i partnerskap med följande operatorer:
 
 - PÅ&T (Atlanta, Borås och Los Angeles) 
+
+ISV: er som arbetar med optimerade och skalbara program anslutna till 5G-nätverk kan nu använda den nya Los Angeles Preview-platsen för Azure Edge Zones med&T när du skapar och experimenterar med extremt låga latens, mobila och anslutna scenarier. Registrera dig för det tidiga programmet för att dra nytta av säker anslutning med hög bandbredd.
 
 [Kontakta Edge Zone-teamet](https://aka.ms/EdgeZones) för mer information.
 

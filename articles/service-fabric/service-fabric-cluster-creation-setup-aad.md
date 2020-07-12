@@ -3,11 +3,12 @@ title: Konfigurera Azure Active Directory för klientautentisering
 description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för att autentisera klienter för Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78193396"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258768"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
@@ -37,7 +38,7 @@ Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa
 
 Vi använder skripten för att skapa två Azure AD-program för att kontrol lera åtkomsten till klustret: ett webb program och ett internt program. När du har skapat program som representerar klustret skapar du användare för de [roller som stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddad och administratör.
 
-Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna. Ett exempel:
+Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna. Exempel:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -80,7 +81,7 @@ När du har loggat in på Azure AD i Service Fabric Explorer återgår webbläsa
 
 ![Dialog rutan SFX-certifikat][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Anledning
+#### <a name="reason"></a>Orsak
 Användaren har inte tilldelats någon roll i Azure AD-klustret. Azure AD-autentisering Miss lyckas därför på Service Fabric klustret. Service Fabric Explorer hamnar tillbaka till certifikatautentisering.
 
 #### <a name="solution"></a>Lösning
@@ -99,7 +100,7 @@ När du försöker logga in på Azure AD i Service Fabric Explorer returnerar si
 
 ![Svars adressen för SFX matchar inte][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Anledning
+#### <a name="reason"></a>Orsak
 Kluster (webb) som representerar Service Fabric Explorer försöker autentisera mot Azure AD, och som en del av begäran tillhandahåller URL: en för omdirigerings RETUR. Men URL: en visas inte i listan Azure AD Application **svars-URL** .
 
 #### <a name="solution"></a>Lösning
@@ -111,7 +112,7 @@ På registrerings sidan för Azure AD-appen för klustret väljer du **autentise
 #### <a name="problem"></a>Problem
 När du försöker ansluta till ett Service Fabric kluster med hjälp av Azure AD via PowerShell returnerar inloggnings sidan ett fel: "AADSTS50011: svars-URL: en som anges i begäran matchar inte de svars-URL: er som har kon figurer ATS för programmet: &lt; GUID &gt; ."
 
-#### <a name="reason"></a>Anledning
+#### <a name="reason"></a>Orsak
 I likhet med föregående problem försöker PowerShell autentisera mot Azure AD, vilket ger en omdirigerings-URL som inte visas i listan med **URL: er** för Azure AD-programsvar.  
 
 #### <a name="solution"></a>Lösning
@@ -124,7 +125,7 @@ Om du vill ansluta Service Fabric klustret använder du följande PowerShell-kom
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-Mer information finns i [cmdleten Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster).
+Mer information finns i [cmdleten Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 ### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>Kan jag återanvända samma Azure AD-klient i flera kluster?
 Ja. Kom ihåg att lägga till URL: en för Service Fabric Explorer till ditt kluster (webb program). Annars fungerar inte Service Fabric Explorer.

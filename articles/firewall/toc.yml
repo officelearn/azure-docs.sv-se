@@ -12,8 +12,6 @@
       href: tutorial-hybrid-portal.md
     - name: Filtrera inkommande trafik med DNAT
       href: tutorial-firewall-dnat.md
-    - name: Övervaka diagnostikloggar
-      href: tutorial-diagnostics.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -86,6 +84,8 @@
       href: protect-azure-kubernetes-service.md
     - name: DNS-inställningar
       href: dns-settings.md
+    - name: Övervaka diagnostikloggar
+      href: firewall-diagnostics.md
 - name: Referens
   items:
     - name: Azure CLI

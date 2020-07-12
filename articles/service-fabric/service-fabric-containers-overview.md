@@ -3,11 +3,12 @@ title: Översikt över Service Fabric och behållare
 description: En översikt över Service Fabric och användning av behållare för att distribuera program i mikrotjänster. Den här artikeln innehåller en översikt över hur behållare kan användas och de tillgängliga funktionerna i Service Fabric.
 ms.topic: conceptual
 ms.date: 8/8/2018
-ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458219"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259228"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
 
@@ -64,7 +65,7 @@ Följande bild visar de olika typerna av tillgängliga virtualiseringslösningar
 
 Här är typiska exempel där en behållare är ett bra val:
 
-* **IIS-lyft och Shift**: du kan använda en befintlig [ASP.NET MVC](https://www.asp.net/mvc) -app i en behållare i stället för att migrera den till ASP.net Core. Dessa ASP.NET MVC-appar är beroende av Internet Information Services (IIS). Du kan paketera dessa program i behållar avbildningar från den förskapade IIS-avbildningen och distribuera dem med Service Fabric. Se [behållar avbildningar på Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) för information om Windows-behållare.
+* **IIS-lyft och Shift**: du kan använda en befintlig [ASP.NET MVC](https://www.asp.net/mvc) -app i en behållare i stället för att migrera den till ASP.net Core. Dessa ASP.NET MVC-appar är beroende av Internet Information Services (IIS). Du kan paketera dessa program i behållar avbildningar från den förskapade IIS-avbildningen och distribuera dem med Service Fabric. Se [behållar avbildningar på Windows Server](/virtualization/windowscontainers/quick-start/quick-start-windows-server) för information om Windows-behållare.
 
 * **Blanda behållare och Service Fabric mikrotjänster**: Använd en befintlig behållar avbildning för en del av ditt program. Du kan till exempel använda nginx- [behållaren](https://hub.docker.com/_/nginx/) för webb klient delen av ditt program och tillstånds känsliga tjänster för att få en mer intensiv beräkning på Server sidan.
 
@@ -89,7 +90,7 @@ Service Fabric innehåller flera behållar funktioner som hjälper dig att bygga
 * Möjlighet att ange säkerhets referenser för behållaren.
 * Ett urval av olika nätverks lägen för behållare.
 
-En omfattande översikt över container support på Azure, till exempel hur du skapar ett Kubernetes-kluster med Azure Kubernetes service, hur du skapar ett privat Docker-register i Azure Container Registry och mer finns i [Azure for containers](https://docs.microsoft.com/azure/containers/).
+En omfattande översikt över container support på Azure, till exempel hur du skapar ett Kubernetes-kluster med Azure Kubernetes service, hur du skapar ett privat Docker-register i Azure Container Registry och mer finns i [Azure for containers](../containers/index.yml).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -97,6 +98,6 @@ I den här artikeln har du lärt dig om Support Service Fabric tillhandahåller 
 
 [Skapa din första Service Fabric-containerapp i Linux](service-fabric-get-started-containers-linux.md)  
 [Skapa din första Service Fabric-containerapp i Windows](service-fabric-get-started-containers.md)  
-[Läs mer om Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Läs mer om Windows-behållare](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

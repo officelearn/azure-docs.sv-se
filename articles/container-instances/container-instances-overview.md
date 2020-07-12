@@ -4,12 +4,12 @@ description: Tjänsten Azure Container Instances är det snabbaste och enklaste 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695292"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259514"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -43,7 +43,7 @@ För beräkningsintensiva jobb, till exempel maskininlärning, kan Azure Contain
 
 ## <a name="persistent-storage"></a>Beständig lagring
 
-För att hämta och bevara tillstånd med Azure Container Instances erbjuder vi direkt [montering av Azure Filess resurser](container-instances-mounting-azure-files-volume.md) som stöds av Azure Storage.
+För att hämta och bevara tillstånd med Azure Container Instances erbjuder vi direkt [montering av Azure Filess resurser](./container-instances-volume-azure-files.md) som stöds av Azure Storage.
 
 ## <a name="linux-and-windows-containers"></a>Linux- och Windows-containrar
 

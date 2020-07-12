@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b17befcd86cd56eb5eb385ddc5196cbfce73003c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639674"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260431"
 ---
 # <a name="actor-events"></a>Aktörs händelser
 Aktörs händelser ger ett sätt att skicka aviseringar med bästa prestanda från aktören till klienterna. Aktörs händelser är utformade för kommunikation mellan skådespelare och klient och bör inte användas för kommunikation mellan skådespelare och aktör.
@@ -101,7 +102,7 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 ## <a name="next-steps"></a>Nästa steg
 * [Aktör återinträde](service-fabric-reliable-actors-reentrancy.md)
 * [Aktörens diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md)
-* [Dokumentation om aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Dokumentation om aktörs-API-referens](/previous-versions/azure/dn971626(v=azure.100))
 * [Exempel kod för C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core-exempel kod](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)

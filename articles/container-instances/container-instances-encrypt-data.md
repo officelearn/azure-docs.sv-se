@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232448"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259711"
 ---
 # <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
 
@@ -39,7 +39,7 @@ Resten av dokumentet beskriver de steg som krävs för att kryptera dina ACI-dis
 
 ### <a name="create-service-principal-for-aci"></a>Skapa tjänstens huvud namn för ACI
 
-Det första steget är att se till att din [Azure-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) har ett huvud namn för tjänsten som tilldelas för att bevilja behörighet till tjänsten Azure Container instances. 
+Det första steget är att se till att din [Azure-klient](../active-directory/develop/quickstart-create-new-tenant.md) har ett huvud namn för tjänsten som tilldelas för att bevilja behörighet till tjänsten Azure Container instances. 
 
 > [!IMPORTANT]
 > Innan du kan köra följande kommando och skapa ett huvud namn för tjänsten, bekräftar du att du har behörighet att skapa tjänstens huvud namn i din klient organisation.
@@ -59,7 +59,7 @@ Om du inte kan skapa tjänstens huvud namn:
 
 ### <a name="create-a-key-vault-resource"></a>Skapa en Key Vault resurs
 
-Skapa en Azure Key Vault med [Azure Portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli)eller [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
+Skapa en Azure Key Vault med [Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md)eller [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
 
 Använd följande rikt linjer för egenskaperna för nyckel valvet: 
 * Namn: Ett unikt namn krävs. 
@@ -96,7 +96,7 @@ Skapa en ny åtkomst princip som gör att ACI-tjänsten kan komma åt din nyckel
 > [!IMPORTANT]
 > Kryptering av distributions data med en kundhanterad nyckel är tillgängligt i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len. Om du har problem med detta kan du kontakta Azure-supporten.
 
-När nyckel valvets nyckel och åtkomst princip har kon figurer ATS lägger du till följande egenskaper i ACI-distributions mal len. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+När nyckel valvets nyckel och åtkomst princip har kon figurer ATS lägger du till följande egenskaper i ACI-distributions mal len. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](./container-instances-multi-container-group.md). 
 * Under `resources` , anger `apiVersion` du `2019-12-01` .
 * Under avsnittet Egenskaper för container grupp i distributions mal len lägger du till en `encryptionProperties` , som innehåller följande värden:
   * `vaultBaseUrl`: DNS-namnet på ditt nyckel valv finns på bladet översikt i Key Vault-resursen i portalen
@@ -129,7 +129,7 @@ Följande mall visar de här ytterligare egenskaperna för att kryptera distribu
 ]
 ```
 
-Följande är en fullständig mall, som är anpassad från mallen i [Självstudier: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Följande är en fullständig mall, som är anpassad från mallen i [Självstudier: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](./container-instances-multi-container-group.md). 
 
 ```json
 {
@@ -233,14 +233,14 @@ Skapa en resursgrupp med kommandot [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera mallen med kommandot [AZ Group Deployment Create][az-group-deployment-create] .
+Distribuera mallen med kommandot [AZ Deployment Group Create][az-deployment-group-create] .
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Inom några sekunder bör du få ett första svar från Azure. När distributionen är klar krypteras alla data som är relaterade till den bestående av ACI-tjänsten med den nyckel du angav.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create

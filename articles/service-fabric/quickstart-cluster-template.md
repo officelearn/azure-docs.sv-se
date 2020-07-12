@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 70b5387e5e58bd30aa61feefc1bf4e5e98af9b1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119505"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259347"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Snabb start: skapa ett Service Fabric kluster med ARM-mall
 
@@ -26,7 +26,7 @@ Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mall
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -36,7 +36,7 @@ För att slutföra den här snabb starten måste du:
 
 * Installera [modulen Service Fabric SDK och PowerShell](service-fabric-get-started.md).
 
-* Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Installera [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="download-the-sample-template-and-certificate-helper-script"></a>Ladda ned exempel mal len och certifikat hjälps skriptet
 
@@ -113,7 +113,7 @@ Du hittar fler mallar som är relaterade till Azure Service Fabric i [Azure snab
 * **adminPassword** är ett annat värde än standard-token för *GENERATIONs lösen ord*
 * **certificateThumbprint**, **sourceVaultResourceId**och **certificateUrlValue** är en tom sträng ( `""` )
 
-Ett exempel:
+Exempel:
 
 ```json
 {

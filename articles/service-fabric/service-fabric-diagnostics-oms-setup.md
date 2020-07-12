@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609935"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258657"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Konfigurera Azure Monitor loggar för ett kluster
 
@@ -90,7 +91,7 @@ Azure Resource Manager identifierar att det här kommandot är en uppdatering av
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Distribuera Azure Monitor loggar med Azure PowerShell
 
-Du kan också distribuera Log Analytics-resursen via PowerShell med hjälp av `New-AzOperationalInsightsWorkspace` kommandot. Kontrol lera att du har installerat [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)om du vill använda den här metoden. Använd det här skriptet för att skapa en ny Log Analytics arbets yta och lägga till Service Fabric-lösningen: 
+Du kan också distribuera Log Analytics-resursen via PowerShell med hjälp av `New-AzOperationalInsightsWorkspace` kommandot. Kontrol lera att du har installerat [Azure PowerShell](/powershell/azure/install-az-ps)om du vill använda den här metoden. Använd det här skriptet för att skapa en ny Log Analytics arbets yta och lägga till Service Fabric-lösningen: 
 
 ```powershell
 
@@ -122,5 +123,5 @@ Du kan också lägga till andra lösningar eller göra andra ändringar i Log An
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera Log Analytics agenten](service-fabric-diagnostics-oms-agent.md) på noderna för att samla in prestanda räknare och samla Docker statistik och loggar för dina behållare
-* Bekanta dig med funktionerna för [loggs ökning och frågor](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor loggar
+* Bekanta dig med funktionerna för [loggs ökning och frågor](../azure-monitor/log-query/log-query-overview.md) som erbjuds som en del av Azure Monitor loggar
 * [Använd Visa designer för att skapa anpassade vyer i Azure Monitor loggar](../azure-monitor/platform/view-designer.md)

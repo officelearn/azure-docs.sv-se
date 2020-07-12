@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7e3a35d95e7d2a339bf33620c9d1a140fb6a0a1d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 3ed3ff94b764c0fcb5521ef8106b32923b203a01
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143754"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260641"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -31,7 +31,7 @@ BLOB-indexeraren kan extrahera text från följande dokument format:
 ## <a name="setting-up-blob-indexing"></a>Konfigurera BLOB-indexering
 Du kan konfigurera en Azure Blob Storage-indexerare med hjälp av:
 
-* [Azure-portalen](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Kognitiv sökning [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
@@ -210,6 +210,25 @@ Så här gör du tillsammans så här kan du lägga till fält mappningar och ak
 >
 >
 
+#### <a name="what-if-you-need-to-encode-a-field-to-use-it-as-a-key-but-you-also-want-to-search-it"></a>Vad händer om du måste koda ett fält för att använda det som en nyckel, men du vill även söka i det?
+
+Det finns tillfällen när du behöver använda en kodad version av ett fält som metadata_storage_path som nyckel, men du måste också att fältet ska vara sökbart (utan kodning). För att lösa det här problemet kan du mappa det i två fält; en som ska användas för nyckeln och en annan som ska användas i Sök syfte. I exemplet nedan innehåller *nyckel* fältet den kodade sökvägen, medan fältet *sökväg* inte är kodat och används som sökbart fält i indexet.
+
+```http
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "dataSourceName" : " blob-datasource ",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "fieldMappings" : [
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
+      ]
+    }
+```
 <a name="WhichBlobsAreIndexed"></a>
 ## <a name="controlling-which-blobs-are-indexed"></a>Styra vilka blobbar som indexeras
 Du kan kontrol lera vilka blobbar som är indexerade och vilka som hoppas över.

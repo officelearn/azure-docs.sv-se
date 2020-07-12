@@ -3,12 +3,12 @@ title: Skapa ett Service Fabric-kluster i Azure-portalen
 description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med hjälp av Azure Portal och Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611160"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259320"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric kluster i Azure med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Konfigurera klusternoderna. Nodtyper definierar VM-storlekar, antalet virtuella 
 ### <a name="3-security"></a>3. säkerhet
 ![Skärm bild av säkerhetskonfigurationer på Azure Portal.][BasicSecurityConfigs]
 
-Vi har angett det **grundläggande** alternativet för att göra det enkelt för dig att konfigurera ett säkert test kluster. Om du redan har ett certifikat och har laddat upp det till ditt [nyckel valv](/azure/key-vault/) (och aktiverat nyckel valvet för distribution), använder du det **anpassade** alternativet
+Vi har angett det **grundläggande** alternativet för att göra det enkelt för dig att konfigurera ett säkert test kluster. Om du redan har ett certifikat och har laddat upp det till ditt [nyckel valv](../key-vault/index.yml) (och aktiverat nyckel valvet för distribution), använder du det **anpassade** alternativet
 
 #### <a name="basic-option"></a>Grundläggande alternativ
 Följ skärmarna för att lägga till eller återanvända ett befintligt nyckel valv och lägga till ett certifikat. Tillägget av certifikatet är en synkron process, så du måste vänta tills certifikatet har skapats.
@@ -202,7 +202,7 @@ Var och en av de NodeTypes som du anger i klustret resulterar i en konfiguration
 Nu har du ett säkert kluster som använder certifikat för hanterings autentisering. Anslut sedan [till klustret](service-fabric-connect-to-secure-cluster.md) och lär dig hur du [hanterar program hemligheter](service-fabric-application-secret-management.md).  Läs även om [Service Fabric support alternativ](service-fabric-support.md).
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md

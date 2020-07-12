@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: fab388ff223eb95020e2ba0945c76532bc54f224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c91a59e57613934c946e3cd56089b330893a51a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905979"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260335"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 Hämta och ta bort resurser för nät hemlighet.
@@ -18,7 +19,7 @@ Hämta och ta bort resurser för nät hemlighet.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort den hemliga resursen. |
+| ta bort | Tar bort den hemliga resursen. |
 | lista | Visar en lista över alla hemliga resurser. |
 | visa | Hämtar den hemliga resursen med det aktuella namnet. |
 
@@ -82,4 +83,4 @@ Hämtar information om den hemliga resursen med det aktuella namnet. Information
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

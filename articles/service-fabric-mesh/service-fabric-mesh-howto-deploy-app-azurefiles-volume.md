@@ -6,17 +6,18 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76718828"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260099"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montera en Azure Files baserad volym i ett Service Fabric nätprogram 
 
 Den här artikeln beskriver hur du monterar en Azure Files-baserad volym i en tjänst av ett Service Fabric nätprogram.  Azure Files volym driv rutinen är en Docker-volym driv rutin som används för att montera en Azure Files resurs till en behållare som du använder för att spara tjänstens tillstånd. -Volymer ger dig generell fil lagring och gör att du kan läsa och skriva filer med hjälp av normal disk-I/O-fil-API: er.  Läs mer om volymer och alternativ för att lagra program data i [lagra tillstånd](service-fabric-mesh-storing-state.md).
 
-Om du vill montera en volym i en tjänst skapar du en volym resurs i Service Fabric nätprogram och refererar sedan till den volymen i din tjänst.  Att deklarera volym resursen och referera till den i tjänst resursen kan göras antingen i [yaml-baserade resursfiler](#declare-a-volume-resource-and-update-the-service-resource-yaml) eller i den [JSON-baserade distributions mal len](#declare-a-volume-resource-and-update-the-service-resource-json). Innan du monterar volymen måste du först skapa ett Azure Storage-konto och en [fil resurs i Azure Files](/azure/storage/files/storage-how-to-create-file-share).
+Om du vill montera en volym i en tjänst skapar du en volym resurs i Service Fabric nätprogram och refererar sedan till den volymen i din tjänst.  Att deklarera volym resursen och referera till den i tjänst resursen kan göras antingen i [yaml-baserade resursfiler](#declare-a-volume-resource-and-update-the-service-resource-yaml) eller i den [JSON-baserade distributions mal len](#declare-a-volume-resource-and-update-the-service-resource-json). Innan du monterar volymen måste du först skapa ett Azure Storage-konto och en [fil resurs i Azure Files](../storage/files/storage-how-to-create-file-share.md).
 
 ## <a name="prerequisites"></a>Krav
 > [!NOTE]

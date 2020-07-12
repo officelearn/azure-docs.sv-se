@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba6474751913b4994ae840f77577b3c1db6c5f73
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827972"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259277"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server. Det innebär att du kan distribuera och köra Service Fabric program i vilken miljö som helst som innehåller en uppsättning anslutna Windows Server-datorer, vara den lokalt eller med någon annan moln leverantör. Service Fabric innehåller ett installations paket för att skapa Service Fabric-kluster som kallas fristående Windows Server-paket. Traditionella Service Fabric kluster i Azure är tillgängliga som en hanterad tjänst, medan fristående Service Fabric kluster är självbetjäning. Mer information om skillnaderna finns i [jämföra Azure och fristående Service Fabric kluster](./service-fabric-deploy-anywhere.md).
@@ -24,10 +25,10 @@ Den här artikeln vägleder dig genom stegen för att skapa ett Service Fabric f
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Få stöd för Service Fabric för Windows Server-paket
-* Fråga communityn om Service Fabric fristående paketet för Windows Server på [sidan Microsoft Q&en fråga för Azure-Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
+* Fråga communityn om Service Fabric fristående paketet för Windows Server på [sidan Microsoft Q&en fråga för Azure-Service Fabric](/answers/topics/azure-service-fabric.html).
 * Öppna en biljett för [professionell support för Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Lär dig mer om Professional support från Microsoft [här](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Du kan också få support för det här paketet som en del av [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* Mer information finns i [Support alternativ för Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* Mer information finns i [Support alternativ för Azure Service Fabric](./service-fabric-support.md).
 * Om du vill samla in loggar i support syfte kör du [Service Fabric fristående logg insamlare](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -125,7 +126,7 @@ Kör följande PowerShell-kommando för att ansluta till ett oskyddat kluster:
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-Ett exempel:
+Exempel:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
@@ -202,7 +203,7 @@ Om du vill inaktivera telemetri lägger du till följande i *Egenskaper* i klust
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>För hands versions funktioner som ingår i det här paketet
-Inga.
+Inget.
 
 
 > [!NOTE]
@@ -215,7 +216,7 @@ Inga.
 * [Konfigurations inställningar för fristående Windows-kluster](service-fabric-cluster-manifest.md)
 * [Lägga till eller ta bort noder i ett fristående Service Fabric-kluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Uppgradera en fristående Service Fabric kluster version](service-fabric-cluster-upgrade-windows-server.md)
-* [Skapa ett fristående Service Fabric-kluster med virtuella Azure-datorer som kör Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Skapa ett fristående Service Fabric-kluster med virtuella Azure-datorer som kör Windows](./service-fabric-cluster-creation-via-arm.md)
 * [Skydda ett fristående kluster i Windows med Windows-säkerhet](service-fabric-windows-cluster-windows-security.md)
 * [Skydda ett fristående kluster i Windows med hjälp av X509-certifikat](service-fabric-windows-cluster-x509-security.md)
 

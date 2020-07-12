@@ -4,11 +4,12 @@ description: Läs om vanliga frågor och svar om Azure Service Fabric nät.
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78252496"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260123"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric nät
 
@@ -43,7 +44,7 @@ Vi har för närvarande begränsat livs längden för ett program till två daga
 
 Om detta inträffar kan du kontrol lera att systemet stängs av genom att köra `az mesh app show` kommandot i Azure CLI. Kontrol lera om den returnerar`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Ett exempel: 
+Exempel: 
 
 ```azurecli
 az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -106,7 +107,7 @@ Utgående DNS-frågor från en behållare till Service Fabric DNS-tjänsten kan 
 
 - Använd Windows är Creators Update (version 1709) eller högre som din bas behållar avbildning.
 - Om enbart tjänst namnet inte fungerar, försök med det fullständiga namnet: ServiceName. ApplicationName.
-- I Docker-filen för din tjänst lägger du till `EXPOSE <port>` var porten är porten som du exponerar din tjänst på. Ett exempel:
+- I Docker-filen för din tjänst lägger du till `EXPOSE <port>` var porten är porten som du exponerar din tjänst på. Exempel:
 
 ```Dockerfile
 EXPOSE 80
@@ -120,7 +121,7 @@ Använd i det lokala utvecklings klustret `{serviceName}.{applicationName}` . I 
 
 Azure-nät stöder för närvarande inte DNS-matchning mellan program.
 
-För andra kända DNS-problem med att köra ett Service Fabric utvecklings kluster i Windows 10, se: [Felsöka Windows-behållare](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) och [kända DNS-problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+För andra kända DNS-problem med att köra ett Service Fabric utvecklings kluster i Windows 10, se: [Felsöka Windows-behållare](../service-fabric/service-fabric-how-to-debug-windows-containers.md) och [kända DNS-problem](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### <a name="networking"></a>Nätverk
 

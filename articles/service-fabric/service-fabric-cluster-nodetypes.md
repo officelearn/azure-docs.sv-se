@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787141"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261112"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 
-[Skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster konfigurerar exakt en skalnings uppsättning: flera nodtyper kan inte backas upp av samma skalnings uppsättning och en nodtyp bör inte (i de flesta fall) backas upp av flera skalnings uppsättningar. Ett undantag till detta är i sällsynta fall av [vertikal skalning](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) av en nodtyp, när du tillfälligt har två skalnings uppsättningar med samma `nodeTypeRef` värde när repliker migreras från originalet till den uppgraderade skalnings uppsättningen.
+[Skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/index.yml) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster konfigurerar exakt en skalnings uppsättning: flera nodtyper kan inte backas upp av samma skalnings uppsättning och en nodtyp bör inte (i de flesta fall) backas upp av flera skalnings uppsättningar. Ett undantag till detta är i sällsynta fall av [vertikal skalning](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) av en nodtyp, när du tillfälligt har två skalnings uppsättningar med samma `nodeTypeRef` värde när repliker migreras från originalet till den uppgraderade skalnings uppsättningen.
 
 Service Fabric runtime installeras på varje virtuell dator i skalnings uppsättningen av tillägget *Microsoft. Azure. ServiceFabric* för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
 

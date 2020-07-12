@@ -4,12 +4,12 @@ description: Introduktion till att skapa ett Microsoft Azure Service Fabric-prog
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 201131f774632e1130c6be6a0dbcb950b96ec508
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038029"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260470"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) är en ordboks implementering som du kan använda för att lagra tillstånd i tjänsten på ett tillförlitligt sätt. Med Service Fabric och pålitliga samlingar kan du lagra data direkt i tjänsten utan att ha behov av ett externt beständigt arkiv. Tillförlitliga samlingar gör dina data hög tillgängliga. Service Fabric uppnår detta genom att skapa och hantera flera *repliker* av tjänsten åt dig. Det innehåller också ett API som sammanfattar komplexiteten vid hantering av dessa repliker och deras tillstånds över gångar.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) är en ordboks implementering som du kan använda för att lagra tillstånd i tjänsten på ett tillförlitligt sätt. Med Service Fabric och pålitliga samlingar kan du lagra data direkt i tjänsten utan att ha behov av ett externt beständigt arkiv. Tillförlitliga samlingar gör dina data hög tillgängliga. Service Fabric uppnår detta genom att skapa och hantera flera *repliker* av tjänsten åt dig. Det innehåller också ett API som sammanfattar komplexiteten vid hantering av dessa repliker och deras tillstånds över gångar.
 
 Tillförlitliga samlingar kan lagra alla .NET-typer, inklusive anpassade typer, med ett par varningar:
 
-* Service Fabric gör ditt tillstånd hög tillgängligt genom att *Replikera* tillstånd mellan noder, och tillförlitliga samlingar lagrar dina data till en lokal disk på varje replik. Det innebär att allt som lagras i pålitliga samlingar måste kunna *serialiseras*. Som standard använder pålitliga samlingar [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) för serialisering, så det är viktigt att se till att dina typer [stöds av data kontrakts serialiseringen](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) när du använder standard-serialiseraren.
+* Service Fabric gör ditt tillstånd hög tillgängligt genom att *Replikera* tillstånd mellan noder, och tillförlitliga samlingar lagrar dina data till en lokal disk på varje replik. Det innebär att allt som lagras i pålitliga samlingar måste kunna *serialiseras*. Som standard använder pålitliga samlingar [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1) för serialisering, så det är viktigt att se till att dina typer [stöds av data kontrakts serialiseringen](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) när du använder standard-serialiseraren.
 * Objekt replikeras för hög tillgänglighet när du genomför transaktioner på pålitliga samlingar. Objekt som lagras i Reliable Collections lagras i lokalt minne i tjänsten. Det innebär att du har en lokal referens till objektet.
   
    Det är viktigt att du inte följer lokala instanser av dessa objekt utan att utföra en uppdaterings åtgärd för den tillförlitliga samlingen i en transaktion. Detta beror på att ändringar av lokala instanser av objekt inte replikeras automatiskt. Du måste infoga objektet i ord listan igen eller använda en av *uppdaterings* metoderna i ord listan.
@@ -197,7 +197,7 @@ Reliable Collections har många av samma åtgärder som deras `System.Collection
 
 Tillförlitliga samlings åtgärder är *transaktionella*, så att du kan hålla tillstånd konsekvent över flera pålitliga samlingar och åtgärder. Du kan till exempel ta bort en arbets uppgift från en tillförlitlig kö, utföra en åtgärd och spara resultatet i en tillförlitlig ord lista i en enda transaktion. Detta behandlas som en atomisk åtgärd och garanterar att hela åtgärden kommer att lyckas eller att hela åtgärden kommer att återställas. Om ett fel inträffar när du har avplacerat objektet, men innan du sparar resultatet, återställs hela transaktionen och objektet behålls i kön för bearbetning.
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 Nu återgår vi till programmet *HelloWorld* . Nu kan du bygga och distribuera dina tjänster. När du trycker på **F5**skapas och distribueras ditt program till det lokala klustret.
 
 När tjänsterna har startats kan du Visa de genererade ETW (Event Tracing for Windows)-händelserna (ETW) i ett fönster med **diagnostiska händelser** . Observera att de händelser som visas kommer från både den tillstånds lösa tjänsten och den tillstånds känsliga tjänsten i programmet. Du kan pausa strömmen genom att klicka på **paus** knappen. Du kan sedan granska informationen i ett meddelande genom att expandera meddelandet.
@@ -212,7 +212,7 @@ När tjänsterna har startats kan du Visa de genererade ETW (Event Tracing for W
 ## <a name="next-steps"></a>Nästa steg
 [Felsöka ditt Service Fabric program i Visual Studio](service-fabric-debugging-your-application.md)
 
-[Kom igång: Service Fabric webb-API-tjänster med OWIN själv värdskap](service-fabric-reliable-services-communication-webapi.md)
+[Kom igång: Service Fabric webb-API-tjänster med OWIN själv värdskap](./service-fabric-reliable-services-communication-aspnetcore.md)
 
 [Läs mer om pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
 
@@ -220,5 +220,4 @@ När tjänsterna har startats kan du Visa de genererade ETW (Event Tracing for W
 
 [Programuppgradering](service-fabric-application-upgrade.md)
 
-[Referens för utvecklare för Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+[Referens för utvecklare för Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

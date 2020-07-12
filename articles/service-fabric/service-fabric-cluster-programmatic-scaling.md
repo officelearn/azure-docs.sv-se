@@ -5,12 +5,12 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787149"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261129"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric kluster program mässigt 
 
@@ -20,7 +20,7 @@ Service Fabric kluster som körs i Azure skapas ovanpå virtuella datorers skaln
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Hantera autentiseringsuppgifter
-En utmaning att skriva en tjänst för att hantera skalning är att tjänsten måste kunna komma åt resurser för skalnings uppsättningar för virtuella datorer utan en interaktiv inloggning. Det är enkelt att komma åt Service Fabric-klustret om skalnings tjänsten ändrar sitt eget Service Fabric-program, men autentiseringsuppgifter krävs för att få åtkomst till skalnings uppsättningen. Du kan använda ett [huvud namn för tjänsten](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) som skapats med [Azure CLI](https://github.com/azure/azure-cli)för att logga in.
+En utmaning att skriva en tjänst för att hantera skalning är att tjänsten måste kunna komma åt resurser för skalnings uppsättningar för virtuella datorer utan en interaktiv inloggning. Det är enkelt att komma åt Service Fabric-klustret om skalnings tjänsten ändrar sitt eget Service Fabric-program, men autentiseringsuppgifter krävs för att få åtkomst till skalnings uppsättningen. Du kan använda ett [huvud namn för tjänsten](/cli/azure/create-an-azure-service-principal-azure-cli) som skapats med [Azure CLI](https://github.com/azure/azure-cli)för att logga in.
 
 Du kan skapa ett huvud namn för tjänsten med följande steg:
 
@@ -59,7 +59,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-En skalnings uppsättnings storlek för virtuell dator kan också hanteras med PowerShell-cmdletar. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)kan hämta objektet för skalnings uppsättning för virtuella datorer. Den aktuella kapaciteten är tillgänglig via `.sku.capacity` egenskapen. När du har ändrat kapaciteten till det önskade värdet kan du uppdatera den virtuella datorns skalnings uppsättning i Azure med [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) kommandot.
+En skalnings uppsättnings storlek för virtuell dator kan också hanteras med PowerShell-cmdletar. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)kan hämta objektet för skalnings uppsättning för virtuella datorer. Den aktuella kapaciteten är tillgänglig via `.sku.capacity` egenskapen. När du har ändrat kapaciteten till det önskade värdet kan du uppdatera den virtuella datorns skalnings uppsättning i Azure med [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) kommandot.
 
 När du lägger till en nod manuellt bör du lägga till en skalnings uppsättnings instans som behövs för att starta en ny Service Fabric nod eftersom mallen för skalnings uppsättning innehåller tillägg för att automatiskt ansluta nya instanser till Service Fabric klustret. 
 
@@ -121,4 +121,4 @@ Kom igång med att implementera din egen logik för automatisk skalning, och bek
 
 - [Skalning manuellt eller med regler för automatisk skalning](./service-fabric-cluster-scale-in-out.md)
 - [Fluent Azures hanterings bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (användbart för att interagera med ett Service Fabric klusters underliggande skalnings uppsättningar för virtuella datorer)
-- [System. Fabric. FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (användbart för att interagera med ett Service Fabric kluster och dess noder)
+- [System. Fabric. FabricClient](/dotnet/api/system.fabric.fabricclient) (användbart för att interagera med ett Service Fabric kluster och dess noder)

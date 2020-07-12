@@ -4,12 +4,12 @@ description: Lär dig hur du skickar resurs loggar och händelse data från beh�
 ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169739"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259606"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
 
@@ -24,12 +24,12 @@ I följande avsnitt beskrivs hur du skapar en loggnings aktive rad behållar gru
 > [!NOTE]
 > För närvarande kan du bara skicka händelse data från Linux container instances till Log Analytics.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 
 * [Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](/cli/azure/install-azure-cli) (eller [Cloud Shell](/azure/cloud-shell/overview))
+* [Azure CLI](/cli/azure/install-azure-cli) (eller [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Hämta Log Analytics-autentiseringsuppgifter
 
@@ -153,7 +153,7 @@ ContainerInstanceLog_CL
 
 Mer information om att köra frågor mot loggar och konfigurera aviseringar i Azure Monitor-loggar finns i:
 
-* [Förstå loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-search.md)
+* [Förstå loggs ökningar i Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md)
 * [Enhetliga aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

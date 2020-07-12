@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609969"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259199"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Händelse agg regering och insamling med Linux Azure-diagnostik
 > [!div class="op_single_selector"]
@@ -20,7 +21,7 @@ ms.locfileid: "75609969"
 
 När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggarna från alla noder på en central plats. Genom att logga in på en central plats kan du analysera och felsöka problem i klustret, eller problem i de program och tjänster som körs i klustret.
 
-Ett sätt att ladda upp och samla in loggar är att använda LAD-tillägget (Linux Azure-diagnostik), som laddar upp loggar till Azure Storage och även har möjlighet att skicka loggar till Azure Application insikter eller Event Hubs. Du kan också använda en extern process för att läsa händelserna från lagringen och placera dem i en analys plattforms produkt, till exempel [Azure Monitor loggar](../log-analytics/log-analytics-service-fabric.md) eller en annan logg tolknings lösning.
+Ett sätt att ladda upp och samla in loggar är att använda LAD-tillägget (Linux Azure-diagnostik), som laddar upp loggar till Azure Storage och även har möjlighet att skicka loggar till Azure Application insikter eller Event Hubs. Du kan också använda en extern process för att läsa händelserna från lagringen och placera dem i en analys plattforms produkt, till exempel [Azure Monitor loggar](./service-fabric-diagnostics-oms-setup.md) eller en annan logg tolknings lösning.
 
 ## <a name="log-and-event-sources"></a>Logg-och händelse källor
 
@@ -42,5 +43,5 @@ Detta konfigurerar LAD-agenten för att övervaka de angivna loggfilerna. När e
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. Information om vilka händelser som du bör undersöka när du felsöker problem finns i [LTTng-dokumentationen](https://lttng.org/docs) och [med lad](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+1. Information om vilka händelser som du bör undersöka när du felsöker problem finns i [LTTng-dokumentationen](https://lttng.org/docs) och [med lad](../virtual-machines/extensions/diagnostics-linux.md).
 2. [Konfigurera den Log Analytics agenten](service-fabric-diagnostics-event-analysis-oms.md) så att du kan samla in mått, övervaka behållare som distribuerats i klustret och visualisera dina loggar 

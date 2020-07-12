@@ -5,11 +5,12 @@ author: maburlik
 ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb9a52510788a275bdeea67cd5c1fdd2e894738d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451853"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261015"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Innehåll i Service Fabric fristående paket för Windows Server
 [I det fristående](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric fristående paketet hittar du följande filer:
@@ -36,11 +37,11 @@ ms.locfileid: "75451853"
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.jspå |En exempel fil för kluster konfiguration som innehåller inställningarna för en oskyddad, tre-nods (eller virtuell dator) utvecklings kluster, inklusive information för varje nod i klustret. |
 | ClusterConfig.Unsecure.MultiMachine.jspå |En exempel fil för kluster konfiguration som innehåller inställningarna för ett oskyddat kluster med flera datorer (eller virtuella datorer), inklusive information för varje dator i klustret. |
-| ClusterConfig.Windows.DevCluster.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert utvecklings kluster med tre noder, en dator (eller virtuell dator), inklusive information om varje nod i klustret. Klustret skyddas med hjälp av [Windows-identiteter](https://msdn.microsoft.com/library/ff649396.aspx). |
-| ClusterConfig.Windows.MultiMachine.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert kluster med flera datorer (eller virtuella datorer) som använder Windows-säkerhet, inklusive information för varje dator som finns i det säkra klustret. Klustret skyddas med hjälp av [Windows-identiteter](https://msdn.microsoft.com/library/ff649396.aspx). |
+| ClusterConfig.Windows.DevCluster.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert utvecklings kluster med tre noder, en dator (eller virtuell dator), inklusive information om varje nod i klustret. Klustret skyddas med hjälp av [Windows-identiteter](/previous-versions/msp-n-p/ff649396(v=pandp.10)). |
+| ClusterConfig.Windows.MultiMachine.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert kluster med flera datorer (eller virtuella datorer) som använder Windows-säkerhet, inklusive information för varje dator som finns i det säkra klustret. Klustret skyddas med hjälp av [Windows-identiteter](/previous-versions/msp-n-p/ff649396(v=pandp.10)). |
 | ClusterConfig.x509.DevCluster.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert utvecklings kluster med tre noder, en dator (eller virtuell dator), inklusive information om varje nod i klustret. Klustret skyddas med x509-certifikat. |
 | ClusterConfig.x509.MultiMachine.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert kluster, flera datorer (eller virtuell dator), inklusive information för varje nod i det säkra klustret. Klustret skyddas med x509-certifikat. |
-| ClusterConfig.gMSA.Windows.MultiMachine.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert kluster, flera datorer (eller virtuell dator), inklusive information för varje nod i det säkra klustret. Klustret skyddas med [grupphanterade tjänst konton](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.jspå |En exempel fil för kluster konfiguration som innehåller alla inställningar för ett säkert kluster, flera datorer (eller virtuell dator), inklusive information för varje nod i det säkra klustret. Klustret skyddas med [grupphanterade tjänst konton](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)). |
 
 ## <a name="cluster-configuration-samples"></a>Kluster konfigurations exempel
 De senaste versionerna av mallarna för kluster konfiguration finns på sidan GitHub: [exempel på fristående kluster konfiguration](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

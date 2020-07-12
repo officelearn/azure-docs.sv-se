@@ -3,12 +3,12 @@ title: Distribuera GPU-aktiverad container instans
 description: Lär dig hur du distribuerar Azure Container instances för att köra beräknings intensiva behållar appar med GPU-resurser.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169756"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259598"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållar instanser som använder GPU-resurser
 
@@ -209,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Eftersom det kan vara kostsamt att använda GPU-resurser, se till att dina behållare inte körs utan förvarning under långa perioder. Övervaka dina behållare i Azure Portal eller kontrol lera statusen för en behållar grupp med kommandot [AZ container show][az-container-show] . Till exempel:
+Eftersom det kan vara kostsamt att använda GPU-resurser, se till att dina behållare inte körs utan förvarning under långa perioder. Övervaka dina behållare i Azure Portal eller kontrol lera statusen för en behållar grupp med kommandot [AZ container show][az-container-show] . Exempel:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table
@@ -225,7 +225,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om hur du distribuerar en behållar grupp med en [yaml-fil](container-instances-multi-container-yaml.md) eller en [Resource Manager-mall](container-instances-multi-container-group.md).
-* Lär dig mer om [GPU-optimerade VM-storlekar](../virtual-machines/linux/sizes-gpu.md) i Azure.
+* Lär dig mer om [GPU-optimerade VM-storlekar](../virtual-machines/sizes-gpu.md) i Azure.
 
 
 <!-- IMAGES -->

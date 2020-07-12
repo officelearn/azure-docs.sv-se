@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025041"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259650"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Distribuera på dedikerade värdar
 
@@ -27,7 +28,7 @@ Den dedikerade SKU: n är lämplig för behållar arbets belastningar som kräve
 > Användning av dedikerade SKU är bara tillgänglig i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len.
 >
 
-Från och med API version 2019-12-01 finns en `sku` egenskap under avsnittet Egenskaper för behållar grupp i en distributions mall, vilket krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en mall för Azure Resource Manager distribution för ACI. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Från och med API version 2019-12-01 finns en `sku` egenskap under avsnittet Egenskaper för behållar grupp i en distributions mall, vilket krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en mall för Azure Resource Manager distribution för ACI. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](./container-instances-multi-container-group.md). 
 
 `sku`Egenskapen kan ha ett av följande värden:
 * `Standard`– standard alternativet för ACI distribution, som fortfarande garanterar säkerhet på hypervisor-nivå 
@@ -136,17 +137,17 @@ Skapa en resursgrupp med kommandot [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera mallen med kommandot [AZ Group Deployment Create][az-group-deployment-create] .
+Distribuera mallen med kommandot [AZ Deployment Group Create][az-deployment-group-create] .
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Inom några sekunder bör du få ett första svar från Azure. En lyckad distribution sker på en dedikerad värd.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

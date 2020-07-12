@@ -6,11 +6,12 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76908168"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260147"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Flytta ett Service Fabric nät program till en annan Azure-region
 
@@ -20,14 +21,14 @@ Den här artikeln beskriver hur du flyttar ditt Service Fabric-nätprogram och d
 
 ## <a name="prerequisites"></a>Krav
 
-* Ingångs kontroll (till exempel [Application Gateway](https://docs.microsoft.com/azure/application-gateway/)) som fungerar som en mellanhand för att dirigera trafik mellan klienter och ditt Service Fabric-nätprogram
+* Ingångs kontroll (till exempel [Application Gateway](../application-gateway/index.yml)) som fungerar som en mellanhand för att dirigera trafik mellan klienter och ditt Service Fabric-nätprogram
 * Service Fabric nät (för hands version) tillgänglighet i Azure-regionen för målet ( `westus` , `eastus` eller `westeurope` )
 
 ## <a name="prepare"></a>Förbereda
 
-1. Ta en ögonblicks bild av det aktuella läget för ditt Service Fabric nätprogram genom att exportera Azure Resource Manager-mallen och parametrarna från den senaste distributionen. Det gör du genom att följa stegen i [Exportera mall efter distributionen](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) med hjälp av Azure Portal. Du kan också använda [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)eller [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate).
+1. Ta en ögonblicks bild av det aktuella läget för ditt Service Fabric nätprogram genom att exportera Azure Resource Manager-mallen och parametrarna från den senaste distributionen. Det gör du genom att följa stegen i [Exportera mall efter distributionen](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) med hjälp av Azure Portal. Du kan också använda [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
-2. Vid behov kan du [Exportera andra resurser i samma resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-from-a-resource-group) för omdistribution i mål regionen.
+2. Vid behov kan du [Exportera andra resurser i samma resurs grupp](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource-group) för omdistribution i mål regionen.
 
 3. Granska (och redigera vid behov) den exporterade mallen för att se till att de befintliga egenskapsvärdena är de som du vill använda i mål regionen. Den nya `location` (Azure-region) är en parameter som du kommer att ange under omdistributionen.
 
@@ -35,7 +36,7 @@ Den här artikeln beskriver hur du flyttar ditt Service Fabric-nätprogram och d
 
 1. Skapa en ny resurs grupp (eller Använd en befintlig) i mål regionen.
 
-2. Med den exporterade mallen följer du stegen i [distribuera resurser från anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) med hjälp av Azure Portal. Du kan också använda [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)eller [REST API](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
+2. Med den exporterade mallen följer du stegen i [distribuera resurser från anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) med hjälp av Azure Portal. Du kan också använda [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)eller [REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 3. Information om hur du flyttar relaterade resurser som [Azure Storage konton](../storage/common/storage-account-move.md)finns i rikt linjer för enskilda tjänster som listas under avsnittet [Flytta Azure-resurser mellan regioner](../azure-resource-manager/management/move-region.md).
 
@@ -43,7 +44,7 @@ Den här artikeln beskriver hur du flyttar ditt Service Fabric-nätprogram och d
 
 1. När distributionen är klar testar du programmets slut punkter för att verifiera programmets funktioner.
 
-2. Du kan också kontrol lera status för programmet genom att kontrol lera program status ([AZ nät app show](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) och granska program loggarna och ([AZ-paket-log](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) kommandon med hjälp av [Azure Service Fabric nät masken](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container#set-up-service-fabric-mesh-cli).
+2. Du kan också kontrol lera status för programmet genom att kontrol lera program status ([AZ nät app show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) och granska program loggarna och ([AZ-paket-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) kommandon med hjälp av [Azure Service Fabric nät masken](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Checka in
 

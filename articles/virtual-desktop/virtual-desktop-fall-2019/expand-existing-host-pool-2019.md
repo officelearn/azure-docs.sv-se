@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214289"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260759"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -75,7 +76,7 @@ Så här distribuerar du om Azure Resource Manager-mallen för att expandera en 
 
 Följ anvisningarna i [skapa en adresspool med hjälp av Azure Marketplace](create-host-pools-azure-marketplace-2019.md) tills du har kommit [till att köra Azure Marketplace-erbjudandet för att etablera en ny adresspool](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). När du kommer till den punkten måste du ange följande information för varje flik:
 
-### <a name="basics"></a>Grunderna
+### <a name="basics"></a>Grunder
 
 Alla värden i det här avsnittet ska matcha det du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom användare som är *Standard användare*:
 
@@ -129,7 +130,7 @@ Följ anvisningarna i [köra Azure Resource Manager-mallen för att skapa en ny 
 
 Nu när du har expanderat den befintliga poolen kan du logga in på en Windows Virtual Desktop-klient för att testa dem som en del av en användarsession. Du kan ansluta till en session med någon av följande klienter:
 
-- [Ansluta med Windows-skrivbordsklienten](../connect-windows-7-and-10.md)
+- [Ansluta med Windows-skrivbordsklienten](connect-windows-7-10-2019.md)
 - [Ansluta med webbklienten](connect-web-2019.md)
 - [Ansluta med Android-klienten](connect-android-2019.md)
 - [Ansluta med macOS-klienten](connect-macos-2019.md)

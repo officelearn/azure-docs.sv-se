@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905824"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260329"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Lagra och fråga efter egenskaper under Service Fabric namn.
@@ -18,7 +19,7 @@ Lagra och fråga efter egenskaper under Service Fabric namn.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort den angivna Service Fabric egenskapen. |
+| ta bort | Tar bort den angivna Service Fabric egenskapen. |
 | get | Hämtar den angivna Service Fabric egenskapen. |
 | lista | Hämtar information om alla Service Fabric egenskaper under ett givet namn. |
 | föras | Skapar eller uppdaterar en Service Fabric-egenskap. |
@@ -121,4 +122,4 @@ Skapar eller uppdaterar den angivna Service Fabric-egenskapen under ett visst na
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749527"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260534"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Översikt över Service Fabric-programmeringsmodell
 
@@ -25,7 +26,7 @@ Kom igång med körbara gäst program genom att distribuera ditt första [gäst 
 
 Som standard distribuerar Service Fabric och aktiverar tjänster som processer. Service Fabric kan även distribuera tjänster i [behållare](service-fabric-containers-overview.md). Service Fabric stöder distribution av Linux-behållare och Windows-behållare på Windows Server 2016 och senare. Behållar avbildningar kan hämtas från alla behållar lagrings platser och distribueras till datorn. Du kan distribuera befintliga program som körbara gäst program, Service Fabric tillstånds lösa eller tillstånds känsliga Reliable Services eller Reliable Actors i behållare, och du kan blanda tjänster i processer och tjänster i behållare i samma program.
 
-[Lär dig mer om att behålla dina tjänster i Windows eller Linux](service-fabric-deploy-container.md)
+[Lär dig mer om att behålla dina tjänster i Windows eller Linux](./service-fabric-get-started-containers.md)
 
 ## <a name="reliable-services"></a>Reliable Services
 

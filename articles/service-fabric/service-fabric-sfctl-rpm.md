@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76904939"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260291"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Fråga och skicka kommandon till tjänsten Repair Manager.
@@ -19,7 +20,7 @@ Fråga och skicka kommandon till tjänsten Repair Manager.
 |Kommando|Beskrivning|
 | --- | --- |
 | Godkänn-Force | Tvingar godkännandet av den aktuella reparations uppgiften. |
-| delete | Tar bort en slutförd reparations uppgift. |
+| ta bort | Tar bort en slutförd reparations uppgift. |
 | lista | Hämtar en lista över reparations aktiviteter som matchar de aktuella filtren. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm-godkännande-Force
@@ -92,4 +93,4 @@ Detta API stöder Service Fabric plattform; den är inte avsedd att användas di
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

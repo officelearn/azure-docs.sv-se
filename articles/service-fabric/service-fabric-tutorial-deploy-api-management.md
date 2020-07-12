@@ -4,12 +4,12 @@ description: Lär dig hur du snabbt kommer igång med Azure API Management och d
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40f8c53394292a85f6fd032e445d79ed82e2d4e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80292146"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260256"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrera API Management med Service Fabric i Azure
 
@@ -25,12 +25,12 @@ Den här artikeln visar hur du konfigurerar [Azure API Management](../api-manage
 > [!IMPORTANT]
 > Den här funktionen är tillgänglig på nivån **Premium** och **developer** of API Management på grund av det nödvändiga stödet för virtuellt nätverk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installera [Azure PowerShell](/powershell/azure/install-az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i en nätverks säkerhets grupp.
 * Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure-utveckling**, **ASP.net och webb utveckling**, och **.net Core plattforms oberoende utvecklings** arbets belastningar.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
@@ -151,9 +151,9 @@ Fyll i följande värden för att lägga till en API-åtgärd i klientdelen:
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
-[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) skapar en serverdelsprincip som kopplar samman allt. Det är här du konfigurerar den Service Fabric-serverdelstjänst som begäranden dirigeras till. Du kan använda den här principen för alla API-åtgärder.  Mer information finns i [Principöversikt](/azure/api-management/api-management-howto-policies).
+[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) skapar en serverdelsprincip som kopplar samman allt. Det är här du konfigurerar den Service Fabric-serverdelstjänst som begäranden dirigeras till. Du kan använda den här principen för alla API-åtgärder.  Mer information finns i [Principöversikt](../api-management/api-management-howto-policies.md).
 
-[Serverdelskonfigurationen för Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) innehåller följande kontroller för dirigering av begäranden:
+[Serverdelskonfigurationen för Service Fabric](../api-management/api-management-transformation-policies.md#SetBackendService) innehåller följande kontroller för dirigering av begäranden:
 
 * Tjänstinstansurval genom att ett Service Fabric-tjänstinstansnamn anges, antingen hårdkodat (till exempel `"fabric:/myapp/myservice"`) eller genererat från HTTP-begäran (till exempel `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
 * Partitionsupplösning genom att en partitionsnyckel genereras med hjälp av ett partitioneringsschema i Service Fabric.
@@ -180,7 +180,7 @@ Fyll i följande värden för att lägga till en API-åtgärd i klientdelen:
 </policies>
 ```
 
-En fullständig uppsättning attribut för Service Fabric-serverdelsprincipen finns i [serverdelsdokumentationen för API Management](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
+En fullständig uppsättning attribut för Service Fabric-serverdelsprincipen finns i [serverdelsdokumentationen för API Management](../api-management/api-management-transformation-policies.md#SetBackendService)
 
 ## <a name="set-parameters-and-deploy-api-management"></a>Ange parametrar och distribuera API Management
 
@@ -190,7 +190,7 @@ Fyll i följande tomma parametrar i *apim.parameters.json* för din distribution
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Utvecklare|
+|apimSku|Developer|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN %6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -291,9 +291,9 @@ az group delete --name $ResourceGroupName
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du använder [API Management](/azure/api-management/import-and-publish).
+Läs mer om hur du använder [API Management](../api-management/import-and-publish.md).
 
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
 [apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json

@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall'
-description: Lär dig hur du använder en Resource Manager-mall för att skapa en Azure-brandvägg och IP-grupper.
+description: Lär dig hur du använder en Azure Resource Manager mall (ARM-mall) för att skapa en Azure-brandvägg och IP-grupper.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,28 +8,30 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5ac1248ddcdf8c0eef68b7c32e322398fa01a6f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680567"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260584"
 ---
-# <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Snabb start: skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall
+# <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Snabb start: skapa en Azure Firewall och IP-grupper – ARM-mall
 
-I den här snabb starten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med exempel på IP-grupper som används i en nätverks regel och en program regel. En IP-grupp är en resurs på den översta nivån där du kan definiera och gruppera IP-adresser, intervall och undernät i ett enda objekt. Detta är användbart för att hantera IP-adresser i Azure brand Väggs regler. Du kan antingen ange IP-adresser manuellt eller importera dem från en fil.
+I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att distribuera en Azure-brandvägg med exempel på IP-grupper som används i en nätverks regel och en program regel. En IP-grupp är en resurs på den översta nivån där du kan definiera och gruppera IP-adresser, intervall och undernät i ett enda objekt. Detta är användbart för att hantera IP-adresser i Azure brand Väggs regler. Du kan antingen ange IP-adresser manuellt eller importera dem från en fil.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall-and-ip-groups"></a>Skapa en Azure-brandvägg och IP-grupper
+## <a name="review-the-template"></a>Granska mallen
 
 Den här mallen skapar en Azure-brandvägg och IP-grupper, tillsammans med nödvändiga resurser för att stödja Azure-brandväggen.
-
-### <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
@@ -47,9 +49,9 @@ Flera Azure-resurser definieras i mallen:
 - [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-Distribuera Resource Manager-mall till Azure:
+Distribuera ARM-mallen till Azure:
 
 1. Välj **distribuera till Azure** för att logga in på Azure och öppna mallen. Mallen skapar en Azure-brandvägg, nätverks infrastrukturen och två virtuella datorer.
 
@@ -76,7 +78,7 @@ I Azure Portal granskar du de distribuerade resurserna, särskilt de brand Vägg
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Nätverks regler.":::
 
-Mer information om JSON-syntaxen och egenskaperna för en brand vägg i en mall finns i [Microsoft. Network azureFirewalls Template Reference](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+Mer information om JSON-syntaxen och egenskaperna för en brand vägg i en mall finns i [Microsoft. Network azureFirewalls Template Reference](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

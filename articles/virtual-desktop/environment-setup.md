@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d189d5febe54a83cde4fe6cd6aa51e728aa882e6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612376"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259900"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop-miljö
 
@@ -66,7 +66,7 @@ Information om hur du konfigurerar en Windows-pool för virtuella skriv bord fin
 
 Information om hur du ansluter till virtuella Windows-datorer finns i någon av följande artiklar:
 
-- [Anslut med Windows 10 eller Windows 7](connect-windows-7-and-10.md)
+- [Anslut med Windows 10 eller Windows 7](connect-windows-7-10.md)
 - [Ansluta till en webbläsare](connect-web.md)
 - [Ansluta med Android-klienten](connect-android.md)
 - [Ansluta med macOS-klienten](connect-macos.md)

@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cab376318bec471fa59614e5bcc716a31dc333
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184154"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260930"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Kom igång med Reliable Services i Java
 > [!div class="op_single_selector"]
@@ -190,7 +190,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) är en ordboks implementering som du kan använda för att lagra tillstånd i tjänsten på ett tillförlitligt sätt. Med Service Fabric och Reliable HashMaps kan du lagra data direkt i din tjänst utan att ha behov av ett externt beständigt arkiv. Reliable HashMaps gör dina data hög tillgängliga. Service Fabric uppnår detta genom att skapa och hantera flera *repliker* av tjänsten åt dig. Det innehåller också ett API som sammanfattar komplexiteten vid hantering av dessa repliker och deras tillstånds över gångar.
+[ReliableHashMap](/java/api/microsoft.servicefabric.data.collections.reliablehashmap) är en ordboks implementering som du kan använda för att lagra tillstånd i tjänsten på ett tillförlitligt sätt. Med Service Fabric och Reliable HashMaps kan du lagra data direkt i din tjänst utan att ha behov av ett externt beständigt arkiv. Reliable HashMaps gör dina data hög tillgängliga. Service Fabric uppnår detta genom att skapa och hantera flera *repliker* av tjänsten åt dig. Det innehåller också ett API som sammanfattar komplexiteten vid hantering av dessa repliker och deras tillstånds över gångar.
 
 Tillförlitliga samlingar kan lagra vilken Java-typ som helst, inklusive dina anpassade typer, med ett par varningar:
 

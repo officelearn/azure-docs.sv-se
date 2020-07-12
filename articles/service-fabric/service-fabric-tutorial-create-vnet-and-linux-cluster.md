@@ -4,12 +4,12 @@ description: Lär dig att distribuera ett Linux Service Fabric-kluster till ett 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14e029622f17e8aae392cc55ba4418b3971a5ad2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611704"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260228"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
 
@@ -19,7 +19,7 @@ I den här artikeln får du lära dig hur du distribuerar ett Linux Service Fabr
 
 Innan du börjar:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Service Fabric CLI](service-fabric-cli.md)
 * Installera [Azure CLI](/cli/azure/install-azure-cli)
 * Läs [Översikt över Azure-kluster](service-fabric-azure-clusters-overview.md) för att lära dig viktiga begrepp i kluster
@@ -81,12 +81,12 @@ Om du behöver andra programportar måste du justera resursen Microsoft.Network/
 
 Filen **AzureDeploy. Parameters** deklarerar många värden som används för att distribuera klustret och associerade resurser. Här är några av parametrarna du kan behöva ändra för distributionen:
 
-|Parameter|Exempelvärde|Obs!|
+|Parameter|Exempelvärde|Anteckningar|
 |---|---||
 |adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. |
 |adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret.|
 |clusterName|mysfcluster123| Namnet på klustret. |
-|location|southcentralus| Klustrets placering. |
+|location|USA, södra centrala| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”. </p>|
 |certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https: \/ /mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
@@ -162,7 +162,7 @@ sfctl cluster health
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustret](service-fabric-cluster-delete.md) för att undvika kostnader.
+Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustret](./service-fabric-tutorial-delete-cluster.md) för att undvika kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 

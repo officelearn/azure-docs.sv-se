@@ -3,12 +3,12 @@ title: Uppgradera ett klusters Azure Service Fabric-version
 description: Uppgradera Service Fabric koden och/eller konfigurationen som kör ett Service Fabric kluster, inklusive inställning av kluster uppdaterings läge, uppgradera certifikat, lägga till program portar, utföra OS-uppdateringar och så vidare. Vad kan du förväntar dig när uppgraderingen utförs?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82789608"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261061"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Uppgradera Service Fabric-versionen av ett kluster
 
@@ -19,7 +19,7 @@ Du kan ange att klustret ska ta emot automatiska Fabric-uppgraderingar när de s
 Du gör detta genom att ange kluster konfigurationen "upgradeMode" på portalen eller använda Resource Manager vid tidpunkten för skapandet eller senare i ett aktivt kluster 
 
 > [!NOTE]
-> Se till att låta klustret köra en infrastruktur version som stöds alltid. När vi meddelar lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för slut för ande av support efter minst 60 dagar från det datumet. De nya versionerna visas [i Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är tillgänglig och kan väljas. 
+> Se till att låta klustret köra en infrastruktur version som stöds alltid. När vi meddelar lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för slut för ande av support efter minst 60 dagar från det datumet. De nya versionerna visas [i Service Fabric-teamets blogg](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Den nya versionen är tillgänglig och kan väljas. 
 > 
 > 
 

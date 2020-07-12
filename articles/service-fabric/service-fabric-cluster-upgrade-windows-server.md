@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31712ce4f661b13802d9a0f2d798c1fe87fdebf3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793150"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260997"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Uppgradera den Service Fabric version som körs i klustret 
 
 För alla moderna system är möjligheten att uppgradera nyckeln till den långsiktiga framgången av produkten. Ett Azure Service Fabric-kluster är en resurs som du äger. I den här artikeln beskrivs hur du uppgraderar den version av Service Fabric som körs i det fristående klustret.
 
 > [!NOTE]
-> Kontrol lera att klustret alltid kör en Service Fabric-version som stöds. När Microsoft tillkännager lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för slut för ande av support efter minst 60 dagar från dagen för meddelandet. Nya versioner presenteras [i Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är tillgänglig och kan väljas nu.
+> Kontrol lera att klustret alltid kör en Service Fabric-version som stöds. När Microsoft tillkännager lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för slut för ande av support efter minst 60 dagar från dagen för meddelandet. Nya versioner presenteras [i Service Fabric teamets blogg](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Den nya versionen är tillgänglig och kan väljas nu.
 >
 >
 
@@ -65,7 +66,7 @@ När du ser varningen för kluster hälsa uppgraderar du klustret:
     Du bör få utdata som liknar detta:
 
     ![Hämta Service Fabric-versioner][getfabversions]
-3. Starta en kluster uppgradering till en tillgänglig version med hjälp av Windows PowerShell [-kommandot start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) .
+3. Starta en kluster uppgradering till en tillgänglig version med hjälp av Windows PowerShell [-kommandot start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade) .
 
     ```powershell
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <codeversion#> -Monitored -FailureAction Rollback
@@ -80,7 +81,7 @@ När du ser varningen för kluster hälsa uppgraderar du klustret:
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Om klustrets hälso principer inte uppfylls, återställs uppgraderingen. Information om hur du anger anpassade hälso principer för kommandot start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    Om klustrets hälso principer inte uppfylls, återställs uppgraderingen. Information om hur du anger anpassade hälso principer för kommandot start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     När du har åtgärdat problemen som resulterade i återställningen, initiera uppgraderingen igen genom att följa samma steg som beskrivs ovan.
 
@@ -88,7 +89,7 @@ När du ser varningen för kluster hälsa uppgraderar du klustret:
 Använd de här stegen för att uppgradera klustret till en version som stöds om dina klusternoder inte har Internet anslutning till [Microsoft Download Center](https://download.microsoft.com).
 
 > [!NOTE]
-> Om du kör ett kluster som inte är anslutet till Internet, måste du övervaka [Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/) för att lära dig om nya versioner. Systemet visar inte en hälso varning från klustret som varnar dig om nya versioner.  
+> Om du kör ett kluster som inte är anslutet till Internet, måste du övervaka [Service Fabric teamets blogg](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) för att lära dig om nya versioner. Systemet visar inte en hälso varning från klustret som varnar dig om nya versioner.  
 >
 >
 
@@ -103,7 +104,7 @@ Följ de här instruktionerna för den manuella processen.
 "fabricClusterAutoupgradeEnabled": false,
 ```
 
-Information om användning finns i PowerShell [-kommandot start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) . Se till att uppdatera "clusterConfigurationVersion" i JSON innan du startar konfigurations uppgraderingen.
+Information om användning finns i PowerShell [-kommandot start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) . Se till att uppdatera "clusterConfigurationVersion" i JSON innan du startar konfigurations uppgraderingen.
 
 ```powershell
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -111,7 +112,7 @@ Information om användning finns i PowerShell [-kommandot start-ServiceFabricClu
 
 ### <a name="cluster-upgrade-workflow"></a>Arbets flöde för kluster uppgradering
 
-1. Kör [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) från en av noderna i klustret och notera *TargetCodeVersion*.
+1. Kör [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade) från en av noderna i klustret och notera *TargetCodeVersion*.
 
 2. Kör följande från en Internet-ansluten dator om du vill visa alla uppgraderings kompatibla versioner med den aktuella versionen och ladda ned motsvarande paket från de associerade nedladdnings länkarna:
 
@@ -154,7 +155,7 @@ Information om användning finns i PowerShell [-kommandot start-ServiceFabricClu
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Om klustrets hälso principer inte uppfylls, återställs uppgraderingen. Information om hur du anger anpassade hälso principer för kommandot start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    Om klustrets hälso principer inte uppfylls, återställs uppgraderingen. Information om hur du anger anpassade hälso principer för kommandot start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     När du har åtgärdat problemen som resulterade i återställningen, initiera uppgraderingen igen genom att följa samma steg som beskrivs ovan.
 

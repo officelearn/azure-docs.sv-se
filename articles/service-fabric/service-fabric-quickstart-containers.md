@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75466263"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260516"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containers till Service Fabric
 
@@ -41,7 +41,7 @@ I den här snabbstarten lär du dig att:
 
 Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att distribuera en container till ett Service Fabric-kluster.
 
-Starta Visual Studio som Administratör.  Välj **Arkiv** > **nytt** > **projekt**.
+Starta Visual Studio som Administratör.  Välj **Arkiv**  >  **nytt**  >  **projekt**.
 
 Välj **Service Fabric program**, ge den namnet "MyFirstContainer" och klicka på **skapa**.
 
@@ -90,13 +90,13 @@ Installera Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guid
 
 Innan du kör följande skript i PowerShell ska du köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Klistra in innehållet i det tomma fönstret Untitled1.ps1. Ange värden för `subscriptionId`variablerna i skriptet:, `certpwd` `certfolder` `adminuser` `adminpwd`,,, och så vidare.  Katalogen du anger för `certfolder` måste finnas innan du kör skriptet.
+Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Klistra in innehållet i det tomma fönstret Untitled1.ps1. Ange värden för variablerna i skriptet:,,,, `subscriptionId` `certpwd` `certfolder` `adminuser` `adminpwd` och så vidare.  Katalogen du anger för `certfolder` måste finnas innan du kör skriptet.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
 När du har angett värdena för variablerna trycker du på **F5** för att köra skriptet.
 
-När skriptet har körts och klustret är skapat letar du reda på `ClusterEndpoint` i utdata. Ett exempel:
+När skriptet har körts och klustret är skapat letar du reda på `ClusterEndpoint` i utdata. Exempel:
 
 ```powershell
 ...
@@ -132,7 +132,7 @@ Nu när programmet är redo kan du distribuera det till ett kluster direkt från
 
 Högerklicka på **MyFirstContainer** i Solution Explorer och välj **Publicera**. Dialogrutan Publicera visas.
 
-Kopiera innehållet efter **CN=** i PowerShell-fönstret när du körde kommandot `Import-PfxCertificate` ovan och lägg till port `19000`. Till exempel `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Kopiera värdet till fältet **Slutpunkt för anslutningen**. Kom ihåg det här värdet eftersom du behöver det i ett kommande steg.
+Kopiera innehållet efter **CN=** i PowerShell-fönstret när du körde kommandot `Import-PfxCertificate` ovan och lägg till port `19000`. Ett exempel är `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Kopiera värdet till fältet **Slutpunkt för anslutningen**. Kom ihåg det här värdet eftersom du behöver det i ett kommande steg.
 
 Klicka på **Avancerade anslutningsparametrar** och kontrollera anslutningsinformationen för parametern.  Värdena *FindValue* och *ServerCertThumbprint* måste matcha tumavtrycket för certifikatet som installerades när du körde `Import-PfxCertificate` i föregående steg.
 
@@ -142,13 +142,13 @@ Klicka på **Publicera**.
 
 Varje program i klustret måste ha ett unikt namn. Om det finns en namn konflikt byter du namn på Visual Studio-projektet och distribuerar igen.
 
-Öppna en webbläsare och navigera till adressen du angav i fältet **Slutpunkt för anslutningen** i föregående steg. Alternativt kan du lägga till schemaidentifierare `http://` innan och lägga till porten `:80` efter i URL:en. Till exempel http:\//mysfcluster.SouthCentralUS.cloudapp.Azure.com:80.
+Öppna en webbläsare och navigera till adressen du angav i fältet **Slutpunkt för anslutningen** i föregående steg. Alternativt kan du lägga till schemaidentifierare `http://` innan och lägga till porten `:80` efter i URL:en. Till exempel http: \/ /mysfcluster.SouthCentralUS.cloudapp.Azure.com:80.
 
  Du bör se IIS-standardwebbsidan: ![IIS-standardwebbsidan][iis-default]
 
 ## <a name="clean-up"></a>Rensa
 
-Du debiteras så länge klustret körs. Överväg att [ta bort klustret](service-fabric-cluster-delete.md).
+Du debiteras så länge klustret körs. Överväg att [ta bort klustret](./service-fabric-tutorial-delete-cluster.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

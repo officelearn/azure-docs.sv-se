@@ -24,6 +24,8 @@
   items:
     - name: Ansluta till Windows Virtual Desktop-resurser
       items:
+        - name: Ansluta med Windows-skrivbordsklienten
+          href: connect-windows-7-10-2019.md
         - name: Ansluta med webbklienten
           href: connect-web-2019.md
         - name: Ansluta med Android-klienten

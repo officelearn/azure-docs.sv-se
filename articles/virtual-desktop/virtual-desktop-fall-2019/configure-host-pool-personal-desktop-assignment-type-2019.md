@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 376f9d78f508c245bec2d066863566ace68eff0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204871"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259794"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurera tilldelnings typen egen Skriv bords värd pool
 
@@ -92,5 +92,5 @@ Om du behöver lägga till sessionsnyckeln i den personliga Skriv bords poolen i
 
 Nu när du har konfigurerat den personliga Skriv bords typen kan du logga in på en Windows Virtual Desktop-klient för att testa den som en del av en användarsession. Följande två instruktioner visar hur du ansluter till en session med valfri klient:
 
-- [Ansluta med Windows-skrivbordsklienten](../connect-windows-7-and-10.md)
+- [Ansluta med Windows-skrivbordsklienten](connect-windows-7-10-2019.md)
 - [Ansluta med webbklienten](connect-web-2019.md)

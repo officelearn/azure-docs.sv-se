@@ -3,19 +3,19 @@ title: Uppgradera ett fristående Azure Service Fabric-kluster
 description: Lär dig mer om att uppgradera versionen eller konfigurationen av ett fristående Azure Service Fabric-kluster.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 519a9163d16fda2dd9fcf49cf22fe4ad4a272e09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790651"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260985"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Uppgradera och uppdatera ett Service Fabric fristående kluster
 
 För alla moderna system är det viktigt att utforma för att kunna uppnå långsiktig framgång för din produkt. Ett fristående Azure Service Fabric fristående kluster är en resurs som du äger. I den här artikeln beskrivs vad som kan uppgraderas eller uppdateras.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Styra den infrastruktur resurs version som körs i klustret
-Kontrol lera att klustret alltid kör en [Service Fabric-version som stöds](service-fabric-versions.md). När Microsoft tillkännager lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för slut för ande av support efter minst 60 dagar från dagen för meddelandet. Nya versioner presenteras [i Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är tillgänglig och kan väljas nu.
+Kontrol lera att klustret alltid kör en [Service Fabric-version som stöds](service-fabric-versions.md). När Microsoft tillkännager lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för slut för ande av support efter minst 60 dagar från dagen för meddelandet. Nya versioner presenteras [i Service Fabric teamets blogg](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Den nya versionen är tillgänglig och kan väljas nu.
 
 Du kan ange att klustret ska ta emot automatiska Fabric-uppgraderingar när de lanseras av Microsoft, eller så kan du manuellt välja en infrastruktur version som stöds och som du vill att klustret ska vara på. Mer information finns [i uppgradera den Service Fabric version som körs i klustret](service-fabric-cluster-upgrade-windows-server.md).
 

@@ -3,11 +3,12 @@ title: Autentisera med tjänstens huvudnamn
 description: Ge åtkomst till avbildningar i ditt privata behållar register med hjälp av ett Azure Active Directory tjänstens huvud namn.
 ms.topic: article
 ms.date: 10/04/2019
-ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74455403"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259140"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry autentisering med tjänstens huvud namn
 
@@ -27,9 +28,9 @@ Du kan till exempel konfigurera ditt webb program så att det använder ett huvu
 
 ## <a name="when-to-use-a-service-principal"></a>När du ska använda ett huvud namn för tjänsten
 
-Du bör använda ett huvud namn för tjänsten för att ge register åtkomst i **konsolbaserade scenarier**. Det vill säga alla program, tjänster eller skript som måste push-överföra eller hämta behållar avbildningar på ett automatiserat eller på annat sätt obevakat sätt. Ett exempel:
+Du bör använda ett huvud namn för tjänsten för att ge register åtkomst i **konsolbaserade scenarier**. Det vill säga alla program, tjänster eller skript som måste push-överföra eller hämta behållar avbildningar på ett automatiserat eller på annat sätt obevakat sätt. Exempel:
 
-  * *Hämta*: Distribuera behållare från ett register till Orchestration-system, inklusive KUBERNETES, DC/OS och Docker Swarm. Du kan också hämta från behållar register till relaterade Azure-tjänster som [Azure Kubernetes service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)och andra.
+  * *Hämta*: Distribuera behållare från ett register till Orchestration-system, inklusive KUBERNETES, DC/OS och Docker Swarm. Du kan också hämta från behållar register till relaterade Azure-tjänster som [Azure Kubernetes service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml)och andra.
 
   * *Push*: Bygg behållar avbildningar och skicka dem till ett register med kontinuerlig integrering och distributions lösningar som Azure-pipeliner eller Jenkins.
 

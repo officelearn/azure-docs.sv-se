@@ -4,11 +4,12 @@ description: Konfigurera certifikat för din app med Service Fabric runtime på 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79282580"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258676"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certifikat och säkerhet på Linux-kluster
 
@@ -20,11 +21,11 @@ Service Fabric vanligt vis förväntar sig att X. 509-certifikat finns i */var/l
 
 För Linux-kluster förväntar Service Fabric att certifikaten finns som en. PEM-fil som innehåller både det certifikat och den privata nyckeln eller som en CRT-fil som innehåller certifikatet och en nyckel fil som innehåller den privata nyckeln. Alla filer ska vara i PEM-format. 
 
-Om du installerar certifikatet från Azure Key Vault med hjälp av en [Resource Manager-mall](./service-fabric-cluster-creation-create-template.md) eller [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0) -kommandon installeras certifikatet i rätt format i */var/lib/sfcerts* -katalogen på varje nod. Om du installerar ett certifikat via en annan metod måste du kontrol lera att certifikatet är korrekt installerat på klusternoder.
+Om du installerar certifikatet från Azure Key Vault med hjälp av en [Resource Manager-mall](./service-fabric-cluster-creation-create-template.md) eller [PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0) -kommandon installeras certifikatet i rätt format i */var/lib/sfcerts* -katalogen på varje nod. Om du installerar ett certifikat via en annan metod måste du kontrol lera att certifikatet är korrekt installerat på klusternoder.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certifikat som refereras i applikations manifestet
 
-Certifikat som anges i applikations manifestet, till exempel genom [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) -eller [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) -element, måste finnas i */var/lib/sfcerts* -katalogen. De element som används för att ange certifikat i applikations manifestet tar inte ett Path-attribut, så certifikaten måste finnas i standard katalogen. De här elementen tar ett valfritt **X509StoreName** -attribut. Standardvärdet är "My", som pekar på */var/lib/sfcerts* -katalogen på Linux-noder. Andra värden är inte definierade i ett Linux-kluster. Vi rekommenderar att du utelämnar attributet **X509StoreName** för appar som körs i Linux-kluster. 
+Certifikat som anges i applikations manifestet, till exempel genom [**SecretsCertificate**](./service-fabric-service-model-schema-elements.md#secretscertificate-element) -eller [**EndpointCertificate**](./service-fabric-service-model-schema-elements.md#endpointcertificate-element) -element, måste finnas i */var/lib/sfcerts* -katalogen. De element som används för att ange certifikat i applikations manifestet tar inte ett Path-attribut, så certifikaten måste finnas i standard katalogen. De här elementen tar ett valfritt **X509StoreName** -attribut. Standardvärdet är "My", som pekar på */var/lib/sfcerts* -katalogen på Linux-noder. Andra värden är inte definierade i ett Linux-kluster. Vi rekommenderar att du utelämnar attributet **X509StoreName** för appar som körs i Linux-kluster. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certifikat som refereras i konfigurations paketet (Settings.xml)
 
@@ -32,7 +33,7 @@ För vissa tjänster kan du konfigurera X. 509-certifikat i [ConfigPackage](./se
 
 ### <a name="using-x509-securitycredentialstype"></a>Använda X509-SecurityCredentialsType
 
-Med .NET-eller Java-SDK: er kan du ange **X509** som **SecurityCredentialsType**. Detta motsvarar `X509Credentials` ([.net](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials))-typen `SecurityCredentials` ([.net](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
+Med .NET-eller Java-SDK: er kan du ange **X509** som **SecurityCredentialsType**. Detta motsvarar `X509Credentials` ([.net](/previous-versions/azure/reference/mt124925(v=azure.100)) / [Java](/java/api/system.fabric.x509credentials))-typen `SecurityCredentials` ([.net](/previous-versions/azure/reference/mt124894(v=azure.100)) / [Java](/java/api/system.fabric.securitycredentials)).
 
 **X509** -referensen söker upp certifikatet i ett certifikat arkiv. Följande XML visar de parametrar som används för att ange platsen för certifikatet:
 
@@ -63,7 +64,7 @@ Följande XML visar ett **TransportSettings** -avsnitt baserat på det här form
 
 ### <a name="using-x509_2-securitycredentialstype"></a>Använda X509_2 SecurityCredentialsType
 
-Med Java SDK kan du ange **X509_2** för **SecurityCredentialsType**. Detta motsvarar `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) typen `SecurityCredentials` (Java[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
+Med Java SDK kan du ange **X509_2** för **SecurityCredentialsType**. Detta motsvarar `X509Credentials2` ([Java](/java/api/system.fabric.x509credentials2)) typen `SecurityCredentials` (Java[Java](/java/api/system.fabric.securitycredentials)). 
 
 Med en **X509_2** referens kan du ange en Sök vägs parameter, så att du kan hitta certifikatet i en annan katalog än */var/lib/sfcerts*.  Följande XML visar de parametrar som används för att ange platsen för certifikatet: 
 
@@ -93,7 +94,7 @@ Följande XML visar ett **TransportSettings** -avsnitt baserat på det här form
 
 Med Service Fabric SDK: er kan du kommunicera med Service Fabric runtime-API: er för att utnyttja plattformen. När du kör ett program som använder den här funktionen på säkra Linux-kluster måste du konfigurera ditt program med ett certifikat som kan användas för att verifiera med Service Fabric Runtime. Program som innehåller Service Fabric Reliable service Services som skrivits med .NET Core eller Java SDK: er kräver den här konfigurationen. 
 
-Om du vill konfigurera ett program lägger du till ett [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) -element under taggen **certifikat** , som finns under taggen **ApplicationManifest** i *ApplicationManifest.xml* -filen. Följande XML visar ett certifikat som refereras till av sitt tumavtryck: 
+Om du vill konfigurera ett program lägger du till ett [**SecretsCertificate**](./service-fabric-service-model-schema-elements.md#secretscertificate-element) -element under taggen **certifikat** , som finns under taggen **ApplicationManifest** i *ApplicationManifest.xml* -filen. Följande XML visar ett certifikat som refereras till av sitt tumavtryck: 
 
 ```xml
    <Certificates>
@@ -102,6 +103,3 @@ Om du vill konfigurera ett program lägger du till ett [**SecretsCertificate**](
 ```
 
 Du kan referera till antingen kluster certifikatet eller ett certifikat som du installerar på varje klusternod. På Linux måste certifikatfiler finnas i */var/lib/sfcerts* -katalogen. Mer information finns i [plats och format för X. 509-certifikat på Linux-noder](#location-and-format-of-x509-certificates-on-linux-nodes).
-
-
-

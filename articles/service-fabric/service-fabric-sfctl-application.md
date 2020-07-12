@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906209"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260860"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Skapa, ta bort och hantera program och program typer.
@@ -19,7 +20,7 @@ Skapa, ta bort och hantera program och program typer.
 |Kommando|Beskrivning|
 | --- | --- |
 | skapa | Skapar ett Service Fabric program med hjälp av den angivna beskrivningen. |
-| delete | Tar bort ett befintligt Service Fabric-program. |
+| ta bort | Tar bort ett befintligt Service Fabric-program. |
 | distribueras | Hämtar information om ett program som distribuerats på en Service Fabric-nod. |
 | distribuerad hälsa | Hämtar information om hälso tillståndet för ett program som distribuerats på en Service Fabric-nod. |
 | distribuerad lista | Hämtar listan över program som har distribuerats på en Service Fabric-nod. |
@@ -549,4 +550,4 @@ Du kan också Visa uppladdnings förloppet för varje fil i paketet. Överförin
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

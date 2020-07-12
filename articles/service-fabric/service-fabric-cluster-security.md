@@ -4,12 +4,12 @@ description: Lär dig mer om säkerhets scenarier för ett Azure Service Fabric-
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080686"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261078"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kluster säkerhets scenarier
 
@@ -27,7 +27,7 @@ Säkerhet från nod till nod hjälper till att säkra kommunikationen mellan de 
 
 ![Diagram över nod-till-nod-kommunikation][Node-to-Node]
 
-Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx) för Windows Server-datorer.
+Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](/previous-versions/msp-n-p/ff649801(v=pandp.10)) eller [Windows-säkerhet](/previous-versions/msp-n-p/ff649396(v=pandp.10)) för Windows Server-datorer.
 
 ### <a name="node-to-node-certificate-security"></a>Säkerhet för nod-till-nod-certifikat
 
@@ -54,7 +54,7 @@ Säkerhet mellan klienter autentiserar klienter och skyddar kommunikationen mell
 
 ![Diagram över klient-till-nod-kommunikation][Client-to-Node]
 
-Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx), även om rekommendationen är att använda 509 certifikatautentisering när det är möjligt.
+Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](/previous-versions/msp-n-p/ff649801(v=pandp.10)) eller [Windows-säkerhet](/previous-versions/msp-n-p/ff649396(v=pandp.10)), även om rekommendationen är att använda 509 certifikatautentisering när det är möjligt.
 
 ### <a name="client-to-node-certificate-security"></a>Säkerhet för klient-till-nod-certifikat
 
@@ -95,7 +95,7 @@ Ange administratörs-och användar klient roller när du skapar klustret. Tillde
 
 ## <a name="x509-certificates-and-service-fabric"></a>X. 509-certifikat och Service Fabric
 
-X. 509 digitala certifikat används ofta för att autentisera klienter och servrar. De används också för att kryptera och signera meddelanden digitalt. Service Fabric använder X. 509-certifikat för att skydda ett kluster och tillhandahålla funktioner för program säkerhet. Mer information om digitala X. 509-certifikat finns i [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). Du använder [Key Vault](../key-vault/general/overview.md) för att hantera certifikat för Service Fabric kluster i Azure.
+X. 509 digitala certifikat används ofta för att autentisera klienter och servrar. De används också för att kryptera och signera meddelanden digitalt. Service Fabric använder X. 509-certifikat för att skydda ett kluster och tillhandahålla funktioner för program säkerhet. Mer information om digitala X. 509-certifikat finns i [arbeta med certifikat](/dotnet/framework/wcf/feature-details/working-with-certificates). Du använder [Key Vault](../key-vault/general/overview.md) för att hantera certifikat för Service Fabric kluster i Azure.
 
 Några viktiga saker att tänka på:
 

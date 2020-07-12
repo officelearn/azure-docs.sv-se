@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfcd6927d4a2e5e0b5314b4fb2aa26c6dc46b8f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eeab433bbbfc9db0f1c5f5546ae80434899a91dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362568"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259208"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en värd pool
 
@@ -36,7 +36,7 @@ Som standard innehåller publicerade RDP-filer följande egenskaper:
 
 |RDP-egenskaper | Stationära datorer | RemoteApp |
 |---|---| --- |
-| Läge för flera övervakare | Enabled | E.t. |
+| Läge för flera övervakare | Enabled | Ej tillämpligt |
 | Aktiverade enhets omdirigeringar | Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort| Enheter, urklipp och skrivare |
 | Fjärr ljud läge | Spela lokalt | Spela lokalt |
 
@@ -80,5 +80,5 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 Nu när du har anpassat RDP-egenskaperna för en specifik adresspool kan du logga in på en Windows Virtual Desktop-klient för att testa dem som en del av en användarsession. Följande två instruktioner visar hur du ansluter till en session med valfri klient:
 
-- [Ansluta med Windows-skrivbordsklienten](../connect-windows-7-and-10.md)
+- [Ansluta med Windows-skrivbordsklienten](connect-windows-7-10-2019.md)
 - [Ansluta med webbklienten](connect-web-2019.md)

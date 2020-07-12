@@ -3,12 +3,12 @@ title: Skapa ett Azure Service Fabric-kluster
 description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med Azure Resource Manager.  Du kan skapa ett kluster med hjälp av en standardmall eller med hjälp av en egen kluster mall.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458308"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258752"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -26,15 +26,15 @@ Om du skapar ett produktions kluster för att köra produktions arbets belastnin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 I den här artikeln använder du modulerna Service Fabric RM PowerShell eller Azure CLI för att distribuera ett kluster:
 
 * [Azure PowerShell 4,1 och uppåt][azure-powershell]
 * [Azure CLI version 2,0 och senare][azure-CLI]
 
 Referens dokumentationen för Service Fabric moduler finns här:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
-* [AZ SF CLI-modul](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+* [Az.ServiceFabric](/powershell/module/az.servicefabric)
+* [AZ SF CLI-modul](/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 

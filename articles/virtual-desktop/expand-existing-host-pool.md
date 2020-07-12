@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209359"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259877"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -78,7 +78,7 @@ Expandera din värddator genom att lägga till virtuella datorer:
 
 Nu när du har expanderat den befintliga poolen kan du logga in på en Windows Virtual Desktop-klient för att testa dem som en del av en användarsession. Du kan ansluta till en session med någon av följande klienter:
 
-- [Ansluta med Windows-skrivbordsklienten](./connect-windows-7-and-10.md)
+- [Ansluta med Windows-skrivbordsklienten](./connect-windows-7-10.md)
 - [Ansluta med webbklienten](./connect-web.md)
 - [Ansluta med Android-klienten](./connect-android.md)
 - [Ansluta med macOS-klienten](./connect-macos.md)

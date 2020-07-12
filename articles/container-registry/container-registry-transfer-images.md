@@ -4,12 +4,12 @@ description: Överföra samlingar med avbildningar eller andra artefakter från 
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186936"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259451"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Överföra artefakter till ett annat register
 
@@ -30,13 +30,13 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 > [!IMPORTANT]
 > Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Behållar** register – du behöver ett befintligt käll register med artefakter att överföra och ett mål register. ACR-överföring är avsedd för förflyttning över fysiskt frånkopplade moln. För testning kan käll-och mål registren vara i samma eller en annan Azure-prenumeration, Active Directory klient organisation eller molnet. Om du behöver skapa ett register, se [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md). 
 * **Lagrings konton** – skapa käll-och mål lagrings konton i en prenumeration och plats som du väljer. I test syfte kan du använda samma prenumeration eller prenumerationer som käll-och mål register. I scenarier med flera moln kan du vanligt vis skapa ett separat lagrings konto i varje moln. Om det behövs skapar du lagrings kontona med [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) eller andra verktyg. 
 
   Skapa en BLOB-behållare för artefakt överföring i varje konto. Du kan till exempel skapa en behållare med namnet *transfer*. Två eller flera överförings pipeliner kan dela samma lagrings konto, men bör använda olika lagrings behållar omfång.
-* **Nyckel valv** – nyckel valv krävs för att lagra SAS-tokens hemligheter som används för att komma åt käll-och mål lagrings konton. Skapa käll-och mål nyckel valven i samma Azure-prenumeration eller prenumerationer som käll-och mål register. Om det behövs skapar du nyckel valv med [Azure CLI](../key-vault/quick-create-cli.md) eller andra verktyg.
+* **Nyckel valv** – nyckel valv krävs för att lagra SAS-tokens hemligheter som används för att komma åt käll-och mål lagrings konton. Skapa käll-och mål nyckel valven i samma Azure-prenumeration eller prenumerationer som käll-och mål register. Om det behövs skapar du nyckel valv med [Azure CLI](../key-vault/secrets/quick-create-cli.md) eller andra verktyg.
 * **Miljövariabler** – till exempel kommandon i den här artikeln anger du följande miljövariabler för käll-och mål miljö. Alla exempel är formaterade för bash-gränssnittet.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -257,7 +257,7 @@ az storage blob list \
 
 Använd AzCopy-verktyget eller andra metoder för att [överföra BLOB-data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) från käll lagrings kontot till mål lagrings kontot.
 
-Följande kommando kopierar t. ex. [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) BLOB från *överförings* containern i käll kontot till *överförings* containern i mål kontot. Om blobben finns i mål kontot skrivs den över. Autentisering använder SAS-token med lämpliga behörigheter för käll-och mål behållarna. (Steg för att skapa tokens visas inte.)
+Följande kommando kopierar t. ex. [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) BLOB från *överförings* containern i käll kontot till *överförings* containern i mål kontot. Om blobben finns i mål kontot skrivs den över. Autentisering använder SAS-token med lämpliga behörigheter för käll-och mål behållarna. (Steg för att skapa tokens visas inte.)
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ Om du vill importera enskilda behållar avbildningar till ett Azure Container Re
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

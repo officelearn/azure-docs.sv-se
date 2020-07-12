@@ -3,12 +3,12 @@ title: Distribuera en app med en användardefinierad hanterad identitet
 description: Den här artikeln visar hur du distribuerar Service Fabric program med en användardefinierad hanterad identitet
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415634"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260085"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Distribuera Service Fabric program med en användardefinierad hanterad identitet
 
@@ -23,40 +23,42 @@ Om du vill distribuera ett Service Fabric program med hanterad identitet måste 
 
 ## <a name="user-assigned-identity"></a>Användare tilldelad identitet
 
-Om du vill aktivera program med en användardefinierad identitet måste du först lägga till egenskapen **identitet** i program resursen med typen **userAssigned** och de referenser som tilldelats av användaren. Lägg sedan till ett **managedIdentities** -avsnitt i avsnittet **Egenskaper** för **program** resursen som innehåller en lista med ett eget namn för principalId-mappningen för var och en av de användare som tilldelats identiteter. Mer information om tilldelade identiteter finns i [skapa, lista eller ta bort en hanterad identitet som tilldelats av användare](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
+Om du vill aktivera program med en användardefinierad identitet måste du först lägga till egenskapen **identitet** i program resursen med typen **userAssigned** och de referenser som tilldelats av användaren. Lägg sedan till ett **managedIdentities** -avsnitt i avsnittet **Egenskaper** för **program** resursen som innehåller en lista med ett eget namn för principalId-mappningen för var och en av de användare som tilldelats identiteter. Mer information om tilldelade identiteter finns i [skapa, lista eller ta bort en hanterad identitet som tilldelats av användare](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 ### <a name="application-template"></a>Programmall
 
 Om du vill aktivera program med tilldelad identitet måste du först lägga till **identitets** egenskap till program resursen med typen **userAssigned** och den refererade användaren som tilldelats identiteter och sedan lägga till ett **managedIdentities** -objekt i avsnittet **Egenskaper** som innehåller en lista med ett eget namn för principalId-mappning för var och en av de användare som tilldelats identiteter.
 
-    {
-      "apiVersion": "2019-06-01-preview",
-      "type": "Microsoft.ServiceFabric/clusters/applications",
-      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
-        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
-      ],
-      "identity": {
-        "type" : "userAssigned",
-        "userAssignedIdentities": {
-            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
-        }
-      },
-      "properties": {
-        "typeName": "[parameters('applicationTypeName')]",
-        "typeVersion": "[parameters('applicationTypeVersion')]",
-        "parameters": {
-        },
-        "managedIdentities": [
-          {
-            "name" : "[parameters('userAssignedIdentityName')]",
-            "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
-          }
-        ]
-      }
+```json
+{
+  "apiVersion": "2019-06-01-preview",
+  "type": "Microsoft.ServiceFabric/clusters/applications",
+  "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
+    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
+  ],
+  "identity": {
+    "type" : "userAssigned",
+    "userAssignedIdentities": {
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
     }
+  },
+  "properties": {
+    "typeName": "[parameters('applicationTypeName')]",
+    "typeVersion": "[parameters('applicationTypeVersion')]",
+    "parameters": {
+    },
+    "managedIdentities": [
+      {
+        "name" : "[parameters('userAssignedIdentityName')]",
+        "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
+      }
+    ]
+  }
+}
+```
 
 I exemplet ovan används resurs namnet för den användare som tilldelats identiteten som det egna namnet på den hanterade identiteten för programmet. Följande exempel förutsätter att det faktiska egna namnet är "AdminUser".
 

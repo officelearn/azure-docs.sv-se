@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267638"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260165"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap för IoT Hub
 
@@ -75,6 +76,8 @@ Om dina affärs drifts mål inte uppfylls av RTO som Microsoft har initierat red
 
 Alternativet Manuell redundans är alltid tillgängligt för användning oavsett om den primära regionen drabbas av nertid eller inte. Det innebär att det här alternativet kan användas för att utföra planerade redundansväxlingen. Ett exempel på användningen av planerade redundanser är att utföra regelbunden granskning av redundans. Ett ord med försiktighets åtgärder är att en planerad redundansväxling resulterar i en stillestånds tid för hubben för den period som definieras av RTO för det här alternativet, och resulterar också i en data förlust som definieras i tabellen tabellen ovan. Du kan överväga att konfigurera en instans av en test-IoT Hub så att du kan använda alternativet för planerad redundans med jämna mellanrum för att få en bättre tillförlitlighet i din förmåga att komma igång med dina heltäckande lösningar när en riktig katastrof inträffar.
 
+Manuell redundans är tillgängligt utan extra kostnad för IoT Hub som skapats efter 18 maj 2017
+
 Stegvisa instruktioner finns i [Självstudier: utföra manuell redundans för en IoT-hubb](tutorial-manual-failover.md)
 
 ### <a name="running-test-drills"></a>Köra test övningar
@@ -129,9 +132,9 @@ Här är en sammanfattning av de HA/DR-alternativ som visas i den här artikeln 
 
 | HA/DR-alternativ | RTO | RPO | Krävs manuell åtgärd? | Implementerings komplexitet | Ytterligare kostnads påverkan|
 | --- | --- | --- | --- | --- | --- |
-| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|No|Ingen|Ingen|
-| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Ingen|
-| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|No|Hög|> 1x kostnaden för 1 IoT Hub|
+| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Nej|Inga|Inga|
+| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inga|
+| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Nej|Högt|> 1x kostnaden för 1 IoT Hub|
 
 ## <a name="next-steps"></a>Nästa steg
 

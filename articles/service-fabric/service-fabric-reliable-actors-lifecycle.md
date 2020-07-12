@@ -5,12 +5,12 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db47a758d33c3ed6e861601285e7737514ab416d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847875"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260435"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktörs livs cykel, automatisk skräp insamling och manuell borttagning
 En aktör aktive ras första gången ett anrop görs till någon av dess metoder. En aktör inaktive ras (skräp insamlad av aktörernas körningar) om den inte används under en konfigurerbar tids period. En aktör och dess tillstånd kan också tas bort manuellt när som helst.
@@ -112,7 +112,7 @@ Skräp insamling av inaktiverade aktörer rensar bara aktörs objekt, men tar in
 * [Aktörs händelser](service-fabric-reliable-actors-events.md)
 * [Aktör återinträde](service-fabric-reliable-actors-reentrancy.md)
 * [Aktörens diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md)
-* [Dokumentation om aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Dokumentation om aktörs-API-referens](/previous-versions/azure/dn971626(v=azure.100))
 * [Exempel kod för C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

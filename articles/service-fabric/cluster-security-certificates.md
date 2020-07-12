@@ -4,12 +4,12 @@ description: Lär dig mer om certifikatbaserad autentisering i Service Fabric kl
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429673"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259029"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>509-baserad autentisering med X. i Service Fabric kluster
 
@@ -180,7 +180,7 @@ Det nämndes tidigare att säkerhets inställningarna för ett Service Fabric-kl
 
 Som nämnts innebär certifikat valideringen alltid att skapa och utvärdera certifikat kedjan. För CA-utfärdade certifikat innebär detta ett enkelt OS API-anrop vanligt vis flera utgående anrop till olika slut punkter för den utfärdande PKI: n, cachelagring av svar och så vidare. Med tanke på att certifikat verifierings anropen visas i ett Service Fabric-kluster, kan eventuella problem i PKI: ns slut punkter leda till minskad tillgänglighet för klustret eller att uppnå en korrekt uppdelning. Även om utgående samtal inte kan undertryckas (se nedan i avsnittet Vanliga frågor och svar) kan du använda följande inställningar för att maskera verifierings fel som orsakas av misslyckade CRL-anrop.
 
-  * CrlCheckingFlag – under avsnittet Security, strängen konverterad till UINT. Värdet för den här inställningen används av Service Fabric för att maskera fel i certifikat kedjans status genom att ändra beteendet för skapande av kedja. den skickas till Win32 CryptoAPI [CertGetCertificateChain](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) -anropet som parametern "dwFlags" och kan ställas in på en giltig kombination av flaggor som accepteras av funktionen. Värdet 0 tvingar Service Fabric körningen att ignorera eventuella förtroende status fel – detta rekommenderas inte, eftersom användningen skulle utgöra en betydande säkerhets exponering. Standardvärdet är 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag – under avsnittet Security, strängen konverterad till UINT. Värdet för den här inställningen används av Service Fabric för att maskera fel i certifikat kedjans status genom att ändra beteendet för skapande av kedja. den skickas till Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) -anropet som parametern "dwFlags" och kan ställas in på en giltig kombination av flaggor som accepteras av funktionen. Värdet 0 tvingar Service Fabric körningen att ignorera eventuella förtroende status fel – detta rekommenderas inte, eftersom användningen skulle utgöra en betydande säkerhets exponering. Standardvärdet är 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   När du ska använda: för lokal testning, med självsignerade certifikat eller certifikat för utvecklare som inte är fullständigt utformade/inte har en korrekt infrastruktur för offentliga nycklar för att stödja certifikaten. Kan också användas som en minskning i Air-gapped miljöer under över gången mellan PKI: er.
 
@@ -257,7 +257,7 @@ Vid avslutning av fas 2 märks även konverteringen av klustret till vanliga nam
 I en separat artikel kommer vi att adressera avsnittet om att hantera och tillhandahålla certifikat till ett Service Fabric-kluster.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Fel sökning och vanliga frågor och svar
-Det är inte enkelt att felsöka autentiseringsfel i Service Fabric kluster, men vi är Hopeful följande tips och tips. Det enklaste sättet att starta undersökningar är att undersöka Service Fabric händelse loggar på noderna i klustret – inte nödvändigt vis bara de som visar symtom, men även noder som är upp till varandra, men som inte kan ansluta till någon av deras grannar. I Windows loggas Events signifikans vanligt vis under "program-och tjänst Logs\Microsoft-ServiceFabric\Admin" eller "drifts kanaler". Ibland kan det vara bra att [Aktivera CAPI2-loggning](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues)för att samla in mer information om certifikat validering, hämtning av CRL/CTL osv. (kom ihåg att inaktivera det när du har slutfört återskapnings, men det kan vara ganska utförligt.)
+Det är inte enkelt att felsöka autentiseringsfel i Service Fabric kluster, men vi är Hopeful följande tips och tips. Det enklaste sättet att starta undersökningar är att undersöka Service Fabric händelse loggar på noderna i klustret – inte nödvändigt vis bara de som visar symtom, men även noder som är upp till varandra, men som inte kan ansluta till någon av deras grannar. I Windows loggas Events signifikans vanligt vis under "program-och tjänst Logs\Microsoft-ServiceFabric\Admin" eller "drifts kanaler". Ibland kan det vara bra att [Aktivera CAPI2-loggning](/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues)för att samla in mer information om certifikat validering, hämtning av CRL/CTL osv. (kom ihåg att inaktivera det när du har slutfört återskapnings, men det kan vara ganska utförligt.)
 
 Vanliga symptom som manifestet i ett kluster som har problem med autentisering är: 
   - noderna är nere/arbetscykler 
@@ -300,5 +300,4 @@ Var och en av symptomen kan bero på olika problem och samma rotor saken kan vis
     ```C++
     0x80090014  -2146893804 NTE_BAD_PROV_TYPE
     ```
-    Du kan åtgärda detta genom att återskapa kluster certifikatet med hjälp av en CAPI1 (t. ex. "Microsoft Enhanced RSA and AES Cryptographic Provider"). Mer information om krypto-providers finns i [förstå kryptografiproviders](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers)
-
+    Du kan åtgärda detta genom att återskapa kluster certifikatet med hjälp av en CAPI1 (t. ex. "Microsoft Enhanced RSA and AES Cryptographic Provider"). Mer information om krypto-providers finns i [förstå kryptografiproviders](/windows/win32/seccertenroll/understanding-cryptographic-providers)

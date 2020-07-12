@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131310"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260038"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Skapa och etablera en IoT Edge-enhet med X. 509-certifikat
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du skapar en registrering av enhets etablerings tjä
 
 Att använda X. 509-certifikat som en mekanism för attestering är ett utmärkt sätt att skala produktion och förenkla enhets etablering. Normalt är X. 509-certifikat ordnade i en certifikat kedja med förtroende. Från och med ett självsignerat eller betrott rot certifikat signerar varje certifikat i kedjan nästa lägre certifikat. Det här mönstret skapar en delegerad kedja av förtroende från rot certifikatet nedåt genom varje mellanliggande certifikat till det slutliga "löv"-certifikatet som är installerat på en enhet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En aktiv IoT Hub.
 * En fysisk eller virtuell enhet som IoT Edge enheten.
@@ -50,6 +50,9 @@ Du behöver följande filer för att konfigurera automatisk etablering med X. 50
 * Enhetens identitets certifikat och dess privata nyckel certifikat. Enhetens identitets certifikat överförs till DPS om du skapar en enskild registrering. Den privata nyckeln skickas till IoT Edge Runtime.
 * Ett fullständigt kedje certifikat, som minst måste ha enhets identitet och mellanliggande certifikat. Det fullständiga kedje certifikatet skickas till IoT Edge Runtime.
 * Ett mellanliggande certifikat eller rotcertifikatutfärdarcertifikat från certifikat kedjan. Det här certifikatet överförs till DPS om du skapar en grupp registrering.
+
+> [!NOTE]
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050.
 
 ### <a name="use-test-certificates"></a>Använd test certifikat
 
@@ -100,7 +103,7 @@ Mer information om registreringar i Device Provisioning-tjänsten finns i [Hante
 
    * **Välj de IoT-hubbar som enheten kan tilldelas**: Välj den länkade IoT-hubben som du vill ansluta enheten till. Du kan välja flera hubbar och enheten tilldelas en av dem enligt den valda allokeringsregeln.
 
-   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Till exempel:
+   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Exempel:
 
       ```json
       {
@@ -161,7 +164,7 @@ När du skapar en registrerings grupp kan du välja att använda ett verifierat 
 
 1. På sidan samma certifikat information i Azure Portal laddar du upp det nyligen genererade verifierings certifikatet.
 
-1. Välj **Verify** (Verifiera).
+1. Välj **Verifiera**.
 
 ### <a name="create-enrollment-group"></a>Skapa registrerings grupp
 
@@ -185,7 +188,7 @@ Mer information om registreringar i Device Provisioning-tjänsten finns i [Hante
 
    * **Välj de IoT-hubbar som enheten kan tilldelas**: Välj den länkade IoT-hubben som du vill ansluta enheten till. Du kan välja flera hubbar och enheten tilldelas en av dem enligt den valda allokeringsregeln.
 
-   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Till exempel:
+   * **Första enhets status**: Lägg till ett taggvärde som ska läggas till på enheten, med ett värde om du vill. Du kan använda taggar för att ange mål grupper för enheter för automatisk distribution. Exempel:
 
       ```json
       {
@@ -221,7 +224,7 @@ Använd följande länk för att installera Azure IoT Edge runtime på enheten m
 
 [Installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)
 
-När du lägger till X. 509-certifikatet och nyckelinformation i filen config. yaml ska Sök vägarna anges som fil-URI: er. Till exempel:
+När du lägger till X. 509-certifikatet och nyckelinformation i filen config. yaml ska Sök vägarna anges som fil-URI: er. Exempel:
 
 * `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`

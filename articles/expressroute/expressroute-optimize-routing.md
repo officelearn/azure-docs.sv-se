@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: charwen
-ms.openlocfilehash: f3a658d4b02501994437691308810ffb9cabcb6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2672068e505b7c86127b8b765372e7c607c3875a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738863"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259777"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
@@ -33,18 +33,18 @@ I ovanstående exempel för att föredra ExpressRoute sökvägar konfigurerar du
 
 **Cisco IOS – XE-konfiguration från R1-perspektiv:**
 
-    R1(config)#route-map prefer-ExR permit 10
-    R1(config-route-map)#set local-preference 150
+- R1 (config) #route-Map föredra – ExR Permit 10
+- R1 (konfiguration-Route-Map) #set lokal inställning 150
 
-    R1(config)#router BGP 345
-    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
-    R1(config-router)#neighbor 1.1.1.2 activate
-    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+- R1 (Konfig) #router BGP 345
+- R1 (Konfig-router) #neighbor 1.1.1.2 fjärr-as 12076
+- R1 (Konfig-router) #neighbor aktivera 1.1.1.2
+- R1 (Konfig-router) #neighbor 1.1.1.2 Route-Map föredra-ExR i
 
 **Junos konfiguration från R1-perspektiv:**
 
-    user@R1# set protocols bgp group ibgp type internal
-    user@R1# set protocols bgp group ibgp local-preference 150
+- user@R1# Set Protocols BGP Group IBGP-typ internt
+- user@R1# Set Protocols BGP Group IBGP Local-Preference 150
 
 
 

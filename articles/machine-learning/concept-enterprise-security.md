@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392241"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259446"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 
 |Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
-|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgänglig| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -111,16 +111,21 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 
 ## <a name="data-encryption"></a>Datakryptering
 
-### <a name="encryption-at-rest"></a>Vilande kryptering
+> [!IMPORTANT]
+> För produktions klass kryptering under __utbildningen__rekommenderar Microsoft att du använder Azure Machine Learning beräknings kluster. Microsoft rekommenderar att du använder Azure Kubernetes-tjänsten för kryptering av produktions klass under __härledningen__.
+>
+> Azure Machine Learning beräknings instans är en utvecklings-/test miljö. När du använder den rekommenderar vi att du lagrar dina filer, till exempel antecknings böcker och skript, i en fil resurs. Dina data ska lagras i ett data lager.
+
+### <a name="encryption-at-rest"></a>Kryptering i vila
 
 > [!IMPORTANT]
 > Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. 
 
-`hbi_workspace`Flaggan styr mängden data som Microsoft samlar in i diagnostiska syfte och möjliggör ytterligare kryptering i Microsoft-hanterade miljöer. Dessutom möjliggör det följande:
+`hbi_workspace`Flaggan styr mängden data som Microsoft samlar in i diagnostiska syfte och möjliggör ytterligare kryptering i Microsoft-hanterade miljöer. Dessutom kan du använda följande åtgärder:
 
-* Startar kryptering av den lokala Scratch-disken i ditt Amlcompute-kluster förutsatt att du inte har skapat några tidigare kluster i den prenumerationen. Annars måste du skapa ett support ärende för att aktivera kryptering av den virtuella datorns arbets kluster 
-* Rensar upp den lokala Scratch-disken mellan körningar
-* Skickar autentiseringsuppgifter på ett säkert sätt för ditt lagrings konto, behållar registret och SSH-kontot från körnings skiktet till dina beräknings kluster med ditt nyckel valv
+* Startar kryptering av den lokala grunden-disken i Azure Machine Learning beräknings kluster förutsatt att du inte har skapat några tidigare kluster i den prenumerationen. Annars måste du skapa ett support ärende för att aktivera kryptering av den virtuella datorns arbets kluster 
+* Rensar den lokala disken för tillfällig lagring mellan körningar
+* Skickar autentiseringsuppgifter på ett säkert sätt för ditt lagrings konto, behållar registret och SSH-kontot från körnings skiktet till dina beräknings kluster med hjälp av nyckel valvet
 * Aktiverar IP-filtrering för att säkerställa att underliggande batch-pooler inte kan anropas av andra externa tjänster än AzureMachineLearningService
 
 
@@ -228,7 +233,7 @@ Azure Databricks kan användas i Azure Machine Learning pipeliner. Som standard 
 
 Azure Machine Learning använder TLS för att skydda intern kommunikation mellan olika Azure Machine Learning mikrotjänster. Alla Azure Storage åtkomst sker också över en säker kanal.
 
-För att säkra externa anrop till bedömnings slut punkten Azure Machine Learning använder TLS. Mer information finns i [använda TLS för att skydda en webb tjänst via Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Azure Machine Learning använder TLS för att skydda externa anrop till poäng slut punkten. Mer information finns i [använda TLS för att skydda en webb tjänst via Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Använda Azure Key Vault
 

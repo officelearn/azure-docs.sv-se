@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75934210"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258714"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Lägga till eller ta bort noder i ett fristående Service Fabric-kluster som körs på Windows Server
 När du har [skapat ditt fristående Service Fabric-kluster på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md), kan dina (företaget) behov ändras och du måste lägga till eller ta bort noder i klustret. Den här artikeln innehåller detaljerade anvisningar för att åstadkomma detta. Observera att funktionen för att lägga till/ta bort noder inte stöds i lokala utvecklings kluster.
@@ -141,5 +142,4 @@ Utbyte av primära noder bör utföras en nod efter en annan, i stället för at
 ## <a name="next-steps"></a>Nästa steg
 * [Konfigurations inställningar för fristående Windows-kluster](service-fabric-cluster-manifest.md)
 * [Skydda ett fristående kluster i Windows med hjälp av X509-certifikat](service-fabric-windows-cluster-x509-security.md)
-* [Skapa ett fristående Service Fabric-kluster med virtuella Azure-datorer som kör Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
+* [Skapa ett fristående Service Fabric-kluster med virtuella Azure-datorer som kör Windows](./service-fabric-cluster-creation-via-arm.md)

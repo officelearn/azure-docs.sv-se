@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker vanliga problem när du distribuerar, kö
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807850"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260740"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem med Azure Container Instances
 
@@ -183,7 +183,7 @@ Nyckeln för att hålla bild storlekarna liten säkerställer att den slutliga b
 
 #### <a name="image-location"></a>Bild plats
 
-Ett annat sätt att minska effekten av image-hämtningen på din behållares start tid är att vara värd för behållar avbildningen i [Azure Container Registry](/azure/container-registry/) i samma region där du tänker distribuera behållar instanser. Detta förkortar nätverks Sök vägen som behållar avbildningen behöver för att kunna färdas, vilket avsevärt kortare nedladdnings tiden.
+Ett annat sätt att minska effekten av image-hämtningen på din behållares start tid är att vara värd för behållar avbildningen i [Azure Container Registry](../container-registry/index.yml) i samma region där du tänker distribuera behållar instanser. Detta förkortar nätverks Sök vägen som behållar avbildningen behöver för att kunna färdas, vilket avsevärt kortare nedladdnings tiden.
 
 #### <a name="cached-images"></a>Cachelagrade avbildningar
 
@@ -228,9 +228,9 @@ Om du vill bekräfta att Azure Container Instances kan lyssna på den port som d
 Lär dig hur du [hämtar behållar loggar och händelser](container-instances-get-logs.md) för att felsöka dina behållare.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[azure-name-restrictions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
 [naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
-[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
+[windows-sac-overview]: /windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
 [docker-hub-windows-nano]: https://hub.docker.com/_/microsoft-windows-nanoserver

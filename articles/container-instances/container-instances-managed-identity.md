@@ -3,12 +3,12 @@ title: Aktivera hanterad identitet i behållar gruppen
 description: Lär dig hur du aktiverar en hanterad identitet i Azure Container Instances som kan autentiseras med andra Azure-tjänster
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169790"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259633"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Använda hanterade identiteter med Azure Container Instances
 
@@ -392,6 +392,6 @@ I den här artikeln har du lärt dig om hanterade identiteter i Azure Container 
 > * Ge identitets åtkomst till ett Azure Key Vault
 > * Använd den hanterade identiteten för att få åtkomst till ett nyckel valv från en behållare som körs
 
-* Lär dig mer om [hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/).
+* Lär dig mer om [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/index.yml).
 
 * Se ett [Azure go SDK-exempel](https://medium.com/@samkreter/c98911206328) för att använda en hanterad identitet för att få åtkomst till ett nyckel valv från Azure Container instances.

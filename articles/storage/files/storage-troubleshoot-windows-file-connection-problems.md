@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8a8fff374edab7e307cd6dc8fb9aa4a4f974d09c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e855ed169a0c4eca7dda696c03deedb9e519e9bf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224697"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259990"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
-Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure filer när du ansluter från Windows-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. Förutom fel söknings stegen i den här artikeln kan du också använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)   för att kontrol lera att Windows-klientens miljö uppfyller rätt krav. AzFileDiagnostics automatiserar identifiering av de flesta av de symtom som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller steg som hjälper dig med problem med att ansluta/mappa/montera Azure Files resurser.
+Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure filer när du ansluter från Windows-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. Förutom fel söknings stegen i den här artikeln kan du också använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   för att kontrol lera att Windows-klientens miljö uppfyller rätt krav. AzFileDiagnostics automatiserar identifiering av de flesta av de symtom som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller steg som hjälper dig med problem med att ansluta/mappa/montera Azure Files resurser.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Fel 5 när du monterar en Azure-filresurs
@@ -65,7 +65,7 @@ När du försöker montera en fil resurs från en lokal plats eller från ett an
 
 Systemfel 53 eller systemfel 67 kan uppstå om Port 445 utgående kommunikation till ett Azure Files Data Center blockeras. En översikt över Internetleverantörer som tillåter och inte tillåter åtkomst från port 445 finns på [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Om du vill kontrol lera om brand väggen eller Internet leverantören blockerar port 445 använder du [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) -verktyget eller- `Test-NetConnection` cmdleten. 
+Om du vill kontrol lera om brand väggen eller Internet leverantören blockerar port 445 använder du [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) -verktyget eller- `Test-NetConnection` cmdleten. 
 
 Om du vill använda `Test-NetConnection` cmdleten måste Azure PowerShell-modulen installeras, se [Installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
 
@@ -334,7 +334,7 @@ För närvarande kan du överväga att omdistribuera AAD DS med ett nytt domän-
 ### <a name="self-diagnostics-steps"></a>Själv diagnos steg
 Kontrol lera först att du har följt alla fyra stegen för att [aktivera Azure Files AD-autentisering](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Försök sedan att [montera Azure-filresursen med lagrings konto nyckeln](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Om du inte kunde montera hämtar du [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) för att hjälpa dig att validera klienten som kör miljön, identifiera inkompatibel klient konfiguration som skulle orsaka åtkomst fel för Azure Files, ger vägledning om själv korrigering och samlar in diagnostiska spårningar.
+Försök sedan att [montera Azure-filresursen med lagrings konto nyckeln](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Om du inte kunde montera hämtar du [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för att hjälpa dig att validera klienten som kör miljön, identifiera inkompatibel klient konfiguration som skulle orsaka åtkomst fel för Azure Files, ger vägledning om själv korrigering och samlar in diagnostiska spårningar.
 
 För det tredje kan du köra cmdleten debug-AzStorageAccountAuth för att utföra en uppsättning grundläggande kontroller på din AD-konfiguration med den inloggade AD-användaren. Den här cmdleten stöds i [versionen AzFilesHybrid v0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Du måste köra denna cmdlet med en AD-användare som har ägarbehörighet på mållagringskontot.  
 ```PowerShell

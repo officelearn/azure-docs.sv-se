@@ -4,11 +4,12 @@ description: Vanliga frågor och svar om Service Fabric, inklusive funktioner, a
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78254890"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258935"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -21,9 +22,9 @@ Det finns många vanliga frågor om vad Service Fabric kan göra och hur det ska
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Hur gör jag för att återställa min Service Fabric kluster certifikat?
 
-Att återställa all uppgradering till programmet kräver identifiering av hälso tillstånd innan ditt Service Fabric-klusterkvorum genomför ändringen. genomförda ändringar kan bara vidarebefordras. Det kan vara nödvändigt att återställa klustret med hjälp av kund support tjänster, om en oövervakad ändring av certifikatet har introducerats.  [Service Fabric programmets program uppgradering](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) tillämpar [parametrarna för program uppgradering](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)och ger noll avbrotts löfte.  Efter den rekommenderade program uppgraderingens övervakade läge baseras automatisk förloppet via uppdaterings domäner på hälso kontroller som passerar, och återställs automatiskt om det inte går att uppdatera en standard tjänst.
+Att återställa all uppgradering till programmet kräver identifiering av hälso tillstånd innan ditt Service Fabric-klusterkvorum genomför ändringen. genomförda ändringar kan bara vidarebefordras. Det kan vara nödvändigt att återställa klustret med hjälp av kund support tjänster, om en oövervakad ändring av certifikatet har introducerats.  [Service Fabric programmets program uppgradering](./service-fabric-application-upgrade.md?branch=master) tillämpar [parametrarna för program uppgradering](./service-fabric-application-upgrade-parameters.md?branch=master)och ger noll avbrotts löfte.  Efter den rekommenderade program uppgraderingens övervakade läge baseras automatisk förloppet via uppdaterings domäner på hälso kontroller som passerar, och återställs automatiskt om det inte går att uppdatera en standard tjänst.
  
-Om klustret fortfarande använder den klassiska certifikatets tumavtryck-egenskap i din Resource Manager-mall, rekommenderar vi att du [ändrar klustret från certifikatets tumavtryck till ett eget namn](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), för att utnyttja moderna hemligheter-hanterings funktioner.
+Om klustret fortfarande använder den klassiska certifikatets tumavtryck-egenskap i din Resource Manager-mall, rekommenderar vi att du [ändrar klustret från certifikatets tumavtryck till ett eget namn](./service-fabric-cluster-change-cert-thumbprint-to-cn.md), för att utnyttja moderna hemligheter-hanterings funktioner.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan jag skapa ett kluster som sträcker sig över flera Azure-regioner eller mina egna data Center?
 
@@ -40,7 +41,7 @@ Några saker att tänka på:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Får Service Fabric noder automatiskt uppdateringar av operativ systemet?
 
-Du kan använda [Automatisk uppdatering av skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) allmänt tillgänglig funktion idag.
+Du kan använda [Automatisk uppdatering av skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) allmänt tillgänglig funktion idag.
 
 För kluster som inte körs i Azure har vi [tillhandahållit ett program](service-fabric-patch-orchestration-application.md) för att korrigera operativ systemen under Service Fabric noderna.
 
@@ -125,7 +126,7 @@ Nej. Virtuella datorer med låg prioritet stöds inte.
 Följande innebär att ditt program kan hämta autentiseringsuppgifter för autentisering till nyckel valv:
 
 A. Du kan hämta ett certifikat till ditt SF-programs data paket och använda det för att autentisera till nyckel valv under program bygget/packnings jobbet.
-B. För virtuella datorer i skalnings uppsättningen för virtuella datorer kan du utveckla en enkel PowerShell-SetupEntryPoint för din SF-app för att få [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)och sedan [Hämta dina hemligheter från nyckel valvet](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. För virtuella datorer i skalnings uppsättningen för virtuella datorer kan du utveckla en enkel PowerShell-SetupEntryPoint för din SF-app för att få [en åtkomsttoken från MSI-slutpunkten](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)och sedan [Hämta dina hemligheter från nyckel valvet](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Program design
 
@@ -176,9 +177,9 @@ Behållare är ett enkelt sätt att paketera tjänster och deras beroenden, så 
 
 Vi har öppen källkod i Service Fabric ([Reliable Services Framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [Reliable frameworks Framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core integrations bibliotek](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer)och [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) på GitHub och accepterar community-bidrag till dessa projekt. 
 
-Vi [meddelade nyligen](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) att vi planerar att öppna källan Service Fabric Runtime. Nu har vi [Service Fabric lagrings platsen](https://github.com/Microsoft/service-fabric/) på GitHub med Linux-build-och test verktyg, vilket innebär att du kan klona lagrings platsen, bygga Service Fabric för Linux, köra grundläggande tester, öppna problem och skicka pull-begäranden. Vi arbetar hårt för att hämta Windows build-miljön som migrerats även, tillsammans med en komplett CI-miljö.
+Vi [meddelade nyligen](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) att vi planerar att öppna källan Service Fabric Runtime. Nu har vi [Service Fabric lagrings platsen](https://github.com/Microsoft/service-fabric/) på GitHub med Linux-build-och test verktyg, vilket innebär att du kan klona lagrings platsen, bygga Service Fabric för Linux, köra grundläggande tester, öppna problem och skicka pull-begäranden. Vi arbetar hårt för att hämta Windows build-miljön som migrerats även, tillsammans med en komplett CI-miljö.
 
-Följ [Service Fabric blogg](https://blogs.msdn.microsoft.com/azureservicefabric/) om du vill ha mer information när de annonseras.
+Följ [Service Fabric blogg](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) om du vill ha mer information när de annonseras.
 
 ## <a name="next-steps"></a>Nästa steg
 

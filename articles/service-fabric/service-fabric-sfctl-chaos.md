@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 9bc7a5405309e35a36b15f44a1b136b899afbb55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119324"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260827"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starta, stoppa och rapportera om kaos test service.
@@ -130,4 +131,4 @@ Stoppar kaos från att köra nya fel. Flyg felen fortsätter att köras tills de
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](./scripts/sfctl-upgrade-application.md).

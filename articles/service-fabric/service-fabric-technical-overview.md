@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611738"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260241"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric terminologi
 
-Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Du kan vara [värd för Service Fabric kluster var som helst](service-fabric-deploy-anywhere.md): Azure, i ett lokalt Data Center eller på någon annan moln leverantör.  Service Fabric är Orchestrator som driver [Azure Service Fabric-nät](/azure/service-fabric-mesh). Du kan använda valfritt ramverk för att skriva dina tjänster och välja var du vill köra programmet från flera miljö val. Den här artikeln beskriver den terminologi som används av Service Fabric för att förstå de termer som används i dokumentationen.
+Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Du kan vara [värd för Service Fabric kluster var som helst](service-fabric-deploy-anywhere.md): Azure, i ett lokalt Data Center eller på någon annan moln leverantör.  Service Fabric är Orchestrator som driver [Azure Service Fabric-nät](../service-fabric-mesh/index.yml). Du kan använda valfritt ramverk för att skriva dina tjänster och välja var du vill köra programmet från flera miljö val. Den här artikeln beskriver den terminologi som används av Service Fabric för att förstå de termer som används i dokumentationen.
 
 ## <a name="infrastructure-concepts"></a>Infrastruktur koncept
 
@@ -125,13 +125,13 @@ Om du vill distribuera dina tjänster måste du beskriva hur de ska köras. Serv
 
 ### <a name="resource-model-preview"></a>Resurs modell (för hands version)
 
-Service Fabric resurser är allt som kan distribueras individuellt för att Service Fabric; inklusive program, tjänster, nätverk och volymer. Resurser definieras med hjälp av en JSON-fil som kan distribueras till en kluster slut punkt.  För Service Fabric nät används Azures resurs modell schema. Ett YAML-filschema kan också användas för att enklare utforma definitionsfiler. Resurser kan distribueras var som helst Service Fabric körs. Resurs modellen är det enklaste sättet att beskriva Service Fabric-program. Huvud fokus är vid enkel distribution och hantering av behållare tjänster. Läs mer i [Introduktion till Service Fabric resurs modell](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
+Service Fabric resurser är allt som kan distribueras individuellt för att Service Fabric; inklusive program, tjänster, nätverk och volymer. Resurser definieras med hjälp av en JSON-fil som kan distribueras till en kluster slut punkt.  För Service Fabric nät används Azures resurs modell schema. Ett YAML-filschema kan också användas för att enklare utforma definitionsfiler. Resurser kan distribueras var som helst Service Fabric körs. Resurs modellen är det enklaste sättet att beskriva Service Fabric-program. Huvud fokus är vid enkel distribution och hantering av behållare tjänster. Läs mer i [Introduktion till Service Fabric resurs modell](../service-fabric-mesh/service-fabric-mesh-service-fabric-resources.md).
 
 ### <a name="native-model"></a>Inbyggd modell
 
 Den inbyggda program modellen ger dina program fullständig åtkomst till Service Fabric. Program och tjänster definieras som registrerade typer i XML-MANIFEST filer.
 
-Den inbyggda modellen stöder Reliable Services-och Reliable Actors-ramverk, som ger åtkomst till API: erna för Service Fabric Runtime och kluster hanterings-API: er i C# och Java. Den inbyggda modellen stöder också godtyckliga behållare och körbara filer. Den inbyggda modellen stöds inte i [Service Fabric nät miljön](/azure/service-fabric-mesh/service-fabric-mesh-overview).
+Den inbyggda modellen stöder Reliable Services-och Reliable Actors-ramverk, som ger åtkomst till API: erna för Service Fabric Runtime och kluster hanterings-API: er i C# och Java. Den inbyggda modellen stöder också godtyckliga behållare och körbara filer. Den inbyggda modellen stöds inte i [Service Fabric nät miljön](../service-fabric-mesh/service-fabric-mesh-overview.md).
 
 **Reliable Services**: ett API för att bygga tillstånds lösa och tillstånds känsliga tjänster. Tillstånds känsliga tjänster lagrar sitt tillstånd i Reliable Collections, till exempel en ord lista eller en kö. Du kan också ansluta olika kommunikations stackar, till exempel Web API och Windows Communication Foundation (WCF).
 
@@ -155,7 +155,7 @@ Service Fabric är en plattforms teknik med öppen källkod som flera olika tjä
 
  - **Azure Service Fabric-nät**: en fullständigt hanterad tjänst för att köra Service Fabric program i Microsoft Azure.
  - **Azure-Service Fabric**: det värd erbjudande som Azure hosted Service Fabric. Den ger integration mellan Service Fabric och Azure-infrastrukturen, tillsammans med uppgradering och konfigurations hantering av Service Fabric-kluster.
- - **Fristående Service Fabric**: en uppsättning installations-och konfigurations verktyg för att [distribuera Service Fabric kluster var som helst](/azure/service-fabric/service-fabric-deploy-anywhere) (lokalt eller i valfri moln leverantör). Hanteras inte av Azure.
+ - **Fristående Service Fabric**: en uppsättning installations-och konfigurations verktyg för att [distribuera Service Fabric kluster var som helst](./service-fabric-deploy-anywhere.md) (lokalt eller i valfri moln leverantör). Hanteras inte av Azure.
  - **Service Fabric utvecklings kluster**: tillhandahåller en lokal utvecklings miljö för Windows, Linux eller Mac för utveckling av Service Fabric program.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Support mat ris för miljö-, Ramverks-och distributions modell
@@ -184,4 +184,4 @@ Läs mer om Service Fabric:
 
 Lär dig mer om Service Fabric nät:
 
-* [Översikt över Service Fabric nät](/azure/service-fabric-mesh/service-fabric-mesh-overview)
+* [Översikt över Service Fabric nät](../service-fabric-mesh/service-fabric-mesh-overview.md)

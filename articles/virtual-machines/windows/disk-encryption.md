@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: d0625c817703fe5d5645bcfdab962591cb184ae2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232737"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259832"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Kryptering på Server sidan av Azure-disklagring
 
@@ -84,9 +84,9 @@ Hög säkerhets känsliga kunder som är intresserade av den risk som är koppla
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera värdbaserad kryptering](disks-enable-host-based-encryption-powershell.md)
-- [Azure PowerShell – aktivera dubbel kryptering på rest-hanterade diskar](disks-enable-double-encryption-at-rest-powershell.md)
-- [Aktivera Kundhanterade nycklar för din hanterade disk – PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Aktivera Kundhanterade nycklar – hanterade diskar](disks-enable-customer-managed-keys-portal.md)
+- [Aktivera kryptering från slut punkt till slut punkt med kryptering på värd – PowerShell](disks-enable-host-based-encryption-powershell.md)
+- [Aktivera dubbel kryptering i vila för dina hanterade diskar – PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
+- [Aktivera Kundhanterade nycklar för dina hanterade diskar – PowerShell](disks-enable-customer-managed-keys-powershell.md)
+- [Aktivera Kundhanterade nycklar för dina hanterade diskar – portalen](disks-enable-customer-managed-keys-portal.md)
 - [Utforska Azure Resource Manager mallar för att skapa krypterade diskar med Kundhanterade nycklar](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Vad är Azure Key Vault?](../../key-vault/general/overview.md)

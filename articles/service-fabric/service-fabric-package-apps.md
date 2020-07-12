@@ -3,11 +3,12 @@ title: Paketera en Azure Service Fabric-app
 description: Lär dig mer om att paketera ett Azure Service Fabric-program och hur du förbereder distributionen till ett kluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701055"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260975"
 ---
 # <a name="package-an-application"></a>Paketera ett program
 
@@ -42,7 +43,7 @@ Mapparna heter för att matcha **namnattribut** för varje motsvarande element. 
 
 ## <a name="use-setupentrypoint"></a>Använd SetupEntryPoint
 
-Vanliga scenarier för att använda **SetupEntryPoint** är när du behöver köra en körbar fil innan tjänsten startar eller så måste du utföra en åtgärd med utökade privilegier. Ett exempel:
+Vanliga scenarier för att använda **SetupEntryPoint** är när du behöver köra en körbar fil innan tjänsten startar eller så måste du utföra en åtgärd med utökade privilegier. Exempel:
 
 * Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Den är inte begränsad till enbart körbara filer som skrivits via Service Fabric programmerings modeller. npm.exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett node.js-program.
 * Konfigurera åtkomst kontroll genom att installera säkerhets certifikat.
@@ -210,7 +211,7 @@ Med det här alternativet behöver programpaketet inte kopieras till avbildnings
 `sfpkg`Filen är ett zip som innehåller det första programpaketet och har tillägget ". sfpkg".
 I zip-paketet kan programpaketet komprimeras eller expanderas. Komprimeringen av programpaketet i zip-paketet görs vid kod-, konfigurations-och data paket nivåer, som [tidigare nämnts](service-fabric-package-apps.md#compress-a-package).
 
-För att skapa en `sfpkg` , börjar du med en mapp som innehåller det ursprungliga programpaketet, komprimerat eller inte. Använd sedan valfritt verktyg för att zippa mappen med tillägget ". sfpkg". Använd till exempel [ZipFile. CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+För att skapa en `sfpkg` , börjar du med en mapp som innehåller det ursprungliga programpaketet, komprimerat eller inte. Använd sedan valfritt verktyg för att zippa mappen med tillägget ". sfpkg". Använd till exempel [ZipFile. CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

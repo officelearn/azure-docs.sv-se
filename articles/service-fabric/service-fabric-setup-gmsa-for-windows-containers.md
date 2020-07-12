@@ -3,15 +3,16 @@ title: Konfigurera gMSA för Azure Service Fabric Container Services
 description: Lär dig nu att konfigurera grupphanterade tjänst konton (gMSA) för en behållare som körs i Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9873e2d7672412b0e1e22c6c2a774cf629fd728a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d34b4c6e11628b6a4843f8a9077ebf69c9e023fe
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639215"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260885"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Konfigurera gMSA för Windows-behållare som körs på Service Fabric
 
-Om du vill konfigurera gMSA (grupphanterade tjänst konton) placeras en fil för autentiseringsuppgifter specifikation ( `credspec` ) på alla noder i klustret. Filen kan kopieras på alla noder med ett VM-tillägg.  `credspec`Filen måste innehålla gMSA konto information. Mer information om `credspec` filen finns i [skapa en specifikation för autentiseringsuppgifter](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec). Referens specifikationen och `Hostname` taggen anges i applikations manifestet. `Hostname`Taggen måste matcha det gMSA-konto namn som containern kör under.  `Hostname`Taggen gör att behållaren kan autentisera sig själv till andra tjänster i domänen med hjälp av Kerberos-autentisering.  Ett exempel på hur du anger `Hostname` och `credspec` i program manifestet visas i följande kodfragment:
+Om du vill konfigurera gMSA (grupphanterade tjänst konton) placeras en fil för autentiseringsuppgifter specifikation ( `credspec` ) på alla noder i klustret. Filen kan kopieras på alla noder med ett VM-tillägg.  `credspec`Filen måste innehålla gMSA konto information. Mer information om `credspec` filen finns i [skapa en specifikation för autentiseringsuppgifter](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec). Referens specifikationen och `Hostname` taggen anges i applikations manifestet. `Hostname`Taggen måste matcha det gMSA-konto namn som containern kör under.  `Hostname`Taggen gör att behållaren kan autentisera sig själv till andra tjänster i domänen med hjälp av Kerberos-autentisering.  Ett exempel på hur du anger `Hostname` och `credspec` i program manifestet visas i följande kodfragment:
 
 ```xml
 <Policies>

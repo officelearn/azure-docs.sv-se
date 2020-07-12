@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147386"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259180"
 ---
 # <a name="about-virtual-hub-routing"></a>Om routning av virtuell hubb
 
@@ -63,6 +63,9 @@ Det finns också en **tabell med ingen väg** för varje virtuell hubb. Spridnin
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Konfigurera statiska vägar i en virtuell nätverks anslutning
 
 Genom att konfigurera statiska vägar får du en mekanism för att styra trafik via en nästa hopp-IP, som kan vara en virtuell nätverks installation (NVA) etablerad i ett eker VNet som är kopplat till en virtuell hubb. Den statiska vägen består av ett väg namn, en lista över mål-prefix och en nästa hopp-IP.
+
+## <a name="reset-hub"></a><a name="route"></a>Återställ hubb
+Det här alternativet är endast tillgängligt i Azure Portal och ger användaren en möjlighet att ta med eventuella misslyckade resurser, till exempel routningstabeller, hubb router eller virtuella Hubbs resurser tillbaka till dess Rightful etablerings tillstånd. Detta är ett ytterligare alternativ som användaren bör tänka på innan Microsoft support kontaktas. Den här åtgärden återställer inga gateways i en virtuell hubb. 
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Dirigera tabeller i grundläggande och standard-virtuella WAN-nätverk före funktions uppsättningen för Association och spridning
 

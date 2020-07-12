@@ -3,12 +3,12 @@ title: Distribuera en befintlig körbar fil till Azure Service Fabric
 description: Lär dig hur du paketerar ett befintligt program som en körbar gäst fil, så att det kan distribueras till ett Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80520487"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259262"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
 
@@ -33,7 +33,7 @@ I Visual Studio finns en Service Fabric tjänstmall som hjälper dig att distrib
      * `CodePackage`anger att arbets katalogen ska ställas in på programmets rot ( `GuestService1Pkg` visas i föregående fil struktur).
      * `Work`anger att filerna placeras i en under katalog som kallas arbete.
 4. Namnge tjänsten och klicka på **OK**.
-5. Om tjänsten behöver en slut punkt för kommunikation kan du nu lägga till protokollet, porten och typen i ServiceManifest.xml-filen. Exempel: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Om tjänsten behöver en slut punkt för kommunikation kan du nu lägga till protokollet, porten och typen i ServiceManifest.xml-filen. Här är ett exempel: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Du kan nu använda paketet och publicera åtgärden mot ditt lokala kluster genom att felsöka lösningen i Visual Studio. När du är klar kan du publicera programmet i ett fjärran slutet kluster eller checka in lösningen till käll kontroll.
 7. Läs [kontrol lera att programmet körs](#check-your-running-application) för att se hur du kan visa den körbara gäst tjänsten som körs i Service Fabric Explorer.
 
@@ -76,7 +76,7 @@ Processen för att packa en körbar gästen manuellt baseras på följande allm�
 
 ### <a name="create-the-package-directory-structure"></a>Skapa paket katalog strukturen
 
-Du kan börja med att skapa katalog strukturen enligt beskrivningen i [Paketera en Azure Service Fabric-app](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Du kan börja med att skapa katalog strukturen enligt beskrivningen i [Paketera en Azure Service Fabric-app](./service-fabric-package-apps.md).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Lägg till programmets kod och konfigurationsfiler
 
@@ -178,7 +178,7 @@ I föregående exempel kör SetupEntryPoint en kommando fil `LaunchConfig.cmd` s
 
 `EntryPoint`Elementet i tjänst manifest filen används för att ange hur tjänsten ska startas.
 
-`ExeHost`Elementet anger den körbara filen (och argument) som ska användas för att starta tjänsten. Du kan också lägga till `IsExternalExecutable="true"` attributet för `ExeHost` att ange att programmet är en extern körbar fil utanför kod paketet. Till exempel `<ExeHost IsExternalExecutable="true">`.
+`ExeHost`Elementet anger den körbara filen (och argument) som ska användas för att starta tjänsten. Du kan också lägga till `IsExternalExecutable="true"` attributet för `ExeHost` att ange att programmet är en extern körbar fil utanför kod paketet. Ett exempel är `<ExeHost IsExternalExecutable="true">`.
 
 * `Program`Anger namnet på den körbara fil som ska starta tjänsten.
 * `Arguments`anger de argument som ska skickas till den körbara filen. Det kan vara en lista över parametrar med argument.

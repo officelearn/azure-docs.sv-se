@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c3d1b4d603e2dde2de8d4a95fb953744d71409
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463381"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259013"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
 Microsoft Azure Service Fabric är nästa generations moln program plattform för mycket skalbara, mycket pålitliga distribuerade program. Den introducerar många nya funktioner för paketering, distribution, uppgradering och hantering av distribuerade moln program. 
@@ -35,7 +36,7 @@ Service Fabric program modellen har ett antal fördelar:
 * Service Fabrics plattformen kan köras var som helst som har Windows Server-eller Linux-datorer, oavsett om det är Azure eller lokalt. Plattformen ger ett abstraktions lager över den underliggande infrastrukturen så att ditt program kan köras i olika miljöer. 
 * Hantering av distribuerade program. Service Fabric är en plattform som inte bara är värd för distribuerade program, utan även hjälper till att hantera deras livs cykel oberoende av den virtuella datorns eller livs cykelns värd.
 
-## <a name="application-architecture"></a>Programarkitektur
+## <a name="application-architecture"></a>Programmets arkitektur
 Arkitekturen i ett Cloud Services program innehåller vanligt vis många beroenden för externa tjänster, till exempel Service Bus, Azure Table och Blob Storage, SQL, Redis och andra för att hantera tillstånd och data för ett program och kommunikation mellan webb-och arbets roller i en Cloud Services distribution. Ett exempel på ett komplett Cloud Services program kan se ut så här:  
 
 ![Cloud Services arkitektur][9]
@@ -80,10 +81,10 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 ![Service Fabric direkt kommunikation][8]
 
 ## <a name="parity"></a>Paritet
-[Cloud Services liknar Service Fabric i grad av kontroll och lätt att använda, men det är nu en äldre tjänst och Service Fabric rekommenderas för ny utveckling](https://docs.microsoft.com/azure/app-service/overview-compare). följande är en API-jämförelse:
+[Cloud Services liknar Service Fabric i grad av kontroll och lätt att använda, men det är nu en äldre tjänst och Service Fabric rekommenderas för ny utveckling](/azure/app-service/overview-compare). följande är en API-jämförelse:
 
 
-| **Cloud Service-API** | **Service Fabric-API** | **Anteckningar** |
+| **Cloud Service-API** | **Service Fabric-API** | **Kommentarer** |
 | --- | --- | --- |
 | RoleInstance. GetID | FabricRuntime. GetNodeContext. NodeId eller. NodeName | ID är en egenskap för nodnamn |
 | RoleInstance. GetFaultDomain | FabricClient. QueryManager. GetNodeList | Filtrera på nodnamn och Använd egenskapen FD |

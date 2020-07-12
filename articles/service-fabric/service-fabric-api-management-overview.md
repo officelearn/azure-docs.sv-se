@@ -5,15 +5,16 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76028548"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259292"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric med Azure API Management-översikt
 
-Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara en tillstånds lös tjänst, till exempel ett [ASP.net Core program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som har utformats för trafik ingångar, till exempel [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)eller [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara en tillstånds lös tjänst, till exempel ett [ASP.net Core program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som har utformats för trafik ingångar, till exempel [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml)eller [Azure API Management](../api-management/index.yml).
 
 Den här artikeln är en introduktion till att använda Azure API Management som en gateway för dina Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till Server delens Service Fabric tjänster.
 
@@ -76,7 +77,7 @@ I det här exemplet skapas en ny tillstånds lös tjänst instans för varje anv
 
 - `fabric:/app/users/<username>`
 
-  Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran ska skickas till i definition av backend-principen från det `name` värde som anges i sökvägen för URL-begäran. Ett exempel:
+  Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran ska skickas till i definition av backend-principen från det `name` värde som anges i sökvägen för URL-begäran. Exempel:
 
   - En begäran till `/api/users/foo` dirigeras till tjänst instansen`fabric:/app/users/foo`
   - En begäran till `/api/users/bar` dirigeras till tjänst instansen`fabric:/app/users/bar`
@@ -95,7 +96,7 @@ I det här exemplet skapas en ny tillstånds känslig tjänst instans för varje
 
 - `fabric:/app/users/<username>`
 
-  Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran skickas till i definitionen av backend-principen från det `name` värde som tillhandahöll sökvägen till URL-begäran. Ett exempel:
+  Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran skickas till i definitionen av backend-principen från det `name` värde som tillhandahöll sökvägen till URL-begäran. Exempel:
 
   - En begäran till `/api/users/foo` dirigeras till tjänst instansen`fabric:/app/users/foo`
   - En begäran till `/api/users/bar` dirigeras till tjänst instansen`fabric:/app/users/bar`

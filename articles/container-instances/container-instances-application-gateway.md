@@ -3,11 +3,12 @@ title: Statisk IP-adress för container grupp
 description: Skapa en behållar grupp i ett virtuellt nätverk och Använd en Azure Application Gateway för att exponera en statisk IP-adress för klient delen i en behållares webbapp
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299170"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260778"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exponera en statisk IP-adress för en behållar grupp
 
@@ -28,7 +29,7 @@ Så länge programgatewayen körs och behållar gruppen visar en stabil privat I
 
 I ett typiskt fall kanske du redan har ett virtuellt Azure-nätverk. Om du inte har ett kan du skapa en som visas med följande exempel kommandon. Det virtuella nätverket behöver separata undernät för programgatewayen och behållar gruppen.
 
-Skapa en Azure-resurs grupp om du behöver det. Ett exempel:
+Skapa en Azure-resurs grupp om du behöver det. Exempel:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -102,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Skapa Application Gateway
 
-Skapa en Application Gateway i det virtuella nätverket genom att följa stegen i snabb starten för [Application Gateway](../application-gateway/quick-create-cli.md). Följande [AZ Network Application-Gateway Create-][az-network-application-gateway-create] kommando skapar en gateway med en offentlig IP-adress för klient delen och en väg till behållar gruppen. Mer information om Gateway-inställningar finns i [Application Gateway-dokumentationen](/azure/application-gateway/) .
+Skapa en Application Gateway i det virtuella nätverket genom att följa stegen i snabb starten för [Application Gateway](../application-gateway/quick-create-cli.md). Följande [AZ Network Application-Gateway Create-][az-network-application-gateway-create] kommando skapar en gateway med en offentlig IP-adress för klient delen och en väg till behållar gruppen. Mer information om Gateway-inställningar finns i [Application Gateway-dokumentationen](../application-gateway/index.yml) .
 
 ```azurecli
 az network application-gateway create \

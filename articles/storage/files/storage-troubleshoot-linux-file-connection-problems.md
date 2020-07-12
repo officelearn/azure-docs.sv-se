@@ -7,18 +7,18 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dddc2eab5004377afd6743c4722498dd5c6e2a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512008"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259999"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
 Den här artikeln innehåller vanliga problem som är relaterade till Azure Files när du ansluter från Linux-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. 
 
-Förutom fel söknings stegen i den här artikeln kan du använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) för att säkerställa att Linux-klienten har rätt krav. AzFileDiagnostics automatiserar identifieringen av de flesta problem som nämns i den här artikeln. Det hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Fel sökaren innehåller steg som hjälper dig med problem med att ansluta, mappa och montera Azure Files-resurser.
+Förutom fel söknings stegen i den här artikeln kan du använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) för att säkerställa att Linux-klienten har rätt krav. AzFileDiagnostics automatiserar identifieringen av de flesta problem som nämns i den här artikeln. Det hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Fel sökaren innehåller steg som hjälper dig med problem med att ansluta, mappa och montera Azure Files-resurser.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Det går inte att ansluta till eller montera en Azure-filresurs
 
@@ -30,12 +30,12 @@ Vanliga orsaker till det här problemet är:
 
 |   | SMB 2.1 <br>(Monteras på virtuella datorer inom samma Azure-region) | SMB 3.0 <br>(Monteras från lokala platser och över flera regioner) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04 + | 16.04 + |
-| RHEL | 7 + | 7.5 + |
-| CentOS | 7 + |  7.5 + |
-| Debian | 8 + |   |
-| openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | 12 | 12 SP3 + |
+| **Ubuntu Server** | 14.04 + | 16.04 + |
+| **RHEL** | 7 + | 7.5 + |
+| **CentOS** | 7 + |  7.5 + |
+| **Debian** | 8 + |   |
+| **openSUSE** | 13.2 + | 42.3 + |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3 + |
 
 - CIFS-verktyg (CIFS-utils) är inte installerade på klienten.
 - Lägsta SMB/CIFS-version, 2,1, är inte installerad på klienten.
@@ -84,9 +84,9 @@ I Linux får du ett fel meddelande som liknar följande:
 
 ### <a name="cause"></a>Orsak
 
-Du har nått den övre gränsen för samtidiga öppna referenser som tillåts för en fil.
+Du har nått den övre gränsen för samtidiga öppna referenser som tillåts för en fil eller katalog.
 
-Det finns en kvot på 2 000 öppna referenser på en enskild fil. När du har 2 000 öppna handtag visas ett fel meddelande om att kvoten har nåtts.
+Det finns en kvot på 2 000 öppna referenser på en enskild fil eller katalog. När du har 2 000 öppna handtag visas ett fel meddelande om att kvoten har nåtts.
 
 ### <a name="solution"></a>Lösning
 

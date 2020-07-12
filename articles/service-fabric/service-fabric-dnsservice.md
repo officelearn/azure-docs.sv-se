@@ -3,11 +3,12 @@ title: Azure Service Fabric DNS-tjänsten
 description: Använd Service Fabricens DNS-tjänst för att identifiera mikrotjänster inifrån klustret.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458025"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258914"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
 DNS-tjänsten är en valfri system tjänst som du kan aktivera i klustret för att identifiera andra tjänster som använder DNS-protokollet. 
@@ -41,7 +42,7 @@ När du skapar ett kluster med hjälp av portalen aktive ras DNS-tjänsten som s
 Om du inte använder portalen för att skapa klustret eller om du uppdaterar ett befintligt kluster måste du aktivera DNS-tjänsten i en mall:
 
 - Om du vill distribuera ett nytt kluster kan du antingen använda [exempel-mallarna](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) eller skapa en egen Resource Manager-mall. 
-- Om du vill uppdatera ett befintligt kluster kan du gå till klustrets resurs grupp på portalen och klicka på **Automation-skript** för att arbeta med en mall som motsvarar klustrets aktuella tillstånd och andra resurser i gruppen. Mer information finns i [Exportera mallen från resurs gruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
+- Om du vill uppdatera ett befintligt kluster kan du gå till klustrets resurs grupp på portalen och klicka på **Automation-skript** för att arbeta med en mall som motsvarar klustrets aktuella tillstånd och andra resurser i gruppen. Mer information finns i [Exportera mallen från resurs gruppen](../azure-resource-manager/templates/export-template-portal.md).
 
 När du har en mall kan du aktivera DNS-tjänsten med följande steg:
 
@@ -102,7 +103,7 @@ När du har en mall kan du aktivera DNS-tjänsten med följande steg:
 3. När du har uppdaterat kluster mal len med ändringarna tillämpar du dem och låter uppgraderingen slutföras. När uppgraderingen är klar börjar DNS-systemtjänsten att köras i klustret. Tjänst namnet är `fabric:/System/DnsService` , och du hittar det under avsnittet **system** service i Service Fabric Explorer. 
 
 > [!NOTE]
-> När du uppgraderar DNS från inaktive rad till aktive rad kanske Service Fabric Explorer inte visar det nya läget. Lös problemet genom att starta om noderna genom att ändra UpgradePolicy i din Azure Resource Manager-mall. Mer information finns i [referensen för Service Fabric mal len](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
+> När du uppgraderar DNS från inaktive rad till aktive rad kanske Service Fabric Explorer inte visar det nya läget. Lös problemet genom att starta om noderna genom att ändra UpgradePolicy i din Azure Resource Manager-mall. Mer information finns i [referensen för Service Fabric mal len](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
 
 > [!NOTE]
 > Att aktivera DNS-tjänsten när du utvecklar på en lokal dator åsidosätter vissa DNS-inställningar. Om du får problem med att ansluta till Internet kontrollerar du dina DNS-inställningar.
@@ -128,7 +129,7 @@ När programmet har distribuerats visar tjänst instansen i Service Fabric Explo
 
 ![tjänst slut punkter](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-I följande exempel anges DNS-namnet för en tillstånds känslig tjänst till `statefulsvc.app` . Tjänsten använder ett namngivet partitionerings schema. Observera att partitionsnamnet är gemener. Detta är ett krav för partitioner som kommer att vara riktade till DNS-frågor. Mer information finns i [göra DNS-frågor på en tillstånds känslig tjänst partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+I följande exempel anges DNS-namnet för en tillstånds känslig tjänst till `statefulsvc.app` . Tjänsten använder ett namngivet partitionerings schema. Observera att partitionsnamnet är gemener. Detta är ett krav för partitioner som kommer att vara riktade till DNS-frågor. Mer information finns i [göra DNS-frågor på en tillstånds känslig tjänst partition](#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -169,7 +170,7 @@ DNS-frågor som riktar sig mot en partition formateras enligt följande:
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Där:
+Plats:
 
 - Den första delen av *partitioned-service-DNSName* är den första delen av TJÄNSTens DNS-namn.
 - *PartitionPrefix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är "--". Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
@@ -252,4 +253,3 @@ public class ValuesController : Controller
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om tjänst kommunikation i klustret med [Anslut och kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md)
-

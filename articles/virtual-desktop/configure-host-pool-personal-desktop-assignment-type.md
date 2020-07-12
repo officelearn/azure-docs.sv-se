@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223116"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260820"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurera tilldelnings typen egen Skriv bords värd pool
 
@@ -28,7 +28,7 @@ Du kan konfigurera tilldelnings typen för din personliga Skriv bords värd för
 >[!NOTE]
 > Anvisningarna i den här artikeln gäller bara för personliga Skriv bords värd pooler, inte pooler med pooler, eftersom användare i pooler värdar inte har tilldelats till vissa värdar för fjärrskrivbordssessioner.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan har laddat ned och installerat Windows Virtual Desktop PowerShell-modulen. Om du inte har gjort det följer du anvisningarna i [Konfigurera PowerShell-modulen](powershell-module.md).
 
@@ -91,7 +91,7 @@ Så här tilldelar du en användare direkt till en sessions värd i Azure Portal
 
 Nu när du har konfigurerat den personliga Skriv bords typen kan du logga in på en Windows Virtual Desktop-klient för att testa den som en del av en användarsession. Följande två instruktioner visar hur du ansluter till en session med valfri klient:
 
-- [Ansluta med Windows-skrivbordsklienten](connect-windows-7-and-10.md)
+- [Ansluta med Windows-skrivbordsklienten](connect-windows-7-10.md)
 - [Ansluta med webbklienten](connect-web.md)
 - [Ansluta med Android-klienten](connect-android.md)
 - [Ansluta med iOS-klienten](connect-ios.md)

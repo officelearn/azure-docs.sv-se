@@ -3,11 +3,12 @@ title: Paketera en befintlig körbar fil till Azure Service Fabric
 description: Lär dig mer om att paketera ett befintligt program som en körbar gäst fil, så att det kan distribueras till ett Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457828"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247395"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuera en befintlig körbar fil till Service Fabric
 Du kan köra vilken typ av kod som helst, till exempel Node.js, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program.
@@ -18,7 +19,7 @@ Körbara gäst program behandlas av Service Fabric som tillstånds lösa tjänst
 Det finns flera fördelar med att köra en körbar gäst fil i ett Service Fabric kluster:
 
 * Hög tillgänglighet. Program som körs i Service Fabric görs med hög tillgänglighet. Service Fabric garanterar att instanser av ett program körs.
-* Hälso övervakning. Service Fabric hälso övervakning identifierar om ett program körs och innehåller diagnostikinformation om det uppstår ett fel.   
+* Hälsoövervakning. Service Fabric hälso övervakning identifierar om ett program körs och innehåller diagnostikinformation om det uppstår ett fel.   
 * Hantering av program livs cykel. Förutom att tillhandahålla uppgraderingar utan avbrott ger Service Fabric automatisk återställning till den tidigare versionen om det finns en skadad hälso händelse som rapporteras under en uppgradering.    
 * Innebär. Du kan köra flera program i ett kluster, vilket eliminerar behovet av att varje program ska köras på sin egen maskin vara.
 * Identifierings möjlighet: med hjälp av REST kan du anropa Service Fabric Naming Service för att hitta andra tjänster i klustret. 
@@ -64,8 +65,7 @@ ApplicationPackageRoot innehåller ApplicationManifest.xml-filen som definierar 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar för relaterad information och uppgifter.
 * [Distribuera en körbar gäst](service-fabric-deploy-existing-app.md)
-* [Distribuera flera körbara gäster](service-fabric-deploy-multiple-apps.md)
+* [Distribuera flera körbara gäster](./service-fabric-deploy-existing-app.md)
 * [Skapa ditt första körbara gäst program med Visual Studio](quickstart-guest-app.md)
 * [Exempel på paketering och distribution av en körbar gäst fil](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), inklusive en länk till för hands versionen av packnings verktyget
 * [Exempel på två körbara gäst program (C# och NodeJS) som kommunicerar via namngivnings tjänsten med REST](https://github.com/Azure-Samples/service-fabric-containers)
-

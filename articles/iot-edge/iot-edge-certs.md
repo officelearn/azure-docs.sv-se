@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9c3f8e1e37a59dc0010269c6b4c19e3a682c57e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982736"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247021"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Förstå hur Azure IoT Edge använder certifikat
 
@@ -24,6 +25,9 @@ I den här artikeln förklaras hur IoT Edge certifikat kan fungera i produktions
 ## <a name="iot-edge-certificates"></a>IoT Edge-certifikat
 
 Tillverkare är vanligt vis inte slutanvändare av en IoT Edge enhet. Ibland är den enda relationen mellan två när slutanvändaren eller operatören köper en generisk enhet som tillverkas av tillverkaren. Vid andra tillfällen fungerar tillverkaren enligt avtal för att bygga en anpassad enhet för operatören. IoT Edge-certifikatets design försöker göra båda scenarierna i kontot.
+
+> [!NOTE]
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050. Den här begränsningen gäller för enhetens CA-certifikat, alla certifikat i det betrodda paketet och de enhets-ID-certifikat som används för etablerings metoder för X. 509.
 
 Följande bild illustrerar IoT Edge användningen av certifikat. Det kan finnas noll, ett eller flera mellanliggande signerings certifikat mellan rot certifikat utfärdarens certifikat och enhetens CA-certifikat, beroende på antalet enheter som berörs. Här visar vi ett ärende.
 

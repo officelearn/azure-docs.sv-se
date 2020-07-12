@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871271"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250302"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser till Azure Event Hubs i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Event Hubs fungerar som "Front dörren" för händelse pipelinen och när data samlas in i en händelsehubben kan den transformeras och lagras med hjälp av en analys av real tids analys eller batch-/minnes kort. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -26,12 +27,12 @@ Den här artikeln är kopplad till [integrera Azure-API Management med Event Hub
 
 ## <a name="create-an-azure-event-hub"></a>Skapa en Azure-händelsehubb
 
-Detaljerade anvisningar om hur du skapar en Event Hub och hämtar anslutnings strängar som du behöver för att skicka och ta emot händelser till och från Händelsehubben finns i [skapa ett Event Hubs-namnområde och en Event Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+Detaljerade anvisningar om hur du skapar en Event Hub och hämtar anslutnings strängar som du behöver för att skicka och ta emot händelser till och från Händelsehubben finns i [skapa ett Event Hubs-namnområde och en Event Hub med hjälp av Azure Portal](../event-hubs/event-hubs-create.md).
 
 ## <a name="create-an-api-management-logger"></a>Skapa en API Management-loggare
-Nu när du har en Event Hub är nästa steg att konfigurera en [loggare](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) i API Management-tjänsten så att den kan logga händelser till händelsehubben.
+Nu när du har en Event Hub är nästa steg att konfigurera en [loggare](/rest/api/apimanagement/2019-12-01/logger) i API Management-tjänsten så att den kan logga händelser till händelsehubben.
 
-API Management-loggar konfigureras med hjälp av [API Management REST API](https://aka.ms/apimapi). Exempel på detaljerad begäran finns i [så här skapar du loggar](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+API Management-loggar konfigureras med hjälp av [API Management REST API](https://aka.ms/apimapi). Exempel på detaljerad begäran finns i [så här skapar du loggar](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Konfigurera logg-till-eventhub-principer
 
@@ -68,7 +69,7 @@ Klicka på **Spara** för att spara den uppdaterade princip konfigurationen. Så
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Förhandsgranska loggen i Event Hubs med Azure Stream Analytics
 
-Du kan förhandsgranska loggen i Event Hubs genom att använda [Azure Stream Analytics frågor](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+Du kan förhandsgranska loggen i Event Hubs genom att använda [Azure Stream Analytics frågor](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. I Azure Portal bläddrar du till händelsehubben som loggen skickar händelser till. 
 2. Under **funktioner**väljer du fliken **bearbeta data** .
@@ -78,11 +79,11 @@ Du kan förhandsgranska loggen i Event Hubs genom att använda [Azure Stream Ana
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Azure Event Hubs
   * [Kom igång med Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Ta emot meddelanden med EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Ta emot meddelanden med EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Programmerings guide för Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Läs mer om API Management och Event Hubs-integrering
-  * [Referens för entiteten loggning](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger)
-  * [logg-till-eventhub-princip referens](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Referens för entiteten loggning](/rest/api/apimanagement/2019-12-01/logger)
+  * [logg-till-eventhub-princip referens](./api-management-advanced-policies.md#log-to-eventhub)
   * [Övervaka dina API: er med Azure API Management, Event Hubs och Moesif](api-management-log-to-eventhub-sample.md)  
 * Lär dig mer om [integrering med Azure Application Insights](api-management-howto-app-insights.md)
 

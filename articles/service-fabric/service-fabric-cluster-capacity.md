@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610548"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247787"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 
@@ -26,7 +26,7 @@ Den här artikeln vägleder dig genom de viktigaste besluts punkterna för vart 
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>Ursprungligt antal och egenskaper för klusternoder
 
-En *nodtyp* definierar storlek, antal och egenskaper för en uppsättning noder (virtuella datorer) i klustret. Varje nodtyp som definieras i ett Service Fabric-kluster mappar till en [skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+En *nodtyp* definierar storlek, antal och egenskaper för en uppsättning noder (virtuella datorer) i klustret. Varje nodtyp som definieras i ett Service Fabric-kluster mappar till en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/overview.md).
 
 Eftersom varje nodtyp är en distinkt skalnings uppsättning, kan den skalas upp eller ned oberoende av varandra, ha olika uppsättningar portar öppna och ha olika kapacitets mått. Mer information om relationen mellan nodtyper och skalnings uppsättningar för virtuella datorer finns i [Service Fabric typer av klusternoder](service-fabric-cluster-nodetypes.md).
 
@@ -34,7 +34,7 @@ Varje kluster kräver en **primär nodtyp**, som kör kritiska system tjänster 
 
 **Typer av icke-primära noder** kan användas för att definiera program roller (till exempel *frontend-* och *backend-* tjänster) och för att fysiskt isolera tjänster i ett kluster. Service Fabric kluster kan ha noll eller flera icke-primära nodtyper.
 
-Den primära nodtypen konfigureras med hjälp av `isPrimary` attributet under nodtypen definition i mallen för Azure Resource Manager distribution. Se [NodeTypeDescription-objektet](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) för en fullständig lista över egenskaper för nodtyp. Du kan till exempel öppna en *AzureDeploy.jspå* en fil i [Service Fabric kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) och söka efter objektet *på sidan* `nodetTypes` .
+Den primära nodtypen konfigureras med hjälp av `isPrimary` attributet under nodtypen definition i mallen för Azure Resource Manager distribution. Se [NodeTypeDescription-objektet](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) för en fullständig lista över egenskaper för nodtyp. Du kan till exempel öppna en *AzureDeploy.jspå* en fil i [Service Fabric kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) och söka efter objektet *på sidan* `nodetTypes` .
 
 ### <a name="node-type-planning-considerations"></a>Planerings överväganden för Node-typ
 
@@ -79,7 +79,7 @@ I tabellen nedan visas Service Fabric hållbarhets nivåer, deras krav och affor
 > Med brons hållbarhet är automatisk uppgradering av OS-avbildningen inte tillgänglig. Även om [program för uppdaterings dirigering](service-fabric-patch-orchestration-application.md) (endast avsett för icke-Azure-värdbaserade kluster) *inte rekommenderas* för silver eller större hållbarhets nivåer, är det bara ditt alternativ att automatisera Windows-uppdateringar med avseende på Service Fabric uppgraderings domäner.
 
 > [!IMPORTANT]
-> Oberoende av hållbarhets nivån förstörs klustret om du kör en [avfördelnings](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) åtgärd på en skalnings uppsättning för virtuell dator.
+> Oberoende av hållbarhets nivån förstörs klustret om du kör en [avfördelnings](/rest/api/compute/virtualmachinescalesets/deallocate) åtgärd på en skalnings uppsättning för virtuell dator.
 
 ### <a name="bronze"></a>Brons
 

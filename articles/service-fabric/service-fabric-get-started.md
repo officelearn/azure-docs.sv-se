@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e82c7809f5a6c79b61dc0c6731a696c672f6aa97
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888091"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247344"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 
@@ -42,7 +42,7 @@ Följande operativsystemversioner stöds för utveckling:
 
 ## <a name="install-the-sdk-and-tools"></a>Installera SDK och verktyg
 
-Installations programmet för webb plattformen (WebPI) är det rekommenderade sättet att installera SDK och verktyg. Om du får körnings fel med hjälp av WebPI kan du också hitta direkt länkar till installations programmet i viktig information för en viss Service Fabric-version. Viktig information finns i de olika versions meddelandena på [Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Installations programmet för webb plattformen (WebPI) är det rekommenderade sättet att installera SDK och verktyg. Om du får körnings fel med hjälp av WebPI kan du också hitta direkt länkar till installations programmet i viktig information för en viss Service Fabric-version. Viktig information finns i de olika versions meddelandena på [Service Fabric teamets blogg](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
 > [!NOTE]
 > Uppgraderingar av lokala Service Fabric utvecklings kluster stöds inte.

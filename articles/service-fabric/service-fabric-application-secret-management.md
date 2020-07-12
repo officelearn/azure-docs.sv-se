@@ -3,12 +3,12 @@ title: Hantera Azure Service Fabric program hemligheter
 description: Lär dig hur du skyddar hemliga värden i ett Service Fabric program (oberoende).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583232"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248126"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric program
 Den här guiden vägleder dig genom stegen för att hantera hemligheter i ett Service Fabric program. Hemligheter kan vara vilken känslig information som helst, till exempel lagrings anslutnings strängar, lösen ord eller andra värden som inte ska hanteras i oformaterad text.
@@ -99,7 +99,7 @@ Om du vill åsidosätta värden i Settings.xml, deklarera en parameter för åsi
 
 Du kan nu ange värdet som en *program parameter* när du skapar en instans av programmet. Att skapa en program instans kan skriptas med PowerShell eller skrivas i C# för enkel integrering i en build-process.
 
-Med PowerShell anges parametern till `New-ServiceFabricApplication` kommandot som en [hash-tabell](https://technet.microsoft.com/library/ee692803.aspx):
+Med PowerShell anges parametern till `New-ServiceFabricApplication` kommandot som en [hash-tabell](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10)):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}

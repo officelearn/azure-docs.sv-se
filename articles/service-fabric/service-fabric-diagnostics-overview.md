@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712232"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247531"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervakning och diagnostik för Azure Service Fabric
 
@@ -91,4 +92,4 @@ De viktigaste punkterna för vilken plattform du väljer bör inkludera hur bekv
 * Lär dig hur du konfigurerar Azure Monitor loggar för övervakning av behållare – [övervakning och diagnostik för Windows-behållare i Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Se exempel på diagnostiska problem och lösningar med Service Fabric för att [diagnosticera vanliga scenarier](service-fabric-diagnostics-common-scenarios.md)
 * Kolla in andra diagnostiska produkter som integreras med Service Fabric i [Service Fabric diagnostiska partner](service-fabric-diagnostics-partners.md)
-* Lär dig mer om allmänna övervaknings rekommendationer för Azure-resurser – [bästa praxis – övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
+* Lär dig mer om allmänna övervaknings rekommendationer för Azure-resurser – [bästa praxis – övervakning och diagnostik](/azure/architecture/best-practices/monitoring). 

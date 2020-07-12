@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390371"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247038"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -32,7 +32,7 @@ Ja. Här är [en mall](https://github.com/Azure/azure-quickstart-templates/tree/
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Finns det någon säkerhets risk som söker efter avbildningar i ACR?
 
-Ja. Se dokumentationen från [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [turkos](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Ja. Se dokumentationen från [Azure Security Center](../security-center/azure-container-registry-integration.md), [twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) och [turkos](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hur gör jag för att konfigurera Kubernetes med Azure Container Registry?
 
@@ -314,7 +314,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Ett exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Exempel:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -436,8 +436,8 @@ Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Varför Miss tar pull-eller push-begäran med otillåten åtgärd?
 
 Här följer några scenarier där åtgärder kan vara otillåtna:
-* Klassiska register stöds inte längre. Uppgradera till en [tjänst nivå](https://aka.ms/acr/skus) som stöds med hjälp av [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) eller Azure Portal.
-* Avbildningen eller databasen kanske är låst så att den inte kan tas bort eller uppdateras. Du kan använda kommandot [AZ ACR show databas](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) för att visa aktuella attribut.
+* Klassiska register stöds inte längre. Uppgradera till en [tjänst nivå](https://aka.ms/acr/skus) som stöds med hjälp av [AZ acr Update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) eller Azure Portal.
+* Avbildningen eller databasen kanske är låst så att den inte kan tas bort eller uppdateras. Du kan använda kommandot [AZ ACR show databas](./container-registry-image-lock.md) för att visa aktuella attribut.
 * Vissa åtgärder är inte tillåtna om bilden är i karantän. Lär dig mer om [karantän](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Registret kan ha nått sin [lagrings gräns](container-registry-skus.md#service-tier-features-and-limits).
 

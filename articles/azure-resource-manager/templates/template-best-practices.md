@@ -2,13 +2,13 @@
 title: Metodtips för mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/10/2020
+ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058069"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248925"
 ---
 # <a name="arm-template-best-practices"></a>Metod tips för ARM-mall
 
@@ -160,7 +160,7 @@ Följande information kan vara till hjälp när du arbetar med [variabler](templ
 
 När du bestämmer vilka [beroenden](define-resource-dependency.md) som ska anges använder du följande rikt linjer:
 
-* Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett explicit `dependsOn` element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
+* Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett explicit `dependsOn` element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden. Ett exempel på hur du anger ett implicit beroende finns i [implicit beroende](define-resource-dependency.md#reference-and-list-functions).
 
 * Ange en underordnad resurs som beroende av dess överordnade resurs.
 

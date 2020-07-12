@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: ed0cd51fc686735f2d9c110ce46d5904107cafc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8be8ffa1b569c365c8fa9b985d2b8319b7c0731b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430622"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249843"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Så här använder du rollbaserad åtkomstkontroll i Azure API Management
 
-Azure API Management förlitar sig på Azure rollbaserad Access Control (RBAC) för att möjliggöra detaljerad åtkomst hantering för API Management tjänster och entiteter (t. ex. API: er och principer). Den här artikeln ger en översikt över de inbyggda och anpassade rollerna i API Management. Mer information om åtkomst hantering i Azure Portal finns i [Kom igång med åtkomst hantering i Azure Portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
+Azure API Management förlitar sig på Azure rollbaserad Access Control (RBAC) för att möjliggöra detaljerad åtkomst hantering för API Management tjänster och entiteter (t. ex. API: er och principer). Den här artikeln ger en översikt över de inbyggda och anpassade rollerna i API Management. Mer information om åtkomst hantering i Azure Portal finns i [Kom igång med åtkomst hantering i Azure Portal](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +30,7 @@ Azure API Management förlitar sig på Azure rollbaserad Access Control (RBAC) f
 
 API Management tillhandahåller för närvarande tre inbyggda roller och lägger till ytterligare två roller inom en snar framtid. Dessa roller kan tilldelas i olika omfång, inklusive prenumeration, resurs grupp och individ API Management instans. Om du till exempel tilldelar rollen "API Management tjänst läsare" till en användare på resurs grupps nivå, har användaren Läs behörighet till alla API Management instanser i resurs gruppen. 
 
-Följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Du kan tilldela dessa roller med hjälp av Azure Portal eller andra verktyg, inklusive Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)och [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Mer information om hur du tilldelar inbyggda roller finns i [använda roll tilldelningar för att hantera åtkomst till dina Azure-prenumerations resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Du kan tilldela dessa roller med hjälp av Azure Portal eller andra verktyg, inklusive Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [azure CLI](../role-based-access-control/role-assignments-cli.md)och [REST API](../role-based-access-control/role-assignments-rest.md). Mer information om hur du tilldelar inbyggda roller finns i [använda roll tilldelningar för att hantera åtkomst till dina Azure-prenumerations resurser](../role-based-access-control/role-assignments-portal.md).
 
 | Roll          | Läs behörighet<sup>[1]</sup> | Skriv åtkomst<sup>[2]</sup> | Skapa, ta bort, skala, VPN och anpassad domän konfiguration för tjänsten | Åtkomst till den äldre Publisher-portalen | Beskrivning
 | ------------- | ---- | ---- | ---- | ---- | ---- 
@@ -47,7 +48,7 @@ Följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Du kan
 
 ## <a name="custom-roles"></a>Anpassade roller
 
-Om ingen av de inbyggda rollerna uppfyller dina speciella behov kan anpassade roller skapas för att ge mer detaljerad åtkomst hantering för API Management entiteter. Du kan till exempel skapa en anpassad roll som har skrivskyddad åtkomst till en API Management-tjänst, men bara har Skriv behörighet till ett speciellt API. Mer information om anpassade roller finns i [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
+Om ingen av de inbyggda rollerna uppfyller dina speciella behov kan anpassade roller skapas för att ge mer detaljerad åtkomst hantering för API Management entiteter. Du kan till exempel skapa en anpassad roll som har skrivskyddad åtkomst till en API Management-tjänst, men bara har Skriv behörighet till ett speciellt API. Mer information om anpassade roller finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md). 
 
 > [!NOTE]
 > För att kunna se en API Management instans i Azure Portal måste en anpassad roll innehålla ```Microsoft.ApiManagement/service/read``` åtgärden.
@@ -82,4 +83,4 @@ Mer information om rollbaserad Access Control i Azure finns i följande artiklar
   * [Kom igång med åtkomsthantering i Azure-portalen](../role-based-access-control/overview.md)
   * [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md)
   * [Anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md)
-  * [Åtgärder för Azure Resource Manager Resource Provider](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)
+  * [Åtgärder för resursprovidern Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 39803ab88e5b252ef119d22a697e135c83f87780
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0eed2328aca78402c5f4691bb9b3d07d4f36472e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205641"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250234"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>Så här migrerar du Azure API Management över flera regioner
 Om du vill migrera API Management instanser från en Azure-region till en annan, kan du använda funktionen [säkerhets kopiering och återställning](api-management-howto-disaster-recovery-backup-restore.md) . Du bör välja samma API Management pris nivå i käll-och mål regionerna. 
 
 > [!NOTE]
-> Säkerhets kopiering och återställning fungerar inte när du migrerar mellan olika moln typer. För det måste du exportera resursen [som en mall](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates). Sedan kan du anpassa den exporterade mallen för Azure-regionen och återskapa resursen. 
+> Säkerhets kopiering och återställning fungerar inte när du migrerar mellan olika moln typer. För det måste du exportera resursen [som en mall](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates). Sedan kan du anpassa den exporterade mallen för Azure-regionen och återskapa resursen. 
 
 ## <a name="option-1-use-a-different-api-management-instance-name"></a>Alternativ 1: Använd ett annat API Management instans namn
 
@@ -47,4 +47,4 @@ Om du vill migrera API Management instanser från en Azure-region till en annan,
 ## <a name="next-steps"></a><a name="next-steps"> </a>Nästa steg
 * Mer information om funktionen för säkerhets kopiering och återställning finns i [implementera haveri beredskap](api-management-howto-disaster-recovery-backup-restore.md).
 * Information om hur du migrerar Azure-resurser finns i [Azures vägledning för migrering av flera regioner](https://github.com/Azure/Azure-Migration-Guidance).
-* [Optimera och Spara på dina moln utgifter](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+* [Optimera och Spara på dina moln utgifter](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

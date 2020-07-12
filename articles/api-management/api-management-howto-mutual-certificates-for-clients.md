@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76713143"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250081"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Så skyddar du API:er genom att autentisera klientcertifikat i API Management
 
 API Management ger möjlighet att skydda åtkomsten till API: er (t. ex. klient som API Management) med klient certifikat. Du kan verifiera inkommande certifikat och kontrol lera certifikat egenskaperna mot önskade värden med hjälp av princip uttryck.
 
-Information om hur du skyddar åtkomst till backend-tjänsten för ett API med hjälp av klient certifikat (d.v.s. API Management till Server del) finns i [så här skyddar du backend-tjänster med autentisering av klient certifikat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+Information om hur du skyddar åtkomst till backend-tjänsten för ett API med hjälp av klient certifikat (d.v.s. API Management till Server del) finns i [så här skyddar du backend-tjänster med autentisering av klient certifikat](./api-management-howto-mutual-certificates.md)
 
 > [!IMPORTANT]
 > För att ta emot och verifiera klient certifikat över HTTP/2 på nivåerna Developer, Basic, standard eller Premium måste du aktivera inställningen "förhandla klient certifikat" på bladet "anpassade domäner" enligt nedan.
@@ -98,5 +99,5 @@ I följande exempel visas hur du kontrollerar tumavtrycket för ett klient certi
 
 ## <a name="next-steps"></a>Nästa steg
 
--   [Skydda backend-tjänster med autentisering av klient certifikat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [Ladda upp certifikat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [Skydda backend-tjänster med autentisering av klient certifikat](./api-management-howto-mutual-certificates.md)
+-   [Ladda upp certifikat](./api-management-howto-mutual-certificates.md)

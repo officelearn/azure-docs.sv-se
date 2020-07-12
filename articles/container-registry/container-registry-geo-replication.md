@@ -1,33 +1,34 @@
 ---
 title: GEO-replikera ett register
-description: Kom igång med att skapa och hantera ett geo-replikerat Azure Container Registry, vilket gör att registret kan betjäna flera regioner med regionala repliker med flera huvud servrar. Geo-replikering är en funktion i Premium tjänst-nivån.
+description: Kom igång med att skapa och hantera ett geo-replikerat Azure Container Registry, vilket gör att registret kan betjäna flera regioner med regionala repliker med flera huvud servrar. Geo-replikering är en funktion i Premium service-nivån.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508802"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247140"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
 Företag som vill ha en lokal närvaro, eller en direkt säkerhetskopia, väljer att köra tjänster från flera Azure-regioner. Som bästa praxis kan ett containerregister placeras i varje region där avbildningarna körs för att medge nätverksnära åtgärder med snabba och tillförlitliga avbildningslageröverföringar. Geo-replikering gör att ett Azure-containerregister kan fungera som ett enskilt register som betjänar flera regioner med regionala register med flera original. 
 
-Ett geo-replikerat register ger följande fördelar:
+Ett georeplikerat register ger följande fördelar:
 
-* Namn på enskilda register/avbildningar/taggar kan användas i flera regioner
+* Namn på register/avbildningar/taggar kan användas i flera regioner
 * Nätverksnära registeråtkomst från regionala distributioner
-* Inga ytterligare utgående avgifter eftersom avbildningar hämtas från ett lokalt replikerat register i samma region som din containervärd
-* Enskild hantering av ett register i flera regioner
+* Inga ytterligare avgifter för utgående trafik eftersom avbildningarna hämtas från ett lokalt, replikerat register i samma region som containervärden
+* Enkel hantering av ett register i flera regioner
 
 > [!NOTE]
 > Om du behöver upprätthålla kopior av containeravbildningar i mer än ett Azure-containerregister har Azure Container Registry även stöd för [avbildningsimport](container-registry-import-images.md). Till exempel kan du i ett DevOps-arbetsflöde importera en avbildning från ett utvecklingsregister till ett produktionsregister utan att behöva använda Docker-kommandon.
 >
 
 ## <a name="example-use-case"></a>Exempel på användningsfall
-Contoso kör en webbplats med offentlig närvaro i USA, Kanada och Europa. För att betjäna dessa marknader med lokalt och nätverksnära innehåll kör Contoso [Azure Kubernetes Service](/azure/aks/)-kluster (AKS) i USA, västra; USA, östra; Kanada, centrala samt Europa, västra. Webbappen, som distribueras som en Docker-avbildning, använder samma kod och avbildning i alla regioner. Innehåll, som är lokalt för den regionen, hämtas från en databas som etableras unikt i varje region. Varje regional distribution har en unik konfiguration för resurser som den lokala databasen.
+Contoso kör en webbplats med offentlig närvaro i USA, Kanada och Europa. För att betjäna dessa marknader med lokalt och nätverksnära innehåll kör Contoso [Azure Kubernetes Service](../aks/index.yml)-kluster (AKS) i USA, västra; USA, östra; Kanada, centrala samt Europa, västra. Webbappen, som distribueras som en Docker-avbildning, använder samma kod och avbildning i alla regioner. Innehåll, som är lokalt för den regionen, hämtas från en databas som etableras unikt i varje region. Varje regional distribution har en unik konfiguration för resurser som den lokala databasen.
 
 Utvecklingsteamet finns i Seattle, WA, och använder datacentret för USA, västra.
 
@@ -94,7 +95,7 @@ ACR börjar synkronisera avbildningar mellan de konfigurerade replikerna. När d
 * När du push-överför eller hämtar bilder från ett geo-replikerat register skickar Azure Traffic Manager i bakgrunden begäran till registret i den region som är närmast dig vad gäller nätverks fördröjning.
 * När du har push-överfört en avbildning eller tagga till den närmaste regionen tar det lite tid för Azure Container Registry att replikera manifest och lager till de återstående regioner som du har valt. Större bilder tar längre tid att replikera än de mindre. Bilder och taggar synkroniseras i de replikerade regionerna med en eventuell konsekvens modell.
 * För att hantera arbets flöden som är beroende av push-uppdateringar till ett geo-replikerat register, rekommenderar vi att du konfigurerar [Webhooks](container-registry-webhook.md) så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
-* För att hantera blobbar som representerar innehålls lager använder Azure Container reregister data slut punkter. Du kan aktivera [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) för ditt register i var och en av dina registers geo-replikerade regioner. Med dessa slut punkter kan du konfigurera regler för att begränsa brand Väggs åtkomst.
+* Azure Container Registry använder data slut punkter för att hantera blobbar som representerar innehålls lager. Du kan aktivera [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) för ditt register i var och en av dina registers geo-replikerade regioner. Med dessa slut punkter kan du konfigurera regler för att begränsa brand Väggs åtkomst.
 * Om du konfigurerar en [privat länk](container-registry-private-link.md) för registret med privata slut punkter i ett virtuellt nätverk, aktive ras dedikerade data slut punkter i varje geo-replikerad region som standard. 
 
 ## <a name="delete-a-replica"></a>Ta bort en replik

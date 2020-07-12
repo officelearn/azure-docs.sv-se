@@ -4,11 +4,12 @@ description: Översikt över kategorier av moln program i Service Fabric. Diskut
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
-ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaf8204158f720d8c69c98af758071cd91f6eff0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76024736"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248177"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric program scenarier
 
@@ -16,7 +17,7 @@ Azure Service Fabric erbjuder en tillförlitlig och flexibel plattform där du k
 
 Den unika arkitekturen i Service Fabric gör det möjligt att utföra data analyser i nära real tid, i minnes beräkning, parallella transaktioner och händelse bearbetning i dina program. Du kan enkelt skala dina program i eller ut beroende på vilka resurs krav som ändras.
 
-Design rikt linjer för att skapa program finns [i arkitekturen för mikrotjänster på Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) och [metod tips för program design med hjälp av Service Fabric](service-fabric-best-practices-applications.md).
+Design rikt linjer för att skapa program finns [i arkitekturen för mikrotjänster på Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric) och [metod tips för program design med hjälp av Service Fabric](service-fabric-best-practices-applications.md).
 
 Överväg att använda Service Fabric plattform för följande typer av program:
 
@@ -24,7 +25,7 @@ Design rikt linjer för att skapa program finns [i arkitekturen för mikrotjäns
 
     Kunder som har skapat IoT-tjänster med hjälp av Service Fabric inkluderar [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL-konstruktion](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider elektriska](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)och nät verks [system](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 
-* **Interaktiva program för spel och sessioner**: Service Fabric är användbart om ditt program kräver läsningar och skrivningar med låg latens, t. ex. i online-spel eller Instant Messaging. Med Service Fabric kan du skapa dessa interaktiva och tillstånds känsliga program utan att behöva skapa en separat lagrings plats eller cache. Besök [Azures spel lösningar](https://azure.microsoft.com/solutions/gaming/) för att få vägledning om hur du [använder Service Fabric i spel tjänster](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* **Interaktiva program för spel och sessioner**: Service Fabric är användbart om ditt program kräver läsningar och skrivningar med låg latens, t. ex. i online-spel eller Instant Messaging. Med Service Fabric kan du skapa dessa interaktiva och tillstånds känsliga program utan att behöva skapa en separat lagrings plats eller cache. Besök [Azures spel lösningar](https://azure.microsoft.com/solutions/gaming/) för att få vägledning om hur du [använder Service Fabric i spel tjänster](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
 
     Kunder som har skapat spel tjänster omfattar [Nästa spel](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) och [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Kunder som har skapat interaktiva sessioner inkluderar [Honeywell med HoloLens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
 
@@ -67,7 +68,7 @@ Här är ett exempel program som använder tillstånds känsliga tjänster: ![ p
 ## <a name="next-steps"></a>Nästa steg
 
 * Kom igång med att skapa tillstånds lösa och tillstånds känsliga tjänster med Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) och [Reliable Actors](service-fabric-reliable-actors-get-started.md) programmerings modeller.
-* Besök Azure Architecture Center för att få hjälp med att [skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+* Besök Azure Architecture Center för att få hjälp med att [skapa mikrotjänster på Azure](/azure/architecture/microservices/).
 * Gå till [Azure Service Fabric program och kluster metod tips](service-fabric-best-practices-overview.md) för vägledning för program design.
 
 * Se även:

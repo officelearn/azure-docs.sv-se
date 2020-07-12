@@ -5,11 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ce2dbcefa63cc55a66e712664d1436ca24d3a1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707982"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248551"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
 Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. Så här konfigurerar du det.
@@ -43,7 +44,7 @@ För förhandsversionen är Azure Service Fabric Mesh CLI skrivet som ett tillä
 
 ## <a name="install-the-service-fabric-cli-sfctl"></a>Installera Service Fabric CLI (sfctl) 
 
-Följ instruktionerna i [Konfigurera Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). Modulen **sfctl** kan användas för distribution av program baserat på resursmodellen mot Service Fabric-kluster på den lokala datorn. 
+Följ instruktionerna i [Konfigurera Service Fabric CLI](../service-fabric/service-fabric-cli.md). Modulen **sfctl** kan användas för distribution av program baserat på resursmodellen mot Service Fabric-kluster på den lokala datorn. 
 
 ## <a name="install-the-maven-cli"></a>Installera Maven CLI 
 

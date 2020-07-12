@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464717"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247667"
 ---
 # <a name="application-logging"></a>Programloggning
 
@@ -21,11 +22,11 @@ Exempel på hur du använder dessa förslag finns i [lägga till loggning i Serv
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Application Insights har en omfattande integrering med Service Fabric. Användare kan lägga till AI-Service Fabric NuGet-paket och ta emot data och loggar som skapats och samlats in i Azure Portal. Dessutom uppmanas användarna att lägga till sin egen telemetri för att kunna diagnostisera och felsöka sina program och spåra vilka tjänster och delar av programmet som används mest. [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) -klassen i SDK erbjuder många olika sätt att spåra telemetri i dina program. Kolla in ett exempel på hur du kan Instrumenta och lägga till Application Insights i ditt program i vår självstudie för att [övervaka och diagnostisera ett .NET-program](service-fabric-tutorial-monitoring-aspnet.md)
+Application Insights har en omfattande integrering med Service Fabric. Användare kan lägga till AI-Service Fabric NuGet-paket och ta emot data och loggar som skapats och samlats in i Azure Portal. Dessutom uppmanas användarna att lägga till sin egen telemetri för att kunna diagnostisera och felsöka sina program och spåra vilka tjänster och delar av programmet som används mest. [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) -klassen i SDK erbjuder många olika sätt att spåra telemetri i dina program. Kolla in ett exempel på hur du kan Instrumenta och lägga till Application Insights i ditt program i vår självstudie för att [övervaka och diagnostisera ett .NET-program](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="eventsource"></a>EventSource
 
-När du skapar en Service Fabric-lösning från en mall i Visual Studio genereras en **EventSource**-härledd klass (**ServiceEventSource** eller **ActorEventSource**). En mall skapas där du kan lägga till händelser för ditt program eller din tjänst. **EventSource** namn **måste** vara unikt och får inte ges ett nytt namn från standardmalls strängen Company-Solution- &lt; &gt; - &lt; projekt &gt; . Om du har flera **EventSource** -definitioner som använder samma namn orsakar det ett problem vid körnings tillfället. Varje definierad händelse måste ha en unik identifierare. Om en identifierare inte är unik uppstår ett körnings fel. Vissa organisationer förtilldelar värde intervall för identifierare för att undvika konflikter mellan separata utvecklings team. Mer information finns i [Vance blogg](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) eller [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
+När du skapar en Service Fabric-lösning från en mall i Visual Studio genereras en **EventSource**-härledd klass (**ServiceEventSource** eller **ActorEventSource**). En mall skapas där du kan lägga till händelser för ditt program eller din tjänst. **EventSource** namn **måste** vara unikt och får inte ges ett nytt namn från standardmalls strängen Company-Solution- &lt; &gt; - &lt; projekt &gt; . Om du har flera **EventSource** -definitioner som använder samma namn orsakar det ett problem vid körnings tillfället. Varje definierad händelse måste ha en unik identifierare. Om en identifierare inte är unik uppstår ett körnings fel. Vissa organisationer förtilldelar värde intervall för identifierare för att undvika konflikter mellan separata utvecklings team. Mer information finns i [Vance blogg](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) eller [MSDN-dokumentationen](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
 
 ## <a name="aspnet-core-logging"></a>ASP.NET Core loggning
 

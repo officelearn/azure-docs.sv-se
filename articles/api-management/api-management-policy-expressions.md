@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 40ea26a2394b7ca093f1bba2456ebf5ef116cd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695818"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249826"
 ---
 # <a name="api-management-policy-expressions"></a>API Management princip uttryck
 I den här artikeln beskrivs syntaxen för princip uttryck i C# 7. Varje uttryck har åtkomst till den implicit tillhandahållna [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och en tillåten [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework typer.
@@ -26,7 +27,7 @@ Mer information:
 
 - Se hur du anger Sammanhangs information till Server dels tjänsten. Använd [parametern ange frågesträng](api-management-transformation-policies.md#SetQueryStringParameter) och ange principer för [http-huvud](api-management-transformation-policies.md#SetHTTPheader) för att ange den här informationen.
 - Se hur du använder [Verifiera JWT](api-management-access-restriction-policies.md#ValidateJWT) -principen för att förauktorisera åtkomsten till åtgärder baserat på token-anspråk.
-- Se hur du använder en [API-kontroll](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) spårning för att se hur principer utvärderas och resultatet av dessa utvärderingar.
+- Se hur du använder en [API-kontroll](./api-management-howto-api-inspector.md) spårning för att se hur principer utvärderas och resultatet av dessa utvärderingar.
 - Se hur du använder uttryck med [Hämta från cache](api-management-caching-policies.md#GetFromCache) och [lagra i cache](api-management-caching-policies.md#StoreToCache) -principer för att konfigurera API Management cachelagring av svar. Ange en varaktighet som motsvarar cachelagring av svar på backend-tjänsten enligt vad som anges i den säkerhetskopierade tjänstens `Cache-Control` direktiv.
 - Se hur du utför innehålls filtrering. Ta bort data element från det svar som tagits emot från Server delen med hjälp av [kontroll flödet](api-management-advanced-policies.md#choose) och [Ange Body](api-management-transformation-policies.md#SetBody) -principer.
 - Information om hur du hämtar princip instruktionerna finns i [API-Management-samples/policys](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub lagrings platsen.
@@ -155,7 +156,7 @@ I följande tabell visas de .NET Framework typer och medlemmar som tillåts i pr
 |System. Security. Cryptography. SymmetricAlgorithm|Alla|
 |System. Security. Cryptography. X509Certificates. PublicKey|Alla|
 |System. Security. Cryptography. X509Certificates. RSACertificateExtensions|Alla|
-|System. Security. Cryptography. X509Certificates. X500DistinguishedName|Name|
+|System. Security. Cryptography. X509Certificates. X500DistinguishedName|Namn|
 |System. Security. Cryptography. X509Certificates. X509Certificate|Alla|
 |System. Security. Cryptography. X509Certificates. X509Certificate2|Alla|
 |System. Security. Cryptography. X509Certificates. X509ContentType|Alla|
@@ -209,7 +210,7 @@ En variabel med namnet `context` är implicit tillgänglig i varje princip [uttr
 
 |Sammanhangs variabel|Tillåtna metoder, egenskaper och parameter värden|
 |----------------------|-------------------------------------------------------|
-|Edit|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribution](#ref-context-deployment)<br /><br /> Förfluten: tidsintervall mellan värdet för tidsstämpel och aktuell tid<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Åtgärd](#ref-context-operation)<br /><br /> [Produkt](#ref-context-product)<br /><br /> [Förfrågan](#ref-context-request)<br /><br /> RequestId: GUID – unik begärande-ID<br /><br /> [Svar](#ref-context-response)<br /><br /> [Prenumeration](#ref-context-subscription)<br /><br /> Timestamp: DateTime-tidpunkt då begäran togs emot<br /><br /> Spårning: bool-anger om spårning är aktiverat eller inaktiverat <br /><br /> [Användare](#ref-context-user)<br /><br /> [Variabler](#ref-context-variables): IReadOnlyDictionary<sträng, objekt><br /><br /> void-spårning (meddelande: sträng)|
+|Edit|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribution](#ref-context-deployment)<br /><br /> Förfluten: tidsintervall mellan värdet för tidsstämpel och aktuell tid<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Åtgärd](#ref-context-operation)<br /><br /> [Produkt](#ref-context-product)<br /><br /> [Förfrågan](#ref-context-request)<br /><br /> RequestId: GUID – unik begärande-ID<br /><br /> [Response](#ref-context-response)<br /><br /> [Prenumeration](#ref-context-subscription)<br /><br /> Timestamp: DateTime-tidpunkt då begäran togs emot<br /><br /> Spårning: bool-anger om spårning är aktiverat eller inaktiverat <br /><br /> [Användare](#ref-context-user)<br /><br /> [Variabler](#ref-context-variables): IReadOnlyDictionary<sträng, objekt><br /><br /> void-spårning (meddelande: sträng)|
 |<a id="ref-context-api"></a>Edit. Application|ID: sträng<br /><br /> IsCurrentRevision: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: sträng |
 |<a id="ref-context-deployment"></a>Edit. Spridningen|Region: sträng<br /><br /> ServiceName: sträng<br /><br /> Certifikat: IReadOnlyDictionary<sträng, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>Edit. LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfattning: sträng<br /><br /> Avsnitt: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> För mer information om kontext. LastError, se [fel hantering](api-management-error-handling-policies.md).|
@@ -251,5 +252,5 @@ Mer information om hur du arbetar med principer finns i:
 
 + [Principer i API Management](api-management-howto-policies.md)
 + [Transformera API: er](transform-api.md)
-+ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip referens](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar
 + [Princip exempel](policy-samples.md)

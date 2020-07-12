@@ -3,11 +3,12 @@ title: Beskriva Azure Service Fabric-appar och-tjänster
 description: Beskriver hur manifest används för att beskriva Service Fabric-program och-tjänster.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349968"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248228"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric program-och tjänst manifest
 I den här artikeln beskrivs hur Service Fabric-program och-tjänster definieras och versions hantering med hjälp av ApplicationManifest.xml-och ServiceManifest.xml-filer.  Mer detaljerade exempel finns i [exempel på program-och tjänst manifest](service-fabric-manifest-examples.md).  XML-schemat för dessa MANIFEST-filer dokumenteras i [dokumentation om ServiceFabricServiceModel. xsd-schema](service-fabric-service-model-schema.md).
@@ -62,7 +63,7 @@ Tjänst manifestet definierar tjänst typ och version. Den anger tjänstens meta
 
 Den körbara filen som anges av **EntryPoint** är vanligt vis den tids krävande tjänst värden. **SetupEntryPoint** är en privilegie rad start punkt som körs med samma autentiseringsuppgifter som Service Fabric (vanligt vis *LocalSystem* -kontot) innan någon annan start punkt.  Om du har en separat installations start punkt kan du undvika att behöva köra tjänst värden med hög behörighet under längre tid. Den körbara filen som anges av **EntryPoint** körs när **SetupEntryPoint** har avslut ATS. Om processen någonsin avslutas eller kraschar övervakas och startas den resulterande processen om (börjar med **SetupEntryPoint**).  
 
-Vanliga scenarier för att använda **SetupEntryPoint** är när du kör en körbar fil innan tjänsten startar eller om du utför en åtgärd med utökade privilegier. Ett exempel:
+Vanliga scenarier för att använda **SetupEntryPoint** är när du kör en körbar fil innan tjänsten startar eller om du utför en åtgärd med utökade privilegier. Exempel:
 
 * Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Detta är inte begränsat till enbart körbara filer som skrivits via Service Fabric programmerings modeller. npm.exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett node.js-program.
 * Konfigurera åtkomst kontroll genom att installera säkerhets certifikat.
@@ -156,7 +157,7 @@ Precis som tjänst manifest är **versions** -attribut ostrukturerade strängar 
 
 **Certifikat** (som inte anges i föregående exempel) deklarerar de certifikat som används för att [Konfigurera https-slutpunkter](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) eller [kryptera hemligheter i applikations manifestet](service-fabric-application-secret-management.md).
 
-**Placerings begränsningar** är de instruktioner som definierar var tjänsterna ska köras. Dessa instruktioner är kopplade till enskilda tjänster som du väljer för en eller flera Node-egenskaper. Mer information finns i [placerings begränsningar och syntax för Node Property](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+**Placerings begränsningar** är de instruktioner som definierar var tjänsterna ska köras. Dessa instruktioner är kopplade till enskilda tjänster som du väljer för en eller flera Node-egenskaper. Mer information finns i [placerings begränsningar och syntax för Node Property](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax)
 
 **Principer** (som inte anges i föregående exempel) beskriver logg samlingen, [standard körnings-som-](service-fabric-application-runas-security.md), [hälso](service-fabric-health-introduction.md#health-policies)-och [säkerhets åtkomst](service-fabric-application-runas-security.md) principer som anges på program nivå, inklusive om tjänsten eller tjänsten har åtkomst till den Service Fabric körningen.
 
@@ -191,6 +192,3 @@ For more information about other features supported by application manifests, re
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-
-
-

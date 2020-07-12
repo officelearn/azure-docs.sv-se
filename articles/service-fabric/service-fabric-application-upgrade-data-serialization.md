@@ -4,11 +4,12 @@ description: Metod tips för Dataserialisering och hur det påverkar rullande pr
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 7dc60c28b56982f82c1ac90db55ac752977ea2d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d502e74139c543d4183a75faa6bea1948d9f3e56
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457494"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247990"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Hur Dataserialisering påverkar en program uppgradering
 I en [uppgradering av rullande program](service-fabric-application-upgrade.md)tillämpas uppgraderingen på en delmängd noder, en uppgraderings domän i taget. Under den här processen finns vissa uppgraderings domäner i den nyare versionen av programmet och vissa uppgraderings domäner finns på den äldre versionen av programmet. Under distributionen måste den nya versionen av programmet kunna läsa den gamla versionen av dina data och den gamla versionen av programmet måste kunna läsa den nya versionen av dina data. Om data formatet inte vidarebefordras och är bakåtkompatibelt, kan uppgraderingen Miss lyckas eller vara sämre, data kan gå förlorade eller skadas. Den här artikeln beskriver vad som utgör ditt data format och ger bästa möjliga praxis för att se till att dina data är vanliga och bakåtkompatibla.
@@ -25,7 +26,7 @@ Eftersom data formatet bestäms av C#-klasser kan ändringar i klasser orsaka et
 * Ändra klass namnet eller namn området
 
 ### <a name="data-contract-as-the-default-serializer"></a>Data kontrakt som standard serialiserare
-Serialiseraren ansvarar generellt för att läsa data och avserialisera den till den aktuella versionen, även om data finns i en äldre eller *nyare* version. Standard serialiseraren är [data kontrakts serialiseringen](https://msdn.microsoft.com/library/ms733127.aspx), som har väldefinierade versions regler. Tillförlitliga samlingar tillåter att serialiseraren åsidosätts, men Reliable Actors för närvarande inte. Data serialiseraren spelar en viktig roll när det är möjligt att aktivera löpande uppgraderingar. DataContract-serialiseringen är den seriella som vi rekommenderar för Service Fabric program.
+Serialiseraren ansvarar generellt för att läsa data och avserialisera den till den aktuella versionen, även om data finns i en äldre eller *nyare* version. Standard serialiseraren är [data kontrakts serialiseringen](/dotnet/framework/wcf/feature-details/using-data-contracts), som har väldefinierade versions regler. Tillförlitliga samlingar tillåter att serialiseraren åsidosätts, men Reliable Actors för närvarande inte. Data serialiseraren spelar en viktig roll när det är möjligt att aktivera löpande uppgraderingar. DataContract-serialiseringen är den seriella som vi rekommenderar för Service Fabric program.
 
 ## <a name="how-the-data-format-affects-a-rolling-upgrade"></a>Hur data formatet påverkar en löpande uppgradering
 Under en rullande uppgradering finns det två huvud scenarier där serialiseraren kan stöta på en äldre eller *nyare* version av dina data:
@@ -40,7 +41,7 @@ Under en rullande uppgradering finns det två huvud scenarier där serialiserare
 
 De två versionerna av kod och data format måste både vara framåtriktade och bakåtkompatibla. Om de inte är kompatibla kan den rullande uppgraderingen Miss lyckas eller så kan data gå förlorade. Den rullande uppgraderingen kan Miss lyckas eftersom koden eller serialiseraren kan utlösa undantag eller ett fel när den påträffar den andra versionen. Data kan gå förlorade om du till exempel har lagt till en ny egenskap men den gamla serialiseraren ignorerar den under deserialiseringen.
 
-Data kontrakt är den rekommenderade lösningen för att säkerställa att dina data är kompatibla. Den har väldefinierade versions regler för att lägga till, ta bort och ändra fält. Den har också stöd för att hantera okända fält, ansluta till serialiserings-och avserialiserings processen och hantera klass arv. Mer information finns i [använda data kontrakt](https://msdn.microsoft.com/library/ms733127.aspx).
+Data kontrakt är den rekommenderade lösningen för att säkerställa att dina data är kompatibla. Den har väldefinierade versions regler för att lägga till, ta bort och ändra fält. Den har också stöd för att hantera okända fält, ansluta till serialiserings-och avserialiserings processen och hantera klass arv. Mer information finns i [använda data kontrakt](/dotnet/framework/wcf/feature-details/using-data-contracts).
 
 ## <a name="next-steps"></a>Nästa steg
 Genom [att uppgradera programmet med Visual Studio](service-fabric-application-upgrade-tutorial.md) går du igenom en program uppgradering med Visual Studio.
@@ -52,4 +53,3 @@ Styr hur programmet uppgraderas med hjälp av [uppgraderings parametrar](service
 Lär dig hur du använder avancerade funktioner när du uppgraderar ditt program genom att titta på [avancerade ämnen](service-fabric-application-upgrade-advanced.md).
 
 Åtgärda vanliga problem i program uppgraderingar genom att följa stegen i [Felsöka program uppgraderingar](service-fabric-application-upgrade-troubleshooting.md).
-

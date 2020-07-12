@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 010f2b5d6dee3a5985c421e468bcd28b18148e5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793082"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247735"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uppgradera konfigurationen av ett kluster i Azure 
 
 I den här artikeln beskrivs hur du anpassar de olika infrastruktur inställningarna för ditt Service Fabric-kluster. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall.
 
 > [!NOTE]
-> Alla inställningar är inte tillgängliga i portalen och det är en [bra idé att anpassa den med hjälp av en Azure Resource Manager mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). Portalen är endast för Service Fabric Dev\Test-scenario.
+> Alla inställningar är inte tillgängliga i portalen och det är en [bra idé att anpassa den med hjälp av en Azure Resource Manager mall](./service-fabric-best-practices-infrastructure-as-code.md). Portalen är endast för Service Fabric Dev\Test-scenario.
 > 
 
 
@@ -44,11 +45,11 @@ Azure-kluster kan konfigureras via JSON Resource Manager-mallen. Mer information
 
 Du kan också anpassa kluster inställningarna på något av följande sätt med Azure Resource Manager:
 
-- Använd [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) för att exportera och uppdatera Resource Manager-mallen.
-- Använd [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) för att exportera och uppdatera Resource Manager-mallen.
-- Använd [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) för att exportera och uppdatera Resource Manager-mallen.
-- Använd Azure PowerShell [set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) och [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) för att ändra inställningen direkt.
-- Använd Azure CLI [AZ SF Cluster Setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) commands för att ändra inställningen direkt.
+- Använd [Azure Portal](../azure-resource-manager/templates/export-template-portal.md) för att exportera och uppdatera Resource Manager-mallen.
+- Använd [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) för att exportera och uppdatera Resource Manager-mallen.
+- Använd [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md) för att exportera och uppdatera Resource Manager-mallen.
+- Använd Azure PowerShell [set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) och [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) för att ändra inställningen direkt.
+- Använd Azure CLI [AZ SF Cluster Setting](/cli/azure/sf/cluster/setting) commands för att ändra inställningen direkt.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [inställningarna för Service Fabric klustret](service-fabric-cluster-fabric-settings.md).

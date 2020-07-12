@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602711"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247832"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 När du distribuerar ett Service Fabric-kluster placeras guardrails på plats, vilket kommer att Miss förAzure Resource Manager distribution om en ogiltig kluster konfiguration används. I följande avsnitt får du en översikt över vanliga problem med kluster konfiguration och de steg som krävs för att minimera problemen. 
@@ -68,7 +68,7 @@ Så här åtgärdar du en hållbarhets konflikt som anges av ovanstående fel me
 
 ## <a name="seed-node-deletion"></a>Borttagning av Seed-nod 
 ### <a name="overview"></a>Översikt
-Ett Service Fabric-kluster har en egenskap för [Tillförlitlighets nivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) som används för att fastställa antalet repliker av system tjänster som körs på den primära nodtypen i klustret. Antalet nödvändiga repliker avgör det minsta antalet noder som måste underhållas i klustrets primära nodtyp. Om antalet noder i den primära nodtypen går under det minimi krav som krävs för Tillförlitlighets nivån blir klustret instabilt.  
+Ett Service Fabric-kluster har en egenskap för [Tillförlitlighets nivå](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) som används för att fastställa antalet repliker av system tjänster som körs på den primära nodtypen i klustret. Antalet nödvändiga repliker avgör det minsta antalet noder som måste underhållas i klustrets primära nodtyp. Om antalet noder i den primära nodtypen går under det minimi krav som krävs för Tillförlitlighets nivån blir klustret instabilt.  
 
 ### <a name="error-messages"></a>Felmeddelanden 
 Borttagnings åtgärden för startnoden har identifierats och kommer att avvisas. 
@@ -79,7 +79,7 @@ Borttagnings åtgärden för startnoden har identifierats och kommer att avvisas
 Kontrol lera att den primära nodtypen har tillräckligt med Virtual Machines för den tillförlitlighet som anges i klustret. Du kommer inte att kunna ta bort en virtuell dator om den här skalnings uppsättningen för den virtuella datorn ska få lägre än det minsta antalet noder för den angivna Tillförlitlighets nivån.
 * Om Tillförlitlighets nivån är korrekt angiven kontrollerar du att det finns tillräckligt många noder i den primära nodtypen som behövs för Tillförlitlighets nivån. 
 * Om Tillförlitlighets nivån är felaktig initierar du en ändring på Service Fabric resurs för att sänka Tillförlitlighets nivån först innan du påbörjar alla åtgärder för skalnings uppsättningar för virtuella datorer och väntar tills den har slutförts.
-* Om Tillförlitlighets nivån är brons följer du dessa [steg](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) för att skala i klustret på ett smidigt sätt.
+* Om Tillförlitlighets nivån är brons följer du dessa [steg](./service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) för att skala i klustret på ett smidigt sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 * Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md)

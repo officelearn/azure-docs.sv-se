@@ -3,11 +3,12 @@ title: Service Fabric program uppgradering
 description: Den här artikeln innehåller en introduktion till att uppgradera ett Service Fabric program, inklusive att välja uppgraderings lägen och utföra hälso kontroller.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710328"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248007"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric program uppgradering
 Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [applikations manifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som behöver uppdateras. Service Fabric jämför versions numren i tjänst manifesten med versions numren i den tidigare versionen. Tjänsten uppgraderas inte om en tjänst inte har ändrats.
@@ -36,7 +37,7 @@ Läget som vi rekommenderar för program uppgradering är det övervakade läget
 Oövervakat läge behöver manuellt ingripande efter varje uppgradering på en uppdaterings domän för att kunna starta uppgraderingen på nästa uppdaterings domän. Inga Service Fabric hälso kontroller utförs. Administratören utför hälso-och status kontrollerna innan du påbörjar uppgraderingen i nästa uppdaterings domän.
 
 ## <a name="upgrade-default-services"></a>Uppgradera standard tjänster
-Vissa standard tjänst parametrar som definieras i [applikations manifestet](service-fabric-application-and-service-manifests.md) kan också uppgraderas som en del av en program uppgradering. Endast de tjänst parametrar som stöder ändras via [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) kan ändras som en del av en uppgradering. Beteendet för att ändra standard tjänsterna under program uppgraderingen är följande:
+Vissa standard tjänst parametrar som definieras i [applikations manifestet](service-fabric-application-and-service-manifests.md) kan också uppgraderas som en del av en program uppgradering. Endast de tjänst parametrar som stöder ändras via [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) kan ändras som en del av en uppgradering. Beteendet för att ändra standard tjänsterna under program uppgraderingen är följande:
 
 1. Standard tjänster i det nya applikations manifestet som inte redan finns i klustret skapas.
 2. Standard tjänster som finns i båda de föregående och nya applikations manifesten uppdateras. Parametrarna för standard tjänsten i det nya applikations manifestet skriver över parametrarna för den befintliga tjänsten. Program uppgraderingen återställs automatiskt om det inte går att uppdatera en standard tjänst.

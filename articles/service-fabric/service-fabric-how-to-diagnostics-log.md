@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa6d4fc27373e524f4c492635cffbf8b735add8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614374"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247225"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Lägga till loggning för ditt Service Fabric-program
 
@@ -95,7 +96,7 @@ Att använda en hybrid av strukturerad och allmän Instrumentation fungerar ocks
 
 ASP.NET Core loggning ([Microsoft. Extensions. logging NuGet-paketet](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) är ett loggnings ramverk som tillhandahåller ett API för standard loggning för ditt program. Stöd för andra loggnings server delar kan anslutas till ASP.NET Core loggning. Detta ger dig en mängd olika stöd för loggning i ditt program, utan att behöva ändra mycket kod.
 
-1. Lägg till **Microsoft. Extensions. logging** NuGet-paketet till det projekt som du vill skapa instrument för. Lägg också till eventuella leverantörs paket. Mer information finns i [Logga in ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+1. Lägg till **Microsoft. Extensions. logging** NuGet-paketet till det projekt som du vill skapa instrument för. Lägg också till eventuella leverantörs paket. Mer information finns i [Logga in ASP.net Core](/aspnet/core/fundamentals/logging).
 2. Lägg till ett **using** -direktiv för **Microsoft. Extensions. logging** till din tjänst fil.
 3. Definiera en privat variabel i din tjänst klass.
 
@@ -166,13 +167,3 @@ Vissa leverantörer av tredje part använder den metod som beskrivs i föregåen
 
 - Läs mer information om [program övervakning i Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Läs om loggning med [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) och [Windows Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md).
-
-
-
-
-
-
-
-
-
-

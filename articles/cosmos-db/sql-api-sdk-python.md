@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bd880806a4b067139c1f22a0e4d4e6df5c88451
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391918"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247072"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB python SDK för SQL API: viktig information och resurser
 
@@ -28,7 +28,7 @@ ms.locfileid: "85391918"
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
+> * [FLESTA](/rest/api/cosmos-db/)
 > * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
@@ -134,7 +134,7 @@ ms.locfileid: "85391918"
 
 * Alla åtgärder som tar `request_options` eller `feed_options` parametrar har flyttats till parametrar med enbart nyckelord. Även om de här alternativ lexikonen fortfarande stöds, stöds nu var och en av de enskilda alternativen i ord listan som explicita nyckelords argument.
 
-* Felhierarkin har nu ärvts från `azure.core.AzureError` i stället för, som har tagits bort.
+* Felhierarkin har nu ärvts från `azure.core.AzureError` :
 
   * `HTTPFailure` har bytt namn till `CosmosHttpResponseError`
   * `JSONParseFailure`har tagits bort och ersatts av`azure.core.DecodeError`

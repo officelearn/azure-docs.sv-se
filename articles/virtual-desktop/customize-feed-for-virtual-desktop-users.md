@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99c63fd04a40b1a4e591f5ad42d8f776e8e5b67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c2ad99a59e548ff7793455dac21748dd057c5fc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208509"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248704"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Anpassa feed för Windows Virtual Desktop-användare
 
@@ -124,7 +124,7 @@ Du kan ändra visnings namnet för ett publicerat fjärr skrivbord genom att ang
 
 Nu när du har anpassat feeden för användare kan du logga in på en Windows Virtual Desktop-klient för att testa den. Det gör du genom att fortsätta till Windows Virtual Desktop-instruktionen how-TOS:
 
- * [Anslut med Windows 10 eller Windows 7](connect-windows-7-and-10.md)
+ * [Anslut med Windows 10 eller Windows 7](connect-windows-7-10.md)
  * [Ansluta med webbklienten](connect-web.md)
  * [Ansluta med Android-klienten](connect-android.md)
  * [Ansluta med iOS-klienten](connect-ios.md)

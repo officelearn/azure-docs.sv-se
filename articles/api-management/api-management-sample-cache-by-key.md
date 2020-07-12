@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60780829"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249724"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Custom caching in Azure API Management (Anpassad cachelagring i Azure API Management)
-Azure API Management-tjänsten har inbyggt stöd för [cachelagring av HTTP-svar](api-management-howto-cache.md) med hjälp av resurs-URL som nyckel. Nyckeln kan ändras av begärandehuvuden med hjälp av `vary-by` egenskaperna. Detta är användbart för cachelagring av hela HTTP-svar (aka-representationer), men ibland är det praktiskt att bara cachelagra en del av en representation. De nya principerna [cache-lookup-Value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) och [cache-Store-Value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) ger möjlighet att lagra och hämta godtyckliga data typer från princip definitioner. Den här möjligheten lägger också till värde till den tidigare skapade principen för att [Skicka begär Anden](/azure/api-management/api-management-advanced-policies#SendRequest) eftersom du nu kan cachelagra svar från externa tjänster.
+Azure API Management-tjänsten har inbyggt stöd för [cachelagring av HTTP-svar](api-management-howto-cache.md) med hjälp av resurs-URL som nyckel. Nyckeln kan ändras av begärandehuvuden med hjälp av `vary-by` egenskaperna. Detta är användbart för cachelagring av hela HTTP-svar (aka-representationer), men ibland är det praktiskt att bara cachelagra en del av en representation. De nya principerna [cache-lookup-Value](./api-management-caching-policies.md#GetFromCacheByKey) och [cache-Store-Value](./api-management-caching-policies.md#StoreToCacheByKey) ger möjlighet att lagra och hämta godtyckliga data typer från princip definitioner. Den här möjligheten lägger också till värde till den tidigare skapade principen för att [Skicka begär Anden](./api-management-advanced-policies.md#SendRequest) eftersom du nu kan cachelagra svar från externa tjänster.
 
 ## <a name="architecture"></a>Arkitektur
 API Management tjänsten använder en delad datacache per klient, så att du, när du skalar upp till flera enheter, fortfarande får åtkomst till samma cachelagrade data. Men när du arbetar med en distribution i flera regioner finns det oberoende cacheminnen i varje region. Det är viktigt att inte behandla cachen som ett data lager, där det är den enda källan till viss information. Om du har gjort det och senare beslutade att dra nytta av distributionen i flera regioner kan kunder med användare som reser förlora åtkomsten till dessa cachelagrade data.

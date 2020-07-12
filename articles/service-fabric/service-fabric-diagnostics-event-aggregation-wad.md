@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846671"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247871"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelse agg regering och insamling med Windows Azure-diagnostik
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "85846671"
 
 När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggarna från alla noder på en central plats. Genom att logga in på en central plats kan du analysera och felsöka problem i klustret, eller problem i de program och tjänster som körs i klustret.
 
-Ett sätt att ladda upp och samla in loggar är att använda Windows Azure-diagnostik-tillägget (WAD), som överför loggar till Azure Storage och även har möjlighet att skicka loggar till Azure Application insikter eller Event Hubs. Du kan också använda en extern process för att läsa händelserna från lagringen och placera dem i en analys plattforms produkt, till exempel [Azure Monitor loggar](../log-analytics/log-analytics-service-fabric.md) eller en annan logg tolknings lösning.
+Ett sätt att ladda upp och samla in loggar är att använda Windows Azure-diagnostik-tillägget (WAD), som överför loggar till Azure Storage och även har möjlighet att skicka loggar till Azure Application insikter eller Event Hubs. Du kan också använda en extern process för att läsa händelserna från lagringen och placera dem i en analys plattforms produkt, till exempel [Azure Monitor loggar](./service-fabric-diagnostics-oms-setup.md) eller en annan logg tolknings lösning.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -31,7 +31,7 @@ Följande verktyg används i den här artikeln:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure Resource Manager mall](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Service Fabric plattforms händelser
 Service Fabric anger att du har några färdiga [loggnings kanaler](service-fabric-diagnostics-event-generation-infra.md), varav följande kanaler är förkonfigurerade med tillägget för att skicka övervaknings-och diagnostikdata till en lagrings tabell eller någon annan stans:
@@ -202,12 +202,12 @@ Eftersom de tabeller som är fyllda av tillägget växer tills kvoten har nåtts
 ## <a name="log-collection-configurations"></a>Konfiguration av logg samling
 Loggar från ytterligare kanaler är också tillgängliga för insamling, här följer några av de vanligaste konfigurationerna som du kan göra i mallen för kluster som körs i Azure.
 
-* Drift kanal – bas: aktive ras som standard, hög nivå åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som kommer, ett nytt program som distribueras eller en uppgraderings återställning osv. En lista över händelser finns i [drift kanal händelser](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Drift kanal – bas: aktive ras som standard, hög nivå åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som kommer, ett nytt program som distribueras eller en uppgraderings återställning osv. En lista över händelser finns i [drift kanal händelser](./service-fabric-diagnostics-event-generation-operational.md).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Drift kanal – detaljerad: Detta omfattar hälso rapporter och belastnings Utjämnings beslut, plus allt i den grundläggande operativa kanalen. Dessa händelser genereras av antingen systemet eller din kod med hjälp av hälso tillstånds-eller inläsnings-API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Om du vill visa dessa händelser i Visual Studios diagnostiska Loggboken lägger du till "Microsoft-ServiceFabric: 4:0x4000000000000008" i listan över ETW-providers.
+* Drift kanal – detaljerad: Detta omfattar hälso rapporter och belastnings Utjämnings beslut, plus allt i den grundläggande operativa kanalen. Dessa händelser genereras av antingen systemet eller din kod med hjälp av hälso tillstånds-eller inläsnings-API: er som [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) eller [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Om du vill visa dessa händelser i Visual Studios diagnostiska Loggboken lägger du till "Microsoft-ServiceFabric: 4:0x4000000000000008" i listan över ETW-providers.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
@@ -296,7 +296,7 @@ Om din händelse källa exempelvis kallas My-EventSource, lägger du till följa
         }
 ```
 
-Om du vill samla in prestanda räknare eller händelse loggar ändrar du Resource Manager-mallen med hjälp av de exempel som finns i [skapa en virtuell Windows-dator med övervakning och diagnostik med hjälp av en Azure Resource Manager mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Publicera sedan om Resource Manager-mallen.
+Om du vill samla in prestanda räknare eller händelse loggar ändrar du Resource Manager-mallen med hjälp av de exempel som finns i [skapa en virtuell Windows-dator med övervakning och diagnostik med hjälp av en Azure Resource Manager mall](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json). Publicera sedan om Resource Manager-mallen.
 
 ## <a name="collect-performance-counters"></a>Samla in prestanda räknare
 
@@ -358,7 +358,7 @@ När du har konfigurerat Azure Diagnostics korrekt visas data i dina lagrings ta
 >[!NOTE]
 >Det finns för närvarande inget sätt att filtrera eller rensa händelser som skickas till tabellen. Om du inte implementerar en process för att ta bort händelser från tabellen fortsätter tabellen att växa. För närvarande finns det ett exempel på en data rensnings tjänst som körs i [övervaknings provet](https://github.com/Azure-Samples/service-fabric-watchdog-service), och vi rekommenderar att du skriver en åt dig själv, såvida det inte finns ett bra skäl för att lagra loggar över en 30-eller 90-dagars tidsram.
 
-* [Lär dig hur du samlar in prestanda räknare eller loggar med hjälp av Diagnostics-tillägget](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Lär dig hur du samlar in prestanda räknare eller loggar med hjälp av Diagnostics-tillägget](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 * [Händelse analys och visualisering med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Händelse analys och visualisering med Azure Monitor loggar](service-fabric-diagnostics-event-analysis-oms.md)
 * [Händelse analys och visualisering med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)

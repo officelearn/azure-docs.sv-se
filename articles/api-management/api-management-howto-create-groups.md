@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16ab72a67a021338bd8e186c32015c271240d224
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430716"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250540"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Så skapar och använder du grupper för att hantera utvecklarkonton i Azure API Management
 
@@ -33,7 +34,7 @@ Utöver dessa systemgrupper kan administratörer skapa anpassade grupper eller [
 
 Den här guiden visar hur administratörer av en API Management instans kan lägga till nya grupper och koppla dem till produkter och utvecklare.
 
-Förutom att skapa och hantera grupper i utgivar portalen kan du skapa och hantera grupper med hjälp av entiteten API Management REST API [grupp](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) .
+Förutom att skapa och hantera grupper i utgivar portalen kan du skapa och hantera grupper med hjälp av entiteten API Management REST API [grupp](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) .
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -52,7 +53,7 @@ I det här avsnittet visas hur du lägger till en ny grupp till ditt API Managem
 3. Ange ett unikt namn för gruppen och en valfri beskrivning.
 4. Tryck på **Skapa**.
 
-    ![Lägg till en ny grupp](./media/api-management-howto-create-groups/groups001.png)
+    ![Lägga till en ny grupp](./media/api-management-howto-create-groups/groups001.png)
 
 När gruppen har skapats läggs den till i listan **grupper** . <br/>Om du vill redigera **namnet** eller **beskrivningen** av gruppen klickar du på namnet på gruppen och **inställningarna**.<br/>Om du vill ta bort gruppen klickar du på namnet på gruppen och trycker på **ta bort**.
 
@@ -97,7 +98,7 @@ När associationen har lagts till mellan utvecklaren och gruppen kan du Visa den
 ## <a name="next-steps"></a><a name="next-steps"> </a>Nästa steg
 
 * När en utvecklare har lagts till i en grupp kan de Visa och prenumerera på de produkter som är kopplade till den gruppen. Mer information finns i [så här skapar och publicerar du en produkt i Azure API Management][How create and publish a product in Azure API Management]
-* Förutom att skapa och hantera grupper i utgivar portalen kan du skapa och hantera grupper med hjälp av entiteten API Management REST API [grupp](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) .
+* Förutom att skapa och hantera grupper i utgivar portalen kan du skapa och hantera grupper med hjälp av entiteten API Management REST API [grupp](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) .
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

@@ -1,33 +1,31 @@
 ---
 title: Snabb start för att skapa ett Azure Recovery Services-valv med en Azure Resource Manager-mall.
-description: I den här snabb starten får du lära dig hur du skapar ett Azure Recovery Services-valv med en Azure Resource Manager-mall.
+description: I den här snabb starten får du lära dig hur du skapar ett Azure Recovery Services-valv med en Azure Resource Manager-mall (ARM-mall).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
-ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217289"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248833"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Snabb start: skapa ett Recovery Services valv med en Resource Manager-mall
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Snabb start: skapa ett Recovery Services valv med en ARM-mall
 
-I den här snabb starten beskrivs hur du konfigurerar ett Recovery Services valv med hjälp av en Azure Resource Manager mall. [Azure Site Recoverys](site-recovery-overview.md) tjänsten bidrar till din strategi för affärs kontinuitet och haveri beredskap (BCDR) så att dina affärs program hålls online under planerade och oplanerade drifts avbrott. Site Recovery hanterar haveri beredskap för lokala datorer och virtuella Azure-datorer (VM), inklusive replikering, redundans och återställning.
+I den här snabb starten beskrivs hur du konfigurerar ett Recovery Services valv med hjälp av en Azure Resource Manager-mall (ARM-mall). [Azure Site Recoverys](site-recovery-overview.md) tjänsten bidrar till din strategi för affärs kontinuitet och haveri beredskap (BCDR) så att dina affärs program hålls online under planerade och oplanerade drifts avbrott. Site Recovery hanterar haveri beredskap för lokala datorer och virtuella Azure-datorer (VM), inklusive replikering, redundans och återställning.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Krav
+
 Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Inga.
-
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
@@ -42,7 +40,7 @@ Mallen innehåller valfria parametrar för valvets säkerhets kopierings konfigu
 
 Mer information om Azure Recovery Services-mallar finns i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 För att distribuera mallen krävs **prenumeration**, **resurs grupp**och **valv namn** .
 

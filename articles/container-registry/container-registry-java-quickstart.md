@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 561c45bd13648f5f17273b478f320e9fd3d71331
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 87a4741ea8a64445c10c73bb1204aef1a2fcfaaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857586"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248806"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Snabb start: bygga och skicka Java-behållar avbildningar till Azure Container Registry
 
@@ -72,7 +72,7 @@ Därefter skapar du en Azure-resurs grupp och din ACR med hjälp av följande st
    az account set -s <subscription ID>
    ```
 
-1. Skapa en resursgrupp för de Azure-resurser som används i den här självstudien. I följande kommando ser du till att ersätta plats hållarna med ditt eget resurs namn och en plats som `eastus`.
+1. Skapa en resursgrupp för de Azure-resurser som används i den här självstudien. I följande kommando ser du till att ersätta plats hållarna med ditt eget resurs namn och en plats som `eastus` .
 
    ```azurecli
    az group create \
@@ -104,11 +104,11 @@ Slutligen uppdaterar du projekt konfigurationen och använder kommando tolken f�
    az acr login
    ```
 
-   `az configure` Kommandot anger standard register namnet som ska användas med `az acr` -kommandon.
+   `az configure`Kommandot anger standard register namnet som ska användas med- `az acr` kommandon.
 
 1. Gå till det slutförda projektet för ditt Spring Boot-program (till exempel, "*C:\SpringBoot\gs-spring-boot-docker\complete*" eller "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*") och öppna *pom.xml*-filen med en textredigerare.
 
-1. Uppdatera `<properties>` samlingen i *Pom. XML-* filen med följande XML. Ersätt plats hållaren med ditt register namn och Lägg till `<jib-maven-plugin.version>` en egenskap med `2.2.0`värde, eller en nyare version av [kran-maven-plugin-programmet](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Uppdatera `<properties>` samlingen i *pom.xml* -filen med följande XML. Ersätt plats hållaren med ditt register namn och Lägg till en `<jib-maven-plugin.version>` egenskap med värde `2.2.0` , eller en nyare version av [kran-maven-plugin-programmet](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
@@ -118,7 +118,7 @@ Slutligen uppdaterar du projekt konfigurationen och använder kommando tolken f�
    </properties>
    ```
 
-1. Uppdatera `<plugins>` samlingen i filen *Pom. XML* så att `<plugin>` elementet innehåller och posten för `jib-maven-plugin`, som visas i följande exempel. Observera att vi använder en bas avbildning från Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, som innehåller en JDK som stöds officiellt för Azure. För andra MCR Base-avbildningar med officiellt stödd JDKs, se [Java Se JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java se JRE](https://hub.docker.com/_/microsoft-java-jre), [Java se konsol lös JRE](https://hub.docker.com/_/microsoft-java-jre-headless)och [Java Se JDK och maven](https://hub.docker.com/_/microsoft-java-maven).
+1. Uppdatera `<plugins>` samlingen i *pom.xml* -filen så att `<plugin>` elementet innehåller och posten för `jib-maven-plugin` , som visas i följande exempel. Observera att vi använder en bas avbildning från Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine` , som innehåller en JDK som stöds officiellt för Azure. För andra MCR Base-avbildningar med officiellt stödd JDKs, se [Java Se JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java se JRE](https://hub.docker.com/_/microsoft-java-jre), [Java se konsol lös JRE](https://hub.docker.com/_/microsoft-java-jre-headless)och [Java Se JDK och maven](https://hub.docker.com/_/microsoft-java-maven).
 
    ```xml
    <plugin>
@@ -144,7 +144,7 @@ Slutligen uppdaterar du projekt konfigurationen och använder kommando tolken f�
 
 > [!NOTE]
 >
-> Av säkerhets skäl är de autentiseringsuppgifter som skapas `az acr login` av bara giltig i 1 timme. Om du får ett *401-otillåtet* fel kan du köra `az acr login -n <your registry name>` kommandot igen för att autentisera igen.
+> Av säkerhets skäl är de autentiseringsuppgifter som skapas av `az acr login` bara giltig i 1 timme. Om du får ett *401-otillåtet* fel kan du köra `az acr login -n <your registry name>` kommandot igen för att autentisera igen.
 
 ## <a name="verify-your-container-image"></a>Verifiera behållar avbildningen
 
@@ -177,4 +177,4 @@ Mer information finns i följande resurser:
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
 * [Distribuera ett Spring Boot-program till Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Använda en anpassad Docker-avbildning för Azure Web App i Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)
+* [Använda en anpassad Docker-avbildning för Azure Web App i Linux](../app-service/containers/tutorial-custom-docker-image.md)

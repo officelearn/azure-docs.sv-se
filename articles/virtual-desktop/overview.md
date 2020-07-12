@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0d6cc523a56c9235360e6476b69303c51dc4d893
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224357"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248619"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -101,7 +101,7 @@ För bästa prestanda bör du kontrol lera att nätverket uppfyller följande kr
 
 Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 
-* [Windows-skrivbordet](connect-windows-7-and-10.md)
+* [Windows-skrivbordet](connect-windows-7-10.md)
 * [Webb](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)

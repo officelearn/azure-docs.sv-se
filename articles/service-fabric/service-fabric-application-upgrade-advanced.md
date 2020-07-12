@@ -3,25 +3,26 @@ title: Avsnitt om avancerad program uppgradering
 description: I den här artikeln beskrivs några avancerade ämnen som rör uppgradering av ett Service Fabric-program.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263099"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248092"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric program uppgradering: avancerade ämnen
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Lägga till eller ta bort tjänst typer under en program uppgradering
 
-Om en ny tjänst typ läggs till i ett publicerat program som en del av en uppgradering, läggs den nya tjänst typen till i det distribuerade programmet. Sådan uppgradering påverkar inte någon av tjänst instanserna som redan tillhör programmet, men en instans av tjänst typen som lades till måste skapas för att den nya tjänst typen ska vara aktiv (se [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Om en ny tjänst typ läggs till i ett publicerat program som en del av en uppgradering, läggs den nya tjänst typen till i det distribuerade programmet. Sådan uppgradering påverkar inte någon av tjänst instanserna som redan tillhör programmet, men en instans av tjänst typen som lades till måste skapas för att den nya tjänst typen ska vara aktiv (se [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-På samma sätt kan tjänst typer tas bort från ett program som en del av en uppgradering. Alla tjänst instanser av tjänst typen att ta bort måste dock tas bort innan du fortsätter med uppgraderingen (se [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+På samma sätt kan tjänst typer tas bort från ett program som en del av en uppgradering. Alla tjänst instanser av tjänst typen att ta bort måste dock tas bort innan du fortsätter med uppgraderingen (se [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Undvik anslutning vid tillstånds lös planerat drift stopp för tjänsten
 
 För tillstånds lösa instansen av tillstånds lösa instansen, till exempel program/kluster-uppgradering eller nod-inaktive ring, kan anslutningar tas bort eftersom den exponerade slut punkten tas bort när instansen stängs av, vilket resulterar i tvingande anslutnings
 
-Undvik detta genom att konfigurera funktionen *RequestDrain* genom att lägga till en *instans stängnings fördröjning* i tjänst konfigurationen för att tillåta att befintliga begär Anden inifrån klustret töms på exponerade slut punkter. Detta uppnås eftersom den slut punkt som annonseras av den tillstånds lösa instansen tas bort *innan* fördröjningen börjar innan instansen stängs. Den här fördröjningen gör att befintliga begär Anden kan tömmas innan instansen faktiskt slutar fungera. Klienter meddelas om slut punkts ändringen av en callback-funktion vid tidpunkten för start av fördröjningen, så att de kan lösa slut punkten igen och undvika att skicka nya begär anden till instansen som går ur drift. Dessa begär Anden kan härstamma från klienter som använder [omvänd proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) eller använder tjänst slut punktens lösnings-API: er med meddelande modellen ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) för att uppdatera slut punkterna.
+Undvik detta genom att konfigurera funktionen *RequestDrain* genom att lägga till en *instans stängnings fördröjning* i tjänst konfigurationen för att tillåta att befintliga begär Anden inifrån klustret töms på exponerade slut punkter. Detta uppnås eftersom den slut punkt som annonseras av den tillstånds lösa instansen tas bort *innan* fördröjningen börjar innan instansen stängs. Den här fördröjningen gör att befintliga begär Anden kan tömmas innan instansen faktiskt slutar fungera. Klienter meddelas om slut punkts ändringen av en callback-funktion vid tidpunkten för start av fördröjningen, så att de kan lösa slut punkten igen och undvika att skicka nya begär anden till instansen som går ur drift. Dessa begär Anden kan härstamma från klienter som använder [omvänd proxy](./service-fabric-reverseproxy.md) eller använder tjänst slut punktens lösnings-API: er med meddelande modellen ([ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) för att uppdatera slut punkterna.
 
 ### <a name="service-configuration"></a>Tjänstkonfiguration
 
@@ -76,7 +77,7 @@ Det finns flera sätt att konfigurera fördröjningen på tjänst sidan.
 
 ### <a name="client-configuration"></a>Klientkonfiguration
 
-Om du vill få ett meddelande när en slut punkt har ändrats bör klienter registrera en motringning se [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+Om du vill få ett meddelande när en slut punkt har ändrats bör klienter registrera en motringning se [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 Ändrings meddelandet är en indikation på att slut punkterna har ändrats, att klienten måste matcha slut punkterna igen och inte använda slut punkterna som inte annonseras längre, eftersom de snart går nedåt.
 
 ### <a name="optional-upgrade-overrides"></a>Valfria uppgraderings åsidosättningar
@@ -93,7 +94,7 @@ Den åsidosatta fördröjnings tiden gäller bara för den anropade uppgradering
 
 > [!NOTE]
 > * Inställningarna för att tömma begär Anden kan inte hindra Azure Load Balancer från att skicka nya begär anden till slut punkter som tas bort från minnet.
-> * Ett klagomål som bygger på en klagomåls lösning kommer inte att leda till korrekt tömning av begär Anden, eftersom den utlöser en tjänst upplösning efter ett haveri. Som tidigare beskrivits bör detta i stället förbättras för att prenumerera på aviseringar om ändringar av slut punkten med hjälp av [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Ett klagomål som bygger på en klagomåls lösning kommer inte att leda till korrekt tömning av begär Anden, eftersom den utlöser en tjänst upplösning efter ett haveri. Som tidigare beskrivits bör detta i stället förbättras för att prenumerera på aviseringar om ändringar av slut punkten med hjälp av [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * Inställningarna gäller inte när uppgraderingen är en effekt som är en När replikerna inte kommer att tas bort under uppgraderingen.
 >
 >
@@ -113,7 +114,7 @@ Den åsidosatta fördröjnings tiden gäller bara för den anropade uppgradering
 
 I *övervakat* läge använder Service Fabric hälso principer för att säkerställa att programmet är felfritt när uppgraderingen fortskrider. Om hälso principerna överskrids, pausas eller återställs uppgraderingen automatiskt beroende på den angivna *FailureAction*.
 
-I *UnmonitoredManual* -läge har program administratören total kontroll över förloppet av uppgraderingen. Det här läget är användbart när du tillämpar principer för anpassad hälso utvärdering eller utför icke-konventionella uppgraderingar för att kringgå hälso övervakningen helt (t. ex. om programmet redan har data förlust). En uppgradering som körs i det här läget inaktive ras automatiskt när varje UD har slutförts och måste återupptas direkt med hjälp av [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). När en uppgradering har pausats och är redo att återupptas av användaren, kommer uppgraderings tillståndet att visa *RollforwardPending* (se [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+I *UnmonitoredManual* -läge har program administratören total kontroll över förloppet av uppgraderingen. Det här läget är användbart när du tillämpar principer för anpassad hälso utvärdering eller utför icke-konventionella uppgraderingar för att kringgå hälso övervakningen helt (t. ex. om programmet redan har data förlust). En uppgradering som körs i det här läget inaktive ras automatiskt när varje UD har slutförts och måste återupptas direkt med hjälp av [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). När en uppgradering har pausats och är redo att återupptas av användaren, kommer uppgraderings tillståndet att visa *RollforwardPending* (se [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
 Slutligen är *UnmonitoredAuto* -läget användbart för att utföra snabba uppgraderingar vid utveckling eller testning av tjänster eftersom inga användarindata krävs och inga program hälso principer utvärderas.
 
@@ -204,11 +205,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Återställa program uppgraderingar
 
-Även om uppgraderingar kan skickas framåt i ett av tre lägen (*övervakad*, *UnmonitoredAuto*eller *UnmonitoredManual*) kan de bara återställas i antingen *UnmonitoredAuto* -eller *UnmonitoredManual* -läge. Att återställa i *UnmonitoredAuto* -läget fungerar på samma sätt som när du följer undantaget att standardvärdet för *UpgradeReplicaSetCheckTimeout* är olika – se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md). Återställningen av *UnmonitoredManual* -läget fungerar på samma sätt som bakåt. återställningen inaktive ras automatiskt när du har slutfört varje UD och måste återupptas direkt med hjälp av [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) för att fortsätta med återställningen.
+Även om uppgraderingar kan skickas framåt i ett av tre lägen (*övervakad*, *UnmonitoredAuto*eller *UnmonitoredManual*) kan de bara återställas i antingen *UnmonitoredAuto* -eller *UnmonitoredManual* -läge. Att återställa i *UnmonitoredAuto* -läget fungerar på samma sätt som när du följer undantaget att standardvärdet för *UpgradeReplicaSetCheckTimeout* är olika – se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md). Återställningen av *UnmonitoredManual* -läget fungerar på samma sätt som bakåt. återställningen inaktive ras automatiskt när du har slutfört varje UD och måste återupptas direkt med hjälp av [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) för att fortsätta med återställningen.
 
-Återställningar kan aktive ras automatiskt när hälso principerna för en uppgradering i det *övervakade* läget med en *FailureAction* *återställning* bryter mot (se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md)) eller uttryckligen använder [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Återställningar kan aktive ras automatiskt när hälso principerna för en uppgradering i det *övervakade* läget med en *FailureAction* *återställning* bryter mot (se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md)) eller uttryckligen använder [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
-Under återställningen kan värdet för *UpgradeReplicaSetCheckTimeout* och läget fortfarande ändras när som helst med hjälp av [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+Under återställningen kan värdet för *UpgradeReplicaSetCheckTimeout* och läget fortfarande ändras när som helst med hjälp av [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## <a name="next-steps"></a>Nästa steg
 Genom [att uppgradera programmet med Visual Studio](service-fabric-application-upgrade-tutorial.md) går du igenom en program uppgradering med Visual Studio.

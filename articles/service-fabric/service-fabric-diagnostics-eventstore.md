@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645743"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247650"
 ---
 # <a name="eventstore-overview"></a>Översikt över EventStore
 
@@ -45,7 +46,7 @@ EventStore-tjänsten kan frågas efter händelser som är tillgängliga för var
 * Partitions repliker: händelser från alla repliker/instanser inom en speciell partition som identifieras av`partitionId`
 * Partitions replik: händelser från en speciell replik/instans som identifieras av `replicaId` och`partitionId`
 
-Läs mer om API-kontrollen i [EVENTSTORE API-referensen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Läs mer om API-kontrollen i [EVENTSTORE API-referensen](/rest/api/servicefabric/sfclient-index-eventsstore).
 
 EventStore-tjänsten har också möjlighet att korrelera händelser i klustret. Genom att titta på händelser som skrivits samtidigt från olika entiteter som kan ha påverkat varandra, kan EventStore-tjänsten länka dessa händelser till hjälp med att identifiera orsaker till aktiviteter i klustret. Om ett av dina program till exempel verkar vara ohälsosamt utan att några inducerade ändringar görs, kommer EventStore också att titta på andra händelser som exponeras av plattformen och kan korrelera detta med en `Error` eller- `Warning` händelse. Detta hjälper till med snabbare identifiering av fel och Rotors Aker analys.
 
@@ -125,5 +126,5 @@ Om du använder version 6,4 kan du redigera din Azure Resource Manager-mall för
 * Kom igång med EventStore-API: et [med hjälp av EventStore-API: er i Azure Service Fabric-kluster](service-fabric-diagnostics-eventstore-query.md)
 * Läs mer om listan över händelser som erbjuds av EventStore- [Service Fabric händelser](service-fabric-diagnostics-event-generation-operational.md)
 * Översikt över övervakning och diagnostik i Service Fabric [övervakning och diagnostik för Service Fabric](service-fabric-diagnostics-overview.md)
-* Visa en fullständig lista över API-anrop – [EventStore REST API referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
+* Visa en fullständig lista över API-anrop – [EventStore REST API referens](/rest/api/servicefabric/sfclient-index-eventsstore)
 * Lär dig mer om att övervaka klustret [och plattformen för att övervaka](service-fabric-diagnostics-event-generation-infra.md)klustret.

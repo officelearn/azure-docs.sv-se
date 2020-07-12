@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458419"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247905"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Säkerhets kopiering på begäran i Azure Service Fabric
 
@@ -55,7 +56,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` .
+Använd [BackupPartition](/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` .
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -63,7 +64,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Använd [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) -API: et för att aktivera spårning för [säkerhets kopiering på begäran](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Använd [GetBackupProgress](/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) -API: et för att aktivera spårning för [säkerhets kopiering på begäran](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### <a name="on-demand-backup-to-specified-storage"></a>Säkerhets kopiering på begäran till den angivna lagrings platsen
 
@@ -80,7 +81,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` . Ta med följande Azure Storage information:
+Använd [BackupPartition](/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` . Ta med följande Azure Storage information:
 
 ```powershell
 $StorageInfo = @{
@@ -99,7 +100,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Du kan använda [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) -API: et för att ställa in spårning för [säkerhets kopiering på begäran](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Du kan använda [GetBackupProgress](/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) -API: et för att ställa in spårning för [säkerhets kopiering på begäran](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### <a name="using-service-fabric-explorer"></a>Använda Service Fabric Explorer
 Kontrol lera att Avancerat läge har Aktiver ATS i Service Fabric Explorer inställningar.
@@ -169,7 +170,7 @@ Säkerhets kopierings begär Anden på begäran kan ha följande tillstånd:
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout**: en _timeout_ för säkerhets kopiering indikerar att det inte gick att skapa en säkerhets kopia av partitionens tillstånd inom en specifik tids period. Standardvärdet för timeout är 10 minuter. Initiera en ny begäran om säkerhets kopiering på begäran med större [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) i det här scenariot.
+  - **Timeout**: en _timeout_ för säkerhets kopiering indikerar att det inte gick att skapa en säkerhets kopia av partitionens tillstånd inom en specifik tids period. Standardvärdet för timeout är 10 minuter. Initiera en ny begäran om säkerhets kopiering på begäran med större [BackupTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) i det här scenariot.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -183,7 +184,7 @@ Säkerhets kopierings begär Anden på begäran kan ha följande tillstånd:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förstå regelbunden konfiguration av säkerhets kopiering](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [BackupRestore REST API referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [BackupRestore REST API referens](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
 [1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

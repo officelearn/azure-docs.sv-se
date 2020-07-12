@@ -13,11 +13,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674286"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249469"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -70,7 +71,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     > [!IMPORTANT]
     > När du distribuerar en Azure API Management-instans till ett virtuellt Resource Manager-nätverk måste tjänsten finnas i ett dedikerat undernät som inte innehåller några andra resurser förutom Azure API Management-instanser. Om ett försök görs att distribuera en Azure API Management-instans till ett VNET-undernät i Resource Manager som innehåller andra resurser, kommer distributionen att Miss lyckas.
 
-    Välj därefter **Tillämpa**. Sidan **virtuellt nätverk** i API Management-instansen uppdateras med ditt nya alternativ för virtuella nätverk och undernät.
+    Välj sedan **Använd**. Sidan **virtuellt nätverk** i API Management-instansen uppdateras med ditt nya alternativ för virtuella nätverk och undernät.
 
     ![Välj VPN][api-management-setup-vpn-select]
 
@@ -102,7 +103,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 * **Anpassad DNS-Server konfiguration**: API Management tjänsten är beroende av flera Azure-tjänster. När API Management finns i ett VNET med en anpassad DNS-server måste du matcha värd namnen för dessa Azure-tjänster. Följ [den här](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) vägledningen om anpassad DNS-konfiguration. Se tabellen portar nedan och andra nätverks krav för referens.
 
 > [!IMPORTANT]
-> Om du planerar att använda en anpassad DNS-server (er) för det virtuella nätverket bör du konfigurera den **innan** du distribuerar en API Management tjänst till den. Annars måste du uppdatera API Managements tjänsten varje gång du ändrar DNS-servrarna genom att köra [åtgärden tillämpa nätverks konfiguration](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Om du planerar att använda en anpassad DNS-server (er) för det virtuella nätverket bör du konfigurera den **innan** du distribuerar en API Management tjänst till den. Annars måste du uppdatera API Managements tjänsten varje gång du ändrar DNS-servrarna genom att köra [åtgärden tillämpa nätverks konfiguration](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
 * **Portar som krävs för API Management**: inkommande och utgående trafik till under nätet där API Management distribueras kan kontrol leras med hjälp av [nätverks säkerhets gruppen][Network Security Group]. Om någon av dessa portar är otillgänglig kanske API Management inte fungerar korrekt och kan bli oåtkomlig. En eller flera av dessa portar blockeras är ett annat vanligt problem med fel konfiguration vid användning av API Management med ett VNET.
 
@@ -110,8 +111,8 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
 | Käll-/mål Port (er) | Riktning          | Transport protokoll |   [Service märken](../virtual-network/security-overview.md#service-tags) <br> Källa/mål   | Syfte ( \* )                                                 | Virtual Network typ |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| */[80], 443                  | Inkommande            | TCP                | INTERNET/VIRTUAL_NETWORK            | Klient kommunikation till API Management                      | Extern             |
-| */3443                     | Inkommande            | TCP                | API Management/VIRTUAL_NETWORK       | Hanterings slut punkt för Azure Portal och PowerShell         | Externt & internt  |
+| */[80], 443                  | Inbound (Inkommande)            | TCP                | INTERNET/VIRTUAL_NETWORK            | Klient kommunikation till API Management                      | Extern             |
+| */3443                     | Inbound (Inkommande)            | TCP                | API Management/VIRTUAL_NETWORK       | Hanterings slut punkt för Azure Portal och PowerShell         | Externt & internt  |
 | */443                  | Utgående           | TCP                | VIRTUAL_NETWORK/lagring             | **Beroende av Azure Storage**                             | Externt & internt  |
 | */443                  | Utgående           | TCP                | VIRTUAL_NETWORK/AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) (i förekommande fall)                   | Externt & internt  |
 | */1433                     | Utgående           | TCP                | VIRTUAL_NETWORK/SQL                 | **Åtkomst till Azure SQL-slutpunkter**                           | Externt & internt  |
@@ -122,7 +123,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 | */25, 587, 25028                       | Utgående           | TCP                | VIRTUAL_NETWORK/INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externt & internt  |
 | */6381-6383              | Inkommande & utgående | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Åtkomst till Redis-tjänsten för [cache](api-management-caching-policies.md) -principer mellan datorer         | Externt & internt  |
 | */4290              | Inkommande & utgående | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Synkronisering av räknare för principer för [hastighets begränsning](api-management-access-restriction-policies.md#LimitCallRateByKey) mellan datorer         | Externt & internt  |
-| * / *                        | Inkommande            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Azure-infrastruktur Load Balancer                          | Externt & internt  |
+| * / *                        | Inbound (Inkommande)            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Azure-infrastruktur Load Balancer                          | Externt & internt  |
 
 >[!IMPORTANT]
 > Portarna för vilka *syftet* är **Bold** krävs för att API Management tjänsten ska kunna distribueras korrekt. Om du blockerar de andra portarna kan du dock orsaka **försämring** i möjligheten att använda och **övervaka den aktiva tjänsten och tillhandahålla det dedikerade service avtalet**.
@@ -173,7 +174,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
   > [!IMPORTANT]
   > När du har verifierat anslutningen ser du till att ta bort alla resurser som har distribuerats i under nätet innan du distribuerar API Management till under nätet.
 
-* **Stegvisa uppdateringar**: när du gör ändringar i nätverket kan du se [NetworkStatus-API: et](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus)för att kontrol lera att tjänsten API Management inte har förlorat åtkomst till någon av de kritiska resurserna som den är beroende av. Anslutnings statusen måste uppdateras var 15: e minut.
+* **Stegvisa uppdateringar**: när du gör ändringar i nätverket kan du se [NetworkStatus-API: et](/rest/api/apimanagement/2019-12-01/networkstatus)för att kontrol lera att tjänsten API Management inte har förlorat åtkomst till någon av de kritiska resurserna som den är beroende av. Anslutnings statusen måste uppdateras var 15: e minut.
 
 * **Länkar till resurs navigering**: när du distribuerar till ett VNet-undernät i Resource Manager-format API Management reserverar under nätet genom att skapa en resurs navigerings länk. Om under nätet redan innehåller en resurs från en annan provider, kommer distributionen att **Miss**förfalla. När du flyttar en API Management-tjänst till ett annat undernät eller tar bort den, kommer vi att ta bort resurs navigerings länken.
 
@@ -202,7 +203,7 @@ För varje extra skalnings enhet med API Management krävs ytterligare två IP-a
 
 IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkommande begär Anden som marker ATS med **Global** måste vara vit listas tillsammans med den **landsspecifika** IP-adressen.
 
-| **Azure-miljö**|   **Nationella**|  **IP-adress**|
+| **Azure-miljö**|   **Region**|  **IP-adress**|
 |-----------------|-------------------------|---------------|
 | Azure, offentlig| Södra centrala USA (global)| 104.214.19.224|
 | Azure, offentlig| Norra centrala USA (global)| 52.162.110.80|
@@ -213,7 +214,7 @@ IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkomm
 | Azure, offentlig| USA, norra centrala| 40.81.47.216|
 | Azure, offentlig| Storbritannien, södra| 51.145.56.125|
 | Azure, offentlig| Indien, västra| 40.81.89.24|
-| Azure, offentlig| USA, östra| 52.224.186.99|
+| Azure, offentlig| East US| 52.224.186.99|
 | Azure, offentlig| Europa, västra| 51.145.179.78|
 | Azure, offentlig| Japan, östra| 52.140.238.179|
 | Azure, offentlig| Frankrike, centrala| 40.66.60.111|
@@ -229,7 +230,7 @@ IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkomm
 | Azure, offentlig| Australien, sydöstra| 20.40.160.107|
 | Azure, offentlig| Australien, centrala| 20.37.52.67|
 | Azure, offentlig| Indien, södra| 20.44.33.246|
-| Azure, offentlig| USA, centrala| 13.86.102.66|
+| Azure, offentlig| Central US| 13.86.102.66|
 | Azure, offentlig| Australien, östra| 20.40.125.155|
 | Azure, offentlig| USA, västra 2| 51.143.127.203|
 | Azure, offentlig| USA, östra 2 EUAP| 52.253.229.253|

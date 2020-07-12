@@ -3,11 +3,12 @@ title: Åtkomst regler för brand vägg
 description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg genom att tillåta åtkomst till ("vit listning") REST API-och data slut punkts domän namn eller tjänstspecifika IP-adressintervall.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83850001"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246987"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg
 
@@ -182,7 +183,7 @@ Om du behöver åtkomst till Microsoft Container Registry (MCR) bakom en brand v
 
 * Lär dig mer om [Azures metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md)
 
-* Lär dig mer om [säkerhets grupper](/azure/virtual-network/security-overview) i ett virtuellt Azure-nätverk
+* Lär dig mer om [säkerhets grupper](../virtual-network/security-overview.md) i ett virtuellt Azure-nätverk
 
 * Läs mer om hur du konfigurerar en [privat länk](container-registry-private-link.md) för ett behållar register
 
@@ -198,4 +199,3 @@ Om du behöver åtkomst till Microsoft Container Registry (MCR) bakom en brand v
 
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
-

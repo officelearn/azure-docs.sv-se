@@ -3,16 +3,17 @@ title: Publicera hanterad app för tjänst katalog
 description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 author: tfitzmac
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609365"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249044"
 ---
-# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Snabb start: skapa och publicera en definition för ett hanterat program
+# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Snabbstart: Skapa och publicera en definition för det hanterade programmet
 
 Den här snabb starten ger en introduktion till att arbeta med [Azure Managed Applications](overview.md). Du kan skapa och publicera ett hanterat program som är avsett för medlemmar i din organisation.
 
@@ -20,15 +21,15 @@ Om du vill publicera ett hanterat program i tjänst katalogen måste du:
 
 * Skapa en mall som definierar resurserna som ska distribueras med det hanterade programmet.
 * Definiera användargränssnittselementen för portalen när du distribuerar det hanterade programmet.
-* Skapa ett ZIP-paket som innehåller nödvändiga mallfiler.
+* Skapa ett _zip_ -paket som innehåller de mallfiler som krävs.
 * Bestämma vilken användare, vilken grupp eller vilket program som behöver åtkomst till resursgruppen i användarens prenumeration.
-* Skapa definitionen för det hanterade programmet som pekar på ZIP-paketet och begär åtkomst för identiteten.
+* Skapa definitionen för det hanterade programmet som pekar på _. zip_ -paketet och begär åtkomst till identiteten.
 
 ## <a name="create-the-arm-template"></a>Skapa ARM-mallen
 
-Alla definitioner för hanterade program innehåller en fil med namnet **mainTemplate.json**. I den filen definierar du Azure-resurserna som ska distribueras. Mallen är inte en annan än en vanlig Azure Resource Manager-mall (ARM).
+Alla definitioner för hanterade program innehåller en fil med namnet _mainTemplate.json_. I den filen definierar du Azure-resurserna som ska distribueras. Mallen är inte annorlunda än en normal ARM-mall.
 
-Skapa en fil med namnet **mainTemplate.json**. Namnet är skiftlägeskänsligt.
+Skapa en fil med namnet _mainTemplate.json_. Namnet är skiftlägeskänsligt.
 
 Lägg till följande JSON i filen. Den definierar parametrarna för att skapa ett lagringskonto och anger egenskaperna för lagringskontot.
 
@@ -73,13 +74,13 @@ Lägg till följande JSON i filen. Den definierar parametrarna för att skapa et
 }
 ```
 
-Spara filen mainTemplate.json.
+Spara _mainTemplate.jspå_ filen.
 
 ## <a name="define-your-create-experience"></a>Definiera din skapa upplevelse
 
-Som utgivare definierar du Portal upplevelsen för att skapa det hanterade programmet. **CreateUiDefinition. JSON** -filen genererar Portal gränssnittet. Du definierar hur användare anger indatatyper för varje parameter med [kontroll element](create-uidefinition-elements.md) , inklusive List rutor, text rutor och lösen ord.
+Som utgivare definierar du Portal upplevelsen för att skapa det hanterade programmet. _createUiDefinition.jspå_ filen genererar Portal gränssnittet. Du definierar hur användare anger indatatyper för varje parameter med [kontroll element](create-uidefinition-elements.md) , inklusive List rutor, text rutor och lösen ord.
 
-Skapa en fil med namnet **createUiDefinition. JSON** (detta namn är Skift läges känsligt)
+Skapa en fil med namnet _createUiDefinition.jspå_ (detta namn är Skift läges känsligt)
 
 Lägg till följande start-JSON i filen och spara den.
 
@@ -136,7 +137,7 @@ Mer information finns i [Kom igång med CreateUiDefinition](create-uidefinition-
 
 ## <a name="package-the-files"></a>Paketera filerna
 
-Lägg till de två filerna i en ZIP-fil med namnet app.zip. Båda filerna måste ligga på rotnivå i ZIP-filen. Om du lägger dem i en mapp får du ett felmeddelande när du skapar definitionen för det hanterade programmet, som anger att de nödvändiga filerna saknas.
+Lägg till de två filerna i en _. zip_ -fil med namnet _app.zip_. De två filerna måste finnas på rot nivån i _. zip_ -filen. Om du lägger dem i en mapp får du ett felmeddelande när du skapar definitionen för det hanterade programmet, som anger att de nödvändiga filerna saknas.
 
 Ladda upp paketet till en tillgänglig plats som det kan användas från. Du måste ange ett unikt namn för lagrings kontot.
 
@@ -291,7 +292,7 @@ Några av de parametrar som användes i det föregående exemplet är:
 * **resurs grupp**: namnet på resurs gruppen där definitionen för det hanterade programmet skapas.
 * **Lås nivå**: typen av lås som placerats i den hanterade resurs gruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
 * **auktorisering**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörigheter till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Värdena avgränsas med kommatecken.
-* **paket filens URI**: platsen för ett. zip-paket som innehåller de filer som krävs.
+* **paket filens URI**: platsen för ett _. zip_ -paket som innehåller de filer som krävs.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Ta med din egen lagring för definitionen av det hanterade programmet
 
@@ -300,7 +301,7 @@ Du kan välja att lagra definitionen för det hanterade programmet i ett lagring
 > [!NOTE]
 > Det finns bara stöd för att ta med din egen lagring med ARM-mall eller REST API distributioner av definitionen för hanterade program.
 
-### <a name="select-your-storage-account"></a>Välj ditt lagrings konto
+### <a name="select-your-storage-account"></a>Välj ditt lagringskonto
 
 Du måste [skapa ett lagrings konto](../../storage/common/storage-account-create.md) som innehåller din definition av hanterade program för användning med tjänst katalogen.
 
@@ -317,7 +318,7 @@ Innan din definition av hanterade program kan distribueras till ditt lagrings ko
 1. Under **Välj**, söker du efter enhets **resurs leverantörs** rollen och markerar den.
 1. Spara roll tilldelningen.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuera den hanterade program definitionen med en ARM-mall 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuera den hanterade program definitionen med en ARM-mall
 
 Använd följande ARM-mall för att distribuera ditt paketerade hanterade program som en ny definition för hanterade program i tjänst katalogen vars definitionsfiler lagras och bevaras i ditt eget lagrings konto:
    
@@ -391,9 +392,9 @@ Använd följande ARM-mall för att distribuera ditt paketerade hanterade progra
 }
 ```
 
-Vi har lagt till en ny egenskap med namnet **storageAccountId** i dina applicationDefintion egenskaper och ange det lagrings konto-ID som du vill lagra definitionen i som dess värde:
+Vi har lagt till en ny egenskap med namnet `storageAccountId` på dina `applicationDefinitions` egenskaper och ange det lagrings konto-ID som du vill lagra definitionen i som dess värde:
 
-Du kan kontrol lera att programdefinitions-filerna sparas i det tillhandahållna lagrings kontot i en behållare med namnet **applicationdefinitions**.
+Du kan kontrol lera att programdefinitions-filerna sparas i det angivna lagrings kontot i en behållare med rubriken `applicationDefinitions` .
 
 > [!NOTE]
 > För ökad säkerhet kan du skapa en definition för hanterade program i en [Azure Storage-konto-BLOB där kryptering är aktiverat](../../storage/common/storage-service-encryption.md). Definitions innehållet krypteras via lagrings kontots krypterings alternativ. Endast användare med behörighet till filen kan se definitionen i tjänst katalogen.

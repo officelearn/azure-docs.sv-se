@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75498155"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248415"
 ---
 # <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Övervakning och diagnostik för Service Fabric nät kategoriseras i tre huvud typer av diagnostikdata:
@@ -42,7 +43,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 Nät miljön visar en fåtal av mått som anger hur dina behållare presterar. Följande mått är tillgängliga via Azure Portal och Azure Monitor CLI:
 
-| Metric | Beskrivning | Enheter|
+| Mått | Beskrivning | Enheter|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu som en procent andel | % |
 | MemoryUtilization | ActualMem/AllocatedMem som en procent andel | % |
@@ -50,14 +51,14 @@ Nät miljön visar en fåtal av mått som anger hur dina behållare presterar. F
 | AllocatedMemory | Allokerat minne per Azure Resource Manager mall | MB |
 | ActualCpu | Processoranvändning | Millicores |
 | ActualMemory | Minnes användning | MB |
-| Container status | 0 – ogiltig: behållar statusen är okänd <br> 1 – väntar: behållaren har schemalagts att starta <br> 2-start: behållaren håller på att starta <br> 3-startad: behållaren har startats <br> 4-stopp: behållaren stoppas <br> 5-stoppad: behållaren har stoppats | E.t. |
-| ApplicationStatus | 0-okänd: statusen kan inte hämtas <br> 1 – klart: programmet körs <br> 2 – uppgradering: en pågående uppgradering pågår <br> 3 – skapar: programmet skapas <br> 4-tar bort: programmet tas bort <br> 5 – misslyckades: det gick inte att distribuera programmet | E.t. |
-| ServiceStatus | 0 – ogiltig: tjänsten har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | E.t. |
-| ServiceReplicaStatus | 0 – ogiltig: repliken har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | E.t. | 
-| RestartCount | Antal omstarter av behållare | E.t. |
+| Container status | 0 – ogiltig: behållar statusen är okänd <br> 1 – väntar: behållaren har schemalagts att starta <br> 2-start: behållaren håller på att starta <br> 3-startad: behållaren har startats <br> 4-stopp: behållaren stoppas <br> 5-stoppad: behållaren har stoppats | Ej tillämpligt |
+| ApplicationStatus | 0-okänd: statusen kan inte hämtas <br> 1 – klart: programmet körs <br> 2 – uppgradering: en pågående uppgradering pågår <br> 3 – skapar: programmet skapas <br> 4-tar bort: programmet tas bort <br> 5 – misslyckades: det gick inte att distribuera programmet | Ej tillämpligt |
+| ServiceStatus | 0 – ogiltig: tjänsten har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | Ej tillämpligt |
+| ServiceReplicaStatus | 0 – ogiltig: repliken har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | Ej tillämpligt | 
+| RestartCount | Antal omstarter av behållare | Ej tillämpligt |
 
 > [!NOTE]
-> Värdena för ServiceStatus och ServiceReplicaStatus är desamma som för [hälso](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) tillstånd i Service Fabric. 
+> Värdena för ServiceStatus och ServiceReplicaStatus är desamma som för [hälso](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) tillstånd i Service Fabric. 
 
 Varje mått är tillgängligt på olika dimensioner så att du kan se agg regeringar på olika nivåer. Den aktuella listan med dimensioner är följande:
 
@@ -73,7 +74,7 @@ Varje dimension motsvarar olika komponenter i [Service Fabric program modellen](
 
 ### <a name="azure-monitor-cli"></a>Azure Monitor CLI
 
-En fullständig lista över kommandon finns i [Azure Monitor CLI-dokument](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , men vi har inkluderat några användbara exempel nedan 
+En fullständig lista över kommandon finns i [Azure Monitor CLI-dokument](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , men vi har inkluderat några användbara exempel nedan 
 
 I varje exempel är resurs-ID: t följande mönster
 
@@ -117,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om Service Fabric Mesh finns i [översikten över Service Fabric Mesh](service-fabric-mesh-overview.md).
-* Mer information om kommandon för Azure Monitor mått finns i [Azure Monitor CLI-dokument](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Mer information om kommandon för Azure Monitor mått finns i [Azure Monitor CLI-dokument](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).

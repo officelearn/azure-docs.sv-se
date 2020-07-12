@@ -4,11 +4,12 @@ description: Skapa din första Windows-containerapp på Azure Service Fabric. By
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560669"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247412"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -16,7 +17,7 @@ ms.locfileid: "84560669"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln beskriver hur du skapar en Docker-avbildning som innehåller ett webb program för python- [flaska](http://flask.pocoo.org/) och distribuerar det till ett Azure Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln beskriver hur du skapar en Docker-avbildning som innehåller ett webb program för python- [flaska](http://flask.pocoo.org/) och distribuerar det till ett Azure Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](../container-registry/index.yml). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
 > [!NOTE]
 > Den här artikeln gäller för en Windows-utvecklings miljö.  Service Fabric kluster körning och Docker-körningsmiljön måste köras på samma OS.  Det går inte att köra Windows-behållare i ett Linux-kluster.
@@ -320,7 +321,7 @@ Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-kl
 ## <a name="deploy-the-container-application"></a>Distribuera containerappen
 Spara alla dina ändringar och skapa programmet. Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
 
-I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Till exempel `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
+I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Ett exempel är `containercluster.westus2.cloudapp.azure.com:19000`. Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
 
 Klicka på **Publicera**.
 
@@ -332,7 +333,7 @@ Appen är klar när den har ```Ready```status: ![Ready][2] (Klar)
 
 ## <a name="clean-up"></a>Rensa
 
-Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-cluster-delete.md).
+Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](./service-fabric-tutorial-delete-cluster.md).
 
 När du har överfört avbildningen till containerregistret kan du ta bort den lokala avbildningen från utvecklingsdatorn:
 
@@ -343,15 +344,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server container OS-och värd-OS-kompatibilitet
 
-Windows Server-behållare är inte kompatibla i alla versioner av ett värd operativ system. Ett exempel:
+Windows Server-behållare är inte kompatibla i alla versioner av ett värd operativ system. Exempel:
  
 - Windows Server-behållare som skapats med hjälp av Windows Server version 1709 fungerar inte på en värd som kör Windows Server version 2016. 
 - Windows Server-behållare som skapats med Windows Server 2016 fungerar bara i ett isolerings läge för Hyper-V på en värd som kör Windows Server version 1709. 
 - Med Windows Server-behållare som skapats med Windows Server 2016 kan det vara nödvändigt att se till att revisionen av behållar-OS och värd operativ systemet är samma när du kör i process isolerings läge på en värd som kör Windows Server 2016.
  
-Mer information finns i [kompatibilitet med Windows container version](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Mer information finns i [kompatibilitet med Windows container version](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Överväg kompatibiliteten för värd operativ systemet och behållar operativ systemet när du skapar och distribuerar behållare till ditt Service Fabric-kluster. Ett exempel:
+Överväg kompatibiliteten för värd operativ systemet och behållar operativ systemet när du skapar och distribuerar behållare till ditt Service Fabric-kluster. Exempel:
 
 - Se till att distribuera behållare med ett operativ system som är kompatibelt med operativ systemet på klusternoderna.
 - Kontrol lera att isolerings läget som anges för container-appen är konsekvent med stöd för behållar-OS på den nod där det distribueras.

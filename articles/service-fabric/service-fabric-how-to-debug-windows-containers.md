@@ -4,11 +4,12 @@ description: Lär dig att felsöka Windows-behållare i Azure Service Fabric med
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701157"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247259"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Så här gör du: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2019
 
@@ -16,9 +17,9 @@ Med Visual Studio 2019 kan du felsöka .NET-program i behållare som Service Fab
 
 ## <a name="prerequisites"></a>Krav
 
-* I Windows 10 följer du den här snabb starten för att [Konfigurera Windows 10 att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* På Windows Server 2016 följer du den här snabb starten för att [Konfigurera windows 2016 för att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Konfigurera din lokala Service Fabrics miljö genom att följa [förbereda utvecklings miljön i Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* I Windows 10 följer du den här snabb starten för att [Konfigurera Windows 10 att köra Windows-behållare](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* På Windows Server 2016 följer du den här snabb starten för att [Konfigurera windows 2016 för att köra Windows-behållare](/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Konfigurera din lokala Service Fabrics miljö genom att följa [förbereda utvecklings miljön i Windows](./service-fabric-get-started.md)
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>Konfigurera din utvecklings miljö för att felsöka behållare
 
@@ -37,7 +38,7 @@ Med Visual Studio 2019 kan du felsöka .NET-program i behållare som Service Fab
       > Du kan använda `-CreateOneNodeCluster` för att konfigurera ett kluster med en nod. Som standard skapas ett lokalt kluster med fem noder.
       >
 
-      Mer information om DNS-tjänsten i Service Fabric finns i [DNS-tjänsten i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Om du vill veta mer om hur du använder Service Fabric omvänd proxy från tjänster som körs i en behållare, se [omvänd proxy särskild hantering för tjänster som körs i behållare](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+      Mer information om DNS-tjänsten i Service Fabric finns i [DNS-tjänsten i Azure Service Fabric](./service-fabric-dnsservice.md). Om du vill veta mer om hur du använder Service Fabric omvänd proxy från tjänster som körs i en behållare, se [omvänd proxy särskild hantering för tjänster som körs i behållare](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Kända begränsningar vid fel sökning av behållare i Service Fabric
 

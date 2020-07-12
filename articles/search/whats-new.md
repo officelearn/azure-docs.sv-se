@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/10/2020
-ms.openlocfilehash: 01968335ffcaffb26cabd2a5174d00e5471409c1
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: d2567a5a0374fd05f17e1153c3b2d7f3df50e0d9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232040"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247004"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -28,7 +28,6 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 | [**Sök REST API 2020-06-30**](https://docs.microsoft.com/rest/api/searchservice/) | REST | En ny stabil version av REST-API: erna. Förutom kunskaps lager innehåller den här versionen förbättringar för att söka efter relevans och poäng. | Allmänt tillgänglig. |
 | [**Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Fråga | Ny algoritm för rankning av relevans används automatiskt för alla nya Sök tjänster som skapats efter den 15 juli. För tjänster som skapats tidigare kan du välja att ange `similarity` egenskapen för index fält. | Allmänt tillgänglig. </br> Använd [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller senare, eller REST API 2019-05-06. |
 | **executionEnvironment** | Säkerhet (indexerare) | Ange uttryckligen konfigurations egenskapen för indexerare för `private` att tvinga alla anslutningar till externa data källor över en privat slut punkt. Gäller endast för Sök tjänster som utnyttjar Azures privata länk. | Allmänt tillgänglig. </br> Använd [sök REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) för att ange den här allmänna konfigurations parametern. |
-| [**Azure Machine Learning (AML) kunskap**](cognitive-search-aml-skill.md) | AI-berikning| En ny färdighets typ som integrerar en inferencing-slutpunkt från Azure Machine Learning. Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md). | Allmänt tillgänglig. </br> Använd [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller senare. Det finns även i portalen, i färdigheter design, förutsatt att Kognitiv sökning och Azure ML-tjänster distribueras i samma prenumeration. |
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
 

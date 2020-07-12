@@ -5,26 +5,26 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d6fb73801f0f460daf2ed70f8dc88187e41ea887
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458853"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248942"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Säkerhetskopiera en virtuell dator i Azure med Resource Manager-mall
+# <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Snabb start: säkerhetskopiera en virtuell dator i Azure med en ARM-mall
 
-[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med Resource Manager-mall och Azure PowerShell. Den här snabb starten fokuserar på processen att distribuera en Resource Manager-mall för att skapa ett återhämtnings tjänst valv. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallen referens](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med en Azure Resource Manager-mall (ARM-mall) och Azure PowerShell. Den här snabb starten fokuserar på processen att distribuera en ARM-mall för att skapa ett återhämtnings tjänst valv. Mer information om hur du utvecklar ARM-mallar finns i [Azure Resource Manager-dokumentationen](/azure/azure-resource-manager/) och [referensen till mallen](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Alternativt kan du säkerhetskopiera en virtuell dator med [Azure PowerShell](./quick-backup-vm-powershell.md), [Azure CLI](quick-backup-vm-cli.md)eller i [Azure Portal](quick-backup-vm-portal.md).
+Ett [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) är en logisk behållare som lagrar säkerhetskopierade data för skyddade resurser, till exempel virtuella Azure-datorer. När ett säkerhets kopierings jobb körs skapas en återställnings punkt i Recovery Services valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt. Alternativt kan du säkerhetskopiera en virtuell dator med [Azure PowerShell](./quick-backup-vm-powershell.md), [Azure CLI](quick-backup-vm-cli.md)eller i [Azure Portal](quick-backup-vm-portal.md).
 
-## <a name="create-a-vm-and-recovery-services-vault"></a>Skapa en virtuell dator och Recovery Services valv
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
 
-Ett [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) är en logisk behållare som lagrar säkerhetskopierade data för skyddade resurser, till exempel virtuella Azure-datorer. När ett säkerhets kopierings jobb körs skapas en återställnings punkt i Recovery Services valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-create-vm-and-configure-backup%2Fazuredeploy.json)
 
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Med den här mallen kan du distribuera enkel virtuell Windows-dator och Recovery Services valv som kon figurer ATS med DefaultPolicy för skydd.
 
@@ -39,9 +39,9 @@ De resurser som definieras i mallen är:
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft. Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft. RecoveryServices/valv**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
-- [**Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults/backupfabrics/protectioncontainers/protecteditems)
+- [**Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 Om du vill distribuera mallen väljer du **prova** att öppna Azure Cloud Shell och klistrar in följande PowerShell-skript i Shell-fönstret. Om du vill klistra in koden högerklickar du på Shell-fönstret och väljer **Klistra in**.
 
@@ -59,7 +59,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Azure PowerShell används för att distribuera Resource Manager-mallen i den här snabb starten. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)och rest- [API: et](../azure-resource-manager/templates/deploy-rest.md) kan också användas för att distribuera mallar.
+Azure PowerShell används för att distribuera ARM-mallen i den här snabb starten. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)och rest- [API: et](../azure-resource-manager/templates/deploy-rest.md) kan också användas för att distribuera mallar.
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
@@ -71,7 +71,7 @@ Mallen skapar en virtuell dator och aktiverar den virtuella datorn igen. När du
 
 Information om hur du övervakar säkerhets kopierings jobbet finns i [övervaka säkerhets kopierings jobbet](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
-## <a name="clean-up-the-deployment"></a>Rensa distributionen
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte längre behöver säkerhetskopiera den virtuella datorn kan du rensa den.
 
@@ -93,4 +93,4 @@ I den här snabbstarten har du skapat ett Recovery Services-valv, aktiverat skyd
 
 - [Lär dig hur](tutorial-backup-vm-at-scale.md) du säkerhetskopierar virtuella datorer i Azure Portal.
 - [Lär dig hur](tutorial-restore-disk.md) du snabbt återställer en virtuell dator
-- [Lär dig hur](../azure-resource-manager/templates/template-tutorial-create-first-template.md) du skapar Resource Manager-mallar.
+- [Lär dig hur](../azure-resource-manager/templates/template-tutorial-create-first-template.md) du skapar arm-mallar.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c2590a2c745969313ae73521dbcd110fbf3b7551
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085862"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221025"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrera Apache Spark och Apache Hive med Hive Warehouse Connector i Azure HDInsight
 
@@ -37,6 +37,9 @@ Några av de åtgärder som stöds av Hive-lager kopplingen är:
 * Skriva en DataFrame-eller Spark-dataström till Hive med HiveStreaming
 
 ## <a name="hive-warehouse-connector-setup"></a>Installation av Hive lager koppling
+
+> [!IMPORTANT]
+> Den interaktiva HiveServer2-instansen som är installerad på Spark 2,4 Enterprise Security Package-kluster stöds inte för användning med Hive-lagrets koppling. I stället måste du konfigurera ett separat HiveServer2-interaktivt kluster som värd för dina HiveServer2-interaktiva arbets belastningar. Det finns inte stöd för att konfigurera en Hive-nätkoppling som använder ett enda Spark 2,4-kluster.
 
 Hive-lagerställen behöver separata kluster för Spark-och Interactive Query-arbetsbelastningar. Följ dessa steg om du vill konfigurera dessa kluster i Azure HDInsight.
 

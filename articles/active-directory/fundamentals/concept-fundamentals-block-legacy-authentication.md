@@ -12,11 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196393"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200548"
 ---
 # <a name="blocking-legacy-authentication"></a>Blockerar äldre autentisering
  
@@ -31,9 +32,9 @@ Idag kommer majoriteten av alla kompromissade inloggnings försök från äldre 
 
 Innan du kan blockera äldre autentisering i din katalog måste du först förstå om dina användare har appar som använder äldre autentisering och hur de påverkar den övergripande katalogen. Inloggnings loggar för Azure AD kan användas för att förstå om du använder äldre autentisering.
 
-1. Navigera till **Azure Portal**   >  **Azure Active Directory**   >  **inloggningar**.
+1. Navigera till **Azure Portal**  >  **Azure Active Directory**  >  **inloggningar**.
 1. Lägg till kolumnen **klient program** om den inte visas genom att klicka på **kolumner**   >  **klient program**.
-1. Filtrera efter **klient program**  > Markera alla bakåtkompatibla alternativ för **klientautentisering** som visas.
+1. Filtrera efter **klient program** > Markera alla bakåtkompatibla alternativ för **klientautentisering** som visas.
 1. Filtrering efter **status**  >  **lyckades**. 
 1. Expandera datum intervallet om det behövs med **datum** filtret.
 

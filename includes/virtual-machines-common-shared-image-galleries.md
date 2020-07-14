@@ -4,19 +4,19 @@ description: ta med fil
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/16/2020
+ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218087"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221652"
 ---
-Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
+Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
-- Hanterad global replikering av avbildningar.
+- Global replikering av avbildningar.
 - Versions hantering och gruppering av avbildningar för enklare hantering.
 - Bilder med hög tillgänglighet med ZRS-konton (Zone redundant Storage) i regioner som stöder Tillgänglighetszoner. ZRS erbjuder bättre återhämtning mot zonindelade-problem.
 - Stöd för Premium Storage (Premium_LRS).
@@ -33,7 +33,7 @@ Funktionen för delad bild galleri har flera resurs typer:
 
 | Resurs | Beskrivning|
 |----------|------------|
-| **Bild källa** | Det här är en resurs som kan användas för att skapa en **avbildnings version** i ett bild galleri. En avbildnings källa kan vara en befintlig virtuell Azure-dator som är antingen [generaliserad eller specialiserad](#generalized-and-specialized-images), en hanterad avbildning, en ögonblicks bild eller en avbildnings version i ett annat bild galleri. |
+| **Bild källa** | Det här är en resurs som kan användas för att skapa en **avbildnings version** i ett bild galleri. En avbildnings källa kan vara en befintlig virtuell Azure-dator som är antingen [generaliserad eller specialiserad](#generalized-and-specialized-images), en hanterad avbildning, en ögonblicks bild, en virtuell hård disk eller en avbildnings version i ett annat bild galleri. |
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
 | **Bild definition** | Bild definitionerna skapas i ett galleri och bär information om avbildningen och kraven för att använda den internt. Detta inkluderar om avbildningen är Windows eller Linux, viktig information och minimi-och högsta minnes krav. Det är en definition av en typ av bild. |
 | **Avbildnings version** | En **avbildnings version** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Som en hanterad avbildning används avbildnings versionen för att skapa nya diskar för den virtuella datorn när du använder en **avbildnings version** för att skapa en virtuell dator. Avbildnings versioner kan användas flera gånger. |
@@ -68,6 +68,7 @@ Följande är andra parametrar som kan ställas in på din avbildnings definitio
 * Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
 * Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
 * Hyper-V-generering – du kan ange om avbildningen har skapats från en gen 1-eller generation 2 Hyper-V-VHD.
+* Information om inköps plan för Marketplace-avbildningar – `-PurchasePlanPublisher ` , `-PurchasePlanName` och `-PurchasePlanProduct` . Mer information om inköps Plans information finns i [hitta avbildningar på Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) och [leverera information om inköps plan för Azure Marketplace när du skapar avbildningar](../articles/virtual-machines/marketplace-images.md).
 
 ## <a name="generalized-and-specialized-images"></a>Generaliserade och specialiserade avbildningar
 
@@ -82,11 +83,7 @@ Specialiserade virtuella datorer har inte genomgått någon process för att ta 
 
 ## <a name="regional-support"></a>Regional support
 
-Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien Central och Australien, Central 2 måste du ha din prenumeration vit listas. Om du vill begära vit listning går du till:https://azure.microsoft.com/global-infrastructure/australia/contact/
-
-> Australien, centrala, Kina, östra, södra Indien, västra Europa, Australien, centrala 2, Kina, östra 2, Sydostasien, Storbritannien, södra, östra Australien, Kina, norra, Japan, östra, Storbritannien, västra, sydöstra Australien, Kina, norra 2, västra Japan, US DoD, centrala, södra, Asien, östra, Korea, centrala, US DoD, östra, centrala Kanada, östra USA, södra centrala USA, US Gov, Arizona, Östra Kanada, östra USA 2, norra centrala USA , US Gov, Texas, Central Indien, östra USA 2 EUAP, norra Europa, US Gov, Virginia, centrala USA, centrala Frankrike, södra centrala USA, västra Indien, centrala USA-EUAP, Frankrike, södra centrala USA, västra USA, västra USA 2 |
-
-
+Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien Central och Australien, Central 2 måste du ha din prenumeration vit listas. Om du vill begära vit listning går du till:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Gränser 
 
@@ -126,7 +123,7 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Åtkomst
+## <a name="access"></a>Access
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
@@ -233,13 +230,7 @@ Ja. Det finns tre scenarier baserat på de typer av avbildningar som du kan ha.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Kan jag skapa en avbildnings version från en specialiserad disk?
 
-Ja, stöd för specialiserade diskar som bilder är i för hands version. Du kan bara skapa en virtuell dator från en specialiserad avbildning med hjälp av portalen, PowerShell eller API. 
-
-
-Använd [PowerShell för att skapa en avbildning av en specialiserad virtuell dator](../articles/virtual-machines/image-version-vm-powershell.md).
-
-Använd portalen för att skapa ett [Windows](../articles/virtual-machines/linux/shared-images-portal.md) -eller [Linux] (.. /articles/Virtual-Machines/Linux/Shared-images-Portal.MD-avbildning. 
-
+Ja, kan skapa en virtuell dator från en specialiserad avbildning med hjälp av [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md)eller API. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Kan jag flytta den delade avbildnings Galleri resursen till en annan prenumeration när den har skapats?
 

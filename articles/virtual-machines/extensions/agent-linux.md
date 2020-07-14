@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74073856"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186834"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 
@@ -133,36 +134,36 @@ Läs dokumentationen i [Azure Linux-agentens lagrings platsen på GitHub](https:
 ## <a name="configuration"></a>Konfiguration
 En konfigurations fil (/etc/waagent.conf) styr åtgärder för waagent. Följande visar en exempel konfigurations fil:
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 Följande olika konfigurations alternativ beskrivs. Konfigurations alternativen är av tre typer. Boolesk, sträng eller heltal. De booleska konfigurations alternativen kan anges som "y" eller "n". Det särskilda nyckelordet "ingen" kan användas för vissa konfigurations poster av sträng typ som följande information:
 
 **Etablering. aktive rad:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -174,14 +175,14 @@ Detta gör att användaren kan aktivera eller inaktivera etablerings funktionern
 > 
 
 **Etablering. DeleteRootPassword:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Om detta anges raderas rot lösen ordet i/etc/Shadow-filen under etablerings processen.
 
 **Etablering. RegenerateSshHostKeyPair:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -190,42 +191,42 @@ Om detta anges tas alla nyckel par för SSH-värden (ECDSA, DSA och RSA) bort un
 Krypterings typen för det nya nyckel paret kan konfigureras av etableringen. SshHostKeyPairType-posten. Vissa distributioner återskapar SSH-nyckelpar för alla saknade krypterings typer när SSH-daemonen startas om (till exempel vid en omstart).
 
 **Etablering. SshHostKeyPairType:**  
-```
+```txt
 Type: String  
 Default: rsa
 ```
 Detta kan anges till en typ av krypteringsalgoritm som stöds av SSH daemon på den virtuella datorn. De värden som stöds vanligt vis är "RSA", "DSA" och "ECDSA". "putty.exe" i Windows stöder inte "ECDSA". Om du tänker använda putty.exe på Windows för att ansluta till en Linux-distribution använder du exempelvis "RSA" eller "DSA".
 
 **Etablering. MonitorHostName:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Om det här alternativet är inställt övervakar waagent den virtuella Linux-datorn för hostname-ändringar (som returneras av kommandot "hostname") och automatiskt uppdaterar nätverks konfigurationen i avbildningen för att avspegla ändringen. För att push-överföra namn ändras till DNS-servrarna startas nätverk om på den virtuella datorn. Detta resulterar i en kort förlust av Internet anslutning.
 
 **Etablering. DecodeCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Om det här värdet anges avkodas waagent CustomData från base64.
 
 **Provisioning.ExecuteCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Om det här värdet anges kör waagent CustomData efter etableringen.
 
 **Etablering. AllowResetSysUser**
-```
+```txt
 Type: Boolean
 Default: n
 ```
 Med det här alternativet kan du återställa sys-användarens lösen ord. Standardvärdet är inaktiverat.
 
 **Etablering. PasswordCryptId**  
-```
+```txt
 Type: String  
 Default: 6
 ```
@@ -236,91 +237,91 @@ Algoritm som används av crypt vid generering av lösen ords-hash.
  6-SHA-512  
 
 **Etablering. PasswordCryptSaltLength**  
-```
+```txt
 Type: String  
 Default: 10
 ```
 Längden på det slumpmässiga salt som används när lösen ordets hash genereras.
 
 **ResourceDisk. format:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Om den här inställningen är aktive rad kommer resurs disken som tillhandahålls av plattformen att formateras och monteras av waagent om den fil Systems typ som användaren begär i "ResourceDisk. filesystem" är något annat än "NTFS". En enda partition av typen Linux (83) görs tillgänglig på disken. Den här partitionen är inte formaterad om den kan monteras.
 
 **ResourceDisk. filesystem:**  
-```
+```txt
 Type: String  
 Default: ext4
 ```
 Anger fil Systems typ för resurs disken. Vilka värden som stöds varierar beroende på Linux-distribution. Om strängen är X, så mkfs. X måste finnas på Linux-avbildningen. SLES 11-bilder bör normalt använda "ext3". FreeBSD-bilder ska använda ' UFS2 ' här.
 
 **ResourceDisk. monterings punkt:**  
-```
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
 Anger sökvägen till den plats där resurs disken monteras. Resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn har avetablerats.
 
 **ResourceDisk.MountOptions**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Anger monterings alternativ för diskar som ska skickas till kommandot Mount-o. Det här är en kommaavgränsad lista med värden, t. ex. 'nodev,nosuid'. Mer information finns i montera (8).
 
 **ResourceDisk.EnableSwap:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Om den anges skapas en växlings fil (/swapfile) på resurs disken och läggs till i system växlings utrymmet.
 
 **ResourceDisk.SwapSizeMB:**  
-```
+```txt
 Type: Integer  
 Default: 0
 ```
 Växlings filens storlek i megabyte.
 
 **Loggar. Verbose:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Om det är inställt, ökar loggens utförlighet. Waagent loggar till/var/log/waagent.log och använder system logrotate-funktionen för att rotera loggar.
 
 **Granskning. EnableRDMA**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Om det här alternativet anges försöker agenten installera och sedan läsa in en RDMA-kernel-drivrutin som matchar versionen av den inbyggda program varan på den underliggande maskin varan.
 
 **Granskning. RootDeviceScsiTimeout:**  
-```
+```txt
 Type: Integer  
 Default: 300
 ```
 Den här inställningen konfigurerar SCSI-tidsgräns på några sekunder av OS-disken och data enheterna. Om den inte anges används systemets standardinställningar.
 
 **Granskning. OpensslPath:**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Den här inställningen kan användas för att ange en alternativ sökväg för den openssl-binärfil som ska användas för kryptografiska åtgärder.
 
 **HttpProxy. Host, HttpProxy. port**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Om den är inställd använder agenten denna proxyserver för att få åtkomst till Internet. 
 
 **AutoUpdate. Enabled**
-```
+```txt
 Type: Boolean
 Default: y
 ```

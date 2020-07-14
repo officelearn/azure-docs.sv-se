@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135083"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221212"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -61,11 +61,11 @@ Detta är det grundläggande mallformat:
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>Plats
 
 Platsen är den region där den anpassade avbildningen kommer att skapas. För för hands versionen av Image Builder stöds följande regioner:
 
-- USA, östra
+- East US
 - USA, östra 2
 - USA, västra centrala
 - USA, västra
@@ -78,7 +78,7 @@ Platsen är den region där den anpassade avbildningen kommer att skapas. För f
     "location": "<region>",
 ```
 ## <a name="vmprofile"></a>vmProfile
-Som standard använder Image Builder en "Standard_D1_v2"-version av den virtuella datorn. du kan åsidosätta detta, om du till exempel vill anpassa en avbildning för en GPU-VM behöver du en GPU VM-storlek. Det här är valfritt.
+Som standard använder Image Builder en "Standard_D1_v2"-version av den virtuella datorn. du kan åsidosätta detta, om du till exempel vill anpassa en avbildning för en GPU-VM behöver du en GPU VM-storlek. Detta är valfritt.
 
 ```json
  {
@@ -150,6 +150,9 @@ API: t kräver en ' SourceType ' som definierar källan för avbildnings version
 - PlatformImage – anger att käll avbildningen är en Marketplace-avbildning.
 - ManagedImage – Använd det här när du startar från en vanlig hanterad avbildning.
 - SharedImageVersion – används när du använder en avbildnings version i ett delat avbildnings galleri som källa.
+
+> [!NOTE]
+> När du använder befintliga anpassade Windows-avbildningar kan du köra Sysprep-kommandot upp till 8 gånger på en enda Windows-avbildning. mer information finns i [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) -dokumentationen.
 
 ### <a name="iso-source"></a>ISO-källa
 Vi har föråldrat den här funktionen från Image Builder, eftersom det nu finns [RHEL att ta med dina egna prenumerations avbildningar](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos). granska tids linjerna nedan:
@@ -468,7 +471,10 @@ Azure Image Builder stöder tre distributions mål:
 - **sharedImage** -delat avbildnings Galleri.
 - **VHD** -VHD i ett lagrings konto.
 
-Du kan distribuera en avbildning till båda mål typerna i samma konfiguration, se [exempel](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+Du kan distribuera en avbildning till båda mål typerna i samma konfiguration.
+
+> [!NOTE]
+> Standardvärdet för AIB Sysprep inkluderar inte "/läge: VM", men detta kan vara nödvändigt när du skapar avbildningar som ska ha HyperV-rollen installerad. Om du behöver lägga till det här kommando argumentet måste du åsidosätta Sysprep-kommandot.
 
 Eftersom du kan ha fler än ett mål att distribuera till, har Image Builder ett tillstånd för varje distributions mål som kan nås genom att fråga `runOutputName` .  `runOutputName`Är ett objekt som du kan skicka frågor till efter distribution för information om distributionen. Du kan till exempel fråga platsen för den virtuella hård disken eller regioner där avbildnings versionen har repliker ATS till, eller SIG-avbildnings version som skapats. Detta är en egenskap för varje distributions mål. `runOutputName`Måste vara unik för varje distributions mål. Här är ett exempel som frågar en distribution av delade avbildnings Galleri:
 

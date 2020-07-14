@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041735"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199882"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -105,7 +105,7 @@ Lär dig hur du använder ett [fjärrberäknings mål](how-to-auto-train-remote.
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
-## <a name="feature-engineering"></a>Funktionstekniker
+## <a name="feature-engineering"></a>Funktionsframställning
 
 Funktions teknik är en process där du använder domän information om data för att skapa funktioner som hjälper ML-algoritmer att lära sig bättre. I Azure Machine Learning används skalnings-och normaliserings tekniker för att under lätta funktions teknikerna. De här teknikerna och funktions teknikerna kallas gemensamt för funktionalisering.
 
@@ -220,21 +220,21 @@ Med följande inställningar kan du konfigurera ditt automatiserade ML-experimen
 
 | |Python SDK|Studio-webbmiljön|
 ----|:----:|:----:
-Dela upp data i tåg/verifierings uppsättningar| ✓|✓
-Har stöd för ML-aktiviteter: klassificering, regression och Prognosticering| ✓| ✓
-Optimerar baserat på primärt mått| ✓| ✓
-Stöder AML Compute as Compute Target | ✓|✓
-Konfigurera en prognos horisont, mål lags & rullande fönster|✓|✓
-Ange avslutnings villkor |✓|✓ 
-Ange samtidiga iterationer| ✓|✓
-Släpp kolumner| ✓|✓
-Blockera algoritmer|✓|✓
-Kors validering |✓|✓
-Stöder utbildning i Azure Databricks kluster| ✓|
-Visa namn på förtillverkade funktioner|✓|
-Sammanfattning av funktionalisering| ✓|
-Funktionalisering för helgdagar|✓|
-Utförliga logg fils nivåer| ✓|
+|**Dela upp data i tåg/verifierings uppsättningar**| ✓|✓
+|**Har stöd för ML-aktiviteter: klassificering, regression och Prognosticering**| ✓| ✓
+|**Optimerar baserat på primärt mått**| ✓| ✓
+|**Stöder AML Compute as Compute Target** | ✓|✓
+|**Konfigurera en prognos horisont, mål lags & rullande fönster**|✓|✓
+|**Ange avslutnings villkor** |✓|✓ 
+|**Ange samtidiga iterationer**| ✓|✓
+|**Släpp kolumner**| ✓|✓
+|**Blockera algoritmer**|✓|✓
+|**Kors validering** |✓|✓
+|**Stöder utbildning i Azure Databricks kluster**| ✓|
+|**Visa namn på förtillverkade funktioner**|✓|
+|**Sammanfattning av funktionalisering**| ✓|
+|**Funktionalisering för helgdagar**|✓|
+|**Utförliga logg fils nivåer**| ✓|
 
 ### <a name="model-settings"></a>Modell inställningar
 
@@ -242,11 +242,11 @@ De här inställningarna kan tillämpas på den bästa modellen som ett resultat
 
 | |Python SDK|Studio-webbmiljön|
 |----|:----:|:----:|
-|Bästa modell registrering, distribution, förklaring| ✓|✓|
-|Aktivera röstnings Ensemble & stack Ensemble-modeller| ✓|✓|
-|Visa bästa modellen baserat på icke-primära mått|✓||
-|Aktivera/inaktivera kompatibilitet för ONNX-modell|✓||
-|Testa modellen | ✓| |
+|**Bästa modell registrering, distribution, förklaring**| ✓|✓|
+|**Aktivera röstnings Ensemble & stack Ensemble-modeller**| ✓|✓|
+|**Visa bästa modellen baserat på icke-primära mått**|✓||
+|**Aktivera/inaktivera kompatibilitet för ONNX-modell**|✓||
+|**Testa modellen** | ✓| |
 
 ### <a name="run-control-settings"></a>Kör kontroll inställningar
 
@@ -254,10 +254,10 @@ Med de här inställningarna kan du granska och kontrol lera experiment körning
 
 | |Python SDK|Studio-webbmiljön|
 |----|:----:|:----:|
-|Kör sammanfattnings tabell| ✓|✓|
-|Avbryt körning & underordnade körningar| ✓|✓|
-|Hämta guardrails| ✓|✓|
-|Pausa & återuppta körningar| ✓| |
+|**Kör sammanfattnings tabell**| ✓|✓|
+|**Avbryt körning & underordnade körningar**| ✓|✓|
+|**Hämta guardrails**| ✓|✓|
+|**Pausa & återuppta körningar**| ✓| |
 
 <a name="use-with-onnx"></a>
 

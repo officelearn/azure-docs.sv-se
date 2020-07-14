@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 191c6d411418229d40b10704ea14d5a536c0d5f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110631"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184556"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -95,7 +95,7 @@ Om ett hopp är rött betyder det att det är en del av minst en felaktig sökv�
 I NPM används en Probabilistic-mekanism för att tilldela fel sannolikhet till varje nätverks Sök väg, nätverks segment och komponenternas nätverks hopp baserat på antalet felaktiga sökvägar som de är en del av. När nätverks segmenten och hoppen blir en del av fler felaktiga sökvägar ökar sannolikheten för att risken för fel. Den här algoritmen fungerar bäst om du har många noder med NPM-agenten ansluten till varandra eftersom detta ökar data punkterna för att beräkna fel sannolikheten.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Hur kan jag skapa aviseringar i NPM?
-[I avsnittet aviseringar i dokumentationen](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) hittar du stegvisa instruktioner.
+Det går inte att skapa aviseringar från NPM UI på grund av ett problem. Skapa aviseringar manuellt.
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Vad är standard Log Analytics frågor för aviseringar
 Fråga om prestanda övervakaren
@@ -283,7 +283,7 @@ Detta kan inträffa om en eller flera är sanna:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>I tjänst anslutnings övervakarens funktion är svars tiden för tjänsten, men både nätverks förlust och svars tid är giltiga
 Detta kan inträffa om mål tjänsten inte är ett webb program, men testet är konfigurerat som ett webb test. Redigera test konfigurationen och välj test typ som nätverk i stället för webben.
 
-## <a name="miscellaneous"></a>Övrigt
+## <a name="miscellaneous"></a>Övriga farliga ämnen
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Påverkas prestandan på noden som används för övervakning?
 NPM-processen har kon figurer ATS att stoppa om den använder mer än 5% av värd processor resurserna. Detta är för att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbets belastningar utan att påverka prestandan.

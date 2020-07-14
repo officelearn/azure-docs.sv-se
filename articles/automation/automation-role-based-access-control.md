@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100014"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186154"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
@@ -311,7 +311,7 @@ Du kan ta bort åtkomst behörigheten för en användare som inte hanterar Autom
 
 Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlet: ar](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda den här cmdleten med `Name` parametern för att visa en lista över alla åtgärder som en speciell roll kan utföra.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda den här cmdleten med `Name` parametern för att visa en lista över alla åtgärder som en speciell roll kan utföra.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -330,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) visar Azure AD RBAC-roll tilldelningar i det angivna omfånget. Utan parametrar returnerar denna cmdlet alla roll tilldelningar som har gjorts under prenumerationen. Använd `ExpandPrincipalGroups` parametern för att visa en lista över åtkomst tilldelningar för den angivna användaren, samt de grupper som användaren tillhör.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) visar Azure AD RBAC-roll tilldelningar i det angivna omfånget. Utan parametrar returnerar denna cmdlet alla roll tilldelningar som har gjorts under prenumerationen. Använd `ExpandPrincipalGroups` parametern för att visa en lista över åtkomst tilldelningar för den angivna användaren, samt de grupper som användaren tillhör.
 
 **Exempel:** Använd följande cmdlet för att visa en lista över alla användare och deras roller i ett Automation-konto.
 
@@ -352,7 +352,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Använd [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) för att tilldela åtkomst till användare, grupper och program till ett visst omfång.
+Använd [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) för att tilldela åtkomst till användare, grupper och program till ett visst omfång.
     
 **Exempel:** Använd följande kommando för att tilldela rollen "Automation-operatör" för en användare i Automation-kontots omfattning.
 
@@ -374,7 +374,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Använd [Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) om du vill ta bort åtkomsten till en angiven användare, grupp eller program från ett visst omfång.
+Använd [Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) om du vill ta bort åtkomsten till en angiven användare, grupp eller program från ett visst omfång.
 
 **Exempel:** Använd följande kommando för att ta bort användaren från rollen som Automation-operatör i Automation-kontots omfång.
 

@@ -176,6 +176,8 @@
               href: configure-authentication-provider-microsoft.md
             - name: Autentisera med Twitter
               href: configure-authentication-provider-twitter.md
+            - name: Autentisera med en OpenID Connect-provider (förhandsgranskning)
+              href: configure-authentication-provider-openid-connect.md
         - name: Avancerad autentisering
           href: app-service-authentication-how-to.md
         - name: Begränsa åtkomst

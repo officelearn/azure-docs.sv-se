@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49045c8b8c7b3ccfa44a1077e59683191393e1ee
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833111"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220821"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Använda en intern Load Balancer med ett App Service-miljön
 
@@ -54,7 +54,7 @@ Att skapa en ILB-ASE är inte mycket annorlunda än att skapa en ASE normalt. En
 7. Ange ett under domän namn (det här namnet är den under domän som används för appar som skapats i den här ASE).
 8. Välj **OK** och sedan **skapa**.
 
-![][1]
+![Visar de skärmar som används för att skapa en ILB-ASE.][1]
 
 I rutan Virtual Network finns det ett konfigurations alternativ för virtuellt nätverk som låter dig välja mellan en extern VIP-eller intern VIP. Standardinställningen är Extern. Om du har angett till extern använder din ASE en tillgänglig VIP för Internet. Om du väljer Intern är din ASE konfigurerad med en ILB på en IP-adress inom ditt VNet. 
 
@@ -70,7 +70,7 @@ Att skapa en app i en ILB-ASE är detsamma som att skapa en app i en ASE på van
 5. Välj eller skapa en App Service plan (ASP). Om du skapar en ny ASP väljer du ASE som plats och väljer den arbets grupp som du vill att din ASP ska skapas i. När du skapar ASP väljer du ASE som plats och arbets grupp. När du anger namnet på appen kommer du att se att under domänen under ditt program namn ersätts av under domänen för din ASE. 
 6. Välj **Skapa**. Se till att markera kryss rutan **Fäst på instrument panelen** om du vill att appen ska visas på instrument panelen. 
 
-![][2]
+![Visar hur du skapar en app i en ILB-ASE i Azure Portal.][2]
 
 Under namnet på appen uppdateras under domän namnet så att det återspeglar under domänen för din ASE. 
 
@@ -79,11 +79,11 @@ En ILB ASE skiljer sig något från en icke-ILB ASE. Som redan antecknas måste 
 
 När du har skapat din ASE ser du att under domänen visar under domänen som du har angett och att det finns ett nytt objekt på **inställnings** menyn med namnet **ILB-certifikat**. ASE skapas med ett självsignerat certifikat som gör det enklare att testa HTTPS. Portalen visar att du måste ange ditt eget certifikat för HTTPS, men det är för att hjälpa dig att be dig att ha ett certifikat som går med under domänen. 
 
-![][3]
+![Visar den under domän som du angav när du skapade din ASE.][3]
 
 Om du bara testar saker och inte vet hur du skapar ett certifikat kan du använda IIS MMC-konsolen för att skapa ett självsignerat certifikat. När den har skapats kan du exportera den som en. pfx-fil och sedan ladda upp den i ILB-certifikatets användar gränssnitt. När du ansluter till en plats som skyddas med ett självsignerat certifikat ger webbläsaren dig en varning om att den plats som du använder inte är säker på grund av att det inte går att validera certifikatet. Om du vill undvika den varningen behöver du ett signerat certifikat som matchar din under domän och har en förtroende kedja som identifieras av din webbläsare.
 
-![][6]
+![Visar hur du använder IIS MMC-konsolen för att skapa ett självsignerat certifikat.][6]
 
 Om du vill testa flödet med dina egna certifikat och testa både HTTP-och HTTPS-åtkomst till din ASE:
 
@@ -98,7 +98,7 @@ Om du vill testa flödet med dina egna certifikat och testa både HTTP-och HTTPS
 
 IP-adressen för din ILB visas i egenskaperna som den virtuella IP-adressen.
 
-![][4]
+![Visar att IP-adressen för din ILB visas i egenskaperna som den virtuella IP-adressen.][4]
 
 ## <a name="using-an-ilb-ase"></a>Använda en ILB-ASE
 #### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
@@ -108,7 +108,7 @@ Om du vill använda NSG: er för att ytterligare begränsa åtkomsten, måste du
 
 Om du vill konfigurera din NSG: er måste du känna till den IP-adress som används av Azure för att hantera din ASE. IP-adressen är också den utgående IP-adressen från din ASE om den gör Internet-begäranden. Den utgående IP-adressen för din ASE är fortfarande statisk under ASE livs längd. Om du tar bort och återskapar din ASE, får du en ny IP-adress. Du hittar IP-adressen genom att gå till **Inställningar-> egenskaper** och hitta den **utgående IP-adressen**. 
 
-![][5]
+![Visar var du kan hitta den utgående IP-adressen för din ASE.][5]
 
 #### <a name="general-ilb-ase-management"></a>Allmän hantering av ILB-ASE
 Att hantera en ILB-ASE är i stort sett detsamma som att hantera en ASE på vanligt sätt. Du måste skala upp dina Worker-pooler så att de är värdar för fler ASP-instanser och skala upp dina klient dels servrar för att hantera ökade mängder HTTP/HTTPS-trafik. Allmän information om hur du hanterar konfigurationen av en ASE finns i [Konfigurera en app service-miljön][ASEConfig]. 

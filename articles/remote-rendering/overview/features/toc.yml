@@ -4,6 +4,8 @@
   href: debug-rendering.md
 - name: Åsidosätta hierarkiskt tillstånd
   href: override-hierarchical-state.md
+- name: Utrymme för steg
+  href: stage-space.md
 - name: Omprojektion av sena steg
   href: late-stage-reprojection.md
 - name: Scenbelysning

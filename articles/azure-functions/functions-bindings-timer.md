@@ -295,7 +295,7 @@ Talen i ett CRON-uttryck refererar till en tid och ett datum, inte ett tidsinter
 
 Till skillnad från ett CRON-uttryck `TimeSpan` anger ett värde tidsintervall mellan varje funktions anrop. När en funktion slutförs efter att ha kört längre än det angivna intervallet anropar timern omedelbart funktionen igen.
 
-Anges som en sträng `TimeSpan` är formatet när det `hh:mm:ss` `hh` är mindre än 24. När de två första siffrorna är 24 eller större är formatet `dd:hh:mm` . Här följer några exempel:
+Anges som en sträng `TimeSpan` är formatet när det `hh:mm:ss` `hh` är mindre än 24. När de två första siffrorna är 24 eller större är formatet `dd:hh:mm` . Här är några exempel:
 
 |Exempel |Utlöses av  |
 |---------|---------|
@@ -312,7 +312,7 @@ Om en Function-app skalar ut till flera instanser, körs bara en instans av en t
 
 Om du delar lagrings konton över Function-appar som inte har distribuerats till App Service kan du uttryckligen behöva tilldela värd-ID till varje app.
 
-| Funktions version | Inställning                                              |
+| Funktions version | Inställningen                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (och högre)  | `AzureFunctionsWebHost__hostid`miljö variabel |
 | 1.x               | `id`i *host.jspå*                                  |

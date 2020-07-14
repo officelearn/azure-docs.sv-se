@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline för Data Protection Manager (DPM) och Micro
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374839"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186953"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (tidigare versioner)
 
@@ -44,6 +44,9 @@ Offline-säkerhetskopiering stöds för alla distributions modeller av Azure Bac
 > * Säkerhets kopiering av filer och mappar med MARS-agenten eller Azure Backup-agenten.
 > * Säkerhets kopiering av alla arbets belastningar och filer med DPM.
 > * Säkerhets kopiering av alla arbets belastningar och filer med MABS.
+
+>[!NOTE]
+>Azure CSP-prenumerationer stöds inte för användning med offline-seeding för DPM 2019 RTM och tidigare versioner, och MABS v3 RTM och tidigare versioner. Online-säkerhetskopieringar över nätverket stöds fortfarande.
 
 ## <a name="prerequisites"></a>Krav
 

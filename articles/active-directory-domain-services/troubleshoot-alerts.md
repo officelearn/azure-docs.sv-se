@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734069"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222980"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Kända problem: vanliga aviseringar och lösningar i Azure Active Directory Domain Services
 
@@ -33,7 +34,7 @@ Den här artikeln innehåller felsöknings information för vanliga aviseringar 
 
 Det här felet uppstår vanligt vis när en Azure-prenumeration flyttas till en ny Azure AD-katalog och den gamla Azure AD-katalogen som är associerad med Azure AD DS tas bort.
 
-Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga Azure AD DS-hanterade domän](delete-aadds.md) och återskapar den i din nya katalog. Om du har problem med att ta bort den hanterade domänen [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
+Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga hanterade domän](delete-aadds.md) och återskapar den i din nya katalog. Om du har problem med att ta bort den hanterade domänen [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C körs i den här katalogen
 
@@ -66,7 +67,7 @@ Innan du börjar ska du kontrol lera att du förstår [adress utrymmen för priv
 I ett virtuellt nätverk kan virtuella datorer göra förfrågningar till Azure-resurser i samma IP-adressintervall som de har kon figurer ATS för under nätet. Om du konfigurerar ett offentligt IP-adressintervall för ett undernät kanske begär Anden som dirigeras i ett virtuellt nätverk inte når de avsedda webb resurserna. Den här konfigurationen kan leda till oförutsägbara fel med Azure AD DS.
 
 > [!NOTE]
-> Om du äger IP-adressintervallet i Internet som har kon figurer ATS i det virtuella nätverket kan den här aviseringen ignoreras. Azure AD Domain Services kan dock inte genomföra [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] med den här konfigurationen eftersom den kan leda till oförutsägbara fel.
+> Om du äger IP-adressintervallet i Internet som har kon figurer ATS i det virtuella nätverket kan den här aviseringen ignoreras. Azure AD Domain Services kan dock inte genomföra [service avtalet](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) med den här konfigurationen eftersom den kan leda till oförutsägbara fel.
 
 För att lösa den här aviseringen tar du bort din befintliga hanterade domän och återskapar den i ett virtuellt nätverk med ett privat IP-adressintervall. Den här processen kan störas eftersom den hanterade domänen inte är tillgänglig och eventuella anpassade resurser som du har skapat som organisationsenheter eller tjänst konton går förlorade.
 
@@ -75,7 +76,7 @@ För att lösa den här aviseringen tar du bort din befintliga hanterade domän 
 1. Under **Inställningar**väljer du *adress utrymme*.
 1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är i ett privat IP-adressintervall. **Spara** ändringarna när du är klar.
 1. Välj **undernät** i det vänstra navigerings fältet.
-1. Välj det undernät som du vill redigera eller skapa ett nytt undernät.
+1. Välj det undernät som du vill redigera eller skapa ett ytterligare undernät.
 1. Uppdatera eller ange ett privat IP-adressintervall och **Spara** ändringarna.
 1. [Skapa en ersättande hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett privat IP-adressintervall.
 
@@ -147,7 +148,7 @@ Den här aviseringen skapas när en av de nödvändiga resurserna tas bort. Om r
 
 ### <a name="resolution"></a>Lösning
 
-Det virtuella nätverkets undernät för Azure AD DS behöver tillräckligt med IP-adresser för de automatiskt skapade resurserna. Det här IP-adressutrymmet innehåller behovet av att skapa ersättnings resurser om det finns en underhålls händelse. Du kan minimera risken för att få slut på tillgängliga IP-adresser genom att inte distribuera ytterligare resurser, t. ex. dina egna virtuella datorer, i samma undernät för virtuella nätverk som Azure AD DS.
+Det virtuella nätverkets undernät för Azure AD DS behöver tillräckligt med IP-adresser för de automatiskt skapade resurserna. Det här IP-adressutrymmet innehåller behovet av att skapa ersättnings resurser om det finns en underhålls händelse. Du kan minimera risken för att få slut på tillgängliga IP-adresser genom att inte distribuera ytterligare resurser, t. ex. dina egna virtuella datorer, i samma undernät för virtuella nätverk som den hanterade domänen.
 
 Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga hanterade domän](delete-aadds.md) och återskapar den. Om du har problem med att ta bort den hanterade domänen [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
@@ -172,16 +173,16 @@ Vissa automatiskt genererade tjänstens huvud namn används för att hantera och
 
 ### <a name="resolution"></a>Lösning
 
-Det virtuella nätverkets undernät för Azure AD DS behöver tillräckligt med IP-adresser för de automatiskt skapade resurserna. Det här IP-adressutrymmet innehåller behovet av att skapa ersättnings resurser om det finns en underhålls händelse. Du kan minimera risken för att få slut på tillgängliga IP-adresser genom att inte distribuera ytterligare resurser, t. ex. dina egna virtuella datorer, i samma undernät för virtuella nätverk som Azure AD DS.
+Det virtuella nätverkets undernät för Azure AD DS behöver tillräckligt med IP-adresser för de automatiskt skapade resurserna. Det här IP-adressutrymmet innehåller behovet av att skapa ersättnings resurser om det finns en underhålls händelse. Du kan minimera risken för att få slut på tillgängliga IP-adresser genom att inte distribuera ytterligare resurser, t. ex. dina egna virtuella datorer, i samma undernät för virtuella nätverk som den hanterade domänen.
 
 För att lösa den här aviseringen tar du bort din befintliga hanterade domän och återskapar den i ett virtuellt nätverk med ett stort tillräckligt IP-adressintervall. Den här processen kan störas eftersom den hanterade domänen inte är tillgänglig och eventuella anpassade resurser som du har skapat som organisationsenheter eller tjänst konton går förlorade.
 
 1. [Ta bort den hanterade domänen](delete-aadds.md) från katalogen.
-1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverket för Azure AD DS som har det lilla IP-adressintervallet.
+1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverket för den hanterade domän som har det lilla IP-adressintervallet.
 1. Under **Inställningar**väljer du *adress utrymme*.
-1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är tillräckligt stort för intervallet för Azure AD DS-undernät. **Spara** ändringarna när du är klar.
+1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är tillräckligt stort för den hanterade domänens under näts intervall. **Spara** ändringarna när du är klar.
 1. Välj **undernät** i det vänstra navigerings fältet.
-1. Välj det undernät som du vill redigera eller skapa ett nytt undernät.
+1. Välj det undernät som du vill redigera eller skapa ett ytterligare undernät.
 1. Uppdatera eller ange ett stort tillräckligt IP-adressintervall och **Spara** sedan ändringarna.
 1. [Skapa en ersättande hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett tillräckligt stort IP-adressintervall.
 
@@ -219,7 +220,7 @@ Resurs lås kan tillämpas på Azure-resurser för att förhindra ändringar ell
 
 Utför följande steg för att kontrol lera om det finns resurs lås på Azure AD DS-komponenterna och ta bort dem:
 
-1. För var och en av Azure AD DS-nätverks komponenterna i resurs gruppen, till exempel virtuellt nätverk, nätverks gränssnitt eller offentlig IP-adress, kontrollerar du åtgärds loggarna i Azure Portal. I dessa åtgärds loggar anges varför en åtgärd misslyckades och var ett resurs lås används.
+1. För var och en av de hanterade domänens nätverks komponenter i resurs gruppen, till exempel virtuellt nätverk, nätverks gränssnitt eller offentlig IP-adress, kontrollerar du åtgärds loggarna i Azure Portal. I dessa åtgärds loggar anges varför en åtgärd misslyckades och var ett resurs lås används.
 1. Välj den resurs där ett lås används och välj och ta bort låsen under **Lås**.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: resurserna är oanvändbara
@@ -234,7 +235,7 @@ Principer tillämpas på Azure-resurser och resurs grupper som styr vilka konfig
 
 Utför följande steg för att kontrol lera om det finns tillämpade principer på Azure AD DS-komponenterna och uppdatera dem:
 
-1. För var och en av Azure AD DS-nätverks komponenterna i resurs gruppen, till exempel virtuellt nätverk, NIC eller offentlig IP-adress, kontrollerar du åtgärds loggarna i Azure Portal. Dessa åtgärds loggar anger varför en åtgärd inte kan utföras och var en restriktiv princip tillämpas.
+1. För var och en av de hanterade domänens nätverks komponenter i resurs gruppen, till exempel virtuellt nätverk, NIC eller offentlig IP-adress, kontrollerar du åtgärds loggarna i Azure Portal. Dessa åtgärds loggar anger varför en åtgärd inte kan utföras och var en restriktiv princip tillämpas.
 1. Välj den resurs där en princip tillämpas, Välj och redigera principen, under **principer**, så att den är mindre restriktiv.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: synkroniseringen har inte slutförts på ett tag
@@ -249,7 +250,7 @@ Utför följande steg för att kontrol lera om det finns tillämpade principer p
 
 Följande vanliga orsaker leder till att synkronisering stoppas i en hanterad domän:
 
-* Nödvändig nätverks anslutning har blockerats. Mer information om hur du kontrollerar det virtuella Azure-nätverket efter problem och vad som krävs finns i [Felsöka nätverks säkerhets grupper](alert-nsg.md) och [nätverks kraven för Azure AD Domain Services](network-considerations.md).
+* Nödvändig nätverks anslutning har blockerats. Mer information om hur du kontrollerar det virtuella Azure-nätverket efter problem och vad som krävs finns i [Felsöka nätverks säkerhets grupper](alert-nsg.md) och [nätverks kraven för Azure AD DS](network-considerations.md).
 *  Lösenordssynkronisering har inte kon figurer ATS eller slutförts när den hanterade domänen distribuerades. Du kan ställa in Lösenordssynkronisering för [endast molnbaserade användare](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) eller [Hybrid användare från lokal](tutorial-configure-password-hash-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: en säkerhets kopia har inte gjorts på ett tag

@@ -31,7 +31,7 @@ Referens länkar:
 * [Referensdokumentation för API](/dotnet/api/azure.storage.blobs)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 * [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-* [Urvalsundersökningar](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+* [Exempel](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

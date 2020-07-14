@@ -1,5 +1,5 @@
 ---
-title: Utvärdera och åtgärda skälighet problem i Machine Learning-modeller
+title: Utvärdera och åtgärda skälighet problem i Machine Learning-modeller (för hands version)
 titleSuffix: Azure Machine Learning
 description: Lär dig mer om skälighet i Machine Learning-modeller och hur Fairlearn python-paketet kan hjälpa dig att bygga bättre modeller.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: c4e9b8386c8341d076a69e2e81b5e92f296153ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611789"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207303"
 ---
-# <a name="build-fairer-machine-learning-models"></a>Bygg maskin inlärnings modeller för maskin vara
+# <a name="build-fairer-machine-learning-models-preview"></a>Bygg maskin inlärnings modeller för maskin vara (för hands version)
 
 Lär dig mer om skälighet i maskin inlärning och hur python-paketet [Fairlearn](https://fairlearn.github.io/) med öppen källkod kan hjälpa dig att skapa modeller som är mer rättvist. Om du inte gör en satsning på att förstå skälighet problem och utvärdera skälighet när du skapar maskin inlärnings modeller kan du skapa modeller som ger oskäliga resultat. 
 

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentation om förhandsversionen av Azure Notebooks
-summary: Azure Notebooks-förhandsversion är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. Jupyter (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera markdown-text, körbar kod (Python, R, och F#), beständiga data, grafik och visualiseringar på en enda delbar arbetsyta som kallas en notebook-fil.
+summary: Den 9 oktober 2020 kommer Azure Notebooks offentliga förhandsgranskningssida att tas ur bruk och ersättas med integrerade tjänster från Visual Studio, Azure och GitHub. Läs om dina alternativ och Microsofts andra lösningar för bärbara datorer på https://notebooks.azure.com/Content/alternatives.html.
 metadata:
   title: Dokumentation om förhandsversionen av Azure Notebooks
   description: Lär dig hur du skapar, kör och delar Jupyter Notebooks via den värdbaserade tjänsten förhandsversion för Azure Notebooks.
@@ -9,12 +9,12 @@ metadata:
   author: JoshuaPartlow
   ms.author: joshuapa
   ms.date: 06/17/2020
-  ms.openlocfilehash: 96fd38e081105b6fc43cc2fc00d52bcf17b20074
-  ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
-  ms.translationtype: 
+  ms.openlocfilehash: 0065b8b609ca9ef29365127333ad1a39f3327c1b
+  ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+  ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/01/2020
-  ms.locfileid: "85799419"
+  ms.lasthandoff: 07/09/2020
+  ms.locfileid: "86181428"
 landingContent:
 - title: Om Azure Notebooks
   linkLists:

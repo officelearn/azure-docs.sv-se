@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655954"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156551"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
@@ -194,7 +194,7 @@ Om du till exempel har listat Alice och Bob som första god kännare, anger du C
 
 1. I rutan **vidarebefordra till alternativ god kännare efter hur många dagar** som god kännaren måste godkänna eller neka en begäran. Om inga god kännare har godkänt eller nekat begäran före varaktigheten för begäran upphör begäran att gälla (tids gräns) och användaren måste skicka en annan begäran om åtkomst paketet. 
 
-    Begär Anden kan bara vidarebefordras till alternativa god kännare per dag efter att varaktigheten för begäran når halva livs längd. I det här exemplet är varaktigheten för begäran 14 dagar. Det innebär att varaktigheten för begäran når en halv livs längd på dag 7. Begäran kan därför inte vidarebefordras tidigare än dag 8. Begär Anden kan inte vidarebefordras den sista dagen i varaktigheten för begäran. I exemplet kan den senaste förfrågan vidarebefordras dag 13.
+    Förfrågningar kan bara vidarebefordras till alternativa god kännare per dag efter det att varaktigheten för begäran har nått halva livs längden och beslutet för huvud god kännaren (erna) måste ha uppnått timeout efter minst fyra dagar. Om tids gränsen för begäran är mindre än eller lika med 3, finns det inte tillräckligt med tid för att vidarebefordra begäran till alternativa god kännare. I det här exemplet är varaktigheten för begäran 14 dagar. Det innebär att varaktigheten för begäran når en halv livs längd på dag 7. Begäran kan därför inte vidarebefordras tidigare än dag 8. Begär Anden kan inte vidarebefordras den sista dagen i varaktigheten för begäran. I exemplet kan den senaste förfrågan vidarebefordras dag 13.
 
 ## <a name="enable-requests"></a>Aktivera begär Anden
 

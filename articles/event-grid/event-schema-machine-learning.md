@@ -3,12 +3,12 @@ title: Azure Machine Learning som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Machine Learning-arbetsyta händelser med Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5a39539a6f39c78251a3cc7788b8e5ee4babbf9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102505"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181530"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning som en Event Grid källa
 
@@ -20,13 +20,13 @@ Den här artikeln innehåller egenskaper och schema för händelser i Machine Le
 
 Azure Machine Learning avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. MachineLearningServices. ModelRegistered | Utlöses när en ny modell eller modell version har registrerats. |
 | Microsoft. MachineLearningServices. ModelDeployed | Utlöses när modell (er) har distribuerats till en slut punkt. |
 | Microsoft. MachineLearningServices. RunCompleted | Utlöses när en körning har slutförts. |
 | Microsoft. MachineLearningServices. DatasetDriftDetected | Utlöses när en data uppsättnings drivgarn identifierar driften. |
-| Microsoft. MachineLearningServices. RunStatusChanged | Utlöses när en körnings status ändras till "misslyckades". |
+| Microsoft. MachineLearningServices. RunStatusChanged | Utlöses när en körnings status ändras. |
 
 ### <a name="the-contents-of-an-event-response"></a>Innehållet i ett händelse svar
 
@@ -189,7 +189,7 @@ En händelse har följande data på översta nivån:
 | Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
@@ -255,7 +255,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 | RunStatus | sträng | Status för körningen. |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
-| Titel | Beskrivning |
+| Rubrik | Beskrivning |
 | ----- | ----- |
 | [Använda Azure Machine Learning händelser](../machine-learning/concept-event-grid-integration.md) | Översikt över att integrera Azure Machine Learning med Event Grid. |
 

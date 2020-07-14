@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610076"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223466"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -181,7 +181,27 @@ Om du använder fil resurs för andra arbets belastningar, till exempel data öv
 |När du ska granska bilder visas inte nyligen märkta bilder.     |   Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den **första** knappen tar dig tillbaka till början av listan, men läser in alla etiketterade data.      |
 |Tryck på ESC-tangenten när etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.     |   Ta bort etiketten genom att klicka på kryss rutan bredvid det.  |
 
-### <a name="data-drift-monitors"></a>Data riktnings övervakare
+### <a name="data-drift-monitors"></a><a name="data-drift"></a>Data riktnings övervakare
+
+Begränsningar och kända problem för data avvikelse Övervakare:
+
+* Tidsintervallet vid analys av historiska data är begränsat till 31 intervall av övervaknings frekvens inställningen. 
+* Begränsning av 200 funktioner, om inte en funktions lista inte har angetts (alla funktioner används).
+* Beräknings storleken måste vara tillräckligt stor för att data ska kunna hanteras.
+* Se till att data uppsättningen har data inom start-och slutdatum för en specifik övervaknings körning.
+* Data uppsättnings övervakare fungerar bara på data uppsättningar som innehåller 50 rader eller mer.
+* Kolumner eller funktioner i data uppsättningen klassificeras som kategoriska eller numeriska baserat på villkoren i följande tabell. Om funktionen inte uppfyller dessa villkor, t. ex. en kolumn av typen String med >100 unika värden, släpps funktionen från vår algoritm för data avvikelser, men är fortfarande profilerad. 
+
+    | Funktions typ | Datatyp | Villkor | Begränsningar | 
+    | ------------ | --------- | --------- | ----------- |
+    | Kategoriska | sträng, bool, int, Float | Antalet unika värden i funktionen är mindre än 100 och mindre än 5% av antalet rader. | Null behandlas som sin egen kategori. | 
+    | Numeriska | int, Float | Värdena i funktionen är av en numerisk datatyp och uppfyller inte villkoret för en kategoriska-funktion. | Funktionen utelämnas om >15% av värdena är null. | 
+
+* När du har [skapat en datadrift-övervakare](how-to-monitor-datasets.md) men inte kan se data på sidan för **data uppsättnings övervakning** i Azure Machine Learning Studio kan du prova följande.
+
+    1. Kontrol lera om du har valt rätt datum intervall överst på sidan.  
+    1. På fliken **data uppsättnings övervakning** väljer du länken experimentera för att kontrol lera körnings statusen.  Den här länken är längst till höger i tabellen.
+    1. Om körningen har slutförts kontrollerar du driv rutins loggarna för att se hur många mått som har genererats eller om det finns några varnings meddelanden.  Hitta driv rutins loggar på fliken **utdata + loggar** när du har klickat på ett experiment.
 
 * Om SDK `backfill()` -funktionen inte genererar förväntade utdata kan det bero på ett autentiseringsfel.  När du skapar beräkningen för att skicka in den här funktionen ska du inte använda `Run.get_context().experiment.workspace.compute_targets` .  Använd i stället [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) , till exempel följande för att skapa den beräkning som du skickar till den `backfill()` funktionen: 
 

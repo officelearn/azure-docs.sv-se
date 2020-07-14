@@ -58,13 +58,13 @@ Utdata från **konvertering till avbildnings katalog** är i avbildnings katalog
 
 ###  <a name="expected-inputs"></a>Förväntade indata  
 
-| Namn          | Typ                  | Beskrivning   |
+| Name          | Typ                  | Beskrivning   |
 | ------------- | --------------------- | ------------- |
 | Indata-datauppsättning | AnyDirectory, ZipFile | Indata-datauppsättning |
 
-###  <a name="output"></a>Resultat  
+###  <a name="output"></a>Utdata  
 
-| Namn                   | Typ           | Beskrivning            |
+| Name                   | Typ           | Beskrivning            |
 | ---------------------- | -------------- | ---------------------- |
 | Avbildnings katalog för utdata | ImageDirect | Avbildnings katalog för utdata |
 

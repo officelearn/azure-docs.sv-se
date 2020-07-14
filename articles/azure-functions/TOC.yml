@@ -55,6 +55,7 @@
       href: machine-learning-pytorch.md
     - name: Skapa en anpassad Linux-avbildning
       href: functions-create-function-linux-custom-image.md
+      displayName: 'container, docker'
     - name: Functions på IoT Edge
       href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Java med Azure Cosmos DB och Event Hubs
@@ -252,7 +253,7 @@
           href: run-functions-from-deployment-package.md
         - name: Funktioner i Kubernetes
           href: functions-kubernetes-keda.md
-          displayName: keda
+          displayName: 'keda, container, docker'
         - name: Automatisera resursdistribution
           href: functions-infrastructure-as-code.md
         - name: Lokala funktioner
@@ -296,6 +297,8 @@
               href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Autentisera med Twitter
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Autentisera med en OpenID Connect-provider (förhandsgranskning)
+              href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Avancerad autentisering
           href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Begränsa IP-adresser
@@ -500,6 +503,8 @@
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-functions
+    - name: Vägledning för arkitektur
+      href: 'https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Prissättning

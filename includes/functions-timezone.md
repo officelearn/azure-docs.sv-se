@@ -10,7 +10,7 @@ Standard tids zonen som används med CRON-uttryck är Coordinated Universal Time
 
 Värdet för den här inställningen beror på vilket operativ system och vilken funktion appen körs på.
 
-|Operativsystem |Plan |Värde |
+|Operativsystem |Planera |Värde |
 |-|-|-|
 | **Windows** |Alla | Ange värdet till namnet på önskad tidszon enligt beskrivningen i [Microsoft Time Zone index] ( https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10) . |
 | **Linux** |Premium<br/>Dedikerad |Ange värdet till namnet på den önskade tids zonen som visas i [TZ-databasen](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |

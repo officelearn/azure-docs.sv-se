@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Dirigera händelser till en anpassad slutpunkt
       href: howto-app-configuration-event.md
+    - name: Lagra konfiguration för säkerhetskopiering automatiskt
+      href: howto-backup-config-store.md
     - name: Bästa praxis
       href: howto-best-practices.md
 - name: Referens

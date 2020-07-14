@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535714"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220728"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köpa ett anpassat domännamn för Azure App Service
 
@@ -18,7 +18,7 @@ App Service domäner är toppnivå domäner som hanteras direkt i Azure. De gör
 
 Information om virtuella Azure-datorer eller Azure Storage finns i [tilldela App Service domän till Azure VM eller Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -78,11 +78,11 @@ Information om priser för Azure App Service domäner finns på [sidan med App S
 ### <a name="launch-buy-domains"></a>Starta köp domäner
 På fliken **app Services** klickar du på namnet på din app, väljer **Inställningar**och väljer sedan **anpassade domäner**
    
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Skärm bild som visar anpassade domäner markerade.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 På sidan **anpassade domäner** klickar du på **Köp domän**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+![Skärm bild som visar Köp domän markerat.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 > [!NOTE]
 > Om du inte kan se avsnittet **App Service domäner** måste du ta bort utgifts gränsen för ditt Azure-konto (se [krav](#prerequisites)).
@@ -93,7 +93,7 @@ På sidan **anpassade domäner** klickar du på **Köp domän**.
 
 På sidan **App Service domän** , i rutan **Sök efter domän** , anger du det domän namn som du vill köpa och skriver `Enter` . De föreslagna tillgängliga domänerna visas strax under text rutan. Välj en eller flera domäner som du vill köpa.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+![Skärm bild som visar sökrutan Sök efter domän.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
 > Följande [toppnivå domäner](https://wikipedia.org/wiki/Top-level_domain) stöds av App Service domäner: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _BIZ_, _org.uk_och _co.in_.
@@ -122,19 +122,19 @@ Klicka på **juridiska villkor** för att granska villkoren och avgifterna och k
 
 Gå tillbaka till sidan **App Service domän** och klicka på **OK**. När åtgärden pågår visas följande meddelanden:
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+![Skärm bild som visar meddelandet verifiering pågår.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+![Skärm bild som visar meddelandet om att köpeten lyckades.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
 
 ### <a name="test-the-hostnames"></a>Testa värd namnen
 
 Om du har tilldelat standard värd namn till din app visas även ett meddelande om att det finns ett meddelande för varje valt värdnamn.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Skärm bild som visar aviseringen om lyckade åtgärder för varje valt värdnamn.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 Du kan också se de valda värd namnen på sidan **anpassade domäner** i avsnittet **anpassade värdnamn** .
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+![Skärm bild som visar de valda värd namnen i avsnittet anpassade värdnamn på sidan anpassade domäner.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
 > En **osäker etikett för** din anpassade domän innebär att den inte har bundits till ett TLS/SSL-certifikat, och att alla https-förfrågningar från en webbläsare till din anpassade domän får ett fel eller en varning, beroende på webbläsaren. Om du vill konfigurera TLS-bindning, se [skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
@@ -154,11 +154,11 @@ Du kan också tilldela värdnamn i App Service-domänen till alla andra appar. S
 ### <a name="launch-add-hostname"></a>Starta Lägg till värdnamn
 På sidan **app Services** väljer du namnet på den app som du vill tilldela värdnamn till, väljer **Inställningar**och väljer sedan **anpassade domäner**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Skärm bild som visar anpassade domäner markerade.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Se till att den köpta domänen visas i avsnittet **App Service domäner** , men Markera den inte. 
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Skärm bild som visar din köpta domän i avsnittet App Service domäner.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
 > Alla App Service domäner i samma prenumeration visas på sidan **anpassade domäner** för appen. Om din domän finns i appens prenumeration, men du inte kan se den på sidan **anpassade domäner** , kan du försöka öppna sidan **anpassade domäner** igen eller uppdatera webb sidan. Kontrol lera också att meddelandets Bell visas överst i Azure Portal för förlopps-eller skapande problem.
@@ -168,7 +168,7 @@ Se till att den köpta domänen visas i avsnittet **App Service domäner** , men
 Välj **Lägg till värddatornamn**.
 
 ### <a name="configure-hostname"></a>Konfigurera värdnamn
-I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Till exempel:
+I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Exempel:
 
 - kontoso.net
 - www- \. kontoso.net
@@ -180,14 +180,14 @@ Välj **Lägg till värddatornamn**.
 
 När åtgärden har slutförts visas ett meddelande för det tilldelade värd namnet.  
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Skärm bild som visar aviseringen för det tilldelade värd namnet.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### <a name="close-add-hostname"></a>Stäng Lägg till värdnamn
 På sidan **Lägg till värdnamn** tilldelar du ett annat värdnamn till din app efter behov. När du är färdig stänger du sidan **Lägg till värdnamn** .
 
 Nu bör du se de nyligen tilldelade värd namnen på sidan **anpassade domäner** i appen.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
+![Skärm bild som visar de nyligen tilldelade värd namnen på sidan anpassade domäner i appen.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
 ### <a name="test-the-hostnames"></a>Testa värd namnen
 
@@ -201,15 +201,15 @@ Om du vill inaktivera automatisk förnyelse, eller om du vill förnya din domän
 
 På fliken **app Services** klickar du på namnet på din app, väljer **Inställningar**och väljer sedan **anpassade domäner**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Skärm bild som visar anpassade domäner markerade.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 I avsnittet **App Service domäner** väljer du den domän som du vill konfigurera.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Skärm bild som visar din köpta domän i avsnittet App Service domäner.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 Välj **domän förnyelse**i den vänstra navigeringen i domänen. Om du vill sluta förnya din domän automatiskt väljer du **av**och sedan **Spara**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+![Skärm bild som visar alternativet att automatiskt förnya din domän.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
 Om du vill förnya din domän manuellt väljer du **förnya domän**. Den här knappen är dock inte aktiv förrän [90 dagar innan domänen upphör att gälla](#when-domain-expires).
 
@@ -237,7 +237,7 @@ I Azure hanteras DNS-poster för en App Service domän med hjälp av [Azure DNS]
 
 I Azure Portal väljer du **alla tjänster**  >  **App Service domäner**på den vänstra menyn.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Skärm bild som visar var du får åtkomst till App Service domäner.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Välj den domän som ska hanteras. 
 
@@ -245,7 +245,7 @@ Välj den domän som ska hanteras.
 
 I domänens vänstra meny väljer du **DNS-zon**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
+![Skärm bild som visar var du kan välja DNS-zonen.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
 Den här åtgärden öppnar sidan [DNS-zon](../dns/dns-zones-records.md) för din app service domän i Azure DNS. Information om hur du redigerar DNS-poster finns i [hantera DNS-zoner i Azure Portal](../dns/dns-operations-dnszones-portal.md).
 
@@ -257,7 +257,7 @@ När du har köpt App Service-domänen har du fem dagar på dig att avbryta köp
 
 I Azure Portal väljer du **alla tjänster**  >  **App Service domäner**på den vänstra menyn.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Skärm bild som visar var du får åtkomst till App Service domäner.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Välj den domän som du vill avbryta eller ta bort. 
 
@@ -265,13 +265,13 @@ Välj den domän som du vill avbryta eller ta bort.
 
 I domänens vänstra meny väljer du **hostname-bindningar**. Värd namns bindningarna från alla Azure-tjänster visas här.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+![Skärm bild som visar sidan hostname-bindningar.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
 Du kan inte ta bort den App Service domänen förrän alla bindnings bindningar har tagits bort.
 
 Ta bort varje hostname-bindning genom att välja **...**  >  **Ta bort**. När alla bindningar har tagits bort väljer du **Spara**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+![Skärm bild som visar var du tar bort värd namns bindningarna.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
 ### <a name="cancel-or-delete"></a>Avbryt eller ta bort
 
@@ -279,7 +279,7 @@ I domänens vänstra meny väljer du **Översikt**.
 
 Om uppsägnings perioden på den köpta domänen inte har förflutit väljer du **Avbryt köp**. Annars visas knappen **ta bort** i stället. Om du vill ta bort domänen utan åter betalning väljer du **ta bort**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
+![Skärm bild som visar var du kan ta bort eller avbryta en köpt domän.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
 Bekräfta åtgärden genom att välja **Ja**.
 

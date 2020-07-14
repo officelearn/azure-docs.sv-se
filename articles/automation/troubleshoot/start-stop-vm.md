@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53a7e113d64ea4cf7018d51a44f9488342f1470f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83715638"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187157"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Felsöka Starta/stoppa virtuella datorer när de inte används problem
 
@@ -98,7 +99,7 @@ Felet kan bero på någon av följande orsaker:
 
 Läs följande lista för möjliga lösningar:
 
-* Kontrol lera att du har konfigurerat ett schema korrekt för Starta/stoppa virtuella datorer när de inte används. Information om hur du konfigurerar ett schema finns i [scheman](../automation-schedules.md).
+* Kontrol lera att du har konfigurerat ett schema korrekt för Starta/stoppa virtuella datorer när de inte används. Information om hur du konfigurerar ett schema finns i [scheman](../shared-resources/schedules.md).
 
 * Kontrol lera [jobb strömmarna](../automation-runbook-execution.md#job-statuses) för att leta efter eventuella fel. Sök efter jobb från någon av följande Runbooks:
 

@@ -72,6 +72,8 @@
           href: cognitive-search-tutorial-blob-python.md
     - name: Felsök en kunskapsuppsättning
       href: cognitive-search-tutorial-debug-sessions.md
+    - name: Skapa ett anpassat analysverktyg
+      href: tutorial-create-custom-analyzer.md
     - name: Fråga från Power Apps
       href: search-howto-powerapps.md
 - name: Exempel

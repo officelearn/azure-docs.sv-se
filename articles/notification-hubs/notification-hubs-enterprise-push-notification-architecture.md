@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76264041"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223609"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Push-arkitekturvägledning för företag
 
@@ -36,7 +37,7 @@ Här är den allmänna arkitekturen i lösningen (generaliseras med flera mobila
 
 ## <a name="architecture"></a>Arkitektur
 
-![][1]
+![Diagram över företags arkitekturen som visar flödet genom händelser, prenumerationer och push-meddelanden.][1]
 
 Nyckel delen i det här arkitektur diagrammet är Azure Service Bus, vilket ger en programmerings modell för ämnen/prenumerationer (mer på den med [Service Bus pub/sub Programming]). Mottagaren, som i det här fallet är mobil Server del (vanligt vis [Azure mobil tjänst], som initierar en push-överföring till Mobile Apps) tar inte emot meddelanden direkt från backend-systemen utan i stället ett mellanliggande abstraktions lager som tillhandahålls av [Azure Service Bus], vilket gör det möjligt för mobila Server delar att ta emot meddelanden från ett eller flera backend-system. Ett Service Bus ämne måste skapas för var och en av backend-systemen, till exempel konto, HR, ekonomi, som i princip är ämnen som är intressanta, som initierar meddelanden som ska skickas som push-meddelanden. Backend-systemen skickar meddelanden till dessa ämnen. En mobil Server del kan prenumerera på ett eller flera sådana ämnen genom att skapa en Service Bus prenumeration. Den ger den mobila Server delen för att ta emot ett meddelande från motsvarande Server dels system. Mobil Server del fortsätter att lyssna efter meddelanden på sina prenumerationer och så snart ett meddelande anländer, så blir det tillbaka och skickar det som ett meddelande till sin Notification Hub. Notification Hub skickar sedan meddelandet till mobilappen. Här är listan över viktiga komponenter:
 
@@ -227,15 +228,17 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
 
     e. För att publicera den här appen som ett **webb jobb**, högerklicka på lösningen i Visual Studio och välj **Publicera som webb jobb**
 
-    ![][2]
+    ![Skärm bild av de alternativ för högerklickning som visas med publicera som Azure-webbjobb som beskrivs i rött.][2]
 
     f. Välj din publicerings profil och skapa en ny Azure-webbplats om den inte redan finns, som är värd för det här webb jobbet och när du har **publicerat**webbplatsen.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Skärm bild som visar arbets flödet för att skapa en webbplats i Azure.":::
+    Skärm bild av dialog rutan Publicera webbplats med alternativet Microsoft Azure Websites markerat, en grön pil som pekar på dialog rutan Välj befintlig webbplats med det nya alternativet som beskrivs i rött och en grön pil som pekar på dialog rutan skapa webbplats i Microsoft Azure med plats namnet och skapar alternativ som anges i rött.
+    :::image-end:::
 
     ex. Konfigurera jobbet så att det körs kontinuerligt, så när du loggar in på [Azure Portal] bör du se något som liknar följande:
 
-    ![][4]
+    ![Skärm bild av Azure-portalen med Enterprise push Server-webbjobben visas och värdena för namn, schema och loggar som anges i rött.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -269,11 +272,11 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
 2. Kör **EnterprisePushMobileApp**, som startar Windows Store-appen.
 3. Kör **EnterprisePushBackendSystem** -konsol programmet, som simulerar LOB-Server delen och börjar skicka meddelanden och du bör se popup-meddelanden som visas som följande bild:
 
-    ![][5]
+    ![Skärm bild av en-konsol som kör företagets server för push-installation och det meddelande som skickas av appen.][5]
 
 4. Meddelandena skickades ursprungligen till Service Bus ämnen som övervakades av Service Bus prenumerationer i ditt webb jobb. När ett meddelande har tagits emot har ett meddelande skapats och skickats till mobilappen. Du kan titta igenom webb jobbs loggarna för att bekräfta bearbetningen när du går till länken loggar i [Azure Portal] för ditt webb jobb:
 
-    ![][6]
+    ![Skärm bild av dialog rutan information om kontinuerligt webb jobb med meddelandet som skickas med röd text.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png

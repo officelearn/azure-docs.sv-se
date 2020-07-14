@@ -44,6 +44,14 @@
       href: troubleshooting-identity-protection-faq.md
 - name: Referens
   items:
+    - name: 'Graph-API:er'
+      items:
+        - name: riskDetection-API
+          href: /graph/api/resources/riskdetection?view=graph-rest-v1.0
+        - name: riskyUsers-API
+          href: /graph/api/resources/riskyuser?view=graph-rest-v1.0
+        - name: signIn-API
+          href: /graph/api/resources/signin?view=graph-rest-v1.0
     - name: Ordlista
       href: reference-identity-protection-glossary.md
 - name: Resurser

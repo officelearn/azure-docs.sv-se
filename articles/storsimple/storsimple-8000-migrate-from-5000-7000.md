@@ -13,11 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: c05b62b254320bd56a6f0591f1edbe32d5362e56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 721dffcaea64e949ac7a5230e24f3aa37261fa9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514723"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206483"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrera data från StorSimple 5000-7000-serien till 8000-serien het
 
@@ -40,21 +41,21 @@ Du kan flytta dina data med hjälp av funktionen migrering eller genom att utfö
 
 Funktionen migrering simulerar en haveri beredskap (DR) från 7000/5000-serien till 8000-serien. Med den här funktionen kan du migrera data från 5000/7000-serien till 8000 Series-format på Azure. Migreringsprocessen initieras med hjälp av StorSimple Migration Tool. Verktyget startar nedladdningen och konverteringen av metadata för säkerhets kopiering på 8000 serie enheten och använder sedan den senaste säkerhets kopieringen för att exponera volymerna på enheten.
 
-|      | Fördelar                                                                                                                                     |Nackdelar                                                                                                                                                              |
-|------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.   | Migreringsprocessen bevarar historiken för säkerhets kopieringar som togs i 5000/7000-serien.                                               | När användarna försöker komma åt data laddar migreringen ned data från Azure så att kostnaderna för data hämtning hämtas.                                     |
-| 2.   | Inga data migreras på värd sidan.                                                                                                     | Processen behöver avbrott mellan starten av säkerhets kopieringen och den senaste säkerhets kopian i 8000-serien (kan beräknas med hjälp av migrations verktyget). |
-| 3.   | Den här processen bevarar alla principer, bandbredds-mallar, kryptering och andra inställningar på 8000 serie enheter.                      | Användar åtkomsten kommer bara att återställa de data som användaren har åtkomst till och kommer inte att göra om hela data uppsättningen.                                                  |
-| 4.   | Den här processen kräver ytterligare tid för att konvertera alla äldre säkerhets kopieringar i Azure som utförs asynkront utan att produktionen påverkas | Migrering kan bara göras på en moln konfigurations nivå.  Enskilda volymer i en moln konfiguration kan inte migreras separat                       |
+| Fördelar                                                                                                                                     |Nackdelar                                                                                                                                                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Migreringsprocessen bevarar historiken för säkerhets kopieringar som togs i 5000/7000-serien.                                               | När användarna försöker komma åt data laddar migreringen ned data från Azure så att kostnaderna för data hämtning hämtas.                                     |
+| Inga data migreras på värd sidan.                                                                                                     | Processen behöver avbrott mellan starten av säkerhets kopieringen och den senaste säkerhets kopian i 8000-serien (kan beräknas med hjälp av migrations verktyget). |
+| Den här processen bevarar alla principer, bandbredds-mallar, kryptering och andra inställningar på 8000 serie enheter.                      | Användar åtkomsten kommer bara att återställa de data som användaren har åtkomst till och kommer inte att göra om hela data uppsättningen.                                                  |
+| Den här processen kräver ytterligare tid för att konvertera alla äldre säkerhets kopieringar i Azure som utförs asynkront utan att produktionen påverkas | Migrering kan bara göras på en moln konfigurations nivå.  Enskilda volymer i en moln konfiguration kan inte migreras separat                       |
 
 Med en migrering på värd sidan kan du konfigurera 8000-serien oberoende av varandra och kopiera data från 5000/7000-seriens enhet till 8000-serien het. Detta motsvarar migrering av data från en lagrings enhet till en annan. En rad olika verktyg, till exempel Diskboss, Robocopy används för att kopiera data.
 
-|      | Fördelar                                                                                                                      |Nackdelar                                                                                                                                                                                                      |
-|------|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.   | Migrering kan närmas i ett stegvist sätt på volym-till-volym.                                               | Tidigare säkerhets kopior (tas i 5000/7000-serien) är inte tillgängliga på enheten för 8000-serien.                                                                                                       |
-| 2.   | Möjliggör konsolidering av data till ett lagrings konto i Azure.                                                       | Den första säkerhets kopieringen till molnet på 8000-serien tar längre tid eftersom alla data på 8000-serien måste säkerhets kopie ras till Azure.                                                                     |
-| 3.   | Efter en lyckad migrering är alla data lokalt på enheten. Det finns ingen fördröjning vid åtkomst till data. | Användningen av Azure Storage ökar tills data tas bort från 5000/7000-enheten.                                                                                                        |
-| 4.   |                                                                                                                           | Om enheten för 7000/5000-serien har en stor mängd data, måste den här informationen laddas ned från Azure, vilket kommer att debiteras för kostnader och fördröjningar som rör hämtning av data från Azure |
+| Fördelar                                                                                                                      |Nackdelar                                                                                                                                                                                                      |
+|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Migrering kan närmas i ett stegvist sätt på volym-till-volym.                                               | Tidigare säkerhets kopior (tas i 5000/7000-serien) är inte tillgängliga på enheten för 8000-serien.                                                                                                       |
+| Möjliggör konsolidering av data till ett lagrings konto i Azure.                                                       | Den första säkerhets kopieringen till molnet på 8000-serien tar längre tid eftersom alla data på 8000-serien måste säkerhets kopie ras till Azure.                                                                     |
+| Efter en lyckad migrering är alla data lokalt på enheten. Det finns ingen fördröjning vid åtkomst till data. | Användningen av Azure Storage ökar tills data tas bort från 5000/7000-enheten.                                                                                                        |
+|                                                                                                                           | Om enheten för 7000/5000-serien har en stor mängd data, måste den här informationen laddas ned från Azure, vilket kommer att debiteras för kostnader och fördröjningar som rör hämtning av data från Azure |
 
 Den här artikeln fokuserar bara på migrering från 5000/7000 till 8000-serien het. Mer information om migrering på värd sidan finns i [migrering från andra lagrings enheter](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 

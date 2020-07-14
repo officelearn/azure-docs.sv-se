@@ -1,5 +1,5 @@
 ---
-title: Komponenter för Application Gateway
+title: Application Gateway-komponenter
 description: Den här artikeln innehåller information om de olika komponenterna i en Application Gateway
 services: application-gateway
 author: abshamsft
@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254335"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186766"
 ---
-# <a name="application-gateway-components"></a>Komponenter för Application Gateway
+# <a name="application-gateway-components"></a>Application Gateway-komponenter
 
  En Programgateway fungerar som en enda kontakt punkt för klienterna. Den distribuerar inkommande program trafik över flera backend-pooler, inklusive virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, Azure App Service och lokala/externa servrar. För att distribuera trafik använder en Application Gateway flera komponenter som beskrivs i den här artikeln.
 
@@ -144,7 +144,7 @@ Du kan skapa olika backend-pooler för olika typer av begär Anden. Du kan till 
 
 Som standard övervakar en Programgateway hälsan för alla resurser i sin backend-pool och tar automatiskt bort felaktiga. Den övervakar sedan skadade instanser och lägger tillbaka dem till den felfria backend-poolen när de blir tillgängliga och svarar på hälso avsökningar.
 
-Förutom att använda övervakning av standard hälso avsökning kan du också anpassa hälso avsökningen så att den passar ditt programs krav. Anpassade avsökningar ger mer detaljerad kontroll över hälso övervakningen. När du använder anpassade avsökningar kan du konfigurera avsöknings intervallet, URL: en och sökvägen som ska testas och hur många misslyckade svar som ska accepteras innan instansen av backend-poolen markeras som ohälsosam. Vi rekommenderar att du konfigurerar anpassade avsökningar för att övervaka hälso tillståndet för varje backend-pool.
+Förutom att använda övervakning av standard hälso avsökning kan du också anpassa hälso avsökningen så att den passar ditt programs krav. Anpassade avsökningar ger mer detaljerad kontroll över hälso övervakningen. När du använder anpassade avsökningar kan du konfigurera ett anpassat värdnamn, URL-sökväg, avsöknings intervall och hur många misslyckade svar som ska accepteras innan du markerar backend-instansen som ohälsosam, anpassade status koder och svars text matchning osv. Vi rekommenderar att du konfigurerar anpassade avsökningar för att övervaka hälso tillståndet för varje backend-pool.
 
 Mer information finns i [övervaka hälso tillståndet för din Application Gateway](../application-gateway/application-gateway-probe-overview.md).
 

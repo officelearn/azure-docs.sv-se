@@ -159,6 +159,8 @@
           href: streaming-policy-concept.md
         - name: Principer för innehållsnycklar
           href: content-key-policy-concept.md
+        - name: Innehållsskydd med Azure Active Directory
+          href: azure-ad-content-protection.md
     - name: Övervakning
       items:
         - name: Händelser med Event Grid

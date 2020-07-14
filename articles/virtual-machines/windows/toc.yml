@@ -434,6 +434,8 @@
                   items:
                     - name: Från en virtuell dator
                       href: ../image-version-vm-powershell.md
+                    - name: Från en virtuell hårddisk eller en ögonblicksbild
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrera från en hanterad avbildning
                       href: ../image-version-managed-image-powershell.md
                     - name: Kopiera från ett annat galleri
@@ -454,6 +456,8 @@
                   items:
                     - name: Från en virtuell dator
                       href: ../image-version-vm-cli.md
+                    - name: Från en virtuell hårddisk eller en ögonblicksbild
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrera från en hanterad avbildning
                       href: ../image-version-managed-image-cli.md
                     - name: Kopiera från ett annat galleri
@@ -508,6 +512,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Hitta och använda avbildningar
           href: cli-ps-findimage.md
+        - name: Inköpsplaninformation
+          href: ../marketplace-images.md
         - name: Förbereda en virtuell dator för uppladdning
           href: prepare-for-upload-vhd-image.md
         - name: Spela in den virtuella datorn till avbildning
@@ -853,10 +859,18 @@
           href: disks-incremental-snapshots-portal.md
         - name: Säkerhetskopiera ohanterade diskar
           href: incremental-snapshots.md
+        - name: Kryptering
+          items:
+            - name: Aktivera värdbaserad kryptering – PowerShell
+              href: disks-enable-host-based-encryption-powershell.md
+            - name: Aktivera kundhanterade nycklar – PowerShell
+              href: disks-enable-customer-managed-keys-powershell.md
+            - name: Aktivera kundhanterade nycklar – Portal
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Aktivera dubbel kryptering i vila
+              href: disks-enable-double-encryption-at-rest-powershell.md
         - name: Migrering och konvertering
           items:
-            - name: Konvertera till kryptering på serversidan
-              href: disks-ade-sse-conversion-powershell.md
             - name: Konvertera en disk mellan Standard och Premium
               href: convert-disk-storage.md
             - name: Migrera till Premium Storage med Azure Site Recovery

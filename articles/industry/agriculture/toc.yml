@@ -17,6 +17,8 @@
       href: integration-patterns-in-azure-farmbeats.md
     - name: Sensorpartnerintegration
       href: sensor-partner-integration-in-azure-farmbeats.md
+    - name: Väderpartnerintegration
+      href: weather-partner-integration-in-azure-farmbeats.md
     - name: Bildpartnerintegration
       href: imagery-partner-integration-in-azure-farmbeats.md
 - name: Instruktionsguider
@@ -29,6 +31,8 @@
       href: manage-farms-in-azure-farmbeats.md
     - name: Hämta sensordata
       href: get-sensor-data-from-sensor-partner.md
+    - name: Hämta väderdata
+      href: get-weather-data-from-weather-partner.md
     - name: Generera kartor
       href: generate-maps-in-azure-farmbeats.md
     - name: Konfigurera regler och hantera aviseringar

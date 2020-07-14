@@ -5,6 +5,8 @@
   items:
     - name: Vad är Cognitive Services?
       href: Welcome.md
+    - name: Nyheter i Cognitive Services-dokument
+      href: whats-new-docs.md
     - name: Cognitive Services och Machine Learning
       href: cognitive-services-and-machine-learning.md
     - name: Anpassade underdomäner för Cognitive Services
@@ -64,6 +66,24 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Azure Kubernetes Service (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
+- name: Stordata
+  items:
+    - name: Cognitive Services för stordata
+      href: ./big-data/cognitive-services-for-big-data.md
+    - name: Komma igång
+      href: ./big-data/getting-started.md
+    - name: Exempel
+      items:
+        - name: Python
+          href: ./big-data/samples-python.md
+        - name: Scala
+          href: ./big-data/samples-scala.md
+    - name: Recept
+      items:
+        - name: 'Recept: Avvikelseidentifiering'
+          href: ./big-data/recipes/anomaly-detection.md
+        - name: 'Recept: Art Explorer'
+          href: ./big-data/recipes/art-explorer.md
 - name: Resurser
   items:
     - name: Azure-översikt

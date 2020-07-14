@@ -106,6 +106,8 @@
           href: how-to-connect-install-express.md
         - name: Installera Azure AD Connect-federation eller andra anpassade inställningar
           href: how-to-connect-install-custom.md
+        - name: Importera och exportera konfigurationsinställningar
+          href: how-to-connect-import-export-config.md
         - name: Installera Azure AD Connect med hjälp av direktautentisering (PTA)
           href: how-to-connect-pta-quick-start.md
         - name: Installera Azure AD Connect Health

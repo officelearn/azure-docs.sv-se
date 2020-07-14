@@ -5,39 +5,39 @@
   items:
     - name: Vad är Azure Spring Cloud?
       href: spring-cloud-overview.md
+    - name: Java och Base OS för Spring Microservice Apps
+      href: spring-cloud-principles-microservice-apps.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Starta en Spring Cloud-app med hjälp av portalen
+    - name: Starta en Spring Cloud-app – portalen
       href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Starta en Spring Cloud-app med hjälp av Azure CLI
+    - name: Starta en Spring Cloud-app – Azure CLI
       href: spring-cloud-quickstart-launch-app-cli.md
-    - name: Starta en Spring Cloud-app från källan
+    - name: Starta en Spring Cloud-app – källan
       href: spring-cloud-launch-from-source.md
-    - name: Starta en Spring Cloud-app med hjälp av Maven
+    - name: Starta en Spring Cloud-app – Maven
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Självstudier
   items:
-    - name: Konfigurera en konfigurationsserver
-      href: spring-cloud-tutorial-config-server.md
-    - name: Skala ett program manuellt
+    - name: Skala en app manuellt
       href: spring-cloud-tutorial-scale-manual.md
-    - name: Övervaka ett program med hjälp av distribuerad spårning och App Insights
-      href: spring-cloud-tutorial-distributed-tracing.md
-    - name: Övervaka Spring Cloud-resurser med aviseringar och åtgärdsgrupper
+    - name: Aviseringar och åtgärdsgrupper
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Binda ett program till Azure CosmosDB
-      href: spring-cloud-tutorial-bind-cosmos.md
-    - name: Binda ett program med Azure Cache for Redis
-      href: spring-cloud-tutorial-bind-redis.md
-    - name: Binda ett program till Azure MySQL
-      href: spring-cloud-tutorial-bind-mysql.md
-    - name: Circuit Breaker Dashboard med Azure Spring Cloud
+    - name: Använda IntelliJ för att distribuera appar
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Circuit Breaker Dashboard
       href: spring-cloud-tutorial-circuit-breaker.md
-    - name: Mappa ett anpassat DNS-namn till Azure Spring Cloud
+    - name: Anpassat DNS-namn
       href: spring-cloud-tutorial-custom-domain.md
     - name: Använda IntelliJ för att distribuera Azure Spring Cloud-program
       href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Etablera en Azure Spring Cloud-instans med terraform
+      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
+    - name: CI/CD med Jenkins
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: Använda en hanterad identitet för att ansluta Key Vault till en Azure Spring Cloud-app
+      href: spring-cloud-tutorial-managed-identities-key-vault.md
 - name: Exempel
   items:
     - name: Inbyggda Azure Policy-program
@@ -45,15 +45,15 @@
       href: ./policy-samples.md
 - name: Begrepp
   items:
-    - name: Förstå molnkvoter och begränsningar för Azure Spring Cloud
+    - name: Förstå kvoter och gränser
       href: spring-cloud-quotas.md
-    - name: Förstå mått i Azure Spring Cloud
+    - name: Förstå mått
       href: spring-cloud-concept-metrics.md
-    - name: Hantera och övervaka appen med Azure Spring Boot Actuator
+    - name: Azure Spring Boot Actuator
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Säkerhetskontroller för Azure Spring Cloud-tjänsten
+    - name: Säkerhetskontroller
       href: spring-cloud-concept-security-controls.md
-    - name: Förstå appstatus i Azure Spring Cloud
+    - name: Förstå appstatus
       href: spring-cloud-concept-app-status.md
     - name: Förbereda för haveriberedskap
       href: disaster-recovery.md
@@ -61,34 +61,48 @@
   items:
     - name: Förbereda en Java Spring-app för distribution
       href: spring-cloud-tutorial-prepare-app-deployment.md
-    - name: 'Så här gör du för att starta, stoppa och ta bort ett Azure Spring Cloud-program'
-      href: spring-cloud-howto-start-stop-delete.md
-    - name: Så här konfigurerar du en mellanlagringsmiljö
-      href: spring-cloud-howto-staging-environment.md
+    - name: Konfigurera en konfigurationsserver
+      href: spring-cloud-tutorial-config-server.md
     - name: Aktivera tjänstregistrering
       href: spring-cloud-service-registration.md
-    - name: Analysera programloggar och mått
-      href: diagnostic-services.md
-    - name: Strömma apploggar för Azure Spring Cloud i realtid
-      href: spring-cloud-howto-log-streaming.md
-    - name: Använda beständig lagring i Azure Spring Cloud
+    - name: Binda en app till Azure CosmosDB
+      href: spring-cloud-tutorial-bind-cosmos.md
+    - name: Binda en app till Azure Cache for Redis
+      href: spring-cloud-tutorial-bind-redis.md
+    - name: Binda en app till Azure MySQL
+      href: spring-cloud-tutorial-bind-mysql.md
+    - name: 'Starta, stoppa och ta bort en app'
+      href: spring-cloud-howto-start-stop-delete.md
+    - name: Konfigurera en mellanlagringsmiljö
+      href: spring-cloud-howto-staging-environment.md
+    - name: Använda beständig lagring
       href: spring-cloud-howto-persistent-storage.md
-    - name: Integrera Azure Spring Cloud med Azure Load Balance Solutions
+    - name: Integrera med Azure Load Balance Solutions
       href: spring-cloud-howto-integrate-azure-load-balancers.md
-    - name: Aktiverar systemtilldelad hanterad identitet för Azure Spring Cloud-program
+    - name: Aktivera systemtilldelad hanterad identitet
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
-    - name: Självdiagnostisera och lösa problem i Azure Spring Cloud
+    - name: Diagnostisera och lösa problem på egen hand
       href: spring-cloud-howto-self-diagnose-solve.md
-- name: DevOps-distribution till Azure Spring Cloud
-  items:
-    - name: CI/CD med Azure DevOps
-      href: spring-cloud-howto-cicd.md
-    - name: CI/CD med GitHub-åtgärder
-      href: spring-cloud-howto-github-actions.md
-    - name: Auth Azure Spring Cloud med Key Vault i GitHub-åtgärder
-      href: spring-cloud-github-actions-key-vault.md
-    - name: CI/CD med Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: Övervaka
+      items:
+        - name: Distribuerad spårning och App Insights
+          href: spring-cloud-tutorial-distributed-tracing.md
+        - name: Analysera loggar och mått
+          href: diagnostic-services.md
+        - name: Strömningsloggar i realtid
+          href: spring-cloud-howto-log-streaming.md
+    - name: DevOps-distribuering
+      items:
+        - name: CI/CD med Azure DevOps
+          href: spring-cloud-howto-cicd.md
+        - name: CI/CD med GitHub-åtgärder
+          href: spring-cloud-howto-github-actions.md
+        - name: Autentisering med Key Vault i GitHub Actions
+          href: spring-cloud-github-actions-key-vault.md
+    - name: Felsöka
+      items:
+        - name: Felsökningsguide
+          href: spring-cloud-troubleshoot.md
 - name: Referens
   items:
     - name: Azure CLI-plugin
@@ -97,7 +111,5 @@
       href: spring-cloud-resources.md
     - name: Vanliga frågor och svar
       href: spring-cloud-faq.md
-    - name: Felsökningsguide
-      href: spring-cloud-troubleshoot.md
     - name: Referens för REST-API
       href: 'https://docs.microsoft.com/rest/api/azurespringclould/'

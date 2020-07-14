@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: a9dab2ca844feb1c24dfffc48b4f29cd1a311314
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7967b58819523173fd66d45eeabeaddc8605a21d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76153199"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229473"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Vad är Avere vFXT för Azure?
 
@@ -66,7 +66,7 @@ Avere vFXT-klustret cachelagrar filerna när de begärs. Upprepade begäranden k
 
 AVERT vFXT för Azure använder följande Azure-resurser:
 
-|Azure-komponent|   |
+|Azure-komponent| Resurs |
 |----------|-----------|
 |Virtuella datorer|3 eller flera E32s_v3|
 |Premium SSD-lagring|200 GB OS-utrymme plus 1 TB till 4 TB cacheutrymme per nod |

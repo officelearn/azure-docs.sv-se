@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266771"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232703"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
@@ -133,7 +134,7 @@ Utför DAST, helst med hjälp av en säkerhets tekniker (en [utträngande testar
 
 I [fuzz-testningen](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)inducerar du program fel genom att avsiktligt introducera felaktiga eller slumpmässiga data till ett program. Inducing program fel hjälper till att upptäcka potentiella säkerhets problem innan programmet släpps.
 
-[Identifiering av säkerhets risker](https://docs.microsoft.com/security-risk-detection/) är Microsofts unika fuzz testing-tjänst för att hitta säkerhets kritiska buggar i program varan.
+[Identifiering av säkerhets risker](https://www.microsoft.com/en-us/security-risk-detection/) är Microsofts unika fuzz testing-tjänst för att hitta säkerhets kritiska buggar i program varan.
 
 ### <a name="conduct-attack-surface-review"></a>Genomför granskning av attack ytan
 

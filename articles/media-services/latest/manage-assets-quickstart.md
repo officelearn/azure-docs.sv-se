@@ -46,7 +46,7 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
     * [Filter](filters-concept.md)
 * Du kan skydda ditt innehåll genom att kryptera det med Advanced Encryption Standard (AES-128) eller/och något av de tre stora DRM-systemen: Microsoft PlayReady, Google Widevine och Apple FairPlay. [Kryptera innehåll med Azure Portal](encrypt-content-quickstart.md) snabb start visar hur du konfigurerar innehålls skydd.
         
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

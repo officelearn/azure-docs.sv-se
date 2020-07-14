@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4c873e7ec1867b6ce53cd9f4c3d5c54242a6f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81729856"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232346"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för Java
 
@@ -27,9 +27,9 @@ Använd klient biblioteket för Azure Queue Storage-V12 för Java för att:
 * Ta emot och ta bort meddelanden från en kö
 * Ta bort en kö
 
-[API Reference dokumentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+[API-referens dokumentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)  |  [Paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 eller senare
 * [Apache maven](https://maven.apache.org/download.cgi)
@@ -99,7 +99,7 @@ Skapa ett Java-program med namnet *köer-snabb start-V12*.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-Öppna filen *Pom. XML* i text redigeraren. Lägg till följande beroende element i gruppen med beroenden.
+Öppna *pom.xml* -filen i text redigeraren. Lägg till följande beroende element i gruppen med beroenden.
 
 ```xml
 <dependency>
@@ -116,7 +116,7 @@ Från projekt katalogen:
 1. Navigera till katalogen */src/main/Java/com/Queues/QuickStart*
 1. Öppna filen *app. java* i redigeraren
 1. Ta bort `System.out.println("Hello world!");` instruktionen
-1. Lägg `import` till direktiv
+1. Lägg till `import` direktiv
 
 Här är koden:
 
@@ -167,7 +167,7 @@ I de här exempel kods tycken visar vi hur du utför följande åtgärder med kl
 * [Hämta anslutningssträngen](#get-the-connection-string)
 * [Skapa en kö](#create-a-queue)
 * [Lägga till meddelanden i en kö](#add-messages-to-a-queue)
-* [Granska meddelanden i en kö](#peek-at-messages -in-a-queue)
+* [Granska meddelanden i en kö](#peek-at-messages-in-a-queue)
 * [Uppdatera ett meddelande i en kö](#update-a-message-in-a-queue)
 * [Ta emot och ta bort meddelanden från en kö](#receive-and-delete-messages-from-a-queue)
 * [Ta bort en kö](#delete-a-queue)
@@ -176,7 +176,7 @@ I de här exempel kods tycken visar vi hur du utför följande åtgärder med kl
 
 Koden nedan hämtar anslutnings strängen för lagrings kontot. Anslutnings strängen lagras i den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
 
-Lägg till den här koden `main` i-metoden:
+Lägg till den här koden i- `main` metoden:
 
 ```java
 System.out.println("Azure Queues storage v12 - Java quickstart sample\n");
@@ -221,7 +221,7 @@ queueClient.create();
 
 ### <a name="add-messages-to-a-queue"></a>Lägga till meddelanden i en kö
 
-Följande kodfragment lägger till meddelanden i kön genom att anropa [SendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) -metoden. Det sparar också en [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) som returneras från `sendMessage` ett samtal. Resultatet används för att uppdatera meddelandet senare i programmet.
+Följande kodfragment lägger till meddelanden i kön genom att anropa [SendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) -metoden. Det sparar också en [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) som returneras från ett `sendMessage` samtal. Resultatet används för att uppdatera meddelandet senare i programmet.
 
 Lägg till den här koden i slutet av `main` metoden:
 
@@ -238,7 +238,7 @@ SendMessageResult result = queueClient.sendMessage("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Granska meddelanden i en kö
 
-Titta på meddelandena i kön genom att anropa metoden [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) . `peelkMessages` Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
+Titta på meddelandena i kön genom att anropa metoden [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) . `peelkMessages`Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
 
 Lägg till den här koden i slutet av `main` metoden:
 
@@ -252,7 +252,7 @@ queueClient.peekMessages(10, null, null).forEach(
 
 ### <a name="update-a-message-in-a-queue"></a>Uppdatera ett meddelande i en kö
 
-Uppdatera innehållet i ett meddelande genom att anropa [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) -metoden. `updateMessage` Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Tillsammans med nytt innehåll för meddelandet skickar du meddelande-ID och pop-kvitto genom att använda det `SendMessageResult` som sparades tidigare i koden. Meddelande-ID och pop-kvitto identifierar vilket meddelande som ska uppdateras.
+Uppdatera innehållet i ett meddelande genom att anropa [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) -metoden. `updateMessage`Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Tillsammans med nytt innehåll för meddelandet skickar du meddelande-ID och pop-kvitto genom att använda det `SendMessageResult` som sparades tidigare i koden. Meddelande-ID och pop-kvitto identifierar vilket meddelande som ska uppdateras.
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -269,7 +269,7 @@ queueClient.updateMessage(result.getMessageId(),
 
 Hämta tidigare tillagda meddelanden genom att anropa [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) -metoden. Exempel koden tar också bort meddelanden från kön när de har tagits emot och bearbetats. I det här fallet visar bearbetningen bara meddelandet i-konsolen.
 
-Appen pausar indata från användaren genom att `System.console().readLine();` anropa innan den tar emot och tar bort meddelandena. Kontrol lera i [Azure Portal](https://portal.azure.com) att resurserna har skapats korrekt innan de tas bort. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
+Appen pausar indata från användaren genom att anropa `System.console().readLine();` innan den tar emot och tar bort meddelandena. Kontrol lera i [Azure Portal](https://portal.azure.com) att resurserna har skapats korrekt innan de tas bort. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
 
 Lägg till den här koden i slutet av `main` metoden:
 

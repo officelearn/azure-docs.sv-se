@@ -9,12 +9,12 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 7ad3af46be26816231a15156d13fbec3275a5559
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 132663ed26eab41747f6fce25bdb2beabe286322
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855088"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232618"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering för Azure Key Vault med .NET
 
@@ -170,7 +170,7 @@ Det finns tre primära metoder för att använda ett huvud namn för tjänsten f
 
     Ersätt *{AppId}*, *{TenantId}* och *{tumavtryck}* med värden som genereras i steg 1. Ersätt *{CertificateStore}* med antingen *LocalMachine*eller *CurrentUser*, baserat på din distributions plan.
 
-1. Kör appen.
+1. Kör programmet.
 
 ### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Använd delade hemliga autentiseringsuppgifter för att logga in på Azure AD
 
@@ -188,7 +188,7 @@ Det finns tre primära metoder för att använda ett huvud namn för tjänsten f
 
     Ersätt _{AppId}_, _{TenantId}_ och _{ClientSecret}_ med värden som genereras i steg 1.
 
-1. Kör appen.
+1. Kör programmet.
 
 När allt har kon figurer ATS korrekt behövs inga ytterligare kod ändringar. `AzureServiceTokenProvider`använder miljövariabeln och certifikatet för att autentisera till Azure AD.
 
@@ -226,17 +226,20 @@ Använda ett klient certifikat för autentisering av tjänstens huvud namn:
 
 ## <a name="connection-string-support"></a>Stöd för anslutnings sträng
 
-Som standard `AzureServiceTokenProvider` använder flera metoder för att hämta en token.
+Som standard `AzureServiceTokenProvider` försöker följande autentiseringsmetoder, i ordning, hämta en token:
 
-Om du vill kontrol lera processen använder du en anslutnings sträng som skickas till `AzureServiceTokenProvider` konstruktorn eller anges i miljövariabeln *AzureServicesAuthConnectionString* .
+- [En hanterad identitet för Azure-resurser](../..//active-directory/managed-identities-azure-resources/overview.md)
+- Visual Studio-autentisering
+- [Azure CLI-autentisering](/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Integrerad Windows-autentisering](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
-Följande alternativ stöds:
+Om du vill kontrol lera processen använder du en anslutnings sträng som skickas till `AzureServiceTokenProvider` konstruktorn eller anges i miljövariabeln *AzureServicesAuthConnectionString* .  Följande alternativ stöds:
 
 | Alternativ för anslutnings sträng | Scenario | Kommentarer|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Lokal utveckling | `AzureServiceTokenProvider`använder AzureCli för att hämta token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokal utveckling | `AzureServiceTokenProvider`använder Visual Studio för att hämta token. |
-| `RunAs=CurrentUser` | Lokal utveckling | `AzureServiceTokenProvider`använder Azure AD-integrerad autentisering för att hämta token. |
+| `RunAs=CurrentUser` | Lokal utveckling | Stöds inte i .NET Core. `AzureServiceTokenProvider`använder Azure AD-integrerad autentisering för att hämta token. |
 | `RunAs=App` | [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider`använder en hanterad identitet för att hämta token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [Användar tilldelad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider`använder en användardefinierad identitet för att hämta token. |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autentisering av anpassade tjänster | `KeyVaultCertificateSecretIdentifier`är certifikatets hemliga ID. |

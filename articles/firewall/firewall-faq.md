@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.author: victorh
-ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078433"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232091"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -88,7 +88,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Ett exempel:
+Exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -223,3 +223,7 @@ Ett standard beteende för en nätverks brand vägg är att se till att TCP-ansl
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Kan jag Distribuera Azure-brandväggen utan en offentlig IP-adress?
 
 Nej, för närvarande måste du Distribuera Azure-brandväggen med en offentlig IP-adress.
+
+## <a name="where-does-azure-firewall-store-customer-data"></a>Var lagrar Azure Firewall kund information?
+
+Azure-brandväggen flyttar eller lagrar inte kund information från den region där den distribueras.

@@ -23,7 +23,7 @@
     - name: Ansluta till Windows Virtual Desktop-resurser
       items:
         - name: Ansluta med Windows-skrivbordsklienten
-          href: connect-windows-7-and-10.md
+          href: connect-windows-7-10.md
         - name: Ansluta med webbklienten
           href: connect-web.md
         - name: Ansluta med Android-klienten
@@ -38,6 +38,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: Distribuera en virtuell Windows 7-dator
+          href: deploy-windows-7-virtual-machine.md
         - name: Distribuera en GPU-baserad sessionsvärd
           href: configure-vm-gpu.md
         - name: Visa en befintlig värdpool
@@ -90,6 +92,8 @@
       href: language-packs.md
 - name: Begrepp
   items:
+    - name: Lista över säkra webbadresser
+      href: safe-url-list.md
     - name: Windows Virtual Desktop-miljö
       href: environment-setup.md
     - name: Fastställa svarstid för användare

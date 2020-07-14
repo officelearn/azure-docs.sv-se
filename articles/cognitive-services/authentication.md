@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146966"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232754"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begär anden till Azure Cognitive Services
 
@@ -24,7 +24,7 @@ Varje begäran till en Azure-kognitiv tjänst måste innehålla ett Authenticati
 * Autentisera med en [token](#authenticate-with-an-authentication-token)
 * Autentisera med [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du gör en förfrågan behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto har vi en guide som hjälper dig att konfigurera på några minuter: [skapa ett Cognitive Services konto för Azure](cognitive-services-apis-create-account.md).
 
@@ -81,14 +81,21 @@ När du använder en prenumerations nyckel för flera tjänster med Translator-t
 
 Autentisering med flera tjänster stöds i följande regioner:
 
-| | | |
-|-|-|-|
-| `australiaeast` | `brazilsouth` | `canadacentral` |
-| `centralindia` | `eastasia` | `eastus` |
-| `japaneast` | `northeurope` | `southcentralus` |
-| `southeastasia` | `uksouth` | `westcentralus` |
-| `westeurope` | `westus` | `westus2` |
-
+- `australiaeast`
+- `brazilsouth`
+- `canadacentral`
+- `centralindia`
+- `eastasia`
+- `eastus`
+- `japaneast`
+- `northeurope`
+- `southcentralus`
+- `southeastasia`
+- `uksouth`
+- `westcentralus`
+- `westeurope`
+- `westus`
+- `westus2`
 
 ### <a name="sample-requests"></a>Exempel förfrågningar
 
@@ -141,13 +148,21 @@ curl -v -X POST \
 
 Dessa multi-service-regioner stöder token Exchange:
 
-| | | |
-|-|-|-|
-| `australiaeast` | `brazilsouth` | `canadacentral` |
-| `centralindia` | `eastasia` | `eastus` |
-| `japaneast` | `northeurope` | `southcentralus` |
-| `southeastasia` | `uksouth` | `westcentralus` |
-| `westeurope` | `westus` | `westus2` |
+- `australiaeast`
+- `brazilsouth`
+- `canadacentral`
+- `centralindia`
+- `eastasia`
+- `eastus`
+- `japaneast`
+- `northeurope`
+- `southcentralus`
+- `southeastasia`
+- `uksouth`
+- `westcentralus`
+- `westeurope`
+- `westus`
+- `westus2`
 
 När du har skaffat en autentiseringstoken måste du skicka den i varje begäran som `Authorization` rubrik. Detta är ett exempel anrop till tjänsten Translator:
 

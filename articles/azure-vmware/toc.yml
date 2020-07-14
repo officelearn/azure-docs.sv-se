@@ -16,6 +16,8 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - Skala ett privat moln
       href: tutorial-scale-private-cloud.md
+    - name: 6 – Skapa ett innehållsbibliotek
+      href: tutorial-deploy-vm-content-library.md
 - name: Begrepp
   items:
     - name: Privata moln och kluster

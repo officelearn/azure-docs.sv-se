@@ -5,6 +5,8 @@
   items:
     - name: Vad är programhantering?
       href: what-is-application-management.md
+    - name: Vad är enkel inloggning (SSO)?
+      href: what-is-single-sign-on.md
 - name: Snabbstarter
   items:
     - name: Visa dina appar
@@ -19,6 +21,8 @@
       href: delete-application-portal.md
 - name: Självstudier
   items:
+    - name: Lägg till en app som inte finns med i galleriet
+      href: add-non-gallery-app.md
     - name: 'Integrerade galleriappar (t.ex. ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Lägga till en lokal app med programproxy
@@ -46,8 +50,6 @@
               href: developer-guidance-for-integrating-applications.md
         - name: Enkel inloggning
           items:
-            - name: Vad är enkel inloggning
-              href: what-is-single-sign-on.md
             - name: Aktivera enkel inloggning för ditt program för flera innehavare
               href: isv-sso-content.md
             - name: Skapa en Azure-klient för program för flera innehavare
@@ -103,10 +105,6 @@
   items:
     - name: Molnappar och enkel inloggning
       items:
-        - name: Lägga till en molnapp
-          items:
-            - name: Lägga till en icke-galleriapp
-              href: add-non-gallery-app.md
         - name: Konfigurera enkel inloggning
           items:
             - name: Konfigurera SAML-baserad enkel inloggning
@@ -143,6 +141,8 @@
               href: configure-admin-consent-workflow.md
             - name: Tilldela en användare eller grupp till en app
               href: assign-user-or-group-access-portal.md
+            - name: Granska behörigheter som har beviljats för appar
+              href: manage-application-permissions.md
             - name: Skapa samlingar i Mina appar
               href: access-panel-collections.md
             - name: Använda appåtkomst via självbetjäning

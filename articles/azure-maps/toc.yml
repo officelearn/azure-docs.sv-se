@@ -232,6 +232,24 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Visa trafikdata
           href: how-to-show-traffic-android.md
+    - name: Använda Azure Maps i Power BI
+      items:
+        - name: Komma igång
+          href: power-bi-visual-getting-started.md
+        - name: Förstå lager
+          href: power-bi-visual-understanding-layers.md
+        - name: Lägga till ett bubbelskikt
+          href: power-bi-visual-add-bubble-layer.md
+        - name: Lägg till ett stapeldiagramslager
+          href: power-bi-visual-add-bar-chart-layer.md
+        - name: Lägg till ett referenslager
+          href: power-bi-visual-add-reference-layer.md
+        - name: Lägga till ett panelskikt
+          href: power-bi-visual-add-tile-layer.md
+        - name: Visa trafik i realtid
+          href: power-bi-visual-show-real-time-traffic.md
+        - name: Hantera åtkomst
+          href: power-bi-visual-manage-access.md
     - name: Ge datafeedback
       href: how-to-use-feedback-tool.md
 - name: Referens

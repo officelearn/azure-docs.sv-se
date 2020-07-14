@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171167"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224425"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -122,56 +122,121 @@ Om du vill använda en annan DNS-zon i stället för standard, till exempel *. c
 - Använd CliConfig för att definiera ett alias. Verktyget är bara ett gränssnitt för register inställningar, så det kan göras med hjälp av en grup princip eller ett skript.
 - Använd *CNAME* med alternativet *TrustServerCertificate = True* .
 
-## <a name="move-a-database-from-sql-managed-instance"></a>Flytta en databas från SQL-hanterad instans 
+## <a name="migration-options"></a>Migreringsalternativ
 
-**Hur kan jag flytta en databas från SQL-hanterad instans tillbaka till SQL Server eller Azure SQL Database?**
+**Hur migrerar jag från Azure SQL Database en eller elastisk pool till SQL-hanterad instans?**
 
-Du kan [Exportera en databas till BACPAC](../database/database-export.md) och sedan [Importera BACPAC-filen](../database/database-import.md). Detta är den rekommenderade metoden om databasen är mindre än 100 GB.
+Den hanterade instansen ger samma prestanda nivåer per beräknings-och lagrings storlek som andra distributions alternativ för Azure SQL Database. Om du vill konsolidera data på en enskild instans, eller om du bara behöver en funktion som stöds enbart i hanterade instanser, kan du migrera dina data med hjälp av funktionen för att exportera/importera (BACPAC). Här följer andra sätt att överväga för SQL Database migrering till SQL-hanterad instans: 
+- Använda [extern data källa]()
+- Använda [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
+- Använda [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
-Transaktionsreplikering kan användas om alla tabeller i databasen har primära nycklar.
+**Hur kan jag migrera min instans databas till en enda Azure SQL Database?**
 
-`COPY_ONLY`Det går inte att återställa inbyggda säkerhets kopior från SQL Managed Instance till SQL Server eftersom SQL-hanterad instans har en högre databas version jämfört med SQL Server.
+Ett alternativ är att [Exportera en databas till BACPAC](../database/database-export.md) och sedan [Importera BACPAC-filen](../database/database-import.md). Detta är den rekommenderade metoden om databasen är mindre än 100 GB.
 
-## <a name="migrate-an-instance-database"></a>Migrera en instans databas
+[Transaktionsreplikering](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) kan användas om alla tabeller i databasen har *primära* nycklar och det inte finns några minnesbaserade OLTP-objekt i databasen.
 
-**Hur kan jag migrera min instans databas till Azure SQL Database?**
+Det går inte att återställa interna COPY_ONLY säkerhets kopieringar från hanterade instanser till SQL Server eftersom den hanterade instansen har en högre databas version jämfört med SQL Server. Mer information finns i [Kopiera endast säkerhets kopiering](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
 
-Ett alternativ är att [Exportera databasen till en BACPAC](../database/database-export.md) och sedan [Importera BACPAC-filen](../database/database-import.md). 
+**Hur kan jag migrera min SQL Server-instans till SQL-hanterad instans?**
 
-Detta är den rekommenderade metoden om databasen är mindre än 100 GB. Transaktionsreplikering kan användas om alla tabeller i databasen har primära nycklar.
+Information om hur du migrerar din SQL Server instans finns i [SQL Server instans migrering till en Azure SQL-hanterad instans](migrate-to-instance-from-sql-server.md).
+
+**Hur kan jag migrera från andra plattformar till SQL-hanterad instans?**
+
+Information om migrering om migrering från andra plattformar finns i [guiden Migrera Azure Database](https://datamigration.microsoft.com/).
 
 ## <a name="switch-hardware-generation"></a>Växla maskin varu generering 
 
-**Kan jag byta maskin varu generering för SQL-hanterad instans mellan gen 4 och gen 5 Online?**
+**Kan jag byta maskin vara för den hanterade instansen mellan generation 4 och gen 5 Online?**
 
-Automatisk Online-växling mellan maskin varu generationer är möjlig om båda maskin varu generationerna är tillgängliga i den region där SQL-hanterad instans är etablerad. I det här fallet kan du kontrol lera [sidan vCore modell översikt](../database/service-tiers-vcore.md), som förklarar hur du växlar mellan maskin varu generationer.
+Automatisk Online-växling från Gen4 till Gen5 är möjligt om Gen5-maskinvaran är tillgänglig i den region där din hanterade instans är etablerad. I det här fallet kan du kontrol lera [vCore modell översikts sida](../database/service-tiers-vcore.md) som förklarar hur du växlar mellan maskin varu generationer.
 
-Detta är en tids krävande åtgärd, eftersom en ny hanterad instans tillhandahålls i bakgrunden och databaserna automatiskt överförs mellan de gamla och nya instanserna, med en snabb redundans i slutet av processen. 
+Detta är en långvarig åtgärd som en ny hanterad instans skapas i bakgrunden och databaserna överförs automatiskt mellan den gamla och nya instansen med en snabb redundans i slutet av processen.
 
-**Vad händer om båda maskin varu generationerna inte stöds i samma region?**
+Obs! Gen4-maskinvara föråldras och är inte längre tillgänglig för nya distributioner. Alla nya databaser måste distribueras på Gen5 maskin vara. Växling från Gen5 till Gen4 är inte heller tillgängligt.
 
-Om båda maskin varu generationerna inte stöds i samma region, är det möjligt att ändra maskin varu generationen, men måste utföras manuellt. Detta kräver att du etablerar en ny instans i den region där den önskade maskin varu generationen är tillgänglig och manuellt säkerhetskopierar och återställer data mellan de gamla och nya instanserna.
+## <a name="performance"></a>Prestanda 
 
-**Vad händer om det inte finns tillräckligt med IP-adresser för att utföra uppdaterings åtgärden?**
+**Hur kan jag jämföra prestanda för hanterade instanser för att SQL Server prestanda?**
 
-Om det inte finns tillräckligt med IP-adresser i under nätet där din hanterade instans är etablerad måste du skapa ett nytt undernät och en ny hanterad instans i det. Vi föreslår också att det nya under nätet skapas med fler IP-adresser allokerade så att framtida uppdaterings åtgärder undviker liknande situationer. (För rätt under näts storlek kontrollerar du [hur storleken på ett VNet-undernät ska fastställas](vnet-subnet-determine-size.md).) När den nya instansen har allokerats kan du manuellt säkerhetskopiera och återställa data mellan de gamla och nya instanserna eller utföra återställning mellan olika [tidpunkter](point-in-time-restore.md?tabs=azure-powershell). 
+För en prestanda jämförelse mellan hanterade instanser och SQL Server är en bra start punkt [bästa praxis för prestanda jämförelse mellan Azure SQL-hanterad instans och SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210) artikel.
 
+**Vad orsakar prestanda skillnader mellan hanterade instanser och SQL Server?**
 
-## <a name="tune-performance"></a>Justera prestanda
+Se [viktiga orsaker till prestanda skillnader mellan SQL-hanterad instans och SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). Mer information om storleken på logg filen påverkar Generell användning hanterade instans prestandan finns i [effekt av logg fils storlek på generell användning](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-**Hur gör jag för att finjustera prestanda för SQL-hanterad instans?**
+**Hur gör jag för att finjustera prestanda för min hanterade instans?**
 
-SQL-hanterad instans i Generell användning nivån använder Fjärrlagring, så storleken på data-och loggfiler är till för prestanda. Mer information finns i [effekten av logg fils storleken på generell användning prestanda för SQL-hanterad instans](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
+Du kan optimera prestanda för din hanterade instans genom att:
+- [Automatisk justering](../database/automatic-tuning-overview.md) som ger högsta prestanda och stabila arbets belastningar genom kontinuerlig prestanda justering baserat på AI och maskin inlärning.
+-   [Minnes intern OLTP](../in-memory-oltp-overview.md) som ger bättre data flöde och svars tid på transaktions bearbetnings arbets belastningar och ger snabbare affärs insikter. 
 
-Om din arbets belastning består av många små transaktioner bör du överväga att byta Anslutnings typ från proxy till omdirigeringsläge.
+Överväg att använda några av de *rekommenderade metoderna* för [program-och databas justering](../database/performance-guidance.md#tune-your-database)för att finjustera prestanda ytterligare.
+Om din arbets belastning består av många små transaktioner bör du överväga att [byta Anslutnings typ från proxy till omdirigeringsläge](connection-types-overview.md#changing-connection-type) för kortare latens och högre data flöde.
 
-## <a name="maximum-storage-size"></a>Maximal lagrings storlek
+## <a name="monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar
+
+**Vilka är alternativen för övervakning och aviseringar för min hanterade instans?**
+
+Alla möjliga alternativ för att övervaka och varna för användning och prestanda för SQL-hanterad instans finns i [blogg inlägget om hanterings alternativ för Azure SQL Managed instance](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). För prestanda övervakning i real tid för SQL MI, se [prestanda övervakning i real tid för Azure SQL DB-hanterad instans](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+
+**Kan jag använda SQL profileraren för prestanda spårning?**
+
+Ja, SQL-profiler stöds eller SQL-hanterad instans. Mer information finns i [SQL](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15)profiler.
+
+**Är Database Advisor och Query Performance Insight stöd för hanterade instans databaser?**
+
+Nej, de stöds inte. Du kan använda [DMV: er](../database/monitoring-with-dmvs.md) och [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) tillsammans med [SQL profilerare](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) och [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) för att övervaka dina databaser.
+
+**Kan jag skapa mått varningar på SQL-hanterad instans?**
+
+Ja. Instruktioner finns i [skapa aviseringar för SQL-hanterad instans](alerts-create.md).
+
+**Kan jag skapa mått varningar för en databas i en hanterad instans?**
+
+Du kan inte, aviserings mått är bara tillgängliga för hanterade instanser. Aviserings mått för enskilda databaser i den hanterade instansen är inte tillgängliga.
+
+## <a name="storage-size"></a>Lagrings storlek
 
 **Vad är den maximala lagrings storleken för SQL-hanterad instans?**
 
 Lagrings storleken för SQL-hanterad instans beror på den valda tjänst nivån (Generell användning eller Affärskritisk). Information om lagrings begränsningar för dessa tjänst nivåer finns i [Egenskaper för tjänst nivå](../database/service-tiers-general-purpose-business-critical.md).
 
-  
+**Vilken minsta lagrings storlek är tillgänglig för en hanterad instans?**
+
+Den minsta mängden lagring som är tillgänglig i en instans är 32 GB. Lagrings utrymme kan läggas till i steg om 32 GB upp till den maximala lagrings storleken. Första 32 GB är kostnads fritt.
+
+**Kan jag öka det lagrings utrymme som är tilldelat till en instans, oberoende av beräknings resurser?**
+
+Ja, du kan köpa tilläggs lagring, oberoende från beräkning, i viss omfattning. Se *Max reserverad instans* i [tabellen](resource-limits.md#hardware-generation-characteristics).
+
+**Hur kan jag optimera min lagrings prestanda i Generell användning tjänst nivån?**
+
+Information om hur du optimerar lagrings prestanda finns [i metod tips för lagring i generell användning](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+
+## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
+
+**Dras lagringen av säkerhets kopian från min hanterade instans lagring?**
+
+Nej, lagring av säkerhets kopior dras inte av från lagrings utrymmet för den hanterade instansen. Lagrings utrymmet för säkerhets kopian är oberoende från instans lagrings utrymmet och är inte begränsat. Säkerhets kopierings lagringen begränsas av tids perioden för att behålla säkerhets kopieringen av dina instans databaser, vilket kan konfigureras upp till 35 dagar. Mer information finns i [automatiska säkerhets kopieringar](../database/automated-backups-overview.md).
+
+**Hur kan jag se när automatiska säkerhets kopieringar görs på min hanterade instans?**
+Information om hur du spårar när automatiska säkerhets kopieringar har utförts på en hanterad instans finns i [spåra den automatiserade säkerhets kopieringen för en hanterad Azure SQL-instans](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355)
+
+**Stöds säkerhets kopiering på begäran?**
+Ja, du kan skapa en fullständig kopia av en fullständig säkerhets kopia i Azure-Blob Storage, men den kommer bara att återställas i en hanterad instans. Mer information finns i [Kopiera endast säkerhets kopiering](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Det är dock omöjligt att kopiera säkerhets kopior om databasen krypteras av tjänstehanterade TDE eftersom det inte går att komma åt certifikatet som används för kryptering. I sådana fall använder du funktionen för att återställa en plats i taget för att flytta databasen till en annan SQL-hanterad instans eller växla till kundhanterad nyckel.
+
+**Stöds intern återställning (från. bak-filer) till hanterad instans?**
+Ja, det stöds och är tillgängligt för SQL Server 2005 +-versioner.  Om du vill använda intern återställning laddar du upp. bak-filen till Azure Blob Storage och kör T-SQL-kommandon. Mer information finns i [Native Restore from URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+
+## <a name="business-continuity"></a>Verksamhetskontinuitet
+
+**Replikeras mina system databaser till den sekundära instansen i en grupp för växling vid fel?**
+
+System databaser replikeras inte till den sekundära instansen i en failover-grupp. Därför går det inte att använda scenarier som är beroende av objekt från system databaser på den sekundära instansen om inte objekten skapas manuellt på den sekundära. Information om lösningar finns i [Aktivera scenarier som är beroende av objektet från system databaserna](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+ 
 ## <a name="networking-requirements"></a>Nätverks krav 
 
 **Vilka är de aktuella inkommande/utgående NSG-begränsningarna i under nätet för hanterade instanser?**
@@ -231,6 +296,44 @@ Det här krävs inte. Du kan antingen [skapa ett virtuellt nätverk för Azure S
 
 Nej. För närvarande har vi inte stöd för att placera en hanterad instans i ett undernät som redan innehåller andra resurs typer.
 
+## <a name="connectivity"></a>Anslutningar 
+
+**Kan jag ansluta till min hanterade instans med hjälp av IP-adress?**
+
+Nej, detta stöds inte. En hanterad Instanss värdnamn mappar till belastningsutjämnaren framför den hanterade instansens virtuella kluster. Eftersom ett virtuellt kluster kan vara värd för flera hanterade instanser, kan en anslutning inte dirigeras till rätt hanterad instans utan att ange dess namn.
+Mer information om arkitektur för virtuella kluster i SQL-hanterad instans finns i [arkitektur för virtuella kluster anslutningar](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**Kan min hanterade instans ha en statisk IP-adress?**
+
+Detta stöds inte för närvarande.
+
+I sällsynta men nödvändiga situationer kan vi behöva utföra en online-migrering av en hanterad instans till ett nytt virtuellt kluster. Vid behov är migreringen på grund av ändringar i vår teknik stack som syftar till att förbättra säkerheten och tillförlitligheten för tjänsten. När du migrerar till ett nytt virtuellt kluster ändras IP-adressen som är mappad till värd namnet för den hanterade instansen. Den hanterade instans tjänsten tillåter inte stöd för statisk IP-adress och förbehåller sig rätten att ändra den utan att Observera att den är en del av vanliga underhålls cykler.
+
+Därför förhindrar vi starkt att du förlitar dig på oföränderlighets i IP-adressen eftersom det kan orsaka onödigt drift stopp.
+
+**Har den hanterade instansen en offentlig slut punkt?**
+
+Ja. Den hanterade instansen har en offentlig slut punkt som används som standard endast för Service Management, men en kund kan även aktivera den för data åtkomst. Mer information finns i [använda SQL-hanterad instans med offentliga slut punkter](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Om du vill konfigurera en offentlig slut punkt går du till [Konfigurera offentlig slut punkt i SQL-hanterad instans](public-endpoint-configure.md).
+
+**Hur kontrollerar hanterad instans åtkomst till den offentliga slut punkten?**
+
+Den hanterade instansen styr åtkomst till den offentliga slut punkten på både nätverks-och program nivå.
+
+Hanterings-och distributions tjänster ansluter till en hanterad instans med hjälp av en [hanterings slut punkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) som mappar till en extern belastningsutjämnare. Trafiken dirigeras till noderna endast om den tas emot på en fördefinierad uppsättning portar som endast används av hanterings komponenter för den hanterade instansen. En inbyggd brand vägg på noderna har kon figurer ATS för att tillåta trafik enbart från Microsoft IP-intervall. Certifikat autentiserar all kommunikation mellan hanterings komponenter och hanterings planet gemensamt. Mer information finns i [anslutnings arkitektur för SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**Kan jag använda den offentliga slut punkten för att komma åt data i hanterade instans databaser?**
+
+Ja. Kunden måste aktivera offentlig slut punkts data åtkomst från [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /arm och konfigurera NSG för att låsa åtkomsten till data porten (port nummer 3342). Mer information finns i [Konfigurera offentlig slut punkt i Azure SQL-hanterad instans](public-endpoint-configure.md) och [använda Azure SQL Managed instance på ett säkert sätt med offentlig slut punkt](public-endpoint-overview.md). 
+
+**Kan jag ange en anpassad port för SQL data-slutpunkter?**
+
+Nej, det här alternativet är inte tillgängligt.  För privat data slut punkt använder den hanterade instansen standard port nummer 1433 och för offentlig data slut punkt använder den hanterade instansen standard port nummer 3342.
+
+**Vilket är det rekommenderade sättet att ansluta hanterade instanser i olika regioner?**
+
+ExpressRoute-peering i ExpressRoute är det bästa sättet att göra det. Detta är inte blandat med peering för virtuella nätverk mellan regioner som inte stöds på grund av en intern [begränsning](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)för belastnings utjämning.
+
+Om ExpressRoute-peering i ExpressRoute inte är möjligt är det enda alternativet att skapa plats-till-plats-VPN-anslutning ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [POWERSHELL](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Minimera data exfiltrering-risker  
 
@@ -277,21 +380,6 @@ DNS-konfigurationen uppdateras slutligen:
 - Vid plattforms uppgradering.
 
 Som en lösning kan du nedgradera SQL-hanterad instans till 4 virtuella kärnor och uppgradera den igen efteråt. Detta har en sido effekt på att uppdatera DNS-konfigurationen.
-
-
-## <a name="ip-address"></a>IP-adress
-
-**Kan jag ansluta till SQL-hanterad instans med en IP-adress?**
-
-Det finns inte stöd för att ansluta till SQL-hanterad instans med en IP-adress. Det SQL-hanterade instans värd namnet mappar till en belastningsutjämnare framför det virtuella SQL-hanterade instans klustret. Eftersom ett virtuellt kluster kan vara värd för flera hanterade instanser, kan inte anslutningar dirigeras till rätt hanterad instans utan att namnet uttryckligen anges.
-
-Mer information om arkitektur för virtuella kluster i SQL-hanterad instans finns i [arkitektur för virtuella kluster anslutningar](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**Kan SQL-hanterad instans ha en statisk IP-adress?**
-
-I sällsynta men nödvändiga situationer kan vi behöva utföra en online-migrering av SQL-hanterad instans till ett nytt virtuellt kluster. Vid behov är migreringen på grund av ändringar i vår teknik stack som syftar till att förbättra säkerheten och tillförlitligheten för tjänsten. Om du migrerar till ett nytt virtuellt kluster ändras IP-adressen som är mappad till värd namnet för SQL-hanterad instans. SQL Managed instance service har inte stöd för statisk IP-adress och förbehåller sig rätten att ändra den utan att Observera att den är en del av vanliga underhålls cykler.
-
-Därför förhindrar vi starkt att du förlitar dig på oföränderlighets i IP-adressen eftersom det kan orsaka onödigt drift stopp.
 
 ## <a name="change-time-zone"></a>Ändra tidszon
 

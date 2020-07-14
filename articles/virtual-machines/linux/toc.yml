@@ -477,6 +477,8 @@
                   items:
                     - name: Från en virtuell dator
                       href: ../image-version-vm-cli.md
+                    - name: Från en virtuell hårddisk eller en ögonblicksbild
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrera från en hanterad avbildning
                       href: ../image-version-managed-image-cli.md
                     - name: Kopiera från ett annat galleri
@@ -499,6 +501,8 @@
                   items:
                     - name: Från en virtuell dator
                       href: ../image-version-vm-powershell.md
+                    - name: Från en virtuell hårddisk eller en ögonblicksbild
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrera från en hanterad avbildning
                       href: ../image-version-managed-image-powershell.md
                     - name: Kopiera från ett annat galleri
@@ -547,6 +551,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Hitta och använda avbildningar
           href: cli-ps-findimage.md
+        - name: Inköpsplaninformation
+          href: ../marketplace-images.md
         - name: Avbilda virtuell dator till hanterad avbildning
           href: capture-image.md
         - name: Skapa en avbildning med Packer
@@ -945,6 +951,16 @@
           href: disks-incremental-snapshots-portal.md
         - name: Säkerhetskopiera ohanterade diskar
           href: incremental-snapshots.md
+        - name: Kryptering
+          items:
+            - name: Aktivera kryptering på värddator – CLI
+              href: disks-enable-host-based-encryption-cli.md
+            - name: Aktivera kundhanterade nycklar – CLI
+              href: disks-enable-customer-managed-keys-cli.md
+            - name: Aktivera kundhanterade nycklar – Portal
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Aktivera dubbel kryptering i vila
+              href: disks-enable-double-encryption-at-rest-cli.md
         - name: Migrering och konvertering
           items:
             - name: Migrera till Premium Storage med Azure Site Recovery

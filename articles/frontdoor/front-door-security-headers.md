@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4d698375488d4dac551f0028883fc4e18a10d8ef
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: d489186dc1c012fe8c181f17e00bcdb999e230dd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323539"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232142"
 ---
-# <a name="add-security-headers-with-rules-engine"></a>Lägg till säkerhets rubriker med regel motor
+# <a name="add-security-headers-with-rules-engine"></a>Lägga till säkerhetsrubriker med regelmotor
 
 Implementera säkerhets rubriker för att förhindra webbläsarbaserade sårbarheter som HTTP Strict-Transport-Security (HSTS), X-XSS-skydd, Content-Security-policy eller X-Frame-Options. Säkerhetsbaserade attribut kan också definieras med cookies.
 
-I följande exempel visas hur du lägger till ett innehålls-säkerhets-princip-huvud till alla inkommande förfrågningar som matchar den sökväg som definierats i den väg som regel motor konfigurationen är associerad med. Här kan vi bara tillåta att skript från vår betrodda plats **https://apis.contoso.com** körs i vårt program.
+I följande exempel visas hur du lägger till ett innehålls-säkerhets-princip-huvud till alla inkommande förfrågningar som matchar den sökväg som definierats i den väg som regel motor konfigurationen är associerad med. Här kan vi bara tillåta att skript från vår betrodda plats **https://apiphany.portal.azure-api.net** körs i vårt program.
 
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Lägg till ett Content-Security-Policy-huvud i Azure Portal
 
@@ -33,7 +33,7 @@ I följande exempel visas hur du lägger till ett innehålls-säkerhets-princip-
 
 3. Ange att operatorn ska **läggas till för att** lägga till den här rubriken som ett svar på alla inkommande begär anden till den här vägen.
 
-4. Lägg till rubrik namnet: **Content-Security-Policy** och definiera de värden som rubriken ska acceptera. I det här scenariot väljer vi *"script-src ' Self ' https://apis.contoso.com ."*
+4. Lägg till rubrik namnet: **Content-Security-Policy** och definiera de värden som rubriken ska acceptera. I det här scenariot väljer vi *"script-src ' Self ' https://apiphany.portal.azure-api.net ."*
 
 5. När du har lagt till alla regler som du vill ha i konfigurationen kan du inte glömma att gå till önskad väg och koppla din regel Motors konfiguration till din väg regel. Det här steget krävs för att aktivera regeln för att fungera. 
 

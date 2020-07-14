@@ -3,21 +3,21 @@ title: Enhets anslutning i Azure IoT Central | Microsoft Docs
 description: Den här artikeln beskriver viktiga begrepp som rör enhets anslutning i Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710447"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224773"
 ---
-# <a name="get-connected-to-azure-iot-central"></a>Anslut till Azure IoT Central
+# <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
 
 *Den här artikeln gäller operatörer och enhets utvecklare.*
 
@@ -72,27 +72,48 @@ Använd anslutnings informationen från export filen i enhets koden för att gö
 
 I en produktions miljö är användningen av X. 509-certifikat den rekommenderade mekanismen för enhets autentisering för IoT Central. Mer information finns i [enhets autentisering med X. 509 CA-certifikat](../../iot-hub/iot-hub-x509ca-overview.md).
 
-Innan du ansluter en enhet med ett X. 509-certifikat lägger du till och verifierar ett mellanliggande eller rot-X. 509-certifikat i ditt program. Enheter måste använda löv-X. 509-certifikat som genereras från rot-eller mellanliggande certifikat.
+Så här ansluter du en enhet med ett X. 509-certifikat till ditt program:
 
-### <a name="add-and-verify-a-root-or-intermediate-certificate"></a>Lägga till och verifiera ett rot-eller mellanliggande certifikat
+1. Skapa en *registrerings grupp* som använder typen **certifikat (X. 509)** för attestering.
+2. Lägg till och verifiera ett mellanliggande eller rot-X. 509-certifikat i registrerings gruppen.
+3. Registrera och Anslut enheter som använder löv X. 509-certifikat som genereras från rot-eller mellanliggande certifikat i registrerings gruppen.
 
-Gå till **Administration > enhets anslutning > hantera primärt certifikat** och Lägg till X. 509-roten eller mellanliggande certifikat som du använder för att generera enhets certifikaten.
+### <a name="create-an-enrollment-group"></a>Skapa en registrerings grupp
 
-![Inställningar för anslutning](media/concepts-get-connected/manage-x509-certificate.png)
+En [registrerings grupp](../../iot-dps/concepts-service.md#enrollment) är en grupp enheter som delar samma attesterings typ. De två typerna av attestering som stöds är X. 509-certifikat och SAS:
 
-Genom att verifiera certifikatets ägarskap ser du till att den person som laddar upp certifikatet har certifikatets privata nyckel. Verifiera certifikatet:
+- I en X. 509-registrerings grupp kan alla enheter som ansluter till IoT Central använda löv-X. 509-certifikat som genereras från rot-eller mellanliggande certifikat i registrerings gruppen.
+- I en SAS-gruppgrupp kan alla enheter som ansluter till IoT Central använda en SAS-token som genererats från SAS-token i registrerings gruppen.
 
-  1. Klicka på knappen bredvid **verifierings koden** för att generera en kod.
-  1. Skapa ett verifierings certifikat för X. 509 med den verifierings kod som du skapade i föregående steg. Spara certifikatet som en CER-fil.
-  1. Ladda upp det signerade verifierings certifikatet och välj **Verifiera**. Certifikatet har marker ATS som **verifierat** när verifieringen lyckades.
+De två standard registrerings grupperna i varje IoT Central program är SAS-registrerade grupper – en för IoT-enheter och en för Azure IoT Edge enheter. Om du vill skapa en X. 509-registrerings grupp navigerar du till sidan **enhets anslutning** och väljer **+ Lägg till registrerings grupp**:
+
+:::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="Lägg till en skärm bild för en X. 509-registrerings grupp":::
+
+### <a name="add-and-verify-a-root-or-intermediate-x509-certificate"></a>Lägga till och verifiera ett rot-eller mellanliggande X. 509-certifikat
+
+För att lägga till och verifiera ett rot-eller mellanliggande certifikat till din registrerings grupp:
+
+1. Navigera till den X. 509-registrerings grupp som du nyss skapade. Du har möjlighet att lägga till både primära och sekundära X. 509-certifikat. Välj **+ Hantera primär**.
+
+1. På **sidan primärt certifikat**laddar du upp ditt primära X. 509-certifikat. Detta är rot-eller mellanliggande certifikat:
+
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Skärm bild för primärt certifikat":::
+
+1. Använd **verifierings koden** för att generera en verifierings kod i det verktyg som du använder. Välj sedan **Verifiera** för att ladda upp verifierings certifikatet.
+
+1. När verifieringen är klar visas följande bekräftelse:
+
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Skärm bild för verifierat primärt certifikat":::
+
+Genom att verifiera certifikatets ägarskap ser du till att den person som laddar upp certifikatet har certifikatets privata nyckel.
 
 Om du har en säkerhets överträdelse eller om ditt primära certifikat är inställt på upphör ande använder du det sekundära certifikatet för att minska stillestånds tiden. Du kan fortsätta att etablera enheter med hjälp av det sekundära certifikatet när du uppdaterar det primära certifikatet.
 
 ### <a name="register-and-connect-devices"></a>Registrera och Anslut enheter
 
-Om du vill massredigera enheter med X. 509-certifikat, registrera först enheterna i ditt program genom att använda en CSV-fil för att [Importera enhets-ID: n och enhets namnen](howto-manage-devices.md#import-devices). Enhets-ID bör alltid vara i gemener.
+Om du vill massredigera enheter med X. 509-certifikat måste du först registrera enheterna i ditt program genom att använda en CSV-fil för att [Importera enhets-ID: n och enhets namnen](howto-manage-devices.md#import-devices). Enhets-ID bör alltid vara i gemener.
 
-Generera löv certifikat för X. 509 för dina enheter med hjälp av det överförda rot-eller mellanliggande certifikatet. Använd **enhets-ID: t** som `CNAME` värde i löv certifikaten. Enhets koden behöver **ID-** värdet för ditt program, **enhets-ID**och motsvarande enhets certifikat.
+Generera löv certifikat för X. 509 för dina enheter med hjälp av rot-eller mellanliggande certifikat som du laddade upp till din X. 509-registrerings grupp. Använd **enhets-ID: t** som `CNAME` värde i löv certifikaten. Enhets koden behöver **ID-** värdet för ditt program, **enhets-ID**och motsvarande enhets certifikat.
 
 #### <a name="sample-device-code"></a>Exempel på enhets kod
 
@@ -122,9 +143,9 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 ### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>Anslut enheter som använder SAS-token utan registrering
 
-1. Kopiera IoT Central programmets primära grupp primär nyckel:
+1. Kopiera gruppens primära nyckel från registrerings gruppen **SAS-IoT-Devices** :
 
-    ![Primär SAS-nyckel för program grupp](media/concepts-get-connected/group-sas-keys.png)
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Grupp primär nyckel från SAS-IoT-enheter registrerings grupp":::
 
 1. Använd verktyget [DPS-keygen](https://www.npmjs.com/package/dps-keygen) för att generera SAS-nycklar för enheten. Använd gruppens primära nyckel från föregående steg. Enhets-ID: n måste vara gemener:
 
@@ -145,7 +166,7 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Anslut enheter som använder X. 509-certifikat utan registrering
 
-1. [Lägg till och verifiera ett rot-eller mellanliggande X. 509-certifikat](#connect-devices-using-x509-certificates) till ditt IoT Central-program.
+1. [Skapa en registrerings grupp](#create-an-enrollment-group) och [Lägg sedan till och verifiera ett rot-eller mellanliggande X. 509-certifikat](#add-and-verify-a-root-or-intermediate-x509-certificate) till ditt IoT Central-program.
 
 1. Generera löv certifikat för dina enheter med hjälp av rot-eller mellanliggande certifikat som du har lagt till i ditt IoT Central-program. Använd lägre enhets-ID: n som `CNAME` i blad certifikaten.
 

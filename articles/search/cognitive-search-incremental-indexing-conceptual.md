@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d4b36f00bad8c06c2f62794fa03a85120af79965
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3957884a8c559194c436487050f0dbc09acf0441
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557384"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232516"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Stegvis anrikning och cachelagring i Azure Kognitiv sökning
 
@@ -109,7 +109,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 Syftet med cachen är att undvika onödig bearbetning, men vi antar att du gör en ändring i en färdighet som indexeraren inte identifierar (till exempel ändra något i extern kod, till exempel en anpassad färdighet).
 
-I det här fallet kan du använda [återställnings kunskaper](https://docs.microsoft.com/rest/api/searchservice/reset-skills) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Detta API accepterar en POST-begäran med en lista med kunskaper som ska ogiltig förklaras och markeras för ombearbetning. När du har återställt färdigheter kan du köra indexeraren för att anropa pipelinen.
+I det här fallet kan du använda [återställnings kunskaper](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Detta API accepterar en POST-begäran med en lista med kunskaper som ska ogiltig förklaras och markeras för ombearbetning. När du har återställt färdigheter kan du köra indexeraren för att anropa pipelinen.
 
 ## <a name="change-detection"></a>Ändrings identifiering
 
@@ -152,13 +152,13 @@ Stegvis bearbetning utvärderar din färdigheter-definition och avgör vilka kun
 
 REST API-versionen `2020-06-30-Preview` ger stegvis berikning genom ytterligare egenskaper för indexerare. Färdighetsuppsättningar och data källor kan använda den allmänt tillgängliga versionen. Utöver referens dokumentationen finns mer information om hur du anropar API: erna i [Konfigurera cachelagring för stegvis berikning](search-howto-incremental-index.md) .
 
-+ [Skapa indexerare (API-version = 2020-06 -30 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Skapa indexerare (API-version = 2020-06 -30 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
 
-+ [Uppdatera indexerare (API-version = 2020-06 -30 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Uppdatera indexerare (API-version = 2020-06 -30 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 
 
 + [Uppdatera färdigheter (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (ny URI-parameter på begäran)
 
-+ [Återställa kunskaper (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/reset-skills)
++ [Återställa kunskaper (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills)
 
 + Databas indexerare (Azure SQL, Cosmos DB). Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-data-source) en ny parameter på en begäran- **ignoreResetRequirement**, som ska ställas in på `true` när din uppdaterings åtgärd inte ska göra en ogiltig verifiering av cachen. 
 

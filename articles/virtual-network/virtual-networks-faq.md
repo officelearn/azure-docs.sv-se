@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481739"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232210"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -174,7 +174,7 @@ Det beror på. Om den virtuella datorn har distribuerats via Resource Manager, o
 Ja, men det rekommenderas inte om det behövs, till exempel när du tilldelar flera IP-adresser till en virtuell dator. Mer information finns i [lägga till flera IP-adresser till en virtuell dator](virtual-network-multiple-ip-addresses-portal.md#os-config). Om IP-adressen som tilldelats till ett Azure-nätverkskort som är kopplad till en virtuell dator ändras och IP-adressen i den virtuella datorns operativ system är annorlunda förlorar du anslutningen till den virtuella datorn.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Vad händer med mina IP-adresser om jag stoppar en distributions plats för moln tjänster eller stänger av en virtuell dator i operativ systemet?
-Ingenting. IP-adresserna (offentliga VIP, offentliga och privata) förblir tilldelade till moln tjänst distributions facket eller den virtuella datorn.
+Ingenstans. IP-adresserna (offentliga VIP, offentliga och privata) förblir tilldelade till moln tjänst distributions facket eller den virtuella datorn.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>Kan jag flytta virtuella datorer från ett undernät till ett annat undernät i ett VNet utan att distribuera om?
 Ja. Du hittar mer information i så [här flyttar du en virtuell dator eller roll instans till en annan under näts](virtual-networks-move-vm-role-to-subnet.md) artikel.
@@ -406,9 +406,8 @@ Azure Active Directory (Azure AD) stöder inte tjänstens slut punkter internt. 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Finns det några begränsningar för hur många VNet-tjänstens slut punkter jag kan konfigurera från mitt VNet?
 Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt nätverk. För en Azure-tjänst resurs (till exempel ett Azure Storage konto) kan tjänster upprätthålla gränser för antalet undernät som används för att skydda resursen. I följande tabell visas några exempel begränsningar: 
 
-|||
-|---|---|
 |Azure-tjänst| Begränsningar för VNet-regler|
+|---|---|
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|

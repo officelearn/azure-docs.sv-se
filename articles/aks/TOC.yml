@@ -257,6 +257,8 @@
           href: private-clusters.md
         - name: BYOK för diskar
           href: azure-disk-customer-managed-keys.md
+        - name: Aktivera värdbaserad kryptering
+          href: enable-host-encryption.md
     - name: Övervakning och loggning
       items:
         - name: Azure Monitor för containrar
@@ -282,9 +284,9 @@
         - name: Använda Kubernetes-instrumentpanelen
           href: kubernetes-dashboard.md
         - name: Skapa Dockerfiles för Windows Server-containrar
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimera Dockerfiles för Windows Server-containrar
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Utveckla och köra program
       items:
         - name: Använda lokal process med Kubernetes med Visual Studio Code (förhandsversion)

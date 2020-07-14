@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include

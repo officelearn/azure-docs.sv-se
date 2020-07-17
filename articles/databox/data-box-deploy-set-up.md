@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200505"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205236"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudie: Kabelansluta och ansluta till Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudier: Kabelansluta och ansluta till Azure Data Box
 
 ::: zone-end
 
@@ -38,21 +38,23 @@ I den här guiden får du lära dig att:
 > * Kabelansluta Data Box
 > * Ansluta till Data Box
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien Beställa Azure Data Box](data-box-deploy-ordered.md).
-2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**. 
+1. Du har beställt Azure Data Box.
+    - Information om importbeställningar finns i [Självstudie: Beställ Azure Data Box](data-box-deploy-ordered.md).
+    - Information om exportbeställningar finns i [Självstudie: Beställa Azure Data Box](data-box-deploy-export-ordered.md)
+1. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**. 
     - Det finns en adressetikett i den genomskinliga fickan som är fäst under den befintliga etiketten på enheten. Spara etiketten – du behöver den till returleveransen.
     - Vissa regioner i Europa kan få enheten inpackad i en låda. Se till att packa upp enheten och spara lådan för returförsändelse.
-3. Du har läst [säkerhetsföreskrifterna för Data Box](data-box-safety.md).
-4. Du har fått en jordad strömkabel att använda med lagringsenheten på 100 TB.
-5. Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
+1. Du har läst [säkerhetsföreskrifterna för Data Box](data-box-safety.md).
+1. Du har fått en jordad strömkabel att använda med lagringsenheten på 100 TB.
+1. Du har en värddator som används för att kopiera data (importbeställning) till eller kopiera data från (exportbeställning) din Data Box-enhet. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
-6. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
-7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
+1. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
+1. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
     - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M-kabel för intern testning. Mer information finns i [listan över kablar och växlar från Mellanox som stöds](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
@@ -135,7 +137,7 @@ Konfigurera din enhet med hjälp av följande steg via det lokala webbgränssnit
 
 När datanätverksgränssnitten har konfigurerats kan du även använda IP-adressen för något av DATA 1–DATA 3-gränssnitten för att komma åt det lokala webbgränssnittet på `https://<IP address of a data network interface>`. 
 
-När enhetskonfigurationen är klar kan du ansluta till enhetsresurserna och kopiera data från datorn till enheten. 
+När enhetskonfigurationen är klar kan du ansluta till enhetsresurserna och kopiera data. 
 
 ::: zone-end
 
@@ -161,10 +163,15 @@ I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 > * Kabelansluta Data Box
 > * Ansluta till Data Box
 
-Gå vidare till nästa självstudiekurs och lär dig hur du kopierar data på en Data Box-enhet.
+Gå vidare till nästa självstudie som beskriver hur du kopierar data.
 
 > [!div class="nextstepaction"]
-> [Kopiera data till Azure Data Box](./data-box-deploy-copy-data.md)
+> [Kopiera data till Azure Data Box för en importbeställning](./data-box-deploy-copy-data.md)
+
+Eller
+
+> [!div class="nextstepaction"]
+> [Kopiera data från Azure Data Box för en exportbeställning](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

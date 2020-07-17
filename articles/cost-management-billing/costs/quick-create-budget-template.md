@@ -8,22 +8,28 @@ ms.service: cost-management-billing
 ms.topic: quickstart
 ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686417"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252461"
 ---
-# <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Snabbstart: Skapa en budget med en Azure Resource Manager-mall
+# <a name="quickstart-create-a-budget-with-an-arm-template"></a>Snabbstart: Skapa en budget med en ARM-mall
 
-Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter för att proaktivt hantera kostnader och för att övervaka hur utgifter fortskrider över tid. När de budgettrösklar som du har skapat har överskridits utlöses meddelanden. Ingen av dina resurser påverkas och förbrukningen stoppas inte. Du kan använda budgetar för att jämföra och spåra utgifter när du analyserar kostnader. I den här snabbstarten får du se hur du skapar en budget med en Resource Manager-mall.
+Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter för att proaktivt hantera kostnader och för att övervaka hur utgifter fortskrider över tid. När de budgettrösklar som du har skapat har överskridits utlöses meddelanden. Ingen av dina resurser påverkas och förbrukningen stoppas inte. Du kan använda budgetar för att jämföra och spåra utgifter när du analyserar kostnader. Den här snabbstarten visar hur du skapar en budget med hjälp av en Azure Resource Manager-mall (ARM-mall).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Krav
 
-Azure Resource Manager-mallen stöder endast Azure-prenumerationer för Enterprise-avtal (EA). Andra prenumerationstyper stöds inte av mallen.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+ARM-mallen stöder endast Azure-prenumerationer för Enterprise-avtal (EA). Andra prenumerationstyper stöds inte av mallen.
 
 Du måste ha deltagarbehörighet för att skapa och hantera budgetar. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Men du kan inte skapa budgetar för EA-faktureringskonton. För Azure EA-prenumerationer måste du ha läsbehörighet för att visa budgetar.
 
@@ -39,11 +45,9 @@ Följande Azure-behörigheter, eller -omfång, stöds per prenumeration för bud
 
 Mer information om hur du tilldelar åtkomst till Cost Management-data finns i [Tilldela åtkomst till Cost Management-data](assign-access-acm-data.md).
 
-## <a name="create-a-budget"></a>Skapa en budget
+## <a name="review-the-template"></a>Granska mallen
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/create-budget).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/create-budget).
 
 :::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
 
@@ -51,7 +55,7 @@ En Azure-resurs har definierats i mallen:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Skapa en Azure-budget.
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar en budget.
 

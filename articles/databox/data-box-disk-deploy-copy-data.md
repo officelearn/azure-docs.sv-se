@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214334"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231547"
 ---
 ::: zone target="docs"
 
@@ -111,7 +111,7 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
     |/NFL                | Anger att filnamn inte ska loggas.        |
     |/NDL                | Anger att katalognamn inte ska loggas.        |
     |/FFT                | Förutsätter FAT-filtider (två sekunders precision).        |
-    |/Log:\<Loggfil>     | Skriver statusutdata till loggfilen (skriver över den befintliga loggfilen).         |
+    |/Log:\<Log File>     | Skriver statusutdata till loggfilen (skriver över den befintliga loggfilen).         |
 
     Flera diskar kan användas parallellt med flera jobb som körs på varje disk.
 
@@ -273,7 +273,7 @@ När datakopieringen är klar kan du fortsätta att verifiera dina data. Om du a
 
 Om du inte använde Split Copy-verktyget för att kopiera data måste du verifiera dina data. Verifiera data med hjälp av följande steg.
 
-1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet.
+1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet. Detta är endast tillgängligt för Windows-miljön. Linux-användare måste verifiera att källdata som kopieras till disken uppfyller [förhandskraven](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
     
     ![Utdata för Data Box Disk-valideringsverktyget](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

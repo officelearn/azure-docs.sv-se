@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd429dadcbe67f0ac91da19d6606626b39f34ef5
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313781"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201092"
 ---
-# <a name="get-started-with-azure-data-box"></a>Kom igång med Azure Data Box 
+# <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Kom igång med Azure Data Box för att importera data till Azure
 
 ::: zone target="docs"
 
-Den här snabbstarten beskriver hur du distribuerar Azure Data Box med hjälp av Azure-portalen. Stegen omfattar hur du kabelansluter, konfigurerar och kopierar data till Data Box så att den laddas upp till Azure. Snabbstarten utförs i Azure-portalen och på enhetens lokala webbgränssnitt.
+Den här snabbstarten beskriver hur du distribuerar Azure Data Box med hjälp av Azure-portalen för en importbeställning. Stegen omfattar hur du kabelansluter, konfigurerar och kopierar data till Data Box så att den laddas upp till Azure. Stegen i snabbstarten utförs på Azure-portalen och i enhetens lokala webbgränssnitt.
 
 Detaljerade stegvisa distributions- och spårningsinstruktioner finns i [Självstudie: Beställa Azure Data Box](data-box-deploy-ordered.md)
 
@@ -28,7 +28,7 @@ Detaljerade stegvisa distributions- och spårningsinstruktioner finns i [Självs
 
 ::: zone target="chromeless"
 
-Den här guiden beskriver hur du distribuerar Azure Data Box med hjälp av Azure-portalen. Stegen beskriver förhandskraven, hur du kopplar in och ansluter enheten och hur du kopierar data till enheten så att de laddas upp till Azure.
+Den här guiden beskriver hur du distribuerar Azure Data Box för en import med hjälp av Azure-portalen. Stegen beskriver förhandskraven, hur du kopplar in och ansluter enheten och hur du kopierar data till enheten så att de laddas upp till Azure.
 
 ::: zone-end
 

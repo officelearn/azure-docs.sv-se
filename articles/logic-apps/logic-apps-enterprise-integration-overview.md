@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77191377"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536410"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>B2B-lösningar för företags integrering med Azure Logic Apps och Enterprise-integrationspaket
 
@@ -42,7 +42,7 @@ Innan du kan börja skapa B2B-Logic app-arbetsflöden med EIP behöver du följa
 
 * Om du vill skapa kartor och scheman kan du använda [Microsoft Azure Logic Apps Enterprise-integration verktyg för Visual studio 2015 2,0](https://aka.ms/vsmapsandschemas) och Visual Studio 2015.
 
-När du har skapat ett integrations konto och lagt till dina artefakter kan du börja skapa B2B-arbetsflöden med dessa artefakter genom att skapa en Logic app i Azure Portal. Om du inte har använt Logic Apps igen kan du försöka [skapa en grundläggande Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill arbeta med dessa artefakter måste du först länka ditt integrations konto till din Logic app. Sedan kan din Logic-app komma åt ditt integrations konto. Du kan också skapa, hantera och distribuera Logi Kap par med Visual Studio eller [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
+När du har skapat ett integrations konto och lagt till dina artefakter kan du börja skapa B2B-arbetsflöden med dessa artefakter genom att skapa en Logic app i Azure Portal. Om du inte har använt Logic Apps igen kan du försöka [skapa en grundläggande Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill arbeta med dessa artefakter måste du först länka ditt integrations konto till din Logic app. Sedan kan din Logic-app komma åt ditt integrations konto. Du kan också skapa, hantera och distribuera Logi Kap par med Visual Studio eller [PowerShell](/powershell/module/az.logicapp).
 
 Här följer de övergripande stegen för att komma igång med att skapa B2B-Logic Apps:
 

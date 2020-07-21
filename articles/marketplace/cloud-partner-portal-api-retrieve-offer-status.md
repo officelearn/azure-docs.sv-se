@@ -4,18 +4,20 @@ description: API för att hämta erbjudandets aktuella status.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: 897c2517c3836e1c3940db02efae0e5d94667a65
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114082"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535883"
 ---
 # <a name="retrieve-offer-status"></a>Hämta erbjudandestatus
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Hämtar aktuell status för erbjudandet.
 
@@ -30,8 +32,7 @@ Hämtar aktuell status för erbjudandet.
 |  api-version    | Senaste versionen av API                        |     Datum       |
 |  |  |
 
-
-## <a name="header"></a>Sidhuvud
+## <a name="header"></a>Huvud
 
 
 |  Name           |  Värde               |
@@ -42,8 +43,7 @@ Hämtar aktuell status för erbjudandet.
 
 ## <a name="body-example"></a>Body-exempel
 
-
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 ``` json
   {
@@ -116,7 +116,6 @@ Hämtar aktuell status för erbjudandet.
   }
 ```
 
-
 ### <a name="response-body-properties"></a>Egenskaper för svars text
 
 |  **Namn**             |    **Beskrivning**                                                                             |
@@ -127,7 +126,7 @@ Hämtar aktuell status för erbjudandet.
 |  estimatedTimeFrame   | Uppskattning av hur lång tid det tar att slutföra det här steget, i eget format                       |
 |  id                   | Identifierare för steget                                                                         |
 |  stepName             | Namn på steget                                                                               |
-|  description          | Beskrivning av steget                                                                        |
+|  beskrivning          | Beskrivning av steget                                                                        |
 |  status               | Status för steget. En lista över möjliga värden finns i [steg status](#step-status) nedan.    |
 |  meddelanden             | Matris med meddelanden som är relaterade till steget                                                          |
 |  processPercentage    | Procent slutfört för steget                                                              |
@@ -155,7 +154,7 @@ Hämtar aktuell status för erbjudandet.
 |  Körs                     | Överföring av erbjudande bearbetas.                     |
 |  Lyckades                   | Bearbetningen av erbjudandet har slutförts.               |
 |  Avbrutna                    | Överföring av erbjudande avbröts.                           |
-|  Misslyckades                      | Det gick inte att skicka erbjudandet.                                 |
+|  Misslyckad                      | Det gick inte att skicka erbjudandet.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Steg status

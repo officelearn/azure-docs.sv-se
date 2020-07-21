@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2fdb83a61f7eaaefb3fab10af46315893791590c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536291"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Snabb start: skapa ditt första arbets flöde med hjälp av Azure Logic Apps-Azure Portal
 
@@ -20,10 +20,10 @@ I den här snabb starten beskrivs de grundläggande allmänna koncepten bakom hu
 
 ![Exempel på högnivås exempel på Logic app-arbetsflöde](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-I det här scenariot behöver du en Azure-prenumeration eller [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/), ett e-postkonto från en tjänst som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra e-posttjänster som stöds [granskar du kopplings listan här](https://docs.microsoft.com/connectors/). I det här exemplet använder Logic-appen ett Office 365 Outlook-konto. Om du använder en annan e-posttjänst är de övergripande allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
+I det här scenariot behöver du en Azure-prenumeration eller [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/), ett e-postkonto från en tjänst som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra e-posttjänster som stöds [granskar du kopplings listan här](/connectors/). I det här exemplet använder Logic-appen ett Office 365 Outlook-konto. Om du använder en annan e-posttjänst är de övergripande allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
 
 > [!IMPORTANT]
-> Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+> Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -48,7 +48,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
    | **Namn** | <*Logic – App-Name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `(` , `)` ) och punkter ( `.` ). I det här exemplet används "min-First-Logic-app". <p><p>**Obs**: namn för logi Kap par måste vara unika i flera regioner. |
    | **Prenumeration** | <*Azure-prenumeration-namn*> | Ditt Azure-prenumerations namn |
    | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". <p><p>**Obs**: namn för resurs grupper måste vara unika i flera regioner. |
-   | **Position** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
+   | **Plats** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
@@ -91,7 +91,7 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Dölj Logic app-form för att dölja information](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Logikappen har nu lanserats men gör inget annat än att kontrollera RSS-flödet. Därför ska vi lägga till en åtgärd som svarar när utlösaren utlöses.
 
@@ -155,7 +155,7 @@ Lägg nu till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-conce
       | **Flödets primära länk** | Objektets webbadress |
       |||
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
 Testa därefter logikappen.
 

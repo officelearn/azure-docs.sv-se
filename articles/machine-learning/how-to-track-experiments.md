@@ -3,20 +3,21 @@ title: Log ML-experiment & mått
 titleSuffix: Azure Machine Learning
 description: Övervaka dina Azure ML-experiment och övervaka körnings mått för att förbättra skapande processen för modeller. Lägg till loggning i ditt utbildnings skript och Visa de loggade resultaten för en körning.  Använd kör. log, kör. start_logging eller ScriptRunConfig.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a4f58423206a812dd94cc14d32aa52114c147d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675210"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536372"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,13 +34,13 @@ Förbättra skapande processen för modeller genom att spåra experiment och öv
 
 Du kan lägga till följande mått i en körning medan du tränar ett experiment. Om du vill visa en mer detaljerad lista över vad som kan spåras i en körning, se [referens dokumentationen för körnings klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Typ| Python-funktionen | Obs!|
+|Typ| Python-funktionen | Anteckningar|
 |----|:----|:----|
 |Skalära värden |Funktioner<br>`run.log(name, value, description='')`<br><br>Exempel:<br>Kör. log ("noggrannhet", 0,95) |Logga ett numeriskt värde eller sträng värde för körningen med det tilldelade namnet. Att logga ett mått på en körning gör att måttet lagras i körnings posten i experimentet.  Du kan logga samma mått flera gånger i en körning, och resultatet betraktas som en Vector för det måttet.|
 |Listor|Funktioner<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Kör. log_list ("noggrannhet", [0,6, 0,7, 0,87]) | Logga en lista med värden som ska köras med det aktuella namnet.|
 |Rad|Funktioner<br>`run.log_row(name, description=None, **kwargs)`<br>Exempel:<br>Kör. log_row ("Y över X", X = 1, Y = 0.4) | Om du använder *log_row* skapas ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngiven parameter genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tupel eller flera gånger i en slinga för att generera en fullständig tabell.|
 |Tabell|Funktioner<br>`run.log_table(name, value, description='')`<br><br>Exempel:<br>Kör. log_table ("Y över X", {"X": [1, 2, 3], "Y": [0.6, 0,7, 0,89]}) | Logga ett Dictionary-objekt i körningen med det aktuella namnet. |
-|Avbildningar|Funktioner<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plot=plt)` | Logga en bild i körnings posten. Använd log_image för att logga en. PNG-bildfil eller en matplotlib-rityta till körningen.  De här bilderna visas och är jämförbara i körnings posten.|
+|Bilder|Funktioner<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plot=plt)` | Logga en bild i körnings posten. Använd log_image för att logga en. PNG-bildfil eller en matplotlib-rityta till körningen.  De här bilderna visas och är jämförbara i körnings posten.|
 |Tagga en körning|Funktioner<br>`run.tag(key, value=None)`<br><br>Exempel:<br>Kör. tag ("vald", "Ja") | Tagga körningen med en sträng nyckel och ett valfritt sträng värde.|
 |Ladda upp fil eller katalog|Funktioner<br>`run.upload_file(name, path_or_stream)`<br> <br> Exempel:<br>Kör. upload_file ("best_model. PKL", "./Model.PKL") | Ladda upp en fil till körnings posten. Kör automatiskt avbilda fil i den angivna utdatakatalogen som är "./outputs" som standard för de flesta körnings typer.  Använd upload_file endast när ytterligare filer behöver överföras eller om ingen utmatnings katalog har angetts. Vi föreslår att `outputs` du lägger till namnet så att det överförs till katalogen utdata. Du kan visa en lista över alla filer som är associerade med den här körnings posten genom att anropa`run.get_file_names()`|
 
@@ -107,7 +108,7 @@ Det här exemplet expanderas i den grundläggande sklearn Ridge-modellen från o
 
 Använd modulen __Kör Python-skript__ för att lägga till loggnings logik i design experimenten. Du kan logga alla värden med hjälp av det här arbets flödet, men det är särskilt användbart att logga mått från modulen __utvärdera modell__ för att spåra modell prestanda mellan olika körningar.
 
-1. Anslut en __köra python-skriptfil__ till utdata från modulen __utvärdera modell__ .
+1. Anslut en __köra python-skriptfil__ till utdata från modulen __utvärdera modell__ . __Utvärdera modell__ kan resultera i utvärderings resultat av 2 modeller. I följande exempel visas hur du loggar måtten på 2 utgående portar på den överordnade körnings nivån. 
 
     ![Anslut kör python-skriptfil för att utvärdera modell modulen](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -115,23 +116,29 @@ Använd modulen __Kör Python-skript__ för att lägga till loggnings logik i de
 
     ```python
     # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1=None, dataframe2=None):
         print(f'Input pandas.DataFrame #1: {dataframe1}')
-
+    
         from azureml.core import Run
-
+    
         run = Run.get_context()
-
-        # Log the mean absolute error to the current run to see the metric in the module detail pane.
-        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
-
+    
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
     
         return dataframe1,
     ```
+
+1. När pipeline-körningen är klar kan du se *Mean_Absolute_Error* på experiment sidan.
+
+    ![Anslut kör python-skriptfil för att utvärdera modell modulen](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## <a name="manage-a-run"></a>Hantera en körning
 

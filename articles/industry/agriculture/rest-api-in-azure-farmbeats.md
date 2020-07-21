@@ -1,23 +1,20 @@
 ---
-title: Referenser
-description: ''
+title: 'Azure FarmBeats-API: er'
+description: 'Lär dig om Azure FarmBeats-API: er som tillhandahåller jordbruks företag med ett standardiserat RESTful-gränssnitt med JSON-baserade svar.'
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488043"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536580"
 ---
-# <a name="references"></a>Referenser
+# <a name="azure-farmbeats-apis"></a>Azure FarmBeats-API: er
 
-I den här artikeln beskrivs Azure FarmBeats-API: erna.
-
-## <a name="rest-api"></a>REST-API
-
-Azure FarmBeats-API: er tillhandahåller jordbruks företag med ett standardiserat RESTful-gränssnitt med JSON-baserade svar som hjälper dig att dra nytta av Azure FarmBeats-funktioner, till exempel:
+I den här artikeln beskrivs Azure FarmBeats-API: erna. Azure FarmBeats-API: er tillhandahåller jordbruks företag med ett standardiserat RESTful-gränssnitt med JSON-baserade svar som hjälper dig att dra nytta av Azure FarmBeats-funktioner, till exempel:
 
 - API: er för att få sensor, kamera, drönare, väder, satellit och granskade grunddata.
 - Normalisering och contextualization av data över gemensamma data leverantörer.
@@ -62,7 +59,7 @@ Om du vill göra en autentiserad begäran till REST-API: erna kräver klient kod
 
 Åtkomsttoken måste skickas i efterföljande API-begäranden i avsnittet rubrik, som:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -71,7 +68,7 @@ headers = {"Authorization": "Bearer " + **access_token**}
 Här är de vanligaste begärandehuvuden som du måste ange när du gör ett API-anrop till Azure FarmBeats Datahub.
 
 
-**Sidfot** | **Beskrivning och exempel**
+**Huvud** | **Beskrivning och exempel**
 --- | ---
 Content-Type  | Formatet för begäran (Content-Type: Application/ <format> ). För Azure FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
 Auktorisering  | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
@@ -112,7 +109,7 @@ Azure FarmBeats Datahub-API: er returnerar standard-HTTP-fel. De vanligaste fel 
 
  |Felkod             | Beskrivning |
  |---                    | --- |
- |200                    | Klart |
+ |200                    | Success |
  |201                    | Create (post) lyckades |
  |400                    | Felaktig begäran. Det finns ett fel i begäran. |
  |401                    | Tillstånd. Anroparen för API: et har inte behörighet att komma åt resursen. |
@@ -181,6 +178,6 @@ När du har slutfört de föregående stegen kan registreringen av appen (klient
 
 Använd åtkomsttoken för att skicka den i efterföljande API-begäranden i rubrik avsnittet som:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

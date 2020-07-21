@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 749a2366438bd1abfef4ca0cf2a195f23529d6a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602524"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536308"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -44,6 +44,10 @@ Arbets flödet för Machine Learning-modellen följer i allmänhet den här ordn
 
 Använd följande verktyg för Azure Machine Learning:
 
+> [!IMPORTANT]
+> Verktyg som marker ATS (för hands version) nedan finns för närvarande i offentlig för hands version.
+> För hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R (för](https://azure.github.io/azureml-sdk-for-r/reference/index.html) hands version).
 + Automatisera dina Machine Learning-aktiviteter med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
@@ -60,16 +64,16 @@ Använd följande verktyg för Azure Machine Learning:
     * [Experiment](#experiments)
         * [Kör](#runs) 
             * [Kör konfiguration](#run-configurations)
-            * [Ögonblicksbild](#snapshots)
+            * [Ögonblicks bild](#snapshots)
             * [Git-spårning](#github-tracking-and-integration)
-            * [Logging](#logging)
+            * [Loggning](#logging)
     * [ML-pipelines](#ml-pipelines)
     * [Modeller](#models)
         * [Miljöer](#environments)
         * [Tränings skript](#training-scripts)
         * [Kostnadsberäknare](#estimators)
-    * [Slut punkter](#endpoints)
-        * [Webb tjänst](#web-service-endpoint)
+    * [Slutpunkter](#endpoints)
+        * [Webbtjänst](#web-service-endpoint)
         * [IoT-moduler](#iot-module-endpoints)
     * [Data uppsättningar & data lager](#datasets-and-datastores)
     * [Beräkningsmål](#compute-targets)

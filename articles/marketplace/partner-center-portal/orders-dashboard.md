@@ -3,14 +3,14 @@ title: Instrument panel för partner Center-beställning i kommersiell Marketpla
 description: Lär dig hur du får åtkomst till analys rapporter om dina Marketplace-erbjudanden i ett grafiskt och nedladdnings Bart format.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118366"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536138"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Analys av orderinstrumentpanelen på kommersiell marknadsplats
 
@@ -29,12 +29,9 @@ På **instrument panelen för order** i menyn **analysera** visas aktuella best�
 - [Beställningar efter geografi](#orders-by-geography)
 - [Beställningar per erbjudanden](#orders-by-offers)
 - [Order trend per plats kontra per plats](#orders-trend-per-site-versus-per-seat)
-- [Beställningar efter SKU: er](#orders-by-skus)
+- [Order by-planer](#orders-by-plans)
 - [Trend för beställningar och platser](#orders-and-seats-trend)
 - [Order detalj tabell](#order-details-table)
-
-> [!NOTE]
-> Det finns skillnader mellan hur analys rapporter visas i Cloud Partner Portal (CPP) och det nya kommersiella Marketplace-programmet i Partner Center. Ett särskilt sätt är att **säljar insikter** i cpp har en **order & fliken användning** , som visar data för användnings erbjudanden och icke-användnings erbjudanden. Sidan **beställningar** i Partner Center har en separat flik för SaaS-erbjudanden.
 
 ## <a name="order-dashboard-details"></a>Information om order instrument panel
 
@@ -76,16 +73,16 @@ Med ring diagram för **beställningar per** erbjudande ordnas beställningar (i
 
 Ring diagrammet **per plats och per klient** representerar fördelningen av per plats-SaaS och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order). Stapeldiagrammet representerar trenden för per webbplats SaaS och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order).
 
-### <a name="orders-by-skus"></a>Beställningar efter SKU: er
+### <a name="orders-by-plans"></a>Order by-planer
 
-Diagrammet **order by SKU: er** representerar trenden för beställningar på lagerhållnings enhets nivån (SKU) för alla dina erbjudanden (Detta inkluderar annullerade order). Ring diagrammet representerar fördelningen av de fem främsta SKU-orderna och stapeldiagrammet representerar trenden för beställningar för de fem främsta SKU: erna.
+Diagrammet **order by-planer** representerar trenden för beställningar på plan nivå för alla dina erbjudanden (Detta inkluderar annullerade order). Ring diagrammet representerar en uppdelning av de fem översta plan orderna och stapeldiagrammet representerar trenden för beställningar för de fem främsta planerna.
 
 ### <a name="orders-and-seats-trend"></a>Trend för beställningar och platser
 
 **Trend diagrammet order och platser** visar de översta 50-erbjudandena med det högsta antalet beställningar. De visas på en ledare och sorteras efter det högsta antalet order och ordningen i procent.
 
-- **Beställningar efter SKU: er**: Välj ett erbjudande för att Visa fördelningen av order antal för de fem främsta SKU: erna i diagrammet.
-- **Platser efter SKU: er**månads Visa platser för de fem främsta SKU: erna. Om erbjudandet du väljer inte är ett erbjudande per klient visas inte några data i det här ytdiagrammet-diagrammet.
+- **Order by-planer** – Välj ett erbjudande för att Visa fördelningen av order antal för de fem främsta planerna i diagrammet.
+- **Platser efter planer** – den månatliga trenden för platser för de fem främsta planerna. Om erbjudandet du väljer inte är ett erbjudande per klient visas inte några data i det här ytdiagrammet-diagrammet.
 
 ### <a name="canceled-orders-by-offers"></a>Annullerade beställningar efter erbjudanden
 

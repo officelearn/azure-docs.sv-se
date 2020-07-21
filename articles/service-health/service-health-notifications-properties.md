@@ -3,13 +3,14 @@ title: Vad är Azure Service Health-meddelanden?
 description: Aviseringar för tjänst hälsa gör att du kan visa meddelanden om tjänst hälsa som publicerats av Microsoft Azure.
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77653976"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529020"
 ---
-# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
+# <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Använd Azure Portal för att visa meddelanden om tjänst hälsa
 
 Meddelanden om tjänst hälsa publiceras av Azure och innehåller information om resurserna i din prenumeration. Dessa meddelanden är en underordnad klass med aktivitets logg händelser och finns också i aktivitets loggen. Meddelanden om tjänst hälsa kan vara informations-eller åtgärds bara, beroende på klassen.
 

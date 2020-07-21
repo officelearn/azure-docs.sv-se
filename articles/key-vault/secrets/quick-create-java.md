@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 16248cd276b63e9570221626ec32d1d4723c4ebd
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 2da208c7c85dd001502a88f00bc7c1e090bbc3ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125608"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536444"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Snabb start: Azure Key Vault klient bibliotek för Java
 
@@ -26,9 +26,14 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
-[Käll kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)  |  [API-referens dokumentation](https://azure.github.io/azure-sdk-for-java)  |  [Produkt dokumentation](index.yml)  |  [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+Ytterligare resurser:
 
-## <a name="prerequisites"></a>Krav
+* [Källkod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)
+* [Referensdokumentation för API](https://azure.github.io/azure-sdk-for-java)
+* [Produktdokumentation](index.yml)
+* [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 eller senare

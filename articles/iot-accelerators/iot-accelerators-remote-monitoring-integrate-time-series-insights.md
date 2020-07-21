@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232074"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536614"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
 
@@ -24,7 +24,7 @@ Lösnings acceleratorn för fjärrövervakning tillhandahåller nu automatisk di
 > [!NOTE]
 > Time Series Insights är för närvarande inte tillgängligt i Azure Kina-molnet. Nya distributioner av Solution Accelerator för fjärrövervakning i molnet i Azure Kina använder Cosmos DB för all lagring.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktionen måste du redan ha distribuerat en lösning för fjärrövervakning:
 
@@ -57,12 +57,12 @@ Sedan distribuerar du Time Series Insights som en ytterligare resurs i din lösn
 
 1. Använd värdena i följande tabell för att skapa en Time Series Insightss miljö:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn på miljö | Följande skärm bild använder namnet **contorosrmtsi**. Välj ditt eget unika namn när du är klar med det här steget. |
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | **Använd befintlig**. Välj namnet på din befintliga resurs grupp för fjärr övervakning. |
-    | Plats | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
+    | Position | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
     | Sku |**S1** |
     | Kapacitet | **1** |
 
@@ -86,7 +86,7 @@ Skapa en ny händelse källa för att ansluta till din IoT Hub. Se till att du a
 
 1. Om du vill konfigurera IoT-hubben som en ny händelse källa använder du värdena i följande tabell:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Händelsekällans namn | Följande skärm bild använder namnet **contosorm-IoT-Hub**. Använd ett eget unikt namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |
@@ -244,7 +244,7 @@ Konfigurera `basic` distributions miljön för uppdaterade mikrotjänster.
 
 Konfigurera `standard` distributions miljön för de uppdaterade Micro-tjänsterna ovan
 
-1. Kör på kommando raden `kubectl proxy` . Mer information finns i [åtkomst till Kubernetes-API: et](https://kubernetes.io/docs/reference/access-authn-authz/).
+1. Kör på kommando raden `kubectl proxy` . Mer information finns i [åtkomst till Kubernetes-API: et](https://kubernetes.io/docs/reference/access-authn-authz/#using-kubectl-to-start-a-proxy-server).
 
 1. Öppna hanterings konsolen för Kubernetes.
 

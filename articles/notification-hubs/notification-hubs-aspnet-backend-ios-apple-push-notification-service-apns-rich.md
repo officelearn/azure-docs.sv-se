@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae4b984d0ce66dec2a32b3431301ed97fe2c3fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212201"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530142"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich push
 
@@ -31,7 +31,7 @@ För att kunna engagera användare med omedelbar innehålls rik information kan 
 
 Den här självstudien är kompatibel med iOS 7 & 8.
 
-  ![][IOS1]
+  ![Tre skärm bilder: en app-skärm med knappen Skicka push, en Start skärm på en enhet och en Windows-logotyp med en tillbaka-knapp.][IOS1]
 
 På hög nivå:
 
@@ -49,7 +49,7 @@ På hög nivå:
 3. Klicka på **Visa alla filer** i Solution Explorer och högerklicka på mappen som ska tas med **i projektet**.
 4. När du har valt avbildningen ändrar du dess build-åtgärd i Fönstret Egenskaper till **inbäddad resurs**.
 
-    ![][IOS2]
+    ![Skärm bild av Solution Explorer. Avbildnings filen väljs, och i rutan Egenskaper visas inbäddad resurs som bygg åtgärd.][IOS2]
 5. I `Notifications.cs` lägger du till följande using-instruktion:
 
     ```csharp
@@ -146,12 +146,12 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
 1. Öppna ditt iOS-projekt och aktivera fjärraviseringar genom att gå till huvudappens mål i avsnittet **mål** .
 2. Klicka på **funktioner**, aktivera **bakgrunds lägen**och markera kryss rutan **fjärraviseringar** .
 
-    ![][IOS3]
+    ![Skärm bild av iOS-projektet som visar funktions skärmen. Bakgrunds lägen är aktiverat och kryss rutan fjärraviseringar är markerad.][IOS3]
 3. Öppna `Main.storyboard` och kontrol lera att du har en Visa kontrollant (kallas start visare i den här självstudien) från guiden [meddela användaren](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
 4. Lägg till en **navigerings kontroll** på din storyboard och kontrol lera att du använder den för att **dra den till** en trädvy. Kontrol lera att den **initiala View-kontrollanten** i attribut kontroll bara är markerad för navigerings kontroll enheten.
 5. Lägg till en **View-kontrollant** i storyboard och Lägg till en **bildvy**. Det här är sidan användare ser när de väljer att lära sig mer genom att klicka på meddelandet. Din storyboard bör se ut så här:
 
-    ![][IOS4]
+    ![Skärm bild av en storyboard. Tre appar visas: en vy för navigering, en start sida och en bildvy.][IOS4]
 6. Klicka på **hem visnings styrenheten** på storyboard och kontrol lera att den har **HomeViewController** som dess **anpassade klass** och **storyboard-ID** under identitets kontrollen.
 7. Gör samma sak för bildview-kontrollanten som **imageViewController**.
 8. Skapa sedan en ny View Controller-klass med namnet **imageViewController** för att hantera det användar gränssnitt som du nyss skapade.

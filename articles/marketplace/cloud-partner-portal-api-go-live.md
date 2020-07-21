@@ -4,18 +4,20 @@ description: 'Go Live API: t initierar bearbetnings processen för Live-erbjudan
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: f356291662851172a3c6917b44891ce901546dfa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115714"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535951"
 ---
 # <a name="go-live"></a>Gå live
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Detta API startar processen för att skicka en app till produktion. Den här åtgärden körs vanligt vis längre. Det här anropet använder e-postlistan för meddelanden från [publicerings](./cloud-partner-portal-api-publish-offer.md) -API-åtgärden.
 
@@ -31,7 +33,7 @@ Detta API startar processen för att skicka en app till produktion. Den här åt
 | api-version    | Senaste versionen av API: et                                                   |  Datum         |
 |  |  |  |
 
-## <a name="header"></a>Sidhuvud
+## <a name="header"></a>Huvud
 ------
 
 |  **Namn**       |     **Värde**       |
@@ -42,7 +44,7 @@ Detta API startar processen för att skicka en app till produktion. Den här åt
 
 ## <a name="body-example"></a>Body-exempel
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 #### <a name="migrated-offers"></a>Migrerade erbjudanden
 
@@ -56,7 +58,7 @@ Detta API startar processen för att skicka en app till produktion. Den här åt
 
 |  **Namn**             |      **Värde**                                                            |
 |  --------             |      ----------                                                           |
-| Location    |  Den relativa sökvägen för att hämta den här åtgärdens status            |
+| Position    |  Den relativa sökvägen för att hämta den här åtgärdens status            |
 |  |  |
 
 ### <a name="response-status-codes"></a>Svars status koder

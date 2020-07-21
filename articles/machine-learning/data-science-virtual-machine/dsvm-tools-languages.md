@@ -11,11 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3ab058d76186f73fa1a985d7e8af38dbd7a6f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557473"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536189"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på Data Science Virtual Machine 
 
@@ -23,7 +24,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 ## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 Edition)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Språk versioner som stöds | Python 2,7 och 3,7 |
 | DSVM-versioner som stöds      | Windows Server 2016     |
@@ -67,13 +68,14 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 ## <a name="python-linux-edition"></a>Python (Linux-utgåva)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Språk versioner som stöds | Python 2,7 och 3,5 |
 | DSVM-versioner som stöds      | Linux   |
 | Hur konfigureras den/installeras på DSVM?  | Två globala `conda` miljöer skapas: <br /> * `root`miljön finns på `/anaconda/` Python 2,7. <br/> * `py35`miljön finns på `/anaconda/envs/py35` Python 3,5.       |
 | Länkar till exempel      | Exempel på Jupyter-anteckningsböcker för python ingår.     |
 | Relaterade verktyg på DSVM      | PySpark, R, Julia      |
+
 ### <a name="how-to-use-and-run-it"></a>Använda och köra den    
 
 * Kör i en Terminal:
@@ -105,13 +107,14 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 ## <a name="r"></a>R
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Språk versioner som stöds | Microsoft R Open 3. x (100% kompatibel med CRAN-R)<br /> Microsoft R Server 9. x Developer Edition (en skalbar Enterprise-Ready R-plattform)|
 | DSVM-versioner som stöds      | Linux, Windows     |
 | Hur konfigureras den/installeras på DSVM?  | Aktivitets`C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux`/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Länkar till exempel      | Exempel på Jupyter-anteckningsböcker för R ingår.     |
 | Relaterade verktyg på DSVM      | Sparker, python, Julia      |
+
 ### <a name="how-to-use-and-run-it"></a>Använda och köra den    
 
 **Windows**:
@@ -153,13 +156,14 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 ## <a name="julia"></a>Julia
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Språk versioner som stöds | 0,6 |
 | DSVM-versioner som stöds      | Linux, Windows     |
 | Hur konfigureras den/installeras på DSVM?  | Windows: installerat kl.`C:\JuliaPro-VERSION`<br /> Linux: installeras kl.`/opt/JuliaPro-VERSION`    |
 | Länkar till exempel      | Exempel på Jupyter-anteckningsböcker för Julia ingår.     |
 | Relaterade verktyg på DSVM      | Python, R      |
+
 ### <a name="how-to-use-and-run-it"></a>Använda och köra den    
 
 **Windows**:

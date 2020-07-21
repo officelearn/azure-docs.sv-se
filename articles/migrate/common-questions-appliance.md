@@ -3,11 +3,12 @@ title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078984"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530125"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -60,7 +61,7 @@ Enheten behöver åtkomst till Azure-URL: er. [Granska](migrate-appliance.md#url
 
 I följande artiklar finns information om data som Azure Migrates apparaten samlar in på virtuella datorer:
 
-- **Virtuell VMware-dator**: [Granska](migrate-appliance.md#collected-data---vmware) insamlade data. [
+- **Virtuell VMware-dator**: [Granska](migrate-appliance.md#collected-data---vmware) insamlade data.
 - **Virtuell Hyper-V-dator**: [Granska](migrate-appliance.md#collected-data---hyper-v) insamlade data.
 
 ## <a name="how-is-data-stored"></a>Hur lagras data?

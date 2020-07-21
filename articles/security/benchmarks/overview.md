@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure Security benchmark
+title: Översikt över Azures säkerhets benchmark
 description: Översikt över säkerhet-benchmark
 author: msmbaldwin
 manager: rkarlin
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f2cdaafddb14d8b69fd708e4c89a578b60e53317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453e88ed59df0d6e88b8db32ea1836a4371ab3a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82606882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529275"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Översikt över Azures säkerhets benchmark
 
@@ -26,7 +26,7 @@ Följande kontroller används i Azures säkerhets benchmark:
 - [Nätverks säkerhet](security-control-network-security.md)
 - [Loggning och övervakning](security-control-logging-monitoring.md)
 - [Identitets- och åtkomstkontroll](security-control-identity-access-control.md)
-- [Data skydd](security-control-data-protection.md)
+- [Dataskydd](security-control-data-protection.md)
 - [Sårbarhetshantering](security-control-vulnerability-management.md)
 - [Inventerings- och tillgångshantering](security-control-inventory-asset-management.md)
 - [Säker konfiguration](security-control-secure-configuration.md)

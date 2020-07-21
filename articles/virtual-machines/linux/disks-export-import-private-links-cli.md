@@ -1,0 +1,140 @@
+---
+title: Azure CLI – begränsa import/export-åtkomst till hanterade diskar med privata länkar (förhands granskning)
+description: Aktivera privata länkar (för hands version) för dina hanterade diskar med Azure CLI. Gör det möjligt att exportera och importera diskar på ett säkert sätt inom bara ditt virtuella nätverk.
+author: roygara
+ms.service: virtual-machines
+ms.topic: overview
+ms.date: 07/15/2020
+ms.author: rogarana
+ms.subservice: disks
+ms.custom: references_regions
+ms.openlocfilehash: 9184dc78f0f9f8d7997e0bb64bc4521e19364cfe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535808"
+---
+# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Azure CLI – begränsa import/export-åtkomst för hanterade diskar med privata länkar (förhands granskning)
+
+Du kan använda [privata slut punkter](../../private-link/private-endpoint-overview.md) (för hands version) för att begränsa export och import av hanterade diskar och säker åtkomst till data via en [privat länk](../../private-link/private-link-overview.md) från klienter i ditt virtuella Azure-nätverk. Den privata slut punkten använder en IP-adress från det virtuella nätverkets adress utrymme för tjänsten Managed disks. Nätverks trafiken mellan klienterna på det virtuella nätverket och de hanterade diskarna passerar över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. 
+
+Om du vill använda privata Länkar för att exportera/importera hanterade diskar, skapar du först en disk åtkomst resurs och länkar den till ett virtuellt nätverk i samma prenumeration genom att skapa en privat slut punkt. Associera sedan en disk eller en ögonblicks bild med en instans av disk åtkomst. Ange slutligen egenskapen NetworkAccessPolicy för disken eller ögonblicks bilden till `AllowPrivate` . Detta begränsar åtkomsten till det virtuella nätverket. 
+
+Du kan ställa in egenskapen NetworkAccessPolicy så att `DenyAll` vem inte exporterar data från en disk eller en ögonblicks bild. Standardvärdet för egenskapen NetworkAccessPolicy är `AllowAll` .
+
+## <a name="limitations"></a>Begränsningar
+
+[!INCLUDE [virtual-machines-disks-private-links-limitations](../../../includes/virtual-machines-disks-private-links-limitations.md)]
+
+## <a name="regional-availability"></a>Regional tillgänglighet
+
+[!INCLUDE [virtual-machines-disks-private-links-regions](../../../includes/virtual-machines-disks-private-links-regions.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill använda privata slut punkter för att exportera och importera hanterade diskar måste du få funktionen aktive rad på din prenumeration. Skicka ett e-postmeddelande till mdprivatelinks@microsoft . com med dina prenumerations-ID: n för att få funktionen aktive rad för dina prenumerationer.
+
+## <a name="log-in-into-your-subscription-and-set-your-variables"></a>Logga in i din prenumeration och ange dina variabler
+
+```azurecli-interactive
+
+subscriptionId=yourSubscriptionId
+resourceGroupName=yourResourceGroupName
+region=CentralUSEUAP
+diskAccessName=yourDiskAccessForPrivateLinks
+vnetName=yourVNETForPrivateLinks
+subnetName=yourSubnetForPrivateLinks
+privateEndPointName=yourPrivateLinkForSecureMDExportImport
+privateEndPointConnectionName=yourPrivateLinkConnection
+
+#The name of an existing disk which is the source of the snapshot
+sourceDiskName=yourSourceDiskForSnapshot
+
+#The name of the new snapshot which will be secured via Private Links
+snapshotNameSecuredWithPL=yourSnapshotNameSecuredWithPL
+
+az login
+
+az account set --subscription $subscriptionId
+
+```
+
+## <a name="create-a-disk-access-using-azure-cli"></a>Skapa en disk åtkomst med Azure CLI
+```azurecli-interactive
+az group deployment create -g $resourceGroupName \
+--template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddisksprivatelinks/master/CreateDiskAccess.json" \
+--parameters "region=$region" "diskAccessName=$diskAccessName"
+
+diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+```
+
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+
+Nätverks principer som nätverks säkerhets grupper (NSG) stöds inte för privata slut punkter. För att kunna distribuera en privat slut punkt i ett angivet undernät krävs en explicit inaktivera inställning i det under nätet. 
+
+```azurecli-interactive
+az network vnet create --resource-group $resourceGroupName \
+    --name $vnetName \
+    --subnet-name $subnetName
+```
+## <a name="disable-subnet-private-endpoint-policies"></a>Inaktivera privata slut punkts principer för undernät
+
+Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter. 
+
+```azurecli-interactive
+az network vnet subnet update --resource-group $resourceGroupName \
+    --name $subnetName  \
+    --vnet-name $vnetName \
+    --disable-private-endpoint-network-policies true
+```
+## <a name="create-a-private-endpoint-for-the-disk-access-object"></a>Skapa en privat slut punkt för disk åtkomst objekt
+
+```azurecli-interactive
+az network private-endpoint create --resource-group $resourceGroupName \
+    --name $privateEndPointName \
+    --vnet-name $vnetName  \
+    --subnet $subnetName \
+    --private-connection-resource-id $diskAccessId \
+    --group-ids disks \
+    --connection-name $privateEndPointConnectionName
+```
+
+## <a name="configure-the-private-dns-zone"></a>Konfigurera Privat DNS zon
+
+Skapa en Privat DNS zon för Storage BLOB-domän, skapa en kopplings länk med Virtual Network och skapa en DNS-zon grupp för att koppla den privata slut punkten till Privat DNS zonen. 
+
+```azurecli-interactive
+az network private-dns zone create --resource-group $resourceGroupName \ 
+    --name "privatelink.blob.core.windows.net"
+
+az network private-dns link vnet create --resource-group $resourceGroupName \
+    --zone-name "privatelink.blob.core.windows.net" \
+    --name yourDNSLink \
+    --virtual-network $vnetName \
+    --registration-enabled false 
+
+az network private-endpoint dns-zone-group create \
+   --resource-group $resourceGroupName \
+   --endpoint-name $privateEndPointName \
+   --name yourZoneGroup \
+   --private-dns-zone "privatelink.blob.core.windows.net" \
+   --zone-name disks
+```
+## <a name="create-a-snapshot-of-a-disk-protected-with-private-links"></a>Skapa en ögonblicks bild av en disk som skyddas med privata länkar
+   ```cli
+   diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o tsv)
+   
+   az group deployment create -g $resourceGroupName \
+      --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddisksprivatelinks/master/CreateSnapshotWithExportViaPrivateLink.json" \
+      --parameters "snapshotNameSecuredWithPL=$snapshotNameSecuredWithPL" \
+      "sourceResourceId=$diskId" \
+      "diskAccessId=$diskAccessId" \
+      "region=$region" \
+      "networkAccessPolicy=AllowPrivate" 
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Vanliga frågor och svar om privata länkar](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Exportera/kopiera hanterade ögonblicksbilder som VHD till ett lagringskonto i en annan region med PowerShell](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

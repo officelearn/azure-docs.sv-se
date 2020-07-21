@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b5682334bd3fb23fbbebed5fc8ece6d55e9c5652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1aab92bd192119f72bb057347f5a3ea2d980336
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733229"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536858"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Vägledning för kommunikation mellan moln och enhet
 
@@ -31,12 +32,12 @@ IoT Hub innehåller tre alternativ för enhets appar för att exponera funktione
 
 Här är en detaljerad jämförelse av de olika kommunikations alternativen från moln till enhet.
 
-|  | Direkta metoder | Dubbla önskade egenskaper | Meddelanden från moln till enhet |
-| ---- | ------- | ---------- | ---- |
+| Kategorier | Direkta metoder | Dubbla önskade egenskaper | Meddelanden från moln till enhet |
+| ---------- | -------------- | ------------------------- | ------------------------ |
 | Scenario | Kommandon som kräver omedelbar bekräftelse, till exempel att aktivera en fläkt. | Tids krävande kommandon som är avsedda att försätta enheten i ett visst önskat tillstånd. Ange till exempel intervallet för att skicka telemetri till 30 minuter. | Enkelriktade meddelanden till Device-appen. |
 | Dataflöde | Dubbelriktat. Device-appen kan svara på-metoden direkt. Lösningens Server del tar emot resultatet i sammanhang till begäran. | Enkelriktat. Enhetens app tar emot ett meddelande med egenskaps ändringen. | Enkelriktat. Enhets appen tar emot meddelandet
-| Hållbarhet | Frånkopplade enheter kontaktas inte. Server delen av lösningen meddelas om att enheten inte är ansluten. | Egenskaps värden bevaras i enheten med dubbla. Enheten kommer att läsa den vid nästa åter anslutning. Egenskaps värden kan hämtas med [IoT Hub frågespråk](iot-hub-devguide-query-language.md). | Meddelanden kan behållas genom IoT Hub i upp till 48 timmar. |
-| Mål | En enhet som använder **deviceId**eller flera enheter som använder- [jobb](iot-hub-devguide-jobs.md). | En enhet som använder **deviceId**eller flera enheter som använder- [jobb](iot-hub-devguide-jobs.md). | En enhet per **deviceId**. |
+| Varaktighet | Frånkopplade enheter kontaktas inte. Server delen av lösningen meddelas om att enheten inte är ansluten. | Egenskaps värden bevaras i enheten med dubbla. Enheten kommer att läsa den vid nästa åter anslutning. Egenskaps värden kan hämtas med [IoT Hub frågespråk](iot-hub-devguide-query-language.md). | Meddelanden kan behållas genom IoT Hub i upp till 48 timmar. |
+| Targets | En enhet som använder **deviceId**eller flera enheter som använder- [jobb](iot-hub-devguide-jobs.md). | En enhet som använder **deviceId**eller flera enheter som använder- [jobb](iot-hub-devguide-jobs.md). | En enhet per **deviceId**. |
 | Storlek | Maximal nytto Last storlek för direkt metod är 128 KB. | Maximal önskad egenskaps storlek är 32 KB. | Upp till 64 KB-meddelanden. |
 | Frekvens | Hög. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). | Medel. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). | Låg. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). |
 | Protokoll | Tillgängligt med MQTT eller AMQP. | Tillgängligt med MQTT eller AMQP. | Tillgängligt på alla protokoll. Enheten måste avsöka när HTTPS används. |

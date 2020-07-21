@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146555"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536393"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -441,9 +441,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 I det här exemplet anger konfigurationen följande inställningar:
 
-* Som modellen kräver python.
-* [Entry-skriptet](#script), som används för att hantera webb förfrågningar som skickas till den distribuerade tjänsten.
-* Den Conda-fil som beskriver de python-paket som behövs för att kunna användas.
+* Som modellen kräver python
+* [Entry-skriptet](#script), som används för att hantera webb förfrågningar som skickas till den distribuerade tjänsten
+* Den Conda-fil som beskriver de python-paket som behövs för att kunna utvägar
 
 Information om hur du använder en anpassad Docker-avbildning med en konfigurations konfiguration finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
-Distributionen använder distributions konfigurationen för konfigurations konfiguration för att distribuera modellerna. Distributions processen är liknande oavsett beräknings målet. Distribution till AKS är något annorlunda eftersom du måste ange en referens till AKS-klustret.
+Distributionen använder distributions konfigurationen för konfigurations konfiguration för att distribuera modellerna. Distributions processen är liknande oavsett beräknings målet. Distribution till Azure Kubernetes service (AKS) är något annorlunda eftersom du måste ange en referens till AKS-klustret.
 
 ### <a name="choose-a-compute-target"></a>Välj ett beräknings mål
 
@@ -629,7 +629,7 @@ Se [distribuera till Azure Container instances](how-to-deploy-azure-container-in
 Se [distribuera till Azure Kubernetes-tjänsten](how-to-deploy-azure-kubernetes-service.md).
 
 ### <a name="ab-testing-controlled-rollout"></a>A/B-test (kontrollerad distribution)
-Mer information finns i [den kontrollerade distributionen av ml-modeller](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) .
+Mer information finns i [den kontrollerade distributionen av ml-modeller](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) för mer information.
 
 ## <a name="consume-web-services"></a>Konsumera webbtjänster
 
@@ -878,7 +878,7 @@ Ingen kod modell distribution är för närvarande en för hands version och st�
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel-format
 Tensorflow-modeller måste registreras i **SavedModel-format** för att fungera med modell distribution utan kod.
 
-Information om hur du skapar en SavedModel finns i [den här länken](https://www.tensorflow.org/guide/saved_model) .
+Se [den här länken](https://www.tensorflow.org/guide/saved_model) om du vill ha information om hur du skapar en SavedModel.
 
 ```python
 from azureml.core import Model
@@ -913,6 +913,12 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
+Om du vill visa en modell läser du [använda en Azure Machine Learning modell som distribueras som en webb tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Många ONNX-projekt använder protobuf-filer för att komprimera inlärnings-och verifierings data i stor form, vilket kan göra det svårt att veta vilket data format tjänsten förväntar sig. Som modell utvecklare bör du dokumentera för dina utvecklare:
+
+* Indataformat (JSON eller Binary)
+* Inmatnings data form och-typ (till exempel en matris med flytt ALS form [100100, 3])
+* Domän information (till exempel för en bild, färg rymden, komponent ordningen och om värdena är normaliserade)
 
 Om du använder Pytorch, [exporterar modeller från Pytorch till ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) information om konvertering och begränsningar. 
 
@@ -998,7 +1004,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Till exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

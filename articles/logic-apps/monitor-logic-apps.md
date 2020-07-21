@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82732010"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536259"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Övervaka körningsstatus, granska utlösarhistorik och konfigurera aviseringar för Azure Logic Apps
 
@@ -48,10 +48,10 @@ Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och k�
 
    | Status | Beskrivning |
    |--------|-------------|
-   | **Avbrutet** | Arbets flödet kördes men tog emot en Cancel-begäran |
-   | **Misslyckades** | Minst en åtgärd misslyckades, och inga senare åtgärder i arbets flödet har kon figurer ATS för att hantera fel |
+   | **Avbröts** | Arbets flödet kördes men tog emot en Cancel-begäran |
+   | **Misslyckad** | Minst en åtgärd misslyckades, och inga senare åtgärder i arbets flödet har kon figurer ATS för att hantera fel |
    | **Körs** | Arbets flödet körs för närvarande. <p>Den här statusen kan också visas för begränsade arbets flöden eller på grund av den aktuella pris planen. Mer information finns i [Åtgärds gränserna på sidan med priser](https://azure.microsoft.com/pricing/details/logic-apps/). Om du konfigurerar [diagnostikloggning](../logic-apps/monitor-logic-apps.md)kan du få information om eventuella begränsnings händelser som inträffar. |
-   | **Brutit** | Alla åtgärder har genomförts. <p>**Obs!** om några problem inträffar i en speciell åtgärd, hanterade en senare åtgärd i arbets flödet det här problemet. |
+   | **Lyckades** | Alla åtgärder har genomförts. <p>**Obs!** om några problem inträffar i en speciell åtgärd, hanterade en senare åtgärd i arbets flödet det här problemet. |
    | **Väntar** | Arbets flödet har inte startats eller pausats, till exempel på grund av ett tidigare arbets flöde som fortfarande körs. |
    |||
 
@@ -71,7 +71,7 @@ Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och k�
 
    ![Granska informationen om varje steg i körningen](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Du kan till exempel hämta egenskapen **korrelations-ID** för körning, som du kan behöva när du använder [REST API för Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   Du kan till exempel hämta egenskapen **korrelations-ID** för körning, som du kan behöva när du använder [REST API för Logic Apps](/rest/api/logic).
 
 1. Om du vill ha mer information om ett speciellt steg väljer du något av alternativen:
 
@@ -118,9 +118,9 @@ Varje Logic app-körning börjar med en utlösare. I utlösarens historik visas 
 
    | Status | Beskrivning |
    |--------|-------------|
-   | **Misslyckades** | Ett fel inträffade. Om du vill granska eventuella genererade fel meddelanden för en misslyckad utlösare väljer du det Utlös ande försöket och väljer **utdata**. Du kan till exempel hitta indata som inte är giltiga. |
+   | **Misslyckad** | Ett fel inträffade. Om du vill granska eventuella genererade fel meddelanden för en misslyckad utlösare väljer du det Utlös ande försöket och väljer **utdata**. Du kan till exempel hitta indata som inte är giltiga. |
    | **Överhoppad** | Utlösaren kontrollerade slut punkten men hittade inga data. |
-   | **Brutit** | Utlösaren kontrollerade slut punkten och hittade tillgängliga data. Normalt visas statusen "utlöst" även tillsammans med denna status. Om inte, kan utlösarens definition ha ett villkor eller `SplitOn` kommando som inte uppfylldes. <p>Den här statusen kan gälla för en manuell utlösare, upprepnings utlösare eller avsöknings utlösare. En utlösare kan köras utan problem, men själva körningen kan fortfarande Miss lyckas när åtgärderna genererar ohanterade fel. |
+   | **Lyckades** | Utlösaren kontrollerade slut punkten och hittade tillgängliga data. Normalt visas statusen "utlöst" även tillsammans med denna status. Om inte, kan utlösarens definition ha ett villkor eller `SplitOn` kommando som inte uppfylldes. <p>Den här statusen kan gälla för en manuell utlösare, upprepnings utlösare eller avsöknings utlösare. En utlösare kan köras utan problem, men själva körningen kan fortfarande Miss lyckas när åtgärderna genererar ohanterade fel. |
    |||
 
    > [!TIP]
@@ -138,7 +138,7 @@ Varje Logic app-körning börjar med en utlösare. I utlösarens historik visas 
 
 ## <a name="set-up-monitoring-alerts"></a>Konfigurera övervaknings aviseringar
 
-Om du vill få aviseringar baserat på vissa mått eller överskridna tröskelvärden för din Logic app, ställer du in [aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md). Lär dig mer om [mått i Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Följ dessa steg om du vill konfigurera aviseringar utan att använda [Azure Monitor](../log-analytics/log-analytics-overview.md).
+Om du vill få aviseringar baserat på vissa mått eller överskridna tröskelvärden för din Logic app, ställer du in [aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md). Lär dig mer om [mått i Azure](../azure-monitor/platform/data-platform.md). Följ dessa steg om du vill konfigurera aviseringar utan att använda [Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 1. På din Logic app-meny, under **övervakning**, väljer du **aviseringar**  >  **ny aviserings regel**.
 

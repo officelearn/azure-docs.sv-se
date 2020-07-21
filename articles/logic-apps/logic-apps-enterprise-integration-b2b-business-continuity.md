@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905135"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536478"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Konfigurera katastrof återställning mellan regioner för integrations konton i Azure Logic Apps
 
@@ -59,7 +60,7 @@ Affärs kontinuitet i ett Logic Apps integrations konto ger stöd baserat på B2
 
 När den primära regionen inte är tillgänglig för affärs kontinuitet under en katastrof händelse, dirigerar du trafiken till den sekundära regionen. En sekundär region hjälper en verksamhet att snabbt återställa funktioner för att möta de återställnings-/RTO som överenskommits av deras partner. Det minimerar också ansträngningarna att redundansväxla från en region till en annan region. 
 
-Det finns en förväntad svars tid när kontroll nummer kopieras från en primär region till en sekundär region. För att undvika att skicka dubbletter av genererade kontroll nummer till partner under en katastrof händelse, är rekommendationen att öka kontroll numren i de sekundära region avtalen med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Det finns en förväntad svars tid när kontroll nummer kopieras från en primär region till en sekundär region. För att undvika att skicka dubbletter av genererade kontroll nummer till partner under en katastrof händelse, är rekommendationen att öka kontroll numren i de sekundära region avtalen med hjälp av [PowerShell-cmdletar](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Återgå till en primär region efter katastrof händelse
 
@@ -67,7 +68,7 @@ Följ dessa steg om du vill återgå till en primär region när den är tillgä
 
 1. Sluta ta emot meddelanden från partner i den sekundära regionen.  
 
-2. Öka de genererade kontroll numren för alla de primära region avtalen med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Öka de genererade kontroll numren för alla de primära region avtalen med hjälp av [PowerShell-cmdletar](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Dirigera trafik från den sekundära regionen till den primära regionen.
 
@@ -240,4 +241,3 @@ Baserat på tidsintervallet replikeras den stegvisa körnings statusen från den
 ## <a name="next-steps"></a>Nästa steg
 
 [Övervaka B2B-meddelanden med Azure Monitor-loggar](../logic-apps/monitor-b2b-messages-log-analytics.md)
-

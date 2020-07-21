@@ -114,7 +114,7 @@
               href: concepts-data-encryption-postgresql.md
             - name: Dubbel infrastrukturkryptering
               href: concepts-infrastructure-double-encryption.md
-            - name: Säkerhetsbaslinje
+            - name: Säkerhetsbaslinje för Azure Security Benchmark
               href: security-baseline.md
         - name: Verksamhetskontinuitet
           items:
@@ -183,6 +183,8 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Konfigurera SSL
               href: concepts-hyperscale-ssl-connection-security.md
+            - name: Säkerhetsbaslinje för Azure Security Benchmark
+              href: postgresql-hyperscale-security-baseline.md
         - name: Verksamhetskontinuitet
           items:
             - name: Säkerhetskopiering och återställning

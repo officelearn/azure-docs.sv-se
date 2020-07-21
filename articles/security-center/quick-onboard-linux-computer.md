@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 72c0c33c973219a9701c8a7c8d45324681e14850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80435968"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529785"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att tillhandahålla en agent. Agenten kallas för Log Analytics agent, men den kallas även OMS-agenten.
 
 Den här snabb starten visar hur du installerar agenten på en Linux-dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Du måste vara på Security Center standard pris nivån innan du påbörjar den här snabb starten. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Lägga till ny Linux-dator
 
-1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center – Översikt** öppnas.
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
 3. På huvudmenyn i Security Center väljer du **Komma igång**.
-4. Välj fliken **Kom igång** . ![kom igång][3]
+4. Välj fliken **Kom igång** . ![ Kom igång][3]
 
 5. Klicka på **Konfigurera** under **Lägg till datorer som inte är Azure-datorer** så visas en lista över dina Log Analytics-arbetsytor. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
@@ -56,7 +56,7 @@ Du måste vara på Security Center standard pris nivån innan du påbörjar den 
 
    ![Installera agenten][5]
 
-Loggarna för agenten finns på: */var/opt/Microsoft/omsagent/\<arbetsyte-ID>/log/*
+Loggarna för agenten finns på: */var/opt/Microsoft/omsagent/ \<workspace id> /log/*
 
   ![Loggar för agent][6]
 

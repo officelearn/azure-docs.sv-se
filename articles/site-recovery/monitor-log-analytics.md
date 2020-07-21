@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300798"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529038"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
@@ -67,8 +68,8 @@ Du kan samla in information om data omsättnings taxa och information om överf�
 7. När installationen är klar går du till Log Analytics arbets yta och klickar på **Avancerade inställningar**. Gå till sidan **data** och klicka på Windows- **prestandaräknare**. 
 8. Klicka på **+** om du vill lägga till följande två räknare med exempel intervallet 300 sekunder:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 Data omsättningen och överföringshastigheten börjar mata in på arbets ytan.
 

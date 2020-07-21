@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd54c8f7e8a3784672f5364efc6f6b51186f911d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454687"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529292"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -258,9 +258,8 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 
 #### <a name="encryption-model-and-key-management-table"></a>Krypterings modell och nyckel hanterings tabell
 
-|                                  |                    | **Krypterings modell och nyckel hantering** |                    |
+| Produkt, funktion eller tjänst | Server sidan med tjänst hanterad nyckel   | Server sidan med kundhanterad nyckel | Klient sidan med hjälp av klient hanterad nyckel  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Server sidan med tjänst hanterad nyckel**     | **Server sidan med kundhanterad nyckel**             | **Klient sidan med hjälp av klient hanterad nyckel**      |
 | **AI och maskininlärning**      |                    |                    |                    |
 | Azure Cognitive Search           | Ja                | Ja                | -                  |
 | Azure Cognitive Services         | Ja                | Ja                | -                  |
@@ -275,7 +274,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Translator Text                  | Ja                | Ja                | -                  |
 | Power BI                         | Ja                | För hands version, RSA 2048-bitars | -                  |
 | **Analys**                    |                    |                    |                    |
-| Azure Stream Analytics           | Ja                | Saknas\*            | -                  |
+| Azure Stream Analytics           | Ja                | EJ TILLÄMPLIGT\*            | -                  |
 | Event Hubs                       | Ja                | Ja, alla RSA-längder. | -                  |
 | Functions                        | Ja                | Ja, alla RSA-längder. | -                  |
 | Azure Analysis Services          | Ja                | -                  | -                  |
@@ -290,7 +289,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure Kubernetes Service         | Ja                | Ja                | -                  |
 | Container Instances              | Ja                | Ja                | -                  |
 | Container Registry               | Ja                | Ja                | -                  |
-| **Compute**                      |                    |                    |                    |
+| **Beräkning**                      |                    |                    |                    |
 | Virtual Machines                 | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Skalnings uppsättning för virtuell dator        | Ja                | Ja, RSA 2048-bitars  | -                  |
 | SAP HANA                         | Ja                | Ja, RSA 2048-bitars  | -                  |
@@ -313,7 +312,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Table Storage                    | Ja                | Ja                | Ja                |
 | Azure Cosmos DB                  | Ja                | Ja                | -                  |
 | Azure Databricks                 | Ja                | Ja                | -                  |
-| Azure Database Migration Service | Ja                | Saknas\*              | -                  |
+| Azure Database Migration Service | Ja                | EJ TILLÄMPLIGT\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps Services            | Ja                | -                  | Ja                |
 | Azure-lagringsplatser                      | Ja                | -                  | Ja                |
@@ -335,7 +334,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | **Säkerhet**                     |                    |                    |                    |
 | Azure Security Center för IoT    | Ja                | Ja                | -                  |
 | Azure Sentinel                   | Ja                | Ja                | -                  |
-| **Storage**                      |                    |                    |                    |
+| **Lagring**                      |                    |                    |                    |
 | Blob Storage                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Premium-Blob Storage             | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Disklagring                     | Ja                | Ja                | -                  |
@@ -346,7 +345,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | File Sync                         | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Queue Storage                    | Ja                | Ja                | Ja                |
 | Avere vFXT                       | Ja                | -                  | -                  |
-| Azure Cache for Redis            | Ja                | Saknas\*              | -                  |
+| Azure Cache for Redis            | Ja                | EJ TILLÄMPLIGT\*              | -                  |
 | Azure NetApp Files               | Ja                | Ja                | -                  |
 | Arkivlagring                  | Ja                | Ja, RSA 2048-bitars  | -                  |
 | StorSimple                       | Ja                | Ja, RSA 2048-bitars  | Ja                |

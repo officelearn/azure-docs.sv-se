@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d45b98f291a7524dac2927fc74c5dc52400209f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891204"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529989"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera Notification Hub med PowerShell
 
@@ -31,11 +32,11 @@ Den här artikeln visar hur du använder skapa och hantera Azure Notification Hu
 - Skapa en meddelandehubb
 - Ange autentiseringsuppgifter
 
-Om du också behöver skapa ett nytt Service Bus-namnområde för dina Notification Hub, se [hantera Service Bus med PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
+Om du också behöver skapa ett nytt Service Bus-namnområde för dina Notification Hub, se [hantera Service Bus med PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md).
 
 Hantering av Notification Hub stöds inte direkt av de cmdletar som ingår i Azure PowerShell. Den bästa metoden från PowerShell är att referera till Microsoft.Azure.NotificationHubs.dll sammansättning. Sammansättningen distribueras med [Microsoft Azure Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Azure är en prenumerations-baserad plattform. Mer information om hur du skaffar en prenumeration finns i [köp alternativ], [medlems erbjudanden]eller [kostnads fri utvärdering].
 - En dator med Azure PowerShell. Anvisningar finns i [Installera och konfigurera Azure PowerShell].
@@ -147,9 +148,9 @@ else
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Hantera Service Bus med PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Så här skapar du Service Bus köer, ämnen och prenumerationer med hjälp av ett PowerShell-skript](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-- [Så här skapar du ett Service Bus-namnområde och en Event Hub med ett PowerShell-skript](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+- [Hantera Service Bus med PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md)
+- [Så här skapar du Service Bus köer, ämnen och prenumerationer med hjälp av ett PowerShell-skript](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Så här skapar du ett Service Bus-namnområde och en Event Hub med ett PowerShell-skript](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Vissa färdiga skript är också tillgängliga för nedladdning:
 
@@ -157,9 +158,9 @@ Vissa färdiga skript är också tillgängliga för nedladdning:
 
 [Köp alternativ]: https://azure.microsoft.com/pricing/purchase-options/
 [Medlems erbjudanden]: https://azure.microsoft.com/pricing/member-offers/
-[Kostnadsfri utvärderingsversion]: https://azure.microsoft.com/pricing/free-trial/
+[Kostnadsfri utvärdering]: https://azure.microsoft.com/pricing/free-trial/
 [Installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[.NET API för Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[.NET API för Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule

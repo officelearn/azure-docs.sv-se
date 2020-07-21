@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223466"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536121"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -96,6 +96,22 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
     ```bash
     automl_setup
     ```
+    
+* **Fel: "varumärke" när du kör AutoML i det lokala beräknings-eller Azure Databrickss klustret**
+
+    Om en ny miljö skapades efter 10 juni 2020, med hjälp av SDK-1.7.0 eller tidigare, kan det hända att träningen Miss känner till felet på grund av en uppdatering i py-cpuinfo-paketet. (Miljöer som skapats den 10 juni 2020 påverkas inte, eftersom experiment körs på fjärrberäkning eftersom de cachelagrade inlärnings avbildningarna används.) Undvik det här problemet genom att göra något av följande två steg:
+    
+    * Uppdatera SDK-versionen till 1.8.0 eller senare (detta degraderar också py-cpuinfo till 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Nedgradera den installerade versionen av py-cpuinfo till 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Fel meddelande: det går inte att avinstallera ' PyYAML '**
 
@@ -146,6 +162,12 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 > Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
 * **Azure Portal**: om du går direkt för att visa din arbets yta från en resurs länk från SDK eller portalen kan du inte visa **översikts** sidan för normal med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta går du direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söker efter arbets ytans namn.
+
+* **Webbläsare som stöds i Azure Machine Learning Studio-webb portalen**: Vi rekommenderar att du använder den senaste webbläsaren som är kompatibel med operativ systemet. Följande webbläsare stöds:
+  * Microsoft Edge (den nya Microsoft Edge, senaste versionen. Inte Microsoft Edge Legacy)
+  * Safari (senaste versionen, endast Mac)
+  * Chrome (senaste versionen)
+  * Firefox (senaste versionen)
 
 ## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
@@ -217,9 +239,16 @@ Begränsningar och kända problem för data avvikelse Övervakare:
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning designer
 
-Kända problem:
+* **Förberedelse tid för lång beräkning:**
 
-* **Förberedelse tid för lång beräkning**: det kan vara några minuter eller ännu längre första gången du ansluter till eller skapar ett beräknings mål. 
+Det kan vara några minuter eller till och med längre första gången du ansluter till eller skapar ett beräknings mål. 
+
+Från modell data insamlaren kan det ta upp till (men vanligt vis mindre än) 10 minuter för data att komma in på ditt Blob Storage-konto. Vänta 10 minuter för att se till att cellerna nedan kommer att köras.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>Inlärningsmodeller
 

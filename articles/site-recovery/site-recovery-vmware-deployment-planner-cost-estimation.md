@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: b03ac554ed578633b55ffa2fde4838c691d04d59
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132199"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528969"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Granska kostnads uppskattningar i distributions planeraren för VMware 
 
@@ -104,7 +104,7 @@ Så här lägger du till virtuella datorer manuellt:
 * VM-total lagrings storlek (GB) för käll datorn
 * Antal DR-tester under ett år 
 * Varaktighet för varje DR-test (dagar) 
-* OS-typ
+* Typ av operativsystem
 * Dataredundans 
 * Azure Hybrid-förmån
 
@@ -150,16 +150,16 @@ usaöstra, usaöstra2, usavästra, usacentrala, usanorracentrala, usasödracentr
 ## <a name="supported-currencies"></a>Valutor som stöds
 Distributionshanteraren för Azure Site Recovery kan generera kostnadsrapporten i någon av följande valutor.
 
-|Valuta|Name||Valuta|Name||Valuta|Name|
+|Valuta|Name|Valuta|Name|Valuta|Name|
 |---|---|---|---|---|---|---|---|
-|ARS|Argentinska pesos ($)||AUD|Australiensiska dollar ($)||BRL|Brasilianska Real (R$)|
-|CAD|Kanadensiska dollar ($)||CHF|Schweiziska franc (chf)||DKK|Danska kronor (kr)|
-|EUR|Euro (€)||GBP|Brittiska pund (£)||HKD|Hongkong Dollar (HK$)|
-|IDR|Indonesiska rupier (Rp)||INR|Indiska rupier (₹)||JPY|Japanska yen (¥)|
-|KRW|Sydkoreanska won (₩)||MXN|Mexikanska Peso (MX$)||MYR|Malaysiska Ringgit (RM$)|
-|NOK|Norska kronor (kr)||NZD|Nya zeeländska dollar ($)||RUB|Ryska rubel (руб)|
-|SAR|Saudiarabiska riyal (R)||SEK|Svenska kronor (kr)||TWD|Taiwanesiska dollar (NT$)|
-|TRY|Turkiska lira (TL)||USD| Amerikanska dollar ($)||ZAR|Sydafrikanska rand (R)|
+|ARS|Argentinska pesos ($)|AUD|Australiensiska dollar ($)|BRL|Brasilianska Real (R$)|
+|CAD|Kanadensiska dollar ($)|CHF|Schweiziska franc (chf)|DKK|Danska kronor (kr)|
+|EUR|Euro (€)|GBP|Brittiska pund (£)|HKD|Hongkong Dollar (HK$)|
+|IDR|Indonesiska rupier (Rp)|INR|Indiska rupier (₹)|JPY|Japanska yen (¥)|
+|KRW|Sydkoreanska won (₩)|MXN|Mexikanska Peso (MX$)|MYR|Malaysiska Ringgit (RM$)|
+|NOK|Norska kronor (kr)|NZD|Nya zeeländska dollar ($)|RUB|Ryska rubel (руб)|
+|SAR|Saudiarabiska riyal (R)|SEK|Svenska kronor (kr)|TWD|Taiwanesiska dollar (NT$)|
+|TRY|Turkiska lira (TL)|USD| Amerikanska dollar ($)|ZAR|Sydafrikanska rand (R)|
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om hur du skyddar [virtuella VMware-datorer till Azure med Azure Site Recovery](./vmware-azure-tutorial.md).

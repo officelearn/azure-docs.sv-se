@@ -1,0 +1,1144 @@
+---
+title: Service Fabric säkerhets bas linje för Azures säkerhets prestanda
+description: Service Fabric säkerhets bas linje ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
+author: msmbaldwin
+ms.service: service-fabric
+ms.topic: conceptual
+ms.date: 07/13/2020
+ms.author: mbaldwin
+ms.custom: security-benchmark
+ms.openlocfilehash: d9d5d686c692c45acfff4fa811ed668c17f19861
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86532257"
+---
+# <a name="service-fabric-security-baseline-for-azure-security-benchmark"></a>Service Fabric säkerhets bas linje för Azures säkerhets prestanda
+
+Azures säkerhets bas linje för Service Fabric innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
+
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+
+Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+
+
+
+## <a name="network-security"></a>Nätverkssäkerhet
+
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](/azure/security/benchmarks/security-control-network-security).*
+
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
+
+**Vägledning**: kontrol lera att alla distributioner av Virtual Network undernät har en nätverks säkerhets grupp som tillämpas med nätverks åtkomst kontroller som är specifika för programmets betrodda portar och källor.
+
+* [Distribuera Azure Firewall med hjälp av en mall](https://docs.microsoft.com/azure/firewall/deploy-template)
+
+* [Skapa perimeter-nätverk med hjälp av Azure nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices#use-network-isolation-and-security-with-azure-service-fabric)
+
+* [Integrera ditt Azure Service Fabric-kluster med ett befintligt virtuellt nätverk](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverkskort
+
+**Vägledning**: Använd Azure Security Center och åtgärda rekommendationer för nätverks skydd för det virtuella nätverket, under nätet och nätverks säkerhets gruppen som används för att skydda ditt Azure Service Fabric-kluster. Aktivera flödes loggar för nätverks säkerhets grupper (NSG) och skicka loggar till ett Azure Storage konto till trafik granskning. Du kan också skicka NSG Flow-loggar till en Azure Log Analytics-arbetsyta och använda Azure Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Azure Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
+
+* [Så här aktiverar du NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+
+* [Så här aktiverar och använder du Azure Trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+
+* [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="13-protect-critical-web-applications"></a>1,3: skydda viktiga webb program
+
+**Vägledning**: tillhandahålla en frontend-Gateway för att tillhandahålla en enda punkt för ingångar för användare, enheter eller andra program. Azure API Management integreras direkt med Service Fabric, så att du kan skydda åtkomsten till backend-tjänster, förhindra DOS-attacker genom att använda begränsning och verifiera API-nycklar, JWT-token, certifikat och andra autentiseringsuppgifter.
+
+Överväg att distribuera Azure Web Application Firewall (WAF) framför viktiga webb program för ytterligare inspektion av inkommande trafik. Aktivera diagnostikinställningar för WAF och mata in loggar till ett lagrings konto, en Event Hub-eller Log Analytics-arbetsyta.
+
+* [Service Fabric med Azure API Management-översikt](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview)
+
+* [Integrera API Management i ett internt VNET med Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+
+* [Så här distribuerar du Azure-WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: neka kommunikation med kända skadliga IP-adresser
+
+**Vägledning**: för skydd mot DDoS-attacker aktiverar du Azure DDoS standard-skydd på det virtuella nätverk där Azure Service Fabric-klustret distribueras. Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända Internet-IP-adresser.
+
+* [Så här konfigurerar du DDoS-skydd](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+
+* [Förstå Azure Security Center integrerad Hot information](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="15-record-network-packets"></a>1,5: registrera nätverks paket
+
+**Vägledning**: Aktivera flödes loggar för nätverks säkerhets grupper (NSG) för NSG som är kopplade till det undernät som används för att skydda ditt Azure Service Fabric-kluster. Registrera NSG flödes loggar i ett Azure Storage-konto för att generera flödes poster. Om det behövs för att undersöka avvikande aktivitet aktiverar du insamlingen av Azure Network Watcher-paket.
+
+* [Så här aktiverar du NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+
+* [Så här aktiverar du Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+
+* [Använd trafik analys för att visualisera NSG flödes loggar](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera nätverksbaserade intrångs identifiering/system för skydd mot intrång (ID/IP-adresser)
+
+**Vägledning**: Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll. Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
+
+Distribuera den brand Väggs lösning som du väljer för var och en av organisationens nätverks gränser för att upptäcka och/eller neka skadlig trafik.
+
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
+
+* [Så här distribuerar du Azure-brandvägg](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+
+* [Konfigurera aviseringar med Azure-brandväggen](https://docs.microsoft.com/azure/firewall/threat-intel)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="17-manage-traffic-to-web-applications"></a>1,7: hantera trafik till webb program
+
+**Vägledning**: Distribuera Azure Application Gateway för webb program med HTTPS/SSL aktiverat för betrodda certifikat.
+
+* [Så här distribuerar du Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+
+* [Så här konfigurerar du Application Gateway att använda HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+
+* [Förstå belastnings utjämning för Layer 7 med Azure Web Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimera komplexitet och administrativa kostnader för nätverks säkerhets regler
+
+**Vägledning**: Använd taggar för virtuella nätverks tjänster för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper (NSG) som är kopplade till under nätet som Azure Service Fabric-klustret distribueras i. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. API Management) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
+
+* [Tjänst taggar för virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+
+* [Metod tips för Service Fabric nätverk](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
+
+**Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för nätverks resurser som är relaterade till ditt Azure Service Fabric-kluster. Använd Azure Policy alias i namn områdena "Microsoft. ServiceFabric" och "Microsoft. Network" om du vill skapa anpassade principer för granskning eller tillämpa nätverks konfigurationen för ditt Azure Service Fabric-kluster.
+
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, RBAC-kontroller och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
+
+* [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+* [Så här skapar du en Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="110-document-traffic-configuration-rules"></a>1,10: dokumentera trafik konfigurations regler
+
+**Vägledning**: Använd taggar för nätverks säkerhets gruppen (NSG: er) och andra resurser som rör nätverks säkerhets-och trafikflöden som är associerade med ditt Azure Service Fabric-kluster. För enskilda NSG-regler använder du fältet Beskrivning för att ange affärs behov och/eller varaktighet (osv.) för alla regler som tillåter trafik till/från ett nätverk.
+
+Använd någon av de inbyggda Azure Policy definitionerna som är relaterade till taggning, till exempel "Kräv tagg och dess värde" för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser.
+
+Du kan använda Azure PowerShell eller Azure kommando rads gränssnitt (CLI) för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
+
+* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
+* [Så här skapar du ett virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+
+* [Så här skapar du en NSG med en säkerhets konfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Använd automatiserade verktyg för att övervaka konfigurationer för nätverks resurser och identifiera ändringar
+
+**Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Service Fabric-distributioner. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
+
+* [Visa och hämta Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+
+* [Så här skapar du aviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+## <a name="logging-and-monitoring"></a>Loggning och övervakning
+
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](/azure/security/benchmarks/security-control-logging-monitoring).*
+
+### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
+
+**Vägledning**: Microsoft hanterar tids källor för Azure Service Fabric kluster komponenter, du kan uppdatera tidssynkroniseringen för dina beräknings distributioner.
+
+* [Så här konfigurerar du tidssynkronisering för Azure Compute-resurser](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: Microsoft
+
+### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
+
+**Vägledning**: du kan publicera ditt Azure Service Fabric-kluster för att Azure Monitor för att samla in säkerhets data som genereras av klustret. Se exempel på diagnostiska problem och lösningar med Service Fabric.
+
+* [Konfigurera Azure Monitor loggar integration med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+
+* [Konfigurera Azure Monitor loggar för att övervaka behållare i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+
+* [Diagnostisera vanliga Service Fabric scenarier](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-common-scenarios)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Aktivera gransknings loggning för Azure-resurser
+
+**Vägledning**: Aktivera Azure Monitor för Service Fabric-klustret, dirigera det till en Log Analytics-arbetsyta. Detta kommer att logga relevant kluster information och OS-mått för alla Azure Service Fabric-klusternoder.
+
+* [Konfigurera Azure Monitor loggar integration med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+
+* [Konfigurera Azure Monitor loggar för att övervaka behållare i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+
+* [Så här distribuerar du Log Analytics agent på noderna](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent)
+
+* [Log Analytics loggs ökningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="24-collect-security-logs-from-operating-systems"></a>2,4: samla in säkerhets loggar från operativ system
+
+**Vägledning**: publicera Azure Service Fabric-klustret för att Azure Monitor. Se till att den Log Analytics arbets ytan som används har den logg kvarhållningsperiod som angetts enligt organisationens regler för efterlevnad.
+
+* [Konfigurera Azure Monitor loggar integration med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+
+* [Konfigurera Azure Monitor loggar för att övervaka behållare i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+
+* [Så här distribuerar du Log Analytics agent på noderna](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent)
+
+* [Så här konfigurerar du Log Analytics bevarande period för arbets ytor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
+
+**Vägledning**: publicera Azure Service Fabric-klustret för att Azure Monitor. Se till att den Log Analytics arbets ytan som används har den logg kvarhållningsperiod som angetts enligt organisationens regler för efterlevnad.
+
+* [Konfigurera Azure Monitor loggar integration med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+
+* [Konfigurera Azure Monitor loggar för att övervaka behållare i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+
+* [Så här distribuerar du Log Analytics agent på noderna](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent)
+
+* [Så här konfigurerar du Log Analytics bevarande period för arbets ytor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="26-monitor-and-review-logs"></a>2,6: övervaka och granska loggar
+
+**Vägledning**: använd Azure Log Analytics Workspace-frågor för att skicka frågor till Azure Service Fabric-loggar.
+
+* [Log Analytics loggs ökningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: aktivera aviseringar för avvikande aktiviteter
+
+**Vägledning**: använd Azure Log Analytics-arbetsytan för övervakning och aviseringar om avvikande aktiviteter i säkerhets loggar och händelser relaterade till ditt Azure Service Fabric-kluster.
+
+* [Hantera aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+
+* [Så här aviserar du om Log Analytics-loggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="28-centralize-anti-malware-logging"></a>2,8: centralisera loggning mot skadlig kod
+
+**Vägledning**: som standard installeras Windows Defender på windows Server 2016. Se dokumentationen för din antihandjur för konfigurations regler om du inte använder Windows Defender. Windows Defender stöds inte i Linux.
+
+* [Mer information finns i Windows Defender Antivirus på Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="29-enable-dns-query-logging"></a>2,9: Aktivera loggning av DNS-frågor
+
+**Vägledning**: implementera en lösning från tredje part för DNS-loggning.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="210-enable-command-line-audit-logging"></a>2,10: Aktivera loggning av kommando rads granskning
+
+**Vägledning**: Konfigurera konsol loggning manuellt per nod.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
+
+*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](/azure/security/benchmarks/security-control-identity-access-control).*
+
+### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
+
+**Vägledning**: underhålla posten för det lokala administratörs kontot som skapas vid kluster etablering av Azure Service Fabric-kluster samt andra konton som du skapar. Om Azure AD-integrering används har Azure AD dessutom inbyggda roller som måste tilldelas explicit och därför kan frågas. Använd Azure AD PowerShell-modulen för att utföra adhoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
+
+Dessutom kan du använda rekommendationer för Azure Security Center identitets-och åtkomst hantering.
+
+* [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+
+* [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+
+* [Övervaka identitet och åtkomst med Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="32-change-default-passwords-where-applicable"></a>3,2: ändra standard lösen ord där tillämpligt
+
+**Vägledning**: när du konfigurerar ett kluster kräver Azure att du skapar nya lösen ord för webb portalen. Det finns inga standard lösen ord att ändra, men du kan ange olika lösen ord för webb Portal åtkomst.
+
+* [Skapa i Azure-portalen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Använd dedikerade administrativa konton
+
+**Vägledning**: integrera autentisering för Azure Service Fabric med Azure Active Directory. Skapa principer och procedurer kring användningen av dedikerade administrativa konton.
+
+Dessutom kan du använda rekommendationer för Azure Security Center identitets-och åtkomst hantering.
+
+* [Konfigurera Azure Active Directory-klientautentisering](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster#set-up-azure-active-directory-client-authentication)
+
+* [Övervaka identitet och åtkomst med Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
+
+**Vägledning**: där det är möjligt använder Azure Active Directory SSO i stället för att konfigurera enskilda fristående autentiseringsuppgifter per tjänst. Använd rekommendationer för Azure Security Center identitets-och åtkomst hantering.
+
+* [Förstå SSO med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
+
+**Vägledning**: Aktivera Azure AD MFA och följ Azure Security Center rekommendationer för identitets-och åtkomst hantering.
+
+* [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+
+* [Övervaka identitet och åtkomst i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
+
+**Vägledning**: Använd Paw (arbets stationer med privilegie rad åtkomst) med Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera Azure Service Fabric-kluster och relaterade resurser.
+
+* [Lär dig mer om arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+
+* [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvar**: kund
+
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: Logga och Avisera om misstänkta aktiviteter från administrativa konton
+
+**Vägledning**: Använd Azure Active Directory (AD) PRIVILEGED Identity Management (PIM) för att skapa loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön. Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseringar och rapporter om riskfyllda användar beteenden.
+
+* [Distribuera Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+
+* [Förstå identifieringar av Azure AD-risker](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3,8: hantera endast Azure-resurser från godkända platser
+
+**Vägledning**: Använd villkorlig åtkomst med namngivna platser för att tillåta åtkomst från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
+
+* [Så här konfigurerar du namngivna platser i Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
+
+**Vägledning**: Använd Azure Active Directory (AAD) som central autentiserings-och auktoriserings system för att skydda åtkomsten till hanterings slut punkter för Azure Service Fabric-kluster. AAD skyddar data genom att använda stark kryptering för data i vila och under överföring. AAD är också salter, hashar och lagrar användarautentiseringsuppgifter på ett säkert sätt.
+
+* [Så här skapar och konfigurerar du en AAD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+
+* [Installations Azure Active Directory för Service Fabric klientautentisering](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-setup-aad)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
+
+**Vägledning**: använda Azure Active Directory (AAD)-autentisering med ditt Azure Service Fabric-kluster. AAD innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användarens åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst.
+
+* [Så här använder du granskningar av Azure Identity Access](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="311-alert-on-account-login-behavior-deviation"></a>3,11: avisering om beteende för beteende för konto inloggning
+
+**Vägledning**: Använd Azure Active Directory (AAD)-inloggning och gransknings loggar för att övervaka försök att komma åt inaktiverade konton. dessa loggar kan integreras i alla SIEM/övervaknings verktyg från tredje part.
+
+Du kan effektivisera den här processen genom att skapa diagnostikinställningar för AAD-användarkonton, skicka gransknings loggarna och inloggnings loggarna till en Azure Log Analytics-arbetsyta. Konfigurera önskade aviseringar i Azure Log Analytics-arbetsytan.
+
+* [Så här integrerar du Azures aktivitets loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: varning vid inloggnings beteende för konto
+
+**Vägledning**: Använd funktioner i Azure AD-risk och identitets skydd för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning.
+
+* [Visa Azure AD-riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+
+* [Så här konfigurerar och aktiverar du risk principer för identitets skydd](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+
+* [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: ge Microsoft åtkomst till relevant kund information under support scenarier
+
+**Vägledning**: inte tillgänglig; Customer Lockbox ännu inte stöd för Azure Service Fabric.
+
+* [Lista över Customer Lockbox tjänster som stöds](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvars område**: inte tillämpligt
+
+## <a name="data-protection"></a>Dataskydd
+
+*Mer information finns i [säkerhets kontroll: data skydd](/azure/security/benchmarks/security-control-data-protection).*
+
+### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
+
+**Vägledning**: Använd taggar för resurser som är relaterade till dina Azure Service Fabric-kluster distributioner för att kunna spåra Azure-resurser som lagrar eller bearbetar känslig information.
+
+* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
+
+**Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Resurser bör åtskiljas av VNet/undernät, taggas på lämpligt sätt och skyddas av en NSG eller Azure-brandvägg. Resurser som lagrar eller bearbetar känsliga data bör vara tillräckligt isolerade. För Virtual Machines lagring eller bearbetning av känsliga data implementerar du principer och procedurer för att inaktivera dem när de inte används.
+
+* [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+
+* [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+
+* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
+* [Så här skapar du en Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+
+* [Så här skapar du en NSG med en säkerhets konfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
+* [Så här distribuerar du Azure-brandvägg](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+
+* [Så här konfigurerar du aviseringen eller aviseringen och nekar med Azure-brandväggen](https://docs.microsoft.com/azure/firewall/threat-intel)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: övervaka och blockera obehörig överföring av känslig information
+
+**Vägledning**: Distribuera ett automatiserat verktyg på nätverks-perimeter som övervakar för obehörig överföring av känslig information och blockerar sådana överföringar vid avisering av information säkerhets tekniker.
+
+För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och
+
+trådlösa.
+
+* [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvars område**: delat
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
+
+**Vägledning**: kryptera all känslig information under överföring. Se till att alla klienter som ansluter till dina Azure-resurser kan förhandla TLS 1,2 eller senare.
+
+Följ Azure Security Center rekommendationer för kryptering i vila och kryptering under överföring, i förekommande fall.
+
+* [Förstå kryptering i överföring med Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+
+* [Service Fabric kluster säkerhets scenarier](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)
+
+* [Service Fabric fel söknings guide för TLS-konfiguration](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvars område**: delat
+
+### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Använd ett aktivt identifierings verktyg för att identifiera känsliga data
+
+**Vägledning**: funktionerna för data identifiering, klassificering och förlust av förlust är ännu inte tillgängliga för Azure Storage-eller beräknings resurser. Implementera en lösning från tredje part om det krävs för efterlevnad.
+
+För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
+
+* [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvars område**: delat
+
+### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+
+**Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för icke-Compute-resurser som är utformade för att lagra data.
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvars område**: inte tillämpligt
+
+### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Använd värdbaserade data förlust skydd för att genomdriva åtkomst kontroll
+
+**Vägledning**: för Azure Service Fabric kluster som lagrar eller bearbetar känslig information, markerar du klustret och relaterade resurser som känsliga med taggar. Funktionerna för data identifiering, klassificering och förlust av förlust är ännu inte tillgängliga för Azure Storage-eller beräknings resurser. Implementera en lösning från tredje part om det krävs för efterlevnad.
+
+För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
+
+* [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvars område**: delat
+
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: kryptera känslig information i vila
+
+**Vägledning**: Använd kryptering i vila på alla Azure-resurser. Microsoft rekommenderar att Azure hanterar dina krypterings nycklar, men det finns möjlighet att hantera dina egna nycklar i vissa instanser.
+
+* [Förstå kryptering i vila i Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+
+* [Så här konfigurerar du Kundhanterade krypterings nycklar](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
+
+* [Aktivera disk kryptering för Azure Service Fabric klusternoder i Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-windows)
+
+* [Aktivera disk kryptering för Azure Service Fabric klusternoder i Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-linux)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: logg och varning vid ändringar av kritiska Azure-resurser
+
+**Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i kritiska Azure-resurser.
+
+* [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+## <a name="vulnerability-management"></a>Sårbarhetshantering
+
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](/azure/security/benchmarks/security-control-vulnerability-management).*
+
+### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
+
+**Vägledning**: kör regelbundet Service Fabric fel analys tjänsten och kaos-tjänsterna för att simulera fel i klustret för att bedöma om tjänsterna är stabila och tillförlitliga.
+
+Följ rekommendationerna från Azure Security Center om att utföra sårbarhets bedömningar på dina virtuella Azure-datorer och behållar avbildningar.
+
+Använd en lösning från tredje part för att utföra sårbarhets bedömningar på nätverks enheter och webb program. När du utför fjärrgenomsökningar ska du inte använda ett enda, beständig, administrativt konto. Överväg att implementera JIT-etablering för skannings kontot. Autentiseringsuppgifterna för skannings kontot bör skyddas, övervakas och används endast för sårbarhets skanning.
+
+* [Introduktion till Service Fabric fel analys tjänsten](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview)
+
+* [Inducera kontrollerade kaos i Service Fabric kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)
+
+* [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Distribuera automatiserad hanterings lösning för operativ system
+
+**Vägledning**: Aktivera automatisk uppgradering av OS-avbildningar på de virtuella datorernas skalnings uppsättningar för Azure Service Fabric-klustret.
+
+Om du vill testa OS-korrigeringsfiler först innan du går vidare till produktion använder du den manuella utlösaren för operativ Systems avbildnings uppgraderingar av din skalnings uppsättning. Observera att alternativet för manuell utlösare inte tillhandahåller inbyggd återställning. Övervaka OS-korrigeringsfiler med Uppdateringshantering från Azure Automation.
+
+* [Uppdaterings hantering för Service Fabric klusternoder](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
+
+* [Automatisk uppgradering av OS-avbildningar med skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+
+* [Så här tar du med virtuella datorer uppdaterade med den senaste skalnings uppsättnings modellen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
+
+* [Översikt över Azure Automation Uppdateringshantering](https://docs.microsoft.com/azure/automation/automation-update-management)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Distribuera automatiserad korrigerings hanterings lösning för program varu titlar från tredje part
+
+**Vägledning**: Aktivera automatisk uppgradering av OS-avbildningar på de virtuella datorernas skalnings uppsättningar för Azure Service Fabric-klustret. POA (patch Orchestration Application) är en alternativ lösning som är avsedd för Service Fabric kluster som finns utanför Azure. POA kan användas med Azure-kluster, med vissa ytterligare värd kostnader.
+
+* [Uppdaterings hantering för Service Fabric klusternoder](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
+
+* [Automatisk uppgradering av OS-avbildningar med skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+
+* [Konfigurera operativ systemets uppdaterings schema för Service Fabric kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="54-compare-back-to-back-vulnerability-scans"></a>5,4: jämför sökningar efter säkerhets risker
+
+**Vägledning**: exportera skannings resultat med jämna mellanrum och jämför resultaten för att verifiera att sårbarheter har åtgärd ATS. När du använder rekommendationer för sårbarhets hantering som föreslås av Azure Security Center kan du pivotera in den valda lösningens Portal för att visa historiska skannings data.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Använd en risk klassificerings process för att prioritera reparation av identifierade säkerhets risker
+
+**Vägledning**: Använd ett gemensamt risk bedömnings program (t. ex. vanliga sårbarhets bedömnings system) eller standard risk klassificeringarna som tillhandahålls av genomsöknings verktyget från tredje part.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
+
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](/azure/security/benchmarks/security-control-inventory-asset-management).*
+
+### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
+
+**Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. data bearbetning, lagring, nätverk, portar och protokoll osv.) i din prenumeration (er). Se till att du har rätt (Läs) behörigheter i din klient organisation och räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
+
+Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
+
+* [Så här skapar du frågor med Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+
+* [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+
+* [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="62-maintain-asset-metadata"></a>6,2: underhåll till gångens metadata
+
+**Vägledning**: Använd taggar till Azure-resurser som ger metadata till att logiskt organisera dem i en taxonomi.
+
+* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="63-delete-unauthorized-azure-resources"></a>6,3: ta bort obehöriga Azure-resurser
+
+**Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att organisera och spåra till gångar. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
+
+* [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+
+* [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+
+* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla inventering av godkända Azure-resurser
+
+**Vägledning**: definiera godkända Azure-resurser och godkänd program vara för beräknings resurser.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: övervaka för ej godkända Azure-resurser
+
+**Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i kund prenumerationer med hjälp av följande inbyggda princip definitioner:
+
+Otillåtna resurstyper
+
+Tillåtna resurstyper
+
+Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
+
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+* [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: övervaka för program som inte godkänts i beräknings resurser
+
+**Vägledning**: implementera en lösning från tredje part för att övervaka klusternoder för program som inte är godkända.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: ta bort icke godkända Azure-resurser och program
+
+**Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. data bearbetning, lagring, nätverk, portar och protokoll osv.), inklusive Azure Service Fabric-kluster, i dina prenumerationer. Ta bort alla ej godkända Azure-resurser som du identifierar. För Azure Service Fabric-klusternoder implementerar du en lösning från tredje part för att ta bort eller varna på program som inte godkänts.
+
+* [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="68-use-only-approved-applications"></a>6,8: Använd endast godkända program
+
+**Vägledning**: för Azure Service Fabric-klusternoder implementerar du en lösning från tredje part för att förhindra att obehöriga program körs.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="69-use-only-approved-azure-services"></a>6,9: Använd endast godkända Azure-tjänster
+
+**Vägledning**: Använd Azure policy för att begränsa vilka tjänster du kan etablera i din miljö.
+
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+* [Så här nekar du en speciell resurs typ med Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: underhåll en inventering av godkända program varu titlar
+
+**Vägledning**: för Azure Service Fabric-klusternoder implementerar du en lösning från tredje part för att förhindra att obehöriga filtyper körs.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: begränsa användarnas möjlighet att interagera med Azure Resource Manager
+
+**Vägledning**: Använd villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azures resurs hanterare genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
+
+* [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azures resurs hanterare](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: begränsa användarnas möjlighet att köra skript i beräknings resurser
+
+**Vägledning**: Använd operativ systemets speciella konfigurationer eller resurser från tredje part för att begränsa användarnas möjlighet att köra skript i Azure Compute-resurser.
+
+* [Till exempel hur du styr körning av PowerShell-skript i Windows-miljöer](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fysiskt eller logiskt särskiljande program med hög risk
+
+**Vägledning**: program vara som krävs för affärs åtgärder, men som kan ådra sig högre risk för organisationen, bör isoleras inom den egna virtuella datorn och/eller det virtuella nätverket och tillräckligt säkert med antingen en Azure-brandvägg eller en nätverks säkerhets grupp.
+
+* [Så här skapar du ett virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+
+* [Så här skapar du en NSG med en säkerhets konfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+## <a name="secure-configuration"></a>Säker konfiguration
+
+*Mer information finns i [säkerhets kontroll: säker konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
+
+### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
+
+**Vägledning**: Använd Azure policy alias i namn området "Microsoft. ServiceFabric" om du vill skapa anpassade principer för granskning eller framtvinga nätverks konfigurationen för ditt Service Fabric-kluster.
+
+* [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="72-establish-secure-operating-system-configurations"></a>7,2: upprätta säkra konfigurationer för operativ system
+
+**Vägledning**: Azure Service Fabric operativ system avbildningar hanteras och underhålls av Microsoft. Kund som ansvarar för att implementera säkra konfigurationer för klusternodernas operativ system.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: underhåll säker Azure-resurs-konfigurationer
+
+**Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar för Azure Service Fabric-kluster och relaterade resurser.
+
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+* [Förstå Azure Policys effekter](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: underhåll säkra konfigurationer för operativ system
+
+**Vägledning**: Azure Service Fabric kluster operativ Systems avbildningar som hanteras och underhålls av Microsoft. Kund som ansvarar för att implementera tillstånds konfigurationen på operativ system nivå.
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvars område**: delat
+
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: Spara konfigurationen av Azure-resurser på ett säkert sätt
+
+**Vägledning**: om du använder anpassade Azure policys definitioner använder du Azure DevOps eller Azure databaser för att lagra och hantera din kod på ett säkert sätt.
+
+* [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+
+* [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
+
+**Vägledning**: om du använder anpassade avbildningar använder du RBAC för att se till att endast behöriga användare kan komma åt avbildningarna. För behållar avbildningar lagrar du dem i Azure Container Registry och använder RBAC för att se till att endast behöriga användare får åtkomst till avbildningarna.
+
+* [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+
+* [Förstå RBAC för Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+
+* [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Distribuera konfigurations hanterings verktyg för Azure-resurser
+
+**Vägledning**: Använd Azure policy alias i namn området "Microsoft. ServiceFabric" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
+
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Distribuera konfigurations hanterings verktyg för operativ system
+
+**Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för IaaS beräknings resurser.
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvars område**: inte tillämpligt
+
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementera automatisk konfigurations övervakning för Azure-resurser
+
+**Vägledning**: Använd Azure policy alias i namn området "Microsoft. ServiceFabric" om du vill skapa anpassade principer för granskning eller framtvinga konfigurationen av ditt Service Fabric-kluster.
+
+* [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+
+* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: implementera automatisk konfigurations övervakning för operativ system
+
+**Vägledning**: Använd Azure Security Center för att utföra bas linje genomsökningar för OS-och Docker-inställningar för behållare.
+
+* [Förstå rekommendationer för Azure Security Center-container](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="711-manage-azure-secrets-securely"></a>7,11: Hantera Azure-hemligheter på ett säkert sätt
+
+**Vägledning**: Använd hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda hemlig hantering för dina moln program.
+
+* [Använda hanterade identiteter för Azure med Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
+
+* [Konfigurera stöd för hanterad identitet för ett nytt Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/configure-new-azure-service-fabric-enable-managed-identity)
+
+* [Använd hanterad identitet med ett Service Fabric program](https://docs.microsoft.com/azure/service-fabric/how-to-managed-identity-service-fabric-app-code)
+
+* [KeyVaultReference-stöd för Service Fabric program](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
+
+**Vägledning**: hanterade identiteter kan användas i Azure-distribuerade Service Fabric-kluster och för program som distribueras som Azure-resurser. Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod.
+
+* [Använda hanterade identiteter för Azure med Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
+
+**Vägledning**: om du använder en kod som är relaterad till din Azure Service Fabric-distribution kan du implementera autentiseringsuppgifterna för autentisering för att identifiera autentiseringsuppgifter i koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+
+Använd Azure Key Vault för att rotera Service Fabric kluster certifikat automatiskt.
+
+* [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
+
+* [Certifikat hantering i Service Fabric kluster](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#certificate-rotation)
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvar**: kund
+
+## <a name="malware-defense"></a>Skydd mot skadlig kod
+
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
+
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
+
+**Vägledning**: som standard installeras Windows Defender Antivirus på windows Server 2016. Användargränssnittet installeras som standard på vissa SKU:er, men det krävs inte.
+
+Se dokumentationen för program mot skadlig kod för konfigurations regler om du inte använder Windows Defender. Windows Defender stöds inte i Linux.
+
+* [Förstå Windows Defender Antivirus på Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: för skanning av filer som ska laddas upp till Azure-resurser som inte är Compute
+
+**Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för icke-Compute-resurser som är utformade för att lagra data. Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden som har stöd för Azure-tjänster (till exempel Service Fabric), men det körs inte på kund innehållet.
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvars område**: inte tillämpligt
+
+### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8,3: se till att program vara och signaturer för skadlig program vara uppdateras
+
+**Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för icke-Compute-resurser som är utformade för att lagra data. Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden som har stöd för Azure-tjänster (till exempel Service Fabric), men det körs inte på kund innehållet.
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvars område**: inte tillämpligt
+
+## <a name="data-recovery"></a>Dataåterställning
+
+*Mer information finns i [säkerhets kontroll: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
+
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
+
+**Vägledning**: säkerhets kopierings-och återställnings tjänsten i Service Fabric möjliggör enkel och automatisk säkerhets kopiering av information som lagras i tillstånds känsliga tjänster. Att säkerhetskopiera program data på regelbunden basis är grundläggande för att skydda mot data förlust och tjänster som inte är tillgängliga. Service Fabric tillhandahåller en valfri säkerhets kopierings-och återställnings tjänst som gör att du kan konfigurera regelbunden säkerhets kopiering av tillstånds känsliga Reliable Services (inklusive aktör tjänster) utan att behöva skriva någon ytterligare kod. Den gör det också lättare att återställa tidigare säkerhets kopior.
+
+* [Periodisk säkerhets kopiering och återställning i ett Azure Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: Utför fullständig säkerhets kopiering av systemet och säkerhetskopiera alla Kundhanterade nycklar
+
+**Vägledning**: Aktivera Backup Restore service i Service Fabric-klustret och skapa säkerhets kopierings principer för att säkerhetskopiera tillstånds känsliga tjänster regelbundet och på begäran. Säkerhetskopiera Kundhanterade nycklar inom Azure Key Vault.
+
+* [Periodisk säkerhets kopiering och återställning i ett Azure Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster)
+
+* [Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup)
+
+* [Så här säkerhetskopierar du nyckel valv nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: validera alla säkerhets kopior inklusive Kundhanterade nycklar
+
+**Vägledning**: se till att du kan utföra återställning från tjänsten för säkerhets kopierings återställning genom att regelbundet granska konfigurations informationen för säkerhets kopieringen och tillgängliga säkerhets kopior. Testa återställning av säkerhetskopierade nycklar som hanteras av kunden.
+
+* [Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup)
+
+* [Återställa säkerhets kopia i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-backup-restore-service-trigger-restore)
+
+* [Återställa Key Vault-nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
+
+**Vägledning**: säkerhets kopior från Service Fabric Backup Restore service använd ett Azure Storage konto i din prenumeration. Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange Kundhanterade nycklar för kryptering av lagrings data.
+
+Om du använder Kundhanterade nycklar ser du till att mjuk borttagning i Key Vault är aktive rad för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+
+* [Azure Storage-kryptering i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+
+* [Så här aktiverar du mjuk borttagning i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+## <a name="incident-response"></a>Incidenthantering
+
+*Mer information finns i [säkerhets kontroll: incident svar](/azure/security/benchmarks/security-control-incident-response).*
+
+### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
+
+**Vägledning**: utveckla en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla roller för personal samt de olika faserna av incident hantering och hantering från identifiering till granskning efter incidenten.
+
+* [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+
+* [Microsoft Security Response Centers Beskrivning av en incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+
+* [Använd NIST hanterings guide för dator säkerhet för att hjälpa till med att skapa din egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvar**: kund
+
+### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: skapa en incident bedömnings-och prioriterings procedur
+
+**Vägledning**: Azure Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
+
+Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings system för att identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
+
+* [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+
+* [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="103-test-security-response-procedures"></a>10,3: testa säkerhets svars procedurer
+
+**Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov.
+
+* [NIST-guide för test, utbildning och övnings program för IT-planer och funktioner](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Ange kontakt information för säkerhets incidenter och konfigurera aviseringar för säkerhets incidenter
+
+**Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
+
+* [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+
+**Azure Security Center övervakning**: inte tillämpligt
+
+**Ansvar**: kund
+
+### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: införliva säkerhets aviseringar i ditt incident svars system
+
+**Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviserings indikatorn.
+
+* [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
+
+* [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+
+**Azure Security Center övervakning**: Ja
+
+**Ansvar**: kund
+
+### <a name="106-automate-the-response-to-security-alerts"></a>10,6: automatisera svaret på säkerhets aviseringar
+
+**Vägledning**: Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer.
+
+* [Konfigurera automatisering av arbets flöden och Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvar**: kund
+
+## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
+
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
+
+**Vägledning**: Följ Microsoft Cloud inträngande test för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program.
+
+* [Inträngande test regler för engagemang](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+
+* [Microsoft Cloud röd team indelning](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
+
+**Ansvars område**: delat
+
+## <a name="next-steps"></a>Nästa steg
+
+- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)

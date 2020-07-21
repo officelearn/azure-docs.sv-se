@@ -3,11 +3,12 @@ title: Skicka Azure Service Health-aviseringar med OpsGenie med webhookar
 description: Få personligt anpassade meddelanden om service Health-händelser till din OpsGenie-instans.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654145"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529105"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Skicka Azure Service Health-aviseringar med OpsGenie med webhookar
 
@@ -36,7 +37,7 @@ Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar med
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Skapa en avisering med OpsGenie i Azure Portal
 ### <a name="for-a-new-action-group"></a>För en ny åtgärds grupp:
-1. Följ steg 1 till 8 i [skapa en avisering om ett tjänst hälso meddelande för en ny åtgärds grupp med hjälp av Azure Portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Följ steg 1 till 8 i [skapa en avisering om ett tjänst hälso meddelande för en ny åtgärds grupp med hjälp av Azure Portal](./alerts-activity-log-service-notifications-portal.md).
 
 1. Definiera i listan med **åtgärder**:
 
@@ -84,5 +85,5 @@ Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar med
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problem hanterings system](service-health-alert-webhook-guide.md).
 - Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Läs mer om [meddelanden om tjänst hälsa](../azure-monitor/platform/service-notifications.md).
+- Läs mer om [meddelanden om tjänst hälsa](./service-notifications.md).
 - Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).

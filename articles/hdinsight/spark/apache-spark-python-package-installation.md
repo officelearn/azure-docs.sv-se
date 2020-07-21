@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, tracking-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 67dfc0b2da753f005c1723ff0cf3370ce288c6de
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8c13dc43f4b7c66bd804fd9ec016f5e1a467bd8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536773"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -23,7 +23,7 @@ ms.locfileid: "86086627"
 
 HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. Kunder kan behöva anpassa python-miljön. Som att installera externa python-paket eller en annan python-version. Här visar vi bästa praxis för säker hantering av python-miljöer för Apache Spark kluster i HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Om du inte redan har ett Spark-kluster i HDInsight kan du köra skript åtgärder när klustret skapas. Gå till dokumentationen om [hur du använder anpassade skript åtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -47,11 +47,11 @@ Det finns två typer av komponenter med öppen källkod som är tillgängliga i 
 
 HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-installationer i klustret, Anaconda python 2,7 och python 3,5. I tabellen nedan visas standard inställningarna för python för Spark, livy och Jupyter.
 
-| |Python 2,7|Python 3,5|
+|Inställning |Python 2,7|Python 3,5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|E.t.|
-|Livy|Standard är inställt på 2,7|E.t.|
+|Spark-version|Standard är inställt på 2,7|E.t.|
+|Livy-version|Standard är inställt på 2,7|E.t.|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt

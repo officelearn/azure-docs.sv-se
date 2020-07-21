@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74228146"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529717"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Azure Notification Hubs-uppdateringar för iOS 13
 
@@ -57,13 +58,13 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-För att hjälpa dig under över gången, när Azure Notification Hubs identifierar ett meddelande som inte har `apns-push-type` angetts, härleds push-typen från meddelande förfrågan och värdet anges automatiskt. Kom ihåg att du måste konfigurera Azure-Notification Hubs för att använda tokenbaserad autentisering för att ange det obligatoriska huvudet. Mer information finns i [token-baserad (http/2)-autentisering för APN](notification-hubs-push-notification-http2-token-authentification.md).
+För att hjälpa dig under över gången, när Azure Notification Hubs identifierar ett meddelande som inte har `apns-push-type` angetts, härleds push-typen från meddelande förfrågan och värdet anges automatiskt. Kom ihåg att du måste konfigurera Azure-Notification Hubs för att använda tokenbaserad autentisering för att ange det obligatoriska huvudet. Mer information finns i [token-baserad (http/2)-autentisering för APN](./notification-hubs-push-notification-http2-token-authentication.md).
 
 ## <a name="apns-priority"></a>APN-prioritet
 
 En annan mindre förändring, men en som kräver en ändring i Server dels programmet som skickar meddelanden, är kravet på att `apns-priority` rubriken måste anges till 5 för bakgrunds meddelanden. Många program ställer in `apns-priority` sidhuvudet på 10 (indikerar omedelbar leverans) eller anger inte det och hämtar standardvärdet (som också är 10).
 
-Att ställa in det här värdet på 10 tillåts inte längre för bakgrunds meddelanden och du måste ange värdet för varje begäran. Apple levererar inte bakgrunds meddelanden om detta värde saknas. Ett exempel:
+Att ställa in det här värdet på 10 tillåts inte längre för bakgrunds meddelanden och du måste ange värdet för varje begäran. Apple levererar inte bakgrunds meddelanden om detta värde saknas. Till exempel:
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);

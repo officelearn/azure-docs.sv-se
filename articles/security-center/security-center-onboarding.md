@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: be26a9d4c66412518079de303ac0764d979c3e7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f14f5412b701ce055713fee347175c2dffd5c5b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77912060"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529425"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Registrering till Azure Security Center Standard för ökad säkerhet
 Uppgradera till Security Center standard för att dra nytta av förbättrad säkerhets hantering och skydd mot hot för dina hybrid moln arbets belastningar. Du kan prova standard kostnads fritt. Mer information finns på sidan med Security Center [prissättning](https://azure.microsoft.com/pricing/details/security-center/) .
@@ -47,7 +48,7 @@ Så här uppgraderar du en prenumeration eller arbets yta till standard:
    -    Du kan uppgradera prenumerationer och arbetsytor som inte är berättigade till utvärderingsversionen.
    -    Du kan välja berättigade arbetsytor och prenumerationer för att påbörja din utvärderingsperiod.
 3.  Klicka på **Starta utvärdering** för att påbörja din utvärderingsperiod för de valda prenumerationerna.
-  ![Välj prenumeration](./media/security-center-onboarding/select-subscription.png)
+  ![Välj en prenumeration](./media/security-center-onboarding/select-subscription.png)
 
 
    > [!NOTE]

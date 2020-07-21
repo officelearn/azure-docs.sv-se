@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76907986"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536284"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurera Azure Monitor-loggar och samla in diagnostikdata för B2B-meddelanden i Azure Logic Apps
 
-När du har konfigurerat B2B-kommunikation mellan handels partner i ditt integrations konto kan dessa partners utbyta meddelanden med hjälp av protokoll som AS2, X12 och EDIFACT. För att kontrol lera att den här kommunikationen fungerar som du förväntar dig kan du konfigurera [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md) för ditt integrations konto. [Azure Monitor](../azure-monitor/overview.md) hjälper dig att övervaka molnet och lokala miljöer så att du enklare kan underhålla deras tillgänglighet och prestanda. Genom att använda Azure Monitor loggar kan du registrera och lagra data om körnings data och händelser, t. ex. utlösa händelser, köra händelser och åtgärds händelser i en [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md). För meddelanden samlar loggning även in information som:
+När du har konfigurerat B2B-kommunikation mellan handels partner i ditt integrations konto kan dessa partners utbyta meddelanden med hjälp av protokoll som AS2, X12 och EDIFACT. För att kontrol lera att den här kommunikationen fungerar som du förväntar dig kan du konfigurera [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md) för ditt integrations konto. [Azure Monitor](../azure-monitor/overview.md) hjälper dig att övervaka molnet och lokala miljöer så att du enklare kan underhålla deras tillgänglighet och prestanda. Genom att använda Azure Monitor loggar kan du registrera och lagra data om körnings data och händelser, t. ex. utlösa händelser, köra händelser och åtgärds händelser i en [Log Analytics arbets yta](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). För meddelanden samlar loggning även in information som:
 
 * Antal meddelanden och status
 * Bekräftelse status
@@ -29,7 +30,7 @@ Den här artikeln visar hur du aktiverar Azure Monitor loggning för ditt integr
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Log Analytics-arbetsyta. Om du inte har en Log Analytics arbets yta, lär du dig [hur du skapar en Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -103,7 +104,7 @@ Du kan aktivera Azure Monitor loggning direkt från ditt integrations konto.
 
    1. När du är klar väljer du **Spara**.
 
-   Ett exempel: 
+   Till exempel: 
 
    ![Konfigurera Azure Monitor loggar för att samla in diagnostikdata](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -162,7 +163,7 @@ När din Logic App körs kan du Visa status och information om dessa meddelanden
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -183,13 +184,13 @@ Här är egenskaps beskrivningarna för varje AS2-meddelande.
 |----------|-------------|
 | **Avsändare** | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett AS2-avtal |
 | **Mottagare** | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett AS2-avtal |
-| **Logic app** | Den Logic app där AS2-åtgärderna har kon figurer ATS |
+| **Logikapp** | Den Logic app där AS2-åtgärderna har kon figurer ATS |
 | **Status** | Status för AS2-meddelande <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. Ingen MDN har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. MDN konfigureras och tas emot, eller så skickas MDN. <br>Misslyckades = ett ogiltigt AS2-meddelande togs emot. Ingen MDN har kon figurer ATS. <br>Väntar = tar emot eller skickade ett giltigt AS2-meddelande. MDN har ställts in och MDN förväntas. |
 | **Följ** | Status för MDN-meddelande <br>Accepterad = mottagen eller skickad positiv MDN. <br>Väntar = väntar på att ta emot eller skicka en MDN. <br>Avvisad = ta emot eller skicka ett negativt MDN. <br>Krävs inte = MDN har inte ställts in i avtalet. |
 | **Riktning** | AS2 meddelande riktning |
 | **Spårnings-ID** | Det ID som motsvarar alla utlösare och åtgärder i en Logic app |
 | **Meddelande-ID** | AS2 meddelande-ID från AS2-meddelandehuvuden |
-| **Tidsstämpel** | Tiden då AS2-åtgärden bearbetade meddelandet |
+| **Timestamp** | Tiden då AS2-åtgärden bearbetade meddelandet |
 |||
 
 <!--
@@ -216,7 +217,7 @@ Här är egenskaps beskrivningarna för varje X12-meddelande.
 |----------|-------------|
 | **Avsändare** | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett X12-avtal |
 | **Mottagare** | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett X12-avtal |
-| **Logic app** | Den Logic app där X12-åtgärderna har kon figurer ATS |
+| **Logikapp** | Den Logic app där X12-åtgärderna har kon figurer ATS |
 | **Status** | Status för X12-meddelande <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottog eller skickade ett ogiltigt X12-meddelande. <br>Väntar = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
 | **Följ** | Status för funktionell ack (997) <br>Accepterad = mottagen eller skickade en positiv funktionell ack. <br>Nekad = mottagen eller skickad negativ funktionell ack. <br>Väntar = en funktions ack förväntas men tas inte emot. <br>Väntar = genererar en funktionell ack men kan inte skicka till partner. <br>Inte obligatoriskt = funktions ack har inte kon figurer ATS. |
 | **Riktning** | X12 meddelande riktning |
@@ -224,7 +225,7 @@ Här är egenskaps beskrivningarna för varje X12-meddelande.
 | **Typ av meddelande** | Meddelande typen EDI-X12 |
 | **ICN** | Utbytes kontroll numret för X12-meddelandet |
 | **TSCN** | Kontroll nummer för transaktions uppsättning för X12-meddelandet |
-| **Tidsstämpel** | Tiden då X12-åtgärden bearbetade meddelandet |
+| **Timestamp** | Tiden då X12-åtgärden bearbetade meddelandet |
 |||
 
 <!--
@@ -251,7 +252,7 @@ Här är egenskaps beskrivningarna för varje EDIFACT-meddelande.
 |----------|-------------|
 | **Avsändare** | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
 | **Mottagare** | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
-| **Logic app** | Den Logic app där EDIFACT-åtgärderna har kon figurer ATS |
+| **Logikapp** | Den Logic app där EDIFACT-åtgärderna har kon figurer ATS |
 | **Status** | Status för EDIFACT-meddelande <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottaget eller skickat ett ogiltigt EDIFACT-meddelande <br>Väntar = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
 | **Följ** | Status för funktionell ack (CONTRL) <br>Accepterad = mottagen eller skickade en positiv funktionell ack. <br>Nekad = mottagen eller skickad negativ funktionell ack. <br>Väntar = en funktions ack förväntas men tas inte emot. <br>Väntar = genererar en funktionell ack men kan inte skicka till partner. <br>Inte obligatoriskt = funktions ack har inte kon figurer ATS. |
 | **Riktning** | EDIFACT meddelande riktning |
@@ -259,7 +260,7 @@ Här är egenskaps beskrivningarna för varje EDIFACT-meddelande.
 | **Typ av meddelande** | Meddelande typen EDIFACT |
 | **ICN** | Utbytes kontroll numret för EDIFACT-meddelandet |
 | **TSCN** | Kontroll nummer för transaktions uppsättning för EDIFACT-meddelandet |
-| **Tidsstämpel** | Tiden då EDIFACT-åtgärden bearbetade meddelandet |
+| **Timestamp** | Tiden då EDIFACT-åtgärden bearbetade meddelandet |
 |||
 
 <!--

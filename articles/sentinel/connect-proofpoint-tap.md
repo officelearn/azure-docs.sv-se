@@ -1,0 +1,55 @@
+---
+title: Anslut Proofpoint riktad attack Protection (KNACKa) data till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter Proofpoint riktad attack Protection (KNACKa) data till Azure Sentinel.
+services: sentinel
+documentationcenter: na
+author: yelevin
+manager: rkarlin
+editor: ''
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
+ms.devlang: na
+ms.topic: how-to
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/17/2020
+ms.author: yelevin
+ms.openlocfilehash: e4185de879fa6136531e6d4c64908befa1d3bc45
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86531974"
+---
+# <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Anslut din Proofpoint tryck till Azure Sentinel med Azure Function
+
+Via anslutningen Proofpoint Target attack Protection (Knack) kan du enkelt ansluta alla dina [Proofpoint](https://www.proofpoint.com/us/products/advanced-threat-protection/targeted-attack-protection) med hjälp av säkerhets lösningar med Azure Sentinel, Visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Integreringen mellan Proofpoint KNACKNING och Azure Sentinel använder Azure Functions för att hämta loggdata med REST API.
+
+> [!NOTE]
+> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
+
+## <a name="configure-and-connect-proofpoint-tap"></a>Konfigurera och ansluta Proofpoint-tryck
+
+Azure Functions kan integrera och hämta händelser och loggar direkt från Proofpoint att trycka och vidarebefordra dem till Azure Sentinel.
+
+1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer **Proofpoint tryck på** koppling.
+
+1. Välj **Öppna kopplings sida**.
+
+1. Följ anvisningarna på sidan **PROOFPOINT knackning** .
+
+## <a name="find-your-data"></a>Hitta dina data
+
+När en lyckad anslutning har upprättats visas data i Log Analytics under tabellerna **ProofpointTAPMessagesBlocked_CL**, **ProofpointTAPMessagesDelivered_CL**, **ProofpointTAPClicksPermitted_CL** och **ProofpointTAPClicksBlocked_CL** .
+
+## <a name="validate-connectivity"></a>Verifiera anslutning
+
+Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
+
+## <a name="next-steps"></a>Nästa steg
+
+I det här dokumentet har du lärt dig hur du ansluter Proofpoint till Azure Sentinel med Azure Function Apps. Mer information om Azure Sentinel finns i följande artiklar:
+
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.

@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
-ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/14/2020
+ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562533"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529632"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabbstart: Skapa en Azure Cognitive Search-tjänst i portalen
 
@@ -27,11 +27,11 @@ Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/res
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Följande tjänst egenskaper är fasta för tjänstens livs längd och det krävs en ny tjänst för att ändra dem. När du skapar en tjänst bör du tänka på hur du ska använda den:
+Följande tjänst egenskaper har åtgärd ATS för livs längden för tjänsten – om du ändrar någon av dem krävs en ny tjänst. Eftersom de är fasta bör du tänka på användnings konsekvenserna när du fyller i varje egenskap:
 
-* namn (granska [de här förslagen](#name-the-service) för tjänst namn)
-* nivå (kostnads fri, Basic, standard [påverkar fakturering](search-sku-tier.md) och ställer in en övre gräns för kapacitet)
-* region (Välj en plats som har relaterade tjänster. För integrering med Cognitive Services eller Azure Machine Learning samplacera tjänster i samma region ett krav)
+* tjänst namnet blir en del av URL-slutpunkten ([gransknings tips](#name-the-service) för användbara tjänst namn).
+* tjänst nivån [påverkar faktureringen](search-sku-tier.md) och ställer in en övre gräns för kapacitet.
+* tjänste region kan avgöra om vissa scenarier är tillgängliga. Om du är intresse rad av kunskaps utvinning och AI-berikning behöver du Cognitive Services och eventuellt Azure Machine Learning i samma region som Azure-Kognitiv sökning.
 
 ## <a name="subscribe-free-or-paid"></a>Prenumerera (kostnadsfritt eller betalt)
 
@@ -41,7 +41,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="find-azure-cognitive-search"></a>Hitta Azure-Kognitiv sökning
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
 
@@ -59,7 +59,7 @@ En resurs grupp är en behållare som innehåller relaterade resurser för din A
 
 Om du inte kombinerar resurser till en enda grupp, eller om befintliga resurs grupper är fyllda med resurser som används i orelaterade lösningar, skapar du en ny resurs grupp för din Azure Kognitiv sökning-resurs. 
 
-![Skapa en ny resurs grupp](./media/search-create-service-portal/new-resource-group.png "Skapa en ny resursgrupp")
+![Skapa en ny resursgrupp](./media/search-create-service-portal/new-resource-group.png "Skapa en ny resursgrupp")
 
 Med tiden kan du spåra aktuella och projicerade kostnader hela tiden, eller så kan du Visa avgifter för enskilda resurser. Följande skärm bild visar vilken typ av kostnads information som du kan se när du kombinerar flera resurser i en grupp.
 

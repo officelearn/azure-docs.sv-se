@@ -1,18 +1,18 @@
 ---
 title: Översikt över utbetalnings översikt – Azure Marketplace
 description: Sammanfattningen av utbetalningen visar information om de pengar som du har fått med erbjudandet. Du kan också se när du får betalningar och hur mycket du betalar.
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.service: marketplace
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118485"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535968"
 ---
 # <a name="payout-summary-overview"></a>Översikt över utbetalningssammanfattning
 
@@ -43,19 +43,6 @@ Detta är roller och behörigheter för att få åtkomst till utbetalnings rappo
 | Utbetalningssammanfattning | Kan visa | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst  |
 | | | | | | | |
 
-## <a name="payout-report-differences"></a>Skillnader i utbetalnings rapport
-
-Detta är skillnaderna i utbetalnings rapporten mellan Cloud Partner Portal (gammal) och partner Center (ny):
-
-| Partnerportalen i molnet | Partner Center |
-| --- | --- |
-| **Länk**:https://cloudpartner.azure.com/ | **Länk**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory ochhttps://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigering**: utbetalnings rapportering som tillhandahålls i insikts utbetalning | **Navigering**: utbetalnings rapport som tillhandahålls i Partner Center – utbetalnings ikon |
-| **Omfattning**:<ul><li>Transaktion per rad objekt är synligt för insamling i arbete, samlas in och betalas.</li><li>Rapportering – visar alla rad artiklar när inköps ordern har skapats, inklusive pågående insamling och fakturering, samt insamlings status och rad artiklar som ännu inte är berättigade att betala.</li></ul> | **Omfattning**:<ul><li>Visar rad artiklarna efter att de bedömts som berättigade intäkter.</li><li>Kunderna betalar till Microsoft först och sedan kan ISV: erna se utbetalnings rapporten som startar.</li><li>Utbetalnings rapporten visar inte insamlingen pågår och faktureringen pågår.</li></ul> |
-| **Transaktionen är inte klar för utbetalning**: fakturering pågår | **Transaktionen är inte klar för utbetalning**: nästa beräknade betalning: utbetalnings statusen är i tillståndet Unprocessed. |
-| **Utbetalnings status**: ej tillämpligt | **Utbetalnings status**:<ul><li>Obearbetad: amorteringen är berättigad till betalning.</li><li>Kommande: du kommer att skickas till utgivaren i nästa månads utbetalning.</li><li>Skickat: betalningen har skickats till din bank.</li></ul> |
-| | |
-
 ## <a name="payment-schedules"></a>Betalnings scheman
 
 För en diskussion om betalnings scheman, inklusive anläggnings perioder, partner synlighet och när kunden använder ett kredit kort eller en faktura, se avsnittet [betalnings planer](./payout-policy-details.md#payment-schedules) i avsnittet **utbetalnings information** .
@@ -64,7 +51,7 @@ För en diskussion om betalnings scheman, inklusive anläggnings perioder, partn
 
 Det här alternativet ger en nedladdning av varje rad objekt som visas på sidan transaktions historik. Detta inkluderar typ, datum, tillhör ande transaktions belopp, kund, produkt och annan transaktionell information som är relaterad till stimulans programmet.
 
-| Kolumnnamn | Description |
+| Kolumnnamn | Beskrivning |
 | --- | --- |
 | earningId | Unikt ID för varje tilltjänande |
 | participantId | Den primära identiteten för partnern enligt programmet |

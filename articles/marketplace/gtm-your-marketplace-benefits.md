@@ -7,32 +7,32 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135523"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536086"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
-Du har publicerat på Marketplace och nu vill du se att ditt erbjudande lyckas. Vi ger dig fördelarna – försäljning, teknik och marknadsföring – du behöver påskynda ditt erbjudande.
+Du har publicerat på Microsofts kommersiella marknads platser och nu vill du se att ditt erbjudande lyckas. Vi ger dig fördelarna – försäljning, teknik och marknadsföring – du behöver påskynda ditt erbjudande.
 
-När ditt erbjudande är aktivt på Azure Marketplace eller AppSource går du till [partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) för att få åtkomst till och aktivera din berättigade marknadsföring, försäljning och tekniska förmåner. Förmåner för Marketplace-förmåner periodiseras baserat på ditt handels marknads engagemang och försäljning. Desto mer du tar, desto mer du får tillbaka.
+När ditt erbjudande är aktivt på Microsoft AppSource eller Azure Marketplace går du till [partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) för att få åtkomst till och aktivera dina berättigade marknadsförings-, försäljnings-och tekniska förmåner. Förmåner för Marketplace-förmåner periodiseras baserat på ditt handels marknads engagemang och försäljning. Desto mer du tar, desto mer du får tillbaka.
 
-## <a name="marketplace-rewards"></a>Marknads förmåner
+## <a name="marketplace-rewards"></a>Marketplace Rewards
 
-Marknads förmåner har utformats för att ge stöd åt dig i ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via Marketplace kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal. 
+Marknads förmåner har utformats för att ge stöd åt dig i ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via den kommersiella Marketplace kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal.
 
-Programmet skapar en positiv feedback-slinga: fördelarna i varje stadium av tillväxten är utformade för att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform. 
+Programmet skapar en positiv feedback-slinga: fördelarna i varje stadium av tillväxten är utformade för att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform.
 
 Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](determine-your-listing-type.md#choose-a-publishing-option).
 
-Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet. 
+Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet.
 
-När du ökar din fakturerade försäljning via Marketplace-plattformen för Transact-partner, så kan du låsa upp fler förmåner per nivå. 
+För Transact-partner, när du växer din fakturerade försäljning via den kommersiella Marketplace-plattformen, kan du låsa upp fler förmåner per nivå.
 
-Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet via Marketplace som en plattform.
+Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet genom den kommersiella marknads platsen som en plattform.
 
 Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -52,19 +52,19 @@ Det är enkelt att komma igång:
 
 **Tekniska fördelar**
 
-1. Du kan använda din tekniska fördel för att begära teknisk support under försäljnings-, design-, distributions-och app Development-faserna i dina moln-och hybrid lösningar. Om du vill be om hjälp fyller du i formuläret för begäran och väljer **skicka begäran**.
+1. Du kan använda dina tekniska förmåner för att begära teknisk support under försäljnings-, design-, distributions-och app Development-faserna i dina moln-och hybrid lösningar. Om du vill be om hjälp fyller du i formuläret för begäran och väljer **skicka begäran**.
 2. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
 
 >[!NOTE]
 >Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått något meddelande, kan du kontrol lera i din organisation vem som är ägare till erbjudandet i fråga, genom att titta i Partner Center. De bör ha kommunikation och nästa steg.<br><br>Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende i [Hjälp och support](https://aka.ms/marketplacepublishersupport).
 
-Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.
+Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i den kommersiella marknads platsen. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Lista, utvärdering och konsult förmåner
 
 Om du publicerar en utvärderings version eller ett konsult bevis för koncept, implementering eller workshop, tilldelas du en förlovnings ansvarig i tre månader, som hjälper dig att komma igång med att gå till marknads plan. Du kan upprepa det här tre månaders samengagemanget varje gång du publicerar ett nytt erbjudande, så att du kan få var och en av dina nya erbjudanden som börjar med framgång.
 
-I tabellen nedan sammanfattas kraven för krav för lista och utvärderings versioner:
+I tabellen nedan sammanfattas kraven för krav för List-, utvärderings-och konsult erbjudanden:
 
 ![Go-to-Marketing-förmåner](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
@@ -72,14 +72,14 @@ Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken f�
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Marknads förmåner för Transact-partner
 
-När du är live med ditt transactable-erbjudande i antingen Azure Marketplace eller Microsoft AppSource kan du få åtkomst till ytterligare förmåner när du ökar dina fakturerade försäljnings transaktioner eller platser som säljs via den kommersiella marknads platsen. 
+När du är live med ditt transactable-erbjudande i antingen Microsoft AppSource eller Azure Marketplace kan du få åtkomst till ytterligare förmåner när du ökar dina fakturerade försäljnings transaktioner eller platser som säljs via den kommersiella Marketplace.
 
 >[!NOTE]
->Tröskelvärden för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste ha genomförts senast den 30 juni 2020.
+>Tröskelvärden för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste ha genomförts senast den 30 juni 2021.
 
 Dessa fördelar är utformade för att ge stöd åt dig i marknadsförings-, försäljnings-och teknik aktiviteter och hjälper dig att få fler besökare, få fler leads och konvertera mer verksamhet.
 
-Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang hanterare för att välja de mest värde aktiviteterna för din portfölj av Marketplace-erbjudanden. Det här åtagandet är Evergreen per erbjudande, vilket innebär att du kan välja dina aktiviteter och tidpunkten för dessa aktiviteter för att anpassa sig till tidpunkten för företagets bredare marknadsförings-och Sälj strategier. 
+Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang hanterare för att välja de mest värde aktiviteterna för din portfölj av kommersiella Marketplace-erbjudanden. Det här åtagandet är Evergreen per erbjudande, vilket innebär att du kan välja dina aktiviteter och tidpunkten för dessa aktiviteter för att anpassa sig till tidpunkten för företagets bredare marknadsförings-och Sälj strategier. 
 
 ![Marknadsförings förmåner](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -87,7 +87,7 @@ Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang
 
 ![Tekniska fördelar](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\*Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2020.
+\*Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2021.
 
 Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
 
@@ -118,7 +118,9 @@ Transaktioner som är beprövade att vara bedrägliga räknas inte över till en
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har skapat erbjudandet i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)loggar du in för att skapa eller konfigurera ditt erbjudande.
+Logga in på [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) för att skapa eller konfigurera ditt erbjudande.
+
+Aktivera förmåner för marknads förmåner i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
 Granska de [självbetjänings resurser som är tillgängliga för dig](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

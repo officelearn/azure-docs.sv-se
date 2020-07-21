@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b25d6c33aa2bd50cbf96fb09f0de03354d24f2da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530379"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -29,8 +29,8 @@ I den här versionen av Azure Media Services sammanfattas ändringar från tidig
 
 Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda problem som påverkar dig. Om du vill rapportera ett problem eller ställa frågor kan du skicka in ett inlägg i [Azure Media Services MSDN-forumet]. 
 
-## <a name="known-issues"></a><a id="issues"/>Kända problem
-### <a name="media-services-general-issues"></a><a id="general_issues"/>Media Services allmänna problem
+## <a name="known-issues"></a><a name="issues"></a>Kända problem
+### <a name="media-services-general-issues"></a><a name="general_issues"></a>Media Services allmänna problem
 
 | Problem | Beskrivning |
 | --- | --- |
@@ -43,7 +43,7 @@ Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda probl
 | Media Services .NET SDK-objekt kan inte serialiseras och därför fungerar det inte med Azure cache för Redis. |Om du försöker serialisera SDK AssetCollection-objektet för att lägga till det i Azure cache för Redis genereras ett undantag. |
 |REST API svarar med ett fel meddelande om att "filtret inte kan nås av den här versionen av REST API" vid försök att hämta ett till gångs-eller konto nivå filter.|Filtret har skapats eller ändrats med en senare API-version än vad som används för att hämta filtret. Detta kan inträffa om två API-versioner används av kod eller verktyg som används av kunden.  Den bästa lösningen här är att uppgradera koden eller verktygen för att använda de nyare eller de två API-versionerna.|
 
-## <a name="rest-api-version-history"></a><a id="rest_version_history"/>REST API versions historik
+## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>REST API versions historik
 Information om Media Services REST API versions historik finns i [Azure Media Services REST API referens].
 
 ## <a name="february-2020"></a>Februari 2020
@@ -159,7 +159,7 @@ Mer information om dessa egenskaper finns i [StreamingEndpoint](https://docs.mic
 
  Nu kan du använda Media Services för att få åtkomst till telemetri/Mät data för sina tjänster. Du kan använda den aktuella versionen av Media Services för att samla in telemetridata för Live Channel, direkt uppspelnings slut punkt och Arkiv-entiteter. Mer information finns i [Media Services telemetri](media-services-telemetry-overview.md).
 
-## <a name="july-2016-release"></a><a id="july_changes16"/>Version juli 2016
+## <a name="july-2016-release"></a><a name="july_changes16"></a>Version juli 2016
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Uppdateringar av manifest filen (*. ISM) som skapats av kodnings aktiviteter
 När en kodnings uppgift skickas till Media Encoder Standard eller Media Encoder Premium genererar encoding-aktiviteten en [strömmande manifest fil](media-services-deliver-content-overview.md) (*. ISM) i utmatnings till gången. Med den senaste tjänst versionen har syntaxen för den här strömmande manifest filen uppdaterats.
 

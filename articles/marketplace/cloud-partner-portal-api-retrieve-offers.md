@@ -4,26 +4,26 @@ description: API för att hämta en sammanfattande lista med erbjudanden under e
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: ab5f09d0d81d8a6aa526576faea0b11a6536381a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113487"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535900"
 ---
-<a name="retrieve-offers"></a>Hämta erbjudanden
-===============
+# <a name="retrieve-offers"></a>Hämta erbjudanden
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>URI-parametrar
---------------
+## <a name="uri-parameters"></a>URI-parametrar
 
 | **Namn**         |  **Beskrivning**                         |  **Datatyp** |
 | -------------    |  ------------------------------------    |  -----------   |
@@ -31,9 +31,7 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 |  api-version     | Senaste versionen av API                    |    Datum        |
 |  |  |
 
-
-<a name="header"></a>Sidhuvud
-------
+## <a name="header"></a>Huvud
 
 |  **Namn**        |         **Värde**       |
 |  --------------- |       ----------------  |
@@ -41,11 +39,9 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 |  Auktorisering   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
+## <a name="body-example"></a>Body-exempel
 
-<a name="body-example"></a>Body-exempel
-------------
-
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 ``` json
   200 OK 
@@ -77,7 +73,6 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 |  changedTime    | UTC-tid när erbjudandet senast ändrades                                                                              |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Svars status koder
 
 | **Kod**  |  **Beskrivning**                                                                                                   |
@@ -87,7 +82,6 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 |  403      | `Forbidden`-Klienten har inte åtkomst till den angivna namn rymden.                                          |
 |  404      | `Not found`-Den angivna entiteten finns inte.                                                                 |
 |  |  |
-
 
 ### <a name="offer-status"></a>Erbjudande status
 
@@ -99,5 +93,5 @@ Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 |  Körs                     | Överföring av erbjudande bearbetas.             |
 |  Lyckades                   | Bearbetningen av erbjudandet har slutförts.       |
 |  Avbrutna                    | Överföring av erbjudande avbröts.                   |
-|  Misslyckades                      | Det gick inte att skicka erbjudandet.                         |
+|  Misslyckad                      | Det gick inte att skicka erbjudandet.                         |
 |  |  |

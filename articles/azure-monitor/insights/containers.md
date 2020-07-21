@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 14fa6859a16dc173e75091983abee717bf813220
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984632"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499030"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -45,7 +45,7 @@ Innan du börjar läser du följande information för att kontrol lera att du up
 
 I följande tabell beskrivs stödet för Docker-dirigering och operativ system övervakning av behållar inventering, prestanda och loggar med Azure Monitor.   
 
-| | ACS | Linux | Windows | Container<br>Lager | Bild<br>Lager | Node<br>Lager | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Logga | Container<br>Logga |
+|Docker-dirigering | ACS | Linux | Windows | Container<br>Inventering | Bild<br>Inventering | Nod<br>Inventering | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Loggas | Container<br>Loggas |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -105,11 +105,11 @@ Använd följande information för att installera och konfigurera lösningen.
        - Granska [Konfigurera en Log Analytics Linux-Agent för Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Granska [Konfigurera en Log Analytics Windows-agent för Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Granska Använd Helm för att distribuera Log Analytics agent på Linux-Kubernetes.
-     - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer i [övervaka ett Azure Container Service DC/OS-kluster med Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer i [övervaka ett Azure Container Service DC/OS-kluster med Azure Monitor](/previous-versions/azure/container-service/dcos-swarm/container-service-monitoring-oms).
      - Om du har en Docker Swarm läges miljö kan du läsa mer i Konfigurera en Log Analytics-agent för Docker Swarm.
      - Om du har ett Service Fabric kluster kan du läsa mer på [Monitor-behållare med Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
-Läs avsnittet [Docker-motorn i Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) om du vill ha mer information om hur du installerar och konfigurerar Docker-motorer på datorer som kör Windows.
+Läs avsnittet [Docker-motorn i Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) om du vill ha mer information om hur du installerar och konfigurerar Docker-motorer på datorer som kör Windows.
 
 > [!IMPORTANT]
 > Docker måste köras **innan** du installerar [Log Analytics agent för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) på behållar värdarna. Om du redan har installerat agenten innan du installerar Docker måste du installera om Log Analytics-agenten för Linux. Mer information om Docker finns på [Docker-webbplatsen](https://www.docker.com).
@@ -505,7 +505,7 @@ dockerd --register-service -H npipe:// -H 0.0.0.0:2375
 Start-Service docker
 ```
 
-Mer information om konfiguration av Docker daemon som används med Windows-behållare finns i [Docker-motorn i Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+Mer information om konfiguration av Docker daemon som används med Windows-behållare finns i [Docker-motorn i Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 #### <a name="install-windows-agents"></a>Installera Windows-agenter
 

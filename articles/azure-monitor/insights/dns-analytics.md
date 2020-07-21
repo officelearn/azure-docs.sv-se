@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552820"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499009"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-analys för hands versions lösning
 
@@ -36,13 +36,13 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
 | [Windows-agenter](../platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
 | [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
-| [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | No | Azure Storage används inte av lösningen. |
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nej | Azure Storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om data insamling
 
-Lösningen samlar in DNS-inventering och DNS-säkerhetsrelaterade data från DNS-servrarna där en Log Analytics-agent är installerad. Dessa data överförs sedan till Azure Monitor och visas i instrument panelen för lösningen. Lagerrelaterade data, till exempel antalet DNS-servrar, zoner och resurs poster, samlas in genom att köra DNS PowerShell-cmdletar. Data uppdateras var två: e dag. Händelse-relaterade data samlas in nära real tid från de [analytiska och gransknings loggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) som tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
+Lösningen samlar in DNS-inventering och DNS-säkerhetsrelaterade data från DNS-servrarna där en Log Analytics-agent är installerad. Dessa data överförs sedan till Azure Monitor och visas i instrument panelen för lösningen. Lagerrelaterade data, till exempel antalet DNS-servrar, zoner och resurs poster, samlas in genom att köra DNS PowerShell-cmdletar. Data uppdateras var två: e dag. Händelse-relaterade data samlas in nära real tid från de [analytiska och gransknings loggar](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) som tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
 
 ## <a name="configuration"></a>Konfiguration
 

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96bb624472aa2053599765d5bfedeb96339d0973
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808054"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496060"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -40,7 +40,7 @@ Dessutom underlättar Azure-Synapse förutsägelse modell utveckling och avancer
 
 * Synapse SQL erbjuder både **Server** löst och **etablerade** resurs modeller, och erbjuder användnings-och fakturerings alternativ som passar dina behov. För förutsägbar prestanda och kostnad etablera pooler för att reservera bearbetnings kraft för data som lagras i SQL-tabeller. Använd den serverbaserade, alltid tillgängliga SQL-slutpunkten för oplanerade eller burst-arbetsbelastningar.
 * Använd inbyggda **strömnings** funktioner för att landa data från moln data källor till SQL-tabeller
-* Integrera AI med SQL genom att använda **maskin inlärnings** modeller för att räkna data med hjälp av funktionen T-SQL predict
+* Integrera AI med SQL genom att använda **maskin inlärnings** modeller för att räkna data med hjälp av [funktionen T-SQL predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### <a name="industry-standard-apache-spark"></a>Bransch standard Apache Spark
 

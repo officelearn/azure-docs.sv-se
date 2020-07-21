@@ -1,5 +1,5 @@
 ---
-title: Skapa, uppdatera statistik
+title: Skapa och uppdatera statistik för tabeller med Azure Synapse SQL
 description: Rekommendationer och exempel för att skapa och uppdatera statistik för frågekörning i tabeller i SQL-poolen Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 257b1e26127186fce07e402e58f98660005a97fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495643"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Tabell statistik i Synapse SQL-pool
 
@@ -220,7 +220,7 @@ I den här syntaxen används alla standard alternativ. Som standard samplar SQL-
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -236,7 +236,7 @@ Använd följande syntax för att sampla den fullständiga tabellen:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -437,7 +437,7 @@ Använd följande syntax för att uppdatera ett enskilt statistik objekt:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -453,7 +453,7 @@ En enkel metod för att uppdatera alla statistik objekt i en tabell är:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -539,7 +539,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data ingår i tre delar:
 
-- Sidhuvud
+- Huvud
 - Densitets vektor
 - Histogram
 
@@ -556,7 +556,7 @@ Det här enkla exemplet visar alla tre delarna i ett statistik objekt:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -570,7 +570,7 @@ Om du bara vill visa vissa delar använder du `WITH` satsen och anger vilka dela
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d55bcf921d5bddb1612f9cfb884b339f837c7aa2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225291"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494725"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Skapa en avbildning från en virtuell hård disk eller en ögonblicks bild i ett galleri för delad avbildning med hjälp av PowerShell
 
@@ -90,9 +90,9 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 
 När du gör en avbildnings definition ser du till att har all rätt information. I det här exemplet antar vi att ögonblicks bilden eller den virtuella hård disken kommer från en virtuell dator som används och inte har generaliserats. Om den virtuella hård disken eller ögonblicks bilden tog av ett generaliserat operativ system (när Sysprep för Windows eller [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller Linux har körts `-deprovision+user` ) ändrar `-OsState` du till `generalized` . 
 
-Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](./windows/shared-image-galleries.md#image-definitions).
 
-Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för ett specialiserat Windows-operativsystem. Använd om du vill skapa en definition för avbildningar med hjälp av ett Linux-operativsystem `-OsType Linux` . 
+Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för ett specialiserat Windows-operativsystem. Använd om du vill skapa en definition för avbildningar med hjälp av ett Linux-operativsystem `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -107,14 +107,14 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
-### <a name="purchase-plan-information"></a>Information om inköps plan
+### <a name="purchase-plan-information"></a>Inköpsplaninformation
 
 I vissa fall måste du skicka information om inköps planer i när du skapar en virtuell dator från en avbildning som baseras på en Azure Marketplace-avbildning. I dessa fall rekommenderar vi att du inkluderar information om inköps planen i avbildnings definitionen. I det här fallet, se [Ange inköps prenumerations information för Azure Marketplace när du skapar avbildningar](marketplace-images.md).
 
 
 ## <a name="create-an-image-version"></a>Skapa en avbildningsversion
 
-Skapa en avbildnings version från ögonblicks bilden med [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Skapa en avbildnings version från ögonblicks bilden med [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version*. *MinorVersion*. *Korrigering*.
 
@@ -148,7 +148,7 @@ $job.State
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma ögonblicks bild för att skapa en avbildnings version. 
 >
-> Du kan också lagra avbildnings versionen i [zon redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` den när du skapar avbildnings versionen.
+> Du kan också lagra avbildnings versionen i [zon redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `-StorageAccountType Standard_ZRS` den när du skapar avbildnings versionen.
 >
 
 ## <a name="delete-the-source"></a>Ta bort källan

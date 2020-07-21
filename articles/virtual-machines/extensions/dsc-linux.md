@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698520"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494793"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
 Önskad tillstånds konfiguration (DSC) är en hanterings plattform som du kan använda för att hantera IT-och utvecklings infrastrukturen med konfiguration som kod.
 
 > [!NOTE]
-> DSC-tillägget för Linux och [Azure Monitor tillägg för virtuell dator för Linux](/azure/virtual-machines/extensions/oms-linux) presenterar en konflikt som inte stöds i en sida-vid-sida-konfiguration. Använd inte de två lösningarna tillsammans på samma virtuella dator.
+> DSC-tillägget för Linux och [Azure Monitor tillägg för virtuell dator för Linux](./oms-linux.md) presenterar en konflikt som inte stöds i en sida-vid-sida-konfiguration. Använd inte de två lösningarna tillsammans på samma virtuella dator.
 
 DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget installerar OMI-och DSC-agenten på virtuella Azure-datorer. DSC-tillägget kan också utföra följande åtgärder:
 
@@ -37,11 +38,11 @@ DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget insta
 
  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-DSC Linux-tillägget stöder alla [Linux-distributioner](/azure/virtual-machines/linux/endorsed-distros) som har godkänts på Azure, förutom:
+DSC Linux-tillägget stöder alla [Linux-distributioner](../linux/endorsed-distros.md) som har godkänts på Azure, förutom:
 
 | Distribution | Version |
 |---|---|
@@ -409,7 +410,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en specifik virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

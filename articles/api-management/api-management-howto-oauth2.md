@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: f4f5c5d9a77353f36119b77601b88f9dab01ccc0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243621"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499791"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med OAuth 2,0 i Azure API Management
 
@@ -27,7 +27,7 @@ Många API: er stöder [OAuth 2,0](https://oauth.net/2/) för att skydda API: et
 > [!IMPORTANT]
 > OAuth 2,0-auktorisering är inte tillgängligt ännu i den interaktiva konsolen för den nya Developer-portalen.
 
-## <a name="prerequisites"></a><a name="prerequisites"> </a>Krav
+## <a name="prerequisites"></a><a name="prerequisites"> </a>Förutsättningar
 
 Den här guiden visar hur du konfigurerar API Management tjänst instansen att använda OAuth 2,0-auktorisering för utvecklarresurser, men visar inte hur du konfigurerar en OAuth 2,0-Provider. Konfigurationen för varje OAuth 2,0-Provider är annorlunda, även om stegen är likartade, och de nödvändiga delarna av information som används för att konfigurera OAuth 2,0 i API Management tjänst instansen är desamma. Det här avsnittet innehåller exempel som använder Azure Active Directory som en OAuth 2,0-Provider.
 
@@ -50,7 +50,7 @@ Den här guiden visar hur du konfigurerar API Management tjänst instansen att a
     > [!NOTE]
     > De här fälten används för att identifiera OAuth 2,0-auktoriseringsservern i den aktuella API Management tjänst instansen och deras värden kommer inte från OAuth 2,0-servern.
 
-3. Ange **URL för klient registrerings sidan**. Den här sidan är den plats där användare kan skapa och hantera sina konton och varierar beroende på vilken OAuth 2,0-provider som används. **URL: en för klient registrerings sidan** pekar på sidan som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2,0-leverantörer som stöder användar hantering av konton. Vissa organisationer konfigurerar eller använder inte den här funktionen även om OAuth 2,0-providern stöder det. Om din OAuth 2,0-Provider inte har användar hantering av konfigurerade konton anger du en URL för plats hållare, till exempel URL: en för ditt företag eller en URL som `https://placeholder.contoso.com` .
+3. Ange **URL för klient registrerings sidan**. Den här sidan är den plats där användare kan skapa och hantera sina konton och varierar beroende på vilken OAuth 2,0-provider som används. **URL: en för klient registrerings sidan** pekar på sidan som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2,0-leverantörer som stöder användar hantering av konton, till exempel `https://contoso.com/login` . Vissa organisationer konfigurerar eller använder inte den här funktionen även om OAuth 2,0-providern stöder det. Om din OAuth 2,0-Provider inte har användar hantering av konfigurerade konton anger du en URL för plats hållare, till exempel URL: en för ditt företag eller en URL som `https://placeholder.contoso.com` .
 
     ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -75,6 +75,11 @@ Den här guiden visar hur du konfigurerar API Management tjänst instansen att a
     Standardvärdet för **klientautentisering** är **Basic**, och **sändnings metoden för åtkomst-token** är **Authorization-huvud**. Dessa värden konfigureras i det här avsnittet av formuläret, tillsammans med **standard omfånget**.
 
 6. Avsnittet **klientautentiseringsuppgifter** innehåller **klient-ID** och **klient hemlighet**, som erhålls när du skapar och konfigurerar en OAuth 2,0-servers process. När **klient-ID** och **klient hemlighet** har angetts genereras **redirect_uri** för **auktoriseringskod** . Denna URI används för att konfigurera svars-URL: en i konfigurationen för OAuth 2,0-servern.
+
+    I den nya Developer-portalen är URI-suffixet av form:
+
+    - `/signin-oauth/code/callback/{authServerName}`för utfärdande flöde för auktoriseringskod
+    - `/signin-oauth/implicit/callback`för implicit beviljande flöde
 
     ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-04.png)
 

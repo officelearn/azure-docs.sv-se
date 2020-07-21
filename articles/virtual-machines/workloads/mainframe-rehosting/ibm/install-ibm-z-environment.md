@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72025936"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499927"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installera IBM zD&T dev/test-miljö på Azure
 
@@ -56,13 +56,13 @@ Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD&T) 
 
 ## <a name="create-the-base-image-and-connect"></a>Skapa bas avbildningen och Anslut
 
-1. I Azure Portal [skapar du en virtuell dator](/azure/virtual-machines/linux/quick-create-portal) med den konfiguration av operativ systemet som du vill använda. Den här artikeln förutsätter en B4ms VM (med 4 virtuella processorer och 16 GB minne) som kör Ubuntu 16,04.
+1. I Azure Portal [skapar du en virtuell dator](../../../linux/quick-create-portal.md) med den konfiguration av operativ systemet som du vill använda. Den här artikeln förutsätter en B4ms VM (med 4 virtuella processorer och 16 GB minne) som kör Ubuntu 16,04.
 
 2. När den virtuella datorn har skapats öppnar du inkommande portar 22 för SSH, 21 för FTP och 9443 för webb servern.
 
 3. Hämta SSH-autentiseringsuppgifterna som visas på bladet **Översikt** på den virtuella datorn via knappen **Anslut** . Välj fliken **SSH** och kopiera SSH-inloggnings kommandot till Urklipp.
 
-4. Logga in på ett [bash-gränssnitt](/azure/cloud-shell/quickstart) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH \<user id\> \@ \<IP Address\> **. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
+4. Logga in på ett [bash-gränssnitt](../../../../cloud-shell/quickstart.md) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH \<user id\> \@ \<IP Address\> **. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiera installations filen till servern
 

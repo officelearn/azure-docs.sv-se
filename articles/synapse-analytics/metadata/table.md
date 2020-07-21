@@ -1,5 +1,5 @@
 ---
-title: Delade metadata-tabeller för Azure Synapse Analytics
+title: Delade metadata-tabeller
 description: Azure Synapse Analytics tillhandahåller en delad metadata modell där en tabell skapas i Apache Spark, vilket gör den tillgänglig från SQL on-demand (för hands version) och SQL-pooler utan att duplicera data.
 services: sql-data-warehouse
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 257847a34821ad48d0491472cf7365932f7740c0
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: d9efafdbc3545bebb3b90b3f64c14f45d8be82e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496034"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabeller för delade metadata i Azure Synapse Analytics
 

@@ -3,11 +3,12 @@ title: Övervaka användning och prestanda för Windows-appar
 description: Analysera användning och prestanda för Windows-program med Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499196"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
 
@@ -72,9 +73,9 @@ using Microsoft.ApplicationInsights;
 
 Som standard samlar denna SDK upp och lagrar dator namnet för telemetri för system som du avger.
 
-Dator namnet används av Application Insights [äldre Enterprise (per nod) pris nivå](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) för interna fakturerings behov. Som standard om du använder en telemetri-initierare för att åsidosätta `telemetry.Context.Cloud.RoleInstance` skickas en separat egenskap `ai.internal.nodeName` som fortfarande kommer att innehålla värdet dator namn. Det här värdet kommer inte att lagras med din Application Insights telemetri, men används internt vid inmatning för att möjliggöra bakåtkompatibilitet med den äldre nodens fakturerings modell.
+Dator namnet används av Application Insights [äldre Enterprise (per nod) pris nivå](./pricing.md#legacy-enterprise-per-node-pricing-tier) för interna fakturerings behov. Som standard om du använder en telemetri-initierare för att åsidosätta `telemetry.Context.Cloud.RoleInstance` skickas en separat egenskap `ai.internal.nodeName` som fortfarande kommer att innehålla värdet dator namn. Det här värdet kommer inte att lagras med din Application Insights telemetri, men används internt vid inmatning för att möjliggöra bakåtkompatibilitet med den äldre nodens fakturerings modell.
 
-Om du befinner dig på den [äldre pris nivån för Enterprise (per nod)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) och bara behöver åsidosätta lagringen av dator namnet använder du en telemetri-initierare:
+Om du befinner dig på den [äldre pris nivån för Enterprise (per nod)](./pricing.md#legacy-enterprise-per-node-pricing-tier) och bara behöver åsidosätta lagringen av dator namnet använder du en telemetri-initierare:
 
 **Skriv anpassade TelemetryInitializer enligt nedan.**
 
@@ -115,7 +116,7 @@ Instansiera initieraren i `Program.cs` `Main()` metoden nedan ange Instrumentati
 
 ## <a name="override-transmission-of-computer-name"></a>Åsidosätt överföring av dator namn
 
-Om du inte är på den [äldre pris nivån för Enterprise (per nod)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) och vill förhindra att all telemetri som innehåller dator namnet skickas, måste du använda en telemetri-processor.
+Om du inte är på den [äldre pris nivån för Enterprise (per nod)](./pricing.md#legacy-enterprise-per-node-pricing-tier) och vill förhindra att all telemetri som innehåller dator namnet skickas, måste du använda en telemetri-processor.
 
 ### <a name="telemetry-processor"></a>Telemetri-processor
 
@@ -171,11 +172,10 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> Även om du kan använda en telemetri-processor på ett tekniskt sätt enligt beskrivningen ovan även om du befinner dig på den [äldre pris nivån för Enterprise (per nod)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), kommer detta att resultera i att det går att betala för flera noder.
+> Även om du kan använda en telemetri-processor på ett tekniskt sätt enligt beskrivningen ovan även om du befinner dig på den [äldre pris nivån för Enterprise (per nod)](./pricing.md#legacy-enterprise-per-node-pricing-tier), kommer detta att resultera i att det går att betala för flera noder.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa en instrumentpanel](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)
 * [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
-* [Skriv analysfrågor](../../azure-monitor/app/analytics.md)
-
+* [Skriv analysfrågor](../log-query/log-query-overview.md)

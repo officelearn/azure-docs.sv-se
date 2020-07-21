@@ -6,11 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499468"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Spåra beroenden med python-räkning python
 
@@ -85,7 +86,7 @@ conn.close()
 Spåra dina utgående django-begäranden med openräkning- `django` integrering.
 
 > [!NOTE]
-> De enda utgående django-begärandena som spåras görs anrop till en databas. Begär Anden som görs till django-programmet finns i [inkommande begär Anden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request#tracking-django-applications).
+> De enda utgående django-begärandena som spåras görs anrop till en databas. Begär Anden som görs till django-programmet finns i [inkommande begär Anden](./opencensus-python-request.md#tracking-django-applications).
 
 Hämta och installera `opencensus-ext-django` från [pypi](https://pypi.org/project/opencensus-ext-django/) och Lägg till följande rad i `MIDDLEWARE` avsnittet i Django- `settings.py` filen.
 

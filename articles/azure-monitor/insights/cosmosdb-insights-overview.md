@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945502"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498924"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Utforska Azure Monitor för Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Välj **felen** överst på sidan och **felen** i arbets bokens mall öppnas. De
 | `201 Created` | En POST-åtgärd för att skapa en resurs har slutförts. |
 | `404 Not Found` | Åtgärden försöker vidta en resurs som inte längre finns. Till exempel kanske resursen redan har tagits bort. |
 
-En fullständig lista över status koder finns i artikeln om [status kod för Azure Cosmos DB http](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+En fullständig lista över status koder finns i artikeln om [status kod för Azure Cosmos DB http](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Kapacitet
 
@@ -98,7 +98,7 @@ I exemplet nedan ser du att i `eastus-billingint` huvudsak tar emot Läs begär 
 
 ## <a name="pin-export-and-expand"></a>Fäst, exportera och expandera
 
-Du kan fästa något av mått avsnitten på en Azure- [instrumentpanel](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) genom att välja kartnål-ikonen längst upp till höger i avsnittet.
+Du kan fästa något av mått avsnitten på en Azure- [instrumentpanel](../../azure-portal/azure-portal-dashboards.md) genom att välja kartnål-ikonen längst upp till höger i avsnittet.
 
 ![Mått avsnitt fäst vid instrument panelen exempel](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Information om fel sökning finns i [artikeln](troubleshoot-workbooks.md)om att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Konfigurera [mått aviseringar](../platform/alerts-metric.md) och [meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications.md) för att ställa in automatiserad avisering som hjälper till att identifiera problem.
+* Konfigurera [mått aviseringar](../platform/alerts-metric.md) och [meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications-portal.md) för att ställa in automatiserad avisering som hjälper till att identifiera problem.
 
 * Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../platform/workbooks-overview.md).

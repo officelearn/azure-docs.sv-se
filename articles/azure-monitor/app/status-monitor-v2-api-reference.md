@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32fd0da0095c34c4ef199eb703881e048473f0a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733679"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499366"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights Agent-API-referens
 
@@ -118,7 +119,7 @@ Du kan skapa ett enda installations skript för flera datorer genom att ange `Ma
 - **MachineFilter** är ett obligatoriskt C#-regex av datorn eller namnet på den virtuella datorn.
     - ". *" matchar alla
     - ComputerName matchar bara datorer med det angivna namnet.
-- **AppFilter** är ett obligatoriskt C#-regex av IIS-webbplatsens namn. Du kan hämta en lista över platser på servern genom att köra kommandot [Get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
+- **AppFilter** är ett obligatoriskt C#-regex av IIS-webbplatsens namn. Du kan hämta en lista över platser på servern genom att köra kommandot [Get-iissite](/powershell/module/iisadministration/get-iissite).
     - ". *" matchar alla
     - "Webbplats namn" kommer bara att matcha IIS-platsen med det angivna namnet.
 - **InstrumentationKey** krävs för att kunna övervaka appar som matchar de föregående två filtren.
@@ -134,7 +135,7 @@ Instrumentation-motorn lägger till overhead och är inaktive rad som standard.
 **Valfritt.** Använd den här växeln för att godkänna licens-och sekretess policyn i konsolbaserade installationer.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
-När du har ett kluster av webb servrar kan du använda en [delad konfiguration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+När du har ett kluster av webb servrar kan du använda en [delad konfiguration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 Det går inte att mata in HttpModule i denna delade konfiguration.
 Det här skriptet kommer inte att fungera med meddelandet om att extra installations steg krävs.
 Använd den här växeln för att ignorera den här kontrollen och fortsätta installera nödvändiga komponenter. Mer information finns i [känd konflikt med-IIS-Shared-Configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
@@ -446,8 +447,8 @@ Du kan också hämta externa verktyg för att avgöra om de nödvändiga DLL-fil
 
 Om den här processen Miss lyckas av någon anledning kan du köra dessa kommandon manuellt:
 - iisreset.exe/status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights
-- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) W3wp | Findstr/I "InstrumentationEngine AI ApplicationInsights"
+- [handle64.exe](/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64.exe](/sysinternals/downloads/listdlls) W3wp | Findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -551,7 +552,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 ## <a name="start-applicationinsightsmonitoringtrace"></a>Start-ApplicationInsightsMonitoringTrace
 
-Samlar in [ETW-händelser](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) från koden för kod bundna bilagor. Denna cmdlet är ett alternativ till att köra [PerfView](https://github.com/microsoft/perfview).
+Samlar in [ETW-händelser](/windows/desktop/etw/event-tracing-portal) från koden för kod bundna bilagor. Denna cmdlet är ett alternativ till att köra [PerfView](https://github.com/microsoft/perfview).
 
 Insamlade händelser skrivs ut till konsolen i real tid och sparas i en ETL-fil. Den utgående ETL-filen kan öppnas av [PerfView](https://github.com/microsoft/perfview) för ytterligare undersökning.
 
@@ -636,9 +637,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Nästa steg
 
   Visa telemetrin:
- - [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+ - [Utforska mått](../platform/metrics-charts.md) för att övervaka prestanda och användning.
 - [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
-- Använd [Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
+- Använd [Analytics](../log-query/log-query-overview.md) för mer avancerade frågor.
 - [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
  
  Lägg till mer telemetri:
@@ -648,9 +649,3 @@ Timeout Reached. Stopping...
  
  Gör mer med Application Insights agent:
  - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
-
-
-
-
-
-

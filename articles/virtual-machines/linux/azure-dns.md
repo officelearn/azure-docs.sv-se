@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135307"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494742"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
 Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera din egen lösning för DNS-namnmatchning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som Azure-värdar. Följande scenarier bör hjälpa dig att välja den som fungerar för din situation.
@@ -121,7 +121,7 @@ DNS-vidarebefordring möjliggör även DNS-matchning mellan virtuella nätverk o
 
 När du använder namn matchning som Azure tillhandahåller, tillhandahålls det interna DNS-suffixet till varje virtuell dator med hjälp av DHCP. När du använder din egen lösning för namn matchning levereras inte det här suffixet till virtuella datorer eftersom suffixet stör andra DNS-arkitekturer. Om du vill referera till datorer efter FQDN eller konfigurera suffixet på dina virtuella datorer kan du använda PowerShell eller API för att fastställa suffixet:
 
-* För virtuella nätverk som hanteras av Azure Resource Manager är suffixet tillgängligt via [nätverks gränssnitts kortets](https://msdn.microsoft.com/library/azure/mt163668.aspx) resurs. Du kan också köra `azure network public-ip show <resource group> <pip name>` kommandot för att visa information om din offentliga IP-adress, som innehåller det fullständiga domän namnet för nätverkskortet.
+* För virtuella nätverk som hanteras av Azure Resource Manager är suffixet tillgängligt via [nätverks gränssnitts kortets](/rest/api/virtualnetwork/networkinterfaces) resurs. Du kan också köra `azure network public-ip show <resource group> <pip name>` kommandot för att visa information om din offentliga IP-adress, som innehåller det fullständiga domän namnet för nätverkskortet.
 
 Om du inte uppfyller dina behov när du vidarebefordrar frågor till Azure måste du ange en egen DNS-lösning.  DNS-lösningen måste:
 
@@ -131,6 +131,6 @@ Om du inte uppfyller dina behov när du vidarebefordrar frågor till Azure måst
 * Skyddas mot åtkomst från Internet för att minimera hot från externa agenter.
 
 > [!NOTE]
-> Om du vill ha bästa möjliga prestanda inaktiverar Azure DNS du IPv6 och tilldelar en [offentlig IP-adress på instans nivå](../../virtual-network/virtual-networks-instance-level-public-ip.md) till varje virtuell dator med DNS-servrar.  
+> Om du vill ha bästa möjliga prestanda inaktiverar Azure DNS du IPv6 och tilldelar en [offentlig IP-adress på instans nivå](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) till varje virtuell dator med DNS-servrar.  
 >
 >

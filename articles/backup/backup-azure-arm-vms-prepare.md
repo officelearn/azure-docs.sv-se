@@ -3,11 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727020"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497938"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -53,7 +54,7 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
     * Namnet måste vara unikt för Azure-prenumerationen.
     * Det kan innehålla 2 till 50 tecken.
     * Det måste börja med en bokstav och får bara innehålla bokstäver, siffror och bindestreck.
-5. Välj den Azure-prenumeration, resurs grupp och geografiska region där valvet ska skapas. Klicka sedan på **skapa**.
+5. Välj den Azure-prenumeration, resurs grupp och geografiska region där valvet ska skapas. Klicka sedan på **Skapa**.
     * Det kan ta en stund innan valvet har skapats.
     * Övervaka status meddelanden i det övre högra avsnittet i portalen.
 
@@ -66,10 +67,10 @@ När valvet har skapats visas det i listan Recovery Services valv. Om du inte se
 
 ### <a name="modify-storage-replication"></a>Ändra Storage Replication
 
-Som standard använder valven [Geo-redundant lagring (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Som standard använder valven [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md).
 
 * Om valvet är din primära mekanism för säkerhets kopiering rekommenderar vi att du använder GRS.
-* Du kan använda [LRS (lokalt redundant lagring)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för ett billigare alternativ.
+* Du kan använda [LRS (lokalt redundant lagring)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) för ett billigare alternativ.
 
 Ändra typ av lagringsreplik-replikering enligt följande:
 
@@ -168,13 +169,13 @@ Det kan ta flera dagar innan **överförings data till valv** fasen slutförs be
 
 Jobbets status kan variera beroende på följande scenarier:
 
-**Ögonblicksbild** | **Överför data till valv** | **Jobb status**
+**Ögonblicks bild** | **Överför data till valv** | **Jobb status**
 --- | --- | ---
 Slutförd | Pågår | Pågår
 Slutförd | Överhoppad | Slutförd
 Slutförd | Slutförd | Slutförd
-Slutförd | Misslyckades | Slutfört med varning
-Misslyckades | Misslyckades | Misslyckades
+Slutförd | Misslyckad | Slutfört med varning
+Misslyckad | Misslyckad | Misslyckad
 
 Med den här funktionen kan två säkerhets kopior för samma virtuella dator köras parallellt, men i båda skedet (ögonblicks bilder, överför data till valv) kan endast en under aktivitet köras. I situationer då en pågående säkerhets kopiering resulterade i att säkerhets kopieringen till nästa dag inte kunde köras, undviks den här kopplings funktionen. Efterföljande dagars säkerhets kopieringar kan ha en ögonblicks bild som slutförts medan **överföring av data till valvet** hoppades över om en tidigare säkerhets kopierings jobb pågår.
 Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättningen från den senaste återställnings punkten som skapades i valvet. Det kostar inget att påverka användaren.
@@ -188,7 +189,7 @@ Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett
 **DATORN** | **Detaljer**
 --- | ---
 **Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på **WaAppAgent.exe**  >  **Egenskaper**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
+**Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](../virtual-machines/linux/endorsed-distros.md) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
 
 >[!NOTE]
 > **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**

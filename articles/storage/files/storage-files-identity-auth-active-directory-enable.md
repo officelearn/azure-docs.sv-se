@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 7999f042b8a67bed8ef01cccec5890b1a2d58ebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f2f0def9a23437dff57dda2d1a57950cef86275
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510228"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496136"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Översikt – lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
@@ -37,7 +37,7 @@ När du aktiverar AD DS för Azure-filresurser över SMB kan AD DS-anslutna dato
 > - [Ersätta lokala fil servrar med Azure Files (inklusive installations programmet på privat länk för filer och AD-autentisering)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
 > - [Använda Azure Files som profil behållare för Windows Virtual Desktop (inklusive installations programmet för AD-autentisering och FsLogix-konfiguration)](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Innan du aktiverar AD DS-autentisering för Azure-filresurser måste du kontrol lera att du har slutfört följande krav: 
 
@@ -57,7 +57,7 @@ Innan du aktiverar AD DS-autentisering för Azure-filresurser måste du kontrol 
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Azure Files autentisering med AD DS är tillgängligt i [alla offentliga Azure-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files autentisering med AD DS är tillgängligt i [alla offentliga Azure-och gov-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Översikt
 

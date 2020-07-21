@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 description: I den här artikeln lär du dig hur du använder Azure Backup Server för att säkerhetskopiera virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081068"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497921"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -24,7 +24,7 @@ Den här artikeln förklarar hur du:
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Kontrol lera att du använder en version av vCenter/ESXi som stöds för säkerhets kopiering. Se support mat ris [här](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
+- Kontrol lera att du använder en version av vCenter/ESXi som stöds för säkerhets kopiering. Se support mat ris [här](./backup-mabs-protection-matrix.md).
 - Kontrol lera att du har konfigurerat Azure Backup Server. Om du inte gör det måste du [göra det](backup-azure-microsoft-azure-backup.md) innan du börjar. Du bör köra Azure Backup Server med de senaste uppdateringarna.
 - Se till att följande nätverks portar är öppna:
   - TCP 443 mellan MABS och vCenter
@@ -41,7 +41,7 @@ Azure Backup Server kommunicerar som standard med VMware-servrar via HTTPS. Om d
 - Det är viktigt att förstå hur Azure Backup Server hanterar säkerhets kopieringar.
   - Det första steget Azure Backup Server säkerhetskopierar data till den lokala disk lagringen. Azure Backup Server använder en lagringspool, en uppsättning diskar och volymer där Azure Backup Server lagrar disk återställnings punkter för skyddade data. Lagringspoolen kan vara direktansluten lagring (DAS), en Fiber Channel SAN-enhet eller en iSCSI-lagringsenhet eller SAN. Det är viktigt att se till att du har tillräckligt med lagrings utrymme för lokal säkerhets kopiering av dina virtuella VMware-Datadata.
   - Azure Backup Server säkerhetskopierar sedan från den lokala disk lagringen till Azure.
-  - [Få hjälp](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) med att räkna ut hur mycket lagrings utrymme du behöver. Informationen är för DPM men kan även användas för Azure Backup Server.
+  - [Få hjälp](/system-center/dpm/create-dpm-protection-groups#figure-out-how-much-storage-space-you-need) med att räkna ut hur mycket lagrings utrymme du behöver. Informationen är för DPM men kan även användas för Azure Backup Server.
 
 ### <a name="set-up-the-certificate"></a>Konfigurera certifikatet
 

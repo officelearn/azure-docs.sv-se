@@ -6,11 +6,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: mimckitt
-ms.openlocfilehash: 70e6d043b3ad033e1a43c566e5d1da49a1447c6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 136a097f3b2c0267ee71dfbb916b8a52adaf4e80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494503"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Begränsade vCPU-kompatibla VM-storlekar
 
@@ -19,12 +20,11 @@ ms.locfileid: "81273570"
 
 
 ## <a name="other-sizes"></a>Andra storlekar
-- [Beräkningsoptimerad](../windows/sizes-compute.md)
-- [Minnesoptimerad](sizes-memory.md)
-- [Lagringsoptimerad](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [Databehandling med höga prestanda](sizes-hpc.md)
+- [Beräkningsoptimerad](../sizes-compute.md)
+- [Minnesoptimerad](../sizes-memory.md)
+- [Lagringsoptimerad](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [Databehandling med höga prestanda](../sizes-hpc.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
-
+Lär dig mer om hur [Azure Compute Units (ACU)](../acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

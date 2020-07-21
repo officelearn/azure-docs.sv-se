@@ -1,5 +1,5 @@
 ---
-title: Etablera och skydda en länkad tjänst i Azure Synapse Analytics
+title: Skydda en länkad tjänst
 description: Lär dig hur du etablerar och skyddar en länkad tjänst med hanterat VNet
 services: synapse-analytics
 author: acomet
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430557"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496085"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Skydda en länkad tjänst med privata länkar 
 
@@ -56,7 +56,7 @@ Om du inte klickade på hyperlänken när du testar anslutningen ovan följer du
 1. Välj den privata slut punkt som du skapade ovan. Du kan se en hyperlänk som gör att du kan godkänna den privata slut punkten på lagrings konto nivån. *Ett alternativ är att gå direkt till Azure Portal lagrings konto och gå till bladet **anslutningar för privata slut punkter** .*
 1. Kryssa för den privata slut punkten du skapade i Studio och välj **Godkänn**.
 1. Lägg till en beskrivning och klicka på **Ja**
-1. Gå tillbaka till Synapse Studio i avsnittet **hanterade virtuella nätverk** på fliken **Hantera**.
+1. Gå tillbaka till Synapse Studio i avsnittet **hanterade virtuella nätverk** på fliken **Hantera** .
 1. Det bör ta cirka 1 minut att få godkännandet återspeglas för din privata slut punkt.
 
 ## <a name="check-the-connection-works"></a>Kontrol lera att anslutningen fungerar

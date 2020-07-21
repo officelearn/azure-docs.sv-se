@@ -1,14 +1,14 @@
 ---
 title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954157"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497785"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -147,6 +147,10 @@ Katalog kopplingar, ibland kallade katalog hårda länkar, är svåra att hanter
 
 Om du upptäcker ett problem som involverar beteendet för en nod eller aktiviteter som körs på en nod, ska du samla in batch-agentens loggar innan du avallokerar noderna i fråga. Batch agent-loggarna kan samlas in med hjälp av API: t Ladda upp batch-tjänst loggar. Dessa loggar kan levereras som en del av ett support ärende till Microsoft och hjälper till med problem fel sökning och lösning.
 
+### <a name="manage-os-upgrades"></a>Hantera OS-uppgraderingar
+
+För batch-konton för användar prenumerations läge kan automatiserade OS-uppgraderingar avbryta aktivitets förloppet, särskilt om aktiviteterna körs långvarigt. Att [skapa idempotenta-uppgifter](#build-durable-tasks) kan hjälpa till att minska felen som orsakas av dessa avbrott. Vi rekommenderar också [att du schemalägger uppgradering av OS-avbildningar för de tillfällen då aktiviteter inte förväntas köras](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
+
 ## <a name="isolation-security"></a>Isolerings säkerhet
 
 Om ditt scenario kräver att du isolerar jobb från varandra i isolerings syfte, gör du det genom att ha dem i separata pooler. En pool är säkerhets isolerings gränser i batch och som standard är två pooler inte synliga eller kan kommunicera med varandra. Undvik att använda separata batch-konton som ett sätt att isolera.
@@ -161,7 +165,7 @@ När du har överfört mallen till den nya regionen måste du återskapa certifi
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningar
 
 Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 

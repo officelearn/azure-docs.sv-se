@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666951"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499553"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planera kapaciteten för virtuella Hyper-V-datorer med Kapacitet och prestanda-lösningen (inaktuell)
 
@@ -41,11 +42,11 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda data från Windows-agenter. |
-| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | Lösningen samlar inte in information om kapacitet och prestanda data från Direct Linux-agenter.|
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda data från Direct Linux-agenter.|
 | [SCOM-hanterings grupp](../../azure-monitor/platform/om-agents.md) | Ja |Lösningen samlar in kapacitets-och prestanda data från agenter i en ansluten SCOM-hanterings grupp. Det krävs ingen direkt anslutning från SCOM agent till Log Analytics.|
-| [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure Storage omfattar inte kapacitets-och prestanda data.|
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nej | Azure Storage omfattar inte kapacitets-och prestanda data.|
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Windows-eller Operations Manager-agenter måste installeras på Windows Server 2012 eller högre Hyper-V-värdar, inte virtuella datorer.
 
@@ -108,7 +109,7 @@ När du lägger till Kapacitet och prestanda-lösningen i din arbets yta läggs 
 
 Miljöer för produktions data behandling skiljer sig kraftigt från en organisation till en annan. Arbets belastningar för kapacitet och prestanda kan också vara beroende av hur dina virtuella datorer körs och vad du vill ha normalt. Vissa procedurer som hjälper dig att mäta prestanda gäller förmodligen inte för din miljö. Därför är mer generaliserad vägledning bättre att hjälpa dig. Microsoft publicerar en rad olika vägledningar om vägledning som hjälper dig att mäta prestanda.
 
-För att sammanfatta samlar lösningen in kapacitets-och prestanda data från en mängd olika källor, inklusive prestanda räknare. Använd dessa kapacitets-och prestanda data som presenteras på olika ytor i lösningen och jämför resultaten med dem i artikeln [Mät prestanda i Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) . Även om artikeln publicerades någon tid sedan, är måtten, övervägandena och rikt linjerna fortfarande giltiga. Artikeln innehåller länkar till andra användbara resurser.
+För att sammanfatta samlar lösningen in kapacitets-och prestanda data från en mängd olika källor, inklusive prestanda räknare. Använd dessa kapacitets-och prestanda data som presenteras på olika ytor i lösningen och jämför resultaten med dem i artikeln [Mät prestanda i Hyper-V](https://www.microsoft.com/en-us/download/details.aspx?id=56495) . Även om artikeln publicerades någon tid sedan, är måtten, övervägandena och rikt linjerna fortfarande giltiga. Artikeln innehåller länkar till andra användbara resurser.
 
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar

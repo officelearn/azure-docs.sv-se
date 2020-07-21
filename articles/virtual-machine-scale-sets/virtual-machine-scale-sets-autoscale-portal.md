@@ -9,11 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124949"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494946"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en skalnings uppsättning för virtuella datorer i Azure Portal
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.
@@ -21,7 +22,7 @@ När du skapar en skalningsuppsättning, definierar du antalet virtuella datorin
 Den här artikeln visar hur du skapar regler för autoskalning i Azure Portal som övervakar prestanda för de virtuella dator instanserna i din skalnings uppsättning. Dessa regler för autoskalning ökar eller minskar antalet virtuella dator instanser som svar på dessa prestanda mått. Du kan också utföra de här stegen med [Azure PowerShell](tutorial-autoscale-powershell.md) eller [Azure CLI](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill skapa regler för autoskalning behöver du en befintlig skalnings uppsättning för virtuella datorer. Du kan skapa en skalnings uppsättning med [Azure Portal](quick-create-portal.md), [Azure POWERSHELL](quick-create-powershell.md)eller [Azure CLI](quick-create-cli.md).
 
 
@@ -42,11 +43,11 @@ Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstan
     
     | Parameter              | Förklaring                                                                                                         | Värde          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Tids mängd*     | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel        |
-    | *Måttnamn*          | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
-    | *Tidsintervallstatistik* | Definierar hur insamlade mått i varje tids kornig het ska aggregeras för analys.                             | Medel        |
+    | *Tids mängd*     | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medelvärde        |
+    | *Mått namn*          | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Processorprocentandel |
+    | *Tidsintervallstatistik* | Definierar hur insamlade mått i varje tids kornig het ska aggregeras för analys.                             | Medelvärde        |
     | *Operator*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
-    | *Fastställd*            | Procent andelen som gör att den automatiska skalnings regeln utlöser en åtgärd.                                                 | 70             |
+    | *Tröskelvärde*            | Procent andelen som gör att den automatiska skalnings regeln utlöser en åtgärd.                                                 | 70             |
     | *Varaktighet*             | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 10 minuter     |
     | *Åtgärd*            | Definierar om skalnings uppsättningen ska skala upp eller ned när regeln gäller och med vilken ökning                        | Öka procent med |
     | *Antal instanser*       | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                            | 20             |
@@ -70,7 +71,7 @@ På kvällar eller helger, kan efterfrågan på ditt program minska. Om den här
     | Parameter              | Förklaring                                                                                                          | Värde          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                      | Mindre än   |
-    | *Fastställd*            | Procent andelen som gör att den automatiska skalnings regeln utlöser en åtgärd.                                                 | 30             |
+    | *Tröskelvärde*            | Procent andelen som gör att den automatiska skalnings regeln utlöser en åtgärd.                                                 | 30             |
     | *Åtgärd*            | Definierar om skalnings uppsättningen ska skala upp eller ned när regeln gäller och med vilken ökning                         | Minska procent med |
     | *Antal instanser*       | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                             | 20             |
 
@@ -82,7 +83,7 @@ Profilen för autoskalning måste definiera ett lägsta, högsta och standard an
 
 1. Ange följande gränser för instans:
 
-    | Minimum | Maximal | Default|
+    | Minimum | Maximal | Standard|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 
@@ -122,6 +123,6 @@ Om du vill se hur reglerna för automatisk skalning appliceras väljer du **Kör
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder regler för autoskalning för att skala vågrätt och öka eller minska *antalet* virtuella dator instanser i din skalnings uppsättning. Du kan också skala lodrätt för att öka eller minska *storleken*på den virtuella dator instansen. Mer information finns i [Lodrät autoskalning med skalnings uppsättningar för virtuella datorer](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Information om hur du hanterar dina VM-instanser finns i [Hantera skalnings uppsättningar för virtuella datorer med Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+Information om hur du hanterar dina VM-instanser finns i [Hantera skalnings uppsättningar för virtuella datorer med Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Information om hur du genererar aviseringar när reglerna för autoskalning utlöses finns i [använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Du kan också [använda gransknings loggar för att skicka aviseringar om e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Information om hur du genererar aviseringar när reglerna för autoskalning utlöses finns i [använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Du kan också [använda gransknings loggar för att skicka aviseringar om e-post och webhook-aviseringar i Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).

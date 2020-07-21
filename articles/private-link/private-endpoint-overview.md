@@ -7,11 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414155"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496969"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -68,7 +69,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure Kubernetes-tjänst – Kubernetes-API** | Microsoft. container service/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft. search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft. ContainerRegistry/register    | registry |
-|**Azure App Configuration** | Microsoft. Appconfiguration/configurationStores    | configurationStore |
+|**Azure App Configuration** | Microsoft. Appconfiguration/configurationStores    | configurationStores |
 |**Azure Backup** | Microsoft. RecoveryServices/valv    | valv |
 |**Azure Event Hub** | Microsoft. EventHub/Namespaces    | namnområde |
 |**Azure Service Bus** | Microsoft. Service Bus/namnrymder | namnområde |

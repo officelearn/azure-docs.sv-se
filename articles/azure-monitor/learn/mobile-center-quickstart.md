@@ -8,18 +8,18 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: c31083c5e0591d5a49f878ba24a7fd2f0ef6c84d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: a5c025f40f3d78e9e2ff54a0de76763a3e717640
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731959"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498703"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Börja analysera mobilappen med App Center och Application Insights
 
-Den här snabbstarten leder dig genom anslutning av appens App Center-instans till Application Insights. Med Application Insights kan du fråga, segmentera, filtrera och analysera telemetrin med mer kraftfulla verktyg än vad som finns i [Analytics](https://docs.microsoft.com/mobile-center/analytics/)-tjänsten i App Center.
+Den här snabbstarten leder dig genom anslutning av appens App Center-instans till Application Insights. Med Application Insights kan du fråga, segmentera, filtrera och analysera telemetrin med mer kraftfulla verktyg än vad som finns i [Analytics](/mobile-center/analytics/)-tjänsten i App Center.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -33,27 +33,27 @@ Börja med att skapa ett konto och [Registrera dig med App Center](https://appce
 
 ## <a name="onboard-to-app-center"></a>Publicera till App Center
 
-Innan du kan använda Application Insights med mobilappen måste du publicera appen i [App Center](https://docs.microsoft.com/mobile-center/). Application Insights tar inte emot telemetri från mobilappen direkt. I stället skickar appen anpassad händelsetelemetri till App Center. Därefter exporterar App Center kontinuerligt kopior av dessa anpassade händelser till Application Insights vartefter händelserna tas emot. (Detta gäller inte för [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) eller det [lokala plugin-programmet svara](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native) där telemetri skickas direkt till Application Insights.)
+Innan du kan använda Application Insights med mobilappen måste du publicera appen i [App Center](/mobile-center/). Application Insights tar inte emot telemetri från mobilappen direkt. I stället skickar appen anpassad händelsetelemetri till App Center. Därefter exporterar App Center kontinuerligt kopior av dessa anpassade händelser till Application Insights vartefter händelserna tas emot. (Detta gäller inte för [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) eller det [lokala plugin-programmet svara](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native) där telemetri skickas direkt till Application Insights.)
 
 Om du vill publicera din app följer du App Center-snabbstarten för varje plattform som appen har stöd för. Skapa separata App Center-instanser för varje plattform:
 
-* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
-* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
-* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
-* [Universella Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
-* [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
+* [iOS](/mobile-center/sdk/getting-started/ios).
+* [Android](/mobile-center/sdk/getting-started/android).
+* [Xamarin](/mobile-center/sdk/getting-started/xamarin).
+* [Universella Windows](/mobile-center/sdk/getting-started/uwp).
+* [Reagera internt](/mobile-center/sdk/getting-started/react-native).
 
 ## <a name="track-events-in-your-app"></a>Spåra händelser i din app
 
 När appen har publicerats i App Center måste den ändras så att den skickar anpassad händelsetelemetri med App Center SDK. Anpassade händelser är den enda typ av App Center-telemetri som exporteras till Application Insights.
 
-Om du vill skicka anpassade händelser från iOS-appar använder du metoderna `trackEvent` eller `trackEvent:withProperties` i App Center SDK. [Läs mer om spårning av händelser från iOS-appar.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
+Om du vill skicka anpassade händelser från iOS-appar använder du metoderna `trackEvent` eller `trackEvent:withProperties` i App Center SDK. [Läs mer om spårning av händelser från iOS-appar.](/mobile-center/sdk/analytics/ios)
 
 ```Swift
 MSAnalytics.trackEvent("Video clicked")
 ```
 
-Om du vill skicka anpassade händelser från Android-appar använder du metoden `trackEvent` i App Center SDK. [Läs mer om spårning av händelser från Android-appar.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
+Om du vill skicka anpassade händelser från Android-appar använder du metoden `trackEvent` i App Center SDK. [Läs mer om spårning av händelser från Android-appar.](/mobile-center/sdk/analytics/android)
 
 ```Java
 Analytics.trackEvent("Video clicked")
@@ -67,19 +67,19 @@ Om du vill säkerställa att de anpassade händelserna tas emot går du till fli
 
 När appen skickar anpassade händelser och dessa händelser tas emot av App Center måste du skapa en Application Insights-resurs av App Center-typ i Azure-portalen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj **skapa ett** > **verktyg** > för resurs utvecklare**Application Insights**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
 
     > [!NOTE]
-    > Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till [skapa ett Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) dokument.
+    > Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till [skapa ett Application Insights resurs](../app/create-new-resource.md) dokument.
 
     En konfigurationsruta visas. Använd tabellen nedan när du ska fylla i indatafälten.
 
     | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Ett globalt unikt värde, t.ex. ”myApp-iOS” | Namn som identifierar appen du övervakar |
-     | **Resurs grupp**     | En ny resursgrupp eller en befintlig på menyn | Resursgruppen där den nya Application Insights-resursen ska skapas |
-   | **Position** | En plats på menyn | Välj en plats nära dig eller nära där appen finns |
+     | **Resursgrupp**     | En ny resursgrupp eller en befintlig på menyn | Resursgruppen där den nya Application Insights-resursen ska skapas |
+   | **Plats** | En plats på menyn | Välj en plats nära dig eller nära där appen finns |
 
 3. Klicka på **Skapa**.
 
@@ -98,7 +98,7 @@ I [App Center](https://appcenter.ms/) -instansen för din app:
 
 Kom ihåg att upprepa den här process för varje plattform som din app har stöd för.
 
-När [exporten](https://docs.microsoft.com/mobile-center/analytics/export) har konfigurerats kopieras varje anpassad händelse som tas emot av App Center till Application Insights. Det kan ta flera minuter innan händelser når Application Insights, så om de inte visas direkt väntar du en stund innan du går vidare med diagnosen.
+När [exporten](/mobile-center/analytics/export) har konfigurerats kopieras varje anpassad händelse som tas emot av App Center till Application Insights. Det kan ta flera minuter innan händelser når Application Insights, så om de inte visas direkt väntar du en stund innan du går vidare med diagnosen.
 
 För att du ska få mer data när du först ansluter exporteras de senaste 48 timmarna med anpassade händelser i App Center automatiskt till Application Insights.
 
@@ -124,7 +124,7 @@ Application Insights kan fråga, segmentera, filtrera och analysera den anpassad
    1. Välj frågan genom att klicka var som helst på frågan i textredigeraren.
    2. Klicka sedan på **Kör** för att köra frågan. 
 
-   Läs mer om [Application Insights Analytics](../../azure-monitor/app/analytics.md) och [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguageReference).
+   Läs mer om [Application Insights Analytics](../log-query/log-query-overview.md) och [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segmentera och filtrera din anpassade händelsetelemetri.** Från sidan **Översikt** i Application Insights väljer du **Användare** i innehållsförteckningen.

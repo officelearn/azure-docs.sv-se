@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eba250f3ca6a7af8480d24a99e6c3e8278009b82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671672"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499451"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera Live Azure-Cloud Services med Application Insights
 
@@ -22,7 +23,7 @@ Du kan också distribuera Application Insights Profiler på dessa tjänster:
 Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du behöver bara konfigurera Azure-diagnostik för att installera profiler och skicka profiler till din Application Insights-resurs.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Aktivera profiler för Azure Cloud Services
-1. Kontrol lera att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Om du använder OS-familjen 4 måste du installera .NET Framework 4.6.1 eller senare med en [Start aktivitet](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). OS-familjen 5 innehåller en kompatibel version av .NET Framework som standard. 
+1. Kontrol lera att du använder [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Om du använder OS-familjen 4 måste du installera .NET Framework 4.6.1 eller senare med en [Start aktivitet](../../cloud-services/cloud-services-dotnet-install-dotnet.md). OS-familjen 5 innehåller en kompatibel version av .NET Framework som standard. 
 
 1. Lägg till [Application Insights SDK i Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
@@ -36,11 +37,11 @@ Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du be
 
 1. Konfigurera Azure-diagnostik-tillägget för att aktivera profiler:
 
-    a. Leta upp filen [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *Diagnostics. wadcfgx* för program rollen, som du ser här:  
+    a. Leta upp filen [Azure-diagnostik](../platform/diagnostics-extension-overview.md) *Diagnostics. wadcfgx* för program rollen, som du ser här:  
 
       ![Platsen för konfigurations filen för diagnostik](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      Om du inte hittar filen går du [till Konfigurera diagnostik för Azure Cloud Services och Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
+      Om du inte hittar filen går du [till Konfigurera diagnostik för Azure Cloud Services och Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
     b. Lägg till följande `SinksConfig` avsnitt som underordnat element till `WadCfg` :  
 

@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: a7a8af505394b5bf860778b9872434cdacf54210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887016"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497631"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,7 +61,7 @@ Den här Dynamics Connector bygger på [Dynamics XRM-verktyg](https://docs.micro
 >[!TIP]
 >Om du vill kopiera data från ekonomi och åtgärder i Dynamics 365 kan du använda [Dynamics AX-anslutningen](connector-dynamics-ax.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här anslutningen med Azure AD service – huvudsaklig autentisering måste du konfigurera server-till-Server-autentisering (S2S) i Common Data Service eller Dynamics. Se [den här artikeln](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) för detaljerade anvisningar.
 
@@ -77,11 +77,11 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 och Dynamics CRM Online
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen måste anges till "Dynamics", "DynamicsCrm" eller "CommonDataServiceForApps". | Ja |
 | deploymentType | Dynamics-instansens distributions typ. Värdet måste vara "online" för Dynamics Online. | Ja |
-| serviceUri | Tjänst-URL för din Dynamics-instans. Ett exempel är https://adfdynamics.crm.dynamics.com. | Ja |
+| serviceUri | Tjänst-URL för din Dynamics-instans. Ett exempel är https://www.crmdynamics.com. | Ja |
 | authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Giltiga värden är "AADServicePrincipal" och "Office365". | Ja |
 | servicePrincipalId | Klient-ID för Azure AD-programmet. | Ja när autentiseringen är "AADServicePrincipal" |
 | servicePrincipalCredentialType | Den typ av autentiseringsuppgift som ska användas för autentisering av tjänstens huvud namn. Giltiga värden är "ServicePrincipalKey" och "ServicePrincipalCert". | Ja när autentiseringen är "AADServicePrincipal" |
@@ -102,7 +102,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",  
+            "serviceUri": "https://www.crmdynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://adfdynamics.crm.dynamics.com", 
+            "serviceUri": "https://www.crmdynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",
+            "serviceUri": "https://www.crmdynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -174,7 +174,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 
 Ytterligare egenskaper som jämförs med Dynamics Online är **värdnamn** och **port**.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen måste anges till "Dynamics", "DynamicsCrm" eller "CommonDataServiceForApps". | Ja. |
 | deploymentType | Dynamics-instansens distributions typ. Värdet måste vara "OnPremisesWithIfd" för Dynamics lokalt med IFD.| Ja. |
@@ -220,7 +220,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från och till Dynamics:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till "DynamicsEntity", "DynamicsCrmEntity" eller "CommonDataServiceForAppsEntity". |Ja |
 | Entitetsnamnet | Det logiska namnet på den entitet som ska hämtas. | Nej för källa om aktivitets källan har angetts som "fråga" och Ja för mottagare |
@@ -252,7 +252,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Dynamics stöder avsnittet för **kopierings aktivitet följande** egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till "DynamicsSource", "DynamicsCrmSource" eller "CommonDataServiceForAppsSource". | Ja |
 | DocumentDB | FetchXML är ett patentskyddat frågespråk som används i Dynamics Online och lokalt. Se följande exempel. Mer information finns i [Bygg frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej om `entityName` i data uppsättningen anges |
@@ -320,7 +320,7 @@ För att kopiera data från Dynamics stöder avsnittet för **kopierings aktivit
 
 För att kunna kopiera data till Dynamics stöder avsnittet Kopiera aktivitets **mottagare** följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till "DynamicsSink", "DynamicsCrmSink" eller "CommonDataServiceForAppsSink". | Ja. |
 | writeBehavior | Åtgärdens Skriv funktion. Värdet måste vara "upsert". | Ja |

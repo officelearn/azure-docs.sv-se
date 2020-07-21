@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494521"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Inaktivera eller ta bort Linux-agenten från virtuella datorer och avbildningar
 
 Innan du tar bort Linux-agenten måste du förstå vilken virtuell dator som inte kommer att kunna utföras efter att Linux-agenten har tagits bort.
 
-[Tillägg](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) för virtuella Azure-datorer (VM) är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer, tillägg installeras och hanteras av Azures kontroll plan. Det är jobbet i [Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) att bearbeta plattforms tilläggets kommandon och se till att rätt tillstånd för tillägget finns i den virtuella datorn.
+[Tillägg](../extensions/overview.md) för virtuella Azure-datorer (VM) är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer, tillägg installeras och hanteras av Azures kontroll plan. Det är jobbet i [Azure Linux-agenten](../extensions/agent-linux.md) att bearbeta plattforms tilläggets kommandon och se till att rätt tillstånd för tillägget finns i den virtuella datorn.
 
 Azure-plattformen är värd för många tillägg som sträcker sig från konfigurations-, övervaknings-, säkerhets-och verktygs program för virtuella datorer. Det finns ett stort urval av de första och tredje parts tilläggen, exempel på viktiga scenarier som tillägg används för:
 * Stöd för Azure-tjänster från första part, till exempel Azure Backup, övervakning, disk kryptering, säkerhet, plats replikering och andra.
@@ -31,7 +31,7 @@ Azure-plattformen är värd för många tillägg som sträcker sig från konfigu
 
 ## <a name="disabling-extension-processing"></a>Inaktiverar tilläggs bearbetning
 
-Det finns flera sätt att inaktivera bearbetning av tillägg, beroende på dina behov, men innan du fortsätter **måste** du ta bort alla tillägg som distribueras till den virtuella datorn, till exempel med hjälp av AZ CLI, och du kan [Visa](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) och [ta bort](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+Det finns flera sätt att inaktivera bearbetning av tillägg, beroende på dina behov, men innan du fortsätter **måste** du ta bort alla tillägg som distribueras till den virtuella datorn, till exempel med hjälp av AZ CLI, och du kan [Visa](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) och [ta bort](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -155,7 +155,7 @@ När du skapar den virtuella datorn från avbildningen utan någon Linux-Agent m
 > 
 > Om du inte gör det kommer plattformen att försöka skicka tilläggs konfigurationen och tids gränsen efter 40min.
 
-Om du vill distribuera den virtuella datorn med tillägg inaktiverade kan du använda Azure CLI med [--Enable-agent](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
+Om du vill distribuera den virtuella datorn med tillägg inaktiverade kan du använda Azure CLI med [--Enable-agent](/cli/azure/vm#az-vm-create).
 
 ```bash
 az vm create \

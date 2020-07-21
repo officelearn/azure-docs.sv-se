@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955700"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496761"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Snabb start: skapa en demo-app i portalen (Azure Kognitiv sökning)
 
@@ -31,7 +31,7 @@ Innan du börjar måste du ha följande:
 
 + [Microsoft Edge (senaste versionen)](https://www.microsoft.com/edge) eller Google Chrome.
 
-+ Ett [sökindex](search-create-index-portal.md) som ska användas som grund för det genererade programmet. 
++ Ett [sökindex](search-what-is-an-index.md) som ska användas som grund för det genererade programmet. 
 
   I den här snabb starten används inbyggda exempel data och index för fastighets data, eftersom det innehåller miniatyr bilder (guiden har stöd för att lägga till bilder på resultat sidan). Om du vill skapa ett index som används i den här övningen kör du guiden **Importera data** och väljer *realestate-US-Sample-* data källan.
 
@@ -41,7 +41,7 @@ När indexet är klart att använda går du vidare till nästa steg.
 
 ## <a name="start-the-wizard"></a>Starta guiden
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 1. [Hitta Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och välj **index**på sidan Översikt från länkarna i mitten av sidan. 
 
@@ -95,12 +95,12 @@ Följande skärm bild visar alternativen i guiden, juxtaposed med en renderad si
 
 Det underliggande indexet består av fiktiva, genererade data som har duplicerats mellan dokument och beskrivningar som ibland inte matchar avbildningen. Du kan vänta en mer sammanhängande upplevelse när du skapar en app baserat på dina egna index.
 
-![Kör appen](media/search-create-app-portal/run-app.png)
+![Köra appen](media/search-create-app-portal/run-app.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

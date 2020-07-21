@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536460"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496187"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhet för Azure Files och prestandamål
 
@@ -73,7 +74,7 @@ För Azure File Sync är prestanda kritisk i två steg:
 
 För att hjälpa dig att planera distributionen för var och en av stegen nedan är resultaten som observeras under den interna testningen på ett system med en konfiguration
 
-| Systemkonfiguration |  |
+| Systemkonfiguration | Information |
 |-|-|
 | Processor | 64 virtuella kärnor med 64 MiB L3-cache |
 | Minne | 128 GiB |
@@ -81,7 +82,7 @@ För att hjälpa dig att planera distributionen för var och en av stegen nedan 
 | Nätverk | 1 Gbit/s nätverk |
 | Arbetsbelastning | Generell användning fil Server|
 
-| Första engångs etablering  |  |
+| Första engångs etablering  | Information |
 |-|-|
 | Antal objekt | 25 000 000 objekt |
 | Storlek på data uppsättning| ~ 4,7 TiB |
@@ -91,7 +92,7 @@ För att hjälpa dig att planera distributionen för var och en av stegen nedan 
 
 * När en ny server slut punkt skapas laddar inte Azure File Sync agent ned något fil innehåll. Den synkroniserar först det fullständiga namn området och utlöser sedan bakgrunden återkallande för att ladda ned filerna, antingen i sin helhet eller, om moln nivåer är aktiverade, till den moln nivå princip som angetts på Server slut punkten.
 
-| Pågående synkronisering  |   |
+| Pågående synkronisering  | Information  |
 |-|--|
 | Antal synkroniserade objekt| 125 000 objekt (~ 1% omsättning) |
 | Storlek på data uppsättning| 50 GiB |
@@ -111,5 +112,5 @@ Som en allmän guide för din distribution bör du ha några saker i åtanke:
 
 ## <a name="see-also"></a>Se även
 
-- [Planera för distribution av Azure Files](storage-files-planning.md)
+- [Planera för en Azure Files-distribution](storage-files-planning.md)
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

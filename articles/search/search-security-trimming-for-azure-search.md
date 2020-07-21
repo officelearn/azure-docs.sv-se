@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553142"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496425"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Säkerhets filter för att trimma resultat i Azure Kognitiv sökning
 
@@ -32,28 +32,31 @@ Den här artikeln visar hur du utför säkerhets filtrering med hjälp av följa
 >[!NOTE]
 > Processen för att hämta huvud identifierarna omfattas inte av det här dokumentet. Du bör hämta den från din leverantör av identitets tjänster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du har en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure kognitiv sökning-tjänst](https://docs.microsoft.com/azure/search/search-create-service-portal)och [Azure kognitiv sökning-index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+Den här artikeln förutsätter att du har en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), en[Azure kognitiv sökning-tjänst](search-create-service-portal.md)och ett [index](search-what-is-an-index.md).  
 
 ## <a name="create-security-field"></a>Skapa säkerhets fält
 
 Dokumenten måste innehålla ett fält som anger vilka grupper som har åtkomst. Den här informationen blir de filter villkor mot vilka dokument väljs eller avvisas från resultat uppsättningen som returneras till utfärdaren.
 Vi antar att vi har ett index över säkra filer och att varje fil kan nås av en annan uppsättning användare.
+
 1. Lägg till fält `group_ids` (du kan välja ett namn här) som `Collection(Edm.String)` . Kontrol lera att fältet har ett `filterable` attribut inställt på `true` så att Sök resultatet filtreras baserat på åtkomsten som användaren har. Om du till exempel ställer in `group_ids` fältet till `["group_id1, group_id2"]` för dokumentet med `file_name` "secured_file_b" har endast användare som tillhör grupp-ID: n "group_id1" eller "group_id2" Läs behörighet till filen.
+   
    Kontrol lera att fältets `retrievable` attribut är inställt på `false` så att det inte returneras som en del av Sök förfrågan.
+
 2. Lägg även till `file_id` och `file_name` fält för den här exempelens skull.  
 
-```JSON
-{
-    "name": "securedfiles",  
-    "fields": [
-        {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "file_name", "type": "Edm.String"},
-        {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
-    ]
-}
-```
+    ```JSON
+    {
+        "name": "securedfiles",  
+        "fields": [
+            {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+            {"name": "file_name", "type": "Edm.String"},
+            {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
+        ]
+    }
+    ```
 
 ## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Skicka data till ditt index med hjälp av REST API
   

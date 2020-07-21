@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971053"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498805"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -228,7 +228,7 @@ Du kommer att uppmanas att ange autentiseringsuppgifter. Ange autentiseringsuppg
 
 ## <a name="data-collection"></a>Datainsamling
 
-Det kan ta några timmar innan data samlas in från början. När den börjar samla in skickar Office 365 en [webhook-avisering](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Azure Monitor varje gång en post skapas. Den här posten är tillgänglig i Azure Monitor inom några minuter efter att de mottagits.
+Det kan ta några timmar innan data samlas in från början. När den börjar samla in skickar Office 365 en [webhook-avisering](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Azure Monitor varje gång en post skapas. Den här posten är tillgänglig i Azure Monitor inom några minuter efter att de mottagits.
 
 ## <a name="using-the-solution"></a>Använda lösningen
 
@@ -272,7 +272,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | ResultStatus | Anger om åtgärden (som anges i egenskapen Operation) lyckades eller inte. Möjliga värden är lyckades, PartiallySucceeded eller misslyckades. För Exchange admin-aktivitet är värdet antingen sant eller falskt. |
 | UserId | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name . Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
 | UserKey | Ett alternativt ID för den användare som identifierats i UserId-egenskapen.  Till exempel fylls den här egenskapen i med Passport-unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som UserID-egenskapen för händelser som inträffar i andra tjänster och händelser som utförs av system konton|
-| UserType | Den typ av användaren som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Normal<br>Reserverad<br>ServicePrincipal<br>System |
+| UserType | Den typ av användaren som utförde åtgärden.<br><br>Administratör<br>Program<br>DcAdmin<br>Återkommande<br>Reserverat<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory bas
@@ -310,7 +310,7 @@ Dessa poster skapas när ändringar eller tillägg görs till Azure Active Direc
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AADTarget | Användaren som åtgärden (identifieras av egenskapen operation) utfördes på. |
-| Aktörs | Användaren eller tjänstens huvud namn som utförde åtgärden. |
+| Skådespelare | Användaren eller tjänstens huvud namn som utförde åtgärden. |
 | ActorContextId | GUID för den organisation som aktören tillhör. |
 | ActorIpAddress | Aktörens IP-adress i IPV4-eller IPV6-adress format. |
 | InterSystemsId | GUID som spårar åtgärder mellan komponenter i Office 365-tjänsten. |

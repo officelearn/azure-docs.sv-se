@@ -5,19 +5,20 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 589dd411e3d340eb8a0bf84b21a306cabd4bb362
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037298"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495082"
 ---
-# <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en Event Hub
+# <a name="send-events-to-a-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Skicka händelser till en Azure Time Series Insights gen1-miljö med hjälp av en Event Hub
 
 Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure Event Hubs. Det beskriver också hur du kör ett exempel program för att push-överföra händelser till Azure Time Series Insights från Event Hubs. Om du har en befintlig händelsehubben med händelser i JSON-format, hoppar du över den här självstudien och visar din miljö i [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -37,10 +38,10 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
     [![Skapa en konsument grupp](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
-1. Se till att du skapar en konsument grupp som uteslutande används av din Time Series Insights händelse källa.
+1. Se till att du skapar en konsument grupp som uteslutande används av din Azure Time Series Insights händelse källa.
 
     > [!IMPORTANT]
-    > Se till att konsument gruppen inte används av någon annan tjänst, till exempel ett Azure Stream Analytics jobb eller någon annan Time Series Insights miljö. Om konsument gruppen används av andra tjänster påverkas Läs åtgärder negativt både för den här miljön och för andra tjänster. Om du använder **$default** som konsument grupp kan andra läsare eventuellt återanvända din konsument grupp.
+    > Se till att konsument gruppen inte används av någon annan tjänst, till exempel ett Azure Stream Analytics jobb eller någon annan Azure Time Series Insights miljö. Om konsument gruppen används av andra tjänster påverkas Läs åtgärder negativt både för den här miljön och för andra tjänster. Om du använder **$default** som konsument grupp kan andra läsare eventuellt återanvända din konsument grupp.
 
 1. Välj **principer för delad åtkomst**på menyn under **Inställningar**och välj sedan **Lägg till**.
 
@@ -52,11 +53,11 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
 1. Under **anspråk**markerar du kryss rutan **Skicka** .
 
-## <a name="add-a-time-series-insights-instance"></a>Lägg till en Time Series Insights instans
+## <a name="add-an-azure-time-series-insights-instance"></a>Lägg till en Azure Time Series Insights-instans
 
-Time Series Insights-uppdateringen använder instanser för att lägga till sammanhangsbaserade data till inkommande telemetridata. Data kopplas vid en tidpunkt med hjälp av ett **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id` . Läs [tids serie modeller](./concepts-model-overview.md)för att lära dig mer om insikter och **tids serie-ID: n**för Time Series.
+I Azure Time Series Insights gen 2 kan du lägga till sammanhangsbaserade data till inkommande telemetri med tids serie modellen (TSM). I TSM refereras dina taggar eller signaler till som *instanser* och du kan lagra sammanhangsbaserade data i *instans fält.* Data kopplas vid en tidpunkt med hjälp av ett **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id` . Läs mer om hur du lagrar data i instans fält i Översikt över [Time Series-modellen](./concepts-model-overview.md) .
 
-### <a name="create-a-time-series-insights-event-source"></a>Skapa en händelse källa för Time Series Insights
+### <a name="create-a-azure-time-series-insights-event-source"></a>Skapa en händelse källa för Azure Time Series Insights
 
 1. Om du inte har skapat en händelse källa slutför du stegen för att [skapa en händelse källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
@@ -80,7 +81,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till samm
 1. Välj **Klicka för att starta**. 
 
     > [!TIP]
-    > Windmill-simulatorn skapar också JSON som du kan använda som en nytto last med [Time Series Insights ga-fråge-API: er](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > Windmill-simulatorn skapar också JSON som du kan använda som en nytto last med [Azure Time Series Insights ga-fråge-API: er](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
 
     > [!NOTE]
     > Simulatorn fortsätter att skicka data tills fliken webbläsare stängs.
@@ -202,6 +203,6 @@ Time Series Insights-uppdateringen använder instanser för att lägga till samm
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa din miljö](https://insights.timeseries.azure.com) i Time Series Insights Explorer.
+- [Visa din miljö](https://insights.timeseries.azure.com) i Azure Time Series Insights Explorer.
 
 - Läs mer om [IoT Hub enhets meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

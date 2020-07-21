@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c74d4f0b2e0b2d8ca09c9b2c1f1091594f5657dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2faf33fdd58090a335804f084ef2d1f180a9754a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111022"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499332"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights agent (tidigare namngiven Statusövervakare v2): detaljerade anvisningar
 
@@ -29,9 +29,7 @@ Du behöver en Instrumentation-nyckel för att komma igång. Mer information fin
 PowerShell behöver behörigheter på administratörs nivå för att göra ändringar i datorn.
 ### <a name="execution-policy"></a>Körnings princip
 - Beskrivning: som standard är körning av PowerShell-skript inaktiverat. Vi rekommenderar att du endast tillåter RemoteSigned-skript för det aktuella omfånget.
-- Referens: [om körnings principer](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) och [set-ExecutionPolicy](
-https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
-).
+- Referens: [om körnings principer](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) och [set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6).
 - Kommando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - Valfri parameter:
     - `-Force`. Åsidosätter bekräftelse meddelandet.
@@ -80,7 +78,7 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
 1. Kör PowerShell som administratör med en förhöjd körnings princip.
 2. Installera NuGet-paket leverantören.
     - Beskrivning: du behöver den här providern för att interagera med NuGet-baserade databaser som PowerShell-galleriet.
-    - Referens: [install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - Referens: [install-PackageProvider](/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - Kommando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
@@ -100,7 +98,7 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
 
 3. Konfigurera PowerShell-galleriet som ett betrott lager.
     - Beskrivning: som standard är PowerShell-galleriet ett ej betrott lager.
-    - Referens: [set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - Referens: [set-PSRepository](/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Kommando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - Valfri parameter:
         - `-Proxy`. Anger en proxyserver för begäran.
@@ -146,7 +144,7 @@ De här stegen hämtar modulen AZ. ApplicationMonitor från PowerShell-galleriet
 1. Se till att alla nödvändiga komponenter för PowerShell-galleriet är uppfyllda.
 2. Kör PowerShell som administratör med en förhöjd körnings princip.
 3. Installera modulen AZ. ApplicationMonitor.
-    - Referens: [installera-modul](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
+    - Referens: [installera-modul](/powershell/module/powershellget/install-module?view=powershell-6).
     - Kommando: `Install-Module -Name Az.ApplicationMonitor` .
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
@@ -172,7 +170,7 @@ Mer information finns i [installera en PowerShell-modul](/powershell/scripting/d
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Zippa upp nupkg som en zip-fil med hjälp av Expand-Archive (v 1.0.1.0)
 
 - Beskrivning: bas versionen av Microsoft. PowerShell. Archive (v 1.0.1.0) kan inte zippa upp nupkg-filer. Byt namn på filen med fil namns tillägget. zip.
-- Referens: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
+- Referens: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
 - Kommandoprompt
 
     ```console
@@ -186,7 +184,7 @@ Mer information finns i [installera en PowerShell-modul](/powershell/scripting/d
 #### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Zippa upp nupkg med hjälp av Expand-Archive (v 1.1.0.0)
 
 - Beskrivning: Använd en aktuell version av Expand-Archive för att zippa upp nupkg-filer utan att ändra tillägget.
-- Referens: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) och [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Referens: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) och [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Kommandoprompt
 
     ```console
@@ -199,7 +197,7 @@ Mer information finns i [installera en PowerShell-modul](/powershell/scripting/d
 Installera den manuellt hämtade PowerShell-modulen i en PowerShell-katalog så att den kan identifieras av PowerShell-sessioner.
 Mer information finns i [installera en PowerShell-modul](/powershell/scripting/developer/module/installing-a-powershell-module).
 
-Om du installerar modulen i en annan katalog importerar du modulen manuellt med hjälp av [import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
+Om du installerar modulen i en annan katalog importerar du modulen manuellt med hjälp av [import-module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 
 > [!IMPORTANT] 
 > DLL-filer kommer att installeras via relativa sökvägar.
@@ -218,14 +216,14 @@ När du övervakar en dator i ditt privata intranät måste du dirigera HTTP-tra
 PowerShell-kommandon för att hämta och installera AZ. ApplicationMonitor från PowerShell-galleriet stöd för en `-Proxy` parameter.
 Granska föregående instruktioner när du skriver installations skripten.
 
-Application Insights SDK måste skicka appens telemetri till Microsoft. Vi rekommenderar att du konfigurerar proxyinställningar för din app i web.config-filen. Mer information finns i [Application Insights FAQ: proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
+Application Insights SDK måste skicka appens telemetri till Microsoft. Vi rekommenderar att du konfigurerar proxyinställningar för din app i web.config-filen. Mer information finns i [Application Insights FAQ: proxy passthrough](../faq.md#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>Aktivera övervakning
 
 Använd `Enable-ApplicationInsightsMonitoring` kommandot för att aktivera övervakning.
 
-En detaljerad beskrivning av hur du använder den här cmdleten finns i [API-referensen](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) .
+En detaljerad beskrivning av hur du använder den här cmdleten finns i [API-referensen](./status-monitor-v2-api-reference.md#enable-applicationinsightsmonitoring) .
 
 
 
@@ -235,7 +233,7 @@ En detaljerad beskrivning av hur du använder den här cmdleten finns i [API-ref
 
 - [Utforska mått](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
 - [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
-- [Använd Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
+- [Använd Analytics](../log-query/log-query-overview.md) för mer avancerade frågor.
 - [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
 
  Lägg till mer telemetri:

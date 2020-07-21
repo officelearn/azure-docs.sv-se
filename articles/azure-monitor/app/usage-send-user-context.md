@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797685"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499247"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Skicka användar kontext-ID: n för att aktivera användnings upplevelser i Azure Application Insights
 
@@ -18,10 +19,10 @@ ms.locfileid: "83797685"
 
 Med Application Insights kan du övervaka och spåra dina användare via en uppsättning produkt användnings verktyg:
 
-- [Användare, sessioner, händelser](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [Trattar](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [Kvarhållning](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Kohorter
-- [Arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Användare, sessioner, händelser](./usage-segmentation.md)
+- [Trattar](./usage-funnels.md)
+- [Kvarhållning](./usage-retention.md) Kohorter
+- [Arbetsböcker](../platform/workbooks-overview.md)
 
 För att kunna spåra vad en användare använder med tiden behöver Application Insights ett ID för varje användare eller session. Inkludera följande ID: n i varje anpassad händelse-eller sid visning.
 
@@ -41,11 +42,11 @@ Användar-ID: n bör bevaras över användarsessioner som spårar hur användare
 
 ID: t ska vara ett GUID eller en annan sträng som är tillräckligt komplex för att identifiera varje användare unikt. Det kan till exempel vara ett långt slumptal.
 
-Om ID: t innehåller personligt identifierad information om användaren, är det inte ett lämpligt värde att skicka till Application Insights som ett användar-ID. Du kan skicka ett sådant ID som ett [autentiserat användar-ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), men det uppfyller inte användar-ID-kravet för användnings scenarier.
+Om ID: t innehåller personligt identifierad information om användaren, är det inte ett lämpligt värde att skicka till Application Insights som ett användar-ID. Du kan skicka ett sådant ID som ett [autentiserat användar-ID](./api-custom-events-metrics.md#authenticated-users), men det uppfyller inte användar-ID-kravet för användnings scenarier.
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET appar: Ange användar kontexten i en ITelemetryInitializer
 
-Skapa en telemetri-initierare enligt beskrivningen i detalj [här](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Skicka sessions-ID: t via telemetri för begäran och ange Context.User.Id och Context.Session.Id.
+Skapa en telemetri-initierare enligt beskrivningen i detalj [här](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer). Skicka sessions-ID: t via telemetri för begäran och ange Context.User.Id och Context.Session.Id.
 
 I det här exemplet anges användar-ID: t till en identifierare som upphör att gälla efter sessionen. Använd om möjligt ett användar-ID som finns kvar mellan sessioner.
 
@@ -127,7 +128,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sid visningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)om du vill aktivera användnings upplevelser.
+- Börja skicka [anpassade händelser](./api-custom-events-metrics.md#trackevent) eller [sid visningar](./api-custom-events-metrics.md#page-views)om du vill aktivera användnings upplevelser.
 - Om du redan skickar anpassade händelser eller sid visningar, utforska användnings verktygen för att lära dig hur användarna använder tjänsten.
     - [Översikt över användning](usage-overview.md)
     - [Användare, sessioner och händelser](usage-segmentation.md)

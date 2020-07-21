@@ -1,5 +1,5 @@
 ---
-title: Kommande ändringar i inmatnings-och förenklings reglerna i Azure Time Series Insights | Microsoft Docs
+title: Kommande ändringar i inmatnings-och förenklings reglerna i Azure Time Series Insights Gen2 | Microsoft Docs
 description: Ändringar i inmatnings regeln
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 067244aa40256e3cc76239343790974bc3c06481
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f667ca5ad82182fcf40d5c1fbb325f2ea99a7e08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919041"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495116"
 ---
 # <a name="upcoming-changes-to-the-json-flattening-and-escaping-rules-for-new-environments"></a>Kommande ändringar av JSON-förenkling och undantags regler för nya miljöer
 
-Dessa ändringar tillämpas endast på *nya* Azure Time Series Insights PAYG-miljöer (betalar per användning). Dessa ändringar gäller inte för standard SKU-miljöer.
+**Ändringarna tillämpas på *nyligen skapade* Azure Time Series Insights Gen2-miljöer. Dessa ändringar gäller inte för gen1-miljöer.**
 
-Din Azure Time Series Insights-miljö skapar dynamiskt dina lagrings kolumner genom att följa en viss uppsättning namngivnings konventioner. När en händelse matas in används en uppsättning regler för JSON-nyttolasten och egenskaps namnen. Ändringar av hur JSON-data förenklas och lagras börjar gälla för nya Azure Time Series Insights "betala per användning" i juli 2020. Den här ändringen påverkar dig i följande fall:
+Din Azure Time Series Insights Gen2-miljö skapar dynamiskt dina lagrings kolumner genom att följa en viss uppsättning namngivnings konventioner. När en händelse matas in används en uppsättning regler för JSON-nyttolasten och egenskaps namnen. Ändringar av hur JSON-data förenklas och lagras börjar gälla för nya Azure Time Series Insights Gen2-miljöer i juli 2020. Den här ändringen påverkar dig i följande fall:
 
 * Om JSON-nyttolasten innehåller kapslade objekt
 *  Om JSON-nyttolasten innehåller matriser
@@ -45,15 +45,16 @@ Objekts mat ris förenklas alltid och genererar flera händelser | Om objekten i
 
  #### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Om nytto lasten innehåller kapslad JSON eller specialtecken och du automatiserar redigering av [tids serie modell](.\time-series-insights-update-tsm.md) variabel uttryck
 
-*  Uppdatera din klient kod som kör [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) för att matcha de nya inmatnings reglerna. Till exempel ska ett tidigare [tids serie uttryck](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` uppdateras till ett av följande alternativ:
+*  Uppdatera din klient kod som kör [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) för att matcha de nya inmatnings reglerna. Till exempel ska ett tidigare [tids serie uttryck](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` uppdateras till ett av följande alternativ:
     * `"value": {"tsx": "$event.series.value.Double"}`
     * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [lägga till stöd för lång data typ](./time-series-insights-long-data-type.md).
+- Läs [Azure Time Series Insights Gen2-lagring och ingress](./time-series-insights-update-storage-ingress.md).
 
-- Läs [Azure Time Series Insights för hands versions lagring och inkommande](./time-series-insights-update-storage-ingress.md)trafik.
+- Läs mer om hur du frågar dina data med [API: er för Time Series-frågor](./concepts-query-overview.md).
+
+- Läs mer om den [nya syntaxen för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 

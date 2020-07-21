@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480886"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498975"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -31,11 +32,11 @@ ms.locfileid: "79480886"
 
 * [ExpressRoute-övervakare](network-performance-monitor-expressroute.md): övervaka anslutnings möjligheter från slut punkt till slut punkt och prestanda mellan dina avdelnings kontor och Azure, via Azure ExpressRoute.  
 
-Mer information om de olika funktionerna som stöds av [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns online.
+Mer information om de olika funktionerna som stöds av [övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md) finns online.
  
 ## <a name="supported-regions"></a>Regioner som stöds
 NPM kan övervaka anslutningar mellan nätverk och program i valfri del av världen, från en arbets yta som finns i någon av följande regioner:
-* Europa, norra
+* Norra Europa
 * Europa, västra
 * Frankrike, centrala
 * Kanada, centrala
@@ -43,8 +44,8 @@ NPM kan övervaka anslutningar mellan nätverk och program i valfri del av värl
 * USA, västra centrala
 * USA, norra centrala
 * USA, södra centrala
-* USA, centrala
-* USA, östra
+* Central US
+* East US
 * USA, östra 2
 * USA, västra 2
 * Östra Japan
@@ -55,12 +56,12 @@ NPM kan övervaka anslutningar mellan nätverk och program i valfri del av värl
 * Södra Storbritannien
 * Asien, östra
 * Sydkorea, centrala
-* Indien, centrala
+* Central India
 * AMERIKANSKA myndigheter i Virginia
 * Kina, östra 2
 
 
-Listan över regioner som stöds för ExpressRoute-övervakaren finns i [dokumentationen](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+Listan över regioner som stöds för ExpressRoute-övervakaren finns i [dokumentationen](../../expressroute/how-to-npm.md?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Konfigurera och konfigurera
@@ -255,9 +256,9 @@ Alla data som visas grafiskt via Övervakare av nätverksprestanda instrument pa
 
 ## <a name="alerts"></a>Aviseringar
 
-Övervakare av nätverksprestanda använder aviserings funktionerna i [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Övervakare av nätverksprestanda använder aviserings funktionerna i [Azure Monitor](../platform/alerts-overview.md).
 
-Det innebär att alla meddelanden hanteras med hjälp av [Åtgärds grupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+Det innebär att alla meddelanden hanteras med hjälp av [Åtgärds grupper](../platform/action-groups.md).  
 
 Om du är en NPM-användare som skapar en avisering via Log Analytics: 
 1. Du ser en länk som kommer att omdirigera dig till Azure Portal. Klicka på den för att få åtkomst till portalen.
@@ -268,7 +269,7 @@ Om du är en NPM-användare som skapar en avisering via Log Analytics:
 Om du är en NPM-användare som skapar en avisering via Azure Portal:  
 1. Du kan välja att ange din e-postadress direkt eller så kan du välja att skapa aviseringar via åtgärds grupper.
 2. Om du väljer att ange din e-postadress direkt skapas en åtgärds grupp med namnet **NPM e-ActionGroup** och e-post-ID: t läggs till i den åtgärds gruppen.
-3. Om du väljer att använda åtgärds grupper måste du välja en tidigare skapad åtgärds grupp. Du kan lära dig hur du skapar en åtgärds grupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+3. Om du väljer att använda åtgärds grupper måste du välja en tidigare skapad åtgärds grupp. Du kan lära dig hur du skapar en åtgärds grupp [här.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. När aviseringen har skapats kan du använda länken Hantera aviseringar för att hantera dina aviseringar. 
 
 Varje gång du skapar en avisering skapar NPM en fråga baserad logg aviserings regel i Azure Monitor. Den här frågan utlöses var 5: e minut som standard. Azure Monitor debiterar inte för de första 250 logg aviserings reglerna som skapats, och eventuella varnings regler ovanför gränsen på 250 logg aviserings regler debiteras enligt [priserna för varningar på sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).

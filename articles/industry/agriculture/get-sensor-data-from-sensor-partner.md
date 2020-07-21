@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80398239"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497088"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -66,7 +66,13 @@ Följ stegen nedan för att generera ovanstående information:
     cd  
     ```
 
-6. Kör följande kommando. Detta laddar ned ett skript till din Hem Katalog.
+6. Kör följande kommando. Detta ansluter ett autentiserat konto som ska användas för Azure AD-begäranden
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. Kör följande kommando. Detta laddar ned ett skript till din Hem Katalog.
 
     ```azurepowershell-interactive 
 
@@ -74,7 +80,7 @@ Följ stegen nedan för att generera ovanstående information:
 
     ```
 
-7. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory**  >  **Översikt** .
+8. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory**  >  **Översikt** .
 
     ```azurepowershell-interactive 
 
@@ -82,7 +88,7 @@ Följ stegen nedan för att generera ovanstående information:
 
     ```
 
-8. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
+9. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrera enhets data med hjälp av de genererade autentiseringsuppgifterna
 
@@ -114,7 +120,7 @@ För närvarande stöder FarmBeats följande enheter:
 - **Nod**: en enhet som en eller flera sensorer är kopplade till.
 - **Gateway**: en enhet som en eller flera noder är kopplade till.
 
-Följ de här stegen:
+Gör så här:
 
 1. På sidan start väljer du **enheter** på menyn.
   Sidan **enheter** visar enhets typ, modell, status, den server grupp som den placerats i och senaste uppdaterade datum för metadata. Som standard har kolumnen Server grupp värdet *Null*. Du kan välja att tilldela en enhet till en Server grupp. Mer information finns i [tilldela enheter](#assign-devices).
@@ -124,7 +130,7 @@ Följ de här stegen:
 
 ### <a name="view-sensors"></a>Visa sensorer
 
-Följ de här stegen:
+Gör så här:
 
 1. På Start sidan väljer du **sensorer** på menyn.
   På sidan **sensorer** visas information om typen av sensor, Server grupp den är ansluten till, överordnad enhet, portnamn, porttyp och senaste uppdaterade status.
@@ -153,7 +159,7 @@ När sensor data flödar in kan du tilldela den till Server gruppen där du har 
 
 ### <a name="visualize-sensor-data"></a>Visualisera sensordata
 
-Följ de här stegen:
+Gör så här:
 
 1. På sidan start väljer du **Server grupper** på menyn för att visa sidan **grupper** .
 2. Välj den **Server grupp** som du vill visa sensor data för.
@@ -163,7 +169,7 @@ Följ de här stegen:
 
 ## <a name="delete-a-sensor"></a>Ta bort en sensor
 
-Följ de här stegen:
+Gör så här:
 
 1. På Start sidan väljer du **sensorer** på menyn för att visa sidan **sensorer** .
 2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.
@@ -174,7 +180,7 @@ Ett bekräftelse meddelande visas om att sensorn har tagits bort.
 
 ## <a name="delete-devices"></a>Ta bort enheter
 
-Följ de här stegen:
+Gör så här:
 
 1. På sidan start väljer du **enheter** på menyn för att visa sidan **enheter** .
 2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.

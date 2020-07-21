@@ -1,5 +1,5 @@
 ---
-title: Förbättra prestanda för columnstore-index
+title: Förbättra prestanda för columnstore-index (för hands versioner av arbets ytor)
 description: Minska minnes kraven eller öka det tillgängliga minnet för att maximera antalet rader ett columnstore-index komprimeras till varje radgrupps.
 services: synapse-analytics
 author: kevinvngo
@@ -11,14 +11,14 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c885bce5ca17d5919ec134d179f6009e91a969cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431038"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495490"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps-kvalitet för columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-index-performance"></a>Maximera radgrupps-kvalitet för columnstore-indexets prestanda
 
 Radgrupps-kvaliteten bestäms av antalet rader i en radgrupps. Att öka det tillgängliga minnet kan maximera antalet rader ett columnstore-index komprimeras till varje radgrupps.  Använd dessa metoder för att förbättra komprimerings hastigheten och fråga om prestanda för columnstore-index.
 

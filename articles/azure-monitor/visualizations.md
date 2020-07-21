@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797505"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498601"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en översikt över tillgängliga metoder för att visualisera logg-och mått data som lagras i Azure Monitor.
@@ -39,6 +40,8 @@ Visualiseringar som diagram och diagram kan hjälpa dig att analysera dina över
 [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md) är den primära instrument panels tekniken för Azure. De är särskilt användbara när man tillhandahåller en enda panel med glas över din Azure-infrastruktur och tjänster så att du snabbt kan identifiera viktiga problem.
 
 ![Instrumentpanel](media/visualizations/dashboard.png)
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Fördelar
 - Djupgående integrering i Azure. Visualiseringar kan fästas på instrument paneler från flera Azure-sidor, inklusive Metrics Explorer, Log Analytics och Application Insights.
@@ -115,7 +118,7 @@ Du kan komma åt data i logg-och mät data i Azure Monitor via deras API med hj�
 Med [vyer i Azure Monitor](platform/view-designer.md) kan du skapa anpassade visualiseringar med loggdata. De används av [övervaknings lösningar](insights/solutions.md) för att presentera de data som de samlar in.
 
 
-![Visa](media/visualizations/view.png)
+![Vy](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Fördelar
 - Omfattande visualiseringar för loggdata.

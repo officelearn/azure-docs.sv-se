@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203750"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498516"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
@@ -67,21 +67,21 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Skicka Azure aktivitets logg till Log Analytics arbets yta med Azure Resource Manager mall](learn/quick-collect-activity-log-arm.md) – ny artikel.
 
 #### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms logg innehåll
-- [Arkivera Azures resurs loggar till lagrings kontot](platform/resource-logs-collect-storage.md)
+- [Arkivera Azures resurs loggar till lagrings kontot](./platform/resource-logs.md#send-to-azure-storage)
 - [Händelse schema för Azure aktivitets logg](platform/activity-log-schema.md)
 - [Azure aktivitets logg](platform/activity-log.md)
 - [Azure Monitor CLI-exempel](samples/cli-samples.md)
 - [Azure Monitor PowerShell-exempel](samples/powershell-samples.md)
 - [Genom gång av Azure Monitoring REST API](platform/rest-api-walkthrough.md)
-- [Tjänster och scheman som stöds av Azure-resurs loggar](platform/diagnostic-logs-schema.md)
+- [Tjänster och scheman som stöds av Azure-resurs loggar](./platform/resource-logs-schema.md)
 - [Azure resurs loggar](platform/resource-logs.md)
-- [Samla in och analysera Azure aktivitets logg i Azure Monitor](platform/activity-log-collect.md)
-- [Samla in Azures resurs loggar i Log Analytics arbets yta](platform/resource-logs-collect-workspace.md)
+- [Samla in och analysera Azure aktivitets logg i Azure Monitor](./platform/activity-log.md)
+- [Samla in Azures resurs loggar i Log Analytics arbets yta](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](platform/diagnostic-settings.md)
-- [Exportera Azure aktivitets loggen](platform/activity-log-export.md)
+- [Exportera Azure aktivitets loggen](./platform/activity-log.md#legacy-collection-methods)
 - [Översikt över Azures plattforms loggar](platform/platform-logs-overview.md)
-- [Strömma Azure-plattformar loggar till en händelsehubben](platform/resource-logs-stream-event-hubs.md)
-- [Visa Azure aktivitets logg händelser i Azure Monitor](platform/activity-log-view.md)
+- [Strömma Azure-plattformar loggar till en händelsehubben](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Visa Azure aktivitets logg händelser i Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Virtuella datorer
 - [Aktivera Azure Monitor for VMS i Azure Portal](insights/vminsights-enable-single-vm.md) – uppdaterat för att inkludera Azure Arc.
@@ -155,7 +155,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 
 ### <a name="insights"></a>Insikter
 - [Azure Monitor för Azure cache för Redis (för hands version)](insights/redis-cache-insights-overview.md) – ny artikel.
-- [Övervaka Key Vault med Azure Monitor för Key Vault (för hands version)](insights/key-vaults-insights-overview.md) – ny artikel.
+- [Övervaka Key Vault med Azure Monitor för Key Vault (för hands version)](./insights/key-vault-insights-overview.md) – ny artikel.
 
 ### <a name="logs"></a>Loggar
 - [Skapa & konfigurera Log Analytics med PowerShell](platform/powershell-workspace-configuration.md) – fel söknings avsnittet.
@@ -280,7 +280,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 
 ### <a name="platform-logs"></a>Plattformsloggar
 
-- [Samla in och analysera Azure aktivitets logg i Azure Monitor](platform/activity-log-collect.md) – Skriv om för att få en bättre förklaring av aktivitets loggen med diagnostiska inställningar.
+- [Samla in och analysera Azure aktivitets logg i Azure Monitor](./platform/activity-log.md) – Skriv om för att få en bättre förklaring av aktivitets loggen med diagnostiska inställningar.
 
 ### <a name="virtual-machines"></a>Virtuella datorer
 
@@ -326,7 +326,7 @@ Flera uppdateringar som en del av omskrivning av innehåll för diagnostik-till�
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 
-- [Integrera Azure Active Directory med Azure Kubernetes service](../aks/azure-ad-integration.md) – en anteckning om att skapa ett klient program som stöder RBAC-aktiverat kluster för att stödja Azure Monitor för behållare.
+- [Integrera Azure Active Directory med Azure Kubernetes service](../aks/azure-ad-integration-cli.md) – en anteckning om att skapa ett klient program som stöder RBAC-aktiverat kluster för att stödja Azure Monitor för behållare.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
 
@@ -412,8 +412,8 @@ Flera nya artiklar för konverterings guiden för Visa designer till arbets böc
 
 ### <a name="platform-logs"></a>Plattformsloggar
 
-- [Samla in Azure aktivitets logg med diagnostikinställningar – Azure Monitor](platform/diagnostic-settings-legacy.md) – ytterligare information om ändrade egenskaper.
-- [Exportera Azure aktivitets loggen](platform/activity-log-export.md) – uppdaterad för ändringar i gränssnittet. 
+- [Samla in Azure aktivitets logg med diagnostikinställningar – Azure Monitor](./platform/activity-log.md) – ytterligare information om ändrade egenskaper.
+- [Exportera Azure aktivitets loggen](./platform/activity-log.md#legacy-collection-methods) – uppdaterad för ändringar i gränssnittet. 
 
 ## <a name="december-2019"></a>December 2019
 
@@ -450,7 +450,7 @@ Flera nya artiklar för konverterings guiden för Visa designer till arbets böc
 
 ### <a name="insights-and-solutions"></a>Insikter och lösningar
 
-- [Azure Monitor för behållare vanliga frågor och svar](insights/container-insights-faq.md) – tillagd fråga i fälten bild och namn.
+- [Azure Monitor för behållare vanliga frågor och svar](./faq.md) – tillagd fråga i fälten bild och namn.
 - [Azure SQL-analys lösning i Azure Monitor](insights/azure-sql.md) -uppdaterad databas väntar på stöd för hanterade instanser.
 - [Konfigurera Azure Monitor för behållare agent data insamling](insights/container-insights-agent-config.md) – ytterligare inställning för enrich_container_logs.
 - [Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare som](insights/container-insights-hybrid-setup.md) har lagts till fel söknings avsnittet.
@@ -474,19 +474,19 @@ Flera nya artiklar för konverterings guiden för Visa designer till arbets böc
 
 Flera artiklar har uppdaterats som en del av omstrukturering av innehåll för plattforms loggar baserat på en ny funktion för att konfigurera aktivitets loggen med hjälp av diagnostikinställningar.
 
-- [Arkivera Azures resurs loggar till lagrings kontot](platform/resource-logs-collect-storage.md)
+- [Arkivera Azures resurs loggar till lagrings kontot](./platform/resource-logs.md#send-to-azure-storage)
 - [Händelse schema för Azure aktivitets logg](platform/activity-log-schema.md)
 - [Azure Monitor tjänst gränser](service-limits.md)
-- [Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta](platform/activity-log-collect.md)
-- [Samla in Azure aktivitets logg med diagnostikinställningar (för hands version) – Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta](./platform/activity-log.md)
+- [Samla in Azure aktivitets logg med diagnostikinställningar (för hands version) – Azure Monitor](./platform/activity-log.md)
 - [Samla in Azures aktivitets loggar i en Log Analytics arbets yta över Azure-klienter](platform/activity-log-collect-tenants.md)
-- [Samla in Azures resurs loggar i Log Analytics arbets yta](platform/resource-logs-collect-workspace.md)
+- [Samla in Azures resurs loggar i Log Analytics arbets yta](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Skapa diagnostisk inställning i Azure med Resource Manager-mall](platform/diagnostic-settings-template.md)
 - [Skapa en diagnostisk inställning för insamling av loggar och mått i Azure](platform/diagnostic-settings.md)
-- [Exportera Azure aktivitets loggen](platform/activity-log-export.md)
+- [Exportera Azure aktivitets loggen](./platform/activity-log.md#legacy-collection-methods)
 - [Översikt över Azures plattforms loggar](platform/platform-logs-overview.md)
 - [Strömma Azure-övervaknings data till händelsehubben](platform/stream-monitoring-data-event-hubs.md)
-- [Strömma Azure-plattformar loggar till en händelsehubben](platform/resource-logs-stream-event-hubs.md)
+- [Strömma Azure-plattformar loggar till en händelsehubben](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
 

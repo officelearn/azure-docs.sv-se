@@ -1,21 +1,23 @@
 ---
 title: Hantera och uppdatera Azure HPC-cache
-description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal
+description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal eller Azure CLI
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515554"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497239"
 ---
-# <a name="manage-your-cache-from-the-azure-portal"></a>Hantera din cache från Azure Portal
+# <a name="manage-your-cache"></a>Hantera din cache
 
 På sidan cache-översikt i Azure Portal visas projekt information, cache-status och grundläggande statistik för cacheminnet. Den har också kontroller för att stoppa eller starta cacheminnet, ta bort cachen, tömma data till långsiktig lagring och uppdatera program vara.
+
+Den här artikeln beskriver också hur du utför dessa grundläggande uppgifter med Azure CLI.
 
 Öppna översikts sidan genom att välja din cache-resurs i Azure Portal. Läs till exempel sidan **alla resurser** och klicka på cache-namnet.
 
@@ -23,7 +25,7 @@ På sidan cache-översikt i Azure Portal visas projekt information, cache-status
 
 Knapparna överst på sidan kan hjälpa dig att hantera cachen:
 
-* **Starta** och [**stoppa**](#stop-the-cache) – inaktiverar cache-åtgärd
+* **Starta** och [**stoppa**](#stop-the-cache) – återupptar eller pausar cache-åtgärd
 * [**Flush**](#flush-cached-data) -skriver ändrade data till lagrings mål
 * [**Uppgradera**](#upgrade-cache-software) – uppdaterar cache-programvaran
 * **Uppdatera** – Läs in sidan Översikt igen
@@ -41,6 +43,8 @@ Du kan stoppa cacheminnet för att minska kostnaderna under en inaktiv period. D
 
 Ett stoppat cacheminne svarar inte på klient begär Anden. Du bör demontera klienter innan du stoppar cacheminnet.
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 **Stopp** knappen pausar en aktiv cache. **Stopp** knappen är tillgänglig när statusen för ett cacheminne är **felfri** eller **försämrad**.
 
 ![skärm bild av de översta knapparna med stoppa markerat och ett popup-meddelande som beskriver stopp åtgärden och där vill du fortsätta? med Ja (standard) och inga knappar](media/stop-cache.png)
@@ -51,6 +55,42 @@ Om du vill återaktivera en stoppad cache klickar du på knappen **Starta** . In
 
 ![skärm bild av de översta knapparna med start markerat](media/start-cache.png)
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Pausa tillfälligt en cache med kommandot [AZ HPC-cache Stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) . Den här åtgärden är endast giltig när statusen för en cache är **felfri** eller **försämrad**.
+
+Cachen tömmer automatiskt innehållet till lagrings målen innan den stoppas. Den här processen kan ta lite tid, men den garanterar data konsekvens.
+
+När åtgärden har slutförts ändras cachens status till **stoppad**.
+
+Återaktivera en stoppad cache med [AZ HPC-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+
+När du utfärdar kommandot start eller Stop visar kommando raden status meddelandet "körs" tills åtgärden har slutförts.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+ - Running ..
+```
+
+När meddelandet har slutförts uppdateras det till "slutfört" och visar retur koder och annan information.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+{- Finished ..
+  "endTime": "2020-07-01T18:46:43.6862478+00:00",
+  "name": "c48d320f-f5f5-40ab-8b25-0ac065984f62",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-01T18:40:28.5468983+00:00",
+  "status": "Succeeded"
+}
+```
+
+---
+
 ## <a name="flush-cached-data"></a>Rensa cachelagrade data
 
 Knappen **Töm** på översikts sidan visar cacheminnet för att omedelbart skriva alla ändrade data som lagras i cacheminnet till backend-lagrings målen. Cachen sparar regelbundet data till lagrings målen, så det är inte nödvändigt att göra detta manuellt, såvida du inte vill se till att Server delens lagrings system är aktuellt. Du kan till exempel använda **Flush** innan du tar en lagrings ögonblicks bild eller kontrollerar data uppsättningens storlek.
@@ -58,13 +98,47 @@ Knappen **Töm** på översikts sidan visar cacheminnet för att omedelbart skri
 > [!NOTE]
 > Under tömnings processen kan cachen inte hantera klient begär Anden. Cache-åtkomst är inaktive rad och återupptas när åtgärden har slutförts.
 
-![skärm bild av de översta knapparna med Flush markerat och ett popup-meddelande som beskriver tömnings åtgärden och där du ombeds att fortsätta? med Ja (standard) och inga knappar](media/hpc-cache-flush.png)
-
 När du startar rensningen av cachen slutar cachen att acceptera klient begär Anden och cache-statusen på översikts sidan ändras till **tömning**.
 
 Data i cacheminnet sparas till lämpliga lagrings mål. Beroende på hur mycket data som behöver tömmas kan processen ta några minuter eller mer än en timme.
 
 När alla data har sparats på lagrings målen börjar cachen automatiskt ta emot klient begär Anden. Cache-statusen återgår till **felfritt**.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Om du vill tömma cachen klickar du på knappen **Flush** och sedan på **Ja** för att bekräfta åtgärden.
+
+![skärm bild av de översta knapparna med Flush markerat och ett popup-meddelande som beskriver tömnings åtgärden och där du ombeds att fortsätta? med Ja (standard) och inga knappar](media/hpc-cache-flush.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Använd [AZ HPC-cache Flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) för att tvinga cacheminnet att skriva alla ändrade data till lagrings målen.
+
+Exempel:
+
+```azurecli
+$ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
+ - Running ..
+```
+
+När tömningen är klar returneras ett meddelande som lyckats.
+
+```azurecli
+{- Finished ..
+  "endTime": "2020-07-09T17:26:13.9371983+00:00",
+  "name": "c22f8e12-fcf0-49e5-b897-6a6e579b6489",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-09T17:25:21.4278297+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="upgrade-cache-software"></a>Uppgradera cache-programvara
 
@@ -80,7 +154,48 @@ När en program uppgradering är tillgänglig, kommer du att ha en vecka eller s
 
 Om cacheminnet stoppas när slutdatumet passerat, uppgraderar cachen automatiskt program varan nästa gång den startas. (Uppdateringen kanske inte startar direkt, men den kommer att starta den första timmen.)
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Klicka på **Uppgradera** om du vill starta program uppdateringen. Cachens status ändras till **uppgraderingen** tills åtgärden har slutförts.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+I Azure CLI ingår ny program varu information i slutet av rapporten om cache-status. (Använd [AZ HPC-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) för att kontrol lera.) Leta efter strängen "upgradeStatus" i meddelandet.
+
+Använd [AZ HPC-cache Upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) för att tillämpa uppdateringen, om sådan finns.
+
+Om ingen uppdatering är tillgänglig har den här åtgärden ingen påverkan.
+
+I det här exemplet visas cache-status (ingen uppdatering är tillgänglig) och resultatet av kommandot Upgrade-firmware.
+
+```azurecli
+$ az hpc-cache show --name doc-cache0629
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+
+<...>
+
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.61",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-06-29T22:18:32.004822+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+$ az hpc-cache upgrade-firmware --name doc-cache0629
+$
+```
+
+---
 
 ## <a name="delete-the-cache"></a>Ta bort cachen
 
@@ -91,7 +206,35 @@ De Server dels lagrings volymer som används som lagrings mål påverkas inte n�
 > [!NOTE]
 > Azure HPC cache skriver inte automatiskt över ändrade data från cacheminnet till backend Storage-System innan cachen tas bort.
 >
-> För att se till att alla data i cacheminnet har skrivits till långsiktig lagring [stoppar du cacheminnet](#stop-the-cache) innan du tar bort det. Kontrol lera att den visar statusen **stoppad** innan du klickar på knappen Ta bort.
+> För att se till att alla data i cacheminnet har skrivits till långsiktig lagring [stoppar du cacheminnet](#stop-the-cache) innan du tar bort det. Se till att den visar statusen **stoppad** innan du tar bort den.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+När du har stoppat cacheminnet klickar du på knappen **ta bort** för att ta bort cacheminnet permanent.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Använd Azure CLI-kommandot [AZ HPC-cache Delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) för att ta bort cacheminnet permanent.
+
+Exempel:
+```azurecli
+$ az hpc-cache delete --name doc-cache0629
+ - Running ..
+
+<...>
+
+{- Finished ..
+  "endTime": "2020-07-09T22:24:35.1605019+00:00",
+  "name": "7d3cd0ba-11b3-4180-8298-d9cafc9f22c1",
+  "startTime": "2020-07-09T22:13:32.0732892+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="cache-metrics-and-monitoring"></a>Cachelagra mått och övervakning
 

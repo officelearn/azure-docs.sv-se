@@ -3,17 +3,18 @@ title: Onormal ökning av undantags volym – Azure Application insikter
 description: Övervaka program undantag med Smart identifiering i Azure Application insikter om ovanliga mönster i undantags volym.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00b7a28a51f91c969b41d2ab85b611f6dde51396
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499434"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Onormal ökning av undantags volym (för hands version)
 
 Application Insights analyserar automatiskt undantagen som har utlösts i ditt program och kan varna dig om ovanliga mönster i din undantags telemetri.
 
-Den här funktionen kräver ingen särskild konfiguration, förutom att [Konfigurera undantags rapportering](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) för din app. Den är aktiv när din app genererar tillräckligt med telemetri för undantag.
+Den här funktionen kräver ingen särskild konfiguration, förutom att [Konfigurera undantags rapportering](./asp-net-exceptions.md#set-up-exception-reporting) för din app. Den är aktiv när din app genererar tillräckligt med telemetri för undantag.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När får jag den här typen av meddelande om Smart identifiering?
 Du kan få den här typen av meddelande om din app visar en onormal ökning av antalet undantag av en speciell typ under en dag, jämfört med en bas linje som beräknas under de föregående sju dagarna.

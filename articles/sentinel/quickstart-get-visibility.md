@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564613"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496221"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabb start: kom igång med Azure Sentinel
 
@@ -91,23 +91,26 @@ Du kan skapa en ny arbets bok från början eller använda en inbyggd arbets bok
 
 I följande exempel fråga kan du jämföra trender för trafik över flera veckor. Du kan enkelt byta enhets leverantör och data källa som du kör frågan på. I det här exemplet används SecurityEvent från Windows, du kan växla den till att köras på AzureActivity eller CommonSecurityLog på någon annan brand vägg.
 
-     |where DeviceVendor == "Palo Alto Networks":
-      // week over week query
-      SecurityEvent
-      | where TimeGenerated > ago(14d)
-      | summarize count() by bin(TimeGenerated, 1d)
-      | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
-
+```console
+ |where DeviceVendor == "Palo Alto Networks":
+  // week over week query
+  SecurityEvent
+  | where TimeGenerated > ago(14d)
+  | summarize count() by bin(TimeGenerated, 1d)
+  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+```
 
 Du kanske vill skapa en fråga som införlivar data från flera källor. Du kan skapa en fråga som tittar på Azure Active Directory gransknings loggar för nya användare som precis har skapats och sedan kontrollerar dina Azure-loggar för att se om användaren har börjat göra ändringar i roll tilldelningen inom 24 timmar från skapandet. Den misstänkta aktiviteten visas på den här instrument panelen:
 
-    AuditLogs
-    | where OperationName == "Add user"
-    | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-    | join (AzureActivity
-    | where OperationName == "Create role assignment"
-    | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-    | project-away user1
+```console
+AuditLogs
+| where OperationName == "Add user"
+| project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
+| join (AzureActivity
+| where OperationName == "Create role assignment"
+| project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
+| project-away user1
+```
 
 Du kan skapa olika arbets böcker baserat på roll för person som tittar på data och vad de letar efter. Du kan till exempel skapa en arbets bok för nätverks administratören som innehåller brand Väggs data. Du kan också skapa arbets böcker baserat på hur ofta du vill titta på dem, om det finns saker som du vill granska varje dag och andra objekt som du vill kontrol lera en gång i timmen, till exempel kanske du vill titta på dina Azure AD-inloggningar varje timme för att söka efter avvikelser. 
 

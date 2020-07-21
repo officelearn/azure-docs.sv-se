@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar (FAQ)
+title: Vanliga frågor och svar
 titleSuffix: Azure SQL Managed Instance
 description: Vanliga frågor och svar om Azure SQL Managed instance
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224425"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498465"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,11 +66,11 @@ Du kan överväga att migrera till andra Azure-varianter som passar din arbets b
 **Var kan jag migrera om jag har särskilda maskin varu krav som större RAM till vCore-förhållande eller flera processorer?**
 Du kan överväga att migrera till [SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) eller [Azure SQL Database](../database/sql-database-paas-overview.md) minne/CPU optimerad.
 
-## <a name="known-issues--bugs"></a>Kända problem & buggar
+## <a name="known-issues-and-defects"></a>Kända problem och fel
 
-**Var hittar jag kända problem och buggar?**
+**Var hittar jag kända problem och fel?**
 
-Information om buggar och kända problem finns i [kända problem](../database/doc-changes-updates-release-notes.md#known-issues).
+För produkt fel och kända problem, se [kända problem](../database/doc-changes-updates-release-notes.md#known-issues).
 
 ## <a name="new-features"></a>Nya funktioner
 
@@ -127,7 +127,7 @@ Om du vill använda en annan DNS-zon i stället för standard, till exempel *. c
 **Hur migrerar jag från Azure SQL Database en eller elastisk pool till SQL-hanterad instans?**
 
 Den hanterade instansen ger samma prestanda nivåer per beräknings-och lagrings storlek som andra distributions alternativ för Azure SQL Database. Om du vill konsolidera data på en enskild instans, eller om du bara behöver en funktion som stöds enbart i hanterade instanser, kan du migrera dina data med hjälp av funktionen för att exportera/importera (BACPAC). Här följer andra sätt att överväga för SQL Database migrering till SQL-hanterad instans: 
-- Använda [extern data källa]()
+- Använda [extern data källa](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)
 - Använda [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
 - Använda [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
@@ -349,21 +349,6 @@ För att minimera eventuella data exfiltrerings risker rekommenderar vi att du a
 - Aktivera [SQL-granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)och integrera den med aviserings metoder.
 - Aktivera [hot identifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) från paketet [Advanced Data Security (Ads)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
 
-
-## <a name="cost-saving-use-cases"></a>Användnings fall med kostnads besparingar
-
-**Var kan jag hitta användnings fall och resulterande kostnads besparingar med SQL-hanterad instans?**
-
-Fallstudier om SQL-hanterade instanser:
-
-- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
-- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
-
-För att få en bättre förståelse för de fördelar, kostnader och risker som är kopplade till distributionen av den hanterade Azure SQL-instansen finns det också en Forrester-undersökning: [den totala ekonomiska effekten av Microsoft Azure SQL Database hanterade instansen](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
-
-
 ## <a name="dns"></a>DNS
 
 **Kan jag konfigurera en anpassad DNS för SQL-hanterad instans?**
@@ -467,6 +452,19 @@ Du kan övervaka kostnaden för lagring av säkerhets kopior via Azure Portal. M
 **Hur kan jag optimera mina kostnader för säkerhets kopiering av lagring på den hanterade instansen?**
 
 Information om hur du optimerar kostnaderna för lagring av säkerhets kopior finns i [fin justering av säkerhets kopiering på SQL Managed instance](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
+
+## <a name="cost-saving-use-cases"></a>Användnings fall med kostnads besparingar
+
+**Var kan jag hitta användnings fall och resulterande kostnads besparingar med SQL-hanterad instans?**
+
+Fallstudier om SQL-hanterade instanser:
+
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+För att få en bättre förståelse för de fördelar, kostnader och risker som är kopplade till distributionen av den hanterade Azure SQL-instansen finns det också en Forrester-undersökning: [den totala ekonomiska effekten av Microsoft Azure SQL Database hanterade instansen](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 ## <a name="password-policy"></a>Lösen ords princip 
 

@@ -3,11 +3,12 @@ title: Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behålla
 description: Den här artikeln beskriver hur du konfigurerar övervakning för ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift version 4 eller senare.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 49097d96ecf58d7c5bf7d1a60ff01fc7182587c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801486"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499179"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare
 
@@ -19,7 +20,7 @@ Azure Monitor för behållare ger en omfattande övervaknings upplevelse för Az
 
 Du kan aktivera Azure Monitor för behållare för en eller flera befintliga distributioner av Azure Red Hat OpenShift v4. x med de metoder som beskrivs i den här artikeln.
 
-För ett befintligt kluster kör du det här [bash-skriptet i Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+För ett befintligt kluster kör du det här [bash-skriptet i Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Funktioner som stöds och som inte stöds
 
@@ -28,7 +29,7 @@ Azure Monitor for containers stöder övervakning av Azure Red Hat OpenShift v4.
 - Real tids data (förhands granskning)
 - [Samla in mått](container-insights-update-metrics.md) från klusternoder och poddar och lagra dem i Azure Monitor Metrics-databasen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure CLI-version 2.0.72 eller senare  
 
@@ -141,7 +142,7 @@ export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGr
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 
-Ett exempel:
+Till exempel:
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 
@@ -171,4 +172,4 @@ Vyn multi-cluster i Azure Monitor för behållare visar dina Azure Red Hat OpenS
 
 - Om du vill ta bort och analysera Prometheus-mått från klustret kan du läsa [Konfigurera Prometheus mått](container-insights-prometheus-integration.md).
 
-- Information om hur du stoppar övervakningen av klustret med hjälp av Azure Monitor för behållare finns i [så här slutar du övervaka ditt Azure Red Hat OpenShift-kluster](container-insights-optout-openshift.md).
+- Information om hur du stoppar övervakningen av klustret med hjälp av Azure Monitor för behållare finns i [så här slutar du övervaka ditt Azure Red Hat OpenShift-kluster](./container-insights-optout-openshift-v3.md).

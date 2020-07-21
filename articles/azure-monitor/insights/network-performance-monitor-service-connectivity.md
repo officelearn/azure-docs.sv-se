@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690022"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498873"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -56,7 +57,7 @@ Börja skapa dina tester för att övervaka nätverks anslutningen till tjänste
 
     * Välj **webb** för att övervaka anslutning till en tjänst som svarar på http/S-begäranden, till exempel outlook.office365.com eller Bing.com.<br>
     * Välj **nätverk** för att övervaka anslutning till en tjänst som svarar på TCP-begäranden, men som inte svarar på http/S-begäranden, till exempel en SQL Server, FTP-server eller SSH-port. 
-    * Exempel: om du vill skapa ett webbtest till ett Blob Storage-konto väljer du **webb** och anger mål som *yourstorageaccount*. blob.Core.Windows.net. På samma sätt kan du skapa tester för annan tabell lagring, Queue Storage och Azure Files med [den här länken.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Exempel: om du vill skapa ett webbtest till ett Blob Storage-konto väljer du **webb** och anger mål som *yourstorageaccount*. blob.Core.Windows.net. På samma sätt kan du skapa tester för annan tabell lagring, Queue Storage och Azure Files med [den här länken.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. Om du inte vill utföra nätverks mått, till exempel nätverks svars tid, paket förlust och identifiering av topologi, avmarkerar du kryss rutan **utför nätverks mått** . Håll det markerat för att få ut högsta nytta av kapaciteten. 
 5. I **mål**anger du den URL/FQDN/IP-adress som du vill övervaka nätverks anslutningen till.
 6. I **port nummer**anger du Port numret för mål tjänsten. 
@@ -128,7 +129,7 @@ För amerikanska myndigheter i Virginia-regionen är endast DOD-URL: er inbyggda
 | Office 365-portalen och delad | portal.apps.mil |
 | Office 365-autentisering och identitet | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
 | Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www. office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
-| exchange online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
 | MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Nästa steg

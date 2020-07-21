@@ -1,31 +1,30 @@
 ---
-title: Tids serie modell – Azure Time Series Insights | Microsoft Docs
-description: Lär dig mer om tids serie modellen i Azure Time Series Insights för hands versionen.
+title: Tids serie modell-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Lär dig mer om tids serie modellen i Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c5a22987b1d67f9e9f8384e5376343af2f91b5e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 98951dc29b7c8504cbf1654a810ebba933fef3a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495388"
 ---
-# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
+# <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Tids serie modell i Azure Time Series Insights Gen2
 
-I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börjar skapa och uppdatera dina egna modeller i Azure Time Series Insights Preview-miljön.
+I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börjar skapa och uppdatera dina egna modeller i Azure Time Series Insights Gen2-miljön.
 
 > [!TIP]
 >
 > * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
-> * Läs om [Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md) och lär dig hur du navigerar i tids serie modellens gränssnitt.
-> * Lär dig [hur du arbetar med tids serie modellen](time-series-insights-update-how-to-tsm.md) med hjälp av Time Series Insights Web Explorer.
+> * Lär dig [hur du arbetar med tids serie modellen](time-series-insights-update-how-to-tsm.md) med hjälp av Azure Time Series Insights Gen2 Explorer.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -58,7 +57,7 @@ De här begränsningarna visar vikten av Smart data agg regering och visualiseri
 
 ### <a name="key-capabilities"></a>De viktigaste funktionerna
 
-Med målet att göra det enkelt och enkelt att hantera Time Series-contextualization, aktiverar Time Series-modellen följande funktioner i Time Series Insights Preview. Det hjälper dig att:
+Med målet att göra det enkelt och enkelt att hantera Time Series-contextualization, aktiverar Time Series-modellen följande funktioner i Azure Time Series Insights Gen2. Det hjälper dig att:
 
 * Redigera och hantera beräkningar eller formler som använder skalära funktioner, mängd åtgärder och så vidare.
 * Definiera överordnade och underordnade relationer för att aktivera navigering, sökning och referens.
@@ -72,11 +71,11 @@ Tids serie modellen har tre huvud komponenter:
 * [Hierarkier för tids serie modell](#time-series-model-hierarchies)
 * [Modell typer för tids serier](#time-series-model-types)
 
-Dessa komponenter kombineras för att ange en tids serie modell och för att organisera dina Azure Time Series Insights data.
+Dessa komponenter kombineras för att ange en tids serie modell och organisera dina data.
 
 [![Översikts diagram över tids serie modellen](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-En tids serie modell kan skapas och hanteras via Time Series Insights för [hands versions](time-series-insights-update-how-to-tsm.md) gränssnittet. Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-how-to-tsm.md). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="time-series-model-instances"></a>Tids serie modell instanser
 
@@ -88,7 +87,7 @@ Instanser har beskrivande information som är kopplad till dem kallas *instans e
 
 *Instans fält* är en samling beskrivande information som kan innehålla värden för hierarki nivåer, samt tillverkare, operatör och så vidare.
 
-När en händelse källa har kon figurer ATS för Time Series Insightss miljön identifieras och skapas instanser automatiskt i en tids serie modell. Instanserna kan skapas eller uppdateras via Time Series Insights Explorer med hjälp av tids serie modell frågor.
+När en händelse källa har kon figurer ATS för Azure Time Series Insights Gen2-miljön identifieras och skapas instanser automatiskt i en tids serie modell. Instanserna kan skapas eller uppdateras via Azure Time Series Insights Gen2 Explorer med hjälp av tids serie modell frågor.
 
 [Contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) innehåller flera exempel på Live-instansen.
 
@@ -103,7 +102,7 @@ Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**,
 | timeSeriesId | Unikt ID för tids serien som instansen är associerad med. I de flesta fall identifieras instanser unikt av en egenskap som deviceId eller assetId. I vissa fall kan ett mer särskilt sammansatt ID som kombinerar upp till 3 egenskaper användas. |
 | ID | Det Skift läges känsliga unika sträng-ID: t för den tids serie modell typ som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
 | name | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
-| description | En text Beskrivning av instansen. |
+| beskrivning | En text Beskrivning av instansen. |
 | hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
 | instanceFields | Egenskaperna för en instans och eventuella statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
 
@@ -130,15 +129,15 @@ Instanserna har följande JSON-representation:
 ```
 
 > [!TIP]
-> För Time Series Insights instans-API och skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln om [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Om du vill ha stöd för att skapa, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)API.
 
 ## <a name="time-series-model-hierarchies"></a>Hierarkier för tids serie modell
 
 Tids serie modell *hierarkier* organiserar instanser genom att ange egenskaps namn och deras relationer.
 
-Du kan konfigurera flera hierarkier i en specifik Time Series Insights miljö. En tids serie modell instans kan mappas till en enda hierarki eller flera hierarkier (många-till-många-relation).
+Du kan konfigurera flera hierarkier i en specifik Azure Time Series Insights Gen2-miljö. En tids serie modell instans kan mappas till en enda hierarki eller flera hierarkier (många-till-många-relation).
 
-Klient gränssnittet [contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) visar en standard instans och en hierarki.
+I [Contosos demo grupp demonstration](https://insights.timeseries.azure.com/preview/samples) visas en standard instans och en hierarki.
 
 [![Exempel på tids serie modell hierarki](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
@@ -187,7 +186,7 @@ I föregående JSON-exempel:
 * `ManufactureDate`definierar en hierarki med överordnad `year` och underordnad `month` . Varje `ManufactureDate` kan ha flera `years` , som i sin tur kan ha flera `months` .
 
 > [!TIP]
-> Information om Time Series Insights instans-API och CRUD-stöd finns i artikeln [fråga om data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för hierarki-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> För hierarki-API skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [API rest-dokumentation för hierarkin](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exempel på hierarki
 
@@ -217,13 +216,13 @@ Utifrån de instans fält som används i den föregående definitionen och flera
 | ID4 | "skapa" = "1000", "golv" = "10"  |
 | ID5 | Ingen av "byggnad", "golv" eller "Room" har angetts. |
 
-Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda parametrar för *bygge*, *golv*och *rum* .
+Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda *Bygg*-, *vånings*-och *rums* parametrar.
 
 De andra klassificeras under icke- *överordnade instanser* eftersom de inte överensstämmer med den angivna Datahierarkin.
 
 ## <a name="time-series-model-types"></a>Modell typer för tids serier
 
-Med modell *typer* för tids serier kan du definiera variabler eller formler för att utföra beräkningar. Typer är associerade med en angiven Time Series Insights-instans.
+Med modell *typer* för tids serier kan du definiera variabler eller formler för att utföra beräkningar. Typer är associerade med en angiven instans.
 
 En typ kan ha en eller flera variabler. En tids serie modell instans kan till exempel vara av typen *temperatur sensor*, som består av variablerna *medel temperatur*, *min temperatur*och *Maximal temperatur*.
 
@@ -232,7 +231,7 @@ En typ kan ha en eller flera variabler. En tids serie modell instans kan till ex
 [![Exempel på tids serie modell typ](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> För Time Series Insights instans-API och CRUD-stöd läser du artikeln om [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> För typerna API: Create, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### <a name="type-properties"></a>Typ egenskaper
 
@@ -242,7 +241,7 @@ Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **var
 | ---| ---|
 | id | Det Skift läges känsliga unika sträng-ID: t för typen. |
 | name | En sträng som används för att ange ett namn för typen. |
-| description | En sträng beskrivning för typen. |
+| beskrivning | En sträng beskrivning för typen. |
 | användarvariabler | Ange variabler som är associerade med typen. |
 
 Typerna följer följande JSON-exempel:
@@ -266,7 +265,7 @@ Typerna följer följande JSON-exempel:
         "Interpolated Speed": {
           "kind": "numeric",
           "value": {
-              "tsx": "$event.[speed].Double"
+              "tsx": "$event['Speed-Sensor'].Double"
           },
           "filter": null,
           "interpolation": {
@@ -276,7 +275,7 @@ Typerna följer följande JSON-exempel:
               }
           },
           "aggregation": {
-              "tsx": "left($value)"
+              "tsx": "right($value)"
           }
         }
       }
@@ -284,114 +283,12 @@ Typerna följer följande JSON-exempel:
   ]
 }
 ```
-
-### <a name="variables"></a>Variabler
-
-Time Series Insights typer kan ha många variabler som anger formel-och beräknings regler för händelser.
-
-Varje variabel kan vara en av tre *typer*: *numeric*, *kategoriska*och *aggregation*.
-
-* **Numeriska** typer fungerar med kontinuerliga värden.
-* **Kategoriska** -typer fungerar med en definierad uppsättning diskreta värden.
-* **Aggregerade** värden kombinerar flera variabler av samma typ (antingen alla numeriska eller alla kategoriska).
-
-I följande tabell visas vilka egenskaper som är relevanta för varje variabel typ.
-
-[![Tids serie modell variabel tabell](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
-
-#### <a name="numeric-variables"></a>Numeriska variabler
-
-| Variabel egenskap | Beskrivning |
-| --- | ---|
-| Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel värde | Telemetri värden som används för beräkning som kommer från enheten eller sensorer eller omvandlas med hjälp av Time Series-uttryck. Variabler av typen numerisk typ måste vara av typen *Double*.|
-| Variabel interpolation | Interpolation anger hur du återskapar en signal med hjälp av befintliga data. Alternativen för *steg* och *linjär* interpolation är tillgängliga för numeriska variabler. |
-| Variabel agg regering | Stöd för beräkning *via AVG*, *min*, *Max*, *Sum*, *Count*, *First*, *Last* och Time-Weighted (*AVG*, *min*, *Max*, *Sum*, *Left*). |
-
-Variabler följer följande JSON-exempel:
-
-```JSON
-"Interpolated Speed": {
-  "kind": "numeric",
-  "value": {
-    "tsx": "$event.[speed].Double"
-  },
-  "filter": null,
-  "interpolation": {
-    "kind": "step",
-    "boundary": {
-      "span": "P1D"
-    }
-  },
-  "aggregation": {
-    "tsx": "left($value)"
-  }
-}
-```
-
-#### <a name="categorical-variables"></a>Kategoriska-variabler
-
-| Variabel egenskap | Beskrivning |
-| --- | ---|
-| Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel värde | Telemetridata som används för beräkning som kommer från enheten eller sensorer. Kategoriska-variabler måste vara antingen *långa* eller *strängar*. |
-| Variabel interpolation | Interpolation anger hur du återskapar en signal med hjälp av befintliga data. Alternativet *Step* -interpolation är tillgängligt för kategoriska-variabler. |
-| Variabel kategorier | Kategorier skapar en mappning mellan värdena som kommer från enheten eller sensorer till en etikett. |
-| Variabel standard kategori | Standard kategorin är för alla värden som inte mappas i egenskapen "Categories". |
-
-Variabler följer följande JSON-exempel:
-
-```JSON
-"Status": {
-  "kind": "categorical",
-  "value": {
-     "tsx": "toLong($event.[Status].Double)"
-},
-  "interpolation": {
-    "kind": "step",
-    "boundary": {
-      "span" : "PT1M"
-    }
-  },
-  "categories": [
-    {
-      "values": [0, 1, 2],
-      "label": "Good"
-    },
-    {
-      "values": [3],
-      "label": "Bad"
-    }
-  ],
-  "defaultCategory": {
-    "label": "Not Applicable"
-  }
-}
-```
-
-#### <a name="aggregate-variables"></a>Aggregera variabler
-
-| Variabel egenskap | Beskrivning |
-| --- | ---|
-| Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel agg regering | Stöd för beräkning via *AVG*, *min*, *Max*, *Sum*, *Count*, *First*, *Last*. |
-
-Variabler följer följande JSON-exempel:
-
-```JSON
-"Aggregate Speed": {
-  "kind": "aggregate",
-  "filter": null,
-  "aggregation": {
-    "tsx": "avg($event.Speed.Double)"
-  }
-}
-```
-
-Variabler lagras i typ definitionen för en tids serie modell och kan anges infogade via [fråge-API: er](concepts-query-overview.md) för att åsidosätta den lagrade definitionen.
+Tids serie modell typer kan ha många variabler som anger formel-och beräknings regler för händelser. Läs mer om [hur du definierar modell variabler för tids serier](./concepts-variables.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [data frågor](concepts-query-overview.md)
+- Mer information om hur du redigerar modellen via API: er finns i referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
 
-* Läs referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
+- Utforska formler och beräkningar som du kan skapa med [tids serie modellens variabler](./concepts-variables.md)
+
+- Lär dig mer om att [köra frågor mot data](concepts-query-overview.md) i Azure Time Series Insights Gen2

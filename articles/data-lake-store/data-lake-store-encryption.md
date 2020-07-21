@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60878450"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497190"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Kryptering av data i Azure Data Lake Storage Gen1
 
@@ -52,8 +52,8 @@ I båda lägena skyddas huvudkrypteringsnyckeln genom att den lagras i Azure Key
 
 Här är en kort jämförelse av funktionerna som tillhandahålls i de två lägena för att hantera huvudkrypteringsnycklar.
 
-|  | Tjänsthanterade nycklar | Kundhanterade nycklar |
-| --- | --- | --- |
+| Fråga | Tjänsthanterade nycklar | Kundhanterade nycklar |
+| -------- | -------------------- | --------------------- |
 |Hur lagras data?|Data krypteras alltid innan de lagras.|Data krypteras alltid innan de lagras.|
 |Var lagras huvudkrypteringsnyckeln?|Key Vault|Key Vault|
 |Finns det krypteringsnycklar som lagras i klartext utanför Key Vault? |Inga|Nej|
@@ -78,7 +78,7 @@ Det finns tre typer av nycklar som används i utformningen av datakryptering. I 
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Storage Gen1 konto | Key Vault                              | Asymmetrisk | Den kan hanteras av Data Lake Storage Gen1 eller dig.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Storage Gen1 konto | Beständig lagring som hanteras av den Data Lake Storage Gen1 tjänsten | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
-| Blockkrypteringsnyckel  | BEK          | Ett datablock | Ingen                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
+| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inga                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
 
 Följande diagram illustrerar dessa begrepp:
 

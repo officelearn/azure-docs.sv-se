@@ -1,58 +1,82 @@
 ---
-title: Skapa en index definition och-koncept
+title: Skapa ett sökindex
 titleSuffix: Azure Cognitive Search
-description: Introduktion till index termer och koncept i Azure Kognitiv sökning, inklusive komponent delar och fysisk struktur.
+description: Introducerar indexerings begrepp och verktyg i Azure Kognitiv sökning, inklusive schema definitioner och den fysiska data strukturen.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79282788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496543"
 ---
-# <a name="create-a-basic-index-in-azure-cognitive-search"></a>Skapa ett grundläggande index i Azure Kognitiv sökning
+# <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Skapa ett Basic Search-index i Azure Kognitiv sökning
 
-I Azure Kognitiv sökning är ett *index* ett beständigt arkiv med *dokument* och andra konstruktioner som används för filtrering och fullständig texts ökning på en Azure kognitiv sökning-tjänst. Ett dokument är konceptuellt en enskild enhet med sökbara data i ditt index. En återförsäljare som sysslar med e-handel kan till exempel ha ett dokument för varje artikel som företaget säljer, och en nyhetsorganisation kan ha ett dokument för varje nyhetsartikel osv. Om vi matchar dessa koncept till vanliga motsvarigheter i databasvärlden så kan ett *index* begreppsmässigt liknas vid en *tabell* och *dokument* kan grovt jämföras med *rader* i en tabell.
+I Azure Kognitiv sökning lagrar ett *sökindex* sökbart innehåll som används för fullständig text och filtrerade frågor. Ett index definieras av ett schema och sparas i tjänsten, med data import enligt ett andra steg. 
 
-När du lägger till eller laddar upp ett index skapar Azure Kognitiv sökning fysiska strukturer baserat på det schema som du anger. Om ett fält i indexet exempelvis är markerat som sökbar, skapas ett inverterat index för det fältet. När du senare lägger till eller laddar upp dokument eller skickar Sök frågor till Azure Kognitiv sökning skickar du begär anden till ett särskilt index i Sök tjänsten. Inläsning av fält med dokument värden kallas *indexering* eller data inmatning.
+Index innehåller *dokument*. Ett dokument är konceptuellt en enskild enhet med sökbara data i ditt index. En åter försäljare kan ha ett dokument för varje produkt, en nyhets organisation kan ha ett dokument för varje artikel och så vidare. Mappa dessa begrepp till mer välkända databas motsvarigheter: ett *sökindex* motsvarar en *tabell*, och *dokument* är ungefär lika med *rader* i en tabell.
 
-Du kan skapa ett index i portalen, [REST API](search-create-index-rest-api.md)eller [.NET SDK](search-create-index-dotnet.md).
+Den fysiska strukturen för ett index bestäms av schemat, med fält som har marker ATS som sökbara, vilket resulterar i ett inverterat index som skapats för fältet. 
+
+Du kan skapa ett index med följande verktyg och API: er:
+
+* I Azure Portal använder du guiden **Lägg till index** eller **Importera data**
+* Använda [create index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)
+* Använda [.NET SDK](search-create-index-dotnet.md)
+
+Det är lättare att lära dig med ett Portal verktyg. Portalen tillämpar krav och schema regler för särskilda data typer, t. ex. att tillåta full texts ökning på numeriska fält. När du har ett fungerande index kan du övergå till kod genom att hämta JSON-definitionen från tjänsten med hjälp av [Get index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) och lägga till den i din lösning.
 
 ## <a name="recommended-workflow"></a>Rekommenderat arbets flöde
 
-Att komma till höger index design uppnås normalt genom flera iterationer. Genom att använda en kombination av verktyg och API: er kan du snabbt slutföra din design.
+Den slutliga index designen är en iterativ process. Det är vanligt att börja med portalen för att skapa det ursprungliga indexet och sedan växla till kod för att placera indexet under käll kontroll.
 
-1. Avgör om du kan använda en [indexerare](search-indexer-overview.md#supported-data-sources). Om dina externa data är en av de data källor som stöds kan du prototypa och läsa in ett index med hjälp av guiden [**Importera data**](search-import-data-portal.md) .
+1. Bestäm om du kan använda [**Importera data**](search-import-data-portal.md). Guiden utför allt-i-ett indexerare-baserat index om käll informationen kommer från en [typ av data källa som stöds i Azure](search-indexer-overview.md#supported-data-sources).
 
-2. Om du inte kan använda **Importera data**kan du fortfarande [skapa ett första index i portalen](search-create-index-portal.md), lägga till fält, data typer och tilldela attribut med hjälp av kontroller på sidan **Lägg till index** . Portalen visar vilka attribut som är tillgängliga för olika data typer. Detta är användbart om du inte har använt index design tidigare.
+1. Om du inte kan använda **Importera data**börjar du med **Lägg till index** för att definiera schemat.
 
-   ![Sidan Lägg till index som visar attribut efter datatyp](media/search-create-index-portal/field-attributes.png "Sidan Lägg till index som visar attribut efter datatyp")
-  
-   När du klickar på **skapa**skapas alla fysiska strukturer som stöder ditt index i din Sök tjänst.
+   ![Lägg till index kommando](media/search-what-is-an-index/add-index.png "Lägg till index kommando")
 
-3. Hämta index schema med hjälp av [Get index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) och ett webb test verktyg som [Postman](search-get-started-postman.md). Nu har du en JSON-representation av indexet som du skapade i portalen. 
+1. Ange ett namn och en nyckel som används för att unikt identifiera varje sökdokument i indexet. Nyckeln är obligatorisk och måste vara av typen EDM. String. Under importen bör du planera att mappa ett unikt fält i källdata till det här fältet. 
 
-   Du växlar till en kod baserad metod i det här läget. Portalen passar inte bra för iteration eftersom du inte kan redigera ett index som redan har skapats. Men du kan använda Postman och REST för återstående uppgifter.
+   Portalen ger dig ett `id` fält för nyckeln. Om du vill åsidosätta standardvärdet `id` skapar du ett nytt fält (till exempel en ny fält definition som heter `HotelId` ) och väljer det i **nyckel**.
 
-4. [Läs in ditt index med data](search-what-is-data-import.md). Azure Kognitiv sökning accepterar JSON-dokument. Om du vill läsa in dina data program mässigt kan du använda Postman med JSON-dokument i nytto lasten för begäran. Om dina data inte är enkla att uttryckas som JSON, är det här steget det mest arbets krävande.
+   ![Fyll i de obligatoriska egenskaperna](media/search-what-is-an-index//field-attributes.png "Fyll i de obligatoriska egenskaperna")
 
-5. Fråga ditt index, granska resultaten och upprepa detta genom att upprepa index schemat tills du börjar se de resultat du förväntar dig. Du kan använda [**Sök Utforskaren**](search-explorer.md) eller Postman för att fråga ditt index.
+1. Lägg till fler fält. Portalen [visar vilka fältattribut som är](#index-attributes) tillgängliga för olika data typer. Detta är användbart om du inte har använt index design tidigare.
 
-6. Fortsätt att använda kod för att iterera över din design.  
+   Om inkommande data är hierarkiska kan du tilldela data typen [komplex typ](search-howto-complex-data-types.md) som representerar de kapslade strukturerna. Den inbyggda exempel data uppsättningen, hotell, visar komplexa typer som använder en adress (innehåller flera delfält) som har en 1-till-en-relation med varje hotell, och en komplex samling för rum där flera rum är associerade med varje hotell. 
 
-Eftersom fysiska strukturer skapas i tjänsten är det nödvändigt att [släppa och återskapa index](search-howto-reindex.md) när du gör väsentliga ändringar i en befintlig fält definition. Det innebär att du under utvecklingen bör planera om frekventa återuppbyggnadar. Du kan överväga att arbeta med en delmängd av dina data för att göra återskapandet snabbare. 
+1. Tilldela eventuella [analyser](#analyzers) till sträng fält innan indexet skapas. Gör samma sak för [förslags ställare](#suggesters) om du vill aktivera Autoavsluta för vissa fält.
 
-Kod i stället för en portal metod rekommenderas för iterativ design. Om du förlitar dig på portalen för index definition måste du fylla i index definitionen för varje återskapning. Som ett alternativ är verktyg som [Postman och REST API](search-get-started-postman.md) användbara för koncept bevis testning när utvecklings projekt fortfarande är i tidiga faser. Du kan göra stegvisa ändringar i en index definition i en begär ande text och sedan skicka begäran till tjänsten för att återskapa ett index med ett uppdaterat schema.
+1. Skapa fysiska strukturer i din Sök tjänst genom att klicka på **skapa** .
 
-## <a name="components-of-an-index"></a>Komponenter i ett index
+1. När ett index har skapats kan du använda ytterligare kommandon för att granska definitioner eller lägga till fler element.
 
-Schemat är ett Azure Kognitiv sökning-index som består av följande element. 
+   ![Sidan Lägg till index som visar attribut efter datatyp](media/search-what-is-an-index//field-definitions.png "Sidan Lägg till index som visar attribut efter datatyp")
 
-[*Fält samlingen*](#fields-collection) är vanligt vis den största delen av ett index, där varje fält namnges, skrivs och attributas med tillåtna beteenden som avgör hur det används. Andra element är [förslags ställare](#suggesters), [bedömnings profiler](#scoring-profiles), [analyser](#analyzers) med komponent delar som stöder anpassning, [CORS](#cors) och [krypterings nyckel](#encryption-key) alternativ.
+1. Hämta index schema med [Get index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) och ett webbtest-verktyg som [Postman](search-get-started-postman.md). Nu har du en JSON-representation av indexet som du kan anpassa efter kod.
+
+1. [Läs in ditt index med data](search-what-is-data-import.md). Azure Kognitiv sökning accepterar JSON-dokument. Om du vill läsa in dina data program mässigt kan du använda Postman med JSON-dokument i nytto lasten för begäran. Om dina data inte är enkla att uttryckas som JSON, är det här steget det mest arbets krävande. 
+
+    När ett index har lästs in med data, kräver de flesta ändringar i befintliga fält att du släpper och återskapar ett index.
+
+1. Fråga ditt index, granska resultaten och upprepa detta genom att upprepa index schemat tills du börjar se de resultat du förväntar dig. Du kan använda [**Sök Utforskaren**](search-explorer.md) eller Postman för att fråga ditt index.
+
+Under utvecklingen bör du planera om frekventa återuppbyggnadar. Eftersom fysiska strukturer skapas i tjänsten är det nödvändigt att [släppa och återskapa index](search-howto-reindex.md) för de flesta ändringar i en befintlig fält definition. Du kan överväga att arbeta med en delmängd av dina data för att göra återskapandet snabbare. 
+
+> [!Tip]
+> Kod i stället för en portal metod rekommenderas för att arbeta med index design och data import samtidigt. Som ett alternativ är verktyg som [Postman och REST API](search-get-started-postman.md) användbara för koncept bevis testning när utvecklings projekt fortfarande är i tidiga faser. Du kan göra stegvisa ändringar i en index definition i en begär ande text och sedan skicka begäran till tjänsten för att återskapa ett index med ett uppdaterat schema.
+
+## <a name="index-schema"></a>Index schema
+
+Det krävs ett index för att ha ett namn och ett särskilt nyckel fält (av EDM. String) i fält samlingen. [*Fält samlingen*](#fields-collection) är vanligt vis den största delen av ett index, där varje fält namnges, skrivs och attributas med tillåtna beteenden som avgör hur det används. 
+
+Andra element är [förslags ställare](#suggesters), [bedömnings profiler](#scoringprofiles), [analys](#analyzers) verktyg som används för att bearbeta strängar i token enligt språkliga regler eller andra egenskaper som stöds av analysatorn, och CORS-inställningar [(Cross-Origin Remote Scripting)](#corsoptions) .
 
 ```json
 {
@@ -141,70 +165,56 @@ Schemat är ett Azure Kognitiv sökning-index som består av följande element.
 
 ## <a name="fields-collection-and-field-attributes"></a>Fält samling och fält-attribut
 
-När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.
+Fält har ett namn, en typ som klassificerar lagrade data och attribut som anger hur fältet används.
 
 ### <a name="data-types"></a>Datatyper
+
 | Typ | Description |
-| --- | --- |
-| *Edm.String* |Text som kan, om du vill, använda en token för full texts ökning (ord brytning, ord och så vidare). |
-| *Collection(Edm.String)* |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |
-| *Edm.Boolean* |Innehåller sant/falskt-värden. |
-| *Edm.Int32* |32-bitars heltalsvärden. |
-| *Edm.Int64* |64-bitars heltalsvärden. |
-| *Edm.Double* |Numeriska data med dubbel precision. |
-| *Edm.DateTimeOffset* |Datum/tid-värden som representeras i OData v4-formatet (till exempel `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm` ). |
-| *Edm.GeographyPoint* |En punkt som representerar en geografisk plats i världen. |
+|------|-------------|
+| Edm.String |Text som kan, om du vill, använda en token för full texts ökning (ord brytning, ord och så vidare). |
+| Collection(Edm.String) |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |
+| Edm.Boolean |Innehåller sant/falskt-värden. |
+| Edm.Int32 |32-bitars heltalsvärden. |
+| Edm.Int64 |64-bitars heltalsvärden. |
+| Edm.Double |Numeriska data med dubbel precision. |
+| Edm.DateTimeOffset |Datum/tid-värden som representeras i OData v4-formatet (till exempel `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm` ). |
+| Edm.GeographyPoint |En punkt som representerar en geografisk plats i världen. |
 
-Du hittar mer detaljerad information om Azure Kognitiv sökning [data typer som stöds här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Mer information finns i [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
-### <a name="index-attributes"></a>Indexattribut
+<a name="index-attributes"></a>
 
-Exakt ett fält i indexet måste vara det angivna som ett **nyckel** fält som unikt identifierar varje dokument.
+### <a name="attributes"></a>Attribut
 
-Andra attribut avgör hur ett fält används i ett program. Till exempel tilldelas attributet **sökbar** till alla fält som ska ingå i en full texts ökning. 
+Fältattributen avgör hur ett fält används, till exempel om det används i fulltextsökning, fasetterad navigering, sorteringsåtgärder och så vidare. 
 
-API: er som du använder för att bygga ett index har varierande standard beteenden. För [REST-API: erna](https://docs.microsoft.com/rest/api/searchservice/Create-Index)är de flesta attribut aktiverade som standard (till exempel **sökbar** och **hämtnings** bar är sanna för sträng fält) och du behöver ofta bara ange dem om du vill inaktivera dem. För .NET SDK är motsatsen sant. På alla egenskaper som du inte uttryckligen anger är standardvärdet att inaktivera motsvarande Sök beteende om du inte uttryckligen aktiverar det.
+Sträng fält markeras ofta som "sökbara" och "hämtnings bara". Fält som används för att begränsa Sök resultaten är "sorterbar", "Filterable" och "fasettable".
 
-| Attribut | Beskrivning |
-| --- | --- |
-| `key` |En sträng som innehåller det unika ID:t för varje dokument och som används för att leta upp dokument. Alla index måste ha en nyckel. Endast ett fält kan vara nyckeln och dess typ måste anges till Edm.String. |
-| `retrievable` |Anger om ett fält kan returneras i sökresultat. |
-| `filterable` |Gör att fältet kan användas i filterfrågor. |
-| `Sortable` |Gör att en fråga kan sortera sökresultat med hjälp av det här fältet. |
-| `facetable` |Gör att ett fält kan användas i en struktur för [aspektbaserad navigering](search-faceted-navigation.md) för filtrering av användaren. Oftast fungerar fält med upprepade värden som kan användas för att gruppera flera dokument (till exempel flera dokument som hör till samma varumärkes- eller tjänstkategori) bäst som aspekter. |
-| `searchable` |Markerar fältet som fulltextsökbart. |
+|Attribut|Beskrivning|  
+|---------------|-----------------|  
+|sökbara |Fulltextsökbart och omfattas av lexikal analys som radbrytning under indexering. Om du anger ett sökbart fält till ett värde som ”solig dag” delas det upp internt i två enskilda token, ”solig” och ”dag”. Mer information finns i [Hur fulltextsökning fungerar](search-lucene-query-architecture.md).|  
+|filtrerbara |Refereras till i $filter-frågor. Filtrerbara fält av typen `Edm.String` eller `Collection(Edm.String)` genomgår inte ordseparation, så jämförelserna gäller endast exakta matchningar. Om du till exempel anger ”solig dag” för ett sådant fält hittar inte `$filter=f eq 'sunny'` några matchningar, men det gör `$filter=f eq 'sunny day'`. |  
+|sorterbar |Som standard sorterar systemet resultaten efter bedömning, men du kan konfigurera sortering som baseras på fält i dokumenten. Fält av typen `Collection(Edm.String)` får inte vara "sorterbar". |  
+|fasettbar |Används vanligtvis i en presentation av sökresultat som innehåller ett antal träffar efter kategori (till exempel hotell på en viss ort). Det här alternativet kan inte användas med fält av typen `Edm.GeographyPoint`. Fält av typen `Edm.String` som kan filtreras, "sorterbar" eller "fasettable" kan vara högst 32 kilobyte långa. Mer information finns i [Skapa index (REST-API)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|knapp |Unik identifierare för dokument i indexet. Exakt ett fält måste väljas som nyckelfält, och det måste vara av typen `Edm.String`.|  
+|Hämtnings bar |Anger om fältet kan returneras i ett sökresultat. Detta är användbart om du vill använda ett fält (som *vinstmarginal*) som ett filter eller en sorterings- eller bedömningsmekanism, men inte vill att fältet ska visas för användaren. Det här attributet måste vara `true` för `key`-fält.|  
 
-## <a name="index-size"></a>Index storlek
+Du kan visserligen lägga till nya fält när som helst, men befintliga fältdefinitioner är låsta under indexets hela livslängd. Av den anledningen använder många utvecklare portalen för att skapa enkla index, testa idéer och använda portalsidorna för att söka reda på en inställning. Frekvent upprepning av en indexdesign är mer effektiv om du följer en kodbaserad metod så att du enkelt kan återskapa indexet.
 
-Storleken på ett index bestäms av storleken på de dokument du överför, plus index konfiguration, till exempel om du tar med förslag och hur du anger attribut för enskilda fält. Följande skärm bild illustrerar index lagrings mönster som orsakas av olika kombinationer av attribut.
+> [!NOTE]
+> API: er som du använder för att bygga ett index har varierande standard beteenden. För [REST-API: erna](https://docs.microsoft.com/rest/api/searchservice/Create-Index)är de flesta attribut aktiverade som standard (till exempel "sökbara" och "hämtnings bara" är sanna för sträng fält) och du behöver ofta bara ange dem om du vill inaktivera dem. För .NET SDK är motsatsen sant. På alla egenskaper som du inte uttryckligen anger är standardvärdet att inaktivera motsvarande Sök beteende om du inte uttryckligen aktiverar det.
 
-Indexet baseras på den inbyggda exempel data källan för [fastighets fastighets](search-get-started-portal.md) , som du kan indexera och fråga i portalen. Även om index scheman inte visas kan du härleda attributen baserat på index namnet. Till exempel, *realestate-sökbart* index har det **sökbara** attributet markerat och inget annat, *realestate-hämtnings* Bart index har det **hämtnings** bara attributet markerat och inget annat, och så vidare.
+## `analyzers`
 
-![Index storlek baserat på val av attribut](./media/search-what-is-an-index/realestate-index-size.png "Index storlek baserat på val av attribut")
+I elementet analyser anges namnet på den språk analys som ska användas för fältet. Mer information om vilka analys intervall som är tillgängliga finns i [lägga till analyser i ett Azure kognitiv sökning-index](search-analyzers.md). Analys verktyg kan bara användas med sökbara fält. När analysen har tilldelats ett fält kan det inte ändras om du inte bygger om indexet.
 
-Även om de här varianterna av index är artificiella kan vi referera till dem för att se hur attribut påverkar lagringen. Ställer in den **hämtnings** bara index storleken? Nej. Lägger du till fält till en **förslags** öknings index storlek? Ja.
+## `suggesters`
 
-Index som stöder filtrering och sortering är proportionerligt större än de som stöder helt texts ökning. Filtrera och sortera åtgärder söker efter exakta matchningar som kräver intakta dokument. Sökbara fält som stöder full text och fuzzy search använder inverterade index, som är ifyllda med token-termer som förbrukar mindre utrymme än hela dokument. 
-
-> [!Note]
-> Lagrings arkitektur betraktas som en implementerings detalj i Azure Kognitiv sökning och kan ändras utan föregående meddelande. Det finns ingen garanti för att det aktuella beteendet är kvar i framtiden.
-
-## <a name="suggesters"></a>Förslag på alternativ
 En förslags ställare är en del av schemat som definierar vilka fält i ett index som används för att stödja automatisk fullständig eller typ av frågor i sökningar. Normalt skickas partiella Sök strängar till [förslagen (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) medan användaren skriver en Sök fråga och API: et returnerar en uppsättning föreslagna dokument eller fraser. 
 
 Fält som läggs till i en förslags lista används för att generera typ kommande Sök villkor. Alla Sök termer skapas vid indexering och lagras separat. Mer information om hur du skapar en förslags struktur finns i [lägga till förslag](index-add-suggesters.md).
 
-## <a name="scoring-profiles"></a>Poängprofiler
-
-En [bedömnings profil](index-add-scoring-profiles.md) är en del av schemat som definierar anpassade bedömnings beteenden som låter dig påverka vilka objekt som visas högre upp i Sök resultaten. Bedömnings profiler består av fält vikter och-funktioner. Om du vill använda dem anger du en profil efter namn i frågesträngen.
-
-En standard bedömnings profil fungerar i bakgrunden för att beräkna en Sök Poäng för varje objekt i en resultat uppsättning. Du kan använda den interna, namnlösa bedömnings profilen. Du kan också ange att **defaultScoringProfile** ska använda en anpassad profil som standard, anropas när en anpassad profil inte anges i frågesträngen.
-
-## <a name="analyzers"></a>Analysverktyg
-
-I elementet analyser anges namnet på den språk analys som ska användas för fältet. Mer information om vilka analys intervall som är tillgängliga finns i [lägga till analyser i ett Azure kognitiv sökning-index](search-analyzers.md). Analys verktyg kan bara användas med sökbara fält. När analysen har tilldelats ett fält kan det inte ändras om du inte bygger om indexet.
-
-## <a name="cors"></a>CORS
+## `corsOptions`
 
 Java Script på klient sidan kan inte anropa några API: er som standard eftersom webbläsaren förhindrar alla cross-origin-begäranden. Om du vill tillåta frågor om kors ursprung till ditt index aktiverar du CORS (resurs delning mellan ursprung) genom att ange attributet **corsOptions** . Av säkerhets skäl stöder endast API: er för frågor. 
 
@@ -216,13 +226,36 @@ Följande alternativ kan ställas in för CORS:
 
 + **maxAgeInSeconds** (valfritt): webbläsare använder det här värdet för att fastställa varaktigheten (i sekunder) för att cachelagra CORS preflight-svar. Detta måste vara ett icke-negativt heltal. Ju större det här värdet är, desto bättre prestanda blir, men det längre tar för CORS-principens ändringar att börja gälla. Om den inte anges används en standard varaktighet på 5 minuter.
 
-## <a name="encryption-key"></a>Krypterings nyckel
+## `scoringProfiles`
 
-Alla Azure Kognitiv sökning-index krypteras som standard med hjälp av Microsoft-hanterade nycklar, men index kan konfigureras så att de krypteras med **Kundhanterade nycklar** i Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).
+En [bedömnings profil](index-add-scoring-profiles.md) är en del av schemat som definierar anpassade bedömnings beteenden som låter dig påverka vilka objekt som visas högre upp i Sök resultaten. Bedömnings profiler består av fält vikter och-funktioner. Om du vill använda dem anger du en profil efter namn i frågesträngen.
+
+En standard bedömnings profil fungerar i bakgrunden för att beräkna en Sök Poäng för varje objekt i en resultat uppsättning. Du kan använda den interna, namnlösa bedömnings profilen. Du kan också ange att **defaultScoringProfile** ska använda en anpassad profil som standard, anropas när en anpassad profil inte anges i frågesträngen.
+
+<a name="index-size"></a>
+
+## <a name="attributes-and-index-size-storage-implications"></a>Attribut och index storlek (lagrings effekter)
+
+Storleken på ett index bestäms av storleken på de dokument du överför, plus index konfiguration, till exempel om du tar med förslag och hur du anger attribut för enskilda fält. 
+
+Följande skärm bild illustrerar index lagrings mönster som orsakas av olika kombinationer av attribut. Indexet baseras på **fastighets indexets exempel index**, som du enkelt kan skapa med hjälp av guiden Importera data. Även om index scheman inte visas kan du härleda attributen baserat på index namnet. Till exempel är *realestate-sökbart* index det "sökbara" attributet markerat och inget annat, *realestate-hämtnings* Bart index har attributet "hämtnings Bart" markerat och inget annat, och så vidare.
+
+![Index storlek baserat på val av attribut](./media/search-what-is-an-index/realestate-index-size.png "Index storlek baserat på val av attribut")
+
+Även om de här varianterna av index är artificiella kan vi referera till dem för att se hur attribut påverkar lagringen. Ger inställningen "hämtnings bar" ökning av index storlek? Nej. Lägger du till fält till en **förslags** öknings index storlek? Ja.
+
+Index som stöder filter och sortering är proportionerligt större än index som stöder bara full texts ökning. Detta beror på att filtrerings-och sorterings åtgärder söker efter exakta matchningar, vilket kräver förekomst av orda Grant text strängar. Sökbara fält som stöder full text frågor använder inverterade index, som är ifyllda med token-termer som förbrukar mindre utrymme än hela dokument. 
+
+> [!Note]
+> Lagrings arkitektur betraktas som en implementerings detalj i Azure Kognitiv sökning och kan ändras utan föregående meddelande. Det finns ingen garanti för att det aktuella beteendet är kvar i framtiden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med förståelse för index komposition kan du fortsätta i portalen för att skapa ditt första index.
+Med förståelse för index komposition kan du fortsätta i portalen för att skapa ditt första index. Vi rekommenderar att du börjar med guiden **Importera data** och väljer antingen data källor för *realestate-US-Sample* eller *hotell-exempel* värd.
 
 > [!div class="nextstepaction"]
-> [Lägg till ett index (portal)](search-create-index-portal.md)
+> [Guiden Importera data (portal)](search-get-started-portal.md)
+
+För båda data uppsättningarna kan guiden härleda ett index schema, importera data och generera ett sökbart index som du kan fråga med hjälp av Sök Utforskaren. Hitta dessa data källor på sidan **Anslut till dina data** i guiden **Importera data** .
+
+   ![Skapa ett exempel index](media/search-what-is-an-index//import-wizard-sample-data.png "Skapa ett exempel index")

@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187718"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497071"
 ---
-# <a name="troubleshoot"></a>Felsöka
+# <a name="troubleshoot-azure-farmbeats"></a>Felsöka Azure FarmBeats
 
 Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vårt [support forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller skicka e-post till oss farmbeatssupport@microsoft.com .
 
@@ -58,8 +58,8 @@ Kontakta oss med följande information:
 
 **Korrigerande åtgärd**
 
-1. Gå till resurs gruppen FarmBeats Datahub.
-2. Välj **Event Hub** (DatafeedEventHubNamespace) och kontrol lera sedan antalet inkommande meddelanden.
+1. Gå till FarmBeats-resurs gruppen.
+2. Välj **Event Hub** -namnområdet ("sensor-partner-händelsehubbnamnområde-namespace-xxxx"), klicka på "Event Hubs" och Sök efter antalet inkommande meddelanden i händelsehubben som är tilldelad till partnern
 3. Gör något av följande:
 
    - Kontakta din enhets partner om det inte finns *några inkommande meddelanden*.  
@@ -305,7 +305,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 6. I det vänstra fönstret väljer du **BLOB-behållare**och väljer sedan **jobb loggar** för Azure Data Factory loggar eller **appinsights-loggar** för App Service loggar.
 7. Välj **Hämta** och hämta loggarna till en lokal mapp på datorn.
 
-## <a name="high-cpu-usage"></a>Hög processoranvändning
+## <a name="high-cpu-usage"></a>Hög CPU-användning
 
 **Fel**: du får en e-postavisering som refererar till en **hög CPU-användnings avisering**.
 

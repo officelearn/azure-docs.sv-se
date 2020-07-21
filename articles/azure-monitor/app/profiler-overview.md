@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671655"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499400"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilera produktions program i Azure med Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Aktivera Application Insights Profiler för ditt program
@@ -29,7 +30,7 @@ Om du har aktiverat profiler men inte ser spår, se vår [fel söknings guide](p
 
 ## <a name="view-profiler-data"></a>Visa profiler-data
 
-För att profiler ska kunna överföra spår måste ditt program aktivt hantera förfrågningar. Om du gör ett experiment kan du generera förfrågningar till din webbapp genom att använda [Application Insights prestanda testning](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du nyligen har aktiverat profiler kan du köra ett kort belastnings test. När belastnings testet körs väljer du knappen **profil nu** i fönstret Profiler [ **Inställningar** ](profiler-settings.md). När profiler körs slumpmässigt en gång per timme och under en varaktighet på två minuter. Om ditt program hanterar en stadig ström med begär Anden, laddar profileringen spår varje timme.
+För att profiler ska kunna överföra spår måste ditt program aktivt hantera förfrågningar. Om du gör ett experiment kan du generera förfrågningar till din webbapp genom att använda [Application Insights prestanda testning](/vsts/load-test/app-service-web-app-performance-test). Om du nyligen har aktiverat profiler kan du köra ett kort belastnings test. När belastnings testet körs väljer du knappen **profil nu** i fönstret Profiler [ **Inställningar** ](profiler-settings.md). När profiler körs slumpmässigt en gång per timme och under en varaktighet på två minuter. Om ditt program hanterar en stadig ström med begär Anden, laddar profileringen spår varje timme.
 
 När programmet har tagit emot viss trafik och profileraren har tid att ladda upp spårningarna bör du ha spår att visa. Den här processen kan ta 5 till 10 minuter. Om du vill visa spårningar väljer du **vidta åtgärder**i fönstret **prestanda** och väljer sedan **spårnings** knappen för profiler.
 

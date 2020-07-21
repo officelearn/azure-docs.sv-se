@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691824"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498618"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor namngivnings-och terminologi ändringar
 Betydande ändringar har gjorts i Azure Monitor nyligen, med olika tjänster som sammanställs för att förenkla övervakningen av Azure-kunder. I den här artikeln beskrivs nya namn-och terminologi ändringar i Azure Monitor-dokumentationen.
@@ -58,4 +59,4 @@ Operations Management Suite (OMS) var ett sammanslag av följande Azure-hanterin
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs en [Översikt över Azure Monitor](overview.md) som beskriver de olika komponenterna och funktionerna.
-- Lär dig mer om [över gången av OMS-portalen](../log-analytics/log-analytics-oms-portal-transition.md).
+- Lär dig mer om [över gången av OMS-portalen](./platform/oms-portal-transition.md).

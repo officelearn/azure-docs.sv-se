@@ -2,12 +2,13 @@
 title: Uppdatera Azure Monitor för behållare för mått | Microsoft Docs
 description: I den här artikeln beskrivs hur du uppdaterar Azure Monitor för behållare för att aktivera funktionen anpassade mått som stöder utforska och aviserar på sammansatta mått.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 78a6612e522accce8c934885a090e66a51850c97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298269"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498992"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Uppdatera Azure Monitor för containrar för att aktivera mått
 
@@ -19,23 +20,25 @@ Azure Monitor for containers introducerar stöd för att samla in mått från Az
 
 Följande mått är aktiverade som en del av den här funktionen:
 
-| Mått namn område | Metric | Beskrivning |
+| Mått namn område | Mått | Beskrivning |
 |------------------|--------|-------------|
-| Insights. container/Nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Detta är *nod* -mått och inkluderar *värd* som en dimension, och de innehåller också<br> nodens namn som värde för *värd* dimensionen. |
-| Insights. container/poddar | podCount | Dessa är *Pod* mått och inkluderar följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
+| Insights. container/Nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Som *Node* -mått innehåller de *värden* som en dimension. De innehåller också<br> nodens namn som värde för *värd* dimensionen. |
+| Insights. container/poddar | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Som *Pod* mått inkluderar de följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
+| Insights. container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-Uppdatering av klustret för att stödja de här nya funktionerna kan utföras från Azure Portal, Azure PowerShell eller med Azure CLI. Med Azure PowerShell och CLI kan du aktivera detta per-kluster eller för alla kluster i din prenumeration. Nya distributioner av AKS kommer automatiskt att inkludera den här konfigurations ändringen och-funktionerna.
+För att stödja dessa nya funktioner ingår en ny behållare, version **Microsoft/OMS: ciprod02212019**, i versionen. Nya distributioner av AKS inkluderar automatiskt den här konfigurations ändringen och-funktionerna. Uppdatering av klustret för att stödja den här funktionen kan utföras från Azure Portal, Azure PowerShell eller med Azure CLI. Med Azure PowerShell och CLI. Du kan aktivera detta per kluster eller för alla kluster i din prenumeration.
 
 Antingen tilldelar den **övervaknings mått utgivar** rollen rollen som övervaknings mått till klustrets huvud namn för tjänsten eller användarens tilldelade MSI för övervaknings tillägget så att data som samlas in av agenten kan publiceras i kluster resursen. Övervaknings mått utgivare har bara behörighet att skicka mått till resursen, den kan inte ändra något tillstånd, uppdatera resursen eller läsa data. Mer information om rollen finns i [övervaknings mått utgivar rollen](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar ska du kontrol lera följande:
+Innan du uppdaterar klustret bör du kontrol lera följande:
 
 * Anpassade mått är bara tillgängliga i en delmängd av Azure-regioner. En lista över regioner som stöds dokumenteras [här](../platform/metrics-custom-overview.md#supported-regions).
-* Du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen på AKS-klusterresursen för att aktivera insamling av nod-och Pod anpassade prestanda mått. 
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* Du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen på AKS-klusterresursen för att aktivera insamling av nod-och Pod anpassade prestanda mått.
+
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Uppgradera ett kluster från Azure Portal
 
@@ -121,4 +124,4 @@ Utför följande steg för att uppdatera ett enskilt kluster med hjälp av Azure
 
 ## <a name="verify-update"></a>Verifiera uppdatering
 
-När du har initierat uppdateringen med hjälp av någon av metoderna som beskrivs ovan kan du använda Azure Monitor Metrics Explorer och verifiera från **mått namn området** som **insikter** visas. Om det är det betyder det att du kan gå vidare och börja konfigurera [mått varningar](../platform/alerts-metric.md) eller fästa dina diagram på [instrument paneler](../../azure-portal/azure-portal-dashboards.md).  
+När du har initierat uppdateringen med hjälp av någon av metoderna som beskrivs ovan kan du använda Azure Monitor Metrics Explorer och verifiera från **mått namn området** som **insikter** visas. Om så är fallet kan du gå vidare och börja konfigurera [mått varningar](../platform/alerts-metric.md) eller fästa diagram på [instrument paneler](../../azure-portal/azure-portal-dashboards.md).  

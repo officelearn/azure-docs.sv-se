@@ -4,12 +4,12 @@ description: Lär dig hur MARS-agenten stöder säkerhets kopierings scenarier
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497955"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Om Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -40,10 +40,10 @@ MARS-agenten stöder följande återställnings scenarier:
 ## <a name="backup-process"></a>Säkerhetskopieringsprocessen
 
 1. Skapa ett [Recovery Services-valv](install-mars-agent.md#create-a-recovery-services-vault)från Azure Portal och välj filer, mappar och system tillstånd från **säkerhets kopierings målen**.
-2. [Ladda ned autentiseringsuppgifterna för Recovery Services valvet och agent installations programmet](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) till en lokal dator.
+2. [Ladda ned autentiseringsuppgifterna för Recovery Services valvet och agent installations programmet](./install-mars-agent.md#download-the-mars-agent) till en lokal dator.
 
-3. [Installera agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) och Använd de hämtade autentiseringsuppgifterna för valvet för att registrera datorn i Recovery Services-valvet.
-4. I agent konsolen på klienten [konfigurerar du säkerhets kopieringen](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) för att ange vad som ska säkerhets kopie ras, när säkerhets kopieringen ska ske (schemat), hur länge säkerhets kopiorna ska behållas i Azure (bevarande principen) och börja skydda.
+3. [Installera agenten](./install-mars-agent.md#install-and-register-the-agent) och Använd de hämtade autentiseringsuppgifterna för valvet för att registrera datorn i Recovery Services-valvet.
+4. I agent konsolen på klienten [konfigurerar du säkerhets kopieringen](./backup-windows-with-mars-agent.md#create-a-backup-policy) för att ange vad som ska säkerhets kopie ras, när säkerhets kopieringen ska ske (schemat), hur länge säkerhets kopiorna ska behållas i Azure (bevarande principen) och börja skydda.
 
 ![Azure Backup Agent diagram](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -57,12 +57,12 @@ MARS-agenten stöder följande återställnings scenarier:
 
 ### <a name="additional-scenarios"></a>Fler scenarier
 
-- **Säkerhetskopiera vissa filer och mappar i Azure Virtual Machines**: den primära metoden för att säkerhetskopiera virtuella datorer i Azure är att använda ett Azure Backup-tillägg på den virtuella datorn. Tillägget säkerhetskopierar hela den virtuella datorn. Om du vill säkerhetskopiera vissa filer och mappar i en virtuell dator kan du installera MARS-agenten på de virtuella Azure-datorerna. Mer information finns i [arkitektur: inbyggd virtuell Azure-säkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+- **Säkerhetskopiera vissa filer och mappar i Azure Virtual Machines**: den primära metoden för att säkerhetskopiera virtuella datorer i Azure är att använda ett Azure Backup-tillägg på den virtuella datorn. Tillägget säkerhetskopierar hela den virtuella datorn. Om du vill säkerhetskopiera vissa filer och mappar i en virtuell dator kan du installera MARS-agenten på de virtuella Azure-datorerna. Mer information finns i [arkitektur: inbyggd virtuell Azure-säkerhetskopiering](./backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 - **Offline-seeding**: inledande fullständiga säkerhets kopieringar av data till Azure överför vanligt vis stora mängder data och kräver mer nätverks bandbredd. Vid efterföljande säkerhets kopieringar överförs endast delta eller stegvis mängd data. Azure Backup komprimerar de första säkerhets kopiorna. Genom processen för *dirigering av dirigering*kan Azure Backup använda diskar för att ladda upp komprimerade första säkerhets kopierings data offline till Azure. Mer information finns i [Azure Backup offline-säkerhetskopiering med Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Stödmatris för MARS-agenten](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[Stödmatris för MARS-agenten](./backup-support-matrix-mars-agent.md)
 
-[Vanliga frågor och svar om MARS-agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[Vanliga frågor och svar om MARS-agent](./backup-azure-file-folder-backup-faq.md)

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663240"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498686"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Mål för övervaknings lösningar i Azure Monitor (för hands version)
 När du lägger till en övervaknings lösning i din prenumeration distribueras den automatiskt som standard till alla Windows-och Linux-agenter som är anslutna till din Log Analytics-arbetsyta.  Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter.  Den här artikeln beskriver hur du använder **lösnings mål** som är en funktion som gör att du kan använda ett omfång för dina lösningar.
@@ -58,7 +59,7 @@ Använd en omfattnings konfiguration med följande process.
 Följande är kriterier för agenter och lösningar som inte kan användas med lösnings mål.
 
 - Lösnings mål gäller endast för lösningar som distribuerar till agenter.
-- Lösnings mål gäller endast för lösningar som tillhandahålls av Microsoft.  Den gäller inte för lösningar [som skapats av dig själv eller partner](solutions-creating.md).
+- Lösnings mål gäller endast för lösningar som tillhandahålls av Microsoft.  Den gäller inte för lösningar [som skapats av dig själv eller partner](./solutions.md).
 - Du kan bara filtrera ut agenter som ansluter direkt till Azure Monitor.  Lösningar distribueras automatiskt till alla agenter som ingår i en ansluten Operations Manager hanterings grupp oavsett om de ingår i en omfattnings konfiguration eller inte.
 
 ### <a name="exceptions"></a>Undantag

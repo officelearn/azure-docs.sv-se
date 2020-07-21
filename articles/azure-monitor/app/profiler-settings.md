@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205709"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499417"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
@@ -41,14 +41,14 @@ Senaste profilerings sessioner | Visar information om tidigare profilerings sess
 ## <a name="profile-now"></a>Profilera nu
 Med det här alternativet kan du starta en profilering av en session på begäran. När du klickar på den här länken börjar alla profiler som skickar data till den här Application Insights-instansen att avbilda en profil. Efter 5 till 10 minuter visas konsolsessionen i listan nedan.
 
-För att en användare ska kunna utlösa en profilerad session manuellt, kräver de minst "Skriv"-åtkomst för rollen för Application Insights-komponenten. I de flesta fall får du den här åtkomsten automatiskt och inget ytterligare arbete krävs. Om du har problem kan du använda rollen som "Application Insights komponent deltagare" i prenumerations omfattnings rollen. [Läs mer om roll åtkomst kontroll med Azure-övervakning](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+För att en användare ska kunna utlösa en profilerad session manuellt, kräver de minst "Skriv"-åtkomst för rollen för Application Insights-komponenten. I de flesta fall får du den här åtkomsten automatiskt och inget ytterligare arbete krävs. Om du har problem kan du använda rollen som "Application Insights komponent deltagare" i prenumerations omfattnings rollen. [Läs mer om roll åtkomst kontroll med Azure-övervakning](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>Utlösarens inställningar
 ![Utfällning av utlösnings inställningar][trigger-settings-flyout]
 
 Om du klickar på knappen utlösare på Meny raden öppnas rutan Utlös ande inställningar. Du kan ställa in utlösare för att starta profilering när procent andelen processor-eller minnes användning träffar den nivå som du har angett.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |-|-|
 På/av-knapp | På: profiler kan startas av den här utlösaren. Off: profiler startas inte av den här utlösaren.
 Minnes tröskel | När den här procent andelen av minnet används startas profileraren.
@@ -58,7 +58,7 @@ Cooldown | Anger hur lång tid profiler ska vänta innan den söker efter minne 
 ## <a name="recent-profiling-sessions"></a>Senaste profilerings sessioner
 I det här avsnittet av sidan visas information om de senaste profilerings sessionerna. En profilerings session representerar den tids period då profilerings agenten tog en profil på en av datorerna som är värd för ditt program. Du kan öppna profilerna från en session genom att klicka på en av raderna. För varje session visar vi:
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |-|-|
 Utlöst av | Hur sessionen startades, antingen genom en utlösare, profil nu eller standard sampling. 
 Appnamn | Namnet på det program som profilerades.

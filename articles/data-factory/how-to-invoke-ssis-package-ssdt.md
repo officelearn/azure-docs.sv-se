@@ -12,11 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 1d8261d05f59c7f40ba6b1e2d59d2b15ad56de95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3163d414e940d843489a34f319996b1b8ed6f4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424590"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497413"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Köra SSIS-paket i Azure från SSDT
 
@@ -26,7 +27,7 @@ I den här artikeln beskrivs funktionen för SSIS-projekt (Azure-aktiverade SQL 
 
 Med den här funktionen kan du skapa en ny Azure-SSIS IR eller bifoga en befintlig till SSIS-projekt och sedan köra dina paket på den.  Vi stöder körning av paket som ska distribueras till SSIS-katalogen (SSISDB) i projekt distributions modellen och de som ska distribueras till fil system/fil resurser/Azure Files i paket distributions modellen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda den här funktionen laddar du ned och installerar de senaste SSDT med SSIS Projects-tillägget för Visual Studio härifrån eller som [here](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)ett fristående installations [program härifrån.](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 
 ## <a name="azure-enable-ssis-projects"></a>Azure – aktivera SSIS-projekt
@@ -81,6 +82,30 @@ Genom att ansluta dina Azure-aktiverade projekt till SSIS i ADF kan du ladda upp
    ![Välj Azure Storage](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
 4. Klicka på knappen **Anslut** för att slutföra anslutningen.  Vi kommer att visa den valda Azure-SSIS IR och Azure Storage kontot under noden **länkade Azure-resurser** i Solution Explorer panel i SSDT.  Vi uppdaterar också status för din Azure-SSIS IR, medan du kan hantera den genom att högerklicka på noden för att öppna en meny och sedan välja det **Start\Stop\Manage** -menyobjektet som leder dig till ADF-portalen/-appen.
+
+## <a name="assess-ssis-projectpackages-for-executions-in-azure"></a>Utvärdera SSIS-project\packages för körningar i Azure
+### <a name="assess-ssis-project-or-package"></a>Utvärdera SSIS-projekt eller paket
+Innan du kör dina paket i Azure kan du utvärdera ditt paket för att utvärdera om det finns någon potentiell Överflyttnings block eller information som du behöver känna till. 
+-  Du kan antingen bedöma alla paket under Project eller ett enda paket.
+
+   ![Utvärdera projekt ](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project.png)
+    ![ utvärderings paketet](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-package.png)
+
+-  Du kan få utvärderings rapporten för att kontrol lera varje utvärderings problem och varje ärende har detaljerad beskrivning och rekommendation. Du kan också exportera bedömnings rapporten som CSV-fil. 
+
+   ![Utvärdera projekt resultat](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project-result.png)
+
+### <a name="suppress-assessment-rule"></a>Utelämna bedömnings regel
+Om du är säker på att en utvärderings regel inte tillämpas för ditt paket kan du välja att inaktivera den. 
+-  Du kan klicka direkt på länken **Konfigurera undervisningen av utvärderings regeln** i utvärderings rapporten.
+
+   ![Inställningar för undervisning av utvärderings regel](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
+
+-  Du kan också konfigurera via **Azure-aktiverade inställningar**.
+
+   ![Azure-aktiverade inställningar](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
+
+   ![Inställningar för undervisning av utvärderings regel via Azure-aktiverade inställningar](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings-via-azure-enabled-settings.png)
 
 ## <a name="execute-ssis-packages-in-azure"></a>Köra SSIS-paket i Azure
 ### <a name="azure-enabled-setting"></a>Azure-aktiverad inställning
@@ -159,6 +184,9 @@ Om du vill växla paket körnings miljöer med Azure-aktiverade projekt kan du s
 6. Kör det här paketet i Azure. Du kan enkelt byta tillbaka miljön till den lokala miljön genom att växla den aktuella Visual Studio-konfigurationen.
 
    ![Växla Visual Studio-konfiguration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
+
+## <a name="current-limitations"></a>Aktuella begränsningar
+-  Den här SSDT-funktionen har inte stöd för det nationella molnet just nu.
 
 ## <a name="next-steps"></a>Nästa steg
 När du är nöjd med att köra dina paket i Azure från SSDT kan du distribuera och köra dem som kör SSIS-paket-aktiviteter i ADF-pipelines, se [köra SSIS-paket som EXECUTE SSIS-paket aktiviteter i ADF-pipeline](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

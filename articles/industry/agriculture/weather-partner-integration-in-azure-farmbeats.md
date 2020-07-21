@@ -1,18 +1,18 @@
 ---
-title: Integrering av väder partner
+title: Väderpartnerintegration
 description: Den här artikeln beskriver hur en väder data leverantör kan integreras med FarmBeats
 author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: d4ceb25b9b81c831ed1b285a875742ebfaa6d24f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497003"
 ---
-# <a name="weather-partner-integration"></a>Integrering av väder partner
+# <a name="weather-partner-integration"></a>Väderpartnerintegration
 
 Den här artikeln innehåller information om Azure FarmBeats **Connector** Docker-komponenten som väder data leverantörer kan utveckla för att integrera med FarmBeats genom att använda API: er och skicka väder data till FarmBeats. När data är tillgängliga i FarmBeats kan de användas för data fusion och för att skapa maskin inlärnings-och artificiell Intelligence-modeller.
 
@@ -36,10 +36,10 @@ Med hjälp av ovanstående Docker-information registrerar kunden en väder partn
 
 FarmBeats-API: erna innehåller teknisk dokumentation för Swagger. Information om alla API: er och deras motsvarande förfrågningar och svar finns i [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Om du har installerat FarmBeats kan du komma åt din FarmBeats-Swagger på[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+Om du har installerat FarmBeats kan du komma åt din FarmBeats-Swagger på`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Observera att "-API" läggs till i FarmBeats-webbplatsens namn.
-API-slutpunkten kommer att vara:[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+API-slutpunkten kommer att vara:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub-lib
 
@@ -134,9 +134,9 @@ Den här komponenten kommer att anropas varje gång en FarmBeats-användare kör
 
 ### <a name="details-of-the-objects"></a>Information om objekten
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Beskrivning |
   --- | ---
-  Namn  | Namnet på väder data modellen |
+  Name  | Namnet på väder data modellen |
   Beskrivning  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper som definieras av data leverantören. |
   weatherMeasures > namn  | Namnet på väder måttet. Till exempel humidity_max |
@@ -147,8 +147,8 @@ Den här komponenten kommer att anropas varje gång en FarmBeats-användare kör
   weatherMeasures > AggregationType  | Antingen ingen, genomsnitt, Max, minimum, StandardDeviation, sum, total
   weatherMeasures > djup  | Sensorns djup i centimeter. Till exempel mätningen av fukt 10 cm under marken.
   Beskrivning av weatherMeasures->  | Ge en meningsfull beskrivning av måttet. |
-  **JobType** |  |
-  Namn  | namnet på jobbet, till exempel Get_Daily_Forecast; jobbet som kunden kommer att köra för att hämta väder data|
+  **JobType** | **Beskrivning** |
+  Name  | namnet på jobbet, till exempel Get_Daily_Forecast; jobbet som kunden kommer att köra för att hämta väder data|
   pipelineDetails > parametrar > namn  | parameterns namn |
   pipelineDetails > parametrar > typ | antingen sträng, int, Float, bool, array |
   pipelineDetails > parametrar > parametrarna isrequired | booleskt sant om den obligatoriska parametern, falskt om inte; Standardvärdet är true |
@@ -156,10 +156,10 @@ Den här komponenten kommer att anropas varje gång en FarmBeats-användare kör
   pipelineDetails > parametrar > Beskrivning | Beskrivning av parametern |
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
   Egenskaper > **programRunCommand** | Docker Kör kommando – det här kommandot körs när kunden kör väder jobbet. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **Beskrivning** |
   weatherDataModelId  | ID för motsvarande WeatherDataModel som skapades under start|
   location  | representerar latitud, longitud och höjning |
-  Namn | Objektets namn |
+  Name | Objektets namn |
   Beskrivning | Beskrivning |
   farmId | **valfritt** ID för den grupp som tillhandahålls av kunden som en del av jobb parametern |
   Egenskaper  | Ytterligare egenskaper från tillverkaren.

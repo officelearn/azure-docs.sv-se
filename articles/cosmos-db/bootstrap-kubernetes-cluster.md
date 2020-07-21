@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262641"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497768"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Använda Azure-Kubernetes med Azure Cosmos DB (för hands version)
 
@@ -25,7 +25,7 @@ Med etcd-API: et i Azure Cosmos DB kan du använda Azure Cosmos DB som server de
 
 Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-introduction.md) artikeln. Den här artikeln visar hur du använder [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (AKS-motor) för att starta ett Kubernetes-kluster på Azure som använder [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) i stället för lokalt installerat och konfigurerat etcd. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Du kan ladda ned Azure CLI som är särskilt för operativ systemet och installera.
 
@@ -33,7 +33,7 @@ Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-intr
 
    Azure Kubernetes Engine (**AKS-Engine**) genererar Azure Resource Manager mallar för Kubernetes-kluster på Azure. Indata till AKS-Engine är en kluster definitions fil som beskriver det önskade klustret, inklusive Orchestrator, funktioner och agenter. Indatafilernas struktur liknar det offentliga API: t för Azure Kubernetes-tjänsten.
 
-1. Etcd-API: et i Azure Cosmos DB är för närvarande en för hands version. Registrera dig för att använda för hands versionen på: https://aka.ms/cosmosetcdapi-signup . När du har skickat formuläret kommer prenumerationen att vit listas att använda Azure Cosmos etcd-API: et. 
+1. Etcd-API: et i Azure Cosmos DB är för närvarande en för hands version. Registrera dig för att använda för hands versionen på: https://aka.ms/cosmosetcdapi-signup . När du har skickat formuläret kommer din prenumeration att kunna använda Azure Cosmos etcd-API: et. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Distribuera klustret med Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-intr
    az login 
    ```
 
-1. Om du har mer än en prenumeration växlar du till den prenumeration som har vit listas för Azure Cosmos DB etcd-API: et. Du kan växla till den prenumeration som krävs med hjälp av följande kommando:
+1. Om du har mer än en prenumeration växlar du till den prenumeration som har tillåtits för Azure Cosmos DB etcd-API: et. Du kan växla till den prenumeration som krävs med hjälp av följande kommando:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

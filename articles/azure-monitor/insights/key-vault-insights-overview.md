@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945468"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498967"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault (för hands version)
 Azure Monitor för Key Vault (för hands version) tillhandahåller omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
@@ -24,7 +24,7 @@ Innan du hoppar till erfarenheten bör du förstå hur den visar och visualisera
 -   **Detalj** analys av ett särskilt nyckel valv för att utföra detaljerad analys.
 -    **Anpassningsbara** där du kan ändra vilka mått du vill se, ändra eller ange tröskelvärden som överensstämmer med dina gränser och spara din egen arbets bok. Diagram i arbets boken kan fästas på Azure-instrumentpaneler.
 
-Azure Monitor för Key Vault kombinerar både loggar och mått för att tillhandahålla en global övervaknings lösning. Alla användare kan komma åt de mät databaserade övervaknings data, men inkludering av loggarbaserade visualiseringar kan kräva att användarna [aktiverar loggning av sina Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+Azure Monitor för Key Vault kombinerar både loggar och mått för att tillhandahålla en global övervaknings lösning. Alla användare kan komma åt de mät databaserade övervaknings data, men inkludering av loggarbaserade visualiseringar kan kräva att användarna [aktiverar loggning av sina Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>Konfigurera nyckel valv för övervakning
 
@@ -39,7 +39,7 @@ Azure Monitor för Key Vault kombinerar både loggar och mått för att tillhand
 
 3. När diagnostikinställningar har sparats kommer du att kunna visa alla loggbaserade diagram och visualiseringar under Key Vault insikter. Observera att det kan ta flera minuter för timmar att börja fylla i loggarna.
 
-4. Om du vill ha mer hjälp om hur du aktiverar diagnostikloggar för Key Vaults tjänsten läser du [hela guiden](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+4. Om du vill ha mer hjälp om hur du aktiverar diagnostikloggar för Key Vaults tjänsten läser du [hela guiden](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Visa från Azure Monitor
 
@@ -75,7 +75,7 @@ Det finns en villkorsstyrd färg kodning eller termiska kartor för kolumner i a
 
 Arbets boken visar lyckade (2xx status koder), autentiseringsfel (401/403 status koder), begränsning (429 status koder) och andra fel (4xx status koder).
 
-För att bättre förstå vad var och en av status koderna representerar rekommenderar vi att läsa igenom dokumentationen om [Azure Key Vault status-och svars koder](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses).
+För att bättre förstå vad var och en av status koderna representerar rekommenderar vi att läsa igenom dokumentationen om [Azure Key Vault status-och svars koder](../../key-vault/general/authentication-requests-and-responses.md).
 
 ## <a name="operations--latency-workbook"></a>Arbets bok för åtgärder & svars tid
 
@@ -120,7 +120,7 @@ Med arbets boken för åtgärder kan användarna få detaljerad information om a
 Användarna kan också begränsa vyer baserat på vissa transaktions typer i den övre tabellen, vilket dynamiskt uppdaterar den nedre tabellen, där användarna kan Visa fullständig åtgärds information i ett popup-fönster.
 
 >[!NOTE]
-> Observera att diagnostikinställningar måste vara aktiverat för att användarna ska kunna visa den här arbets boken. Mer information om hur du aktiverar diagnostisk inställning finns i mer information om [Azure Key Vault loggning](https://docs.microsoft.com/azure/key-vault/general/logging).
+> Observera att diagnostikinställningar måste vara aktiverat för att användarna ska kunna visa den här arbets boken. Mer information om hur du aktiverar diagnostisk inställning finns i mer information om [Azure Key Vault loggning](../../key-vault/general/logging.md).
 
 ## <a name="pin-and-export"></a>Fäst och exportera
 
@@ -164,7 +164,7 @@ I det här avsnittet får du hjälp med diagnos och fel sökning av några vanli
 
 ### <a name="resolving-performance-issues-or-failures"></a>Lösa prestanda problem eller fel
 
-Information om hur du felsöker viktiga valv relaterade problem som du identifierar med Azure Monitor för Key Vault (för hands version) finns i [Azure Key Vault-dokumentationen](https://docs.microsoft.com/azure/key-vault/).
+Information om hur du felsöker viktiga valv relaterade problem som du identifierar med Azure Monitor för Key Vault (för hands version) finns i [Azure Key Vault-dokumentationen](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Varför kan jag bara se 200-nyckel valv
 
@@ -208,4 +208,4 @@ Du kan redigera den befintliga arbets boken genom att använda redigerings läge
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../platform/workbooks-overview.md).

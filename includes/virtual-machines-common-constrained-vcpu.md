@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed1341a323d947441fa2cb3c239fcdf99c447a97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84793699"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494502"
 ---
 Vissa databas arbets belastningar som SQL Server eller Oracle kräver hög minnes-, lagrings-och I/O-bandbredd, men inte ett högt antal kärnor. Många databas arbets belastningar är inte processor intensiva. Azure erbjuder vissa VM-storlekar där du kan begränsa antalet VM-vCPU för att minska kostnaderna för program varu licensiering, samtidigt som du behåller samma minne, lagring och I/O-bandbredd.
 
@@ -74,3 +74,5 @@ De licens avgifter som debiteras för SQL Server eller Oracle är begränsade ti
 | Standard_DS13-2_v2  | 2    | Samma som DS13_v2 |
 | Standard_DS14-8_v2  | 8    | Samma som DS14_v2 |
 | Standard_DS14-4_v2  | 4    | Samma som DS14_v2 |
+| Standard_M416-208s_v2 | 208    | Samma som M416s_v2|
+| Standard_M416-208ms_v2 | 208    | Samma som M416ms_v2 |

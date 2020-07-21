@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa avsikt med REST-API: er – LUIS'
+title: 'Snabb start: Använd sväng och REST för att hämta avsikt – LUIS'
 titleSuffix: Azure Cognitive Services
 description: I den här REST API snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
-ms.openlocfilehash: 714d76641dd22f566b2464e3470f6a3324f4d758
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab76bcdfc62ed0af52e6c99ef6c7b14ebeef25f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207181"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497870"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Snabb start: Använd sväng och REST för att få avsikt
 
@@ -81,7 +81,7 @@ Använd sväng för att fråga [förutsägelse slut punkten](https://aka.ms/luis
 
     |Information|Syfte|
     |--|--|
-    |`***YOUR-PREDICTION-ENDPOINT***`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Ett exempel är `https://westus.api.cognitive.microsoft.com/`.|
+    |`***YOUR-PREDICTION-ENDPOINT***`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Till exempel `https://westus.api.cognitive.microsoft.com/`.|
     |`***YOUR-APP-ID***`|Ditt app-ID. Finns på LUIS-portalen, sidan program inställningar för din app.
     |`***YOUR-PREDICTION-KEY***`|Din nyckel för att förutsäga 32-tecknen. Finns på LUIS-portalen, sidan Azure-resurser för din app.
 

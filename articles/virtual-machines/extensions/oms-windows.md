@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481790"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494674"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics-tillägg för virtuella datorer för Windows
 
 Azure Monitor-loggar innehåller övervaknings funktioner över molnbaserade och lokala till gångar. Tillägget för virtuell dator med Log Analytics agent för Windows publiceras och stöds av Microsoft. Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Log Analytics virtuell dator tillägg för Windows.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -91,14 +91,14 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 | apiVersion | 2015-06-15 |
 | utgivare | Microsoft. EnterpriseCloud. Monitoring |
 | typ | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1,0 |
 | workspaceId (t) * | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (t. ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
 \*WorkspaceId kallas för consumerId i Log Analytics-API: et.
 
 > [!NOTE]
-> För ytterligare egenskaper, se Azure [Connect Windows-datorer för att Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> För ytterligare egenskaper, se Azure [Connect Windows-datorer för att Azure Monitor](../../azure-monitor/platform/agent-windows.md).
 
 ## <a name="template-deployment"></a>Malldistribution
 
@@ -183,7 +183,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av modulen Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell-modulen.
 

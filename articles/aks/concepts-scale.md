@@ -4,12 +4,12 @@ description: Lär dig mer om skalning i Azure Kubernetes service (AKS), inklusiv
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244522"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499893"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver de viktigaste begreppen som hjälper dig att skala p
 
 - [Skala manuellt](#manually-scale-pods-or-nodes)
 - [Horisontell Pod autoskalning (HPA)](#horizontal-pod-autoscaler)
-- [Kluster autoskalning](#cluster-autoscaler)
+- [Autoskalning av kluster](#cluster-autoscaler)
 - [Azure Container instance-integrering (ACI) med AKS](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Skala poddar eller noder manuellt
@@ -48,7 +48,7 @@ För att minimera tävlings händelser anges ett fördröjnings värde. Det här
 
 För närvarande kan du inte finjustera dessa cooldown-värden från standardvärdet.
 
-## <a name="cluster-autoscaler"></a>Kluster autoskalning
+## <a name="cluster-autoscaler"></a>Autoskalning av kluster
 
 För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning den metriska API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
 
@@ -58,7 +58,7 @@ Kluster autoskalning används vanligt vis tillsammans med den horisontella Pod a
 
 För att komma igång med klustrets autoskalning i AKS, se [kluster autoskalning på AKS][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Skala upp händelser
+### <a name="scale-out-events"></a>Skala ut händelser
 
 Om en nod inte har tillräckligt med beräknings resurser för att köra en begärd pod, kan Pod inte passera genom schemaläggnings processen. Pod kan inte startas om inte ytterligare beräknings resurser är tillgängliga i Node-poolen.
 
@@ -66,7 +66,7 @@ När poddar i klustret inte kan schemaläggas på grund av resurs begränsningar
 
 Om ditt program behöver skala snabbt kan vissa poddar finnas kvar i ett tillstånd som väntar på att schemaläggas tills de ytterligare noder som distribueras av klustret autoskalning kan godkänna den schemalagda poddar. För program som har höga burst-krav kan du skala med virtuella noder och Azure Container Instances.
 
-### <a name="scale-down-events"></a>Skala ned händelser
+### <a name="scale-in-events"></a>Skala i händelser
 
 Klustrets autoskalning övervakar också Pod schemaläggnings status för noder som inte nyligen har tagit emot nya tids planerings begär Anden. Det här scenariot indikerar att Node-poolen har fler beräknings resurser än vad som krävs och antalet noder kan minskas.
 

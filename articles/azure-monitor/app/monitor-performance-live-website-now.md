@@ -3,17 +3,17 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166390"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499536"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
 > [!IMPORTANT]
-> Statusövervakare rekommenderas inte längre för användning och från och med den **1 juni 2021** kommer den här versionen av status övervakaren inte att stödjas. Den har ersatts av Azure Monitor Application Insights agent (tidigare namngiven Statusövervakare v2). Se vår dokumentation om distributioner [av lokala Server-distributioner](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) eller virtuella [Azure-datorer och skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Statusövervakare rekommenderas inte längre för användning och från och med den **1 juni 2021** kommer den här versionen av status övervakaren inte att stödjas. Den har ersatts av Azure Monitor Application Insights agent (tidigare namngiven Statusövervakare v2). Se vår dokumentation om distributioner [av lokala Server-distributioner](./status-monitor-v2-overview.md) eller virtuella [Azure-datorer och skalnings uppsättningar för virtuella datorer](./azure-vm-vmss-apps.md).
 
 Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Du behöver en [Microsoft Azure](https://azure.com)-prenumeration.
 
@@ -97,7 +97,7 @@ Dessa är några steg som du kan utföra för att bekräfta att installationen l
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Om du behöver bekräfta att Application Insights har anslutits kan du köra Sysinternals- [handtaget](https://docs.microsoft.com/sysinternals/downloads/handle) i ett kommando fönster för att bekräfta att applicationinsights.dll har lästs in av IIS.
+- Om du behöver bekräfta att Application Insights har anslutits kan du köra Sysinternals- [handtaget](/sysinternals/downloads/handle) i ett kommando fönster för att bekräfta att applicationinsights.dll har lästs in av IIS.
 
   ```console
   handle.exe /p w3wp.exe
@@ -145,7 +145,7 @@ Vi spårar det här problemet [här](https://github.com/Microsoft/ApplicationIns
 * Ändra konfigurations filen för att mata ut utförliga loggar: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` och Lägg till `<add key="TraceLevel" value="All" />` i `appsettings` .
 Starta sedan om status övervakaren.
 
-* Som Statusövervakare är ett .NET-program kan du också aktivera [.net-spårning genom att lägga till lämplig diagnostik i konfigurations filen](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). I vissa fall kan det till exempel vara användbart att se vad som händer på nätverks nivå genom att [Konfigurera nätverks spårning](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* Som Statusövervakare är ett .NET-program kan du också aktivera [.net-spårning genom att lägga till lämplig diagnostik i konfigurations filen](/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). I vissa fall kan det till exempel vara användbart att se vad som händer på nätverks nivå genom att [Konfigurera nätverks spårning](/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### <a name="insufficient-permissions"></a>Otillräcklig behörighet
   
@@ -311,7 +311,7 @@ För program som redan har instrumenterats vid kompilering:
 
 ## <a name="download-status-monitor"></a><a name="download"></a>Ladda ned Statusövervakare
 
-- Använd den nya [PowerShell-modulen](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
+- Använd den nya [PowerShell-modulen](./status-monitor-v2-overview.md)
 - Hämta och kör [installations programmet för statusövervakare](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Eller kör [installations programmet för webb plattform](https://www.microsoft.com/web/downloads/platform.aspx) och Sök i det efter Application Insights Status Monitor.
 
@@ -321,7 +321,7 @@ Visa telemetrin:
 
 * [Utforska mått](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem
-* [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
+* [Analys](../log-query/log-query-overview.md) för mer avancerade frågor
 
 Lägg till mer telemetri:
 
@@ -336,6 +336,6 @@ Lägg till mer telemetri:
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

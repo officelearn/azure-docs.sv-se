@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26c8a8746fe748585f36e5282ad6e694cdcef1f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723314"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494470"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en hanterad avbildning av en virtuell dator eller virtuell hård disk
 
@@ -24,7 +25,7 @@ Om du vill skapa en hanterad avbildning måste du ta bort personlig konto inform
 
 Om du vill skapa en kopia av din befintliga virtuella Linux-dator för säkerhets kopiering eller fel sökning eller ladda upp en specialiserad Linux-VHD från en lokal virtuell dator, se [Ladda upp och skapa en virtuell Linux-dator från anpassad disk avbildning](upload-vhd.md).  
 
-Du kan använda tjänsten **Azure VM Image Builder (offentlig för hands version)** för att skapa en anpassad avbildning, inget behov av att lära sig några verktyg eller skapa pipelines för att skapa en avbildning av Image Builder. Mer information finns i [komma igång med Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+Du kan använda tjänsten **Azure VM Image Builder (offentlig för hands version)** för att skapa en anpassad avbildning, inget behov av att lära sig några verktyg eller skapa pipelines för att skapa en avbildning av Image Builder. Mer information finns i [komma igång med Azure VM Image Builder](./image-builder-overview.md).
 
 Du behöver följande objekt innan du skapar en avbildning:
 
@@ -136,4 +137,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du skapar, lagrar och delar bilder i skala finns i [delade avbildnings gallerier](shared-images.md).
+Information om hur du skapar, lagrar och delar bilder i skala finns i [delade avbildnings gallerier](../shared-images-cli.md).

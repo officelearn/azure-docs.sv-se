@@ -1,17 +1,17 @@
 ---
-title: Skapa en Azure HPC cache-instans
-description: Så här skapar du en Azure HPC cache-instans
+title: Använd Azure HPC cache-aggregerad namnrymd
+description: Planera det virtuella namn området för Azure HPC-cachen
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: v-erkel
+ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045815"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497037"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planera det aggregerade namnområdet
 
@@ -30,7 +30,7 @@ Anta till exempel ett system där en Azure HPC cache-instans används för att b
 Mal lin data lagras i ett Data Center och den information som krävs för det här jobbet lagras i följande under kataloger:
 
 * */goldline/templates/acme2017/sku798*
-* */goldline/templates/acme2017/sku980* 
+* */goldline/templates/acme2017/sku980*
 
 Data Center Storage-systemet visar dessa exporter:
 
@@ -52,10 +52,10 @@ Ett NFS-lagrings mål kan ha flera sökvägar för virtuella namn områden, så 
 
 Eftersom NFS-källans sökvägar är under kataloger för samma export, måste du definiera flera namn områdes Sök vägar från samma lagrings mål.
 
-| Värdnamn för lagrings mål  | Sökväg till NFS-export      | Sökväg till under Katalog | Sökväg till namnrymd    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| Värdnamn för lagrings mål  | Sökväg till NFS-export     | Sökväg till under Katalog | Sökväg till namnrymd    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *IP-adress eller värdnamn* | /goldline/templates | acme2017/sku798   | /templates/sku798 |
+| *IP-adress eller värdnamn* | /goldline/templates | acme2017/sku980   | /templates/sku980 |
 
 Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna för namn rymds filen ``/source`` , ``/templates/sku798`` och ``/templates/sku980`` .
 

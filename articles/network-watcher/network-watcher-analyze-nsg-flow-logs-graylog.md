@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737435"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497122"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödes loggar för nätverks säkerhets grupper i Azure med hjälp av Network Watcher och Graylog
 
@@ -190,7 +190,7 @@ Nu när du har upprättat en anslutning till flödes loggarna med Logstash och k
 
    När du startar indata bör du se att den visas under avsnittet **lokala indata** , som du ser i följande bild:
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![Skärm bild som visar avsnittet lokala indata som innehåller indata som du har startat.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    Läs mer om Graylog-indata i [dokumentationen](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 

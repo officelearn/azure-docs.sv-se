@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5366166a31ee45c74c34b8af0e01da251bd7f7f0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807714"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499230"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -30,7 +30,7 @@ I september 2018 har Microsoft kombinerat Azure Monitor, Log Analytics och Appli
 Funktioner i Azure Monitor som aktive ras automatiskt, till exempel insamling av mått och aktivitets loggar får utan kostnad. Det finns en kostnad som är kopplad till andra funktioner som logg frågor och aviseringar. Se [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/) för detaljerad pris information.
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Hur gör jag för att aktivera Azure Monitor?
-Azure Monitor aktive ras så snart du skapar en ny Azure-prenumeration, och [aktivitets logg](platform/activity-logs-overview.md) -och plattforms [mått](platform/data-platform-metrics.md) samlas in automatiskt. Skapa [diagnostikinställningar](platform/diagnostic-settings.md) för att samla in mer detaljerad information om driften av dina Azure-resurser och lägga till [övervaknings lösningar](insights/solutions.md) och [insikter](insights/insights-overview.md) för att tillhandahålla ytterligare analys av insamlade data för specifika tjänster. 
+Azure Monitor aktive ras så snart du skapar en ny Azure-prenumeration, och [aktivitets logg](./platform/platform-logs-overview.md) -och plattforms [mått](platform/data-platform-metrics.md) samlas in automatiskt. Skapa [diagnostikinställningar](platform/diagnostic-settings.md) för att samla in mer detaljerad information om driften av dina Azure-resurser och lägga till [övervaknings lösningar](insights/solutions.md) och [insikter](insights/insights-overview.md) för att tillhandahålla ytterligare analys av insamlade data för specifika tjänster. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Hur gör jag för att åtkomst Azure Monitor?
 Få åtkomst till alla Azure Monitor funktioner och data från **Monitor** -menyn i Azure Portal. I avsnittet **övervakning** på menyn för olika Azure-tjänster får du till gång till samma verktyg med data som har filtrerats till en viss resurs. Azure Monitor data är också tillgängliga för en mängd olika scenarier med CLI, PowerShell och en REST API.
@@ -315,7 +315,7 @@ Vi letar upp IP-adressen (IPv4 eller IPv6) för webb klienten med hjälp av [Geo
 
 * Webb läsar telemetri: vi samlar in avsändarens IP-adress.
 * Server telemetri: Application Insights-modulen samlar in klientens IP-adress. Den samlas inte in om `X-Forwarded-For` har angetts.
-* Mer information om hur IP-adress och data för geolokalisering samlas in i Application Insights finns i den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+* Mer information om hur IP-adress och data för geolokalisering samlas in i Application Insights finns i den här [artikeln](./app/ip-collection.md).
 
 
 Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP` . [Läs mer](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -328,7 +328,7 @@ Ta en titt på [data kvarhållning och sekretess][data].
 
 ### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>Vad händer med att program insikter telemetri när en server eller enhet förlorar anslutning till Azure?
 
-Alla våra SDK: er, inklusive Web SDK, innehåller "Reliable transport" eller "robust transport". När servern eller enheten förlorar anslutning till Azure [lagras telemetri lokalt i fil systemet](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server-SDK: er) eller i HTML5-session lagring (Web SDK). SDK gör ett nytt försök att skicka Telemetrin igen tills vår inmatnings tjänst tar hänsyn till "föråldrad" (48 timmar för loggar, 30 minuter för mått). Inaktuell telemetri kommer att tas bort. I vissa fall, t. ex. när den lokala lagringen är full, görs inget nytt försök.
+Alla våra SDK: er, inklusive Web SDK, innehåller "Reliable transport" eller "robust transport". När servern eller enheten förlorar anslutning till Azure [lagras telemetri lokalt i fil systemet](./app/data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (Server-SDK: er) eller i HTML5-session lagring (Web SDK). SDK gör ett nytt försök att skicka Telemetrin igen tills vår inmatnings tjänst tar hänsyn till "föråldrad" (48 timmar för loggar, 30 minuter för mått). Inaktuell telemetri kommer att tas bort. I vissa fall, t. ex. när den lokala lagringen är full, görs inget nytt försök.
 
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>Kan personliga data skickas i telemetri?
@@ -410,7 +410,7 @@ Du kan inte konfigurera en Metric Explorer-rapport eller konfigurera löpande ex
 
 #### <a name="querying-the-telemetry"></a>Fråga telemetri
 
-Använd [REST API](https://dev.applicationinsights.io/) för att köra [analys](app/analytics.md) frågor.
+Använd [REST API](https://dev.applicationinsights.io/) för att köra [analys](./log-query/log-query-overview.md) frågor.
 
 ### <a name="how-can-i-set-an-alert-on-an-event"></a>Hur kan jag ange en avisering för en händelse?
 
@@ -477,7 +477,7 @@ Din gateway ska dirigera trafik till vår slut punkts bas adress. Ersätt standa
 #### <a name="proxy-passthrough"></a>Proxy-genomströmning
 
 Du kan åstadkomma proxy genom att konfigurera antingen en proxy på dator nivå eller på program nivå.
-Mer information finns i dotNet-artikeln på [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+Mer information finns i dotNet-artikeln på [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Exempel Web.config:
  ```xml
@@ -735,7 +735,7 @@ Under det här tillståndet uppmanas du att välja alternativet **prova nu** nä
 ## <a name="next-steps"></a>Nästa steg
 Om din fråga inte besvaras här kan du referera till följande forum för ytterligare frågor och svar.
 
-- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
-- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Log Analytics](/answers/topics/azure-monitor.html)
+- [Application Insights](/answers/topics/azure-monitor.html)
 
 Om du vill ha allmän feedback på Azure Monitor besöker du [feedback-forumet](https://feedback.azure.com/forums/34192--general-feedback).

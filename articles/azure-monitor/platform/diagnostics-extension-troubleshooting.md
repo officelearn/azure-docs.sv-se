@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696974"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515503"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics-felsökning
 I den här artikeln beskrivs felsöknings information som är relevant för att använda Azure-diagnostik. Mer information om Azure Diagnostics finns i [Azure-diagnostik översikt](diagnostics-extension-overview.md).
@@ -49,7 +50,7 @@ Här följer Sök vägarna till några viktiga loggar och artefakter. Vi referer
 | **MonAgentHost logg fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mått data visas inte i Azure Portal
-Azure-diagnostik tillhandahåller mått data som kan visas i Azure Portal. Om du har problem med att se data i portalen kontrollerar du \* tabellen WADMetrics i Azure-diagnostik lagrings konto för att se om motsvarande mått poster finns där och kontrollerar att [resurs leverantören](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. Insights har registrerats.
+Azure-diagnostik tillhandahåller mått data som kan visas i Azure Portal. Om du har problem med att se data i portalen kontrollerar du \* tabellen WADMetrics i Azure-diagnostik lagrings konto för att se om motsvarande mått poster finns där och kontrollerar att [resurs leverantören](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft. Insights har registrerats.
 
 Här är **PartitionKey** för tabellen resurs-ID, virtuell dator eller skal uppsättning för virtuell dator. **RowKey** är mått namnet (även kallat prestanda räknarens namn).
 
@@ -230,12 +231,12 @@ Plugin-programmet returnerar följande avslutnings koder:
 | Slutkod | Beskrivning |
 | --- | --- |
 | 0 |Åtgärden lyckades. |
-| -1 |Allmänt fel. |
-| -2 |Det gick inte att läsa in RCF-filen.<p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
+| −1 |Allmänt fel. |
+| −2 |Det gick inte att läsa in RCF-filen.<p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
 | -3 |Det går inte att läsa in konfigurations filen för diagnostik.<p><p>Lösning: orsakas av en konfigurations fil som inte skickar schema validering. Lösningen är att tillhandahålla en konfigurations fil som följer schemat. |
 | -4 |En annan instans av övervaknings agentens diagnostik använder redan den lokala resurs katalogen.<p><p>Lösning: Ange ett annat värde för **LocalResourceDirectory**. |
-| -6 |Start programmet för gäst agents-plugin försökte starta diagnostik med en ogiltig kommando rad.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
-| -10 |Diagnostik-plugin-programmet avslutades med ett ohanterat undantag. |
+| −6 |Start programmet för gäst agents-plugin försökte starta diagnostik med en ogiltig kommando rad.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
+| −10 |Diagnostik-plugin-programmet avslutades med ett ohanterat undantag. |
 | -11 |Gäst agenten kunde inte skapa den process som ansvarar för att starta och övervaka övervaknings agenten.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer.<p> |
 | – 101 |Ogiltiga argument vid anrop till plugin-programmet för diagnostik.<p><p>Det här interna felet bör bara inträffa om gäst agentens plugin-program startas manuellt på den virtuella datorn. |
 | – 102 |Det går inte att initiera plugin-processen.<p><p>Lösning: kontrol lera att det finns tillräckligt med system resurser för att starta nya processer. |
@@ -296,4 +297,3 @@ Portal upplevelsen på de virtuella datorerna visar vissa prestanda räknare som
 - Om data i lagring har räknar namn på engelska. Om räknar namnen inte är på engelska kan Portal mått diagrammet inte identifiera det. **Minskning**: ändra datorns språk till engelska för system konton. Det gör du genom att **Control Panel**välja inställningar för  >  **Region**  >  **administrations**  >  **kopiering**på kontroll panelens region. Avmarkera sedan **välkomst skärmen och system konton** så att det anpassade språket inte tillämpas på system kontot.
 
 - Om du använder jokertecken ( \* ) i prestanda räknar namnen kan portalen inte korrelera den konfigurerade och insamlade räknaren när prestanda räknarna skickas till Azure Storage Sink. **Minskning**: se till att du kan använda jokertecken och expandera ( \* ) genom att dirigera prestanda räknarna till Azure Monitor Sink.
-

@@ -3,11 +3,12 @@ title: Så här ersätter du band infrastrukturen
 description: Lär dig hur Azure Backup innehåller band som liknar semantik som gör att du kan säkerhetskopiera och återställa data i Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71bfa86611b3a63fa6a28f60f80608b394cab5a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425110"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514194"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Flytta långsiktig lagring från band till Azure-molnet
 
@@ -69,5 +70,5 @@ Genom att klicka på **ändra** på föregående skärm, har kunderna ytterligar
 
 Mer information om Azure Backup finns i:
 
-* [Introduktion till Azure Backup](backup-introduction-to-azure-backup.md)
-* [Prova Azure Backup](backup-try-azure-backup-in-10-mins.md)
+* [Introduktion till Azure Backup](./backup-overview.md)
+* [Prova Azure Backup](./backup-windows-with-mars-agent.md)

@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055744"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516353"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Samla in Azure-aktivitets loggar i Azure Monitor över Azure Active Directory klienter (äldre)
 
 > [!NOTE]
-> Den här artikeln beskriver den äldre metoden för att konfigurera Azure aktivitets loggen mellan Azure-klienter som ska samlas in i en Log Analytics-arbetsyta.  Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](activity-log-collect.md).
+> Den här artikeln beskriver den äldre metoden för att konfigurera Azure aktivitets loggen mellan Azure-klienter som ska samlas in i en Log Analytics-arbetsyta.  Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](./activity-log.md).
 
 
 I den här artikeln går vi igenom en metod för att samla in Azure-aktivitets loggar till en Log Analytics arbets yta i Azure Monitor med hjälp av Azure Log Analytics data insamlings anslutning för Logic Apps Använd processen i den här artikeln när du behöver skicka loggar till en arbets yta i en annan Azure Active Directory klient. Om du till exempel är en leverantör av hanterade tjänster kanske du vill samla in aktivitetsloggar från en kunds prenumeration och lagra dem i Log Analytics-arbetsytan i din egen prenumeration.
 
-Om Log Analytics arbets ytan finns i samma Azure-prenumeration, eller i en annan prenumeration men i samma Azure Active Directory, använder du stegen i avsnittet [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](activity-log-collect.md) för att samla in Azure aktivitets loggar.
+Om Log Analytics arbets ytan finns i samma Azure-prenumeration, eller i en annan prenumeration men i samma Azure Active Directory, använder du stegen i avsnittet [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](./activity-log.md) för att samla in Azure aktivitets loggar.
 
 ## <a name="overview"></a>Översikt
 
@@ -90,17 +90,17 @@ Du kan använda ett händelsehubbnamnområde som inte finns i samma prenumeratio
 
 11. Klicka på **OK** och sedan på **Spara** för att spara inställningarna. Inställningarna tillämpas omedelbart på din prenumeration.
 
-<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) to configure a log profile that writes activity logs to an event hub. -->
+<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](./activity-log.md#legacy-collection-methods) to configure a log profile that writes activity logs to an event hub. -->
 
 ## <a name="step-3---create-logic-app"></a>Steg 3 – Skapa en logikapp
 
 När aktivitets loggarna skrivs till händelsehubben skapar du en Logi Kap par som samlar in loggarna från händelsehubben och skriver dem till arbets ytan Log Analytics.
 
 Logikappen innehåller följande:
-- En utlösare för [händelsehubbanslutningen](https://docs.microsoft.com/connectors/eventhubs/) som läser från händelsehubben.
+- En utlösare för [händelsehubbanslutningen](/connectors/eventhubs/) som läser från händelsehubben.
 - En [åtgärd för att parsa JSON](../../logic-apps/logic-apps-content-type.md) som extraherar JSON-händelser.
 - En [skrivåtgärd](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) som konverterar JSON till ett objekt.
-- En [Log Analytics skicka data koppling](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) för att publicera data till arbets ytan Log Analytics.
+- En [Log Analytics skicka data koppling](/connectors/azureloganalyticsdatacollector/) för att publicera data till arbets ytan Log Analytics.
 
    ![bild av att lägga till en utlösare för händelsehubben i logikappar](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -124,12 +124,12 @@ Om du vill hämta händelsehubbens namn och anslutningssträng följer du stegen
 
     ![Skapa en logikapp](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |Inställningen | Beskrivning  |
+   |Inställning | Beskrivning  |
    |:---|:---|
    | Name           | Unikt namn för logikappen. |
    | Prenumeration   | Välj den Azure-prenumeration som ska innehålla logikappen. |
    | Resursgrupp | Välj en befintlig Azure-resursgrupp eller skapa en ny för logikappen. |
-   | Location       | Välj datacenterregion för att distribuera logikappen. |
+   | Position       | Välj datacenterregion för att distribuera logikappen. |
    | Log Analytics  | Välj om du vill logga status för varje körning av din Logi Kap par på en Log Analytics-arbetsyta.  |
 
     
@@ -284,7 +284,7 @@ Utdatan från händelsehubben innehåller en JSON-nyttolast med en matris med po
 
 
 ### <a name="add-log-analytics-send-data-action"></a>Lägga till åtgärden Skicka Log Analytics
-[Azure Log Analytics data insamlings](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) åtgärden tar objektet från åtgärden Skriv och skickar det till en Log Analytics arbets yta.
+[Azure Log Analytics data insamlings](/connectors/azureloganalyticsdatacollector/) åtgärden tar objektet från åtgärden Skriv och skickar det till en Log Analytics arbets yta.
 
 1. Klicka på **nytt steg**  >  **Lägg till en åtgärd**
 2. Skriv *log analytics* som filter och välj sedan åtgärden **Datainsamlare för Azure Log Analytics – Skicka data**.
@@ -299,7 +299,7 @@ Utdatan från händelsehubben innehåller en JSON-nyttolast med en matris med po
 
     ![Konfigurera åtgärden Skicka data](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Inställningen        | Värde           | Beskrivning  |
+   |Inställning        | Värde           | Beskrivning  |
    |---------------|---------------------------|--------------|
    |Brödtext i JSON-begäran  | **Utdata** från åtgärden **Skriv** | Hämtar posterna från brödtexten i åtgärden Skriv. |
    | Anpassat loggnamn | AzureActivity | Namnet på den anpassade logg tabell som ska skapas i Log Analytics-arbetsytan för att lagra importerade data. |
@@ -330,7 +330,7 @@ Det sista steget är att kontrollera Log Analytics-arbetsytan för att säkerst�
 > Första gången en ny anpassad logg skickas till arbets ytan Log Analytics kan det ta upp till en timme innan den anpassade loggen är sökbar.
 
 >[!NOTE]
-> Aktivitetsloggarna skrivs till en anpassad tabell och visas inte i [aktivitetslogglösningen](./activity-log-collect.md).
+> Aktivitetsloggarna skrivs till en anpassad tabell och visas inte i [aktivitetslogglösningen](./activity-log.md).
 
 
 ![Testa logikapp](media/collect-activity-logs-subscriptions/log-analytics-results.png)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 997b7b1442d29c4daa4e47c89a7f53d46c3b8c81
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: e8dc2edf19279aff05e5d5be6096505acf1b3438
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969593"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519601"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -33,6 +33,9 @@ Den här sidan uppdateras regelbundet, så du kan uppdatera den ofta. Om du sök
 
 I juli ingår följande uppdateringar:
 - [Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Sex principer för avancerad data säkerhet i SQL är inaktuell](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)
 
@@ -41,6 +44,23 @@ Skydd mot hot för Azure Storage identifierar potentiellt skadlig aktivitet på 
 Dina data kan skyddas oavsett om de lagras som BLOB-behållare, fil resurser eller data sjöar. 
 
 Läs mer om [skydd mot hot för Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Sex principer för avancerad data säkerhet i SQL är inaktuell
+
+Sex principer relaterade till avancerad data säkerhet för SQL-datorer är föråldrade:
+
+- Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL-hanterad instans
+- Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL Server
+- Avancerade data säkerhets inställningar för SQL-hanterad instans ska innehålla en e-postadress för att ta emot säkerhets aviseringar
+- Avancerade data säkerhets inställningar för SQL Server ska innehålla en e-postadress för att ta emot säkerhets aviseringar
+- E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans
+- E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar i SQL Server
+
+Läs mer om [inbyggda principer](security-center-policy-definitions.md).
+
+
+
 
 
 ## <a name="june-2020"></a>Juni 2020
@@ -109,7 +129,7 @@ Om du vill distribuera dina automatiserings konfigurationer i organisationen anv
 Du hittar principerna i Azure policy:
 
 
-|Mål  |Princip  |Princip-ID  |
+|Mål  |Policy  |Princip-ID  |
 |---------|---------|---------|
 |Kontinuerlig export till händelsehubben|[Distribuera export till Händelsehubben för Azure Security Center aviseringar och rekommendationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Löpande export till Log Analytics arbets yta|[Distribuera export till Log Analytics-arbetsyta för Azure Security Center aviseringar och rekommendationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -142,7 +162,7 @@ De nya principerna nedan lades till i ASC-standardinitiativet och är utformade 
 Du hittar principerna i Azure policy:
 
 
-| Princip                                                                                                                                                                                                                                                                | Princip-ID                            |
+| Policy                                                                                                                                                                                                                                                                | Princip-ID                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [Avancerad data säkerhet ska vara aktiverat på Azure SQL Database servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [Avancerad data säkerhet ska vara aktiverat på SQL-servrar på datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |

@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd0d17732991fd97b2406c9c5f182408f4746d96
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a8b94d195ea1f31d228505f01c2a77a299e63c0a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223881"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518104"
 ---
-# <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsroller i Azure Active Directory
+# <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
 Med hjälp av Azure Active Directory (Azure AD) kan du ange begränsade administratörer för att hantera identitets uppgifter i mindre privilegierade roller. Administratörer kan tilldelas till sådana orsaker som att lägga till eller ändra användare, tilldela administrativa roller, återställa användar lösen ord, hantera användar licenser och hantera domän namn. [Standard användar behörigheter](../fundamentals/users-default-permissions.md) kan bara ändras i användar inställningar i Azure AD.
 
@@ -798,13 +798,10 @@ Kan läsa och hantera kompatibilitets konfiguration och rapporter i Azure AD och
 | --- | --- |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
-| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. complianceManager/uplånar/allTasks | Hantera alla aspekter av Compliance Manager för Office 365 |
-| Microsoft. Office365. Exchange/-upplånade/allTasks | Hantera alla aspekter av Exchange Online. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
-| Microsoft. Office365. SharePoint/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. Office365. SharePoint. |
-| Microsoft. Office365. skypeForBusiness/uplånar/allTasks | Hantera alla aspekter av Skype för företag – online. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
+| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="compliance-data-administrator-permissions"></a>Administratörs behörighet för regelefterlevnad
 
@@ -817,17 +814,14 @@ Skapar och hanterar innehåll för efterlevnad.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. cloudAppSecurity/upplånade/allTasks | Läsa och konfigurera Microsoft Cloud App Security. |
+| Microsoft. Directory. cloudAppSecurity/upplånade/allTasks | Läsa och konfigurera Microsoft Cloud App Security. |
 | Microsoft. Azure. informationProtection/upplånade/allTasks | Hantera alla aspekter av Azure Information Protection. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
-| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. complianceManager/uplånar/allTasks | Hantera alla aspekter av Compliance Manager för Office 365 |
-| Microsoft. Office365. Exchange/-upplånade/allTasks | Hantera alla aspekter av Exchange Online. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
-| Microsoft. Office365. SharePoint/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. Office365. SharePoint. |
-| Microsoft. Office365. skypeForBusiness/uplånar/allTasks | Hantera alla aspekter av Skype för företag – online. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
+| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="conditional-access-administrator-permissions"></a>Administratörs behörighet för villkorlig åtkomst
 
@@ -1937,12 +1931,12 @@ Enhets hanterare | Inaktuell | [Dokumentation om föråldrade roller](directory-
 Enhets användare | Inaktuell | [Dokumentation om föråldrade roller](directory-assign-admin-roles.md#deprecated-roles)
 Konton för katalog synkronisering | Visas inte eftersom det inte ska användas | [Dokumentation om Directory Synchronization-konton](directory-assign-admin-roles.md#directory-synchronization-accounts)
 Katalog skrivare | Visas inte eftersom det inte ska användas | [Dokumentation om katalog författare](directory-assign-admin-roles.md#directory-writers)
-Gästanvändare | Visas inte eftersom det inte kan användas  | NA
+Gästanvändare | Visas inte eftersom det inte kan användas  | Ej tillämpligt
 Administratör för Lync-tjänsten | Skype for Business-administratör | [Visar aktuell produkt anpassning](directory-assign-admin-roles.md#role-template-ids)
 Support på partner nivå 1 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner 1](directory-assign-admin-roles.md#partner-tier1-support)
 Support på partner nivå 2 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner – nivå 2](directory-assign-admin-roles.md#partner-tier2-support)
-Begränsad gäst användare | Visas inte eftersom det inte kan användas | NA
-Användare | Visas inte eftersom det inte kan användas | NA
+Begränsad gäst användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
+Användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
 Anslutning till arbets plats enhet | Inaktuell | [Dokumentation om föråldrade roller](directory-assign-admin-roles.md#deprecated-roles)
 
 ## <a name="next-steps"></a>Nästa steg

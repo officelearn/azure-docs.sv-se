@@ -3,11 +3,12 @@ title: Säkerhetskopiera SQL Server-databaser till Azure
 description: Den här artikeln beskriver hur du säkerhetskopierar SQL Server till Azure. Den här artikeln beskriver även återställning av SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: e0a555125e50a974ae51a08d7870cdc3ec12fd39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df8543d7f083dd2bf9d2421b4808de5b60a51e30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021100"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513786"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -26,7 +27,7 @@ Den här lösningen utnyttjar SQL-inbyggda API: er för att säkerhetskopiera SQ
 
 * När du har angett SQL Server VM som du vill skydda och fråga efter databaserna i den, kommer Azure Backup-tjänsten att installera ett tillägg för säkerhets kopiering av arbets belastning på den virtuella datorn med namn `AzureBackupWindowsWorkload` tillägget.
 * Tillägget består av en koordinator och ett SQL-plugin-program. Även om koordinatorn ansvarar för att utlösa arbets flöden för olika åtgärder som att konfigurera säkerhets kopiering, säkerhets kopiering och återställning, är plugin-programmet ansvarigt för det faktiska data flödet.
-* Azure Backup skapar kontot för att kunna identifiera databaser på den här virtuella datorn `NT SERVICE\AzureWLBackupPluginSvc` . Det här kontot används för säkerhets kopiering och återställning och kräver SQL sysadmin-behörigheter. `NT SERVICE\AzureWLBackupPluginSvc`Kontot är ett [virtuellt tjänst konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)och kräver därför inte någon lösen ords hantering. Azure Backup `NT AUTHORITY\SYSTEM` använder kontot för identifiering/frågor av databasen, så det här kontot måste vara en offentlig inloggning på SQL. Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#set-vm-permissions).
+* Azure Backup skapar kontot för att kunna identifiera databaser på den här virtuella datorn `NT SERVICE\AzureWLBackupPluginSvc` . Det här kontot används för säkerhets kopiering och återställning och kräver SQL sysadmin-behörigheter. `NT SERVICE\AzureWLBackupPluginSvc`Kontot är ett [virtuellt tjänst konto](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)och kräver därför inte någon lösen ords hantering. Azure Backup `NT AUTHORITY\SYSTEM` använder kontot för identifiering/frågor av databasen, så det här kontot måste vara en offentlig inloggning på SQL. Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#set-vm-permissions).
 * När du har aktiverat konfigurera skydd för de valda databaserna konfigurerar säkerhets kopierings tjänsten koordinatorn med säkerhets kopierings scheman och annan princip information, som tillägget cachelagrar lokalt på den virtuella datorn.
 * Vid den schemalagda tiden kommunicerar koordinatorn med plugin-programmet och börjar strömma säkerhetskopierade data från SQL-servern med VDI.  
 * Plugin-programmet skickar data direkt till Recovery Services-valvet, vilket eliminerar behovet av en mellanlagringsplats. Data krypteras och lagras av Azure Backups tjänsten i lagrings konton.

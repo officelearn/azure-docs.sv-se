@@ -3,12 +3,12 @@ title: AMQP 1,0 i Azure Service Bus-och Event Hubss protokoll guide | Microsoft 
 description: Protokoll guide till uttryck och beskrivning av AMQP 1,0 i Azure Service Bus och Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186919"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511321"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
 
@@ -48,7 +48,7 @@ Den mest auktoritativa källan för att lära dig om hur AMQP fungerar är AMQP 
 
 AMQP anropar *behållare*för program som kommunicerar. de innehåller *noder*, som är de kommunicerande enheterna inuti dessa behållare. En kö kan vara en sådan nod. AMQP tillåter multiplexering, så en enda anslutning kan användas för många kommunikations vägar mellan noderna. till exempel kan en program klient samtidigt tas emot från en kö och skickas till en annan kö över samma nätverks anslutning.
 
-![][1]
+![Diagram som visar sessioner och anslutningar mellan behållare.][1]
 
 Nätverks anslutningen är därmed fäst på behållaren. Den initieras av behållaren i klient rollen och upprättar en utgående TCP-socketanslutning till en behållare i mottagar rollen, som lyssnar efter och accepterar inkommande TCP-anslutningar. Hand skakningen för anslutningen innehåller förhandling av protokoll versionen, deklarationen eller förhandlingen av användningen av TLS/SSL (Transport Level Security) och en hand skakning för autentisering/auktorisering i anslutnings omfånget som baseras på SASL.
 
@@ -84,7 +84,7 @@ En .NET-klient skulle Miss lyckas med en SocketException ("ett försök gjordes 
 
 AMQP överför meddelanden via länkar. En länk är en kommunikations Sök väg som skapats via en session som möjliggör överföring av meddelanden i en riktning. förhandlingen om överförings status är över länken och dubbelriktad mellan de anslutna parterna.
 
-![][2]
+![Skärm bild som visar en session carryign en länk anslutning mellan två behållare.][2]
 
 Länkar kan skapas antingen av en behållare när som helst och över en befintlig session, vilket gör att AMQP skiljer sig från flera andra protokoll, inklusive HTTP och MQTT, där överföringen av överföring och överförings Sök väg är ett exklusivt privilegium hos parten som skapar socket-anslutningen.
 
@@ -100,7 +100,7 @@ Den anslutande klienten måste också använda ett lokalt nodnamn för att skapa
 
 När en länk har upprättats kan meddelanden överföras via den länken. I AMQP körs en överföring med en explicit protokoll-gest ( *överförings* -Performative) som flyttar ett meddelande från Sender till mottagare över en länk. En överföring är slutförd när den är "kvittad", vilket innebär att båda parter har upprättat en delad förståelse för resultatet av överföringen.
 
-![][3]
+![Ett diagram som visar överföring av ett meddelande mellan avsändaren och mottagaren och dispositions resultatet från det.][3]
 
 I det enklaste fallet kan avsändaren välja att skicka meddelanden "förbetalt", vilket innebär att klienten inte är intresse rad av resultatet och mottagaren inte ger någon feedback om resultatet av åtgärden. Det här läget stöds av Service Bus på AMQP-protokollets nivå, men inte exponeras i någon av klient-API: erna.
 
@@ -120,7 +120,7 @@ För att kompensera för eventuella dubbla sändningar kan Service Bus stödja d
 
 Förutom den flödes kontroll modell på sessionshantering som tidigare diskuterats, har varje länk sin egen flödes kontroll modell. Flödes kontroll på sessions nivå skyddar behållaren från att behöva hantera för många ramar samtidigt, flödes kontroll på länknivå ger programmet en kostnad för hur många meddelanden den vill hantera från en länk och när.
 
-![][4]
+![Skärm bild av en logg som visar källa, mål, källport, målport och protokoll namn. På raden Fiest anges mål porten 10401 (0x28 A 1) i svart.][4]
 
 På en länk kan överföringar bara ske när avsändaren har tillräckligt med *länk kredit*. Länk kredit är en räknare som anges av mottagaren med hjälp av *Flow* -Performative, som är begränsad till en länk. När avsändaren tilldelas länk kredit försöker den använda krediten genom att leverera meddelanden. Varje meddelande leverans minskar den återstående länk krediten med 1. När länk krediten används, stoppas leveranser.
 

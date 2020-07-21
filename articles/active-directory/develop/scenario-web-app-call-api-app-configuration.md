@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 3a6f92022a4e26c84efc2d5f68c3aad8b4685d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 662520b9e31b4fe9a0925683fd0e661ce179e5b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518155"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>En webbapp som anropar webb-API: er kod konfiguration
 
@@ -32,7 +33,7 @@ Följande bibliotek i Microsoft Authentication Library (MSAL) stöder Authorizat
 
 | MSAL-bibliotek | Beskrivning |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Stöd för .NET Framework-och .NET Core-plattformar. Stöds inte Universell Windows-plattform (UWP), Xamarin. iOS och Xamarin. Android, eftersom dessa plattformar används för att bygga offentliga klient program. För ASP.NET Core webbappar och webb-API: er kapslas MSAL.NET in i ett bibliotek med högre nivå som heter Microsoft. Identity. Web|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Stöd för .NET Framework-och .NET Core-plattformar. Stöds inte Universell Windows-plattform (UWP), Xamarin. iOS och Xamarin. Android, eftersom dessa plattformar används för att bygga offentliga klient program. För ASP.NET Core webbappar och webb-API: er kapslas MSAL.NET in i ett bibliotek med högre nivå som heter [Microsoft. Identity. Web](https://aka.ms/ms-identity-web)|
 | ![MSAL python](media/sample-v2-code/logo_python.png) <br/> MSAL för Python | Stöd för python-webbprogram. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL för Java | Stöd för Java-webbprogram. |
 
@@ -48,8 +49,8 @@ public void ConfigureServices(IServiceCollection services)
 {
     // more code here
 
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsdWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddInMemoryTokenCaches();
 
@@ -90,7 +91,7 @@ Exemplet tillåter för närvarande MSAL. Python genererar URL: en för auktoris
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Microsoft. Identity. Web fören klar din kod genom att ange rätt OpenID Connect-inställningar, prenumerera på händelsen mottagen kod och lösa in koden. Ingen ytterligare kod krävs för att lösa in auktoriseringskod.
+Microsoft. Identity. Web fören klar din kod genom att ange rätt OpenID Connect-inställningar, prenumerera på händelsen mottagen kod och lösa in koden. Ingen ytterligare kod krävs för att lösa in auktoriseringskod. Mer information om hur detta fungerar finns i [Microsoft. Identity. Web-källkod](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140) .
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -271,8 +272,8 @@ I självstudien om ASP.NET Core används beroende inmatning för att bestämma h
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
@@ -296,7 +297,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Mer information om token-cache-providers finns även i [självstudierna för ASP.net Core Web Apps | Fasen token Caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) i självstudien.
+Mer information om token-cache-providern finns i artikeln Microsoft. Identity. Web [token cache Serialization](https://aka.ms/ms-id-web/token-cache-serialization) , och i [självstudierna för ASP.net Core Web Apps | Fasen token cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) i guiden Web Apps.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

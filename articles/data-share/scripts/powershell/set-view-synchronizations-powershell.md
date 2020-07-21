@@ -9,13 +9,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: b8d01a383e816bfc73413d21e9cc8d51d326ab14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ced66c1d3023b7edb3220b45e24d3eb54098df8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70307186"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512494"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Använd PowerShell för att övervaka användningen av en data resurs som skickats
+# <a name="use-powershell-to-set-azure-data-share-sychronization-settings"></a>Använd PowerShell för att ställa in synkroniseringsaktivitet-inställningar för Azure Data resurs
 
 Det här PowerShell-skriptet anger och hämtar inställningarna för synkronisering av resurser.
 
@@ -45,7 +46,7 @@ Get-AzDataShareSynchronizationSetting -ResourceGroupName $resourceGroupName -Acc
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting?view=azps-2.6.0) | Skapa en resurs-synkronisering. |
 | [Get-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | Hämtar synkroniseringsinställningar för en resurs-synkronisering. |

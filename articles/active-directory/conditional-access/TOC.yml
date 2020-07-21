@@ -47,8 +47,6 @@
       href: controls.md
     - name: Klassisk policymigrering
       href: policy-migration.md
-    - name: Principer för baslinjeskydd
-      href: concept-baseline-protection.md
 - name: Anvisningar
   expanded: true
   items:

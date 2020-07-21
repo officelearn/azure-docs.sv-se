@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-network
 author: KumudD
 ms.service: virtual-network
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 2c33d4988082496e53520254e0d85431497d8b38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49a9917d925ebc7a36d14ff6679ad4b1737f9627
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902772"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515904"
 ---
  Följande begränsningar gäller för privat Azure-länk:
 
@@ -25,5 +25,5 @@ ms.locfileid: "84902772"
 |Antal IP-konfigurationer i en privat länk tjänst     |  8 (det här talet gäller för de NAT IP-adresser som används per PLS)       |
 |Antal privata slut punkter i samma privata länk tjänst   |  1000       |
 |Antal privata slut punkter per nyckel valv | 64 |
-|Antal nyckel valv med privata slut punkter per prenumeration | 64 |
+|Antal nyckel valv med privata slut punkter per prenumeration | 400 |
 

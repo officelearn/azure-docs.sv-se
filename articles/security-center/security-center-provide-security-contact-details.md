@@ -11,61 +11,50 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 08ad761e81909e6ab23c7c07f5ce05865136bc47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204108"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519294"
 ---
-# <a name="provide-security-contact-details-in-azure-security-center"></a>Ange säkerhets kontakt uppgifter i Azure Security Center
-Azure Security Center rekommenderar att du uppger kontaktuppgifter för säkerhetsrelaterade frågor relaterade till din Azure-prenumeration om du inte redan har gjort det. Den här informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina kunddata. MSRC utför utvald säkerhetsövervakning av Azure-nätverket och infrastrukturen och tar emot hotinformation samt klagomål om missbruk från tredje part.
+# <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
 
-Ett e-postmeddelande skickas på den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Resursgrupper inom en prenumeration ärver inställningarna. Aviseringar är bara tillgängliga på standard-nivån för Azure Security Center.
+För att se till att rätt personer i din organisation meddelas om säkerhets aviseringar i din miljö, ange deras e-postadresser på sidan Inställningar för **e-postaviseringar** .
 
-E-postmeddelanden med avisering skickas:
-- Till en enda e-postmottagare per typ av avisering per dag  
-- Högst 3 e-postmeddelanden skickas till en enda mottagare på samma dag
-- Varje e-postmeddelande innehåller en enda avisering, inte en sammanställning av aviseringar
-- Endast för aviseringar med hög allvarlighetsgrad
+När du konfigurerar dina aviseringar kan du konfigurera e-postmeddelanden som ska skickas till vissa individer eller till någon med en speciell RBAC-roll för en prenumeration. 
 
-> [!TIP]
-> För aviseringar med andra allvarlighets nivåer skapar du en [arbets flödes automatisering](workflow-automation.md) som använder en Logic app som skickar e-post till relevant personal.
- 
-Till exempel om ett e-postmeddelande redan har skickats för att meddela dig om en RDP-attack, får du inte ett annat e-postmeddelande om en RDP-attack under samma dag, även om en ny avisering utlöses. 
+För att undvika aviserings utmattning begränsar Security Center volymen utgående e-post. Security Center skickar för varje prenumeration:
 
-> [!IMPORTANT]
-> I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det är inte en steg-för-steg-guide.
+- högst **fyra** e-postmeddelanden per dag för aviseringar med **hög allvarlighets grad**
+- högst **två** e-postmeddelanden per dag för aviseringar med **medelhög allvarlighets grad**
+- högst **ett** e-postmeddelande per dag för aviseringar med **låg allvarlighets grad**
+
+## <a name="availability"></a>Tillgänglighet
+
+- Versions tillstånd: **allmänt tillgängligt**
+- Nödvändiga roller: **säkerhets administratör** eller **prenumerations ägare** 
+- Moln: ✔ kommersiella moln ✔ US Gov (delvis) ✘ National/suverän (Kina gov, övrigt gov)
+
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Konfigurera e-postmeddelanden för aviseringar<a name="email"></a>
 
-1. Öppna sidan **e-postaviseringar** som användare med rollen säkerhets administratör eller prenumerations ägare.
+Du kan skicka e-postaviseringar till individer eller till alla användare med vissa RBAC-roller.
 
-    - För aviseringar öppnar du **pris & inställningar**, väljer den relevanta prenumerationen och väljer **e-postaviseringar**.
+1. Från Security Center **pris & inställningar för prissättning** , relevant prenumeration och välj **e-postaviseringar**.
 
-    - Om du implementerar en rekommendation väljer du **Ange säkerhets kontakt information**under **rekommendationer**, väljer den Azure-prenumeration som du vill ge kontakt information på. Detta öppnar **e-postaviseringar**.
+1. Definiera mottagarna för dina meddelanden:
 
-   ![Ange säkerhetskontaktinformation][2]
-
-1. Ange e-postadressen eller adresserna för säkerhets kontakten avgränsade med kommatecken. Det finns ingen gräns för antalet e-postadresser som du kan ange.
-
-1. Om du vill få e-postmeddelanden om aviseringar med hög allvarlighets grad aktiverar du alternativet **skicka mig e-postmeddelanden om aviseringar**. För andra allvarlighets nivåer använder du en Logic-app enligt beskrivningen i [arbets flödes automatisering](workflow-automation.md).
-
-1. Du kan skicka e-postmeddelanden till prenumerations ägare (klassisk tjänst administratör och medadministratörer, plus rollen RBAC-ägare i prenumerations omfånget).
+    - Välj från de tillgängliga rollerna i list rutan.
+    - Och/eller ange vissa e-postadresser avgränsade med kommatecken. Det finns ingen gräns för antalet e-postadresser som du kan ange.
 
 1. Om du vill använda säkerhets kontakt information för din prenumeration väljer du **Spara**.
 
+
 ## <a name="see-also"></a>Se även
-I följande avsnitt kan du lära dig mer om Security Center:
+Mer information om säkerhets aviseringar finns i följande avsnitt:
 
-* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-* [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-* [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
-* [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hur du hanterar och åtgärdar säkerhets aviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
-
-<!--Image references-->
-[1]: ./media/security-center-provide-security-contacts/provide-contacts.png
-[2]:./media/security-center-provide-security-contacts/provide-contact-details.png
+* [Säkerhets aviseringar – en referens guide](alerts-reference.md) – lär dig mer om säkerhets aviseringar som du kan se i Azure Security Center skydds modul för hot
+* [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hantera och reagera på säkerhets aviseringar

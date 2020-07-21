@@ -6,16 +6,16 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: ebd20b6187fd4f04ac525e0152d805d9d81de3ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4c2edddb8eec4a2f8300077bb00df72d7e2b00de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134606"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510737"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en virtuell Debian-VHD för Azure
 ## <a name="prerequisites"></a>Förutsättningar
-Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en. ISO-fil som hämtats från [Debian-webbplatsen](https://www.debian.org/distrib/) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer; Hyper-V är bara ett exempel. Instruktioner för hur du använder Hyper-V finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
+Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en. ISO-fil som hämtats från [Debian-webbplatsen](https://www.debian.org/distrib/) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer; Hyper-V är bara ett exempel. Instruktioner för hur du använder Hyper-V finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 ## <a name="installation-notes"></a>Installations information
 * Se även [allmänna Linux-Installationsinstruktioner](create-upload-generic.md#general-linux-installation-notes) för mer information om hur du förbereder Linux för Azure.
@@ -116,4 +116,3 @@ Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure
 
 ## <a name="next-steps"></a>Nästa steg
 Du är nu redo att använda din virtuella Debian-hård disk för att skapa nya virtuella datorer i Azure. Om det är första gången du laddar upp VHD-filen till Azure, se [skapa en virtuell Linux-dator från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
-

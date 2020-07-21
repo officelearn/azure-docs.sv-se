@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 240a261f8dd401f36ef763e4c1274a1c0760f2dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81768132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515656"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics arbets yta med Azure Resource Manager-mallar
 
@@ -39,7 +40,7 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|
 | Arbetsyta   | arbetsytor    | 2017-03-15 – för hands version |
-| Search      | savedSearches | 2015-03-20 |
+| Sök      | savedSearches | 2015-03-20 |
 | Datakälla | data källor   | 2015-11-01 – för hands version |
 | Lösning    | lösningar     | 2015-11-01 – för hands version |
 
@@ -152,7 +153,7 @@ För kapacitets reservation definierar du en vald kapacitets reservation för in
    >* "namn": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [Resource Manager-parameter fil](../../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden. Granska [mallen Microsoft. OperationalInsights/arbetsytes](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) för att lära dig vilka egenskaper och värden som stöds. 
+2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [Resource Manager-parameter fil](../../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden. Granska [mallen Microsoft. OperationalInsights/arbetsytes](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) för att lära dig vilka egenskaper och värden som stöds. 
 
 3. Spara den här filen som **deploylaworkspacetemplate.jspå** en lokal mapp.
 

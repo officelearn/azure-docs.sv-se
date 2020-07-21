@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2bf0443465f0cfd98f8bce93e60f9007ac7503be
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042091"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510981"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Felsöka VM-etablering med Cloud-Init
 
@@ -21,17 +21,17 @@ Om du har skapat generaliserade anpassade avbildningar med Cloud-Init för att u
 
 Några exempel på problem med etableringen:
 - Den virtuella datorn har fastnat i "skapa" i 40 minuter och den virtuella datorns skapande har marker ATS som misslyckad
-- CustomData får inte bearbetas
+- `CustomData`får inte bearbetas
 - Den tillfälliga disken kan inte monteras
 - Användare skapas inte eller så finns det problem med användar åtkomsten
 - Nätverket har inte ställts in korrekt
 - Växlings fil eller synkroniseringsfel
 
-Den här artikeln beskriver hur du felsöker Cloud-init. Mer detaljerad information finns i [Cloud-Init djupe](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
+Den här artikeln beskriver hur du felsöker Cloud-init. Mer detaljerad information finns i [Cloud-Init djupe](./cloud-init-deep-dive.md).
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Steg 1: testa distributionen utan customData
+## <a name="step-1-test-the-deployment-without-customdata"></a>Steg 1: testa distributionen utan att`customData`
 
-Cloud-Init kan acceptera customData, som skickas till den när den virtuella datorn skapas. Först bör du se till att detta inte orsakar några problem med distributioner. Försök att konfigurera den virtuella datorn utan att överföra någon konfiguration. Om du hittar den virtuella datorn kan du fortsätta med stegen nedan, om du hittar den konfiguration som du skickar inte går att använda [steg 4](). 
+Cloud-Init kan acceptera `customData` , som skickas till den när den virtuella datorn skapas. Först bör du se till att detta inte orsakar några problem med distributioner. Försök att konfigurera den virtuella datorn utan att överföra någon konfiguration. Om du hittar den virtuella datorn kan du fortsätta med stegen nedan, om du hittar den konfiguration som du skickar inte går att använda [steg 4](). 
 
 ## <a name="step-2-review-image-requirements"></a>Steg 2: granska avbildnings kraven
 Den primära orsaken till etablerings felet för den virtuella datorn är operativ system avbildningen uppfyller inte kraven för att köras på Azure. Se till att dina avbildningar är korrekt för beredda innan du försöker etablera dem i Azure. 
@@ -39,15 +39,16 @@ Den primära orsaken till etablerings felet för den virtuella datorn är operat
 
 Följande artiklar illustrerar stegen för att förbereda olika Linux-distributioner som stöds i Azure:
 
-- [CentOS-baserade distributioner](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SLES och openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Andra: icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [CentOS-baserade distributioner](create-upload-centos.md)
+- [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [Oracle Linux](oracle-create-upload-vhd.md)
+- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+- [SLES och openSUSE](suse-create-upload-vhd.md)
+- [Ubuntu](create-upload-ubuntu.md)
+- [Andra: icke-godkända distributioner](create-upload-generic.md)
 
-För de [Azure Cloud-Init-avbildningar som stöds](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)har Linux-distributionerna redan alla nödvändiga paket och konfigurationer på plats för att tillhandahålla avbildningen i Azure korrekt. Om du upptäcker att den virtuella datorn inte kan skapas från din egen granskade avbildning kan du prova med en Azure Marketplace-avbildning som stöds och som redan har kon figurer ATS för Cloud-Init med din valfria customData. Om customData fungerar korrekt med en Azure Marketplace-avbildning beror det förmodligen på ett problem med din granskade avbildning.
+För de [Azure Cloud-Init-avbildningar som stöds](./using-cloud-init.md)har Linux-distributionerna redan alla nödvändiga paket och konfigurationer på plats för att tillhandahålla avbildningen i Azure korrekt. Om du upptäcker att den virtuella datorn inte kan skapas från din egen granskade avbildning kan du prova med en Azure Marketplace-avbildning som stöds och som redan har kon figurer ATS för Cloud-Init, med valfri `customData` . Om `customData` fungerar korrekt med en Azure Marketplace-avbildning beror det förmodligen på ett problem med din granskade avbildning.
 
 ## <a name="step-3-collect--review-vm-logs"></a>Steg 3: samla in & granska VM-loggar
 
@@ -55,11 +56,11 @@ När den virtuella datorn inte kan etableras visar Azure status för att skapa, 
 
 När den virtuella datorn körs behöver du loggarna från den virtuella datorn för att förstå varför etableringen misslyckades.  För att förstå varför VM-etableringen misslyckades, stoppa inte den virtuella datorn. Behåll den virtuella datorn som körs. Du måste behålla den felande virtuella datorn i ett körnings tillstånd för att kunna samla in loggar. Använd någon av följande metoder för att samla in loggarna:
 
-- [Seriekonsol](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+- [Seriekonsol](./serial-console-grub-single-user-mode.md)
 
-- [Aktivera startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) innan du skapar den virtuella datorn och [Visa](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) dem under starten.
+- [Aktivera startdiagnostik](./tutorial-monitor.md#enable-boot-diagnostics) innan du skapar den virtuella datorn och [Visa](./tutorial-monitor.md#view-boot-diagnostics) dem under starten.
 
-- [Kör AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) för att ansluta och montera OS-disken, vilket gör att du kan samla in dessa loggar:
+- [Kör AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) för att ansluta och montera OS-disken, vilket gör att du kan samla in dessa loggar:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -88,7 +89,7 @@ Här är mer information om vad du kan söka efter i varje Cloud-Init-logg.
 
 Som standard skrivs alla Cloud-Init-händelser med prioriteten fel sökning eller högre `/var/log/cloud-init.log` . Detta ger utförliga loggar för alla händelser som inträffade under initieringen av Cloud-init. 
 
-Ett exempel:
+Till exempel:
 
 ```console
 2019-10-10 04:51:25,321 - util.py[DEBUG]: Failed mount of '/dev/sr0' as 'auto': Unexpected error while running command.
@@ -107,7 +108,7 @@ När du har hittat ett fel eller en varning läser du bakåt i Cloud-Init-loggen
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Om du har åtkomst till den [seriella konsolen](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)kan du försöka köra kommandot igen som Cloud-Init försökte köra.
+Om du har åtkomst till den [seriella konsolen](./serial-console-grub-single-user-mode.md)kan du försöka köra kommandot igen som Cloud-Init försökte köra.
 
 Loggningen för `/var/log/cloud-init.log` kan också konfigureras om i/etc/cloud/cloud.cfg.d/05_logging. cfg. Mer information om Cloud-Init-loggning finns i dokumentationen om [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -123,7 +124,7 @@ Om du fortfarande inte kan isolera varför Cloud-Init inte kunde etableras måst
 
 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Steg 4: Undersök varför konfigurationen inte används
-Alla fel i Cloud-Init resulterar i ett oåterkalleligt etablerings fel. Om du till exempel använder `runcmd` modulen i en Cloud-Init-konfiguration kommer en kod som inte är noll från det kommando som körs att leda till att den virtuella dator etableringen Miss fungerar. Detta beror på att den körs efter grundläggande etablerings funktioner som sker i de första tre stegen i Cloud-init. Om du vill felsöka varför konfigurationen inte tillämpades granskar du loggarna i steg 3 och Cloud-Init-moduler manuellt. Ett exempel:
+Alla fel i Cloud-Init resulterar i ett oåterkalleligt etablerings fel. Om du till exempel använder `runcmd` modulen i en Cloud-Init-konfiguration kommer en kod som inte är noll från det kommando som körs att leda till att den virtuella dator etableringen Miss fungerar. Detta beror på att den körs efter grundläggande etablerings funktioner som sker i de första tre stegen i Cloud-init. Om du vill felsöka varför konfigurationen inte tillämpades granskar du loggarna i steg 3 och Cloud-Init-moduler manuellt. Till exempel:
 
 - `runcmd`– körs skripten utan fel? Kör konfigurationen manuellt från terminalen för att säkerställa att de körs som förväntat.
 - Installerar paket – har den virtuella datorn åtkomst till paket arkiven?
@@ -132,4 +133,4 @@ Alla fel i Cloud-Init resulterar i ett oåterkalleligt etablerings fel. Om du ti
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du fortfarande inte kan isolera varför Cloud-Init inte har kört konfigurationen måste du titta närmare på vad som händer i varje Cloud-Init-steg och när moduler körs. Mer information finns i [simhopp djupare i Cloud-Init-konfigurationen](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) . 
+Om du fortfarande inte kan isolera varför Cloud-Init inte har kört konfigurationen måste du titta närmare på vad som händer i varje Cloud-Init-steg och när moduler körs. Mer information finns i [simhopp djupare i Cloud-Init-konfigurationen](./cloud-init-deep-dive.md) . 

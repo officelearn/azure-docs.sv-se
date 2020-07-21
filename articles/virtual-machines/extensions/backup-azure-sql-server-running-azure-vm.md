@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: b17e4031edaedc6b0a63d305d20a77e5b58f91ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80247392"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511185"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup för SQL Server som körs i Azure VM
 
@@ -26,7 +26,7 @@ En lista över scenarier som stöds finns i [support mat ris](../../backup/sql-s
 
 ## <a name="network-connectivity"></a>Nätverksanslutningar
 
-Azure Backup stöder NSG-taggar, distribution av en proxyserver eller listade IP-intervall; Mer information om var och en av metoderna finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity).
+Azure Backup stöder NSG-taggar, distribution av en proxyserver eller listade IP-intervall; Mer information om var och en av metoderna finns i den här [artikeln](../../backup/backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -102,7 +102,7 @@ Vi rekommenderar att du lägger till AzureBackupWindowsWorkload-tillägg i en vi
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Du måste registrera den virtuella Azure-datorn som innehåller SQL-programmet med ett Recovery Services-valv. Under registreringen installeras AzureBackupWindowsWorkload-tillägget på den virtuella datorn. Använd [register-AzRecoveryServicesBackupContainerPS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) cmdlet för att registrera den virtuella datorn.
+Du måste registrera den virtuella Azure-datorn som innehåller SQL-programmet med ett Recovery Services-valv. Under registreringen installeras AzureBackupWindowsWorkload-tillägget på den virtuella datorn. Använd [register-AzRecoveryServicesBackupContainerPS-](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) cmdlet för att registrera den virtuella datorn.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -113,5 +113,5 @@ Kommandot returnerar en **säkerhets kopia** av den här resursen och statusen k
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig mer](https://docs.microsoft.com/azure/backup/backup-sql-server-azure-troubleshoot) om fel söknings rikt linjer för Azure SQL Server VM backup
-- [Vanliga frågor](https://docs.microsoft.com/azure/backup/faq-backup-sql-server) om säkerhets kopiering av SQL Server databaser som körs på virtuella Azure-datorer (VM: ar) och som använder tjänsten Azure Backup.
+- [Lär dig mer](../../backup/backup-sql-server-azure-troubleshoot.md) om fel söknings rikt linjer för Azure SQL Server VM backup
+- [Vanliga frågor](../../backup/faq-backup-sql-server.md) om säkerhets kopiering av SQL Server databaser som körs på virtuella Azure-datorer (VM: ar) och som använder tjänsten Azure Backup.

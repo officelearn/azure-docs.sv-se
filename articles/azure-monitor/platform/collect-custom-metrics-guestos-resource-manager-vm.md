@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208515b7541948ca6913e6fda092c6a424de85f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650543"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515792"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka gäst operativ systemets mått till Azure Monitor Mät lagringen med hjälp av en Azure Resource Manager mall för en virtuell Windows-dator
 Prestanda data från gäst operativ systemet för virtuella Azure-datorer samlas inte in automatiskt som andra [plattforms mått](../insights/monitor-azure-resource.md#monitoring-data). Installera Azure Monitor [Diagnostics-tillägget](diagnostics-extension-overview.md) för att samla in gäst operativ systemets mått i mått databasen så att den kan användas med alla funktioner i Azure Monitor mått, inklusive aviseringar i real tid, diagram, Routning och åtkomst från en REST API. Den här artikeln beskriver processen för att skicka gäst operativ systemets prestanda mått för en virtuell Windows-dator till mått databasen med hjälp av en Resource Manager-mall. 
@@ -22,11 +23,11 @@ Prestanda data från gäst operativ systemet för virtuella Azure-datorer samlas
 
 Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distributioner](../../azure-resource-manager/management/overview.md) och deras struktur och syntax.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- Din prenumeration måste vara registrerad med [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- Du måste antingen ha [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerat.
+- Du måste antingen ha [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](../../cloud-shell/overview.md) installerat.
 
 - Din VM-resurs måste finnas i en [region som stöder anpassade mått](metrics-custom-overview.md#supported-regions). 
 
@@ -285,4 +286,3 @@ För att distribuera Resource Manager-mallen utnyttjar vi Azure PowerShell.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [anpassade mått](metrics-custom-overview.md).
-

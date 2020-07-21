@@ -1,18 +1,19 @@
 ---
-title: Skapa och hantera åtgärds grupper i Azure Portal
+title: Skapa och hantera åtgärdsgrupper i Azure-portalen
 description: Lär dig hur du skapar och hanterar åtgärds grupper i Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 6/5/2020
+ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516183"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
 
 Du konfigurerar en åtgärd för att meddela en person via e-post eller SMS, och de får en bekräftelse som anger att de har lagts till i åtgärds gruppen.
@@ -69,7 +70,7 @@ När du har skapat en åtgärds grupp kan du Visa **Åtgärds grupper** genom at
 ## <a name="action-specific-information"></a>Åtgärds information
 
 > [!NOTE]
-> Se [begränsningar för prenumerations tjänsten för övervakning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
+> Se [begränsningar för prenumerations tjänsten för övervakning](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
 
 ### <a name="automation-runbook"></a>Automation Runbook
 Se begränsningar för [Azure-prenumerations tjänsten](../../azure-resource-manager/management/azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
@@ -87,7 +88,7 @@ E-postmeddelanden kommer att skickas från följande e-postadresser. Kontrol ler
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>E-post till Azure Resource Manager-rollen
+### <a name="email-azure-resource-manager-role"></a>E-posta Azure Resource Manager-rollen
 Skicka e-post till medlemmarna i prenumerationens roll. E-post skickas endast till **användar medlemmar i Azure AD** i rollen. E-post kommer inte att skickas till Azure AD-grupper eller tjänstens huvudnamn.
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
@@ -106,21 +107,21 @@ Du kan ha ett begränsat antal ITSM-åtgärder i en åtgärds grupp.
 Du kan ha ett begränsat antal Logic app-åtgärder i en åtgärds grupp.
 
 ### <a name="secure-webhook"></a>Säker webhook
-Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Directory för att skydda anslutningen mellan din åtgärds grupp och din skyddade webb-API (webhook-slutpunkt). Det övergripande arbets flödet för att dra nytta av den här funktionen beskrivs nedan. En översikt över Azure AD-program och tjänst huvud namn finns i [Översikt över Microsoft Identity Platform (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Directory för att skydda anslutningen mellan din åtgärds grupp och din skyddade webb-API (webhook-slutpunkt). Det övergripande arbets flödet för att dra nytta av den här funktionen beskrivs nedan. En översikt över Azure AD-program och tjänst huvud namn finns i [Översikt över Microsoft Identity Platform (v 2.0)](../../active-directory/develop/v2-overview.md).
 
-1. Skapa ett Azure AD-program för ditt skyddade webb-API. Se https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Konfigurera ditt skyddade API så att det anropas av en daemon-app.
+1. Skapa ett Azure AD-program för ditt skyddade webb-API. Se [Protected Web API: app Registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
+    - Konfigurera ditt skyddade API så att det [anropas av en daemon-app](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
     
-1. Aktivera åtgärds grupper för att använda Azure AD-programmet.
+2. Aktivera åtgärds grupper för att använda Azure AD-programmet.
 
     > [!NOTE]
-    > Du måste vara medlem i [rollen Azure AD-programadministratör](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) för att köra det här skriptet.
+    > Du måste vara medlem i [rollen Azure AD-programadministratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) för att köra det här skriptet.
     
     - Ändra PowerShell-skriptets Connect-AzureAD-anrop för att använda ditt Azure AD-klient-ID.
     - Ändra PowerShell-skriptets variabel $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program.
     - Kör det ändrade skriptet.
     
-1. Konfigurera åtgärds gruppens säkra webhook-åtgärd.
+3. Konfigurera åtgärds gruppens säkra webhook-åtgärd.
     - Kopiera värdet $myApp. ObjectId från skriptet och ange det i fältet program objekt-ID i definition av webhook-åtgärd.
     
     ![Säker webhook-åtgärd](./media/action-groups/action-groups-secure-webhook.png)
@@ -252,4 +253,4 @@ Du kan ha ett begränsat antal webhook-åtgärder i en åtgärds grupp.
 * Läs mer om [ITSM-anslutningsprogram](../../azure-monitor/platform/itsmc-overview.md).
 * Läs mer om [hastighets begränsning](../../azure-monitor/platform/alerts-rate-limiting.md) av aviseringar.
 * Få en [Översikt över aktivitets logg aviseringar](../../azure-monitor/platform/alerts-overview.md)och lär dig hur du tar emot aviseringar.  
-* Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../service-health/alerts-activity-log-service-notifications-portal.md).

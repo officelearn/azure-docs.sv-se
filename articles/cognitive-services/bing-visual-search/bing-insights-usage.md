@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: df66dbeebb04209921ff91c4b99a14580f026718
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: acb84a11318175c17976c5dc570ce5d5f6aa6b6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74111631"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512699"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exempel på Bing Insights-användning
 
@@ -75,7 +75,15 @@ Taggar som inte är standard inkluderar den avgränsnings ruta som identifierar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att komma igång med din första förfrågan, se snabb starter: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [python](quickstarts/python.md)
+Information om hur du kommer igång med din första begäran finns i snabb starter:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)
 
 
 

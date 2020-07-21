@@ -4,12 +4,12 @@ description: Meddelas via SMS, webhook, SMS, e-post och mer, när vissa händels
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516132"
 ---
 # <a name="alerts-on-activity-log"></a>Aviseringar om aktivitetsloggar
 
@@ -25,11 +25,11 @@ Normalt skapar du aktivitets logg aviseringar för att ta emot meddelanden när:
 * Specifika åtgärder sker i resurser i din Azure-prenumeration, och är ofta begränsade till specifika resurs grupper eller resurser. Du kanske till exempel vill bli meddelad när en virtuell dator i myProductionResourceGroup tas bort. Eller så kanske du vill bli meddelad om eventuella nya roller har tilldelats till en användare i din prenumeration.
 * En tjänst hälso händelse inträffar. Tjänste hälso händelser innehåller meddelanden om incidenter och underhålls händelser som gäller för resurser i din prenumeration.
 
-En enkel analoghet för att förstå villkor för vilka aviserings regler som kan skapas i aktivitets loggen är att utforska eller filtrera händelser via [aktivitets loggen i Azure Portal](activity-log-view.md#azure-portal). I Azure Monitor-aktivitets loggen kan en filtrera eller hitta nödvändig händelse och sedan skapa en avisering med hjälp av knappen **Lägg till aktivitets logg avisering** .
+En enkel analoghet för att förstå villkor för vilka aviserings regler som kan skapas i aktivitets loggen är att utforska eller filtrera händelser via [aktivitets loggen i Azure Portal](./activity-log.md#view-the-activity-log). I Azure Monitor-aktivitets loggen kan en filtrera eller hitta nödvändig händelse och sedan skapa en avisering med hjälp av knappen **Lägg till aktivitets logg avisering** .
 
 I båda fallen övervakar en aktivitets logg avisering endast för händelser i prenumerationen som aviseringen skapas i.
 
-Du kan konfigurera en aktivitets logg avisering baserat på valfri toppnivå egenskap i JSON-objektet för en aktivitets logg händelse. Mer information finns i [Kategorier i aktivitets loggen](activity-log-view.md#categories-in-the-activity-log). Läs mer om tjänst hälso händelser i [ta emot aktivitets logg aviseringar för tjänst meddelanden](alerts-activity-log-service-notifications.md). 
+Du kan konfigurera en aktivitets logg avisering baserat på valfri toppnivå egenskap i JSON-objektet för en aktivitets logg händelse. Mer information finns i [Kategorier i aktivitets loggen](./activity-log.md#view-the-activity-log). Läs mer om tjänst hälso händelser i [ta emot aktivitets logg aviseringar för tjänst meddelanden](../../service-health/alerts-activity-log-service-notifications-portal.md). 
 
 Aktivitets logg aviseringar har några vanliga alternativ:
 
@@ -61,4 +61,4 @@ Mer information om åtgärds grupper finns i [skapa och hantera åtgärds gruppe
 - Få en [Översikt över aviseringar](alerts-overview.md).
 - Lär dig mer om att [skapa och ändra aktivitets logg aviseringar](alerts-activity-log.md).
 - Granska [aktivitets logg aviseringens webhook-schema](activity-log-alerts-webhook.md).
-- Läs mer om [meddelanden om tjänst hälsa](service-notifications.md).
+- Läs mer om [meddelanden om tjänst hälsa](../../service-health/service-notifications.md).

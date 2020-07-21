@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112994"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512671"
 ---
-# <a name="release-notes"></a>Versionsanmärkningar
+# <a name="speech-service-release-notes"></a>Viktig information om Speech service
 
 ## <a name="text-to-speech-2020-july-release"></a>Text till tal 2020 – juli version
 
@@ -217,7 +217,7 @@ Håll dig frisk!
 - Java Script: stöd har lagts till för `FromHost API` att under lätta användningen av lokal behållare och suveräna moln. Se dokumentationen [här](speech-container-howto.md).
 - Java Script: vi följer nu `NODE_TLS_REJECT_UNAUTHORIZED` tack vare bidrag från [orgads](https://github.com/orgads). Se information [här](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - `OpenSSL`har uppdaterats till version 1.1.1 b och är statiskt länkat till tal SDK Core-biblioteket för Linux. Detta kan orsaka en paus om din inkorg `OpenSSL` inte har installerats till `/usr/lib/ssl` katalogen i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Speech SDK-dokument för att lösa problemet.
 - Vi har ändrat data typen som returnerades för C# `WordLevelTimingResult.Offset` från `int` till för `long` att tillåta åtkomst till `WordLevelTimingResults` när taldata är längre än två minuter.
@@ -258,7 +258,7 @@ Håll dig frisk!
 - Stöd har lagts till `KeywordRecognizer` för Windows (UWP), Android och iOS via NuGet-och Unity-paket
 - Java API för fjärrkonversation har lagts till för att göra konversations avskrifter i asynkrona batchar.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - Konversations beskrivare-funktioner flyttas under namnrymd `Microsoft.CognitiveServices.Speech.Transcription` .
 - En del av konversations beskrivar metoderna flyttas till den nya `Conversation` klassen.
@@ -565,7 +565,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - Stöd för mål-C på iOS. Kolla vår [mål-C-snabb start för iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Stöd för Java Script i webbläsare. Kolla i vår [snabb start för Java Script](quickstart-js-browser.md).
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - I den här versionen introduceras ett antal avbrytande ändringar.
   Mer information finns på [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
@@ -584,7 +584,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 
 - Visa ytterligare information om fel information om anslutnings fel.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - I Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` kräver funktionen inte längre en Sök vägs parameter. Nu identifieras sökvägen automatiskt på alla plattformar som stöds.
 - Get-accessorn för egenskapen `EndpointUrl` i Java och C# har tagits bort.
@@ -613,7 +613,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - Igenkännings resultatet innehåller fler fält. De är förskjutna från början och varaktigheten för ljudet (både i Ticket) för den tolkade texten och ytterligare värden som representerar igenkännings status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout` .
 - Stöd för AuthorizationToken för att skapa fabriks instanser.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - Igenkännings händelser: `NoMatch` händelse typen slogs samman i `Error` händelsen.
 - SpeechOutputFormat i C# har bytt namn till `OutputFormat` för att hålla dig uppdaterad med C++.

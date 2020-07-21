@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254675"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517866"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -25,7 +25,7 @@ Den här bilden illustrerar ett program som har tre lyssnare. De första två ä
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Virtuellt Azure-nätverk och dedikerat undernät
 
@@ -146,7 +146,7 @@ När du skapar en ny lyssnare väljer du mellan [ *grundläggande* och *flera pl
 
 - Om du vill att alla dina förfrågningar (för alla domäner) ska accepteras och vidarebefordras till backend-pooler väljer du grundläggande. Lär dig [hur du skapar en Programgateway med en grundläggande lyssnare](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Om du vill vidarebefordra begär anden till olika Server dels pooler baserat på *värd* rubriken eller värd namnet väljer du fler lyssnare för flera platser där du även måste ange ett värdnamn som matchar den inkommande begäran. Detta beror på att Application Gateway förlitar sig på HTTP 1,1-värdhuvuden för att vara värd för fler än en webbplats på samma offentliga IP-adress och port.
+- Om du vill vidarebefordra begär anden till olika Server dels pooler baserat på *värd* rubriken eller värd namnen väljer du fler lyssnare för flera platser där du också måste ange ett värdnamn som matchar den inkommande begäran. Detta beror på att Application Gateway förlitar sig på HTTP 1,1-värdhuvuden för att vara värd för fler än en webbplats på samma offentliga IP-adress och port. Mer information finns i vara [värd för flera platser med Application Gateway](multiple-site-overview.md).
 
 #### <a name="order-of-processing-listeners"></a>Bearbetnings ordning för lyssnare
 
@@ -279,12 +279,16 @@ Mer information om omdirigering finns i:
 - [Omdirigera trafik till en extern plats med hjälp av PowerShell](redirect-external-site-powershell.md)
 - [Omdirigera trafik till en extern plats med hjälp av CLI](redirect-external-site-cli.md)
 
-#### <a name="rewrite-the-http-header-setting"></a>Skriv om inställningen för HTTP-huvud
+### <a name="rewrite-http-headers-and-url"></a>Skriv om HTTP-rubriker och URL
 
-Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Mer information finns i:
+Genom att använda regler för att skriva om, kan du lägga till, ta bort eller uppdatera HTTP (S)-begäran och svars rubriker samt URL-sökväg och parametrar för frågesträngar som begär ande-och svars paket flyttas mellan klienten och backend-pooler via Application Gateway.
 
- - [Översikt över Skriv över HTTP-rubriker](rewrite-http-headers.md)
+Parametrarna headers och URL kan anges till statiska värden eller till andra huvuden och servervariabler. Detta hjälper till med viktiga användnings fall, till exempel att extrahera klientens IP-adresser, ta bort känslig information om Server delen, lägga till mer säkerhet och så vidare.
+Mer information finns i:
+
+ - [Översikt över Skriv över HTTP-rubriker](rewrite-http-headers-url.md)
  - [Konfigurera omskrivning av HTTP-huvud](rewrite-http-headers-portal.md)
+ - [Konfigurera URL-omskrivning](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>HTTP-inställningar
 
@@ -357,7 +361,7 @@ Den här inställningen associerar en [anpassad avsökning](application-gateway-
 > [!NOTE]
 > Den anpassade avsökningen övervakar inte Server delens hälso tillstånd om inte den motsvarande HTTP-inställningen uttryckligen är associerad med en lyssnare.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Välj värdnamn från Server dels adress
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>Välj värdnamn från Server dels adress
 
 Den här funktionen ställer dynamiskt in *värd* rubriken i begäran till värd namnet för backend-poolen. Den använder en IP-adress eller ett fullständigt domän namn.
 
@@ -384,7 +388,7 @@ Du kan peka en backend-pool till fyra typer av Server dels medlemmar: en viss vi
 
 När du har skapat en backend-pool måste du associera den med en eller flera regler för begäran-routning. Du måste också konfigurera hälso avsökningar för varje backend-pool på din Application Gateway. När ett villkor för en regel för anslutningsbegäran uppfylls, vidarebefordrar Application Gateway trafiken till de felfria servrarna (som fastställs av hälso avsökningarna) i motsvarande backend-pool.
 
-## <a name="health-probes"></a>Hälsotillståndsavsökningar
+## <a name="health-probes"></a>Hälsoavsökningar
 
 En Programgateway övervakar hälsan för alla resurser i Server delen som standard. Men vi rekommenderar starkt att du skapar en anpassad avsökning för varje server dels-HTTP-inställning för att få bättre kontroll över hälso övervakningen. Information om hur du konfigurerar en anpassad avsökning finns i [Inställningar för anpassade hälso avsökningar](application-gateway-probe-overview.md#custom-health-probe-settings).
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0a559ec7f9138810611841eed4a035f30662bc39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79a239148647467185e407e1e07fdea658a7be40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806272"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517916"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Skapa VM-skalningsuppsättningar med serverdelspoolerna
 > * Skapa en CNAME-post i domänen
 
-![Exempel på routning mellan flera webbplatser](./media/tutorial-multiple-sites-cli/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Application Gateway för flera platser":::
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
@@ -119,9 +119,13 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### <a name="add-backend-listeners"></a>Lägga till lyssnare för serverdelen
+### <a name="add-listeners"></a>Lägga till lyssnare
 
-Lägg till lyssnarna för serverdelen som ska dirigera trafiken med [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+Lägg till lyssnare som behövs för att dirigera trafik med [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+
+>[!NOTE]
+> Med Application Gateway eller WAF v2 SKU kan du också konfigurera upp till 5 värdnamn per lyssnare och du kan använda jokertecken i värd namnet. Mer information finns i [namn på jokertecken i lyssnaren](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
+>Om du vill använda flera värdnamn och jokertecken i en lyssnare med hjälp av Azure CLI måste du använda `--host-names` i stället för `--host-name` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden. Till exempel, `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

@@ -3,11 +3,12 @@ title: Skapa en ny Azure Application Insights-resurs | Microsoft Docs
 description: Konfigurera Application Insights övervakning manuellt för ett nytt Live-program.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb47453140c7659ca2f5e6da2e40d9d78405f8e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200670"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517101"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
@@ -27,11 +28,11 @@ Logga in på [Azure Portal](https://portal.azure.com)och skapa en Application In
    | ------------- |:-------------|:-----|
    | **Namn**      | `Unique value` | Namn som identifierar den app som du övervakar. |
    | **Resursgrupp**     | `myResourceGroup`      | Namnet på den nya eller befintliga resurs gruppen som värd för App Insights-data. |
-   | **Nationella** | `East US` | Välj en plats nära dig eller nära den plats där din app finns. |
+   | **Region** | `East US` | Välj en plats nära dig eller nära den plats där din app finns. |
    | **Resurs läge** | `Classic` eller `Workspace-based` | Arbets ytans baserade resurser finns för närvarande i en offentlig för hands version och gör att du kan skicka Application Insights telemetri till en gemensam Log Analytics arbets yta. Mer information finns i [artikeln om arbets ytor-baserade resurser](create-workspace-resource.md).
 
 > [!NOTE]
-> Även om du kan använda samma resurs namn i olika resurs grupper kan det vara bra att använda ett globalt unikt namn. Detta kan vara användbart om du planerar att [utföra kors resurs frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) eftersom det underlättar den nödvändiga syntaxen.
+> Även om du kan använda samma resurs namn i olika resurs grupper kan det vara bra att använda ett globalt unikt namn. Detta kan vara användbart om du planerar att [utföra kors resurs frågor](../log-query/cross-workspace-query.md#identifying-an-application) eftersom det underlättar den nödvändiga syntaxen.
 
 Ange lämpliga värden i de obligatoriska fälten och välj sedan **Granska + skapa**.
 
@@ -69,7 +70,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
 ```
-#### <a name="results"></a>Resultat
+#### <a name="results"></a>Results
 
 ```powershell
 Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
@@ -92,7 +93,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Den fullständiga PowerShell-dokumentationen för denna cmdlet och lär dig hur du hämtar Instrumentation-nyckeln finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Den fullständiga PowerShell-dokumentationen för denna cmdlet och lär dig hur du hämtar Instrumentation-nyckeln finns i [Azure PowerShell-dokumentationen](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
 ### <a name="azure-cli-preview"></a>Azure CLI (för hands version)
 
@@ -121,7 +122,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
 ```
 
-#### <a name="results"></a>Resultat
+#### <a name="results"></a>Results
 
 ```azurecli
 az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
@@ -149,12 +150,12 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Den fullständiga Azure CLI-dokumentationen för det här kommandot och lär dig hur du hämtar Instrumentation-nyckeln finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Den fullständiga Azure CLI-dokumentationen för det här kommandot och lär dig hur du hämtar Instrumentation-nyckeln finns i [Azure CLI-dokumentationen](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)
 * [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
-* [Skriv analysfrågor](../../azure-monitor/app/analytics.md)
+* [Skriv analysfrågor](../log-query/log-query-overview.md)
 
 <!--Link references-->
 

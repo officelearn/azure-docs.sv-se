@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på vir
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar SAP HANA databaser med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170334"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513514"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
 
@@ -22,11 +22,11 @@ Vi stöder bara en fullständig säkerhets kopiering per dag. Du kan inte ha dif
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>Skapar lyckade säkerhetskopieringsjobb aviseringar?
 
-Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas. Detaljerade funktioner för Portal varningar dokumenteras [här](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor). Men om du är intresse rad av aviseringar även för lyckade jobb kan du använda [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas. Detaljerade funktioner för Portal varningar dokumenteras [här](./backup-azure-monitoring-built-in-monitor.md). Men om du är intresse rad av aviseringar även för lyckade jobb kan du använda [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Kan jag se schemalagda säkerhets kopierings jobb på menyn säkerhets kopierings jobb?
 
-Menyn säkerhets kopierings jobb visar bara ad hoc-säkerhetskopierade jobb. För schemalagda jobb använder du [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Menyn säkerhets kopierings jobb visar bara ad hoc-säkerhetskopierade jobb. För schemalagda jobb använder du [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>Läggs framtida databaser automatiskt till för säkerhetskopiering?
 
@@ -51,7 +51,7 @@ Genom att köra skriptet före registreringen anger du de behörigheter som krä
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Kommer säkerhets kopieringar att fungera efter migrering av SAP HANA från SDC till MDC?
 
-Se [det här avsnittet](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) i fel söknings guiden.
+Se [det här avsnittet](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) i fel söknings guiden.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>Kan Azure HANA-säkerhetskopiering konfigureras mot en virtuell IP-adress (belastningsutjämnare) och inte en virtuell dator?
 
@@ -111,7 +111,7 @@ Sedan aktive ras den fullständiga säkerhets kopieringen på nod 1 och när den
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Varför kan jag inte se det HANA-system jag vill att min databas ska återställas till?
 
-Kontrol lera om alla krav för att återställa till mål SAP HANA instansen är uppfyllda. Mer information finns i [krav-Restore SAP HANA-databaser i Azure VM](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
+Kontrol lera om alla krav för att återställa till mål SAP HANA instansen är uppfyllda. Mer information finns i [krav-Restore SAP HANA-databaser i Azure VM](./sap-hana-db-restore.md#prerequisites).
 
 ### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>Varför går det inte att återställa Skriv över DB för min databas?
 
@@ -127,4 +127,4 @@ Ja, du kan använda strömmande säkerhets kopieringar som har utlösts på en H
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [säkerhetskopierar SAP HANA databaser](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) som körs på virtuella Azure-datorer.
+Lär dig hur du [säkerhetskopierar SAP HANA databaser](./backup-azure-sap-hana-database.md) som körs på virtuella Azure-datorer.

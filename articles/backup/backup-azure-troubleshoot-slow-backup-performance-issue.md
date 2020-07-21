@@ -3,12 +3,12 @@ title: Felsöka långsam säkerhets kopiering av filer och mappar
 description: Innehåller fel söknings vägledning som hjälper dig att diagnostisera orsaken till Azure Backup prestanda problem
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7bdda02b837cc2312b997b23ba7b714ca7ebb41a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135046"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513852"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 
@@ -95,7 +95,7 @@ Följande indikatorer kan hjälpa dig att förstå Flask halsen och därefter ar
 * **UI visar förloppet för data överföringen**. Data överförs fortfarande. Nätverks bandbredden eller data storleken kan orsaka fördröjningar.
 * **Användar gränssnittet visar inte förloppet för data överföringen**. Öppna loggfilerna som finns i C:\Program\Microsoft Azure Recovery Services Agent\Temp och kontrol lera sedan posten FileProvider:: EndData i loggarna. Den här posten indikerar att data överföringen är slutförd och att katalog åtgärden sker. Avbryt inte säkerhets kopierings jobben. Vänta i stället lite längre tills katalog åtgärden har slutförts. Kontakta [Azure-supporten](https://portal.azure.com/#create/Microsoft.Support)om problemet kvarstår.
 
-Om du försöker säkerhetskopiera stora diskar rekommenderar vi att du använder [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) för den första säkerhets kopieringen (inledande replikering).  Om du inte kan använda Data Box-enhet kan eventuella tillfälliga nätverks problem i din miljö under långa data överföringar över nätverket orsaka säkerhets kopierings fel.  Om du vill skydda dig mot dessa fel kan du lägga till några mappar i den första säkerhets kopian och fortsätta att lägga till fler mappar stegvis tills alla mappar har säkerhetskopierats till Azure.  Efterföljande stegvisa säkerhets kopieringar är relativt snabbare.
+Om du försöker säkerhetskopiera stora diskar rekommenderar vi att du använder [Azure Data Box](./offline-backup-azure-data-box.md) för den första säkerhets kopieringen (inledande replikering).  Om du inte kan använda Data Box-enhet kan eventuella tillfälliga nätverks problem i din miljö under långa data överföringar över nätverket orsaka säkerhets kopierings fel.  Om du vill skydda dig mot dessa fel kan du lägga till några mappar i den första säkerhets kopian och fortsätta att lägga till fler mappar stegvis tills alla mappar har säkerhetskopierats till Azure.  Efterföljande stegvisa säkerhets kopieringar är relativt snabbare.
 
 ## <a name="next-steps"></a>Nästa steg
 

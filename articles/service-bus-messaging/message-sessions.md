@@ -3,11 +3,12 @@ title: Azure Service Bus Message-sessioner | Microsoft Docs
 description: Den här artikeln förklarar hur du använder sessioner för att aktivera gemensam och ordnad hantering av icke-bundna sekvenser av relaterade meddelanden.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341186"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511304"
 ---
 # <a name="message-sessions"></a>Meddelandesessioner
 Microsoft Azure Service Bus-sessioner möjliggör gemensam och ordnad hantering av icke-bundna sekvenser av relaterade meddelanden. Sessioner kan användas i de mönster som **först in, först ut (FIFO)** och **begär ande svar** . Den här artikeln visar hur du använder sessioner för att implementera dessa mönster när du använder Service Bus. 
@@ -30,7 +31,7 @@ Funktionen session i Service Bus aktiverar en enskild Receive-åtgärd i form av
 
 I portalen anger du flaggan med följande kryss ruta:
 
-![][2]
+![Skärm bild av dialog rutan skapa kö med alternativet Aktivera sessioner markerat och anges i rött.][2]
 
 > [!NOTE]
 > När sessioner är aktiverade i en kö eller en prenumeration kan klient programmen ***inte längre*** skicka/ta emot vanliga meddelanden. Alla meddelanden måste skickas som en del av en session (genom att ställa in sessions-ID) och tas emot genom att ta emot sessionen.
@@ -41,7 +42,7 @@ API: erna för sessioner finns i kö-och prenumerations klienter. Det finns en t
 
 Sessioner ger samtidiga indata strömmar av överlagrade meddelande strömmar samtidigt som de bevarar och garanterar beställda leveranser.
 
-![][1]
+![Ett diagram som visar hur sessions-funktionen bevarar den beställda leveransen.][1]
 
 En [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) -mottagare skapas av klienten som accepterar en session. Klienten anropar [QueueClient. AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) eller [QueueClient. AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) i C#. I den återaktiverade återanrops modellen registreras en sessions hanterare.
 
@@ -78,7 +79,7 @@ Definitionen av leverans antal per meddelande i samband med sessioner skiljer si
 | Scenario | Är meddelandets leverans antal ökas |
 |----------|---------------------------------------------|
 | Sessionen godkänns, men sessions låset upphör att gälla (på grund av tids gräns) | Ja |
-| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | No |
+| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | Nej |
 | Sessionen godkänns, meddelanden slutförs och sedan stängs sessionen explicit | Ej tillämpligt (det är standard flödet. Meddelanden tas bort från sessionen) |
 
 ## <a name="request-response-pattern"></a>Mönster för begäran-svar

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52f896e5cbcc8089ee8683338c99fb514400be4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753547"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511151"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutins tillägg för Linux
 
@@ -26,11 +26,10 @@ ms.locfileid: "84753547"
 
 Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer i Linux N-serien. Beroende på VM-serien installerar tillägget CUDA eller GRID-drivrutiner. När du installerar NVIDIA-drivrutiner med det här tillägget accepterar du och godkänner villkoren i [licens avtalet för NVIDIA-slutanvändare](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
 
-Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](
-https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
+Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](../linux/n-series-driver-setup.md).
 Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer med Windows N-serien](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -97,7 +96,7 @@ Alla inställningar är valfria. Standard beteendet är att inte uppdatera kerne
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallarna är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av efter distribution.
 
-JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 I följande exempel förutsätts att tillägget är kapslat i den virtuella dator resursen. Vid kapsling av tilläggs resursen placeras JSON i `"resources": []` objektet på den virtuella datorn.
 
@@ -166,7 +165,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Information om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell och Azure CLI. Kör följande kommando för att se distributions status för tillägg för en specifik virtuell dator.
 
@@ -204,4 +203,4 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg finns i [tillägg för virtuella datorer och funktioner för Linux](features-linux.md).
 
-Mer information om virtuella datorer i N-serien finns i [GPU-optimerade storlekar för virtuella datorer](../linux/sizes-gpu.md).
+Mer information om virtuella datorer i N-serien finns i [GPU-optimerade storlekar för virtuella datorer](../sizes-gpu.md).

@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: f198e4aac08039eb7aed8468e6adb45b5b0d67b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b3d489477a0ee0cc201d4383b5ed960de515c7d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464580"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517118"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -103,7 +104,7 @@ Varje konfigurations alternativ visas på en ny rad, om du inte vill åsidosätt
 
 De tillgängliga konfigurations alternativen är 
 
-| Name | Typ | Beskrivning
+| Namn | Typ | Beskrivning
 |------|------|----------------
 | src | sträng **[obligatoriskt]** | Den fullständiga URL: en för varifrån SDK: n ska läsas in. Det här värdet används för attributet src för ett dynamiskt tillagd &lt; skript/ &gt; tagg. Du kan använda den offentliga CDN-platsen eller en privat värd som är värd för en.
 | name | sträng *[valfritt]* | Det globala namnet för den initierade SDK: n som standard appInsights. Det ```window.appInsights``` kommer att vara en referens till den initierade instansen. Obs! Om du anger ett namn värde eller om en föregående instans ska tilldelas (via det globala namnet appInsightsSDK), kommer detta namn värde också att definieras i det globala namn området som ```window.appInsightsSDK=<name value>``` , detta krävs av SDK-initierings koden för att säkerställa att den initierar och uppdaterar rätt kodfragments Skeleton och proxyservrar.
@@ -114,7 +115,7 @@ De tillgängliga konfigurations alternativen är
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Skicka telemetri till Azure Portal
 
-Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Dessa omfattar:
+Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Exempel på dessa är:
 
 - Ej **fångade undantag** i appen, inklusive information om
     - Stack spårning
@@ -152,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Konfiguration
 De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey` .
 
-| Name | Default | Beskrivning |
+| Name | Standard | Beskrivning |
 |------|---------|-------------|
 | instrumentationKey | null | **Obligatoriskt**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
@@ -185,14 +186,14 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | isBeaconApiDisabled | true | Om det här värdet är falskt skickar SDK all telemetri med hjälp av [Beacon-API: et](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | falskt | Standard falskt. När fliken är stängd skickar SDK all återstående telemetri med hjälp av Beacon- [API: et](https://www.w3.org/TR/beacon) |
 | sdkExtension | null | Anger namnet på SDK-tillägget. Endast alfabetiska tecken tillåts. Tilläggs namnet läggs till som ett prefix till taggen AI. Internal. sdkVersion (till exempel ext_javascript: 2.0.0). Standardvärdet är null. |
-| isBrowserLinkTrackingEnabled | falskt | Standardvärdet är false. Om värdet är true, kommer SDK att spåra alla förfrågningar om [webb läsar länkar](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
+| isBrowserLinkTrackingEnabled | falskt | Standardvärdet är false. Om värdet är true, kommer SDK att spåra alla förfrågningar om [webb läsar länkar](/aspnet/core/client-side/using-browserlink) . |
 | appId | null | AppId används för korrelationen mellan AJAX-beroenden på klient sidan med begär Anden på Server sidan. När Beacon-API är aktiverat kan det inte användas automatiskt, men det kan ställas in manuellt i konfigurationen. Standardvärdet är null |
 | enableCorsCorrelation | falskt | Om värdet är true, kommer SDK att lägga till två huvuden ("Request-ID" och "Request-context") till alla CORS-begäranden för att korrelera utgående AJAX-beroenden med motsvarande begär Anden på Server sidan. Standardvärdet är false |
 | namePrefix | Odefinierad | Ett valfritt värde som ska användas som namn postfix för localStorage och cookie-namn.
 | enableAutoRouteTracking | falskt | Spåra automatiskt väg ändringar i en enskild sida (SPA). Om värdet är true skickar varje väg ändring en ny sid visningar till Application Insights. Ändringar av hash-vägar ( `example.com/foo#bar` ) registreras också som nya sid visningar.
 | enableRequestHeaderTracking | falskt | Om värdet är true, kommer AJAX-& Hämta begärandehuvuden att spåras, standardvärdet är false.
 | enableResponseHeaderTracking | falskt | Om värdet är true spåras svars rubriker för AJAX-& Hämta. standard är falskt.
-| distributedTracingMode | `DistributedTracingModes.AI` | Ställer in läget för distribuerad spårning. Om AI_AND_W3C läge eller W3C-läge är inställt, genereras W3C trace context-rubriker (traceparent/tracestate) och tas med i alla utgående begär Anden. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster. Se exemplet [här](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
+| distributedTracingMode | `DistributedTracingModes.AI` | Ställer in läget för distribuerad spårning. Om AI_AND_W3C läge eller W3C-läge är inställt, genereras W3C trace context-rubriker (traceparent/tracestate) och tas med i alla utgående begär Anden. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster. Se exemplet [här](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | falskt | Standard falskt. Om värdet är true, inkludera data text för svars fel i beroende händelse vid misslyckade AJAX-begäranden.
 | enableAjaxPerfTracking | falskt | Standard falskt. Flagga för att aktivera sökning i och inklusive ytterligare ett webbläsarfönster. prestanda tider i rapporterade mått för Ajax (XHR och hämtning).
 | maxAjaxPerfLookupAttempts | 3 | Standardvärdet är 3. Det maximala antalet gånger som ska sökas efter fönstret. prestanda tider (om det är tillgängligt), krävs detta eftersom inte alla webbläsare fyller i fönstret. prestanda innan XHR-begäran rapporteras och för hämtnings begär Anden läggs till efter dess slut.
@@ -210,34 +211,34 @@ För närvarande erbjuder vi ett separat [reagerar-plugin-program](#react-extens
 
 ## <a name="configuration-autotrackpagevisittime"></a>Konfiguration: autoTrackPageVisitTime
 
-Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare lägger på varje sida spåras. På varje ny sid visningar skickas varaktigheten som användaren har använt på *föregående* sida som ett [anpassat mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) med namnet `PageVisitTime` . Det här anpassade måttet visas i [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) som ett "log-baserat mått".
+Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare lägger på varje sida spåras. På varje ny sid visningar skickas varaktigheten som användaren har använt på *föregående* sida som ett [anpassat mått](../platform/metrics-custom-overview.md) med namnet `PageVisitTime` . Det här anpassade måttet visas i [Metrics Explorer](../platform/metrics-getting-started.md) som ett "log-baserat mått".
 
 ## <a name="react-extensions"></a>Reagera på tillägg
 
 | Tillägg |
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [Reagera inbyggd](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Utforska data från webbläsare/klient Sidan
 
 Du kan visa data från webbläsare/klient sidan genom att gå till **mått** och lägga till enskilda mått som du är intresse rad av:
 
-![](./media/javascript/page-view-load-time.png)
+![Skärm bild av sidan mått i Application Insights visar grafik visar statistik data för ett webb program.](./media/javascript/page-view-load-time.png)
 
 Du kan också visa dina data från Java Script SDK via webbläsarens upplevelse i portalen.
 
 Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
-![](./media/javascript/browser.png)
+![Skärm bild av webb läsar sidan i Application Insights visar hur du lägger till webb läsar fel eller webb läsar prestanda till de mått som du kan visa för ditt webb program.](./media/javascript/browser.png)
 
 ### <a name="performance"></a>Prestanda
 
-![](./media/javascript/performance-operations.png)
+![Skärm bild av sidan prestanda i Application Insights visar bild visning av åtgärds mått för ett webb program.](./media/javascript/performance-operations.png)
 
 ### <a name="dependencies"></a>Beroenden
 
-![](./media/javascript/performance-dependencies.png)
+![Skärm bild av sidan prestanda i Application Insights visar bild visning av beroende mått för ett webb program.](./media/javascript/performance-dependencies.png)
 
 ### <a name="analytics"></a>Analys
 
@@ -270,7 +271,7 @@ Du kan länka din Application Insights-resurs till din egen Azure Blob Storage-b
 
 1. Välj ett objekt för telemetri av undantag i Azure Portal om du vill visa dess "transaktions information från slut punkt till slut punkt"
 2. Identifiera vilka käll mappningar som motsvarar den här anrops stacken. Käll kartan måste matcha en stack Rams käll fil, men med suffixet`.map`
-3. Dra och släpp käll kartorna till anrops stacken i Azure Portal![](https://i.imgur.com/Efue9nU.gif)
+3. Dra och släpp käll mappningarna till anrops stacken i Azure Portal ![ en animerad bild som visar hur du drar och släpper käll mappnings filer från en build-mapp till anrops stack-fönstret i Azure Portal.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 

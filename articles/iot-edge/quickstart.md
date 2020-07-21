@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c0476c7190dcf2ac42dafc9896540be83a938016
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 73d7c129a63e4d63ad5cc05d8dac47720c7955e4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801747"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511933"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -45,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Molnresurser:
 
@@ -76,7 +76,7 @@ IoT Edge-enhet:
 >
 > Om du är redo att konfigurera en egen Windows-enhet för IoT Edge, inklusive enheter som kör IoT Core, följer du stegen i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
@@ -84,7 +84,7 @@ Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en hubb, kan du använda den IoT Hub.
 
-Följande kod skapar en kostnads fri **F1** -hubb i resurs gruppen `IoTEdgeResources` . Ersätt `{hub_name}` med ett unikt namn för din IoT Hub.
+Följande kod skapar en kostnads fri **F1** -hubb i resurs gruppen `IoTEdgeResources` . Ersätt `{hub_name}` med ett unikt namn för din IoT Hub. Det kan ta några minuter att skapa en IoT Hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
@@ -101,13 +101,13 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
 
 Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska IoT-enheter deklarerar du den här identiteten till att höra till en IoT Edge-enhet med flaggan `--edge-enabled`.
 
-1. Ange följande kommando i Azure Cloud Shell för att skapa en enhet med namnet **myEdgeDevice** i din hubb.
+1. I Azure Cloud Shell anger du följande kommando för att skapa en enhet med namnet **myEdgeDevice** i hubben.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
-   Om du får ett fel meddelande om princip nycklar för iothubowner kontrollerar du att Cloud Shell kör den senaste versionen av Azure-IoT-tillägget.
+   Om du får ett fel meddelande om princip nycklar för iothubowner kontrollerar du att din Cloud Shell kör den senaste versionen av Azure-IoT-tillägget.
 
 2. Visa anslutnings strängen för enheten, som länkar din fysiska enhet med sin identitet i IoT Hub. Det innehåller namnet på din IoT-hubb, namnet på enheten och sedan en delad nyckel som autentiserar anslutningar mellan de två.
 
@@ -124,7 +124,7 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
 Installera Azure IoT Edge-körningen på IoT Edge-enheten och konfigurera den med en enhetsanslutningssträng.
 ![Diagram – Starta körningen på enheten](./media/quickstart/start-runtime.png)
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge-säkerhetsdaemon** startas varje gång en IoT Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** hanterar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubben. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten samt mellan enheten och IoT Hub.
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. *IoT Edge Security daemon* startar varje gång en IoT Edge enhet startar och startar enheten genom att starta IoT Edge agenten. *IoT Edge-agenten* hanterar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubben. *IoT Edge-hubben* hanterar kommunikationen mellan moduler på IoT Edge-enheten samt mellan enheten och IoT Hub.
 
 Installationsskriptet innehåller också en container-motor som kallas Moby som hanterar containeravbildningar på din IoT Edge-enhet.
 
@@ -193,7 +193,7 @@ Kontrollera att körningen har installerats och konfigurerats korrekt. Det kan t
 
    ![Visa en modul på din enhet](./media/quickstart/iotedge-list-1.png)
 
-Din IoT Edge-enhet har nu konfigurerats. Den är redo att köra molndistribuerade moduler.
+IoT Edge-enheten har nu konfigurerats. Den är redo att köra molndistribuerade moduler.
 
 ## <a name="deploy-a-module"></a>Distribuera en modul
 
@@ -236,10 +236,19 @@ Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du re
 
 Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Kontrollera att det inte finns något du vill behålla i innehållet i resursgruppen. Om du inte vill ta bort hela gruppen kan du ta bort enskilda resurser i stället.
 
-Ta bort gruppen **IoTEdgeResources**.
+> [!IMPORTANT]
+> Att ta bort en resursgrupp kan inte ångras.
+
+Ta bort gruppen **IoTEdgeResources**. Det kan ta några minuter att ta bort en resurs grupp.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources
+```
+
+Du kan bekräfta att resurs gruppen tas bort genom att visa listan över resurs grupper.
+
+```azurecli-interactive
+az group list
 ```
 
 ## <a name="next-steps"></a>Nästa steg

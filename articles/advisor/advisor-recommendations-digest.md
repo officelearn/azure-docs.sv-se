@@ -4,11 +4,12 @@ description: Hämta periodisk Sammanfattning för dina aktiva rekommendationer
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502469"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518087"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Konfigurera regelbunden Sammanfattning för rekommendationer
 
@@ -20,7 +21,7 @@ Sammandrag av Advisor- **rekommendation** ger ett enkelt och proaktivt sätt att
 **Rekommendationen** att skapa sammandrag hjälper dig att konfigurera sammanfattningen. Du kan välja följande parametrar för konfigurationer:
 1. Kategori: vi har rekommendations kategorier som kostnad, hög tillgänglighet, prestanda och drift kvalitet. Funktionen är inte tillgänglig för säkerhets rekommendationer än.
 2. Frekvensen sammandrag: frekvensen för sammanfattnings meddelanden kan vara veckovis, varannan vecka och varje månad.
-3. Åtgärds grupp: du kan antingen välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp. Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+3. Åtgärds grupp: du kan antingen välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp. Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper](../azure-monitor/platform/action-groups.md).
 4. Språk för sammanfattningen
 5. Namn på rekommendations sammandrag: du kan använda en användarvänlig sträng för att bättre spåra och övervaka sammanfattningarna.
 
@@ -43,7 +44,7 @@ Här följer stegen för att skapa **rekommendation sammandrag:**
 
    ![Tillhandahåll ingångs villkor för rekommendations Sammanfattning](./media/digest-2.png)
 
-* **Steg 5:** I avsnittet **Åtgärds grupp** väljer du **Åtgärds gruppen** för sammanfattningen. Du kan lära dig mer här – [skapa och hantera åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Steg 5:** I avsnittet **Åtgärds grupp** väljer du **Åtgärds gruppen** för sammanfattningen. Du kan lära dig mer här – [skapa och hantera åtgärds grupper](../azure-monitor/platform/action-groups.md)
 
    ![Tillhandahåll åtgärds grupp för sammanfattning av rekommendation](./media/digest-3.png)
 
@@ -59,4 +60,4 @@ Mer information om Advisor-rekommendationer finns i:
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

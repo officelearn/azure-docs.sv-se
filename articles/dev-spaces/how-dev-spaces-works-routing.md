@@ -5,11 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev och hur routning fungerar
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 126a534cec2ee4b07aa3a127fb3f47f9931f0031
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307426"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512477"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Hur routning fungerar med Azure dev Spaces
 
@@ -54,7 +55,7 @@ Du kan också skapa ett nytt dev-utrymme som härleds från ett annat dev-utrymm
 
 Det härledda dev-utrymmet kommer också att dirigera begär Anden mellan sina egna program och de program som delas från dess överordnade. Routningen fungerar genom att försöka skicka begäran till ett program i det härledda dev-utrymmet och återgå till det delade programmet från det överordnade dev-utrymmet. Routningen kommer att återgå till det delade programmet på det föräldrarade utrymmet om programmet inte finns i det överordnade utrymmet.
 
-Ett exempel:
+Till exempel:
 * *Standard* för dev-utrymme har program *service* och *serviceB*.
 * *Azureuser* för dev-ytan härleds från *standard*.
 * En uppdaterad version av *servicen* har distribuerats till *azureuser*.
@@ -68,7 +69,7 @@ Några exempel på hur Azure dev Spaces använder routning för att ge snabb ite
 För att komma igång med att använda routning med Azure dev Spaces för grupp utveckling, se [team utvecklingen i snabb starten för Azure dev Spaces][quickstart-team] .
 
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
+[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [pr-flow]: how-to/github-actions.md
 [quickstart-team]: quickstart-team-development.md

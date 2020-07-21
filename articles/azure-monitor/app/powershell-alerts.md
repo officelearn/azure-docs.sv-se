@@ -3,12 +3,12 @@ title: Använd PowerShell för att ställa in aviseringar i Application Insights
 description: Automatisera konfigurationen av Application Insights för att få e-postmeddelanden om mått ändringar.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: ea33ecfbc02bfed75a66e751ce1788474a6d0e8f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3a3d614ec57242a2ea4b29a86d6365a2efe56f94
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111328"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516965"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
@@ -101,7 +101,7 @@ Add-AzMetricAlertRule -Name "poor sales" `
 Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](../../azure-monitor/app/api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
 
 ## <a name="metric-names"></a>Mått namn
-| Måttnamn | Skärm namn | Description |
+| Måttnamn | Skärm namn | Beskrivning |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Webbläsarundantag |Antal ej fångade undantag som har utlösts i webbläsaren. |
 | `basicExceptionServer.count` |Server undantag |Antal ohanterade undantag som har utlösts av appen |
@@ -139,7 +139,7 @@ Måtten skickas av olika moduler för telemetri:
 Du kan [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md). Azure kommer att anropa en webb adress som du väljer när en avisering aktive ras.
 
 ## <a name="see-also"></a>Se även
-* [Skript för att konfigurera Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [Skript för att konfigurera Application Insights](./create-new-resource.md#creating-a-resource-automatically)
 * [Skapa Application Insights-och webb test resurser från mallar](powershell.md)
 * [Automatisera kopplings Microsoft Azure Diagnostics till Application Insights](powershell-azure-diagnostics.md)
 * [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md)

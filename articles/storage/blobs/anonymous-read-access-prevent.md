@@ -1,34 +1,34 @@
 ---
 title: Förhindra anonym offentlig Läs behörighet till behållare och blobbar
 titleSuffix: Azure Storage
-description: ''
+description: Lär dig hur du analyserar anonyma begär Anden mot ett lagrings konto och hur du förhindrar anonym åtkomst för hela lagrings kontot eller för en enskild behållare.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 90d7cd65bbc07524391f34fe0efce2b044664cef
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209932"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518732"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Förhindra anonym offentlig Läs behörighet till behållare och blobbar
 
-Anonym offentlig Läs behörighet till behållare och blobbar i Azure Storage är ett bekvämt sätt att dela data, men det kan också innebära en säkerhets risk. Det är viktigt att aktivera anonym åtkomst sparsamt och förstå hur du ska utvärdera anonym åtkomst till dina data. Drifts komplexitet, mänskligt fel eller skadlig attack mot data som är allmänt tillgängliga kan leda till kostsamma data intrång. Microsoft rekommenderar att du bara aktiverar anonym åtkomst när det är nödvändigt för ditt program scenario.
+Anonym offentlig Läs behörighet till behållare och blobbar i Azure Storage är ett bekvämt sätt att dela data, men det kan också innebära en säkerhets risk. Det är viktigt att du hanterar anonym åtkomst sparsamt och förstår hur du utvärderar anonym åtkomst till dina data. Drifts komplexitet, mänskligt fel eller skadlig attack mot data som är allmänt tillgängliga kan leda till kostsamma data intrång. Microsoft rekommenderar att du bara aktiverar anonym åtkomst när det är nödvändigt för ditt program scenario.
 
-Som standard ger ett lagrings konto en användare med rätt behörighet för att konfigurera offentlig åtkomst till behållare och blobbar. Du kan inaktivera den här funktionen på lagrings kontots nivå så att behållare och blobbar i kontot inte kan konfigureras för offentlig åtkomst.
+Som standard kan en användare med rätt behörighet konfigurera offentlig åtkomst till behållare och blobbar. Du kan förhindra all offentlig åtkomst på lagrings kontots nivå. Om du inte tillåter offentlig BLOB-åtkomst för lagrings kontot kan inte behållare i kontot konfigureras för offentlig åtkomst. Alla behållare som redan har kon figurer ATS för offentlig åtkomst accepterar inte längre anonyma begär Anden. Mer information finns i [Konfigurera anonym offentlig Läs behörighet för behållare och blobbar](anonymous-read-access-configure.md).
 
 Den här artikeln beskriver hur du analyserar anonyma begär Anden mot ett lagrings konto och hur du förhindrar anonym åtkomst för hela lagrings kontot eller för en enskild behållare.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Identifiera anonyma begär Anden från klient program
 
-När du inaktiverar offentlig Läs behörighet för ett lagrings konto riskerar du att avvisa begär anden till behållare och blobbar som för närvarande är konfigurerade för offentlig åtkomst. Om du inaktiverar offentlig åtkomst för ett lagrings konto åsidosätts de offentliga åtkomst inställningarna för alla behållare i lagrings kontot. När offentlig åtkomst är inaktive rad för lagrings kontot kommer alla framtida anonyma begär anden till kontot att Miss förväntas.
+Om du inte tillåter offentlig Läs behörighet för ett lagrings konto riskerar du att avvisa begär anden till behållare och blobbar som för närvarande är konfigurerade för offentlig åtkomst. Om den offentliga åtkomsten för ett lagrings konto nekas åsidosätts de offentliga åtkomst inställningarna för alla behållare i lagrings kontot. När offentlig åtkomst inte tillåts för lagrings kontot kommer alla framtida anonyma begär anden till det kontot att Miss förväntas.
 
-För att förstå hur inaktive ring av offentlig åtkomst kan påverka klient program, rekommenderar Microsoft att du aktiverar loggning och mått för kontot och analyserar mönster för anonyma begär Anden under ett tidsintervall. Använd mått för att fastställa antalet anonyma begär anden till lagrings kontot och Använd loggar för att avgöra vilka behållare som ska användas anonymt.
+För att förstå hur otillåten offentlig åtkomst kan påverka klient program, rekommenderar Microsoft att du aktiverar loggning och mått för kontot och analyserar mönster för anonyma begär Anden under ett tidsintervall. Använd mått för att fastställa antalet anonyma begär anden till lagrings kontot och Använd loggar för att avgöra vilka behållare som ska användas anonymt.
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Övervaka anonyma begär Anden med Metrics Explorer
 
@@ -92,7 +92,7 @@ En referens för fält som är tillgängliga i Azure Storage loggar i Azure Moni
 
 Azure Storage loggar i Azure Monitor innehåller den typ av auktorisering som användes för att göra en begäran till ett lagrings konto. Filtrera på egenskapen **AuthenticationType** i din logg fråga för att Visa anonyma begär Anden.
 
-Om du vill hämta loggar för de senaste 7 dagarna för anonyma begär Anden mot Blob Storage öppnar du Log Analytics arbets ytan. Klistra sedan in följande fråga i en ny logg fråga och kör den. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+Om du vill hämta loggar för de senaste 7 dagarna för anonyma begär Anden mot Blob Storage öppnar du Log Analytics arbets ytan. Klistra sedan in följande fråga i en ny logg fråga och kör den:
 
 ```kusto
 StorageBlobLogs
@@ -106,13 +106,13 @@ Du kan också konfigurera en varnings regel baserat på den här frågan för at
 
 När du har utvärderat anonyma begär anden till behållare och blobbar i ditt lagrings konto kan du vidta åtgärder för att begränsa eller förhindra offentlig åtkomst. Om några behållare i lagrings kontot kan behöva vara tillgängliga för offentlig åtkomst kan du konfigurera den offentliga åtkomst inställningen för varje behållare i ditt lagrings konto. Det här alternativet ger den mest detaljerade kontrollen över offentlig åtkomst. Mer information finns i [Ange offentlig åtkomst nivå för en behållare](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-För ökad säkerhet kan du inaktivera offentlig åtkomst för ett helt lagrings konto. Den offentliga åtkomst inställningen för ett lagrings konto åsidosätter de enskilda inställningarna för behållare i det kontot. När du inaktiverar offentlig åtkomst för ett lagrings konto är alla behållare som är konfigurerade för att tillåta offentlig åtkomst inte längre tillgängliga anonymt. Mer information finns i [Aktivera eller inaktivera offentlig Läs behörighet för ett lagrings konto](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
+För ökad säkerhet kan du neka offentlig åtkomst för hela lagrings kontot. Den offentliga åtkomst inställningen för ett lagrings konto åsidosätter de enskilda inställningarna för behållare i det kontot. Om du inte tillåter offentlig åtkomst för ett lagrings konto är alla behållare som är konfigurerade för att tillåta offentlig åtkomst inte längre tillgängliga anonymt. Mer information finns i [Tillåt eller neka offentlig Läs behörighet för ett lagrings konto](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
-Om ditt scenario kräver att vissa behållare är tillgängliga för offentlig åtkomst kan det vara lämpligt att flytta dessa behållare och deras blobbar till lagrings konton som är reserverade för offentlig åtkomst. Du kan sedan inaktivera offentlig åtkomst för alla andra lagrings konton.
+Om ditt scenario kräver att vissa behållare måste vara tillgängliga för offentlig åtkomst kan det vara lämpligt att flytta dessa behållare och deras blobbar till lagrings konton som är reserverade för offentlig åtkomst. Du kan sedan neka offentlig åtkomst för andra lagrings konton.
 
 ### <a name="verify-that-public-access-to-a-blob-is-not-permitted"></a>Kontrol lera att offentlig åtkomst till en BLOB inte tillåts
 
-För att kontrol lera att offentlig åtkomst till en viss BLOB nekas kan du försöka hämta blobben via URL: en. Om hämtningen lyckas är blobben fortfarande offentligt tillgänglig. Om blobben inte är offentligt tillgänglig eftersom offentlig åtkomst har inaktiverats för lagrings kontot visas ett fel meddelande som anger att offentlig åtkomst inte tillåts på det här lagrings kontot.
+För att kontrol lera att offentlig åtkomst till en viss BLOB inte tillåts kan du försöka hämta blobben via dess URL. Om hämtningen lyckas är blobben fortfarande offentligt tillgänglig. Om blobben inte är offentligt tillgänglig eftersom offentlig åtkomst har varit inaktive ras för lagrings kontot visas ett fel meddelande som anger att offentlig åtkomst inte tillåts på det här lagrings kontot.
 
 I följande exempel visas hur du använder PowerShell för att försöka ladda ned en BLOB via URL: en. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -124,7 +124,7 @@ Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
 
 ### <a name="verify-that-modifying-the-containers-public-access-setting-is-not-permitted"></a>Kontrol lera att det inte är tillåtet att ändra behållarens offentliga åtkomst inställning
 
-För att verifiera att en behållares offentliga åtkomst inställning inte kan ändras efter att offentlig åtkomst har inaktiverats för lagrings kontot kan du försöka ändra inställningen. Det går inte att ändra behållarens offentliga åtkomst inställning om offentlig åtkomst är inaktive rad för lagrings kontot.
+För att verifiera att en behållares offentliga åtkomst inställning inte kan ändras efter att offentlig åtkomst inte tillåts för lagrings kontot kan du försöka ändra inställningen. Det går inte att ändra behållarens offentliga åtkomst inställning om ingen offentlig åtkomst tillåts för lagrings kontot.
 
 I följande exempel visas hur du använder PowerShell för att försöka ändra en behållares offentliga åtkomst inställning. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -141,10 +141,10 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 
 ### <a name="verify-that-creating-a-container-with-public-access-enabled-is-not-permitted"></a>Kontrol lera att det inte är tillåtet att skapa en behållare med aktive rad offentlig åtkomst
 
-Om offentlig åtkomst är inaktive rad för lagrings kontot kommer du inte att kunna skapa en ny behållare med offentlig åtkomst aktive rad. För att verifiera kan du försöka skapa en behållare med offentlig åtkomst aktive rad.
+Om offentlig åtkomst inte tillåts för lagrings kontot kan du inte skapa en ny behållare med offentlig åtkomst aktive rad. För att verifiera kan du försöka skapa en behållare med offentlig åtkomst aktive rad.
 
 I följande exempel visas hur du använder PowerShell för att försöka skapa en behållare med offentlig åtkomst aktive rad. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"

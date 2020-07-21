@@ -4,12 +4,12 @@ description: Skapa aktivitets logg aviseringar med hjälp av Azure Portal, en Az
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056284"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516064"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -20,7 +20,7 @@ Aktivitets logg aviseringar är de aviseringar som aktive ras när en ny aktivit
 Dessa aviseringar är för Azure-resurser och kan skapas med hjälp av en Azure Resource Manager mall. De kan också skapas, uppdateras eller tas bort i Azure Portal. Normalt skapar du aktivitets logg aviseringar för att ta emot meddelanden när vissa ändringar sker i resurser i din Azure-prenumeration. Aviseringar är ofta begränsade till specifika resurs grupper eller resurser. Du kanske till exempel vill bli meddelad när en virtuell dator i exempel resurs gruppen **myProductionResourceGroup** tas bort. Eller så kanske du vill bli meddelad om eventuella nya roller har tilldelats till en användare i din prenumeration.
 
 > [!IMPORTANT]
-> Aviseringar om service Health-aviseringar kan inte skapas via gränssnittet för skapande av aktivitets logg aviseringar. Om du vill veta mer om hur du skapar och använder meddelanden om tjänst hälsa läser du [ta emot aktivitets logg aviseringar för meddelanden om tjänst hälsa](alerts-activity-log-service-notifications.md).
+> Aviseringar om service Health-aviseringar kan inte skapas via gränssnittet för skapande av aktivitets logg aviseringar. Om du vill veta mer om hur du skapar och använder meddelanden om tjänst hälsa läser du [ta emot aktivitets logg aviseringar för meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Kontrol lera följande när du skapar varnings regler:
 
@@ -28,6 +28,7 @@ Kontrol lera följande när du skapar varnings regler:
 - Kriterierna måste vara nivå, status, anropare, resurs grupp, resurs-ID eller händelse kategori för resurs typ som aviseringen har kon figurer ATS för.
 - Det finns inget "anyOf"-villkor eller kapslade villkor i aviserings konfigurationens JSON. I princip tillåts endast ett "allOf"-villkor utan ytterligare "allOf"-eller "anyOf"-villkor.
 - När kategorin är "administrativ" måste du ange minst ett av de föregående kriterierna i aviseringen. Du får inte skapa en avisering som aktive ras varje gång en händelse skapas i aktivitets loggarna.
+- Det går inte att skapa aviseringar för händelser i aviserings kategorin för aktivitets loggen.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -101,7 +102,7 @@ Använd följande procedur.
     Du kan aktivera, inaktivera, redigera eller ta bort en regel. Läs mer om hur du hanterar aktivitets logg regler.
 
 
-En enkel analoghet för att förstå villkor för vilka aviserings regler som kan skapas i en aktivitets logg är att utforska eller filtrera händelser via [aktivitets loggen i Azure Portal](activity-log-view.md#azure-portal). På skärmen **Azure Monitor-aktivitets logg** kan du filtrera eller hitta den nödvändiga händelsen och sedan skapa en avisering med hjälp av knappen **Lägg till aktivitets logg avisering** . Följ sedan steg 4 till 7 enligt ovan.
+En enkel analoghet för att förstå villkor för vilka aviserings regler som kan skapas i en aktivitets logg är att utforska eller filtrera händelser via [aktivitets loggen i Azure Portal](./activity-log.md#view-the-activity-log). På skärmen **Azure Monitor-aktivitets logg** kan du filtrera eller hitta den nödvändiga händelsen och sedan skapa en avisering med hjälp av knappen **Lägg till aktivitets logg avisering** . Följ sedan steg 4 till 7 enligt ovan.
     
  ![Lägg till avisering från aktivitets loggen](media/alerts-activity-log/add-activity-log.png)
     
@@ -218,7 +219,7 @@ Följande fält är de alternativ som du kan använda i Azure Resource Manager m
 9. under status: vanligt vis HTTP-statuskod för motsvarande REST-anrop, men kan även innehålla andra strängar som beskriver en under status.   Till exempel: OK (HTTP-status kod: 200), skapad (HTTP-status kod: 201), godkänd (HTTP-status kod: 202), ingen innehålls (HTTP-status kod: 204), felaktig begäran (HTTP-status kod: 400), hittades inte (HTTP-status kod: 404), konflikt (HTTP-status kod: 409), internt Server fel (HTTP-status kod: 500), tjänsten är inte tillgänglig (HTTP-status kod: 503), Gateway-timeout (HTTP-statuskod
 10. resourceType: den typ av resurs som påverkades av händelsen. Exempel: Microsoft. Resources/distributions
 
-Ett exempel:
+Till exempel:
 
 ```json
 "condition": {
@@ -243,7 +244,7 @@ Mer information om aktivitets loggs fälten finns [här](https://nam06.safelinks
 > Det kan ta upp till 5 minuter innan den nya varnings regeln om aktivitets logg aktive ras.
 
 ## <a name="rest-api"></a>REST-API 
-[Azure Monitor aktivitets logg aviserings-API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) är ett REST API. Den är helt kompatibel med Azure Resource Manager REST API. Den kan användas via PowerShell med Resource Manager-cmdleten eller Azure CLI.
+[Azure Monitor aktivitets logg aviserings-API](/rest/api/monitor/activitylogalerts) är ett REST API. Den är helt kompatibel med Azure Resource Manager REST API. Den kan användas via PowerShell med Resource Manager-cmdleten eller Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -262,29 +263,29 @@ där sampleActivityLogAlert.parameters.jspå innehåller värdena för de parame
 
 Aktivitets logg aviseringar har dedikerade PowerShell-cmdlets tillgängliga:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): skapar en ny aktivitets logg avisering eller uppdaterar en befintlig aktivitets logg avisering.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): hämtar en eller flera aktivitets loggs aviserings resurser.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): aktiverar en befintlig aktivitets logg avisering och anger dess taggar.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): inaktiverar en befintlig aktivitets logg avisering och anger dess taggar.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): tar bort en aktivitets logg avisering.
+- [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert): skapar en ny aktivitets logg avisering eller uppdaterar en befintlig aktivitets logg avisering.
+- [Get-AzActivityLogAlert](/powershell/module/az.monitor/get-azactivitylogalert): hämtar en eller flera aktivitets loggs aviserings resurser.
+- [Enable-AzActivityLogAlert](/powershell/module/az.monitor/enable-azactivitylogalert): aktiverar en befintlig aktivitets logg avisering och anger dess taggar.
+- [Disable-AzActivityLogAlert](/powershell/module/az.monitor/disable-azactivitylogalert): inaktiverar en befintlig aktivitets logg avisering och anger dess taggar.
+- [Remove-AzActivityLogAlert](/powershell/module/az.monitor/remove-azactivitylogalert): tar bort en aktivitets logg avisering.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Dedikerade Azure CLI-kommandon under uppsättningen ange [AZ övervaka aktivitet – logg aviseringen](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) är tillgängliga för hantering av varnings regler för aktivitets loggen.
+Dedikerade Azure CLI-kommandon under uppsättningen ange [AZ övervaka aktivitet – logg aviseringen](/cli/azure/monitor/activity-log/alert) är tillgängliga för hantering av varnings regler för aktivitets loggen.
 
 Om du vill skapa en ny varnings regel för aktivitets loggen använder du följande kommandon i den här ordningen:
 
-1. [AZ övervaka aktivitet – logg avisering skapa](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): skapa en ny resurs för aktivitets logg aviserings regel.
-1. [AZ övervaka aktivitet – logg aviserings omfattning](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Lägg till omfattning för aviserings regeln för den skapade aktivitets loggen.
-1. [AZ övervaka aktivitet – logg aviserings åtgärd – grupp](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Lägg till en åtgärds grupp i aktivitets loggens aviserings regel.
+1. [AZ övervaka aktivitet – logg avisering skapa](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): skapa en ny resurs för aktivitets logg aviserings regel.
+1. [AZ övervaka aktivitet – logg aviserings omfattning](/cli/azure/monitor/activity-log/alert/scope): Lägg till omfattning för aviserings regeln för den skapade aktivitets loggen.
+1. [AZ övervaka aktivitet – logg aviserings åtgärd – grupp](/cli/azure/monitor/activity-log/alert/action-group): Lägg till en åtgärds grupp i aktivitets loggens aviserings regel.
 
-Om du vill hämta en resurs för varnings regler för aktivitets loggen använder du Azure CLI [-kommandot AZ övervaka aktivitet – logg avisering Visa](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-). Om du vill visa alla resurser för aktivitets logg aviserings regler i en resurs grupp använder du [AZ övervaka aktivitet – logg aviserings lista](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Aktivitets logg aviserings regel resurser kan tas bort med hjälp av Azure CLI [-kommandot AZ övervaka aktivitet – logg avisering ta bort](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
+Om du vill hämta en resurs för varnings regler för aktivitets loggen använder du Azure CLI [-kommandot AZ övervaka aktivitet – logg avisering Visa](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+). Om du vill visa alla resurser för aktivitets logg aviserings regler i en resurs grupp använder du [AZ övervaka aktivitet – logg aviserings lista](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Aktivitets logg aviserings regel resurser kan tas bort med hjälp av Azure CLI [-kommandot AZ övervaka aktivitet – logg avisering ta bort](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [webhook-scheman för aktivitets loggar](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Läs en [Översikt över aktivitets loggar](../../azure-monitor/platform/activity-log-alerts.md).
 - Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).  
-- Läs mer om [meddelanden om tjänst hälsa](../../azure-monitor/platform/service-notifications.md).
+- Läs mer om [meddelanden om tjänst hälsa](../../service-health/service-notifications.md).

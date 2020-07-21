@@ -9,11 +9,13 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-ansible
+ms.openlocfilehash: ba6fab2c2112c0e2c32e07965ededea817c37cbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759529"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510607"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -66,7 +68,7 @@ Om kommandot lyckas får du en JSON-utdata som liknar:
 
 Anteckna den appId-egenskap som returnerades från kommandot för ett senare steg.
 
-På Azure Portal:
+I Azure-portalen:
 
 1. Välj **Azure Active Directory**  >  **app-registrering**.
 2. Sök efter din registrering av appen (till exempel OCPAzureAD).
@@ -158,7 +160,7 @@ Det finns tre sätt att lägga till Log Analytics agent i OpenShift.
 - Aktivera Azure Monitor VM-tillägg på varje OpenShift-nod
 - Installera Log Analytics agenten som OpenShift daemon-uppsättning
 
-Läs fullständiga [instruktioner](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) om du vill ha mer information.
+Läs fullständiga [instruktioner](../../azure-monitor/insights/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) om du vill ha mer information.
 
 ## <a name="configure-metrics-and-logging"></a>Konfigurera mått och loggning
 

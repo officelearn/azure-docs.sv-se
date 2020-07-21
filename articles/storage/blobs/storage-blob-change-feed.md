@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465192"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518749"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
 
@@ -70,7 +71,7 @@ Aktivera ändra feed på ditt lagrings konto genom att använda Azure Portal:
 
 4. Välj knappen **Spara** för att bekräfta dina **data skydds** inställningar.
 
-    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Skärm bild som visar inställningarna för data skydd.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -326,7 +327,7 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella offentli
 - Du kan för närvarande inte se **$blobchangefeed** -behållaren när du anropar ListContainers API och behållaren inte visas på Azure Portal eller Storage Explorer. Du kan visa innehållet genom att anropa ListBlobs-API: et i $blobchangefeed containern direkt.
 - Lagrings konton som tidigare har initierat en [konto redundansväxling](../common/storage-disaster-recovery-guidance.md) kan ha problem med logg filen som inte visas. Eventuella framtida fel i kontot kan också påverka logg filen under för hands versionen.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Vad är skillnaden mellan ändrings flöde och Lagringsanalys loggning?
 Analys loggar innehåller poster med alla Läs-, Skriv-, list-och borttagnings åtgärder med lyckade och misslyckade förfrågningar för alla åtgärder. Analys loggar är bästa möjliga och ingen beställning är garanterat.

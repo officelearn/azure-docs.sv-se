@@ -4,11 +4,12 @@ description: Lär dig mer om schemat för JSON som publiceras i en webhook-URL n
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db12f352ec79a3112eada68d82279c9e0343a04
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669054"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516166"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhookar för Azure aktivitets logg aviseringar
 Som en del av definitionen av en åtgärds grupp kan du konfigurera webhook-slutpunkter för att ta emot aviseringar om aktivitets logg aviseringar. Med Webhooks kan du dirigera dessa meddelanden till andra system för efter bearbetning eller anpassade åtgärder. Den här artikeln visar vad nytto lasten för HTTP-inlägget till en webhook ser ut.
@@ -213,7 +214,7 @@ JSON-nyttolasten som ingår i POST-åtgärden skiljer sig från den nytto lasten
 }
 ```
 
-Information om en detaljerad schema information om logg aviseringar för tjänst hälso aviseringar finns i [meddelanden om tjänst hälsa](../../azure-monitor/platform/service-notifications.md). Dessutom får du lära dig hur du [konfigurerar webhook-meddelanden för service Health med dina befintliga problem hanterings lösningar](../../service-health/service-health-alert-webhook-guide.md).
+Information om en detaljerad schema information om logg aviseringar för tjänst hälso aviseringar finns i [meddelanden om tjänst hälsa](../../service-health/service-notifications.md). Dessutom får du lära dig hur du [konfigurerar webhook-meddelanden för service Health med dina befintliga problem hanterings lösningar](../../service-health/service-health-alert-webhook-guide.md).
 
 ### <a name="resourcehealth"></a>ResourceHealth
 
@@ -261,7 +262,7 @@ Information om en detaljerad schema information om logg aviseringar för tjänst
 | conditionType |Always "event." |
 | name |Aviserings regelns namn. |
 | id |Resurs-ID för aviseringen. |
-| description |Aviserings beskrivning som anges när aviseringen skapas. |
+| beskrivning |Aviserings beskrivning som anges när aviseringen skapas. |
 | subscriptionId |ID för Azure-prenumeration. |
 | timestamp |Tiden då händelsen genererades av den Azure-tjänst som bearbetade begäran. |
 | resourceId |Resurs-ID för den påverkade resursen. |
@@ -291,4 +292,3 @@ En detaljerad schema information om alla andra aktivitets logg aviseringar finns
 * [Använd en Logic app för att skicka ett SMS via Twilio från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
 * [Använd en Logic app för att skicka ett slack-meddelande från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
 * [Använd en Logic app för att skicka ett meddelande till en Azure-kö från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
-

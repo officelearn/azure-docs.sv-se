@@ -3,11 +3,12 @@ title: Använda Modern Backup Storage med Azure Backup Server
 description: Lär dig mer om de nya funktionerna i Azure Backup Server. Den här artikeln beskriver hur du uppgraderar installationen av säkerhets kopierings servern.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172384"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513718"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 
@@ -17,7 +18,7 @@ Azure Backup Server v2 och senare har stöd för Modern Backup Storage som ger l
 > Om du vill använda Modern Backup Storage måste du köra backup server v2 eller v3 på Windows Server 2016 eller v3 på Windows Server 2019.
 > Om du kör backup server v2 på en tidigare version av Windows Server kan Azure Backup Server inte dra nytta av Modern Backup Storage. I stället skyddas arbets belastningar på samma sätt som med säkerhets kopierings servern v1. Mer information finns i [matrisen](backup-mabs-protection-matrix.md)för säkerhets kopiering av Server versions skydd.
 >
-> För att uppnå förbättrade prestanda för säkerhets kopiering rekommenderar vi att du distribuerar MABS v3 med skiktad lagring på Windows Server 2019. Se DPM-artikeln "[Konfigurera MB med Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" för steg för att konfigurera skiktat lagrings utrymme.
+> För att uppnå förbättrade prestanda för säkerhets kopiering rekommenderar vi att du distribuerar MABS v3 med skiktad lagring på Windows Server 2019. Se DPM-artikeln "[Konfigurera MB med Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" för steg för att konfigurera skiktat lagrings utrymme.
 
 ## <a name="volumes-in-backup-server"></a>Volymer i säkerhets kopierings Server
 
@@ -102,13 +103,13 @@ Uppdatering av skyddsgrupper för användning av Modern Backup Storage är valfr
 
 1. I Administratörskonsol väljer du **skydds** funktionen. I listan **skydds grupps medlem** högerklickar du på medlemmen och väljer sedan **stoppa skyddet av medlem**.
 
-   ![Stoppa skyddet av medlem](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Stoppa skyddet av medlem](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. I dialog rutan **ta bort från grupp** granskar du använt disk utrymme och tillgängligt ledigt utrymme för lagringspoolen. Standardinställningen är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Klicka på **OK**.
 
    Om du omedelbart vill returnera det använda disk utrymmet till den kostnads fria lagringspoolen markerar du kryss rutan **ta bort replik på disk** för att ta bort de säkerhets kopierings data (och återställnings punkter) som är associerade med medlemmen.
 
-   ![Dialog rutan ta bort från grupp](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Dialog rutan ta bort från grupp](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Skapa en skydds grupp som använder Modern Backup Storage. Inkludera oskyddade data källor.
 
@@ -120,7 +121,7 @@ Lägga till disklagring:
 
 1. I administratörskonsol väljer du **hantering**  >  **disklagring**  >  **Lägg till**.
 
-    ![Dialog rutan Lägg till Disklagring](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Dialog rutan Lägg till Disklagring](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. I dialog rutan **Lägg till disklagring** väljer du **Lägg till diskar**.
 

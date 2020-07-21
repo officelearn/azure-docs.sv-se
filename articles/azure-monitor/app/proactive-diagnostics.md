@@ -3,11 +3,12 @@ title: Smart identifiering i Azure Application Insights | Microsoft Docs
 description: Application Insights utför automatisk djup analys av din app-telemetri och varnar dig om potentiella problem.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: b7fecf886515780858ecc503a29be3bd76b73c3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad6580a0a62d331a7851c47d71b46d3ea6c81468
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83700849"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516880"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar automatiskt om potentiella prestanda problem och fel avvikelser i ditt webb program. Den utför proaktiv analys av Telemetrin som din app skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om det uppstår plötsliga ökningar i felfrekvenser eller onormala mönster i klient-eller server prestanda får du en avisering. Den här funktionen behöver ingen konfiguration. Det fungerar om ditt program skickar tillräckligt med telemetri.
@@ -33,7 +34,7 @@ Smart identifiering identifierar och meddelar om en rad olika problem, till exem
 
 * [Smart identifiering – fel avvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md). Vi använder Machine Learning för att ange den förväntade antalet misslyckade förfrågningar för din app, som korrelerar med belastning och andra faktorer. Om felen hamnar utanför det förväntade kuvertet skickar vi en avisering.
 * [Smart identifiering-prestanda avvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md). Du får meddelanden om svars tiden för en åtgärd eller beroende varaktighet är långsammare jämfört med historisk bas linje eller om vi identifierar ett avvikande mönster i svars tid eller sid inläsnings tid.   
-* Allmän försämring och problem, som [spårnings försämring](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [minnes läcka](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [onormal ökning av undantags volym](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) och [säkerhets mönster för säkerhet](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* Allmän försämring och problem, som [spårnings försämring](./proactive-trace-severity.md), [minnes läcka](./proactive-potential-memory-leak.md), [onormal ökning av undantags volym](./proactive-exception-volume.md) och [säkerhets mönster för säkerhet](./proactive-application-security-detection-pack.md).
 
 (Hjälp länkar i varje meddelande tar dig till relevanta artiklar.)
 
@@ -43,7 +44,7 @@ Alla regler för smart identifiering, förutom regler som är markerade som för
 
 Du kan konfigurera e-postaviseringar för en speciell Smart identifierings regel genom att öppna bladet **Inställningar** för smart identifiering och välja regeln, vilket öppnar bladet **Redigera regel** .
 
-Alternativt kan du ändra konfigurationen med Azure Resource Manager mallar. Mer information [finns i hantera Application Insights regler för smart identifiering med Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) .
+Alternativt kan du ändra konfigurationen med Azure Resource Manager mallar. Mer information [finns i hantera Application Insights regler för smart identifiering med Azure Resource Manager mallar](./proactive-arm-config.md) .
 
 ## <a name="video"></a>Video
 
@@ -60,4 +61,3 @@ Smart identifiering är helt automatisk. Men kanske vill du konfigurera ytterlig
 
 * [Manuellt konfigurerade mått varningar](../../azure-monitor/platform/alerts-log.md)
 * [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) 
-

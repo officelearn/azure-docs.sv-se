@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024888"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519362"
 ---
-# <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
+# <a name="working-with-security-policies"></a>Arbeta med säkerhetspolicyer
 
 Den här artikeln förklarar hur du konfigurerar säkerhets principer och hur du visar dem i Security Center. 
 
@@ -32,7 +33,7 @@ Azure Security Center gör säkerhets rekommendationerna baserade på dina valda
 
 Security Center erbjuder följande alternativ för att arbeta med säkerhets principer:
 
-* **Visa och redigera den inbyggda standard principen** – när du aktiverar Security Center tilldelas en inbyggd initiativ med namnet "ASC default" automatiskt till alla Security Center registrerade prenumerationer (kostnads fria eller standard nivåer). Du kan anpassa det här initiativet genom att aktivera eller inaktivera enskilda principer i den. Se listan över [inbyggda säkerhets principer](security-center-policy-definitions.md) för att förstå alternativen som är tillgängliga direkt.
+* **Visa och redigera den inbyggda standard principen** – när du aktiverar Security Center tilldelas en inbyggd initiativ med namnet "ASC default" automatiskt till alla Security Center registrerade prenumerationer (kostnads fria eller standard pris nivåer). Du kan anpassa det här initiativet genom att aktivera eller inaktivera enskilda principer i den. Se listan över [inbyggda säkerhets principer](security-center-policy-definitions.md) för att förstå alternativen som är tillgängliga direkt.
 
 * **Lägg till egna anpassade principer** – om du vill anpassa de säkerhets initiativ som tillämpas på din prenumeration kan du göra det i Security Center. Du får sedan rekommendationer om datorerna inte följer de principer som du skapar. Anvisningar om hur du skapar och tilldelar anpassade principer finns i [använda anpassade säkerhets principer](custom-security-policies.md).
 
@@ -85,14 +86,18 @@ Visa dina säkerhetsprinciper i Security Center:
 
 Du kan redigera säkerhets principer via Azure Policy-portalen via REST API eller med hjälp av Windows PowerShell.
 
-I Security Center används rollbaserad åtkomstkontroll, vilket innebär att det finns förinställda roller som kan tilldelas användare, grupper och tjänster i Azure. När användarna öppnar Security Center ser de bara information som är relaterad till de resurser som de har åtkomst till. Det innebär att användarna tilldelas rollen som *ägare*, *deltagare*eller *läsare* till resursens prenumeration. Det finns två olika Security Center roller och dessa roller:
+Security Center använder rollbaserad Access Control (RBAC), som innehåller inbyggda roller som du kan tilldela till Azure-användare, grupper och tjänster. När användare öppnar Security Center ser de bara information om de resurser som de har åtkomst till. Det innebär att användare tilldelas rollen som *ägare*, *deltagare*eller *läsare* till resursens prenumeration. Det finns också två olika Security Centers roller:
 
-- **Säkerhets läsare**: har behörighet att Security Center, som innehåller rekommendationer, aviseringar, principer och hälsa, men som inte kan göra ändringar.
-- **Säkerhets administratör**: har samma visnings rättigheter som *säkerhets läsaren*, och de kan också uppdatera säkerhets principen och stänga rekommendationer och aviseringar.
+- **Säkerhets läsare**: har behörighet att Visa Security Center objekt, till exempel rekommendationer, aviseringar, principer och hälsa. Det går inte att göra ändringar.
+- **Säkerhets administratör**: har samma visnings rättigheter som *säkerhets läsaren*. Kan också uppdatera säkerhets principen och ignorera aviseringar.
 
 
-## <a name="disable-security-policies"></a>Inaktivera säkerhets principer
-Om standard säkerhets principen genererar en rekommendation som inte är relevant för din miljö kan du stoppa den genom att inaktivera den princip definition som skickar rekommendationen.
+## <a name="disable-security-policies-and-disable-recommendations"></a>Inaktivera säkerhets principer och inaktivera rekommendationer
+
+När säkerhets initiativet utlöser en rekommendation som är irrelevant för din miljö kan du förhindra att rekommendationen visas igen. Inaktivera en rekommendation genom att inaktivera den princip som genererar rekommendationen.
+
+Rekommendationen du vill inaktivera visas fortfarande om det krävs för en regel standard som du har använt med Security Center reglerna för regelefterlevnad. Även om du har inaktiverat en princip i det inbyggda initiativet, kommer en princip i initiativ Standards initiativet fortfarande att utlösa rekommendationen om det är nödvändigt för efterlevnad. Du kan inte inaktivera principer från myndighets standard initiativ.
+
 Mer information om rekommendationer finns i [hantera säkerhets rekommendationer](security-center-recommendations.md).
 
 1. I Security Center går du till avsnittet **princip & efterlevnad** och väljer **säkerhets princip**.
@@ -124,7 +129,7 @@ Mer information om rekommendationer finns i [hantera säkerhets rekommendationer
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig om säkerhets principer. Relaterad information finns i följande artiklar:
+I den här artikeln förklaras säkerhets principer. Relaterad information finns i följande artiklar:
 
 * Instruktioner för hur du anger principer med hjälp av PowerShell finns i [snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av modulen Azure PowerShell](../governance/policy/assign-policy-powershell.md)
 

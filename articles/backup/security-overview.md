@@ -3,11 +3,12 @@ title: Översikt över säkerhetsfunktioner
 description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper dig att skydda dina säkerhets kopierings data och uppfylla verksamhetens säkerhets behov.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513209"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
 
@@ -15,17 +16,17 @@ Ett av de viktigaste stegen som du kan vidta för att skydda dina data är att h
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Hantering och kontroll av identitets-och användar åtkomst
 
-Lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Med Azure Backup kan du kontrol lera hanterade åtgärder genom detaljerad åtkomst med hjälp av [Azure Role-baserade Access Control (RBAC)](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). Med RBAC kan du åtskilja uppgifter i ditt team och bara ge åtkomst till de användare som krävs för att utföra sina jobb.
+Lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Med Azure Backup kan du kontrol lera hanterade åtgärder genom detaljerad åtkomst med hjälp av [Azure Role-baserade Access Control (RBAC)](./backup-rbac-rs-vault.md). Med RBAC kan du åtskilja uppgifter i ditt team och bara ge åtkomst till de användare som krävs för att utföra sina jobb.
 
-Azure Backup innehåller tre [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) för att kontrol lera säkerhets kopierings hanterings åtgärder:
+Azure Backup innehåller tre [inbyggda roller](../role-based-access-control/built-in-roles.md) för att kontrol lera säkerhets kopierings hanterings åtgärder:
 
 * Säkerhets kopierings deltagare – för att skapa och hantera säkerhets kopior, förutom att ta bort Recovery Services valv och ge åtkomst till andra
 * Ansvarig för säkerhets kopiering – allt en deltagare gör, förutom att ta bort säkerhets kopiering och hantera säkerhets kopierings principer
 * Säkerhets kopierings läsare – behörigheter för att visa alla säkerhets kopierings hanterings åtgärder
 
-Lär dig mer om [rollbaserad åtkomst kontroll för att hantera Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Lär dig mer om [rollbaserad åtkomst kontroll för att hantera Azure Backup](./backup-rbac-rs-vault.md).
 
-Azure Backup har flera säkerhets kontroller som är inbyggda i tjänsten för att förhindra, identifiera och reagera på säkerhets risker. Läs mer om [säkerhets kontroller för Azure Backup](https://docs.microsoft.com/azure/backup/backup-security-controls).
+Azure Backup har flera säkerhets kontroller som är inbyggda i tjänsten för att förhindra, identifiera och reagera på säkerhets risker. Läs mer om [säkerhets kontroller för Azure Backup](./backup-security-controls.md).
 
 ## <a name="separation-between-guest-and-azure-storage"></a>Separering mellan gäst-och Azure-lagring
 
@@ -37,9 +38,9 @@ Säkerhets kopiering av virtuella Azure-datorer måste flytta data från den vir
 
 ## <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
-Du kan nu använda [privata slut punkter](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) för att säkerhetskopiera dina data på ett säkert sätt från servrar i ett virtuellt nätverk till ditt Recovery Services-valv. Den privata slut punkten använder en IP-adress från VNET-adressutrymmet för ditt valv, så du behöver inte exponera dina virtuella nätverk för några offentliga IP-adresser. Privata slut punkter kan användas för att säkerhetskopiera och återställa SQL-och SAP HANA-databaser som körs i dina virtuella Azure-datorer. Det kan också användas för lokala servrar som använder MARS-agenten.
+Du kan nu använda [privata slut punkter](../private-link/private-endpoint-overview.md) för att säkerhetskopiera dina data på ett säkert sätt från servrar i ett virtuellt nätverk till ditt Recovery Services-valv. Den privata slut punkten använder en IP-adress från VNET-adressutrymmet för ditt valv, så du behöver inte exponera dina virtuella nätverk för några offentliga IP-adresser. Privata slut punkter kan användas för att säkerhetskopiera och återställa SQL-och SAP HANA-databaser som körs i dina virtuella Azure-datorer. Det kan också användas för lokala servrar som använder MARS-agenten.
 
-Läs mer om privata slut punkter för Azure Backup [här](https://docs.microsoft.com/azure/backup/private-endpoints).
+Läs mer om privata slut punkter för Azure Backup [här](./private-endpoints.md).
 
 ## <a name="encryption-of-data-in-transit-and-at-rest"></a>Kryptering av data vid överföring och i vila
 
@@ -47,7 +48,7 @@ Kryptering skyddar dina data och hjälper dig att uppfylla organisationens säke
 
 * Säkerhetskopierade data krypteras automatiskt med Microsoft-hanterade nycklar. Du kan också kryptera dina säkerhetskopierade virtuella datorer med hanterade diskar i Recovery Services valvet med hjälp av [Kundhanterade nycklar](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) som lagrats i Azure Key Vault. Du behöver inte vidta några uttryckliga åtgärder för att aktivera den här krypteringen. Den gäller för alla arbets belastningar som säkerhets kopie ras till Recovery Services-valvet.
 
-* Azure Backup stöder säkerhets kopiering och återställning av virtuella Azure-datorer som har sina operativ system/data diskar krypterade med Azure Disk Encryption (ADE). [Läs mer om krypterade virtuella Azure-datorer och Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+* Azure Backup stöder säkerhets kopiering och återställning av virtuella Azure-datorer som har sina operativ system/data diskar krypterade med Azure Disk Encryption (ADE). [Läs mer om krypterade virtuella Azure-datorer och Azure Backup](./backup-azure-vms-encryption.md).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Skydd av säkerhets kopierings data från oavsiktliga borttagningar
 
@@ -55,15 +56,15 @@ Azure Backup innehåller säkerhetsfunktioner som hjälper dig att skydda säker
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Övervakning och aviseringar för misstänkt aktivitet
 
-Azure Backup innehåller [inbyggda övervaknings-och aviserings funktioner](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) för att visa och konfigurera åtgärder för händelser relaterade till Azure Backup. [Säkerhets kopierings rapporter](https://docs.microsoft.com/azure/backup/configure-reports) fungerar som ett ett-stopp-mål för spårning, granskning av säkerhets kopiering och återställning samt för att identifiera viktiga trender på olika nivåer av granularitet. Om du använder Azure Backup övervaknings-och rapporterings verktyg kan du varna dig för obehörig, misstänkt eller skadlig aktivitet så fort de inträffar.
+Azure Backup innehåller [inbyggda övervaknings-och aviserings funktioner](./backup-azure-monitoring-built-in-monitor.md) för att visa och konfigurera åtgärder för händelser relaterade till Azure Backup. [Säkerhets kopierings rapporter](./configure-reports.md) fungerar som ett ett-stopp-mål för spårning, granskning av säkerhets kopiering och återställning samt för att identifiera viktiga trender på olika nivåer av granularitet. Om du använder Azure Backup övervaknings-och rapporterings verktyg kan du varna dig för obehörig, misstänkt eller skadlig aktivitet så fort de inträffar.
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar
 
 Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera och återställa filer, mappar och volym eller system tillstånd från en lokal dator till Azure. MARS innehåller nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Funktionerna är:
 
-* Ytterligare ett lager med autentisering läggs till när en kritisk åtgärd som att ändra en lösen fras utförs. Den här verifieringen är till för att säkerställa att sådana åtgärder bara kan utföras av användare som har giltiga autentiseringsuppgifter för Azure. [Läs mer om de funktioner som förhindrar attacker](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks).
+* Ytterligare ett lager med autentisering läggs till när en kritisk åtgärd som att ändra en lösen fras utförs. Den här verifieringen är till för att säkerställa att sådana åtgärder bara kan utföras av användare som har giltiga autentiseringsuppgifter för Azure. [Läs mer om de funktioner som förhindrar attacker](./backup-azure-security-feature.md#prevent-attacks).
 
-* Borttagna säkerhets kopierings data behålls under ytterligare 14 dagar från borttagnings datumet. Detta säkerställer återhämtning av data inom en viss tids period, så det finns ingen data förlust även om ett angrepp sker. Dessutom behålls ett större antal lägsta återställnings punkter för att skydda mot skadade data. [Läs mer om hur du återställer borttagna säkerhets kopierings data](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+* Borttagna säkerhets kopierings data behålls under ytterligare 14 dagar från borttagnings datumet. Detta säkerställer återhämtning av data inom en viss tids period, så det finns ingen data förlust även om ett angrepp sker. Dessutom behålls ett större antal lägsta återställnings punkter för att skydda mot skadade data. [Läs mer om hur du återställer borttagna säkerhets kopierings data](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
 * För data som har säkerhetskopierats med hjälp av Microsoft Azure Recovery Services (MARS)-agenten används en lösen fras för att säkerställa att data krypteras innan de överförs till Azure Backup och dekrypteras först efter nedladdning från Azure Backup. Lösen Frass informationen är bara tillgänglig för den användare som skapade lösen frasen och agenten som har kon figurer ATS med den. Inget överförs eller delas med tjänsten. Detta garanterar fullständig säkerhet för dina data eftersom data som exponeras oavsiktligt (till exempel en man-in-the-Middle-attack i nätverket) inte kan användas utan lösen frasen och lösen frasen inte skickas i nätverket.
 

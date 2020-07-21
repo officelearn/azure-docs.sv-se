@@ -3,15 +3,17 @@ title: Övervaka ett Azure Kubernetes service (AKS)-kluster distribuerat | Micro
 description: Lär dig hur du aktiverar övervakning av ett Azure Kubernetes service-kluster (AKS) med Azure Monitor för behållare som redan har distribuerats i din prenumeration.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 2dabbe7a5c0e183363fe05bc4e75da0b6a346e6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-terraform
+ms.openlocfilehash: 438e9cfeebc561815c5c0cdbc70123fab718fed1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337978"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516659"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
 
-Den här artikeln beskriver hur du konfigurerar Azure Monitor för behållare för att övervaka hanterade Kubernetes-kluster som finns i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/) som redan har distribuerats i din prenumeration.
+Den här artikeln beskriver hur du konfigurerar Azure Monitor för behållare för att övervaka hanterade Kubernetes-kluster som finns i [Azure Kubernetes-tjänsten](../../aks/index.yml) som redan har distribuerats i din prenumeration.
 
 Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats med hjälp av en av de metoder som stöds:
 
@@ -166,7 +168,7 @@ Om du inte känner till konceptet att distribuera resurser med hjälp av en mall
 
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Skapa och köra en mall
 

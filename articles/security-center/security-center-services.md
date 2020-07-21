@@ -11,28 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2020
+ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187021"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519258"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
-Tabellerna nedan visar Azure Security Center funktioner som är tillgängliga för virtuella datorer och servrar.
+De två flikarna nedan visar funktionerna i Azure Security Center som är tillgängliga för virtuella Windows-och Linux-datorer och-servrar.
 
 ## <a name="supported-features-for-virtual-machines-and-servers"></a>Funktioner som stöds för virtuella datorer och servrar<a name="vm-server-features"></a>
 
-### <a name="windows-machines"></a>[Windows-datorer](#tab/features-windows)
+### <a name="windows-machines"></a>[**Windows-datorer**](#tab/features-windows)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Funktion**|**Azure Virtual Machines**|**Skalningsuppsättningar för virtuella Azure-datorer**|**Datorer som inte är Azure-datorer**|**Prissättning**
+|----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Standard|
-|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](threat-protection.md)|✔|✔|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
+|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](threat-protection.md)|✔|✔|✔|Standard|
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -43,21 +42,20 @@ Tabellerna nedan visar Azure Security Center funktioner som är tillgängliga f�
 |[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|-|-|-|Standard|
-|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
-|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
-|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Kostnadsfri|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
 |Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
 |Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
 |[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
 
-### <a name="linux-machines"></a>[Linux-datorer](#tab/features-linux)
+### <a name="linux-machines"></a>[**Linux-datorer**](#tab/features-linux)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Funktion**|**Azure Virtual Machines**|**Skalningsuppsättningar för virtuella Azure-datorer**|**Datorer som inte är Azure-datorer**|**Prissättning**
+|----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Standard|
-|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
+|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Standard|
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -66,11 +64,10 @@ Tabellerna nedan visar Azure Security Center funktioner som är tillgängliga f�
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Standard|
-|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
-|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
 |Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
 |Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|

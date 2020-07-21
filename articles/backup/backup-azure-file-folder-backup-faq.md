@@ -1,18 +1,18 @@
 ---
-title: Säkerhetskopiera filer och mappar – vanliga frågor
+title: Microsoft Azure Recovery Services (MARS) Agent – vanliga frågor och svar
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056182"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514075"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om säkerhets kopiering av filer och mappar
+# <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
 
-Den här artikeln besvarar vanliga frågor Abound säkerhets kopiering av filer och mappar med Microsoft Azure Recovery Services MARS-agenten i [Azure Backup](backup-overview.md) -tjänsten.
+I den här artikeln besvaras vanliga frågor om säkerhets kopiering av data med Microsoft Azure Recovery Services MARS-agenten (MARS) i [Azure backups](backup-overview.md) tjänsten.
 
 ## <a name="configure-backups"></a>Konfigurera säkerhets kopior
 
@@ -74,11 +74,11 @@ När du byter namn på en Windows-dator stoppas alla aktuella konfigurerade säk
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Vad är den maximala fil Sök vägens längd för säkerhets kopiering?
 
-MARS-agenten använder NTFS och använder längd specifikationen för fil Sök vägen som begränsas av [Windows-API: et](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Om de filer som du vill skydda är längre än det tillåtna värdet kan du säkerhetskopiera den överordnade mappen eller disk enheten.  
+MARS-agenten använder NTFS och använder längd specifikationen för fil Sök vägen som begränsas av [Windows-API: et](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Om de filer som du vill skydda är längre än det tillåtna värdet kan du säkerhetskopiera den överordnade mappen eller disk enheten.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Vilka tecken är tillåtna i fil Sök vägar?
 
-MARS-agenten använder NTFS och tillåter tecken som [stöds](/windows/desktop/FileIO/naming-a-file#naming-conventions) i fil namn/sökvägar.
+MARS-agenten använder NTFS och tillåter tecken som [stöds](/windows/win32/FileIO/naming-a-file#naming-conventions) i fil namn/sökvägar.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Varningen "Azure-säkerhetskopieringar har inte kon figurer ATS för den här servern" visas
 
@@ -91,7 +91,7 @@ Den här varningen kan visas även om du har konfigurerat en säkerhets kopierin
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>Vilken är den minsta nödvändiga storleken på cachelagringsmappen?
 
-Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
+Storleken på cache-mappen avgör mängden data som du säkerhetskopierar.
 
 * Cache-mappens volymer måste ha ett ledigt utrymme som motsvarar minst 5-10% av den totala storleken på säkerhets kopierings data.
 * Om volymen har mindre än 5% ledigt utrymme kan du antingen öka volym storleken eller flytta cache-mappen till en volym med tillräckligt med utrymme genom att följa [dessa steg](#how-do-i-change-the-cache-location-for-the-mars-agent).
@@ -141,7 +141,7 @@ Följande platser för cache-mappen rekommenderas inte:
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Finns det några attribut i cache-mappen som inte stöds?
 
-Följande attribut eller deras kombinationer stöds inte för cachelagringsmappen:
+Följande attribut eller deras kombinationer stöds inte för cache-mappen:
 
 * Krypterad
 * Deduplicerade
@@ -165,17 +165,17 @@ Azure Backup agenten kräver en lösen fras (som du angav under registreringen) 
 
 | Ursprunglig dator <br> *(käll dator där säkerhets kopior vidtogs)* | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Tillgänglig |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Tillgänglig |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](./backup-azure-manage-mars.md#re-generate-passphrase).  |
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 Tänk på följande:
 
-* Om du avinstallerar och omregistrerar agenten på samma ursprungliga dator med
-  * *Samma lösen fras*, kommer du att kunna återställa säkerhetskopierade data.
-  * *Annan lösen fras*. du kommer inte att kunna återställa säkerhetskopierade data.
+* Om du avinstallerar och sedan omregistrerar agenten på samma ursprungliga dator med Thee
+  * *Samma lösen fras*kan du återställa säkerhetskopierade data.
+  * En *annan lösen fras*kan du inte återställa dina säkerhetskopierade data.
 * Om du installerar agenten på en *annan dator* med
-  * *Samma lösen fras* (som används på den ursprungliga datorn) kommer du att kunna återställa säkerhetskopierade data.
-  * *Annan lösen fras*kommer du inte att kunna återställa säkerhetskopierade data.
+  * *Samma lösen fras* (som används på den ursprungliga datorn) kan du återställa säkerhetskopierade data.
+  * *Annan lösen fras*kan du inte återställa dina säkerhetskopierade data.
 * Om den ursprungliga datorn är skadad (hindrar dig från att återskapa lösen frasen via MARS-konsolen), men du kan återställa eller komma åt den ursprungliga mappen som används av MARS-agenten, kan du eventuellt återställa (om du har glömt lösen ordet). Kontakta kund support om du vill ha mer hjälp.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Hur gör jag för att återställa om jag har förlorat min ursprungliga dator (där säkerhets kopieringarna vidtogs)?
@@ -184,7 +184,7 @@ Om du har samma lösen fras (som du angav under registreringen) på den ursprung
 
 | Ursprunglig dator | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Brute |Tillgänglig |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ**  >  **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Brute |Tillgänglig |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ**  >  **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Mina säkerhets kopierings jobb har misslyckats eller inte körs under en längre tid. Jag har gått förbi kvarhållningsperioden. Kan jag fortfarande återställa?

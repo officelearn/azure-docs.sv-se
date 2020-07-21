@@ -12,14 +12,14 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985317"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514737"
 ---
-# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent datakryptering i Azure SQL med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) med kundhanterad nyckel möjliggör Bring Your Own Key-scenario (BYOK) för data skydd i vila och gör det möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data. Med kundhanterad transparent data kryptering är kunden ansvarig för och i en fullständig kontroll över en nyckel livs cykel hantering (nyckel skapande, uppladdning, rotation, borttagning), nyckel användnings behörigheter och granskning av åtgärder på nycklar.
@@ -62,7 +62,7 @@ För att servern ska kunna använda TDE-skyddskomponenten som lagras i AKV för 
 
 - **unwrapKey** -för att kunna ta bort skyddet (DEKRYPTERA) DEK
 
-Key Vault-administratören kan också [Aktivera loggning av nyckel valv gransknings händelser](../../azure-monitor/insights/azure-key-vault.md), så att de kan granskas senare.
+Key Vault-administratören kan också [Aktivera loggning av nyckel valv gransknings händelser](../../azure-monitor/insights/key-vault-insights-overview.md), så att de kan granskas senare.
 
 När servern har kon figurer ATS för att använda ett TDE-skydd från AKV skickar servern DEK för varje TDE-aktiverad databas till nyckel valvet för kryptering. Key Vault returnerar den krypterade DEK, som sedan lagras i användar databasen.
 

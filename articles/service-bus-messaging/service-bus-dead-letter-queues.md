@@ -3,11 +3,13 @@ title: Service Bus köer för obeställbara meddelanden | Microsoft Docs
 description: Beskriver köer för obeställbara meddelanden i Azure Service Bus. Service Bus köer och ämnes prenumerationer tillhandahåller en sekundär underkö som kallas kö för obeställbara meddelanden.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337582"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511219"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus köer för obeställbara meddelanden
 
@@ -56,7 +58,7 @@ Det går inte att inaktivera det här beteendet, men du kan ange [MaxDeliveryCou
 
 När egenskapen [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) eller [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har angetts till **True** (Standardvärdet är **false**) flyttas alla utgående meddelanden till DLQ och anger `TTLExpiredException` orsaks koden.
 
-Förfallna meddelanden rensas bara och flyttas till DLQ när det finns minst en aktiv mottagare från huvud kön eller prenumerationen. Detta beteende är avsiktligt.
+Förfallna meddelanden rensas och flyttas bara till DLQ när det finns minst en aktiv mottagare från huvud kön eller prenumerationen, och [uppskjutna meddelanden](./message-deferral.md) tas inte heller bort och flyttas till kön för obeställbara meddelanden när de har gått ut. Dessa beteenden är avsiktliga.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Fel vid bearbetning av prenumerations regler
 

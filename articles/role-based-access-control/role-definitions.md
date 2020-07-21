@@ -15,11 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996619"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511644"
 ---
 # <a name="understand-azure-role-definitions"></a>Förstå roll definitioner för Azure
 
@@ -27,7 +28,7 @@ Om du försöker förstå hur en Azure-roll fungerar eller om du skapar en egen 
 
 ## <a name="role-definition"></a>Rolldefinition
 
-En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också visa en lista över de åtgärder som undantas från tillåtna åtgärder eller åtgärder som rör underliggande data.
+En *rolldefinition* är en samling behörigheter. Den kallas ibland bara för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också visa en lista över de åtgärder som undantas från tillåtna åtgärder eller åtgärder som rör underliggande data.
 
 Följande visar ett exempel på egenskaperna i en roll definition när du visas med hjälp av Azure PowerShell:
 
@@ -89,7 +90,7 @@ I följande tabell beskrivs vad roll egenskaperna innebär.
 
 ### <a name="role-definition-example"></a>Exempel på roll definition
 
-Här är roll definitionen [deltagare](built-in-roles.md#contributor) som visas i Azure PowerShell och Azure CLI. Jokertecknet (`*`) under `Actions` anger att huvudnamnet som tilldelats den här rollen kan utföra alla åtgärder, eller med andra ord sköta all administration. Det här inbegriper även åtgärder som definieras i framtiden när Azure lägger till nya resurstyper. Åtgärderna under `NotActions` dras bort från `Actions`. För rollen [Deltagare](built-in-roles.md#contributor) tar `NotActions` bort rollens möjlighet att hantera åtkomsten till resurser och även att ge åtkomst till resurser.
+Här är roll definitionen [deltagare](built-in-roles.md#contributor) som visas i Azure PowerShell och Azure CLI. Jokertecknet (`*`) under `Actions` anger att huvudnamnet som tilldelats den här rollen kan utföra alla åtgärder, eller med andra ord sköta all administration. Det här inbegriper även åtgärder som definieras i framtiden när Azure lägger till nya resurstyper. Åtgärderna under `NotActions` dras bort från `Actions`. När det gäller [deltagar](built-in-roles.md#contributor) rollen `NotActions` tar bort rollens möjlighet att hantera åtkomst till resurser och även hantera Azure Blueprint tilldelningar.
 
 Deltagar rollen som visas i Azure PowerShell:
 
@@ -336,6 +337,6 @@ För information om `AssignableScopes` anpassade roller, se [Azure-anpassade rol
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Inbyggda Azure-roller](built-in-roles.md)
-* [Anpassade Azure-roller](custom-roles.md)
-* [Åtgärder för Azure Resource Manager Resource Provider](resource-provider-operations.md)
+* [Inbyggda roller i Azure](built-in-roles.md)
+* [Anpassade roller i Azure](custom-roles.md)
+* [Åtgärder för resursprovidern Azure Resource Manager](resource-provider-operations.md)

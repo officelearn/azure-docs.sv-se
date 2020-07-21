@@ -11,11 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
-ms.openlocfilehash: 271f68a57a4490032e318da57b4b37aac09a1410
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08f0531a99a7e0af42332e349989ce12722be42c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019356"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518800"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Hantera transparent datakryptering i en hanterad instans med din egen nyckel från Azure Key Vault
 
@@ -25,7 +26,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="sample-script"></a>Exempelskript
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 En befintlig hanterad instans finns i [använda Azure CLI för att skapa en hanterad Azure SQL-instans](sql-database-create-configure-managed-instance-cli.md).
 
@@ -55,7 +56,7 @@ az group delete --name $resource
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| | |
+| Kommando | Beskrivning |
 |---|---|
 | [AZ SQL DB](/cli/azure/sql/db) | Databas kommandon. |
 | [AZ SQL-redundans – grupp](/cli/azure/sql/failover-group) | Kommandon för redundans grupp. |

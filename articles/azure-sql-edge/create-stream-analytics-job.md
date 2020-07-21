@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: fc6ab2c9c844350e83674ed96a0e79289c7f5b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255423"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515231"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Skapa ett Azure Stream Analytics jobb i Azure SQL Edge (för hands version) 
 
@@ -153,7 +153,7 @@ SELECT
 Timestamp as [Time],
 [Temperature] As [Temperature],
 GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''Score'') as ChangePointScore,
-GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''IsAnomaly'') as IsChangePointAnomaly,
+GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''IsAnomaly'') as IsChangePointAnomaly
 INTO TemperatureAnomalies FROM MyEdgeHubInput2;
 '
 go
@@ -205,7 +205,7 @@ Direkt uppspelnings jobbet kan ha någon av följande statusar:
 | Bearbetar | Direkt uppspelnings jobbet körs och bearbetar indata. Det här tillståndet anger ett felfritt tillstånd för strömnings jobbet. |
 | Degraderad | Direkt uppspelnings jobbet körs, men det fanns några icke-allvarliga fel under bearbetningen av indata. Inmatnings jobbet kommer att fortsätta köras, men kommer att släppa indata som stöter på fel. |
 | Stoppad | Direkt uppspelnings jobbet har stoppats. |
-| Misslyckades | Streaming-jobbet misslyckades. Detta är vanligt vis ett tecken på ett allvarligt fel under bearbetningen. |
+| Misslyckad | Streaming-jobbet misslyckades. Detta är vanligt vis ett tecken på ett allvarligt fel under bearbetningen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

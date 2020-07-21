@@ -3,11 +3,12 @@ title: Få hjälp med Azures distribution av VMware-lösningar eller etablerings
 description: Så här hämtar du den information du behöver från det privata molnet i Azure VMware-lösningen (AVS) för att skicka en tjänstbegäran om AVS-distribution eller etablerings fel.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986894"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514585"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Få hjälp med Azures distribution av VMware-lösningar eller etablerings fel
 
@@ -28,7 +29,7 @@ Kopiera och spara det här korrelations-ID: t som ska ingå i tjänstbegäran. M
 
 Om ett fel inträffar i för validerings stegen, innan ett privat moln distribueras, genereras inget korrelations-ID. I det här fallet kan du bara ange den information som du använde när du skapade det privata AVS-molnet, inklusive:
 
-- Location
+- Position
 - Resursgrupp
 - Resursnamn
  
@@ -71,7 +72,7 @@ Klistra in ExpressRoute-ID: t i lämpligt fält i den nya support förfrågan. M
 
 ## <a name="create-your-support-request"></a>Skapa en support förfrågan
 
-Allmän vägledning om hur du skapar en support förfrågan finns i [så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Allmän vägledning om hur du skapar en support förfrågan finns i [så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Här följer ytterligare information om hur du skapar en SR-installation för AVS-distribution eller konfigurations problem.
 

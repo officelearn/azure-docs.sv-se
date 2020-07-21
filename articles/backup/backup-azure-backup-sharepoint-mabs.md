@@ -3,11 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 description: Använd Azure Backup Server för att säkerhetskopiera och återställa dina SharePoint-data. Den här artikeln innehåller information om hur du konfigurerar SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disk eller från Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514245"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 
@@ -17,7 +18,7 @@ Att säkerhetskopiera SharePoint till Azure med MABS är en liknande process fö
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint-versioner som stöds och relaterade skydds scenarier
 
-En lista över SharePoint-versioner som stöds och de MABS-versioner som krävs för att säkerhetskopiera dem finns i [Mabs Protection-matrisen](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)
+En lista över SharePoint-versioner som stöds och de MABS-versioner som krävs för att säkerhetskopiera dem finns i [Mabs Protection-matrisen](./backup-mabs-protection-matrix.md)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -29,7 +30,7 @@ Det finns några saker du behöver bekräfta innan du säkerhetskopierar en Shar
 
 * MABS tillhandahåller inte säkerhets kopior av SharePoint SQL Server-databaser som finns på SOFS-resurser (Scale-Out File Server).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter kontrollerar du att du uppfyller alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera Azure Backup Server med valvet.
 
@@ -99,7 +100,7 @@ Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet f�
 
 1. I **Ange bevarande princip för onlinenivå**kan du ange hur de återställnings punkter som skapas med säkerhets kopiorna per dag/vecka/månad/år ska behållas i Azure.
 
-1. I **Välj online-replikering**, anger du hur den första fullständiga replikeringen av data ska ske. Du kan replikera via nätverket eller göra en offlinesäkerhetskopiering (offlineseeding). Vid offlinesäkerhetskopiering används funktionen Azure Import. [Läs mer](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. I **Välj online-replikering**, anger du hur den första fullständiga replikeringen av data ska ske. Du kan replikera via nätverket eller göra en offlinesäkerhetskopiering (offlineseeding). Vid offlinesäkerhetskopiering används funktionen Azure Import. [Läs mer](./backup-azure-backup-import-export.md).
 
 1. På sidan **Sammanfattning** granskar du inställningarna. När du klickar på **Skapa grupp**utförs inledande replikering av data. När den är klar visas skydds gruppens status som **OK** på sidan **status** . Säkerhetskopieringen sker sedan i enlighet med skyddsgruppens inställningar.
 

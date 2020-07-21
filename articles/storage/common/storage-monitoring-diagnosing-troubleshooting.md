@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513377"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518597"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -56,9 +57,9 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
   * [Mätningar visar en ökning i PercentThrottlingError]
   * [Mätningar visar en ökning i PercentTimeoutError]
   * [Mätningar visar en ökning i PercentNetworkError]
-  * [Klienten får HTTP 403-meddelanden (Förbjudet)]
-  * [Klienten får HTTP 404-meddelanden (Hittades inte)]
-  * [Klienten får HTTP 409-meddelanden (Konflikt)]
+  * [Klienten tar emot HTTP 403-meddelanden (förbjudet)]
+  * [Klienten tar emot HTTP 404-meddelanden (hittades inte)]
+  * [Klienten tar emot HTTP 409-meddelanden (konflikt)]
   * [Mått visar poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors]
   * [Kapacitets mått visar en oväntad ökning av lagrings kapacitets användningen]
   * [Ditt problem uppstår när du använder Storage-emulatorn för utveckling eller testning]
@@ -78,7 +79,7 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
 ## <a name="introduction"></a><a name="introduction"></a>Introduktion
 Den här guiden visar hur du använder funktioner som Azure-lagringsanalys, loggning på klient sidan i Azure Storage klient bibliotek och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Storage relaterade problem.
 
-![][1]
+![Diagram som visar flödet av information mellan klient program och Azure Storage-tjänster.][1]
 
 Den här guiden är avsedd att läsas främst av utvecklare av onlinetjänster som använder Azure Storage tjänster och IT-proffs som ansvarar för att hantera sådana onlinetjänster. Målen för den här guiden är:
 
@@ -117,7 +118,7 @@ Du bör kontinuerligt övervaka dina Azure-program för att säkerställa att de
 
 Diagrammen i följande bild visar hur medelvärdet som inträffar för Tim mått kan dölja toppar i aktivitet. Varje timmes mått visas med en stadig frekvens av begär Anden, medan minut måtten visar de variationer som faktiskt sker.
 
-![][3]
+![Diagram som visar hur medelvärdet som inträffar för Tim mått kan dölja toppar i aktivitet.][3]
 
 I resten av det här avsnittet beskrivs vilka mått du ska övervaka och varför.
 
@@ -199,7 +200,7 @@ Användare av programmet kan meddela dig om fel som rapporter ATS av klient prog
 Följande resurser är användbara om du vill förstå lagringsrelaterade statusar och felkoder:
 
 * [Vanliga REST API felkoder](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Felkoder för Blob Service](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Fel koder för BLOB service](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Fel koder för Queue Service](https://msdn.microsoft.com/library/azure/dd179446.aspx)
 * [Fel koder för tabell tjänst](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Fel koder för fil tjänst](https://msdn.microsoft.com/library/azure/dn690119.aspx)
@@ -321,9 +322,9 @@ I det här avsnittet får du hjälp med diagnos och fel sökning av några vanli
 ---
  Tar ditt klient program emot ett HTTP-4XX (till exempel 404) svar från en lagrings tjänst?
 
-* [Klienten får HTTP 403-meddelanden (Förbjudet)]
-* [Klienten får HTTP 404-meddelanden (Hittades inte)]
-* [Klienten får HTTP 409-meddelanden (Konflikt)]
+* [Klienten tar emot HTTP 403-meddelanden (förbjudet)]
+* [Klienten tar emot HTTP 404-meddelanden (hittades inte)]
+* [Klienten tar emot HTTP 409-meddelanden (konflikt)]
 
 ---
 [Mått visar poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors]
@@ -347,7 +348,7 @@ I det här avsnittet får du hjälp med diagnos och fel sökning av några vanli
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Mätningar visar ett högt värde för AverageE2ELatency och ett lågt värde för AverageServerLatency
 Bilden nedan från [Azure Portal](https://portal.azure.com) övervaknings verktyget visar ett exempel där **AverageE2ELatency** är betydligt högre än **AverageServerLatency**.
 
-![][4]
+![Bild från Azure Portal som visar ett exempel där AverageE2ELatency är betydligt högre än AverageServerLatency.][4]
 
 Lagrings tjänsten beräknar bara Metric- **AverageE2ELatency** för lyckade begär Anden och, till skillnad från **AverageServerLatency**, innehåller den tid som klienten tar för att skicka data och ta emot bekräftelse från lagrings tjänsten. Därför kan skillnaden mellan **AverageE2ELatency** och **AverageServerLatency** vara antingen på grund av att klient programmet svarar långsamt eller på grund av villkor i nätverket.
 
@@ -465,7 +466,7 @@ Dina mått visar en ökning i **PercentNetworkError** för en av dina lagrings t
 
 Den vanligaste orsaken till det här felet är att klienten kopplar från innan en tids gräns går ut i lagrings tjänsten. Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten. Du kan också använda wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten. Dessa verktyg beskrivs i [tilläggen].
 
-### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>Klienten får HTTP 403-meddelanden (Förbjudet)
+### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>Klienten tar emot HTTP 403-meddelanden (förbjudet)
 Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visas ett exempel från loggen på klient sidan som genereras av lagrings klient biblioteket som illustrerar det här problemet:
 
 | Källa | Utförlighet | Utförlighet | ID för klientförfrågan | Åtgärds text |
@@ -489,7 +490,7 @@ I det här scenariot bör du undersöka varför SAS-token upphör att gälla inn
 
 Om du använder Storage Client Library till att generera SAS-token är det enkelt att skapa en giltig token. Men om du använder lagrings REST API och skapar SAS-token manuellt, se [Delegera åtkomst med en signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
-### <a name="the-client-is-receiving-http-404-not-found-messages"></a><a name="the-client-is-receiving-404-messages"></a>Klienten får HTTP 404-meddelanden (Hittades inte)
+### <a name="the-client-is-receiving-http-404-not-found-messages"></a><a name="the-client-is-receiving-404-messages"></a>Klienten tar emot HTTP 404-meddelanden (hittades inte)
 Om klientprogrammet tar emot ett HTTP 404-meddelande (hittades inte) från servern innebär det att objektet som klienten försökte använda (till exempel en entitet, tabell, blob, container eller kö) inte finns i lagringstjänsten. Här är några av de möjliga orsakerna:
 
 * [Klienten eller en annan process har tagit bort objektet]
@@ -497,7 +498,7 @@ Om klientprogrammet tar emot ett HTTP 404-meddelande (hittades inte) från serve
 * [JavaScript-koden på klientsidan har inte behörighet att komma åt objektet]
 * [Nätverksfel]
 
-#### <a name="the-client-or-another-process-previously-deleted-the-object"></a><a name="client-previously-deleted-the-object"></a>Klienten eller en annan process har tagit bort objektet
+#### <a name="the-client-or-another-process-previously-deleted-the-object"></a><a name="client-previously-deleted-the-object"></a>Klienten eller en annan process har tidigare tagit bort objektet
 I scenarier där klienten försöker läsa, uppdatera eller ta bort data i en lagrings tjänst är det vanligt vis enkelt att identifiera i Server sidan loggar en tidigare åtgärd som tog bort objektet i fråga från lagrings tjänsten. Loggar data visar ofta att en annan användare eller process har tagit bort objektet. I lagrings loggen på Server sidan visas fälten åtgärds typ och begärd objekt nyckel när en klient tar bort ett objekt.
 
 I det scenario där en klient försöker infoga ett objekt kan det hända att det inte omedelbart är uppenbart varför det här resulterar i ett HTTP 404-svar (inte hittas), med tanke på att klienten skapar ett nytt objekt. Men om klienten skapar en BLOB måste den kunna hitta BLOB-behållaren, om klienten skapar ett meddelande måste den kunna hitta en kö och om klienten lägger till en rad måste den kunna hitta tabellen.
@@ -506,7 +507,7 @@ Du kan använda loggen på klient sidan från lagrings klient biblioteket för a
 
 Följande logg på klient sidan som genereras av lagrings klient biblioteket visar problemet när klienten inte kan hitta behållaren för den blob som den skapar. Den här loggen innehåller information om följande lagrings åtgärder:
 
-| Begär ID | Åtgärd |
+| ID för begäran | Åtgärd |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** -Metod för att ta bort BLOB-behållaren. Observera att den här åtgärden innehåller en **Head** -begäran för att kontrol lera om behållaren finns. |
 | e2d06d78... |**CreateIfNotExists** -metoden för att skapa BLOB-behållaren. Observera att den här åtgärden omfattar en **Head** -begäran som söker efter behållarens förekomst. **Huvudet** returnerar ett 404-meddelande men fortsätter. |
@@ -514,7 +515,7 @@ Följande logg på klient sidan som genereras av lagrings klient biblioteket vis
 
 Logg poster:
 
-| Begär ID | Åtgärds text |
+| ID för begäran | Åtgärds text |
 | --- | --- |
 | 07b26a5d-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = HEAD............ x-MS-client-Request-ID: 07b26a5d-.... x-MS-date: tis, 03 jun 2014 10:33:11 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
@@ -557,7 +558,7 @@ Logg poster:
 
 I det här exemplet visar loggen att klienten håller på att lämna förfrågningar från **CreateIfNotExists** -metoden (begärande-ID e2d06d78...) med begär Anden från **UploadFromStream** -metoden (de8b1c3c-...). Denna Interfoliering sker eftersom klient programmet anropar dessa metoder asynkront. Ändra den asynkrona koden i klienten för att säkerställa att den skapar behållaren innan du försöker överföra data till en BLOB i den behållaren. Vi rekommenderar att du skapar alla behållare i förväg.
 
-#### <a name="a-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>Det är problem med SAS-autentiseringen (signatur för delad åtkomst)
+#### <a name="a-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>Ett auktoriseringsfel för signaturen för delad åtkomst (SAS)
 Om klient programmet försöker använda en SAS-nyckel som inte innehåller de nödvändiga behörigheterna för åtgärden, returnerar lagrings tjänsten ett HTTP 404-meddelande (hittades inte) till klienten. Samtidigt ser du också ett värde som inte är noll för **SASAuthorizationError** i måtten.
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
@@ -578,7 +579,7 @@ I följande tabell visas ett exempel på Server sidans logg meddelande från log
 
 Undersök varför ditt klient program försöker utföra en åtgärd som den inte har beviljats behörighet för.
 
-#### <a name="client-side-javascript-code-does-not-have-permission-to-access-the-object"></a><a name="JavaScript-code-does-not-have-permission"></a>JavaScript-koden på klientsidan har inte behörighet att komma åt objektet
+#### <a name="client-side-javascript-code-does-not-have-permission-to-access-the-object"></a><a name="JavaScript-code-does-not-have-permission"></a>JavaScript-kod på klient sidan har inte behörighet att komma åt objektet
 Om du använder en JavaScript-klient och lagrings tjänsten returnerar HTTP 404-meddelanden, söker du efter följande JavaScript-fel i webbläsaren:
 
 ```
@@ -624,10 +625,10 @@ Den mest sannolika orsaken till det här scenariot är att klienten skickade en 
 
 Om det här problemet inträffar ofta bör du undersöka varför klienten inte kan ta emot bekräftelser från tabell tjänsten. Om problemet är tillfälligt bör du fånga fel meddelandet "HTTP (404) hittades inte" och logga in i klienten, men Tillåt att klienten fortsätter.
 
-### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>Klienten får HTTP 409-meddelanden (Konflikt)
+### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>Klienten tar emot HTTP 409-meddelanden (konflikt)
 I följande tabell visas ett utdrag från Server sidans logg för två klient åtgärder: **DeleteIfExists** följt av **CreateIfNotExists** med hjälp av samma BLOB container-namn. Varje klient åtgärd resulterar i två begär Anden som skickas till servern, först en **GetContainerProperties** -begäran om att kontrol lera om behållaren finns följt av **DeleteContainer** -eller **CreateContainer** -begäran.
 
-| Tidsstämpel | Åtgärd | Resultat | Containerns namn | ID för klientförfrågan |
+| Timestamp | Åtgärd | Resultat | Containerns namn | ID för klientförfrågan |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
@@ -726,7 +727,7 @@ När du har startat Fiddler börjar den samla in HTTP-och HTTPS-trafik på den l
 
 Om du vill begränsa mängden trafik som Fiddler fångar in kan du använda filter som du konfigurerar på fliken **filter** . Följande skärm bild visar ett filter som bara fångar in trafik som skickas till **contosoemaildist.Table.Core.Windows.net** Storage-slutpunkt:
 
-![][5]
+![Skärm bild som visar ett filter som bara fångar trafik som skickas till contosoemaildist.table.core.windows.net Storage-slutpunkten.][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>Bilaga 2: använda wireshark för att avbilda nätverks trafik
 [Wireshark](https://www.wireshark.org/) är en analys av nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll.
@@ -738,18 +739,18 @@ Följande procedur visar hur du registrerar detaljerad paket information för tr
 3. Klicka på **avbildnings alternativ**.
 4. Lägg till ett filter i text rutan för **Infångnings filter** . **Värd contosoemaildist.Table.Core.Windows.net** konfigurerar till exempel wireshark för att endast avbilda paket som skickas till eller från tabell tjänstens slut punkt i lagrings kontot för **contosoemaildist** . Ta en titt på den [fullständiga listan över Infångnings filter](https://wiki.wireshark.org/CaptureFilters).
 
-   ![][6]
+   ![Skärm bild som visar hur du lägger till ett filter i text rutan för Infångnings filter.][6]
 5. Klicka på **Starta**. Wireshark kommer nu att avbilda alla paket som skickas till eller från tabell tjänstens slut punkt när du använder klient programmet på den lokala datorn.
 6. När du är färdig klickar du på **avbilda** på huvud menyn och sedan på **stoppa**.
 7. Om du vill spara insamlade data i en wireshark-Infångnings fil går du till huvud menyn och klickar på **Arkiv** och sedan på **Spara**.
 
 WireShark markerar eventuella fel som finns i fönstret **packetlist** . Du kan också använda fönstret med **expert information** (klicka på **analysera**, sedan på **expert information**) om du vill visa en sammanfattning av fel och varningar.
 
-![][7]
+![Skärm bild som visar fönstret expert information där du kan visa en sammanfattning av fel och varningar.][7]
 
 Du kan också välja att Visa TCP-data när program lagret ser det genom att högerklicka på TCP-data och välja **Följ TCP-dataström**. Detta är användbart om du har fångat din dump utan ett infångstfilter. Mer information finns i [följande TCP-strömmar](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
-![][8]
+![Skärm bild som visar hur du visar TCP-data när program lagret ser det.][8]
 
 > [!NOTE]
 > Mer information om hur du använder wireshark finns i [Översikt över wireshark-användare](https://www.wireshark.org/docs/wsug_html_chunked).
@@ -782,11 +783,11 @@ Förutom att använda Microsoft Message Analyzer **-webbproxy-** spårning för 
 
 Följande skärm bild visar ett exempel på ett **lokalt länk lager** spår med vissa **informations** meddelanden i kolumnen **DiagnosisTypes** . Om du klickar på en ikon i kolumnen **DiagnosisTypes** visas information om meddelandet. I det här exemplet har servern återöverfört meddelandet #305 eftersom det inte fick någon bekräftelse från klienten:
 
-![][9]
+![Skärm bild som visar ett exempel på ett lokalt länk lager spår med vissa informations meddelanden i kolumnen DiagnosisTypes][9]
 
 När du skapar spårningssessionen i Microsoft Message Analyzer kan du ange filter för att minska mängden brus i spårningen. På sidan **fånga/spåra** där du definierar spårningen klickar du på länken **Konfigurera** bredvid **Microsoft-Windows-NDIS-PacketCapture**. Följande skärm bild visar en konfiguration som filtrerar TCP-trafik för IP-adresserna för tre lagrings tjänster:
 
-![][10]
+![Skärm bild som visar en konfiguration som filtrerar TCP-trafik för de tre lagrings tjänsternas IP-adresser.][10]
 
 Mer information om spårningen i den lokala länk nivån i Microsoft Message Analyzer finns i [Microsoft-PEF-NDIS-PacketCapture-providern](https://technet.microsoft.com/library/jj659264.aspx).
 
@@ -856,13 +857,13 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 [Mätningar visar en ökning i PercentTimeoutError]: #metrics-show-an-increase-in-PercentTimeoutError
 [Mätningar visar en ökning i PercentNetworkError]: #metrics-show-an-increase-in-PercentNetworkError
 
-[Klienten får HTTP 403-meddelanden (Förbjudet)]: #the-client-is-receiving-403-messages
-[Klienten får HTTP 404-meddelanden (Hittades inte)]: #the-client-is-receiving-404-messages
+[Klienten tar emot HTTP 403-meddelanden (förbjudet)]: #the-client-is-receiving-403-messages
+[Klienten tar emot HTTP 404-meddelanden (hittades inte)]: #the-client-is-receiving-404-messages
 [Klienten eller en annan process har tagit bort objektet]: #client-previously-deleted-the-object
 [Det är problem med SAS-autentiseringen (signatur för delad åtkomst)]: #SAS-authorization-issue
 [JavaScript-koden på klientsidan har inte behörighet att komma åt objektet]: #JavaScript-code-does-not-have-permission
 [Nätverksfel]: #network-failure
-[Klienten får HTTP 409-meddelanden (Konflikt)]: #the-client-is-receiving-409-messages
+[Klienten tar emot HTTP 409-meddelanden (konflikt)]: #the-client-is-receiving-409-messages
 
 [Mått visar poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors]: #metrics-show-low-percent-success
 [Kapacitets mått visar en oväntad ökning av lagrings kapacitets användningen]: #capacity-metrics-show-an-unexpected-increase

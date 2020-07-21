@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223303"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518715"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure Page blobbar
 
@@ -33,6 +33,10 @@ Första parts Microsoft-tjänster som Azure Site Recovery, Azure Backup, och må
 * Programdirigerad stegvis ögonblicks bilds hantering: program kan dra nytta av ögonblicks bilder av sid-blob och REST-API: er för att spara program kontroll punkter utan att det påverkar kostsam dubblering av data. Azure Storage stöder lokala ögonblicks bilder för sid-blobar som inte kräver att hela blobben kopieras. Dessa API: er för offentliga ögonblicks bilder ger också till gång till och kopiering av delta mellan ögonblicks bilder.
 * Direktmigrering av program och data från lokalt till molnet: Kopiera lokala data och Använd REST-API: er för att skriva direkt till en Azure Page-BLOB medan den lokala virtuella datorn fortsätter att köras. När målet har skapats kan du snabbt redundansväxla till virtuell Azure-dator med dessa data. På så sätt kan du migrera dina virtuella datorer och virtuella diskar från lokalt till molnet med minimal stillestånds tid eftersom datamigreringen sker i bakgrunden medan du fortsätter att använda den virtuella datorn och avbrotts tiden som krävs för redundans kommer att vara kort (i minuter).
 * [SAS-baserad](../common/storage-sas-overview.md) delad åtkomst, som möjliggör scenarier som flera läsare och en enskild skrivare med stöd för samtidiga kontroller.
+
+## <a name="pricing"></a>Prissättning
+
+Båda typerna av lagring som erbjuds med Page blobbar har sin egen pris modell. Premium Page-blobbar följer pris modellen för Managed disks, medan standard sid blobbar faktureras på använt storlek och för varje transaktion. Mer information finns på sidan med [priser för Azure Page blobbar](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 ## <a name="page-blob-features"></a>Funktioner för sidblob
 

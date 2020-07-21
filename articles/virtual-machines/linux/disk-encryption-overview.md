@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e4843ad71455f8e478ef74ee71975c1dbf2925
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510573"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -26,7 +26,7 @@ Om du använder [Azure Security Center](../../security-center/index.yml)får du 
 > [!WARNING]
 > - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta att använda det här alternativet för att kryptera den virtuella datorn. Mer information finns i [Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-overview-aad.md) . 
 > - Vissa rekommendationer kan öka användningen av data, nätverk eller beräknings resurser, vilket resulterar i ytterligare licens-eller prenumerations kostnader. Du måste ha en giltig aktiv Azure-prenumeration för att kunna skapa resurser i Azure i de regioner som stöds.
-> - Virtuella datorer i generation 2 har inte stöd för Azure Disk Encryption. Mer information finns i [stöd för virtuella datorer i generation 2 på Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) .
+> - Virtuella datorer i generation 2 har inte stöd för Azure Disk Encryption. Mer information finns i [stöd för virtuella datorer i generation 2 på Azure](../windows/generation-2.md) .
 
 Du kan lära dig grunderna i Azure Disk Encryption för Linux på bara några minuter med [skapa och kryptera en virtuell Linux-dator med Azure CLI snabb start](disk-encryption-cli-quickstart.md) eller [skapa och kryptera en virtuell Linux-dator med Azure PowerShell snabb start](disk-encryption-powershell-quickstart.md).
 
@@ -63,6 +63,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | Canonical | Ubuntu 16.04 | 16,04 – DAGLIGEN – LTS | Kanoniskt: UbuntuServer: 16.04-DAILY-LTS: senaste | Operativ system och data disk |
 | Canonical | Ubuntu 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Kanoniskt: UbuntuServer: 14.04.5-LTS: senaste | Operativ system och data disk |
 | Canonical | Ubuntu 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | 14.04.5 – DAGLIGA LTS | Kanoniskt: UbuntuServer: 14.04.5-DAILY-LTS: senaste | Operativ system och data disk |
+| Redhat | RHEL 7,8 | 7,8 | RedHat: RHEL: 7,8: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,7 | 7,7 | RedHat: RHEL: 7.7: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,7 | 7-LVM | RedHat: RHEL: 7-LVM: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: senaste | Operativ system och data disk (se OBS! nedan) |
@@ -95,7 +96,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 
 Azure Disk Encryption kräver att dm-crypt-och vfat-modulerna finns i systemet. Om du tar bort eller inaktiverar vfat från standard avbildningen så förhindras systemet från att läsa nyckel volymen och hämta den nyckel som behövs för att låsa upp diskarna vid efterföljande omstarter. System härdnings steg som tar bort vfat-modulen från systemet eller tvingar fram expandering av OS-mountpoints/-mappar på data enheter är inte kompatibla med Azure Disk Encryption. 
 
-Innan du aktiverar kryptering måste data diskarna som ska krypteras anges korrekt i/etc/fstab. Använd alternativet "nomissation" när du skapar poster och välj ett beständigt block enhets namn (som enhets namn i formatet "/dev/sdX" kan inte associeras med samma disk i omstarter, särskilt efter kryptering. mer information om det här problemet finns i: [Felsöka Linux VM enhets namn ändringar](troubleshoot-device-names-problems.md)).
+Innan du aktiverar kryptering måste data diskarna som ska krypteras anges korrekt i/etc/fstab. Använd alternativet "nomissation" när du skapar poster och välj ett beständigt block enhets namn (som enhets namn i formatet "/dev/sdX" kan inte associeras med samma disk i omstarter, särskilt efter kryptering. mer information om det här problemet finns i: [Felsöka Linux VM enhets namn ändringar](../troubleshooting/troubleshoot-device-names-problems.md)).
 
 Kontrol lera att/etc/fstab-inställningarna är korrekt konfigurerade för montering. Om du vill konfigurera dessa inställningar kör du kommandot Mount-a eller startar om den virtuella datorn och utlöser ommonteringen på det sättet. När den är klar kontrollerar du utdata från kommandot lsblk för att kontrol lera att enheten fortfarande är monterad. 
 
@@ -136,7 +137,7 @@ I följande tabell definieras några vanliga termer som används i dokumentation
 | --- | --- |
 | Azure Key Vault | Key Vault är en kryptografisk nyckel hanterings tjänst som är baserad på FIPS-validerade (Federal Information Processing Standards) moduler för maskin varu säkerhet. Dessa standarder hjälper till att skydda dina kryptografiska nycklar och känsliga hemligheter. Mer information finns i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) -dokumentationen och [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) är optimerat för att hantera och administrera Azure-resurser från kommando raden.|
-| DM-crypt |[Dm-crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) är det Linux-baserade, transparenta disk krypterings systemet som används för att aktivera disk kryptering på virtuella Linux-datorer. |
+| DM-Crypt |[Dm-crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) är det Linux-baserade, transparenta disk krypterings systemet som används för att aktivera disk kryptering på virtuella Linux-datorer. |
 | Nyckel krypterings nyckel (KEK) | Den asymmetriska nyckeln (RSA 2048) som du kan använda för att skydda eller figursätta hemligheten. Du kan ange en HSM-skyddad nyckel eller en skyddad nyckel för program vara. Mer information finns i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) -dokumentationen och [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md). |
 | PowerShell-cmdletar | Mer information finns i [Azure PowerShell-cmdletar](/powershell/azure/overview). |
 
@@ -149,5 +150,3 @@ I följande tabell definieras några vanliga termer som används i dokumentation
 - [Azure Disk Encryption nödvändiga CLI-skript](https://github.com/ejarvi/ade-cli-getting-started)
 - [PowerShell-skript för Azure Disk Encryption krav](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption](disk-encryption-key-vault.md)
-
-

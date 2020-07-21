@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e3e89d93ab35724a09138d48863badad6a41b71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80421336"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514126"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
 
@@ -23,8 +23,8 @@ Innan du fortsätter kontrollerar du att Azure Backup Server är [installerat oc
 
 Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 
-1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i Mabs administratörskonsol. Se [Installera Mabs Protection Agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) för detaljerade anvisningar.
+1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i Mabs administratörskonsol. Se [Installera Mabs Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
 
@@ -34,7 +34,7 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 4. Välj den Exchange Server-databas som du vill skydda och klicka på **Nästa**.
 
    > [!NOTE]
-   > Om du skyddar Exchange 2013 kontrollerar du kraven för [exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
+   > Om du skyddar Exchange 2013 kontrollerar du kraven för [exchange 2013](/system-center/dpm/back-up-exchange).
    >
    >
 

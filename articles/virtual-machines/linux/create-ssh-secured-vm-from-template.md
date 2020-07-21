@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c77864acd53976b9108a77198f645c419763b21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28c688526bccc411bce6f4118dc55160083deba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414461"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510930"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager mallar
 
@@ -55,7 +56,7 @@ I föregående exempel angav du en mall som lagrats i GitHub. Du kan också häm
 
 Här följer några ytterligare resurser:
 
-- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](/azure/azure-resource-manager/).
+- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](../../azure-resource-manager/index.yml).
 - Information om Azures virtuella dator scheman finns i [referens för Azure-mallar](/azure/templates/microsoft.compute/allversions).
 - För att se fler exempel på mallar för virtuella datorer, se [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 

@@ -3,11 +3,12 @@ title: Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med
 description: En artikel som beskriver hur du använder Azure Policy för att automatiskt aktivera säkerhets kopiering för alla virtuella datorer som skapats inom ett angivet omfång
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77584276"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514228"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med Azure Policy
 
@@ -17,7 +18,7 @@ Idag tillhandahåller Azure Backup en inbyggd princip (med Azure Policy) som kan
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-* Den inbyggda principen stöds för närvarande endast för virtuella Azure-datorer. Användarna måste noga se till att den bevarande princip som anges under tilldelningen är en bevarande princip för virtuella datorer. Se [det här](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) dokumentet för att se alla VM-SKU: er som stöds av den här principen.
+* Den inbyggda principen stöds för närvarande endast för virtuella Azure-datorer. Användarna måste noga se till att den bevarande princip som anges under tilldelningen är en bevarande princip för virtuella datorer. Se [det här](./backup-azure-policy-supported-skus.md) dokumentet för att se alla VM-SKU: er som stöds av den här principen.
 
 * Principen kan tilldelas till en enda plats och en prenumeration i taget. Om du vill aktivera säkerhets kopiering för virtuella datorer över platser och prenumerationer måste flera instanser av princip tilldelningen skapas, en för varje kombination av plats och prenumeration.
 
@@ -47,7 +48,7 @@ Följ stegen nedan om du vill tilldela principen till det begärda omfånget:
 
 > [!NOTE]
 >
-> Azure Policy kan också användas på befintliga virtuella datorer, med hjälp av [reparation](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+> Azure Policy kan också användas på befintliga virtuella datorer, med hjälp av [reparation](../governance/policy/how-to/remediate-resources.md).
 
 > [!NOTE]
 >
@@ -55,4 +56,4 @@ Följ stegen nedan om du vill tilldela principen till det begärda omfånget:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
+[Läs mer om Azure Policy](../governance/policy/overview.md)

@@ -3,12 +3,12 @@ title: Kontinuerlig övervakning av din DevOps release-pipeline med Azure-pipeli
 description: Innehåller instruktioner för att snabbt konfigurera kontinuerlig övervakning med Application Insights
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652756"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517135"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din versions pipeline
 
@@ -101,4 +101,4 @@ Du kan se beteendet för distributions porten och andra versions steg i versions
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure-pipeliner finns i [dokumentationen för Azure pipeline](https://docs.microsoft.com/azure/devops/pipelines).
+Mer information om Azure-pipeliner finns i [dokumentationen för Azure pipeline](/azure/devops/pipelines).

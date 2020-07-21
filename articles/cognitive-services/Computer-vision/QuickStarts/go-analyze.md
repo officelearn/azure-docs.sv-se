@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 34d714d1adefbef6572e99c5a98ee968fbb06339
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 348b353d9f7509836007ced70166f6a98bd419c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987392"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512952"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API med go
 
 I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bild innehåll.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Kör](https://golang.org/dl/)
@@ -37,10 +37,10 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera koden nedan till en text redigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
-1. Spara koden som en fil med tillägget `.go`. Exempelvis `analyze-image.go`.
+1. Spara koden som en fil med tillägget `.go`. Till exempel `analyze-image.go`.
 1. Öppna ett kommandotolksfönster.
-1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Exempelvis `go build analyze-image.go`.
-1. Kör det kompilerade paketet i kommandotolken. Exempelvis `analyze-image`.
+1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Till exempel `go build analyze-image.go`.
+1. Kör det kompilerade paketet i kommandotolken. Till exempel `analyze-image`.
 
 ```go
 package main
@@ -64,7 +64,7 @@ func main() {
     const imageUrl =
         "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 
-    const params = "?visualFeatures=Description&details=Landmarks&language=en"
+    const params = "?visualFeatures=Description&details=Landmarks"
     uri := uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 

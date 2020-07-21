@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en värdbaserad kryptering i ett Azure
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7b9d930d62d0acea30af9b5e7e12e43fa8fcd5da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244318"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517730"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Värdbaserad kryptering på Azure Kubernetes service (AKS) (för hands version)
 
@@ -23,22 +23,22 @@ Den här funktionen kan bara ställas in när klustret skapas eller när en nod 
 > [!NOTE]
 > Värdbaserad kryptering är tillgänglig i Azure- [regioner][supported-regions] som har stöd för kryptering på Server sidan av Azure Managed disks och endast med vissa [storlekar som stöds för virtuella datorer][supported-sizes].
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Se till att du har `aks-preview` CLI-tillägget v 0.4.55 eller senare installerat
 - Se till att du har `EncryptionAtHost` funktions flaggan under `Microsoft.Compute` aktive rad.
-- Se till att du har `EncryptionAtHost` funktions flaggan under `Microsoft.ContainerService` aktive rad.
+- Se till att du har `EnableEncryptionAtHostPreview` funktions flaggan under `Microsoft.ContainerService` aktive rad.
 
 ### <a name="register-encryptionathost--preview-features"></a>Registrera för `EncryptionAtHost` hands versions funktioner
 
-Om du vill skapa ett AKS-kluster som använder värdbaserad kryptering måste du aktivera `EncryptionAtHost` funktions flaggan i din prenumeration.
+Om du vill skapa ett AKS-kluster som använder värdbaserad kryptering måste du aktivera- `EnableEncryptionAtHostPreview` och- `EncryptionAtHost` funktions flaggorna i din prenumeration.
 
 Registrera `EncryptionAtHost` funktions flaggan med hjälp av kommandot [AZ Feature register][az-feature-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 
-az feature register --namespace "Microsoft.ContainerService"  --name "EncryptionAtHost"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
@@ -46,7 +46,7 @@ Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EncryptionAtHost')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 När du är klar uppdaterar du registreringen av- `Microsoft.ContainerService` och- `Microsoft.Compute` resurs leverantörerna med [AZ Provider register][az-provider-register] kommando:
@@ -58,12 +58,12 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
+> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
 >
 > - [Support principer för AKS](support-policies.md)
 > - [Vanliga frågor och svar om support för Azure](faq.md)
 
-### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
+### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägget aks-preview
 
 Om du vill skapa ett AKS-kluster som är värdbaserad kryptering, behöver du det senaste *AKS-Preview CLI-* tillägget. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ-tillägg][az-extension-add] , eller Sök efter tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 

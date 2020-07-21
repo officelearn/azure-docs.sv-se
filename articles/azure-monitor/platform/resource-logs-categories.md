@@ -4,11 +4,12 @@ description: Referens för Azure Monitor förstå tjänster och händelse schema
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418766"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515401"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorier som stöds för Azure-resurs loggar
 
@@ -357,7 +358,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 |Kategori|Kategori visnings namn|
 |---|---|
-|AuditLogs|Granskningsloggar|
+|AuditLogs|Spårningsloggar|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft. Insights/AutoscaleSettings
@@ -382,7 +383,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |AppPerformanceCounters|Prestandaräknare|
 |AppRequests|Begäranden|
 |AppSystemEvents|System händelser|
-|AppTraces|Traces|
+|AppTraces|Spårningar|
 
 
 ## <a name="microsoftiotspacesgraph"></a>Microsoft. IoTSpaces/Graph
@@ -711,6 +712,6 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Läs mer om resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)
-* [Strömma resurs resurs loggar till **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Ändra diagnostikinställningar för resurs loggen med hjälp av Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analysera loggar från Azure Storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Strömma resurs resurs loggar till **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
+* [Ändra diagnostikinställningar för resurs loggen med hjälp av Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
+* [Analysera loggar från Azure Storage med Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

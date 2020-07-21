@@ -3,12 +3,13 @@ title: Flytta Azure Backup Recovery Services valv
 description: Instruktioner om hur du flyttar Recovery Services-valvet över Azure-prenumerationer och resurs grupper.
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 9373ea41c3cd5d35c86b8b306a20b5c106105217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514109"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -16,7 +17,7 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services valv som kon f
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Flytt av resurser för Recovery Services valv stöds i östra Australien, Australien, östra, centrala Kanada, Östra Kanada, Asien, sydöstra, Asien, östra, centrala USA, norra centrala USA, östra USA, östra 2; USA, södra centrala USA, västra centrala USA, västra centrala 2; USA, västra USA, centrala Indien, södra Indien, Östra Japan, västra Japan, Nord Korea, södra Europa , Västra Sydafrika, Storbritannien, södra och Storbritannien, västra.
+Flytt av resurser för Recovery Services valv stöds i östra Australien, sydöstra Australien, Östra Kanada, centrala Kanada, Asien, sydöstra, Asien, östra, centrala USA, norra centrala USA, östra USA, östra USA 2, södra centrala USA, västra centrala USA, västra USA, västra USA, västra USA, västra USA 2, centrala Indien, södra Indien, Östra Japan, västra Japan, centrala Korea, södra Japan, norra Europa , Västeuropa, södra Afrika, sydöstra Sydafrika, västra Sydafrika, Storbritannien, södra och Storbritannien, västra.
 
 ## <a name="unsupported-regions"></a>Regioner som inte stöds
 
@@ -24,7 +25,7 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Krav för att flytta Recovery Services valv
 
-- När valvet flyttas över resurs grupper är både käll-och mål resurs grupperna låsta för att förhindra Skriv-och borttagnings åtgärder. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- När valvet flyttas över resurs grupper är både käll-och mål resurs grupperna låsta för att förhindra Skriv-och borttagnings åtgärder. Mer information finns i den här [artikeln](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Endast administratörs prenumerationen har behörighet att flytta ett valv.
 - För att flytta valv mellan prenumerationer måste mål prenumerationen finnas i samma klient organisation som käll prenumerationen och dess tillstånd ska vara aktiverat.
 - Du måste ha behörighet att utföra Skriv åtgärder i mål resurs gruppen.
@@ -34,7 +35,7 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 - Oavsett om den virtuella datorn har flyttats med valvet eller inte, kan du alltid återställa den virtuella datorn från den sparade säkerhets kopierings historiken i valvet.
 - Azure Disk Encryption kräver att nyckel valvet och de virtuella datorerna finns i samma Azure-region och prenumeration.
 - Information om hur du flyttar en virtuell dator med hanterade diskar finns i den här [artikeln](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
-- Alternativen för att flytta resurser som distribueras via den klassiska modellen varierar beroende på om du flyttar resurserna i en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Alternativen för att flytta resurser som distribueras via den klassiska modellen varierar beroende på om du flyttar resurserna i en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Säkerhets kopierings principer som definierats för valvet behålls när valvet flyttas över prenumerationer eller till en ny resurs grupp.
 - Du kan bara flytta ett valv som innehåller någon av följande typer av säkerhets kopierings objekt. Alla säkerhets kopierings objekt av typer som inte anges nedan måste stoppas och data tas bort permanent innan du flyttar valvet.
   - Azure Virtual Machines
@@ -45,7 +46,7 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 
 > [!NOTE]
 > Det finns inte stöd för att flytta Recovery Services valv för Azure Backup i Azure-regioner.<br><br>
-> Om du har konfigurerat några virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för haveri beredskap med **Azure Site Recovery**blockeras flyttnings åtgärden. Om du vill flytta valv för Azure Site Recovery granskar du [den här artikeln](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) för att lära dig att flytta valv manuellt.
+> Om du har konfigurerat några virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för haveri beredskap med **Azure Site Recovery**blockeras flyttnings åtgärden. Om du vill flytta valv för Azure Site Recovery granskar du [den här artikeln](../site-recovery/move-vaults-across-regions.md) för att lära dig att flytta valv manuellt.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Använd Azure Portal för att flytta Recovery Services valv till en annan resurs grupp
 
@@ -146,4 +147,4 @@ Ange parametern om du vill flytta till en ny prenumeration `--destination-subscr
 
 Du kan flytta många olika typer av resurser mellan resurs grupper och prenumerationer.
 
-Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).

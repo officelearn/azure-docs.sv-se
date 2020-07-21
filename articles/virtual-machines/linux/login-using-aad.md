@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80366497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510437"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-*ProvisioningState* av *lyckades* visas när tillägget har installerats på den virtuella datorn. Den virtuella datorn behöver en virtuell dator agent som körs för att installera tillägget. Mer information finns i [Översikt över VM-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+*ProvisioningState* av *lyckades* visas när tillägget har installerats på den virtuella datorn. Den virtuella datorn behöver en virtuell dator agent som körs för att installera tillägget. Mer information finns i [Översikt över VM-agenten](../extensions/agent-windows.md).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera roll tilldelningar för den virtuella datorn
 
@@ -138,7 +138,7 @@ az role assignment create \
 
 Mer information om hur du använder RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i använda [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Du kan också konfigurera Azure AD så att Multi-Factor Authentication krävs för att en särskild användare ska kunna logga in på den virtuella Linux-datorn. Mer information finns i [Kom igång med Azure Multi-Factor Authentication i molnet](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Du kan också konfigurera Azure AD så att Multi-Factor Authentication krävs för att en särskild användare ska kunna logga in på den virtuella Linux-datorn. Mer information finns i [Kom igång med Azure Multi-Factor Authentication i molnet](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Logga in på den virtuella Linux-datorn
 

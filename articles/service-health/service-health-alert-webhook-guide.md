@@ -4,12 +4,12 @@ description: Skicka personligt anpassade meddelanden om service Health-händelse
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
-ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05b0572c89a29fddc881f9977ee437d1319e6254
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062847"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518936"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Använd en webhook för att konfigurera hälso aviseringar för problem hanterings system
 
@@ -96,7 +96,7 @@ Det här exemplet visar problem för:
 
 ## <a name="test-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
 
-Följ de här stegen:
+Gör så här:
 
 1. Skapa den tjänst hälso nytto last som du vill skicka. Se ett exempel på tjänst hälsan webhook nytto Last [för Webhooks för Azure aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
@@ -115,5 +115,5 @@ Följ de här stegen:
 
 ## <a name="next-steps"></a>Nästa steg
 - Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Läs mer om [meddelanden om tjänst hälsa](../azure-monitor/platform/service-notifications.md).
+- Läs mer om [meddelanden om tjänst hälsa](./service-notifications.md).
 - Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).

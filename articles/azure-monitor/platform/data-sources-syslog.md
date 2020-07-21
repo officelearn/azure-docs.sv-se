@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: cce74358a206c7103d537ba80c62d6561606b818
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 983091ac0d1f9fdcb33e64d2af521ec3442a040b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242040"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515520"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
 Syslog är ett händelse loggnings protokoll som är gemensamt för Linux. Program kommer att skicka meddelanden som kan lagras på den lokala datorn eller levereras till en syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
@@ -90,7 +90,6 @@ Du kan ta bort en anläggning genom att ta bort dess del av konfigurations filen
 user.error    @127.0.0.1:25224
 ```
 
-
 #### <a name="syslog-ng"></a>syslog-ng
 Konfigurations filen för syslog-ng är plats på **/etc/syslog-ng/syslog-ng.conf**.  Dess standard innehåll visas nedan. Detta samlar in syslog-meddelanden som skickas från den lokala agenten för alla anläggningar och alla allvarlighets grader.   
 
@@ -163,17 +162,16 @@ Du kan ändra port numret genom att skapa två konfigurationsfiler: en upprätta
 
 * Konfigurations filen för Office bör vara en ny fil som finns i: `/etc/opt/microsoft/omsagent/conf/omsagent.d` och Ersätt värdet i **port** posten med det anpassade port numret.
 
-    ```config
+    ```xml
     <source>
-      type syslog
-      port %SYSLOG_PORT%
-      bind 127.0.0.1
-      protocol_type udp
-      tag oms.syslog
+        type syslog
+        port %SYSLOG_PORT%
+        bind 127.0.0.1
+        protocol_type udp
+        tag oms.syslog
     </source>
     <filter oms.syslog.**>
-      type filter_syslog
-    </filter>
+        type filter_syslog
     ```
 
 * För rsyslog bör du skapa en ny konfigurations fil som finns i: `/etc/rsyslog.d/` och ersätta värdet% SYSLOG_PORT% med det anpassade port numret.  
@@ -221,7 +219,7 @@ Syslog-poster har en typ av **syslog** och har egenskaperna i följande tabell.
 ## <a name="log-queries-with-syslog-records"></a>Logga frågor med syslog-poster
 Följande tabell innehåller olika exempel på logg frågor som hämtar syslog-poster.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:--- |:--- |
 | Syslog |Alla Syslogs. |
 | Syslog-&#124; där SeverityLevel = = "Error" |Alla syslog-poster med allvarlighets graden fel. |

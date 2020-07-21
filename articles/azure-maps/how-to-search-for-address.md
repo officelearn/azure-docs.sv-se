@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d8c7ce62f7c592c396fa1ea7a7f5e7dc7df2dc1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335433"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517594"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Sök efter en plats med Azure Maps Sök tjänster
 
@@ -29,7 +29,7 @@ I den här artikeln får du lära dig hur du:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra stegen i den här artikeln måste du först skapa ett Azure Maps-konto och hämta konto prenumerations nyckeln. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+För att slutföra stegen i den här artikeln måste du först skapa ett Azure Maps-konto och hämta konto prenumerations nyckeln. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop. Du kan använda valfri API utvecklings miljö som du föredrar.
 
@@ -47,7 +47,7 @@ Om du har en uppsättning adresser till landskod, kan du använda [batch-API fö
 
 | Parameter | Föreslaget värde |
 |---------------|------------------------------------------------| 
-| HTTP-metod | HÄMTA |
+| HTTP-metod | GET |
 | Begärans-URL | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
 | Auktorisering | Ingen autentisering |
 
@@ -57,7 +57,7 @@ Om du har en uppsättning adresser till landskod, kan du använda [batch-API fö
 
 | Tangent | Värde | 
 |------------------|-------------------------| 
-| api-version | 1.0 | 
+| api-version | 1,0 | 
 | prenumerations nyckel | \<your Azure Maps key\> | 
 | DocumentDB | 400 bred St, Seattle, WA 98109 | 
 
@@ -95,7 +95,7 @@ De flesta Sök frågor är standard för `maxFuzzyLevel=1` att få prestanda och
 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | HÄMTA |
+    | HTTP-metod | GET |
     | Begärans-URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Auktorisering | Ingen autentisering |
 
@@ -107,7 +107,7 @@ De flesta Sök frågor är standard för `maxFuzzyLevel=1` att få prestanda och
 
     | Tangent | Värde |
     |------------------|-------------------------|
-    | api-version | 1.0 |
+    | api-version | 1,0 |
     | prenumerations nyckel | \<your Azure Maps key\> |
     | DocumentDB | pizza |
 
@@ -151,7 +151,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
   
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | HÄMTA |
+    | HTTP-metod | GET |
     | Begärans-URL | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
     | Auktorisering | Ingen autentisering |
   
@@ -161,7 +161,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
   
     | Tangent | Värde |
     |------------------|-------------------------|
-    | api-version | 1.0 |
+    | api-version | 1,0 |
     | prenumerations nyckel | \<your Azure Maps key\> |
     | DocumentDB | 47.591180,-122,332700 |
   
@@ -211,7 +211,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
   
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | HÄMTA |
+    | HTTP-metod | GET |
     | Begärans-URL | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
     | Auktorisering | Ingen autentisering |
   
@@ -219,7 +219,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
   
     | Tangent | Värde |
     |------------------|-------------------------|
-    | api-version | 1.0 |
+    | api-version | 1,0 |
     | prenumerations nyckel | \<your Azure Maps key\> |
     | DocumentDB | 47.591180,-122,332700 |
   

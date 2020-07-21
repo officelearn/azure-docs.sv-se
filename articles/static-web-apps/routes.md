@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056794"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518783"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Vägar i för hands versionen av Azure statisk Web Apps
 
@@ -28,18 +28,18 @@ Routning i Azures statiska Web Apps definierar regler för Routning och auktoris
 
 Mer information finns i [exempel cirkulations filen](#example-route-file) .
 
-## <a name="location"></a>Location
+## <a name="location"></a>Position
 
 _routes.js_ filen måste finnas i roten i appens version av programartefakt. Om din webbapp innehåller ett build-steg som kopierar skapade filer från en speciell mapp till din version av en artefakt, måste _routes.js_ filen finnas i den specifika mappen.
 
 I följande tabell visas en lista över lämpliga platser för att lägga _routes.jspå_ en fil för ett antal frontend-ramverk och bibliotek i front-end.
 
-|Ramverk/bibliotek | Location  |
+|Ramverk/bibliotek | Position  |
 |---------|----------|
 | Angular | _till gångar_   |
-| React   | _folkhälsan_  |
-| Svelte  | _folkhälsan_   |
-| Vue     | _folkhälsan_ |
+| React   | _public_  |
+| Svelte  | _public_   |
+| Vue     | _public_ |
 
 ## <a name="defining-routes"></a>Definiera vägar
 
@@ -48,9 +48,9 @@ Vägar definieras i _routes.jspå_ filen som en matris med väg regler i `routes
 | Regel egenskap  | Obligatorisk | Standardvärde | Kommentar                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Ja      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
-| `serve`        | No       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve`värdena måste peka på faktiska filer.  |
-| `allowedRoles` | No       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
-| `statusCode`   | No       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
+| `serve`        | Nej       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve`värdena måste peka på faktiska filer.  |
+| `allowedRoles` | Nej       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
+| `statusCode`   | Nej       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
 
 ## <a name="securing-routes-with-roles"></a>Skydda vägar med roller
 
@@ -295,7 +295,7 @@ I följande exempel beskrivs vad som händer när en begäran matchar en regel.
 | _/unknown-folder_ | Filen _/custom-404.html_ behandlas. |
 | Filer med `.custom` tillägget | Hanteras med MIME- `text/html` typen |
 
-- Alla svar inkluderar `content-security-policy` rubrikerna med värdet `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
+Alla svar inkluderar `content-security-policy` rubrikerna med värdet `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> väg regler för API-funktioner stöder bara [omdirigeringar](#redirects) och [skydd av vägar med roller](#securing-routes-with-roles).
 

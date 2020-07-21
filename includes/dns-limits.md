@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 2/14/2020
 ms.author: rohink
-ms.openlocfilehash: 434b79a2b178defd9543e1d3ad087bb5282cb287
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f7187300ec96ce417866c4fb8fa02783c1da63a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85805617"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515890"
 ---
 **Offentliga DNS-zoner**
 
@@ -19,6 +19,13 @@ ms.locfileid: "85805617"
 | Post uppsättningar per offentlig DNS-zon |10 000 <sup>1</sup> |
 | Poster per post uppsättning i offentlig DNS-zon |20 |
 | Antal Ali poster för en enda Azure-resurs |20|
+
+<sup>1</sup> Kontakta Azure-supporten om du behöver öka dessa gränser.
+
+**Privat DNS zoner**
+
+| Resurs | Gräns |
+| --- | --- |
 | Privat DNS zoner per prenumeration |1000|
 | Post uppsättningar per privat DNS-zon |25000|
 | Poster per post uppsättning för privata DNS-zoner |20|
@@ -26,9 +33,7 @@ ms.locfileid: "85805617"
 | Virtuella nätverk länkar per privat DNS-zoner med automatisk registrering aktive rad |100|
 | Antal privata DNS-zoner som ett virtuellt nätverk kan kopplas till med automatisk registrering aktive rad |1|
 | Antal privata DNS-zoner som ett virtuellt nätverk kan länkas till |1000|
-| Antal DNS-frågor som en virtuell dator kan skicka till Azure DNS-lösare per sekund |500 <sup>2</sup> |
-| Maximalt antal DNS-frågor i kö (väntar på svar) per virtuell dator |200 <sup>2</sup> |
+| Antal DNS-frågor som en virtuell dator kan skicka till Azure DNS-lösare per sekund |500 <sup>1</sup> |
+| Maximalt antal DNS-frågor i kö (väntar på svar) per virtuell dator |200 <sup>1</sup> |
 
-<sup>1</sup> Kontakta Azure-supporten om du behöver öka dessa gränser.
-
-<sup>2</sup> Dessa gränser tillämpas på varje enskild virtuell dator och inte på nivån för det virtuella nätverket. DNS-frågor som överskrider dessa gränser ignoreras.
+<sup>1</sup> Dessa gränser tillämpas på varje enskild virtuell dator och inte på nivån för det virtuella nätverket. DNS-frågor som överskrider dessa gränser ignoreras.

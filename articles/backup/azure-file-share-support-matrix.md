@@ -4,15 +4,16 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806879"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514567"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Support mat ris för säkerhets kopiering av Azure-filresurs
 
-Du kan använda [tjänsten Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) för att säkerhetskopiera Azure-filresurser. I den här artikeln sammanfattas support inställningarna när du säkerhetskopierar Azure-filresurser med Azure Backup.
+Du kan använda [tjänsten Azure Backup](./backup-overview.md) för att säkerhetskopiera Azure-filresurser. I den här artikeln sammanfattas support inställningarna när du säkerhetskopierar Azure-filresurser med Azure Backup.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -22,7 +23,7 @@ Säkerhets kopiering av Azure-filresurser är tillgänglig i alla regioner **uto
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Regioner som stöds för oavsiktligt borttagnings skydd
 
-Västra centrala USA, östra Australien, södra centrala Kanada
+Västra centrala USA, östra Australien, centrala USA, centrala Kanada, västra centrala USA, södra Indien, norra centrala USA, Östra Japan, södra Brasilien, södra centrala USA, östra Australien, östra USA 2
 
 ## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 
@@ -44,7 +45,7 @@ Västra centrala USA, östra Australien, södra centrala Kanada
 
 ## <a name="protection-limits"></a>Skydds gränser
 
-| Inställningen                                                      | Gräns |
+| Inställning                                                      | Gräns |
 | ------------------------------------------------------------ | ----- |
 | Maximalt antal fil resurser som kan skyddas per valv per dag| 200   |
 | Maximalt antal lagrings konton som kan registreras per valv per dag | 50    |
@@ -53,14 +54,14 @@ Västra centrala USA, östra Australien, södra centrala Kanada
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 
-| Inställningen                                      | Gräns |
+| Inställning                                      | Gräns |
 | -------------------------------------------- | ----- |
 | Maximalt antal säkerhets kopior på begäran per dag | 10   |
 | Maximalt antal schemalagda säkerhets kopieringar per dag | 1     |
 
 ## <a name="restore-limits"></a>Återställa gränser
 
-| Inställningen                                                      | Gräns   |
+| Inställning                                                      | Gräns   |
 | ------------------------------------------------------------ | ------- |
 | Maximalt antal återställningar per dag                           | 10      |
 | Maximalt antal filer per återställning                         | 10      |
@@ -68,7 +69,7 @@ Västra centrala USA, östra Australien, södra centrala Kanada
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-| Inställningen                                                      | Gräns    |
+| Inställning                                                      | Gräns    |
 | ------------------------------------------------------------ | -------- |
 | Maximalt antal återställnings punkter per fil resurs vid varje tidpunkt | 200      |
 | Högsta kvarhållning av återställnings punkt som skapats av säkerhets kopiering på begäran | 10 år |

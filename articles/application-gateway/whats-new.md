@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: ebb3e6ba777646d39e3732215aa6c8fdd12ca40a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186698"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517628"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Vad är nytt i Azure Application Gateway?
 
@@ -27,7 +27,9 @@ Azure Application Gateway uppdateras regelbundet. För att hålla dig uppdaterad
 
 |Funktion  |Beskrivning  |Tillagt den  |
 |---------|---------|---------|
-| Anpassad port för hälso avsökningar | Application Gateway v2 SKU ger nu möjlighet att tillhandahålla en anpassad port i hälso avsöknings konfigurationen. Mer information finns i [Översikt över hälso avsökning](application-gateway-probe-overview.md) | Juli 2020
+| Jokertecken värd namn i lyssnare (för hands version) | Nu kan du definiera jokertecken i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Läs mer i avsnittet om [jokertecken i lyssnare (för hands version)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) och var [värd för flera webbplatser i en Application Gateway med hjälp av Azure Portal](create-multiple-sites-portal.md) för steget. | Juli 2020 |
+| URL-omskrivning (för hands version) | Du kan nu skriva om URL-sökvägen och fråga sträng parametrar med URL-omskrivning. Läs mer i [skriva om HTTP-huvuden och URL](rewrite-http-headers-url.md) för att läsa mer och se [omskrivning URL i Application Gateway att använda Azure Portal](rewrite-url-portal.md) för steg-för-steg-guiden. | Juli 2020 |
+| Anpassad port för hälso avsökningar | Application Gateway v2 SKU ger nu möjlighet att tillhandahålla en anpassad port i hälso avsöknings konfigurationen. Mer information finns i [Översikt över hälso avsökning](application-gateway-probe-overview.md) | Juli 2020 |
 | Application Gateway ingångs kontroll (AGIC) AKS-tillägg (för hands version) |Application Gateway ingress-kontrollanten kan nu distribueras som ett inbyggt AKS-tillägg på en rad via Azure CLI. Att vara ett AKS-tillägg gör det möjligt för AGIC att bli en fullständigt hanterad tjänst, samtidigt som den fortfarande körs i kundens AKS-kluster. Mer information finns i [AGIC-tilläggs skillnader](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Juni 2020 |
 | Användardefinierade vägar (UDR) på v2 (för hands version) |Användardefinierade vägar stöds nu i vissa scenarier på Application Gateway v2-SKU: er. Mer information finns i [Application Gateway konfigurations översikt](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Mars 2020 |
 |Tillhörighets-cookie-ändringar |När cookie-baserad tillhörighet är aktive rad, infogar Application Gateway en annan identisk cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga ApplicationGatewayAffinity-cookien. *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till i den (*SameSite = none; Säker*) så att dina tröga sessioner upprätthålls även för frågor över andra ursprung. Mer information finns i [Application Gateway cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) . |Februari 2020 |

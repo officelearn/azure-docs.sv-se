@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60510130"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512647"
 ---
 # <a name="default-insights-tag"></a>Standard insikts-tagg
 
@@ -313,7 +313,7 @@ ImageById Insight tillhandahåller ett `Image` objekt av den avbildning som du h
 
 ## <a name="productvisualsearch-insight"></a>ProductVisualSearch Insight
 
-ProductVisualSearch Insight innehåller en lista över bilder av produkter som liknar produkter som visas i den ursprungliga avbildningen. `insightsMetadata` Fältet kan innehålla information om erbjudanden där du kan köpa produkten och produkt priset.
+ProductVisualSearch Insight innehåller en lista över bilder av produkter som liknar produkter som visas i den ursprungliga avbildningen. `insightsMetadata`Fältet kan innehålla information om erbjudanden där du kan köpa produkten och produkt priset.
 
 ```json
       {
@@ -425,4 +425,12 @@ DocumentLevelSuggestions Insight innehåller en lista över föreslagna Sök vil
 
 Kolla in [exempel på Bing Insights-användning](bing-insights-usage.md) för att se hur Bing kan visa de visuella insikterna.
 
-För att komma igång snabbt med din första förfrågan, se snabb starter: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [python](quickstarts/python.md).
+Kom igång snabbt med din första begäran genom att läsa snabbstarterna:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md).

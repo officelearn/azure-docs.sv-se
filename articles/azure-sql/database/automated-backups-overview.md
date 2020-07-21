@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 06/04/2020
-ms.openlocfilehash: 340f4310da5131ea0d2576e7c77d8f6cd0a731b3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/20/2020
+ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983139"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515142"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -101,7 +101,7 @@ Lagrings förbrukningen för säkerhets kopiering upp till den maximala data sto
 
 ## <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
 
-För alla nya, återställda och kopierade databaser behåller Azure SQL Database och Azure SQL-hanterade instanser tillräckligt med säkerhets kopior för att tillåta PITR inom de senaste 7 dagarna som standard. Med undantag för storskaliga databaser kan du [ändra kvarhållningsperioden för säkerhets kopior](#change-the-pitr-backup-retention-period) per databas inom intervallet 1-35 dag. Som det beskrivs i [säkerhets kopierings lagrings förbrukningen](#backup-storage-consumption)kan säkerhets kopior som lagras för att aktivera PITR vara äldre än kvarhållningsperioden.
+För alla nya, återställda och kopierade databaser behåller Azure SQL Database och Azure SQL-hanterade instanser tillräckligt med säkerhets kopior för att tillåta PITR inom de senaste 7 dagarna som standard. Med undantag för storskaliga databaser kan du [ändra kvarhållningsperioden för säkerhets kopior](#change-the-pitr-backup-retention-period) per aktiv databas inom intervallet 1-35 dag. Som det beskrivs i [säkerhets kopierings lagrings förbrukningen](#backup-storage-consumption)kan säkerhets kopior som lagras för att aktivera PITR vara äldre än kvarhållningsperioden. Endast för Azure SQL-hanterad instans är det möjligt att ange PITR säkerhets kopierings frekvens när en databas har tagits bort inom intervallet 0-35 dagar. 
 
 Om du tar bort en databas behåller systemet säkerhets kopior på samma sätt som en online-databas med den angivna kvarhållningsperioden. Det går inte att ändra kvarhållningsperioden för säkerhets kopior för en borttagen databas.
 
@@ -192,7 +192,7 @@ Du kan ändra standard lagrings perioden för PITR-säkerhetskopiering med hjäl
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Ändra lagrings perioden för PITR-säkerhetskopiering med hjälp av Azure Portal
 
-Om du vill ändra kvarhållningsperioden för säkerhets kopior av PITR med hjälp av Azure Portal går du till servern eller den hanterade instansen med de databaser vars kvarhållningsperiod du vill ändra. 
+Om du vill ändra kvarhållning av PITR för aktiva databaser med hjälp av Azure Portal går du till servern eller den hanterade instansen med de databaser vars kvarhållningsperiod du vill ändra. 
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
 
@@ -214,9 +214,54 @@ Om du vill ändra kvarhållningsperioden för säkerhets kopior av PITR med hjä
 > [!IMPORTANT]
 > PowerShell AzureRM-modulen stöds fortfarande av SQL Database-och SQL-hanterad instans, men all framtida utveckling är för AZ. SQL-modulen. Mer information finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen är i stort sett identiska med de i AzureRm-modulerna.
 
+#### <a name="sql-database"></a>[SQL Database](#tab/single-database)
+
+Använd följande PowerShell-exempel om du vill ändra kvarhållning av PITR för aktiva Azure SQL-databaser.
+
 ```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
+
+#### <a name="sql-managed-instance"></a>[SQL-hanterad instans](#tab/managed-instance)
+
+Använd följande PowerShell-exempel om du vill ändra kvarhållning av PITR för en **enskild aktiv** SQL-hanterad instans databas.
+
+```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
+```
+
+Om du vill ändra kvarhållning av PITR för **alla aktiva** SQL-hanterade instans databaser använder du följande PowerShell-exempel.
+
+```powershell
+# SET new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
+```
+
+Använd följande PowerShell-exempel om du vill ändra kvarhållning av PITR för en **enskild borttagen** SQL-hanterad instans databas.
+ 
+```powershell
+# SET new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Använd följande PowerShell-exempel om du vill ändra kvarhållning av PITR för **alla borttagna** SQL-hanterade instans databaser.
+
+```powershell
+# SET new PITR backup retention for ALL deleted databases
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Noll (0) dagar kvarhållning anger att säkerhets kopian tas bort omedelbart och inte längre sparas i en borttagen databas.
+När PITR för säkerhets kopiering har minskat för en borttagen databas går det inte längre att öka.
+
+---
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Ändra lagrings perioden för PITR-säkerhetskopiering med hjälp av REST API
 
@@ -260,3 +305,4 @@ Mer information finns i [kvarhållning av säkerhets kopior REST API](https://do
 - Få mer information om hur du [återställer en databas till en tidpunkt med hjälp av PowerShell](scripts/restore-database-powershell.md).
 - Information om hur du konfigurerar, hanterar och återställer från långsiktig kvarhållning av automatiserade säkerhets kopieringar i Azure Blob Storage med hjälp av Azure Portal finns i [Hantera långsiktig kvarhållning av säkerhets kopior med hjälp av Azure Portal](long-term-backup-retention-configure.md).
 - Information om hur du konfigurerar, hanterar och återställer från långsiktig kvarhållning av automatiserade säkerhets kopieringar i Azure Blob Storage med hjälp av PowerShell finns i [Hantera långsiktig kvarhållning av säkerhets kopior med hjälp av PowerShell](long-term-backup-retention-configure.md).
+- Information om hur du finjusterar lagring av säkerhets kopior och kostnader för Azure SQL-hanterad instans finns i [finjustera lagrings kostnader för säkerhets kopiering på den hanterade instansen](https://aka.ms/mi-backup-tuning).

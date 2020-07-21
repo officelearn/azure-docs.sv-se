@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512018"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera IoT Edge moduler i skala med hjälp av Azure Portal
 
@@ -61,7 +61,7 @@ Det finns fem steg för att skapa en distribution. Följande avsnitt beskriver v
 
 ### <a name="step-2-modules"></a>Steg 2: moduler
 
-Du kan lägga till upp till 20 moduler i en distribution. Om du skapar en distribution utan moduler tas alla aktuella moduler bort från mål enheterna.
+Du kan lägga till upp till 30 moduler i en distribution. Om du skapar en distribution utan moduler tas alla aktuella moduler bort från mål enheterna.
 
 I distributioner kan du hantera inställningarna för IoT Edge agent och IoT Edge Hub-moduler. Välj **körnings inställningar** för att konfigurera de två körnings modulerna. I skiktad distribution inkluderas inte runtime-modulerna så att de inte kan konfigureras.
 
@@ -209,7 +209,7 @@ När du tar bort en distribution börjar alla distribuerade enheter med sin näs
 
 1. Använd kryss rutan för att välja den distribution som du vill ta bort.
 1. Välj **Ta bort**.
-1. En prompt informerar dig om att den här åtgärden tar bort den här distributionen och återgår till det tidigare läget för alla enheter.En distribution med lägre prioritet kommer att gälla.Om ingen annan distribution är avsedd tas inga moduler bort. Om du vill ta bort alla moduler från enheten skapar du en distribution med noll moduler och distribuerar den till samma enheter.Välj **Ja** om du vill fortsätta.
+1. En prompt informerar dig om att den här åtgärden tar bort den här distributionen och återgår till det tidigare läget för alla enheter.En distribution med lägre prioritet kommer att gälla.Om ingen annan distribution är avsedd tas inga moduler bort. Om du vill ta bort alla moduler från enheten skapar du en distribution med noll moduler och distribuerar den till samma enheter.Fortsätt genom att välja **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 

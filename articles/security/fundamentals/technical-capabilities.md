@@ -2,24 +2,20 @@
 title: Tekniska funktioner för säkerhet i Azure – Microsoft Azure
 description: Introduktion till säkerhets tjänster i Azure som hjälper dig att skydda data, resurser och program i molnet.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
-ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: terrylan
+ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845341"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519328"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -169,77 +165,11 @@ Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast 
 En av nycklarna till data skydd i molnet är redovisning av de möjliga tillstånd som dina data kan inträffa i och vilka kontroller som är tillgängliga för det tillståndet. Rekommendationerna för Azure Data Security och kryptering är rekommendationerna kring följande data tillstånd.
 
 - I vila: Detta omfattar alla informations lagrings objekt, behållare och typer som finns statiskt på fysiska media, som är magnetiska eller optiska diskar.
-
 - Under överföring: när data överförs mellan komponenter, platser eller program, t. ex. över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process, betraktas den som rörelse.
 
-### <a name="encryption-at-rest"></a>Vilande kryptering
+### <a name="encryption-at-rest"></a>Kryptering i vila
 
-Gör något av följande för att uppnå kryptering i vila:
-
-Stöd för minst en av de rekommenderade krypterings modellerna som beskrivs i följande tabell för att kryptera data.
-
-| Krypterings modeller |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Server kryptering | Server kryptering | Server kryptering | Klient kryptering
-| Kryptering på Server sidan med tjänst hanterade nycklar | Kryptering på Server sidan med Kundhanterade nycklar i Azure Key Vault | Kryptering på Server sidan med lokala kund hanterade nycklar |
-| • Azure-resurs leverantörer utför krypterings-och dekrypterings åtgärder <br> • Microsoft hanterar nycklarna <br>• Fullständig moln funktion | • Azure-resurs leverantörer utför krypterings-och dekrypterings åtgärder<br>• Kund styr nycklar via Azure Key Vault<br>• Fullständig moln funktion | • Azure-resurs leverantörer utför krypterings-och dekrypterings åtgärder <br>• Kund styr nycklar lokalt <br> • Fullständig moln funktion| • Azure-tjänster kan inte se dekrypterade data <br>• Kunderna behåller lokala nycklar (eller i andra säkra lager). Nycklar är inte tillgängliga för Azure-tjänster <br>• Minskad moln funktion|
-
-### <a name="enabling-encryption-at-rest"></a>Aktivera kryptering i vila
-
-**Identifiera alla platser som lagrar data**
-
-Målet för kryptering i vila är att kryptera alla data. Detta eliminerar risken för att saknade viktiga data eller alla beständiga platser. Räkna upp alla data som lagras av ditt program.
-
-> [!Note]
-> Inte bara "program data" eller "PII", men alla data som rör program inklusive metadata för konto (prenumerations mappningar, kontrakts information, PII).
-
-Överväg vilka butiker du använder för att lagra data. Ett exempel:
-
-- Extern lagring (till exempel SQL Azure, dokument databas, HDInsights, Data Lake osv.)
-
-- Temporär lagring (alla lokala cacheminnen som innehåller klient data)
-
-- Minnes intern cache (kan placeras i växlings filen.)
-
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Utnyttja befintlig kryptering vid rest-support i Azure
-
-För varje butik som du använder kan du utnyttja den befintliga krypteringen vid rest-supporten.
-
-- Azure Storage: se [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md),
-
-- SQL Azure: se [Transparent datakryptering (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- VM & lokal disk lagring ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
-
-För VM och lokal disk lagring använder Azure Disk Encryption där det stöds:
-
-#### <a name="iaas"></a>IaaS
-
-Tjänster med virtuella IaaS-datorer (Windows eller Linux) bör använda [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) för att kryptera volymer som innehåller kund information.
-
-#### <a name="paas-v2"></a>PaaS v2
-
-Tjänster som körs på PaaS v2 med Service Fabric kan använda Azure Disk Encryption för skalnings uppsättningen för virtuella datorer [VMSS] för att kryptera sina PaaS v2-VM: ar.
-
-#### <a name="paas-v1"></a>PaaS v1
-
-Azure Disk Encryption stöds för närvarande inte på PaaS v1. Därför måste du använda kryptering på program nivå för att kryptera sparade data i vila.  Detta inkluderar, men är inte begränsat till, program data, temporära filer, loggar och krasch dum par.
-
-De flesta tjänster bör försöka utnyttja krypteringen av en lagrings resurs leverantör. Vissa tjänster måste utföra explicit kryptering, till exempel, alla bestående viktiga material (certifikat, rot-/huvud nycklar) måste lagras i Key Vault.
-
-Om du har stöd för kryptering på tjänst sidan med Kundhanterade nycklar måste du vara ett sätt för kunden att få nyckeln till oss. Det stödda och rekommenderade sättet att göra detta genom att integrera med Azure Key Vault (AKV). I det här fallet kan kunder lägga till och hantera sina nycklar i Azure Key Vault. En kund kan lära sig att använda AKV via [komma igång med Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
-
-Om du vill integrera med Azure Key Vault lägger du till kod för att begära en nyckel från AKV när det behövs för dekryptering.
-
-- Se [Azure Key Vault – stegvisa](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) anvisningar för information om hur du integrerar med akv.
-
-Om du har stöd för kundens hanterade nycklar måste du ange ett UX för kunden för att ange vilken Key Vault (eller Key Vault-URI) som ska användas.
-
-Som kryptering i rest innebär kryptering av värd-, infrastruktur-och klient data, förlust av nycklar på grund av systemfel eller skadlig aktivitet, vilket innebär att alla krypterade data går förlorade. Det är därför viktigt att din kryptering i rest-lösningen har en omfattande katastrof återställnings berättelse som är elastiska för systemfel och skadlig aktivitet.
-
-Tjänster som implementerar kryptering i vila är oftast fortfarande mottagliga för krypterings nycklar eller data som lämnas okrypterade på värd enheten (till exempel i utskrifts filen för värd operativ systemet.) Därför måste tjänsterna se till att värd volymen för tjänsterna är krypterad. För att under lätta detta beräknings team har du aktiverat distributionen av värd kryptering, som använder [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) -NKP och tillägg till DCM-tjänsten och agenten för att kryptera värd volymen.
-
-De flesta tjänster implementeras på virtuella Azure-datorer. Sådana tjänster bör få [värd kryptering](../azure-security-disk-encryption-overview.md) automatiskt när du gör beräkningar. För tjänster som körs i beräknings hanterade kluster är värd kryptering aktive rad automatiskt när Windows Server 2016 har distribuerats.
+Kryptering i vila diskuteras i detalj i [Azure Data Encryption – i vila](encryption-atrest.md).
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
 

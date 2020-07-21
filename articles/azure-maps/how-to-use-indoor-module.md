@@ -8,19 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c0b043bdb20cad508950a11853403958340acadf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434195"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517475"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Använd modulen Azure Maps inomhus Maps
 
 Azure Maps Web SDK innehåller *Azure Maps* inliggande modul. I modulen *Azure Maps inomhus* kan du rendera inliggande Maps som skapats i Azure Maps Creator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Skapa en skapare resurs](how-to-manage-creator.md)
 3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 4. Kom igång `tilesetId` `statesetId` med [självstudierna för att skapa inomhus Maps](tutorial-creator-indoor-maps.md).

@@ -3,12 +3,12 @@ title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970781"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512035"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -80,7 +80,7 @@ Informationen förklarar varför en resurs för närvarande inte är kompatibel,
 
 Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](../concepts/definition-structure.md#conditions) i princip definitionen:
 
-|Anledning | Villkor |
+|Orsak | Villkor |
 |-|-|
 |Det aktuella värdet måste innehålla målvärdet som en nyckel. |containsKey eller **inte** notContainsKey |
 |Det aktuella värdet måste innehålla målvärdet. |innehåller eller **inte** notContains |
@@ -133,7 +133,7 @@ Install-Module Az.GuestConfiguration
 Du kan visa den aktuella statusen för alla gäst tilldelningar för en virtuell dator med hjälp av följande kommando:
 
 ```azurepowershell-interactive
-Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname>
 ```
 
 ```output
@@ -146,7 +146,7 @@ Audit that an application is not installed inside Windows VMs.            {[Inst
 Om du bara vill visa _orsaken_ till varför den virtuella datorn är _icke-kompatibel_, returnerar du endast den underordnade egenskapen orsak.
 
 ```azurepowershell-interactive
-Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
 ```
 
 ```output

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517067"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Felsöka SDK-inläsnings fel för JavaScript-webbappar
 
@@ -29,7 +29,7 @@ Undantags felet för SDK-inläsningen skapas och rapporteras av JavaScript-kodfr
 
 Stack informationen innehåller grundläggande information med URL: erna som används av slutanvändaren.
 
-| Namn                      | Beskrivning                                                                                                  |
+| Name                      | Beskrivning                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN- &nbsp; slutpunkt&gt; | Den URL som användes (och misslyckades) för att hämta SDK: n.                                                      |
 | &lt;Hjälp &nbsp; länk&gt;    | En URL som länkar till fel söknings dokumentation (den här sidan).                                              |
@@ -63,7 +63,7 @@ Samma sak gäller även när du använder SDK via NPM-paket-lösningen. Från sl
 
 Du kan också försöka att använda [NPM-paket](#use-npm-packages-to-embed-the-application-insight-sdk) för att bädda in Application Insights SDK.
 
-För att minimera tillfälliga problem med nätverks anslutningen har vi implementerat Cache-Control-huvuden på alla CDN-filer så att när slutanvändarens webbläsare har laddat ned den aktuella versionen av SDK behöver den inte laddas ned igen och webbläsaren återanvänder den tidigare hämtade kopian (se [hur cachelagring fungerar](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works)). Om cachelagringen Miss lyckas eller om det finns en ny version, måste användarens webbläsare ladda ned den uppdaterade versionen. Så du kan se bakgrunds nivån _"brus"_ i scenariot för att kontrol lera fel eller en tillfällig insamling när en ny version sker och görs allmänt tillgänglig (distribueras till CDN).
+För att minimera tillfälliga problem med nätverks anslutningen har vi implementerat Cache-Control-huvuden på alla CDN-filer så att när slutanvändarens webbläsare har laddat ned den aktuella versionen av SDK behöver den inte laddas ned igen och webbläsaren återanvänder den tidigare hämtade kopian (se [hur cachelagring fungerar](../../cdn/cdn-how-caching-works.md)). Om cachelagringen Miss lyckas eller om det finns en ny version, måste användarens webbläsare ladda ned den uppdaterade versionen. Så du kan se bakgrunds nivån _"brus"_ i scenariot för att kontrol lera fel eller en tillfällig insamling när en ny version sker och görs allmänt tillgänglig (distribueras till CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights CDN-avbrott
 

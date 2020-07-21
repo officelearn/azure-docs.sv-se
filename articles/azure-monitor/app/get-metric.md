@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927912"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517152"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Anpassad mått samling i .NET och .NET Core
 
@@ -21,7 +22,7 @@ Azure Monitor Application Insights .NET-och .NET Core SDK: er har två olika met
 
 `TrackMetric()`skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()`är också ineffektiv i förhållande till prestanda eftersom varje `TrackMetric(item)` går genom den fullständiga SDK-pipelinen för telemetri-initierare och processorer. Till skillnad från `TrackMetric()` , `GetMetric()` hanterar lokal församling för dig och skickar sedan bara ett sammanställt Summary-mått till ett fast intervall på en minut. Så om du behöver övervaka vissa anpassade mått på den andra eller till och med millisekundnivå kan du göra det samtidigt som du bara kommer att kosta lagrings-och nätverks trafiken varje minut. Detta minskar också risken för begränsning som inträffar eftersom det totala antalet telemetridata som måste skickas för ett sammanställt mått minskar avsevärt.
 
-I Application Insights är anpassade mått som samlas in via `TrackMetric()` och `GetMetric()` inte föremål för [sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Sampling av viktiga mått kan leda till scenarier där aviseringar som du kan ha byggt runt dessa mått kan bli otillförlitliga. Genom att aldrig sampla in dina anpassade mått, kan du vanligt vis vara säker på att när aviserings tröskelvärdena har brutits, utlöses en avisering.  Men eftersom anpassade mått inte samplas, finns det några möjliga problem.
+I Application Insights är anpassade mått som samlas in via `TrackMetric()` och `GetMetric()` inte föremål för [sampling](./sampling.md). Sampling av viktiga mått kan leda till scenarier där aviseringar som du kan ha byggt runt dessa mått kan bli otillförlitliga. Genom att aldrig sampla in dina anpassade mått, kan du vanligt vis vara säker på att när aviserings tröskelvärdena har brutits, utlöses en avisering.  Men eftersom anpassade mått inte samplas, finns det några möjliga problem.
 
 Om du behöver spåra trender i ett mått varje sekund eller i ett ännu mer detaljerat intervall kan detta resultera i:
 
@@ -29,16 +30,16 @@ Om du behöver spåra trender i ett mått varje sekund eller i ett ännu mer det
 - Ökad nätverks trafik/prestanda kostnader. (I vissa fall kan detta ha både en penning-och program prestanda kostnad.)
 - Risk för inmatnings begränsning. (Tjänsten Azure Monitor släpper ("Restore") data punkter när din app skickar en mycket hög telemetri i ett kort tidsintervall.)
 
-Begränsning är särskilt viktigt i likhet med provtagning, kan begränsningen leda till uteblivna aviseringar eftersom villkoret att utlösa en avisering skulle inträffa lokalt och sedan släppas vid inmatnings slut punkten på grund av för mycket data som skickas. Detta är varför för .NET och .NET Core vi rekommenderar att du inte använder `TrackMetric()` om du inte har implementerat din egen lokala agg regerings logik. Om du försöker spåra varje instans som en händelse inträffar under en viss tids period kanske du upptäcker att det [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) passar bättre. Även om det är viktigt att de anpassade händelserna är i åtanke till exempel för anpassade mått. Naturligtvis kan du fortfarande använda kursen `TrackMetric()` även utan att behöva skriva din egen lokala församling, men om du gör det måste du vara medveten om fall GRO par.
+Begränsning är särskilt viktigt i likhet med provtagning, kan begränsningen leda till uteblivna aviseringar eftersom villkoret att utlösa en avisering skulle inträffa lokalt och sedan släppas vid inmatnings slut punkten på grund av för mycket data som skickas. Detta är varför för .NET och .NET Core vi rekommenderar att du inte använder `TrackMetric()` om du inte har implementerat din egen lokala agg regerings logik. Om du försöker spåra varje instans som en händelse inträffar under en viss tids period kanske du upptäcker att det [`TrackEvent()`](./api-custom-events-metrics.md#trackevent) passar bättre. Även om det är viktigt att de anpassade händelserna är i åtanke till exempel för anpassade mått. Naturligtvis kan du fortfarande använda kursen `TrackMetric()` även utan att behöva skriva din egen lokala församling, men om du gör det måste du vara medveten om fall GRO par.
 
 I sammanfattning `GetMetric()` är den rekommenderade metoden eftersom den utför för insamlingen, ackumulerar värden från alla spår ()-anrop och skickar en sammanfattning/samling en gång i minuten. Detta kan avsevärt minska kostnaderna och prestanda genom att skicka färre data punkter och samtidigt samla all relevant information.
 
 > [!NOTE]
-> Endast .NET-och .NET Core SDK: er har en GetMetric ()-metod. Om du använder Java kan du använda [micrometer-mått](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) eller `TrackMetric()` . För python kan du använda [openinventering. statistik](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) för att skicka anpassade mått. För Java Script och Node.js du fortfarande använda `TrackMetric()` , men tänk på vilka varningar som beskrivs i föregående avsnitt.
+> Endast .NET-och .NET Core SDK: er har en GetMetric ()-metod. Om du använder Java kan du använda [micrometer-mått](./micrometer-java.md) eller `TrackMetric()` . För python kan du använda [openinventering. statistik](./opencensus-python.md#metrics) för att skicka anpassade mått. För Java Script och Node.js du fortfarande använda `TrackMetric()` , men tänk på vilka varningar som beskrivs i föregående avsnitt.
 
 ## <a name="getting-started-with-getmetric"></a>Komma igång med GetMetric
 
-I våra exempel kommer vi att använda ett grundläggande .NET Core 3,1 Worker service-program. Om du vill exakt replikera test miljön som användes med de här exemplen följer du steg 1-6 i [artikeln övervakning av arbets tjänst](https://docs.microsoft.com/azure/azure-monitor/app/worker-service#net-core-30-worker-service-application) för att lägga till Application Insights i en Basic Work service-projektmall. Dessa begrepp gäller för alla allmänna program där SDK kan användas, inklusive webbappar och konsol program.
+I våra exempel kommer vi att använda ett grundläggande .NET Core 3,1 Worker service-program. Om du vill exakt replikera test miljön som användes med de här exemplen följer du steg 1-6 i [artikeln övervakning av arbets tjänst](./worker-service.md#net-core-30-worker-service-application) för att lägga till Application Insights i en Basic Work service-projektmall. Dessa begrepp gäller för alla allmänna program där SDK kan användas, inklusive webbappar och konsol program.
 
 ### <a name="sending-metrics"></a>Skickar mått
 
@@ -110,7 +111,7 @@ Om vi tittar på vår Application Insights-resurs i loggar (analys) kan det här
 > [!NOTE]
 > Även om objektet för den obehandlade telemetri-posten inte innehöll en explicit sum-egenskap/ett fält när vi har infogat ett sådant. I det här fallet `value` representerar både `valueSum` egenskapen och samma sak.
 
-Du kan också få åtkomst till din anpassade metriska telemetri i avsnittet [_mått_](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) i portalen. Både som en [logg-baserad och anpassad mått](pre-aggregated-metrics-log-metrics.md). (Skärm bilden nedan är ett exempel på en log-baserad.) ![Vyn mått Utforskaren](./media/get-metric/metrics-explorer.png)
+Du kan också få åtkomst till din anpassade metriska telemetri i avsnittet [_mått_](../platform/metrics-charts.md) i portalen. Både som en [logg-baserad och anpassad mått](pre-aggregated-metrics-log-metrics.md). (Skärm bilden nedan är ett exempel på en log-baserad.) ![Vyn mått Utforskaren](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Cachelagra mått referens för användning med hög data flöde
 
@@ -301,8 +302,8 @@ SeverityLevel.Error);
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer ](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)om att övervaka Worker service-program.
-* För ytterligare information om [log-baserade och föraggregerade mått](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
-* [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Lär dig mer ](./worker-service.md)om att övervaka Worker service-program.
+* För ytterligare information om [log-baserade och föraggregerade mått](./pre-aggregated-metrics-log-metrics.md).
+* [Metric Explorer](../platform/metrics-getting-started.md)
 * Så här aktiverar du Application Insights för [ASP.net Core program](asp-net-core.md)
 * Så här aktiverar du Application Insights för [ASP.NET-program](asp-net.md)

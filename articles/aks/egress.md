@@ -5,20 +5,22 @@ description: Lär dig hur du skapar och använder en statisk offentlig IP-adress
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517781"
 ---
-# <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Använd en statisk offentlig IP-adress för utgående trafik i Azure Kubernetes service (AKS)
+# <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använd en statisk offentlig IP-adress för utgående trafik med en *Basic* SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
-Som standard tilldelas den utgående IP-adressen från ett Azure Kubernetes service-kluster (AKS) slumpmässigt. Den här konfigurationen är inte idealisk när du behöver identifiera en IP-adress för åtkomst till externa tjänster, till exempel. I stället kan du behöva tilldela en statisk IP-adress som kan vara vit listas för åtkomst till tjänsten.
+Som standard tilldelas den utgående IP-adressen från ett Azure Kubernetes service-kluster (AKS) slumpmässigt. Den här konfigurationen är inte idealisk när du behöver identifiera en IP-adress för åtkomst till externa tjänster, till exempel. I stället kan du behöva tilldela en statisk IP-adress som ska läggas till i en lista över tillåtna tjänster för åtkomst till tjänsten.
 
 Den här artikeln visar hur du skapar och använder en statisk offentlig IP-adress för användning med utgående trafik i ett AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
+I den här artikeln förutsätter vi att du använder Azure Basic-Load Balancer.  Vi rekommenderar att du använder [Azure-standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)och du kan använda mer avancerade funktioner för att [kontrol lera utgående trafik i AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
@@ -105,7 +107,7 @@ Du kan kontrol lera att den statiska offentliga IP-adressen används genom att a
 Starta och koppla till en grundläggande *Debian* -pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 Om du vill komma åt en webbplats inifrån behållaren använder `apt-get` du för att installera `curl` i behållaren.

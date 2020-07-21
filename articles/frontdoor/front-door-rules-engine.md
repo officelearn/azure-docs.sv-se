@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Regel motor för Azures front dörrs arkitektur och terminologi
 description: Den här artikeln innehåller en översikt över funktionen för motor funktioner i Azures frontend-dörr.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1332f4b21f971d23055c158c2aebdd3316f1bd39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322011"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512222"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Vad är regel motor för Azures frontend-dörr? 
 

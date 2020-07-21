@@ -4,14 +4,14 @@ description: Ger en översikt över den Azure Backup tjänsten och hur den bidra
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 70fcbc432c3a3584047fe5ac39f217981a73df71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709937"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513531"
 ---
-# <a name="what-is-the-azure-backup-service"></a>Vad är tjänsten Azure Backup?
+# <a name="what-is-the-azure-backup-service"></a>Vad är Azure Backup-tjänsten?
 
 Azure Backup tillhandahåller enkla, säkra och kostnadseffektiva lösningar för att säkerhetskopiera dina data och återställa dem från Microsoft Azure-molnet.
 
@@ -27,7 +27,7 @@ Azure Backup tillhandahåller enkla, säkra och kostnadseffektiva lösningar fö
 
 ![Översikt över Azure Backup](./media/backup-overview/azure-backup-overview.png)
 
-## <a name="why-use-azure-backup"></a>Varför ska jag använda Azure Backup?
+## <a name="why-use-azure-backup"></a>Varför bör jag använda Azure Backup?
 
 Azure Backup ger följande viktiga fördelar:
 
@@ -43,8 +43,8 @@ Azure Backup ger följande viktiga fördelar:
 - **Behåll korta och långsiktiga data**: du kan använda [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) för kortsiktig och långsiktig data kvarhållning.
 - **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup kostar det inget att använda lokala lagrings enheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Så du betalar bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.
 - **Flera lagringsalternativ** – Azure Backup erbjuder två typer av replikering för att din lagring och dina data ska ha hög tillgänglighet.
-  - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
-  - [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md) är standardalternativet och det som rekommenderas vid replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger en högre nivå av hållbarhet för dina data, även om det finns ett regionalt avbrott.
+  - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy.md) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
+  - [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md) är standardalternativet och det som rekommenderas vid replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger en högre nivå av hållbarhet för dina data, även om det finns ett regionalt avbrott.
 
 ## <a name="next-steps"></a>Nästa steg
 

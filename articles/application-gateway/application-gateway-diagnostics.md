@@ -8,11 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889706"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517883"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
@@ -61,7 +62,7 @@ Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupNa
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
 ```
 
-### <a name="results"></a>Resultat
+### <a name="results"></a>Results
 
 Följande fragment visar ett exempel på svaret:
 
@@ -155,7 +156,9 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 
 ### <a name="access-log"></a>Åtkomst logg
 
-Åtkomst loggen skapas endast om du har aktiverat den på varje Application Gateway instans, enligt beskrivningen i föregående steg. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Varje åtkomst till Application Gateway loggas i JSON-format, som du ser i följande exempel för v1:
+Åtkomst loggen skapas endast om du har aktiverat den på varje Application Gateway instans, enligt beskrivningen i föregående steg. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Varje åtkomst till Application Gateway loggas i JSON-format som visas nedan. 
+
+#### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>För Application Gateway standard-och WAF SKU (v1)
 
 |Värde  |Beskrivning  |
 |---------|---------|
@@ -199,7 +202,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
     }
 }
 ```
-För Application Gateway och WAF v2 visar loggarna lite mer information:
+#### <a name="for-application-gateway-and-waf-v2-sku"></a>För Application Gateway-och WAF v2-SKU: er
 
 |Värde  |Beskrivning  |
 |---------|---------|
@@ -220,7 +223,10 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |serverRouted| Backend-servern som Application Gateway dirigerar begäran till.|
 |serverStatus| HTTP-statuskod för backend-servern.|
 |serverResponseLatency| Svars tid för svaret från backend-servern.|
-|värd| Adress som anges i värd rubriken för begäran.|
+|värd| Adress som anges i värd rubriken för begäran. Om det här fältet har skrivits om innehåller det uppdaterade värd namnet|
+|originalRequestUriWithArgs| Det här fältet innehåller den ursprungliga URL: en för begäran |
+|requestUri| Det här fältet innehåller URL: en efter Skriv åtgärden på Application Gateway |
+|originalHost| Det här fältet innehåller det ursprungliga värd namnet för begäran
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -261,7 +267,7 @@ Prestanda loggen skapas endast om du har aktiverat den på varje Application Gat
 |healthyHostCount     | Antal felfria värdar i backend-poolen.        |
 |unHealthyHostCount     | Antalet värdar som inte är felfria i backend-poolen.        |
 |requestCount     | Antal begär Anden som hanteras.        |
-|svars tid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
+|svarstid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
 |failedRequestCount| Antal misslyckade förfrågningar.|
 |dataflöde| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
 

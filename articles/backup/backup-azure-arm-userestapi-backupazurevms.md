@@ -4,11 +4,12 @@ description: I den här artikeln får du lära dig hur du konfigurerar, initiera
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514211"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -22,7 +23,7 @@ Anta att du vill skydda en virtuell dator "testVM" under en resurs grupp "testRG
 
 ### <a name="discover-unprotected-azure-vms"></a>Identifiera oskyddade virtuella Azure-datorer
 
-Först ska valvet kunna identifiera den virtuella Azure-datorn. Detta utlöses med hjälp av [uppdaterings åtgärden](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Det är en asynkron *post* -åtgärd som ser till att valvet får den senaste listan över alla oskyddade virtuella datorer i den aktuella prenumerationen och cachelagrar dem. När den virtuella datorn är "cachelagrad" kommer återställnings tjänster att kunna komma åt den virtuella datorn och skydda den.
+Först ska valvet kunna identifiera den virtuella Azure-datorn. Detta utlöses med hjälp av [uppdaterings åtgärden](/rest/api/backup/protectioncontainers/refresh). Det är en asynkron *post* -åtgärd som ser till att valvet får den senaste listan över alla oskyddade virtuella datorer i den aktuella prenumerationen och cachelagrar dem. När den virtuella datorn är "cachelagrad" kommer återställnings tjänster att kunna komma åt den virtuella datorn och skydda den.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -36,11 +37,11 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Svar
 
-Åtgärden Uppdatera är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
+Åtgärden Uppdatera är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sedan 200 (OK) när åtgärden har slutförts.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 inget innehåll     |         |  OK utan innehåll som returneras      |
 |202 accepterad     |         |     Har godkänts    |
@@ -91,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Välja relevant virtuell Azure-dator
 
- Du kan bekräfta att "cachelagring" görs genom att [lista alla objekt](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) som kan skyddas under prenumerationen och hitta önskad virtuell dator i svaret. [Svaret på den här åtgärden](#example-responses-1) ger också information om hur Recovery Services identifierar en virtuell dator.  När du känner till mönstret kan du hoppa över det här steget och fortsätta att [aktivera skyddet](#enabling-protection-for-the-azure-vm)direkt.
+ Du kan bekräfta att "cachelagring" görs genom att [lista alla objekt](/rest/api/backup/backupprotectableitems/list) som kan skyddas under prenumerationen och hitta önskad virtuell dator i svaret. [Svaret på den här åtgärden](#example-responses-1) ger också information om hur Recovery Services identifierar en virtuell dator.  När du känner till mönstret kan du hoppa över det här steget och fortsätta att [aktivera skyddet](#enabling-protection-for-the-azure-vm)direkt.
 
 Den här åtgärden är en *Get* -åtgärd.
 
@@ -103,9 +104,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses"></a><a name="responses-1"></a>Svar
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
+|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
 #### <a name="example-responses"></a><a name="example-responses-1"></a>Exempel svar
 
@@ -161,7 +162,7 @@ I exemplet översätts ovanstående värden till:
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Aktiverar skydd för den virtuella Azure-datorn
 
-När den aktuella virtuella datorn är "cachelagrad" och "identifierad" väljer du den princip som du vill skydda. Om du vill veta mer om befintliga principer i valvet, se [lista över princip-API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Välj sedan den [aktuella principen](/rest/api/backup/protectionpolicies/get) genom att referera till princip namnet. Information om hur du skapar principer finns i [själv studie kursen skapa princip](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" är markerat i exemplet nedan.
+När den aktuella virtuella datorn är "cachelagrad" och "identifierad" väljer du den princip som du vill skydda. Om du vill veta mer om befintliga principer i valvet, se [lista över princip-API](/rest/api/backup/backuppolicies/list). Välj sedan den [aktuella principen](/rest/api/backup/protectionpolicies/get) genom att referera till princip namnet. Information om hur du skapar principer finns i [själv studie kursen skapa princip](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" är markerat i exemplet nedan.
 
 Aktivering av skydd är en asynkron *placerings* åtgärd som skapar ett skyddat objekt.
 
@@ -179,11 +180,11 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Om du vill skapa ett skyddat objekt följer du komponenterna i begär ande texten.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Egenskaper för ProtectedItem-resurs         |
 
-En fullständig lista över definitioner av begär ande texten och annan information finns i [skapa skyddat objekt REST API dokument](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
+En fullständig lista över definitioner av begär ande texten och annan information finns i [skapa skyddat objekt REST API dokument](/rest/api/backup/protecteditems/createorupdate#request-body).
 
 ##### <a name="example-request-body"></a>Exempel på begär ande text
 
@@ -203,13 +204,13 @@ Följande begär ande text definierar egenskaper som krävs för att skapa ett s
 
 #### <a name="responses"></a>Svar
 
-Att skapa ett skyddat objekt är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
+Att skapa ett skyddat objekt är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sedan 200 (OK) när åtgärden har slutförts.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 accepterad     |         |     Har godkänts    |
 
 ##### <a name="example-responses"></a>Exempel svar
@@ -293,11 +294,11 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Om du vill utlösa en säkerhets kopiering på begäran, följer du komponenterna i begär ande texten.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Egenskaper för BackupRequestResource         |
+|properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Egenskaper för BackupRequestResource         |
 
-En fullständig lista över definitioner av begär ande texten och annan information finns i [Utlös säkerhets kopiering för skyddade objekt REST API dokument](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+En fullständig lista över definitioner av begär ande texten och annan information finns i [Utlös säkerhets kopiering för skyddade objekt REST API dokument](/rest/api/backup/backups/trigger#request-body).
 
 #### <a name="example-request-body"></a>Exempel på begär ande text
 
@@ -314,11 +315,11 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
 
 ### <a name="responses"></a>Svar
 
-Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
+Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sedan 200 (OK) när åtgärden har slutförts.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |202 accepterad     |         |     Har godkänts    |
 
@@ -418,7 +419,7 @@ Svaret följer samma format som det som nämnts [för att utlösa en säkerhets 
 
 ### <a name="stop-protection-and-delete-data"></a>Stoppa skyddet och ta bort data
 
-Ta bort skyddet på en skyddad virtuell dator och ta bort säkerhetskopierade data också genom att utföra en borttagnings åtgärd som beskrivs [här](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Ta bort skyddet på en skyddad virtuell dator och ta bort säkerhetskopierade data också genom att utföra en borttagnings åtgärd som beskrivs [här](/rest/api/backup/protecteditems/delete).
 
 Att stoppa skyddet och ta bort data är en *borttagnings* åtgärd.
 
@@ -434,11 +435,11 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 #### <a name="responses"></a><a name="responses-2"></a>Svar
 
-*Borttagning* av skydd är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
+*Borttagning* av skydd är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sedan 204 (nocontent) när åtgärden har slutförts.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 noåll     |         |  Inget innehåll       |
 |202 accepterad     |         |     Har godkänts    |

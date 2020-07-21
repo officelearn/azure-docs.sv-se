@@ -10,19 +10,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791205"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511729"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure-portalen
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Skapa eller uppdatera anpassade roller i Azure med Microsoft Azure-portalen
 
 Om de [inbyggda Azure-rollerna](built-in-roles.md) inte uppfyller organisationens specifika behov kan du skapa egna Azure-anpassade roller. Precis som inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänst huvud namn i prenumerations-och resurs grupps omfång. Anpassade roller lagras i en Azure Active Directory (Azure AD)-katalog och kan delas mellan prenumerationer. Varje katalog kan ha upp till 5000 anpassade roller. Du kan skapa anpassade roller med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. I den här artikeln beskrivs hur du skapar anpassade roller med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa anpassade roller behöver du:
 
@@ -203,17 +204,7 @@ Följ dessa steg om du vill lägga till eller ta bort behörigheter för din anp
 
 ### <a name="add-wildcard-permissions"></a>Lägg till behörigheter för jokertecken
 
-Beroende på hur du valde att starta kan du ha behörigheter med jokertecken ( \* ) i listan med behörigheter. Ett jokertecken ( \* ) utökar en behörighet till allt som matchar den sträng som du anger. Anta till exempel att du vill lägga till alla behörigheter som är relaterade till Azure Cost Management och export. Du kan lägga till alla dessa behörigheter:
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-I stället för att lägga till alla dessa behörigheter kan du bara lägga till behörigheten jokertecken. Till exempel motsvarar följande behörighet för jokertecken den föregående fem behörigheten. Detta inkluderar även eventuella framtida export behörigheter som kan läggas till.
+Beroende på hur du valde att starta kan du ha behörigheter med jokertecken ( `*` ) i listan med behörigheter. Ett jokertecken ( `*` ) utökar en behörighet till allt som matchar åtgärds strängen som du anger. Följande jokertecken innehåller till exempel alla behörigheter som rör Azure Cost Management och export. Detta inkluderar även eventuella framtida export behörigheter som kan läggas till.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -223,7 +214,7 @@ Om du vill lägga till en ny behörighet för jokertecken kan du inte lägga til
 
 ### <a name="exclude-permissions"></a>Undanta behörigheter
 
-Om din roll har en jokertecken ( \* )-behörighet och du vill undanta eller subtrahera vissa behörigheter från den jokertecken kan du undanta dem. Anta till exempel att du har följande behörighet för jokertecken:
+Om din roll har en jokertecken ( `*` )-behörighet och du vill undanta eller subtrahera vissa behörigheter från den jokertecken kan du undanta dem. Anta till exempel att du har följande behörighet för jokertecken:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -268,7 +259,7 @@ På fliken **tilldelnings bara omfattningar** anger du var den anpassade rollen 
 
 ## <a name="step-6-json"></a>Steg 6: JSON
 
-På fliken **JSON** visas din anpassade roll som är FORMATERAD i JSON. Om du vill kan du redigera JSON direkt. Om du vill lägga till en wildcard ( \* )-behörighet måste du använda den här fliken.
+På fliken **JSON** visas din anpassade roll som är FORMATERAD i JSON. Om du vill kan du redigera JSON direkt. Om du vill lägga till en wildcard ( `*` )-behörighet måste du använda den här fliken.
 
 1. Klicka på **Redigera**om du vill redigera JSON.
 
@@ -347,5 +338,5 @@ Följ de här stegen om du vill visa dina anpassade roller.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudie: skapa en anpassad Azure-roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Anpassade Azure-roller](custom-roles.md)
-- [Åtgärder för Azure Resource Manager Resource Provider](resource-provider-operations.md)
+- [Anpassade roller i Azure](custom-roles.md)
+- [Åtgärder för resursprovidern Azure Resource Manager](resource-provider-operations.md)

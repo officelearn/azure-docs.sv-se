@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514313"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -42,17 +42,17 @@ Recovery Services-valv har följande funktioner:
 - Valven gör det enkelt att organisera dina säkerhets kopierings data samtidigt som hanterings kostnaderna minimeras.
 - I varje Azure-prenumeration kan du skapa upp till 500-valv.
 - Du kan övervaka säkerhetskopierade objekt i ett valv, inklusive virtuella datorer i Azure och lokala datorer.
-- Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)med Azure.
+- Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/role-assignments-portal.md)med Azure.
 - Du anger hur data i valvet replikeras för redundans:
-  - **Lokalt Redundant lagring (LRS)**: för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Geo-redundant lagring (GRS)**: för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Lokalt Redundant lagring (LRS)**: för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](../storage/common/storage-redundancy.md).
+  - **Geo-redundant lagring (GRS)**: för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](../storage/common/storage-redundancy.md).
   - Som standard använder Recovery Services-valv GRS.
 
 ## <a name="backup-agents"></a>Säkerhetskopieringsagenter
 
 Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på vilken typ av dator som säkerhets kopie ras:
 
-**Gent** | **Detaljer**
+**Agent** | **Detaljer**
 --- | ---
 **MARS-agent** | <ul><li>Körs på enskilda lokala Windows Server-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på virtuella Azure-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på DPM/MABS-servrar för att säkerhetskopiera den lokala lagrings disken för DPM/MABS till Azure.</li></ul>
 **Azure VM-tillägg** | Körs på virtuella Azure-datorer för att säkerhetskopiera dem till ett valv.
@@ -65,7 +65,7 @@ I följande tabell förklaras de olika typerna av säkerhets kopieringar och nä
 --- | --- | ---
 **Fullständig** | En fullständig säkerhets kopiering innehåller hela data källan. Tar större nätverks bandbredd än differentiella eller stegvisa säkerhets kopieringar. | Används för den första säkerhets kopieringen.
 **Differentiell** |  En differentiell säkerhets kopia lagrar block som har ändrats sedan den första fullständiga säkerhets kopieringen. Använder en mindre mängd nätverks-och lagrings utrymme och skyddar inte redundanta kopior av data som inte har ändrats.<br/><br/> Ineffektiva eftersom data block som inte har ändrats mellan senare säkerhets kopieringar överförs och lagras. | Används inte av Azure Backup.
-**Inkrementell** | En stegvis säkerhets kopiering lagrar bara de data block som har ändrats sedan den tidigare säkerhets kopieringen. Hög lagrings-och nätverks effektivitet. <br/><br/> Med en stegvis säkerhets kopiering behöver du inte komplettera med fullständiga säkerhets kopieringar. | Används av DPM/MABS för disk säkerhets kopieringar och används i alla säkerhets kopior till Azure. Används inte för SQL Server säkerhets kopiering.
+**Inkrementellt** | En stegvis säkerhets kopiering lagrar bara de data block som har ändrats sedan den tidigare säkerhets kopieringen. Hög lagrings-och nätverks effektivitet. <br/><br/> Med en stegvis säkerhets kopiering behöver du inte komplettera med fullständiga säkerhets kopieringar. | Används av DPM/MABS för disk säkerhets kopieringar och används i alla säkerhets kopior till Azure. Används inte för SQL Server säkerhets kopiering.
 
 ## <a name="sql-server-backup-types"></a>SQL Server säkerhets kopierings typer
 
@@ -120,6 +120,17 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 - När ett valv skapas, skapas även en "DefaultPolicy" och kan användas för att säkerhetskopiera resurser.
 - Alla ändringar som görs i kvarhållningsperioden för en säkerhets kopierings princip tillämpas retroaktivt för alla äldre återställnings punkter som tas bort från de nya.
 
+### <a name="additional-reference"></a>Ytterligare referens 
+
+-   Virtuell Azure-dator: så här [skapar](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) och [ändrar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) du en princip? 
+-   SQL Server databasen på den virtuella Azure-datorn: så här [skapar](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) och [ändrar](./manage-monitor-sql-database-backup.md#modify-policy) du en princip? 
+-   Azure-fil resurs: så här [skapar](./backup-afs.md#discover-file-shares-and-configure-backup) och [ändrar](./manage-afs-backup.md#modify-policy) du en princip? 
+-   SAP HANA: så här [skapar](./backup-azure-sap-hana-database.md#create-a-backup-policy) och [ändrar](./sap-hana-db-manage.md#change-policy) du en princip? 
+-   MARS: så här [skapar](./backup-windows-with-mars-agent.md#create-a-backup-policy) och [ändrar](./backup-azure-manage-mars.md#modify-a-backup-policy) du en princip? 
+-   [Finns det några begränsningar för att schemalägga säkerhets kopiering baserat på typen av arbets belastning?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [Vad händer med befintliga återställnings punkter om jag ändrar bevarande principen?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arkitektur: inbyggd virtuell Azure-säkerhetskopiering
 
 1. När du aktiverar säkerhets kopiering för en virtuell Azure-dator körs en säkerhets kopiering enligt det schema du anger.
@@ -134,7 +145,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
     - Endast data block som har ändrats sedan den senaste säkerhets kopieringen kopierades.
     - Data är inte krypterade. Azure Backup kan säkerhetskopiera virtuella Azure-datorer som har krypterats med Azure Disk Encryption.
     - Ögonblicks bild data kan inte kopieras direkt till valvet. Vid hög belastnings tider kan säkerhets kopieringen ta några timmar. Den totala säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för dagliga säkerhets kopierings principer.
-1. När data har skickats till valvet skapas en återställnings punkt. Som standard behålls ögonblicks bilder i två dagar innan de tas bort. Den här funktionen tillåter återställnings åtgärder från dessa ögonblicks bilder, vilket minskar återställnings tiderna. Det minskar den tid som krävs för att transformera och kopiera data tillbaka från valvet. Se [Azure Backup omedelbar återställnings funktion](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. När data har skickats till valvet skapas en återställnings punkt. Som standard behålls ögonblicks bilder i två dagar innan de tas bort. Den här funktionen tillåter återställnings åtgärder från dessa ögonblicks bilder, vilket minskar återställnings tiderna. Det minskar den tid som krävs för att transformera och kopiera data tillbaka från valvet. Se [Azure Backup omedelbar återställnings funktion](./backup-instant-restore-capability.md).
 
 Du behöver inte uttryckligen tillåta Internet anslutning att säkerhetskopiera virtuella Azure-datorer.
 

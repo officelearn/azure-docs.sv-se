@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891647"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511168"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Önskat tillstånds konfigurations tillägg med Azure Resource Manager mallar
 
-Den här artikeln beskriver Azure Resource Manager mall för den [önskade tilläggs hanteraren för DSC (Desired State Configuration)](dsc-overview.md). Många av exemplen använder **RegistrationURL** (tillhandahålls som en sträng) och **RegistrationKey** (anges som en [PSCredential](/dotnet/api/system.management.automation.pscredential)) för att publicera med Azure Automation. Mer information om hur du hämtar dessa värden finns i [onboarding Machines for Management by Azure Automation State Configuration – säker registrering](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
+Den här artikeln beskriver Azure Resource Manager mall för den [önskade tilläggs hanteraren för DSC (Desired State Configuration)](dsc-overview.md). Många av exemplen använder **RegistrationURL** (tillhandahålls som en sträng) och **RegistrationKey** (anges som en [PSCredential](/dotnet/api/system.management.automation.pscredential) för att publicera med Azure Automation. Mer information om hur du hämtar dessa värden finns i [onboarding Machines for Management by Azure Automation State Configuration – säker registrering](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
 
 > [!NOTE]
 > Du kan stöta på något annorlunda schema exempel. Ändringen i schemat inträffade i utgåvan från oktober 2016. Mer information finns i [Uppdatera från ett tidigare format](#update-from-a-previous-format).

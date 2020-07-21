@@ -4,16 +4,17 @@ description: Klassiska varningar är inaktuella. Med aviseringar kan du övervak
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114489"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515962"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
 > [!NOTE]
-> Den här artikeln beskriver hur du skapar äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](../../azure-monitor/platform/alerts-overview.md). Klassiska aviseringar [dras tillbaka](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna. 
+> Den här artikeln beskriver hur du skapar äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](../../azure-monitor/platform/alerts-overview.md). Klassiska aviseringar [dras tillbaka](./monitoring-classic-retirement.md), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna. 
 >
 
 Med aviseringar kan du konfigurera villkor över data och bli informerad när villkoren stämmer överens med de senaste övervaknings data.
@@ -88,7 +89,7 @@ Hämta information om aviserings regler och konfigurera dem med hjälp av:
 * Konfigurera [klassiska mått varningar via Azure Portal](alerts-classic-portal.md)
 * Konfigurera [klassiska mått varningar PowerShell](alerts-classic-portal.md)
 * Konfigurera [klassiska mått varningar kommando rads gränssnitt (CLI)](alerts-classic-portal.md)
-* Konfigurera [klassiska mått varningar Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Konfigurera [klassiska mått varningar Azure Monitor REST API](/rest/api/monitor/alertrules)
 * Läs mer om [aktivitets logg](platform-logs-overview.md)
 * Konfigurera [aktivitets logg aviseringar via Azure Portal](activity-log-alerts.md)
 * Konfigurera [aktivitets logg aviseringar via Resource Manager](alerts-activity-log.md)

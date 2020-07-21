@@ -3,12 +3,12 @@ title: Hur du utformar din Application Insights-distribution – en vs många re
 description: Dirigera telemetri till olika resurser för utveckling, testning och produktions märken.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff301887aebf64d26d0fb391a8a16adefc8a3860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107435"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516727"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Hur många Application Insights-resurser ska jag distribuera
 
@@ -35,7 +35,7 @@ Varje Application Insights resurs levereras med mått som är tillgängliga dire
 
 ### <a name="other-things-to-keep-in-mind"></a>Andra saker att tänka på
 
--   Du kan behöva lägga till anpassad kod för att se till att meningsfulla värden anges i [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) -attributet. Utan meningsfulla värden som har angetts för det här attributet fungerar *ingen* av Portal upplevelserna.
+-   Du kan behöva lägga till anpassad kod för att se till att meningsfulla värden anges i [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name) -attributet. Utan meningsfulla värden som har angetts för det här attributet fungerar *ingen* av Portal upplevelserna.
 - För Service Fabric program och klassiska moln tjänster läser SDK: n automatiskt från Azures roll miljö och ställer in dessa. För alla andra typer av appar behöver du förmodligen ange det här explicit.
 -   Live Metrics-upplevelsen stöder inte delning efter roll namn.
 
@@ -76,7 +76,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="create-additional-application-insights-resources"></a>Skapa ytterligare Application Insights resurser
 
-Om du vill skapa en program insikts resurs följer du [guiden skapa resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Om du vill skapa en program insikts resurs följer du [guiden skapa resurs](./create-new-resource.md).
 
 ### <a name="getting-the-instrumentation-key"></a>Hämtar instrumentande nyckel
 Instrumentation-nyckeln identifierar den resurs som du har skapat.

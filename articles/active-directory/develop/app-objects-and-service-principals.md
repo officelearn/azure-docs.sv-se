@@ -13,12 +13,12 @@ ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 453efd7735c6843ccdaf8dfd86b18d0b2ef8b06d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604632"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518305"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objekt för program och tjänstens huvudnamn i Azure Active Directory
 
@@ -47,7 +47,7 @@ Ett huvud namn för tjänsten är den lokala representationen eller program inst
 
 När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. Du kan också skapa tjänstens huvud namns objekt i en klient med hjälp av [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]och andra verktyg.  När du använder portalen skapas ett huvud namn för tjänsten automatiskt när du registrerar ett program.
 
-Bladet **företags program** i portalen används för att visa och hantera tjänstens huvud namn i en klient organisation. Du kan se behörigheter för tjänstens huvud namn, användare som har skickat behörigheter, vilka användare som har gjort detta medgivande, logga in information med mera.
+Bladet **företags program** i portalen används för att visa och hantera tjänstens huvud namn i en klient organisation. Du kan se tjänstens huvud namn, användare som har skickat behörigheter, vilka användare som har gjort detta medgivande, logga in information med mera.
 
 [Entiteten Microsoft Graph ServicePrincipal][MS-Graph-Sp-Entity] definierar schemat för ett tjänst huvud objekts egenskaper.
 

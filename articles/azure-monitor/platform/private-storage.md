@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184505"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515435"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Kundägda lagrings konton för logg inmatning i Azure Monitor
 
-Azure Monitor använder lagrings konton i inmatnings processen för vissa data typer, till exempel [anpassade loggar](data-sources-custom-logs.md) och vissa [Azure-loggar](azure-storage-iis-table.md). Under inmatnings processen skickas loggar först till ett lagrings konto och senare matas in i Log Analytics eller Application Insights. Om du vill ha kontroll över dina data under inmatningen kan du använda dina egna lagrings konton i stället för den tjänst hanterade lagringen. Genom att använda ditt eget lagrings konto får du kontroll över åtkomst, innehåll, kryptering och kvarhållning av loggarna under inmatningen. Vi refererar till detta som att ta din egen lagring eller BYOS. 
+Azure Monitor använder lagrings konton i inmatnings processen för vissa data typer, till exempel [anpassade loggar](data-sources-custom-logs.md) och vissa [Azure-loggar](./diagnostics-extension-logs.md). Under inmatnings processen skickas loggar först till ett lagrings konto och senare matas in i Log Analytics eller Application Insights. Om du vill ha kontroll över dina data under inmatningen kan du använda dina egna lagrings konton i stället för den tjänst hanterade lagringen. Genom att använda ditt eget lagrings konto får du kontroll över åtkomst, innehåll, kryptering och kvarhållning av loggarna under inmatningen. Vi refererar till detta som att ta din egen lagring eller BYOS. 
 
 Ett scenario som kräver BYOS är nätverks isolering via privata länkar. När du använder ett virtuellt nätverk är nätverks isolering ofta ett krav och åtkomst till offentligt Internet är begränsad. I sådana fall blockeras åtkomsten till Azure Monitor tjänst lagring för logg inmatning antingen helt och hållet eller anses vara en felaktig praxis. I stället ska loggar matas in via ett kundägda lagrings konto i VNet eller enkelt åtkomlig från det.
 
@@ -23,7 +23,7 @@ Ett annat scenario är kryptering av loggar med Kundhanterade nycklar (CMK). Kun
 
 ## <a name="data-types-supported"></a>Data typer som stöds
 
-Följande data typer matas in från ett lagrings konto: Mer information om inmatningen av dessa typer finns i [samla in data från Azure Diagnostics-tillägget till Azure Monitor-loggar](azure-storage-iis-table.md) .
+Följande data typer matas in från ett lagrings konto: Mer information om inmatningen av dessa typer finns i [samla in data från Azure Diagnostics-tillägget till Azure Monitor-loggar](./diagnostics-extension-logs.md) .
 
 | Typ | Tabell information |
 |:-----|:------------------|
@@ -54,7 +54,7 @@ Den enda metoden som är tillgänglig för att skapa och ta bort länkar är via
 ## <a name="command-line-and-rest-api"></a>Kommando rad och REST API
 
 ### <a name="command-line"></a>Kommandorad
-Om du vill skapa och hantera länkade lagrings konton använder du [AZ Monitor Log-Analytics arbets yta länkad lagring](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Med det här kommandot kan du länka och ta bort länkar till lagrings konton från en arbets yta och lista de länkade lagrings kontona.
+Om du vill skapa och hantera länkade lagrings konton använder du [AZ Monitor Log-Analytics arbets yta länkad lagring](/cli/azure/monitor/log-analytics/workspace/linked-storage). Med det här kommandot kan du länka och ta bort länkar till lagrings konton från en arbets yta och lista de länkade lagrings kontona.
 
 ### <a name="request-and-cli-values"></a>Request-och CLI-värden
 

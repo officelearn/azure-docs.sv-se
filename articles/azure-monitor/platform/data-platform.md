@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81457271"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515537"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor data plattform
 
@@ -49,7 +49,7 @@ Loggar i Azure Monitor lagras i en Log Analytics arbets yta som baseras på [Azu
 > Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](platform-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [resurs logg](platform-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och resurs loggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
 
 
- Du kan arbeta med [logg frågor](../log-query/log-query-overview.md) interaktivt med [Log Analytics](../log-query/portals.md) i Azure Portal eller lägga till resultaten till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data. Du kan också skapa [logg aviseringar](alerts-log.md) som utlöser en avisering baserat på resultatet av en schema fråga.
+ Du kan arbeta med [logg frågor](../log-query/log-query-overview.md) interaktivt med [Log Analytics](../log-query/log-query-overview.md) i Azure Portal eller lägga till resultaten till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data. Du kan också skapa [logg aviseringar](alerts-log.md) som utlöser en avisering baserat på resultatet av en schema fråga.
 
 Läs mer om Azure Monitor loggar, inklusive data källor i [loggar i Azure Monitor](data-platform-logs.md).
 
@@ -81,7 +81,7 @@ Se [mått i Azure Monitor](data-platform-metrics.md) och [loggar i Azure Monitor
 
 
 ## <a name="stream-data-to-external-systems"></a>Strömma data till externa system
-Förutom att använda verktygen i Azure för att analysera övervaknings data kan du ha ett krav för att vidarebefordra det till ett externt verktyg, till exempel en SIEM-produkt (Security information and Event Management). Den här vidarebefordran görs normalt direkt från övervakade resurser via [Azure Event Hubs](/azure/event-hubs/). Vissa källor kan konfigureras för att skicka data direkt till en Event Hub medan du kan använda en annan process, till exempel en Logic app, för att hämta nödvändiga data. Mer information finns i [data Ströms övervaknings data i Azure till en händelsehubben för användning av ett externt verktyg](stream-monitoring-data-event-hubs.md) .
+Förutom att använda verktygen i Azure för att analysera övervaknings data kan du ha ett krav för att vidarebefordra det till ett externt verktyg, till exempel en SIEM-produkt (Security information and Event Management). Den här vidarebefordran görs normalt direkt från övervakade resurser via [Azure Event Hubs](../../event-hubs/index.yml). Vissa källor kan konfigureras för att skicka data direkt till en Event Hub medan du kan använda en annan process, till exempel en Logic app, för att hämta nödvändiga data. Mer information finns i [data Ströms övervaknings data i Azure till en händelsehubben för användning av ett externt verktyg](stream-monitoring-data-event-hubs.md) .
 
 
 

@@ -3,11 +3,12 @@ title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar
 description: I den här artikeln lär du dig att förbereda för säkerhets kopiering av System Center Data Protection Manager (DPM) till Azure med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718333"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514177"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -23,7 +24,7 @@ Artikeln innehåller:
 
 ## <a name="why-back-up-dpm-to-azure"></a>Varför säkerhetskopiera DPM till Azure?
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) säkerhetskopierar fil-och program data. DPM interagerar med Azure Backup enligt följande:
+[System Center DPM](/system-center/dpm/dpm-overview) säkerhetskopierar fil-och program data. DPM interagerar med Azure Backup enligt följande:
 
 - **DPM som körs på en fysisk server eller lokal virtuell dator** – du kan säkerhetskopiera data till ett säkerhets kopierings valv i Azure, förutom disk-och band säkerhets kopiering.
 - **DPM som körs på en virtuell Azure-dator** – från System Center 2012 R2 med uppdatering 3 eller senare kan du distribuera DPM på en virtuell Azure-dator. Du kan säkerhetskopiera data till Azure-diskar som är anslutna till den virtuella datorn eller använda Azure Backup för att säkerhetskopiera data till ett säkerhets kopierings valv.
@@ -42,12 +43,12 @@ DPM på en fysisk server | System Center 2012 SP1 eller senare; System Center 20
 DPM på en virtuell Hyper-V-dator | System Center 2012 SP1 eller senare; System Center 2012 R2.
 DPM på en virtuell VMware-dator | System Center 2012 R2 med Samlad uppdatering 5 eller senare.
 Komponenter | DPM-servern måste ha Windows PowerShell och .NET Framework 4,5 installerat.
-Appar som stöds | [Läs mer om](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) vad som kan säkerhetskopieras av DPM.
+Appar som stöds | [Läs mer om](/system-center/dpm/dpm-protection-matrix) vad som kan säkerhetskopieras av DPM.
 Filtyper som stöds | Dessa filtyper kan säkerhets kopie ras med Azure Backup: krypterade (endast fullständiga säkerhets kopior). Komprimerade (stegvisa säkerhets kopieringar stöds); Sparse (stegvisa säkerhets kopieringar stöds); Komprimerad och sparse (behandlas som sparse).
 Filtyper som inte stöds | Servrar på SKIFT läges känsliga fil system; hårda länkar (överhoppad); referens punkter (överhoppad); krypterad och komprimerad (överhoppad); krypterad och sparse (överhoppad); Komprimerad data ström; parsa data ström.
 Lokal lagring | Alla datorer som du vill säkerhetskopiera måste ha lokalt ledigt lagrings utrymme som är minst 5% av storleken på de data som säkerhets kopie ras. Till exempel krävs minst 5 GB ledigt utrymme på arbets platsen för att säkerhetskopiera 100 GB data.
 Valv lagring | Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Azure Backup-valv, men storleken på en data källa (till exempel en virtuell dator eller databas) får inte överstiga 54 400 GB.
-Azure ExpressRoute | Du kan säkerhetskopiera dina data via Azure ExpressRoute med offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering. Säkerhets kopiering över privat peering stöds inte.<br/><br/> **Med offentlig peering**: säkerställa åtkomst till följande domäner/adresser:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Med Microsoft-peering**väljer du följande tjänster/regioner och relevanta community-värden:<br/><br/>– Azure Active Directory (12076:5060)<br/><br/>– Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)<br/><br/>-Azure Storage (enligt platsen för ditt Recovery Services-valv)<br/><br/>Mer information finns i [krav för ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Obs**: offentlig peering är inaktuell för nya kretsar.
+Azure ExpressRoute | Du kan säkerhetskopiera dina data via Azure ExpressRoute med offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering. Säkerhets kopiering över privat peering stöds inte.<br/><br/> **Med offentlig peering**: säkerställa åtkomst till följande domäner/adresser:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Med Microsoft-peering**väljer du följande tjänster/regioner och relevanta community-värden:<br/><br/>– Azure Active Directory (12076:5060)<br/><br/>– Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)<br/><br/>-Azure Storage (enligt platsen för ditt Recovery Services-valv)<br/><br/>Mer information finns i [krav för ExpressRoute-routning](../expressroute/expressroute-routing.md).<br/><br/>**Obs**: offentlig peering är inaktuell för nya kretsar.
 Azure Backup-agent | Om DPM körs i System Center 2012 SP1 installerar du Rollup 2 eller senare för DPM SP1. Detta krävs för agent installation.<br/><br/> Den här artikeln beskriver hur du distribuerar den senaste versionen av Azure Backup Agent, även kallat MARS-agenten (Microsoft Azure Recovery Service). Om du har en tidigare distribuerad version uppdaterar du till den senaste versionen för att se till att säkerhets kopieringen fungerar som förväntat.
 
 Innan du börjar behöver du ett Azure-konto med Azure Backup funktionen aktive rad. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Läs om [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -60,7 +61,7 @@ Du kan välja mellan Geo-redundant lagring och lokalt redundant lagring.
 
 - Valvet använder geo-redundant lagring som standard.
 - Om valvet är din primära säkerhets kopia lämnar du alternativet inställt på Geo-redundant lagring. Om du vill ha ett billigare alternativ som inte är lika beständigt kan du använda följande procedur för att konfigurera lokalt redundant lagring.
-- Lär dig mer om [Azure Storage](../storage/common/storage-redundancy.md)och alternativen [Geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) lagring.
+- Lär dig mer om [Azure Storage](../storage/common/storage-redundancy.md)och alternativen [Geo-redundant](../storage/common/storage-redundancy.md) och [lokalt redundant](../storage/common/storage-redundancy.md) lagring.
 - Ändra lagrings inställningarna före den första säkerhets kopieringen. Om du redan har säkerhetskopierat ett objekt kan du sluta säkerhetskopiera det i valvet innan du ändrar lagrings inställningarna.
 
 Så här redigerar du inställningen för lagringsreplikering:
@@ -164,7 +165,7 @@ Alla datorer som säkerhets kopie ras av Azure Backup måste ha säkerhets kopie
 
 7. Klicka på **Registrera** för att registrera DPM-servern på valvet.
 
-När servern har registrerats till valvet och du nu är redo att börja säkerhetskopiera till Microsoft Azure. Du måste konfigurera skydds gruppen i DPM-konsolen för att säkerhetskopiera arbets belastningar till Azure. [Lär dig hur](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) du distribuerar skydds grupper.
+När servern har registrerats till valvet och du nu är redo att börja säkerhetskopiera till Microsoft Azure. Du måste konfigurera skydds gruppen i DPM-konsolen för att säkerhetskopiera arbets belastningar till Azure. [Lär dig hur](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) du distribuerar skydds grupper.
 
 ## <a name="troubleshoot-vault-credentials"></a>Felsöka autentiseringsuppgifter för valvet
 

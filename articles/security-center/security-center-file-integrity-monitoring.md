@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628294"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519345"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -45,7 +46,7 @@ Security Centers övervakning av fil integriteten verifierar integriteten för W
 Security Center rekommenderar att entiteter övervakas, som du enkelt kan aktivera FIM på. Du kan också definiera egna FIM-principer eller entiteter som ska övervakas. Den här genom gången visar hur.
 
 > [!NOTE]
-> FIM-funktionen (File Integrity Monitoring) fungerar för Windows-och Linux-datorer och virtuella datorer och finns på standard nivån för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). FIM överför data till Log Analytics-arbetsytan. Data avgifterna gäller baserat på mängden data som du överför. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/) .
+> FIM-funktionen (File Integrity Monitoring) fungerar för Windows-och Linux-datorer och virtuella datorer och finns på Security Center standard nivån. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). FIM överför data till Log Analytics-arbetsytan. Data avgifterna gäller baserat på mängden data som du överför. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/) .
 
 FIM använder Azure Ändringsspårning-lösningen för att spåra och identifiera ändringar i din miljö. När fil integritets övervakning har Aktiver ATS har du en **ändringsspårning** resurs av typen **lösning**. Information om datainsamlingsfrekvens finns i [Information om insamling av ändringsspårningsdata](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) för Azure Ändringsspårning.
 

@@ -9,11 +9,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b50922d129fb4c72db1d6077a49c4d1309d5fe55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686026"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512987"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snabb start för PowerShell i Azure Cloud Shell
 
@@ -26,11 +27,11 @@ Det här dokumentet beskriver hur du använder PowerShell i Cloud Shell i [Azure
 
 1. Klicka på **Cloud Shell** -knappen i det övre navigerings fältet i Azure Portal
 
-   ![](media/quickstart-powershell/shell-icon.png)
+   ![Skärm bild som visar hur du startar Azure Cloud Shell från Azure Portal.](media/quickstart-powershell/shell-icon.png)
 
 2. Välj PowerShell-miljön i list rutan så kommer du att vara i Azure Drive`(Azure:)`
 
-   ![](media/quickstart-powershell/environment-ps.png)
+   ![Skärm bild som visar hur du väljer PowerShell-miljö för Azure Cloud Shell.](media/quickstart-powershell/environment-ps.png)
 
 ## <a name="run-powershell-commands"></a>Kör PowerShell-kommandon
 

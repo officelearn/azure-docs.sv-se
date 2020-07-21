@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196294"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516200"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
@@ -28,7 +29,7 @@ Följande bild visar exempel på data källor som skriver till olika tabeller so
 ![Tabeller](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
-Alla data som samlas in av Azure Monitor loggar förutom Application Insights lagras på en [Log Analytics arbets yta](../platform/manage-access.md). Du kan skapa en eller flera arbets ytor beroende på dina specifika krav. [Data källor](../platform/data-sources.md) som aktivitets loggar och resurs loggar från Azure-resurser, agenter på virtuella datorer och data från insikter och övervaknings lösningar kommer att skriva data till en eller flera arbets ytor som du konfigurerar som en del av deras onboarding. Andra tjänster som [Azure Security Center](/azure/security-center/) och [Azure Sentinel](/azure/sentinel/) använder också en Log Analytics arbets yta för att lagra sina data så att de kan analyseras med hjälp av logg frågor tillsammans med övervaknings data från andra källor.
+Alla data som samlas in av Azure Monitor loggar förutom Application Insights lagras på en [Log Analytics arbets yta](../platform/manage-access.md). Du kan skapa en eller flera arbets ytor beroende på dina specifika krav. [Data källor](../platform/data-sources.md) som aktivitets loggar och resurs loggar från Azure-resurser, agenter på virtuella datorer och data från insikter och övervaknings lösningar kommer att skriva data till en eller flera arbets ytor som du konfigurerar som en del av deras onboarding. Andra tjänster som [Azure Security Center](../../security-center/index.yml) och [Azure Sentinel](../../sentinel/index.yml) använder också en Log Analytics arbets yta för att lagra sina data så att de kan analyseras med hjälp av logg frågor tillsammans med övervaknings data från andra källor.
 
 Olika typer av data lagras i olika tabeller i arbets ytan och varje tabell har en unik uppsättning egenskaper. En standard uppsättning tabeller läggs till i en arbets yta när den skapas och nya tabeller läggs till för olika data källor, lösningar och tjänster, när de har publicerats. Du kan också skapa anpassade tabeller med hjälp av [API: et för data insamling](../platform/data-collector-api.md).
 
@@ -44,7 +45,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Se dokumentationen för varje data källa för information om de tabeller som de skapar. Exempel är artiklar för [agent data källor](../platform/agent-data-sources.md), [resurs loggar](../platform/diagnostic-logs-schema.md)och [övervaknings lösningar](../insights/solutions-inventory.md).
+Se dokumentationen för varje data källa för information om de tabeller som de skapar. Exempel är artiklar för [agent data källor](../platform/agent-data-sources.md), [resurs loggar](../platform/resource-logs-schema.md)och [övervaknings lösningar](../monitor-reference.md).
 
 ### <a name="workspace-permissions"></a>Behörigheter för arbets ytan
 Se [utforma en Azure Monitor loggar distribution](../platform/design-logs-deployment.md) för att förstå strategi och rekommendationer för åtkomst kontroll för att ge åtkomst till data i en arbets yta. Förutom att bevilja åtkomst till själva arbets ytan, kan du begränsa åtkomsten till enskilda tabeller med [RBAC på tabell nivå](../platform/manage-access.md#table-level-rbac).
@@ -87,5 +88,5 @@ Varje tabell i Azure Monitor-loggar har ett eget schema, men det finns standard 
 | _BilledSize   |            | Anger storleken i byte på data som ska faktureras. |
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [att använda Log Analytics för att skapa och redigera loggs ökningar](../log-query/portals.md).
+- Lär dig mer om [att använda Log Analytics för att skapa och redigera loggs ökningar](./log-query-overview.md).
 - Kolla in en [själv studie kurs om hur du skriver frågor](../log-query/get-started-queries.md) med det nya frågespråket.

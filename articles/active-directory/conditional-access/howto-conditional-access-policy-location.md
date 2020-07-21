@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5350e728ad9c30a6e9258ce9c7615baf020473a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995130"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518427"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Villkorlig åtkomst: blockera åtkomst efter plats
 
@@ -42,17 +43,15 @@ Mer information om plats villkoret i villkorlig åtkomst finns i artikeln, [Vad 
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**.
-   1. Välj **Klar**.
-1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**och väljer sedan **Slutför**.
+1. Under **molnappar eller åtgärder**  >  **inkluderar**och väljer du **alla molnappar**.
 1. Under **villkor**  >  **plats**.
    1. **Konfigurera** till **Ja**
-   1. **Inkludera** utvalda **valda platser**
+   1. Under **Inkludera**väljer du **valda platser**
    1. Välj den blockerade plats som du har skapat för din organisation.
-   1. Klicka på **Välj**har  >  **Done**  >  **slutförts**.
-1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
-1. Under **blockera åtkomst kontroller**  >  **Block**och välj **Välj**.
+   1. Klicka på **Välj**.
+1. Under **åtkomst kontroller** > väljer du **blockera åtkomst**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
-1. Välj **skapa** för att skapa för att aktivera principen.
+1. Välj **skapa** för att skapa en princip för villkorlig åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e2ec4bfe04112d300a63e6326f0391968e385f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968899"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510743"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
@@ -25,7 +26,7 @@ Om du vill distribuera den här arkitekturen laddar du ned och kör deploy.sh-sk
 Lagrings platsen innehåller också skript för att konfigurera en Grafana-instrumentpanel. Du kan använda instrument panelen för att fråga Prometheus, övervaknings-och aviserings systemet med öppen källkod som ingår i DB2.
 
 > [!NOTE]
-> Deploy.sh-skriptet på klienten skapar privata SSH-nycklar och skickar dem till distributions mal len över HTTPS. För större säkerhet rekommenderar vi att du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) för att lagra hemligheter, nycklar och lösen ord.
+> Deploy.sh-skriptet på klienten skapar privata SSH-nycklar och skickar dem till distributions mal len över HTTPS. För större säkerhet rekommenderar vi att du använder [Azure Key Vault](../../key-vault/general/overview.md) för att lagra hemligheter, nycklar och lösen ord.
 
 ## <a name="how-the-deployment-script-works"></a>Så här fungerar distributions skriptet
 
@@ -70,7 +71,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 > [!NOTE]
 > En exempel svars fil, DB2server. rsp, ingår i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Om du använder den här filen måste du redigera den innan den kan fungera i din miljö.
 
-| Skärm namn               | Field                                        | Värde                                                                                                 |
+| Skärm namn               | Fält                                        | Värde                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Välkommen                   |                                              | Ny installation                                                                                           |
 | Välj en produkt          |                                              | DB2-version 11.1.3.3. Server versioner med DB2 pureScale                                              |

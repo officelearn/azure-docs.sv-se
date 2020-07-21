@@ -3,12 +3,12 @@ title: Balansera partition belastning över flera instanser – Azure Event Hubs
 description: Beskriver hur du balanserar partition belastningen över flera instanser av ditt program med hjälp av en händelse processor och Azure Event Hubs SDK.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314980"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512324"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Utjämna belastningen på partitionen över flera instanser av programmet
 Om du vill skala ditt händelse bearbetnings program kan du köra flera instanser av programmet och utjämna belastningen sinsemellan. I de äldre versionerna har [EventProcessorHost](event-hubs-event-processor-host.md) gett dig möjlighet att balansera belastningen mellan flera instanser av ditt program och kontroll punkts händelser när de tar emot. I de nyare versionerna (5,0 och senare), **EventProcessorClient** (.net och Java) eller **EventHubConsumerClient** (python och Java Script) kan du göra samma sak. Utvecklings modellen blir enklare med hjälp av händelser. Du prenumererar på de händelser som du är intresse rad av genom att registrera en händelse hanterare.
@@ -16,7 +16,7 @@ Om du vill skala ditt händelse bearbetnings program kan du köra flera instanse
 I den här artikeln beskrivs ett exempel scenario för att använda flera instanser för att läsa händelser från en händelsehubben och ger dig information om funktioner i händelse processor klienten, som gör att du kan ta emot händelser från flera partitioner samtidigt och belastningsutjämna med andra konsumenter som använder samma Event Hub och konsument grupp.
 
 > [!NOTE]
-> Den nyckel som ska skalas för Event Hubs är en uppfattning om partitionerade konsumenter. Med hjälp av mönstret för [konkurrerande konsumenter](https://msdn.microsoft.com/library/dn568101.aspx) möjliggör det partitionerade konsument mönstret hög skalning genom att ta bort Flask halsen och under lätta slut punkt till slut punkt.
+> Den nyckel som ska skalas för Event Hubs är en uppfattning om partitionerade konsumenter. Med hjälp av mönstret för [konkurrerande konsumenter](/previous-versions/msp-n-p/dn568101(v=pandp.10)) möjliggör det partitionerade konsument mönstret hög skalning genom att ta bort Flask halsen och under lätta slut punkt till slut punkt.
 
 ## <a name="example-scenario"></a>Exempelscenario
 
@@ -75,7 +75,7 @@ Om en händelse processor kopplar från en partition kan en annan instans återu
 När kontroll punkten utförs för att markera en händelse som bearbetad läggs en post i kontroll punkts arkivet till eller uppdateras med händelsens förskjutning och sekvensnummer. Användarna bör bestämma frekvensen för att uppdatera kontroll punkten. Uppdatering efter att varje lyckad händelse har bearbetats kan ha prestanda-och kostnads konsekvenser när den utlöser en Skriv åtgärd till den underliggande kontroll punkts arkivet. Dessutom är kontroll punkter i varje enskild händelse indikationer på ett köat meddelande mönster som en Service Bus kö kan vara ett bättre alternativ än en Event Hub. Idén bakom Event Hubs är att du får "minst en gång"-leverans i stor skala. Genom att göra dina underordnade system idempotenta, är det enkelt att återställa från fel eller starta om, vilket innebär att samma händelser tas emot flera gånger.
 
 > [!NOTE]
-> Om du använder Azure Blob Storage som kontroll punkts Arkiv i en miljö som har stöd för en annan version av Storage BLOB SDK än vad som normalt är tillgängligt på Azure, måste du använda kod för att ändra Storage Service API-versionen till den version som stöds av den aktuella miljön. Om du till exempel kör [Event Hubs på en Azure Stack hubb version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagrings tjänsten version 2017-11-09. I så fall måste du använda kod för att rikta Storage Service API-versionen till 2017-11-09. Ett exempel på hur du riktar in en speciell Storage API-version finns i följande exempel på GitHub: 
+> Om du använder Azure Blob Storage som kontroll punkts Arkiv i en miljö som har stöd för en annan version av Storage BLOB SDK än vad som normalt är tillgängligt på Azure, måste du använda kod för att ändra Storage Service API-versionen till den version som stöds av den aktuella miljön. Om du till exempel kör [Event Hubs på en Azure Stack hubb version 2002](/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagrings tjänsten version 2017-11-09. I så fall måste du använda kod för att rikta Storage Service API-versionen till 2017-11-09. Ett exempel på hur du riktar in en speciell Storage API-version finns i följande exempel på GitHub: 
 > - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) eller [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

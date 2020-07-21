@@ -3,12 +3,12 @@ title: Använda diagnostikinställningar för Recovery Services valv
 description: Den här artikeln beskriver hur du använder de gamla och nya diagnostiska händelserna för Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 7dbc6d97cd923c75a25eadccef2c2292b10deb41
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854816"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514158"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services valv
 
@@ -29,15 +29,15 @@ Azure Backup innehåller följande diagnostiska händelser. Varje händelse inne
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Om du använder den [äldre Event](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport rekommenderar vi att du växlar till att använda ovanstående händelser tidigast.
+Om du använder den [äldre Event](#legacy-event) AzureBackupReport rekommenderar vi att du växlar till att använda ovanstående händelser tidigast.
 
-Mer information finns i [data modell för Azure Backup Diagnostics-händelser](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
+Mer information finns i [data modell för Azure Backup Diagnostics-händelser](./backup-azure-reports-data-model.md).
 
 Data för de här händelserna kan skickas till ett lagrings konto, en Log Analytics-arbetsyta eller en Event Hub. Om du skickar dessa data till en Log Analytics arbets yta väljer du den **resurs information** som ska växlas på skärmen **diagnostikinställningar** . Mer information finns i följande avsnitt.
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Använd diagnostikinställningar med Log Analytics
 
-Du kan nu använda Azure Backup för att skicka valvets diagnostikdata till dedikerade Log Analytics tabeller för säkerhets kopiering. Dessa tabeller kallas [resursbaserade tabeller](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
+Du kan nu använda Azure Backup för att skicka valvets diagnostikdata till dedikerade Log Analytics tabeller för säkerhets kopiering. Dessa tabeller kallas [resursbaserade tabeller](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 Så här skickar du dina valv diagnostikdata till Log Analytics:
 
@@ -52,23 +52,23 @@ Så här skickar du dina valv diagnostikdata till Log Analytics:
 När data har flödat till arbets ytan Log Analytics skapas dedikerade tabeller för var och en av dessa händelser på arbets ytan. Du kan fråga någon av dessa tabeller direkt. Du kan också utföra kopplingar eller unioner mellan dessa tabeller om det behövs.
 
 > [!IMPORTANT]
-> De sex händelserna, nämligen CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage och AddonAzureBackupProtectedInstance, stöds *bara* i det resursbaserade läget i [säkerhets kopierings rapporter](https://docs.microsoft.com/azure/backup/configure-reports). *Om du försöker skicka data för de här sex händelserna i Azure Diagnostics-läget visas inga data i säkerhets kopierings rapporter.*
+> De sex händelserna, nämligen CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage och AddonAzureBackupProtectedInstance, stöds *bara* i det resursbaserade läget i [säkerhets kopierings rapporter](./configure-reports.md). *Om du försöker skicka data för de här sex händelserna i Azure Diagnostics-läget visas inga data i säkerhets kopierings rapporter.*
 
 ## <a name="legacy-event"></a>Äldre händelse
 
 Traditionellt fanns alla säkerhetskopierade diagnostikdata för ett valv i en enskild händelse med namnet AzureBackupReport. De sex händelser som beskrivs här är i själva verket en nedbrytning av alla data som finns i AzureBackupReport.
 
-För närvarande fortsätter vi att stödja AzureBackupReport-händelsen för bakåtkompatibilitet i fall där användare har befintliga anpassade frågor om den här händelsen. Exempel är anpassade logg aviseringar och anpassade visualiseringar. *Vi rekommenderar att du flyttar till de [nya händelserna](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) så tidigt som möjligt*. Nya händelser:
+För närvarande fortsätter vi att stödja AzureBackupReport-händelsen för bakåtkompatibilitet i fall där användare har befintliga anpassade frågor om den här händelsen. Exempel är anpassade logg aviseringar och anpassade visualiseringar. *Vi rekommenderar att du flyttar till de [nya händelserna](#diagnostics-events-available-for-azure-backup-users) så tidigt som möjligt*. Nya händelser:
 
 * Gör det mycket enklare att arbeta med data i logg frågor.
 * Ge bättre identifiering av scheman och deras struktur.
 * Förbättra prestandan för både svars tid och fråge tider.
 
-*Den äldre händelsen i Azure Diagnostics-läge kommer att bli föråldrad. Att välja nya händelser kan hjälpa dig att undvika komplexa migreringar vid ett senare tillfälle*. Vår [rapporterings lösning](https://docs.microsoft.com/azure/backup/configure-reports) som använder Log Analytics kommer också att stoppa stöd data från den äldre händelsen.
+*Den äldre händelsen i Azure Diagnostics-läge kommer att bli föråldrad. Att välja nya händelser kan hjälpa dig att undvika komplexa migreringar vid ett senare tillfälle*. Vår [rapporterings lösning](./configure-reports.md) som använder Log Analytics kommer också att stoppa stöd data från den äldre händelsen.
 
 ### <a name="steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace"></a>Steg för att flytta till nya diagnostikinställningar för en Log Analytics arbets yta
 
-1. Identifiera vilka valv som skickar data till Log Analytics arbets ytor med hjälp av den äldre händelsen och de prenumerationer som de tillhör. Kör följande arbets ytor för att identifiera dessa valv och prenumerationer.
+1. Identifiera vilka valv som skickar data till Log Analytics arbets ytor med hjälp av den äldre händelsen och de prenumerationer som de tillhör. Kör följande fråga på varje arbets yta för att identifiera dessa valv och prenumerationer.
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
@@ -84,7 +84,7 @@ För närvarande fortsätter vi att stödja AzureBackupReport-händelsen för ba
         | project ResourceId, Category};
         // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true
+        union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
@@ -96,7 +96,11 @@ För närvarande fortsätter vi att stödja AzureBackupReport-händelsen för ba
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. Använd de [inbyggda Azure policy definitionerna](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) i Azure Backup för att lägga till en ny inställning för diagnostik för alla valv i en angiven omfattning. Den här principen lägger till en ny diagnostisk inställning till valv som antingen inte har någon diagnostik-inställning eller som bara har en äldre diagnostisk inställning. Den här principen kan tilldelas till en hel prenumeration eller resurs grupp i taget. Du måste ha ägar åtkomst till varje prenumeration som principen är tilldelad.
+    Nedan visas en skärm bild av den fråga som körs i en av arbets ytorna:
+
+    ![Fråga för arbets yta](./media/backup-azure-diagnostics-events/workspace-query.png)
+
+2. Använd de [inbyggda Azure policy definitionerna](./azure-policy-configure-diagnostics.md) i Azure Backup för att lägga till en ny inställning för diagnostik för alla valv i en angiven omfattning. Den här principen lägger till en ny diagnostisk inställning till valv som antingen inte har någon diagnostik-inställning eller som bara har en äldre diagnostisk inställning. Den här principen kan tilldelas till en hel prenumeration eller resurs grupp i taget. Du måste ha ägar åtkomst till varje prenumeration som principen är tilldelad.
 
 Du kan välja att ha separata diagnostikinställningar för AzureBackupReport och de sex nya händelserna tills du har migrerat alla anpassade frågor för att använda data från de nya tabellerna. Följande bild visar ett exempel på ett valv som har två diagnostiska inställningar. Den första inställningen med namnet **Setting1**skickar data från en AzureBackupReport-händelse till en Log Analytics arbets yta i Azure Diagnostics-läge. Den andra inställningen, med namnet **Setting2**, skickar data från de sex nya Azure Backup händelser till en Log Analytics arbets yta i det resursbaserade läget.
 
@@ -126,4 +130,4 @@ Följande bild visar ett exempel på en användare som har tre diagnostikinstäl
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Log Analytics data modell för diagnostiska händelser](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+[Lär dig mer om Log Analytics data modell för diagnostiska händelser](./backup-azure-reports-data-model.md)

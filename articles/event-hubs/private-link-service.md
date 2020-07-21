@@ -3,17 +3,17 @@ title: Integrera Azure Event Hubs med Azure Private Link service
 description: Lär dig hur du integrerar Azure Event Hubs med Azure Private Link service
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312827"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512271"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrera Azure Event Hubs med Azures privata länk
 Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Event Hubs, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
 
-En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
+En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från det virtuella nätverket, vilket effektivt ansluter tjänsten till det virtuella nätverket. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
 Mer information finns i [Vad är en privat Azure-länk?](../private-link/private-link-overview.md)
 
@@ -38,7 +38,7 @@ Mer information finns i [Vad är en privat Azure-länk?](../private-link/private
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägg till en privat slut punkt med Azure Portal
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill integrera ett Event Hubs-namnområde med en privat Azure-länk behöver du följande entiteter eller behörigheter:
 
@@ -58,10 +58,13 @@ Om du redan har ett Event Hubs namn område kan du skapa en privat länk anslutn
 2. I Sök fältet skriver du i **Event Hub**.
 3. Välj det **namn område** i listan som du vill lägga till en privat slut punkt för.
 4. Välj fliken **nätverk** under **Inställningar**.
-5. Välj fliken **anslutningar för privata slut punkter** överst på sidan. 
-6. Välj knappen **+ privat slut punkt** överst på sidan.
 
-    ![Bild](./media/private-link-service/private-link-service-3.png)
+    > [!NOTE]
+    > Fliken **nätverk** visas endast för **standard** -eller **dedikerade** namn områden. 
+1. Välj fliken **anslutningar för privata slut punkter** överst på sidan. 
+1. Välj knappen **+ privat slut punkt** överst på sidan.
+
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Sidan nätverk – fliken anslutningar för privata slut punkter – Lägg till privat slut punkt länk":::
 7. Följ de här stegen på sidan **grundläggande** : 
     1. Välj den **Azure-prenumeration** där du vill skapa den privata slut punkten. 
     2. Välj **resurs grupp** för den privata slut punkts resursen.
@@ -196,7 +199,7 @@ Det finns fyra etablerings tillstånd:
 
 | Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |

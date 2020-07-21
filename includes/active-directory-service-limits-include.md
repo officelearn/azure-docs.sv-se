@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: active-directory
 author: curtand
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: d906a3dd072770a05b818fd3ca8de359b8427728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19952b807fcd315ca579454ce082895af929c2e2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80986618"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515908"
 ---
 Här följer användningsbegränsningarna och andra tjänstbegränsningar för Azure Active Directory-tjänsten (Azure AD).
 
@@ -27,7 +27,7 @@ Här följer användningsbegränsningarna och andra tjänstbegränsningar för A
 |Program manifest |Högst 1200 poster kan läggas till i applikations manifestet. |
 | Grupper |<ul><li>En användare kan skapa högst 250 grupper i en Azure AD-organisation.</li><li>En Azure AD-organisation kan ha högst 5000 dynamiska grupper.<li>Som mest kan 100 användare vara ägare av en enda grupp.</li><li>Valfritt antal Azure AD-resurser kan vara medlemmar i en enda grupp.</li><li>En användare kan tillhöra ett valfritt antal grupper.</li><li>Antalet medlemmar i en grupp som du kan synkronisera från din lokala Active Directory till Azure Active Directory med Azure AD Connect är begränsat till 50 000 medlemmar.</li><li>Kapslade grupper i Azure AD stöds inte i alla scenarier</li></ul><br/> För närvarande är följande scenarier som stöds med kapslade grupper.<ul><li> En grupp kan läggas till som medlem i en annan grupp och du kan få grupp kapsling.</li><li> Anspråk för grupp medlemskap (när en app har kon figurer ATS för att ta emot grupp medlemskaps anspråk i token är kapslade grupper den inloggade användaren medlem i ingår)</li><li>Villkorlig åtkomst (när ett omfånget är en princip för villkorlig åtkomst till en grupp)</li><li>Begränsa åtkomsten till självbetjäning lösen ords återställning</li><li>Begränsa vilka användare som kan göra Azure AD-anslutning och enhets registrering</li></ul><br/>Följande scenarier stöder inte kapslade grupper:<ul><li> Roll tilldelning av appar (tilldela grupper till en app stöds, men grupper som är kapslade i den direkt tilldelade gruppen har inte åtkomst), både för åtkomst och för etablering</li><li>Gruppbaserad licensiering (tilldelar en licens automatiskt till alla medlemmar i en grupp)</li><li>Office 365-grupper.</li></ul> |
 | Programproxy | <ul><li>Högst 500 transaktioner per sekund per app proxy-program</li><li>Högst 750 transaktioner per sekund för Azure AD-organisationen</li></ul><br/>En transaktion definieras som en enskild http-begäran och ett svar för en unik resurs. Vid begränsning får klienterna ett 429-svar (för många begär Anden). |
-| Åtkomstpanel |<ul><li>Det finns ingen gräns för hur många program som kan visas på åtkomstpanelen per användare. Detta gäller för licenser som tilldelats av användare för Azure AD Premium eller Enterprise Mobility Suite.</li><li>Som mest kan 10 appaneler visas på åtkomstpanelen för varje användare. Den här gränsen gäller för användare som har tilldelats licenser för Azure AD Free licens plan. Exempel på appaneler är Box, Salesforce och Dropbox. Den här begränsningen gäller inte för administratörskonton.</li></ul> |
+| Åtkomstpanel |Det finns ingen gräns för antalet program som kan visas i åtkomst panelen per användare oavsett tilldelade licenser.  |
 | Rapporter | Högst 1 000 rader kan visas eller hämtas i rapporter. Eventuella ytterligare data trunkeras. |
 | Administrativa enheter | En Azure AD-resurs kan vara medlem i högst 30 administrativa enheter. |
 | Administratörsroller och behörigheter | <ul><li>Det går inte att lägga till en grupp som [ägare](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>En grupp kan inte tilldelas till en [roll](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Användares möjlighet att läsa andra användares katalog information kan inte begränsas utanför Azure AD Organization-wide-växeln för att inaktivera alla användare som inte är administratörers åtkomst till all katalog information (rekommenderas inte). Mer information om standard behörigheter [här](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Det kan ta upp till 15 minuter eller att logga ut/logga in innan tillägg för administratörs roll medlemskap och återkallning börjar gälla.</li></ul> |

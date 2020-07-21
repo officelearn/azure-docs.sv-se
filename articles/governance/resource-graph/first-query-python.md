@@ -1,15 +1,15 @@
 ---
 title: 'Snabb start: din första python-fråga'
 description: I den här snabb starten följer du stegen för att aktivera resurs biblioteks biblioteket för python och kör din första fråga.
-ms.date: 05/27/2020
+ms.date: 07/15/2020
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 58ba931f5d222df8d863a11a25af6563192ef453
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f7ca6ce5fab687e26007949898ad72c75d036782
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609955"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511931"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Snabb start: kör din första resurs diagram fråga med python
 
@@ -17,7 +17,7 @@ Det första steget för att använda Azure Resource Graph är att kontrol lera a
 
 I slutet av den här processen har du lagt till biblioteken i python-installationen och kör din första resurs diagram fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -99,7 +99,7 @@ Med python-biblioteken som har lagts till i din miljö väljer du tid för att t
        # Run query
        argResults = argClient.resources(argQuery)
    
-       # Show JSON results
+       # Show Python object
        print(argResults)
    
    getresources("Resources | project name, type | limit 5")

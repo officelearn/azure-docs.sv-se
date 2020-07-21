@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -8,26 +8,27 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242227"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512629"
 ---
 | Resurs | Basic | Standard | Premium |
 |---|---|---|---|
 | Ingår lagring<sup>1</sup> (GIB) | 10 | 100 | 500 |
 | Lagrings gräns (TiB) | 20| 20 | 20 |
 | Maximal bild skikt storlek (GiB) | 200 | 200 | 200 |
-| ReadOps per minut<sup>2, 3</sup> | 1,000 | 3 000 | 10 000 |
-| WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2 000 |
+| ReadOps per minut<sup>2, 3</sup> | 1 000 | 3 000 | 10 000 |
+| WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2 000 |
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Geo-replikering | E.t. | E.t. | [Stöds][geo-replication] |
 | Förtroende för innehåll | E.t. | E.t. | [Stöds][content-trust] |
 | Privat länk med privata slut punkter | E.t. | E.t. | [Stöds][plink] |
+| &bull;Privata slut punkter | E.t. | E.t. | 10 |
 | Åtkomst till tjänst slut punktens VNet | E.t. | E.t. | [Förhandsgranskning][vnet] |
 | Kundhanterade nycklar | E.t. | E.t. | [Stöds][cmk] |
 | Databas – begränsade behörigheter | E.t. | E.t. | [Förhandsgranskning][token]|

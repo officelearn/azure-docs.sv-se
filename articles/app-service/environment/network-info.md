@@ -4,15 +4,15 @@ description: Lär dig om nätverks trafiken i ASE och hur du ställer in nätver
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/29/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477686"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517862"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för en App Service-miljö #
 
@@ -53,7 +53,7 @@ När du skalar upp eller ned läggs nya roller i rätt storlek till och sedan mi
 
 För att ASE ska fungera kräver ASE att följande portar är öppna:
 
-| Användning | Från | Till |
+| Användning | Från | Om du vill |
 |-----|------|----|
 | Hantering | App Service hanterings adresser | ASE-undernät: 454, 455 |
 |  Intern kommunikation med ASE | ASE-undernät: alla portar | ASE-undernät: alla portar
@@ -153,18 +153,20 @@ NSG: er kan konfigureras via Azure Portal eller via PowerShell. Informationen h�
 De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåta trafik:
 
 **Inkommande**
-* från IP-AppServiceManagement på portarna 454 455
-* från belastningsutjämnaren på port 16001
+* TCP från IP-AppServiceManagement på portarna 454 455
+* TCP från belastningsutjämnaren på port 16001
 * från ASE-undernätet till ASE-undernätet på alla portar
 
 **Utgående**
-* till alla IP-adresser på port 123
-* till alla IP-adresser på portarna 80, 443
-* IP-AzureSQL på portarna 1433
-* till alla IP-adresser på port 12000
+* UDP till alla IP-adresser på port 123
+* TCP till alla IP-adresser på portarna 80, 443
+* TCP till IP-AzureSQL på portarna 1433
+* TCP till alla IP-adresser på port 12000
 * till ASE-undernätet på alla portar
 
-DNS-porten behöver inte läggas till eftersom trafik till DNS inte påverkas av NSG-regler. Dessa portar omfattar inte de portar som dina appar behöver för att kunna användas. De normala port åtkomst portarna är:
+Dessa portar omfattar inte de portar som dina appar behöver för att kunna användas. Till exempel kan din app behöva anropa en MySQL-server på port 3306 DNS-porten, port 53, behöver inte läggas till eftersom trafik till DNS inte påverkas av NSG-regler. Network Time Protocol (NTP) på port 123 är det tidssynkroniserings protokoll som används av operativ systemet. NTP-slutpunkterna är inte speciella för App Services, kan variera med operativ systemet och inte i en väldefinierad lista med adresser. För att förhindra synkroniseringsproblem måste du tillåta UDP-trafik till alla adresser på port 123. Utgående TCP till port 12000-trafik är för system support och-analys. Slut punkterna är dynamiska och är inte i en väl definierad uppsättning adresser.
+
+De normala port åtkomst portarna är:
 
 | Användning | Portar |
 |----------|-------------|
@@ -194,7 +196,7 @@ Tvingad tunnel trafik är när du ställer in vägar i ditt VNet så att utgåen
 När du skapar en ASE i portalen skapar vi också en uppsättning routningstabeller i under nätet som skapas med ASE.  De vägarna säger bara att du skickar utgående trafik direkt till Internet.  
 Följ dessa steg om du vill skapa samma vägar manuellt:
 
-1. Gå till Azure Portal. Välj **nätverks**  >  **väg tabeller**.
+1. Gå till Azure-portalen. Välj **nätverks**  >  **väg tabeller**.
 
 2. Skapa en ny routningstabell i samma region som ditt VNet.
 

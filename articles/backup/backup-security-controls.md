@@ -3,12 +3,12 @@ title: Säkerhetskontroller
 description: Lär dig mer om de säkerhets kontroller som används i Azure Backups tjänsten. Dessa kontroller hjälper tjänsten att förhindra, identifiera och reagera på säkerhets risker.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 7d8fd98467e975c6151d09779ab450810ea32c6e
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c5a324ac3738abfcf1a51442d7acd78a01e5717e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165574"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513548"
 ---
 # <a name="security-controls-for-azure-backup"></a>Säkerhets kontroller för Azure Backup
 
@@ -20,10 +20,10 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
 |---|---|--|--|
-| Stöd för tjänst slut punkt| Inga |  |  |
-| Stöd för VNet-injektering| Inga |  |  |
+| Stöd för tjänst slut punkt| Nej |  |  |
+| Stöd för VNet-injektering| Nej |  |  |
 | Stöd för nätverks isolering och brand vägg| Ja | Tvingad tunnel trafik stöds för VM-säkerhetskopiering. Tvingad tunnel trafik stöds inte för arbets belastningar som körs i virtuella datorer. |  |
-| Stöd för Tvingad tunnel trafik| Inga |  |  |
+| Stöd för Tvingad tunnel trafik| Nej |  |  |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
@@ -31,23 +31,23 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Log Analytics stöds via resurs loggar. Mer information finns i [övervaka Azure Backup skyddade arbets belastningar med Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Loggning och granskning av kontroll-och hanterings plan| Ja | Alla kunder som har utlöst åtgärder från Azure Portal loggas till aktivitets loggar. |  |
-| Loggning och granskning av data planet| Inga | Det går inte att nå Azure Backup data planet direkt.  |  |
+| Loggning och granskning av data planet| Nej | Det går inte att nå Azure Backup data planet direkt.  |  |
 
 ## <a name="identity"></a>Identitet
 
 | Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation
 |---|---|--|--|
 | Autentisering| Ja | Autentisering är via Azure Active Directory. |  |
-| Auktorisering| Ja | Kunden skapade och inbyggda RBAC-roller används. Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](/azure/backup/backup-rbac-rs-vault). |  |
+| Auktorisering| Ja | Kunden skapade och inbyggda RBAC-roller används. Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](./backup-rbac-rs-vault.md). |  |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
 |---|---|--|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Använda kryptering av lagrings tjänst för lagrings konton. |  |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Inga |  |  |
-| Kryptering på kolumn nivå (Azure Data Services)| Inga |  |  |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Inga | Använda HTTPS. |  |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej |  |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Nej |  |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Nej | Använda HTTPS. |  |
 | Krypterade API-anrop| Ja |  |  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering

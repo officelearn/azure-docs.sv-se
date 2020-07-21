@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig att dynamiskt skapa en permanent volym med Azure-diskar i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: 0e7bc057d756215b1aa155f0e227c75c99c8737c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751361"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518019"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en permanent volym med Azure-diskar i Azure Kubernetes service (AKS) dynamiskt
 
@@ -31,14 +31,14 @@ Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konf
 
 En lagrings klass används för att definiera hur en lagrings enhet dynamiskt skapas med en permanent volym. Mer information om Kubernetes lagrings klasser finns i [Kubernetes Storage-klasser][kubernetes-storage-classes].
 
-Varje AKS-kluster innehåller två i förväg skapade lagrings klasser som båda är konfigurerade för att fungera med Azure-diskar:
+Varje AKS-kluster innehåller fyra i förväg skapade lagrings klasser, två av dem som är konfigurerade för att fungera med Azure-diskar:
 
-* *Standard* lagrings klassen tillhandahåller en standard Azure-disk.
-    * Standard lagring backas upp av hård diskar och levererar kostnads effektiv lagring samtidigt som du fortfarande genomför. Standard diskar är idealiska för kostnads effektiv utveckling och testning av arbets belastningar.
+* *Standard* lagrings klassen tillhandahåller en standard SSD Azure-disk.
+    * Standard lagring backas upp av standard SSD och levererar kostnads effektiv lagring samtidigt som du ändå levererar tillförlitlig prestanda. 
 * Den *hanterade Premium Storage-* klassen tillhandahåller en Premium Azure-disk.
     * Premiumdiskar backas upp av SSD-baserade diskar med höga prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. Om AKS-noderna i klustret använder Premium Storage väljer du den *hanterade-Premium-* klassen.
     
-Om du använder en av standard lagrings klasserna kan du inte uppdatera volym storleken när lagrings klassen har skapats. Om du vill kunna uppdatera volym storleken när en lagrings klass har skapats lägger du till den `allowVolumeExpansion: true` i en av standard lagrings klasserna, eller så kan du skapa en egen anpassad lagrings klass. Du kan redigera en befintlig lagrings klass med hjälp av `kubectl edit sc` kommandot. 
+Om du använder en av standard lagrings klasserna kan du inte uppdatera volym storleken när lagrings klassen har skapats. Om du vill kunna uppdatera volym storleken när en lagrings klass har skapats lägger du till den `allowVolumeExpansion: true` i en av standard lagrings klasserna, eller så kan du skapa en egen anpassad lagrings klass. Observera att det inte finns stöd för att minska storleken på en PVC (för att förhindra data förlust). Du kan redigera en befintlig lagrings klass med hjälp av `kubectl edit sc` kommandot. 
 
 Om du till exempel vill använda en disk med storlek 4 TiB måste du skapa en lagrings klass som definierar `cachingmode: None` eftersom [diskcachelagring inte stöds för disk 4 TIB och större](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
 
@@ -151,6 +151,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## <a name="use-ultra-disks"></a>Använd Ultra disks
+Om du vill använda Ultra disk ser du [Använd Ultra disks på Azure Kubernetes service (AKS)](use-ultra-disks.md).
 
 ## <a name="back-up-a-persistent-volume"></a>Säkerhetskopiera en beständig volym
 
@@ -284,3 +287,11 @@ Läs mer om Kubernetes-beständiga volymer med Azure-diskar.
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

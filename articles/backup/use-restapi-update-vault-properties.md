@@ -4,11 +4,12 @@ description: I den här artikeln lär du dig hur du uppdaterar valv konfiguratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513123"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
@@ -24,7 +25,7 @@ Du måste noga välja om du vill inaktivera mjuk borttagning för ett visst valv
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Hämta läget för mjuk borttagning med REST API
 
-Som standard aktive ras läget för mjuk borttagning för alla nyskapade Recovery Services-valv. Om du vill hämta/uppdatera status för mjuk borttagning för ett valv använder du säkerhets kopierings valvets konfiguration relaterad [REST API dokument](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs)
+Som standard aktive ras läget för mjuk borttagning för alla nyskapade Recovery Services-valv. Om du vill hämta/uppdatera status för mjuk borttagning för ett valv använder du säkerhets kopierings valvets konfiguration relaterad [REST API dokument](/rest/api/backup/backupresourcevaultconfigs)
 
 Om du vill hämta det aktuella läget för mjuk borttagning för ett valv använder du följande *Get* -åtgärd
 
@@ -42,9 +43,9 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Det framgångs bara svaret för GET-åtgärden visas nedan:
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Exempelsvar
 
@@ -80,13 +81,13 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 Följande vanliga definitioner används för att skapa en begär ande text
 
-Mer information finns i REST API- [dokumentationen](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
+Mer information finns i REST API- [dokumentationen](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
 |Name  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
-|location     |  true       |Sträng         |   Resursplats      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
+|location     |  true       |Sträng         |   Resurs plats      |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |tags     |         | Objekt        |     Resurstaggar    |
 
 #### <a name="example-request-body"></a>Exempel på begär ande text
@@ -106,9 +107,9 @@ Följande exempel används för att uppdatera läget för mjuk borttagning till 
 
 Det framgångs bara svaret för åtgärden "PATCH" visas nedan:
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Exempelsvar
 

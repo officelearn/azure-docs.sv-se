@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 11d5c1bb133f0aea241fbc55f96ab5f8818e5ed6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223932"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518121"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I det här avsnittet beskrivs krav och maskin varu krav för Azure AD Connect.
@@ -34,7 +34,7 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
   * [Azure Portal](https://portal.azure.com).
   * [Office-portalen](https://portal.office.com).  
 * [Lägg till och verifiera den domän](../active-directory-domains-add-azure-portal.md) som du planerar att använda i Azure AD. Om du till exempel planerar att använda contoso.com för dina användare ser du till att den här domänen har verifierats och att du inte bara använder contoso.onmicrosoft.com standard domän.
-* En Azure AD-klient tillåter som standard 50 000-objekt. När du verifierar din domän ökas gränsen till över 300 000-objekt. Om du behöver ännu fler objekt i Azure AD måste du öppna ett support ärende om du vill öka gränsen ytterligare. Om du behöver fler än 500 000-objekt måste du ha en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller företags mobilitet och säkerhet.
+* En Azure AD-klient tillåter som standard 50 000-objekt. När du verifierar din domän ökas gränsen till över 300 000-objekt. Om du behöver ännu fler objekt i Azure AD måste du öppna ett support ärende om du vill öka gränsen ytterligare. Om du behöver fler än 500 000-objekt måste du ha en licens, till exempel Office 365, Azure AD Premium eller Enterprise Mobility och Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Förbered dina lokala data
 * Använd [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) för att identifiera fel som dubbletter och formateringsfel i din katalog innan du synkroniserar till Azure AD och Office 365.
@@ -56,7 +56,7 @@ Mer information om hur du skyddar din Active Directory-miljö finns i [metod tip
 
 #### <a name="installation-prerequisites"></a>Installationskrav 
 
-- Azure AD Connect måste installeras på en domänansluten Windows Server 2012 eller senare. Det rekommenderas starkt att den här servern är en domänkontrollant. 
+- Azure AD Connect måste installeras på en domänansluten Windows Server 2012 eller senare. 
 - Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials före 2019 (Windows Server Essentials 2019 stöds). Servern måste använda Windows Server standard eller bättre.  
 - Den Azure AD Connect servern måste ha ett fullständigt GUI installerat. Det finns inte stöd för att installera Azure AD Connect på Windows Server Core. 
 - Den Azure AD Connect servern får inte ha PowerShell-avskrifts grupprincip aktiverat om du använder Azure AD Connect guiden för att hantera ADFS-konfiguration. Du kan aktivera PowerShell-avskriftning om du använder Azure AD Connects guiden för att hantera synkronisering av konfigurationen. 
@@ -90,7 +90,7 @@ Microsoft rekommenderar att du skärper Azure AD Connect-servern för att minska
 * Om du använder [Express inställningar](reference-connect-accounts-permissions.md#express-settings-installation) eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
 * Om du använder installations Sök vägen för anpassade inställningar har du fler alternativ. Mer information finns i [anpassade installations inställningar](reference-connect-accounts-permissions.md#custom-installation-settings).
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 * Den Azure AD Connect servern behöver DNS-matchning för både intranätet och Internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brand väggar i intranätet och du behöver öppna portar mellan Azure AD Connect-servrar och domän kontrol Lanterna, kan du se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om proxyn eller brand väggen begränsar vilka URL: er som kan nås måste URL: erna som dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) öppnas.
@@ -130,7 +130,7 @@ Microsoft rekommenderar att du skärper Azure AD Connect-servern för att minska
 Mer information finns i MSDN om [default proxy-elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Mer information om problem med anslutningen finns i [Felsöka anslutnings problem](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Andra
+### <a name="other"></a>Annat
 * Valfritt: ett test användar konto för att verifiera synkroniseringen.
 
 ## <a name="component-prerequisites"></a>Komponent krav

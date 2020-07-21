@@ -1,29 +1,29 @@
 ---
-title: 'Snabb start: övervaka Node. js med Azure Monitor Application Insights'
-description: Innehåller instruktioner för att snabbt konfigurera en Node. js-webbapp för övervakning med Azure Monitor Application Insights
+title: 'Snabb start: övervaka Node.js med Azure Monitor Application Insights'
+description: Innehåller instruktioner för att snabbt konfigurera en Node.js-webbapp för övervakning med Azure Monitor Application Insights
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77660231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516506"
 ---
-# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node. js-webbappen med Azure Application insikter
+# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node.js webb program med Azure Application insikter
 
-I den här snabb starten lägger du till Application Insights SDK-version 0,22 för Node. js i ett befintligt Node. js-webbprogram.
+I den här snabb starten lägger du till Application Insights SDK-version 0,22 för Node.js till ett befintligt Node.js-webbprogram.
 
 Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Ett fungerande Node. js-program.
+* Ett fungerande Node.js program.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -31,20 +31,20 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **skapa ett** > **verktyg** > för resurs utvecklare**Application Insights**.
+2. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
 
    ![Lägg till en Azure Application Insights-resurs](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
    > [!NOTE]
-   >Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till [skapa ett Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) dokument.
+   >Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till [skapa ett Application Insights resurs](../app/create-new-resource.md) dokument.
 
    En konfigurations sida visas. Använd följande tabell för att fylla i inmatade fält. 
 
     | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
-   | **Resurs grupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för AppInsights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
-   | **Position** | USA, östra | Välj en plats nära dig eller nära där appen finns |
+   | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för AppInsights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
+   | **Plats** | East US | Välj en plats nära dig eller nära där appen finns |
 
 3. Välj **Skapa**.
 
@@ -60,7 +60,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
    npm install applicationinsights --save
    ```
 
-3. Redigera appens första *. js* -fil och Lägg till de två raderna nedan i den översta delen av skriptet. Om du använder [snabb starts appen Node. js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)ändrar du filen *index. js* . Ersätt `<instrumentation_key>` med programmets Instrumentation-nyckel. 
+3. Redigera appens första *. js* -fil och Lägg till de två raderna nedan i den översta delen av skriptet. Om du använder [appenNode.js snabb start](../../app-service/app-service-web-get-started-nodejs.md)ändrar du *index.js* filen. Ersätt `<instrumentation_key>` med programmets Instrumentation-nyckel. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -82,7 +82,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
    ![Application Insights program karta](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Välj](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) ikonen program karta för ![ **app Analytics** -ikon **i Analytics**.  Den här åtgärden öppnar **Application Insights analys**, som innehåller ett rikt frågespråk för analys av alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Välj ikonen program karta för **app Analytics** -ikon ![ ](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **i Analytics**.  Den här åtgärden öppnar **Application Insights analys**, som innehåller ett rikt frågespråk för analys av alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![Application Insights Analytics-diagram](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
@@ -116,7 +116,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
    ![Diagram över Application Insights Server mått](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Mer information om hur du övervakar Node. js finns i [ytterligare AppInsights Node. js-dokumentationen](../../azure-monitor/app/nodejs.md).
+Om du vill veta mer om övervaknings Node.js kan du läsa mer i [dokumentationen för AppInsights Node.js](../../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -131,4 +131,4 @@ När du är klar med testningen kan du ta bort resurs gruppen och alla relaterad
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hitta och diagnostisera prestandaproblem](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [Hitta och diagnostisera prestandaproblem](../log-query/log-query-overview.md)

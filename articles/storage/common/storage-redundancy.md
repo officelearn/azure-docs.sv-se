@@ -10,11 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214000"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518512"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -61,8 +62,8 @@ Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka re
 |    Storage Account-typ    |    Regioner som stöds    |    Tjänster som stöds    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Allmänt-syfte v2<sup>1</sup>    | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br />  Västeuropa<br /> Frankrike, centrala<br /> Japan, östra<br /> Sydafrika, norra<br /> Storbritannien, södra<br /> USA, centrala<br /> USA, Östra<br /> USA, östra 2<br /> USA, västra 2    |    Blockblobar<br /> Page blobbar<sup>2</sup><br /> Fil resurser (standard)<br /> Tabeller<br /> Köer<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Sydostasien<br /> Västeuropa<br /> USA, Östra    |    Blockera endast blobbar    |
-|    FileStorage    | Sydostasien<br /> Västeuropa<br /> USA, Östra    |    Endast Azure Files    |
+|    BlockBlobStorage<sup>1</sup>    | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra    |    Blockera endast blobbar    |
+|    FileStorage    | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra    |    Endast Azure Files    |
 
 <sup>1</sup> Arkiv nivån stöds för närvarande inte för ZRS-konton.<br />
 <sup>2</sup> lagrings konton som innehåller Azure Managed disks för virtuella datorer använder alltid LRS. Azure-ohanterade diskar bör också använda LRS. Det går att skapa ett lagrings konto för Azure unmanaged disks som använder GRS, men det rekommenderas inte på grund av potentiella problem med konsekvens över asynkron geo-replikering. Varken hanterade eller ohanterade diskar har stöd för ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -89,7 +90,7 @@ Om den primära regionen blir otillgänglig kan du välja att redundansväxla ti
 > [!IMPORTANT]
 > Eftersom data replikeras till den sekundära regionen asynkront kan ett haveri som påverkar den primära regionen leda till data förlust om den primära regionen inte kan återställas. Intervallet mellan de senaste skrivningarna till den primära regionen och den senaste skrivningen till den sekundära regionen kallas för återställnings punkt mål. Återställnings punkten anger tidpunkten då data kan återställas. Azure Storage vanligt vis har en återställning på mindre än 15 minuter, även om det inte finns något service avtal för hur lång tid det tar att replikera data till den sekundära regionen.
 
-### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
+### <a name="geo-redundant-storage"></a>Geo-redundant lagring
 
 Geo-redundant lagring (GRS) kopierar dina data synkront tre gånger inom en enda fysisk plats i den primära regionen med hjälp av LRS. Den kopierar sedan dina data asynkront till en enda fysisk plats i en sekundär region som är hundratals mil bort från den primära regionen. GRS erbjuder hållbarhet för Azure Storage data objekt på minst 99.99999999999999% (16 9) under ett angivet år.
 

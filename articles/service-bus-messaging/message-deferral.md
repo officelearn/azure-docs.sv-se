@@ -3,12 +3,13 @@ title: Azure Service Bus-meddelande uppskjutande
 description: I den här artikeln förklaras hur du uppskjuta leverans av Azure Service Bus meddelanden. Meddelandet finns kvar i kön eller prenumerationen, men det ställs åt sidan.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341221"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511287"
 ---
 # <a name="message-deferral"></a>Skjut upp meddelanden
 
@@ -19,6 +20,9 @@ Uppskjutande är en funktion som specifikt skapas för arbets flödes bearbetnin
 Ett enkelt exempel på exempel är en order bearbetnings ordning där ett betalnings meddelande från en extern betalnings leverantör visas i ett system innan den matchande inköps ordern har spridits från Store till uppfyllande system. I så fall kan uppfyllelse systemet skjuta upp bearbetningen av betalnings meddelandet tills det finns en order som associeras med. I Rendezvous-scenarier där meddelanden från olika källor driver ett arbets flöde framåt, kan körnings ordningen i real tid vara korrekt, men meddelanden som återspeglar resultatet kan komma att tas emot.
 
 I slut ändan hjälper uppbelastningen att sortera om meddelanden från order införseln i en ordning där de kan bearbetas, samtidigt som de lämnar meddelandena på ett säkert sätt i meddelande arkivet där bearbetningen måste skjutas upp.
+
+> [!NOTE]
+> Uppskjutna meddelanden flyttas inte automatiskt till kön för obeställbara meddelanden [när de upphör att gälla](./service-bus-dead-letter-queues.md#exceeding-timetolive). Detta beteende är avsiktligt.
 
 ## <a name="message-deferral-apis"></a>API: er för avstängning av meddelande
 

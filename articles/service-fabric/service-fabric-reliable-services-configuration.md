@@ -5,12 +5,12 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8765e86ffeae86b9f4e2b693c0dbf92478632dbf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 640ee925a0a91c4f8424546e7ae734dfbeaed21d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253175"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518970"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillstånds känsliga Reliable Services
 Det finns två uppsättningar konfigurations inställningar för Reliable Services. En uppsättning är global för alla pålitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
@@ -19,7 +19,7 @@ Det finns två uppsättningar konfigurations inställningar för Reliable Servic
 Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för klustret under avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis för ClusterManifest.xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Namn | Enhet | Standardvärde | Kommentarer |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Minsta antal KB som ska allokeras i kernel-läge för loggen för Write buffer-anslutningspoolen. Den här mediepoolen används för cachelagring av statusinformation innan den skrivs till disken. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Obegränsat |Maximal storlek som mediepoolen för logg skrivnings buffert kan växa till. |
@@ -29,13 +29,15 @@ Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för k
 
 I exemplet nedan i Azure ARM eller lokal JSON-mall visas hur du ändrar den delade transaktions loggen som skapas för att återställa pålitliga samlingar för tillstånds känsliga tjänster.
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### <a name="sample-local-developer-cluster-manifest-section"></a>Exempel avsnitt för lokalt utvecklare-kluster
 Om du vill ändra detta i din lokala utvecklings miljö måste du redigera den lokala clustermanifest.xmls filen.
@@ -100,10 +102,10 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Namn | Enhet | Standardvärde | Kommentarer |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0,015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
-| ReplicatorEndpoint |Ej tillämpligt |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
+| ReplicatorEndpoint |E.t. |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |8192 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigörs när den har gjort sitt tillstånd hög tillgängligt genom persistence. Värdet måste vara större än 64 och en potens på 2. |
 | CheckpointThresholdInMB |MB |50 |Mängden logg fils utrymme som används för att ange en kontroll punkt. |

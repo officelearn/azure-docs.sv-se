@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758020"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519282"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -90,7 +91,7 @@ Välj **Visa** för ytterligare information och alternativ, till exempel:
 Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men inte är anslutna till Security Center och visar lösningarna i avsnittet **identifierade lösningar** . Dessa lösningar omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)och partner lösningar.
 
 > [!NOTE]
-> Standardnivån av Security Center krävs på prenumerationsnivån för funktionen identifierade lösningar. Se [prissättning](security-center-pricing.md) för att lära dig mer om pris nivåerna.
+> Standard nivån för Security Center krävs på prenumerations nivå för funktionen identifierade lösningar. Se [prissättning](security-center-pricing.md) för att lära dig mer om pris nivåerna.
 >
 
 Välj **Anslut** under en lösning för att integrera med Security Center och bli informerad om säkerhets aviseringar.

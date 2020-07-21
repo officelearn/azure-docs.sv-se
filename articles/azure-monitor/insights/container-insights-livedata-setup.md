@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du konfigurerar real tids visningen
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9d60836af350e9af99355db9a7cc140a949d1492
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337945"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516472"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Så här ställer du in funktionen Live data (för hands version)
 
@@ -19,7 +19,7 @@ Den här funktionen stöder följande metoder för att kontrol lera åtkomsten t
 
 - AKS utan Kubernetes RBAC-auktorisering aktiverat
 - AKS aktive rad med Kubernetes RBAC-auktorisering
-    - AKS som kon figurer ATS med kluster rollen binding ** [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS som kon figurer ATS med kluster rollen binding ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AKS aktiverat med Azure Active Directory (AD) SAML-baserad enkel inloggning
 
 Dessa instruktioner kräver både administrativ åtkomst till ditt Kubernetes-kluster och om du konfigurerar att använda Azure Active Directory (AD) för användarautentisering, administrativ åtkomst till Azure AD.
@@ -108,7 +108,7 @@ Azure AD client Registration måste konfigureras på nytt för att tillåta att 
 Mer information om avancerade säkerhets inställningar i Kubernetes finns i Kubernetes- [dokumentationen](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Om du skapar ett nytt RBAC-aktiverat kluster går du till [integrera Azure Active Directory med Azure Kubernetes-tjänsten](../../aks/azure-ad-integration.md) och följer stegen för att konfigurera Azure AD-autentisering. Under stegen för att skapa klient programmet visar en anteckning i avsnittet de två omdirigerings-URL: er som du måste skapa för att Azure Monitor för behållare som matchar de som anges i steg 3 nedan.
+>Om du skapar ett nytt RBAC-aktiverat kluster går du till [integrera Azure Active Directory med Azure Kubernetes-tjänsten](../../aks/azure-ad-integration-cli.md) och följer stegen för att konfigurera Azure AD-autentisering. Under stegen för att skapa klient programmet visar en anteckning i avsnittet de två omdirigerings-URL: er som du måste skapa för att Azure Monitor för behållare som matchar de som anges i steg 3 nedan.
 
 ### <a name="client-registration-reconfiguration"></a>Omkonfiguration av klient registrering
 

@@ -6,13 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: e6ef8fb7dfd98a509b0b89e049c70169dafbe134
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de5b490f1ffd50e44defb1c3e3c6f0ad32ca689c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83860570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516387"
 ---
-# <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics arbets yta i Azure Portal
+# <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics-arbetsyta i Azure-portalen
 Använd menyn **Log Analytics arbets ytor** för att skapa en arbets yta för Log Analytics med hjälp av Azure Portal. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor loggdata. Varje arbets yta har sin egen data lagrings plats och konfiguration, och data källor och lösningar har kon figurer ATS för att lagra data i en viss arbets yta. Du behöver en Log Analytics arbets yta om du vill samla in data från följande källor:
 
 * Azure-resurser i din prenumeration
@@ -51,17 +52,17 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
 ## <a name="troubleshooting"></a>Felsökning
-När du skapar en arbets yta som har tagits bort under de senaste 14 dagarna och i [läget för mjuk borttagning](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)kan åtgärden ha olika resultat beroende på konfigurationen för arbets ytan:
+När du skapar en arbets yta som har tagits bort under de senaste 14 dagarna och i [läget för mjuk borttagning](../platform/delete-workspace.md#soft-delete-behavior)kan åtgärden ha olika resultat beroende på konfigurationen för arbets ytan:
 1. Om du anger samma namn på arbets ytan, resurs gruppen, prenumerationen och regionen som i den borttagna arbets ytan återställs din arbets yta, inklusive dess data, konfiguration och anslutna agenter.
 2. Om du använder samma arbets ytans namn, men en annan resurs grupp, prenumeration eller region, får du ett fel meddelande *om att arbets ytans namn redan används. Försök*med ett annat. Om du vill åsidosätta den mjuka borttagningen och permanent ta bort arbets ytan och skapa en ny arbets yta med samma namn, följer du dessa steg för att återställa arbets ytan och utföra permanent borttagning:
-   - [Återställa](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) din arbets yta
-   - [Ta bort](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) arbets ytan permanent
+   - [Återställa](../platform/delete-workspace.md#recover-workspace) din arbets yta
+   - [Ta bort](../platform/delete-workspace.md#permanent-workspace-delete) arbets ytan permanent
    - Skapa en ny arbets yta med samma arbets ytans namn
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har en arbets yta tillgänglig kan du konfigurera insamling av övervakning, köra loggs ökningar för att analysera dessa data och lägga till en hanterings lösning för att tillhandahålla ytterligare data och analytiska insikter. 
 
-* Information om hur du aktiverar data insamling från Azure-resurser med Azure-diagnostik eller Azure Storage finns i [samla in Azure Service-loggar och mått för användning i Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Information om hur du aktiverar data insamling från Azure-resurser med Azure-diagnostik eller Azure Storage finns i [samla in Azure Service-loggar och mått för användning i Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
 * [Lägg till System Center Operations Manager som en data källa](../platform/om-agents.md) för att samla in data från agenter som rapporterar din Operations Manager hanterings grupp och lagra den i din Log Analytics-arbetsyta. 
 * Anslut [Configuration Manager](../platform/collect-sccm.md) för att importera datorer som är medlemmar i samlingar i hierarkin.  
 * Granska de tillgängliga [övervaknings lösningarna](../insights/solutions.md) och Lägg till eller ta bort en lösning från din arbets yta.

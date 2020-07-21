@@ -3,11 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och Visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513633"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -17,7 +18,7 @@ Ett vanligt krav för säkerhets kopierings administratörer är att få insikte
 - Granskning av säkerhets kopiering och återställning.
 - Identifiera viktiga trender på olika nivåer av granularitet.
 
-Idag tillhandahåller Azure Backup en rapporterings lösning som använder [Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) och [Azure-arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). De här resurserna hjälper dig att få omfattande insikter om dina säkerhets kopieringar i hela reserv fastigheten. Den här artikeln förklarar hur du konfigurerar och visar Azure Backup rapporter.
+Idag tillhandahåller Azure Backup en rapporterings lösning som använder [Azure Monitor loggar](../azure-monitor/log-query/get-started-portal.md) och [Azure-arbetsböcker](../azure-monitor/platform/workbooks-overview.md). De här resurserna hjälper dig att få omfattande insikter om dina säkerhets kopieringar i hela reserv fastigheten. Den här artikeln förklarar hur du konfigurerar och visar Azure Backup rapporter.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
@@ -25,7 +26,7 @@ Idag tillhandahåller Azure Backup en rapporterings lösning som använder [Azur
 - För DPM-arbetsbelastningar stöds säkerhets kopierings rapporter för DPM version 5.1.363.0 och senare och agent version 2.0.9127.0 och senare.
 - För MABS-arbetsbelastningar stöds backup-rapporter för MABS version 13.0.415.0 och senare samt agent version 2.0.9170.0 och senare.
 - Säkerhets kopierings rapporter kan visas i alla säkerhets kopierings objekt, valv, prenumerationer och regioner så länge som deras data skickas till en Log Analytics-arbetsyta som användaren har åtkomst till. Om du vill visa rapporter för en uppsättning valv behöver du bara ha Läs behörighet till den Log Analytics arbets ytan som valven skickar data till. Du behöver inte ha åtkomst till enskilda valv.
-- Om du är en [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) -användare med delegerad åtkomst till dina kunders prenumerationer kan du använda dessa rapporter med Azure Lighthouse för att visa rapporter över alla dina klienter.
+- Om du är en [Azure Lighthouse](../lighthouse/index.yml) -användare med delegerad åtkomst till dina kunders prenumerationer kan du använda dessa rapporter med Azure Lighthouse för att visa rapporter över alla dina klienter.
 - För närvarande kan data visas i säkerhets kopierings rapporter över högst 100 Log Analytics arbets ytor (mellan klienter).
 - Data för säkerhets kopierings jobb för loggar visas inte i rapporterna.
 
@@ -37,22 +38,22 @@ Följ de här stegen för att börja använda rapporterna.
 
 Konfigurera en eller flera Log Analytics arbets ytor för att lagra dina säkerhets kopierings rapporterings data. Platsen och prenumerationen där Log Analytics arbets ytan kan skapas är oberoende av platsen och prenumerationen där valven finns.
 
-Om du vill konfigurera en Log Analytics arbets yta, se [skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Om du vill konfigurera en Log Analytics arbets yta, se [skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
 
-Som standard behålls data i en Log Analytics-arbetsyta i 30 dagar. Om du vill visa data under en längre tids Horisont ändrar du kvarhållningsperioden för Log Analytics arbets ytan. Information om hur du ändrar kvarhållningsperioden finns i [Hantera användning och kostnader med Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Som standard behålls data i en Log Analytics-arbetsyta i 30 dagar. Om du vill visa data under en längre tids Horisont ändrar du kvarhållningsperioden för Log Analytics arbets ytan. Information om hur du ändrar kvarhållningsperioden finns i [Hantera användning och kostnader med Azure Monitor loggar](../azure-monitor/platform/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Konfigurera diagnostikinställningar för dina valv
 
 Azure Resource Manager resurser, till exempel Recovery Services-valv, registrera information om schemalagda åtgärder och användar utlösta åtgärder som diagnostikdata.
 
-I avsnittet övervakning i Recovery Services-valvet väljer du **diagnostikinställningar** och anger målet för Recovery Services valvets diagnostikdata. Mer information om hur du använder diagnostiska händelser finns i [använda diagnostikinställningar för Recovery Services valv](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
+I avsnittet övervakning i Recovery Services-valvet väljer du **diagnostikinställningar** och anger målet för Recovery Services valvets diagnostikdata. Mer information om hur du använder diagnostiska händelser finns i [använda diagnostikinställningar för Recovery Services valv](./backup-azure-diagnostic-events.md).
 
 ![Fönstret Diagnostikinställningar](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup innehåller också en inbyggd Azure Policy definition som automatiserar konfigurationen av diagnostikinställningar för alla valv i ett angivet omfång. Information om hur du använder den här principen finns i [Konfigurera inställningar för valv diagnostik i skala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+Azure Backup innehåller också en inbyggd Azure Policy definition som automatiserar konfigurationen av diagnostikinställningar för alla valv i ett angivet omfång. Information om hur du använder den här principen finns i [Konfigurera inställningar för valv diagnostik i skala](./azure-policy-configure-diagnostics.md).
 
 > [!NOTE]
-> När du har konfigurerat diagnostik kan det ta upp till 24 timmar innan den första data-push-installationen har slutförts. När data börjar flöda in i Log Analytics-arbetsytan kan du inte se data i rapporterna direkt eftersom data för den aktuella del dagen inte visas i rapporterna. Mer information finns i [konventioner som används i säkerhets kopierings rapporter](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). Vi rekommenderar att du börjar visa rapporterna två dagar efter att du har konfigurerat dina valv för att skicka data till Log Analytics.
+> När du har konfigurerat diagnostik kan det ta upp till 24 timmar innan den första data-push-installationen har slutförts. När data börjar flöda in i Log Analytics-arbetsytan kan du inte se data i rapporterna direkt eftersom data för den aktuella del dagen inte visas i rapporterna. Mer information finns i [konventioner som används i säkerhets kopierings rapporter](#conventions-used-in-backup-reports). Vi rekommenderar att du börjar visa rapporterna två dagar efter att du har konfigurerat dina valv för att skicka data till Log Analytics.
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Visa rapporter i Azure Portal
 
@@ -102,7 +103,7 @@ Välj knappen Fäst längst upp i varje widget för att fästa widgeten på Azur
 
 ## <a name="cross-tenant-reports"></a>Rapporter över flera klienter
 
-Om du använder [Azure-Lighthouse](https://docs.microsoft.com/azure/lighthouse/) med delegerad åtkomst till prenumerationer i flera klient miljöer kan du använda standard prenumerations filtret. Välj filter knappen i det övre högra hörnet i Azure Portal för att välja alla prenumerationer som du vill se data för. På så sätt kan du välja Log Analytics arbets ytor över dina klienter för att visa rapporter från flera klienter.
+Om du använder [Azure-Lighthouse](../lighthouse/index.yml) med delegerad åtkomst till prenumerationer i flera klient miljöer kan du använda standard prenumerations filtret. Välj filter knappen i det övre högra hörnet i Azure Portal för att välja alla prenumerationer som du vill se data för. På så sätt kan du välja Log Analytics arbets ytor över dina klienter för att visa rapporter från flera klienter.
 
 ## <a name="conventions-used-in-backup-reports"></a>Konventioner som används i säkerhets kopierings rapporter
 
@@ -130,8 +131,8 @@ Widgetarna i säkerhets kopierings rapporten drivs av Kusto-frågor som körs p�
 
 - Den tidigare Power BI Template-appen för rapportering, som har käll data från ett Azure Storage-konto, finns på en föråldrad sökväg. Vi rekommenderar att du börjar skicka valv diagnostikdata till Log Analytics för att visa rapporter.
 
-- Dessutom finns v1- [schemat](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) för att skicka diagnostikdata till ett lagrings konto eller en La-arbetsytan på en föråldrad sökväg. Det innebär att om du har skrivit anpassade frågor eller automationer baserat på schemat v1, uppmanas du att uppdatera dessa frågor för att använda det v2-schema som stöds för närvarande.
+- Dessutom finns v1- [schemat](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) för att skicka diagnostikdata till ett lagrings konto eller en La-arbetsytan på en föråldrad sökväg. Det innebär att om du har skrivit anpassade frågor eller automationer baserat på schemat v1, uppmanas du att uppdatera dessa frågor för att använda det v2-schema som stöds för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om övervakning och rapportering med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Läs mer om övervakning och rapportering med Azure Backup](./backup-azure-monitor-alert-faq.md)

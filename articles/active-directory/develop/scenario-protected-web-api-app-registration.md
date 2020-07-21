@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868832"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518282"
 ---
 # <a name="protected-web-api-app-registration"></a>Skyddat webb-API: registrera appar
 
@@ -28,15 +29,15 @@ Vanliga steg för att registrera en app finns i [snabb start: registrera ett pro
 
 Slut punkten för Microsoft Identity Platform kan utfärda v 1.0-token och v 2.0-token. Mer information om dessa token [finns i åtkomsttoken](access-tokens.md).
 
-Den godkända token-versionen beror på de **konto typer som stöds** och du väljer när du skapar programmet.
+Vilken token-version ditt API kan acceptera beror på ditt val av **konto typer som stöds** när du skapar registreringen av ditt webb-API-program i Azure Portal.
 
-- Om värdet för **konto typer som stöds** är **konton i en organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** är den godkända token-versionen v 2.0.
-- Annars är den godkända token-versionen v 1.0.
+- Om värdet för **konto typer som stöds** är **konton i en organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)**, måste den godkända token-versionen vara v 2.0.
+- Annars kan den godkända token-versionen vara v 1.0.
 
 När du har skapat programmet kan du fastställa eller ändra den godkända token-versionen genom att följa dessa steg:
 
 1. I Azure Portal väljer du din app och väljer sedan **manifest**.
-1. Hitta egenskapen **accessTokenAcceptedVersion** i manifestet. Egenskapens standardvärde är 2.
+1. Hitta egenskapen **accessTokenAcceptedVersion** i manifestet.
 1. Värdet anger att Azure Active Directory (Azure AD) vilken token-version som webb-API: n accepterar.
     - Om värdet är 2 accepterar webb-API v 2.0-token.
     - Om värdet är **Null**accepterar webb-API: et v 1.0-token.
@@ -51,7 +52,7 @@ Webb-API: er behöver inte registrera en omdirigerings-URI eftersom ingen använ
 
 ## <a name="exposed-api"></a>Exponerat API
 
-Andra inställningar som är speciella för webb-API: er är exponerade API och exponerade omfång.
+Andra inställningar som är speciella för webb-API: er är exponerade API och exponerade omfattningar eller app-roller.
 
 ### <a name="application-id-uri-and-scopes"></a>Program-ID-URI och omfång
 
@@ -63,7 +64,7 @@ När du registrerar appar måste du definiera följande parametrar:
 - Ett eller flera omfång
 - En eller flera app-roller
 
-Som standard rekommenderar program registrerings portalen att du använder resurs-URI: n `api://{clientId}` . Denna URI är unik men inte läslig. Om du ändrar URI måste du kontrol lera att det nya värdet är unikt.
+Som standard rekommenderar program registrerings portalen att du använder resurs-URI: n `api://{clientId}` . Denna URI är unik men inte läslig. Om du ändrar URI måste du kontrol lera att det nya värdet är unikt. I program registrerings portalen ser du till att du använder en [konfigurerad Publisher-domän](howto-configure-publisher-domain.md)
 
 För klient program visas omfattningar som *delegerade behörigheter* och app-roller visas som *program behörigheter* för ditt webb-API.
 
@@ -71,6 +72,8 @@ Omfattningar visas också i godkännande fönstret som presenteras för använda
 
 - Som det setts av en användare.
 - Som det visas av en innehavaradministratör, som kan ge administrativt medgivande.
+
+App-roller kan inte skickas till av en användare (eftersom de används av ett program som anropar webb-API: et åt sig själv). En innehavaradministratör måste samtycka till klient program för ditt webb-API som exponerar app-roller. Se [administrativt medgivande](v2-admin-consent.md) för mer information
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Exponera delegerade behörigheter (omfattningar)
 

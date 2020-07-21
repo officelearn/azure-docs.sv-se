@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518053"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrera till Azure Kubernetes service (AKS)
 
@@ -51,7 +51,7 @@ AKS är en hanterad tjänst som erbjuder unika funktioner med lägre hanterings 
 
 Vi rekommenderar att du använder AKS-kluster som backas upp av [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) och [Azure-standard Load Balancer](./load-balancer-standard.md) för att se till att du får funktioner som [flera noder](./use-multiple-node-pools.md), [Tillgänglighetszoner](../availability-zones/az-overview.md), [auktoriserade IP-intervall](./api-server-authorized-ip-ranges.md), [kluster autoskalning](./cluster-autoscaler.md), [Azure policy för AKS](../governance/policy/concepts/policy-for-kubernetes.md)och andra nya funktioner när de släpps.
 
-AKS-kluster som backas upp av [tillgänglighets uppsättningar för virtuella datorer](../virtual-machine-scale-sets/availability.md#availability-sets) saknar stöd för många av dessa funktioner.
+AKS-kluster som backas upp av [tillgänglighets uppsättningar för virtuella datorer](../virtual-machines/availability.md#availability-sets) saknar stöd för många av dessa funktioner.
 
 I följande exempel skapas ett AKS-kluster med en pool med flera noder som backas upp av en skalnings uppsättning för virtuella datorer. Den använder en standard belastningsutjämnare. Det aktiverar också klustrets autoskalning på nodens nod för klustret och anger minst *1* och högst *3* noder:
 

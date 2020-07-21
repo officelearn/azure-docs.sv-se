@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855944"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519722"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
@@ -78,7 +78,7 @@ Så här väljer du en arbets yta som skapats av Security Center:
 1. Security Center aktiverar automatiskt en Security Center lösning på arbets ytan enligt den pris nivå som angetts för prenumerationen. 
 
 > [!NOTE]
-> Log Analytics pris nivå för arbets ytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center-fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerade på en arbetsyta. För den kostnadsfria nivån aktiverar Security Center lösningen *SecurityCenterFree* på standardarbetsytan. För standardnivån aktiverar Security Center lösningen *Security* på standardarbetsytan.
+> Log Analytics pris nivå för arbets ytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center-fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerade på en arbetsyta. För den kostnadsfria nivån aktiverar Security Center lösningen *SecurityCenterFree* på standardarbetsytan. För standard-nivån aktiverar Security Center *säkerhets* lösningen på standard arbets ytan.
 > Att lagra data i Log Analytics kan debiteras ytterligare avgifter för data lagring. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
 Mer information om befintliga Log Analytics-konton finns i [befintliga Log Analytics-kunder](./faq-azure-monitor-logs.md).

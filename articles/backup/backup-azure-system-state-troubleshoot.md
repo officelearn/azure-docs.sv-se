@@ -4,11 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker problem med 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969581"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513860"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
 
@@ -19,11 +20,11 @@ I den här artikeln beskrivs lösningar på problem som kan uppstå när du anv�
 Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsöka säkerhets kopiering av system tillstånd:
 
 - [Se till att Microsoft Azure Recovery Services (MARS) Agent är uppdaterad](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Kontrollera att det finns nätverksanslutning mellan MARS-agenten och Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Kontrollera att det finns nätverksanslutning mellan MARS-agenten och Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Kontrollera att Microsoft Azure Recovery Services körs (i tjänstkonsolen). Om det behövs startar du om och försöker igen
-- [Kontrollera att det finns 5–10 % ledigt utrymme i den tillfälliga mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
-- [Kontrollera att inte andra processer eller antivirusprogram stör Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
-- [Schemalagd säkerhetskopiering misslyckas, men manuell säkerhetskopiering fungerar](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
+- [Kontrollera att det finns 5–10 % ledigt utrymme i den tillfälliga mappen](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Kontrollera att inte andra processer eller antivirusprogram stör Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
+- [Schemalagd säkerhetskopiering misslyckas, men manuell säkerhetskopiering fungerar](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - Kontrollera att ditt operativsystem har de senaste uppdateringarna
 - [Se till att enheter och filer som inte stöds med attribut som inte stöds undantas från säkerhets kopian](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Se till att **system klockan** på det skyddade systemet är konfigurerad för korrekt tidszon <br>
@@ -32,14 +33,14 @@ Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsö
   - Se till att agenten har avinstallerats på servern och att den tas bort från portalen <br>
   - Använd samma lösenfras som användes vid den första registreringen av servern <br>
 - Om det här är en säkerhets kopiering offline kontrollerar du att Azure PowerShell version 3.7.0 är installerad på både käll-och kopierings datorn innan du påbörjar säkerhets kopiering offline
-- [Att tänka på när säkerhets kopierings agenten körs på en virtuell Azure-dator](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)
+- [Att tänka på när säkerhets kopierings agenten körs på en virtuell Azure-dator](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine)
 
 ### <a name="limitation"></a>Begränsning
 
 - Återställning till annan maskinvara genom återställning av systemtillståndet rekommenderas inte av Microsoft
 - Säkerhets kopiering av system tillstånd stöder för närvarande lokala Windows-servrar. Den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan vi felsöker säkerhets kopiering av system tillstånd med Azure Backup utför du nedanstående krav kontroll.  
 
@@ -91,7 +92,7 @@ Se till att det lokala systemet har fullständig kontroll över mappen **System 
 
 Se till att nedanstående tjänster är i körnings tillstånd:
 
-**Tjänst namn** | **Startmetod**
+**Tjänstens namn** | **Startmetod**
 --- | ---
 RPC (Remote Procedure Call) | Automatiskt
 COM+-händelse system (EventSystem) | Automatiskt
@@ -136,7 +137,7 @@ Om jobbet Miss lyckas indikerar det ett WSB-problem som skulle resultera i att s
 
 | Symptom | Lösning
 | -- | --
-| -MARS-agenten Miss lyckas med fel meddelandet: det gick inte att säkerhetskopiera eftersom skugg kopie volymen inte kunde växa på grund av otillräckligt disk utrymme på volymer som innehåller systemfiler <br/><br/> -Följande fel/varnings logg finns i volsnap-systemets händelse loggar: "det fanns inte tillräckligt med disk utrymme på volym C: för att öka skugg kopians lagrings utrymme för skugg kopior av C: på grund av detta fel alla skugg kopior av volym C: riskerar att tas bort" | – Frigör utrymme på den markerade volymen i händelse loggen så att det finns tillräckligt med utrymme för skugg kopior som ska växa medan säkerhets kopiering pågår <br/><br/> – När du konfigurerar skugg kopierings utrymme kan vi begränsa mängden utrymme som används för skugg kopior. Mer information finns i den här [artikeln](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| -MARS-agenten Miss lyckas med fel meddelandet: det gick inte att säkerhetskopiera eftersom skugg kopie volymen inte kunde växa på grund av otillräckligt disk utrymme på volymer som innehåller systemfiler <br/><br/> -Följande fel/varnings logg finns i volsnap-systemets händelse loggar: "det fanns inte tillräckligt med disk utrymme på volym C: för att öka skugg kopians lagrings utrymme för skugg kopior av C: på grund av detta fel alla skugg kopior av volym C: riskerar att tas bort" | – Frigör utrymme på den markerade volymen i händelse loggen så att det finns tillräckligt med utrymme för skugg kopior som ska växa medan säkerhets kopiering pågår <br/><br/> – När du konfigurerar skugg kopierings utrymme kan vi begränsa mängden utrymme som används för skugg kopior. Mer information finns i den här [artikeln](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>EFI-partitionen är låst
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555720"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519279"
 ---
 # <a name="connect-windows-security-events"></a>Ansluta till Windows säkerhetshändelser 
 
@@ -87,7 +87,29 @@ Samla in säkerhets händelser i Windows i Azure Sentinel:
 
 Det kan ta ungefär 20 minuter innan loggarna börjar visas i Log Analytics. 
 
+### <a name="configure-the-security-events-connector-for-anomalous-rdp-login-detection"></a>Konfigurera Security Events Connector för identifiering av avvikande RDP-inloggning
 
+> [!IMPORTANT]
+> Identifiering av avvikande RDP-inloggning är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Sentinel kan använda Machine Learning (ML) till säkerhets händelse data för att identifiera avvikande Remote Desktop Protocol (RDP) inloggnings aktivitet. Scenarierna är:
+
+- **Ovanlig IP** – IP-adressen har sällan eller aldrig observerats under de senaste 30 dagarna
+
+- **Ovanlig Geo-Location** – IP-adress, stad, land och ASN har sällan eller aldrig observerats under de senaste 30 dagarna
+
+- **Ny användare** – en ny användare loggar in från en IP-adress och en Geo-Location, båda eller någon av de som inte förväntades vara beroende av data från 30 dagar tidigare.
+
+**Konfigurationsanvisningar**
+
+1. Du måste samla in RDP-inloggnings data (händelse-ID 4624) via data anslutnings tjänsten för **säkerhets händelser** . Kontrol lera att du har valt en [händelse som har angetts](#event-sets) förutom "ingen" för att strömma till Azure Sentinel.
+
+1. Klicka på **analys**på Azure Sentinel-portalen och klicka sedan på fliken **regelmallar** . Välj **identifierings regeln (förhands granskning) avvikande RDP-inloggning** och flytta skjutreglaget **status** till **aktive rad**.
+
+    > [!NOTE]
+    > Eftersom Machine Learning-algoritmen kräver 30 dagars data för att bygga en bas linje profil för användar beteendet, måste du tillåta att säkerhets händelse data för 30 dagar samlas in innan eventuella incidenter kan identifieras.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Windows säkerhets händelser till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:

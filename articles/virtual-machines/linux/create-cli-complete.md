@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cc7a739b27d96eac01733b4f340d6d6d4dac265
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969551"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511134"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en komplett virtuell Linux-dator med Azure CLI
 Om du snabbt vill skapa en virtuell dator i Azure kan du använda ett enda Azure CLI-kommando som använder standardvärden för att skapa nödvändiga resurser. Resurser som ett virtuellt nätverk, en offentlig IP-adress och regler för nätverks säkerhets grupper skapas automatiskt. Om du vill ha mer kontroll över din miljö i produktions användningen kan du skapa resurserna i förväg och sedan lägga till dina virtuella datorer i dem. Den här artikeln vägleder dig genom hur du skapar en virtuell dator och var och en av de stödda resurserna en i taget.
@@ -549,13 +550,13 @@ Om du vill se en standard-NGINX-webbplats i praktiken öppnar du webbläsaren oc
 ![Standard NGINX-webbplats på den virtuella datorn](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Exportera som en mall
-Vad gör du om du nu vill skapa en ytterligare utvecklings miljö med samma parametrar eller en produktions miljö som matchar den? Resource Manager använder JSON-mallar som definierar alla parametrar för din miljö. Du skapar hela miljöer genom att referera till den här JSON-mallen. Du kan skapa JSON- [mallar manuellt](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller exportera en befintlig miljö för att skapa en JSON-mall åt dig. Använd [AZ Group export](/cli/azure/group) för att exportera resurs gruppen på följande sätt:
+Vad gör du om du nu vill skapa en ytterligare utvecklings miljö med samma parametrar eller en produktions miljö som matchar den? Resource Manager använder JSON-mallar som definierar alla parametrar för din miljö. Du skapar hela miljöer genom att referera till den här JSON-mallen. Du kan skapa JSON- [mallar manuellt](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) eller exportera en befintlig miljö för att skapa en JSON-mall åt dig. Använd [AZ Group export](/cli/azure/group) för att exportera resurs gruppen på följande sätt:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Det här kommandot skapar `myResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i dessa namn i mallfilen genom att lägga till `--include-parameter-default-value` parametern i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller [skapa en parameters.jspå en fil](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som anger resurs namnen.
+Det här kommandot skapar `myResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i dessa namn i mallfilen genom att lägga till `--include-parameter-default-value` parametern i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller [skapa en parameters.jspå en fil](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) som anger resurs namnen.
 
 Om du vill skapa en miljö från mallen använder du [AZ Group Deployment Create](/cli/azure/group/deployment) enligt följande:
 
@@ -565,7 +566,7 @@ az group deployment create \
     --template-file myResourceGroup.json
 ```
 
-Du kanske vill läsa [mer om hur du distribuerar från mallar](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Lär dig mer om hur du stegvis uppdaterar miljöer, använder parameter filen och får åtkomst till mallar från en enda lagrings plats.
+Du kanske vill läsa [mer om hur du distribuerar från mallar](../../azure-resource-manager/templates/deploy-cli.md?toc=/azure/virtual-machines/linux/toc.json). Lär dig mer om hur du stegvis uppdaterar miljöer, använder parameter filen och får åtkomst till mallar från en enda lagrings plats.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu är du redo att börja arbeta med flera nätverks komponenter och virtuella datorer. Du kan använda den här exempel miljön för att bygga upp ditt program genom att använda kärn komponenterna som introduceras här.

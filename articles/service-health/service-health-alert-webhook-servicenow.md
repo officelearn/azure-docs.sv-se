@@ -3,12 +3,12 @@ title: Skicka Azure Service Health-aviseringar med ServiceNow
 description: Få personligt anpassade meddelanden om service Health-händelser till din ServiceNow-instans.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 96c181991fc962b08e777a55d891b881fc1bdba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260202"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519086"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Skicka Azure Service Health-aviseringar med ServiceNow med webhookar
 
@@ -147,7 +147,7 @@ Den här artikeln visar hur du integrerar Azure Service Health-aviseringar med S
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Skapa en avisering med ServiceNow i Azure Portal
 ### <a name="for-a-new-action-group"></a>För en ny åtgärds grupp:
-1. Följ steg 1 till 8 i [den här artikeln](../azure-monitor/platform/alerts-activity-log-service-notifications.md) för att skapa en avisering med en ny åtgärds grupp.
+1. Följ steg 1 till 8 i [den här artikeln](./alerts-activity-log-service-notifications-portal.md) för att skapa en avisering med en ny åtgärds grupp.
 
 1. Definiera i listan med **åtgärder**:
 
@@ -195,5 +195,5 @@ Den här artikeln visar hur du integrerar Azure Service Health-aviseringar med S
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problem hanterings system](service-health-alert-webhook-guide.md).
 - Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Läs mer om [meddelanden om tjänst hälsa](../azure-monitor/platform/service-notifications.md).
+- Läs mer om [meddelanden om tjänst hälsa](./service-notifications.md).
 - Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).

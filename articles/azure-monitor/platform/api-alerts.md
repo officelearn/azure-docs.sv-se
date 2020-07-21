@@ -4,19 +4,19 @@ description: 'Med Log Analytics aviserings REST API kan du skapa och hantera avi
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: 4ab2a1369fc4902afec7d62e44ef8e947864167f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 38f2f671ecf426f6544f6faf934aec7071451b0d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112059"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515758"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera aviserings regler i Log Analytics med REST API 
 
 Med Log Analytics aviserings REST API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
 
 > [!IMPORTANT]
-> Som du [presenterade tidigare](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), kan Log Analytics-arbetsytor som skapats efter den *1 juni 2019* -hantera aviserings regler med **bara** Azure-scheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager-mall](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) och [PowerShell-cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Kunder kan enkelt [ändra sina önskade metoder för varnings regel hantering](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) för äldre arbets ytor för att utnyttja Azure Monitor scheduledQueryRules som standard och få många [nya fördelar](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) som möjligheten att använda inbyggda PowerShell-cmdlets, ökad lookback tids period i regler, skapande av regler i separata resurs grupper eller prenumerationer och mycket mer.
+> Som du [presenterade tidigare](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), kan Log Analytics-arbetsytor som skapats efter den *1 juni 2019* -hantera aviserings regler med **bara** Azure-scheduledQueryRules [REST API](/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager-mall](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) och [PowerShell-cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Kunder kan enkelt [ändra sina önskade metoder för varnings regel hantering](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) för äldre arbets ytor för att utnyttja Azure Monitor scheduledQueryRules som standard och få många [nya fördelar](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) som möjligheten att använda inbyggda PowerShell-cmdlets, ökad lookback tids period i regler, skapande av regler i separata resurs grupper eller prenumerationer och mycket mer.
 
 Log Analytics Sök REST API är RESTful och kan nås via Azure Resource Manager REST API. I det här dokumentet hittar du exempel där API: et kan nås från en PowerShell-kommandorad med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommando rads verktyg med öppen källkod som gör det enklare att anropa Azure Resource Manager API. Användning av ARMClient och PowerShell är ett av många alternativ för att få åtkomst till API: et för Log Analytics search. Med dessa verktyg kan du använda RESTful-Azure Resource Manager-API: et för att skapa anrop till Log Analytics arbets ytor och utföra Sök kommandon i dem. API: n kommer att mata ut Sök resultat till dig i JSON-format, så att du kan använda Sök resultaten på många olika sätt program mässigt.
 
@@ -136,7 +136,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 ### <a name="alert-actions"></a>Aviserings åtgärder
 Ett schema bör ha en och endast en aviserings åtgärd.  Aviserings åtgärder har ett eller flera av avsnitten i följande tabell.  Var och en beskrivs i detalj nedan.
 
-| Avsnitt | Description | Användning |
+| Avsnitt | Beskrivning | Användning |
 |:--- |:--- |:--- |
 | Tröskelvärde |Villkor för när åtgärden körs.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |
 | Severity |Etikett som används för att klassificera avisering när den utlöses.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |
@@ -265,7 +265,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName
 #### <a name="action-groups"></a>Åtgärdsgrupper
 Alla aviseringar i Azure, Använd åtgärds grupp som standardmekanism för hantering av åtgärder. Med åtgärds gruppen kan du ange åtgärder en gång och sedan koppla åtgärds gruppen till flera aviseringar – i Azure. Utan behovet av att upprepade gånger deklarera samma åtgärder över och över igen. Åtgärds grupper har stöd för flera åtgärder, inklusive e-post, SMS, röst samtal, ITSM-anslutning, Automation Runbook, webhook-URI med mera. 
 
-För användare som har utökat sina aviseringar till Azure bör ett schema nu ha åtgärds grupp information som skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. E-postinformation, webhook-URL: er, information om Runbook-automatisering och andra åtgärder måste definieras på sidan en åtgärds grupp först innan en avisering skapas. en kan skapa en [Åtgärds grupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller använda [Åtgärds grupp-API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+För användare som har utökat sina aviseringar till Azure bör ett schema nu ha åtgärds grupp information som skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. E-postinformation, webhook-URL: er, information om Runbook-automatisering och andra åtgärder måste definieras på sidan en åtgärds grupp först innan en avisering skapas. en kan skapa en [Åtgärds grupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller använda [Åtgärds grupp-API](/rest/api/monitor/actiongroups).
 
 Om du vill lägga till en Association av åtgärds gruppen i en avisering anger du det unika Azure Resource Manager-ID: t för åtgärds gruppen i aviserings definitionen. En exempel illustration finns nedan:
 
@@ -390,4 +390,3 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 * Använd [REST API för att utföra loggs ökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics.
 * Lär dig mer om [logg aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md)
 * [Skapa, redigera eller hantera logg aviserings regler i Azure Monitor](../../azure-monitor/platform/alerts-log.md)
-

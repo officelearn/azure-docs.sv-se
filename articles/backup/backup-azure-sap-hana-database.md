@@ -3,11 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667326"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513887"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -24,13 +25,13 @@ I den här artikeln får du lära dig att:
 > * Köra ett säkerhets kopierings jobb på begäran
 
 >[!NOTE]
->[Kom igång](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 eller 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>[Kom igång](./tutorial-backup-sap-hana-db.md) med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 eller 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 >[!NOTE]
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
 >Registrera dig för för hands versionen genom att skriva till oss på [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten för att konfigurera databasen för säkerhets kopiering.
 
@@ -52,17 +53,17 @@ Mer information om hur du använder dessa alternativ delas nedan:
 
 #### <a name="private-endpoints"></a>Privata slut punkter
 
-Med privata slut punkter kan du ansluta säkert från servrar i ett virtuellt nätverk till ditt Recovery Services-valv. Den privata slut punkten använder en IP-adress från VNET-adressutrymmet för ditt valv. Nätverks trafiken mellan resurserna i det virtuella nätverket och valvet överförs över ditt virtuella nätverk och en privat länk i Microsoft stamnät nätverket. Detta eliminerar exponeringen från det offentliga Internet. Läs mer om privata slut punkter för Azure Backup [här](https://docs.microsoft.com/azure/backup/private-endpoints).
+Med privata slut punkter kan du ansluta säkert från servrar i ett virtuellt nätverk till ditt Recovery Services-valv. Den privata slut punkten använder en IP-adress från VNET-adressutrymmet för ditt valv. Nätverks trafiken mellan resurserna i det virtuella nätverket och valvet överförs över ditt virtuella nätverk och en privat länk i Microsoft stamnät nätverket. Detta eliminerar exponeringen från det offentliga Internet. Läs mer om privata slut punkter för Azure Backup [här](./private-endpoints.md).
 
 #### <a name="nsg-tags"></a>NSG-Taggar
 
-Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för *Azure AD* och *Azure Storage*.  Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
+Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/security-overview.md#service-tags) för *Azure AD* och *Azure Storage*.  Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
 
 1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
 
 1. Välj **utgående säkerhets regler** under **Inställningar**.
 
-1. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
+1. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](../virtual-network/manage-network-security-group.md#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
 
 1. Klicka på **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
 
@@ -70,7 +71,7 @@ Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure
 
 #### <a name="azure-firewall-tags"></a>Azure Firewall-Taggar
 
-Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av *AzureBackup* [Azure Firewall FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta ger all utgående åtkomst till Azure Backup.
+Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av *AzureBackup* [Azure Firewall FQDN-taggen](../firewall/fqdn-tags.md). Detta ger all utgående åtkomst till Azure Backup.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Tillåt åtkomst till tjänstens IP-intervall
 
@@ -84,7 +85,7 @@ Du kan också använda följande fullständiga domän namn för att ge åtkomst 
 | -------------- | ------------------------------------------------------------ |
 | Azure Backup  | `*.backup.windowsazure.com`                             |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Tillåt åtkomst till FQDN i avsnitten 56 och 59 enligt [den här artikeln](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Azure AD      | Tillåt åtkomst till FQDN i avsnitten 56 och 59 enligt [den här artikeln](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Använda en HTTP-proxyserver för att dirigera trafik
 
@@ -198,17 +199,19 @@ Säkerhets kopieringar körs enligt princip schemat. Du kan köra en säkerhets 
 Om du vill ta en lokal säkerhets kopia (med HANA Studio) av en databas som säkerhets kopie ras med Azure Backup gör du följande:
 
 1. Vänta tills alla säkerhets kopieringar eller loggar för databasen har slutförts. Kontrol lera statusen i SAP HANA Studio/cockpit.
-2. Inaktivera logg säkerhets kopior och ange säkerhets kopierings katalogen till fil systemet för relevant databas.
-3. Det gör du genom att dubbelklicka på **systemdb**  >  **konfiguration**  >  **Välj databas**  >  **filter (logg)**.
-4. Ange **enable_auto_log_backup** till **Nej**.
-5. Ange **log_backup_using_backint** till **false**.
-6. Utför en fullständig säkerhets kopiering på begäran av databasen.
-7. Vänta tills den fullständiga säkerhets kopieringen och katalog säkerhets kopieringen har slutförts.
-8. Återställ tidigare inställningar tillbaka till dem för Azure:
+1. Inaktivera logg säkerhets kopior och ange säkerhets kopierings katalogen till fil systemet för relevant databas.
+1. Det gör du genom att dubbelklicka på **systemdb**  >  **konfiguration**  >  **Välj databas**  >  **filter (logg)**.
+1. Ange **enable_auto_log_backup** till **Nej**.
+1. Ange **log_backup_using_backint** till **false**.
+1. Ange **catalog_backup_using_backint** till **false**.
+1. Utför en fullständig säkerhets kopiering på begäran av databasen.
+1. Vänta tills den fullständiga säkerhets kopieringen och katalog säkerhets kopieringen har slutförts.
+1. Återställ tidigare inställningar tillbaka till dem för Azure:
     * Ange **enable_auto_log_backup** till **Ja**.
     * Ange **log_backup_using_backint** till **Sant**.
+    * Ange **catalog_backup_using_backint** till **Sant**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Lär dig hur du [hanterar SAP HANA databaser som säkerhets kopie ras med Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](./sap-hana-db-restore.md)
+* Lär dig hur du [hanterar SAP HANA databaser som säkerhets kopie ras med Azure Backup](./sap-hana-db-manage.md)

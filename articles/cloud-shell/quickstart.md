@@ -10,11 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3001e814a5f31725bfc78385d2435bbb0e971d40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79458077"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513029"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabb start för bash i Azure Cloud Shell
 
@@ -25,7 +26,7 @@ Det här dokumentet innehåller information om hur du använder bash i Azure Clo
 
 ## <a name="start-cloud-shell"></a>Starta Cloud Shell
 1. Starta **Cloud Shell** från det övre navigerings fältet i Azure Portal. <br>
-![](media/quickstart/shell-icon.png)
+![Skärm bild som visar hur du startar Azure Cloud Shell i Azure Portal.](media/quickstart/shell-icon.png)
 
 2. Välj en prenumeration för att skapa ett lagrings konto och Microsoft Azure fil resurs.
 3. Välj "skapa lagring"
@@ -35,7 +36,7 @@ Det här dokumentet innehåller information om hur du använder bash i Azure Clo
 
 ### <a name="select-the-bash-environment"></a>Välj bash-miljön
 Kontrol lera att den nedrullningsbara miljön i rutan till vänster i Shell-fönstret står `Bash` . <br>
-![](media/quickstart/env-selector.png)
+![Skärm bild som visar hur du väljer bash-miljön för Azure Cloud Shell.](media/quickstart/env-selector.png)
 
 ### <a name="set-your-subscription"></a>Ange din prenumeration
 1. Lista över prenumerationer som du har åtkomst till.
@@ -43,10 +44,11 @@ Kontrol lera att den nedrullningsbara miljön i rutan till vänster i Shell-fön
    az account list
    ```
 
-2. Ange önskad prenumeration: <br>
-```azurecli-interactive
-az account set --subscription 'my-subscription-name'
-```
+2. Ange önskad prenumeration:
+
+   ```azurecli-interactive
+   az account set --subscription 'my-subscription-name'
+   ```
 
 > [!TIP]
 > Din prenumeration kommer att sparas i framtida sessioner med hjälp av `/home/<user>/.azure/azureProfile.json` .
@@ -72,7 +74,7 @@ Ditt användar namn på den här virtuella datorn är ditt användar namn som an
 ### <a name="ssh-into-your-linux-vm"></a>SSH till din virtuella Linux-dator
 1. Sök efter namnet på den virtuella datorn i Azure Portal Sök fältet.
 2. Klicka på Anslut för att hämta namnet på den virtuella datorn och den offentliga IP-adressen. <br>
-   ![](media/quickstart/sshcmd-copy.png)
+   ![Skärm bild som visar hur du ansluter till en Linux V M med S S H.](media/quickstart/sshcmd-copy.png)
 
 3. SSH till den virtuella datorn med kommandot `ssh` cmd.
    ```
@@ -80,7 +82,7 @@ Ditt användar namn på den här virtuella datorn är ditt användar namn som an
    ```
 
 När du har upprättat SSH-anslutningen bör du se Ubuntu Välkommen-prompten. <br>
-![](media/quickstart/ubuntu-welcome.png)
+![Skärm bild som visar Ubuntu-initieringen och välkomst meddelandet när du har upprättat en S H-anslutning.](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Rensa 
 1. Avsluta SSH-sessionen.

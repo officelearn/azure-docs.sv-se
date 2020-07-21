@@ -8,29 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de81fcb5ee62f9b295c93132b271507c040af46a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879538"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512798"
 ---
 # <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Distribuera formulär identifierarens behållare till Azure Container Instances
 
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
+
 Lär dig hur du distribuerar Cognitive Services [formulärets igenkännings](form-recognizer-container-howto.md) behållare till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar hur du skapar en identifierings resurs för Azure-formulär. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
-> [!IMPORTANT]
-> Formulär tolknings behållarna använder för närvarande version 1,0 av formulärets tolknings-API. Du kan komma åt den senaste versionen av API: et genom att använda den hanterade tjänsten i stället.
-
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
-
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
-
-Du måste först fylla i och skicka in [formuläret för formulär för Cognitive Services som identifierar behållar formuläret](https://aka.ms/FormRecognizerContainerRequestAccess) för att begära åtkomst till behållaren. När du gör det loggas du också in för Visuellt innehåll. Du behöver inte registrera dig för formuläret för Visuellt innehåll begäran separat. 
-
-[!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Create a Cognitive Services Form Recognizer resource](includes/create-resource.md)]
 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7b22a8010d7dfbdeeaeae623a55c1aff9c006c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610361"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510505"
 ---
-# <a name="azure-disk-encryption-sample-scripts"></a>Exempelskript för Azure Disk Encryption 
+# <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Azure Disk Encryption exempel skript för virtuella Linux-datorer
 
 Den här artikeln innehåller exempel skript för att förbereda förkrypterade virtuella hård diskar och andra uppgifter.
 
@@ -186,7 +186,7 @@ Konfigurera kryptering under installationen av distributionen genom att utföra 
 
    ![Ubuntu 16,04-installation-ange lösen fras vid start](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Förbered den virtuella datorn för uppladdning i Azure med hjälp av [de här anvisningarna](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
+6. Förbered den virtuella datorn för uppladdning i Azure med hjälp av [de här anvisningarna](./create-upload-ubuntu.md?toc=/azure/virtual-machines/linux/toc.json). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
 Konfigurera kryptering så att den fungerar med Azure genom att utföra följande steg:
 
@@ -262,7 +262,7 @@ Gör så här för att konfigurera kryptering under installationen av distributi
 
    ![openSUSE 13,2-installation-ange lösen fras vid start](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Förbered den virtuella datorn för uppladdning till Azure genom att följa anvisningarna i [förbereda en virtuell SLES-eller openSUSE-dator för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
+3. Förbered den virtuella datorn för uppladdning till Azure genom att följa anvisningarna i [förbereda en virtuell SLES-eller openSUSE-dator för Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-131). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
 Gör så här för att konfigurera kryptering för att arbeta med Azure:
 1. Redigera/etc/dracut.conf och Lägg till följande rad:
@@ -339,7 +339,7 @@ Gör så här för att konfigurera kryptering under installationen av distributi
 
    ![CentOS 7-installation-ange lösen fras på Start](./media/disk-encryption/centos-encrypt-fig4.png)
 
-5. Förbered den virtuella datorn för uppladdning i Azure med hjälp av anvisningarna "CentOS 7.0 +" i [förbereda en CentOS-baserad virtuell dator för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
+5. Förbered den virtuella datorn för uppladdning i Azure med hjälp av anvisningarna "CentOS 7.0 +" i [förbereda en CentOS-baserad virtuell dator för Azure](./create-upload-centos.md?toc=/azure/virtual-machines/linux/toc.json#centos-70). Kör inte det sista steget (avetablera den virtuella datorn) ännu.
 
 6. Nu kan du avetablera den virtuella datorn och ladda upp den virtuella hård disken i Azure.
 
@@ -439,7 +439,7 @@ Använd [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecr
 Använd `$secretUrl` i nästa steg för att [koppla OS-disken utan att använda KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk krypterings hemlighet krypterad med en KEK
-Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdleten.
+Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](/rest/api/keyvault/wrapkey) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdleten.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

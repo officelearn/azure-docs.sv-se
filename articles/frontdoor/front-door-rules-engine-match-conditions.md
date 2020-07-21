@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Motor matchnings villkor för Azures frontend-dörr
 description: Den här artikeln innehåller en lista över de olika matchnings villkoren som är tillgängliga med motor för Azures front dörrs regler.
 services: frontdoor
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 311914078f8169a3b48b5559ed58a690c29be83a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321988"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512171"
 ---
-# <a name="azure-front-door-rules-engine-match-conditions"></a>Motor matchnings villkor för Azures frontend-dörr
+# <a name="azure-front-door-rules-engine-match-conditions"></a>Matchningsvillkor för Azure Front Door-regelmotorn
 
 En regel i [AFD Rules Engine](front-door-rules-engine.md) består av noll eller flera matchnings villkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av de matchnings villkor som du kan använda i AFD-regel motorn.
 
@@ -186,8 +186,8 @@ Operator | Värde | Skift läges omvandling
 
 Följande operatorer är giltiga för regler som accepterar värden från standard operator listan:
 
-- Alla
-- Är lika med 
+- Valfri
+- Lika med 
 - Innehåller 
 - Börjar med 
 - Slutar med 

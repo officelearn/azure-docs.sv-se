@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e821c650bae7694070624aeebe7fcc3482f7a3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: eafbf102c092b180a1f3c882f5ae626e60b80f30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514619"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Snabb start: skapa SQL Server på en virtuell Windows-dator med Azure PowerShell
 
@@ -147,13 +147,34 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
    > [!TIP]
    > Det tar flera minuter att skapa den virtuella datorn.
 
-## <a name="install-the-sql-iaas-agent"></a>Installera SQL Iaas-agenten
+## <a name="register-with-sql-vm-rp"></a>Registrera med SQL VM RP 
 
-För att få portalintegrering och SQL VM-funktioner måste du installera [tillägget SQL Server IaaS-agent](sql-server-iaas-agent-extension-automate-management.md). När den nya virtuella datorn har skapats kan du installera agenten på den genom att köra följande kommando.
+Om du vill hämta funktioner för Portal integrering och SQL-VM måste du registrera dig hos [resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md).
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+För att få full funktionalitet måste du registrera dig för resurs leverantören i fullständigt läge. Det innebär dock att du startar om den SQL Server tjänsten, så den rekommenderade metoden är att registrera i Lightweight-läge och sedan uppgradera till fullständig under underhålls perioden. 
+
+Registrera först SQL Server VM i Lightweight-läge: 
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType PAYG -SqlManagementType LightWeight
+```
+
+Uppgradera till fullständigt läge under ett underhålls fönster: 
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+      
+# Register with SQL VM resource provider in full mode
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+```
+
+
 
 ## <a name="remote-desktop-into-the-vm"></a>Fjärrskrivbord på den virtuella datorn
 

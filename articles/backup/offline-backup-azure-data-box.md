@@ -3,16 +3,16 @@ title: Säkerhets kopiering offline med hjälp av Azure Data Box
 description: Lär dig hur du kan använda Azure Data Box för att dirigera stora första säkerhets kopierings data offline från MARS-agenten till ett Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160963"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513701"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup offline-säkerhetskopiering med Azure Data Box
 
-Du kan använda [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) för att dirigera dina säkerhets kopieringar av stora inledande Microsoft Azure Recovery Services (mars) offline (utan att använda nätverket) till ett Recovery Services-valv. Den här processen sparar tid och nätverks bandbredd som annars skulle konsumeras för att flytta stora mängder säkerhetskopierade data online över ett nätverk med hög latens. Den här förbättringen är för närvarande en för hands version. Offline-säkerhetskopiering som baseras på Azure Data Box ger två distinkta fördelar jämfört med [offline-säkerhetskopiering baserat på Azure import/export-tjänsten](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
+Du kan använda [Azure Data Box](../databox/data-box-overview.md) för att dirigera dina säkerhets kopieringar av stora inledande Microsoft Azure Recovery Services (mars) offline (utan att använda nätverket) till ett Recovery Services-valv. Den här processen sparar tid och nätverks bandbredd som annars skulle konsumeras för att flytta stora mängder säkerhetskopierade data online över ett nätverk med hög latens. Den här förbättringen är för närvarande en för hands version. Offline-säkerhetskopiering som baseras på Azure Data Box ger två distinkta fördelar jämfört med [offline-säkerhetskopiering baserat på Azure import/export-tjänsten](./backup-azure-backup-import-export.md):
 
 - Du behöver inte skaffa dina egna Azure-kompatibla diskar och anslutningar. Azure Data Box levererar de diskar som är associerade med den valda [data Box-enhet SKU: n](https://azure.microsoft.com/services/databox/data/).
 - Azure Backup (MARS-agent) kan skriva säkerhets kopierings data direkt till de SKU: er som stöds av Azure Data Box. Den här funktionen eliminerar behovet av att etablera en mellanlagringsplats för dina första säkerhets kopierings data. Du behöver inte heller något verktyg för att formatera och kopiera dessa data till diskarna.
@@ -47,8 +47,8 @@ Processen för att dirigera data från MARS-agenten med hjälp av Azure Data Box
 
 | Säkerhets kopierings data storlek (efter MARS) * per server | Azure Data Box SKU som stöds                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <= 7,2 TB                                                    | [Azure Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| >7,2 TB och <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| <= 7,2 TB                                                    | [Azure Data Box disk](../databox/data-box-disk-overview.md) |
+| >7,2 TB och <= 80 TB * *                                      | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 * Vanliga komprimerings hastigheter varierar mellan 10% och 20%. <br>
 * * Om du förväntar dig att ha mer än 80 TB första säkerhets kopierings data för en enskild MARS-server kontaktar du [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
@@ -113,7 +113,7 @@ Azure PowerShell kan också ha installerats med hjälp av en MSI-fil. Ta bort de
 
 ### <a name="order-and-receive-the-data-box-device"></a>Beställ och ta emot den Data Box-enhet enheten
 
-Offline-säkerhetskopiering med MARS och Azure Data Box kräver att Data Box-enhet enheterna är i ett levererat tillstånd innan du aktiverar säkerhets kopiering offline med hjälp av MARS-agenten. För att beställa den lämpligaste SKU: n för ditt krav, se [säkerhets kopierings data storlek och data Box-enhet SKU: er som stöds](#backup-data-size-and-supported-data-box-skus). Följ stegen i [Självstudier: Beställ en Azure Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) för att beställa och ta emot data Box-enhet enheter.
+Offline-säkerhetskopiering med MARS och Azure Data Box kräver att Data Box-enhet enheterna är i ett levererat tillstånd innan du aktiverar säkerhets kopiering offline med hjälp av MARS-agenten. För att beställa den lämpligaste SKU: n för ditt krav, se [säkerhets kopierings data storlek och data Box-enhet SKU: er som stöds](#backup-data-size-and-supported-data-box-skus). Följ stegen i [Självstudier: Beställ en Azure Data Box disk](../databox/data-box-disk-deploy-ordered.md) för att beställa och ta emot data Box-enhet enheter.
 
 > [!IMPORTANT]
 > Välj inte *BlobStorage* för **konto typen**. MARS-agenten kräver ett konto som stöder Page blobbar, vilket inte stöds när *BlobStorage* har valts. Välj **Storage v2 (generell användning v2)** som **konto typ** när du skapar mål lagrings kontot för ditt Azure Data Box-jobb.
@@ -124,7 +124,7 @@ Offline-säkerhetskopiering med MARS och Azure Data Box kräver att Data Box-enh
 
 1. Se till att avinstallera alla tidigare installationer av MARS-agenten.
 1. Ladda ned den senaste MARS-agenten från [den här webbplatsen](https://aka.ms/azurebackup_agent).
-1. Kör *MARSAgentInstaller.exe*och utför *bara* stegen för att [Installera och registrera agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) på det Recovery Services-valv där du vill att dina säkerhets kopior ska lagras.
+1. Kör *MARSAgentInstaller.exe*och utför *bara* stegen för att [Installera och registrera agenten](./install-mars-agent.md#install-and-register-the-agent) på det Recovery Services-valv där du vill att dina säkerhets kopior ska lagras.
 
    > [!NOTE]
    > Recovery Services-valvet måste finnas i samma prenumeration som Azure Data Boxs jobbet.
@@ -137,14 +137,14 @@ Beroende på Azure Data Box SKU: n som du beställde, utför du stegen i lämpli
 
 ### <a name="set-up-azure-data-box-disks"></a>Konfigurera Azure Data Box diskar
 
-Om du har ordnat en eller flera Azure Data Box diskar (upp till 8 TB var och en) följer du stegen som beskrivs här för att [packa upp, ansluta och låsa upp data Box-enhet disken](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+Om du har ordnat en eller flera Azure Data Box diskar (upp till 8 TB var och en) följer du stegen som beskrivs här för att [packa upp, ansluta och låsa upp data Box-enhet disken](../databox/data-box-disk-deploy-set-up.md).
 
 >[!NOTE]
 >Det är möjligt att servern med MARS-agenten inte har någon USB-port. I så fall kan du ansluta Azure Data Box-disken till en annan server eller klient och exponera enhetens rot som en nätverks resurs.
 
 ### <a name="set-up-azure-data-box"></a>Konfigurera Azure Data Box
 
-Om du beställde en Azure Data Box instans (upp till 100 TB) följer du stegen här [för att konfigurera din data Box-enhet-instans](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+Om du beställde en Azure Data Box instans (upp till 100 TB) följer du stegen här [för att konfigurera din data Box-enhet-instans](../databox/data-box-deploy-set-up.md).
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Montera Azure Data Box-instansen som ett lokalt system
 
@@ -160,8 +160,8 @@ För att säkerställa att du kan montera din Data Box-enhet-enhet som ett lokal
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   Kommando fönstret som öppnas som ett resultat av föregående kommando är i det lokala systemets kontext. Använd det här kommando fönstret för att utföra stegen för att montera Azure-sidans BLOB-resurs som en nätverks enhet på Windows Server.
-1. Följ stegen i [Anslut till data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) för att ansluta servern med mars-agenten till data Box-enhet-enheten via NFS. Kör följande kommando i kommando tolken för den lokala datorn för att montera Azure Page blobs-resursen.
+   Kommando fönstret som öppnas på grund av föregående kommando finns i det lokala systemets kontext. Använd det här kommando fönstret för att utföra stegen för att montera Azure-sidans BLOB-resurs som en nätverks enhet på Windows Server.
+1. Följ stegen i [Anslut till data Box-enhet](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) för att ansluta servern med mars-agenten till data Box-enhet-enheten via NFS. Kör följande kommando i kommando tolken för den lokala datorn för att montera Azure Page blobs-resursen.
 
     ```cmd
     mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:  
@@ -238,9 +238,9 @@ När säkerhets kopieringen av data har avslut ATS visas en sida på MARS-agente
 
 I det här avsnittet beskrivs de steg som du vidtar när säkerhets kopieringen av data till Azure Data Box Disk har slutförts.
 
-- Följ stegen i den här artikeln för att [leverera Azure Data Box-disken till Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Om du använde en Azure Data Box 100-TB-enhet följer du stegen nedan för att [leverera Azure Data Box-enheten till Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Följ stegen i den här artikeln för att [leverera Azure Data Box-disken till Azure](../databox/data-box-disk-deploy-picked-up.md). Om du använde en Azure Data Box 100-TB-enhet följer du stegen nedan för att [leverera Azure Data Box-enheten till Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Övervaka data Box-enhet jobb](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) i Azure Portal. När Azure Data Box jobbet är klart flyttar MARS-agenten automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Sedan markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
+- [Övervaka data Box-enhet jobb](../databox/data-box-disk-deploy-upload-verify.md) i Azure Portal. När Azure Data Box jobbet är klart flyttar MARS-agenten automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Sedan markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
 
     >[!NOTE]
     >MARS-agenten utlöser säkerhets kopieringar vid schemalagda tidpunkter när principen skapas. Jobb flaggan "väntar på att Azure Data Box jobb ska slutföras" tills jobbet har slutförts.
@@ -249,7 +249,7 @@ I det här avsnittet beskrivs de steg som du vidtar när säkerhets kopieringen 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Agenten Microsoft Azure Backup (monoklonal) skapar ett Azure Active Directory (Azure AD)-program åt dig i din klient organisation. Det här programmet kräver ett certifikat för autentisering som skapas och laddas upp när du konfigurerar en seeding-princip offline. Vi använder Azure PowerShell för att skapa och ladda upp certifikatet till Azure AD-programmet.
+Microsoft Azure Recovery Services (MARS)-agenten skapar ett Azure Active Directory (Azure AD)-program åt dig i din klient. Det här programmet kräver ett certifikat för autentisering som skapas och laddas upp när du konfigurerar en seeding-princip offline. Vi använder Azure PowerShell för att skapa och ladda upp certifikatet till Azure AD-programmet.
 
 ### <a name="problem"></a>Problem
 

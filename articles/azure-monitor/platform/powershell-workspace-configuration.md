@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: bf94631c821c8a7ba5e2870af0bf1ecfd268e888
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203581"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515452"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Skapa och konfigurera en Log Analytics arbets yta i Azure Monitor med PowerShell
 Den här artikeln innehåller två kod exempel som visar hur du skapar och konfigurerar en Log Analytics arbets yta i Azure Monitor.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> Formatet för **CustomLogRawJson** -parametern som definierar konfigurationen för en anpassad logg kan vara komplext. Använd [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) för att hämta konfigurationen för en befintlig anpassad logg. Egenskapen **Properties** är den konfiguration som krävs för parametern **CustomLogRawJson** .
+> Formatet för **CustomLogRawJson** -parametern som definierar konfigurationen för en anpassad logg kan vara komplext. Använd [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) för att hämta konfigurationen för en befintlig anpassad logg. Egenskapen **Properties** är den konfiguration som krävs för parametern **CustomLogRawJson** .
 
 I exemplet ovan har regexDelimiter definierats som " \\ n" för ny rad. Logg avgränsaren kan också vara en tidsstämpel.  Följande format stöds:
 
@@ -212,14 +212,13 @@ I exemplet ovan har regexDelimiter definierats som " \\ n" för ny rad. Logg avg
 | `yyyy-MM-ddTHH:mm:ss` <br> T är en literal bokstav T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="troubleshooting"></a>Felsökning
-När du skapar en arbets yta som har tagits bort under de senaste 14 dagarna och i [läget för mjuk borttagning](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)kan åtgärden ha olika resultat beroende på konfigurationen för arbets ytan:
+När du skapar en arbets yta som har tagits bort under de senaste 14 dagarna och i [läget för mjuk borttagning](./delete-workspace.md#soft-delete-behavior)kan åtgärden ha olika resultat beroende på konfigurationen för arbets ytan:
 1. Om du anger samma namn på arbets ytan, resurs gruppen, prenumerationen och regionen som i den borttagna arbets ytan återställs din arbets yta, inklusive dess data, konfiguration och anslutna agenter.
 2. Om du använder samma arbets ytans namn, men en annan resurs grupp, prenumeration eller region, får du ett fel meddelande om att arbets ytans namn *är inte unikt*eller *i konflikt*. Om du vill åsidosätta den mjuka borttagningen och permanent ta bort arbets ytan och skapa en ny arbets yta med samma namn, följer du dessa steg för att återställa arbets ytan och utföra permanent borttagning:
-   * [Återställa](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) din arbets yta
-   * [Ta bort](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) arbets ytan permanent
+   * [Återställa](./delete-workspace.md#recover-workspace) din arbets yta
+   * [Ta bort](./delete-workspace.md#permanent-workspace-delete) arbets ytan permanent
    * Skapa en ny arbets yta med samma arbets ytans namn
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Granska Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för ytterligare information om hur du använder PowerShell för att konfigurera Log Analytics.
-
+* [Granska Log Analytics PowerShell-cmdletar](/powershell/module/az.operationalinsights/) för ytterligare information om hur du använder PowerShell för att konfigurera Log Analytics.

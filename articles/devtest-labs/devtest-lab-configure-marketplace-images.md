@@ -3,22 +3,24 @@ title: Konfigurera inställningarna för Azure Marketplace-avbildningar i Azure 
 description: Konfigurera vilka Azure Marketplace-avbildningar som kan användas när du skapar en virtuell dator i Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9fdb4e3a888e876f91b8af2e4854a9c101eea45c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5158ed33bf253db1dbe0eb3232bc43d27ce15e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482725"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512443"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Konfigurera inställningarna för Azure Marketplace-avbildningar i Azure DevTest Labs
-DevTest Labs har stöd för att skapa virtuella datorer baserat på Azure Marketplace-avbildningar beroende på hur du har konfigurerat Azure Marketplace-avbildningar som ska användas i labbet. Den här artikeln visar hur du anger vilka Azure Marketplace-avbildningar som kan användas när du skapar virtuella datorer i ett labb. Detta säkerställer att ditt team bara har åtkomst till de Marketplace-avbildningar som de behöver. 
+DevTest Labs har stöd för att skapa virtuella datorer baserat på Azure Marketplace-avbildningar beroende på hur du har konfigurerat Azure Marketplace-avbildningar som ska användas i labbet. Den här artikeln visar hur du anger vilka Azure Marketplace-avbildningar som kan användas när du skapar virtuella datorer i ett labb. Det garanterar att ditt team bara har åtkomst till de Marketplace-avbildningar som de behöver. 
 
-## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Välj vilka Azure Marketplace-avbildningar som ska tillåtas när du skapar en virtuell dator
+## <a name="specify-allowed-images-for-creating-vms"></a>Ange tillåtna avbildningar för att skapa virtuella datorer
+Följ dessa steg för att ange vilka Azure Marketplace-avbildningar som tillåts när du skapar en virtuell dator. 
+
 1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
-3. I listan med labb väljer du önskat labb. 
-4. På labb bladet väljer du **konfiguration och principer**.
-5. Välj **Marketplace-avbildningar**på bladet **konfiguration och principer** på labbet under **Virtual Machine Bases**.
+3. I listan med labb väljer du ditt labb. 
+4. På Start sidan för labb sidan väljer du **konfiguration och principer**.
+5. På sidan **konfiguration och principer** för labb i de **virtuella dator baserna**väljer du **Marketplace-avbildningar**.
 6. Ange om du vill att alla kvalificerade Azure Marketplace-avbildningar ska vara tillgängliga för användning som bas för en ny virtuell dator. Om du väljer **Ja**tillåts alla Azure Marketplace-avbildningar som uppfyller alla följande kriterier i labbet:
    
    * Avbildningen skapar en enskild virtuell dator **och**
@@ -35,7 +37,15 @@ DevTest Labs har stöd för att skapa virtuella datorer baserat på Azure Market
    
      ![Du kan ange vilka Azure Marketplace-avbildningar som kan användas som bas avbildningar för virtuella datorer](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+## <a name="troubleshoot"></a>Felsöka
+Om du inte kan hitta en avbildning som ska aktive ras för labbet följer du dessa steg: 
+
+- Kontrol lera om du kan se avbildningen när du skapar en virtuell dator för beräkning.
+- Avbildningen kanske inte är tillgänglig i den typ av prenumeration du använder. Kontakta prenumerations administratören för typen av prenumeration (till exempel MSDN, kostnads fri, betala per användning osv.). 
+- Stöd för gen 2-bilder i DevTest Labs är begränsat. Om både gen 1-och generation 2-versioner är tillgängliga för en avbildning, visar DevTest Labs bara generation 1-versionen av avbildningen när du skapar en virtuell dator. Lösning är att skapa en anpassad gen 2-avbildning utanför labbet och använda den för att skapa en virtuell dator. Om det bara finns en version av avbildningen som är tillgänglig, stöds den och visas i listan med DevTest Labs. 
+      
+
 
 ## <a name="next-steps"></a>Nästa steg
 När du har konfigurerat hur Azure Marketplace-avbildningar tillåts när du skapar en virtuell dator är nästa steg att [lägga till en virtuell dator i labbet](devtest-lab-add-vm.md).

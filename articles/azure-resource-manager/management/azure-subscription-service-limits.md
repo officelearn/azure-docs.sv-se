@@ -3,16 +3,15 @@ title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 ms.topic: conceptual
 author: davidsmatlak
-ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffe0703fbbea75b221dfc6fd16f334dcf58e8ab3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515893"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter.
 
@@ -377,6 +376,10 @@ Mer information om Azure Files gränser finns i [Azure Files skalbarhets-och pre
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
 Mer information finns i [storlekar för virtuella datorer](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+#### <a name="disk-encryption-sets"></a>Disk krypterings uppsättningar
+
+Det finns en begränsning på 50 disk krypterings uppsättningar per region, per prenumeration. Mer information finns i krypterings dokumentationen för virtuella [Linux](/azure/virtual-machines/linux/disk-encryption#restrictions) -eller [Windows](/azure/virtual-machines/windows/disk-encryption#restrictions) -datorer. Kontakta Azure-supporten om du behöver öka kvoten.
 
 ### <a name="managed-virtual-machine-disks"></a>Hanterade virtuella dator diskar
 

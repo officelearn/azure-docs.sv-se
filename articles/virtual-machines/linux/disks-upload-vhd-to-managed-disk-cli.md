@@ -8,18 +8,18 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945638"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510454"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region – Azure CLI
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure CLI](/cli/azure/install-azure-cli).
@@ -34,7 +34,7 @@ Om du vill överföra din virtuella hård disk till Azure måste du skapa en tom
 
 Den här typen av hanterade diskar har två unika tillstånd:
 
-- ReadToUpload, vilket innebär att disken är redo att ta emot en uppladdning, men [att ingen säker åtkomst-signatur](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) har genererats.
+- ReadToUpload, vilket innebär att disken är redo att ta emot en uppladdning, men [att ingen säker åtkomst-signatur](../../storage/common/storage-sas-overview.md) (SAS) har genererats.
 - ActiveUpload, vilket innebär att disken är redo att ta emot en uppladdning och att SAS har genererats.
 
 > [!NOTE]
@@ -132,4 +132,3 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har laddat upp en virtuell hård disk till en hanterad disk kan du koppla disken som en [datadisk till en befintlig virtuell dator](add-disk.md) eller [ansluta disken till en virtuell dator som en operativ system disk](upload-vhd.md#create-the-vm)för att skapa en ny virtuell dator. 
-

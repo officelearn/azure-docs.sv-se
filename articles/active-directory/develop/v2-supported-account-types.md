@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583098"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518138"
 ---
 # <a name="supported-account-types"></a>Kontotyper som stöds
 
@@ -45,7 +45,6 @@ Vissa konto typer kan inte användas med vissa autentiseringsscheman. Till exemp
 - Daemon-program kan bara användas med Azure AD-organisationer. Det är inte bra att försöka använda daemon-program för att manipulera Microsoft-personliga konton. Administratörs medgivande kommer aldrig att beviljas.
 - Du kan bara använda det integrerade Windows-autentiseringsschemat med arbets-eller skol konton (i din organisation eller i en organisation). Integrerad Windows-autentisering fungerar med domän konton och kräver att datorerna är domänanslutna eller Azure AD-ansluten. Det här flödet passar inte för personliga Microsoft-konton.
 - [Tilldelningen av lösen ord för resurs ägare](./v2-oauth-ropc.md) (username/Password) kan inte användas med personliga Microsoft-konton. Personliga Microsoft-konton kräver att användaren godkänner åtkomst till personliga resurser vid varje inloggnings session. Det är därför det här beteendet inte är kompatibelt med icke-interaktiva flöden.
-- Enhets kod flödet fungerar inte med personliga Microsoft-konton.
 
 ## <a name="account-types-in-national-clouds"></a>Konto typer i nationella moln
 

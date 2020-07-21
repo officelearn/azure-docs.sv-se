@@ -3,15 +3,19 @@ title: Övervaka en SharePoint-webbplats med Application Insights
 description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221059"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516897"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
+
 Azure Application Insights övervakar dina appars tillgänglighet, prestanda och användning. Här lär du dig att ställa in det för en SharePoint-webbplats.
+
+> [!NOTE]
+> På grund av säkerhets problem kan du inte direkt lägga till skriptet som beskrivs i den här artikeln på dina webb sidor i SharePoint modern UX. Alternativt kan du använda [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) för att bygga ett anpassat tillägg som du kan använda för att installera Application Insights på dina SharePoint-webbplatser. Mer information finns i [så här skapar du en lösning för SPFx-tillägg med AppInsights installerat från början](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) eller [visar exemplet](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample). 
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 Skapa en ny Application Insights-resurs på [Azure Portal](https://portal.azure.com). Välj ASP.NET som programtypen.
@@ -137,5 +141,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) för andra typer av appar.
 
 <!--Link references-->
-
-

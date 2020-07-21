@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 078ed3e5f3a19bfa4350f9edea858b717c69e3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aea3a173fd07b66021d35142a84499ae9c66c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537159"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518206"
 ---
 # <a name="a-web-api-that-calls-web-apis-move-to-production"></a>Ett webb-API som anropar webb-API: er: flytta till produktion
 
@@ -29,4 +30,4 @@ Nu när du vet grunderna för hur du anropar webb-API: er från ditt eget webb-A
 
 | Exempel | Plattform | Beskrivning |
 |--------|----------|-------------|
-| [Active-Directory-aspnetcore-WebAPI-självstudie-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2,2 webb-API, Desktop (WPF) | ASP.NET Core 2,2 webb-API-anrop Microsoft Graph, som du anropar från ett WPF-program med hjälp av Microsoft Identity Platform (v 2.0). |
+| [Active-Directory-aspnetcore-WebAPI-självstudie-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) kapitel 1 | ASP.NET Core webb-API, Desktop (WPF) | ASP.NET Core Web API-anrop Microsoft Graph som du anropar från ett WPF-program med hjälp av Microsoft Identity Platform (v 2.0). |

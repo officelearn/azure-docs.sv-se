@@ -22,7 +22,7 @@ Det här avsnittet visar hur du skapar ett exempel program som använder Java oc
 
 JDBC är standard Java-API: et för att ansluta till traditionella Relations databaser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.

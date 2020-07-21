@@ -4,11 +4,12 @@ description: Application Insights data modell för telemetri av mått
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671978"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540017"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Mått telemetri: Application Insights data modell
 
@@ -23,7 +24,7 @@ Mått som representerar system-och process räknare:
 | **.NET-namn**             | **Plattformens oberoende namn** | **REST API namn** | **Beskrivning**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Pågående arbete... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | Total maskin-CPU
-| `\Memory\Available Bytes`                 | Pågående arbete... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Visar mängden fysiskt minne, i byte, som är tillgängligt för processer som körs på datorn. Det beräknas genom att summan av utrymmet på minnes listorna nollställs, fri och standby används. Ledigt minne är klart att använda. nollställt minne består av sidor med minne som är fyllda med nollor för att förhindra senare processer från att se data som används i en tidigare process. standby-minne är minne som har tagits bort från en processs aktiva sidmängd (dess fysiska minne) en väg till disk, men är fortfarande tillgängligt för att återkallas. Se [minnes objekt](https://msdn.microsoft.com/library/ms804008.aspx)
+| `\Memory\Available Bytes`                 | Pågående arbete... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Visar mängden fysiskt minne, i byte, som är tillgängligt för processer som körs på datorn. Det beräknas genom att summan av utrymmet på minnes listorna nollställs, fri och standby används. Ledigt minne är klart att använda. nollställt minne består av sidor med minne som är fyllda med nollor för att förhindra senare processer från att se data som används i en tidigare process. standby-minne är minne som har tagits bort från en processs aktiva sidmängd (dess fysiska minne) en väg till disk, men är fortfarande tillgängligt för att återkallas. Se [minnes objekt](/previous-versions/ms804008(v=msdn.10))
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Pågående arbete... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU för processen som är värd för programmet
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Pågående arbete... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | minne som används av processen som är värd för programmet
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Pågående arbete... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | antalet I/O-åtgärder som körs genom processen som är värd för programmet
@@ -40,7 +41,7 @@ Namnet på det mått som du vill se i Application Insights Portal och användar 
 
 Enskilt värde för mått. Summan av enskilda mått för aggregation.
 
-## <a name="count"></a>Antal
+## <a name="count"></a>Count
 
 Mått vikt för det aggregerade måttet. Ska inte anges för ett mått.
 

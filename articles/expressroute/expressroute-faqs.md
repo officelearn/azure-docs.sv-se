@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8309c98e9ae45650f65fcd54676cc7655934039d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987310"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537130"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -110,7 +111,7 @@ Microsoft kontrollerar om de angivna annonserade offentliga prefixen och peer-AS
 
 Om du ser meddelandet "validering krävs" samlar du in dokumenten som visar att de offentliga prefixen har tilldelats till din organisation av den entitet som anges som ägare till prefixen i routningstabellen och skickar dessa dokument för manuell verifiering genom att öppna ett support ärende som visas nedan.
 
-![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+![Skärm bild som visar en ny supportbegäran (support ärende) för "bevis på ägarskap för offentliga prefix".](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Stöds Dynamics 365 på ExpressRoute?
 
@@ -175,7 +176,7 @@ Se ytterligare information [här](https://docs.microsoft.com/azure/expressroute/
 
 Om din tjänst leverantör kan upprätta två virtuella Ethernet-kretsar över den fysiska anslutningen behöver du bara en fysisk anslutning. Den fysiska anslutningen (t. ex. en optisk fiber) avslutas på en Layer 1-enhet (se bilden). De två virtuella Ethernet-kretsarna är taggade med olika VLAN-ID: n, ett för den primära kretsen och en för den sekundära. Dessa VLAN-ID: n finns i det yttre 802.1 Q Ethernet-huvudet. Det inre 802.1 Q Ethernet-huvudet (visas inte) mappas till en speciell [ExpressRoute-routningsdomän](expressroute-circuit-peerings.md).
 
-![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
+![Diagram som markerar de primära och sekundära virtuella kretsarna för Layer 1 (L1) som utgör den fysiska anslutningen mellan växlarna på en kunds webbplats och en ExpressRoute plats.](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Kan jag utöka ett av mina VLAN till Azure med ExpressRoute?
 

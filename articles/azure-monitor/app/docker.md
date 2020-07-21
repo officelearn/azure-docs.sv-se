@@ -3,16 +3,17 @@ title: Övervaka Docker-program i Azure Application Insights | Microsoft Docs
 description: Docker perf-räknare, händelser och undantag kan visas på Application Insights, tillsammans med telemetri från appar i behållare.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6af39db68c2020e578fe6fbd39870b2e00a16e07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539932"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Övervaka Docker-program i Application Insights (inaktuell)
 
 > [!NOTE]
-> Den här lösningen är föråldrad. Om du vill veta mer om våra aktuella investeringar i behållar övervakning rekommenderar vi att du checkar ut [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+> Den här lösningen är föråldrad. Om du vill veta mer om våra aktuella investeringar i behållar övervakning rekommenderar vi att du checkar ut [Azure Monitor för behållare](../insights/container-insights-overview.md).
 
 Livs cykel händelser och prestanda räknare från [Docker](https://www.docker.com/) -behållare kan visas i diagram på Application Insights. Installera [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) avbildningen i en behållare på värden och visar prestanda räknare för värden, samt för de andra avbildningarna.
 

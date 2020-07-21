@@ -4,12 +4,12 @@ description: Översikt över Smart kontrakts integrerings mönster i Azure block
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254641"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538385"
 ---
 # <a name="smart-contract-integration-patterns"></a>Integreringsmönster för smart kontrakt
 
@@ -134,7 +134,7 @@ Det här mönstret implementeras vanligt vis med hjälp av följande metod:
 -   Ändringen av tillstånd visas som en händelse för en underordnad konsument.
 -   Den efterföljande konsumenten tar emot händelsen och utlöser extern kod körning.
 
-![Över gångs kontroll till extern process](./media/integration-patterns/transition-external-process.png)
+![Diagrammet visar en tillstånds ändring i kontraktet som orsakar en händelse att gå till distribuerad redovisning. Blockchain Workbench hämtar sedan händelsen och publicerar den.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>Retur av kontroll från det smarta kontraktet
 
@@ -142,7 +142,7 @@ Beroende på möjligheten att anpassa det externa systemet kan det hända att de
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Direkt leverans av ett Azure blockchain Workbench i förväntat format
 
-![](./media/integration-patterns/direct-delivery.png)
+![Diagrammet visar ett P I-meddelande från det externa systemet som hämtas av blockchain Workbench via Service Bus. Blockchain Workbench skickar sedan ett meddelande som en transaktion till distribuerad redovisning för agentens räkning. Den skickas till kontraktet, där den orsakar en tillstånds ändring.](./media/integration-patterns/direct-delivery.png)
 
 I den här modellen sker kommunikationen med kontraktet och efterföljande tillstånds ändringar efter föregående process där-
 

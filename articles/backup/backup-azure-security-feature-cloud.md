@@ -3,17 +3,18 @@ title: Mjuk borttagning för Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116405"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538844"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Mjuk borttagning för Azure Backup
 
 Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara och intrång, ökar. De här säkerhets problemen kan vara dyra, i termer av både Money och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda säkerhets kopierings data även efter borttagning.
 
-En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagars kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden.
+En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagarna för kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden.
 
 Mjuk borttagnings skydd är tillgängligt för dessa tjänster:
 
@@ -28,7 +29,7 @@ Det här Flow-diagrammet visar de olika stegen och tillstånden för ett säkerh
 
 Mjuk borttagning är aktiverat som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar.  Du bör inte inaktivera den här funktionen. Den enda omständigheterna där du bör inaktivera mjuk borttagning är om du planerar att flytta dina skyddade objekt till ett nytt valv, och det kan inte vänta 14 dagar innan du tar bort och återskyddar (till exempel i en test miljö). Endast valvets ägare kan inaktivera den här funktionen. Om du inaktiverar den här funktionen kommer alla framtida borttagningar av skyddade objekt att leda till omedelbar borttagning, utan möjlighet att återställa. Säkerhets kopierings data som finns i läget Soft Deleted, innan funktionen inaktive ras, förblir i tyst borttaget läge under perioden 14 dagar. Om du vill ta bort dessa omedelbart permanent måste du ångra borttagningen och ta bort dem igen för att ta bort dem permanent.
 
- Det är viktigt att komma ihåg att när mjuk borttagning har inaktiverats är funktionen inaktive rad för alla typer av arbets belastningar, inklusive SQL Server och SAP HANA arbets belastningar. När [SQL Server/SAP HANA för hands versionen](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) har Aktiver ATS för en prenumeration går det till exempel inte att inaktivera mjuk borttagning enbart för SQL Server-eller SAP HANA-databaser samtidigt som den är aktive rad för virtuella datorer i samma valv. Du kan skapa separata valv för detaljerad kontroll.
+ Det är viktigt att komma ihåg att när mjuk borttagning har inaktiverats är funktionen inaktive rad för alla typer av arbets belastningar, inklusive SQL Server och SAP HANA arbets belastningar. När [SQL Server/SAP HANA för hands versionen](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) har Aktiver ATS för en prenumeration går det till exempel inte att inaktivera mjuk borttagning enbart för SQL Server-eller SAP HANA-databaser samtidigt som den är aktive rad för virtuella datorer i samma valv. Du kan skapa separata valv för detaljerad kontroll.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Inaktivera mjuk borttagning med Azure Portal
 
@@ -45,7 +46,7 @@ Följ dessa steg om du vill inaktivera mjuk borttagning:
 > [!IMPORTANT]
 > AZ. RecoveryServices-versionen som krävs för att använda mjuk borttagning med Azure PS är min 2.2.0. Använd ```Install-Module -Name Az.RecoveryServices -Force``` för att hämta den senaste versionen.
 
-Om du vill inaktivera använder du cmdleten [set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS.
+Om du vill inaktivera använder du cmdleten [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -68,7 +69,7 @@ Säkerhets kopierings data i läget Soft Deleted tidigare inaktive ring av den h
 
 ### <a name="using-azure-portal"></a>Använda Azure Portal
 
-Följ de här stegen:
+Gör så här:
 
 1. Följ stegen för att [inaktivera mjuk borttagning](#enabling-and-disabling-soft-delete).
 
@@ -86,11 +87,11 @@ Följ de här stegen:
 
 5. Välj **ta bort säkerhetskopierade data** om du vill ta bort säkerhetskopierade data permanent.
 
-   ![Välj Ta bort säkerhets kopierings data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Välj Ta bort säkerhets kopierings data](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Ange namnet på det säkerhetskopierade objektet för att bekräfta att du vill ta bort återställnings punkterna.
 
-   ![Ange namnet på det säkerhetskopierade objektet](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Ange namnet på det säkerhetskopierade objektet](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Om du vill ta bort säkerhetskopierade data för objektet väljer du **ta bort**. Ett meddelande visas där du vet att säkerhets kopierings data har tagits bort.
 

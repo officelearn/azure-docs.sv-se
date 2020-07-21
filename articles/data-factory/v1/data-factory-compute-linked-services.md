@@ -1,5 +1,5 @@
 ---
-title: Beräknings miljöer som stöds av Azure Data Factory
+title: Beräknings miljöer som stöds av Azure Data Factory version 1
 description: Lär dig mer om beräknings miljöer som du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) för att transformera eller bearbeta data.
 services: data-factory
 documentationcenter: ''
@@ -11,13 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022018"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537572"
 ---
-# <a name="compute-environments-supported-by-azure-data-factory"></a>Beräknings miljöer som stöds av Azure Data Factory
+# <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Beräknings miljöer som stöds av Azure Data Factory version 1
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av Data Factorys tjänsten, se [Compute-länkade tjänster i](../compute-linked-services.md).
 
@@ -118,16 +119,16 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 > 
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap                     | Beskrivning                              | Obligatorisk |
+| Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Ange egenskapen type till **HDInsightOnDemand**. | Ja      |
 | clusterSize                  | Antalet arbets uppgifter och datanoder i klustret. HDInsight-klustret skapas med två huvudnoder, förutom antalet arbets noder som du anger för den här egenskapen. Noderna har storlek Standard_D3, som har 4 kärnor. Ett kluster med fyra arbets noder tar 24 kärnor (4 \* 4 = 16 kärnor för arbetsnoder, plus 2 \* 4 = 8 kärnor för Head-noder). Mer information om Standard_D3 nivån finns i [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
 | timeToLive                   | Den tillåtna inaktiva tiden för HDInsight-klustret på begäran. Anger hur länge HDInsight-klustret på begäran förblir aktivt när en aktivitets körning är färdig, om det inte finns några andra aktiva jobb i klustret.<br /><br />Om en aktivitets körning till exempel tar 6 minuter och **TimeToLive** har angetts till 5 minuter förblir klustret aktiv i 5 minuter efter 6 minuters bearbetning av aktivitets körningen. Om en annan aktivitet körs i fönstret 6 minuter bearbetas den av samma kluster.<br /><br />Att skapa ett HDInsight-kluster på begäran är en dyr åtgärd (det kan ta en stund). Använd den här inställningen vid behov för att förbättra prestandan för en data fabrik genom att återanvända ett HDInsight-kluster på begäran.<br /><br />Om du ställer in värdet för **TimeToLive** på **0**, tas klustret bort så snart aktiviteten körs klart. Men om du anger ett högt värde kan klustret vara inaktivt, vilket leder till höga kostnader. Det är viktigt att ange rätt värde utifrån dina behov.<br /><br />Om **TimeToLive** -värdet har angetts korrekt kan flera pipelines dela instansen av HDInsight-klustret på begäran. | Ja      |
-| version                      | Versionen av HDInsight-klustret. För tillåtna HDInsight-versioner, se [HDInsight-versioner som stöds](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Om det här värdet inte anges används den [senaste HDI standard versionen](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) . | No       |
+| version                      | Versionen av HDInsight-klustret. För tillåtna HDInsight-versioner, se [HDInsight-versioner som stöds](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Om det här värdet inte anges används den [senaste HDI standard versionen](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) . | Nej       |
 | linkedServiceName            | Den Azure Storage länkade tjänsten som ska användas av klustret på begäran för att lagra och bearbeta data. HDInsight-klustret skapas i samma region som det här lagrings kontot.<p>För närvarande kan du inte skapa ett HDInsight-kluster på begäran som använder Azure Data Lake Store som lagrings plats. Om du vill lagra resultat data från HDInsight-bearbetning i Data Lake Store använder du kopierings aktivitet för att kopiera data från Blob Storage till Data Lake Store. </p> | Ja      |
-| additionalLinkedServiceNames | Anger ytterligare lagrings konton för den länkade HDInsight-tjänsten. Data Factory registrerar lagrings kontona för din räkning. Dessa lagrings konton måste finnas i samma region som HDInsight-klustret. HDInsight-klustret skapas i samma region som det lagrings konto som anges av egenskapen **linkedServiceName** . | No       |
-| osType                       | Typ av operativ system. Tillåtna värden är **Linux** och **Windows**. Om det här värdet inte anges används **Linux** .  <br /><br />Vi rekommenderar starkt att du använder Linux-baserade HDInsight-kluster. Indragnings datumet för HDInsight i Windows är den 31 juli 2018. | No       |
-| hcatalogLinkedServiceName    | Namnet på den länkade Azure SQL-tjänsten som pekar på HCatalog-databasen. HDInsight-klustret på begäran skapas med hjälp av SQL-databasen som metaarkiv. | No       |
+| additionalLinkedServiceNames | Anger ytterligare lagrings konton för den länkade HDInsight-tjänsten. Data Factory registrerar lagrings kontona för din räkning. Dessa lagrings konton måste finnas i samma region som HDInsight-klustret. HDInsight-klustret skapas i samma region som det lagrings konto som anges av egenskapen **linkedServiceName** . | Nej       |
+| osType                       | Typ av operativ system. Tillåtna värden är **Linux** och **Windows**. Om det här värdet inte anges används **Linux** .  <br /><br />Vi rekommenderar starkt att du använder Linux-baserade HDInsight-kluster. Indragnings datumet för HDInsight i Windows är den 31 juli 2018. | Nej       |
+| hcatalogLinkedServiceName    | Namnet på den länkade Azure SQL-tjänsten som pekar på HCatalog-databasen. HDInsight-klustret på begäran skapas med hjälp av SQL-databasen som metaarkiv. | Nej       |
 
 #### <a name="example-linkedservicenames-json"></a>Exempel: LinkedServiceNames JSON
 
@@ -141,16 +142,16 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 För detaljerad konfiguration av HDInsight-klustret på begäran kan du ange följande egenskaper:
 
-| Egenskap               | Beskrivning                              | Obligatorisk |
+| Egenskap               | Beskrivning                              | Krävs |
 | :--------------------- | :--------------------------------------- | :------- |
-| coreConfiguration      | Anger kärn konfigurations parametrar (core-site.xml) för HDInsight-klustret som ska skapas. | No       |
-| hBaseConfiguration     | Anger konfigurations parametrar för HBase (hbase-site.xml) för HDInsight-klustret. | No       |
-| hdfsConfiguration      | Anger konfigurations parametrar för HDFS (hdfs-site.xml) för HDInsight-klustret. | No       |
-| hiveConfiguration      | Anger Hive-konfigurations parametrar (hive-site.xml) för HDInsight-klustret. | No       |
-| mapReduceConfiguration | Anger konfigurations parametrar för MapReduce (mapred-site.xml) för HDInsight-klustret. | No       |
-| oozieConfiguration     | Anger konfigurations parametrar för Oozie (oozie-site.xml) för HDInsight-klustret. | No       |
-| stormConfiguration     | Anger Storm-konfigurations parametrar (storm-site.xml) för HDInsight-klustret. | No       |
-| yarnConfiguration      | Anger konfigurations parametrar för garn (yarn-site.xml) för HDInsight-klustret. | No       |
+| coreConfiguration      | Anger kärn konfigurations parametrar (core-site.xml) för HDInsight-klustret som ska skapas. | Nej       |
+| hBaseConfiguration     | Anger konfigurations parametrar för HBase (hbase-site.xml) för HDInsight-klustret. | Nej       |
+| hdfsConfiguration      | Anger konfigurations parametrar för HDFS (hdfs-site.xml) för HDInsight-klustret. | Nej       |
+| hiveConfiguration      | Anger Hive-konfigurations parametrar (hive-site.xml) för HDInsight-klustret. | Nej       |
+| mapReduceConfiguration | Anger konfigurations parametrar för MapReduce (mapred-site.xml) för HDInsight-klustret. | Nej       |
+| oozieConfiguration     | Anger konfigurations parametrar för Oozie (oozie-site.xml) för HDInsight-klustret. | Nej       |
+| stormConfiguration     | Anger Storm-konfigurations parametrar (storm-site.xml) för HDInsight-klustret. | Nej       |
+| yarnConfiguration      | Anger konfigurations parametrar för garn (yarn-site.xml) för HDInsight-klustret. | Nej       |
 
 #### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Exempel: konfiguration av HDInsight-kluster på begäran med avancerade egenskaper
 
@@ -194,11 +195,11 @@ För detaljerad konfiguration av HDInsight-klustret på begäran kan du ange fö
 ### <a name="node-sizes"></a>Node-storlekar
 Om du vill ange storleken på huvud-, data-och ZooKeeper-noderna använder du följande egenskaper: 
 
-| Egenskap          | Beskrivning                              | Obligatorisk |
+| Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | Anger storleken på Head-noden. Standardvärdet är **Standard_D3**. Mer information finns i [Ange Node-storlekar](#specify-node-sizes). | No       |
-| dataNodeSize      | Anger data nodens storlek. Standardvärdet är **Standard_D3**. | No       |
-| zookeeperNodeSize | Anger storleken på ZooKeeper-noden. Standardvärdet är **Standard_D3**. | No       |
+| headNodeSize      | Anger storleken på Head-noden. Standardvärdet är **Standard_D3**. Mer information finns i [Ange Node-storlekar](#specify-node-sizes). | Nej       |
+| dataNodeSize      | Anger data nodens storlek. Standardvärdet är **Standard_D3**. | Nej       |
+| zookeeperNodeSize | Anger storleken på ZooKeeper-noden. Standardvärdet är **Standard_D3**. | Nej       |
 
 #### <a name="specify-node-sizes"></a>Ange Node-storlekar
 För sträng värden som du måste ange för egenskaperna som beskrivs i föregående avsnitt, se [storlekar för virtuella datorer](../../virtual-machines/linux/sizes.md). Värdena måste följa de cmdletar och API: er som refereras till i [virtuella dator storlekar](../../virtual-machines/linux/sizes.md). Storleken på den stora (standard) datanoden har 7 GB minne. Detta kanske inte räcker för ditt scenario. 
@@ -254,7 +255,7 @@ Du kan skapa en länkad HDInsight-tjänst för att registrera ditt eget HDInsigh
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap          | Beskrivning                              | Obligatorisk |
+| Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Ange egenskapen type till **HDInsight**. | Ja      |
 | clusterUri        | URI för HDInsight-klustret.        | Ja      |
@@ -288,13 +289,13 @@ Om du är nybörjare på att använda batch-tjänsten:
 }
 ```
 
-För egenskapen **accountName** lägger du till **. \<region name\> ** till namnet på ditt batch-konto. Ett exempel:
+För egenskapen **accountName** lägger du till **. \<region name\> ** till namnet på ditt batch-konto. Till exempel:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Ett annat alternativ är att tillhandahålla **batchUri** -slutpunkten. Ett exempel:
+Ett annat alternativ är att tillhandahålla **batchUri** -slutpunkten. Till exempel:
 
 ```json
 "accountName": "adfteam",
@@ -302,7 +303,7 @@ Ett annat alternativ är att tillhandahålla **batchUri** -slutpunkten. Ett exem
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap          | Beskrivning                              | Obligatorisk |
+| Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Ange egenskapen type till **AzureBatch**. | Ja      |
 | accountName       | Namnet på batch-kontot.         | Ja      |
@@ -340,13 +341,13 @@ Du kan skapa en Data Lake Analytics länkad tjänst för att länka en Data Lake
 
 I följande tabell beskrivs de allmänna egenskaper som används i JSON-definitionen:
 
-| Egenskap                 | Beskrivning                              | Obligatorisk                                 |
+| Egenskap                 | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | typ                 | Ange egenskapen type till **AzureDataLakeAnalytics**. | Ja                                      |
 | accountName          | Namnet på Data Lake Analyticss kontot.  | Ja                                      |
-| dataLakeAnalyticsUri | Data Lake Analytics-URI.           | No                                       |
-| subscriptionId       | ID för Azure-prenumerationen.                    | No<br /><br />(Om det inte anges används Data Factory-prenumerationen.) |
-| resourceGroupName    | Namnet på Azure-resurs gruppen.                | No<br /><br /> (Om den inte anges används data fabriks resurs gruppen.) |
+| dataLakeAnalyticsUri | Data Lake Analytics-URI.           | Nej                                       |
+| subscriptionId       | ID för Azure-prenumerationen.                    | Nej<br /><br />(Om det inte anges används Data Factory-prenumerationen.) |
+| resourceGroupName    | Namnet på Azure-resurs gruppen.                | Nej<br /><br /> (Om den inte anges används data fabriks resurs gruppen.) |
 
 ### <a name="authentication-options"></a>Autentiseringsalternativ
 Du kan välja mellan autentisering med hjälp av ett huvud namn för tjänsten eller en användares autentiseringsuppgifter för den länkade tjänsten Data Lake Analytics.
@@ -359,7 +360,7 @@ Om du vill använda tjänstens huvud namns autentisering registrerar du en progr
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
 
-| Egenskap                | Beskrivning                              | Obligatorisk |
+| Egenskap                | Beskrivning                              | Krävs |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | Programmets klient-ID.     | Ja      |
 | servicePrincipalKey | Programmets nyckel.           | Ja      |
@@ -387,7 +388,7 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 #### <a name="user-credential-authentication"></a>Autentisering av autentiseringsuppgifter för användare
 Ange följande egenskaper för autentisering av användar referenser för Data Lake Analytics:
 
-| Egenskap          | Beskrivning                              | Obligatorisk |
+| Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | auktorisering | I Data Factory redigeraren väljer du knappen **auktorisera** . Ange autentiseringsuppgifterna som tilldelar den automatiskt genererade auktoriserings-URL: en till den här egenskapen. | Ja      |
 | sessionId     | OAuth-sessions-ID från OAuth-auktoriseringsbegäran. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory redigeraren. | Ja      |

@@ -8,12 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 34d2ba05b00ab92066bc7fa3ccd0b7b2aa59e15c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669645"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539218"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funktioner som stöds i Azure SQL Edge (för hands version) 
 
@@ -35,15 +36,17 @@ Azure SQL Edge är tillgängligt med två olika utgåvor eller program varu plan
 
 ## <a name="operating-system"></a>Operativsystem
 
-Azure SQL Edge-behållare är för närvarande baserade på Ubuntu 16,04 och det finns bara stöd för att köra på Docker-värdar som kör antingen Ubuntu 16,04 (rekommenderas) eller Ubuntu 18,04. Azure SQL Edge kan också köras på andra operativ system värdar. Den kan till exempel köras på andra distributioner av Linux eller Windows (med hjälp av Docker CE eller Docker EE). Observera dock att Microsoft inte har testat de här konfigurationerna.
+Azure SQL Edge-behållare är för närvarande baserade på Ubuntu 16,04 och det finns bara stöd för att köra på Docker-värdar som kör antingen Ubuntu 16,04 LTS (rekommenderas) eller Ubuntu 18,04 LTS. Det är möjligt att köra Azure SQL Edge-behållare på andra operativ system värdar, till exempel kan köras på andra distributioner av Linux eller Windows (med Docker CE eller Docker EE), men Microsoft rekommenderar inte att du gör detta, eftersom den här konfigurationen inte kan testas grundligt.
 
 Azure SQL Edge stöds för närvarande bara för distribution via Azure IoT Edge. Mer information finns i [Azure IoT Edge system som stöds](https://docs.microsoft.com/azure/iot-edge/support).
 
 Den rekommenderade konfigurationen för att köra Azure SQL Edge i Windows är att konfigurera en virtuell Ubuntu-dator på Windows-värden och sedan köra Azure SQL Edge i den virtuella Linux-datorn.
 
-## <a name="hardware-support"></a>Maskin varu support
+Det rekommenderade och fil system som stöds för Azure SQL Edge är EXT4 och XFS. Om beständiga volymer används för att återställa lagringen i Azure SQL Edge-databasen måste det underliggande värd fil systemet vara EXT4 och XFS.
 
-Azure SQL Edge kräver en 64-bitars processor, som kan vara från Intel, AMD eller ARM, med minst en processor och en GB RAM-minne på värden. Även om start minnes utrymmet för Azure SQL Edge är nära 500 MB krävs ytterligare minne för andra IoT Edge moduler som körs på gräns enheten.
+## <a name="hardware-support"></a>Maskinvarustöd
+
+Azure SQL Edge kräver en 64-bitars processor (antingen x64 eller ARM64), med minst en processor och ett GB RAM-minne på värden. Även om start minnes utrymmet för Azure SQL Edge är nära 500 MB krävs ytterligare minne för andra IoT Edge moduler som körs på gräns enheten. De faktiska minnes-och processor kraven för Azure SQL Edge varierar beroende på komplexiteten för arbets belastningen och mängden data som bearbetas. När du väljer maskin vara för din lösning rekommenderar Microsoft att du kör omfattande prestandatester för att säkerställa att de nödvändiga prestanda egenskaperna för din lösning är uppfyllda.  
 
 ## <a name="azure-sql-edge-components"></a>Azure SQL Edge-komponenter
 

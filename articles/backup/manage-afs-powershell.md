@@ -3,11 +3,12 @@ title: Hantera säkerhets kopior av Azure-filresurser med PowerShell
 description: Lär dig hur du använder PowerShell för att hantera och övervaka Azure-filresurser som har säkerhetskopierats av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ee5fb92e4a66a9d6db66514f966c3650d3a4f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538601"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Hantera säkerhets kopior av Azure-filresurser med PowerShell
 
@@ -18,7 +19,7 @@ Den här artikeln beskriver hur du använder Azure PowerShell för att hantera o
 
 ## <a name="modify-the-protection-policy"></a>Ändra skydds principen
 
-Om du vill ändra principen som används för att säkerhetskopiera Azure-filresursen använder du [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Ange relevant säkerhets kopierings objekt och den nya säkerhets kopierings principen.
+Om du vill ändra principen som används för att säkerhetskopiera Azure-filresursen använder du [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Ange relevant säkerhets kopierings objekt och den nya säkerhets kopierings principen.
 
 I följande exempel ändras skydds principen för **testAzureFS** från **dailyafs** till **monthlyafs**.
 
@@ -31,7 +32,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 
 ## <a name="track-backup-and-restore-jobs"></a>Spåra säkerhets kopierings-och återställnings jobb
 
-Säkerhets kopierings-och återställnings åtgärder på begäran returnerar ett jobb tillsammans med ett ID, som visas när du [kör en säkerhets kopiering på begäran](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Använd cmdleten [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) för att spåra jobb förlopp och information.
+Säkerhets kopierings-och återställnings åtgärder på begäran returnerar ett jobb tillsammans med ett ID, som visas när du [kör en säkerhets kopiering på begäran](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Använd cmdleten [Get-AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) för att spåra jobb förlopp och information.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -70,7 +71,7 @@ Det kan finnas en kostnad för att lämna återställnings punkterna i lagret, e
 
 ## <a name="stop-protection-and-retain-recovery-points"></a>Stoppa skyddet och behåll återställnings punkter
 
-Använd cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) för att stoppa skyddet när du behåller data.
+Använd cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) för att stoppa skyddet när du behåller data.
 
 I följande exempel slutar skydd för *afsfileshare* -filresursen men behåller alla återställnings punkter:
 
@@ -86,11 +87,11 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-Jobb-ID-attributet i utdata motsvarar jobb-ID: t för jobbet som skapas av säkerhets kopierings tjänsten för åtgärden "stoppa skydd". Använd cmdleten [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0) för att spåra jobbets status.
+Jobb-ID-attributet i utdata motsvarar jobb-ID: t för jobbet som skapas av säkerhets kopierings tjänsten för åtgärden "stoppa skydd". Använd cmdleten [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) för att spåra jobbets status.
 
 ## <a name="stop-protection-without-retaining-recovery-points"></a>Stoppa skyddet utan att behålla återställnings punkter
 
-Om du vill stoppa skyddet utan att behålla återställnings punkter använder du cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) och lägger till parametern **-RemoveRecoveryPoints** .
+Om du vill stoppa skyddet utan att behålla återställnings punkter använder du cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) och lägger till parametern **-RemoveRecoveryPoints** .
 
 I följande exempel stoppas skyddet för *afsfileshare* -filresursen utan att återställnings punkterna bevaras:
 

@@ -3,11 +3,12 @@ title: Återställa Azure Files med PowerShell
 description: I den här artikeln får du lära dig hur du återställer Azure Files med hjälp av Azure Backup-tjänsten och PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 63c318b66ec8f876a260b3c5b8db38bb088fb862
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23de6e1e352a1b72d1435fc65d6a59ab37d838b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201964"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538555"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Återställa Azure Files med PowerShell
 
@@ -23,7 +24,7 @@ Du kan återställa en hel fil resurs eller vissa filer på resursen. Du kan åt
 
 ## <a name="fetch-recovery-points"></a>Hämta återställnings punkter
 
-Använd [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) för att visa en lista över alla återställnings punkter för det säkerhetskopierade objektet.
+Använd [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) för att visa en lista över alla återställnings punkter för det säkerhetskopierade objektet.
 
 I följande skript:
 
@@ -62,7 +63,7 @@ När du har valt den relevanta återställnings punkten återställer du fil res
 
 ## <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Återställa en Azure-filresurs till en annan plats
 
-Använd [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange följande parametrar för att identifiera den alternativa platsen:
+Använd [restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) för att återställa till den valda återställnings punkten. Ange följande parametrar för att identifiera den alternativa platsen:
 
 * **TargetStorageAccountName**: det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
 * **TargetFileShareName**: de fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
@@ -85,7 +86,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ## <a name="restore-an-azure-file-to-an-alternate-location"></a>Återställa en Azure-fil till en annan plats
 
-Använd [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange de här parametrarna för att identifiera den alternativa platsen och för att unikt identifiera den fil som du vill återställa.
+Använd [restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) för att återställa till den valda återställnings punkten. Ange de här parametrarna för att identifiera den alternativa platsen och för att unikt identifiera den fil som du vill återställa.
 
 * **TargetStorageAccountName**: det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
 * **TargetFileShareName**: de fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
@@ -120,7 +121,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File 
 
 ## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Återställa flera filer eller mappar till en ursprunglig eller alternativ plats
 
-Använd kommandot [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) genom att skicka sökvägen till alla filer eller mappar som du vill återställa som ett värde för parametern **MultipleSourceFilePath** .
+Använd kommandot [restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) genom att skicka sökvägen till alla filer eller mappar som du vill återställa som ett värde för parametern **MultipleSourceFilePath** .
 
 ### <a name="restore-multiple-files"></a>Återställa flera filer
 

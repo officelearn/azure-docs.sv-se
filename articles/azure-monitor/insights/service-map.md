@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203134"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539779"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda lösningen Tjänstkarta i Azure
 
@@ -241,7 +241,7 @@ Tjänstkarta integreras med loggs ökningen för att visa antalet tillgängliga 
 
 ## <a name="service-desk-integration"></a>Service Desk-integrering
 
-Tjänstkarta integration med Anslutningsprogram för hantering av IT-tjänster (ITSM) sker automatiskt när båda lösningarna är aktiverade och konfigurerade i din Log Analytics-arbetsyta. Integrationen i Tjänstkarta är märkt med "Service Desk". Mer information finns i [Central hantering av ITSM arbets objekt med hjälp av anslutningsprogram för hantering av IT-tjänster (ITSM)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+Tjänstkarta integration med Anslutningsprogram för hantering av IT-tjänster (ITSM) sker automatiskt när båda lösningarna är aktiverade och konfigurerade i din Log Analytics-arbetsyta. Integrationen i Tjänstkarta är märkt med "Service Desk". Mer information finns i [Central hantering av ITSM arbets objekt med hjälp av anslutningsprogram för hantering av IT-tjänster (ITSM)](../platform/itsmc-overview.md).
 
 **Skriv bords fönstret för Machine service** visar alla IT Service Management-händelser för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella objekt och dator tjänstens Skriv bords fönster visar dem.
 
@@ -270,7 +270,7 @@ Fönstret **dator prestanda** visar standard prestanda mått för den valda serv
 
 ![Fönstret dator prestanda](media/service-map/machine-performance.png)
 
-Om du vill visa prestanda data kan du behöva [Aktivera lämpliga Log Analytics prestanda räknare](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De räknare som du vill aktivera:
+Om du vill visa prestanda data kan du behöva [Aktivera lämpliga Log Analytics prestanda räknare](../platform/data-sources-performance-counters.md).  De räknare som du vill aktivera:
 
 Windows:
 - Processor (*) \\ % processor tid
@@ -538,9 +538,9 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
-Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tjänstkarta REST API](https://docs.microsoft.com/rest/api/servicemap/).
+Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tjänstkarta REST API](/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Diagnostik-och användnings data
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507083"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539626"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -30,7 +30,7 @@ Så här konfigurerar du Azure Monitor for VMs:
 * Aktivera flera virtuella Azure-datorer, virtuella Azure Arc-datorer, Azure-VMSS eller Azure Arc-datorer i en viss prenumeration eller resurs grupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att du förstår informationen i följande avsnitt. 
 
@@ -45,7 +45,7 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 - USA, västra
 - USA, västra 2
 - USA, södra centrala
-- USA, östra
+- East US
 - USA, östra 2
 - USA, centrala
 - USA, norra centrala
@@ -53,11 +53,11 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 - US Gov va
 - Kanada, centrala
 - Storbritannien, södra
-- Europa, norra
+- Norra Europa
 - Europa, västra
 - Asien, östra
 - Sydostasien
-- Indien, centrala
+- Central India
 - Japan, östra
 - Australien, östra
 - Australien, sydöstra
@@ -68,8 +68,8 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 
 Om du inte har en Log Analytics arbets yta kan du skapa en med hjälp av en av resurserna:
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
+* [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Du kan också skapa en arbets yta när du aktiverar övervakning för en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer i Azure Portal.
@@ -86,7 +86,7 @@ Azure Monitor for VMs är tillgängligt för Azure Arc-aktiverade servrar i regi
 
 I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
 
-|OS-version |Prestanda |Kartor |
+|OS-version |Prestanda |Maps |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -175,7 +175,7 @@ I följande tabell beskrivs de anslutna källor som kart funktionen stöder i en
 |:--|:--|:--|
 | Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
 | Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | No | |
+| System Center Operations Manager-hanteringsgrupp | Nej | |
 
 Du kan ladda ned beroende agenten från följande platser:
 

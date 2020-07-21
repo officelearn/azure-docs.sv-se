@@ -3,11 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709886"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538657"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -29,7 +30,7 @@ Dina säkerhets kopierings alternativ beror på var agenten är installerad. Mer
 **Installation** | **Detaljer**
 --- | ---
 Hämta den senaste MARS-agenten | Du kan ladda ned den senaste versionen av agenten från valvet eller [Ladda ned den direkt](https://aka.ms/azurebackup_agent).
-Installera direkt på en dator | Du kan installera MARS-agenten direkt på en lokal Windows Server eller på en virtuell Windows-dator som kör något av de [operativ system som stöds](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Installera direkt på en dator | Du kan installera MARS-agenten direkt på en lokal Windows Server eller på en virtuell Windows-dator som kör något av de [operativ system som stöds](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Installera på en säkerhets kopierings Server | När du konfigurerar DPM eller MABS för att säkerhetskopiera till Azure laddar du ned och installerar MARS-agenten på-servern. Du kan installera agenten på [operativ system som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) i matrisen för säkerhets kopierings servern.
 
 > [!NOTE]
@@ -43,7 +44,7 @@ När du använder MARS-agenten för att säkerhetskopiera data tar agenten en ö
 **Cache** | **Detaljer**
 --- | ---
 Storlek |  Det lediga utrymmet i cache-mappen bör vara minst 5 till 10 procent av den totala storleken på dina säkerhets kopierings data.
-Location | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
+Position | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
 Mapp | Cache-mappen ska inte vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
 Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn ( `net stop bengine` ) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
 
@@ -84,7 +85,7 @@ Med Microsoft-peering väljer du följande tjänster/regioner och relevanta comm
 - Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
 - Azure Storage (enligt platsen för ditt Recovery Services-valv)
 
-Mer information finns i krav för [ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Mer information finns i krav för [ExpressRoute-routning](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Offentlig peering är föråldrad för nya kretsar.
@@ -127,7 +128,7 @@ Följande operativ system är i slutet av supporten och rekommenderar starkt att
 
 Om befintliga åtaganden förhindrar uppgradering av operativ systemet bör du överväga att migrera Windows-servrar till virtuella Azure-datorer och utnyttja virtuella Azure-säkerhetskopieringar för att fortsätta vara skyddade. Besök [sidan migrering här](https://azure.microsoft.com/migration/windows-server/) om du vill ha mer information om hur du migrerar din Windows Server.
 
-För lokala eller värdbaserade miljöer, där du inte kan uppgradera operativ systemet eller migrera till Azure, aktiverar du utökade säkerhets uppdateringar för datorerna så att de fortsätter att skyddas och stöds. Observera att endast vissa utgåvor är kvalificerade för utökade säkerhets uppdateringar. Besök [sidan med vanliga frågor och svar](https://www.microsoft.com/cloud-platform/extended-security-updates) för mer information.
+För lokala eller värdbaserade miljöer, där du inte kan uppgradera operativ systemet eller migrera till Azure, aktiverar du utökade säkerhets uppdateringar för datorerna så att de fortsätter att skyddas och stöds. Observera att endast vissa utgåvor är kvalificerade för utökade säkerhets uppdateringar. Besök [sidan med vanliga frågor och svar](https://www.microsoft.com/windows-server/extended-security-updates) för mer information.
 
 | **Operativ system**                                       | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
@@ -161,13 +162,13 @@ Krypterade<sup>*</sup>| Stöds.
 Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerad och sparse |Stöds.
-Hårda länkar| Stöds inte. Hoppades.
-Referenspunkt| Stöds inte. Hoppades.
-Krypterad och sparse |Stöds inte. Hoppades.
-Komprimerad ström| Stöds inte. Hoppades.
-Sparse-dataström| Stöds inte. Hoppades.
-OneDrive (synkroniserade filer är sparse-strömmar)| Stöds inte.
-Mappar med DFS Replication aktiverat | Stöds inte.
+Hårda länkar| Stöds ej. Hoppades.
+Referenspunkt| Stöds ej. Hoppades.
+Krypterad och sparse |Stöds ej. Hoppades.
+Komprimerad ström| Stöds ej. Hoppades.
+Sparse-dataström| Stöds ej. Hoppades.
+OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
+Mappar med DFS Replication aktiverat | Stöds ej.
 
 \*Se till att MARS-agenten har åtkomst till de certifikat som krävs för att komma åt de krypterade filerna. Otillgängliga filer kommer att hoppas över.
 

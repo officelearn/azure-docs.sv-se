@@ -4,11 +4,12 @@ description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseri
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81769773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539575"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -67,8 +68,8 @@ Tidigare Azure Monitor Mät värden, Application Insights, Log Analytics och Ser
 
 | **Övervaka källa** | **Signal typ**  | **Beskrivning** |
 |-------------|----------------|-------------|
-| Service Health: | Aktivitetslogg  | Stöds inte. Se [skapa aktivitets logg aviseringar för tjänst meddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Test av webb tillgänglighet | Stöds inte. Se [webb test aviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgängligt för alla webbplatser som är instrumenterade att skicka data till Application Insights. Få ett meddelande när tillgänglighet eller svars tider för en webbplats är under förväntningarna. |
+| Service Health: | Aktivitetslogg  | Stöds ej. Se [skapa aktivitets logg aviseringar för tjänst meddelanden](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
+| Application Insights | Test av webb tillgänglighet | Stöds ej. Se [webb test aviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgängligt för alla webbplatser som är instrumenterade att skicka data till Application Insights. Få ett meddelande när tillgänglighet eller svars tider för en webbplats är under förväntningarna. |
 
 ## <a name="manage-alerts"></a>Hantera aviseringar
 Du kan ange status för en avisering för att ange var den finns i lösnings processen. När de kriterier som anges i varnings regeln uppfylls skapas eller utlöses en avisering, och den har statusen *ny*. Du kan ändra statusen när du bekräftar en avisering och när du stänger den. Alla status ändringar lagras i historiken för aviseringen.
@@ -177,7 +178,7 @@ Sidan aviserings information innehåller följande avsnitt:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Rollbaserad åtkomst kontroll (RBAC) för dina aviserings instanser
 
-Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda RBAC-rollerna för övervakning av [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) eller [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). De här rollerna stöds på alla Azure Resource Managers omfång, från prenumerations nivån till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella datorn `ContosoVM1` kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1` .
+Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda RBAC-rollerna för övervakning av [deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) eller [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader). De här rollerna stöds på alla Azure Resource Managers omfång, från prenumerations nivån till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella datorn `ContosoVM1` kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Hantera aviserings instanser program mässigt
 
@@ -211,9 +212,3 @@ Använd [Aviseringshantering REST API](https://aka.ms/alert-management-api) för
 - [Hantera dina varnings instanser i Azure](https://aka.ms/managing-alert-instances)
 - [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
 - [Läs mer om priser för Azure-aviseringar](https://azure.microsoft.com/pricing/details/monitor/)
-
-
-
-
-
-

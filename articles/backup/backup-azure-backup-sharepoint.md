@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 description: Den här artikeln innehåller en översikt över DPM/Azure Backup Server skydd för en SharePoint-grupp till Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80054118"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539116"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 
@@ -18,7 +18,7 @@ Att säkerhetskopiera SharePoint till Azure med DPM är en mycket liknande proce
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint-versioner som stöds och relaterade skydds scenarier
 
-En lista över SharePoint-versioner som stöds och DPM-versioner som krävs för att säkerhetskopiera dem finns i [Vad kan DPM säkerhetskopiera?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
+En lista över SharePoint-versioner som stöds och DPM-versioner som krävs för att säkerhetskopiera dem finns i [Vad kan DPM säkerhetskopiera?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -28,19 +28,19 @@ Det finns några saker du behöver bekräfta innan du säkerhetskopierar en Shar
 
 Innan du fortsätter kontrollerar du att du har uppfyllt alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera DPM/Azure Backup Server med valvet.
 
-Ytterligare krav och begränsningar finns i artikeln [säkerhetskopiera SharePoint med DPM](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations) .
+Ytterligare krav och begränsningar finns i artikeln [säkerhetskopiera SharePoint med DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations) .
 
 ## <a name="configure-backup"></a>Konfigurera säkerhetskopiering
 
-Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skydd för SharePoint med hjälp av ConfigureSharePoint.exe och skapar sedan en skyddsgrupp i DPM. Instruktioner finns i [Konfigurera säkerhets kopiering](https://docs.microsoft.com//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) i DPM-dokumentationen.
+Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skydd för SharePoint med hjälp av ConfigureSharePoint.exe och skapar sedan en skyddsgrupp i DPM. Instruktioner finns i [Konfigurera säkerhets kopiering](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) i DPM-dokumentationen.
 
 ## <a name="monitoring"></a>Övervakning
 
-Övervaka säkerhets kopierings jobbet genom att följa anvisningarna i [övervaka DPM-säkerhetskopiering](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
+Övervaka säkerhets kopierings jobbet genom att följa anvisningarna i [övervaka DPM-säkerhetskopiering](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
 
 ## <a name="restore-sharepoint-data"></a>Återställa SharePoint-data
 
-Information om hur du återställer ett SharePoint-objekt från en disk med DPM finns i [återställa SharePoint-data](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
+Information om hur du återställer ett SharePoint-objekt från en disk med DPM finns i [återställa SharePoint-data](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Återställa en SharePoint-databas från Azure med hjälp av DPM
 
@@ -71,7 +71,7 @@ Information om hur du återställer ett SharePoint-objekt från en disk med DPM 
 
 ## <a name="switching-the-front-end-web-server"></a>Växla front webb server
 
-Om du har fler än en front webb server och vill byta server som DPM använder för att skydda Server gruppen, följer du anvisningarna i [byta klient webb server](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
+Om du har fler än en front webb server och vill byta server som DPM använder för att skydda Server gruppen, följer du anvisningarna i [byta klient webb server](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Nästa steg
 

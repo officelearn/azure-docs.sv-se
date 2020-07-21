@@ -3,12 +3,12 @@ title: MABS & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538674"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -16,7 +16,7 @@ Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhets
 
 ## <a name="about-dpmmabs"></a>Om DPM/MABS
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) är en företags lösning som konfigurerar, underlättar och hanterar säkerhets kopiering och återställning av företags datorer och data. Den är en del av [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) -serien med produkter.
+[System Center DPM](/system-center/dpm/dpm-overview) är en företags lösning som konfigurerar, underlättar och hanterar säkerhets kopiering och återställning av företags datorer och data. Den är en del av [System Center](https://www.microsoft.com/system-center/pricing) -serien med produkter.
 
 MABS är en server produkt som kan användas för att säkerhetskopiera lokala fysiska servrar, virtuella datorer och appar som körs på dem.
 
@@ -50,7 +50,7 @@ Mer information:
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-**Scenario** | **Gent** | **Position**
+**Scenario** | **Agent** | **Plats**
 --- | --- | ---
 **Säkerhetskopiera lokala datorer/arbets belastningar** | DPM/MABS Protection Agent körs på de datorer som du vill säkerhetskopiera.<br/><br/> MARS-agenten på DPM/MABS-servern.<br/> Den lägsta versionen av Microsoft Azure Recovery Services agenten eller Azure Backup Agent som krävs för att aktivera den här funktionen är 2.0.8719.0.  | DPM/MABS måste köras lokalt.
 
@@ -71,7 +71,7 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 **Scenario** | **DPM/MABS**
 --- | ---
 **MABS på en virtuell Azure-dator** |  Windows 2016 Data Center.<br/><br/> Windows 2019 Data Center.<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minsta Standard_A4_v2 med fyra kärnor och 8 GB RAM-minne.
-**DPM på en virtuell Azure-dator** | System Center 2012 R2 med uppdatering 3 eller senare.<br/><br/> Windows operativ system som [krävs av System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minsta Standard_A4_v2 med fyra kärnor och 8 GB RAM-minne.
+**DPM på en virtuell Azure-dator** | System Center 2012 R2 med uppdatering 3 eller senare.<br/><br/> Windows operativ system som [krävs av System Center](/system-center/dpm/prepare-environment-for-dpm#dpm-server).<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minsta Standard_A4_v2 med fyra kärnor och 8 GB RAM-minne.
 **MABS lokalt** |  MABS v3 och senare: Windows Server 2016 eller Windows Server 2019
 **Lokalt DPM** | Fysisk server/Hyper-V VM: System Center 2012 SP1 eller senare.<br/><br/> VMware VM: System Center 2012 R2 med uppdatering 5 eller senare.
 
@@ -82,9 +82,9 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 **Problem** | **Detaljer**
 --- | ---
-**Installation** | Installera DPM/MABS på en dator med ett enda syfte.<br/><br/> Installera inte DPM/MABS på en domänkontrollant på en dator med rollen som program server roll på en dator som kör Microsoft Exchange Server eller System Center Operations Manager eller på en klusternod.<br/><br/> [Granska alla system krav för DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
+**Installation** | Installera DPM/MABS på en dator med ett enda syfte.<br/><br/> Installera inte DPM/MABS på en domänkontrollant på en dator med rollen som program server roll på en dator som kör Microsoft Exchange Server eller System Center Operations Manager eller på en klusternod.<br/><br/> [Granska alla system krav för DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Domän** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
-**Storage** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
+**Lagring** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-uppgradering** | Du kan installera MABS v3 direkt eller uppgradera till MABS v3 från MABS v2. [Läs mer](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Flyttar MABS** | Det finns stöd för att flytta MABS till en ny server samtidigt som lagringen behålls om du använder MB.<br/><br/> Servern måste ha samma namn som originalet. Du kan inte ändra namnet om du vill behålla samma lagringspool och använda samma MABS-databas för att lagra data återställnings punkter.<br/><br/> Du behöver en säkerhets kopia av MABS-databasen eftersom du behöver återställa den.
 
@@ -137,7 +137,7 @@ Med Microsoft-peering väljer du följande tjänster/regioner och relevanta comm
 - Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
 - Azure Storage (enligt platsen för ditt Recovery Services-valv)
 
-Mer information finns i krav för [ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Mer information finns i krav för [ExpressRoute-routning](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Offentlig peering är föråldrad för nya kretsar.
@@ -153,15 +153,22 @@ Ansluten | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Az
 Ingen anslutning under mer än 15 dagar | Aktiv | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Du kan återställa från disk eller Azure.
 Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Om prenumerationen har upphört att gälla kan du återställa från disk eller Azure.<br/><br/> Om prenumerationen är inaktive rad kan du inte återställa från disk eller Azure. Azures återställnings punkter tas bort.
 
+## <a name="domain-and-domain-trusts-support"></a>Stöd för domän-och domän förtroenden
+
+|Krav |Information |
+|---------|---------|
+|Domän    | DPM/MABS-servern måste vara i en Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012-domän.        |
+|Domänförtroende   |  DPM/MABS har stöd för data skydd mellan skogar, förutsatt att du etablerar ett dubbelriktat förtroende på skogs nivå mellan separata skogar.   <BR><BR>   DPM/MABS kan skydda servrar och arbets stationer mellan domäner inom en skog som har en dubbelriktad förtroende relation med DPM/MABS-Server domänen. Information om hur du skyddar datorer i arbets grupper eller ej betrodda domäner finns i [säkerhetskopiera och återställa arbets belastningar i arbets grupper och obetrodda domäner.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+
 ## <a name="dpmmabs-storage-support"></a>Stöd för DPM/MABS-lagring
 
 Data som säkerhets kopie ras till DPM/MABS lagras på den lokala disk lagringen.
 
-**Storage** | **Detaljer**
+**Lagring** | **Detaljer**
 --- | ---
 **MB** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-lagring på virtuell Azure-dator** | Data lagras på Azure-diskar som är anslutna till den virtuella DPM-MABS och som hanteras i DPM/MABS. Antalet diskar som kan användas för DPM/MABS-lagringspoolen begränsas av storleken på den virtuella datorn.<br/><br/> A2 VM: 4 diskar; A3 VM: 8 diskar; A4 VM: 16 diskar, med en maximal storlek på 1 TB för varje disk. Detta avgör den totala tillgängliga lagringspoolen för säkerhets kopiering.<br/><br/> Mängden data som du kan säkerhetskopiera beror på antalet och storleken på de anslutna diskarna.
-**MABS datakvarhållning på virtuell Azure-dator** | Vi rekommenderar att du behåller data för en dag på DPM/MABS Azure-disken och säkerhetskopierar från DPM/MABS till valvet för längre kvarhållning. Du kan därmed skydda en större mängd data genom att avlasta den till Azure Backup.
+**MABS datakvarhållning på virtuell Azure-dator** | Vi rekommenderar att du behåller data för en dag på DPM/MABS Azure-disken och säkerhetskopierar från DPM/MABS till valvet för längre kvarhållning. På så sätt kan du skydda en större mängd data genom att avlasta den till Azure Backup.
 
 ### <a name="modern-backup-storage-mbs"></a>Modern säkerhets kopierings lagring (MB)
 
@@ -174,11 +181,11 @@ Från DPM 2016/MABS v2 (som körs på Windows Server 2016) och senare kan du dra
 
 ## <a name="supported-backups-to-mabs"></a>Säkerhets kopior som stöds för MABS
 
-Information om de olika servrar och arbets belastningar som du kan skydda med Azure Backup Server finns i [matrisen Azure Backup Server skydd](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix#protection-support-matrix).
+Information om de olika servrar och arbets belastningar som du kan skydda med Azure Backup Server finns i [matrisen Azure Backup Server skydd](./backup-mabs-protection-matrix.md#protection-support-matrix).
 
 ## <a name="supported-backups-to-dpm"></a>Säkerhets kopior som stöds för DPM
 
-Information om de olika servrar och arbets belastningar som du kan skydda med Data Protection Manager finns i artikeln [vad kan DPM säkerhetskopiera?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Information om de olika servrar och arbets belastningar som du kan skydda med Data Protection Manager finns i artikeln [vad kan DPM säkerhetskopiera?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
 
 - Klustrade arbets belastningar som säkerhets kopie ras av DPM/MABS bör vara i samma domän som DPM/MABS eller i en underordnad/betrodd domän.
 - Du kan använda NTLM/certifikatautentisering för att säkerhetskopiera data i ej betrodda domäner eller arbets grupper.
@@ -188,4 +195,4 @@ Information om de olika servrar och arbets belastningar som du kan skydda med Da
 - [Lär dig mer](backup-architecture.md#architecture-back-up-to-dpmmabs) om Mabs-arkitekturen.
 - [Granska](backup-support-matrix-mars-agent.md) vad som stöds för mars-agenten.
 - [Konfigurera](backup-azure-microsoft-azure-backup.md) en Mabs-Server.
-- [Konfigurera DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).
+- [Konfigurera DPM](/system-center/dpm/install-dpm).

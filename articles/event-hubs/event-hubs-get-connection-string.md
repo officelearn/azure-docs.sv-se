@@ -3,12 +3,12 @@ title: Hämta anslutnings sträng – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller anvisningar för att få en anslutnings sträng som klienter kan använda för att ansluta till Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 271d4dcc1f2fab08dc7f625ce36e021eda225b87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320501"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537198"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Hämta en Event Hubs anslutnings sträng
 
@@ -73,5 +73,5 @@ Mer information om Azure CLI-kommandon för Event Hubs finns i [Azure CLI för E
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Skapa en Händelsehubben](event-hubs-create.md)
+* [Översikt över Event Hubs](./event-hubs-about.md)
+* [Skapa en händelsehubb](event-hubs-create.md)

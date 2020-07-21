@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361946"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539864"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Konfigurera ta med din egen lagring (BYOS) för Application Insights Profiler och Snapshot Debugger
 
@@ -21,17 +21,17 @@ När du använder Application Insights Profiler eller Snapshot Debugger överfö
 Med ta med din egen lagring laddas dessa artefakter upp i ett lagrings konto som du styr. Det innebär att du styr principen för kryptering vid vila, livs längds hanterings principen och nätverks åtkomst. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot.
 
 > [!NOTE]
-> Om du aktiverar privat länk är det nödvändigt att ta med din egen lagring. Mer information om privat länk för Application Insights [finns i dokumentationen.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
+> Om du aktiverar privat länk är det nödvändigt att ta med din egen lagring. Mer information om privat länk för Application Insights [finns i dokumentationen.](../platform/private-link-security.md)
 >
-> Om du aktiverar Kundhanterade nycklar är det nödvändigt att ta med din egen lagring. Mer information om kund hanterade nycklar för Application Insights [finns i dokumentationen.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+> Om du aktiverar Kundhanterade nycklar är det nödvändigt att ta med din egen lagring. Mer information om kund hanterade nycklar för Application Insights [finns i dokumentationen.](../platform/customer-managed-keys.md).
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Hur används mitt lagrings konto?
 1. Agenter som körs i Virtual Machines eller App Service överför artefakter (profiler, ögonblicks bilder och symboler) till BLOB-behållare i ditt konto. Den här processen innebär att kontakta Application Insights Profiler-eller Snapshot Debuggers tjänsten för att få en SAS-token (signatur för delad åtkomst) till en ny BLOB i ditt lagrings konto.
 1. Application Insights Profiler-eller Snapshot Debuggers tjänsten analyserar inkommande blob och skriver tillbaka analys resultaten och loggfilerna till Blob Storage. Beroende på tillgänglig beräknings kapacitet kan den här processen inträffa när den har laddats upp.
 1. När du visar profilerings spårningen eller en ögonblicks bilds fel söknings analys, kommer tjänsten att hämta analys resultaten från Blob Storage.
 
-## <a name="prerequisites"></a>Krav
-* Se till att skapa ditt lagrings konto på samma plats som din Application Insights-resurs. t.ex. Om din Application Insights-resurs ligger i USA, västra 2, måste ditt lagrings konto även vara i västra USA 2. 
+## <a name="prerequisites"></a>Förutsättningar
+* Se till att skapa ditt lagrings konto på samma plats som din Application Insights-resurs. Till exempel Om din Application Insights-resurs ligger i USA, västra 2, måste ditt lagrings konto även vara i västra USA 2. 
 * Ge rollen "Storage BLOB data Contributor" till AAD-programmet "betrodd lagring för åtkomst till tillförlitliga enheter" i ditt lagrings konto via användar gränssnittet för Access Control (IAM).
 * Om den privata länken är aktive rad konfigurerar du ytterligare inställningen för att tillåta anslutning till vår betrodda Microsoft-tjänst från din Virtual Network. 
 
@@ -60,7 +60,7 @@ När du har lagt till rollen visas den under avsnittet "roll tilldelningar", pre
 _ ![ Figur 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _figur 1,1_ 
 
-Om du också använder en privat länk krävs en ytterligare konfiguration för att tillåta anslutning till vår betrodda Microsoft-tjänst från din Virtual Network. Läs dokumentationen om [lagrings nätverks säkerhet](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Om du också använder en privat länk krävs en ytterligare konfiguration för att tillåta anslutning till vår betrodda Microsoft-tjänst från din Virtual Network. Läs dokumentationen om [lagrings nätverks säkerhet](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Länka ditt lagrings konto till din Application Insights-resurs
 Om du vill konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning) finns det två alternativ:
@@ -73,7 +73,7 @@ Om du vill konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning) 
 
 1. Kontrol lera att du har installerat AZ PowerShell-4.2.0 eller senare.
 
-    Information om hur du installerar Azure PowerShell finns i den [officiella Azure PowerShell dokumentationen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    Information om hur du installerar Azure PowerShell finns i den [officiella Azure PowerShell dokumentationen](/powershell/azure/install-az-ps).
 
 1. Installera Application Insights PowerShell-tillägget.
     ```powershell
@@ -85,7 +85,7 @@ Om du vill konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning) 
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    Mer information om hur du loggar in finns i [dokumentationen för Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    Mer information om hur du loggar in finns i [dokumentationen för Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Ta bort det tidigare lagrings kontot som är kopplat till Application Insights resursen.
 
@@ -121,7 +121,7 @@ Om du vill konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning) 
 
 1. Kontrol lera att du har installerat Azure CLI.
 
-    Information om hur du installerar Azure CLI finns i den [officiella Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    Information om hur du installerar Azure CLI finns i den [officiella Azure CLI-dokumentationen](/cli/azure/install-azure-cli).
 
 1. Installera Application Insights CLI-tillägget.
     ```powershell
@@ -152,7 +152,7 @@ Om du vill konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning) 
     ```
 
     > [!NOTE]
-    > Information om hur du utför uppdateringar på länkade lagrings konton till din Application Insights-resurs finns i [Application Insights CLI-dokumentationen](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > Information om hur du utför uppdateringar på länkade lagrings konton till din Application Insights-resurs finns i [Application Insights CLI-dokumentationen](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Konfigurera med Azure Resource Manager mall
 

@@ -3,12 +3,12 @@ title: Skydd av system tillstånd och återställning utan operativ system
 description: Använd Azure Backup Server för att säkerhetskopiera system tillstånd och tillhandahålla BMR-skydd (Bare Metal Recovery).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192373"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538708"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Säkerhetskopiera system tillstånd och Återställ till Bare Metal genom att använda Azure Backup Server
 
@@ -98,12 +98,12 @@ När säkerhets kopieringen är klar överförs filen till datorn för säkerhet
 ## <a name="before-you-begin"></a>Innan du börjar
 
 1. **Distribuera Azure Backup Server**. Kontrol lera att säkerhets kopierings servern är korrekt distribuerad. Mer information finns i:
-    * [System krav för Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [System krav för Azure Backup Server](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Skydds mat ris för säkerhets kopierings Server](backup-mabs-protection-matrix.md)
 
-1. **Konfigurera lagring**. Du kan lagra säkerhets kopierings data på disk, på band och i molnet med Azure. Mer information finns i [förbereda data lagring](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+1. **Konfigurera lagring**. Du kan lagra säkerhets kopierings data på disk, på band och i molnet med Azure. Mer information finns i [förbereda data lagring](/system-center/dpm/plan-long-and-short-term-data-storage).
 
-1. **Konfigurera skydds agenten**. Installera skydds agenten på den dator som du vill säkerhetskopiera. Mer information finns i [Distribuera DPM-skyddsagenten](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+1. **Konfigurera skydds agenten**. Installera skydds agenten på den dator som du vill säkerhetskopiera. Mer information finns i [Distribuera DPM-skyddsagenten](/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Säkerhetskopiera systemtillstånd och utan operativsystem (Bare Metal)
 
@@ -115,7 +115,7 @@ Säkerhetskopiera system tillstånd och Bare Metal:
 
 1. På sidan **Välj grupp medlemmar** expanderar du datorn och väljer sedan antingen **BMR** eller **system tillstånd**.
 
-    Kom ihåg att du inte kan skydda både BMR och system tillstånd för samma dator i olika grupper. När du väljer BMR aktive ras också system tillstånd automatiskt. Mer information finns i [distribuera skydds grupper](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Kom ihåg att du inte kan skydda både BMR och system tillstånd för samma dator i olika grupper. När du väljer BMR aktive ras också system tillstånd automatiskt. Mer information finns i [distribuera skydds grupper](/system-center/dpm/create-dpm-protection-groups).
 
 1. På sidan **Välj data skydds metod** väljer du hur du vill hantera kortsiktig säkerhets kopiering och säkerhets kopiering på lång sikt.
 

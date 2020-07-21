@@ -5,15 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83210546"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540119"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Arbets ytans baserade resurs ändringar (för hands version)
 
-Innan du inför införandet av [arbets ytans baserade Application Insights resurser](create-workspace-resource.md), lagrades Application Insights data separat från andra loggdata i Azure Monitor. Båda baseras på Azure Datautforskaren och använder samma KQL (Kusto Query Language). Detta beskrivs i [loggarna i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Innan du inför införandet av [arbets ytans baserade Application Insights resurser](create-workspace-resource.md), lagrades Application Insights data separat från andra loggdata i Azure Monitor. Båda baseras på Azure Datautforskaren och använder samma KQL (Kusto Query Language). Detta beskrivs i [loggarna i Azure Monitor](../platform/data-platform-logs.md).
 
 Med arbets ytans baserade Application Insights resurs data lagras i en Log Analytics arbets yta med andra övervaknings data och program data. Detta fören klar konfigurationen genom att göra det enklare att analysera data över flera lösningar och utnyttja funktionerna i arbets ytor.
 
@@ -59,13 +60,13 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |cloud_RoleName|sträng|AppRoleName|sträng|
 |customDimensions|dynamisk|Egenskaper|Dynamisk|
 |customMeasurements|dynamisk|Mått|Dynamisk|
-|varaktighet|real|. Durationms|real|
+|varaktighet|real|DurationMs|real|
 |`id`|sträng|`Id`|sträng|
 |iKey|sträng|IKey|sträng|
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|Sträng|
-|location|sträng|Location|sträng|
+|location|sträng|Position|sträng|
 |meddelande|sträng|Meddelande|sträng|
 |name|sträng|Name|sträng|
 |operation_Id|sträng|OperationId|sträng|
@@ -76,7 +77,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |sdkVersion|sträng|SdkVersion|sträng|
 |session_Id|sträng|SessionId|sträng|
 |ikoner|real|Storlek|real|
-|lyckades|sträng|Klart|Bool|
+|lyckades|sträng|Success|Bool|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|sträng|UserAccountId|sträng|
 |user_AuthenticatedId|sträng|UserAuthenticatedId|sträng|
@@ -148,7 +149,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |customDimensions|dynamisk|Egenskaper|Dynamisk|
 |customMeasurements|dynamisk|Mått|Dynamisk|
 |data|sträng|Data|sträng|
-|varaktighet|real|. Durationms|real|
+|varaktighet|real|DurationMs|real|
 |`id`|sträng|`Id`|sträng|
 |iKey|sträng|IKey|sträng|
 |itemCount|int|ItemCount|int|
@@ -163,7 +164,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |resultCode|sträng|ResultCode|sträng|
 |sdkVersion|sträng|SdkVersion|sträng|
 |session_Id|sträng|SessionId|sträng|
-|lyckades|sträng|Klart|Bool|
+|lyckades|sträng|Success|Bool|
 |fokusera|sträng|Mål|sträng|
 |timestamp|datetime|TimeGenerated|datetime|
 |typ|sträng|DependencyType|sträng|
@@ -270,7 +271,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |cloud_RoleName|sträng|AppRoleName|sträng|
 |customDimensions|dynamisk|Egenskaper|Dynamisk|
 |customMeasurements|dynamisk|Mått|Dynamisk|
-|varaktighet|real|. Durationms|real|
+|varaktighet|real|DurationMs|real|
 |`id`|sträng|`Id`|sträng|
 |iKey|sträng|IKey|sträng|
 |itemCount|int|ItemCount|int|
@@ -350,7 +351,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |cloud_RoleName|sträng|AppRoleName|sträng|
 |customDimensions|dynamisk|Egenskaper|Dynamisk|
 |customMeasurements|dynamisk|Mått|Dynamisk|
-|varaktighet|real|. Durationms|Verkligen|
+|varaktighet|real|DurationMs|Verkligen|
 |`id`|sträng|`Id`|Sträng|
 |iKey|sträng|IKey|sträng|
 |itemCount|int|ItemCount|int|
@@ -366,7 +367,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |sdkVersion|sträng|SdkVersion|sträng|
 |session_Id|sträng|SessionId|sträng|
 |källa|sträng|Källa|Sträng|
-|lyckades|sträng|Klart|Bool|
+|lyckades|sträng|Success|Bool|
 |timestamp|datetime|TimeGenerated|datetime|
 |url|sträng|URL|Sträng|
 |user_AccountId|sträng|UserAccountId|sträng|
@@ -466,4 +467,4 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 ## <a name="next-steps"></a>Nästa steg
 
 * [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
-* [Skriv analysfrågor](../../azure-monitor/app/analytics.md)
+* [Skriv analysfrågor](../log-query/log-query-overview.md)

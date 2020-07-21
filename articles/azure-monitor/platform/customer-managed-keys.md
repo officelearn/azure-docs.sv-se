@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170351"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539422"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -21,17 +21,17 @@ Vi rekommenderar att du granskar [begränsningar och](#limitationsandconstraints
 
 ## <a name="customer-managed-key-cmk-overview"></a>Översikt över kundhanterad nyckel (CMK)
 
-[Kryptering i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)   är ett gemensamt sekretess-och säkerhets krav i organisationer.Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-eller krypterings nycklar.
+[Kryptering i vila](../../security/fundamentals/encryption-atrest.md)   är ett gemensamt sekretess-och säkerhets krav i organisationer.Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-eller krypterings nycklar.
 
-Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila med hjälp av Microsoft-hanterade nycklar (MMK). Azure Monitor innehåller också ett alternativ för kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) och som används av lagring med systemtilldelad autentisering med [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) . Den här nyckeln (CMK) kan vara antingen [program vara eller maskin vara-HSM skyddad](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila med hjälp av Microsoft-hanterade nycklar (MMK). Azure Monitor innehåller också ett alternativ för kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](../../key-vault/general/overview.md) och som används av lagring med systemtilldelad autentisering med [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) . Den här nyckeln (CMK) kan vara antingen [program vara eller maskin vara-HSM skyddad](../../key-vault/general/overview.md).
 
-Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   fungerar.
+Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption)   fungerar.
 
 Med CMK kan du kontrol lera åtkomsten till dina data och återkalla den när du vill. Azure Monitor Storage respekterar alltid ändringar i nyckel behörigheter inom en timme. Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#cmk-kek-revocation). Vi arbetar med att ha SSD-data krypterade med CMK i den andra halvan av 2020.
 
 CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att verifiera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt för att få din prenumeration tillåten innan du börjar konfigurera CMK.
 
- [Pris modellen Log Analytics kluster](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)   använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
+ [Pris modellen Log Analytics kluster](./manage-cost-storage.md#log-analytics-dedicated-clusters)   använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Så här fungerar CMK i Azure Monitor
 
@@ -80,7 +80,7 @@ Proceduren stöds inte i Azure Portal och etableringen utförs via PowerShell el
 > [!IMPORTANT]
 > Alla REST-begäranden måste innehålla en token Authorization-token i begär ande huvudet.
 
-Exempel:
+Till exempel:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -91,7 +91,7 @@ Där *eyJ0eXAiO..* . representerar hela autentiseringstoken.
 
 Du kan hämta token med någon av följande metoder:
 
-1. Använd [Appregistreringar](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) metod.
+1. Använd [Appregistreringar](/graph/auth/auth-concepts#access-tokens) metod.
 2. I Azure-portalen
     1. Navigera till Azure Portal medan du är i "utvecklarverktyg" (F12)
     1. Sök efter Authorization-sträng under "begärandehuvuden" i någon av instanserna "batch? API-version". Det ser ut så här: "auktorisering: Bearer-eyJ0eXAiO....". 
@@ -185,15 +185,16 @@ Skapa eller Använd en Azure Key Vault som du redan har för att skapa eller imp
 
 ![Mjuk borttagning och rensning av skydds inställningar](media/customer-managed-keys/soft-purge-protection.png)
 
-De här inställningarna är tillgängliga via CLI och PowerShell:
-- [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-- [Rensa skydds skydd](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) mot Force borttagning av hemligheten/valvet även efter mjuk borttagning
+De här inställningarna kan uppdateras via CLI och PowerShell:
+
+- [Mjuk borttagning](../../key-vault/general/overview-soft-delete.md)
+- [Rensa skydds skydd](../../key-vault/general/overview-soft-delete.md#purge-protection) mot Force borttagning av hemligheten/valvet även efter mjuk borttagning
 
 ### <a name="create-cluster-resource"></a>Skapa *kluster* resurs
 
 Den här resursen används som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har tillåtits, skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns.
 
-Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivå över 2 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivå över 2 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . [Läs mer](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 Egenskapen *billingType* bestämmer fakturerings behörigheten för *kluster* resursen och dess data:
 - *Kluster* (standard)--kapacitets reservationens kostnader för klustret är attribut till *kluster* resursen.
@@ -210,7 +211,7 @@ Den här åtgärden är asynkron och kan vara en stund att slutföra.
 > 
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity daily-ingestion-gigabyte 
 ```
 
 ```rst
@@ -408,7 +409,7 @@ Content-type: application/json
 Inmatade data lagras krypterade med din hanterade nyckel efter Associations åtgärd, vilket kan ta upp till 90 minuter att slutföra. Du kan kontrol lera associerings tillstånd för arbets ytan på två sätt:
 
 1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
-2. Skicka en [arbets yta – Hämta](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) begäran och observera svaret, den associerade arbets ytan har en clusterResourceId under "funktioner".
+2. Skicka en [arbets yta – Hämta](/rest/api/loganalytics/workspaces/get) begäran och observera svaret, den associerade arbets ytan har en clusterResourceId under "funktioner".
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -468,13 +469,13 @@ Frågespråket som används i Log Analytics är lättfattliga programspecifika o
 > [!NOTE]
 > CMK för frågor som används i arbets böcker och Azure-instrumentpaneler stöds inte än. Dessa frågor förblir krypterade med Microsoft Key.  
 
-När du tar [med ditt eget lagrings utrymme](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) och associerar det till din arbets yta överförs frågor till ditt lagrings konto via tjänsten för *sparade sökningar* och *logg aviseringar* . Det innebär att du styr lagrings kontot och [principen för kryptering vid vila](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
+När du tar [med ditt eget lagrings utrymme](./private-storage.md) (BYOS) och associerar det till din arbets yta överförs frågor till ditt lagrings konto via tjänsten för *sparade sökningar* och *logg aviseringar* . Det innebär att du styr lagrings kontot och [principen för kryptering vid vila](../../storage/common/encryption-customer-managed-keys.md) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
 
 **Att tänka på innan du ställer in CMK för frågor**
 * Du måste ha Skriv behörighet till både din arbets yta och ditt lagrings konto
 * Se till att skapa ditt lagrings konto i samma region som din Log Analytics arbets yta finns
 * *Spara sökningar* i lagring anses som tjänst artefakter och deras format kan ändras
-* Befintliga *sparade sökningar* tas bort från din arbets yta. Kopiera och *Spara sökningar* som du behöver före konfigurationen. Du kan visa dina *sparade sökningar* med [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch)
+* Befintliga *sparade sökningar* tas bort från din arbets yta. Kopiera och *Spara sökningar* som du behöver före konfigurationen. Du kan visa dina *sparade sökningar* med [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
 * Frågans historik stöds inte och du kommer inte att kunna se frågor som du körde
 * Du kan associera ett enda lagrings konto till en arbets yta för att kunna spara frågor, men kan användas från frågor med både *sparade sökningar* och *logg aviseringar*
 * Fäst på instrument panelen stöds inte
@@ -484,7 +485,7 @@ När du tar [med ditt eget lagrings utrymme](https://docs.microsoft.com/azure/az
 Koppla lagrings konto för *fråga* till din arbets yta – *sparade – sökningar* frågor sparas i ditt lagrings konto. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
@@ -511,7 +512,7 @@ Efter konfigurationen sparas alla nya *sparade Sök* frågor i ditt lagrings utr
 Koppla lagrings konto för *aviseringar* till din arbets yta – *logg aviserings* frågor sparas i ditt lagrings konto. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 
@@ -659,7 +660,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   Inmatade data efter att den avassocierings åtgärd har lagrats i Log Analytics lagring, det kan ta 90 minuter att slutföra. Du kan kontrol lera status för arbets ytans associering på två sätt:
 
   1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
-  2. Skicka en [arbets yta – get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) -begäran och Observera att svaret, den Avassocierade arbets ytan inte har *clusterResourceId* under *funktioner*.
+  2. Skicka en [arbets yta – get](/rest/api/loganalytics/workspaces/get) -begäran och Observera att svaret, den Avassocierade arbets ytan inte har *clusterResourceId* under *funktioner*.
 
 - **Kontrol lera Association status för arbets ytan**
   
@@ -694,26 +695,25 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
 
 ## <a name="limitationsandconstraints"></a>Begränsningar och begränsningar
 
--CMK stöds på dedikerade Log Analytics kluster och lämpar sig för kunder som skickar 1 TB per dag eller mer.
+- CMK stöds på dedikerade Log Analytics kluster och lämpar sig för kunder som skickar 1 TB per dag eller mer.
 
--Det maximala antalet *kluster*   resurser per region och prenumeration är 2
+- Det maximala antalet *kluster* resurser per region och prenumeration är 2
 
--Du kan koppla en arbets yta till *kluster*   resursen och sedan ta bort associationen om CMK inte krävs för arbets ytan.Antalet associationer för arbets ytan på en viss arbets yta under en period på 30 dagar är begränsat till 2
+- Du kan koppla en arbets yta till *kluster* resursen och sedan ta bort associationen om CMK inte krävs för arbets ytan. Antalet associationer för arbets ytan på en viss arbets yta under en period på 30 dagar är begränsat till 2
 
-– Associationen för arbets ytan till *kluster*   resursen ska endast utföras när du har kontrollerat att Log Analytics kluster etableringen har slutförts.Data som skickas till din arbets yta innan slut för Ande kommer att tas bort och går inte att återskapa.
+- Arbets ytans koppling till *kluster* resurs ska endast utföras när du har kontrollerat att Log Analytics kluster etableringen har slutförts. Data som skickas till din arbets yta innan slut för Ande kommer att tas bort och går inte att återskapa.
 
--CMK kryptering gäller nyligen inmatade data efter CMK-      konfigurationen.Data som matats in före CMK      -konfigurationen förblir krypterade med Microsoft-nyckeln.Du kan fråga efter data som matats in      före och efter CMK-konfigurationen sömlöst.
+- CMK-kryptering gäller nyligen inmatade data efter CMK-konfigurationen. Data som matats in före CMK-konfigurationen förblir krypterade med Microsoft-nyckeln. Du kan fråga efter data som matats in före och efter CMK-konfigurationen sömlöst.
 
--Azure Key Vault måste konfigureras som återställnings Bart.Dessa egenskaper är inte aktiverade som standard och ska konfigureras med CLI eller PowerShell:
+- Azure Key Vault måste konfigureras som återställnings Bart. Dessa egenskaper är inte aktiverade som standard och ska konfigureras med CLI eller PowerShell:<br>
+  - [Mjuk borttagning](../../key-vault/general/overview-soft-delete.md)
+  - [Rensnings skyddet](../../key-vault/general/overview-soft-delete.md#purge-protection) bör vara aktiverat för att skydda mot Force borttagning av hemligheten/valvet även efter mjuk borttagning.
 
-  - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
-      Du måste aktivera    -  [rensnings skyddet](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   för att skydda mot Tvingad borttagning av hemligheten/valvet även efter en mjuk borttagning.
+- Det finns för närvarande inte stöd för att flytta *kluster* resurser till en annan resurs grupp eller prenumeration.
 
-- *Kluster*   Det finns      för närvarande inte stöd för att flytta resurser till en annan resurs grupp eller prenumeration.
+- Dina Azure Key Vault, *kluster* resursen och de associerade arbets ytorna måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer.
 
--Din Azure Key Vault, *kluster*   resurs och associerade arbets ytor måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer.
-
-– Associationen för arbets ytan till *kluster*   resursen kommer inte att fungera om den är      kopplad till en annan *kluster*   resurs
+- Associationen för arbets ytan till *kluster* resursen kommer inte att fungera om den är kopplad till en annan *kluster* resurs
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -743,3 +743,41 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   2. Skicka GET-begäran till *kluster* eller arbets yta och observera svaret. Till exempel har inte den kopplade arbets ytan *clusterResourceId* under *funktioner*.
 
 - För support och hjälp som är relaterat till kund Managed Key använder du dina kontakter i Microsoft.
+
+- Felmeddelanden
+  
+  Skapa *kluster* resurs:
+  -  400--kluster namnet är ogiltigt. Kluster namnet kan innehålla tecknen a – z, A-Z, 0-9 och längden 3-63.
+  -  400 – bröd texten i begäran är null eller i felaktigt format.
+  -  400--SKU-namnet är ogiltigt. Ange SKU-namn till capacityReservation.
+  -  400--kapaciteten tillhandahölls men SKU: n är inte capacityReservation. Ange SKU-namn till capacityReservation.
+  -  400--kapacitet saknas i SKU. Ange kapacitets värde till 1000 eller högre i steg om 100 (GB).
+  -  400--kapacitet i SKU är inte inom intervallet. Bör vara minst 1000 och upp till den högsta tillåtna kapaciteten som är tillgänglig under "användning och uppskattad kostnad" i din arbets yta.
+  -  400 – kapaciteten är låst i 30 dagar. Minskning av kapaciteten tillåts 30 dagar efter uppdateringen.
+  -  400--inget SKU har angetts. Ange SKU-namnet till capacityReservation och kapacitets värde till 1000 eller högre i steg om 100 (GB).
+  -  400--identiteten är null eller tom. Ange identitet med systemAssigned-typ.
+  -  400--KeyVaultProperties anges när de skapas. Uppdatera KeyVaultProperties när klustret har skapats.
+  -  400--åtgärden kan inte utföras nu. Den asynkrona åtgärden är i ett annat tillstånd än lyckades. Klustret måste utföra åtgärden innan en uppdaterings åtgärd utförs.
+
+  Uppdatering av *kluster* resurs
+  -  400--klustrets status tas bort. En asynkron åtgärd pågår. Klustret måste utföra åtgärden innan en uppdaterings åtgärd utförs.
+  -  400--KeyVaultProperties är inte tomt men har ett felaktigt format. Se [uppdatering av nyckel identifierare](#update-cluster-resource-with-key-identifier-details).
+  -  400--det gick inte att verifiera nyckeln i Key Vault. Kan bero på otillräckliga behörigheter eller när nyckeln inte finns. Kontrol lera att du [ställer in nyckel-och åtkomst principer](#grant-key-vault-permissions) i Key Vault.
+  -  400--det går inte att återskapa nyckeln. Key Vault måste anges som mjuk borttagning och rensnings skydd. Se [Key Vault-dokumentation](../../key-vault/general/overview-soft-delete.md)
+  -  400--åtgärden kan inte utföras nu. Vänta tills den asynkrona åtgärden har slutförts och försök igen.
+  -  400--klustrets status tas bort. Vänta tills den asynkrona åtgärden har slutförts och försök igen.
+
+    *Kluster* resurs hämtning:
+    -  404--det gick inte att hitta klustret, klustret kan ha tagits bort. Om du försöker skapa ett kluster med det namnet och få en konflikt, är klustret mjuk borttagning i 14 dagar. Du kan kontakta supporten för att återställa den eller använda ett annat namn för att skapa ett nytt kluster. 
+
+  Ta bort *kluster* resurs
+    -  409--det går inte att ta bort ett kluster i etablerings tillstånd. Vänta tills den asynkrona åtgärden har slutförts och försök igen.
+
+  Association för arbets yta:
+  -  404--arbets ytan hittades inte. Den arbets yta du angav finns inte eller har tagits bort.
+  -  409--arbets ytans associering eller en borttagnings åtgärd.
+  -  400--det gick inte att hitta klustret, det kluster du angav finns inte eller har tagits bort. Om du försöker skapa ett kluster med det namnet och få en konflikt, är klustret mjuk borttagning i 14 dagar. Du kan kontakta supporten för att återställa den.
+
+  Association för arbets yta:
+  -  404--arbets ytan hittades inte. Den arbets yta du angav finns inte eller har tagits bort.
+  -  409--arbets ytans associering eller en borttagnings åtgärd.

@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09db7684c84bbde038c67f9ccfb3f27f6b61bee6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114415"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539558"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered dina logikappar och runbooks för migrering av klassiska aviseringsregler
 
@@ -27,12 +28,12 @@ De API: er som skapar och hanterar klassiska varnings regler ( `microsoft.insigh
 
 Följande tabell är en referens till programmerings gränssnitten för både de klassiska och nya aviseringarna:
 
-|         |Klassiska aviseringar  |Nya mått varningar |
-|---------|---------|---------|
-|REST-API     | [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [avisering om AZ-övervakaren](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [avisering om AZ Monitor-mått](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Azure Resource Manager-mall | [För klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[För nya mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Typ av distributions skript | Klassiska aviseringar | Nya mått varningar |
+| ---------------------- | -------------- | ----------------- |
+|REST-API     | [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](/rest/api/monitor/metricalerts)       |
+|Azure CLI     | [avisering om AZ-övervakaren](/cli/azure/monitor/alert?view=azure-cli-latest)        | [avisering om AZ Monitor-mått](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|PowerShell      | [Referens](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referens](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+| Azure Resource Manager-mall | [För klassiska aviseringar](./alerts-enable-template.md)|[För nya mått varningar](./alerts-metric-create-templates.md)|
 
 ## <a name="notification-payload-changes"></a>Ändringar i meddelande nytto Last
 
@@ -40,8 +41,8 @@ Formatet för meddelande nytto Last skiljer sig något från de [klassiska avise
 
 Använd följande tabell för att Mappa fälten för webhook-nyttolasten från det klassiska formatet till det nya formatet:
 
-|  |Klassiska aviseringar  |Nya mått varningar |
-|---------|---------|---------|
+| Slut punkts typ för meddelande | Klassiska aviseringar | Nya mått varningar |
+| -------------------------- | -------------- | ----------------- |
 |Har aviseringen Aktiver ATS eller lösts?    | **statusfältet**       | **data. status** |
 |Sammanhangsbaserad information om aviseringen     | **Edit**        | **data. context**        |
 |Tidstämpeln som aviseringen aktiverades eller löstes i     | **Context. timestamp**       | **data. context. timestamp**        |
@@ -70,7 +71,7 @@ Nytto lasterna är liknande, som du ser. Följande avsnitt innehåller:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Ändra en Logi Kap par-app för att få ett mått på varnings meddelande
 
-Om du använder Logi Kap par med klassiska aviseringar måste du ändra logik-app-koden för att parsa de nya måtten för mått aviseringar. Följ de här stegen:
+Om du använder Logi Kap par med klassiska aviseringar måste du ändra logik-app-koden för att parsa de nya måtten för mått aviseringar. Gör så här:
 
 1. Skapa en ny Logic-app.
 
@@ -149,11 +150,11 @@ else {
 
 ```
 
-Ett fullständigt exempel på en Runbook som stoppar en virtuell dator när en avisering utlöses finns i [Azure Automation-dokumentationen](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Ett fullständigt exempel på en Runbook som stoppar en virtuell dator när en avisering utlöses finns i [Azure Automation-dokumentationen](../../automation/automation-create-alert-triggered-runbook.md).
 
 ## <a name="partner-integration-via-webhooks"></a>Partner integrering via Webhooks
 
-De flesta av [våra partner som integrerar med klassiska aviseringar har](https://docs.microsoft.com/azure/azure-monitor/platform/partners) redan stöd för nya mått aviseringar via deras integreringar. Kända integreringar som redan fungerar med nya mått aviseringar är:
+De flesta av [våra partner som integrerar med klassiska aviseringar har](./partners.md) redan stöd för nya mått aviseringar via deras integreringar. Kända integreringar som redan fungerar med nya mått aviseringar är:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

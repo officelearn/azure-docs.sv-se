@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539830"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -21,7 +21,7 @@ När antalet mått visas i portalen, är de omnormaliserade för att ta hänsyn 
 ## <a name="brief-summary"></a>Kort sammanfattning
 
 * Det finns tre olika typer av sampling: anpassningsbar sampling, sampling med fast pris och insamling av inmatningar.
-* Adaptiv sampling är aktiverat som standard i alla de senaste versionerna av Application Insights ASP.NET och ASP.NET Core Software Development Kits (SDK: er). Den används också av [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+* Adaptiv sampling är aktiverat som standard i alla de senaste versionerna av Application Insights ASP.NET och ASP.NET Core Software Development Kits (SDK: er). Den används också av [Azure Functions](../../azure-functions/functions-overview.md).
 * Fast pris sampling är tillgängligt i de senaste versionerna av Application Insights SDK: er för ASP.NET, ASP.NET Core, Java (både agenten och SDK) och python.
 * Provtagnings samplingen fungerar på Application Insights tjänstens slut punkt. Den gäller endast när ingen annan sampling tillämpas. Om SDK-exemplen för telemetri inaktive ras inmatnings sampling.
 * För webb program, om du loggar anpassade händelser och måste se till att en uppsättning händelser behålls eller ignoreras tillsammans, måste händelserna ha samma `OperationId` värde.
@@ -34,9 +34,10 @@ I följande tabell sammanfattas de samplings typer som är tillgängliga för va
 |-|-|-|-|
 | ASP.NET | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-applications) | Endast om ingen annan sampling gäller |
 | ASP.NET Core | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Endast om ingen annan sampling gäller |
-| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | No | Endast om ingen annan sampling gäller |
-| Java | No | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
-| Python | No | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
+| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Nej | Endast om ingen annan sampling gäller |
+| Java | Nej | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
+| Node.JS | Nej | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
+| Python | Nej | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
 | Alla andra | Nej | Nej | [Ja](#ingestion-sampling) |
 
 > [!NOTE]
@@ -209,7 +210,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Konfigurera adaptiv sampling för Azure Functions
 
-Följ anvisningarna på [den här sidan](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) om du vill konfigurera adaptiv sampling för appar som körs i Azure Functions.
+Följ anvisningarna på [den här sidan](../../azure-functions/functions-monitoring.md#configure-sampling) om du vill konfigurera adaptiv sampling för appar som körs i Azure Functions.
 
 ## <a name="fixed-rate-sampling"></a>Sampling med fast pris
 
@@ -481,7 +482,7 @@ Om villkoren för att använda andra former av sampling inte gäller rekommender
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>Att veta om sampling är i drift
 
-Om du vill identifiera den faktiska samplings frekvensen oavsett var den har använts använder du en [analys fråga](../../azure-monitor/app/analytics.md) som detta:
+Om du vill identifiera den faktiska samplings frekvensen oavsett var den har använts använder du en [analys fråga](../log-query/log-query-overview.md) som detta:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -586,4 +587,4 @@ Före v-2.5.0-beta2 av ASP.NET SDK och v 2.2.0-beta3 för ASP.NET Core SDK baser
 ## <a name="next-steps"></a>Nästa steg
 
 * [Filtrering](../../azure-monitor/app/api-filtering-sampling.md) kan ge mer strikt kontroll över vad din SDK skickar.
-* Läs artikeln om Developer Network [optimera telemetri med Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Läs artikeln om Developer Network [optimera telemetri med Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).

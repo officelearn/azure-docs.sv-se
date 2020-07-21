@@ -1,15 +1,15 @@
 ---
 title: Förstå hur mått varningar fungerar i Azure Monitor.
 description: Få en översikt över vad du kan göra med mått aviseringar och hur de fungerar i Azure Monitor.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187531"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539439"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -119,6 +119,15 @@ Anta att du har en webbapp med många instanser och att du inte vet vad det bäs
 Den här regeln övervakar om den genomsnittliga CPU-användningen för de senaste 5 minuterna överskrider det förväntade beteendet för varje instans. Samma regel du kan övervaka instanser när de kommer igång utan att behöva ändra mått varnings regeln igen. Varje instans får ett tröskelvärde som passar mått seriens beteende mönster och kommer kontinuerligt att ändras baserat på nya data för att göra tröskelvärdet mer exakt. Precis som tidigare övervakas varje instans individuellt och du får meddelanden individuellt.
 
 Om du ökar antalet återställnings perioder och antalet överträdelser kan du också tillåta filtrerings aviseringar enbart för aviseringar i definitionen av en betydande avvikelse. [Lär dig mer om avancerade alternativ för dynamiska tröskelvärden](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+
+> [!NOTE]
+>
+> Vi rekommenderar att du väljer en *agg regerings kornig het (period)* som är större än *utvärderings frekvensen*, för att minska sannolikheten för att den första utvärderingen av tillagd tids serier saknas i följande fall:
+> - Mått varnings regel som övervakar flera dimensioner – när en ny dimensions värde kombination läggs till
+> - Mått varnings regel som övervakar flera resurser – när en ny resurs läggs till i omfånget
+> - Regel varnings regel som övervakar ett mått som inte genereras kontinuerligt (glest mått) – när måttet släpps efter en period som är längre än 24 timmar där den inte har spridits
+
+
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i skala med hjälp av mått varningar i Azure Monitor
 

@@ -3,11 +3,12 @@ title: Skala automatiskt upp data flödes enheter – Azure Event Hubs | Microso
 description: Aktivera automatisk ökning på ett namn område för att automatiskt skala upp data flödes enheter.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 382d407bde61a4ca24ab5833ea51d540c8904adc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322546"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537249"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs data flödes enheter
 Azure Event Hubs är en mycket skalbar data strömnings plattform. Därför ökar Event Hubs användningen ofta när tjänsten har startats. Sådan användning kräver att fördefinierade [data flödes enheter](event-hubs-scalability.md#throughput-units) ökar för att skala Event Hubs och hantera större överföringshastigheter. Funktionen för **Automatisk** ökning i Event Hubs skalas automatiskt upp genom att öka antalet data flödes enheter för att möta användnings behoven. Ökande data flödes enheter förhindrar begränsnings scenarier där:
@@ -63,7 +64,7 @@ Du kan också aktivera funktionen för automatisk ökning och ändra dess instä
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk ökning med en Azure Resource Manager-mall
 
-Du kan aktivera automatisk ökning under en Azure Resource Manager mall-distribution. Ange till exempel `isAutoInflateEnabled` egenskapen till **Sant** och inställd `maximumThroughputUnits` på 10. Ett exempel:
+Du kan aktivera automatisk ökning under en Azure Resource Manager mall-distribution. Ange till exempel `isAutoInflateEnabled` egenskapen till **Sant** och inställd `maximumThroughputUnits` på 10. Till exempel:
 
 ```json
 "resources": [
@@ -113,5 +114,4 @@ En fullständig mall finns i [skapa Event Hubs namnrymd och aktivera bred mitt](
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
-
+* [Översikt över Event Hubs](./event-hubs-about.md)

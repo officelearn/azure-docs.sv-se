@@ -4,12 +4,12 @@ description: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82690853"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540051"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -346,7 +346,7 @@ Se till att du ställer in operation (korrelation)-identifierarna när du tar bo
 
 ### <a name="dependency-types"></a>Beroende typer
 
-Application Insights använder beroende typen för att anpassa GRÄNSSNITTs upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights använder beroende typen för att anpassa GRÄNSSNITTs upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](./transaction-diagnostics.md):
 - `Azure queue`för Azure Storage köer
 - `Azure Event Hubs`för Azure Event Hubs
 - `Azure Service Bus`för Azure Service Bus
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 Åtgärden stoppas om åtgärden stoppas, så du kan göra det i stället för att anropa `StopOperation` .
 
-*Varning*: ett undantag som inte är behållet kan [förhindras](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) att `finally` anropas så att åtgärder inte kan spåras.
+*Varning*: ett undantag som inte är behållet kan [förhindras](/dotnet/csharp/language-reference/keywords/try-finally) att `finally` anropas så att åtgärder inte kan spåras.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Bearbetning och spårning av parallella åtgärder
 

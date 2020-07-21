@@ -4,11 +4,12 @@ description: En detaljerad analys av inställningarna för autoskalning och hur 
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75364313"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539388"
 ---
 # <a name="understand-autoscale-settings"></a>Förstå inställningarna för automatisk skalning
 Med inställningarna för automatisk skalning kan du se till att du har rätt mängd resurser som körs för att hantera belastningen på ditt program. Du kan konfigurera inställningar för automatisk skalning som ska utlösas baserat på mått som indikerar belastning eller prestanda eller som utlöses vid schemalagd tidpunkt och tidpunkt. Den här artikeln tar en detaljerad titt på konfigurationen av en inställning för autoskalning. Artikeln börjar med schema och egenskaper för en inställning och går sedan igenom de olika profil typerna som kan konfigureras. Slutligen diskuterar artikeln hur funktionen för autoskalning i Azure utvärderar vilken profil som ska köras vid en specifik tidpunkt.
@@ -86,9 +87,9 @@ För att illustrera schemat för autoskalning av inställningar används följan
 
 | Avsnitt | Elementnamn | Beskrivning |
 | --- | --- | --- |
-| Inställningen | ID | Resurs-ID för den autoskalningsinställning. Inställningarna för autoskalning är en Azure Resource Manager resurs. |
-| Inställningen | name | Namnet på den automatiska skalnings inställningen. |
-| Inställningen | location | Platsen för den automatiska skalnings inställningen. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
+| Inställning | ID | Resurs-ID för den autoskalningsinställning. Inställningarna för autoskalning är en Azure Resource Manager resurs. |
+| Inställning | name | Namnet på den automatiska skalnings inställningen. |
+| Inställning | location | Platsen för den automatiska skalnings inställningen. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
 | properties | targetResourceUri | Resurs-ID för den resurs som skalas. Du kan bara ha en inställning för autoskalning per resurs. |
 | properties | filer | En inställning för autoskalning består av en eller flera profiler. Varje gången den automatiska skalnings motorn körs körs en profil. |
 | profil | name | Namnet på profilen. Du kan välja ett namn som hjälper dig att identifiera profilen. |
@@ -304,5 +305,4 @@ Lär dig mer om autoskalning genom att referera till följande:
 * [Azure Monitor vanliga mått för autoskalning](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Metodtips för autoskalning i Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [Skala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-
+* [Skala REST API](/rest/api/monitor/autoscalesettings)

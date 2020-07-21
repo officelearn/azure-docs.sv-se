@@ -4,11 +4,12 @@ description: Förstå det vanliga aviserings schemat, varför du bör använda d
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710940"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539490"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -30,7 +31,7 @@ Det innebär att du kan ha färre integrationer, vilket gör att du kan hantera 
 
 Det vanliga aviserings schemat kommer huvudsakligen att manifesta sig själva i aviserings aviseringarna. De förbättringar som du ser visas nedan:
 
-| Åtgärd | Förbättringar |
+| Action | Förbättringar |
 |:---|:---|
 | SMS | En konsekvent SMS-mall för alla aviserings typer. |
 | E-post | En konsekvent och detaljerad e-postmall som gör det enkelt att snabbt diagnostisera problem. Inbäddade djup länkar till aviserings instansen på portalen och den berörda resursen garanterar att du snabbt kan gå vidare till reparations processen. |
@@ -51,8 +52,8 @@ Du kan välja att välja ett gemensamt aviserings schema via åtgärds grupper p
 > 1. Följande aviserings typer stöder gemensamt schema som standard (inte opt-in krävs):
 >     * Aviseringar för smart identifiering
 > 1. Följande aviserings typer stöder för närvarande inte det gemensamma schemat:
->     * Aviseringar som genererats av [Azure Monitor for VMS](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
->     * Aviseringar som genererats av [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+>     * Aviseringar som genererats av [Azure Monitor for VMS](../insights/vminsights-overview.md)
+>     * Aviseringar som genererats av [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Via Azure Portal
 
@@ -63,9 +64,9 @@ Du kan välja att välja ett gemensamt aviserings schema via åtgärds grupper p
 
 ### <a name="through-the-action-groups-rest-api"></a>Genom REST API åtgärds grupper
 
-Du kan också använda [Åtgärds grupps-API: et](https://docs.microsoft.com/rest/api/monitor/actiongroups) för att välja gemensamt aviserings schema. När du gör ett anrop för att [skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API kan du ange flaggan "useCommonAlertSchema" till "true" (för att välja) eller "falskt" (för att avanmäla) för någon av följande åtgärder – e-post/webhook/Logic app/Azure Function/Automation Runbook.
+Du kan också använda [Åtgärds grupps-API: et](/rest/api/monitor/actiongroups) för att välja gemensamt aviserings schema. När du gör ett anrop för att [skapa eller uppdatera](/rest/api/monitor/actiongroups/createorupdate) REST API kan du ange flaggan "useCommonAlertSchema" till "true" (för att välja) eller "falskt" (för att avanmäla) för någon av följande åtgärder – e-post/webhook/Logic app/Azure Function/Automation Runbook.
 
-Exempel: följande begär ande text till [skapa-eller uppdaterings](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API gör följande:
+Exempel: följande begär ande text till [skapa-eller uppdaterings](/rest/api/monitor/actiongroups/createorupdate) REST API gör följande:
 
 * Aktivera det vanliga aviserings schemat för e-poståtgärden John berg e-post
 * Inaktivera det vanliga aviserings schemat för e-poståtgärden "Jane Smith" e-post "
@@ -120,7 +121,4 @@ Exempel: följande begär ande text till [skapa-eller uppdaterings](https://docs
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vanliga aviserings schema definitioner för Webhooks/Logic Apps/Azure Functions/Automation-runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Lär dig hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
-
-
-
+- [Lär dig hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar.](./alerts-common-schema-integrations.md) 

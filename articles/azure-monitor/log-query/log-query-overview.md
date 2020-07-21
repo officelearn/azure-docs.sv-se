@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82591660"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539609"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Översikt över logg frågor i Azure Monitor
 Med logg frågor kan du utnyttja värdet för de data som samlas in i [Azure Monitor loggar](../platform/data-platform-logs.md). Ett kraftfullt frågespråk gör att du kan koppla data från flera tabeller, aggregera stora mängder data och utföra komplexa åtgärder med minimal kod. I stort sett kan alla frågor besvaras och analyseras så länge som stödjande data har samlats in och du förstår hur du skapar rätt fråga.
 
-Vissa funktioner i Azure Monitor, till exempel [insikter](../insights/insights-overview.md) och [lösningar](../insights/solutions-inventory.md) , bearbetar loggdata utan att du exponerar de underliggande frågorna. För att helt utnyttja andra funktioner i Azure Monitor bör du förstå hur frågor skapas och hur du kan använda dem för att interaktivt analysera data i Azure Monitor loggar.
+Vissa funktioner i Azure Monitor, till exempel [insikter](../insights/insights-overview.md) och [lösningar](../monitor-reference.md) , bearbetar loggdata utan att du exponerar de underliggande frågorna. För att helt utnyttja andra funktioner i Azure Monitor bör du förstå hur frågor skapas och hur du kan använda dem för att interaktivt analysera data i Azure Monitor loggar.
 
 Använd den här artikeln som en start punkt för att lära dig om logg frågor i Azure Monitor. Den svarar på vanliga frågor och innehåller länkar till annan dokumentation som innehåller mer information och lektioner.
 

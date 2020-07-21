@@ -3,15 +3,16 @@ title: Händelse räknare i Application Insights | Microsoft Docs
 description: Övervaka system och anpassade .NET/.NET Core-EventCounters i Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 37d0e1e741548986788be78860830f36add1f5a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83700429"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539949"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
 
-`EventCounter`är .NET/.NET Core-mekanismen för att publicera och använda räknare eller statistik. [Det här](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) dokumentet ger en översikt över `EventCounters` och exempel på hur du publicerar och använder dem. EventCounters stöds i alla OS-plattformar – Windows, Linux och macOS. Det kan ses som en likvärdig plattform för [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) som endast stöds i Windows-system.
+`EventCounter`är .NET/.NET Core-mekanismen för att publicera och använda räknare eller statistik. [Det här](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) dokumentet ger en översikt över `EventCounters` och exempel på hur du publicerar och använder dem. EventCounters stöds i alla OS-plattformar – Windows, Linux och macOS. Det kan ses som en likvärdig plattform för [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) som endast stöds i Windows-system.
 
 Användare kan publicera alla anpassade efter `EventCounters` deras behov, men .net Core 3,0-körningen publicerar som standard en uppsättning dessa räknare. Dokumentet går igenom de steg som krävs för att samla in och visa `EventCounters` (systemdefinierad eller användardefinierad) i Azure Application insikter.
 
@@ -90,14 +91,14 @@ I följande exempel visas hur du lägger till/tar bort räknare. Den här anpass
 
 ## <a name="event-counters-in-metric-explorer"></a>Händelse räknare i Metric Explorer
 
-Om du vill visa EventCounter-mått i [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)väljer du Application Insights resurs och väljer loggbaserade mått som mått namn område. Sedan visas EventCounter mått under anpassad kategori.
+Om du vill visa EventCounter-mått i [Metric Explorer](../platform/metrics-charts.md)väljer du Application Insights resurs och väljer loggbaserade mått som mått namn område. Sedan visas EventCounter mått under anpassad kategori.
 
 > [!div class="mx-imgBorder"]
 > ![Händelse räknare som rapporter ATS i Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Händelse räknare i Analytics
 
-Du kan också söka efter och Visa rapporter för händelse räknare i [Analytics](../../azure-monitor/app/analytics.md)i **customMetrics** -tabellen.
+Du kan också söka efter och Visa rapporter för händelse räknare i [Analytics](../log-query/log-query-overview.md)i **customMetrics** -tabellen.
 
 Kör till exempel följande fråga för att se vilka räknare som samlas in och är tillgängliga för fråga:
 
@@ -143,7 +144,7 @@ EventCounter kräver inte några särskilda behörigheter och stöds i alla plat
 
 ### <a name="i-have-enabled-application-insights-from-azure-web-app-portal-but-i-cant-see-eventcounters"></a>Jag har aktiverat Application Insights från Azure Web App-portalen. Men jag kan inte se EventCounters.?
 
- [Application Insights-tillägget](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) för ASP.net Core har ännu inte stöd för den här funktionen. Det här dokumentet kommer att uppdateras när den här funktionen stöds.
+ [Application Insights-tillägget](./azure-web-apps.md) för ASP.net Core har ännu inte stöd för den här funktionen. Det här dokumentet kommer att uppdateras när den här funktionen stöds.
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 

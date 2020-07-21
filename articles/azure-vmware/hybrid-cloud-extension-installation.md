@@ -2,19 +2,19 @@
 title: Installera Hybrid Cloud Extension (HCX)
 description: Konfigurera VMware Hybrid Cloud Extension (HCX)-lösningen för Azure VMware-lösningen (AVS) privat moln
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367554"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539167"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
 I den här artikeln går vi igenom procedurerna för att ställa in VMWare Hybrid Cloud Extension (HCX)-lösningen för ditt moln i Azure VMWare-lösningen (AVS). HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds.
 
-HCX Advanced, standard-installationen stöder upp till tre externa platser. Om fler än tre platser krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support. HCX Enterprise-installation medför ytterligare kostnader för kunder efter allmän tillgänglighet (GA), men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, standard-installationen stöder upp till tre vCenter. Om fler än tre krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support. HCX Enterprise-installation medför ytterligare kostnader för kunder efter allmän tillgänglighet (GA), men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Noggrant granska [innan du börjar](#before-you-begin), [program versions krav](#software-version-requirements)och [förutsättningar](#prerequisites) först. 
@@ -50,7 +50,7 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 | NSX    | För HCX nätverks tillägg för logiska växlar vid källan: NSXv 6.2 + eller NSX-T 2.4 +   | NSXv 6.2 + eller NSX-T 2.4 +<br/><br/>För HCX närhet: NSXv 6.4 + (närhets dirigering stöds inte med NSX-T) |
 | vCloud-regissör   | Krävs inte – ingen interoperabilitet med vCloud Director på käll platsen | När du integrerar mål miljön med vCloud Director är minimivärdet 9.1.0.2.  |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Global räckvidd bör konfigureras mellan lokala och AVS-SDDC ER-kretsar.
 
@@ -80,7 +80,7 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
     ![Granska mal linne Detaljer](./media/hybrid-cloud-extension-installation/configure-template.png)
 
-1. Läs igenom licens villkoren och välj nödvändigt lagring och nätverk om du godkänner. Välj **Nästa**.
+1. Läs igenom licens villkoren och välj nödvändigt lagring och nätverk om du godkänner. Välj sedan **Nästa**.
 
 1. I **Anpassa mall**anger du all information som krävs. 
 

@@ -4,12 +4,12 @@ description: Automatisera anpassade dagliga/veckovis/månads Visa rapporter med 
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82161523"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540085"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
 
@@ -31,9 +31,9 @@ Varje företag har sina unika rapporterings behov, till exempel:
 
 Du kan [köra program mässigt fråga Application Insights](https://dev.applicationinsights.io/) data för att skapa anpassade rapporter enligt ett schema. Följande alternativ kan hjälpa dig att komma igång snabbt:
 
-* [Automatisera rapporter med Microsoft Flow](automate-with-flow.md)
+* [Automatisera rapporter med Microsoft Flow](../platform/logicapp-flow-connector.md)
 * [Automatisera rapporter med Logic Apps](automate-with-logic-apps.md)
-* Använd [Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) -mallen "Application Insights schemalagd Sammanfattning" i övervaknings scenariot. Den här funktionen använder SendGrid för att leverera e-postmeddelandet. 
+* Använd [Azure Function](../../azure-functions/functions-create-first-azure-function.md) -mallen "Application Insights schemalagd Sammanfattning" i övervaknings scenariot. Den här funktionen använder SendGrid för att leverera e-postmeddelandet. 
 
     ![Azure Function-mall](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Skapa ett Azure-Funktionsapp. (Application Insights _på_ krävs bara om du vill övervaka nya Funktionsapp med Application Insights)
 
-   Besök Azure Functions-dokumentationen och lär dig hur du [skapar en Function-app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app)
+   Besök Azure Functions-dokumentationen och lär dig hur du [skapar en Function-app](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
 
 2. När din nya Funktionsapp har slutfört distributionen väljer **du gå till resurs**.
 
@@ -83,7 +83,7 @@ availabilityResults
 4. Välj **_Application Insights schemalagd sammanfattad mall_**.
 
      > [!NOTE]
-     > Som standard skapas Function Apps med körnings version 3. x. Du måste ha [mål Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** för att kunna använda den schemalagda sammanfattnings mal len Application Insights. Gå till konfiguration > funktion körnings inställningar för att ändra kör tids versionen. ![skärm bild för körning](./media/automate-custom-reports/change-runtime-v.png)
+     > Som standard skapas Function Apps med körnings version 3. x. Du måste ha [mål Azure Functions runtime version](../../azure-functions/set-runtime-version.md) **1. x** för att kunna använda den schemalagda sammanfattnings mal len Application Insights. Gå till konfiguration > funktion körnings inställningar för att ändra kör tids versionen. ![skärm bild för körning](./media/automate-custom-reports/change-runtime-v.png)
 
    ![Skärm bild för ny funktion Application Insights mall](./media/automate-custom-reports/function-app-04.png)
 
@@ -106,7 +106,7 @@ availabilityResults
    * SendGridAPI = SendGrid API-nyckel
 
      > [!NOTE]
-     > Om du inte har ett SendGrid-konto kan du skapa ett. SendGrid-dokumentationen för Azure Functions finns [här](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Om du bara vill ha en minimal förklaring av hur du ställer in SendGrid och genererar en API-nyckel som anges i slutet av den här artikeln. 
+     > Om du inte har ett SendGrid-konto kan du skapa ett. SendGrid-dokumentationen för Azure Functions finns [här](../../azure-functions/functions-bindings-sendgrid.md). Om du bara vill ha en minimal förklaring av hur du ställer in SendGrid och genererar en API-nyckel som anges i slutet av den här artikeln. 
 
 8. Välj **integrera** och under utdata klickar du på **SendGrid ($Return)**.
 
@@ -152,5 +152,5 @@ De här stegen gäller endast om du inte redan har ett SendGrid-konto konfigurer
 
 * Lär dig mer om att skapa [analys frågor](../../azure-monitor/log-query/get-started-queries.md).
 * Lär dig mer om att [fråga Application Insights data](https://dev.applicationinsights.io/) på ett program
-* Läs mer om [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+* Läs mer om [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).

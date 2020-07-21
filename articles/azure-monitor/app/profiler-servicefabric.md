@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d63d932756495584b2870c597d3332077f8e86c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671621"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539847"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profilera Live Azure Service Fabric-program med Application Insights
 
@@ -25,9 +26,9 @@ Application Insights Profiler ingår i Azure-diagnostik. Du kan installera Azure
 
 Utför följande åtgärder för att konfigurera din miljö:
 
-1. Profiler stöder .NET Framework och .net Core. Om du använder .NET Framework kontrollerar du att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Det räcker att bekräfta att det distribuerade operativ systemet är `Windows Server 2012 R2` eller senare. Profiler stöder .NET Core 2,1 och nyare program.
+1. Profiler stöder .NET Framework och .net Core. Om du använder .NET Framework kontrollerar du att du använder [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Det räcker att bekräfta att det distribuerade operativ systemet är `Windows Server 2012 R2` eller senare. Profiler stöder .NET Core 2,1 och nyare program.
 
-1. Sök efter [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) tillägget i distributions mal len fil.
+1. Sök efter [Azure-diagnostik](../platform/diagnostics-extension-overview.md) tillägget i distributions mal len fil.
 
 1. Lägg till följande `SinksConfig` avsnitt som underordnat element i `WadCfg` . Ersätt `ApplicationInsightsProfiler` egenskap svärdet med din egen Application Insights Instrumentation-nyckel:  
 
@@ -42,7 +43,7 @@ Utför följande åtgärder för att konfigurera din miljö:
       }
       ```
 
-      Information om hur du lägger till diagnostik-tillägget i distributions mal len finns i [använda övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+      Information om hur du lägger till diagnostik-tillägget i distributions mal len finns i [använda övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](../../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json).
 
 1. Distribuera Service Fabric-klustret med hjälp av din Azure Resource Manager-mall.  
   Om inställningarna är korrekta kommer Application Insights Profiler att installeras och aktive ras när Azure-diagnostik-tillägget har installerats. 

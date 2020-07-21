@@ -3,11 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt och jämförelse mellan Recovery Services valv och Azure Backup valv.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11a218badfab141c41430c3f48a5e930bfa1af8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248914"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539048"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -35,9 +36,9 @@ Recovery Services-valv baseras på Azure Resource Managers modellen för Azure, 
 
 Ett Recovery Services-valv är en entitet som lagrar säkerhets kopior och återställnings punkter som skapats med tiden. Recovery Services valvet innehåller också de säkerhets kopierings principer som är associerade med de skyddade virtuella datorerna.
 
-Azure Backup hanterar automatiskt lagring för valvet. Se hur [lagrings inställningarna kan ändras](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+Azure Backup hanterar automatiskt lagring för valvet. Se hur [lagrings inställningarna kan ändras](./backup-create-rs-vault.md#set-storage-redundancy).
 
-Mer information om redundans finns i de här artiklarna om [geo](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) -och [lokal](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) redundans.
+Mer information om redundans finns i de här artiklarna om [geo](../storage/common/storage-redundancy.md) -och [lokal](../storage/common/storage-redundancy.md) redundans.
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Hantera dina Recovery Services-valv i portalen
 
@@ -61,7 +62,7 @@ Följande avsnitt innehåller länkar till artiklar som förklarar hur du använ
 ### <a name="back-up-data"></a>Säkerhetskopiera data
 
 - [Säkerhetskopiera en virtuell Azure-dator](backup-azure-vms-first-look-arm.md)
-- [Säkerhetskopiera Windows Server eller Windows Workstation](backup-try-azure-backup-in-10-mins.md)
+- [Säkerhetskopiera Windows Server eller Windows Workstation](./backup-windows-with-mars-agent.md)
 - [Säkerhetskopiera DPM-arbetsbelastningar till Azure](backup-azure-dpm-introduction.md)
 - [Förbereda säkerhets kopiering av arbets belastningar med Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
@@ -81,9 +82,9 @@ Följande avsnitt innehåller länkar till artiklar som förklarar hur du använ
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) är en anpassad moln konsult som hjälper dig att optimera användningen av Azure. Den analyserar din Azure-användning och ger rekommendationer som hjälper dig att optimera och skydda dina distributioner. Det ger rekommendationer i fyra kategorier: hög tillgänglighet, säkerhet, prestanda och kostnad.
+[Azure Advisor](../advisor/index.yml) är en anpassad moln konsult som hjälper dig att optimera användningen av Azure. Den analyserar din Azure-användning och ger rekommendationer som hjälper dig att optimera och skydda dina distributioner. Det ger rekommendationer i fyra kategorier: hög tillgänglighet, säkerhet, prestanda och kostnad.
 
-Azure Advisor ger [rekommendationer](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) för virtuella datorer som inte har säkerhetskopierats, så att du aldrig har säkerhetskopierat viktiga virtuella datorer. Du kan också styra rekommendationerna genom att försätta dem i vilo läge.  Du kan klicka på rekommendationen och aktivera säkerhets kopiering på virtuella datorer på en rad genom att ange valvet (där säkerhets kopiorna ska lagras) och säkerhets kopierings policyn (schema för säkerhets kopior och kvarhållning av säkerhets kopior).
+Azure Advisor ger [rekommendationer](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) för virtuella datorer som inte har säkerhetskopierats, så att du aldrig har säkerhetskopierat viktiga virtuella datorer. Du kan också styra rekommendationerna genom att försätta dem i vilo läge.  Du kan klicka på rekommendationen och aktivera säkerhets kopiering på virtuella datorer på en rad genom att ange valvet (där säkerhets kopiorna ska lagras) och säkerhets kopierings policyn (schema för säkerhets kopior och kvarhållning av säkerhets kopior).
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

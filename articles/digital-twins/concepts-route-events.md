@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390796"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537529"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -46,7 +46,7 @@ Alternativt innehåller händelse meddelandet också ID: t för den källa som s
 
 Beräknings resursen måste också upprätta säkerhets-och åtkomst behörigheter oberoende av varandra.
 
-Information om hur du konfigurerar en Azure-funktion för att bearbeta digitala dubbla händelser finns i [How-to: Konfigurera en Azure-funktion för bearbetning av data](how-to-create-azure-function.md).
+Information om hur du konfigurerar en Azure-funktion för att bearbeta digitala dubbla händelser finns i [*How-to: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Skapa en slutpunkt
 
@@ -90,7 +90,7 @@ Olika typer av händelser i IoT Hub och Azure Digitals skapar olika typer av med
 ## <a name="next-steps"></a>Nästa steg
 
 Se så här konfigurerar och hanterar du en händelse väg:
-* [Anvisningar: hantera slut punkter och vägar](how-to-manage-routes.md)
+* [*Anvisningar: hantera slut punkter och vägar*](how-to-manage-routes.md)
 
 Du kan också se hur du använder Azure Functions för att dirigera händelser i Azure Digitals:
-* [Anvisningar: Konfigurera en Azure-funktion för bearbetning av data](how-to-create-azure-function.md)
+* [*Anvisningar: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md)

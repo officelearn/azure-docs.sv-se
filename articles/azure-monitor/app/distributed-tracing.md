@@ -6,11 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540000"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
@@ -20,9 +21,9 @@ I monolitisk-arkitekturer har vi använt för att felsöka anrops stackar. Anrop
 
 Det är där den distribuerade spårningen kommer in.  
 
-Distributed tracing är motsvarigheten till anrops stackar för moderna moln-och mikrotjänster-arkitekturer, med tillägg av en förenklad prestanda profilering i. I Azure Monitor tillhandahåller vi två upplevelser för att konsumera distribuerade spårnings data. Den första är vår vy för [transaktions-diagnostik](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) , som är som en anrops stack med en tids dimension som lagts till i. Vyn transaktions-diagnostik ger insyn i en enda transaktion/begäran och är användbar för att hitta rotor saken till problem med tillförlitlighet och prestanda Flask halsar per begäran.
+Distributed tracing är motsvarigheten till anrops stackar för moderna moln-och mikrotjänster-arkitekturer, med tillägg av en förenklad prestanda profilering i. I Azure Monitor tillhandahåller vi två upplevelser för att konsumera distribuerade spårnings data. Den första är vår vy för [transaktions-diagnostik](./transaction-diagnostics.md) , som är som en anrops stack med en tids dimension som lagts till i. Vyn transaktions-diagnostik ger insyn i en enda transaktion/begäran och är användbar för att hitta rotor saken till problem med tillförlitlighet och prestanda Flask halsar per begäran.
 
-Azure Monitor erbjuder också en vy över [program översikt](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) som sammanställer många transaktioner för att visa en Top ologiska vy över hur systemen interagerar och vilka genomsnitts prestanda och fel frekvens som är. 
+Azure Monitor erbjuder också en vy över [program översikt](./app-map.md) som sammanställer många transaktioner för att visa en Top ologiska vy över hur systemen interagerar och vilka genomsnitts prestanda och fel frekvens som är. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Aktivera distribuerad spårning
 
@@ -32,16 +33,16 @@ Att aktivera distribuerad spårning mellan tjänsterna i ett program är lika en
 
 Application Insights agenter och/eller SDK: er för .NET, .NET Core, Java, Node.js och Java Script stöder distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Application Insights SDK finns nedan:
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.js](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-När du har installerat och konfigurerat rätt Application Insights SDK samlas spårnings information automatiskt in för populära ramverk, bibliotek och tekniker med SDK-beroenden automatiskt insamlare. En fullständig lista över tekniker som stöds finns i [den beroende automatiska insamlings dokumentationen](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+När du har installerat och konfigurerat rätt Application Insights SDK samlas spårnings information automatiskt in för populära ramverk, bibliotek och tekniker med SDK-beroenden automatiskt insamlare. En fullständig lista över tekniker som stöds finns i [den beroende automatiska insamlings dokumentationen](./auto-collect-dependencies.md).
 
- Dessutom kan all teknik spåras manuellt med ett anrop till [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) på [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Dessutom kan all teknik spåras manuellt med ett anrop till [TrackDependency](./api-custom-events-metrics.md) på [TelemetryClient](./api-custom-events-metrics.md).
 
 ## <a name="enable-via-opencensus"></a>Aktivera via openräkning
 

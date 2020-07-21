@@ -3,12 +3,12 @@ title: Tillgänglighet och konsekvens – Azure Event Hubs | Microsoft Docs
 description: Hur du ger maximal tillgänglighet och konsekvens med Azure Event Hubs att använda partitioner.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 497a6e7430c4e6f8e29f903294ca94a4cb23012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45ca5cc5790824d6c67a47a23691c6b0cae0b9f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315778"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537215"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Event Hubs
 
@@ -141,5 +141,5 @@ Det här exemplet skickar din händelse till en av de tillgängliga partitionern
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över Event Hubs tjänsten](event-hubs-what-is-event-hubs.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
+* [Översikt över Event Hubs tjänsten](./event-hubs-about.md)
+* [Skapa en händelsehubben](event-hubs-create.md)

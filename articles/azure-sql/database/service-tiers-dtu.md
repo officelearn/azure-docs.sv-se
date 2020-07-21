@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84049836"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539184"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +39,7 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 |Mål arbets belastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion|
 |SLA för drift tid|99,99 %|99,99 %|99,99 %|
 |Högsta kvarhållning av säkerhets kopior|7 dagar|35 dagar|35 dagar|
-|Processor|Låg|Låg, medel, hög|Medel, hög|
+|Processor|Lågt|Låg, medel, hög|Medel, hög|
 |IO-genomflöde (ungefärligt) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |I/o-latens (ungefärligt)|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
 |Columnstore-indexering |E.t.|S3 och högre|Stöds|
@@ -58,9 +59,9 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 
 Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för enskilda databaser och elastiska databas transaktions enheter (eDTU: er) för elastiska pooler. Mer information om DTU: er och eDTU: er finns i [DTU-baserad inköps modell](purchasing-models.md#dtu-based-purchasing-model).
 
-||Basic|Standard|Premium|
+|Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Maximal lagrings storlek | 2 GB | 1 TB | 4 TB  |
+| Maximal lagrings storlek | 2 GB | 1 TB | 4 TB  |
 | Maximalt DTU: er | 5 | 3000 | 4000 | 
 |||||
 
@@ -69,9 +70,9 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Gränser för eDTU-, lagrings-och databas i elastisk pool
 
-| | **Basic** | **Standard** | **Premium** |
+| **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| Maximal lagrings storlek per databas  | 2 GB | 1 TB | 1 TB |
+| Maximal lagrings storlek per databas  | 2 GB | 1 TB | 1 TB |
 | Maximal lagrings storlek per pool | 156 GB | 4 TB | 4 TB |
 | Maximalt antal eDTU: er per databas | 5 | 3000 | 4000 |
 | Maximalt antal eDTU: er per pool | 1600 | 3000 | 4000 |

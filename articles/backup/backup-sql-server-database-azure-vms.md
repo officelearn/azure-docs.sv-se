@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 description: I den här artikeln lär du dig hur du säkerhetskopierar SQL Server databaser på virtuella Azure-datorer med Azure Backup.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfd8233b9a696b5b4b1981eefa81aa9723f6431
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817534"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538980"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig att:
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
 >Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du säkerhetskopierar en SQL Server databas kontrollerar du följande kriterier:
 
@@ -59,17 +59,17 @@ Mer information om hur du använder dessa alternativ delas nedan:
 
 #### <a name="private-endpoints"></a>Privata slut punkter
 
-Med privata slut punkter kan du ansluta säkert från servrar i ett virtuellt nätverk till ditt Recovery Services-valv. Den privata slut punkten använder en IP-adress från VNET-adressutrymmet för ditt valv. Nätverks trafiken mellan resurserna i det virtuella nätverket och valvet överförs över ditt virtuella nätverk och en privat länk i Microsoft stamnät nätverket. Detta eliminerar exponeringen från det offentliga Internet. Läs mer om privata slut punkter för Azure Backup [här](https://docs.microsoft.com/azure/backup/private-endpoints).
+Med privata slut punkter kan du ansluta säkert från servrar i ett virtuellt nätverk till ditt Recovery Services-valv. Den privata slut punkten använder en IP-adress från VNET-adressutrymmet för ditt valv. Nätverks trafiken mellan resurserna i det virtuella nätverket och valvet överförs över ditt virtuella nätverk och en privat länk i Microsoft stamnät nätverket. Detta eliminerar exponeringen från det offentliga Internet. Läs mer om privata slut punkter för Azure Backup [här](./private-endpoints.md).
 
 #### <a name="nsg-tags"></a>NSG-Taggar
 
-Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för *Azure AD* och *Azure Storage*.  Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
+Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/security-overview.md#service-tags) för *Azure AD* och *Azure Storage*.  Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
 
 1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
 
 1. Välj **utgående säkerhets regler** under **Inställningar**.
 
-1. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
+1. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](../virtual-network/manage-network-security-group.md#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
 
 1. Klicka på **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
 
@@ -77,7 +77,7 @@ Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure
 
 #### <a name="azure-firewall-tags"></a>Azure Firewall-Taggar
 
-Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av *AzureBackup* [Azure Firewall FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta ger all utgående åtkomst till Azure Backup.
+Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av *AzureBackup* [Azure Firewall FQDN-taggen](../firewall/fqdn-tags.md). Detta ger all utgående åtkomst till Azure Backup.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Tillåt åtkomst till tjänstens IP-intervall
 
@@ -91,7 +91,7 @@ Du kan också använda följande fullständiga domän namn för att ge åtkomst 
 | -------------- | ------------------------------------------------------------ |
 | Azure Backup  | `*.backup.windowsazure.com`                             |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Tillåt åtkomst till FQDN i avsnitten 56 och 59 enligt [den här artikeln](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Azure AD      | Tillåt åtkomst till FQDN i avsnitten 56 och 59 enligt [den här artikeln](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Använda en HTTP-proxyserver för att dirigera trafik
 
@@ -107,7 +107,7 @@ Undvik att använda följande element i databas namn:
 * Semikolon '; '
 * Snedstreck/
 
-Alias är tillgängligt för tecken som inte stöds, men vi rekommenderar att du undviker dem. Mer information finns i [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Så här fungerar datamodellen för Table Storage).
+Alias är tillgängligt för tecken som inte stöds, men vi rekommenderar att du undviker dem. Mer information finns i [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model) (Så här fungerar datamodellen för Table Storage).
 
 >[!NOTE]
 >Det går inte att **Konfigurera skydds** åtgärden för databaser med specialtecken som "+" eller "&" i deras namn. Du kan antingen ändra databas namnet eller aktivera **automatiskt skydd**, vilket kan skydda dessa databaser.
@@ -161,11 +161,15 @@ Identifiera databaser som körs på en virtuell dator:
 
    ![Välj Konfigurera säkerhetskopiering](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. I **Välj objekt som ska säkerhets kopie ras**visas alla registrerade tillgänglighets grupper och fristående SQL Server instanser. Välj pilen till vänster om en rad för att expandera listan över alla oskyddade databaser i den instansen eller Always on-tillgänglighetsgruppen.  
+1. Klicka på **Lägg till resurser** för att se alla registrerade tillgänglighets grupper och fristående SQL Server instanser.
 
-    ![Visa alla SQL Server-instanser med fristående databaser](./media/backup-azure-sql-database/list-of-sql-databases.png)
+    ![Välj Lägg till resurser](./media/backup-azure-sql-database/add-resources.png)
 
-3. Välj alla databaser som du vill skydda och välj sedan **OK**.
+1. På skärmen **Välj objekt som ska säkerhets kopie ras** väljer du pilen till vänster om en rad för att expandera listan över alla oskyddade databaser i den instansen eller Always on-tillgänglighetsgrupper.
+
+    ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-sql-database/select-items-to-backup.png)
+
+1. Välj alla databaser som du vill skydda och välj sedan **OK**.
 
    ![Skydda databasen](./media/backup-azure-sql-database/select-database-to-protect.png)
 
@@ -174,28 +178,20 @@ Identifiera databaser som körs på en virtuell dator:
      * Om du vill skydda fler än 50 databaser konfigurerar du flera säkerhetskopieringar.
      * Om du vill [Aktivera](#enable-auto-protection) hela instansen eller den Always on-tillgänglighetsgruppen väljer du **på**i list rutan **autoskydd** och väljer sedan **OK**.
 
-    > [!NOTE]
-    > Funktionen för [automatiskt skydd](#enable-auto-protection) aktiverar inte bara skydd på alla befintliga databaser samtidigt, men skyddar också automatiskt nya databaser som läggs till i den instansen eller tillgänglighets gruppen.  
+         > [!NOTE]
+         > Funktionen för [automatiskt skydd](#enable-auto-protection) aktiverar inte bara skydd på alla befintliga databaser samtidigt, men skyddar också automatiskt nya databaser som läggs till i den instansen eller tillgänglighets gruppen.  
 
-4. Klicka på **OK** för att öppna **säkerhets kopierings principen**.
+1. Definiera **säkerhets kopierings policyn**. Gör något av följande:
 
-    ![Aktivera automatiskt skydd för tillgänglighets gruppen Always on](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-5. I **säkerhets kopierings princip**väljer du en princip och väljer sedan **OK**.
-
-   * Välj standard principen som HourlyLogBackup.
+   * Välj standard principen som *HourlyLogBackup*.
    * Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
    * Definiera en ny policy baserat på ditt RPO och kvarhållningsintervall.
 
      ![Välja säkerhetskopieringspolicy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. I **säkerhets kopiering**väljer du **Aktivera säkerhets kopiering**.
+1. Klicka på **Aktivera säkerhets kopiering** för att skicka den **Konfigurera skydds** åtgärden och spåra konfigurations förloppet i **meddelande** området i portalen.
 
-    ![Aktivera den valda säkerhetskopieringspolicyn](./media/backup-azure-sql-database/enable-backup-button.png)
-
-7. Spåra konfigurationsförloppet i **meddelandefältet** på portalen.
-
-    ![Meddelandefältet](./media/backup-azure-sql-database/notifications-area.png)
+   ![Spåra konfigurations förlopp](./media/backup-azure-sql-database/track-configuration-progress.png)
 
 ### <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
 
@@ -210,22 +206,22 @@ En säkerhetskopieringspolicy definierar när säkerhetskopior skapas och hur l�
 Så här skapar du en säkerhetskopieringspolicy:
 
 1. I valvet väljer du **säkerhets kopierings principer**  >  **Lägg till**.
-2. I **Lägg till**väljer du **SQL Server i Azure VM** för att definiera princip typen.
+1. I **Lägg till**väljer du **SQL Server i Azure VM** för att definiera princip typen.
 
    ![Välj en policytyp för den nya säkerhetskopieringspolicyn](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. I **Policynamn** anger du ett namn för den nya policyn.
-4. Välj en **säkerhets kopierings frekvens**i **fullständig säkerhets kopierings princip**. Välj antingen **varje dag** eller **varje vecka**.
+1. I **Policynamn** anger du ett namn för den nya policyn.
 
-   * För **Dagligen** väljer du den timme och den tidszon då säkerhetskopieringsjobbet börjar.
-   * För **Varje vecka** väljer du den veckodag, timme och tidszon då säkerhetskopieringsjobbet börjar.
-   * Kör en fullständig säkerhets kopiering, eftersom du inte kan stänga av alternativet för **fullständig säkerhets kopiering** .
-   * Välj **fullständig säkerhets kopiering** för att Visa principen.
-   * Du kan inte skapa differentiella säkerhetskopior för dagliga fullständiga säkerhetskopior.
+    ![Ange princip namn](./media/backup-azure-sql-database/policy-name.png)
+
+1. Klicka på länken **Redigera** motsvarande, för **fullständig säkerhets kopiering**, för att ändra standardinställningarna.
+
+   * Välj en **säkerhets kopierings frekvens**. Välj antingen **varje dag** eller **varje vecka**.
+   * För **Dagligen** väljer du den timme och den tidszon då säkerhetskopieringsjobbet börjar. Du kan inte skapa differentiella säkerhetskopior för dagliga fullständiga säkerhetskopior.
 
      ![Nya fält för säkerhetskopieringspolicy](./media/backup-azure-sql-database/full-backup-policy.png)  
 
-5. I **kvarhållningsintervall**är alla alternativ markerade som standard. Rensa eventuella gränser för kvarhållning som du inte vill använda och ange sedan de intervall som ska användas.
+1. I **kvarhållningsintervall**är alla alternativ markerade som standard. Rensa eventuella gränser för kvarhållning som du inte vill använda och ange sedan de intervall som ska användas.
 
     * Minsta kvarhållningsperiod för alla typer av säkerhets kopiering (fullständig, differentiell och logg) är sju dagar.
     * Återställningspunkter taggas för kvarhållning baserat på deras kvarhållningsintervall. Om du till exempel väljer en daglig fullständig säkerhetskopia utlöses endast en fullständig säkerhetskopia varje dag.
@@ -234,28 +230,28 @@ Så här skapar du en säkerhetskopieringspolicy:
 
        ![Inställningar för kvarhållningsintervall](./media/backup-azure-sql-database/retention-range-interval.png)
 
-6. På menyn **Policy för fullständig säkerhetskopia** väljer du **OK** för att acceptera inställningarna.
-7. Om du vill lägga till en policy för differentiell säkerhetskopia väljer du **Differentiell säkerhetskopia**.
+1. Välj **OK** för att acceptera inställningen för fullständiga säkerhets kopieringar.
+1. Ändra standardinställningarna genom att klicka på länken **Redigera** som motsvarar **differentiell säkerhets kopia**.
 
-   ![Inställningar för kvarhållningsintervall](./media/backup-azure-sql-database/retention-range-interval.png)
-   ![Öppna menyn för policy för differentiell säkerhetskopia](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+    * I **Policy för differentiell säkerhetskopia** väljer du **Aktivera** för att öppna kontrollerna för frekvens och kvarhållning.
+    * Du kan endast utlösa en differentiell säkerhets kopia per dag. Det går inte att utlösa en differentiell säkerhets kopia på samma dag som en fullständig säkerhets kopia.
+    * Differentiella säkerhetskopior kan behållas i upp till 180 dagar.
+    * Differentiell säkerhets kopiering stöds inte för Master-databasen.
 
-8. I **Policy för differentiell säkerhetskopia** väljer du **Aktivera** för att öppna kontrollerna för frekvens och kvarhållning.
+      ![Princip för differentiell säkerhets kopiering](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-    * Du kan endast utlösa en differentiell säkerhets kopia per dag.
-    * Differentiella säkerhetskopior kan behållas i upp till 180 dagar. Använd fullständiga säkerhets kopieringar för längre kvarhållning.
+1. Klicka på länken **Redigera** som motsvarar **logg säkerhets kopia**för att ändra standardinställningarna
 
-9. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
+    * I **Loggsäkerhetskopia** väljer du **Aktivera** och anger kontrollerna för frekvens och kvarhållning.
+    * Logg säkerhets kopior kan ske så ofta som var 15: e minut och kan behållas i upp till 35 dagar.
+    * Om databasen finns i den [enkla återställnings modellen](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15), kommer logg säkerhets kopierings schema för databasen att pausas och ingen logg säkerhets kopia kommer att utlösas.
+    * Om återställnings modellen för databasen ändras från **fullständig** till **enkel**pausas logg säkerhets kopior inom 24 timmar från ändringen i återställnings modellen. Om återställnings modellen ändras från **enkel**, vilket innebär att logg säkerhets kopiorna nu kan användas för databasen, aktive ras scheman för logg säkerhets kopiering inom 24 timmar från ändringen i återställnings modellen.
 
-10. Om du vill lägga till en policy för loggsäkerhetskopia väljer du **Loggsäkerhetskopia**.
-11. I **Loggsäkerhetskopia** väljer du **Aktivera** och anger kontrollerna för frekvens och kvarhållning. Logg säkerhets kopior kan ske så ofta som var 15: e minut och kan behållas i upp till 35 dagar.
-12. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
+      ![Logg säkerhets kopierings princip](./media/backup-azure-sql-database/log-backup-policy.png)
 
-    ![Redigera policyn för loggsäkerhetskopia](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+1. På menyn **säkerhets kopierings policy** väljer du om du vill aktivera **komprimering av SQL-säkerhetskopiering** eller inte. Det här alternativet är inaktiverat som standard. Om aktive rad skickar SQL Server en komprimerad säkerhets kopie ström till VDI. Azure Backup åsidosätter standard instans nivån med komprimering/NO_COMPRESSION-sats beroende på värdet för den här kontrollen.
 
-13. På menyn **säkerhets kopierings policy** väljer du om du vill aktivera **komprimering av SQL-säkerhetskopiering** eller inte. Det här alternativet är inaktiverat som standard. Om aktive rad skickar SQL Server en komprimerad säkerhets kopie ström till VDI.  Observera att Azure Backup åsidosätter standard på instans nivå med komprimering/NO_COMPRESSION-sats beroende på värdet för den här kontrollen.
-
-14. När du har slutfört redigeringarna i säkerhetskopieringspolicyn väljer du **OK**.
+1. När du har slutfört redigeringarna i säkerhetskopieringspolicyn väljer du **OK**.
 
 > [!NOTE]
 > Varje logg säkerhets kopia länkas till den tidigare fullständiga säkerhets kopian för att skapa en återställnings kedja. Den fullständiga säkerhets kopian kommer att behållas tills kvarhållning av den senaste logg säkerhets kopian har upphört att gälla. Detta kan betyda att den fullständiga säkerhets kopian behålls under en längre period för att se till att alla loggar kan återställas. Vi antar att användaren har en veckovis fullständig säkerhets kopiering, dagliga differentiella och 2 timmars loggar. Alla finns kvar i 30 dagar. Men den fullständiga veckan kan bara rensas/tas bort efter att nästa fullständiga säkerhets kopiering är tillgängligt, d.v.s. efter 30 och 7 dagar. Anta att en fullständig säkerhets kopiering varje vecka sker på den 16 november. Enligt bevarande principen bör den behållas tills den 16 december. Den senaste logg säkerhets kopian för denna fullständiga aktivitet sker före nästa schemalagda, på Nov 22. Tills den här loggen är tillgänglig fram till Dec 22, kan den sextonde sexton fullständiga filen inte tas bort. Därför behålls den sextonde sexton fullständiga till och med Dec 22.

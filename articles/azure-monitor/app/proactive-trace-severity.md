@@ -3,17 +3,18 @@ title: Nedbrytning i allvarlighets grad för spårning – Azure Application ins
 description: Övervaka program spår med Azure Application insikter om ovanliga mönster i trace telemetri med Smart identifiering.
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b27860adfc1652b58fe9c51d4d0b0a6c271fc0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671689"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539881"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Nedbrytning i allvarlighets grad för spårning (för hands version)
 
 Spår används ofta i program, eftersom de hjälper dig att berätta vad som händer i bakgrunden. När något går fel ger spåren en viktig insyn i sekvensen av händelser som leder till det oönskade läget. Även om spårning vanligt vis inte är strukturerade, finns det en sak som kan vara konkret från dem – deras allvarlighets grad. I ett programs stabila tillstånd förväntar vi sig att förhållandet mellan "bra" spår (*information* och *utförlig*) och "dåliga" spår (*Varning*, *fel*och *kritisk*) är stabila. Antagandet är att "dåliga" spår kan ske regelbundet till en viss omfattning på grund av ett antal orsaker (tillfälliga nätverks problem för instans). Men när ett verkligt problem börjar växa, är det vanligt vis som en ökning av den relativa procent andelen "dåliga" spår och "bra" spår. Application Insights Smart identifiering analyserar automatiskt spåren som loggats av ditt program och kan varna dig om ovanliga mönster på hur din trace-telemetri är allvarlighets grad.
 
-Den här funktionen kräver ingen särskild konfiguration, förutom att konfigurera spårnings loggning för din app (se så här konfigurerar du en spårnings logg lyssnare för [.net](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) eller [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Den är aktiv när din app genererar tillräckligt med telemetri för undantag.
+Den här funktionen kräver ingen särskild konfiguration, förutom att konfigurera spårnings loggning för din app (se så här konfigurerar du en spårnings logg lyssnare för [.net](./asp-net-trace-logs.md) eller [Java](./java-trace-logs.md)). Den är aktiv när din app genererar tillräckligt med telemetri för undantag.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När får jag den här typen av meddelande om Smart identifiering?
 Du kan få den här typen av meddelande om förhållandet mellan "bra" spår (spår som loggats med en nivå av *information* eller *utförlig*) och "dåliga" spårar (spår som loggats med en *varnings*nivå, *fel*eller *allvarligt*) försämras under en angiven dag jämfört med en bas linje som beräknas under de senaste sju dagarna.
@@ -26,5 +27,3 @@ Aviseringarna innehåller diagnostikinformation som ska stödjas i diagnostikpro
 1. **Prioritering.** Meddelandet visar hur många åtgärder som påverkas. Detta kan hjälpa dig att tilldela en prioritet för problemet.
 2. **Utrymme.** Påverkar problemet all trafik eller bara en åtgärd? Den här informationen kan hämtas från meddelandet.
 3. **Diagnostisera.** Du kan använda relaterade objekt och rapporter som länkar till kompletterande information för att hjälpa dig att diagnostisera problemet.
-
-

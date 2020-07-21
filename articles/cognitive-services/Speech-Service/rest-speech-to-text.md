@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e7bbedf253d6a64609179a8710fc9accd1f03818
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636095"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537977"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -60,7 +60,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 I den här tabellen listas obligatoriska och valfria sidhuvuden för begäran om tal till text.
 
-|Sidhuvud| Beskrivning | Obligatorisk/valfri |
+|Huvud| Beskrivning | Obligatorisk/valfri |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
@@ -223,10 +223,10 @@ Objektet i `NBest` listan kan innehålla:
 | `ITN` | Den tolkade textens ("kanoniska") form av den tolkade texten, med telefonnummer, siffror, förkortningar ("läkare Smith" till "Dr Smith") och andra transformeringar som tillämpas. |
 | `MaskedITN` | REDUNDANSVÄXLINGAR-formuläret med anspråks mask tillämpas vid begäran. |
 | `Display` | Visnings formatet för den tolkade texten, med interpunktion och Skift läge tillagda. Den här parametern är samma som `DisplayText` anges när format är inställt på `simple` . |
-| `AccuracyScore` | Poängen som anger Talts uttal. |
-| `FluencyScore` | Poängen som anger Fluency för det tal som anges. |
-| `CompletenessScore` | Poängen som indikerar att det angivna talet är klart genom att beräkna förhållandet mellan uttalade ord och hela ingången. |
-| `PronScore` | Det övergripande resultatet som anger uttal av det tal som anges. Detta beräknas från `AccuracyScore` `FluencyScore` och `CompletenessScore` med vikt. |
+| `AccuracyScore` | Talts uttal. Noggrannhet anger hur nära fonem som matchar en ursprunglig talares uttal. Precisions poängen för ord och full text nivå sammanställs från precisions poängen på fonem nivå. |
+| `FluencyScore` | Fluency för det tal som angetts. Fluency anger hur tätt talet ska matcha en inbyggd högtalares användning av tyst raster mellan ord. |
+| `CompletenessScore` | Talet är klart och bestäms genom att beräkna förhållandet mellan uttalade ord och referenser till text ingångar. |
+| `PronScore` | Totalt antal poäng som anger uttal av det tal som anges. Detta sammanställs från `AccuracyScore` `FluencyScore` och `CompletenessScore` med vikt. |
 | `ErrorType` | Det här värdet anger om ett ord utelämnas, infogas eller blir dåligt uttalad jämfört med `ReferenceText` . Möjliga värden är `None` (vilket innebär inget fel på det här ordet), `Omission` `Insertion` och `Mispronunciation` . |
 
 ## <a name="sample-responses"></a>Exempel svar

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740458"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539337"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -66,8 +67,8 @@ Log Analytics är ett flexibelt lager, som när du förväntar dig ett schema f�
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *InMemory-och överförings data*: Application Insights spårar undantag, begär Anden, beroende anrop och spår. Privata data kan ofta samlas in på koden och HTTP-anrops nivån. Granska tabellerna undantag, förfrågningar, beroenden och spår för att identifiera dessa data. Använd [telemetri-initierare](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) där det är möjligt att obfuscate dessa data.
-* *Snapshot debugger avbildningar*: funktionen [Snapshot debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) i Application Insights gör att du kan samla in fel söknings ögonblicks bilder när ett undantag påträffas i programmets produktions instans. Ögonblicks bilder kommer att exponera den fullständiga stack spårningen som leder till undantag och värden för lokala variabler i varje steg i stacken. Den här funktionen tillåter tyvärr inte selektiv borttagning av fäst punkter eller programmerings åtkomst till data i ögonblicks bilden. Om standard lagrings takten för ögonblicks bilder inte uppfyller dina krav, är det därför dags att inaktivera funktionen.
+* *InMemory-och överförings data*: Application Insights spårar undantag, begär Anden, beroende anrop och spår. Privata data kan ofta samlas in på koden och HTTP-anrops nivån. Granska tabellerna undantag, förfrågningar, beroenden och spår för att identifiera dessa data. Använd [telemetri-initierare](../app/api-filtering-sampling.md) där det är möjligt att obfuscate dessa data.
+* *Snapshot debugger avbildningar*: funktionen [Snapshot debugger](../app/snapshot-debugger.md) i Application Insights gör att du kan samla in fel söknings ögonblicks bilder när ett undantag påträffas i programmets produktions instans. Ögonblicks bilder kommer att exponera den fullständiga stack spårningen som leder till undantag och värden för lokala variabler i varje steg i stacken. Den här funktionen tillåter tyvärr inte selektiv borttagning av fäst punkter eller programmerings åtkomst till data i ögonblicks bilden. Om standard lagrings takten för ögonblicks bilder inte uppfyller dina krav, är det därför dags att inaktivera funktionen.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Exportera och ta bort privata data
 
@@ -100,8 +101,8 @@ När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar ti
 
 #### <a name="log-data"></a>Loggdata
 
-* [Efter rensning](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID 
-* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Ett exempel:
+* [Efter rensning](/rest/api/loganalytics/workspacepurge/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID 
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Till exempel:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -112,8 +113,8 @@ När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar ti
 
 #### <a name="application-data"></a>Programdata
 
-* [Efter rensning](https://docs.microsoft.com/rest/api/application-insights/components/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID
-* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Ett exempel:
+* [Efter rensning](/rest/api/application-insights/components/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Till exempel:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

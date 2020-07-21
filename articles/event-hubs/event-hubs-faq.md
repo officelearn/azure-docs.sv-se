@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537188"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -33,7 +33,7 @@ Standard nivån i Azure Event Hubs ger funktioner utöver vad som är tillgängl
 * Längre kvarhållning av händelser
 * Ytterligare Brokered Connections, med ett överbelastat värde för mer än det antal som ingår
 * Mer än en enda [konsument grupp](event-hubs-features.md#consumer-groups)
-* [Webbinfångsten](event-hubs-capture-overview.md)
+* [Capture](event-hubs-capture-overview.md)
 * [Kafka-integrering](event-hubs-for-kafka-ecosystem-overview.md)
 
 Mer information om pris nivåer, inklusive Event Hubs Dedicated finns i [pris informationen för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
@@ -261,7 +261,7 @@ Event Hubs stöder två typer av [diagnostikloggar](event-hubs-diagnostic-logs.m
 
 ### <a name="support-and-sla"></a>Support och SLA
 
-Teknisk support för Event Hubs finns på [sidan Microsoft Q&en fråga för Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Support för fakturering och prenumerations hantering ges utan kostnad.
+Teknisk support för Event Hubs finns på [sidan Microsoft Q&en fråga för Azure Service Bus](/answers/topics/azure-service-bus.html). Support för fakturering och prenumerations hantering ges utan kostnad.
 
 Mer information om service avtal finns på sidan [service nivå avtal](https://azure.microsoft.com/support/legal/sla/) .
 
@@ -269,6 +269,6 @@ Mer information om service avtal finns på sidan [service nivå avtal](https://a
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Skapa en Händelsehubben](event-hubs-create.md)
+* [Översikt över Event Hubs](./event-hubs-about.md)
+* [Skapa en händelsehubb](event-hubs-create.md)
 * [Event Hubs automatiskt bred mitt](event-hubs-auto-inflate.md)

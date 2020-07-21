@@ -3,11 +3,12 @@ title: MABS (Azure Backup Server) v3 UR1-skydds mat ris
 description: Den här artikeln innehåller en support mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup Server skyddar.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: f950c7be28a4ff0dd0caa12d1327c2a0e2ac4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfcb8fbf9f793cfbe11d2c25b3d2caa7018d0fd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677329"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538742"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>MABS (Azure Backup Server) v3 UR1-skydds mat ris
 
@@ -53,7 +54,7 @@ I följande avsnitt beskrivs matrisen för skydds support för MABS:
 
 | **Arbetsbelastning** | **Version**                               | **Azure Backup Server installation**                      | **Azure Backup Server som stöds** | **Skydd och återställning**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux körs som Hyper-V-eller VMware-gäst | Fysisk server, lokal virtuell Hyper-V-dator, virtuell Windows-dator i VMWare | V3-UR1                             | Hyper-V måste köras på Windows Server 2012 R2 eller Windows Server 2016. Skydda: hela den virtuella datorn   <br><br>   Återställ: Hela den virtuella datorn   <br><br>    Endast filkonsekventa ögonblicksbilder stöds.    <br><br>   En fullständig lista över Linux-distributioner och-versioner som stöds finns i artikeln [Linux on distributioner som har godkänts av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
+| Linux        | Linux körs som Hyper-V-eller VMware-gäst | Fysisk server, lokal virtuell Hyper-V-dator, virtuell Windows-dator i VMWare | V3-UR1                             | Hyper-V måste köras på Windows Server 2012 R2 eller Windows Server 2016. Skydda: hela den virtuella datorn   <br><br>   Återställ: Hela den virtuella datorn   <br><br>    Endast filkonsekventa ögonblicksbilder stöds.    <br><br>   En fullständig lista över Linux-distributioner och-versioner som stöds finns i artikeln [Linux on distributioner som har godkänts av Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## <a name="azure-expressroute-support"></a>Stöd för Azure ExpressRoute
 
@@ -73,7 +74,7 @@ Med Microsoft-peering väljer du följande tjänster/regioner och relevanta comm
 * Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
 * Azure Storage (enligt platsen för ditt Recovery Services-valv)
 
-Mer information finns i krav för [ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Mer information finns i krav för [ExpressRoute-routning](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Offentlig peering är föråldrad för nya kretsar.

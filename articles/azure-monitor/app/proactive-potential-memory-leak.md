@@ -3,17 +3,18 @@ title: Identifiera minnes läcka – Azure Application insikter Smart identifier
 description: Övervaka program med Azure Application insikter om potentiella minnes läckor.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fe58cd7d61246c5565cd89fa782c8a977f09499
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671706"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539898"
 ---
 # <a name="memory-leak-detection-preview"></a>Identifiering av minnes läckor (för hands version)
 
 Application Insights analyserar automatiskt minnes förbrukningen för varje process i programmet och kan varna dig om potentiella minnes läckor eller ökad minnes användning.
 
-Den här funktionen kräver ingen särskild konfiguration, förutom att [Konfigurera prestanda räknare](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) för din app. Den är aktiv när din app genererar tillräckligt med minnes prestanda räknare telemetri (till exempel privata byte).
+Den här funktionen kräver ingen särskild konfiguration, förutom att [Konfigurera prestanda räknare](./performance-counters.md) för din app. Den är aktiv när din app genererar tillräckligt med minnes prestanda räknare telemetri (till exempel privata byte).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När får jag den här typen av meddelande om Smart identifiering?
 Ett typiskt meddelande kommer att följa en konsekvent ökning i minnes förbrukning under en lång tids period, i en eller flera processer och/eller en eller flera datorer, som ingår i ditt program. Machine Learning-algoritmer används för att identifiera ökad minnes användning som matchar mönstret i en minnes läcka.

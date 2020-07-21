@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 782e03f572f007b8523c3ae797dd626c383a01f4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: b897de94ad8cdb628520f9386b076f762a5cc230
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310724"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537960"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Formulär tolkens kryptering av data i vila
 
@@ -24,8 +24,6 @@ Azure formulär tolken krypterar dina data automatiskt när de sparas i molnet. 
 
 > [!IMPORTANT]
 > Kundhanterade nycklar är bara tillgängliga resurser som skapats efter 11 maj 2020. Om du vill använda CMK med formulär tolken måste du skapa en ny formulär igenkännings resurs. När resursen har skapats kan du använda Azure Key Vault för att konfigurera din hanterade identitet.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

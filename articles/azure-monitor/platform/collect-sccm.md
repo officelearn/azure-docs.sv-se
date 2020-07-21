@@ -6,21 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5984cbf8cf618a938ee85638d981f7867c6ec8b5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539371"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Anslut Configuration Manager till Azure Monitor
 Du kan ansluta din Microsoft Endpoint Configuration Manager-miljö till Azure Monitor för att synkronisera enhets samlings data och referera till dessa samlingar i Azure Monitor och Azure Automation.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Monitor stöder Configuration Manager aktuella grenen, version 1606 och senare.
 
 >[!NOTE]
->Funktionen för att ansluta Configuration Manager med en Log Analytics arbets yta är valfri och är inte aktive rad som standard. Du måste aktivera den här funktionen innan du använder den. Mer information finns i avsnittet [Enable optional features from updates](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
+>Funktionen för att ansluta Configuration Manager med en Log Analytics arbets yta är valfri och är inte aktive rad som standard. Du måste aktivera den här funktionen innan du använder den. Mer information finns i avsnittet [Enable optional features from updates](/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
 
 ## <a name="configuration-overview"></a>Översikt över konfiguration
 
@@ -65,7 +66,7 @@ Läs artikeln [Anslut Windows-datorer till Azure Monitor i Azure](agent-windows.
 ## <a name="connect-configuration-manager-to-log-analytics-workspace"></a>Anslut Configuration Manager till Log Analytics arbets yta
 
 >[!NOTE]
-> För att du ska kunna lägga till en Log Analytics anslutning måste Configuration Managers miljön ha en [tjänst anslutnings punkt](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/about-the-service-connection-point) konfigurerad för online-läge.
+> För att du ska kunna lägga till en Log Analytics anslutning måste Configuration Managers miljön ha en [tjänst anslutnings punkt](/configmgr/core/servers/deploy/configure/about-the-service-connection-point) konfigurerad för online-läge.
 
 > [!NOTE]
 > Du måste ansluta platsen på den översta nivån i hierarkin för att Azure Monitor. Om du ansluter en fristående primär plats till Azure Monitor och sedan lägger till en central administrations plats i din miljö måste du ta bort och återskapa anslutningen i den nya hierarkin.

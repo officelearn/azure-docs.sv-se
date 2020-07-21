@@ -2,13 +2,13 @@
 title: Azure DevTest Labs vanliga frågor och svar | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481671"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537502"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -200,7 +200,7 @@ Så här kopierar du befintliga virtuella datorer till DevTest Labs:
 Ja, du kan koppla flera diskar till dina virtuella datorer.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Stöds generation 2-avbildningar av DevTest Labs?
-Nej. Tjänsten DevTest Labs stöder inte [gen 2-avbildningar](../virtual-machines/windows/generation-2.md). Om både gen 1-och generation 2-versioner är tillgängliga för en avbildning, visar DevTest Labs bara generation 1-versionen av avbildningen när du skapar en virtuell dator. Du ser ingen bild om det bara finns en enda version av den tillgänglig. 
+Ja. Tjänsten DevTest Labs stöder [generation 2-avbildningar](../virtual-machines/windows/generation-2.md). Men om både gen 1-och generation 2-versioner är tillgängliga för en avbildning, visar DevTest Labs bara generation 1-versionen av avbildningen när du skapar en virtuell dator. Du ser avbildningen om det bara finns en version av den tillgängliga generation 2. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Behöver jag köpa en MSDN-prenumeration om jag vill använda en Windows OS-avbildning för min testning?
 Gör något av följande om du vill använda Windows Client OS-avbildningar (Windows 7 eller en senare version) för utveckling eller testning i Azure:
@@ -212,7 +212,7 @@ Mer information om Azure-krediterna för varje MSDN-erbjudande finns i [månatli
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Hur gör jag för att automatisera processen med att ta bort alla virtuella datorer i mitt labb?
-Som labb ägare kan du ta bort virtuella datorer från labbet i Azure Portal. Du kan också ta bort alla virtuella datorer i labbet med hjälp av ett PowerShell-skript. I följande exempel, under **värdena för att ändra** kommentaren, ändrar du parameter värden. Du kan hämta värdena för subscriptionId, labResourceGroup och labName från labb fönstret i Azure Portal.
+Som labb ägare kan du ta bort virtuella datorer från labbet i Azure Portal. Du kan också ta bort alla virtuella datorer i labbet med hjälp av ett PowerShell-skript. I följande exempel, under **värdena för att ändra** kommentaren, ändrar du parameter värden. Du kan hämta `subscriptionId` värdena, `labResourceGroup` och `labName` från labb fönstret i Azure Portal.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -340,9 +340,9 @@ För andra verktygs kedjor (CI)/Continuous Delivery (CD) kan du uppnå samma sce
 ## <a name="networking"></a>Nätverk
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>När ska jag skapa ett nytt virtuellt nätverk för min DevTest Labs-miljö jämfört med att använda ett befintligt virtuellt nätverk?
-Om dina virtuella datorer behöver interagera med en befintlig infrastruktur kan du överväga att använda ett befintligt virtuellt nätverk i din DevTest Labs-miljö. Om du använder ExpressRoute kanske du vill minimera mängden virtuella nätverk/undernät så att du inte fragmenterar ditt IP-adressutrymme som tilldelas för användning i prenumerationerna.
+Om dina virtuella datorer behöver interagera med en befintlig infrastruktur kan du överväga att använda ett befintligt virtuellt nätverk i din DevTest Labs-miljö. Om du använder ExpressRoute kanske du vill minimera antalet virtuella nätverk/undernät så att du inte fragmenterar ditt IP-adressutrymme som tilldelas för användning i prenumerationerna.
 
-Överväg att använda VNet-peering-mönstret här ([Hub-eker modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Den här metoden aktiverar VNet/Subnet-kommunikation mellan prenumerationer. I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk.
+Överväg att använda det virtuella nätverkets peering-mönster här ([Hub-eker modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Den här metoden aktiverar VNet/Subnet-kommunikation mellan prenumerationer. I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk.
 
 Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md) för antalet virtuella nätverk per prenumeration. Standardvärdet är 50, men den här gränsen kan höjas till 100.
 

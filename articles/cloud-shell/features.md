@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506573"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538181"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner & verktyg för Azure Cloud Shell
 
@@ -49,19 +49,19 @@ Med Azure-enheten kan du enkelt upptäcka och navigera i Azure-resurser, till ex
 Du kan fortsätta att använda de bekanta [Azure PowerShell-cmdletarna](https://docs.microsoft.com/powershell/azure) för att hantera dessa resurser oavsett vilken enhet du befinner dig i.
 Alla ändringar som görs i Azure-resurserna, antingen direkt i Azure Portal eller genom Azure PowerShell-cmdletar, återspeglas i Azure-enheten.  Du kan köra `dir -Force` för att uppdatera dina resurser.
 
-![](media/features-powershell/azure-drive.png)
+![Skärm bild av en Azure Cloud Shell som initieras och en lista över katalog resurser.](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Hantera Exchange Online
 
 PowerShell i Cloud Shell innehåller en privat version av Exchange Online-modulen.  Kör `Connect-EXOPSSession` för att hämta dina Exchange-cmdletar.
 
-![](media/features-powershell/exchangeonline.png)
+![Skärm bild av en Azure Cloud Shell som kör kommandona Connect-EXOPSSession och get-User.](media/features-powershell/exchangeonline.png)
 
  Kör `Get-Command -Module tmp_*`
 > [!NOTE]
 > Modulnamnet ska börja med `tmp_` , om du har installerat moduler med samma prefix, kommer deras cmdlets också att placeras på skärmen. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![Skärm bild av en Azure Cloud Shell som kör kommandot Get-Command-Module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Djupgående integrering med verktyg med öppen källkod
 
@@ -75,10 +75,10 @@ Cloud Shell innehåller förkonfigurerad autentisering för verktyg med öppen k
 |Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassisk CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Text redigerare           |kod (Cloud Shell redigerare)<br> vim<br> nano<br> emacs    |
 |Källkontroll         |git                    |
-|Byggverktyg            |märke<br> maven<br> npm<br> –         |
+|Byggverktyg            |make<br> maven<br> npm<br> –         |
 |Containrar             |[Docker-dator](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databaser              |MySQL-klient<br> PostgreSql-klient<br> [SQLCMD-verktyg](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL – skriptare](https://github.com/Microsoft/sql-xplat-cli) |
-|Övrigt                  |iPython-klient<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chefs INSPEC](https://www.chef.io/inspec/)<br> [Puppet-bult](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Office 365 CLI](https://pnp.github.io/office365-cli/)|
+|Annat                  |iPython-klient<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chefs INSPEC](https://www.chef.io/inspec/)<br> [Puppet-bult](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Office 365 CLI](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Stöd för språk
 

@@ -3,12 +3,13 @@ title: Kryptering i Azure Backup
 description: Lär dig mer om hur krypterings funktioner i Azure Backup hjälper dig att skydda dina säkerhets kopierings data och uppfylla affärs behoven.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: references_regions
+ms.openlocfilehash: 099e736bfb321f0f92bd3a57f9c24e88293b42bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171830"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538759"
 ---
 # <a name="encryption-in-azure-backup"></a>Kryptering i Azure Backup
 
@@ -16,7 +17,7 @@ Alla säkerhetskopierade data krypteras automatiskt när de lagras i molnet med 
 
 Förutom kryptering i vila överförs alla dina säkerhets kopierings data i överföring via HTTPS. Det finns alltid i Azure stamnät nätverket.
 
-Mer information finns i [Azure Storage kryptering för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Läs [Azure Backup vanliga frågor](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) och svar om du vill besvara eventuella frågor om kryptering.
+Mer information finns i [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md). Läs [Azure Backup vanliga frågor](./backup-azure-backup-faq.md#encryption) och svar om du vill besvara eventuella frågor om kryptering.
 
 ## <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Kryptering av säkerhets kopierings data med hjälp av plattforms hanterade nycklar
 
@@ -30,7 +31,7 @@ Läs mer om hur du krypterar dina säkerhetskopierade data med Kundhanterade nyc
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Säkerhets kopiering av hanterade virtuella hård diskar krypterade med Kundhanterade nycklar
 
-Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som använder din nyckel för [kryptering av lagrings tjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Den nyckel som används för att kryptera diskarna lagras i Azure Key Vault och hanteras av dig. Kryptering för lagringstjänst (SSE) med Kundhanterade nycklar skiljer sig från Azure Disk Encryption, eftersom ADE använder BitLocker (för Windows) och DM-crypt (för Linux) för att utföra kryptering vid kryptering, krypterar SSE data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer. Mer information finns i [kryptering av hanterade diskar med kund hanterade nycklar](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) .
+Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som använder din nyckel för [kryptering av lagrings tjänst](../storage/common/storage-service-encryption.md). Den nyckel som används för att kryptera diskarna lagras i Azure Key Vault och hanteras av dig. Kryptering för lagringstjänst (SSE) med Kundhanterade nycklar skiljer sig från Azure Disk Encryption, eftersom ADE använder BitLocker (för Windows) och DM-crypt (för Linux) för att utföra kryptering vid kryptering, krypterar SSE data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer. Mer information finns i [kryptering av hanterade diskar med kund hanterade nycklar](../virtual-machines/windows/disk-encryption.md#customer-managed-keys) .
 
 ## <a name="infrastructure-level-encryption-for-backup-data"></a>Kryptering på infrastruktur nivå för säkerhets kopierings data
 
@@ -41,7 +42,7 @@ Förutom att kryptera dina data i Recovery Services valvet med Kundhanterade nyc
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Säkerhets kopiering av virtuella datorer som har krypterats med ADE
 
-Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som har sina operativ system eller data diskar krypterade med Azure Disk Encryption. ADE använder BitLocker för virtuella Windows-datorer och DM-crypt för virtuella Linux-datorer för att utföra kryptering i gästen. Mer information finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som har sina operativ system eller data diskar krypterade med Azure Disk Encryption. ADE använder BitLocker för virtuella Windows-datorer och DM-crypt för virtuella Linux-datorer för att utföra kryptering i gästen. Mer information finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](./backup-azure-vms-encryption.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

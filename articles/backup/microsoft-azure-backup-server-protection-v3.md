@@ -3,11 +3,12 @@ title: Vad Azure Backup Server v3 RTM kan säkerhetskopiera
 description: Den här artikeln innehåller en skydds mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup som hanterar v3 RTM-skydd.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 742b43d748fbd4c1235d0555ac3bd4419880db5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebd1d1f90a2c0b84d7a6e1cb77d0e50915b091e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84632089"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538574"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server v3 RTM-skydds mat ris
 
@@ -18,7 +19,7 @@ I följande matris visas vad som kan skyddas med Azure Backup Server v3 RTM och 
 |Arbetsbelastning|Version|Azure Backup Server</br> installation|Azure Backup Server som stöds|Skydd och återställning|
 |------------|-----------|---------------|--------------|--------------|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 10|Fysisk server<br /><br />Virtuell Hyper-V-dator<br /><br />Virtuell VMware-dator|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
-|Klientdatorer (64-bitars och 32-bitars)|Windows 8,1|Fysisk server<br /><br />Virtuell Hyper-V-dator|V3, V2|Files<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
+|Klientdatorer (64-bitars och 32-bitars)|Windows 8,1|Fysisk server<br /><br />Virtuell Hyper-V-dator|V3, V2|Filer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8,1|Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8|Windows virtuell dator i VMWare (skyddar arbetsbelastningar som körs på Windows virtuell dator i VMWare)|V3, V2|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Alla volymer måste vara av NTFS-typ FAT och FAT32 stöds inte.<br /><br />Volymerna måste ha minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
@@ -97,7 +98,7 @@ Med Microsoft-peering väljer du följande tjänster/regioner och relevanta comm
 * Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
 * Azure Storage (enligt platsen för ditt Recovery Services-valv)
 
-Mer information finns i krav för [ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Mer information finns i krav för [ExpressRoute-routning](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Offentlig peering är föråldrad för nya kretsar.

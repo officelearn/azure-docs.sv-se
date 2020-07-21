@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945400"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539711"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder Azure Monitor för att samla in och
 - Du kan skapa [diagnostikinställningar](../platform/diagnostic-settings.md) för en virtuell dator för att skicka plattforms mått till andra mål, till exempel lagrings-och händelse nav, men du kan inte konfigurera diagnostikinställningar i Azure Portal. 
 
 ## <a name="monitoring-data"></a>Övervaka data
-Virtuella datorer i Azure i Azure genererar [loggar](../platform/data-platform-logs.md) och [mått](../platform/data-platform-metrics.md) som visas i följande diagram.
+Virtuella datorer i Azure genererar [loggar](../platform/data-platform-logs.md) och [mått](../platform/data-platform-metrics.md) som visas i följande diagram.
 
 ![Översikt](media/monitor-vm-azure/logs-metrics.png)
 
@@ -133,12 +133,12 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 | Meny alternativ | Beskrivning |
 |:---|:---|
 | Översikt | Visar [plattforms mått](../platform/data-platform-metrics.md) för den virtuella dator värden. Klicka på en graf för att arbeta med dessa data i [mått Utforskaren](../platform/metrics-getting-started.md). |
-| Aktivitetslogg | [Aktivitets logg](../platform/activity-log-view.md) poster som filtrerats för den aktuella virtuella datorn. |
+| Aktivitetslogg | [Aktivitets logg](../platform/activity-log.md#view-the-activity-log) poster som filtrerats för den aktuella virtuella datorn. |
 | Insikter | Öppnar [Azure Monitor for VMS](../insights/vminsights-overview.md) med kartan för den aktuella virtuella datorn vald. |
 | Aviseringar | Visar [aviseringar](../platform/alerts-overview.md) för den aktuella virtuella datorn.  |
 | Mått | Öppna [Metrics Explorer](../platform/metrics-getting-started.md) med scopet inställt på den aktuella virtuella datorn. |
 | Diagnostikinställningar | Aktivera och konfigurera [diagnostik-tillägg](../platform/diagnostics-extension-overview.md) för den aktuella virtuella datorn. |
-| Advisor-rekommendationer | Rekommendationer för den aktuella virtuella datorn från [Azure Advisor](/azure/advisor/). |
+| Advisor-rekommendationer | Rekommendationer för den aktuella virtuella datorn från [Azure Advisor](../../advisor/index.yml). |
 | Loggar | Öppna [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) med [scopet](../log-query/scope.md) inställt på den aktuella virtuella datorn. |
 | Anslutnings övervakare | Öppna [Network Watcher anslutnings övervakare](../../network-watcher/connection-monitor-preview.md) för att övervaka anslutningar mellan den aktuella virtuella datorn och andra virtuella datorer. |
 
@@ -226,7 +226,7 @@ Event
 
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-System Center Operations Manager (SCOM) tillhandahåller detaljerad övervakning av arbets belastningar på virtuella datorer. I [övervaknings guiden för molnet](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/) finns en jämförelse mellan övervaknings plattformarna och olika strategier för implementering.
+System Center Operations Manager (SCOM) tillhandahåller detaljerad övervakning av arbets belastningar på virtuella datorer. I [övervaknings guiden för molnet](/azure/cloud-adoption-framework/manage/monitor/) finns en jämförelse mellan övervaknings plattformarna och olika strategier för implementering.
 
 Om du har en befintlig SCOM-miljö som du vill fortsätta att använda kan du integrera den med Azure Monitor för att tillhandahålla ytterligare funktioner. Log Analytics-agenten som används av Azure Monitor är samma som används för SCOM, så att du har övervakade virtuella datorer skicka data till båda. Du måste fortfarande lägga till agenten för att Azure Monitor for VMs och konfigurera arbets ytan för att samla in ytterligare data som anges ovan, men de virtuella datorerna kan fortsätta att köra sina befintliga hanterings paket i en SCOM-miljö utan modifiering.
 
@@ -242,4 +242,3 @@ Mer information om hur du ansluter din befintliga SCOM Management-grupp till din
 
 * [Lär dig hur du analyserar data i Azure Monitor loggar med hjälp av logg frågor.](../log-query/get-started-queries.md)
 * [Lär dig mer om aviseringar med hjälp av mått och loggar i Azure Monitor.](../platform/alerts-overview.md)
-

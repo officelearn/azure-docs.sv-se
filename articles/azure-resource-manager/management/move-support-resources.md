@@ -2,13 +2,13 @@
 title: Flytta åtgärds stöd efter resurs typ
 description: Visar en lista över de Azure-resurs typer som kan flyttas till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 785243676040fc86d42e3125684239ebe6da2061
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/13/2020
+ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134665"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539235"
 ---
 # <a name="move-operation-support-for-resources"></a>Resurser som kan flyttas
 
@@ -85,7 +85,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft. Devices](#microsoftdevices)
+> - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft. DevOps](#microsoftdevops)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. DevTestLab](#microsoftdevtestlab)
@@ -146,7 +146,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft. peering](#microsoftpeering)
-> - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
+> - [Microsoft. PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft. Portal](#microsoftportal)
 > - [Microsoft. PowerBI](#microsoftpowerbi)
 > - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
@@ -725,7 +725,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ---------- |
 > | funktioner | Nej | Nej |
 > | checkdomainnameavailability | Nej | Nej |
-> | domän namn | Yes | No |
+> | domän namn | Ja | Nej |
 > | domän namn/funktioner | Nej | Nej |
 > | domän namn/internalloadbalancers | Nej | Nej |
 > | domän namn/servicecertificates | Nej | Nej |
@@ -741,7 +741,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | quotas | Nej | Nej |
 > | resourcetypes | Nej | Nej |
 > | validatesubscriptionmoveavailability | Nej | Nej |
-> | virtualmachines | Ja | No |
+> | virtualmachines | Ja | Nej |
 > | virtualmachines / diagnosticsettings | Nej | Nej |
 > | virtualmachines / metricdefinitions | Nej | Nej |
 > | virtualmachines/mått | Nej | Nej |
@@ -793,7 +793,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | osplatformimages | Nej | Nej |
 > | publicimages | Nej | Nej |
 > | quotas | Nej | Nej |
-> | storageaccounts | Yes | No |
+> | storageaccounts | Ja | Nej |
 > | storageaccounts/blobservices | Nej | Nej |
 > | storageaccounts/FileServices | Nej | Nej |
 > | storageaccounts/metricdefinitions | Nej | Nej |
@@ -1048,7 +1048,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | externalsubscriptions/dimensioner | Nej | Nej |
 > | externalsubscriptions/prognos | Nej | Nej |
 > | externalsubscriptions/fråga | Nej | Nej |
-> | forecast | Nej | Nej |
+> | forecast (prognos) | Nej | Nej |
 > | operations | Nej | Nej |
 > | DocumentDB | Nej | Nej |
 > | registrera | Nej | Nej |
@@ -1395,7 +1395,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | operations | Nej | Nej |
 > | arbetsytor | Ja | Ja |
 
-## <a name="microsoftdevices"></a>Microsoft. Devices
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
@@ -1437,10 +1437,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | labcenters | Nej | Nej |
-> | Laboration | Yes | No |
+> | Laboration | Ja | Nej |
 > | labb/miljöer | Ja | Ja |
 > | labb/servicerunners | Ja | Ja |
-> | labb/virtualmachines | Yes | No |
+> | labb/virtualmachines | Ja | Nej |
 > | platser | Nej | Nej |
 > | platser/åtgärder | Nej | Nej |
 > | operations | Nej | Nej |
@@ -1866,8 +1866,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | Nej | Nej |
 > | integrationaccounts | Ja | Ja |
-> | integrationserviceenvironments | Yes | No |
-> | integrationserviceenvironments/managedapis | Yes | No |
+> | integrationserviceenvironments | Ja | Nej |
+> | integrationserviceenvironments/managedapis | Ja | Nej |
 > | isolatedenvironments | Nej | Nej |
 > | platser | Nej | Nej |
 > | platser/arbets flöden | Nej | Nej |
@@ -1884,7 +1884,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | platser/åtgärder | Nej | Nej |
 > | platser/operationsstatus | Nej | Nej |
 > | operations | Nej | Nej |
-> | WebServices | Yes | No |
+> | WebServices | Ja | Nej |
 > | arbetsytor | Ja | Ja |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft. MachineLearningCompute
@@ -2188,16 +2188,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > | platser/användningar | Nej | Nej |
 > | platser/validateresourceownership | Nej | Nej |
 > | platser/virtualnetworkavailableendpointservices | Nej | Nej |
-> | natgateways | Ja | Ja |
+> | natgateways | Nej | Nej |
 > | networkexperimentprofiles | Nej | Nej |
 > | networkintentpolicies | Ja | Ja |
 > | NetworkInterfaces | Ja | Ja |
 > | networkprofiles | Nej | Nej |
 > | networksecuritygroups | Ja | Ja |
-> | networkwatchers | Yes | No |
-> | networkwatchers / connectionmonitors | Yes | No |
-> | networkwatchers / flowlogs | Yes | No |
-> | networkwatchers / pingmeshes | Yes | No |
+> | networkwatchers | Ja | Nej |
+> | networkwatchers / connectionmonitors | Ja | Nej |
+> | networkwatchers / flowlogs | Ja | Nej |
+> | networkwatchers / pingmeshes | Ja | Nej |
 > | operations | Nej | Nej |
 > | p2svpngateways | Nej | Nej |
 > | privatednsoperationresults | Nej | Nej |
@@ -2322,7 +2322,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | peeringserviceproviders | Nej | Nej |
 > | peeringservices | Nej | Nej |
 
-## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
+## <a name="microsoftpolicyinsights"></a>Microsoft. PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
@@ -2523,7 +2523,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | program | Ja | No |
+> | program | Ja | Nej |
 > | checkmoderneligibility | Nej | Nej |
 > | checknameavailability | Nej | Nej |
 > | operationresults | Nej | Nej |
@@ -2723,7 +2723,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | platser/operationstatuses | Nej | Nej |
 > | platser/användningar | Nej | Nej |
 > | operations | Nej | Nej |
-> | signalr | Ja | Ja |
+> | SignalR | Ja | Ja |
 > | SignalR/eventgridfilters | Nej | Nej |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
@@ -3183,7 +3183,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ---------- |
 > | availablestacks | Nej | Nej |
 > | billingmeters | Nej | Nej |
-> | certifikat | No | Yes |
+> | certifikat | Nej | Ja |
 > | checknameavailability | Nej | Nej |
 > | connectiongateways | Ja | Ja |
 > | anslutning | Ja | Ja |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 430b1c044ac5fc22dbf3a4f4df33ff9017e21d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361963"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539745"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -79,9 +79,9 @@ Att samla in data i Azure Monitor loggar kräver en Log Analytics arbets yta. Du
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 Diagnostiska inställningar definierar var resurs loggar och-mått för en viss resurs ska skickas. Möjliga destinationer är:
 
-- [Log Analytics arbets yta](../platform/resource-logs-collect-workspace.md) som gör det möjligt att analysera data med andra övervaknings data som samlas in av Azure monitor med hjälp av kraftfulla logg frågor och också för att utnyttja andra Azure Monitor funktioner som logg aviseringar och visualiseringar. 
-- [Event Hub](../platform/resource-logs-stream-event-hubs.md) för att strömma data till externa system, till exempel Siem från tredje part och andra Log Analytics-lösningar. 
-- [Azure Storage-konto](../platform/resource-logs-collect-storage.md) som är användbart för granskning, statisk analys eller säkerhets kopiering.
+- [Log Analytics arbets yta](../platform/resource-logs.md#send-to-log-analytics-workspace) som gör det möjligt att analysera data med andra övervaknings data som samlas in av Azure monitor med hjälp av kraftfulla logg frågor och också för att utnyttja andra Azure Monitor funktioner som logg aviseringar och visualiseringar. 
+- [Event Hub](../platform/resource-logs.md#send-to-azure-event-hubs) för att strömma data till externa system, till exempel Siem från tredje part och andra Log Analytics-lösningar. 
+- [Azure Storage-konto](../platform/resource-logs.md#send-to-azure-storage) som är användbart för granskning, statisk analys eller säkerhets kopiering.
 
 Följ proceduren i [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../platform/diagnostic-settings.md) för att skapa och hantera diagnostikinställningar via Azure Portal. Se [skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall](../platform/diagnostic-settings-template.md) för att definiera dem i en mall och aktivera fullständig övervakning för en resurs när den skapas.
 
@@ -114,7 +114,7 @@ Analysera mått i Azure Portal med hjälp av [Metrics Explorer](../platform/metr
 ### <a name="activity-log"></a>Aktivitetslogg 
 Visa poster i aktivitets loggen i Azure Portal med det ursprungliga filtret inställt på den aktuella resursen. Kopiera aktivitets loggen till en Log Analytics-arbetsyta för att komma åt den för att använda den i logg frågor och arbets böcker. 
 
-- Se [Visa och hämta händelser i Azure aktivitets loggen](../platform/activity-log-view.md) om du vill ha mer information om hur du visar aktivitets loggen och hämtar poster med hjälp av olika metoder.
+- Se [Visa och hämta händelser i Azure aktivitets loggen](../platform/activity-log.md#view-the-activity-log) om du vill ha mer information om hur du visar aktivitets loggen och hämtar poster med hjälp av olika metoder.
 - I dokumentationen för Azure-tjänsten finns information om vilka händelser som loggas.
 
 ![Aktivitetslogg](media/monitor-azure-resource/activity-log.png)
@@ -125,8 +125,8 @@ Azure Monitor loggar konsoliderar loggar och mått från flera tjänster och and
 Med [Log Analytics](../log-query/get-started-portal.md) kan du arbeta med [logg frågor](../log-query/log-query-overview.md), vilket är en kraftfull funktion i Azure Monitor som gör att du kan utföra avancerad analys av loggdata med ett fullständigt aktuellt frågespråk. Öppna Log Analytics från **loggar** på menyn **övervakning** för en Azure-resurs för att arbeta med logg frågor med hjälp av resursen som [fråge omfånget](../log-query/scope.md#query-scope). På så sätt kan du analysera data i flera tabeller för just den resursen. Använd **loggar** från Azure Monitor-menyn för att få åtkomst till loggar för alla resurser. 
 
 - I [Kom igång med logg frågor i Azure Monitor](../log-query/get-started-queries.md) finns en själv studie kurs om hur du använder frågespråket som används för att skriva logg frågor.
-- Mer information om hur resurs loggar samlas in i Azure Monitor loggar och information om hur du kommer åt dem i en fråga finns i [samla in Azure-resursposter i Log Analytics arbets ytan i Azure Monitor](../platform/resource-logs-collect-workspace.md) .
-- Se [insamlings läge](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) för en förklaring av hur resurs logg data är strukturerade i Azure Monitor loggar.
+- Mer information om hur resurs loggar samlas in i Azure Monitor loggar och information om hur du kommer åt dem i en fråga finns i [samla in Azure-resursposter i Log Analytics arbets ytan i Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) .
+- Se [insamlings läge](../platform/resource-logs.md#send-to-log-analytics-workspace) för en förklaring av hur resurs logg data är strukturerade i Azure Monitor loggar.
 - I dokumentationen för varje Azure-tjänst finns mer information om tabellen i Azure Monitor loggar.
 
 ![Loggar](media/monitor-azure-resource/logs.png)
@@ -163,4 +163,4 @@ Använd **aviseringar** från en resurs meny för att visa aviseringar och hante
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om resurs loggar för olika Azure-tjänster finns i [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/diagnostic-logs-schema.md) .  
+* Mer information om resurs loggar för olika Azure-tjänster finns i [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/resource-logs-schema.md) .  

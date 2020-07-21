@@ -3,12 +3,12 @@ title: Azure Monitor loggar data modell
 description: I den här artikeln lär du dig mer om Azure Monitor Log Analytics data modell information för Azure Backup data.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854765"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539082"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
@@ -18,7 +18,7 @@ Använd Log Analytics data modell för att skapa anpassade aviseringar från Log
 
 > [!NOTE]
 >
-> Den här data modellen refererar till Azure-diagnostik läge för att skicka diagnostiska händelser till Log Analytics (LA). Om du vill lära dig data modellen för det nya resurs läget kan du läsa följande artikel: [data modell för Azure Backup diagnostiska händelser](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+> Den här data modellen refererar till Azure-diagnostik läge för att skicka diagnostiska händelser till Log Analytics (LA). Om du vill lära dig data modellen för det nya resurs läget kan du läsa följande artikel: [data modell för Azure Backup diagnostiska händelser](./backup-azure-reports-data-model.md)
 
 ## <a name="using-azure-backup-data-model"></a>Använda Azure Backup data modell
 
@@ -168,7 +168,7 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | ResourceProvider |Text |Resurs leverantör för vilken data samlas in. Till exempel Microsoft. RecoveryServices |
 | ResourceType |Text |Resurs typ som data samlas in för. Till exempel valv |
 
-### <a name="policy"></a>Princip
+### <a name="policy"></a>Policy
 
 Den här tabellen innehåller information om principbaserad fält.
 
@@ -465,7 +465,7 @@ Tidigare skickades diagnostikdata för Azure Backup Agent och säkerhets kopieri
 
 Av sekretesskäl för bakåtkompatibilitet skickas diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostik tabell i både v1-och v2-schemat (med v1-schemat nu på en utfasnings väg). Du kan identifiera vilka poster i Log Analytics som är v1-schemat genom att filtrera poster för SchemaVersion_s = = "v1" i dina logg frågor. 
 
-Referera till den tredje kolumnen Beskrivning i den [data modell](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) som beskrivs ovan för att identifiera vilka kolumner som endast tillhör v1-schema.
+Referera till den tredje kolumnen Beskrivning i den [data modell](#using-azure-backup-data-model) som beskrivs ovan för att identifiera vilka kolumner som endast tillhör v1-schema.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Ändra dina frågor till att använda v2-schemat
 Eftersom v1-schemat finns på en föråldrad sökväg rekommenderar vi att du bara använder v2-schemat i alla dina anpassade frågor på Azure Backup diagnostikdata. Nedan visas ett exempel på hur du uppdaterar dina frågor för att ta bort beroendet av v1-schemat:

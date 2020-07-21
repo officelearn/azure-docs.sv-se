@@ -6,20 +6,21 @@ ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654400"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539660"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Pris ändringar för Azure Övervakare av nätverksprestanda
 
-Vi har lyssnat på din feedback och nyligen introducerade en [ny prissättnings upplevelse](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) för olika övervaknings tjänster i Azure. Den här artikeln samlar in pris ändringar som rör Azure [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) i ett lättläst fråge-och svars format.
+Vi har lyssnat på din feedback och nyligen introducerade en [ny prissättnings upplevelse](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) för olika övervaknings tjänster i Azure. Den här artikeln samlar in pris ändringar som rör Azure [övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md) (NPM) i ett lättläst fråge-och svars format.
 
 Övervakare av nätverksprestanda består av tre komponenter:
-* [Prestandaövervakaren](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Övervakare av tjänst slut punkt](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [Övervakaren ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Prestandaövervakaren](../../networking/network-monitoring-overview.md#performance-monitor)
+* [Övervakare av tjänst slut punkt](../../networking/network-monitoring-overview.md)
+* [Övervakaren ExpressRoute](../../networking/network-monitoring-overview.md#expressroute-monitor)
 
 I följande avsnitt förklaras pris ändringarna för NPM-komponenterna.
 
@@ -111,4 +112,3 @@ Se avsnittet [anslutnings övervakning](https://azure.microsoft.com/pricing/deta
 ## <a name="references"></a>Referenser
 
 [Vanliga frågor och svar om Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/): avsnittet Vanliga frågor och svar innehåller information om kostnads fri nivå, pris per nod och annan pris information.
-

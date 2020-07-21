@@ -3,12 +3,12 @@ title: Exportera med hjälp av Stream Analytics från Azure Application Insights
 description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera data som du exporterar från Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224527"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539966"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för att bearbeta data som [exporter ATS från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från flera olika källor. Den kan transformera och filtrera data och sedan dirigera den till en rad olika mottagare.
@@ -138,7 +138,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * export-indata är det alias som vi gav för Stream-indata
 * PBI – utdata är aliaset som vi har definierat
-* Vi använder [yttre Apply-get Elements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) eftersom händelse namnet finns i en KAPSLAd JSON-matris. Sedan väljer Välj för att plocka händelse namnet, tillsammans med antalet instanser med det namnet under tids perioden. [Group by](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) -satsen grupperar elementen i tids perioder på en minut.
+* Vi använder [yttre Apply-get Elements](/stream-analytics-query/apply-azure-stream-analytics) eftersom händelse namnet finns i en KAPSLAd JSON-matris. Sedan väljer Välj för att plocka händelse namnet, tillsammans med antalet instanser med det namnet under tids perioden. [Group by](/stream-analytics-query/group-by-azure-stream-analytics) -satsen grupperar elementen i tids perioder på en minut.
 
 ### <a name="query-to-display-metric-values"></a>Fråga för att visa mått värden
 
@@ -212,4 +212,3 @@ Noam ben Zeev visar hur du bearbetar exporterade data med hjälp av Stream Analy
 * [Löpande export](export-telemetry.md)
 * [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-

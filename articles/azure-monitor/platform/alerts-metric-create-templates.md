@@ -1,5 +1,5 @@
 ---
-title: Skapa en måttvarning med en Resource Manager-mall
+title: Skapa en ny mått avisering med Azure Resource Manager mall
 description: Lär dig hur du använder en Resource Manager-mall för att skapa en måtta aviseringar.
 author: harelbr
 ms.author: harelbr
@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4d8ec0c76259a8567906e9ac415864e2cd37a9cd
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 043ecc07c521f9c1c79835bcd67ff1d81cacfa34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187582"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539473"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
@@ -27,7 +27,7 @@ De grundläggande stegen är följande:
 
 1. Använd en av mallarna nedan som en JSON-fil som beskriver hur du skapar aviseringen.
 2. Redigera och använd motsvarande parameter fil som JSON för att anpassa aviseringen.
-3. För `metricName` -parametern, se tillgängliga mått i [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+3. För `metricName` -parametern, se tillgängliga mått i [Azure Monitor mått som stöds](./metrics-supported.md).
 4. Distribuera mallen med [valfri distributions metod](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Mall för en mått avisering för enkel statisk tröskel
@@ -204,7 +204,7 @@ Spara JSON-filen nedan som simplestaticmetricalert.jsi för den här genom gång
 }
 ```
 
-En förklaring av schema och egenskaper för en varnings regel [finns här](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+En förklaring av schema och egenskaper för en varnings regel [finns här](/rest/api/monitor/metricalerts/createorupdate).
 
 Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan.
 
@@ -477,7 +477,7 @@ Spara JSON-filen nedan som simpledynamicmetricalert.jsi för den här genom gån
 }
 ```
 
-En förklaring av schema och egenskaper för en varnings regel [finns här](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+En förklaring av schema och egenskaper för en varnings regel [finns här](/rest/api/monitor/metricalerts/createorupdate).
 
 Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan. 
 
@@ -1248,7 +1248,7 @@ az group deployment create \
 
 Du kan använda följande mall för att skapa en mer avancerad varnings regel för statiskt tröskelvärde för ett anpassat mått.
 
-Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Azure Monitor](./metrics-custom-overview.md).
 
 När du skapar en varnings regel för ett anpassat mått måste du ange både måttets namn och mått namn området. Du bör också se till att det anpassade måttet redan rapporteras, eftersom du inte kan skapa en aviserings regel för ett anpassat mått som ännu inte finns.
 
@@ -1504,7 +1504,7 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Du kan hitta mått namn området för en speciell anpassad mått genom [att bläddra bland dina anpassade mått via Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Du kan hitta mått namn området för en speciell anpassad mått genom [att bläddra bland dina anpassade mått via Azure Portal](./metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Mall för en mått avisering som övervakar flera resurser

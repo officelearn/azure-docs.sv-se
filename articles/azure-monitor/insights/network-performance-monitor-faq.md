@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184556"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539677"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -19,11 +19,11 @@ ms.locfileid: "86184556"
 
 Den här artikeln innehåller vanliga frågor och svar om Övervakare av nätverksprestanda (NPM) i Azure
 
-[Övervakare av nätverksprestanda](/azure/networking/network-monitoring-overview) är en molnbaserad [hybrid nätverks övervaknings](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) lösning som hjälper dig att övervaka nätverks prestanda mellan olika platser i din nätverks infrastruktur. Du kan också övervaka nätverks anslutningen till [tjänst-och program slut punkter](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) och [övervaka Azure-ExpressRoute prestanda](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md) är en molnbaserad [hybrid nätverks övervaknings](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) lösning som hjälper dig att övervaka nätverks prestanda mellan olika platser i din nätverks infrastruktur. Du kan också övervaka nätverks anslutningen till [tjänst-och program slut punkter](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) och [övervaka Azure-ExpressRoute prestanda](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Övervakare av nätverksprestanda identifierar nätverks problem som trafik blackholing, synkroniseringsfel och problem som konventionella nätverks övervaknings metoder inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
 
-Mer information om de olika funktionerna som stöds av [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns online.
+Mer information om de olika funktionerna som stöds av [övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md) finns online.
 
 ## <a name="set-up-and-configure-agents"></a>Konfigurera och konfigurera agenter
 
@@ -149,7 +149,7 @@ NetworkMonitoring
 NPM identifierar bara IP-och värd namnet för underliggande nätverks hopp (växlar, routrar, servrar osv.) mellan käll-och mål-IP-adresser. Den identifierar även svars tiden mellan dessa identifierade hopp. Dessa underliggande hopp övervakas inte separat.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>Kan NPM användas för att övervaka nätverks anslutningen mellan Azure och AWS?
-Ja. Mer information finns i artikeln [övervaka Azure, AWS och lokala nätverk med hjälp av NPM](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) .
+Ja. Mer information finns i artikeln [övervaka Azure, AWS och lokala nätverk med hjälp av NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) .
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>Är ExpressRoute bandbredds användning inkommande eller utgående?
 Bandbredds användning är summan av inkommande och utgående bandbredd. Den uttrycks i bitar per sekund.
@@ -188,7 +188,7 @@ NPM kan övervaka anslutningar mellan nätverk i valfri del av världen, från e
 NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner stöds för NPM ExpressRoute-övervakaren?
-NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](/azure/expressroute/how-to-npm)
+NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](../../expressroute/how-to-npm.md)
 
 ## <a name="troubleshoot"></a>Felsöka
 
@@ -231,7 +231,7 @@ Detta kan inträffa om antingen värd brand väggen eller mellanliggande brand v
 * Kontrol lera att värd brand väggen inte blockerar kommunikationen på den begärda porten genom att Visa hälso statusen för käll-och mål-noderna från följande vy: Övervakare av nätverksprestanda-> konfigurations > noder. 
   Om de inte är felfria kan du Visa anvisningarna och vidta lämpliga åtgärder. Om noderna är felfria flyttar du till steg b. nedan.
 * Kontrol lera att en mellanliggande nätverks brand vägg eller Azure-NSG inte blockerar kommunikationen på den begärda porten genom att använda PsPing för tredje part med hjälp av anvisningarna nedan:
-  * psping-verktyget är tillgängligt för nedladdning [här](https://technet.microsoft.com/sysinternals/psping.aspx) 
+  * psping-verktyget är tillgängligt för nedladdning [här](/sysinternals/downloads/psping) 
   * Kör följande kommando från Källnoden.
     * psping-n 15 \<destination node IPAddress\> :P Ortnumber som standard använder NPM 8084-port. Om du uttryckligen har ändrat detta genom att använda EnableRules.ps1-skriptet anger du det anpassade port numret som du använder). Det här är ett ping från en Azure-dator till en lokal plats
 * Kontrol lera att pingarna fungerar. Annars indikerar det att en mellanliggande nätverks brand vägg eller Azure-NSG blockerar trafiken på den här porten.

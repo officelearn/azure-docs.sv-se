@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: c68ffd019937f902567c3deda8d879448dc082da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847034"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537028"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-kretsar och peering
 
 ExpressRoute-kretsar ansluter din lokala infrastruktur till Microsoft via en anslutnings leverantör. Den här artikeln hjälper dig att förstå ExpressRoute-kretsar och routningsdomäner/peering. Följande bild visar en logisk representation av anslutningen mellan WAN och Microsoft.
 
-![](./media/expressroute-circuit-peerings/expressroute-basic.png)
+![Diagram över hur ExpressRoute-kretsar ansluter din lokala infrastruktur till Microsoft via en anslutnings leverantör.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
 > Azures offentliga peering är inaktuell och är inte tillgänglig för nya ExpressRoute-kretsar. Nya kretsar stöder Microsoft-peering och privat peering.  
@@ -42,9 +42,9 @@ Standard kvoter och-gränser gäller för varje ExpressRoute-krets. Se sidan fö
 
 En ExpressRoute-krets har flera associerade routningsdomäner/peering-kopplingar: Azure offentlig, Azure Private och Microsoft. Varje peering konfigureras identiskt på ett par routrar (i aktiv-aktiv eller belastnings delnings konfiguration) för hög tillgänglighet. Azure-tjänster kategoriseras som *offentliga Azure* -tjänster och *Azure Private* för att representera IP-adressering-scheman.
 
-![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Diagram över hur Azures offentliga, Azure Private-och Microsoft-peering konfigureras i en ExpressRoute-krets.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### <a name="azure-private-peering"></a><a name="privatepeering"></a>Azures privata peering
+### <a name="azure-private-peering"></a><a name="privatepeering"></a>Privat peering i Azure
 
 Azure Compute Services, nämligen Virtual Machines (IaaS) och Cloud Services (PaaS), som distribueras i ett virtuellt nätverk kan anslutas via den privata peering-domänen. Den privata peering-domänen anses vara ett betrott tillägg till kärn nätverket i Microsoft Azure. Du kan konfigurera dubbelriktad anslutning mellan kärn nätverket och virtuella Azure-nätverk (virtuella nätverk). Med denna peering kan du ansluta till virtuella datorer och moln tjänster direkt på deras privata IP-adresser.  
 

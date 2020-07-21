@@ -4,11 +4,12 @@ description: Lär dig hur du skapar en logisk app som använder det gemensamma a
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05349554f4c5e076562a75d48d58e0849986d6cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77668238"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539507"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Så här integrerar du det vanliga aviserings schemat med Logic Apps
 
@@ -19,16 +20,16 @@ Den här artikeln visar hur du skapar en Logi Kap par som utnyttjar det gemensam
 Det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs) innehåller ett standardiserat och utöknings Bart JSON-schema över alla dina olika aviserings typer. Det vanliga aviserings schemat är mest användbart när du använder program mässigt – via Webhooks, Runbooks och Logic Apps. I den här artikeln visar vi hur du kan använda en enda Logic-app för att hantera alla aviseringar. Samma principer kan tillämpas på andra programmerings metoder. Logic-appen som beskrivs i den här artikeln skapar väldefinierade variabler för [fälten "viktigt"](alerts-common-schema-definitions.md#essentials)och beskriver hur du kan hantera en viss logik för [aviserings typen](alerts-common-schema-definitions.md#alert-context) .
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Den här artikeln förutsätter att läsaren är bekant med 
-* Konfigurera aviserings regler ([mått](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [logg](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
-* Konfigurera [Åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* Aktivera det [vanliga aviserings schemat](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) i åtgärds grupper
+* Konfigurera aviserings regler ([mått](./alerts-metric.md), [logg](./alerts-log.md), [aktivitets logg](./alerts-activity-log.md))
+* Konfigurera [Åtgärds grupper](./action-groups.md)
+* Aktivera det [vanliga aviserings schemat](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) i åtgärds grupper
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Skapa en logisk app som utnyttjar det vanliga aviserings schemat
 
-1. Följ [stegen som beskrivs för att skapa din Logic app](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
+1. Följ [stegen som beskrivs för att skapa din Logic app](./action-groups-logic-app.md). 
 
 1.  Välj utlösaren: **när en HTTP-begäran tas emot**.
 
@@ -129,7 +130,7 @@ Den här artikeln förutsätter att läsaren är bekant med
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     Lär dig mer om att [skriva Logic app-uttryck](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
+     Lär dig mer om att [skriva Logic app-uttryck](../../logic-apps/workflow-definition-language-functions-reference.md#logical-comparison-functions).
 
     
 
@@ -138,4 +139,3 @@ Den här artikeln förutsätter att läsaren är bekant med
 
 * [Läs mer om åtgärds grupper](../../azure-monitor/platform/action-groups.md).
 * [Läs mer om det vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs).
-

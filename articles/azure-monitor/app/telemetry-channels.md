@@ -4,11 +4,12 @@ description: 'Så här anpassar du telemetri kanaler i Azure Application Insight
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f9e93d477efeee7e1d8a0b0d8704f9c83d2a4f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691959"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539796"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Telemetri kanaler i Application Insights
 
@@ -16,7 +17,7 @@ Telemetri kanaler är en integrerad del av [Azure Application Insights SDK](../.
 
 ## <a name="what-are-telemetry-channels"></a>Vad är kanaler för telemetri?
 
-Telemetri kanaler är ansvariga för att buffra telemetri-objekt och skicka dem till den Application Insights tjänsten där de lagras för frågor och analyser. En telemetri kanal är en klass som implementerar [`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) gränssnittet.
+Telemetri kanaler är ansvariga för att buffra telemetri-objekt och skicka dem till den Application Insights tjänsten där de lagras för frågor och analyser. En telemetri kanal är en klass som implementerar [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) gränssnittet.
 
 `Send(ITelemetry item)`Metoden för en telemetri-kanal anropas efter att alla telemetri-och telemetri-processorer har anropats. Det innebär att alla objekt som släppts av en telemetri-processor inte når kanalen. `Send()`skickar vanligt vis inte objekten till Server delen direkt. Normalt buffrar den dem i minnet och skickar dem i batchar för effektiv överföring.
 
@@ -30,7 +31,7 @@ Application Insights .NET-och .NET Core SDK: er levereras med två inbyggda kana
 
     Den här kanalen är en del av det större Microsoft. ApplicationInsights NuGet-paketet och är standard kanalen som används av SDK när inget annat har kon figurer ATS.
 
-* `ServerTelemetryChannel`: En mer avancerad kanal som har principer för återförsök och möjlighet att lagra data på en lokal disk. Den här kanalen försöker skicka telemetri igen om tillfälliga fel inträffar. Den här kanalen använder också lokal disk lagring för att lagra objekt på disk under nätverks avbrott eller volymer med hög telemetri. På grund av dessa metoder för omförsök och lokal disk lagring anses denna kanal vara mer tillförlitlig och rekommenderas för alla produktions scenarier. Den här kanalen är standard för [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) och [ASP.net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) program som har kon figurer ATS enligt den officiella dokumentationen. Den här kanalen är optimerad för Server scenarier med tids krävande processer. [`Flush()`](#which-channel-should-i-use)Metoden som implementeras av den här kanalen är inte synkron.
+* `ServerTelemetryChannel`: En mer avancerad kanal som har principer för återförsök och möjlighet att lagra data på en lokal disk. Den här kanalen försöker skicka telemetri igen om tillfälliga fel inträffar. Den här kanalen använder också lokal disk lagring för att lagra objekt på disk under nätverks avbrott eller volymer med hög telemetri. På grund av dessa metoder för omförsök och lokal disk lagring anses denna kanal vara mer tillförlitlig och rekommenderas för alla produktions scenarier. Den här kanalen är standard för [ASP.net](./asp-net.md) och [ASP.net Core](./asp-net-core.md) program som har kon figurer ATS enligt den officiella dokumentationen. Den här kanalen är optimerad för Server scenarier med tids krävande processer. [`Flush()`](#which-channel-should-i-use)Metoden som implementeras av den här kanalen är inte synkron.
 
     Den här kanalen levereras som Microsoft. ApplicationInsights. Windows Server. TelemetryChannel NuGet-paketet och hämtas automatiskt när du använder antingen Microsoft. ApplicationInsights. Web eller Microsoft. ApplicationInsights. AspNetCore NuGet-paketet.
 

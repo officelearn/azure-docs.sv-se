@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 6435535ee14450c590a79ea68c8855c29df8bd9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637872"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539643"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Samla in data från en Windows-dator i en hybrid miljö med Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "80637872"
 
 Information om vilka konfigurationer som stöds finns i [Windows operativ system](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) och [konfigurationen för nätverks brand väggen](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
  
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
@@ -112,7 +112,7 @@ Azure Monitor kan samla in händelser som du anger i händelse loggen och presta
  
 3. Välj **Data** och sedan **Windows-händelseloggar**.  
 
-4. Du lägger till en händelse logg genom att ange namnet på loggen. Ange **system**och välj sedan plus tecknet (**+**).  
+4. Du lägger till en händelse logg genom att ange namnet på loggen. Ange **system**och välj sedan plus tecknet ( **+** ).  
 
 5. I tabellen väljer du **fel** -och **varnings** allvarlighets grader.
 
@@ -165,4 +165,4 @@ Nu när du samlar in drift-och prestanda data från din Windows-dator kan du enk
 Om du vill veta mer om hur du visar och analyserar data fortsätter du till självstudien:
 
 > [!div class="nextstepaction"]
-> [Visa eller analysera data i Log Analytics](tutorial-viewdata.md)
+> [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb216f164e02dfa4dbc4ad11774569b2e8ea970f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797603"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539694"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -37,7 +38,7 @@ Program är bara tillförlitliga som den underliggande infrastrukturen. Om du ha
 - Du får automatiskt [plattforms statistik, aktivitets loggar och](platform/data-sources.md) diagnostikloggar från de flesta Azure-resurser utan konfiguration.
 - Aktivera djupare övervakning för virtuella datorer med [Azure Monitor for VMS](insights/vminsights-overview.md).
 -  Aktivera djupare övervakning av AKS-kluster med [Azure Monitor för behållare](insights/container-insights-overview.md).
-- Lägg till [övervaknings lösningar](insights/solutions-inventory.md) för olika program och tjänster i din miljö.
+- Lägg till [övervaknings lösningar](./monitor-reference.md) för olika program och tjänster i din miljö.
 
 
 [Infrastruktur som kod](/azure/devops/learn/what-is-infrastructure-as-code) är hanteringen av infrastrukturen i en beskrivande modell med samma versions hantering som DevOps-team används för käll koden. Det ger bättre tillförlitlighet och skalbarhet för din miljö och gör att du kan utnyttja liknande processer som används för att hantera dina program.

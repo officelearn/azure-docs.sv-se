@@ -3,12 +3,12 @@ title: Resurser, roller och åtkomst kontroll i Azure Application Insights | Mic
 description: Ägare, deltagare och läsare av organisationens insikter.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f40961cd824925fe6ed1b67745667121a66d2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628251"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539983"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomst kontroll i Application Insights
 
@@ -59,7 +59,7 @@ Välj **Lägg till roll tilldelning**
 
 Vyn **Lägg till behörigheter** nedan är främst avsedd för Application Insights resurser, om du visar behörigheter för åtkomst kontroll från en högre nivå, t. ex. resurs grupper, så ser du ytterligare icke-Application Insights-centrerade roller.
 
-Om du vill visa information om alla inbyggda roller som baseras på Azure rollbaserad åtkomst kontroll använder du det [officiella referens innehållet](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Om du vill visa information om alla inbyggda roller som baseras på Azure rollbaserad åtkomst kontroll använder du det [officiella referens innehållet](../../role-based-access-control/built-in-roles.md).
 
 ![Skärm bild av listan användar roll för åtkomst kontroll](./media/resources-roles-access-control/0003-user-roles.png)
 
@@ -69,23 +69,23 @@ Där så är tillämpligt länkar vi till den tillhör ande officiella referens 
 
 | Roll | I resurs gruppen |
 | --- | --- |
-| [Ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Kan ändra vad som helst, inklusive användar åtkomst. |
-| [Deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Kan redigera vad som helst, inklusive alla resurser. |
-| [Application Insights komponent deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Kan redigera Application Insights-resurser. |
-| [Läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Kan visa men inte ändra något. |
-| [Application Insights Snapshot Debugger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Ger användaren behörighet att använda Application Insights Snapshot Debugger-funktioner. Observera att den här rollen ingår varken i rollen ägare eller deltagare. |
+| [Ägare](../../role-based-access-control/built-in-roles.md#owner) |Kan ändra vad som helst, inklusive användar åtkomst. |
+| [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) |Kan redigera vad som helst, inklusive alla resurser. |
+| [Application Insights komponent deltagare](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor) |Kan redigera Application Insights-resurser. |
+| [Läsare](../../role-based-access-control/built-in-roles.md#reader) |Kan visa men inte ändra något. |
+| [Application Insights Snapshot Debugger](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Ger användaren behörighet att använda Application Insights Snapshot Debugger-funktioner. Observera att den här rollen ingår varken i rollen ägare eller deltagare. |
 | Azure Service Deploy Release Management Contributor | Deltagar rollen för tjänster som distribueras via Azure Service Deploy. |
-| [Data rensning](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Särskild roll för att rensa personliga data. Se vår [vägledning för person uppgifter](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) för mer information.   |
+| [Data rensning](../../role-based-access-control/built-in-roles.md#data-purger) | Särskild roll för att rensa personliga data. Se vår [vägledning för person uppgifter](../platform/personal-data-mgmt.md) för mer information.   |
 | ExpressRoute-administratör | Kan skapa ta bort och hantera Express vägar.|
-| [Log Analytics Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics deltagare kan läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna lägger du till VM-tillägget till virtuella datorer. läsning av lagrings konto nycklar för att kunna konfigurera samling av loggar från Azure Storage. Skapa och konfigurera Automation-konton. lägga till lösningar. och konfigurera Azure Diagnostics på alla Azure-resurser.  |
-| [Log Analytics Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics läsaren kan visa och söka i alla övervaknings data samt Visa övervaknings inställningar, inklusive Visa konfigurationen av Azure Diagnostics på alla Azure-resurser. |
+| [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics deltagare kan läsa alla övervaknings data och redigera övervaknings inställningar. Genom att redigera övervaknings inställningarna lägger du till VM-tillägget till virtuella datorer. läsning av lagrings konto nycklar för att kunna konfigurera samling av loggar från Azure Storage. Skapa och konfigurera Automation-konton. lägga till lösningar. och konfigurera Azure Diagnostics på alla Azure-resurser.  |
+| [Log Analytics Reader](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics läsaren kan visa och söka i alla övervaknings data samt Visa övervaknings inställningar, inklusive Visa konfigurationen av Azure Diagnostics på alla Azure-resurser. |
 | masterreader | Tillåter en användare att Visa allting men inte göra ändringar. |
-| [Övervaknings deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Kan läsa alla övervaknings data och uppdatera övervaknings inställningar.|
-| [Övervaknings mått utgivare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Möjliggör publicering av mått mot Azure-resurser. |
-| [Övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Kan läsa alla övervaknings data. |
+| [Övervaknings deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | Kan läsa alla övervaknings data och uppdatera övervaknings inställningar.|
+| [Övervaknings mått utgivare](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) | Möjliggör publicering av mått mot Azure-resurser. |
+| [Övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader) | Kan läsa alla övervaknings data. |
 | Resurs princip deltagare (för hands version) | Användare med egna användare från EA, med rättigheter att skapa/ändra resurs principer, skapa support ärende och läsa resurs/hierarki.  |
-| [Administratör för användaråtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Tillåter en användare att hantera åtkomst för andra användare till Azure-resurser.|
-| [Webbplats deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till dem.|
+| [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) | Tillåter en användare att hantera åtkomst för andra användare till Azure-resurser.|
+| [Webbplats deltagare](../../role-based-access-control/built-in-roles.md#website-contributor) | Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till dem.|
 
 Redigering inkluderar att skapa, ta bort och uppdatera:
 

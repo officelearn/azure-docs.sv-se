@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/17/2020
 ms.author: victorh
-ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b984bb581df54cba79a551dc870786ed228eaa43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232091"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536977"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -22,15 +22,7 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Vilka funktioner stöds i Azure Firewall?
 
-* Tillstånds känslig brand vägg som en tjänst
-* Inbyggd hög tillgänglighet med obegränsad moln skalbarhet
-* FQDN-filtrering
-* FQDN-taggar
-* Regler för filtrering av nätverkstrafik
-* Stöd för utgående SNAT
-* Stöd för inkommande DNAT
-* Skapa, tillämpa och logga program-och nätverks anslutnings principer centralt i Azure-prenumerationer och virtuella nätverk
-* Fullständigt integrerat med Azure Monitor för loggning och analys
+Information om Azure Firewall-funktioner finns i [Azure Firewall-funktioner](features.md).
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Vad är en typisk distributions modell för Azure-brandväggen?
 
@@ -88,7 +80,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Exempel:
+Till exempel:
 
 ```azurepowershell
 # Stop an existing firewall

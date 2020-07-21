@@ -3,11 +3,12 @@ title: Säkerhetskopiera Windows-datorer med hjälp av MARS-agenten
 description: Använd MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604853"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538640"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Säkerhetskopiera Windows Server-filer och-mappar till Azure
 
@@ -52,7 +53,7 @@ Så här skapar du en säkerhetskopieringspolicy:
     ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. På sidan **Välj objekt som ska säkerhets kopie ras** väljer du **Nästa**.
-1. På sidan **Ange schema för säkerhets kopiering** anger du när du vill göra en daglig eller veckovis säkerhets kopiering. Välj **Nästa**.
+1. På sidan **Ange schema för säkerhets kopiering** anger du när du vill göra en daglig eller veckovis säkerhets kopiering. Välj sedan **Nästa**.
 
     * En återställnings punkt skapas när en säkerhets kopia görs.
     * Antalet återställnings punkter som har skapats i din miljö beror på ditt schema för säkerhets kopiering.
@@ -64,7 +65,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 
         ![Konfigurera ett schema för veckovis säkerhets kopiering](./media/backup-configure-vault/week-schedule.png)
 
-1. På sidan **Välj bevarande princip** anger du hur du vill lagra historiska kopior av dina data. Välj **Nästa**.
+1. På sidan **Välj bevarande princip** anger du hur du vill lagra historiska kopior av dina data. Välj sedan **Nästa**.
 
     * Inställningarna för kvarhållning anger vilka återställnings punkter som ska lagras och hur länge de ska lagras.
     * För en inställning för daglig kvarhållning anger du att vid den tid som anges för daglig kvarhållning, kommer den senaste återställnings punkten att behållas för det angivna antalet dagar. Du kan också ange en bevarande princip per månad för att ange att återställnings punkten som skapades den 30 i varje månad ska lagras i 12 månader.
@@ -103,7 +104,7 @@ För att utföra en offline-överföring:
 1. Skriv säkerhets kopierings data till en mellanlagringsplats.
 1. Använd AzureOfflineBackupDiskPrep-verktyget för att kopiera data från mellanlagringsplatsen till en eller flera SATA-diskar.
 
-    Verktyget skapar ett Azure-importerat jobb. Mer information finns i [Vad är Azure import/export-tjänsten](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    Verktyget skapar ett Azure-importerat jobb. Mer information finns i [Vad är Azure import/export-tjänsten](../storage/common/storage-import-export-service.md).
 1. Skicka SATA-diskarna till ett Azure-datacenter.
 
     På data centret kopieras disk data till ett Azure Storage-konto. Azure Backup kopierar data från lagrings kontot till valvet och stegvisa säkerhets kopieringar schemaläggs.
@@ -114,7 +115,7 @@ Mer information om seeding offline finns i [använda Azure Data box för säkerh
 
 Du kan styra hur MARS-agenten använder nätverks bandbredd genom att aktivera nätverks begränsning. Begränsning är användbart om du behöver säkerhetskopiera data under arbets tid, men du vill kontrol lera hur mycket bandbredd som används av säkerhets kopierings-och återställnings aktiviteten.
 
-Nätverks begränsning i Azure Backup använder [tjänst kvalitet (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) på det lokala operativ systemet.
+Nätverks begränsning i Azure Backup använder [tjänst kvalitet (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) på det lokala operativ systemet.
 
 Nätverks begränsning för säkerhets kopieringar är tillgängligt på Windows Server 2012 och senare och på Windows 8 och senare. Operativ system ska köra de senaste Service Pack-versionerna.
 

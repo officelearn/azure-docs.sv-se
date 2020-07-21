@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 978cb7ece1f8b3e16815c1dc49e4983dc393cbfc
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539728"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Viktig information för Azure Web App-tillägg för Application Insights
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller information om uppdateringar för Azure Web Apps-t
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 - Hur ser du vilken version av tillägget jag är på?
-    - Gå till `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Besök [den stegvisa fel söknings guiden för tillägg/agent-baserad övervakning](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net#troubleshooting) för mer information.
+    - Gå till `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Besök [den stegvisa fel söknings guiden för tillägg/agent-baserad övervakning](./azure-web-apps.md?tabs=net#troubleshooting) för mer information.
 
 - Vad händer om jag använder privata tillägg?
     - Avinstallera privata webbplats tillägg eftersom det inte längre stöds.

@@ -7,34 +7,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: bc48c0ba23e73adec312adfeeb1fcd57dba6ceec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879164"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538011"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurera formulär igenkännings behållare
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Med hjälp av Azure formulär igenkännings behållare kan du skapa en program arkitektur som är optimerad för att dra nytta av både robusta moln funktioner och Edge-plats.
 
 Du konfigurerar körnings miljön för formulär igenkännings behållare med hjälp av `docker run` kommando argumenten. Den här behållaren har flera nödvändiga inställningar och några valfria inställningar. Några exempel finns i avsnittet ["exempel på Docker körnings kommandon"](#example-docker-run-commands) . De behållar-/regionsspecifika inställningarna är fakturerings inställningarna.
-
-> [!IMPORTANT]
-> Formulär tolknings behållarna använder för närvarande version 1,0 av formulärets tolknings-API. Du kan komma åt den senaste versionen av API: et genom att använda den hanterade tjänsten i stället.
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Inställningarna [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting)och [`Eula`](#eula-setting) används tillsammans. Du måste ange giltiga värden för alla tre inställningarna. annars startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](form-recognizer-container-howto.md#billing).
+> [`ApiKey`](#apikey-configuration-setting)Inställningarna, [`Billing`](#billing-configuration-setting) och [`Eula`](#eula-setting) används tillsammans. Du måste ange giltiga värden för alla tre inställningarna. annars startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](form-recognizer-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Konfigurations inställning för ApiKey
 
-`ApiKey` Inställningen anger den Azure-resurs nyckel som används för att spåra fakturerings information för behållaren. Värdet för ApiKey måste vara en giltig nyckel för _formulär igenkännings_ resursen som anges i avsnittet "konfigurations `Billing` inställning för fakturering".
+`ApiKey`Inställningen anger den Azure-resurs nyckel som används för att spåra fakturerings information för behållaren. Värdet för ApiKey måste vara en giltig nyckel för _formulär igenkännings_ resursen som anges `Billing` i avsnittet "konfigurations inställning för fakturering".
 
 Du hittar den här inställningen i Azure Portal i **formulär igenkännings resurs hantering**under **nycklar**.
 
@@ -44,11 +43,11 @@ Du hittar den här inställningen i Azure Portal i **formulär igenkännings res
 
 ## <a name="billing-configuration-setting"></a>Konfigurations inställning för fakturering
 
-`Billing` Inställningen anger slut punkts-URI för _formulär igenkännings_ resursen på Azure som används för att mäta fakturerings information för behållaren. Värdet för den här konfigurations inställningen måste vara en giltig slut punkts-URI för en _formulär igenkännings_ resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
+`Billing`Inställningen anger slut punkts-URI för _formulär igenkännings_ resursen på Azure som används för att mäta fakturerings information för behållaren. Värdet för den här konfigurations inställningen måste vara en giltig slut punkts-URI för en _formulär igenkännings_ resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
 Du hittar den här inställningen i rutan Azure Portal, i **formulär igenkännings översikt**, under **slut punkt**.
 
-|Krävs| Name | Datatyp | Beskrivning |
+|Obligatorisk| Name | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](form-recognizer-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
@@ -71,22 +70,22 @@ Du hittar den här inställningen i rutan Azure Portal, i **formulär igenkänni
 
 ## <a name="mount-settings"></a>Monterings inställningar
 
-Använd bind-monteringar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller en utmatnings `--mount` montering genom att ange alternativet i [ `docker run` kommandot](https://docs.docker.com/engine/reference/commandline/run/).
+Använd bind-monteringar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller en utmatnings montering genom att ange `--mount` alternativet i [ `docker run` kommandot](https://docs.docker.com/engine/reference/commandline/run/).
 
 Formulär identifierarens behållare kräver en indata montering och en utgående data montering. Monteringen av indata kan vara skrivskyddad och krävs för åtkomst till de data som används för utbildning och bedömning. Monteringen av utdata måste vara skrivbar och du kan använda den för att lagra modeller och temporära data.
 
 Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](form-recognizer-container-howto.md#the-host-computer) monterings plats inte är tillgänglig på grund av en konflikt mellan Docker-tjänstens konto behörigheter och värd monterings platsens behörigheter.
 
-|Valfri| Name | Datatyp | Beskrivning |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Krävs| `Input` | Sträng | Målet för den inmatade monteringen. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Krävs| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obligatorisk| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på Docker-körnings kommandon
 
 I följande exempel används konfigurations inställningarna för att illustrera hur du skriver och använder `docker run` kommandon. När den körs fortsätter behållaren att köras tills du [stoppar den](form-recognizer-container-howto.md#stop-the-container).
 
-* **Rad fortsättnings bokstav**: Docker-kommandona i följande avsnitt använder ett omvänt snedstreck\\() som ett fortsättnings streck. Ersätt eller ta bort det här tecknen, beroende på värd operativ systemets krav.
+* **Rad fortsättnings bokstav**: Docker-kommandona i följande avsnitt använder ett omvänt snedstreck ( \\ ) som ett fortsättnings streck. Ersätt eller ta bort det här tecknen, beroende på värd operativ systemets krav.
 * **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
 Ersätt {_argument_name_} i följande tabell med dina egna värden:
@@ -103,7 +102,7 @@ Se [samla in obligatoriska parametrar](form-recognizer-container-howto.md#gather
 [!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Ange alternativ `Eula`, `Billing`och `ApiKey` för att köra behållaren. annars startar inte behållaren. Mer information finns i [fakturering](#billing-configuration-setting).
+> Om du vill köra behållaren anger du `Eula` `Billing` alternativen, och `ApiKey` . annars startar inte behållaren. Mer information finns i [fakturering](#billing-configuration-setting).
 
 ## <a name="form-recognizer-container-docker-examples"></a>Formulär identifierarens Docker-exempel
 

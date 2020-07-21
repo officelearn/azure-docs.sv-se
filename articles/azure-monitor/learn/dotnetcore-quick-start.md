@@ -7,20 +7,20 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e066ef1910373734d9a6607500e45e8a9ccc80b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82144852"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539762"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
 Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. 
 
-I den här snabb starten får du hjälp med att lägga till Application Insights SDK i ett befintligt ASP.NET Core-webbprogram. Läs mer om hur du konfigurerar Application Insights utan Visual Studio checka in den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+I den här snabb starten får du hjälp med att lägga till Application Insights SDK i ett befintligt ASP.NET Core-webbprogram. Läs mer om hur du konfigurerar Application Insights utan Visual Studio checka in den här [artikeln](../app/asp-net-core.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -42,18 +42,18 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Application Insights kan samla in telemetridata från alla internetanslutna appar, oavsett om de körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
 
-1. Välj **skapa ett** > **verktyg** > för resurs utvecklare**Application Insights**.
+1. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
 
    > [!NOTE]
-   >Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till [skapa ett Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) dokument.
+   >Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till [skapa ett Application Insights resurs](../app/create-new-resource.md) dokument.
 
     En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
    | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Resurs grupp**     | myResourceGroup      | Namn för den nya resurs gruppen som värd för App Insights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
-   | **Position** | USA, östra | Välj en plats nära dig eller nära där appen finns |
+   | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som värd för App Insights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
+   | **Plats** | East US | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
 
@@ -69,9 +69,9 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 3. Välj ditt konto och din prenumeration > Välj den **befintliga resurs** som du skapade i Azure Portal > Klicka på **Registrera**.
 
-4. Välj **projekt** > **Hantera NuGet paket** > **Källa: NuGet.org** > **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
+4. Välj **projekt**  >  **Hantera NuGet paket**  >  **Källa: NuGet.org**  >  **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
 
-5. Välj **fel sökning** > **starta utan fel sökning** (Ctrl + F5) för att starta appen
+5. Välj **fel sökning**  >  **starta utan fel sökning** (Ctrl + F5) för att starta appen
 
     ![översiktsvyn för Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
@@ -88,7 +88,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Programkarta](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Klicka på ikonen ![](./media/dotnetcore-quick-start/006.png) program karta för **app Analytics** **i Analytics**. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på ikonen program karta för **app Analytics** ![ ](./media/dotnetcore-quick-start/006.png) **i Analytics**. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -112,4 +112,4 @@ När du är färdig med testningen kan du ta bort resurs gruppen och alla relate
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hitta och diagnostisera körningsundantag](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Hitta och diagnostisera körningsundantag](./tutorial-runtime-exceptions.md)

@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc
-ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa190c670c5bdcae8bcb31d2b8d5d9bd011acae9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171952"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538606"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Säkerhetskopiera en virtuell dator med PowerShell
 
-Modulen [Azure POWERSHELL AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) används för att skapa och hantera Azure-resurser från kommando raden eller i skript.
+Modulen [Azure POWERSHELL AZ](/powershell/azure/new-azureps-module-az) används för att skapa och hantera Azure-resurser från kommando raden eller i skript.
 
 [Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med AZ-modulen. Alternativt kan du säkerhetskopiera en virtuell dator med hjälp av [Azure CLI](quick-backup-vm-cli.md)eller i [Azure Portal](quick-backup-vm-portal.md).
 
@@ -46,7 +46,7 @@ När du skapar valvet:
 
 - För resurs gruppen och platsen anger du resurs grupp och plats för den virtuella dator som du vill säkerhetskopiera.
 - Om du använde det här [exempel skriptet](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) för att skapa den virtuella datorn är resurs gruppen **myResourceGroup**, den virtuella datorn är ***MyVM**och resurserna finns i **WestEurope** -regionen.
-- Azure Backup hanterar automatiskt lagring för säkerhetskopierade data. Som standard använder valvet [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). GEO-redundans garanterar att säkerhetskopierade data replikeras till en sekundär Azure-region, hundratals mil bort från den primära regionen.
+- Azure Backup hanterar automatiskt lagring för säkerhetskopierade data. Som standard använder valvet [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md). GEO-redundans garanterar att säkerhetskopierade data replikeras till en sekundär Azure-region, hundratals mil bort från den primära regionen.
 
 Skapa ett valv nu:
 
@@ -66,7 +66,7 @@ Skapa ett valv nu:
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Ändra LRS/GRS (Storage redundans Configuration) för valvet med [set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty)enligt följande:
+3. Ändra LRS/GRS (Storage redundans Configuration) för valvet med [set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty)enligt följande:
 
     ```powershell
     Get-AzRecoveryServicesVault `

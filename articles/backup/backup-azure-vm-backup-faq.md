@@ -4,15 +4,16 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800659"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538776"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
-I den här artikeln besvaras vanliga frågor om säkerhets kopiering av virtuella Azure-datorer med tjänsten [Azure Backup](backup-introduction-to-azure-backup.md) .
+I den här artikeln besvaras vanliga frågor om säkerhets kopiering av virtuella Azure-datorer med tjänsten [Azure Backup](./backup-overview.md) .
 
 ## <a name="backup"></a>Backup
 
@@ -82,7 +83,7 @@ Ja, Azure Backup stöder [standard-SSD Managed disks](https://azure.microsoft.co
 
 Azure Backup kan inte säkerhetskopiera den WA-aktiverade disken, men kan utesluta den från en säkerhets kopia. Säkerhets kopieringen ger dock inte databas konsekvens eftersom information på den WA-aktiverade disken inte säkerhets kopie ras. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill ha säkerhets kopiering av operativ system diskar och säkerhets kopiering av diskar som inte är WA-aktiverade.
 
-Azure Backup tillhandahåller en strömmande säkerhets kopierings lösning för SAP HANA databaser med en återställning på 15 minuter. Det är Backint certifierat av SAP för att ge en inbyggd säkerhets kopierings support som utnyttjar SAP HANA inbyggda API: er. Läs mer [om hur du säkerhetskopierar SAP HANA databaser på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+Azure Backup tillhandahåller en strömmande säkerhets kopierings lösning för SAP HANA databaser med en återställning på 15 minuter. Det är Backint certifierat av SAP för att ge en inbyggd säkerhets kopierings support som utnyttjar SAP HANA inbyggda API: er. Läs mer [om hur du säkerhetskopierar SAP HANA databaser på virtuella Azure-datorer](./sap-hana-db-about.md).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Vad är den största fördröjning som jag förväntar dig i Start tiden för säkerhets kopieringen från den schemalagda säkerhets kopierings tiden jag har angett i min princip för säkerhets kopiering
 
@@ -128,7 +129,11 @@ Ja, du kan använda säkerhets kopior som tagits innan diskarna migrerades från
 
 [Läs mer](backup-azure-vms-automation.md#restore-an-azure-vm) om hur du gör detta i PowerShell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Kan jag återställa den virtuella datorn som har tagits bort?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>Om återställningen Miss lyckas med att skapa den virtuella datorn, vad händer med diskarna som ingår i återställningen?
+
+I händelse av en hanterad VM-återställning, även om det inte går att skapa en virtuell dator, kommer diskarna fortfarande att återställas.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Kan jag återställa en virtuell dator som har tagits bort?
 
 Ja. Även om du tar bort den virtuella datorn kan du gå till motsvarande säkerhets kopierings objekt i valvet och återställa från en återställnings punkt.
 
@@ -142,13 +147,13 @@ För hanterade virtuella Azure-datorer aktive ras återställning till tillgäng
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Vad händer när vi ändrar nyckel valvs inställningarna för den krypterade virtuella datorn?
 
-När du har ändrat nyckel valvs inställningarna för den krypterade virtuella datorn fortsätter säkerhets kopieringarna att fungera med den nya uppsättningen med information. Men efter återställningen från en återställnings punkt innan ändringen måste du återställa hemligheterna i ett nyckel valv innan du kan skapa den virtuella datorn från den. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+När du har ändrat nyckel valvs inställningarna för den krypterade virtuella datorn fortsätter säkerhets kopieringarna att fungera med den nya uppsättningen med information. Men efter återställningen från en återställnings punkt innan ändringen måste du återställa hemligheterna i ett nyckel valv innan du kan skapa den virtuella datorn från den. Mer information finns i den här [artikeln](./backup-azure-restore-key-secret.md).
 
-Åtgärder som Secret/Key Enrollment-on kräver inte det här steget och samma nyckel valv kan användas efter återställningen.
+Åtgärder som Secret/Key Enrollment-on kräver inte det här steget och samma nyckel valv kan användas efter återställning.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Kan jag få åtkomst till den virtuella datorn när den återställts på grund av en virtuell dator med en skadad relation med domänkontrollanten?
 
-Ja, du får åtkomst till den virtuella datorn när den återställts på grund av en virtuell dator med en bruten relation med domänkontrollanten. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Ja, du får åtkomst till den virtuella datorn när den återställts på grund av en virtuell dator med en bruten relation med domänkontrollanten. Mer information finns i den här [artikeln](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 

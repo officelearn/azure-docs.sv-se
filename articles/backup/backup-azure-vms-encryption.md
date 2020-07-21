@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124511"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538912"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -28,10 +28,10 @@ Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med 
 **Typ av virtuell dator disk** | **ADE (BEK/dm-crypt)** | **ADE och KEK**
 --- | --- | ---
 **Ohanterade** | Ja | Ja
-**Hanterad**  | Ja | Ja
+**Hanterade**  | Ja | Ja
 
-- Lär dig mer om [ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md)och [KeyExchange](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
-- Läs [vanliga frågor och svar](../security/azure-security-disk-encryption-faq.md) om Azure VM Disk Encryption.
+- Lär dig mer om [ade](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)och [KeyExchange](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Läs [vanliga frågor och svar](../security/fundamentals/azure-disk-encryption-vms-vmss.md) om Azure VM Disk Encryption.
 
 ### <a name="limitations"></a>Begränsningar
 
@@ -45,7 +45,7 @@ Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med 
 
 Innan du börjar gör du följande:
 
-1. Se till att du har en eller flera virtuella [Windows](../security/azure-security-disk-encryption-windows.md) -eller [Linux](../virtual-machines/linux/disk-encryption-overview.md) -datorer med ade aktiverat.
+1. Se till att du har en eller flera virtuella [Windows](../virtual-machines/linux/disk-encryption-overview.md) -eller [Linux](../virtual-machines/linux/disk-encryption-overview.md) -datorer med ade aktiverat.
 2. [Granska support matrisen](backup-support-matrix-iaas.md) för säkerhets kopiering av virtuella Azure-datorer
 3. [Skapa](backup-azure-arm-vms-prepare.md#create-a-vault) ett Recovery Services säkerhets kopierings valv om du inte har något.
 4. Om du aktiverar kryptering för virtuella datorer som redan har Aktiver ATS för säkerhets kopiering behöver du bara ange säkerhets kopiering med behörigheter för att få åtkomst till Key Vault så att säkerhets kopior kan fortsätta utan avbrott. [Läs mer](#provide-permissions) om att tilldela dessa behörigheter.

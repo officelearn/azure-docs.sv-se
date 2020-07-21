@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ecb9ab208b6ead3944455b95f7fe6baa044d35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616926"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525117"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA (stora instanser) distribution 
 
@@ -35,7 +36,7 @@ Microsoft kräver följande information för att distribuera HANA-stora instans 
 - För varje Azure-distributions region:
     - Ett/29 IP-adressintervall för ER-P2P-anslutningar som ansluter virtuella Azure-nätverk till HANA-stora instanser.
     - Ett/24 CIDR-block som används för IP-adresspoolen HANA Large instances Server.
-    - Valfritt när du använder [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) för att aktivera dirigerad routning från lokal plats till Hana stora instans enheter eller routning mellan Hana-stora instans enheter i olika Azure-regioner, måste du reservera ett annat/29 IP-adressintervall. Detta specifika intervall får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
+    - Valfritt när du använder [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) för att aktivera dirigerad routning från lokal plats till Hana stora instans enheter eller routning mellan Hana-stora instans enheter i olika Azure-regioner, måste du reservera ett annat/29 IP-adressintervall. Detta specifika intervall får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
 - De IP-adressintervall som används i det virtuella nätverkets adress utrymme-attribut för varje virtuellt Azure-nätverk som ansluter till de stora HANA-instanserna.
 - Data för varje HANA-stor instans system:
   - Önskat värdnamn, helst med ett fullständigt kvalificerat domän namn.
@@ -52,4 +53,3 @@ Använd följande sekvens för att ansluta till de stora HANA-instanserna när M
 1. [Ansluta virtuella Azure-datorer till HANA-stora instanser](hana-connect-azure-vm-large-instances.md)
 2. [Ansluta ett VNet till HANA-stora instanser ExpressRoute](hana-connect-vnet-express-route.md)
 3. [Ytterligare nätverks krav (valfritt)](hana-additional-network-requirements.md)
-

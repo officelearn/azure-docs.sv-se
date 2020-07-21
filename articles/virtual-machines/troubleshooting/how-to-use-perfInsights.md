@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207706"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526647"
 ---
-# <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
+# <a name="how-to-use-perfinsights-in-azure"></a>Så här använder du PerfInsights i Azure
 
 [PerfInsights](https://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp som samlar in och analyserar diagnostikdata och ger en rapport som hjälper dig att felsöka prestanda problem i Windows Virtual Machine i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg, direkt från portalen med hjälp av [prestandadiagnostik för Azure Virtual Machines](performance-diagnostics.md), eller genom att installera [Azure Performance Diagnostics VM-tillägget](performance-diagnostics-vm-extension.md).
 
@@ -65,7 +65,7 @@ Det här scenariot kör [Diskspd](https://github.com/Microsoft/diskspd) benchmar
 
 ### <a name="performance-analysis"></a>Prestanda analys
 
-Det här scenariot kör en spårning av [prestanda räknare](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) med hjälp av de räknare som anges i RuleEngineConfig.jsi filen. Om den virtuella datorn identifieras som en server som kör SQL Server, körs en spårning av prestanda räknaren. Det gör det genom att använda de räknare som finns i RuleEngineConfig.jspå filen. Det här scenariot omfattar även prestanda diagnostikdata.
+Det här scenariot kör en spårning av [prestanda räknare](/windows/win32/perfctrs/performance-counters-portal) med hjälp av de räknare som anges i RuleEngineConfig.jsi filen. Om den virtuella datorn identifieras som en server som kör SQL Server, körs en spårning av prestanda räknaren. Det gör det genom att använda de räknare som finns i RuleEngineConfig.jspå filen. Det här scenariot omfattar även prestanda diagnostikdata.
 
 ### <a name="azure-files-analysis"></a>Azure Files analys
 
@@ -300,7 +300,7 @@ Diskspd är ett verktyg för lagrings belastnings Generator och prestanda testni
 
 ### <a name="xperf"></a>Xperf
 
-XPerf är ett kommando rads verktyg för att avbilda spårningar från Windows Performance Toolkit. Mer information finns i [Windows Performance Toolkit – XPerf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+XPerf är ett kommando rads verktyg för att avbilda spårningar från Windows Performance Toolkit. Mer information finns i [Windows Performance Toolkit – XPerf](/archive/blogs/ntdebugging/windows-performance-toolkit-xperf).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -313,4 +313,3 @@ Följande skärm bild visar ett meddelande som liknar det du kan få:
 Följ anvisningarna i meddelandet för att komma åt fil överförings arbets ytan. För ytterligare säkerhet måste du ändra ditt lösen ord vid första användningen.
 
 När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen som samlats in av PerfInsights.
-

@@ -3,15 +3,16 @@ title: Återställa virtuella VMware-datorer med Azure Backup Server
 description: Använd Azure Backup Server (MABS) för att återställa virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212367"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524530"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Återställa virtuella VMware-datorer
 
-Den här artikeln förklarar hur du använder Microsoft Azure Backup Server (MABS) för att återställa återställnings punkter för virtuella VMware-datorer. En översikt över hur du använder MABS för att återställa data finns i [återställa skyddade data](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). I MABS-Administratörskonsol finns det två sätt att hitta återställnings bara data – Sök eller bläddra. När du återställer data kan du kanske eller inte vill återställa data eller en virtuell dator till samma plats. Därför stöder MABS tre återställnings alternativ för säkerhets kopiering av virtuella VMware-datorer:
+Den här artikeln förklarar hur du använder Microsoft Azure Backup Server (MABS) för att återställa återställnings punkter för virtuella VMware-datorer. En översikt över hur du använder MABS för att återställa data finns i [återställa skyddade data](./backup-azure-alternate-dpm-server.md). I MABS-Administratörskonsol finns det två sätt att hitta återställnings bara data – Sök eller bläddra. När du återställer data kan du kanske eller inte vill återställa data eller en virtuell dator till samma plats. Därför stöder MABS tre återställnings alternativ för säkerhets kopiering av virtuella VMware-datorer:
 
 * **Återställning av ursprunglig plats (OLR)** – Använd OLR för att återställa en skyddad virtuell dator till dess ursprungliga plats. Du kan bara återställa en virtuell dator till dess ursprungliga plats om inga diskar har lagts till eller tagits bort, eftersom säkerhets kopieringen uppstod. Om diskarna har lagts till eller tagits bort måste du använda alternativ plats återställning.
 

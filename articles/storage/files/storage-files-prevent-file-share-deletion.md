@@ -8,19 +8,20 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204692"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527820"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Förhindra oavsiktlig borttagning av Azure-filresurser
 
-Azure Storage har nu mjuk borttagning för fil resurser (för hands version). Med mjuk borttagning kan du återställa data när de tas bort av misstag av ett program eller annan lagrings konto användare.
+Azure Storage har nu mjuk borttagning för fil resurser (för hands version). Med mjuk borttagning kan du återställa fil resursen när den tas bort av misstag av ett program eller någon annan lagrings konto användare.
 
 ## <a name="how-soft-delete-preview-works"></a>Så här fungerar mjuk borttagning (för hands version)
 
-När mjuk borttagning för Azure-filresurser är aktiverat, om en fil resurs tas bort, övergår den över till ett mjukt borttaget tillstånd i stället för att raderas permanent. Du kan konfigurera hur lång tid det tar för mjuka borttagna data att återställas innan den tas bort permanent.
+När mjuk borttagning för Azure-filresurser är aktiverat, om en fil resurs tas bort, övergår den över till ett mjukt borttaget tillstånd i stället för att raderas permanent. Du kan konfigurera hur lång tid det tar för mjuka borttagna data att återställas innan den tas bort permanent och ta bort resursen när den kvarhålls. När det har tagits bort återställs delningen och allt innehåll, inklusive ögonblicks bilder, till det tillstånd som den var i innan borttagning. Mjuk borttagning fungerar bara på en fil resurs nivå – enskilda filer som tas bort kommer fortfarande att raderas permanent.
 
 Mjuk borttagning kan aktive ras på antingen nya eller befintliga fil resurser. Mjuk borttagning är också bakåtkompatibelt, så du behöver inte göra några ändringar i dina program för att dra nytta av skyddet av mjuk borttagning. 
 

@@ -12,11 +12,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb9d46adf63f9cd0f4b19e4eace0a2f4a7129226
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 110e8d3be88fb2e1bd958f40d5defa23f8c679f3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525406"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
 
@@ -25,7 +26,7 @@ Allmän information om hur du kör SAP Business Suite på IBM DB2 för LUW finns
 
 Mer information och uppdateringar om SAP på DB2 för LUW på Azure finns i SAP NOTE [2233094]. 
 
-Är olika artiklar om SAP-arbetsbelastningar på Azure lanseras.  Vi rekommenderar att du startar i [SAP-arbetsbelastningar på Azure – kom igång](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) och välj sedan det intresseande fältet
+Är olika artiklar om SAP-arbetsbelastningar på Azure lanseras.  Vi rekommenderar att du startar i [SAP-arbetsbelastningar på Azure – kom igång](./get-started.md) och välj sedan det intresseande fältet
 
 Följande SAP-anteckningar är relaterade till SAP på Azure angående det utrymme som beskrivs i det här dokumentet:
 
@@ -43,7 +44,7 @@ Följande SAP-anteckningar är relaterade till SAP på Azure angående det utrym
 | [2002167] |Red Hat Enterprise Linux 7. x: installation och uppgradering |
 | [1597355] |Rekommendation för växlings utrymme för Linux |
 
-Som en PR-läsning i det här dokumentet bör du läsa dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) samt andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Som en PR-läsning i det här dokumentet bör du läsa dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) samt andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](./get-started.md). 
 
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Stöd för IBM DB2 för Linux, UNIX och Windows-version
@@ -72,7 +73,7 @@ Du kan också använda Windows-lagringspooler (endast tillgängligt i Windows Se
 
 För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata-och saptmp-kataloger måste du ange en storlek på den fysiska disk sektorn på 512 KB. När du använder Windows-lagringspooler måste du skapa lagringspooler manuellt via kommando rads gränssnittet med hjälp av parametern `-LogicalSectorSizeDefault` . Mer information finns i <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-För virtuella datorer i Azure M-serien kan svars tiden som skrivs till transaktions loggarna minskas med faktorer, jämfört med Azure Premium Storage prestanda, när Azure Skrivningsaccelerator används. Därför bör du Distribuera Azure-Skrivningsaccelerator för de virtuella hård diskar som utgör volymen för DB2-transaktionsloggarna. Information kan läsas i dokumentet [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+För virtuella datorer i Azure M-serien kan svars tiden som skrivs till transaktions loggarna minskas med faktorer, jämfört med Azure Premium Storage prestanda, när Azure Skrivningsaccelerator används. Därför bör du Distribuera Azure-Skrivningsaccelerator för de virtuella hård diskar som utgör volymen för DB2-transaktionsloggarna. Information kan läsas i dokumentet [Skrivningsaccelerator](../../windows/how-to-enable-write-accelerator.md).
 
 ### <a name="backuprestore"></a>Säkerhetskopiering/återställning
 Säkerhets kopierings-/återställnings funktionen för IBM DB2 för LUW stöds på samma sätt som på standard operativ system för Windows Server och Hyper-V.
@@ -113,7 +114,7 @@ För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 Alla andra allmänna områden som Azures tillgänglighets uppsättningar eller SAP-övervakning gäller enligt beskrivningen i dokumentet [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) för distribution av virtuella datorer med IBM-databasen.
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598

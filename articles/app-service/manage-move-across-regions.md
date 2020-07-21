@@ -4,14 +4,14 @@ description: Lär dig hur du flyttar App Service resurser från en region till e
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945485"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524862"
 ---
-# <a name="move-an-app-service-app-to-another-region"></a>Flytta en App Service app till en annan region
+# <a name="move-an-app-service-resource-to-another-region"></a>Flytta en App Service resurs till en annan region
 
 Den här artikeln beskriver hur du flyttar App Service resurser till en annan Azure-region. Du kan flytta dina resurser till en annan region av olika anledningar. Till exempel, för att dra nytta av en ny Azure-region, för att bara distribuera funktioner eller tjänster som är tillgängliga i vissa regioner, för att uppfylla interna principer och styrnings krav, eller som svar på kapacitets planerings kraven.
 
@@ -19,7 +19,7 @@ App Service-resurser är landsspecifika och kan inte flyttas mellan regioner. Du
 
 För att göra det enklare att kopiera appen kan du [klona en enskild app service app](app-service-web-app-cloning.md) i en app service plan i en annan region, men den har [begränsningar](app-service-web-app-cloning.md#current-restrictions), särskilt att den inte stöder Linux-appar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att App Service-appen finns i den Azure-region som du vill flytta från.
 - Kontrol lera att mål regionen stöder App Service och relaterade tjänster, vars resurser du vill flytta.
@@ -27,7 +27,7 @@ För att göra det enklare att kopiera appen kan du [klona en enskild app servic
 
 ## <a name="prepare"></a>Förbereda
 
-Identifiera alla App Service resurser som du använder just nu. Ett exempel:
+Identifiera alla App Service resurser som du använder just nu. Till exempel:
 
 - App Service-appar
 - [App Service-planer](overview-hosting-plans.md)

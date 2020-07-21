@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f386cbf09bb2b62e0c54826affc50a050c095fa6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335521"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524598"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
@@ -29,7 +29,7 @@ Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan d
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
-För att slutföra procedurerna i den här artikeln måste du först skapa ett Azure Maps konto och hämta din mappnings konto nyckel. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+För att slutföra procedurerna i den här artikeln måste du först skapa ett Azure Maps konto och hämta din mappnings konto nyckel. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Återge kartnålar med etiketter och en anpassad bild

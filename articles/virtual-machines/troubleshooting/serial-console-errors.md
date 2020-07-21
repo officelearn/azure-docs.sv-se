@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 61ae0ef92fe522a2a038a6076a5e0c0a10ee47b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060695"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526443"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Vanliga fel i Azures serie konsol
 Det finns en uppsättning kända fel i Azures serie konsol. Det här är en lista över dessa fel och åtgärder för att minska problemen.
@@ -40,7 +40,7 @@ Det gick inte att fastställa resurs gruppen för startdiagnostikens lagrings ko
 Etableringen av den här virtuella datorn har ännu inte slutförts. Kontrol lera att den virtuella datorn är fullständigt distribuerad och försök att ansluta till serie konsolen igen. | Den virtuella datorn eller skalnings uppsättningen för den virtuella datorn kan fortfarande tillhandahållas. Vänta en stund och försök igen.
 Webb-socket är stängt eller kunde inte öppnas. | Du kan behöva lägga till brand Väggs åtkomst till `*.console.azure.com` . En mer detaljerad men längre metod är att tillåta brand Väggs åtkomst till [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som ändras relativt regelbundet.
 Seriell konsol fungerar inte med ett lagrings konto med hjälp av Azure Data Lake Storage Gen2 med hierarkiska namn områden. | Detta är ett känt problem med hierarkiska namn områden. Du kan undvika detta genom att kontrol lera att lagrings kontot för startdiagnostik för den virtuella datorn inte har skapats med hjälp av Azure Data Lake Storage Gen2. Det här alternativet kan bara anges när lagrings kontot skapas. Du kan behöva skapa ett separat lagrings konto för startdiagnostik utan Azure Data Lake Storage Gen2 aktiverat för att undvika det här problemet.
-Den seriella konsolens anslutning till den virtuella datorn påträffade ett fel: "förbjuden" (SubscriptionNotEnabled)-prenumerations namnet är odefinierat, ID: t \<subscription id> har inte aktiverat tillstånd odefinierat | Det här problemet kan inträffa om prenumerationen som en användare har skapat Cloud Shell lagrings konto i har inaktiverats. Du kan åtgärda problemet genom att starta Cloud Shell och [utföra de steg som krävs](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#unmount-clouddrive-1) för att etablera ett lagrings konto för lagring av Cloud Shell i den aktuella prenumerationen.
+Den seriella konsolens anslutning till den virtuella datorn påträffade ett fel: "förbjuden" (SubscriptionNotEnabled)-prenumerations namnet är odefinierat, ID: t \<subscription id> har inte aktiverat tillstånd odefinierat | Det här problemet kan inträffa om prenumerationen som en användare har skapat Cloud Shell lagrings konto i har inaktiverats. Du kan åtgärda problemet genom att starta Cloud Shell och [utföra de steg som krävs](../../cloud-shell/persisting-shell-storage.md#unmount-clouddrive-1) för att etablera ett lagrings konto för lagring av Cloud Shell i den aktuella prenumerationen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [Azures serie konsol för virtuella Linux-datorer](./serial-console-linux.md)

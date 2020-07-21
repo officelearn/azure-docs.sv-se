@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 11207dceb29c779c081c140ee8cd362d8a217acf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856752"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527412"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med VM-skalningsuppsättningar i Azure
 En skalnings uppsättning i en virtuell Azure-dator kan öka eller minska antalet virtuella dator instanser som kör ditt program automatiskt. Det här automatiserade och elastiska beteendet minskar hanterings omkostnaderna för att övervaka och optimera programmets prestanda. Du skapar regler som definierar acceptabla prestanda för en positiv kund upplevelse. När de definierade tröskelvärdena är uppfyllda vidtar autoskalning-regler åtgärder för att justera kapaciteten för din skalnings uppsättning. Du kan också schemalägga händelser för att automatiskt öka eller minska kapaciteten för skalnings uppsättningen vid fasta tidpunkter. Den här artikeln innehåller en översikt över vilka prestanda mått som är tillgängliga och vilka åtgärder som kan utföras i autoskalning.
@@ -58,7 +58,7 @@ Följande värdbaserade mått är tillgängliga för användning när du skapar 
 
 | Måttnamn               |
 |---------------------------|
-| Procent CPU            |
+| Processorprocentandel            |
 | Nätverk – inkommande                |
 | Nätverk – utgående               |
 | Lästa byte på disk           |
@@ -72,12 +72,12 @@ När du skapar regler för autoskalning för att övervaka ett specifikt mått, 
 
 | Sammansättningstyp |
 |------------------|
-| Medel          |
+| Medelvärde          |
 | Minimum          |
 | Maximal          |
 | Totalt            |
 | Sista             |
-| Antal            |
+| Count            |
 
 Reglerna för autoskalning utlöses sedan när måtten jämförs med det definierade tröskelvärdet med någon av följande operatorer:
 
@@ -137,6 +137,6 @@ Du kan skapa regler för autoskalning som använder värdbaserade mått med någ
 
 I den här översikten beskrivs hur du använder regler för autoskalning för att skala vågrätt och öka eller minska *antalet* virtuella dator instanser i din skalnings uppsättning. Du kan också skala lodrätt för att öka eller minska *storleken*på den virtuella dator instansen. Mer information finns i [Lodrät autoskalning med skalnings uppsättningar för virtuella datorer](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Information om hur du hanterar dina VM-instanser finns i [Hantera skalnings uppsättningar för virtuella datorer med Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+Information om hur du hanterar dina VM-instanser finns i [Hantera skalnings uppsättningar för virtuella datorer med Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Information om hur du genererar aviseringar när reglerna för autoskalning utlöses finns i [använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Du kan också [använda gransknings loggar för att skicka aviseringar om e-post och webhook-aviseringar i Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Information om hur du genererar aviseringar när reglerna för autoskalning utlöses finns i [använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Du kan också [använda gransknings loggar för att skicka aviseringar om e-post och webhook-aviseringar i Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).

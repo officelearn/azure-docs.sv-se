@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 91d3dd2eee6f771df23b72eae7a33122c42f1690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2e5a4d057e1074c6cce0f374846bc9e0a64950
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869336"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525100"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Få åtkomst till VMware-lösningen från CloudSimple-portalen från Azure Portal
 
@@ -20,9 +21,9 @@ Enkel inloggning stöds för åtkomst till CloudSimple-portalen. När du har log
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Användare med rollen fördefinierad **ägare** och **deltagare** har åtkomst till CloudSimple-portalen.  Rollerna måste konfigureras i resurs gruppen där CloudSimple-tjänsten har distribuerats.  Rollerna kan också konfigureras för CloudSimple-serviceobjektet.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](https://docs.microsoft.com/azure/role-based-access-control/check-access) . Endast användare med inbyggda **ägare** och **deltagar** roller kan komma åt CloudSimple-portalen.  Rollerna måste konfigureras för prenumerationen.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](https://docs.microsoft.com/azure/role-based-access-control/check-access) .
+Användare med rollen fördefinierad **ägare** och **deltagare** har åtkomst till CloudSimple-portalen.  Rollerna måste konfigureras i resurs gruppen där CloudSimple-tjänsten har distribuerats.  Rollerna kan också konfigureras för CloudSimple-serviceobjektet.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](../role-based-access-control/check-access.md) . Endast användare med inbyggda **ägare** och **deltagar** roller kan komma åt CloudSimple-portalen.  Rollerna måste konfigureras för prenumerationen.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](../role-based-access-control/check-access.md) .
 
-Om du använder anpassade roller bör rollen ha någon av följande åtgärder under ```Actions``` .  Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Om någon av åtgärderna är en del av ```NotActions``` , kan användaren inte komma åt CloudSimple-portalen.
+Om du använder anpassade roller bör rollen ha någon av följande åtgärder under ```Actions``` .  Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).  Om någon av åtgärderna är en del av ```NotActions``` , kan användaren inte komma åt CloudSimple-portalen.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -70,5 +71,5 @@ Om dina behörigheter inte tillåter åtkomst till CloudSimple-portalen kontakta
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [skapar ett privat moln](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/)
+* Lär dig hur du [skapar ett privat moln](./create-private-cloud.md)
 * Lär dig hur du [konfigurerar en privat moln miljö](quickstart-create-private-cloud.md)

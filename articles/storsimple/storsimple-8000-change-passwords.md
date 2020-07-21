@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: becbf7f89266fb0f56aaa053eb7cba9291da6896
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514093"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527871"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Använd tjänsten StorSimple Enhetshanteraren för att ändra dina StorSimple-lösenord
 
@@ -36,25 +36,25 @@ Det lösen ord som först angavs via Windows PowerShell-gränssnittet under regi
 
 2. Markera och klicka på enheten vars lösen ord du vill ändra i list rutan med enheter.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![Skärm bild som visar StorSimple Enhetshanteraren-tjänsten. Under hantering, väljs enheter. En enhet har valts i enhets listan.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. I bladet **Inställningar** går du till **enhets inställningar > säkerhet**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Skärm bild som visar bladet inställningar i Enhetshanterarens tjänsten. Under enhets inställningar väljer du säkerhet.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. I bladet **säkerhets inställningar** klickar du på **lösen ord** för att ändra enhetens administratörs lösen ord.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd3.png)
+    ![Skärm bild som visar bladet säkerhets inställningar. Knappen lösen ord är markerad.](./media/storsimple-8000-change-passwords/changepwd3.png)
 
 5. På bladet **lösen ord** anger du ett administratörs lösen ord som innehåller mellan 8 och 15 tecken. Lösen ordet måste vara en kombination av 3 eller flera versaler, gemener, siffror och specialtecken.
 
 6. Bekräfta lösenordet.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd4.png)
+    ![Skärm bild som visar bladet lösen ord. Under enhetens administratörs lösen ord fylls rutorna nytt lösen ord och bekräfta lösen ord i.](./media/storsimple-8000-change-passwords/changepwd4.png)
 
 7. Klicka på **Spara** och bekräfta genom att klicka på **Ja**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+    ![Skärm bild som visar bladet lösen ord. Knappen Spara är markerad.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 Enhetens administratörs lösen ord bör nu uppdateras. Du kan använda det här ändrade lösen ordet för att få åtkomst till Windows PowerShell-gränssnittet.
 
@@ -70,25 +70,25 @@ Du kan ange eller ändra lösen ordet för StorSimple Snapshot Manager via Azure
 
 2. Markera och klicka på enheten vars StorSimple Snapshot Manager lösen ord som du vill ange eller ändra i tabell listan över enheter.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![Skärm bild som visar StorSimple Enhetshanteraren-tjänsten. Under hantering, väljs enheter. En enhet har valts i enhets listan.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. I bladet **Inställningar** går du till **enhets inställningar > säkerhet**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Skärm bild som visar bladet inställningar i Enhetshanterarens tjänsten. Under enhets inställningar väljer du säkerhet.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. I bladet **säkerhets inställningar** klickar du på **lösen ord** för att ange eller ändra StorSimple Snapshot Manager-lösenord.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
+     ![Skärm bild som visar bladet säkerhets inställningar. Knappen lösen ord är markerad.](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
 5. I bladet **lösen ord** anger du ett lösen ord som är 14 eller 15 tecken. Se till att lösen ordet innehåller en kombination av 3 eller flera versaler, gemener, siffror och specialtecken.
 
 6. Bekräfta lösenordet.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd5.png)
+     ![Skärm bild som visar bladet lösen ord. Under Snapshot Manager lösen ord fylls rutorna nytt lösen ord och bekräfta lösen ord i.](./media/storsimple-8000-change-passwords/changepwd5.png)
 
 7. Klicka på **Spara** och bekräfta genom att klicka på **Ja**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+     ![Skärm bild som visar bladet lösen ord. Knappen Spara är markerad.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 StorSimple Snapshot Manager-lösenordet bör nu uppdateras.
 

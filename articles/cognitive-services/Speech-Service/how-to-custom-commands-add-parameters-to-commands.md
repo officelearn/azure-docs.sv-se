@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362381"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524309"
 ---
 # <a name="add-parameters-to-commands"></a>Lägga till parametrar till kommandon
 
 I den här artikeln får du lära dig hur du lägger till parametrar till anpassade kommandon. Parametrar är information som krävs av kommandona för att slutföra en uppgift. I komplexa scenarier kan parametrar också användas för att definiera villkor som utlöser anpassade åtgärder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * [Så här: skapa program med enkla kommandon](./how-to-custom-commands-create-application-with-simple-commands.md)
@@ -62,8 +62,11 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
        
         
    1. Om du vill lägga till fördefinierade indatavärden väljer du **Lägg till ett fördefinierat indata** och i fönstret **nytt objekt** , skriver in **namnet** enligt vad som anges i tabellen ovan. I det här fallet använder vi inte alias, så du kan lämna det tomt. 
+
     > [!div class="mx-imgBorder"]
-        > ![Skapa parameter](media/custom-commands/create-on-off-parameter.png)
+
+    > ![Skapa parameter](media/custom-commands/create-on-off-parameter.png)
+
    1. Välj **Spara** för att spara alla konfigurationer för parametern.
  
  ### <a name="add-subjectdevice-parameter"></a>Lägg till SubjectDevice-parameter 
@@ -71,9 +74,9 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
    1. Välj sedan **Lägg till** igen för att lägga till en andra parameter för att representera namnet på de enheter som kan styras med det här kommandot. Använd följande konfiguration.
    
 
-       | Inställningen            | Föreslaget värde       |
+       | Inställning            | Föreslaget värde       |
        | ------------------ | --------------------- |
-       | Namn               | `SubjectDevice`         |
+       | Name               | `SubjectDevice`         |
        | Är global          | avmarkerat             |
        | Obligatorisk           | analysera               |
        | Svar för obligatorisk parameter     | Enkel redigerare >`Which device do you want to control?`    | 
@@ -123,7 +126,7 @@ Välj **Spara**.
     ```
 1. Välj **Spara**.
 
-### <a name="try-it-out"></a>Prova nu
+### <a name="try-it-out"></a>Prova
 1. Välj **träna** ikon överst i den högra rutan.
 
 1. När inlärningen är klar väljer du **test**. Ett **test av** programfönstret visas.
@@ -146,7 +149,7 @@ Lägg till ny parameter **temperatur** med följande konfiguration
 
 | Konfiguration      | Föreslaget värde     |
 | ------------------ | ----------------|
-| Namn               | `Temperature`           |
+| Name               | `Temperature`           |
 | Obligatorisk           | analysera         |
 | Svar för obligatorisk parameter      | Enkel redigerare >`What temperature would you like?`
 | Typ               | Antal          |
@@ -168,7 +171,7 @@ Redigera befintliga regler för slut för Ande enligt följande konfiguration.
 | Villkor         | Obligatorisk parameter > temperatur           |
 | Åtgärder           | Skicka tal svar >`Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>Prova nu
+### <a name="try-it-out"></a>Prova
 
 **Träna** och **testa** ändringarna med några interaktioner.
 
@@ -181,9 +184,9 @@ Redigera befintliga regler för slut för Ande enligt följande konfiguration.
 
 Lägg till en parameter med namnet **datetime** med följande konfiguration.
 
-   | Inställningen                           | Föreslaget värde                     | 
+   | Inställning                           | Föreslaget värde                     | 
    | --------------------------------- | ----------------------------------------|
-   | Namn                              | `DateTime`                               |
+   | Name                              | `DateTime`                               |
    | Obligatorisk                          | analysera                                 |
    | Svar för obligatorisk parameter   | Enkel redigerare >`For what time?`            | 
    | Typ                              | DateTime                                |
@@ -205,12 +208,12 @@ alarm for {DateTime}
 
 Redigera befintliga regler för slut för Ande enligt följande konfiguration.
 
-   | Inställningen    | Föreslaget värde                               |
+   | Inställning    | Föreslaget värde                               |
    | ---------- | ------------------------------------------------------- |
    | Åtgärder    | Skicka tal svar –`Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>Prova nu
+### <a name="try-it-out"></a>Prova
 
 **Träna** och **testa** ändringarna.
 - Inmatade: Ställ in alarm i morgon kl. 12.00

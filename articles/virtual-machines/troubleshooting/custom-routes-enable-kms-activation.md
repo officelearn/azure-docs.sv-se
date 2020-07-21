@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c2050969e95b521554bba100b688add3a987a80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526749"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Det går inte att aktivera Windows i ett scenario med Tvingad tunnel trafik
 
@@ -53,9 +53,9 @@ Följ dessa steg om du vill lägga till en anpassad väg:
  
 
 > [!NOTE] 
-> Aktivering använder offentliga IP-adresser och kommer att påverkas av en standard-SKU Load Balancer-konfiguration. Läs noggrant igenom [utgående anslutningar i Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för att lära dig mer om kraven.
+> Aktivering använder offentliga IP-adresser och kommer att påverkas av en standard-SKU Load Balancer-konfiguration. Läs noggrant igenom [utgående anslutningar i Azure](../../load-balancer/load-balancer-outbound-connections.md) för att lära dig mer om kraven.
 
-1. Öppna Azure PowerShell och logga in [på din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Öppna Azure PowerShell och logga in [på din Azure-prenumeration](/powershell/azure/authenticate-azureps).
 2. Kör följande kommandon:
 
     ```powershell
@@ -77,7 +77,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
 
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
-3. Gå till den virtuella datorn som har aktiverings problem. Använd [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) för att testa om den kan komma åt KMS-servern:
+3. Gå till den virtuella datorn som har aktiverings problem. Använd [PsPing](/sysinternals/downloads/psping) för att testa om den kan komma åt KMS-servern:
 
     ```console
     psping kms.core.windows.net:1688
@@ -89,7 +89,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-1. Öppna Azure PowerShell och logga in [på din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Öppna Azure PowerShell och logga in [på din Azure-prenumeration](/powershell/azure/authenticate-azureps).
 2. Kör följande kommandon:
 
     ```powershell
@@ -107,7 +107,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Gå till den virtuella datorn som har aktiverings problem. Använd [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) för att testa om den kan komma åt KMS-servern:
+3. Gå till den virtuella datorn som har aktiverings problem. Använd [PsPing](/sysinternals/downloads/psping) för att testa om den kan komma åt KMS-servern:
 
     ```console
     psping kms.core.windows.net:1688
@@ -117,7 +117,5 @@ Följ dessa steg om du vill lägga till en anpassad väg:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Nycklar för KMS-klientinstallation](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
-)
-- [Granska och välj aktiverings metoder](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
-)
+- [Nycklar för KMS-klientinstallation](/windows-server/get-started/kmsclientkeys)
+- [Granska och välj aktiverings metoder](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134256(v=ws.11))

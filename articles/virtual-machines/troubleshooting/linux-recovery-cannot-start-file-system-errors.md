@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76842409"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526511"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Felsöka virtuella Linux-datorer med start problem på grund av fel i fil systemet
 
@@ -74,7 +75,7 @@ Linux har flera kontroll program för fil system tillgängliga. De vanligaste f�
 
 ## <a name="resolution"></a>Lösning
 
-Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjälp av [serie konsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) och använda verktyget för att reparera fil systemet. Om serie konsolen inte är aktive rad på den virtuella datorn eller inte fungerar, kan du läsa avsnittet [reparera den virtuella datorn offline](#repair-the-vm-offline) i den här artikeln.
+Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjälp av [serie konsolen](./serial-console-linux.md) och använda verktyget för att reparera fil systemet. Om serie konsolen inte är aktive rad på den virtuella datorn eller inte fungerar, kan du läsa avsnittet [reparera den virtuella datorn offline](#repair-the-vm-offline) i den här artikeln.
 
 ## <a name="use-the-serial-console"></a>Använda seriekonsolen
 
@@ -82,8 +83,8 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
    > [!Note]
    > Mer information om hur du använder en serie konsol för Linux finns i:
-   > * [Använd serie konsolen för att komma åt GRUB och enanvändarläge](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Använda en serie konsol för SysRq-och NMI-anrop](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [Använd serie konsolen för att komma åt GRUB och enanvändarläge](../linux/serial-console-grub-single-user-mode.md)
+   > * [Använda en serie konsol för SysRq-och NMI-anrop](./serial-console-nmi-sysrq.md)
 
 2. Välj ikonen för strömbrytaren och välj sedan starta om virtuell dator. (Om serie konsolen inte är aktive rad eller inte ansluten visas inte knappen.)
 
@@ -133,7 +134,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 ## <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline
 
-1. Anslut den virtuella datorns system disk till en datadisk till en virtuell dator för återställning (valfri fungerande Linux-dator). Om du vill göra detta kan du använda [CLI-kommandon](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) eller automatisera konfigurationen av den virtuella återställnings datorn med hjälp av [kommandona för reparation av virtuella datorer](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Anslut den virtuella datorns system disk till en datadisk till en virtuell dator för återställning (valfri fungerande Linux-dator). Om du vill göra detta kan du använda [CLI-kommandon](./troubleshoot-recovery-disks-linux.md) eller automatisera konfigurationen av den virtuella återställnings datorn med hjälp av [kommandona för reparation av virtuella datorer](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Leta upp enhets etiketten för system disken som du har anslutit. I det här fallet förutsätter vi att etiketten på system disken som du har anslutit är/dev/sdc1. Ersätt det med lämpligt värde för den virtuella datorn.
 
@@ -177,6 +178,5 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell dator för återställning med Azure CLI 2,0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Använd portalen för att koppla en datadisk till en virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell dator för återställning med Azure CLI 2,0](./troubleshoot-recovery-disks-linux.md)
+* [Använd portalen för att koppla en datadisk till en virtuell Linux-dator](../linux/attach-disk-portal.md)

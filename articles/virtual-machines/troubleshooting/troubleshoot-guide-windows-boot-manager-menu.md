@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373354"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526548"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows VM kan inte starta på grund av Windows Boot Manager
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller steg för att lösa problem där Windows Boot Mana
 
 Den virtuella datorn har fastnat i väntan på en användar-prompt och startar inte om du inte har fått instruktioner manuellt.
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar Windows Boot Manager med meddelandet *Välj ett operativ system att starta eller trycker på TABB för att välja ett verktyg:*.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar Windows Boot Manager med meddelandet *Välj ett operativ system att starta eller trycker på TABB för att välja ett verktyg:*.
 
 Bild 1
  
@@ -53,7 +53,7 @@ Process översikt:
 
 Om du har åtkomst till en seriell konsol finns det två sätt att uppnå snabbare start tider. Förkorta antingen *displaybootmenu* vänte tid eller ta bort flaggan helt.
 
-1. Följ anvisningarna för att komma åt [Azures serie konsol för Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) för att få åtkomst till den textbaserade konsolen.
+1. Följ anvisningarna för att komma åt [Azures serie konsol för Windows](./serial-console-windows.md) för att få åtkomst till den textbaserade konsolen.
 
    > [!NOTE]
    > Om du inte kan komma åt en seriell konsol kan du gå vidare till [skapa och få åtkomst till en reparations-VM](#create-and-access-a-repair-vm).
@@ -77,7 +77,7 @@ Om du har åtkomst till en seriell konsol finns det två sätt att uppnå snabba
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 2. Använd Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Konfigurera för snabbare start på en virtuell reparations dator
@@ -154,4 +154,4 @@ Om du vill aktivera samlings-och serie konsolen för minnes dum par kör du föl
 
 ### <a name="rebuild-the-original-vm"></a>Återskapa den ursprungliga virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att bygga upp den virtuella datorn igen.

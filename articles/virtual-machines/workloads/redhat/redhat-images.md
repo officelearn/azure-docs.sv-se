@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux avbildningar i Azure | Microsoft Docs
+title: Översikt över Red Hat Enterprise Linux avbildningar i Azure
 description: Lär dig mer om Red Hat Enterprise Linux avbildningar i Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80239864"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525508"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Översikt över Red Hat Enterprise Linux avbildningar
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux-avbildningar
 Information om Red Hat support-principer för alla versioner av RHEL finns i [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata). Pris information finns i [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> RHEL-avbildningar som för närvarande är tillgängliga i Azure Marketplace stöder antingen en egen prenumeration (BYOS) eller licensierings modeller enligt principen betala per användning. [Azure Hybrid Use-förmånen](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) och dynamisk växling mellan BYOS och "betala per användning"-licensen stöds inte. Om du vill växla licensierings läget måste du distribuera om den virtuella datorn från motsvarande avbildning.
+> RHEL-avbildningar som för närvarande är tillgängliga i Azure Marketplace stöder antingen en egen prenumeration (BYOS) eller licensierings modeller enligt principen betala per användning. [Azure Hybrid Use-förmånen](../../windows/hybrid-use-benefit-licensing.md) och dynamisk växling mellan BYOS och "betala per användning"-licensen stöds inte. Om du vill växla licensierings läget måste du distribuera om den virtuella datorn från motsvarande avbildning.
 
 >[!NOTE]
 > Om du har problem som rör RHEL-avbildningar på Azure Marketplace kan du ge ett support ärende till Microsoft.
@@ -64,8 +64,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> I allmänhet är jämförelsen av versioner att fastställa de senaste reglerna för [CompareTo-metoden](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
-Denna bild versions jämförelse görs genom att jämföra värdena som ett [versions](https://docs.microsoft.com/dotnet/api/system.version.-ctor?view=netframework-4.8) objekt, inte som en sträng.
+> I allmänhet är jämförelsen av versioner att fastställa de senaste reglerna för [CompareTo-metoden](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
+Denna bild versions jämförelse görs genom att jämföra värdena som ett [versions](/dotnet/api/system.version.-ctor?view=netframework-4.8) objekt, inte som en sträng.
 
 ## <a name="rhel-6-image-types"></a>RHEL 6-avbildnings typer
 
@@ -105,7 +105,7 @@ Information om typer av RHEL 8-avbildningar finns nedan.
 |Publisher | Erbjudande | SKU-värde | Version | Information
 |----------|-------|------------|---------|--------
 |Redhat | RHEL | 8 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191023) | De här avbildningarna är RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser.
-|Redhat | RHEL | 8-Gen2 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191024) | De här avbildningarna är Hyper-V generation 2 RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser. Mer information om virtuella datorer i generation 2 i Azure finns i [stöd för virtuella datorer i generation 2 i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|Redhat | RHEL | 8-Gen2 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191024) | De här avbildningarna är Hyper-V generation 2 RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser. Mer information om virtuella datorer i generation 2 i Azure finns i [stöd för virtuella datorer i generation 2 i Azure](../../linux/generation-2.md).
 
 ## <a name="rhel-longer-support-add-ons"></a>RHEL har längre stöd för tillägg
 
@@ -147,7 +147,7 @@ Lägre version |Exempel på EUS-avbildning              |Status för EUS        
 RHEL 7,4      |RedHat: RHEL: 7.4:7.4.2019041718 | Avbildningar som publicerats april 2019 och senare är EUS som standard.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | Avbildningar som publicerats i juni 2019 och senare är EUS som standard. |
 RHEL 7,6      |RedHat: RHEL: 7.6:7.6.2019052206 | Publicerade avbildningar maj 2019 och senare är EUS som standard. |
-RHEL 8,0      |Saknas                            | Ingen EUS är tillgänglig från Red Hat.                               |
+RHEL 8,0      |E.t.                            | Ingen EUS är tillgänglig från Red Hat.                               |
 
 ### <a name="update-services-for-sap"></a>Uppdatera tjänster för SAP
 

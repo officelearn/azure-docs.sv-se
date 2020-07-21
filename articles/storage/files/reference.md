@@ -1,30 +1,30 @@
 ---
-title: Lagringsreferens för Azure-filresurser
+title: Azure Files Referens
 description: Hitta Azure Storage API-referens, README-filer och klient biblioteks paket.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5799b7ec9f6ecce1b9203345446b2d3240beb80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976531"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527854"
 ---
-# <a name="azure-file-shares-storage-reference"></a>Lagringsreferens för Azure-filresurser
+# <a name="azure-files-reference"></a>Azure Files Referens
 
-Hitta Azure File reshares Storage API-referens, biblioteks paket, viktigt-filer och komma igång-artiklar.
+Hitta Azure Files API-referens, biblioteks paket, viktigt-filer och komma igång-artiklar.
 
 ## <a name="net-client-libraries"></a>.NET-klient bibliotek
 
-I följande tabell visas referens och exempel dokumentation för Azure-API: er för Azure File-resurser.
+I följande tabell visas referens och exempel dokumentation för Azure Files .NET API: er.
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Azure-filresursers klient bibliotek V12 för .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
+| 12. x | [Azure Files V12 för klient bibliotek för .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
 | 11. x | [Microsoft. Azure. Storage. File-namnrymd](/dotnet/api/microsoft.azure.storage.file) | [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Utveckla för Azure Files med .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
 
 ### <a name="storage-management"></a>Lagrings hantering
@@ -45,11 +45,11 @@ I följande tabell visas referens dokumentation för Azure Storage data förflyt
 
 ## <a name="java-client-libraries"></a>Java-klient bibliotek
 
-I följande tabell visas referens och exempel dokumentation för Azure File-resurser Java API: er.
+I följande tabell visas referens och exempel dokumentation för Azure Files Java API: er.
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Klient bibliotek för Azure-filresurs för Java](/java/api/overview/azure/storage-file-share-readme) | [Paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
+| 12. x | [Azure Files klient bibliotek för Java](/java/api/overview/azure/storage-file-share-readme) | [Paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
 | 8.x | [com. Microsoft. Azure. Storage. File](/java/api/com.microsoft.azure.storage.file) | [Paket (maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Utveckla för Azure Files med Java](/azure/storage/files/storage-java-how-to-use-file-storage) |
 
 ### <a name="storage-management"></a>Lagrings hantering
@@ -62,7 +62,7 @@ I följande tabell visas referens dokumentation för Azure Storage Management Ja
 
 ## <a name="python-client-libraries"></a>Python-klient bibliotek
 
-I följande tabell visas referens och exempel dokumentation för Azure File reservers python-API: er.
+I följande tabell visas referens och exempel dokumentation för Azure Files python-API: er.
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -71,16 +71,16 @@ I följande tabell visas referens och exempel dokumentation för Azure File rese
 
 ## <a name="javascript-client-libraries"></a>Java Script-klient bibliotek
 
-I följande tabell visas referens och exempel dokumentation för API: er för Azure File-resurser.
+I följande tabell visas referens och exempel dokumentation för Azure Files JavaScript-API: er.
 
 |  Version  | Referens dokumentation | Paket | Snabbstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Azure Storage fil resurs klient bibliotek för Java Script](/javascript/api/overview/azure/storage-file-share-readme) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-file-share) | [Exempel](/javascript/api/overview/azure/storage-file-share-readme#examples) |
+| 12. x | [Azure Files klient bibliotek för Java Script](/javascript/api/overview/azure/storage-file-share-readme) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-file-share) | [Exempel](/javascript/api/overview/azure/storage-file-share-readme#examples) |
 | 10. x | [@azure/storage-file](/javascript/api/@azure/storage-file) | [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-file) | &nbsp; |
 
 ## <a name="rest-apis"></a>REST API:er
 
-I följande tabell visas referens och exempel dokumentation för REST-API: er för Azure File-resurser.
+I följande tabell visas referens och exempel dokumentation för Azure Files REST-API: er.
 
 | Referens dokumentation | Översikt |
 | ----------------------- | -------- |

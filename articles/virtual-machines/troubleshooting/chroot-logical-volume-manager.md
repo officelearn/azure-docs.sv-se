@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74684131"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526885"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Felsöka en virtuell Linux-dator när det inte finns någon åtkomst till Azures serie konsol och disklayouten använder LVM (Logical Volume Manager)
 
@@ -28,7 +29,7 @@ Den här fel söknings guiden är en del av fördelarna med att en virtuell Linu
 
 Ta en ögonblicks bild av den berörda virtuella datorn. 
 
-Ögonblicks bilden kopplas sedan till en **räddnings** dator. Följ anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) om hur du tar en **ögonblicks bild**.
+Ögonblicks bilden kopplas sedan till en **räddnings** dator. Följ anvisningarna [här](../linux/snapshot-copy-managed-disk.md#use-azure-portal) om hur du tar en **ögonblicks bild**.
 
 ## <a name="create-a-rescue-vm"></a>Skapa en räddnings dator
 Vanligt vis rekommenderas en räddad virtuell dator av samma eller liknande operativ system version. Använd samma **region** och **resurs grupp** för den berörda virtuella datorn
@@ -208,7 +209,7 @@ Om det behövs tar du bort eller uppgraderar **kerneln**
 
 
 ### <a name="example-3---enable-serial-console"></a>Exempel 3 – Aktivera serie konsol
-Om det inte går att få åtkomst till Azures serie konsol kontrollerar du GRUB konfigurations parametrar för den virtuella Linux-datorn och korrigerar dem. Detaljerad information finns [i det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+Om det inte går att få åtkomst till Azures serie konsol kontrollerar du GRUB konfigurations parametrar för den virtuella Linux-datorn och korrigerar dem. Detaljerad information finns [i det här dokumentet](./serial-console-grub-proactive-configuration.md)
 
 ### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Exempel 4 – kernel-inläsning med problematisk LVM växlings volym
 
@@ -273,4 +274,4 @@ Lär dig mer om
 
  [Azures serie konsol]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
 
-[Läge för enkel användare](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)
+[Läge för enkel användare](./serial-console-grub-single-user-mode.md)

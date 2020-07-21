@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997006"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524003"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina text översättningar
 
@@ -47,8 +47,8 @@ Mer information om olika anpassnings nivåer som baseras på tillgängliga data 
 
 ## <a name="custom-translator-versus-hub"></a>Anpassad översättare jämfört med hubb
 
-|   | **)** | **Custom Translator**|
-|:-----|:----:|:----:|
+| Funktion | Hubb | Custom Translator |
+| ------- | :-: | :---------------: |
 |Status för anpassnings funktion    | Allmän tillgänglighet    | Allmän tillgänglighet |
 | Text-API-version    | Endast v2    | Endast v3 |
 | SMT-anpassning    | Ja    | Nej |

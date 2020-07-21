@@ -7,16 +7,19 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: d52877129fe256253410f1d38011fa0343dd433d
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 5205506e3e7a32423dd9b438b648ff4af5136caa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84455951"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528561"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V11 för .NET
 
-Kom igång med Azure-Blob Storage klient bibliotek V11 för .NET. Azure Blob Storage är Microsofts objekt lagrings lösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
+Kom igång med Azure-Blob Storage klient bibliotek V11 för .NET. Azure Blob Storage är Microsofts objekt lagrings lösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blob Storage är optimerad för lagring av enorma mängder ostrukturerade data.
+
+> [!NOTE]
+> I den här snabb starten används en äldre version av klient biblioteket för Azure Blob Storage. Information om hur du kommer igång med den senaste versionen finns i [snabb start: klient bibliotek för Azure Blob Storage för .net](storage-quickstart-blobs-dotnet.md).
 
 Använd Azure Blob Storage-klient biblioteket för .NET för att:
 
@@ -27,11 +30,16 @@ Använd Azure Blob Storage-klient biblioteket för .NET för att:
 * Lista alla blobar i en behållare
 * Ta bort en container
 
-[API-referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-storage-net/tree/master/Blob)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)  |  [Exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+Ytterligare resurser:
+
+* [Referensdokumentation för API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Biblioteks käll kod](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+* [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

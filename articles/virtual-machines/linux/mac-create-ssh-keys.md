@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c57e370cf2f43fc5636cc6c70d2a9bdce4a1923
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df02378e638e9883d802318eba86dbfb066cd6cb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84141746"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527298"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure
 
@@ -46,7 +47,7 @@ az vm create --name VMname --resource-group RGname --generate-ssh-keys
 
 Om du vill skapa en virtuell Linux-dator som använder SSH-nycklar för autentisering anger du din offentliga SSH-nyckel när du skapar den virtuella datorn med hjälp av Azure Portal, Azure CLI, Azure Resource Manager mallar eller andra metoder:
 
-* [Skapa en virtuell Linux-dator med Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en virtuell Linux-dator med Azure-portalen](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Skapa en virtuell Linux-dator med Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Skapa en virtuell Linux-dator med hjälp av en Azure-mall](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -95,4 +96,4 @@ Om den virtuella datorn använder just-in-Time-åtkomst-principen måste du beg�
 
 * Mer information om hur du arbetar med SSH-nyckelpar finns i [detaljerade steg för att skapa och hantera SSH-nyckel par](create-ssh-keys-detailed.md).
 
-* Om du har problem med SSH-anslutningar till virtuella Azure-datorer kan du läsa [FELSÖK SSH-anslutningar till en virtuell Azure Linux-dator](troubleshoot-ssh-connection.md).
+* Om du har problem med SSH-anslutningar till virtuella Azure-datorer kan du läsa [FELSÖK SSH-anslutningar till en virtuell Azure Linux-dator](../troubleshooting/troubleshoot-ssh-connection.md).

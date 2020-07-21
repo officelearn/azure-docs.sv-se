@@ -9,11 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310571"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527463"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
 
@@ -29,7 +30,7 @@ Priser för punkt instanser är varierande, baserat på region och SKU. Mer info
 
 Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet skulle till exempel `0.98765` vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1` kommer instansen inte att avlägsnas baserat på priset. Priset för instansen är det aktuella priset för dekor eller priset för en standard instans, vilket någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
 
-## <a name="eviction-policy"></a>Borttagnings princip
+## <a name="eviction-policy"></a>Avlägsnandeprincip
 
 När du skapar dekor skalnings uppsättningar kan du ställa in principen för att *frigöra* (standard) eller *ta bort*. 
 
@@ -43,10 +44,10 @@ Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuera virtuella datorer i skalnings uppsättningar
 
 Om du vill distribuera virtuella datorer på skalnings uppsättningar kan du ställa in den nya *prioritets* flaggan på *plats*. Alla virtuella datorer i din skalnings uppsättning anges till dekor. Använd någon av följande metoder för att skapa en skalnings uppsättning med virtuella datorer:
-- [Azure Portal](#portal)
+- [Azure-portalen](#portal)
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Azure Resource Manager-mallar](#resource-manager-templates)
+- [Azure Resource Manager mallar](#resource-manager-templates)
 
 ## <a name="portal"></a>Portalen
 
@@ -100,7 +101,7 @@ För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller
 
 Ändra parametern till om du vill ta bort instansen när den har avlägsnats `evictionPolicy` `Delete` .
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **F:** När det har skapats är en punkt instans samma som standard instans?
 
@@ -114,12 +115,12 @@ För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller
 
 **F:** Hur hanteras kvoten för dekor?
 
-**A:** Punkt instanser och standard instanser kommer att ha separata kvotmallar. Kvoten för kvoten kommer att delas mellan virtuella datorer och skalnings uppsättnings instanser. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Punkt instanser och standard instanser kommer att ha separata kvotmallar. Kvoten för kvoten kommer att delas mellan virtuella datorer och skalnings uppsättnings instanser. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **F:** Kan jag begära ytterligare kvot för platsen?
 
-**A:** Ja, du kommer att kunna skicka begäran om att öka din kvot för virtuella datorer med hjälp av [standard kvot processen](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A:** Ja, du kommer att kunna skicka begäran om att öka din kvot för virtuella datorer med hjälp av [standard kvot processen](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **F:** Kan jag konvertera befintliga skalnings uppsättningar till dekor skalnings uppsättningar?
@@ -157,15 +158,15 @@ För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller
 |------------------------------|-----------------------------------|
 | Enterprise-avtal         | Ja                               |
 | Betala per användning                | Ja                               |
-| Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Fördelar                     | Inte tillgänglig                     |
+| Cloud Service Provider (CSP) | [Kontakta din partner](/partner-center/azure-plan-get-started) |
+| Fördelar                     | Inte tillgängligt                     |
 | Sponsrat                    | Ja                               |
-| Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
+| Kostnadsfri utvärdering                   | Inte tillgängligt                     |
 
 
 **F:** Var kan jag skicka frågor?
 
-**A:** Du kan skicka och tagga din fråga med `azure-spot` på [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Du kan skicka och tagga din fråga med `azure-spot` på [Q&A](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Nästa steg
 

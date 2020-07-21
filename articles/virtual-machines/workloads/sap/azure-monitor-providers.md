@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: a7e44046de3eccab83e8315e6adea150a146e660
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 267d600270e834cf4f1f077452fda7459fac3029
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964200"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525457"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Azure Monitor för SAP Solutions-providers (för hands version)
 
@@ -82,4 +82,4 @@ För att kunna konfigurera Microsoft SQL Server-Provider krävs ID för SAP-syst
 ## <a name="next-steps"></a>Nästa steg
 
 - Skapa din första Azure Monitor för SAP-lösnings resurs.
-- Har du frågor om Azure Monitor för SAP-lösningar? Läs avsnittet med [vanliga frågor och svar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq)
+- Har du frågor om Azure Monitor för SAP-lösningar? Läs avsnittet med [vanliga frågor och svar](./azure-monitor-faq.md)

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221620"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525525"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Referens arkitekturer för Oracle Database Enterprise Edition på Azure
 
@@ -37,13 +37,13 @@ Att uppnå hög tillgänglighet i molnet är en viktig del av varje organisation
 
 Förutom Cloud-inbyggda verktyg och erbjudanden tillhandahåller Oracle lösningar för hög tillgänglighet som [Oracle data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7), [data Guard med FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [horisontell partitionering](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)och [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) som kan konfigureras i Azure. Den här guiden beskriver referens arkitekturer för var och en av dessa lösningar.
 
-När du migrerar eller skapar program för molnet är det viktigt att du anpassar program koden för att lägga till molnets egna mönster, till exempel mönster för [återförsök](https://docs.microsoft.com/azure/architecture/patterns/retry) och [krets brytare](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker). Ytterligare mönster som definieras i [guiden för moln design mönster](https://docs.microsoft.com/azure/architecture/patterns/) kan hjälpa ditt program att vara mer elastiskt.
+När du migrerar eller skapar program för molnet är det viktigt att du anpassar program koden för att lägga till molnets egna mönster, till exempel mönster för [återförsök](/azure/architecture/patterns/retry) och [krets brytare](/azure/architecture/patterns/circuit-breaker). Ytterligare mönster som definieras i [guiden för moln design mönster](/azure/architecture/patterns/) kan hjälpa ditt program att vara mer elastiskt.
 
 ### <a name="oracle-rac-in-the-cloud"></a>Oracle RAC i molnet
 
 Oracle Real Application Cluster (RAC) är en lösning av Oracle för att hjälpa kunder att uppnå stora data flöden genom att ha många instanser som har åtkomst till en databas lagring (delade – alla arkitektur mönster). Oracle RAC kan också användas för hög tillgänglighet lokalt, men Oracle RAC kan endast användas för hög tillgänglighet i molnet eftersom det bara skyddar mot instans nivå problem och inte mot problem som uppstår på radnivå eller data Center. Av den anledningen rekommenderar Oracle att använda Oracle data Guard med din databas (oavsett om det är en instans eller RAC) för hög tillgänglighet. Kunderna kräver vanligt vis ett högt service avtal för att köra sina verksamhets kritiska program. Oracle RAC är för närvarande inte certifierat eller stöds inte av Oracle på Azure. Azure erbjuder dock funktioner som Azure erbjuder Tillgänglighetszoner och planerat underhålls fönster som hjälper till att skydda mot fel på instans nivå. Förutom detta kan kunder använda tekniker som Oracle data Guard, Oracle GoldenGate och Oracle horisontell partitionering för hög prestanda och återhämtning genom att skydda sina databaser från racknivå samt data Center-och geo-politiska fel.
 
-När du kör Oracle-databaser över flera [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview) tillsammans med Oracle data Guard eller GoldenGate, kan kunder få ett service avtal för drift tid på 99,99%. I Azure-regioner där tillgänglighets zoner ännu inte finns kan kunder använda [tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) och uppnå ett service avtal för drift tid på 99,95%.
+När du kör Oracle-databaser över flera [tillgänglighets zoner](../../../availability-zones/az-overview.md) tillsammans med Oracle data Guard eller GoldenGate, kan kunder få ett service avtal för drift tid på 99,99%. I Azure-regioner där tillgänglighets zoner ännu inte finns kan kunder använda [tillgänglighets uppsättningar](../../linux/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) och uppnå ett service avtal för drift tid på 99,95%.
 
 >Obs! Du kan ha ett drift tids mål som är mycket högre än service avtalet för drift tid som tillhandahålls av Microsoft.
 
@@ -51,7 +51,7 @@ När du kör Oracle-databaser över flera [tillgänglighets zoner](https://docs.
 
 När du är värd för verksamhets kritiska program i molnet är det viktigt att utforma för hög tillgänglighet och katastrof återställning.
 
-För Oracle Database Enterprise Edition är Oracle data Guard en användbar funktion för haveri beredskap. Du kan konfigurera en databas instans för vänte läge i en [länkad Azure-region](/azure/best-practices-availability-paired-regions) och konfigurera data Guard-redundans för haveri beredskap. För att förhindra data förlust rekommenderar vi att du distribuerar en Oracle data Guard långt Sync-instans utöver Active data Guard. 
+För Oracle Database Enterprise Edition är Oracle data Guard en användbar funktion för haveri beredskap. Du kan konfigurera en databas instans för vänte läge i en [länkad Azure-region](../../../best-practices-availability-paired-regions.md) och konfigurera data Guard-redundans för haveri beredskap. För att förhindra data förlust rekommenderar vi att du distribuerar en Oracle data Guard långt Sync-instans utöver Active data Guard. 
 
 Överväg att konfigurera data Guard långt Sync-instansen i en annan tillgänglighets zon än den primära Oracle-databasen om ditt program tillåter svars tiden (grundlig testning krävs). Använd ett **maximalt tillgänglighets** läge om du vill konfigurera synkron transport av dina gör om-filer till den mycket synkroniserade instansen. Filerna överförs sedan asynkront till standby-databasen. 
 
@@ -59,7 +59,7 @@ Om ditt program inte tillåter prestanda förlust vid inställning av en avlägs
 
 När du använder Oracle Standard Edition-databaser finns det ISV-lösningar som DBVisit standby som gör att du kan konfigurera hög tillgänglighet och haveri beredskap.
 
-## <a name="reference-architectures"></a>Referensarkitekturer
+## <a name="reference-architectures"></a>Referenserarkitekturer
 
 ### <a name="oracle-data-guard"></a>Oracle Data Guard
 
@@ -79,7 +79,7 @@ Följande diagram är en rekommenderad arkitektur för att använda Oracle data 
 
 ![Oracle Database att använda tillgänglighets zoner med data Guard Broker – FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
-I föregående diagram ansluter klient systemet till ett anpassat program med Oracle-backend via webben. Webb klient delen har kon figurer ATS i en belastningsutjämnare. Webb klient delen gör ett anrop till rätt program Server för att hantera arbetet. Program servern frågar den primära Oracle-databasen. Oracle-databasen har kon figurer ATS med hjälp av en [optimerad virtuell dator](../../../virtual-machines/windows/sizes-memory.md) med hög tråds teknik med [begränsade kärn virtuella processorer](../../../virtual-machines/windows/constrained-vcpu.md) för att spara på licens kostnader och maximera prestanda. Flera Premium-eller Ultra-diskar (Managed Disks) används för prestanda och hög tillgänglighet.
+I föregående diagram ansluter klient systemet till ett anpassat program med Oracle-backend via webben. Webb klient delen har kon figurer ATS i en belastningsutjämnare. Webb klient delen gör ett anrop till rätt program Server för att hantera arbetet. Program servern frågar den primära Oracle-databasen. Oracle-databasen har kon figurer ATS med hjälp av en [optimerad virtuell dator](../../sizes-memory.md) med hög tråds teknik med [begränsade kärn virtuella processorer](../../../virtual-machines/windows/constrained-vcpu.md) för att spara på licens kostnader och maximera prestanda. Flera Premium-eller Ultra-diskar (Managed Disks) används för prestanda och hög tillgänglighet.
 
 Oracle-databaser placeras i flera tillgänglighets zoner för hög tillgänglighet. Varje zon består av ett eller flera data Center som är utrustade med oberoende strömförsörjning, kylning och nätverk. För att garantera återhämtning, konfigureras minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighets zoner inom en region skyddar data från data Center problem. Dessutom har två FSFO-observatörer kon figurer ATS över två tillgänglighets zoner för att initiera och redundansväxla databasen till den sekundära när ett avbrott inträffar. 
 
@@ -113,7 +113,7 @@ Följande diagram är en arkitektur som använder Oracle data Guard-FSFO och myc
 
 GoldenGate möjliggör utbyte och manipulering av data på transaktions nivå mellan flera heterogena plattformar i företaget. Den flyttar genomförda transaktioner med transaktions integritet och minimal belastning på din befintliga infrastruktur. Dess modulära arkitektur ger dig flexibilitet att extrahera och replikera valda data poster, transaktions ändringar och ändringar av DDL (Data Definition Language) över flera olika topologier.
 
-Med Oracle-GoldenGate kan du konfigurera databasen för hög tillgänglighet genom att tillhandahålla dubbelriktad replikering. På så sätt kan du konfigurera en konfiguration **med flera huvud** servrar eller **aktiv-aktiv**. Följande diagram är en rekommenderad arkitektur för Oracle GoldenGate-aktiv-aktiv-installation på Azure. I följande arkitektur har Oracle-databasen kon figurer ATS med hjälp av en högtrådad [minnes optimerad virtuell dator](../../../virtual-machines/windows/sizes-memory.md) med [begränsade kärn virtuella processorer](../../../virtual-machines/windows/constrained-vcpu.md) för att spara på licens kostnaderna och maximera prestandan. Flera Premium-eller Ultra-diskar (Managed Disks) används för prestanda och tillgänglighet.
+Med Oracle-GoldenGate kan du konfigurera databasen för hög tillgänglighet genom att tillhandahålla dubbelriktad replikering. På så sätt kan du konfigurera en konfiguration **med flera huvud** servrar eller **aktiv-aktiv**. Följande diagram är en rekommenderad arkitektur för Oracle GoldenGate-aktiv-aktiv-installation på Azure. I följande arkitektur har Oracle-databasen kon figurer ATS med hjälp av en högtrådad [minnes optimerad virtuell dator](../../sizes-memory.md) med [begränsade kärn virtuella processorer](../../../virtual-machines/windows/constrained-vcpu.md) för att spara på licens kostnaderna och maximera prestandan. Flera Premium-eller Ultra-diskar (Managed Disks) används för prestanda och tillgänglighet.
 
 ![Oracle Database att använda tillgänglighets zoner med data Guard Broker – FSFO](./media/oracle-reference-architecture/oracledb_gg_az.png)
 
@@ -215,7 +215,7 @@ Korrigering av den virtuella datorns operativ system kan automatiseras med hjäl
 
 ## <a name="architecture-and-design-considerations"></a>Arkitektur och design överväganden
 
-- Överväg att använda en högtrådad [minnes optimerad virtuell dator](../../../virtual-machines/windows/sizes-memory.md) med [begränsade kärn virtuella processorer](../../../virtual-machines/windows/constrained-vcpu.md) för din Oracle Database VM för att spara på licens kostnader och maximera prestanda. Använd flera Premium-eller Ultra-diskar (Managed Disks) för prestanda och tillgänglighet.
+- Överväg att använda en högtrådad [minnes optimerad virtuell dator](../../sizes-memory.md) med [begränsade kärn virtuella processorer](../../../virtual-machines/windows/constrained-vcpu.md) för din Oracle Database VM för att spara på licens kostnader och maximera prestanda. Använd flera Premium-eller Ultra-diskar (Managed Disks) för prestanda och tillgänglighet.
 - När du använder hanterade diskar kan disk-och enhets namnet ändras vid omstarter. Vi rekommenderar att du använder enhets-UUID i stället för namnet för att se till att dina monteringar behålls över omstarter. Mer information hittar du [här](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
 - Använd tillgänglighets zoner för att uppnå hög tillgänglighet i regionen.
 - Överväg att använda Ultra disks (när det är tillgängligt) eller Premium diskar för Oracle-databasen.

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: fc4e8766f77a41a3a53e3db3098a6d9cefd628d6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 306983e612793eb92dd95fe57e7177da17874893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525440"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor för SAP-lösningar (för hands version)
 
 ## <a name="overview"></a>Översikt  
 
-Azure Monitor for SAP-lösningar är en Azure-inbyggd övervaknings produkt för kunder, som kör sina SAP-landskap på Azure. Produkten fungerar med både [SAP på azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started) och [SAP på Azures stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+Azure Monitor for SAP-lösningar är en Azure-inbyggd övervaknings produkt för kunder, som kör sina SAP-landskap på Azure. Produkten fungerar med både [SAP på azure Virtual Machines](./hana-get-started.md) och [SAP på Azures stora instanser](./hana-overview-architecture.md).  
 Med Azure Monitor för SAP-lösningar kan kunder samla in telemetridata från Azure-infrastrukturen och databaser på en central plats och visuellt korrelera telemetridata för snabbare fel sökning.  
 
 Azure Monitor för SAP-lösningar erbjuds via Azure Marketplace. Det ger en enkel, intuitiv installations upplevelse och tar bara några klick för att distribuera resursen för Azure Monitor för SAP-lösningar (kallas för **SAP Monitor-resurs**).  
@@ -42,7 +42,7 @@ Databaser som stöds:
 - SAP HANA-databas 
 - Microsoft SQL Server  
 
-Azure Monitor for SAP-lösningar utnyttjar kraften hos befintliga [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) funktioner som Log Analytics och [arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) för att tillhandahålla ytterligare övervakningsfunktioner. Kunder kan skapa [anpassade visualiseringar](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview#getting-started) genom att redigera standard arbets böckerna som tillhandahålls av Azure Monitor för SAP-lösningar, skriva [anpassade frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) och skapa [anpassade aviseringar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response) med hjälp av Azure Log Analytics-arbetsytan, dra nytta av den [flexibla kvarhållningsperioden](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) och ansluta övervaknings data med sitt biljett system.
+Azure Monitor for SAP-lösningar utnyttjar kraften hos befintliga [Azure Monitor](../../../azure-monitor/overview.md) funktioner som Log Analytics och [arbets böcker](../../../azure-monitor/platform/workbooks-overview.md) för att tillhandahålla ytterligare övervakningsfunktioner. Kunder kan skapa [anpassade visualiseringar](../../../azure-monitor/platform/workbooks-overview.md#getting-started) genom att redigera standard arbets böckerna som tillhandahålls av Azure Monitor för SAP-lösningar, skriva [anpassade frågor](../../../azure-monitor/log-query/get-started-portal.md) och skapa [anpassade aviseringar](../../../azure-monitor/learn/tutorial-response.md) med hjälp av Azure Log Analytics-arbetsytan, dra nytta av den [flexibla kvarhållningsperioden](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) och ansluta övervaknings data med sitt biljett system.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Vilka data Azure Monitor för att samla in SAP-lösningar?
 
@@ -87,11 +87,11 @@ Huvud komponenterna i arkitekturen är:
 - Azure Monitor för SAP Solutions-resurs – en landnings plats där kunder kan visa övervakning av telemetri 
 - Hanterad resurs grupp – distribueras automatiskt som en del Azure Monitor av resurs distributionen för SAP-lösningar. Resurserna som distribueras i hjälpen för hanterad resurs grupp i insamlingen av telemetri. Viktiga resurser som distribueras och deras syfte är:  
    - Virtuell Azure-dator: kallas även för *insamlad virtuell*dator. Detta är en Standard_B2ms virtuell dator. Huvud syftet med den här virtuella datorn är att vara värd för *övervaknings nytto lasten*. Övervaknings nytto Last syftar på logiken för insamling av telemetri från käll systemen och överföring av insamlade data till övervaknings ramverket. I diagrammet ovan innehåller övervaknings nytto lasten logiken för att ansluta till SAP HANA Database över SQL-porten.
-   - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts): den här resursen distribueras för att lagra autentiseringsuppgifter på SAP HANA-databasen på ett säkert sätt och för att lagra information om [leverantörer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers).  
+   - [Azure Key Vault](../../../key-vault/general/basic-concepts.md): den här resursen distribueras för att lagra autentiseringsuppgifter på SAP HANA-databasen på ett säkert sätt och för att lagra information om [leverantörer](./azure-monitor-providers.md).  
    - Log Analytics arbets yta: målet där telemetri-data finns.  
-      - Visualisering bygger på telemetri i Log Analytics att använda Azure- [arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Kunder kan anpassa visualiseringar. Kunder kan också fästa sina arbets böcker eller en speciell visualisering i arbets böcker till Azure-instrumentpanelen för uppdaterings möjligheter med den lägsta precisionen på 30 minuter.  
+      - Visualisering bygger på telemetri i Log Analytics att använda Azure- [arbetsböcker](../../../azure-monitor/platform/workbooks-overview.md). Kunder kan anpassa visualiseringar. Kunder kan också fästa sina arbets böcker eller en speciell visualisering i arbets böcker till Azure-instrumentpanelen för uppdaterings möjligheter med den lägsta precisionen på 30 minuter.  
       - Kunder kan använda sina befintliga arbets ytor i samma prenumeration som SAP Monitor-resursen genom att välja det här alternativet vid tidpunkten för distributionen. 
-      - Kunder kan använda KQL (Kusto Query Language) för att köra [frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) mot obearbetade tabeller i Log Analytics arbets ytan. Titta på *anpassade loggar*.  
+      - Kunder kan använda KQL (Kusto Query Language) för att köra [frågor](../../../azure-monitor/log-query/log-query-overview.md) mot obearbetade tabeller i Log Analytics arbets ytan. Titta på *anpassade loggar*.  
 
 > [!Note]
 > Kunderna ansvarar för att korrigera och underhålla den virtuella datorn, som distribueras i den hanterade resurs gruppen.  
@@ -113,5 +113,5 @@ Azure Monitor för SAP-lösningar är en kostnads fri produkt (ingen licens avgi
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig om leverantörer och skapa din första Azure Monitor för SAP-lösnings resurser.
- - Läs mer om [leverantörer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers)
- - Har du frågor om Azure Monitor för SAP-lösningar? Läs avsnittet med [vanliga frågor och svar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq)
+ - Läs mer om [leverantörer](./azure-monitor-providers.md)
+ - Har du frågor om Azure Monitor för SAP-lösningar? Läs avsnittet med [vanliga frågor och svar](./azure-monitor-faq.md)

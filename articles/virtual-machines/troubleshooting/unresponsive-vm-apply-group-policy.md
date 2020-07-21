@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629267"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526018"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>Den virtuella datorn svarar inte när principen för lokala användare och grupper tillämpas grupprincip
 
@@ -26,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där inläsnings skär
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att visa en skärm bild av den virtuella datorn, fastnar skärmen i inläsningen med meddelandet: "tillämpar Grupprincip lokala användare och grupper princip".
+När du använder [startdiagnostik](./boot-diagnostics.md) för att visa en skärm bild av den virtuella datorn, fastnar skärmen i inläsningen med meddelandet: "tillämpar Grupprincip lokala användare och grupper princip".
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Skärm bild av hur du tillämpar grupprincip lokala användare och grupper princip inläsningar (Windows Server 2012 R2).":::
 
@@ -57,7 +58,7 @@ Här är en problematisk princip:
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Steg 1: skapa och få åtkomst till en reparations-VM
 
-1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att förbereda en reparations-VM.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att förbereda en reparations-VM.
 2. Använd Anslutning till fjärrskrivbord för att ansluta till den virtuella reparations datorn.
 
 ### <a name="step-2-disable-the-policy"></a>Steg 2: inaktivera principen
@@ -139,7 +140,7 @@ Om du vill aktivera samling av minnes dum par och serie konsolen kör du det hä
 
 ### <a name="step-4-rebuild-the-vm"></a>Steg 4: återskapa den virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att bygga upp den virtuella datorn igen.
 
 Om problemet är löst är principen nu inaktive rad lokalt. Använd inte CleanupProfiles-principen på virtuella datorer för en permanent lösning. Använd en annan metod för att utföra profil rensningar.
 
@@ -149,4 +150,4 @@ Använd inte den här principen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem när du använder Windows Update kan du läsa [den virtuella datorn svarar inte med "C01A001D"-fel när du använder Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+Om du har problem när du använder Windows Update kan du läsa [den virtuella datorn svarar inte med "C01A001D"-fel när du använder Windows Update](./unresponsive-vm-apply-windows-update.md).

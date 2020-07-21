@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772626"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526664"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Felsöka prestanda för virtuella Azure-datorer i Linux eller Windows
 
-I den här artikeln beskrivs den virtuella datorn (VM) allmän prestanda fel sökning genom övervakning och övervakning av flask halsar och ger möjlighet till reparation av problem som kan uppstå. Förutom övervakning kan du också använda Perfinsights som kan ge en rapport med bästa praxis rekommendationer och nyckel Flask halsar runt i/o/CPU/minne. Perfinsights är tillgängligt för virtuella [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) -datorer i Azure.
+I den här artikeln beskrivs den virtuella datorn (VM) allmän prestanda fel sökning genom övervakning och övervakning av flask halsar och ger möjlighet till reparation av problem som kan uppstå. Förutom övervakning kan du också använda Perfinsights som kan ge en rapport med bästa praxis rekommendationer och nyckel Flask halsar runt i/o/CPU/minne. Perfinsights är tillgängligt för virtuella [Windows](./how-to-use-perfinsights.md) -och [Linux](./how-to-use-perfinsights-linux.md) -datorer i Azure.
 
 Den här artikeln går igenom hur du använder övervakning för att diagnostisera Flask halsar i prestanda.
 
@@ -29,7 +30,7 @@ Den här artikeln går igenom hur du använder övervakning för att diagnostise
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Övervakning av virtuella Azure IAAS-datorer
 
-Om du vill övervaka den virtuella gäst datorn använder du övervakning av virtuella Azure-datorer, som varnar dig om vissa resurs villkor på hög nivå. Om du vill kontrol lera om VM-diagnostik är aktiverat, se [Översikt över Azure resurs loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Om du ser följande har du förmodligen inte aktiverat diagnostiken:
+Om du vill övervaka den virtuella gäst datorn använder du övervakning av virtuella Azure-datorer, som varnar dig om vissa resurs villkor på hög nivå. Om du vill kontrol lera om VM-diagnostik är aktiverat, se [Översikt över Azure resurs loggar](../../azure-monitor/learn/tutorial-resource-logs.md). Om du ser följande har du förmodligen inte aktiverat diagnostiken:
 
 ![Övervakning har inte Aktiver ATS](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -100,7 +101,7 @@ Granska dina data för att identifiera om du har några resurs Flask halsar. Om 
 
 ### <a name="cpu-observe-trends"></a>Trender för CPU-observation
 
-När du tittar på prestanda problem bör du vara medveten om trender och förstå om de påverkar dig. I nästa avsnitt ska vi använda övervaknings diagrammen från portalen för att visa trender. De kan också vara användbara för att referera till kors referenser till resurs beteenden i samma tids period. Om du vill anpassa graferna klickar du på [Azure Monitor data plattform](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
+När du tittar på prestanda problem bör du vara medveten om trender och förstå om de påverkar dig. I nästa avsnitt ska vi använda övervaknings diagrammen från portalen för att visa trender. De kan också vara användbara för att referera till kors referenser till resurs beteenden i samma tids period. Om du vill anpassa graferna klickar du på [Azure Monitor data plattform](../../azure-monitor/platform/data-platform.md).
 
 Toppar – toppar kan relateras till en schemalagd aktivitet/känd händelse. Om du kan identifiera uppgiften bestämmer du om aktiviteten körs på den prestanda nivå som krävs. Om prestanda är acceptabel kanske du inte behöver öka resurserna.
 
@@ -119,7 +120,7 @@ Om programmet eller processen inte körs på rätt prestanda nivå och du ser 95
 
 Om du har ökat den virtuella datorn och processorn fortfarande kör 95% avgör du om den här inställningen erbjuder bättre prestanda eller högre program data flöde till en acceptabel nivå. Annars kan du felsöka det enskilda application\process.
 
-Du kan använda Perfinsights för [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) för att analysera vilken process som kör CPU-förbrukningen. 
+Du kan använda Perfinsights för [Windows](./how-to-use-perfinsights.md) eller [Linux](./how-to-use-perfinsights-linux.md) för att analysera vilken process som kör CPU-förbrukningen. 
 
 ## <a name="check-for-memory-bottleneck"></a>Sök efter minnes Flask hals
 
@@ -150,13 +151,13 @@ Utför någon av följande uppgifter för att lösa hög minnes användning:
 
 Om du när du har uppgraderat till en större virtuell dator upptäcker du att du fortfarande har en konstant stadig ökning fram till 100%, identifierar programmet/processen och felsöker.
 
-Du kan använda Perfinsights för [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) för att analysera vilken process som kör minnes användningen. 
+Du kan använda Perfinsights för [Windows](./how-to-use-perfinsights.md) eller [Linux](./how-to-use-perfinsights-linux.md) för att analysera vilken process som kör minnes användningen. 
 
 ## <a name="check-for-disk-bottleneck"></a>Sök efter disk Flask hals
 
 Om du vill kontrol lera underlag rings systemet för den virtuella datorn kontrollerar du diagnostiken på nivån för virtuella Azure-datorer med räknarna i VM-diagnostik och även lagrings kontots diagnostik.
 
-I fel sökning av virtuell dator kan du använda Perfinsights för [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), vilket kan hjälpa till att analysera vilken process som kör i/o. 
+I fel sökning av virtuell dator kan du använda Perfinsights för [Windows](./how-to-use-perfinsights.md) eller [Linux](./how-to-use-perfinsights-linux.md), vilket kan hjälpa till att analysera vilken process som kör i/o. 
 
 Observera att vi inte har räknare för zonens redundanta och Premium Storage konton. För problem som rör dessa räknare ska du generera ett support ärende.
 
@@ -207,7 +208,7 @@ Om du vill ta reda på om du påträffar IOPS-gränsen går du till lagrings kon
 
 Med nya disk erbjudanden under standard lagring kan IOPS-och data flödes gränserna variera, men den kumulativa gränsen för standard lagrings kontot är 20000 IOPS (Premium Storage har olika gränser på konto-eller disk nivå). Läs mer om de olika disk gränserna för standard lagring och disk utrymme:
 
-* [Skalbarhets-och prestanda mål för virtuella dator diskar i Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Skalbarhets-och prestanda mål för virtuella dator diskar i Windows](../windows/disk-scalability-targets.md).
 
 #### <a name="references"></a>Referenser
 
@@ -223,19 +224,19 @@ Kontrol lera data flödes gränserna för de virtuella hård diskar som är ansl
 
 Nya disk erbjudanden under standard lagring har olika IOPS-och data flödes gränser (IOPS exponeras inte per VHD). Titta på data för att se om du är klar med gränserna för kombinerat data flöde MB på den virtuella hård disken på VM-nivå med Läs-och skriv åtgärder, och optimera sedan din VM Storage-konfiguration för att skala de tidigare enskilda VHD-gränserna. Läs mer om de olika disk gränserna för standard lagring och disk utrymme:
 
-* [Skalbarhets-och prestanda mål för virtuella dator diskar i Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Skalbarhets-och prestanda mål för virtuella dator diskar i Windows](../windows/disk-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Hög disk användning/latens reparation
 
 Minska klientens fördröjning och optimera VM-IO för att skala de tidigare VHD-gränserna
 
-* [Optimera IO för Windows i Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Optimera IO för Windows i Azure](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/toc.json)
 
-* [Optimera IO för Linux i Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Optimera IO för Linux i Azure](/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 
 #### <a name="reduce-throttling"></a>Minska begränsningen
 
-Om du träffar i de övre gränserna för lagrings konton kan du balansera om de virtuella hård diskarna mellan lagrings konton. Se [Azure Storage skalbarhets-och prestanda mål](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
+Om du träffar i de övre gränserna för lagrings konton kan du balansera om de virtuella hård diskarna mellan lagrings konton. Se [Azure Storage skalbarhets-och prestanda mål](../../storage/common/scalability-targets-standard-account.md).
 
 ### <a name="increase-throughput-and-reduce-latency"></a>Öka data flödet och minska svars tiden
 
@@ -243,9 +244,9 @@ Om du har ett svars tids känsligt program och kräver högt data flöde migrera
 
 De här artiklarna beskriver de olika scenarierna:
 
-* [Migrera till Azure Premium Storage](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
+* [Migrera till Azure Premium Storage](../windows/migrate-to-managed-disks.md)
 
-* [Använda Azure Premium Storage med SQL Server](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [Använda Azure Premium Storage med SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage)
 
 ## <a name="next-steps"></a>Nästa steg
 

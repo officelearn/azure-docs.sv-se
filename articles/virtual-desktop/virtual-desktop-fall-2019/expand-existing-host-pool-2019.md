@@ -1,5 +1,5 @@
 ---
-title: Expandera den befintliga poolen med nya sessionsbaserade värdar – Azure
+title: Expandera den befintliga poolen med nya sessions-värdar hösten 2019 – Azure
 description: Hur du expanderar en befintlig adresspool med nya sessionsbaserade värdar i Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260759"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527548"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Expandera en befintlig värdbaserad pool med nya sessionsbaserade värdar (falla 2019)
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../expand-existing-host-pool.md).

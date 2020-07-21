@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869291"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525004"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Hantera resurser och aktivitet för privata moln
 
@@ -36,13 +37,13 @@ Välj ett privat moln för ytterligare information och åtgärder.
 
 ## <a name="private-cloud-summary"></a>Översikt över privat moln
 
-Visa en omfattande sammanfattning av det valda privata molnet.  Sammanfattnings sidan innehåller de DNS-servrar som distribueras i det privata molnet.  Du kan konfigurera DNS-vidarebefordran från lokala DNS-servrar till dina privata moln DNS-servrar.  Mer information om DNS-vidarebefordran finns i [Konfigurera DNS för namn matchning för privata moln vCenter från lokalt](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/).
+Visa en omfattande sammanfattning av det valda privata molnet.  Sammanfattnings sidan innehåller de DNS-servrar som distribueras i det privata molnet.  Du kan konfigurera DNS-vidarebefordran från lokala DNS-servrar till dina privata moln DNS-servrar.  Mer information om DNS-vidarebefordran finns i [Konfigurera DNS för namn matchning för privata moln vCenter från lokalt](./on-premises-dns-setup.md).
 
 ![Översikt över privat moln](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Tillgängliga åtgärder
 
-* [Starta vSphere-klienten](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Få åtkomst till vCenter för det här privata molnet.
+* [Starta vSphere-klienten](./vcenter-access.md). Få åtkomst till vCenter för det här privata molnet.
 * [Köpa noder](create-nodes.md). Lägg till noder i det här privata molnet.
 * [Expandera](expand-private-cloud.md). Lägg till noder i det här privata molnet.
 * **Uppdatera**. Uppdatera informationen på den här sidan.
@@ -57,10 +58,10 @@ Visa listan över definierade VLAN/undernät för det valda privata molnet.  Lis
 
 ### <a name="available-actions"></a>Tillgängliga åtgärder
 
-* [Lägg till VLAN/undernät](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Lägg till ett VLAN/en delmängd i det här privata molnet.
+* [Lägg till VLAN/undernät](./create-vlan-subnet.md). Lägg till ett VLAN/en delmängd i det här privata molnet.
 
 Välj ett VLAN/undernät för följande åtgärder
-* [Koppla brand Väggs tabell](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Koppla en brand Väggs tabell till det här privata molnet.
+* [Koppla brand Väggs tabell](./firewall.md). Koppla en brand Väggs tabell till det här privata molnet.
 * **Redigera**
 * **Ta bort** (endast användardefinierade VLAN/undernät)
 

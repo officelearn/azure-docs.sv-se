@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039015"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524513"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
 
@@ -28,7 +28,7 @@ Följande video visar hur du använder den här behållaren.
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande krav för att köra LUIS-behållaren:
 
@@ -53,7 +53,7 @@ Redigera API: er för paketerade appar:
 
 ### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
 
-Den här behållaren stöder lägsta och rekommenderade värden för inställningarna:
+I tabellen nedan visas de lägsta och rekommenderade värdena för behållar värden. Dina krav kan ändras beroende på trafik volym.
 
 |Container| Minimum | Rekommenderas | TPS<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
@@ -237,15 +237,15 @@ Fler [exempel](luis-container-configuration.md#example-docker-run-commands) på 
 
 Både v2-och [v3](luis-migration-api-v3.md) -versioner av API: et är tillgängliga med behållaren.
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
+## <a name="query-the-containers-prediction-endpoint"></a>Köra frågor mot containerns förutsägelseslutpunkt
 
-Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse. Slut punkter för publicerade appar (mellanlagring eller produktion) har en _annan_ väg än slut punkter för versions program.
+Containern innehåller REST-baserade slutpunkts-API:er för frågeförutsägelse. Slut punkter för publicerade appar (mellanlagring eller produktion) har en _annan_ väg än slut punkter för versions program.
 
-Använd värden, `http://localhost:5000` för behållar-API: er.
+Använd värden, `http://localhost:5000`, för container-API:er.
 
 # <a name="v3-prediction-endpoint"></a>[V3 förutsägelse slut punkt](#tab/v3)
 
-|Pakettyp|HTTP-verb|Routa|Frågeparametrar|
+|Pakettyp|HTTP-verb|Väg|Frågeparametrar|
 |--|--|--|--|
 |Publicerad|HÄMTA, PUBLICERA|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 |Versions|HÄMTA, PUBLICERA|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
@@ -261,7 +261,7 @@ Frågeparametrarna konfigurerar hur och vad som returneras i svaret för frågan
 
 # <a name="v2-prediction-endpoint"></a>[V2-förutsägelse slut punkt](#tab/v2)
 
-|Pakettyp|HTTP-verb|Routa|Frågeparametrar|
+|Pakettyp|HTTP-verb|Väg|Frågeparametrar|
 |--|--|--|--|
 |Publicerad|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [publicera](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
 |Versions|HÄMTA, PUBLICERA|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|

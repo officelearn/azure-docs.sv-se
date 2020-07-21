@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: VisualStudio
-ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105992"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525542"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett snabbt och enkelt sätt att gå från ingenting till en utvecklings miljö som är igång. System avbildningar med olika Visual Studio-konfigurationer är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -23,7 +23,7 @@ Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett 
 Ny Azure-användare? [Skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Alla prenumerationer är inte berättigade att distribuera Windows 10-avbildningar. Mer information finns i [använda Windows-klienten i Azure för utveckling/testnings scenarier](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+> Alla prenumerationer är inte berättigade att distribuera Windows 10-avbildningar. Mer information finns i [använda Windows-klienten i Azure för utveckling/testnings scenarier](./client-images.md)
 
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
 Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace.  För varje släppt större version ser du den ursprungligen "lanserad till webb"-versionen (RTW) och de senaste uppdaterade versionerna.  Var och en av dessa versioner har Visual Studio Enterprise-och community-versionerna av Visual Studio.  De här avbildningarna uppdateras minst varje månad för att inkludera de senaste versionerna av Visual Studio och Windows.  Även om namnen på bilderna är desamma, innehåller varje avbildnings Beskrivning den installerade produkt versionen och bildens datum.
@@ -77,9 +77,9 @@ Azure erbjuder ett stort utbud av virtuella dator storlekar. Eftersom Visual Stu
    * Standard_D2S_v2
    * Standard_D3_v2
     
-Mer information om de senaste dator storlekarna finns i [storlekar för virtuella Windows-datorer i Azure](/azure/virtual-machines/windows/sizes).
+Mer information om de senaste dator storlekarna finns i [storlekar för virtuella Windows-datorer i Azure](./sizes.md).
 
-Med Azure kan du balansera om ditt ursprungliga val genom att ändra storlek på den virtuella datorn. Du kan antingen etablera en ny virtuell dator med en lämplig storlek eller ändra storlek på den befintliga virtuella datorn till annan underliggande maskin vara. Mer information finns i [ändra storlek på en virtuell Windows-dator](/azure/virtual-machines/windows/resize-vm).
+Med Azure kan du balansera om ditt ursprungliga val genom att ändra storlek på den virtuella datorn. Du kan antingen etablera en ny virtuell dator med en lämplig storlek eller ändra storlek på den befintliga virtuella datorn till annan underliggande maskin vara. Mer information finns i [ändra storlek på en virtuell Windows-dator](./resize-vm.md).
 
 ## <a name="after-the-vm-is-running-whats-next"></a>Vad händer när den virtuella datorn körs?
 Visual Studio följer modellen "ta med din egen licens" i Azure. Som vid en installation av tillverkarspecifik maskin vara är ett av de första stegen att licensiera din Visual Studio-installation. För att låsa upp Visual Studio, antingen:
@@ -96,7 +96,7 @@ En snabb sammanfattning: Använd system förberedelse verktyget (Sysprep) och St
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Bild 1) Avbilda en avbildning via Azure Portal gränssnittet.*</center>
 
-Mer information finns i [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](/azure/virtual-machines/windows/capture-image-resource).
+Mer information finns i [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](./capture-image-resource.md).
 
 > [!IMPORTANT]
 > Glöm inte att använda Sysprep för att förbereda den virtuella datorn. Om du saknar det steget kan Azure inte etablera en virtuell dator från avbildningen.

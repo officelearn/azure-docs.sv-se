@@ -9,11 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dc671e3aab7568da61e5dab870967d7fd2bb90f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232815"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525746"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto
 
@@ -63,7 +64,7 @@ Följ dessa steg om du behöver skapa ett lagrings konto:
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Skapa ett lagrings konto med namnet **mystorageaccount** i den här resurs gruppen genom att använda cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) :
+2. Skapa ett lagrings konto med namnet **mystorageaccount** i den här resurs gruppen genom att använda cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) :
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -71,7 +72,7 @@ Följ dessa steg om du behöver skapa ett lagrings konto:
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella hårddisken till lagringskontot
-Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **Mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
+Använd cmdleten [Add-AzVhd](/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **Mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -105,14 +106,14 @@ Du kan kopiera en virtuell hård disk till ett annat lagrings konto som ska anv�
 ### <a name="before-you-begin"></a>Innan du börjar
 Kontrol lera att du:
 
-* Ha information om **käll-och mål lagrings konton**. Du måste ha lagrings konto-och behållar namn för den virtuella käll datorn. Behållarens namn är vanligt vis **virtuella hård diskar**. Du måste också ha ett mål lagrings konto. Om du inte redan har en, kan du skapa en med hjälp av antingen portalen (**alla tjänster** > lagrings konton > Lägg till) eller med cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) . 
-* Har laddat ned och installerat [AzCopy-verktyget](../../storage/common/storage-use-azcopy.md). 
+* Ha information om **käll-och mål lagrings konton**. Du måste ha lagrings konto-och behållar namn för den virtuella käll datorn. Behållarens namn är vanligt vis **virtuella hård diskar**. Du måste också ha ett mål lagrings konto. Om du inte redan har en, kan du skapa en med hjälp av antingen portalen (**alla tjänster** > lagrings konton > Lägg till) eller med cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) . 
+* Har laddat ned och installerat [AzCopy-verktyget](../../storage/common/storage-use-azcopy-v10.md). 
 
 ### <a name="deallocate-the-vm"></a>Frigöra den virtuella datorn
 Frigör den virtuella hård disken som ska kopieras. 
 
 * **Portal**: Klicka på **Virtual Machines**  >  **myVM** > stoppa
-* **PowerShell**: Använd [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) för att stoppa (frigöra) den virtuella datorn med namnet **myVM** i resurs gruppen **myResourceGroup**.
+* **PowerShell**: Använd [Stop-AzVM](/powershell/module/az.compute/stop-azvm) för att stoppa (frigöra) den virtuella datorn med namnet **myVM** i resurs gruppen **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -126,17 +127,17 @@ Du behöver URL: er för käll-och mål lagrings kontona. URL: erna ser ut så h
 Du kan använda Azure Portal eller Azure PowerShell för att hämta URL: en:
 
 * **Portal**: Klicka på **>** för **alla**lagrings konton lagrings  >  **Storage accounts**  >  *konto*  >  **blobbar** och din käll-VHD-fil är förmodligen i behållaren för **virtuella hård diskar** . Klicka på **Egenskaper** för behållaren och kopiera texten med etiketten **URL**. Du behöver URL: er för både käll-och mål behållarna. 
-* **PowerShell**: Använd [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) för att hämta information om den virtuella datorn med namnet **myVM** i resurs gruppen **myResourceGroup**. I resultatet tittar du på **lagrings profil** avsnittet för VHD- **URI: n**. Den första delen av URI: n är URL: en till behållaren och den sista delen är OS-VHD-namnet för den virtuella datorn.
+* **PowerShell**: Använd [Get-AzVM](/powershell/module/az.compute/get-azvm) för att hämta information om den virtuella datorn med namnet **myVM** i resurs gruppen **myResourceGroup**. I resultatet tittar du på **lagrings profil** avsnittet för VHD- **URI: n**. Den första delen av URI: n är URL: en till behållaren och den sista delen är OS-VHD-namnet för den virtuella datorn.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>Hämta åtkomst nycklar för lagring
-Hitta åtkomst nycklarna för käll-och mål lagrings kontona. Mer information om åtkomst nycklar finns i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
+Hitta åtkomst nycklarna för käll-och mål lagrings kontona. Mer information om åtkomst nycklar finns i [om Azure Storage-konton](../../storage/common/storage-account-create.md).
 
 * **Portal**: Klicka på **alla tjänster**  >  **lagrings konton**  >  *lagrings kontots*  >  **åtkomst nycklar**. Kopiera nyckeln märkt som **KEY1**.
-* **PowerShell**: Använd [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) för att hämta lagrings nyckeln för lagrings kontot **mystorageaccount** i resurs gruppen **myResourceGroup**. Kopiera nyckeln med etiketten **KEY1**.
+* **PowerShell**: Använd [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) för att hämta lagrings nyckeln för lagrings kontot **mystorageaccount** i resurs gruppen **myResourceGroup**. Kopiera nyckeln med etiketten **KEY1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -308,4 +309,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Nästa steg
 Logga in på den nya virtuella datorn. Mer information finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](connect-logon.md).
-

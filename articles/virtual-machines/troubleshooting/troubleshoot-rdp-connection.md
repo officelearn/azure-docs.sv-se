@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: c65161b6c0ffb0623260a9d896b10bf99eeeced2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a259217280be343f383372a066d4033368c2b651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235566"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526703"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsök fjärr skrivbords anslutningar till en virtuell Azure-dator
 Det kan finnas flera orsaker till att det uppstår problem med RDP-anslutningen till den Windows-baserade virtuella Azure-datorn så att du inte kan komma åt den virtuella datorn. Problemet kan röra fjärrskrivbordstjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbordsklienten på din värddator. Den här artikeln vägleder dig igenom några av de vanligaste sätten att lösa problem med RDP-anslutningen. 
@@ -66,13 +67,13 @@ Efter varje fel söknings steg försöker du ansluta till den virtuella datorn i
     Välj den virtuella datorn i Azure Portal. Bläddra nedåt i fönstret inställningar för avsnittet **support och fel sökning** längst ned i listan. Klicka på knappen **Återställ lösen ord** . Ange **läget** för att **bara återställa konfigurationen** och klicka sedan på knappen **Uppdatera** :
    
     ![Återställ RDP-konfigurationen i Azure Portal](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Kontrol lera regler för nätverks säkerhets grupper**. Använd [kontrol lera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverks säkerhets grupp blockerar trafik till eller från en virtuell dator. Du kan också granska gällande säkerhets grupps regler för att säkerställa att NSG-regeln för inkommande "Tillåt" finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [använda effektiva säkerhets regler för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+2. **Kontrol lera regler för nätverks säkerhets grupper**. Använd [kontrol lera IP-flöde](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) för att bekräfta om en regel i en nätverks säkerhets grupp blockerar trafik till eller från en virtuell dator. Du kan också granska gällande säkerhets grupps regler för att säkerställa att NSG-regeln för inkommande "Tillåt" finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [använda effektiva säkerhets regler för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Granska VM Boot Diagnostics**. Det här fel söknings steget granskar VM-konsolens loggar för att avgöra om den virtuella datorn rapporterar ett problem. Det är inte alla virtuella datorer som har startdiagnostik aktiverat, så det kan vara valfritt att göra detta.
    
     Vissa fel söknings steg ligger utanför den här artikelns omfattning, men kan tyda på ett bredare problem som påverkar RDP-anslutningen. Mer information om hur du läser konsol loggar och skärm bilder av virtuella datorer finns i [startdiagnostik för virtuella datorer](boot-diagnostics.md).
 
-4. **Återställ nätverkskortet för den virtuella datorn**. Mer information finns i [så här återställer du NIC för Azure Windows VM](../windows/reset-network-interface.md).
+4. **Återställ nätverkskortet för den virtuella datorn**. Mer information finns i [så här återställer du NIC för Azure Windows VM](./reset-network-interface.md).
 5. **Kontrol lera den virtuella datorns Resource Health**. Det här fel söknings steget verifierar att det inte finns några kända problem med Azure-plattformen som kan påverka anslutningen till den virtuella datorn.
    
     Välj den virtuella datorn i Azure Portal. Bläddra nedåt i fönstret inställningar för avsnittet **support och fel sökning** längst ned i listan. Klicka på knappen **resurs hälsa** . En felfria VM-rapporter som är **tillgängliga**:
@@ -96,7 +97,7 @@ Efter varje fel söknings steg försöker du ansluta till den virtuella datorn i
    
     När den här åtgärden har slutförts försvinner tillfälliga disk data och dynamiska IP-adresser som är associerade med den virtuella datorn uppdateras.
 
-9. **Verifiera routning**. Använd Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) -funktion för att bekräfta att en väg inte hindrar trafik från att dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverks gränssnitt. Mer information finns i [använda effektiva vägar för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-routing-problem.md).
+9. **Verifiera routning**. Använd Network Watcher [nästa hopp](../../network-watcher/diagnose-vm-network-routing-problem.md) -funktion för att bekräfta att en väg inte hindrar trafik från att dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverks gränssnitt. Mer information finns i [använda effektiva vägar för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-routing-problem.md).
 
 10. Kontrol lera att den lokala brand väggen eller brand väggen på datorn tillåter utgående TCP 3389-trafik till Azure.
 
@@ -108,7 +109,7 @@ Om du inte redan har gjort det kan du [Installera och konfigurera de senaste Azu
 I följande exempel används variabler som `myResourceGroup` , `myVM` , och `myVMAccessExtension` . Ersätt dessa variabel namn och platser med dina egna värden.
 
 > [!NOTE]
-> Du återställer användarautentiseringsuppgifter och RDP-konfiguration med hjälp av cmdleten [set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell. I följande exempel `myVMAccessExtension` är ett namn som du anger som en del av processen. Om du tidigare har arbetat med VMAccessAgent kan du hämta namnet på det befintliga tillägget genom `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` att använda för att kontrol lera egenskaperna för den virtuella datorn. Om du vill visa namnet tittar du under avsnittet tillägg i utdata.
+> Du återställer användarautentiseringsuppgifter och RDP-konfiguration med hjälp av cmdleten [set-AzVMAccessExtension](/powershell/module/az.compute/set-azvmaccessextension) PowerShell. I följande exempel `myVMAccessExtension` är ett namn som du anger som en del av processen. Om du tidigare har arbetat med VMAccessAgent kan du hämta namnet på det befintliga tillägget genom `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` att använda för att kontrol lera egenskaperna för den virtuella datorn. Om du vill visa namnet tittar du under avsnittet tillägg i utdata.
 
 Efter varje fel söknings steg försöker du ansluta till den virtuella datorn igen. Om du fortfarande inte kan ansluta kan du prova nästa steg.
 
@@ -185,7 +186,7 @@ Efter varje fel söknings steg försöker du ansluta till den virtuella datorn i
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **Verifiera routning**. Använd Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) -funktion för att bekräfta att en väg inte hindrar trafik från att dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverks gränssnitt. Mer information finns i [använda effektiva vägar för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-routing-problem.md).
+6. **Verifiera routning**. Använd Network Watcher [nästa hopp](../../network-watcher/diagnose-vm-network-routing-problem.md) -funktion för att bekräfta att en väg inte hindrar trafik från att dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverks gränssnitt. Mer information finns i [använda effektiva vägar för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-routing-problem.md).
 
 7. Kontrol lera att den lokala brand väggen eller brand väggen på datorn tillåter utgående TCP 3389-trafik till Azure.
 
@@ -211,7 +212,7 @@ Försök att ansluta till den virtuella datorn efter varje fel söknings steg.
    
    ![Verifiera Cloud Services slut punkter i Azure Portal](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
-   Om du inte har en slut punkt som tillåter RDP-trafik [skapar du en Cloud Services slut punkt](../windows/classic/setup-endpoints.md). Tillåt TCP till privat port 3389.
+   Om du inte har en slut punkt som tillåter RDP-trafik [skapar du en Cloud Services slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints). Tillåt TCP till privat port 3389.
 3. **Granska VM Boot Diagnostics**. Det här fel söknings steget granskar VM-konsolens loggar för att avgöra om den virtuella datorn rapporterar ett problem. Det är inte alla virtuella datorer som har startdiagnostik aktiverat, så det kan vara valfritt att göra detta.
    
     Vissa fel söknings steg ligger utanför den här artikelns omfattning, men kan tyda på ett bredare problem som påverkar RDP-anslutningen. Mer information om hur du läser konsol loggar och skärm bilder av virtuella datorer finns i [startdiagnostik för virtuella datorer](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
@@ -246,7 +247,5 @@ Du kan stöta på ett fel meddelande när du försöker ansluta till den virtuel
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 Om ingen av dessa fel har inträffat och du fortfarande inte kan ansluta till den virtuella datorn via fjärr skrivbord läser du den detaljerade [fel söknings guiden för fjärr skrivbord](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Fel söknings steg för att komma åt program som körs på en virtuell dator finns i [Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Om du har problem med att använda SSH (Secure Shell) för att ansluta till en virtuell Linux-dator i Azure läser du [FELSÖKA SSH-anslutningar till en virtuell Linux-dator i Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
+* Fel söknings steg för att komma åt program som körs på en virtuell dator finns i [Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+* Om du har problem med att använda SSH (Secure Shell) för att ansluta till en virtuell Linux-dator i Azure läser du [FELSÖKA SSH-anslutningar till en virtuell Linux-dator i Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

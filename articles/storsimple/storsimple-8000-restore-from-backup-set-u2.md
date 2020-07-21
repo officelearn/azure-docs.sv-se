@@ -4,29 +4,24 @@ description: Förklarar hur du använder säkerhets kopierings katalogen StorSim
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f0be9609dfd00e8e5dc9919b20fc42ec91ce9eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514551"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527837"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Återställa en StorSimple-volym från en säkerhetskopia
 
 ## <a name="overview"></a>Översikt
 
 I den här självstudien beskrivs återställnings åtgärden som utförs på en StorSimple 8000-serie enhet med en befintlig säkerhets kopia. Använd bladet **säkerhets kopierings katalog** för att återställa en volym från en lokal eller moln säkerhets kopia. Bladet **säkerhets kopierings katalog** visar alla säkerhets kopierings uppsättningar som skapas när manuella eller automatiserade säkerhets kopieringar görs. Återställnings åtgärden från en säkerhets kopia tar volymen online omedelbart medan data hämtas i bakgrunden.
-
-En alternativ metod för att starta återställning är att gå till **enheter > [din enhet] > volymer**. Välj en volym i bladet **volymer** , högerklicka för att anropa snabb menyn och välj sedan **Återställ**.
 
 ## <a name="before-you-restore"></a>Innan du återställer
 

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526766"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM-avstängning har fastnat på "starta om", "stänga av" eller "stoppa tjänster"
 
@@ -24,7 +25,7 @@ Den här artikeln innehåller steg för att lösa problemen med "starta om", "st
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn kan det hända att skärm bilden visar meddelandet "omstart", "avstängning" eller "stoppa tjänster".
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn kan det hända att skärm bilden visar meddelandet "omstart", "avstängning" eller "stoppa tjänster".
 
 ![Starta om, stänga av och stoppa tjänst skärmar](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -40,7 +41,7 @@ Windows använder avstängnings processen för att utföra system underhålls å
 
 2. Koppla bort disken som innehåller de filer som behövs från den virtuella datorn och koppla disken till den trasiga virtuella datorn. Vi ringer den här disken till **verktygs disken**.
 
-Använd [serie konsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) för att utföra följande steg:
+Använd [serie konsolen](./serial-console-windows.md) för att utföra följande steg:
 
 1. Öppna en administrativ PowerShell och kontrol lera den tjänst som slutar svara vid stopp.
 
@@ -80,13 +81,13 @@ Om problemet inte löses när du väntar på att ändringarna ska bearbetas mås
 
 **Koppla OS-disken till en virtuell dator för återställning**
 
-1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
 
-2. [Koppla OS-disken till en virtuell dator för återställning](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Fjärr skrivbord till den virtuella återställnings datorn.
 
-4. Om operativ system disken är krypterad måste du stänga av krypteringen innan du går vidare till nästa steg. Mer information finns i [dekryptera den krypterade OS-disken på den virtuella datorn som inte kan starta](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Om operativ system disken är krypterad måste du stänga av krypteringen innan du går vidare till nästa steg. Mer information finns i [dekryptera den krypterade OS-disken på den virtuella datorn som inte kan starta](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Hitta en dumpfil och skicka ett support ärende**
 
@@ -141,7 +142,7 @@ Kör följande skript för att aktivera dumpa logg och seriell konsol.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Starta den virtuella datorn och få åtkomst till serie konsolen.
 

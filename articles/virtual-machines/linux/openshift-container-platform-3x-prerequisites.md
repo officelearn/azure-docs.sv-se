@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 26b190515819378309c2b0705efdbc349ecccbe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 244bea1aaf5457601ced9bac05c8dae43e5b9199
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759501"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527140"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Vanliga krav för distribution av OpenShift container Platform 3,11 i Azure
 
@@ -83,7 +84,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 > [!NOTE]
 > Ditt SSH-nyckelpar får inte ha ett lösen ord/en lösen fras.
 
-Mer information om SSH-nycklar i Windows finns i [så här skapar du SSH-nycklar i Windows](/azure/virtual-machines/linux/ssh-from-windows). Se till att exportera den privata nyckeln i OpenSSH-format.
+Mer information om SSH-nycklar i Windows finns i [så här skapar du SSH-nycklar i Windows](./ssh-from-windows.md). Se till att exportera den privata nyckeln i OpenSSH-format.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Lagra den privata SSH-nyckeln i Azure Key Vault
 I OpenShift-distributionen används SSH-nyckeln som du skapade för att skydda åtkomsten till OpenShift-huvudnoden. Om du vill att distributionen ska kunna hämta SSH-nyckeln på ett säkert sätt lagrar du nyckeln i Key Vault med hjälp av följande kommando:
@@ -133,7 +134,7 @@ Anteckna den appId egenskapen och det lösen ord som returnerades från kommando
  > [!WARNING] 
  > Se till att skriva ned det säkra lösen ordet eftersom det inte går att hämta det här lösen ordet igen.
 
-Mer information om tjänstens huvud namn finns i [skapa ett Azure-tjänstens huvud namn med Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Mer information om tjänstens huvud namn finns i [skapa ett Azure-tjänstens huvud namn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Krav som endast gäller för Resource Manager-mall
 

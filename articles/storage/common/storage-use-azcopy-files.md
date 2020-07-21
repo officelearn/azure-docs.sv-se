@@ -7,13 +7,14 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514957"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527888"
 ---
-# <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fil lagring 
+# <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 
 AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar eller filer till eller från ett lagringskonto. Den här artikeln innehåller exempel kommandon som fungerar med Azure Files.
 
@@ -22,7 +23,7 @@ Innan du börjar kan du läsa artikeln [Kom igång med AZCopy](storage-use-azcop
 > [!TIP]
 > I exemplen i den här artikeln omger du Sök vägs argumenten med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
-## <a name="create-file-shares"></a>Skapa fil resurser
+## <a name="create-file-shares"></a>Skapa filresurser
 
 Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att skapa en fil resurs. Exemplet i det här avsnittet skapar en fil resurs med namnet `myfileshare` .
 
@@ -40,7 +41,7 @@ Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att lad
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
-> * Överför en fil
+> * Ladda upp en fil
 > * Ladda upp en katalog
 > * Ladda upp innehållet i en katalog
 > * Ladda upp en fil
@@ -60,7 +61,7 @@ Det här avsnittet innehåller följande exempel:
 > [!NOTE]
 > AzCopy beräknar och lagrar inte filens MD5-hash-kod automatiskt. Om du vill att AzCopy ska göra det lägger du till `--put-md5` flaggan i varje Copy-kommando. När filen har hämtats beräknar AzCopy en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i filens `Content-md5` egenskap matchar det beräknade hash-värdet.
 
-### <a name="upload-a-file"></a>Överför en fil
+### <a name="upload-a-file"></a>Ladda upp en fil
 
 |    |     |
 |--------|-----------|
@@ -117,7 +118,7 @@ Du kan också utesluta filer med hjälp av `--exclude-path` alternativet. Mer in
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn med hjälp av en semicolin ( `;` ).
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn genom att använda semikolon ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -135,7 +136,7 @@ Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att lad
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
-> * Hämta en fil
+> * Ladda ned en fil
 > * Ladda ned en katalog
 > * Hämta innehållet i en katalog
 > * Hämta vissa filer
@@ -154,7 +155,7 @@ Det här avsnittet innehåller följande exempel:
 > [!NOTE]
 > Om `Content-md5` egenskap svärdet för en fil innehåller en hash, beräknar AzCopy en MD5-hash för hämtade data och kontrollerar att MD5-hashen som lagras i filens `Content-md5` egenskap matchar det beräknade hashvärdet. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Kopiera.
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 
 |    |     |
 |--------|-----------|
@@ -188,7 +189,7 @@ Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-path` alternativet. Separera enskilda fil namn med hjälp av en semicolin ( `;` ).
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-path` alternativet. Separera enskilda fil namn genom att använda semikolon ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -201,7 +202,7 @@ Du kan också utesluta filer med hjälp av `--exclude-path` alternativet. Mer in
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn med hjälp av en semicolin ( `;` ).
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-pattern` alternativet. Ange partiella namn som innehåller jokertecken. Separera namn genom att använda semikolon ( `;` ).
 
 |    |     |
 |--------|-----------|

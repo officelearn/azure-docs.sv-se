@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: identifiera tal från en mikrofon, mål-C-tal-tjänsten'
+title: 'Snabb start: identifiera tal, mål-C-tal service (iOS)'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att känna igen tal i mål-C på iOS med hjälp av tal-SDK
+description: Lär dig hur du skapar en app för att identifiera tal i mål-C för en iOS-enhet med hjälp av Cognitive Services Speech SDK.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c355071c4bbaff5ddb22b2db5fc4a3a0fdb561d4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ba12f258ce7b0db60d3e7343bf12ffc28e8548ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391561"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524292"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Snabb start: identifiera tal i mål-C på iOS med hjälp av tal-SDK
 
@@ -23,7 +23,7 @@ Snabb Starter är också tillgängliga för [tal syntes](~/articles/cognitive-se
 
 I den här artikeln får du lära dig hur du skapar en iOS-app i mål-C genom att använda Azure Cognitive Services Speech SDK för att skriva tal till text från en mikrofon eller från en fil med inspelat ljud.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha:
 

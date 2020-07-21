@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791135"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524751"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Använda Azure Maps ritnings fel visualiserare
 
 Ritnings fel Visualiseraren är ett fristående webb program som visar [varningar från ritnings paket och fel som](drawing-conversion-error-codes.md) upptäckts under konverterings processen. Webb programmet för fel visualiserare består av en statisk sida som du kan använda utan att ansluta till Internet.  Du kan använda fel Visualiseraren för att åtgärda fel och varningar i enlighet med [kraven för ritnings paket](drawing-requirements.md). [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/conversion) returnerar bara ett svar med en länk till fel visualiseraren endast när ett fel upptäcks.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan ladda ned ritnings fel Visualiseraren måste du:
 
-1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 3. [Skapa en skapare resurs](how-to-manage-creator.md)
 
@@ -54,7 +54,7 @@ I den här självstudien används [Postman](https://www.postman.com/) -programme
 
 4. Hämta fel Visualiseraren för ritnings paket genom att göra en `HTTP-GET` begäran på URL: en `diagnosticPackageLocation` .
 
-## <a name="setup"></a>Installation
+## <a name="setup"></a>Konfiguration
 
 I det hämtade zippade paketet från `diagnosticPackageLocation` länken hittar du två filer.
 

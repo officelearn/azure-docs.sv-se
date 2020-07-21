@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: e51eeb32ecd306986dc22d6bfa09ee95b8b87852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2edc8d0116778e292f0e44761100d3c1e9212ff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658709"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527395"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 
-Partner tillhandahåller linux-avbildningar på Azure Marketplace. Microsoft arbetar med olika Linux-communities för att lägga till ännu fler varianter i den godkända distributions listan. För distributioner som inte är tillgängliga från Marketplace kan du alltid ta med din egen Linux genom att följa rikt linjerna i [skapa och ladda upp en virtuell hård disk som innehåller Linux-operativsystemet](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
+Partner tillhandahåller linux-avbildningar på Azure Marketplace. Microsoft arbetar med olika Linux-communities för att lägga till ännu fler varianter i den godkända distributions listan. För distributioner som inte är tillgängliga från Marketplace kan du alltid ta med din egen Linux genom att följa rikt linjerna i [skapa och ladda upp en virtuell hård disk som innehåller Linux-operativsystemet](./create-upload-generic.md).
 
 ## <a name="supported-distributions-and-versions"></a>Distributioner och versioner som stöds
 
@@ -35,17 +36,17 @@ Azure Linux-agenten är redan förinstallerad på Azure Marketplace-avbildningar
 | --- | --- | --- | --- |
 | CentOS av falsk Wave-programvara |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [Lis-hämtning](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: i kernel |Paket: i [lagrings platsen](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> Kärnan är [slut på livs längd](https://coreos.com/os/eol/) den 26 maj 2020. |Inte längre tillgänglig | | |
-| Debian av credativ |8. x, 9. x |I kernel |Paket: i lagrings platsen under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar container Linux av Kinvolk| Stabil, gräns| | |
-| Oracle Linux av Oracle |6. x, 7. x, 8. x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux av Red Hat |6. x, 7. x, 8. x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian av credativ |8.x, 9.x |I kernel |Paket: i lagrings platsen under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+|Flatcar container Linux av Kinvolk| Stable, Edge| | |
+| Oracle Linux av Oracle |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Red Hat Enterprise Linux av Red Hat |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise med SUSE |SLES/SLES för SAP 11. x, 12. x, 15. x <br/> [Bild livs cykel för SUSE offentlig moln bild](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |I kernel |Paketfilerna<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen<br>för 12 som ingår i modulen "offentligt moln" under "python-Azure-agent"<br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE av SUSE |openSUSE-skottår 15. x |I kernel |Paket: i [molnet: tools](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen under "python-Azure-agent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE av SUSE |openSUSE Leap 15.x |I kernel |Paket: i [molnet: tools](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen under "python-Azure-agent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu efter kanoniskt |Ubuntu Server och Pro. 16. x, 18. x, 20. x<p>Information om utökat stöd för Ubuntu 12,04 och 14,04 hittar du här: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |I kernel |Paket: i lagrings platsen under "walinuxagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="image-update-cadence"></a>Takt för avbildnings uppdatering
 
-Azure kräver att utgivare av de signerade Linux-distributionerna regelbundet uppdaterar sina avbildningar på Azure Marketplace med de senaste korrigeringarna och säkerhets korrigeringarna, på ett kvartal eller snabbare takt. Uppdaterade avbildningar på Azure Marketplace är automatiskt tillgängliga för kunder som nya versioner av en avbildnings-SKU. Mer information om hur du hittar Linux-avbildningar: [hitta virtuella Linux-avbildningar på Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
+Azure kräver att utgivare av de signerade Linux-distributionerna regelbundet uppdaterar sina avbildningar på Azure Marketplace med de senaste korrigeringarna och säkerhets korrigeringarna, på ett kvartal eller snabbare takt. Uppdaterade avbildningar på Azure Marketplace är automatiskt tillgängliga för kunder som nya versioner av en avbildnings-SKU. Mer information om hur du hittar Linux-avbildningar: [hitta virtuella Linux-avbildningar på Azure Marketplace](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Azure-justerade kärnor
 

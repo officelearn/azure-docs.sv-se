@@ -1,5 +1,5 @@
 ---
-title: Expandera den befintliga poolen med nya sessionsbaserade värdar – Azure
+title: Expandera den befintliga poolen med nya sessioner värdarna våren 2020 – Azure
 description: Hur du expanderar en befintlig adresspool med nya sessionsbaserade värdar i Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b23cee72af7f8262fdd552c2d4c26c608b68a1e4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259877"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527616"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du kan expandera en befintlig adresspo
 
 Innan du börjar ska du kontrol lera att du har skapat en adresspool och en sessions värd för virtuella datorer (VM) med någon av följande metoder:
 
-- [Azure Portal](./create-host-pools-azure-marketplace.md)
+- [Azure-portalen](./create-host-pools-azure-marketplace.md)
 - [Skapa en värdpool med PowerShell](./create-host-pools-powershell.md)
 
 Du behöver också följande information från första gången du skapade värddatorn och de virtuella datorerna i sessionen:

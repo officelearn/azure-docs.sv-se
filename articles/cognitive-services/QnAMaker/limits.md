@@ -3,12 +3,12 @@ title: Gränser och gränser – QnA Maker
 description: QnA Maker har meta-gränser för delar av kunskaps basen och tjänsten. Det är viktigt att du håller kunskaps basen inom dessa gränser för att testa och publicera.
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: 6a600bcb25bc524cda38d1e35a777d23d47b15c9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855559"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524445"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker grundläggande gränser och gränser för kunskap
 
@@ -63,7 +63,7 @@ Det maximala antalet metadata-fält per kunskaps bas baseras på **[Azure kognit
 
 |**Azure Kognitiv sökning-nivå** | **Kostnadsfri** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Fält för maximalt antal metadata per QnA Maker tjänst (i alla KB)|1,000|100 *|1,000|1,000|1,000|1,000|
+|Fält för maximalt antal metadata per QnA Maker tjänst (i alla KB)|1 000|100 *|1 000|1 000|1 000|1 000|
 
 ### <a name="by-name-and-value"></a>Efter namn och värde
 
@@ -79,7 +79,8 @@ Längden på och godkända tecken för namn och värde för metadata visas i fö
 Övergripande begränsningar för innehållet i kunskaps basen:
 * Svars textens längd: 25 000
 * Text längd: 1 000
-* Längd på nyckel/värde-text för metadata: 100
+* Längd på nyckel text för metadata: 100
+* Längd på metadata-värde text: 500
 * Tecken som stöds för namn på metadata: alfabet, siffror och`_`
 * Tecken som stöds för metadata-värde: alla utom `:` och`|`
 * Fil namnets längd: 200

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f6b9ddfd5b25ea8482e0bbf5622fa16bc450662
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224459"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525610"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator
 
 Du kan använda Azure CLI för att skapa och hantera Azure-resurser i en kommando tolk eller använda skript. I den här artikeln använder vi Azure CLI-skript för att distribuera en Oracle Database 12C-databas från en Azure Marketplace-Galleri avbildning.
 
-Innan du börjar ska du kontrol lera att Azure CLI är installerat. Mer information finns i [installations guiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Innan du börjar ska du kontrol lera att Azure CLI är installerat. Mer information finns i [installations guiden för Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
@@ -33,7 +33,7 @@ Innan du börjar ska du kontrol lera att Azure CLI är installerat. Mer informat
 
 *   Om du vill utföra säkerhets kopierings-och återställnings processen måste du först skapa en virtuell Linux-dator som har en installerad instans av Oracle Database 12C. Marketplace-avbildningen som du använder för att skapa den virtuella datorn heter *Oracle: Oracle-Database-EE: 12.1.0.2: senaste*.
 
-    Information om hur du skapar en Oracle-databas finns i [snabb starten för Oracle Create Database](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    Information om hur du skapar en Oracle-databas finns i [snabb starten för Oracle Create Database](./oracle-database-quick-create.md).
 
 
 ### <a name="step-2-connect-to-the-vm"></a>Steg 2: Anslut till den virtuella datorn
@@ -572,6 +572,3 @@ az group delete --name myResourceGroup
 [Självstudie: skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
 
 [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)
-
-
-

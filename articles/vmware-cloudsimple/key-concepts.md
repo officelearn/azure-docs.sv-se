@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 410215550f728d6b11b02b3ef108d429481e42a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8677bc7e4b9f4c2b24b5439aeefb307b9c544ed3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869032"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525032"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>Viktiga begrepp för administration av Azure VMware-lösningar från CloudSimple
 
@@ -50,7 +51,7 @@ CloudSimple-tjänsten tillhandahåller ett nätverk per region där din CloudSim
 * [VLAN och undernät](cloudsimple-vlans-subnets.md)
 * [Brandväggstabeller](cloudsimple-firewall-tables.md)
 * [VPN-gatewayer](cloudsimple-vpn-gateways.md)
-* [Offentlig IP](cloudsimple-public-ip-address.md)
+* [Offentlig IP-adress](cloudsimple-public-ip-address.md)
 * [Azure-nätverksanslutning](cloudsimple-azure-network-connection.md)
 
 ## <a name="cloudsimple-virtual-machine"></a>CloudSimple virtuell dator
@@ -60,4 +61,4 @@ Med CloudSimple-tjänsten kan du hantera virtuella VMware-datorer från Azure Po
 Läs mer om:
 
 * [Virtuella CloudSimple-datorer](cloudsimple-virtual-machines.md)
-* [Mappning av Azure-prenumeration](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-subscription-mapping/)
+* [Mappning av Azure-prenumeration](./azure-subscription-mapping.md)

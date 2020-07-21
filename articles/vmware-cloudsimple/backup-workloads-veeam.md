@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025137"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525049"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Säkerhetskopiera virtuella arbets belastnings datorer på CloudSimple privata moln med Veeam B&R
 
@@ -194,7 +195,7 @@ Anslut ditt virtuella nätverk till det privata molnet genom att följa anvisnin
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Konfigurera Azure Blob Storage för långsiktig data kvarhållning
 
 1. Skapa ett allmänt lagrings konto (GPv2) av standard typ och en BLOB-behållare enligt beskrivningen i Microsoft video [komma igång med Azure Storage](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
-2. Skapa en Azure Storage-behållare enligt beskrivningen i referensen för att [skapa behållare](https://docs.microsoft.com/rest/api/storageservices/create-container) .
+2. Skapa en Azure Storage-behållare enligt beskrivningen i referensen för att [skapa behållare](/rest/api/storageservices/create-container) .
 2. Hämta `azcopy` kommando rads verktyget för Linux från Microsoft. Du kan använda följande kommandon i bash-gränssnittet i CentOS 7,5.
 
     ```
@@ -205,7 +206,7 @@ Anslut ditt virtuella nätverk till det privata molnet genom att följa anvisnin
     sudo yum -y install icu
     ```
 
-3. Använd `azcopy` kommandot för att kopiera säkerhetskopierade filer till och från BLOB-behållaren.  Mer information finns i [överföra data med AZCopy i Linux](../storage/common/storage-use-azcopy-linux.md) för detaljerade kommandon.
+3. Använd `azcopy` kommandot för att kopiera säkerhetskopierade filer till och från BLOB-behållaren.  Mer information finns i [överföra data med AZCopy i Linux](../storage/common/storage-use-azcopy-v10.md) för detaljerade kommandon.
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>vCenter-konsol för privat moln: installera Veeam B&R
 
@@ -290,8 +291,8 @@ För att ta bort privilegier, se [aveskalerade privilegier](escalate-private-clo
 * [Skapa en virtuell Linux-dator i Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Så här ansluter du en hanterad datadisk till en virtuell Windows-dator i Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Komma igång med Azure Storage-video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [Skapa container](https://docs.microsoft.com/rest/api/storageservices/create-container)
-* [Överföra data med AzCopy i Linux](../storage/common/storage-use-azcopy-linux.md)
+* [Skapa container](/rest/api/storageservices/create-container)
+* [Överföra data med AzCopy i Linux](../storage/common/storage-use-azcopy-v10.md)
 
 ### <a name="vmware-references"></a>VMware-referenser
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218386"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526050"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -63,7 +63,7 @@ Därefter mäter du programmets högsta prestanda krav under dess livstid. Anvä
 
 ## <a name="application-performance-requirements-checklist"></a>Check lista för program prestanda krav
 
-| **Prestanda krav** | **50 percentil** | **90 percentil** | **99 percentil** |
+| **Prestandakrav** | **50 percentil** | **90 percentil** | **99 percentil** |
 | --- | --- | --- | --- |
 | Max. Transaktioner per sekund | | | |
 | % Läs åtgärder | | | |
@@ -138,7 +138,7 @@ Mer information om storlekar på virtuella datorer och om IOPS, data flöde och 
 En IO-begäran är en enhet med in-/utdata-åtgärd som programmet kommer att utföra. Att identifiera vilken typ av IO-begäranden, slumpmässig eller sekventiell, läsa eller skriva, liten eller stor, hjälper dig att avgöra programmets prestanda krav. Det är viktigt att förstå vilken typ av IO-begäranden som krävs för att fatta rätt beslut när du utformar program infrastrukturen. IOs måste distribueras jämnt för att uppnå bästa möjliga prestanda.
 
 I/o-storlek är en av de viktiga faktorerna. I/o-storleken är storleken på begäran om indata/utdata som genererats av ditt program. I/o-storleken har en betydande inverkan på prestanda, särskilt på den IOPS och bandbredd som programmet kan uppnå. Följande formel visar förhållandet mellan IOPS, IO-storlek och bandbredd/data flöde.  
-    ![](media/premium-storage-performance/image1.png)
+    ![Ett diagram som visar formeln I O P S gånger I O-storlek är lika med data flödet.](media/premium-storage-performance/image1.png)
 
 I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [db \_ block \_ storlek](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera i/O-begäran storlek för databasen.
 
@@ -252,7 +252,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Inga |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -265,7 +265,7 @@ Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan 
 *ReadWrite*  
 Som standard har OS-diskar ReadWrite-cachelagring aktiverat. Vi har nyligen lagt till stöd för ReadWrite-cachelagring på data diskar även. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel att skriva cachelagrade data till de beständiga lagrings diskarna. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
 
-*Ingen*  
+*Inga*  
 För närvarande stöds **ingen** på data diskar. Den stöds inte på OS-diskar. Om du anger **ingen** på en operativ system disk åsidosätts detta internt och anges som **skrivskyddad**.
 
 Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på Premium Storage genom att göra följande:
@@ -371,13 +371,13 @@ Till exempel, i SQL Server, ställer in MAXDOP-värdet för en fråga på "4" in
 
 *Optimalt ködjup*  
 Mycket högt värde för ködjup har också sina nack delar. Om värdet för ködjup är för högt försöker programmet att köra mycket höga IOPS. Om inte programmet har permanenta diskar med tillräckligt etablerade IOPS kan detta påverka program fördröjningar negativt. Följande formel visar relationen mellan IOPS, svars tid och ködjup.  
-    ![](media/premium-storage-performance/image6.png)
+    ![Ett diagram som visar formeln I O P S gånger svars tiden är lika med ködjup.](media/premium-storage-performance/image6.png)
 
 Du bör inte konfigurera ködjup till något högt värde, men till ett optimalt värde som kan leverera tillräckligt med IOPS för programmet utan att påverka fördröjning. Om programmets fördröjning till exempel måste vara 1 millisekund måste det ködjup som krävs för att uppnå 5 000 IOPS vara KÖDJUP = 5000 x 0,001 = 5.
 
 *Ködjup för stripe-volym*  
 För en stripe-volym upprätthåller du ett högt tillräckligt ködjup så att varje disk har ett djup ködjup individuellt. Överväg till exempel ett program som pushar ett ködjup på 2 och det finns fyra diskar i stripen. De två IO-begärandena skickas till två diskar och återstående två diskar är inaktiva. Konfigurera därför köns djupet så att alla diskar kan vara upptagna. I formeln nedan visas hur du fastställer ködjup för stripe-volymer.  
-    ![](media/premium-storage-performance/image7.png)
+    ![Ett diagram som visar ekvationen Q D per disk gånger antalet kolumner per volym motsvarar Q D för stripe-volymer.](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Begränsning
 

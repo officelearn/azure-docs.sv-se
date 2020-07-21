@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197027"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527429"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatisk reparation av instanser för skalningsuppsättningar med virtuella Azure-datorer
 
@@ -140,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-I följande exempel aktive ras principen för automatisk reparation när du skapar en ny skalnings uppsättning med hjälp av *[AZ VMSS Create](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Skapa först en resurs grupp och skapa sedan en ny skalnings uppsättning med en respitperiod för automatisk reparations policy angiven till 30 minuter.
+I följande exempel aktive ras principen för automatisk reparation när du skapar en ny skalnings uppsättning med hjälp av *[AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Skapa först en resurs grupp och skapa sedan en ny skalnings uppsättning med en respitperiod för automatisk reparations policy angiven till 30 minuter.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -208,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Följande är ett exempel på hur du uppdaterar den automatiska instansen reparerar principen för en befintlig skalnings uppsättning med hjälp av *[AZ VMSS Update](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+Följande är ett exempel på hur du uppdaterar den automatiska instansen reparerar principen för en befintlig skalnings uppsättning med hjälp av *[AZ VMSS Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -222,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>REST-API 
 
-Använd [vyn Hämta instans](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview) med API version 2019-12-01 eller högre för skalnings uppsättningen för virtuella datorer för att visa *serviceState* för automatiska reparationer under egenskapen *orchestrationServices*. 
+Använd [vyn Hämta instans](/rest/api/compute/virtualmachinescalesets/getinstanceview) med API version 2019-12-01 eller högre för skalnings uppsättningen för virtuella datorer för att visa *serviceState* för automatiska reparationer under egenskapen *orchestrationServices*. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -258,7 +259,7 @@ Använd *setOrchestrationServiceState* -API med api version 2019-12-01 eller hö
 
 ### <a name="azure-cli"></a>Azure CLI 
 
-Använd cmdleten [Get-instance-View](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) för att visa *serviceState* för automatiska instans reparationer. 
+Använd cmdleten [Get-instance-View](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) för att visa *serviceState* för automatiska instans reparationer. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -266,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Använd cmdleten [set-Orchestration-Service-State](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) för att uppdatera *serviceState* för automatiska instans reparationer. När skalnings uppsättningen har valts i den automatiska reparations funktionen kan du använda denna cmdlet för att pausa eller återuppta automatiska reparationer för skalnings uppsättningen. 
+Använd cmdleten [set-Orchestration-Service-State](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) för att uppdatera *serviceState* för automatiska instans reparationer. När skalnings uppsättningen har valts i den automatiska reparations funktionen kan du använda denna cmdlet för att pausa eller återuppta automatiska reparationer för skalnings uppsättningen. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -277,7 +278,7 @@ az vmss set-orchestration-service-state \
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Använd [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) -cmdlet: en med parametern *InstanceView* för att visa *ServiceState* för automatiska instans reparationer.
+Använd [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) -cmdlet: en med parametern *InstanceView* för att visa *ServiceState* för automatiska instans reparationer.
 
 ```azurepowershell-interactive
 Get-AzVmss `
@@ -296,7 +297,7 @@ Set-AzVmssOrchestrationServiceState `
     -Action "Suspend"
 ```
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 **Det gick inte att aktivera principen för automatisk reparation**
 

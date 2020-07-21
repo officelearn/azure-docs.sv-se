@@ -6,11 +6,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77115625"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525831"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Vad händer om en Azure Service-störning påverkar virtuella Azure-datorer
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
@@ -34,7 +35,7 @@ Det här är det bästa alternativet om du inte har konfigurerat Azure Site Reco
 
 
 > [!NOTE]
-> Tänk på att du inte har någon kontroll över den här processen och att det bara inträffar för hela verksamhets störningar. Därför måste du också förlita dig på andra programspecifika säkerhets kopierings strategier för att uppnå den högsta tillgängliga tillgänglighets nivån. Mer information finns i avsnittet om [data strategier för haveri beredskap](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+> Tänk på att du inte har någon kontroll över den här processen och att det bara inträffar för hela verksamhets störningar. Därför måste du också förlita dig på andra programspecifika säkerhets kopierings strategier för att uppnå den högsta tillgängliga tillgänglighets nivån. Mer information finns i avsnittet om [data strategier för haveri beredskap](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 
@@ -44,7 +45,7 @@ Det här är det bästa alternativet om du inte har konfigurerat Azure Site Reco
 
 - Mer information om hur du implementerar en strategi för haveri beredskap och hög tillgänglighet finns i [haveri beredskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-- Information om hur du utvecklar en detaljerad teknisk förståelse av moln plattformens funktioner finns i [teknisk vägledning för Azure-återhämtning](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
+- Information om hur du utvecklar en detaljerad teknisk förståelse av moln plattformens funktioner finns i [teknisk vägledning för Azure-återhämtning](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
 
 
 - Om anvisningarna inte är tydliga, eller om du vill att Microsoft ska utföra åtgärderna för din räkning, kontaktar du [kund support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

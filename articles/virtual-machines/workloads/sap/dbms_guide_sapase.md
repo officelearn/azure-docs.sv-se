@@ -15,15 +15,16 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26179dd2491a8b8cbc2ef3eb0ad66fa61722d413
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273213"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525270"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
 
-I det här dokumentet omfattar flera olika områden att tänka på när du distribuerar SAP-ASE i Azure IaaS. Som ett villkor för det här dokumentet bör du läsa dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) och andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Det här dokumentet beskriver SAP-ASE som körs på Linux och Windows-operativsystem. Den lägsta version som stöds på Azure är SAP ASE 16.0.02 (version 16 support Pack 2). Vi rekommenderar att du distribuerar den senaste versionen av SAP och den senaste korrigerings nivån.  Som minst SAP ASE 16.0.03.07 (version 16 support Pack 3 korrigerings nivå 7) rekommenderas.  Den senaste versionen av SAP finns i [mål ASE 16,0-versions schema och CR List-information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
+I det här dokumentet omfattar flera olika områden att tänka på när du distribuerar SAP-ASE i Azure IaaS. Som ett villkor för det här dokumentet bör du läsa dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) och andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](./get-started.md). Det här dokumentet beskriver SAP-ASE som körs på Linux och Windows-operativsystem. Den lägsta version som stöds på Azure är SAP ASE 16.0.02 (version 16 support Pack 2). Vi rekommenderar att du distribuerar den senaste versionen av SAP och den senaste korrigerings nivån.  Som minst SAP ASE 16.0.03.07 (version 16 support Pack 3 korrigerings nivå 7) rekommenderas.  Den senaste versionen av SAP finns i [mål ASE 16,0-versions schema och CR List-information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
 
 Ytterligare information om versions stöd med SAP-program eller installations medie platser finns i avsnittet om produkt tillgänglighet för SAP på följande platser:
 
@@ -58,7 +59,7 @@ Sid storleken är vanligt vis 2048 KB. Mer information finns i artikeln [enorma 
 
 ## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>Rekommendationer för VM och disk struktur för SAP ASE-distributioner
 
-SAP ASE for SAP NetWeaver-program stöds på alla VM-typer som anges i [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533) typiska VM-typer som används för medel stora SAP-ASE databas servrar är Esv3.  Stora databaser i flera terabyte kan utnyttja VM-typer i M-serien. Det kan vara bättre att skriva prestanda för SAP ASE-transaktions logg disk genom att aktivera M-seriens Skrivningsaccelerator. Skrivningsaccelerator bör testas noggrant med SAP-ASE på grund av det sätt som SAP-ASE utför logg skrivningar.  Granska [SAP support note #2816580](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) och Överväg att köra ett prestanda test.  
+SAP ASE for SAP NetWeaver-program stöds på alla VM-typer som anges i [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533) typiska VM-typer som används för medel stora SAP-ASE databas servrar är Esv3.  Stora databaser i flera terabyte kan utnyttja VM-typer i M-serien. Det kan vara bättre att skriva prestanda för SAP ASE-transaktions logg disk genom att aktivera M-seriens Skrivningsaccelerator. Skrivningsaccelerator bör testas noggrant med SAP-ASE på grund av det sätt som SAP-ASE utför logg skrivningar.  Granska [SAP support note #2816580](../../windows/how-to-enable-write-accelerator.md) och Överväg att köra ett prestanda test.  
 Skrivningsaccelerator är endast avsedd för transaktions logg diskar. Cachen på disk nivå ska vara inställd på ingen. Bli inte förvånad om Azure Skrivningsaccelerator inte visar liknande förbättringar som med andra DBMS. Beroende på hur SAP ASE skriver till transaktions loggen kan det bero på att det inte finns någon acceleration av Azure Skrivningsaccelerator.
 Separata diskar rekommenderas för data enheter och logg enheter.  System databaserna sybsecurity och `saptools` kräver inte dedikerade diskar och kan placeras på de diskar som innehåller data och logg enheter för SAP-databasen 
 
@@ -70,7 +71,7 @@ SAP ASE skriver data sekventiellt till disk lagrings enheter om inget annat konf
 Vi rekommenderar att du konfigurerar automatisk databas expansion enligt beskrivningen i artikeln [Konfigurera automatisk expansion av databas utrymme i SAP anpassningsbar Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) och [sap support NOTE #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Exempel på SAP-ASE på virtuella Azure-datorer, disk-och fil system konfigurationer 
-I mallarna nedan visas exempel konfigurationer för både Linux och Windows. Innan du bekräftar den virtuella datorn och disk konfigurationen kontrollerar du att kvoterna för nätverks-och lagrings bandbredden för den enskilda virtuella datorn är tillräckliga för att uppfylla affärs kraven. Tänk också på att olika typer av virtuella Azure-datorer har olika högsta antal diskar som kan anslutas till den virtuella datorn. Till exempel har en E4s_v3 VM en gräns på 48 MB/s Storage IO-dataflöde. Om lagrings data flödet som krävs av säkerhets kopierings aktiviteten för databasen kräver mer än 48 MB/SEK kan en större VM-typ med mer data flöde för lagrings bandbredd undvikas. När du konfigurerar Azure Storage måste du också vara medveten om att i synnerhet med [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance) kan data flödet och IOPS per GB-kapacitet ändras. Mer information finns i artikeln [vilka disk typer är tillgängliga i Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types). Kvoterna för vissa typer av virtuella Azure-datorer dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/sizes-memory) och artiklar som är länkade till den. 
+I mallarna nedan visas exempel konfigurationer för både Linux och Windows. Innan du bekräftar den virtuella datorn och disk konfigurationen kontrollerar du att kvoterna för nätverks-och lagrings bandbredden för den enskilda virtuella datorn är tillräckliga för att uppfylla affärs kraven. Tänk också på att olika typer av virtuella Azure-datorer har olika högsta antal diskar som kan anslutas till den virtuella datorn. Till exempel har en E4s_v3 VM en gräns på 48 MB/s Storage IO-dataflöde. Om lagrings data flödet som krävs av säkerhets kopierings aktiviteten för databasen kräver mer än 48 MB/SEK kan en större VM-typ med mer data flöde för lagrings bandbredd undvikas. När du konfigurerar Azure Storage måste du också vara medveten om att i synnerhet med [Azure Premium Storage](../../windows/premium-storage-performance.md) kan data flödet och IOPS per GB-kapacitet ändras. Mer information finns i artikeln [vilka disk typer är tillgängliga i Azure?](../../windows/disks-types.md). Kvoterna för vissa typer av virtuella Azure-datorer dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](../../sizes-memory.md) och artiklar som är länkade till den. 
 
 > [!NOTE]
 >  Om ett DBMS-system flyttas från lokal plats till Azure, rekommenderar vi att du övervakar den virtuella datorn och bedömer data flödet CPU, minne, IOPS och lagring. Jämför de högsta värdena som observeras med de kvot gränser för virtuella datorer som beskrivs i artiklarna ovan
@@ -212,7 +213,7 @@ SAP Software Provisioning Manager (SWPM) ger ett alternativ för att kryptera da
 - Överväg att använda UltraDisk för x-stora system 
 - Kör `saptune` SAP-ASE på Linux OS 
 - Skydda databasen med DB-kryptering – lagra nycklar manuellt i Azure Key Vault 
-- Slutför [Check listan för SAP på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 
+- Slutför [Check listan för SAP på Azure](./sap-deployment-checklist.md) 
 - Konfigurera logg säkerhets kopiering och fullständig säkerhets kopiering 
 - Test HA/DR, säkerhets kopiering och återställning och genomför stress & volym test 
 - Bekräfta att det automatiska databas tillägget fungerar 
@@ -309,5 +310,4 @@ Ett månatligt nyhets brev publiceras via [SAP support note #2381575](https://la
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs artikeln [SAP-arbetsbelastningar på Azure: planering och distribution check lista](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-
+Läs artikeln [SAP-arbetsbelastningar på Azure: planering och distribution check lista](./sap-deployment-checklist.md)

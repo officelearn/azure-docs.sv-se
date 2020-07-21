@@ -1,5 +1,5 @@
 ---
-title: Felsök Windows Virtual Desktop-Session värd – Azure
+title: Felsök Windows Virtual Desktop Session Host hösten 2019 – Azure
 description: Så här löser du problem när du konfigurerar virtuella Windows-datorer för fjärrskrivbordssessioner-värd.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362517"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527667"
 ---
-# <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
+# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Felsök konfiguration av virtuell dator i Session Host
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../troubleshoot-vm-configuration.md).

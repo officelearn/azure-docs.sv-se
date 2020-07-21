@@ -16,6 +16,8 @@
     - name: Distribuera en containerinstans – ARM-mall
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: Distribuera en containerinstans – Docker CLI
+      href: container-instances-quickstart-docker-cli.md
 - name: Självstudier
   items:
     - name: Skapa och distribuera en containeravbildning
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: Aktivera SSL-slutpunkt i sidovagn
           href: container-instances-container-group-ssl.md
-        - name: Göra en statisk IP-adress tillgänglig
+        - name: Göra en statisk IP-adress tillgänglig med App Gateway
           href: container-instances-application-gateway.md
+        - name: Använda Azure Firewall för inkommande och utgående
+          href: container-instances-egress-ip-address.md
     - name: Montera datavolymer
       items:
         - name: Azure-filresurs

@@ -179,6 +179,8 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
+        - name: Använda Azure-ultradiskar (förhandsversion)
+          href: use-ultra-disks.md
     - name: Konfigurera nätverk
       items:
         - name: Skapa eller använda ett befintligt virtuellt nätverk
@@ -191,8 +193,6 @@
           href: internal-lb.md
         - name: Använda en standardlastbalanserare
           href: load-balancer-standard.md
-        - name: Använda en användardefinierad utgående routning
-          href: egress-outboundtype.md
         - name: Använda en statisk IP-adress
           href: static-ip.md
         - name: Ingress
@@ -214,8 +214,14 @@
                   href: ingress-tls.md
                 - name: Använda en statisk offentlig IP-adress
                   href: ingress-static-ip.md
-        - name: Utgående trafik
-          href: egress.md
+        - name: Utgående
+          items:
+            - name: Begränsa och kontrollera utgående klustertrafik
+              href: limit-egress-traffic.md
+            - name: Använda en användardefinierad utgående routning
+              href: egress-outboundtype.md
+            - name: Använda en grundläggande lastbalanserare och statiska IP-adresser
+              href: egress.md
         - name: Anpassa CoreDNS
           href: coredns-custom.md
     - name: Säkerhet och autentisering
@@ -238,13 +244,11 @@
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Uppdatera autentiseringsuppgifter för kluster
           href: update-credentials.md
-        - name: Begränsa och kontrollera utgående klustertrafik
-          href: limit-egress-traffic.md
         - name: Aktivera Azure Active Directory-integrering
           items:
-            - name: AKS-hanterad AAD (förhandsversion)
+            - name: AKS-hanterad AAD
               href: managed-aad.md
-            - name: Använda Azure CLI
+            - name: AAD-integrering (äldre)
               href: azure-ad-integration-cli.md
         - name: Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
           href: manage-azure-rbac.md
@@ -291,8 +295,6 @@
       items:
         - name: Använda lokal process med Kubernetes med Visual Studio Code (förhandsversion)
           href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
-        - name: Använda lokal process med Kubernetes med Visual Studio (förhandsversion)
-          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Installera befintliga program med Helm
           href: kubernetes-helm.md
         - name: Använda OpenFaaS
@@ -383,10 +385,10 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Supportpolicyer
       href: support-policies.md
-    - name: Översikt
+    - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Ge produktfeedback
-      href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'
+    - name: AKS-översikt
+      href: 'https://github.com/Azure/AKS/projects/1'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videoklipp

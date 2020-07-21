@@ -1,0 +1,56 @@
+- name: Dokumentation om Azure Education Hub
+  href: ./index.yml
+- name: Översikt
+  items:
+    - name: Vad är Education Hub?
+      href: about-education-hub.md
+- name: Snabbstarter
+  items:
+    - name: Få tillgång till Education Hub
+      href: access-education-hub.md
+    - name: Kom igång med Education Hub
+      href: get-started-education-hub.md
+    - name: Konfigurera en kurs och skapa ett klassrum
+      href: set-up-course-classroom.md
+- name: Anvisningar
+  items:
+    - name: Hantera ditt akademiska stipendium
+      href: hub-overview-page.md
+    - name: Skapa en tilldelning och allokera kredit
+      href: create-assignment-allocate-credit.md
+- name: Support
+  items:
+    - name: Support
+      href: educator-service-desk.md
+- name: Azure-utvecklarverktyg för utbildning
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure-utvecklarverktyg för utbildning?
+          href: azure-dev-tools-teaching/about-program.md
+        - name: Microsoft Azure for Students
+          href: azure-dev-tools-teaching/azure-students-program.md
+        - name: Microsoft Azure for Students Starter
+          href: azure-dev-tools-teaching/azure-students-starter-program.md
+    - name: Snabbstarter
+      items:
+        - name: Registrera eller förnya en prenumeration
+          href: azure-dev-tools-teaching/enroll-renew-subscription.md
+        - name: Konfigurera åtkomst
+          href: azure-dev-tools-teaching/set-up-access.md
+    - name: Anvisningar
+      items:
+        - name: Så här hanterar du elever
+          href: azure-dev-tools-teaching/manage-students.md
+        - name: Så här laddar du ned programvara
+          href: azure-dev-tools-teaching/download-software.md
+    - name: Felsökning
+      items:
+        - name: Inloggningsfel
+          href: azure-dev-tools-teaching/troubleshoot-login.md
+- name: Resurser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: azure-dev-tools-teaching/program-faq.md
+    - name: Support
+      href: azure-dev-tools-teaching/program-support.md

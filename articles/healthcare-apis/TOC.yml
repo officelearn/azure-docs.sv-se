@@ -19,6 +19,8 @@
       href: fhir-oss-powershell-quickstart.md
     - name: Distribuera FHIR Server för Azure – CLI
       href: fhir-oss-cli-quickstart.md
+    - name: Distribuera IoT-anslutningsprogram – Portal
+      href: iot-fhir-portal-quickstart.md
 - name: Självstudier
   expanded: false
   items:
@@ -37,6 +39,11 @@
       href: access-fhir-postman-tutorial.md
     - name: Använda SMART på FHIR-proxy
       href: use-smart-on-fhir-proxy.md
+    - name: Mata in data från IoT-enheter
+      expanded: false
+      items:
+        - name: Ta emot enhetsdata från Azure IoT Hub
+          href: device-data-through-iot-hub.md
 - name: Exempel
   items:
     - name: Inbyggda Azure Policy-program
@@ -79,6 +86,8 @@
       href: enable-diagnostic-logging.md
     - name: Hämta en token för Azure API för FHIR – CLI
       href: get-healthcare-apis-access-token-cli.md
+    - name: Felsöka fel i IoT-anslutningsprogram
+      href: iot-troubleshoot-guide.md
 - name: Begrepp
   expanded: false
   items:
@@ -88,6 +97,13 @@
       href: azure-ad-hcapi-token-validation.md
     - name: Använda anpassade HTTP-huvuden för att lägga till data i spårningsloggar
       href: use-custom-headers.md
+    - name: Arbete i IoT-anslutningsprogram
+      expanded: false
+      items:
+        - name: Dataflöde i IoT-anslutningsprogram
+          href: iot-data-flow.md
+        - name: Mallar för mappning i IoT-anslutningsprogram
+          href: iot-mapping-templates.md
 - name: Resurser
   items:
     - name: VANLIGA FRÅGOR OCH SVAR

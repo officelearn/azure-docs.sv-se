@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Education Hub
+summary: Använd Education Hub för att snabbt och enkelt ge elever all nödvändig programvara och alla utbildningsfunktioner och Azure-tjänster som de behöver för att lära sig att använda molnet.
+metadata:
+  title: Dokumentation om Azure Education Hub
+  description: Använd Education Hub för att snabbt och enkelt ge elever all nödvändig programvara och alla utbildningsfunktioner och Azure-tjänster som de behöver för att lära sig att använda molnet.
+  ms.service: azure-education .
+  ms.subservice: education-hub
+  ms.topic: landing-page
+  author: tfosmark
+  ms.author: rymend
+  ms.date: 07/14/2020
+  ms.openlocfilehash: be96b241c3ca784043ac3203fd1cb100b05178b8
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86540423"
+landingContent:
+- title: Education Hub
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om Education Hub
+      url: about-education-hub.md
+  - linkListType: quickstart
+    links:
+    - text: Använda Education Hub
+      url: access-education-hub.md
+- title: Azure-utvecklarverktyg för utbildning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure-utvecklarverktyg för utbildning?
+      url: ./azure-dev-tools-teaching/about-program.md
+  - linkListType: tutorial
+    links:
+    - text: Registrera dig för Azure-utvecklarverktyg för utbildning
+      url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
+    - text: Konfigurera åtkomst
+      url: ./azure-dev-tools-teaching/set-up-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Så här hanterar du elever
+      url: ./azure-dev-tools-teaching/manage-students.md
+    - text: Så här laddar du ned programvara
+      url: ./azure-dev-tools-teaching/download-software.md

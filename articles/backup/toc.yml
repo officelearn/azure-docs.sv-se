@@ -323,11 +323,11 @@
               href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
-            - name: Virtuella Azure-datorer i Azure-portalen
+            - name: Virtuella Azure-datorer
               href: backup-azure-vms-automation.md
-            - name: DPM i Azure-portalen
+            - name: Data Protection Manager (DPM)
               href: backup-dpm-automation.md
-            - name: Windows Server i Azure-portalen
+            - name: Windows Server med MARS-agenten
               href: backup-client-automation.md
             - name: SQL i säkerhetskopior av virtuella Azure-datorer
               href: backup-azure-sql-automation.md
@@ -422,7 +422,7 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
+      href: /answers/topics/azure-backup.html
     - name: Priskalkylator
       href: azure-backup-pricing.md
     - name: Tjänstuppdateringar

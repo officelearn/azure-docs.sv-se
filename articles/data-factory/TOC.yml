@@ -23,7 +23,8 @@
       href: quickstart-create-data-factory-python.md
     - name: Skapa datafabrik – REST
       href: quickstart-create-data-factory-rest-api.md
-    - name: Skapa datafabrik – Resource Manager-mall
+    - name: Skapa datafabrik – ARM-mall
+      displayName: Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Säkerhet – aktivera kundhanterad nyckelkryptering
       href: enable-customer-managed-key.md
@@ -98,6 +99,8 @@
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
             - name: Nya filer efter tid och partitionerat filnamn
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+        - name: Skapa en kopia av pipelinen med ett hanterat virtuellt nätverk och privata slutpunkter
+          href: tutorial-copy-data-portal-private.md
     - name: Omvandla data
       items:
         - name: Omvandla data genom att mappa dataflöden
@@ -126,6 +129,8 @@
                   href: tutorial-transform-data-hive-virtual-network-portal.md
                 - name: Azure PowerShell
                   href: tutorial-transform-data-hive-virtual-network.md
+        - name: Skapa pipeline för att mappa dataflöden med ett hanterat virtuellt nätverk och privata slutpunkter
+          href: tutorial-data-flow-private.md
     - name: Kontrollflöde
       items:
         - name: Användargränssnitt
@@ -162,6 +167,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Integration runtime
       href: concepts-integration-runtime.md
+    - name: Hanterat Virtual Network
+      href: managed-virtual-network-private-endpoint.md
     - name: Säkerhet
       items:
         - name: Säkerhetsbaslinje
@@ -408,6 +415,8 @@
           href: connector-web-table.md
         - name: Xero
           href: connector-xero.md
+        - name: XML-format
+          href: format-xml.md
         - name: Zoho
           href: connector-zoho.md
     - name: Flytta data
@@ -469,12 +478,12 @@
           href: transform-data-using-spark.md
         - name: HDInsight-strömningsaktivitet
           href: transform-data-using-hadoop-streaming.md
-        - name: Machine Learning Batch-körningsaktivitet
-          href: transform-data-using-machine-learning.md
-        - name: Machine Learning-uppdateringsresursaktivitet
-          href: update-machine-learning-models.md
         - name: Aktiviteten Kör pipeline i Machine Learning
           href: transform-data-machine-learning-service.md
+        - name: Batch-körningsaktivitet i Machine Learning Studio (klassisk)
+          href: transform-data-using-machine-learning.md
+        - name: Uppdateringsresursaktivitet i Machine Learning Studio (klassisk)
+          href: update-machine-learning-models.md
         - name: Lagrad proceduraktivitet
           href: transform-data-using-stored-procedure.md
         - name: Länkade tjänster för Compute
@@ -681,7 +690,7 @@
               href: how-to-fixed-width.md
             - name: Felhantering av poster
               href: how-to-data-flow-error-rows.md
-            - name: Azure SQL DB till CosmosDB
+            - name: Azure SQL DB till Azure Cosmos DB
               href: how-to-sqldb-to-cosmosdb.md
         - name: SSIS-migrering från lokal plats
           items:

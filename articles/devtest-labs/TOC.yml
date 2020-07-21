@@ -6,14 +6,15 @@
       href: devtest-lab-overview.md
     - name: Azure DevTest Labs och Lab Services
       href: lab-services-overview.md
+- name: Snabbstart
+  items:
+    - name: Skapa ett labb – ARM-mall
+      displayName: Resource Manager
+      href: create-lab-windows-vm-template.md
 - name: Självstudier
   items:
     - name: Konfigurera ett labb
-      items:
-        - name: Använda Azure-portalen
-          href: tutorial-create-custom-lab.md
-        - name: Använda Resource Manager-mallar
-          href: create-lab-windows-vm-template.md
+      href: tutorial-create-custom-lab.md
     - name: Åtkomst till ett labb
       href: tutorial-use-custom-lab.md
 - name: Exempel
@@ -64,6 +65,10 @@
           href: devtest-lab-training-lab.md
         - name: Scenarier för att använda virtuella datorer som kan begäras
           href: devtest-lab-use-claim-capabilities.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Konfigurera ett labb
@@ -122,18 +127,26 @@
           href: personal-data-delete-export.md
     - name: Använd virtuella datorer i ett labb
       items:
-        - name: Skapa en virtuell dator – Azure-portalen
-          href: devtest-lab-add-vm.md
-        - name: Skapa en virtuell dator – Azure PowerShell
-          href: devtest-lab-vm-powershell.md
-        - name: Skapa en virtuell dator – Azure CLI
-          href: devtest-lab-vmcli.md
-        - name: Skapa en virtuell dator – Resource Manager-mall
-          href: devtest-lab-use-resource-manager-template.md
-        - name: Skapa en virtuell dator med en avbildning från delat bildgalleri
-          href: add-vm-use-shared-image.md
-        - name: Ansluta till din virtuella dator via en webbläsare
-          href: connect-virtual-machine-through-browser.md
+        - name: Skapa en virtuell dator
+          items:
+            - name: Azure Portal
+              href: devtest-lab-add-vm.md
+            - name: Azure PowerShell
+              href: devtest-lab-vm-powershell.md
+            - name: Azure CLI
+              href: devtest-lab-vmcli.md
+            - name: Resource Manager-mall
+              href: devtest-lab-use-resource-manager-template.md
+            - name: Skapa en virtuell dator med en avbildning från delat bildgalleri
+              href: add-vm-use-shared-image.md
+        - name: Ansluta till en virtuell dator
+          items:
+            - name: Ansluta till en virtuell Windows-dator
+              href: connect-windows-virtual-machine.md
+            - name: Ansluta till en virtuell Linux-dator
+              href: connect-linux-virtual-machine.md
+            - name: Ansluta till din virtuella dator via en webbläsare
+              href: connect-virtual-machine-through-browser.md
         - name: Starta eller stoppa en virtuell dator med PowerShell eller CLI
           href: use-command-line-start-stop-virtual-machines.md
         - name: Starta om en virtuell dator
@@ -263,6 +276,12 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: Felsöka fel i artefakter
           href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: Övervaka
+      items:
+        - name: Visa aktivitetsloggar
+          href: activity-logs.md
+        - name: Skapa aktivitetsloggaviseringar
+          href: create-alerts.md
 - name: Referens
   items:
     - name: CLI

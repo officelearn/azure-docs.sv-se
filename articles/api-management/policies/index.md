@@ -13,20 +13,19 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5b8c82aa420b62e3b6e68ee53352eb9f77988f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242975"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506697"
 ---
 # <a name="api-management-policy-samples"></a>API Management-principexempel
 
 [Principer](../api-management-howto-policies.md) är en kraftfull funktion i systemet som gör att utgivaren kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Följande tabell innehåller länkar till exempel och ger en kort beskrivning av varje exempel.
 
-|                                                                                                                                                                      |                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Inkommande principer**                                                                                                                                                 |                                                                                                                                                                                                                             |
+| Inkommande principer | Beskrivning |
+| ---------------- | ----------- |
 | [Lägg till en vidarebefordrad rubrik för att tillåta serverdels-API:et att skapa rätt URL:er](./set-header-to-enable-backend-to-construct-urls.md) | Visar hur du lägger till en vidarebefordrad rubrik i en inkommande begäran för att tillåta serverdels-API:en att skapa rätt URL:er.                                                                                                        |
 | [Lägga till en rubrik som innehåller ett korrelations-id](./add-correlation-id.md)                                                             | Visar hur du lägger till en rubrik som innehåller ett korrelations-ID till en inkommande begäran.                                                                                                                                        |
 | [Lägga till funktioner i en serverdelstjänst och cachelagra svaret](./cache-response.md)                                             | Visar hur du lägger till funktioner till en serverdelstjänst. Godkänn exempelvis ett namn på platsen i stället för latitud och longitud i en väderprognos-API.                                                                    |
@@ -40,7 +39,7 @@ ms.locfileid: "86242975"
 | [Vidarebefordra begäran baserat på storleken på innehållet](./route-requests-based-on-size.md)                                            | Visar hur du dirigerar förfrågningar baserat på storleken på deras innehåll.                                                                                                                                                       |
 | [Skicka begäran om sammanhangsinformation till serverdelstjänsten](./send-request-context-info-to-backend-service.md)                    | Visar hur du skickar viss sammanhangsinformation till serverdelstjänsten för loggning eller bearbetning.                                                                                                                                |
 | [Ange varaktighet för svarscache](./set-cache-duration.md)                                                                          | Visar hur du ställer in varaktighet för svarscache med hjälp av maxAge-värdet i Cache-Control-huvudet som skickas av serverdelen.                                                                                                             |
-| **Utgående principer**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Utgående principer** | **Beskrivning** |
 | [Filtrera svarsinnehåll](./filter-response-content.md)                                                                         | Visar hur du filtrerar dataelement från svarets nyttolast baserat på produkten som är kopplad till begäran.                                                                                                        |
-| **Principer vid fel**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Principer vid fel** | **Beskrivning** |
 | [Logga fel i Stackify](./log-errors-to-stackify.md)                                                                           | Visar hur du lägger till en felloggningsprincip om du vill skicka fel till Stackify för loggning.                                                                                                                                            |

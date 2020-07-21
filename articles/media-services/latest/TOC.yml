@@ -194,7 +194,7 @@
               href: job-error-codes.md
     - name: Hög tillgänglighet
       items:
-        - name: Kodning
+        - name: Video på begäran
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: Strömning

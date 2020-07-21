@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658038"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504945"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor arbets bok visualiseringar
 
@@ -50,7 +51,7 @@ Arbets böcker stöder diagram för både loggar och metriska data källor.
 1. Ändra arbets boken till redigerings läge genom att klicka på objektet **Redigera** verktygsfält.
 2. Använd länken **Lägg till fråga** för att lägga till en logg frågas kontroll i arbets boken.
 3. Välj typ av fråga som **logg**, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
-4. Använd Frågeredigeraren för att ange [KQL](https://docs.microsoft.com/azure/kusto/query/) för din analys (till exempel trend för förfrågningar).
+4. Använd Frågeredigeraren för att ange [KQL](/azure/kusto/query/) för din analys (till exempel trend för förfrågningar).
 5. Ange visualiseringen till något av: **Area**, **bar**, **bar (kategoriska)**, **linje**, **cirkel**, **punkt**eller **tid**.
 6. Ange andra parametrar om det behövs, till exempel tidsintervall, visualisering, storlek, färgpalett och förklaring.
 
@@ -113,7 +114,7 @@ Exemplet nedan visar ett rutnät som kombinerar ikoner, termiska kartor och Spar
 
 ![Skärm bild av fråga om logg beroende rutnät](./media/workbooks-visualizations/grid-query.png)
 
-## <a name="tiles"></a>Ikoner
+## <a name="tiles"></a>Paneler
 
 Paneler är ett mycket användbart sätt att Visa sammanfattnings data i arbets böcker. I bilden nedan visas ett vanligt användnings fall av sammanfattningar på App-nivå ovanpå ett detaljerat rutnät.
 
@@ -188,7 +189,7 @@ Exemplet nedan visar hälso mått för behållare (storleken på arbets minnet) 
 
 ### <a name="tree-settings"></a>Träd inställningar
 
-| Inställningen | Förklaring |
+| Inställning | Förklaring |
 |:------------- |:-------------|
 | `Id Field` | Unikt ID för varje rad i rutnätet |
 | `Parent Id Field` | ID för överordnad för den aktuella raden |

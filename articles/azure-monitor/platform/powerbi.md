@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659293"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505320"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor loggdata till Power BI
 
@@ -20,12 +21,12 @@ ms.locfileid: "77659293"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Översikt
-Om du vill importera data från en [Log Analytics arbets yta](manage-access.md) i Azure Monitor till Power BI skapar du en data uppsättning i Power BI baserat på en [logg fråga](../log-query/log-query-overview.md) i Azure Monitor.  Frågan körs varje gången data uppsättningen uppdateras.  Sedan kan du bygga Power BI rapporter som använder data från data uppsättningen.  Om du vill skapa data uppsättningen i Power BI exporterar du din fråga från Log Analytics till [Power Query (M) språk](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Sedan kan du använda den för att skapa en fråga i Power BI Desktop och sedan publicera den till Power BI som en data uppsättning.  Informationen för den här processen beskrivs nedan.
+Om du vill importera data från en [Log Analytics arbets yta](manage-access.md) i Azure Monitor till Power BI skapar du en data uppsättning i Power BI baserat på en [logg fråga](../log-query/log-query-overview.md) i Azure Monitor.  Frågan körs varje gången data uppsättningen uppdateras.  Sedan kan du bygga Power BI rapporter som använder data från data uppsättningen.  Om du vill skapa data uppsättningen i Power BI exporterar du din fråga från Log Analytics till [Power Query (M) språk](/powerquery-m/power-query-m-language-specification).  Sedan kan du använda den för att skapa en fråga i Power BI Desktop och sedan publicera den till Power BI som en data uppsättning.  Informationen för den här processen beskrivs nedan.
 
 ![Log Analytics till Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Exportera fråga
-Börja med att skapa en [logg fråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI data uppsättningen.  Sedan kan du exportera frågan till [Power Query (M) språk](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) som kan användas av Power BI Desktop.
+Börja med att skapa en [logg fråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI data uppsättningen.  Sedan kan du exportera frågan till [Power Query (M) språk](/powerquery-m/power-query-m-language-specification) som kan användas av Power BI Desktop.
 
 1. [Skapa logg frågan i Log Analytics](../log-query/get-started-portal.md) för att extrahera data för din data uppsättning.
 2. Välj **Exportera**  >  **Power BI fråga (M)**.  Detta exporterar frågan till en textfil med namnet **PowerBIQuery.txt**. 
@@ -52,7 +53,7 @@ Power BI Desktop är ett Skriv bords program där du kan skapa data uppsättning
 ## <a name="publish-to-power-bi"></a>Publicera till Power BI
 När du publicerar till Power BI skapas en data uppsättning och en rapport.  Om du skapar en rapport i Power BI Desktop kommer detta att publiceras med dina data.  Annars skapas en tom rapport.  Du kan ändra rapporten i Power BI eller skapa en ny som baseras på data uppsättningen.
 
-1. Skapa en rapport som baseras på dina data.  Använd [Power BI Desktop-dokumentationen](https://docs.microsoft.com/power-bi/desktop-report-view) om du inte är bekant med den.  
+1. Skapa en rapport som baseras på dina data.  Använd [Power BI Desktop-dokumentationen](/power-bi/desktop-report-view) om du inte är bekant med den.  
 1. När du är redo att skicka den till Power BI klickar du på **publicera**.  
 1. När du uppmanas väljer du ett mål i Power BI-kontot.  Om du inte har ett särskilt mål i åtanke använder du **min arbets yta**.
 

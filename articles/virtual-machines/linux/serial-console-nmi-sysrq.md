@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9ced48295fa4c396ed6c72fe021ed1e1be484b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758480"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501899"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använda seriekonsolen för SysRq- och NMI-anrop
 
@@ -22,11 +23,11 @@ När SysRq-sekvensen har levererats styr kernel-konfigurationen hur systemet sva
 
 Du kan använda Azures serie konsol för att skicka en SysRq till en virtuell Azure-dator med hjälp av tangent bords ikonen i kommando fältet som visas nedan.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Skärm bild av Azures serie konsol. Tangent bords ikonen är markerad och dess meny är synlig. Menyn innehåller ett kommando objekt för att skicka SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Om du väljer "skicka SysRq kommando" öppnas en dialog ruta som tillhandahåller vanliga alternativ för SysRq eller accepterar en sekvens med SysRq-kommandon som anges i dialog rutan.  Detta gör att serier med SysRq kan utföra en hög nivå åtgärd, till exempel en säker omstart med hjälp av: `REISUB` .
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Skärm bild av dialog rutan Skicka SysRq kommando till gäst. Alternativet för att ange kommandon är markerat och kommando rutan innehåller REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Det går inte att använda kommandot SysRq på virtuella datorer som har stoppats eller vars kernel inte är i ett tillstånd som inte svarar. (till exempel en kernel-panik).
 
@@ -95,7 +96,7 @@ Ett icke-maskbart avbrott (NMI) är utformat för att skapa en signal som progra
 
 Du kan använda serie konsolen för att skicka en NMI till en virtuell Azure-dator med hjälp av tangent bords ikonen i kommando fältet som visas nedan. När NMI har levererats kontrollerar konfigurationen för den virtuella datorn hur systemet svarar.  Linux-operativsystem kan konfigureras för att krascha och skapa en minnesdump operativ systemet tar emot en NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Skärm bild av serie konsolen. Tangent bords ikonen är markerad och dess meny är synlig. Menyn innehåller ett avbrotts objekt som inte går att maskera.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 För Linux-system som stöder sysctl för att konfigurera kernel-parametrar kan du aktivera en panik när du tar emot den här NMI genom att använda följande:
 1. Lägger till den här raden till */etc/sysctl.conf* <br>
@@ -120,7 +121,7 @@ Mer information om konfigurationer i Linux-kernel, inklusive `unknown_nmi_panic`
 - [Samla in krasch loggar](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Nästa steg
-* Sidan med information om Linux-dokumentation för den viktigaste konsolen finns [här](serial-console.md).
+* Sidan med information om Linux-dokumentation för den viktigaste konsolen finns [här](../troubleshooting/serial-console-linux.md).
 * Använd en serie konsol för att starta i [grub och ange enanvändarläge](serial-console-grub-single-user-mode.md)
-* Serie konsolen är också tillgänglig för virtuella [Windows](../windows/serial-console.md) -datorer
-* Läs mer om [startdiagnostik](boot-diagnostics.md)
+* Serie konsolen är också tillgänglig för virtuella [Windows](../troubleshooting/serial-console-windows.md) -datorer
+* Läs mer om [startdiagnostik](../troubleshooting/boot-diagnostics.md)

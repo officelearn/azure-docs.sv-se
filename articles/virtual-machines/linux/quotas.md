@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f8d181194328725c2e7c02f6e73752cf568ef4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce08ebeba6ad09ec4cba063d787c510dce6e1e2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759180"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501996"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>vCPU-kvoter för virtuella datorer
 
@@ -56,8 +57,8 @@ Premium Storage Managed Disks                  5    10000
 ## <a name="reserved-vm-instances"></a>Reserverade VM-instanser
 Reserverade VM-instanser, som är begränsade till en enda prenumeration utan flexibilitet för virtuella datorer, lägger till en ny aspekt i vCPU-kvoterna. Värdena beskriver antalet instanser av den angivna storleken som måste distribueras i prenumerationen. De fungerar som en plats hållare i kvot systemet för att säkerställa att kvoten är reserverad för att säkerställa att Azure-reservationer kan distribueras i prenumerationen. Om till exempel en enskild prenumeration har 10 Standard_D1 reservationer, är användnings gränsen för Standard_D1-reservationer 10. Detta gör att Azure ser till att det alltid finns minst 10 virtuella processorer tillgängligt i den totala regionala virtuella processorer-kvoten som ska användas för Standard_D1 instanser och det finns minst 10 virtuella processorer i standard kvoten på D-serien som ska användas för Standard_D1-instanser.
 
-Om en kvot ökning krävs för att antingen köpa en enskild prenumeration i RI, kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för din prenumeration.
+Om en kvot ökning krävs för att antingen köpa en enskild prenumeration i RI, kan du [begära en kvot ökning](../../azure-portal/supportability/resource-manager-core-quotas-request.md) för din prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om fakturering och kvoter finns i Azure- [prenumerationer, tjänst gränser, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Mer information om fakturering och kvoter finns i Azure- [prenumerationer, tjänst gränser, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json).

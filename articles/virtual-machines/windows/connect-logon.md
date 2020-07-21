@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 562b1f80397c730b5ea72fe2cd4f3dfdaea1e3f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9221a79eede36e0036d3ddaab64ee3baa07a33a6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500862"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta och logga in på en virtuell Azure-dator som kör Windows
 Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Först ansluter du till den virtuella datorn och sedan loggar du in.
@@ -22,7 +23,7 @@ Om du vill ansluta till en virtuell Windows-dator från en Mac måste du install
 1. Gå till [Azure Portal](https://portal.azure.com/) för att ansluta till en virtuell dator. Sök efter och välj **virtuella datorer**.
 2. Välj den virtuella datorn i listan.
 3. I början av sidan virtuell dator väljer du **Anslut**.
-4. På sidan **Anslut till virtuell dator** väljer du **RDP**och väljer sedan lämplig **IP-adress** och **port nummer**. I de flesta fall ska standard-IP-adressen och porten användas. Välj **Ladda ned RDP-fil**. Om den virtuella datorn har en princip uppsättning för just-in-Time måste du först välja knappen **begär åtkomst** för att begära åtkomst innan du kan ladda ned RDP-filen. Mer information om just-in-time-principen finns i [Hantera åtkomst till virtuella datorer med just-in-time-principen](../../security-center/security-center-just-in-time.md).
+4. På sidan **Anslut till virtuell dator** väljer du **RDP**och väljer sedan lämplig **IP-adress** och **port nummer**. I de flesta fall ska standard-IP-adressen och porten användas. Välj **Hämta RDP-fil**. Om den virtuella datorn har en princip uppsättning för just-in-Time måste du först välja knappen **begär åtkomst** för att begära åtkomst innan du kan ladda ned RDP-filen. Mer information om just-in-time-principen finns i [Hantera åtkomst till virtuella datorer med just-in-time-principen](../../security-center/security-center-just-in-time.md).
 5. Öppna den nedladdade RDP-filen och välj **Anslut** när du tillfrågas. Du får en varning om att `.rdp` filen kommer från en okänd utgivare. Detta är förväntat. I fönstret **anslutning till fjärrskrivbord** väljer du **Anslut** för att fortsätta.
    
     ![Skärmbild med ett varning som meddelar att utgivaren är okänd.](./media/connect-logon/rdp-warn.png)
@@ -62,5 +63,4 @@ Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har problem med att ansluta kan du läsa [Felsöka anslutningar till fjärr skrivbord](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-
+Om du har problem med att ansluta kan du läsa [Felsöka anslutningar till fjärr skrivbord](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json). 

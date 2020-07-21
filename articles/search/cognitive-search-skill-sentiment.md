@@ -8,11 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 15118c9c3d2d1a528c62b539ab7bdd8f174c19de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49918335dc6855726e7d8de15c01a5f15280af08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080099"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503225"
 ---
 # <a name="sentiment-cognitive-skill"></a>Sentiment kognitiva kunskaper
 
@@ -35,7 +36,7 @@ Den maximala storleken för en post ska vara 5000 tecken som mäts av [`String.L
 
 Parametrar är skiftlägeskänsliga.
 
-| Parameternamn |                      |
+| Parameternamn | Beskrivning |
 |----------------|----------------------|
 | `defaultLanguageCode` | valfritt Språk koden som ska användas för dokument som inte uttryckligen anger språk. <br/> Se en [fullständig lista över språk som stöds](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
@@ -109,7 +110,7 @@ Parametrar är skiftlägeskänsliga.
 }
 ```
 
-## <a name="notes"></a>Obs!
+## <a name="notes"></a>Anteckningar
 Om värdet är tomt returneras ingen sentiment Poäng för dessa poster.
 
 ## <a name="error-cases"></a>Fel fall

@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982147"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504928"
 ---
 # <a name="programmatically-manage-workbooks"></a>Hantera arbets böcker program mässigt
 
@@ -77,7 +78,7 @@ Det finns två typer av arbets boks resurser som kan hanteras program mässigt:
     }
     ```
 1. I- `galleries` objektet fyller du i `name` och- `category` nycklarna med dina värden. Läs mer om [parametrar](#parameters) i nästa avsnitt.
-2. Distribuera denna Azure Resource Manager-mall med hjälp av antingen [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [kommando rads gränssnittet](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)osv.
+2. Distribuera denna Azure Resource Manager-mall med hjälp av antingen [Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), [kommando rads gränssnittet](../../azure-resource-manager/templates/deploy-cli.md), [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)osv.
 3. Öppna Azure Portal och navigera till galleriet för arbets boken som valts i Azure Resource Manager-mallen. I exempel mal len navigerar du till galleriet Azure Monitor arbets bok:
     1. Öppna Azure Portal och navigera till Azure Monitor
     2. Öppna `Workbooks` i innehålls förteckningen

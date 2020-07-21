@@ -4,11 +4,12 @@ description: 'Mått och autoskalning av klassiska API: er, även kallade Azure S
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114217"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505439"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor pensionering av klassiska API: er för distributions modeller för mått och autoskalning
 
@@ -28,9 +29,9 @@ Den här artikeln gäller om du använder följande komponenter:
 
 - **Klassisk Azure Insights SDK** – om du använder den [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)växlar du till att använda den nya Azure Monitor SDK för [.net](https://github.com/azure/azure-libraries-for-net#download) eller [Java](https://github.com/azure/azure-libraries-for-java#download). Hämta [Azure Monitor SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
 
-- **Klassisk autoskalning** – om du anropar de [klassiska API: erna för autoskalning](https://msdn.microsoft.com/library/azure/mt348562.aspx) från dina anpassade verktyg eller med hjälp av den [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), bör du växla till att använda [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
+- **Klassisk autoskalning** – om du anropar de [klassiska API: erna för autoskalning](/previous-versions/azure/reference/mt348562(v=azure.100)) från dina anpassade verktyg eller med hjälp av den [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), bör du växla till att använda [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings).
 
-- **Klassiska mått** – om du använder mått med de [klassiska REST-API: erna](https://msdn.microsoft.com/library/azure/dn510374.aspx) eller [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) från anpassade verktyg, bör du byta till [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
+- **Klassiska mått** – om du använder mått med de [klassiska REST-API: erna](/previous-versions/azure/reference/dn510374(v=azure.100)) eller [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) från anpassade verktyg, bör du byta till [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings). 
 
 Om du är osäker på om din kod eller anpassade verktyg anropar de klassiska API: erna kan du titta på följande:
 
@@ -42,11 +43,11 @@ Om du är osäker på om din kod eller anpassade verktyg anropar de klassiska AP
 
 - Om du använder anrop som refereras till i dokumentationen på någon av följande länkar, använder du de äldre klassiska API: erna.
 
-  - [Klass bibliotek för Windows. Azure. Management. övervaknings klass](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
+  - [Klass bibliotek för Windows. Azure. Management. övervaknings klass](/previous-versions/azure/dn510414(v=azure.100))
 
-  - [Övervakning (klassisk) .NET](https://docs.microsoft.com/previous-versions/azure/reference/mt348562(v%3dazure.100))
+  - [Övervakning (klassisk) .NET](/previous-versions/azure/reference/mt348562(v%3dazure.100))
 
-  - [IMetricOperations-gränssnitt](https://docs.microsoft.com/previous-versions/azure/reference/dn802395(v%3dazure.100))
+  - [IMetricOperations-gränssnitt](/previous-versions/azure/reference/dn802395(v%3dazure.100))
 
 ## <a name="why-you-should-switch"></a>Varför du bör byta
 
@@ -86,5 +87,5 @@ Om du har några frågor kan du kontakta oss på MonitorClassicAPIhelp@microsoft
 
 ## <a name="references"></a>Referenser
 
-- [Nyare REST-API: er för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
+- [Nyare REST-API: er för Azure Monitor](/rest/api/monitor/) 
 - [Nyare Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

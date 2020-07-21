@@ -1,21 +1,21 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ce964ac197fbff64bbb7cc36e8c2bf762f93663f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84337366"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500620"
 ---
-I för hands versionen är aktivering av delade diskar bara tillgänglig för en delmängd disk typer. För närvarande kan endast Ultra disks och Premium-SSD aktivera delade diskar. Varje hanterad disk som har delade diskar aktiverade omfattas av följande begränsningar, ordnade efter disk typ:
+Att aktivera delade diskar är bara tillgängligt för en delmängd disk typer. För närvarande kan endast Ultra disks och Premium-SSD aktivera delade diskar. Varje hanterad disk som har delade diskar aktiverade omfattas av följande begränsningar, ordnade efter disk typ:
 
 ### <a name="ultra-disks"></a>Ultradiskar
 
@@ -23,17 +23,19 @@ Ultra disks har en separat lista över begränsningar, som inte är relaterade t
 
 När du delar Ultra disks har de följande ytterligare begränsningar:
 
-- För närvarande begränsad till Azure Resource Manager-eller SDK-support.
+- För närvarande begränsad till Azure Resource Manager-eller SDK-support. 
 - Det går bara att använda standard diskar med vissa versioner av Windows Server-redundanskluster, mer information finns i [maskin varu krav och lagrings alternativ för redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
-### <a name="premium-ssds"></a>Premium SSD:er
+### <a name="premium-ssds"></a>Premium SSD
 
 - Stöds för närvarande endast i regionen västra centrala USA.
-- Alla virtuella datorer som delar en disk måste distribueras i samma [närhets placerings grupper](../articles/virtual-machines/windows/proximity-placement-groups.md).
+- För närvarande begränsad till Azure Resource Manager-eller SDK-support. 
 - Kan bara aktive ras på data diskar, inte på OS-diskar.
+- **ReadOnly** -cachelagring av värden är inte tillgängligt för Premium-SSD med `maxShares>1` .
+- Disk-burst är inte tillgängligt för Premium-SSD med `maxShares>1` .
+- När du använder tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer med Azure delade diskar, tillämpas inte [justeringen av lagrings fel domänen](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) med den virtuella dator fel domänen för den delade data disken.
+- När du använder [närhets placerings grupper (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md)måste alla virtuella datorer som delar en disk ingå i samma PPG.
 - Det går bara att använda standard diskar med vissa versioner av Windows Server-redundanskluster, mer information finns i [maskin varu krav och lagrings alternativ för redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
-- ReadOnly-cachelagring av värden är inte tillgängligt för Premium-SSD med `maxShares>1` .
-- Tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer kan bara användas med `FaultDomainCount` värdet 1.
 - Azure Backup och Azure Site Recovery support är ännu inte tillgängligt.
 
-Om du är intresse rad av att prova delade diskar kan du [Registrera dig för vår för hands version](https://aka.ms/AzureSharedDiskPreviewSignUp).
+Om du är intresse rad av att testa delade diskar kan du [Registrera dig för åtkomst](https://aka.ms/AzureSharedDiskGASignUp).

@@ -1,6 +1,6 @@
 ---
-title: Använd Node. js för att fråga en databas
-description: Hur du använder Node. js för att skapa ett program som ansluter till en databas i Azure SQL Database eller en hanterad Azure SQL-instans och frågar den med hjälp av T-SQL-uttryck.
+title: Använda Node.js för att fråga en databas
+description: Använda Node.js för att skapa ett program som ansluter till en databas i Azure SQL Database eller Azure SQL-hanterad instans och frågar den med hjälp av T-SQL-uttryck.
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -12,25 +12,25 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
-ms.openlocfilehash: 6860aa07d7547df6eeebf5d35fa9a921f0f9dada
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7135b3630d7b780d2c5d18f22b2a05ee6aedf8ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267386"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504553"
 ---
-# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd Node. js för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
+# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda Node.js för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-I den här snabb starten använder du Node. js för att ansluta till en databas och fråga efter data.
+I den här snabb starten använder du Node.js för att ansluta till en databas och fråga efter data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  || SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
+  | Action | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -42,19 +42,19 @@ Följande krävs för att slutföra den här snabbstarten:
   |||
 
 
-- [Node. js](https://nodejs.org)-relaterad program vara
+- [Node.js](https://nodejs.org)-relaterad program vara
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Installera homebrew och Node. js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node. js-appar med hjälp av SQL Server på MacOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+  Installera homebrew och Node.js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node.js appar med hjälp av SQL Server på MacOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
   # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  Installera Node. js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node. js-appar med hjälp av SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+  Installera Node.js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node.js appar med hjälp av SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
   # <a name="windows"></a>[Windows](#tab/windows)
 
-  Installera choklad och Node. js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node. js-appar med hjälp av SQL Server i Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+  Installera choklad och Node.js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node.js appar med SQL Server i Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
   ---
 

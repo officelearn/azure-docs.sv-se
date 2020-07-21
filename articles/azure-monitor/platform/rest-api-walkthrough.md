@@ -5,28 +5,28 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25e85f811d1c5d854b471bf0417e75ab1686d72
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945349"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505133"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här artikeln visar hur du utför autentisering så att din kod kan använda [Microsoft Azure Monitor REST API referens](https://docs.microsoft.com/rest/api/monitor/).
+Den här artikeln visar hur du utför autentisering så att din kod kan använda [Microsoft Azure Monitor REST API referens](/rest/api/monitor/).
 
 Azure Monitor-API: et gör det möjligt att program mässigt Hämta tillgängliga standard mått definitioner, granularitet och mät värden. Data kan sparas i ett separat data lager, till exempel Azure SQL Database, Azure Cosmos DB eller Azure Data Lake. Du kan utföra ytterligare analyser efter behov.
 
-Förutom att arbeta med olika mått data punkter gör övervakarens API också det möjligt att lista aviserings regler, Visa aktivitets loggar och mycket mer. En fullständig lista över tillgängliga åtgärder finns i referens för [Microsoft Azure övervakare REST API](https://docs.microsoft.com/rest/api/monitor/).
+Förutom att arbeta med olika mått data punkter gör övervakarens API också det möjligt att lista aviserings regler, Visa aktivitets loggar och mycket mer. En fullständig lista över tillgängliga åtgärder finns i referens för [Microsoft Azure övervakare REST API](/rest/api/monitor/).
 
 ## <a name="authenticating-azure-monitor-requests"></a>Autentisera Azure Monitor begär Anden
 
 Det första steget är att autentisera begäran.
 
-Alla aktiviteter som utförs mot Azure Monitor-API: et använder modellen Azure Resource Manager autentisering. Därför måste alla begär Anden autentiseras med Azure Active Directory (Azure AD). En metod för att autentisera klient programmet är att skapa ett Azure AD-tjänstens huvud namn och hämta autentiseringen (JWT)-token. Följande exempel skript visar hur du skapar ett tjänst huvud namn för Azure AD via PowerShell. Mer detaljerad information finns i dokumentationen om hur du [använder Azure PowerShell för att skapa ett huvud namn för tjänsten för att få åtkomst till resurser](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Det är också möjligt att [skapa ett huvud namn för tjänsten via Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+Alla aktiviteter som utförs mot Azure Monitor-API: et använder modellen Azure Resource Manager autentisering. Därför måste alla begär Anden autentiseras med Azure Active Directory (Azure AD). En metod för att autentisera klient programmet är att skapa ett Azure AD-tjänstens huvud namn och hämta autentiseringen (JWT)-token. Följande exempel skript visar hur du skapar ett tjänst huvud namn för Azure AD via PowerShell. Mer detaljerad information finns i dokumentationen om hur du [använder Azure PowerShell för att skapa ett huvud namn för tjänsten för att få åtkomst till resurser](/powershell/azure/create-azure-service-principal-azureps). Det är också möjligt att [skapa ett huvud namn för tjänsten via Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```powershell
 $subscriptionId = "{azure-subscription-id}"
@@ -85,13 +85,13 @@ Efter autentiseringen kan frågor sedan utföras mot Azure Monitor REST API. Det
 2. Hämta mått värden
 
 > [!NOTE]
-> Mer information om hur du autentiserar med Azure REST API finns i [referens för azure REST API](https://docs.microsoft.com/rest/api/azure/).
+> Mer information om hur du autentiserar med Azure REST API finns i [referens för azure REST API](/rest/api/azure/).
 >
 >
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Hämta mått definitioner (Multi-dimensionell API)
 
-Använd [Azure Monitor mått definitioner REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) för att få åtkomst till listan över mått som är tillgängliga för en tjänst.
+Använd [Azure Monitor mått definitioner REST API](/rest/api/monitor/metricdefinitions) för att få åtkomst till listan över mått som är tillgängliga för en tjänst.
 
 **Metod**: Hämta
 
@@ -228,7 +228,7 @@ Den resulterande JSON-svars texten liknar följande exempel: (Observera att det 
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Hämta dimensions värden (Multi-dimensionellt API)
 
-När de tillgängliga mått definitionerna är kända kan det finnas några mått som har dimensioner. Innan du frågar efter måttet kanske du vill identifiera det värde intervall som en dimension har. Baserat på dessa dimensions värden kan du sedan välja att filtrera eller segmentera måtten baserat på dimensions värden vid frågor om mått.  Använd [Azure Monitor mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) för att uppnå detta.
+När de tillgängliga mått definitionerna är kända kan det finnas några mått som har dimensioner. Innan du frågar efter måttet kanske du vill identifiera det värde intervall som en dimension har. Baserat på dessa dimensions värden kan du sedan välja att filtrera eller segmentera måtten baserat på dimensions värden vid frågor om mått.  Använd [Azure Monitor mått REST API](/rest/api/monitor/metrics) för att uppnå detta.
 
 Använd måttets namn värde (inte localizedValue) för alla filtrerings begär Anden. Om inga filter anges returneras standard måttet. Användningen av detta API tillåter bara en dimension att ha ett Wildcard-filter.
 
@@ -301,7 +301,7 @@ Den resulterande JSON-svars texten liknar följande exempel:
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>Hämta mått värden (Multi-dimensionellt API)
 
-När de tillgängliga mått definitionerna och möjliga dimensions värden är kända, är det möjligt att hämta relaterade mått värden.  Använd [Azure Monitor mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) för att uppnå detta.
+När de tillgängliga mått definitionerna och möjliga dimensions värden är kända, är det möjligt att hämta relaterade mått värden.  Använd [Azure Monitor mått REST API](/rest/api/monitor/metrics) för att uppnå detta.
 
 Använd måttets namn värde (inte localizedValue) för alla filtrerings begär Anden. Om inga dimensions filter anges returneras det upplyfta aggregerade måttet. Om en mått fråga returnerar flera timeseries kan du använda parametrarna Top och OrderBy för att returnera en begränsad sorterad lista med timeseries.
 
@@ -387,7 +387,7 @@ Den resulterande JSON-svars texten liknar följande exempel:
 
 ## <a name="retrieve-metric-definitions"></a>Hämta mått definitioner
 
-Använd [Azure Monitor mått definitioner REST API](https://msdn.microsoft.com/library/mt743621.aspx) för att få åtkomst till listan över mått som är tillgängliga för en tjänst.
+Använd [Azure Monitor mått definitioner REST API](/rest/api/monitor/metricdefinitions) för att få åtkomst till listan över mått som är tillgängliga för en tjänst.
 
 **Metod**: Hämta
 
@@ -451,7 +451,7 @@ Den resulterande JSON-svars texten liknar följande exempel:
 }
 ```
 
-Mer information finns i [listan mått definitioner för en resurs i Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) dokumentation.
+Mer information finns i [listan mått definitioner för en resurs i Azure Monitor REST API](/rest/api/monitor/metricdefinitions) dokumentation.
 
 ## <a name="retrieve-metric-values"></a>Hämta mått värden
 
@@ -594,7 +594,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 
 ## <a name="retrieve-the-resource-id"></a>Hämta resurs-ID
 
-Med hjälp av REST API kan du verkligen hjälpa till att förstå tillgängliga mått definitioner, granularitet och relaterade värden. Informationen är användbar när du använder [Azures hanterings bibliotek](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+Med hjälp av REST API kan du verkligen hjälpa till att förstå tillgängliga mått definitioner, granularitet och relaterade värden. Informationen är användbar när du använder [Azures hanterings bibliotek](/previous-versions/azure/reference/mt417623(v=azure.100)).
 
 I föregående kod är resurs-ID: t som används den fullständiga sökvägen till önskad Azure-resurs. Om du till exempel vill fråga mot en Azure-webbapp blir resurs-ID:
 
@@ -705,7 +705,7 @@ Resultatet bör likna följande exempel:
 
 ## <a name="retrieve-activity-log-data"></a>Hämta aktivitets logg data
 
-Förutom mått definitioner och relaterade värden är det också möjligt att använda Azure Monitor REST API för att hämta ytterligare intressanta insikter relaterade till Azure-resurser. Som exempel är det möjligt att fråga efter [aktivitets logg](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. Följande exempel begär Anden använder Azure Monitor REST API för att fråga aktivitets loggen.
+Förutom mått definitioner och relaterade värden är det också möjligt att använda Azure Monitor REST API för att hämta ytterligare intressanta insikter relaterade till Azure-resurser. Som exempel är det möjligt att fråga efter [aktivitets logg](/rest/api/monitor/activitylogs) data. Följande exempel begär Anden använder Azure Monitor REST API för att fråga aktivitets loggen.
 
 Hämta aktivitets loggar med filter:
 
@@ -735,5 +735,5 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 
 * Granska [översikten över övervakningen](../../azure-monitor/overview.md).
 * Visa de [mått som stöds med Azure Monitor](metrics-supported.md).
-* Granska [Microsoft Azure övervakare REST API referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).
-* Granska [Azures hanterings bibliotek](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+* Granska [Microsoft Azure övervakare REST API referens](/rest/api/monitor/).
+* Granska [Azures hanterings bibliotek](/previous-versions/azure/reference/mt417623(v=azure.100)).

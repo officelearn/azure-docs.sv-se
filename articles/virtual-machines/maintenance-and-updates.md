@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3caf8b63cbd86338bbef653e9be9916907578627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675887"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501712"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Underhåll för virtuella datorer i Azure
 
@@ -76,7 +77,7 @@ Om du väljer att vänta tills den schemalagda underhålls fasen finns det någr
 
 #### <a name="paired-regions"></a>Länkade regioner
 
-Varje Azure-region är kopplad till en annan region inom samma geografiska närhet. Tillsammans skapar de ett region par. Under den schemalagda underhålls fasen uppdaterar Azure bara de virtuella datorerna i en region i ett region par. Till exempel, när du uppdaterar den virtuella datorn i norra centrala USA, uppdaterar Azure inte någon virtuell dator i södra centrala USA på samma tid. Andra regioner än Europa, norra kan emellertid ges underhåll samtidigt som USA, östra. Att förstå hur regions par fungerar kan hjälpa dig att distribuera dina virtuella datorer i flera regioner bättre. Mer information finns i [regions par för Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Varje Azure-region är kopplad till en annan region inom samma geografiska närhet. Tillsammans skapar de ett region par. Under den schemalagda underhålls fasen uppdaterar Azure bara de virtuella datorerna i en region i ett region par. Till exempel, när du uppdaterar den virtuella datorn i norra centrala USA, uppdaterar Azure inte någon virtuell dator i södra centrala USA på samma tid. Andra regioner än Europa, norra kan emellertid ges underhåll samtidigt som USA, östra. Att förstå hur regions par fungerar kan hjälpa dig att distribuera dina virtuella datorer i flera regioner bättre. Mer information finns i [regions par för Azure](../best-practices-availability-paired-regions.md).
 
 #### <a name="availability-sets-and-scale-sets"></a>Tillgänglighets uppsättningar och skalnings uppsättningar
 

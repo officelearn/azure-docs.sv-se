@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/15/2020
 ms.author: b-juche
-ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b150491fff953434062cc583566e1113947a679
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78163972"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504911"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Vad är lagrings-hierarkin för Azure NetApp Files
 
@@ -52,7 +52,6 @@ Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en
 - Varje volym hör till endast en pool, men en pool kan innehålla flera volymer. 
 - Det går inte att flytta en volym över kapacitets grupper. <!--Within the same NetApp account, you can move a volume across pools.  -->   
   I det [konceptuella diagrammet i lagringspoolen](#conceptual_diagram_of_storage_hierarchy) nedan kan du till exempel inte flytta volymerna från pool 1 till pool 2.
-- Det går inte att ta bort en volym förrän alla ögonblicks bilder har tagits bort.
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Konceptdiagram över lagringshierarki 
 I följande exempel visar vi sambanden mellan Azure-prenumeration, NetApp-konton, kapacitetspooler och volymer.   
@@ -62,4 +61,4 @@ I följande exempel visar vi sambanden mellan Azure-prenumeration, NetApp-konton
 ## <a name="next-steps"></a>Nästa steg
 
 - [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
-- [Registrera för Azure NetApp Files](azure-netapp-files-register.md)
+- [Registrera dig för Azure NetApp Files](azure-netapp-files-register.md)

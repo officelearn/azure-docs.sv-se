@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 40d028ade5429c89ce40b718c90c601dfcb0e470
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308157"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502188"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Skapa och skapa Linux-avbildningar i Azure
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver avbildnings besluts punkterna och kraven, förklarar
 ## <a name="difference-between-managed-disks-and-images"></a>Skillnaden mellan hanterade diskar och avbildningar
 
 
-Med Azure kan du ta en virtuell hård disk till plattformen, använda den som en [hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#managed-disks)eller använda som källa för en avbildning. 
+Med Azure kan du ta en virtuell hård disk till plattformen, använda den som en [hanterad disk](../windows/faq-for-disks.md#managed-disks)eller använda som källa för en avbildning. 
 
 Azure Managed disks är enkla virtuella hård diskar. Du kan antingen ta en befintlig virtuell hård disk och skapa en hanterad disk från den eller skapa en tom hanterad disk från grunden. Du kan skapa virtuella datorer från hanterade diskar genom att koppla disken till den virtuella datorn, men du kan bara använda en virtuell hård disk med en virtuell dator. Du kan inte ändra några OS-egenskaper. Azure försöker bara aktivera den virtuella datorn och börja använda den disken. 
 
@@ -49,16 +49,16 @@ Azure erbjuder två huvud avbildnings typer, generaliserade och specialiserade. 
 En generaliserad avbildning är en avbildning som kräver att installationen slutförs vid första starten. Vid den första starten anger du till exempel värd namnet, administratörs användaren och andra VM-/regionsspecifika konfigurationer. Detta är användbart när du vill att avbildningen ska återanvändas flera gånger och när du vill skicka in parametrar när du skapar den. Om den generaliserade avbildningen innehåller Azure-agenten kommer agenten att bearbeta parametrarna och signaler tillbaka till den plattform där den inledande konfigurationen har slutförts. Den här processen kallas för **etablering**. 
 
 Etableringen kräver att en-etablering ingår i avbildningen. Det finns två provisioner:
-- [Azure Linux-Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)
-- [init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+- [Azure Linux-Agent](../extensions/agent-linux.md)
+- [init](./using-cloud-init.md)
 
-Följande är [förutsättningar](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) för att skapa en avbildning.
+Följande är [förutsättningar](./create-upload-generic.md) för att skapa en avbildning.
 
 
 ### <a name="specialized-images"></a>Specialiserade bilder
 Dessa är avbildningar som är helt konfigurerade och inte kräver VM och särskilda parametrar. plattformen aktiverar bara den virtuella datorn eftersom du behöver hantera unikheten i den virtuella datorn, t. ex. Ange ett värdnamn, för att undvika DNS-konflikter i samma VNET. 
 
-Etablerings agenter krävs inte för de här avbildningarna men du kanske vill ha funktioner för fil hantering. Du kan installera Linux-agenten, men inaktivera etablerings alternativet. Även om du inte behöver en etablerings agent måste avbildningen uppfylla [kraven](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) för Azure-avbildningar.
+Etablerings agenter krävs inte för de här avbildningarna men du kanske vill ha funktioner för fil hantering. Du kan installera Linux-agenten, men inaktivera etablerings alternativet. Även om du inte behöver en etablerings agent måste avbildningen uppfylla [kraven](./create-upload-generic.md) för Azure-avbildningar.
 
 
 ## <a name="image-storage-options"></a>Alternativ för bild lagring
@@ -94,13 +94,14 @@ På hög nivå skapar du en SIG, och den består av:
 
 ## <a name="hyper-v-generation"></a>Hyper-V-generering
 
-Azure stöder Hyper-V generation 1 (gen1) och generation 2 (Gen2), Gen2 är den senaste generationen och erbjuder ytterligare funktioner över gen1. Till exempel: ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM). Generation 2 virtuella datorer som körs lokalt, har vissa funktioner som inte stöds i Azure än. Mer information finns i avsnittet funktioner och funktioner. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). Skapa Gen2-avbildningar om du behöver ytterligare funktioner.
+Azure stöder Hyper-V generation 1 (gen1) och generation 2 (Gen2), Gen2 är den senaste generationen och erbjuder ytterligare funktioner över gen1. Till exempel: ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM). Generation 2 virtuella datorer som körs lokalt, har vissa funktioner som inte stöds i Azure än. Mer information finns i avsnittet funktioner och funktioner. Mer information finns i den här [artikeln](../windows/generation-2.md). Skapa Gen2-avbildningar om du behöver ytterligare funktioner.
 
-Om du fortfarande behöver skapa en egen avbildning kontrollerar du att den uppfyller [avbildnings kraven](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)och laddar upp till Azure. Distributions särskilda krav:
+Om du fortfarande behöver skapa en egen avbildning kontrollerar du att den uppfyller [avbildnings kraven](./create-upload-generic.md)och laddar upp till Azure. Distributions särskilda krav:
 
 
 - [CentOS-baserade distributioner](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES och openSUSE](suse-create-upload-vhd.md)
@@ -110,6 +111,3 @@ Om du fortfarande behöver skapa en egen avbildning kontrollerar du att den uppf
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du skapar ett [delat avbildnings Galleri](tutorial-custom-images.md).
-
-
-

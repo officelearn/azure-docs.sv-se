@@ -1,15 +1,16 @@
 ---
 title: Skapa en Azure blockchain service-medlem – Azure Portal
 description: Skapa en Azure blockchain service-medlem för ett blockchain-konsortium med hjälp av Azure Portal.
-ms.date: 03/30/2020
+ms.date: 07/16/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 9fb013960da5b7cb8ba44f129eab73565f5b5362
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: references_regions
+ms.openlocfilehash: 5632c8a17c5ac25c8b4b436297d0dd5a0071df26
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82115252"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503429"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Snabb start: skapa en Azure blockchain-tjänst blockchain-medlem med hjälp av Azure Portal
 
@@ -17,9 +18,9 @@ I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Inga.
+Inget.
 
 ## <a name="create-a-blockchain-member"></a>Skapa en blockchain-medlem
 
@@ -27,15 +28,15 @@ En Azure blockchain-tjänst medlem är en blockchain-nod i ett privat konsortium
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-1. Välj **blockchain** > **Azure blockchain service (för hands version)**.
+1. Välj **blockchain**  >  **Azure blockchain service (för hands version)**.
 
     ![Skapa tjänst](./media/create-member/create-member.png)
 
-    Inställningen | Beskrivning
+    Inställning | Beskrivning
     --------|------------
     Prenumeration | Välj den Azure-prenumeration som du vill använda för din tjänst. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | Skapa ett nytt resurs grupp namn eller Välj en befintlig från din prenumeration.
-    Region | Välj en region för att skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats.
+    Region | Välj en region för att skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats. Funktioner kanske inte är tillgängliga i vissa regioner. Azure blockchain Data Manager finns i följande Azure-regioner: USA, östra och Västeuropa.
     Protokoll | För närvarande stöder för hands versionen av Azure blockchain service protokollet kvorum.
     Konsortium | Ange ett unikt namn för ett nytt konsortium. Om du ansluter till ett konsortium via en inbjudan väljer du det konsortium som du ansluter till. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
     Name | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
@@ -53,7 +54,7 @@ Välj **Översikt**. du kan visa grundläggande information om tjänsten inklusi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda den medlem som du skapade för nästa snabb start eller självstudier. När de inte längre behövs kan du ta bort resurserna genom att `myResourceGroup` ta bort resurs gruppen som du skapade för snabb starten.
+Du kan använda den medlem som du skapade för nästa snabb start eller självstudier. När de inte längre behövs kan du ta bort resurserna genom att ta bort `myResourceGroup` resurs gruppen som du skapade för snabb starten.
 
 Så här tar du bort resursgruppen:
 

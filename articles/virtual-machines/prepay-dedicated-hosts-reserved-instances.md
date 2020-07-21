@@ -8,22 +8,23 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: a8531ec2a3284eac64cb900f2d95ec02b9ffdd45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678094"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501559"
 ---
-# <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Spara kostnader med en reserverad instans av Azure-dedikerade värdar
+# <a name="save-costs-with-azure-dedicated-host-reservations"></a>Spara kostnader med Azures dedikerade värd reservationer
 
-När du genomför en reserverad instans av Azure-dedikerade värdar kan du spara pengar. Reservations rabatten tillämpas automatiskt på antalet aktiva dedikerade värdar som matchar reservations omfånget och attributen. Du behöver inte tilldela en reservation till en dedikerad värd för att hämta rabatterna. En reserverad instans köps bara täcker beräknings delen av din användning och inkluderar kostnader för program varu licenser. Se [Översikt över Azures dedikerade värdar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+När du genomför en reserverad instans av Azure-dedikerade värdar kan du spara pengar. Reservations rabatten tillämpas automatiskt på antalet aktiva dedikerade värdar som matchar reservations omfånget och attributen. Du behöver inte tilldela en reservation till en dedikerad värd för att hämta rabatterna. En reserverad instans köps bara täcker beräknings delen av din användning och inkluderar kostnader för program varu licenser. Se [Översikt över Azures dedikerade värdar för virtuella datorer](./windows/dedicated-hosts.md).
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Ta reda på rätt dedikerad värd-SKU innan du köper
 
 
 Innan du köper en reservation bör du bestämma vilken dedikerad värd du behöver. En SKU definieras för en dedikerad värd som representerar VM-serien och-typen. 
 
-Börja med att gå över de storlekar som stöds för [virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för att identifiera VM-serien.
+Börja med att gå över de storlekar som stöds för [virtuella Windows-datorer](./windows/sizes.md) eller [Linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för att identifiera VM-serien.
 
 Kontrol lera sedan om det stöds på Azure-dedikerade värdar. [Pris sidan för Azure-dedikerade värdar](https://aka.ms/ADHPricing) har den fullständiga listan över dedikerade värdar SKU: er, deras processor information och olika pris alternativ (inklusive reserverade instanser).
 
@@ -39,7 +40,7 @@ Reservations rabatter gäller inte för följande:
 
 - **Moln**   – Reservationer är inte tillgängliga för köp i Tyskland-eller Kina-regioner.
 
-- **Otillräcklig kvot**   -En reservation som är begränsad till en enskild prenumeration måste ha vCPU-kvot tillgänglig i prenumerationen för den nya reserverade instansen. Om mål prenumerationen till exempel har en kvot gräns på 10 virtuella processorer för DSv3-serien kan du inte köpa en dedikerade dedikerade värdar som stöder den här serien. Kvot kontrollen för reservationer omfattar de virtuella datorer och dedikerade värdar som redan har distribuerats i prenumerationen. Du kan [skapa en begäran om kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)   för att lösa problemet.
+- **Otillräcklig kvot**   -En reservation som är begränsad till en enskild prenumeration måste ha vCPU-kvot tillgänglig i prenumerationen för den nya reserverade instansen. Om mål prenumerationen till exempel har en kvot gräns på 10 virtuella processorer för DSv3-serien kan du inte köpa en dedikerade dedikerade värdar som stöder den här serien. Kvot kontrollen för reservationer omfattar de virtuella datorer och dedikerade värdar som redan har distribuerats i prenumerationen. Du kan [skapa en begäran om kvot ökning](../azure-portal/supportability/resource-manager-core-quotas-request.md)   för att lösa problemet.
 
 - **Kapacitets begränsningar**   I sällsynta fall begränsar Azure köpet av nya reservationer för en delmängd av dedikerade värd-SKU: er, på grund av låg kapacitet i en region.
 
@@ -47,7 +48,7 @@ Reservations rabatter gäller inte för följande:
 
 Du kan köpa en reserverad instans av en Azure-dedikerad värd instans i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Betala för reservationen [fram eller med månads betalningar](https://docs.microsoft.com/azure/billing/billing-monthly-payments-reservations). Dessa krav gäller för att köpa en reserverad dedikerad värd instans:
+Betala för reservationen [fram eller med månads betalningar](../cost-management-billing/reservations/prepare-buy-reservation.md). Dessa krav gäller för att köpa en reserverad dedikerad värd instans:
 
 - Du måste ha ägar rollen för minst en EA-prenumeration eller en prenumeration med en taxa enligt principen betala per användning.
 
@@ -74,19 +75,19 @@ Om du har ett EA-avtal kan du använda **alternativet Lägg till fler**   för
 | Region              | Den Azure-region som omfattas av reservationen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedikerad värd storlek | Storleken på de dedikerade värd instanserna.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Term                | Ett år eller tre år.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Kvantitet            | Antalet instanser som köps i reservationen. Antalet är antalet aktiva dedikerade värd instanser som kan hämta fakturerings rabatten.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Antal            | Antalet instanser som köps i reservationen. Antalet är antalet aktiva dedikerade värd instanser som kan hämta fakturerings rabatten.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 - **Definitions område**   för enskild resurs grupp – Tillämpar reservations rabatten på de matchande resurserna enbart i den valda resurs gruppen.
 
 - Omfång för enskild **prenumeration**   – Tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.
 
-- **Delat omfång**   – Tillämpar reservations rabatten på matchande resurser i de berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
+- **Delat omfång**   – Tillämpar reservations rabatten på matchande resurser i de berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betala per användning-priser är faktureringsomfånget alla berättigade prenumerationer som skapats av kontoadministratören.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Användnings data och reservations användning
 
 Dina användningsdata har ett effektivt pris på noll för användning som täcks av reservationen. Du kan se vilken VM-instans som har tagit emot reservations rabatten för varje reservation.
 
-Mer information om hur reservations rabatter visas i användnings data finns i [förstå Azure reservation-användning för företagets registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)   om du är en EA-kund. Om du har en enskild prenumeration kan du läsa mer i avsnittet om [hur du betalar per användning för din prenumeration enligt principen betala per användning](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Mer information om hur reservations rabatter visas i användnings data finns i [förstå Azure reservation-användning för företagets registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)   om du är en EA-kund. Om du har en enskild prenumeration kan du läsa mer i avsnittet om [hur du betalar per användning för din prenumeration enligt principen betala per användning](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Ändra en reservation efter köpet
 
@@ -106,7 +107,7 @@ Du kan inte göra följande typer av ändringar efter köpet, direkt:
 
 - SKU
 
-- Kvantitet
+- Antal
 
 - Varaktighet
 
@@ -114,7 +115,7 @@ Du kan dock *byta*ut   en reservation om du vill göra ändringar.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
@@ -122,26 +123,24 @@ Om du har frågor eller behöver hjälp kan du  [skapa en supportbegäran](http
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du hanterar en reservation finns i [hantera Azure reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance).
+Information om hur du hanterar en reservation finns i [hantera Azure reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-- [Vad är Azure-reservationer?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Använda Azure Dedicated Hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Använda Azure Dedicated Hosts](./windows/dedicated-hosts.md)
 
 - [Prissättning för reserverade värdar](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Hantera reservationer i Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Hantera reservationer i Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 
-- [Förstå hur reservationsrabatten tillämpas](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
+- [Förstå hur reservationsrabatten tillämpas](../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
-- [Förstå reservationsanvändning för en prenumeration med Betala per användning-priser](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Förstå reservationsanvändning för en prenumeration med Betala per användning-priser](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
-- [Förstå reservationsanvändning för din Enterprise-registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Förstå reservationsanvändning för din Enterprise-registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 
-- [Kostnader för Windows-programvara ingår inte i reservationer](https://docs.microsoft.com/azure/billing/billing-reserved-instance-windows-software-costs)
+- [Kostnader för Windows-programvara ingår inte i reservationer](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
-- [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+- [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](/partner-center/azure-reservations)

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653620"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503293"
 ---
 # <a name="azure-advanced-threat-detection"></a>Avancerad hotidentifiering i Azure
 
@@ -339,15 +340,14 @@ API: t för avvikelse identifiering är en effektiv och effektiv lösning för e
 
 Med verktyg för att upptäcka Shadow IT, utvärdera risker, genomdriva principer, undersöka aktiviteter och stoppa hot kan organisationen migrera till molnet på ett säkrare sätt samtidigt som ni behåller kontrollen över viktiga data.
 
-| | |
-|---|---|
+| Kategori | Beskrivning |
+| -------- | ----------- |
 | Utforska | Upptäck Shadow IT med Cloud App Security. Få insyn genom att identifiera appar, aktiviteter, användare, data och filer i molnmiljön. Identifiera tredjepartsappar som är anslutna till molnet.|
 |Undersök
  | Undersök molnapparna med hjälp av datautredningsverktyg för att analysera riskfyllda appar, specifika användare och filer i nätverket. Hitta mönster i de data som samlas in från molnet. Generera rapporter för att övervaka molnet. |
 | Kontroll | Minska riskerna genom att skapa principer och varningar som ger dig fullständig kontroll över molntrafiken i nätverket. Använd Cloud App Security för att migrera användarna till säkra sanktionerade molnappar. |
 | Skydda | Använd Cloud App Security för att sanktionera eller förhindra program, framtvinga skydd mot data förlust, kontrol lera behörigheter och delning och skapa anpassade rapporter och aviseringar. |
 | Kontroll | Minska riskerna genom att skapa principer och varningar som ger dig fullständig kontroll över molntrafiken i nätverket. Använd Cloud App Security för att migrera användarna till säkra sanktionerade molnappar. |
-| | |
 
 
 ![Cloud App Security diagram](./media/threat-detection/azure-threat-detection-fig14.png)

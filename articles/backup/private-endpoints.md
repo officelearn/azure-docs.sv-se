@@ -3,16 +3,16 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124263"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503769"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
-Med Azure Backup kan du säkerhetskopiera och återställa data på ett säkert sätt från dina Recovery Services-valv med [privata slut punkter](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Privata slut punkter använder en eller flera privata IP-adresser från ditt VNet, vilket effektivt ansluter tjänsten till ditt VNet.
+Med Azure Backup kan du säkerhetskopiera och återställa data på ett säkert sätt från dina Recovery Services-valv med [privata slut punkter](../private-link/private-endpoint-overview.md). Privata slut punkter använder en eller flera privata IP-adresser från ditt VNet, vilket effektivt ansluter tjänsten till ditt VNet.
 
 Den här artikeln hjälper dig att förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 
@@ -45,7 +45,7 @@ Det här avsnittet beskriver de steg som ingår i att skapa och använda privata
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-I [det här avsnittet](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) finns information om hur du skapar ett valv med hjälp av Azure Resource Manager-klienten. Detta skapar ett valv med dess hanterade identitet redan aktive rad. Läs mer om Recovery Services-valv [här](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+I [det här avsnittet](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) finns information om hur du skapar ett valv med hjälp av Azure Resource Manager-klienten. Detta skapar ett valv med dess hanterade identitet redan aktive rad. Läs mer om Recovery Services-valv [här](./backup-azure-recovery-services-vault-overview.md).
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Aktivera hanterad identitet för ditt valv
 
@@ -88,7 +88,7 @@ Det finns två obligatoriska DNS-zoner som måste skapas:
     - `privatelink.blob.core.windows.net`
     - `privatelink.queue.core.windows.net`
 
-    | **Fraktzon**                           | **Tjänst** | **Information om prenumeration och resurs grupp (RG)**                  |
+    | **Zon**                           | **Telefonitjänstprovider** | **Information om prenumeration och resurs grupp (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
     | `privatelink.blob.core.windows.net`  | Blob        | **Prenumeration**: samma som den privata slut punkten måste skapas **RG**: antingen RG för VNet eller den privata slut punkten |
     | `privatelink.queue.core.windows.net` | Kö       | **RG**: antingen RG för VNet eller den privata slut punkten |
@@ -103,7 +103,7 @@ Kunderna kan välja att integrera sina privata slut punkter med privata DNS-zone
 
 Om du vill skapa en separat privat DNS-zon i Azure kan du göra samma sak med samma steg som används för att skapa obligatoriska DNS-zoner. Informationen om namngivning och prenumerationer delas nedan:
 
-| **Fraktzon**                                                     | **Tjänst** | **Information om prenumeration och resurs grupp**                  |
+| **Zon**                                                     | **Telefonitjänstprovider** | **Information om prenumeration och resurs grupp**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Obs**: *geo* här refererar till regions koden. Till exempel *wcus* och *Ne* för USA, västra centrala respektive Nord Europa. | Backup      | **Prenumeration**: samma som den privata slut punkten måste skapas **RG**: alla rg i prenumerationen |
 
@@ -111,9 +111,9 @@ Referera till [den här listan](https://download.microsoft.com/download/1/2/6/12
 
 För URL-namn konventioner i nationella regioner:
 
-- [Kina](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Tyskland](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [Porslin](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Tyskland](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Länka privata DNS-zoner med ditt virtuella nätverk
 
@@ -495,7 +495,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Du måste skapa tre privata DNS-zoner och länka dem till det virtuella nätverket.
 
-| **Fraktzon**                                                     | **Tjänst** |
+| **Zon**                                                     | **Telefonitjänstprovider** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | Blob        |

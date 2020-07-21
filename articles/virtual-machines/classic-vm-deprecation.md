@@ -8,17 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 7488ef45d665d95a28f69b7af887b98dd5a76376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e55d13c0b5fbf5b813f1669587836bf8b5e2d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678383"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503021"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrera dina IaaS-resurser till Azure Resource Manager den 1 mars 2023 
 
 I 2014 lanserade vi IaaS på Azure Resource Manager och har ökat funktionerna någonsin sedan. Eftersom [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) nu har fullständiga IaaS-funktioner och andra framsteg förbrukade vi hanteringen av IaaS-datorer via Azure Service Manager den 28 februari 2020 och den här funktionen kommer att dras tillbaka den 1 mars 2023. 
 
-Idag, cirka 90% av de virtuella IaaS-datorerna använder Azure Resource Manager. Om du använder IaaS-resurser via Azure Service Manager (ASM) börjar du planera migreringen nu och slutför den 1 mars 2023 för att dra nytta av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/).
+Idag, cirka 90% av de virtuella IaaS-datorerna använder Azure Resource Manager. Om du använder IaaS-resurser via Azure Service Manager (ASM) börjar du planera migreringen nu och slutför den 1 mars 2023 för att dra nytta av [Azure Resource Manager](../azure-resource-manager/management/index.yml).
 
 Klassiska virtuella datorer kommer att följa den [moderna livs cykel policyn](https://support.microsoft.com/help/30881/modern-lifecycle-policy) för pensionering.
 
@@ -38,10 +39,10 @@ Följande Azure-tjänster och-funktioner påverkas **inte** av den här indragni
 
 - Börja planera migreringen till Azure Resource Manager, idag. 
 
-- [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) om hur du migrerar dina klassiska [Linux](./linux/migration-classic-resource-manager-plan.md) -och [Windows](./windows/migration-classic-resource-manager-plan.md) -datorer till Azure Resource Manager.
+- [Läs mer](./windows/migration-classic-resource-manager-overview.md) om hur du migrerar dina klassiska [Linux](./linux/migration-classic-resource-manager-plan.md) -och [Windows](./windows/migration-classic-resource-manager-plan.md) -datorer till Azure Resource Manager.
 
-- Mer information finns i [vanliga frågor och svar om klassisk Azure Resource Manager migrering](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
+- Mer information finns i [vanliga frågor och svar om klassisk Azure Resource Manager migrering](./windows/migration-classic-resource-manager-faq.md)
 
-- För tekniska frågor, problem och prenumerationer vit listning [kontaktar du supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- [Kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)för tekniska frågor, problem och lägga till prenumerationer i listan över tillåtna.
 
 - För andra frågor som inte ingår i vanliga frågor och svar och kommentarer nedan.

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 62880542e2cc4a93585011837b4cc962c8e79c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d480b9309c9028d8f55ab50c72a86889f320810b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773775"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500123"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av virtuella Azure-datorer
 Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -37,7 +38,7 @@ Börja med att [Hämta din användnings information](../../cost-management-billi
 | Taggar               | Tagg som du tilldelar till resursen. Använd taggar för att gruppera faktureringsposter. Lär dig att [tagga din Virtual Machines.](tag.md) Detta är endast tillgängligt för virtuella Resource Manager-datorer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{" personalavdelningen ":" RD "," min användare ":" mina namn "}"                                                                                                                                                                                                                                                                                                                        |
 | Ytterligare info    | Tjänstspecifika metadata. För virtuella datorer fyller vi i följande i fältet ytterligare information: <ul><li>Bildtyp-bestämd bild som du körde. Hitta den fullständiga listan över strängar som stöds under avbildnings typer.</li><li>Tjänst typ: den storlek som du har distribuerat.</li><li>VMName: namnet på den virtuella datorn. Detta är endast ifyllt för virtuella datorer med skalnings uppsättningar. Om du behöver ditt VM-namn för virtuella datorer med skalnings uppsättningar kan du se det i instans-ID-strängen ovan.</li><li>UsageType: här anges vilken typ av användning detta representerar.<ul><li>ComputeHR är beräknings timmen för den underliggande virtuella datorn, t. ex. Standard_D1_v2.</li><li>ComputeHR_SW är avgiften för program varan om den virtuella datorn använder Premium program vara, t. ex. Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType": "kanonisk", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType": "kanonisk", "ServiceType": "Standard_DS1_v2", "VMName": "myVM1", "UsageType": "ComputeHR"}<br><br>Premium program vara {"ImageType": "", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR_SW"} |
 
-## <a name="image-type"></a>Avbildningstyp
+## <a name="image-type"></a>Avbildnings typ
 För vissa bilder i Azure-galleriet fylls avbildnings typen i fältet ytterligare information. Detta gör det möjligt för användarna att förstå och spåra vad de har distribuerat på den virtuella datorn. De värden som är ifyllda i det här fältet baserat på den avbildning som du har distribuerat är följande:
   - BitRock 
   - Canonical 
@@ -74,7 +75,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    chinaeast             |    Kina, östra                            |
 |    chinanorth            |    Kina, norra                           |
 |    eastasia              |    Asien, östra                             |
-|    eastus                |    USA, östra                               |
+|    USA, östra                |    East US                               |
 |    eastus2               |    USA, östra 2                             |
 |    GermanyCentral        |    DE centrala                            |
 |    GermanyNortheast      |    DE nordöstra                          |
@@ -83,8 +84,8 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    Centrala          |    Sydkorea, centrala                            |
 |    Koreasödra            |    Sydkorea, södra                              |
 |    usanorracentrala        |    USA, norra centrala                      |
-|    northeurope           |    Europa, norra                          |
-|    southcentralus        |    USA, södra centrala                      |
+|    northeurope           |    Norra Europa                          |
+|    USA, södra centrala        |    USA, södra centrala                      |
 |    Asien, sydöstra         |    Sydostasien                        |
 |    Australienöstra            |    Indien, södra                              |
 |    UKNorth               |    Nord USA                              |
@@ -101,7 +102,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    Europa, västra            |    Europa, västra                           |
 |    Usavästracentrala             |    Indien, västra                               |
 |    westus                |    USA, västra                               |
-|    westus2               |    USA, västra 2                             |
+|    USA, västra 2               |    USA, västra 2                             |
 
 
 ## <a name="virtual-machine-usage-faq"></a>Vanliga frågor om användning av virtuell dator
@@ -137,10 +138,9 @@ Virtuella datorer med Premium Storage-kapacitet debiteras enligt samma taxa som 
 
 Det finns tre möjliga platser i API: erna som kan returnera det operativ system som körs på den virtuella datorn:
 
-1) Om du kör virtuella datorer som innehåller gäst agenten (alla virtuella Linux-datorer och de flesta virtuella Windows-datorer) visas operativ systemets namn och OS-version i vyn VM instances. Detta är alltid korrekt, men på grund av att informationen kommer från gäst agenten kommer den inte att vara tillgänglig för alla virtuella datorer. API-dokumentation [här](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
-2) Virtuella datorer som distribueras från en plattforms avbildning kommer att innehålla avbildnings information som kan indikera operativ systemets version i utgivarens valda namn för erbjudande eller SKU. Dessa är dock valda, så det finns ingen garanti för att operativ systemet ska kunna identifieras i namn. API-dokumentation [här](https://docs.microsoft.com/rest/api/compute/images/get#operatingsystemtypes).
-3) Varje OS-disk har ett angivet värde för Windows eller Linux. Det här värdet ärvs från avbildningen när operativ system disken skapades från en avbildning. När en operativ system disk överförs till plattformen direkt anges OS-värdet när operativ system disken skapas. Det här värdet är alltid tillgängligt, men Azure-plattformen garanterar inte att det är korrekt. API-dokumentation [här](https://docs.microsoft.com/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
+1) Om du kör virtuella datorer som innehåller gäst agenten (alla virtuella Linux-datorer och de flesta virtuella Windows-datorer) visas operativ systemets namn och OS-version i vyn VM instances. Detta är alltid korrekt, men på grund av att informationen kommer från gäst agenten kommer den inte att vara tillgänglig för alla virtuella datorer. API-dokumentation [här](/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
+2) Virtuella datorer som distribueras från en plattforms avbildning kommer att innehålla avbildnings information som kan indikera operativ systemets version i utgivarens valda namn för erbjudande eller SKU. Dessa är dock valda, så det finns ingen garanti för att operativ systemet ska kunna identifieras i namn. API-dokumentation [här](/rest/api/compute/images/get#operatingsystemtypes).
+3) Varje OS-disk har ett angivet värde för Windows eller Linux. Det här värdet ärvs från avbildningen när operativ system disken skapades från en avbildning. När en operativ system disk överförs till plattformen direkt anges OS-värdet när operativ system disken skapas. Det här värdet är alltid tillgängligt, men Azure-plattformen garanterar inte att det är korrekt. API-dokumentation [här](/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om din användnings information finns i [förstå din faktura för Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)
-

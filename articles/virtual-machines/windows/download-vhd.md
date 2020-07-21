@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: e87f2436f69abed4c0d0ee415226f99b52f2e804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20236ccf1ec8e1f8d8113f0597d37c20e2788987
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085373"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500437"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Hämta en Windows-VHD från Azure
 
@@ -22,7 +22,7 @@ I den här artikeln får du lära dig hur du hämtar en Windows virtuell hård d
 
 ## <a name="optional-generalize-the-vm"></a>Valfritt: generalisera den virtuella datorn
 
-Om du vill använda den virtuella hård disken som en [avbildning](tutorial-custom-images.md) för att skapa andra virtuella datorer bör du använda [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) för att generalisera operativ systemet. 
+Om du vill använda den virtuella hård disken som en [avbildning](tutorial-custom-images.md) för att skapa andra virtuella datorer bör du använda [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) för att generalisera operativ systemet. 
 
 Om du vill använda den virtuella hård disken som en avbildning för att skapa andra virtuella datorer, generaliserar du den virtuella datorn.
 
@@ -45,7 +45,7 @@ En virtuell hård disk kan inte laddas ned från Azure om den är ansluten till 
 
 ## <a name="generate-download-url"></a>Generera nedladdnings-URL
 
-Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . När URL: en genereras tilldelas URL: en förfallo tid.
+Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad åtkomst (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) . När URL: en genereras tilldelas URL: en förfallo tid.
 
 1. På sidan för den virtuella datorn klickar du på **diskar** på den vänstra menyn.
 1. Välj operativ system disk för den virtuella datorn.
@@ -68,4 +68,3 @@ Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad 
 - Lär dig hur du [laddar upp en VHD-fil till Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Skapa hanterade diskar från ohanterade diskar i ett lagrings konto](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Hantera Azure-diskar med PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

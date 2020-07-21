@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02207f8b5cf8628c3b2bbb72ab8d38ca9a4a5731
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610854"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504228"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -78,7 +78,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 ## <a name="compare-with-transactional-replication"></a>Jämför med transaktionell replikering
 
-| | Datasynkronisering | Transaktionsreplikering |
+| Datasynkronisering | Transaktionsreplikering |
 |---|---|---|
 | Fördelar | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering <br/>– Stöd för Azure SQL Managed instance |
 | Nackdelar | – 5 min eller mer svars tid<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
@@ -148,7 +148,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 
 #### <a name="unsupported-column-types"></a>Kolumn typer som inte stöds
 
-Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Ett exempel:
+Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Till exempel:
 
 - Beräknade kolumner.
 - Systemgenererade kolumner för temporala tabeller.

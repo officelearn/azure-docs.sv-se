@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186449"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505354"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 
@@ -25,7 +25,7 @@ Genom att använda Azure Monitor kan du samla in anpassade mått via din program
  ![Översikt över Telegraph-agent](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Anpassade mått stöds inte i alla regioner. De regioner som stöds visas [här](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
+> Anpassade mått stöds inte i alla regioner. De regioner som stöds visas [här](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Skicka anpassade mått 
 
@@ -111,7 +111,7 @@ Agenten samlar nu in mått från var och en av de angivna plugin-programmen och 
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Rita dina teleympkvistar-mått i Azure Portal 
 
-1. Öppna [Azure Portal](https://portal.azure.com). 
+1. Öppna [Azure-portalen](https://portal.azure.com). 
 
 1. Gå till fliken ny **övervakare** . Välj sedan **mått**.  
 
@@ -137,6 +137,3 @@ När de inte längre behövs kan du ta bort resurs gruppen, den virtuella datorn
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [anpassade mått](metrics-custom-overview.md).
-
-
-

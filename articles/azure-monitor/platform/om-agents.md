@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847399"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505303"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Om du vill behålla din befintliga investering i [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) och använda utökade funktioner med Azure Monitor kan du integrera Operations Manager med din Log Analytics-arbetsyta. På så sätt kan du utnyttja affärs möjligheterna för loggar i Azure Monitor samtidigt som du fortsätter att använda Operations Manager för att:
+Om du vill behålla din befintliga investering i [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) och använda utökade funktioner med Azure Monitor kan du integrera Operations Manager med din Log Analytics-arbetsyta. På så sätt kan du utnyttja affärs möjligheterna för loggar i Azure Monitor samtidigt som du fortsätter att använda Operations Manager för att:
 
 * Övervaka hälsotillståndet för dina IT-tjänster med Operations Manager
 * Underhålla integrationen med dina ITSM-lösningar med stöd för hantering av incidenter och problem
@@ -33,7 +33,7 @@ Följande diagram visar anslutningen mellan hanterings servrar och agenter i en 
 
 Om dina IT-säkerhetsprinciper inte tillåter datorer i nätverket att ansluta till Internet, kan hanterings servrar konfigureras för att ansluta till Log Analytics Gateway för att ta emot konfigurations information och skicka insamlade data beroende på vilka lösningar som är aktiverade. Mer information och anvisningar om hur du konfigurerar din Operations Manager hanterings grupp för att kommunicera via en Log Analytics Gateway till Azure Monitor finns i [ansluta datorer till Azure monitor med hjälp av Log Analytics Gateway](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs igenom följande krav innan du börjar.
 
@@ -47,11 +47,11 @@ Läs igenom följande krav innan du börjar.
     - USA, västra centrala
     - Sydöstra Australien
     - Europa, västra
-    - USA, östra
+    - East US
     - Sydostasien
     - Japan, östra
     - Storbritannien, södra
-    - Indien, centrala
+    - Central India
     - Kanada, centrala
     - USA, västra 2
 
@@ -71,7 +71,7 @@ Informationen nedan visar den konfigurations information för proxy och brand v�
 
 |Resurs | Portnummer| Kringgå HTTPS-kontroll|  
 |---------|------|-----------------------|  
-|**Gent**|||  
+|**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Ja|  
 |\*.oms.opinsights.azure.com| 443|Ja|  
 |\*.blob.core.windows.net| 443|Ja|  
@@ -154,7 +154,7 @@ Om proxyservern kräver autentisering utför du följande steg för att konfigur
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Under **Kör som-konfiguration** väljer du **Profiler**.
 1. Öppna profilen **Kör som-profilproxy för System Center Advisor**.
-1. I guiden Kör som-profil klickar du på Lägg till för att använda ett Kör som-konto. Du kan skapa ett [Kör som-konto](https://technet.microsoft.com/library/hh321655.aspx) eller använda ett befintligt konto. Det här kontot måste ha tillräcklig behörighet för att kunna passera genom proxyservern.
+1. I guiden Kör som-profil klickar du på Lägg till för att använda ett Kör som-konto. Du kan skapa ett [Kör som-konto](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) eller använda ett befintligt konto. Det här kontot måste ha tillräcklig behörighet för att kunna passera genom proxyservern.
 1. Ange vilket konto som ska hanteras genom att välja **En vald klass, grupp eller objekt**, klicka på **Välj...** och sedan klicka på **Grupp...** för att öppna **Gruppsökning**.
 1. Sök efter och välj **Övervakning av servergrupp i Microsoft System Center Advisor**. Klicka på **OK** när du har valt grupp för att stänga rutan **Gruppsökning**.
 1. Klicka på **OK** för att stänga rutan **Lägg till ett Kör som-konto** .
@@ -173,7 +173,7 @@ När konfigurationen är klar upprättar Operations Manager hanterings gruppen e
 * **Microsoft.SystemCenter. Advisor. MPUpdate** – uppdaterar bas Azure Monitor hanterings paketen. Kör som standard var 12:e timme.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** – uppdaterar hanteringspaketen för lösningen som aktiverats i din arbetsyta. Körs som standard var 5:e minut.
 
-Du kan åsidosätta de här två reglerna för att antingen förhindra automatisk nedladdning genom att inaktivera dem eller ändra frekvensen för hur ofta hanterings servern ska synkroniseras med Azure Monitor för att avgöra om ett nytt hanterings paket är tillgängligt och ska laddas ned. Följ [de här stegen för att åsidosätta en regel eller övervakare](https://technet.microsoft.com/library/hh212869.aspx) för att ändra parametern **Frekvens** (med ett värde i sekunder) för att justera synkroniseringsschemat eller ändra parametern **Aktiverad** för att avaktivera reglerna. Rikta åsidosättningarna mot alla objekt i klassen Operations Manager Management Group.
+Du kan åsidosätta de här två reglerna för att antingen förhindra automatisk nedladdning genom att inaktivera dem eller ändra frekvensen för hur ofta hanterings servern ska synkroniseras med Azure Monitor för att avgöra om ett nytt hanterings paket är tillgängligt och ska laddas ned. Följ [de här stegen för att åsidosätta en regel eller övervakare](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) för att ändra parametern **Frekvens** (med ett värde i sekunder) för att justera synkroniseringsschemat eller ändra parametern **Aktiverad** för att avaktivera reglerna. Rikta åsidosättningarna mot alla objekt i klassen Operations Manager Management Group.
 
 Om du vill fortsätta att följa den befintliga processen för ändrings kontroll för att kontrol lera hanterings paket versioner i produktions hanterings gruppen kan du inaktivera reglerna och aktivera dem vid vissa tidpunkter när uppdateringar är tillåtna. Om du har en utvecklings- eller kvalitetskontrollshanteringsgrupp i din miljö och den är ansluten till Internet, kan du konfigurera hanteringsgruppen med Log Analytics-arbetsytan för att stödja det här scenariot. På så sätt kan du granska och utvärdera de iterativa versionerna av de Azure Monitor hanterings paketen innan du släpper dem i produktions hanterings gruppen.
 

@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa2b936f97b037bdc62a01f607945ad270faa13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945062"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502341"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2-pureScale på Azure
 
@@ -66,7 +67,7 @@ Den här arkitekturen kör program, lagring och data nivåer på virtuella Azure
 
 -   Ett DB2 pureScale-kluster. Vilken typ av beräknings resurser du behöver i Azure beror på din installation. I allmänhet kan du använda två metoder:
 
-    -   Använd ett nätverk med flera noder och högpresterande data behandling (HPC) där små till medel stora instanser får åtkomst till delad lagring. För den här HPC-typen av konfiguration ger Azure Memory-optimerade virtuella datorer i E-serien eller lagrings optimerade [virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) i L-serien nödvändig beräknings kraft.
+    -   Använd ett nätverk med flera noder och högpresterande data behandling (HPC) där små till medel stora instanser får åtkomst till delad lagring. För den här HPC-typen av konfiguration ger Azure Memory-optimerade virtuella datorer i E-serien eller lagrings optimerade [virtuella datorer](../windows/sizes.md) i L-serien nödvändig beräknings kraft.
 
     -   Använd färre stora instanser av virtuella datorer för data motorer. För stora instanser är de största minnesoptimerade virtuella datorer i [M-serien](https://azure.microsoft.com/pricing/details/virtual-machines/series/) idealiska för tunga minnes arbets belastningar. Du kan behöva en dedikerad instans, beroende på storleken på den logiska partitionen (LPAR) som används för att köra DB2.
 
@@ -95,11 +96,11 @@ Ett stort DB2 pureScale-kluster kan kräva 200 terabyte (TB) eller mer av Premiu
 
 IBM rekommenderar InfiniBand-nätverk för alla medlemmar i ett DB2 pureScale-kluster. DB2-pureScale använder också RDMA (Remote Direct Memory Access), där det är tillgängligt, för CFs.
 
-Under installationen skapar du en Azure- [resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som innehåller alla virtuella datorer. I allmänhet kan du gruppera resurser utifrån deras livstid och vem som ska hantera dem. De virtuella datorerna i den här arkitekturen kräver [accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Det är en Azure-funktion som ger en konsekvent, extremt låg nätverks fördröjning via en SR-IOV (Single-root I/O Virtualization) till en virtuell dator.
+Under installationen skapar du en Azure- [resurs grupp](../../azure-resource-manager/management/overview.md) som innehåller alla virtuella datorer. I allmänhet kan du gruppera resurser utifrån deras livstid och vem som ska hantera dem. De virtuella datorerna i den här arkitekturen kräver [accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Det är en Azure-funktion som ger en konsekvent, extremt låg nätverks fördröjning via en SR-IOV (Single-root I/O Virtualization) till en virtuell dator.
 
-Varje virtuell Azure-dator distribueras till ett virtuellt nätverk som har undernät: Main, Gluster FS front end (gfsfe), Gluster FS server del (bfsbe), DB2 pureScale (db2be) och DB2 pureScale front end (db2fe). Installations skriptet skapar även de primära [nätverkskorten](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics) på de virtuella datorerna i huvud under nätet.
+Varje virtuell Azure-dator distribueras till ett virtuellt nätverk som har undernät: Main, Gluster FS front end (gfsfe), Gluster FS server del (bfsbe), DB2 pureScale (db2be) och DB2 pureScale front end (db2fe). Installations skriptet skapar även de primära [nätverkskorten](./multiple-nics.md) på de virtuella datorerna i huvud under nätet.
 
-Använd [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) för att begränsa nätverks trafiken inom det virtuella nätverket och för att isolera under näten.
+Använd [nätverks säkerhets grupper](../../virtual-network/virtual-network-vnet-plan-design-arm.md) för att begränsa nätverks trafiken inom det virtuella nätverket och för att isolera under näten.
 
 På Azure måste DB2 pureScale använda TCP/IP som nätverks anslutning för lagring.
 

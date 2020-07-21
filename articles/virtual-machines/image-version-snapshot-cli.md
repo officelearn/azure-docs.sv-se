@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 585d3729a886f3a01dff6dcd9afdab63669c05b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225297"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502885"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Skapa en avbildning från en virtuell hård disk eller en ögonblicks bild i ett galleri för delad avbildning med hjälp av Azure CLI
 
@@ -69,7 +69,7 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 
 När du gör en avbildnings definition ser du till att har all rätt information. I det här exemplet antar vi att ögonblicks bilden eller den virtuella hård disken kommer från en virtuell dator som används och inte har generaliserats. Om den virtuella hård disken eller ögonblicks bilden tog av ett generaliserat operativ system (när Sysprep för Windows eller [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller Linux har körts `-deprovision+user` ) ändrar `-OsState` du till `generalized` . 
 
-Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](./linux/shared-image-galleries.md#image-definitions).
 
 Skapa en bild definition i galleriet med hjälp av [AZ sig-bild-definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -120,7 +120,7 @@ Om du vill inkludera data diskar i avbildningen måste du inkludera både `--dat
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra alla dina avbildnings versions repliker i [zon redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type standard_zrs` den när du skapar avbildnings versionen.
+> Du kan också lagra alla dina avbildnings versions repliker i [zon redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `--storage-account-type standard_zrs` den när du skapar avbildnings versionen.
 >
 
 ## <a name="next-steps"></a>Nästa steg

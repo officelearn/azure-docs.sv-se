@@ -12,25 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: amverma
-ms.openlocfilehash: 7f7907482da886d9da17ef1e7844b205f3e4b906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de61403b62f80bea7872d5ab3561567ae2109590
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196771"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500076"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Aktivera InfiniBand med SR-IOV
 
-Azure NC, ND och H-serien med virtuella datorer backas upp av ett dedikerat InfiniBand-nätverk. Alla RDMA-aktiverade storlekar kan dra nytta av det nätverket med hjälp av Intel MPI. En del VM-serien har expanderat stöd för alla MPI-implementeringar och RDMA-verb via SR-IOV. Virtuella datorer med RDMA-kapacitet är [GPU-optimerade](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) och HPC-virtuella datorer med [höga prestanda](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) .
+Azure NC, ND och H-serien med virtuella datorer backas upp av ett dedikerat InfiniBand-nätverk. Alla RDMA-aktiverade storlekar kan dra nytta av det nätverket med hjälp av Intel MPI. En del VM-serien har expanderat stöd för alla MPI-implementeringar och RDMA-verb via SR-IOV. Virtuella datorer med RDMA-kapacitet är [GPU-optimerade](../../sizes-gpu.md) och HPC-virtuella datorer med [höga prestanda](../../sizes-hpc.md) .
 
 ## <a name="choose-your-installation-path"></a>Välj installations Sök väg
 
 För att komma igång är det enklaste alternativet att använda en förkonfigurerad plattforms avbildning för InfiniBand, där det finns:
 
-- **HPC IaaS VM** – för att komma igång med IaaS-VM: ar för HPC är den enklaste lösningen att använda den [CentOS-HPC 7,6 VM OS-avbildningen](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), som redan är konfigurerad med InfiniBand. Eftersom den här avbildningen redan har kon figurer ATS med InfiniBand behöver du inte konfigurera den manuellt. För kompatibla Windows-versioner, se [Windows RDMA-kompatibla instanser](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
+- **HPC IaaS VM** – för att komma igång med IaaS-VM: ar för HPC är den enklaste lösningen att använda den [CentOS-HPC 7,6 VM OS-avbildningen](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), som redan är konfigurerad med InfiniBand. Eftersom den här avbildningen redan har kon figurer ATS med InfiniBand behöver du inte konfigurera den manuellt. För kompatibla Windows-versioner, se [Windows RDMA-kompatibla instanser](../../sizes-hpc.md#rdma-capable-instances).
 
 - **GPU IaaS VM** – inga plattforms avbildningar för närvarande är förkonfigurerade för GPU-optimerade virtuella datorer, med undantag för [CentOS VM 7,6-avbildning av virtuella datorer](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557). Om du vill konfigurera en anpassad avbildning med InfiniBand läser du [Installera MELLANOX ofed manuellt](#manually-install-mellanox-ofed).
 
-Om du använder en anpassad virtuell dator avbildning eller en [GPU-optimerad](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) virtuell dator bör du konfigurera den med InfiniBand genom att lägga till InfiniBandDriverLinux eller InfiniBandDriverWindows VM-tillägget i distributionen. Lär dig hur du använder dessa VM-tillägg med [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) och [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
+Om du använder en anpassad virtuell dator avbildning eller en [GPU-optimerad](../../sizes-gpu.md) virtuell dator bör du konfigurera den med InfiniBand genom att lägga till InfiniBandDriverLinux eller InfiniBandDriverWindows VM-tillägget i distributionen. Lär dig hur du använder dessa VM-tillägg med [Linux](../../sizes-hpc.md#rdma-capable-instances) och [Windows](../../sizes-hpc.md#rdma-capable-instances).
 
 ## <a name="manually-install-mellanox-ofed"></a>Installera Mellanox OFED manuellt
 
@@ -65,4 +66,4 @@ sudo systemctl restart waagent
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) i Azure.
+Lär dig mer om [HPC](/azure/architecture/topics/high-performance-computing/) i Azure.

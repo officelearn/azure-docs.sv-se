@@ -9,11 +9,12 @@ ms.subservice: visual-studio
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124371"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503089"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Så här skapar du en skalnings uppsättning för virtuella datorer med Visual Studio
 
@@ -21,9 +22,9 @@ Den här artikeln visar hur du distribuerar en skalnings uppsättning för en vi
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) är en Azure Compute-resurs som distribuerar och hanterar en samling liknande virtuella datorer med autoskalning och belastnings utjämning. Du kan etablera och distribuera Virtual Machine Scale Sets med [Azure Resource Manager-mallar](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager mallar kan distribueras med hjälp av Azure CLI, PowerShell, REST och även direkt från Visual Studio. Visual Studio innehåller en uppsättning exempel på mallar, som du kan distribuera som en del av ett distributions projekt för Azure-resurs grupper.
 
-Distributioner av Azure-resurs grupper är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda distributions åtgärd. Mer information finns i [skapa och Distribuera Azure-resurs grupper via Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Distributioner av Azure-resurs grupper är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda distributions åtgärd. Mer information finns i [skapa och Distribuera Azure-resurs grupper via Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång med att distribuera Virtual Machine Scale Sets i Visual Studio behöver du följande förutsättningar:
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: fef582048d1e1093a4a4d69229185e8a3d8dc229
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 1ebba13de14935d931d5d21ab786889d9a3755da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144863"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500318"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -21,30 +21,30 @@ Stöd för virtuella datorer i generation 2 (VM) är nu tillgängligt på Azure.
 
 Virtuella datorer i generation 2 stöder viktiga funktioner som inte stöds i virtuella datorer i generation 1. Dessa funktioner omfattar ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM). Generation 2 virtuella datorer som körs lokalt, har vissa funktioner som inte stöds i Azure än. Mer information finns i avsnittet [funktioner och funktioner](#features-and-capabilities) .
 
-Virtuella datorer i generation 2 använder den nya UEFI-baserade start arkitekturen i stället för den BIOS-baserade arkitekturen som används av virtuella datorer i generation 1. Jämfört med virtuella datorer i generation 1 kan virtuella datorer i generation 2 ha förbättrade start-och installations tider. En översikt över virtuella datorer i generation 2 och några av skillnaderna mellan generation 1 och generation 2 finns i [ska jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Virtuella datorer i generation 2 använder den nya UEFI-baserade start arkitekturen i stället för den BIOS-baserade arkitekturen som används av virtuella datorer i generation 1. Jämfört med virtuella datorer i generation 1 kan virtuella datorer i generation 2 ha förbättrade start-och installations tider. En översikt över virtuella datorer i generation 2 och några av skillnaderna mellan generation 1 och generation 2 finns i [ska jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## <a name="generation-2-vm-sizes"></a>Generation 2 VM-storlekar
 
 Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom för virtuella datorer i Mv2-serien). Azure erbjuder nu generation 2-stöd för följande valda VM-serien:
 
-* [B-serien](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
+* [B-serien](../sizes-b-series-burstable.md)
 * [DCsv2-serien](../dcv2-series.md)
 * [DSv2-serien](../dv2-dsv2-series.md) och [Dsv3-serien](../dv3-dsv3-series.md)
-* [Dasv4-serien](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
+* [Dasv4-serien](../dav4-dasv4-series.md)
 * [Esv3-serien](../ev3-esv3-series.md)
-* [Easv4-serien](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series)
+* [Easv4-serien](../eav4-easv4-series.md)
 * [Fsv2-serien](../fsv2-series.md)
-* [GS-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
+* [GS-serien](../sizes-previous-gen.md#gs-series)
 * [HB-serien](../hb-series.md)
 * [HC-serien](../hc-series.md)
-* [Ls-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) och [Lsv2-serien](../lsv2-series.md)
+* [Ls-serien](../sizes-previous-gen.md#ls-series) och [Lsv2-serien](../lsv2-series.md)
 * [M-serien](../m-series.md)
 * [Mv2-serie](../mv2-series.md)<sup>1</sup>
 * [NCv2-serien](../ncv2-series.md) och [NCv3-serien](../ncv3-series.md)
 * [ND-serien](../nd-series.md)
 * [NVv3-serien](../nvv3-series.md)
 
-<sup>1</sup> Mv2-serien stöder inte VM-avbildningar av generation 1 och stöder endast en delmängd av generation 2-avbildningar. Mer information finns i [dokumentationen för Mv2-serien](https://docs.microsoft.com/azure/virtual-machines/mv2-series) .
+<sup>1</sup> Mv2-serien stöder inte VM-avbildningar av generation 1 och stöder endast en delmängd av generation 2-avbildningar. Mer information finns i [dokumentationen för Mv2-serien](../mv2-series.md) .
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Generation 2 VM-avbildningar på Azure Marketplace
 
@@ -213,6 +213,6 @@ Du kan också skapa virtuella datorer i generation 2 med hjälp av skalnings upp
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [virtuella datorer i generation 2 i Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Lär dig mer om [virtuella datorer i generation 2 i Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 * Lär dig hur du [förbereder en virtuell hård disk](prepare-for-upload-vhd-image.md) för att ladda upp från lokala system till Azure.

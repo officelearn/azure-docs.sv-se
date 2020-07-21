@@ -7,23 +7,24 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 86343e10f10b51f65764e16bbc1e485136bca162
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cff7eb4a69005f2e74747b6e58447f100c69b60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676820"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501610"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Flytta en konfiguration för underhålls kontroll till en annan region
 
 Följ den här artikeln för att flytta en konfiguration av en underhålls kontroll till en annan Azure-region. Du kanske vill flytta en konfiguration av flera skäl. Till exempel för att dra nytta av en ny region, för att distribuera funktioner eller tjänster som är tillgängliga i en bestämd region, för att uppfylla interna principer och styrnings krav, eller som svar på kapacitets planeringen.
 
-Med underhålls kontroll, med anpassade underhålls konfigurationer, kan du styra hur plattforms uppdateringar tillämpas på virtuella [Windows](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) -datorer och till Azure-dedikerade värdar. Det finns ett par scenarier för att flytta underhålls kontroll över flera regioner:
+Med underhålls kontroll, med anpassade underhålls konfigurationer, kan du styra hur plattforms uppdateringar tillämpas på virtuella [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) -och [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) -datorer och till Azure-dedikerade värdar. Det finns ett par scenarier för att flytta underhålls kontroll över flera regioner:
 
 - Följ anvisningarna i den här artikeln om du vill flytta din konfiguration för underhålls kontroll, men inte de resurser som är associerade med konfigurationen.
 - Om du vill flytta resurserna som är associerade med en underhålls konfiguration, men inte själva konfigurationen, följer du [dessa anvisningar](move-region-maintenance-configuration-resources.md).
 - Följ anvisningarna i den här artikeln om du vill flytta både underhålls konfigurationen och de resurser som är kopplade till den. Följ sedan [de här anvisningarna](move-region-maintenance-configuration-resources.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar flytta en konfiguration för underhålls kontroll:
 
@@ -37,18 +38,18 @@ Innan du börjar flytta en konfiguration för underhålls kontroll:
 
 ## <a name="prepare-and-move"></a>Förbered och flytta 
 
-1. Hämta alla underhålls konfigurationer i varje prenumeration. Kör kommandot CLI [AZ Maintenance Configuration List](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) för att göra detta och ersätt $subId med ditt PRENUMERATIONS-ID.
+1. Hämta alla underhålls konfigurationer i varje prenumeration. Kör kommandot CLI [AZ Maintenance Configuration List](/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) för att göra detta och ersätt $subId med ditt PRENUMERATIONS-ID.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```
 2. Granska den returnerade tabell listan över konfigurations poster i prenumerationen. Här är ett exempel. Listan innehåller värden för din speciella miljö.
 
-    **Namn** | **Position** | **Resursgrupp**
+    **Namn** | **Plats** | **Resursgrupp**
     --- | --- | ---
     Hoppa över underhåll | eastus2 | konfiguration – resurs grupp
     IgniteDemoConfig | eastus2 | konfiguration – resurs grupp
-    defaultMaintenanceConfiguration – öst | eastus | test konfiguration
+    defaultMaintenanceConfiguration – öst | USA, östra | test konfiguration
     
 
 3. Spara listan för referens. När du flyttar konfigurationerna hjälper det dig att kontrol lera att allt har flyttats.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231513"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503819"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,12 +29,10 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 | Något | Information |
 | --- | --- |
 | **Migrera logg till Ultra disk** | Lär dig hur du kan [migrera logg filen till en extremt disk](storage-migrate-to-ultradisk.md) för att utnyttja hög prestanda och låg latens. | 
-
-
+| **Skapa AG med PowerShell** | Nu är det möjligt att förenkla skapandet av en tillgänglighets grupp med hjälp av [PowerShell](availability-group-az-commandline-configure.md) och Azure CLI. | 
 
 
 ## <a name="june-2020"></a>Juni 2020
-
 
 | Något | Information |
 | --- | --- |

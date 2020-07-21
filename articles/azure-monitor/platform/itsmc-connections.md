@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7baabe455128bf420a3c3e11ea83bb5357ed35c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83655915"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505167"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ansluta ITSM-produkter/-tjänster med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -39,7 +39,7 @@ Se till att följande krav är uppfyllda:
 - Service Manager webb program (webbapp) distribueras och konfigureras. Information om Web App finns [här](#create-and-deploy-service-manager-web-app-service).
 - Hybrid anslutning har skapats och kon figurer ATS. Mer information: [Konfigurera hybrid anslutningen](#configure-the-hybrid-connection).
 - Versioner av Service Manager som stöds: 2012 R2 eller 2016.
-- Användar roll: [Avancerad operatör](https://technet.microsoft.com/library/ff461054.aspx).
+- Användar roll: [Avancerad operatör](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>Anslutnings procedur
 
@@ -97,7 +97,7 @@ Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Location
+- Position
 - Service Manager Server information (Server namn, domän, användar namn och lösen ord)
 - Prefix för webbplats namn för din webbapp
 - Service Bus-namnrymd.
@@ -201,7 +201,7 @@ Se till att följande krav är uppfyllda:
 > Klicka på Uppdatera i slutet.
 > 2) **Vi rekommenderar att du upprättar en intern procedur för att se till att anslutningen är i livet:** Enligt livs längd för uppdatering av token. Se till att utföra följande åtgärder innan uppdateringstoken förväntas förfallo tid (ett par dagar innan uppdateringstoken livs längd upphör att gälla):
 >
-> 1. [Slutför en manuell synkroniseringsprocess för ITSM Connector-konfiguration](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 1. [Slutför en manuell synkroniseringsprocess för ITSM Connector-konfiguration](./itsmc-resync-servicenow.md)
 > 2. Återkalla till den gamla uppdateringstoken eftersom det inte rekommenderas att behålla gamla nycklar från av säkerhets skäl. I ServiceNow blads sökning efter system-OAuth än Välj Hantera token. Välj den gamla token från listan enligt OAuth-namn och förfallo datum.
 > ![OAuth-definition för vinter system](media/itsmc-connections/snow-system-oauth.png)
 > 3. Klicka på återkalla åtkomst och än vid återkallning.
@@ -230,7 +230,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 | --- | --- |
 | **Anslutnings namn**   | Ange ett namn för den ServiceNow-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare i Log Analytics när du konfigurerar arbets objekt i den här ITSM/Visa detaljerad logg analys. |
 | **Partner typ**   | Välj **ServiceNow**. |
-| **Användar**   | Skriv det integrations användar namn som du skapade i ServiceNow-appen för att stödja anslutningen till ITSMC. Mer information: [skapa ServiceNow app User Role](#create-integration-user-role-in-servicenow-app).|
+| **Användarnamn**   | Skriv det integrations användar namn som du skapade i ServiceNow-appen för att stödja anslutningen till ITSMC. Mer information: [skapa ServiceNow app User Role](#create-integration-user-role-in-servicenow-app).|
 | **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs!** användar namn och lösen ord används enbart för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten.  |
 | **Server-URL**   | Ange URL: en för den ServiceNow-instans som du vill ansluta till ITSMC. URL: en måste peka på en SaaS-version som stöds med suffixet ". servicenow.com".|
 | **Klient-ID**   | Ange det klient-ID som du vill använda för OAuth2-autentisering, som du skapade tidigare.  Mer information om hur du genererar klient-ID och hemlighet: [OAuth-installation](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
@@ -248,6 +248,10 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 - Du kan skapa incidenter från Log Analytics aviseringar eller från logg poster eller från Azure-aviseringar i den här ServiceNow-instansen.
 
 Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+
+
+> [!NOTE]
+> I ServiceNow finns en hastighets gräns för begär Anden per timme. För att kunna konfigurera begränsningen använder du detta genom att definiera "begränsning av inkommande REST API hastighet" i ServiceNow-instansen.
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Skapa en användar roll för integrering i ServiceNow-appen
 
@@ -325,7 +329,7 @@ Använd följande procedur för att skapa en upphandlings anslutning:
 | --- | --- |
 | **Anslutnings namn**   | Ange ett namn på den instans av upphandlingen som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbets objekt i den här ITSM/Visa detaljerad Log Analytics. |
 | **Partner typ**   | Välj **styrka**. |
-| **Användar**   | Ange användar namnet som kan ansluta till ITSMC.    |
+| **Användarnamn**   | Ange användar namnet som kan ansluta till ITSMC.    |
 | **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs:** Användar namn och lösen ord används endast för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten. _|
 | **Server-URL**   | Ange URL: en för din instans av instansen som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera anslutningen, som du skapade i din upphandlings instans.  Mer information om klient-ID finns i [Konfigurera Active Directory-autentisering](../../app-service/configure-authentication-provider-aad.md). |
@@ -376,7 +380,7 @@ Använd följande procedur för att skapa en upphandlings anslutning:
 | --- | --- |
 | **Anslutnings namn**   | Ange ett namn för den Cherwell-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbets objekt i den här ITSM/Visa detaljerad Log Analytics. |
 | **Partner typ**   | Välj **Cherwell.** |
-| **Användar**   | Ange det användar namn för Cherwell som kan ansluta till ITSMC. |
+| **Användarnamn**   | Ange det användar namn för Cherwell som kan ansluta till ITSMC. |
 | **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs:** Användar namn och lösen ord används endast för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten.|
 | **Server-URL**   | Ange URL: en för den Cherwell-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera anslutningen, som du skapade i din Cherwell-instans.   |

@@ -3,11 +3,13 @@ title: Översikt över säkerhets kopiering offline
 description: Läs mer om komponenterna i säkerhets kopiering offline. De inkluderar offline-säkerhetskopiering som baseras på Azure Data Box och offline-säkerhetskopiering baserat på Azure import/export-tjänsten.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: c5e0f4e722e2dd15b7277a484af2a101844344e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628335"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503633"
 ---
 # <a name="overview-of-offline-backup"></a>Översikt över säkerhets kopiering offline
 
@@ -43,7 +45,7 @@ Om du vill använda offline-säkerhetskopiering baserat på Azure Data Box, se [
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Offline-säkerhetskopiering baserat på Azure import/export-tjänsten
 
-Det här alternativet stöds av Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A och MARS-agenten. [Tjänsten Azure import/export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)används. Du kan överföra första säkerhets kopierings data till Azure med hjälp av dina egna Azure-kompatibla diskar och anslutningar. Den här metoden kräver att du etablerar tillfällig lagring som kallas mellanlagringsplats och använder förinställda verktyg för att formatera och kopiera säkerhetskopierade data till kundägda diskar.
+Det här alternativet stöds av Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A och MARS-agenten. [Tjänsten Azure import/export](../storage/common/storage-import-export-service.md)används. Du kan överföra första säkerhets kopierings data till Azure med hjälp av dina egna Azure-kompatibla diskar och anslutningar. Den här metoden kräver att du etablerar tillfällig lagring som kallas mellanlagringsplats och använder förinställda verktyg för att formatera och kopiera säkerhetskopierade data till kundägda diskar.
 
 En arkitektur som beskriver förflyttningen av säkerhetskopierade data med det här alternativet visas här.
 
@@ -57,9 +59,9 @@ Här är en sammanfattning av arkitekturen:
 4. På Azure-datacentret kopieras data på diskarna till ett Azure Storage-konto.
 5. Azure Backup kopierar säkerhetskopierade data från lagrings kontot till Recovery Services-valvet. Stegvisa säkerhets kopieringar är schemalagda.
 
-Om du vill använda offline-säkerhetskopiering baserat på Azure import/export-tjänsten med MARS-agenten, se [arbets flöde för säkerhets kopiering offline i Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
+Om du vill använda offline-säkerhetskopiering baserat på Azure import/export-tjänsten med MARS-agenten, se [arbets flöde för säkerhets kopiering offline i Azure Backup](./backup-azure-backup-import-export.md).
 
-Om du vill använda samma tillsammans med MABS eller DPM-A, se [arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+Om du vill använda samma tillsammans med MABS eller DPM-A, se [arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](./backup-azure-backup-server-import-export.md).
 
 ## <a name="offline-backup-support-summary"></a>Översikt över stöd för offline-säkerhetskopiering
 
@@ -68,10 +70,10 @@ I följande tabell jämförs de två tillgängliga alternativen så att du kan g
 | **Övervägande**                                            | **Offline-säkerhetskopiering baserat på Azure Data Box**                     | **Offline-säkerhetskopiering baserat på Azure import/export-tjänsten**                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Azure Backup distributions modeller                              | MARS-agent (för hands version)                                              | MARS-agent, MABS, DPM-A                                           |
-| Högsta antal säkerhets kopierings data per server (MARS) eller per skydds grupp (MABS, DPM-A) | [Azure Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) -7,2 TB <br> [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) -80 TB       | 80 TB (upp till 10 diskar av 8 TB var)                          |
-| Säkerhet (data, enhet och tjänst)                           | [Data](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) AES 256-bit-krypterad <br> [Enhet](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) – robust väska, patentskyddat, Credential-baserat gränssnitt för att kopiera data <br> [Tjänst](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) – skyddas av säkerhetsfunktioner i Azure | Data-BitLocker-krypterad                                 |
+| Högsta antal säkerhets kopierings data per server (MARS) eller per skydds grupp (MABS, DPM-A) | [Azure Data Box disk](../databox/data-box-disk-overview.md) -7,2 TB <br> [Azure Data Box](../databox/data-box-overview.md) -80 TB       | 80 TB (upp till 10 diskar av 8 TB var)                          |
+| Säkerhet (data, enhet och tjänst)                           | [Data](../databox/data-box-security.md#data-box-data-protection) AES 256-bit-krypterad <br> [Enhet](../databox/data-box-security.md#data-box-device-protection) – robust väska, patentskyddat, Credential-baserat gränssnitt för att kopiera data <br> [Tjänst](../databox/data-box-security.md#data-box-service-protection) – skyddas av säkerhetsfunktioner i Azure | Data-BitLocker-krypterad                                 |
 | Tillfällig etablering av lagrings plats                     | Krävs inte                                                | Mer än eller lika med den beräknade säkerhets kopierings data storleken        |
-| Regioner som stöds                                           | [Azure Data Box disk regioner](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Azure Data Box regioner](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Azure import/export-tjänst regioner](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
+| Regioner som stöds                                           | [Azure Data Box disk regioner](../databox/data-box-disk-overview.md#region-availability) <br> [Azure Data Box regioner](../databox/data-box-disk-overview.md#region-availability) | [Azure import/export-tjänst regioner](../storage/common/storage-import-export-service.md#region-availability) |
 | Leverans mellan länder                                     | Stöds inte  <br>    Käll adress och mål Azure-datacenter måste finnas i samma land/region * | Stöds                                                    |
 | Överför logistik (leverans, transport, upphämtning)           | Fullständigt Microsoft-hanterat                                     | Kund hantering                                            |
 | Prissättning                                                      | [Azure Data Box priser](https://azure.microsoft.com/pricing/details/databox/) <br> [Priser för Azure Data Box disken](https://azure.microsoft.com/pricing/details/databox/disk/) | [Prissättning för Azure import/export-tjänsten](https://azure.microsoft.com/pricing/details/storage-import-export/) |

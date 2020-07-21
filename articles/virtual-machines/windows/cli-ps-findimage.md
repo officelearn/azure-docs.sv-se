@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2d37e20ada2d1128f04d2df822da996338e0e6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224255"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500879"
 ---
 # <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta och Använd VM-avbildningar på Azure Marketplace med Azure PowerShell
 
@@ -44,13 +44,13 @@ I den här tabellen visas en delmängd av tillgängliga SKU: er för de angivna 
 
 ## <a name="navigate-the-images"></a>Navigera bland avbildningarna
 
-Ett sätt att hitta en avbildning på en plats är att köra cmdletarna [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer)och [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) i ordning:
+Ett sätt att hitta en avbildning på en plats är att köra cmdletarna [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer)och [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) i ordning:
 
 1. Visa en lista över avbildningsutgivare.
 2. Visa en lista över erbjudanden från en viss utgivare.
 3. Visa en lista över SKU:er för ett visst erbjudande.
 
-Kör sedan [Get-AzVMImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimage) för en vald SKU för att visa en lista över de versioner som ska distribueras.
+Kör sedan [Get-AzVMImage](/powershell/module/az.compute/get-azvmimage) för en vald SKU för att visa en lista över de versioner som ska distribueras.
 
 1. Visa en lista över utgivare:
 
@@ -168,7 +168,7 @@ $skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Nu kan du kombinera vald utgivare, erbjudande, SKU och version till en URN (värden avgränsade med:). Skicka denna URN med `--image` parametern när du skapar en virtuell dator med cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Du kan också ersätta versions numret i URN med "senaste" för att hämta den senaste versionen av avbildningen.
+Nu kan du kombinera vald utgivare, erbjudande, SKU och version till en URN (värden avgränsade med:). Skicka denna URN med `--image` parametern när du skapar en virtuell dator med cmdleten [New-AzVM](/powershell/module/az.compute/new-azvm) . Du kan också ersätta versions numret i URN med "senaste" för att hämta den senaste versionen av avbildningen.
 
 Om du distribuerar en virtuell dator med en Resource Manager-mall ställer du in avbildnings parametrarna individuellt i `imageReference` egenskaperna. Se [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -235,7 +235,7 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>Acceptera villkoren
 
-Om du vill visa licens villkoren använder du cmdleten [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) och överför parametrarna för inköps planen. Utdata innehåller en länk till villkoren för Marketplace-avbildningen och visar om du tidigare har accepterat villkoren. Se till att använda alla gemena bokstäver i parametervärdena.
+Om du vill visa licens villkoren använder du cmdleten [Get-AzMarketplaceterms](/powershell/module/az.marketplaceordering/get-azmarketplaceterms) och överför parametrarna för inköps planen. Utdata innehåller en länk till villkoren för Marketplace-avbildningen och visar om du tidigare har accepterat villkoren. Se till att använda alla gemena bokstäver i parametervärdena.
 
 ```powershell
 Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -254,7 +254,7 @@ Accepted          : False
 Signdate          : 1/25/2019 7:43:00 PM
 ```
 
-Använd cmdleten [set-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/set-azmarketplaceterms) för att godkänna eller avvisa villkoren. Du behöver bara godkänna villkoren en gång per prenumeration på avbildningen. Se till att använda alla gemena bokstäver i parametervärdena. 
+Använd cmdleten [set-AzMarketplaceterms](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) för att godkänna eller avvisa villkoren. Du behöver bara godkänna villkoren en gång per prenumeration på avbildningen. Se till att använda alla gemena bokstäver i parametervärdena. 
 
 ```powershell
 $agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -278,7 +278,7 @@ Signdate          : 2/23/2018 7:49:31 PM
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med parametrar för inköps plan
 
-När du har accepterat villkoren för en avbildning kan du distribuera en virtuell dator i den prenumerationen. Som du ser i följande kodfragment använder du cmdleten [set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) för att ange information om Marketplace-plan för det virtuella datorobjektet. Ett fullständigt skript för att skapa nätverks inställningar för den virtuella datorn och slutföra distributionen finns i [exempel på PowerShell-skript](powershell-samples.md).
+När du har accepterat villkoren för en avbildning kan du distribuera en virtuell dator i den prenumerationen. Som du ser i följande kodfragment använder du cmdleten [set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) för att ange information om Marketplace-plan för det virtuella datorobjektet. Ett fullständigt skript för att skapa nätverks inställningar för den virtuella datorn och slutföra distributionen finns i [exempel på PowerShell-skript](powershell-samples.md).
 
 ```powershell
 ...
@@ -317,5 +317,3 @@ Sedan skickar du VM-konfigurationen tillsammans med nätverks konfigurations obj
 För att snabbt skapa en virtuell dator med `New-AzVM` cmdleten med hjälp av grundläggande avbildnings information, se [skapa en virtuell Windows-dator med PowerShell](quick-create-powershell.md).
 
 Mer information om hur du använder Azure Marketplace-avbildningar för att skapa anpassade avbildningar i ett delat avbildnings Galleri finns i [tillhandahålla Azure Marketplace inköps plan information när du skapar bilder](../marketplace-images.md).
-
-

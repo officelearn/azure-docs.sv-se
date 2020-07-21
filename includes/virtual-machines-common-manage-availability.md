@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8f65912d0e2ab322d73315828a98cc48274850fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0f9bbf4e0d8edd153798b39f880f0adb8be6587
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83696440"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502304"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -34,7 +34,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 * [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]
 * [Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Konfigurera varje program nivå i separata tillgänglighets uppsättningar]
-* [Kombinera en lastbalanserare med tillgänglighetsuppsättningar]
+* [Kombinera en Load Balancer med tillgänglighets uppsättningar]
 * [Använda tillgänglighets zoner för att skydda från data center nivå problem]
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Använda tillgänglighets zoner för att skydda från data center nivå problem
@@ -45,7 +45,7 @@ En tillgänglighets zon i en Azure-region är en kombination av en **fel domän*
 
 Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. Genom att skapa lösningar för att använda replikerade virtuella datorer i zoner kan du skydda dina program och data från förlust av ett Data Center. Om en zon komprometteras, är replikerade appar och data omedelbart tillgängliga i en annan zon.
 
-![Tillgänglighetszoner](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+![Tillgänglighetszoner](./media/virtual-machines-common-manage-availability/three-zones-per-region.png)
 
 Lär dig mer om att distribuera en virtuell [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) -eller [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) -dator i en tillgänglighets zon.
 
@@ -108,7 +108,7 @@ En själv studie kurs om belastnings utjämning över tillgänglighets zoner fin
 
 <!-- Link references -->
 [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Kombinera en lastbalanserare med tillgänglighetsuppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Kombinera en Load Balancer med tillgänglighets uppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]: #use-managed-disks-for-vms-in-an-availability-set
 [Använda tillgänglighets zoner för att skydda från data center nivå problem]: #use-availability-zones-to-protect-from-datacenter-level-failures

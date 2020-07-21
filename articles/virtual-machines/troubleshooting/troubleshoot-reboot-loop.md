@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443589"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500930"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop för Windows-omstart på en virtuell Azure-dator
 I den här artikeln beskrivs den omstart-loop som du kan uppleva på en virtuell Windows-dator (VM) i Microsoft Azure.
@@ -49,7 +50,7 @@ Skadat fil system kan orsaka detta. Det är dock svårt att diagnostisera och id
 
 ## <a name="solution"></a>Lösning
 
-Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-managed-disk.md)och [koppla OS-disken till en virtuell dator för räddning](../windows/troubleshoot-recovery-disks-portal.md)och följ sedan lösnings alternativen i enlighet med detta, eller prova lösningarna en i taget.
+Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-managed-disk.md)och [koppla OS-disken till en virtuell dator för räddning](./troubleshoot-recovery-disks-portal-windows.md)och följ sedan lösnings alternativen i enlighet med detta, eller prova lösningarna en i taget.
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
@@ -93,7 +94,7 @@ Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-
 
 16. [Skapa en ny virtuell dator från OS-disken](../windows/create-vm-specialized.md).
 
-17. Om problemet är löst kan du behöva installera om [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
+17. Om problemet är löst kan du behöva installera om [RDAgent](/archive/blogs/mast/install-the-vm-agent-on-an-existing-azure-vm) (WaAppAgent.exe).
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
@@ -112,5 +113,3 @@ Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-
 4. Ta bort disken från den virtuella fel söknings datorn och vänta ungefär 2 minuter på att Azure ska frigöra disken.
 
 5. [Skapa en ny virtuell dator från OS-disken](../windows/create-vm-specialized.md).
-
-

@@ -6,16 +6,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56ad3fd5999600dfc576f0a0e34ff7221267934
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970312"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502460"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och skapa för att definiera och köra ett program med flera behållare i Azure
 Med [Skriv](https://github.com/docker/compose), använder du en enkel textfil för att definiera ett program som består av flera Docker-behållare. Sedan kan du sätta upp ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. I den här artikeln visas till exempel hur du snabbt konfigurerar en WordPress-blogg med en backend-MariaDB SQL-databas på en Ubuntu VM. Du kan också använda komponera för att ställa in mer komplexa program.
 
-Den här artikeln testades senast 2/14/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/bash) och [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) -versionen 2.0.58.
+Den här artikeln testades senast 2/14/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/bash) och [Azure CLI](/cli/azure/install-azure-cli) -versionen 2.0.58.
 
 ## <a name="create-docker-host-with-azure-cli"></a>Skapa Docker-värd med Azure CLI
 Installera den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
@@ -125,4 +126,3 @@ Nu kan du ansluta till WordPress direkt på den virtuella datorn på port 80. Ö
 * Kolla in [kommando rads referens](https://docs.docker.com/compose/reference/) och [användar guide](https://docs.docker.com/compose/) för att se fler exempel på hur du skapar och distribuerar appar för flera behållare.
 * Använd en Azure Resource Manager mall, antingen din egen eller en som har bidragit från [communityn](https://azure.microsoft.com/documentation/templates/), för att distribuera en virtuell Azure-dator med Docker och ett program som har kon figurer ATS med Skriv. Till exempel kan [distribuera en WordPress-blogg med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) -mallen använda Docker och skapa för att snabbt distribuera WordPress med en MySQL-Server del på en virtuell Ubuntu-dator.
 * Prova att integrera Docker tillsammans med ett Docker Swarm-kluster. Se [använda komponera med Swarm](https://docs.docker.com/compose/swarm/) för scenarier.
-

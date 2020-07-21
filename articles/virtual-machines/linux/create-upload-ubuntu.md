@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: c70a6049596aa38e9ae6118517fc471becbc1676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7a0d4d0a1c36f901ea38c5c73d3aa7a2cf49e02f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502698"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Förbereda en virtuell Ubuntu-dator för Azure
 
@@ -22,7 +22,7 @@ Ubuntu publicerar nu officiella Azure-VHD: er för nedladdning på [https://clou
 * Ubuntu 18.04/Bionic: [Bionic-Server-cloudimg-amd64. vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux operativ system på en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
+Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux operativ system på en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 **Installations information för Ubuntu**
 
@@ -176,9 +176,8 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux op
 
 13. Klicka på **åtgärd-> stänga av** i Hyper-V Manager.
 
-14. Azure accepterar bara virtuella hård diskar med fast storlek. Om den virtuella datorns OS-disk inte är en virtuell hård disk med fast storlek använder du `Convert-VHD` PowerShell-cmdleten och anger `-VHDType Fixed` alternativet. Ta en titt på dokumenten `Convert-VHD` här: [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. Azure accepterar bara virtuella hård diskar med fast storlek. Om den virtuella datorns OS-disk inte är en virtuell hård disk med fast storlek använder du `Convert-VHD` PowerShell-cmdleten och anger `-VHDType Fixed` alternativet. Ta en titt på dokumenten `Convert-VHD` här: [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
 
 
 ## <a name="next-steps"></a>Nästa steg
 Du är nu redo att använda din Ubuntu Linux virtuella hård disk för att skapa nya virtuella datorer i Azure. Om det är första gången du laddar upp VHD-filen till Azure, se [skapa en virtuell Linux-dator från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
-

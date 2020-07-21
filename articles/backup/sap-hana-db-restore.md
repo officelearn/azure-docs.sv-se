@@ -3,18 +3,18 @@ title: Återställa SAP HANA databaser på virtuella Azure-datorer
 description: I den här artikeln får du lära dig hur du återställer SAP HANA databaser som körs på Azure Virtual Machines.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a3db88ca3c995c3c190da051dbf9df6ae5e29530
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851452"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503599"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA databaser på virtuella Azure-datorer
 
 Den här artikeln beskriver hur du återställer SAP HANA databaser som körs på en virtuell Azure-dator (VM), som Azure Backup-tjänsten har säkerhetskopierat till ett Recovery Services-valv. Återställningar kan användas för att skapa kopior av data för utvecklings-och test scenarier eller för att återgå till ett tidigare tillstånd.
 
-Mer information om hur du säkerhetskopierar SAP HANA databaser finns i [säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Mer information om hur du säkerhetskopierar SAP HANA databaser finns i [säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer](./backup-azure-sap-hana-database.md).
 
 ## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>Återställa till en tidpunkt eller till en återställnings punkt
 
@@ -24,7 +24,7 @@ Azure Backup kan återställa SAP HANA databaser som körs på virtuella Azure-d
 
 * Återställ till en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande innan du återställer en databas:
 

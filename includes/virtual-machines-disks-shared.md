@@ -5,29 +5,33 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277922"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502527"
 ---
-Azure Shared disks (för hands version) är en ny funktion för Azure Managed disks som möjliggör anslutning av en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
+Azure delade diskar är en ny funktion för Azure Managed disks som gör att du kan ansluta en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-Virtuella datorer i klustret kan läsa eller skriva till din anslutna disk baserat på den reservation som valts av det klustrade programmet med [SCSI-beständiga reservationer](https://www.t10.org/members/w_spc3.htm) (SCSI-PR). SCSI PR är en bransch standard som utnyttjas av program som körs på lokala SAN-nätverk (Storage Area Network). Genom att aktivera SCSI PR på en hanterad disk kan du migrera dessa program till Azure som de är.
+Virtuella datorer i klustret kan läsa eller skriva till sin anslutna disk baserat på den reservation som valts av det klustrade programmet med [SCSI-beständiga reservationer](https://www.t10.org/members/w_spc3.htm) (SCSI-PR). SCSI PR är en bransch standard som utnyttjas av program som körs på lokala SAN-nätverk (Storage Area Network). Genom att aktivera SCSI PR på en hanterad disk kan du migrera dessa program till Azure som de är.
 
-Delning av hanterade diskar erbjuder delad block lagring som kan nås från flera virtuella datorer, och dessa visas som logiska enhets nummer (LUN). LUN visas sedan för en initierare (VM) från ett mål (disk). Dessa LUN ser ut som direktansluten lagring (DAS) eller en lokal enhet till den virtuella datorn.
+Delade hanterade diskar erbjuder delad block lagring som kan nås från flera virtuella datorer, och dessa visas som logiska enhets nummer (LUN). LUN visas sedan för en initierare (VM) från ett mål (disk). Dessa LUN ser ut som direktansluten lagring (DAS) eller en lokal enhet till den virtuella datorn.
 
 Delade hanterade diskar erbjuder inget fullständigt hanterat fil system som kan nås via SMB/NFS. Du måste använda en kluster hanterare, t. ex. Windows Server failover Cluster (WSFC) eller pacemaker, som hanterar kommunikation mellan kluster noder och skriv låsning.
 
 ## <a name="limitations"></a>Begränsningar
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+
+### <a name="operating-system-requirements"></a>Operativsystemskrav
+
+Delade diskar har stöd för flera operativ system. Se avsnittet [Windows](#windows) eller [Linux](#linux) för de operativ system som stöds.
 
 ## <a name="disk-sizes"></a>Disk storlekar
 
@@ -37,23 +41,25 @@ Delade hanterade diskar erbjuder inget fullständigt hanterat fil system som kan
 
 ### <a name="windows"></a>Windows
 
-Den mesta Windows-baserade klustringen bygger på WSFC, som hanterar all kärninfrastruktur för klusternodkommunikation, vilket gör att programmen kan dra nytta av parallella åtkomstmönster. WSFC möjliggör både CSV- och icke-CSV-baserade alternativ, beroende på vilken version av Windows Server du använder. Mer information finns i [Create a failover cluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster) (Skapa ett redundanskluster).
+Azure delade diskar stöds på Windows Server 2008 och senare. De flesta Windows-baserade klustring bygger på WSFC, som hanterar alla kärn infrastrukturer för kommunikation i kluster noder, vilket gör att dina program kan dra nytta av parallella åtkomst mönster. WSFC möjliggör både CSV- och icke-CSV-baserade alternativ, beroende på vilken version av Windows Server du använder. Mer information finns i [Create a failover cluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster) (Skapa ett redundanskluster).
 
 Några populära program som körs på WSFC är:
 
 - [Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
-- Skalbar filserver (Scale-out File Server (SoFS))
+- Skalbar fil server (SoFS) [mall] (https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [Template] (https://aka.ms/azure-shared-disk-sapacs-template)
 - Filserver för allmän användning (IW-arbetsbelastning)
 - Användarprofildisk för fjärrskrivbordsserver (Remote Desktop Server User Profile Disk (RDS UPD))
-- SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
 
-Linux-kluster kan utnyttja kluster hanterare som [pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker bygger på [corosync](http://corosync.github.io/corosync/), vilket möjliggör kluster kommunikation för program som distribueras i miljöer med hög tillgänglighet. Några vanliga klustrade fil system är [ocfs2](https://oss.oracle.com/projects/ocfs2/) och [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Du kan ändra reservationer och registreringar med hjälp av verktyg som [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) och [sg_persist](https://linux.die.net/man/8/sg_persist).
+Azure delade diskar stöds på:
+- [SUSE SLE för SAP och SUSE SLE HA 15 SP1 och senare](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [Ubuntu 18,04 och senare](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
+- [RHEL Developer Preview på valfri RHEL 8-version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
-#### <a name="ubuntu"></a>Ubuntu
-
-Information om hur du konfigurerar Ubuntu med hög tillgänglighet med corosync och pacemaker på Azure Shared disks finns i [Ubuntu community-inkurs](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+Linux-kluster kan utnyttja kluster hanterare som [pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker bygger på [corosync](http://corosync.github.io/corosync/), vilket möjliggör kluster kommunikation för program som distribueras i miljöer med hög tillgänglighet. Några vanliga klustrade fil system är [ocfs2](https://oss.oracle.com/projects/ocfs2/) och [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Du kan använda SCSI-PR (SCSI persistent reservation) och/eller SBD-baserade (STONITH block Device) kluster modeller för arbitrating åtkomst till disken. När du använder SCSI-PR kan du ändra reservationer och registreringar med hjälp av verktyg som [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) och [sg_persist](https://linux.die.net/man/8/sg_persist).
 
 ## <a name="persistent-reservation-flow"></a>Persistent reservation Flow
 
@@ -85,12 +91,13 @@ Flödet är följande:
 
 Ultra disks ger ytterligare en begränsning, för totalt två begränsningar. På grund av detta kan Ultra disks reservations flöde fungera på det sätt som beskrivs i det tidigare avsnittet, eller så kan det begränsa och distribuera prestanda mer detaljerat.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar den skrivskyddade eller Läs-/Skriv behörighet för reservations innehavaren, registrerad och andra.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar åtkomsten "ReadOnly" eller "Läs/skriv" för reservations innehavare, registrerad och andra.":::
 
 ## <a name="performance-throttles"></a>Prestanda begränsningar
 
-### <a name="premium-ssd-performance-throttles"></a>Prestanda begränsningar för Premium SSD
-Med Premium SSD åtgärdas disken IOPS och genom strömningen, t. ex. IOPS av en P30 är 5000. Det här värdet är kvar om disken delas mellan två virtuella datorer eller 5 virtuella datorer. Disk gränserna kan nås från en enskild virtuell dator eller delas upp på två eller flera virtuella datorer. 
+### <a name="premium-ssd-performance-throttles"></a>Premium SSD prestanda begränsningar
+
+Med Premium SSD åtgärdas disken IOPS och data flödet, till exempel IOPS för en P30 är 5000. Det här värdet är kvar om disken delas mellan två virtuella datorer eller 5 virtuella datorer. Disk gränserna kan nås från en enskild virtuell dator eller delas upp på två eller flera virtuella datorer. 
 
 ### <a name="ultra-disk-performance-throttles"></a>Prestanda begränsningar för Ultra disk
 
@@ -101,8 +108,8 @@ Ultra disks har en unik funktion som gör att du kan ställa in prestanda genom 
 |---------|---------|
 |DiskIOPSReadWrite     |Det totala antalet IOPS som tillåts över alla virtuella datorer som monterar delnings disken med skriv åtkomst.         |
 |DiskMBpsReadWrite     |Det totala data flödet (MB/s) som tillåts på alla virtuella datorer som monterar den delade disken med skriv åtkomst.         |
-|DiskIOPSReadOnly*     |Det totala antalet IOPS som tillåts över alla virtuella datorer som monterar den delade disken som skrivskyddad.         |
-|DiskMBpsReadOnly*     |Det totala data flödet (MB/s) som tillåts på alla virtuella datorer som monterar den delade disken som skrivskyddad.         |
+|DiskIOPSReadOnly*     |Det totala antalet IOPS som tillåts över alla virtuella datorer som monterar den delade disken som `ReadOnly` .         |
+|DiskMBpsReadOnly*     |Det totala data flödet (MB/s) som tillåts på alla virtuella datorer som monterar den delade disken som `ReadOnly` .         |
 
 \*Gäller enbart delade Ultra disks
 
@@ -122,18 +129,22 @@ I följande exempel beskrivs några scenarier som visar hur begränsningen kan f
 
 ##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Två noder kluster med klusterdelade volymer
 
-Följande är ett exempel på en WSFC med två noder som använder klusterdelade volymer. Med den här konfigurationen har båda de virtuella datorerna samtidig skriv åtkomst till disken, vilket leder till att ReadWrite-begränsningen delas mellan de två virtuella datorerna och att den skrivskyddade begränsningen inte används.
+Följande är ett exempel på en WSFC med två noder som använder klusterdelade volymer. Med den här konfigurationen har båda de virtuella datorerna samtidig skriv åtkomst till disken, vilket leder till att `ReadWrite` begränsningen delas mellan de två virtuella datorerna och att `ReadOnly` begränsningen inte används.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV två-noder, Ultra-exempel":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Två nods kluster utan kluster resurs volymer
 
-Följande är ett exempel på en WSFC-kluster med två noder som inte använder klusterdelade volymer. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som används av den sekundära.
+Följande är ett exempel på en WSFC-kluster med två noder som inte använder klusterdelade volymer. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att den `ReadWrite` begränsning som används uteslutande för den primära virtuella datorn och `ReadOnly` begränsningen endast används av den sekundära.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Två noder för CSV: inga CSV Ultra disk-exempel":::
 
 ##### <a name="four-node-linux-cluster"></a>Linux-kluster med fyra noder
 
-Följande är ett exempel på en 4-nods Linux-kluster med en enda skrivare och tre skalbara läsare. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som delas av de sekundära virtuella datorerna.
+Följande är ett exempel på en 4-nods Linux-kluster med en enda skrivare och tre skalbara läsare. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att `ReadWrite` begränsningen används exklusivt för den primära virtuella datorn och den `ReadOnly` begränsning som delas av de sekundära virtuella datorerna.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Exempel på fyra noder med ultralåg begränsning":::
+
+#### <a name="ultra-pricing"></a>Ultra prissättning
+
+Ultra Shared disks priss ätts baserat på etablerad kapacitet, totalt antal etablerade IOPS (diskIOPSReadWrite + diskIOPSReadOnly) och totalt tillhandahållet data flöde Mbit/s (diskMBpsReadWrite + diskMBpsReadOnly). Det finns ingen extra kostnad för varje ytterligare VM-montering. Till exempel är en ultra Shared disk med följande konfiguration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) debiteras med 1024 GiB, 10100 IOPS och 601 Mbit/s oavsett om den är monterad på två virtuella datorer eller fem virtuella datorer.

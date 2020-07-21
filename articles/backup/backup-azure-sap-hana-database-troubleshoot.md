@@ -3,11 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5c1ad55a86e80808b9055fd1b34a2d72209464a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697077"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503616"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -45,14 +46,14 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 | Felmeddelande      | <span style="font-weight:normal">Den angivna SAP HANA åtgärden stöds inte</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | Azure Backup för SAP HANA stöder inte stegvis säkerhets kopiering och åtgärder som utförs på SAP HANA ursprungliga klienter (Studio/cockpit/DBA-cockpit) |
-| **Rekommenderad åtgärd** | Mer information finns [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Rekommenderad åtgärd** | Mer information finns [här](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
 | Felmeddelande      | <span style="font-weight:normal">Den här SAP HANA databasen har inte stöd för den begärda säkerhets kopierings typen</span>  |
 | ------------------ | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | Azure Backup stöder inte stegvis säkerhets kopiering och säkerhets kopiering med ögonblicks bilder |
-| **Rekommenderad åtgärd** | Mer information finns [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Rekommenderad åtgärd** | Mer information finns [här](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
@@ -66,14 +67,14 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 | Felmeddelande      | <span style="font-weight:normal">SDC till MDC-uppgradering upptäcktes</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | SAP HANA-instansen har uppgraderats från SDC till MDC. Säkerhets kopieringar kommer att Miss lyckas efter uppdateringen. |
-| **Rekommenderad åtgärd** | Följ stegen som anges i [SDC för att MDC uppgraderingen](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) för att lösa problemet |
+| **Rekommenderad åtgärd** | Följ stegen som anges i [SDC för att MDC uppgraderingen](#sdc-to-mdc-upgrade-with-a-change-in-sid) för att lösa problemet |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
 | Felmeddelande      | <span style="font-weight:normal">En ogiltig backint-konfiguration upptäcktes</span>                       |
 | ------------------ | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | De sekundära parametrarna har angetts felaktigt för Azure Backup |
-| **Rekommenderad åtgärd** | Kontrol lera om följande (backint) parametrar har angetts:<br/>\*[catalog_backup_using_backint: sant]<br/>\*[enable_accumulated_catalog_backup: falskt]<br/>\*[parallel_data_backup_backint_channels: 1]<br/>\*[log_backup_timeout_s: 900)]<br/>\*[backint_response_timeout: 7200]<br/>Om det finns backint-baserade parametrar i värden tar du bort dem. Om parametrarna inte finns på VÄRDnivå men har ändrats manuellt på en databas nivå, återställer du dem till lämpliga värden enligt beskrivningen ovan. Du kan också köra [stoppa skyddet och behålla säkerhets kopierings data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) från Azure Portal och sedan välja **återuppta säkerhets kopiering**. |
+| **Rekommenderad åtgärd** | Kontrol lera om följande (backint) parametrar har angetts:<br/>\*[catalog_backup_using_backint: sant]<br/>\*[enable_accumulated_catalog_backup: falskt]<br/>\*[parallel_data_backup_backint_channels: 1]<br/>\*[log_backup_timeout_s: 900)]<br/>\*[backint_response_timeout: 7200]<br/>Om det finns backint-baserade parametrar i värden tar du bort dem. Om parametrarna inte finns på VÄRDnivå men har ändrats manuellt på en databas nivå, återställer du dem till lämpliga värden enligt beskrivningen ovan. Du kan också köra [stoppa skyddet och behålla säkerhets kopierings data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) från Azure Portal och sedan välja **återuppta säkerhets kopiering**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
 
@@ -203,4 +204,4 @@ I föregående scenarier rekommenderar vi att du utlöser en ny registrering på
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [vanliga frågor](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) om hur du säkerhetskopierar SAP HANA databaser på virtuella Azure-datorer.
+- Läs [vanliga frågor](./sap-hana-faq-backup-azure-vm.md) om hur du säkerhetskopierar SAP HANA databaser på virtuella Azure-datorer.

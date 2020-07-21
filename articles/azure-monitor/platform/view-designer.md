@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e351abeede6d1057a9b37ab1f1cfb9021ccd06e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505098"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av View Designer i Azure Monitor
 Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln innehåller en översikt över Visa designer och procedurer för att skapa och redigera anpassade vyer.
@@ -33,7 +34,7 @@ Vyerna som du skapar med View Designer innehåller de element som beskrivs i fö
 
 | Del | Beskrivning |
 |:--- |:--- |
-| Ikoner | Visas på din Azure Monitor **översikts** sida. Varje panel visar en visuell Sammanfattning av den anpassade vyn som den representerar. Varje panel typ innehåller en annan visualisering av dina poster. Du väljer en panel för att visa en anpassad vy. |
+| Paneler | Visas på din Azure Monitor **översikts** sida. Varje panel visar en visuell Sammanfattning av den anpassade vyn som den representerar. Varje panel typ innehåller en annan visualisering av dina poster. Du väljer en panel för att visa en anpassad vy. |
 | Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera visualiserings delar. |
 | Visualiserings delar | Presentera en visualisering av data i Log Analytics arbets ytan baserat på en eller flera [logg frågor](../log-query/log-query-overview.md). De flesta delar innehåller ett sidhuvud, som innehåller en visualisering på hög nivå, och en lista som visar de främsta resultaten. Varje Deltyp innehåller en annan visualisering av posterna i arbets ytan Log Analytics. Du väljer element i delen för att utföra en logg fråga som innehåller detaljerade poster. |
 
@@ -51,7 +52,7 @@ Alternativen beskrivs i följande tabell:
 | Alternativ | Beskrivning |
 |:--|:--|
 | Uppdatera   | Uppdaterar vyn med den senaste informationen. | 
-| Loggar      | Öppnar [Log Analytics](../log-query/portals.md) för att analysera data med logg frågor. |
+| Loggar      | Öppnar [Log Analytics](../log-query/log-query-overview.md) för att analysera data med logg frågor. |
 | Redigera       | Öppnar vyn i View Designer för att redigera innehållet och konfigurationen.  |
 | Klona      | Skapar en ny vy och öppnar den i Visa designer. Namnet på den nya vyn är detsamma som det ursprungliga namnet, men med *kopia* bifogat. |
 | Datumintervall | Ange datum-och tidsintervall filter för de data som ingår i vyn. Det här datum intervallet används före eventuella datum intervall som anges i frågor i vyn.  |

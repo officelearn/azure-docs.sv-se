@@ -4,11 +4,12 @@ description: Distribuera Azure Monitor funktioner i skala med Azure Policy.
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678706"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505218"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuera Azure Monitor i skala med Azure Policy
 Vissa Azure Monitor funktioner konfigureras en gång eller ett begränsat antal gånger, men andra måste upprepas för varje resurs som du vill övervaka. I den här artikeln beskrivs metoder för att använda Azure Policy för att implementera Azure Monitor i skala för att säkerställa att övervakningen är konsekvent och korrekt konfigurerad för alla dina Azure-resurser.
@@ -25,12 +26,12 @@ Azure Policy består av objekten i följande tabell. Se [Azure policy objekt](..
 
 | Objekt | Beskrivning |
 |:---|:---|
-| Definition av princip | Beskriver villkoren för resurs efterlevnad och den påverkan som ska vidtas om ett villkor är uppfyllt. Detta kan vara alla resurser av en viss typ eller endast resurser som matchar vissa egenskaper. Detta kan vara att helt enkelt flagga resursen för efterlevnad eller distribuera en relaterad resurs. Princip definitioner skrivs med JSON enligt beskrivningen i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md). Effekter beskrivs i [förstå Azure policys effekter](../../governance/policy/concepts/effects.md).
+| Principdefinition | Beskriver villkoren för resurs efterlevnad och den påverkan som ska vidtas om ett villkor är uppfyllt. Detta kan vara alla resurser av en viss typ eller endast resurser som matchar vissa egenskaper. Detta kan vara att helt enkelt flagga resursen för efterlevnad eller distribuera en relaterad resurs. Princip definitioner skrivs med JSON enligt beskrivningen i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md). Effekter beskrivs i [förstå Azure policys effekter](../../governance/policy/concepts/effects.md).
 | Princip initiativ | En grupp princip definitioner som ska appliceras tillsammans. Du kan till exempel ha en princip definition för att skicka resurs loggar till en Log Analytics-arbetsyta och en annan för att skicka resurs loggar till Event Hub. Skapa ett initiativ som innehåller båda princip definitionerna och tillämpa initiativet på resurser i stället för de enskilda princip definitionerna. Initiativ skrivs med JSON enligt beskrivningen i [Azure policy initiativets struktur](../../governance/policy/concepts/initiative-definition-structure.md). |
 | Tilldelning | En princip definition eller ett initiativ börjar inte gälla förrän det har tilldelats en omfattning. Du kan till exempel tilldela en princip till en resurs grupp för att tillämpa den på alla resurser som skapats i den resursen, eller tillämpa den på en prenumeration för att tillämpa den på alla resurser i den prenumerationen.  Mer information finns i [Azure policy tilldelnings struktur](../../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Inbyggda princip definitioner för Azure Monitor
-Azure Policy innehåller flera fördefinierade definitioner relaterade till Azure Monitor. Du kan tilldela dessa princip definitioner till din befintliga prenumeration eller använda dem som grund för att skapa dina egna anpassade definitioner. En fullständig lista över de inbyggda politiken i kategorin **övervakning** finns i [Azure policy inbyggda princip definitioner för Azure Monitor](../policy-samples.md).
+Azure Policy innehåller flera fördefinierade definitioner relaterade till Azure Monitor. Du kan tilldela dessa princip definitioner till din befintliga prenumeration eller använda dem som grund för att skapa dina egna anpassade definitioner. En fullständig lista över de inbyggda politiken i kategorin **övervakning** finns i [Azure policy inbyggda princip definitioner för Azure Monitor](../samples/policy-samples.md).
 
 Om du vill visa de inbyggda princip definitionerna som är relaterade till övervakning gör du följande:
 
@@ -59,7 +60,7 @@ För resurs typer som inte har en inbyggd princip måste du skapa en anpassad pr
 Skriptet [create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) skapar principfiler för en viss resurs typ som du kan installera med hjälp av POWERSHELL eller cli. Använd följande procedur för att skapa en anpassad princip definition för diagnostiska inställningar.
 
 
-1. Kontrol lera att du har [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installerat.
+1. Kontrol lera att du har [Azure PowerShell](/powershell/azure/install-az-ps) installerat.
 2. Installera skriptet med följande kommando:
   
     ```azurepowershell
@@ -112,7 +113,7 @@ Genom att använda initiativ parametrar kan du ange arbets ytan eller någon ann
 
 ![Initiativparametrar](media/deploy-scale/initiative-parameters.png)
 
-### <a name="remediation"></a>Åtgärder
+### <a name="remediation"></a>Reparation
 Initiativet kommer att gälla för varje virtuell dator när den skapas. En [reparations uppgift](../../governance/policy/how-to/remediate-resources.md) distribuerar princip definitionerna i initiativet till befintliga resurser, så att du kan skapa diagnostikinställningar för alla resurser som redan har skapats. När du skapar tilldelningen med hjälp av Azure Portal har du möjlighet att skapa en reparations uppgift på samma gång. Se [Reparera icke-kompatibla resurser med Azure policy](../../governance/policy/how-to/remediate-resources.md) för information om reparationen.
 
 ![Initiativ reparation](media/deploy-scale/initiative-remediation.png)

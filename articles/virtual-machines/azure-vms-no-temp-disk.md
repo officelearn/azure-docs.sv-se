@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783612"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503038"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Azure VM-storlekar utan lokal temporär disk 
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure VM-storlekar som inte har en lokal temporär disk (dvs. inget lokalt Temp-skriv bord). Mer information om de här VM-storlekarna finns i [specifikationer för DV4 och Dsv4-serien (generell användning arbets belastningar)](dv4-dsv4-series.md) eller [specifikationer för Ev4 och Esv4-serien (minnesoptimerade arbets belastningar)](ev4-esv4-series.md).
@@ -23,7 +23,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure VM-stor
 ## <a name="what-does-no-local-temp-disk-mean"></a>Vad betyder ingen lokal temporär disk? 
 Traditionellt har vi haft VM-storlekar (t. ex. Standard_D2s_v3 Standard_E48_v3) som innehåller en liten lokal disk (t. ex. en D: Drive). Nu med de nya VM-storlekarna finns det ingen liten lokal disk längre. Du kan dock fortfarande bifoga Standard HDD Premium SSD eller Ultra SSD.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>Vad händer om jag fortfarande vill ha en lokal temporär disk?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>Vad händer om jag fortfarande vill ha en lokal temporär disk?
 Om din arbets belastning kräver en lokal temporär disk har vi också nya [Ddv4-och Ddsv4](ddv4-ddsv4-series.md) -eller [Edv4-och Edsv4](edv4-edsv4-series.md) VM-storlekar. De här storlekarna ger 50% större temporär disk jämfört med de tidigare v3-storlekarna.
 
 > [!NOTE]

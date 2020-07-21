@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124476"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505371"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst operativ systemets mått till Azure Monitor mått lagrets klassiska Cloud Services 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Med Azure Monitor [Diagnostics-tillägget](diagnostics-extension-overview.md)kan du samla in mått och loggar från gäst operativ systemet (gäst operativ system) som körs som en del av en virtuell dator, moln tjänst eller Service Fabric kluster. Tillägget kan skicka telemetri till [flera olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Med Azure Monitor [Diagnostics-tillägget](diagnostics-extension-overview.md)kan du samla in mått och loggar från gäst operativ systemet (gäst operativ system) som körs som en del av en virtuell dator, moln tjänst eller Service Fabric kluster. Tillägget kan skicka telemetri till [flera olika platser.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 Den här artikeln beskriver processen för att skicka gäst operativ systemets prestanda mått för den klassiska Azure-Cloud Services till Azure Monitor Metric-lagret. Från och med diagnostik version 1,11 kan du skriva mått direkt till lagrings platsen Azure Monitor mått, där standard plattforms mått redan har samlats in. 
 
@@ -26,13 +26,13 @@ Genom att lagra dem på den här platsen kan du komma åt samma åtgärder som d
 
 Processen som beskrivs i den här artikeln fungerar bara för prestanda räknare i Azure Cloud Services. Det fungerar inte för andra anpassade mått. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste vara [tjänst administratör eller delad administratör](../../cost-management-billing/manage/add-change-subscription-administrator.md) på din Azure-prenumeration. 
 
-- Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Din prenumeration måste vara registrerad med [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Du måste antingen ha [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerat.
+- Du måste antingen ha [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](../../cloud-shell/overview.md) installerat.
 
 - Moln tjänsten måste vara i en [region som stöder anpassade mått](metrics-custom-overview.md#supported-regions).
 
@@ -46,7 +46,7 @@ Processen som beskrivs i den här artikeln fungerar bara för prestanda räknare
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten 
 
-Skapa ett huvud namn för tjänsten i din Azure Active Directory klient genom att följa anvisningarna på [Använd Portal för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tänk på följande när du går igenom den här processen: 
+Skapa ett huvud namn för tjänsten i din Azure Active Directory klient genom att följa anvisningarna på [Använd Portal för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md). Tänk på följande när du går igenom den här processen: 
 
 - Du kan ange valfri URL för inloggnings-URL: en.  
 - Skapa ny klient hemlighet för den här appen.  
@@ -171,7 +171,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 ## <a name="plot-metrics-in-the-azure-portal"></a>Rita mått i Azure Portal 
 
-1. Gå till Azure Portal. 
+1. Gå till Azure-portalen. 
 
    ![Mått Azure Portal](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
@@ -192,4 +192,3 @@ Du kan använda funktionerna för dimensions filtrering och delning för att vis
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [anpassade mått](metrics-custom-overview.md).
-

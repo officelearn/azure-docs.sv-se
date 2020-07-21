@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042801"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504351"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställa en enskild klient med ett SaaS-program för databas per klient
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +29,7 @@ I den här självstudien får du lära dig två data återställnings mönster:
 > * Återställ en databas till en parallell databas (sida vid sida).
 > * Återställ en databas på plats och ersätt den befintliga databasen.
 
-|||
+| Mönster | Beskrivning |
 |:--|:--|
 | Återställa till en parallell databas | Det här mönstret kan användas för uppgifter som granskning, granskning och efterlevnad för att tillåta en klient att inspektera sina data från en tidigare tidpunkt. Klient organisationens aktuella databas förblir online och oförändrad. |
 | Återställning på plats | Det här mönstret används vanligt vis för att återställa en klient till en tidigare tidpunkt när en klient av misstag tar bort eller skadar data. Den ursprungliga databasen tas bort och ersätts med den återställda databasen. |

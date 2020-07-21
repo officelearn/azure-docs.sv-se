@@ -4,11 +4,12 @@ description: Lär dig hur du använder automatiska skalnings åtgärder för att
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77120698"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505527"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använd åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor
 Den här artikeln visar hur du konfigurerar utlösare så att du kan anropa vissa webb adresser eller skicka e-postmeddelanden baserat på automatiska skalnings åtgärder i Azure.  
@@ -28,7 +29,7 @@ Du kan välja mellan Azure Portal för Cloud Services och Server grupper (App Se
 
 ## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för Virtual Machines
 För nyare Virtual Machines som skapats med Resource Manager (skalnings uppsättningar för virtuella datorer) kan du konfigurera detta med hjälp av REST API, Resource Manager-mallar, PowerShell och CLI. Ett Portal gränssnitt är inte tillgängligt än.
-När du använder REST API-eller Resource Manager-mallen inkluderar du meddelande elementet i din [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) med följande alternativ.
+När du använder REST API-eller Resource Manager-mallen inkluderar du meddelande elementet i din [autoscalesettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) med följande alternativ.
 
 ```
 "notifications": [
@@ -57,13 +58,13 @@ När du använder REST API-eller Resource Manager-mallen inkluderar du meddeland
 
 | Fält | Erforderlig? | Beskrivning |
 | --- | --- | --- |
-| reparation |ja |värdet måste vara "Scale" |
-| sendToSubscriptionAdministrator |ja |värdet måste vara "sant" eller "falskt" |
-| sendToSubscriptionCoAdministrators |ja |värdet måste vara "sant" eller "falskt" |
-| customEmails |ja |värdet kan vara null [] eller sträng mat ris med e-post |
-| Webhooks |ja |värdet kan vara null eller en giltig URI |
-| serviceUri |ja |en giltig https-URI |
-| properties |ja |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
+| reparation |yes |värdet måste vara "Scale" |
+| sendToSubscriptionAdministrator |yes |värdet måste vara "sant" eller "falskt" |
+| sendToSubscriptionCoAdministrators |yes |värdet måste vara "sant" eller "falskt" |
+| customEmails |yes |värdet kan vara null [] eller sträng mat ris med e-post |
+| Webhooks |yes |värdet kan vara null eller en giltig URI |
+| serviceUri |yes |en giltig https-URI |
+| properties |yes |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
 
 ## <a name="authentication-in-webhooks"></a>Autentisering i Webhooks
 Webhooken kan autentiseras med hjälp av tokenbaserad autentisering, där du sparar webhook-URI: n med ett token-ID som frågeparameter. Till exempel https: \/ /mysamplealert/webcallback? tokenID = sometokenid&someparameter = someValue
@@ -100,10 +101,10 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 
 | Fält | Erforderlig? | Beskrivning |
 | --- | --- | --- |
-| status |ja |Status som anger att en åtgärd för autoskalning har genererats |
-| reparation |ja |För en ökning av instanser blir det "skala ut" och en minskning av instanserna blir "skala in" |
-| Edit |ja |Åtgärds kontext för autoskalning |
-| timestamp |ja |Tidstämpel när åtgärden för autoskalning utlöstes |
+| status |yes |Status som anger att en åtgärd för autoskalning har genererats |
+| reparation |yes |För en ökning av instanser blir det "skala ut" och en minskning av instanserna blir "skala in" |
+| Edit |yes |Åtgärds kontext för autoskalning |
+| timestamp |yes |Tidstämpel när åtgärden för autoskalning utlöstes |
 | id |Ja |Resource Manager-ID för den automatiska skalnings inställningen |
 | name |Ja |Namnet på den automatiska skalnings inställningen |
 | information |Ja |Förklaring av åtgärden att AutoScale-tjänsten tog och ändringen i instans antalet |
@@ -115,5 +116,4 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 | portalLink |Ja |Azure Portal länk till sidan Sammanfattning för mål resursen |
 | oldCapacity |Ja |Det aktuella (gamla) instans antalet när autoskalning vidtog en skalnings åtgärd |
 | newCapacity |Ja |Den nya instansen räknas som autoskalning som skalar resursen till |
-| properties |No |Valfritt. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
-
+| properties |Nej |Valfritt. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |

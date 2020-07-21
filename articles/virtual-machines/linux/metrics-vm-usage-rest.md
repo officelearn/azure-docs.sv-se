@@ -8,21 +8,22 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1aa108d7f903ed791c534b2b88550eb8d022ef64
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944743"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502086"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Hämta användnings statistik för virtuella datorer med hjälp av REST API
 
-Det här exemplet visar hur du hämtar processor användningen för en [virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) med hjälp av [Azure-REST API](/rest/api/azure/).
+Det här exemplet visar hur du hämtar processor användningen för en virtuell Linux-dator med hjälp av [Azure-REST API](/rest/api/azure/).
 
 Fullständig referens dokumentation och ytterligare exempel för REST API finns i [Azure Monitor rest-referensen](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Använd följande GET-begäran för att samla in [procent andel CPU-mått](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) från en virtuell dator
+Använd följande GET-begäran för att samla in [procent andel CPU-mått](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) från en virtuell dator
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -41,10 +42,10 @@ Följande huvuden krävs:
 
 | Name | Beskrivning |
 | :--- | :---------- |
-| subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Namnet på den Azure-resurs grupp som är kopplad till resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
 | VMName | Namnet på den virtuella Azure-datorn. |
-| metricnames | Kommaavgränsad lista över giltiga [load BALANCERS mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| metricnames | Kommaavgränsad lista över giltiga [load BALANCERS mått](../../load-balancer/load-balancer-standard-diagnostics.md). |
 | api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API-versionen `2018-01-01` , som ingår i ovanstående URL.  |
 | tidsintervall | Sträng med följande format `startDateTime_ISO/endDateTime_ISO` som definierar tidsintervallet för de returnerade måtten. Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
 | &nbsp; | &nbsp; |

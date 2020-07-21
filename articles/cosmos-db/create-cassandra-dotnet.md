@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 88ec29ef1a0c0766a6c50af218e66f5fec3b9087
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e274db2983c476c2428fdd0d25f3dff9bbc5e6ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118431"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523884"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med .NET SDK och Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Den här snabb starten visar hur du använder .NET och Azure Cosmos DB [API för
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
@@ -120,7 +120,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**.
 
-1. Använd ![Knappen Kopiera](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet ANVÄNDARNAMN.
+1. Använd :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: knappen på höger sida av skärmen för att kopiera värdet username.
 
    :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Visa och kopiera en åtkomstnyckel från Azure-portalen, sidan Anslutningssträng":::
 

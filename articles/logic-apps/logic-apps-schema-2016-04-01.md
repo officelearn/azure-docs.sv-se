@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792873"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520723"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema uppdateringar för Azure Logic Apps – 1 juni 2016
 
@@ -28,7 +29,7 @@ Om du vill uppgradera dina Logi Kap par från den 1 augusti 2015-förhands grans
 
 ## <a name="scopes"></a>Omfattningar
 
-Det här schemat innehåller omfång, som gör att du kan gruppera åtgärder tillsammans eller kapsla åtgärder i varandra. Ett villkor kan till exempel innehålla ett annat villkor. Läs mer om [syntax för omfattningar](../logic-apps/logic-apps-loops-and-scopes.md), eller Läs detta exempel på grundläggande omfattning:
+Det här schemat innehåller omfång, som gör att du kan gruppera åtgärder tillsammans eller kapsla åtgärder i varandra. Ett villkor kan till exempel innehålla ett annat villkor. Läs mer om [syntax för omfattningar](./logic-apps-control-flow-loops.md), eller Läs detta exempel på grundläggande omfattning:
 
 ```json
 {
@@ -54,7 +55,7 @@ Det här schemat innehåller omfång, som gör att du kan gruppera åtgärder ti
 
 ## <a name="conditions-and-loops-changes"></a>Villkor och slingor ändras
 
-I tidigare schema versioner var villkor och slingor kopplade till en enda åtgärd. Det här schemat lyfter den här begränsningen, så villkor och slingor är nu tillgängliga som åtgärds typer. Lär dig mer om [slingor och omfattningar](../logic-apps/logic-apps-loops-and-scopes.md), [villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md)eller Läs det här grundläggande exemplet som visar en villkors åtgärd:
+I tidigare schema versioner var villkor och slingor kopplade till en enda åtgärd. Det här schemat lyfter den här begränsningen, så villkor och slingor är nu tillgängliga som åtgärds typer. Lär dig mer om [slingor och omfattningar](./logic-apps-control-flow-loops.md), [villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md)eller Läs det här grundläggande exemplet som visar en villkors åtgärd:
 
 ```json
 {
@@ -130,7 +131,7 @@ I den uppgraderade definitionen gör verktyget det bästa arbetet vid gruppering
 
 #### <a name="foreach-loop-with-condition"></a>"förgrunds"-loop med villkor
 
-I det nya schemat kan du använda filter åtgärden för att replikera mönstret som använder en **for each** -loop med ett villkor per objekt. Ändringen sker dock automatiskt när du uppgraderar. Villkoret blir en filter åtgärd som visas före **för varje** slinga, och som endast returnerar en matris med objekt som matchar villkoret och skickar matrisen till **för varje** åtgärd. Ett exempel finns i [slingor och omfång](../logic-apps/logic-apps-loops-and-scopes.md).
+I det nya schemat kan du använda filter åtgärden för att replikera mönstret som använder en **for each** -loop med ett villkor per objekt. Ändringen sker dock automatiskt när du uppgraderar. Villkoret blir en filter åtgärd som visas före **för varje** slinga, och som endast returnerar en matris med objekt som matchar villkoret och skickar matrisen till **för varje** åtgärd. Ett exempel finns i [slingor och omfång](./logic-apps-control-flow-loops.md).
 
 ### <a name="resource-tags"></a>Resurstaggar
 
@@ -152,7 +153,7 @@ För att filtrera en stor matris nedåt till en mindre uppsättning objekt, acce
 
 ### <a name="new-trackedproperties-for-actions"></a>New ' trackedProperties ' för åtgärder
 
-Åtgärder kan nu ha en ytterligare egenskap `trackedProperties` som kallas, som är på samma nivå som `runAfter` `type` egenskaperna och. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Ett exempel:
+Åtgärder kan nu ha en ytterligare egenskap `trackedProperties` som kallas, som är på samma nivå som `runAfter` `type` egenskaperna och. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Till exempel:
 
 ``` json
 {

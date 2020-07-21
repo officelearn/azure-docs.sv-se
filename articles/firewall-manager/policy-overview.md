@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563705"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521657"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Översikt över Azure Firewall Manager-principer
 
@@ -47,8 +47,8 @@ Med arv tillämpas eventuella ändringar i den överordnade principen automatisk
 Azure-brandväggen stöder både traditionella regler och principer. I följande tabell jämförs principer och regler:
 
 
-|         |Policy  |Regler  |
-|---------|---------|---------|
+| Ämne | Policy  | Regler |
+| ------- | ------- | ----- |
 |Innehåller     |NAT, nätverk, program regler, anpassade inställningar för DNS-och DNS-proxy, IP-grupper och hot information-inställningar (inklusive listan över tillåtna)|NAT-, nätverks-och program regler, anpassade inställningar för DNS-och DNS-proxy, IP-grupper och hot informations inställningar (inklusive listan över tillåtna)|
 |Skyddar     |Virtuella hubbar och virtuella nätverk|Endast virtuella nätverk|
 |Portalmiljö     |Central hantering med hjälp av brand Väggs hanteraren|Fristående brand Väggs upplevelse|

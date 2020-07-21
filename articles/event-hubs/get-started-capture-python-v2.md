@@ -3,12 +3,12 @@ title: Läs Azure Event Hubs fångade data från en python-app (senaste)
 description: Den här artikeln visar hur du skriver python-kod för att avbilda data som skickas till en händelsehubben och läsa insamlade händelse data från ett Azure Storage-konto.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 752a582e59b438f7449d6722b222969dc641880c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: eb7e8a2c1e567e474ad7d0766d9b12e5b43de3ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315290"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521878"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Avbilda Event Hubs data i Azure Storage och läsa den med hjälp av python (Azure-eventhub version 5)
 
@@ -28,14 +28,14 @@ I den här snabbstarten kommer du att göra följande:
 > * Skicka data till händelsehubben med hjälp av ett Python-skript.
 > * Läsa och bearbeta filer från Event Hubs avbildning med hjälp av ett annat Python-skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Python 2,7 och 3,5 eller senare, med PIP installerat och uppdaterat.  
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.  
 - Ett aktivt Event Hubs namn område och händelsehubben.
 [Skapa ett Event Hubs-namnområde och en händelsehubben i namn området](event-hubs-create.md). Registrera namnet på Event Hubs namn området, namnet på händelsehubben och den primära åtkomst nyckeln för namn området. Information om hur du hämtar åtkomst nyckeln finns i [Hämta en Event Hubs anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Standard nyckel namnet är *RootManageSharedAccessKey*. I den här snabb starten behöver du bara den primära nyckeln. Du behöver inte anslutnings strängen.  
 - Ett Azure Storage-konto, en BLOB-behållare i lagrings kontot och en anslutnings sträng till lagrings kontot. Gör så här om du inte har dessa objekt:  
-    1. [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
+    1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Skapa en blob-container i lagringskontot](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [Hämta anslutnings strängen till lagrings kontot](../storage/common/storage-configure-connection-string.md)
 
@@ -182,4 +182,4 @@ Kolla [in python-exempel på GitHub](https://github.com/Azure/azure-sdk-for-pyth
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

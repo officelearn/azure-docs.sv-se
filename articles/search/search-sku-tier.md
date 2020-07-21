@@ -7,12 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119212"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519745"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -22,14 +23,17 @@ De flesta kunder börjar med den kostnads fria nivån så att de kan utvärdera 
 
 ## <a name="feature-availability-by-tier"></a>Funktions tillgänglighet per nivå
 
-Nästan alla funktioner är tillgängliga på alla nivåer, inklusive kostnads fri, men en funktion eller ett arbets flöde som är resurs krävande kanske inte fungerar bra om du inte ger den tillräckligt med kapacitet. [AI-anrikning](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
-
 I följande tabell beskrivs nivå-relaterade funktions begränsningar.
 
 | Funktion | Begränsningar |
 |---------|-------------|
 | [indexerare](search-indexer-overview.md) | Indexerare är inte tillgängliga på S3 HD. |
+| [AI-berikning](search-security-manage-encryption-keys.md) | Körs på den kostnads fria nivån men rekommenderas inte. |
 | [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) | Inte tillgängligt på den kostnads fria nivån. |
+| [Åtkomst till IP-brandvägg](service-configure-firewall.md) | Inte tillgängligt på den kostnads fria nivån. |
+| [Integrering med privat Azure-länk](service-create-private-endpoint.md) | Inte tillgängligt på den kostnads fria nivån. |
+
+De flesta funktioner är tillgängliga på alla nivåer, inklusive kostnads fria, men resurs intensiva funktioner kanske inte fungerar bra om du inte ger den tillräckligt med kapacitet. [AI-anrikning](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
 
 ## <a name="tiers-skus"></a>Nivåer (SKU: er)
 
@@ -56,10 +60,10 @@ Du hittar mer information om olika nivåer på [sidan prissättning](https://azu
 
 En lösning som bygger på Azure Kognitiv sökning kan ådra sig kostnaderna på följande sätt:
 
-+ Fast kostnad för själva tjänsten, som körs dygnet runt, med minsta konfiguration (en partition och replik)
-+ Stegvis kostnad vid skalning (Lägg till repliker eller partitioner)
++ Kostnaden för själva tjänsten, som körs dygnet runt, med minsta konfiguration (en partition och replik)
++ Lägga till kapacitet (repliker eller partitioner)
 + Bandbredds avgifter (utgående data överföring) 
-+ Kognitiv sökning (bifoga Cognitive Services för AI-anrikning eller använda Azure Storage för kunskaps lager)
++ Tilläggs tjänster som AI-anrikning (bifoga Cognitive Services i färdighetsuppsättningar som definierar AI-bearbetning eller använder Azure Storage för kunskaps lager) eller distribuerar en Sök tjänst i ett privat virtuellt nätverk
 
 ### <a name="service-costs"></a>Tjänste kostnader
 
@@ -71,7 +75,7 @@ När du uppskattar kostnaden för en Sök lösning bör du tänka på att priser
 
 ### <a name="bandwidth-charges"></a>Bandbredds avgifter
 
-Att använda [Azure kognitiv sökning indexerare](search-indexer-overview.md) kan påverka faktureringen, beroende på var tjänsterna finns. Du kan ta bort avgifter för utgående data helt och hållet om du skapar Azure Kognitiv sökning-tjänsten i samma region som dina data. Här är lite information från [prissättnings sidan för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/):
+Användningen av [indexerare](search-indexer-overview.md) kan påverka faktureringen, beroende på var tjänsterna finns. Du kan ta bort avgifter för utgående data helt och hållet om du skapar Azure Kognitiv sökning-tjänsten i samma region som dina data. Här är lite information från [prissättnings sidan för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Microsoft debiterar inte några inkommande data till någon tjänst i Azure, eller för utgående data från Azure Kognitiv sökning.
 + I lösningar med flera tjänster är det ingen avgift för data som passerar kabeln när alla tjänster är i samma region.
@@ -107,7 +111,7 @@ De flesta kunder tar bara en del av den totala kapaciteten online, där resten a
 
 ## <a name="how-to-manage-costs"></a>Så här hanterar du kostnader
 
-Följande förslag kan hjälpa dig att hålla kostnaderna minst:
+Följande förslag kan hjälpa dig att sänka kostnaderna eller hantera kostnader mer effektivt:
 
 + Skapa alla resurser i samma region, eller i så få regioner som möjligt, för att minimera eller eliminera bandbredds kostnader.
 
@@ -140,7 +144,7 @@ Kapacitet och kostnaderna för att köra tjänsten finns i handen. Nivåerna beg
 
 Företags krav avgör vanligt vis hur många index du behöver. Du kan till exempel behöva ett globalt index för en stor lagrings plats för dokument. Eller så kanske du behöver flera index baserade på region, program eller affärs nischmarknader.
 
-Om du vill fastställa storleken på ett index måste du [bygga ett](search-create-index-portal.md). Storleken kommer att baseras på importerade data och index konfiguration, till exempel om du aktiverar förslag, filtrering och sortering. Mer information om konfigurations påverkan i storlek finns i [skapa ett grundläggande index ](search-what-is-an-index.md).
+Om du vill fastställa storleken på ett index måste du [bygga ett](search-what-is-an-index.md). Storleken kommer att baseras på importerade data och index konfiguration, till exempel om du aktiverar förslag, filtrering och sortering.
 
 För full texts ökning är den primära data strukturen en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index) struktur som har andra egenskaper än källdata. För ett inverterat index bestäms storlek och komplexitet av innehåll, inte nödvändigt vis av mängden data som du matar in i det. En stor data källa med hög redundans kan resultera i ett mindre index än en mindre data mängd som innehåller mycket varierande innehåll. Det går sällan att härleda index storleken baserat på storleken på den ursprungliga data uppsättningen.
 
@@ -154,7 +158,7 @@ En metod för att uppskatta kapaciteten är att börja med den kostnads fria niv
 
 + [Skapa en kostnads fri tjänst](search-create-service-portal.md).
 + Förbered en liten, representativ data uppsättning.
-+ [Bygg ett första index i portalen](search-create-index-portal.md) och anteckna dess storlek. Funktioner och attribut påverkar lagringen. Om du till exempel lägger till förslags ställare (sökning efter fråga) ökar lagrings kraven. Med samma data uppsättning kan du prova att skapa flera versioner av ett index, med olika attribut i varje fält, för att se hur lagrings kraven varierar. Mer information finns [i "lagrings konsekvenser" i skapa ett grundläggande index](search-what-is-an-index.md#index-size).
++ [Bygg ett första index i portalen](search-get-started-portal.md) och anteckna dess storlek. Funktioner och attribut påverkar lagringen. Om du till exempel lägger till förslags ställare (sökning efter fråga) ökar lagrings kraven. Med samma data uppsättning kan du prova att skapa flera versioner av ett index, med olika attribut i varje fält, för att se hur lagrings kraven varierar. Mer information finns [i "lagrings konsekvenser" i skapa ett grundläggande index](search-what-is-an-index.md#index-size).
 
 Med en grov uppskattning i handen kan du dubblera beloppet till budget för två index (utveckling och produktion) och sedan välja din nivå.
 
@@ -170,7 +174,7 @@ Dedikerade resurser kan hantera större samplings-och bearbetnings tider för me
     + Starta hög, på S2 eller till och med S3 om du vet att du kommer att ha storskalig indexering och läsa in frågor.
     + Börja med den optimerade lagringen, vid L1 eller L2, om du har indexerat en stor mängd data och frågan är relativt låg, precis som med ett internt affärs program.
 
-1. [Bygg ett första index](search-create-index-portal.md) för att avgöra hur källdata översätts till ett index. Detta är det enda sättet att uppskatta index storleken.
+1. [Bygg ett första index](search-what-is-an-index.md) för att avgöra hur källdata översätts till ett index. Detta är det enda sättet att uppskatta index storleken.
 
 1. [Övervaka lagring, tjänst gränser, fråga volym och svars tid](search-monitor-usage.md) i portalen. Portalen visar frågor per sekund, begränsade frågor och Sök svars tid. Alla dessa värden kan hjälpa dig att avgöra om du har valt rätt nivå. 
 

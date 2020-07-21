@@ -3,12 +3,12 @@ title: Vad är Azure Event Hubs? – en tjänst för inmatning av stordata | Mic
 description: Lär dig mer om Azure Event Hubs, en strömningstjänst för stordata som matar in flera miljoner händelser per sekund.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 175f7e249e02d5c85dd38cf49821b2893de159a3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b442a7e0b10f3f882f12943c642ccdd6feef3114
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314253"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522116"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs – en stordataströmningsplattform och händelseinmatningstjänst
 Azure Event Hubs är en stordataströmningsplattform och händelseinmatningstjänst. Den kan ta emot och behandla miljoner händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar.
@@ -44,9 +44,9 @@ Mata in, buffra, lagra och bearbeta din dataström i realtid för att få använ
 
 [Samla in](event-hubs-capture-overview.md) data i nära realtid i en [Azure Blob-lagring](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)  för långsiktig kvarhållning eller bearbetning av mindre batchar. Du kan åstadkomma detta beteende i samma dataström som du använder för att få fram analys i realtid. Det går snabbt att konfigurera insamling av händelsedata. Det finns inga administrativa kostnader för att köra den, och den skalar automatiskt med Event Hubs  [genomflödesenheter](event-hubs-scalability.md#throughput-units). Med Event Hubs kan du rikta in dig på databearbetning i stället för på datainsamling.
 
-Azure Event Hubs är även integrerat med [Azure Functions](/azure/azure-functions/) för att ge en serverlös arkitektur.
+Azure Event Hubs är även integrerat med [Azure Functions](../azure-functions/index.yml) för att ge en serverlös arkitektur.
 
-## <a name="scalable"></a>Skalbar
+## <a name="scalable"></a>Skalbarhet
 
 Med Event Hubs kan du börja med dataströmmar i megabytestorlek och växa till gigabyte eller terabyte. Funktionen [Automatisk ökning](event-hubs-auto-inflate.md) är en av de många tillgängliga alternativ för att skala antalet dataflödesenheter som uppfyller dina användningsbehov.
 
@@ -74,7 +74,7 @@ Med Event Hubs på Azure Stack Hub kan du använda hybrid moln scenarier. Ström
 
 Event Hubs-versionerna (på Azure Stack hubb och på Azure) erbjuder en hög grad av funktions paritet. Den här pariteten innebär att SDK: er, exempel, PowerShell, CLI och portaler ger samma upplevelse, med några skillnader. 
 
-Event Hubs på stack är kostnads fritt under den offentliga för hands versionen. Mer information finns i [Översikt över Event Hubs på Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
+Event Hubs på stack är kostnads fritt under den offentliga för hands versionen. Mer information finns i [Översikt över Event Hubs på Azure Stack Hub](/azure-stack/user/event-hubs-overview).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -94,5 +94,3 @@ Mer information om Event Hubs finns i följande artiklar:
 
 - [Översikt över Event Hubs-funktioner](event-hubs-features.md)
 - [Vanliga frågor och svar](event-hubs-faq.md).
-
-

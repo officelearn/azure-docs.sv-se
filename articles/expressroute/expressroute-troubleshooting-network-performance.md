@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738251"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521674"
 ---
 # <a name="troubleshooting-network-performance"></a>Felsöka nätverks prestanda
 ## <a name="overview"></a>Översikt
@@ -160,7 +160,7 @@ Test konfiguration:
  - En 10Gbps Premium ExpressRoute-krets på den plats som identifieras med privat peering aktive rad.
  - Ett Azure VNet med en UltraPerformance-gateway i den angivna regionen.
  - En virtuell DS5v2-dator som kör Windows Server 2016 på VNet. Den virtuella datorn var icke-domänansluten, byggd från standard Azure-avbildningen (ingen optimering eller anpassning) med AzureCT installerad.
- - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Ett exempel:
+ - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Till exempel:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -177,16 +177,15 @@ Test konfiguration:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Region|Ungefärlig<br/>Avstånd (km)|Svarstid|1 session<br/>Bandbredd|Maximal<br/>Bandbredd|
+| ExpressRoute<br/>Position|Azure<br/>Region | Ungefärlig<br/>Avstånd (km) | Svarstid|1 session<br/>Bandbredd | Maximal<br/>Bandbredd |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | USA, västra 2        |    191 km |   5 MS | 262,0 Mbit per sekund |  3,74 Gbits per sekund |
 | Seattle | USA, västra          |  1 094 km |  18 MS |  82,3 Mbit per sekund |  3,70 Gbits per sekund |
 | Seattle | USA, centrala       |  2 357 km |  40 MS |  38,8 Mbit per sekund |  2,55 Gbits per sekund |
 | Seattle | USA, södra centrala |  2 877 km |  51 MS |  30,6 Mbit per sekund |  2,49 Gbits per sekund |
 | Seattle | USA, norra centrala |  2 792 km |  55 MS |  27,7 Mbit per sekund |  2,19 Gbits per sekund |
 | Seattle | USA, östra 2        |  3 769 km |  73 MS |  21,3 Mbit per sekund |  1,79 Gbits per sekund |
-| Seattle | USA, östra          |  3 699 km |  74 MS |  21,1 Mbit per sekund |  1,78 Gbits per sekund |
+| Seattle | East US          |  3 699 km |  74 MS |  21,1 Mbit per sekund |  1,78 Gbits per sekund |
 | Seattle | Japan, östra       |  7 705 km | 106 MS |  14,6 Mbit per sekund |  1,22 Gbits per sekund |
 | Seattle | Storbritannien, södra         |  7 708 km | 146 MS |  10,6 Mbit per sekund |   896 Mbit per sekund |
 | Seattle | Europa, västra      |  7 834 km | 153 MS |  10,2 Mbit per sekund |   761 Mbit per sekund |

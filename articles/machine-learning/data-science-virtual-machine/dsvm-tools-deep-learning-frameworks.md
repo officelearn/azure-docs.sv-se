@@ -11,18 +11,19 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56c7a0d6f0400811d085f60fd71fe72b88bf9ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557488"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520569"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Djup inlärnings-och AI-ramverk för Azure-Data Science VM
 Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="caffe"></a>[Caffe](https://github.com/BVLC/caffe)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | |
 | DSVM-versioner som stöds      | Linux (Ubuntu)     |
@@ -31,7 +32,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | |
 | DSVM-versioner som stöds      | Linux (Ubuntu)     |
@@ -40,7 +41,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="chainer"></a>[Chainer](https://chainer.org/)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 5.2 |
 | DSVM-versioner som stöds      | Linux (Ubuntu)     |
@@ -49,7 +50,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[CUDA-, cuDNN-, NVIDIA-drivrutin](https://developer.nvidia.com/cuda-toolkit)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 10.0.130|
 | DSVM-versioner som stöds      | Windows och Linux   |
@@ -59,7 +60,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 0.16.1|
 | DSVM-versioner som stöds      | Linux (Ubuntu)   |
@@ -68,7 +69,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="keras"></a>[Keras](https://keras.io/)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 2.2.4 |
 | DSVM-versioner som stöds      | Windows och Linux   |
@@ -77,7 +78,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 2.5.1 |
 | DSVM-versioner som stöds      | Windows och Linux   |
@@ -85,7 +86,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 | Så här kör du det      | Terminal: aktivera rätt miljö och kör python. <br/>Jupyter: Anslut till [Jupyter](provision-vm.md) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)och öppna sedan CNTK-katalogen för exempel. |
 
 ## <a name="mxnet"></a>[MXNet](https://mxnet.apache.org/)
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 1.3.0 |
 | DSVM-versioner som stöds      | Windows och Linux   |
@@ -94,7 +95,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 1.0.1 |
 | DSVM-versioner som stöds      | Windows och Linux   |
@@ -103,7 +104,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="nvidia-system-management-interface-nvidia-smi"></a>[NVIDIA-gränssnitt för system hantering (NVIDIA-SMI)](https://developer.nvidia.com/nvidia-system-management-interface)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds |  |
 | DSVM-versioner som stöds      | Windows och Linux   |
@@ -113,7 +114,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 1.2.0 (Ubuntu 16,04, Windows 2016), 1.4.0 (Ubuntu 18,04, Windows 2019) |
 | DSVM-versioner som stöds      | Linux |
@@ -122,7 +123,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 1.13 |
 | DSVM-versioner som stöds      | Windows, Linux |
@@ -131,7 +132,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 1.12 |
 | DSVM-versioner som stöds      | Linux |
@@ -141,7 +142,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
 | Version (er) som stöds | 1.0.3 |
 | DSVM-versioner som stöds      | Linux |

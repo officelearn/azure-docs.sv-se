@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 9e020d34b6cfb8117ccff1114cc938c966126b77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537286"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519872"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ansluta Azure Kubernetes-tjänsten och Azure Database for MySQL
 
@@ -41,13 +41,7 @@ Utdata blir den genererade resurs gruppen som AKS skapar med nätverks gränssni
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
-## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
-[Öppna Service Broker för Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) gör att du kan etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [öppen service BROKER API](https://www.openservicebrokerapi.org/) -implementering för Azure.
-
-Med OSBA kan du skapa en Azure Database for MySQL-server och binda den till ditt AKS-kluster med Kubernetes inbyggda språk. Lär dig mer om hur du använder OSBA och Azure Database for MySQL tillsammans på [sidan OSBA GitHub](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
-
-
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa ett Azure Kubernetes service-kluster](../aks/kubernetes-walkthrough.md)
+- [Skapa ett Azure Kubernetes Service-kluster](../aks/kubernetes-walkthrough.md)
 - Lär dig hur du [installerar WordPress från ett Helm-diagram med OSBA och Azure Database for MySQL](../aks/integrate-azure.md)

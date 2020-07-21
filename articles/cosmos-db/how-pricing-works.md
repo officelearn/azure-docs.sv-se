@@ -5,19 +5,19 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 07/14/2020
+ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955820"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523544"
 ---
-# <a name="pricing-model-in-azure-cosmos-db"></a>Prismodell i Azure Cosmos DB 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Prismodell i Azure Cosmos DB
 
 Prissättningsmodellen för Azure Cosmos DB gör det enkelt att planera och hantera dina kostnader. Med Azure Cosmos DB betalar du för det etablerade dataflödet och den lagring du förbrukar.
 
-* **Tillhandahållet data flöde**: ett allokerat data flöde (kallas även reserverat data flöde) garanterar höga prestanda i alla skalor. Du anger det data flöde (RU/s) som du behöver och Azure Cosmos DB dedikerar de resurser som krävs för att garantera det konfigurerade data flödet. Du faktureras per timme för maximalt tillhandahållet data flöde i en specifik timme.
+* **Tillhandahållet data flöde**: ett [allokerat data flöde](how-to-choose-offer.md) (kallas även reserverat data flöde) garanterar höga prestanda i alla skalor. Du anger det data flöde (RU/s) som du behöver och Azure Cosmos DB dedikerar de resurser som krävs för att garantera det konfigurerade data flödet. Du faktureras per timme för maximalt tillhandahållet data flöde i en specifik timme. Du kan etablera data flöde manuellt eller använda [autoskalning](provision-throughput-autoscale.md).
 
    > [!NOTE]
    > Eftersom den etablerade data flödes modellen dedikerar resurser till din behållare eller databas debiteras du för det etablerade data flödet även om du inte kör några arbets belastningar.
@@ -41,9 +41,11 @@ Som det visas i föregående tabell börjar det lägsta data flödet i Azure Cos
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Testa Azure Cosmos DB kostnadsfritt
 
-Azure Cosmos DB erbjuder flera alternativ för utvecklare utan kostnad. Dessa alternativ är:
+Azure Cosmos DB erbjuder många alternativ för utvecklare utan kostnad. Dessa alternativ är:
 
-* **Kostnads fritt Azure-konto**: Azure erbjuder en [kostnads fri nivå](https://azure.microsoft.com/free/) som ger dig $200 i Azure-krediter under de första 30 dagarna och en begränsad mängd kostnads fria tjänster i 12 månader. Mer information finns i [Kostnadsfritt Azure-konto](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB är en del av ett kostnads fritt Azure-konto. Specifikt för Azure Cosmos DB erbjuder det här kostnads fria kontot 5 GB lagring och 400 ru: er data flöde för hela året. 
+* **Azure Cosmos DB kostnads fri nivå**: Azure Cosmos DB kostnads fri nivå är det enkelt att komma igång, utveckla och testa dina program, eller till och med köra små produktions arbets belastningar utan kostnad. När den kostnads fria nivån har Aktiver ATS för ett konto får du de första 400 RU/s och 5 GB lagrings utrymme i kontot kostnads fritt för kontots livstid. Du kan ha upp till ett konto med en kostnads fri nivå per Azure-prenumeration och måste välja när du skapar kontot. Kom igång genom att [skapa ett nytt konto i Azure Portal med kostnads fri nivå aktive rad](create-cosmosdb-resources-portal.md) eller använda en [arm-mall](manage-sql-with-resource-manager.md#free-tier).
+
+* **Kostnads fritt Azure-konto**: Azure erbjuder en [kostnads fri nivå](https://azure.microsoft.com/free/) som ger dig $200 i Azure-krediter under de första 30 dagarna och en begränsad mängd kostnads fria tjänster i 12 månader. Mer information finns i [Kostnadsfritt Azure-konto](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB är en del av ett kostnads fritt Azure-konto. Specifikt för Azure Cosmos DB erbjuder det här kostnads fria kontot 5 GB lagring och 400 RU/s av etablerade data flöden för hela året.
 
 * **Prova Azure Cosmos DB kostnads fritt**: Azure Cosmos DB erbjuder en tidsbegränsad upplevelse genom att använda Try Azure Cosmos dB för kostnads fria konton. Du kan skapa ett Azure Cosmos DB konto, skapa databas och samlingar och köra ett exempel program med hjälp av snabb starter och självstudier. Du kan köra exempel programmet utan att prenumerera på ett Azure-konto eller använda ditt kredit kort. [Försök Azure Cosmos DB kostnads fria](https://azure.microsoft.com/try/cosmosdb/) erbjudanden Azure Cosmos db i en månad, med möjlighet att förnya ditt konto valfritt antal gånger.
 

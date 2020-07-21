@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 98c86d839868eb0714c7106d5267d1c55e6e99d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48e2697cb4793f10e7694aa26e29c48a397fe3a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83739319"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521606"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geofiltrering på en domän för Azure Front Door?
+# <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Geo-filtrering på en domän för Azures front dörr
 
 Azure-frontend svarar som standard på användar förfrågningar oavsett var användaren utför begäran. Men i vissa fall kanske du vill begränsa åtkomsten till dina webb program efter land/region. Med brand vägg för webbaserade program (WAF) i front dörren kan du definiera en princip med hjälp av anpassade åtkomst regler för en viss sökväg på slut punkten för att tillåta eller blockera åtkomst från angivna länder/regioner. 
 
@@ -149,7 +150,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | MX | Mexico|
 | MY | Malaysia|
 | MZ | Moçambique|
-| NA | Namibia|
+| Ej tillämpligt | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|
@@ -175,7 +176,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr genom att
 | RU | Ryska federationen|
 | RW | Rwanda|
 | SA | Saudiarabien|
-| SD | Sudan|
+| Standardavvikelse | Sudan|
 | SE | Sverige|
 | SG | Singapore|
 | SI | Slovenien|

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 86d88787d024029b11d9718f8dbc834ae7217707
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78cc1fe1a84f1fd596d0c581f034f312cb1a0c3d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523816"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 
@@ -113,7 +113,7 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>Exempelprogram
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2019 med arbets belastningen Azure Development. Du kan komma igång med [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) kostnads fritt.
 * En Azure-prenumeration. Du kan skapa [ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Du kan också skapa ett Cosmos Database-konto med [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 * En Azure Cosmos DB Gremlin API-databas med en **obegränsad samling**. Den här guiden visar hur du kommer igång med [Azure Cosmos DB Gremlin API i .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
@@ -136,7 +136,7 @@ Fil|Beskrivning
 
 I `App.config`-filen är följande konfigurationsvärden som kan tillhandahållas:
 
-Inställningen|Beskrivning
+Inställning|Beskrivning
 ---|---
 `EndPointUrl`|Det här är **din .NET SDK-slutpunkt** som finns i bladet Översikt för ditt Cosmos DB Gremlin API-databaskonto. Det har formatet för `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Det här är den primära eller sekundära nyckel som visas under ditt Azure Cosmos DB-konto. Läs mer om att [skydda åtkomst till Azure Cosmos DB-data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
@@ -151,10 +151,11 @@ Inställningen|Beskrivning
 ### <a name="run-the-sample-application"></a>Köra exempelprogrammet
 
 1. Lägg till dina specifika databaskonfigurationsparametrar i `App.config`. Detta används för att skapa en DocumentClient-instans. Om databasen och containern inte har skapats ännu skapas de automatiskt.
-2. Kör appen. Detta anropar `BulkImportAsync` två gånger, en gång för att importera hörn och en gång för att importera kanter. Om några av objekten genererar ett fel när de infogas läggs de till i antingen `.\BadVertices.txt` eller `.\BadEdges.txt`.
+2. Kör programmet. Detta anropar `BulkImportAsync` två gånger, en gång för att importera hörn och en gång för att importera kanter. Om några av objekten genererar ett fel när de infogas läggs de till i antingen `.\BadVertices.txt` eller `.\BadEdges.txt`.
 3. Utvärdera resultaten genom att köra frågor mot diagramdatabasen. Om `ShouldCleanupOnFinish`-alternativet är inställt på true (sant) tas databasen bort automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Information om NuGet-paket och viktig information om utförar .NET-bibliotek finns i [UTFÖRAR SDK-information](sql-api-sdk-bulk-executor-dot-net.md). 
 * Kolla in [prestanda tipsen](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) för att ytterligare optimera användningen av Mass utförar.
 * Läs [referensartikeln om BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) för mer information om de klasser och metoder som definieras i den här namnrymden.

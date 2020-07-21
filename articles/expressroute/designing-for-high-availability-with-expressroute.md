@@ -7,16 +7,20 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
-ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da90bbbce485616afdac5997576da99ac4d62c6f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076685"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521912"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Design för hög tillgänglighet med ExpressRoute
 
 ExpressRoute har utformats för att ge hög tillgänglighet för att tillhandahålla bärvåg för privat nätverks anslutning till Microsoft-resurser. Det finns med andra ord ingen enskild felpunkt i ExpressRoute-sökvägen i Microsoft-nätverket. För att maximera tillgängligheten bör även kunden och service provider-segmentet för din ExpressRoute-krets vara konstruerat för hög tillgänglighet. I den här artikeln börjar vi med att titta på nätverks arkitektur för att skapa robust nätverks anslutning med en ExpressRoute, och sedan ska vi titta på de fin justerings funktioner som hjälper dig att förbättra din ExpressRoute-krets hög tillgänglighet.
 
+>[!NOTE]
+>Begreppen som beskrivs i den här artikeln gäller även när en ExpressRoute-krets skapas under Virtual WAN eller utanför den.
+>
 
 ## <a name="architecture-considerations"></a>Arkitektur överväganden
 

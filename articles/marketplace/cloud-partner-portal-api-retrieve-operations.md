@@ -4,18 +4,20 @@ description: API för att hämta alla åtgärder för erbjudandet eller för att
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: c0611cb3cbc24e2b105cdef134e30a7c2fbdd445
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 90ff7c4a85fd9e48ac3aa49ace99f43eb0244603
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113470"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520297"
 ---
 # <a name="retrieve-operations"></a>Hämta åtgärder
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd för angivet operationId. Klienten kan använda frågeparametrar för att filtrera vid pågående åtgärder.
 
@@ -27,7 +29,6 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 
 ```
 
-
 ## <a name="uri-parameters"></a>URI-parametrar
 
 |  **Namn**          |      **Beskrivning**                                                                                           | **Datatyp** |
@@ -38,8 +39,7 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 |  api-version       | Senaste versionen av API |    Datum      |
 |  |  |  |
 
-## <a name="header"></a>Sidhuvud
-
+## <a name="header"></a>Huvud
 
 |  **Namn**          |  **Värde**           |
 |  ---------------   | -------------------- |
@@ -47,10 +47,9 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 |  Auktorisering     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
-
 ## <a name="body-example"></a>Body-exempel
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 #### <a name="get-operations"></a>Hämta åtgärder
 
@@ -186,7 +185,7 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | Den uppskattade varaktigheten för den här åtgärden |
 | id | Den unika identifieraren för steg processen |
-| description | Beskrivning av steget |
+| beskrivning | Beskrivning av steget |
 | stepName | Det egna namnet för steget |
 | status | Status för steget, antingen `notStarted` \| `running` \| `failed` \|`completed` |
 | meddelanden | Eventuella meddelanden eller varningar som påträffades under steget. Strängmatris |

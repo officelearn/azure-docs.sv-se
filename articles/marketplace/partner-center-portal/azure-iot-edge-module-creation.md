@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anbene
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: f97692b604408437bc2ee457bb04ad9b855c7290
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119301"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520280"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Skapa, konfigurera och publicera ett IoT Edge modul-erbjudande på Azure Marketplace
 
@@ -48,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
 
 - Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -149,7 +149,7 @@ Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken lån
 
 Ange en mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -231,7 +231,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 5. Sekretess policy adress (länk)
 6. Name
 7. Sammanfattning
-8. Description
+8. Beskrivning
 9. Användbara länkar
 10. Skärm bilder/videor
 
@@ -286,13 +286,13 @@ Välj **Spara utkast** innan du fortsätter till nästa avsnitt, plan översikt.
 
 ### <a name="plan-overview"></a>Plan översikt
 
-På den här fliken kan du ange olika prenumerations alternativ i samma erbjudande i Partner Center. Dessa planer kallas tidigare för SKU: er eller lager enheter. Planer kan variera beroende på vilka moln som är tillgängliga, till exempel globala moln, offentliga moln och den avbildning som planen refererar till. Om du vill visa ditt erbjudande i Marketplace måste du konfigurera minst en plan.
+På den här fliken kan du ange olika prenumerations alternativ i samma erbjudande i Partner Center. Planer (tidigare kallade SKU: er) kan variera beroende på vilka moln som är tillgängliga, till exempel globala moln, offentliga moln och den avbildning som planen refererar till. Om du vill visa ditt erbjudande i Marketplace måste du konfigurera minst en plan.
 
 När du har skapat dina planer visas fliken **plan översikt** :
 
 - Planera namn
 - Prismodell
-- Moln tillgänglighet (global eller myndigheter)
+- Azure-regioner (globala eller myndigheter)
 - Aktuell publicerings status
 - Alla tillgängliga åtgärder
 
@@ -329,7 +329,7 @@ Välj alternativet [Azure Government](../../azure-government/documentation-gover
 
 #### <a name="azure-government-certifications"></a>Azure Government certifieringar
 
-Det här alternativet visas bara om **Azure Government** har valts under **moln tillgänglighet**.
+Det här alternativet visas bara om **Azure Government** har valts under **Azure-regioner**.
 
 Azure Government Services hanterar data som omfattas av vissa myndighets bestämmelser och krav. Till exempel FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS. För att få kännedom om dina certifieringar för dessa program kan du tillhandahålla upp till 100 länkar som beskriver dina certifieringar. Det kan vara länkar till dina program tablåer direkt eller till din egen webbplats. Dessa länkar är bara synliga för Azure Government kunder.
 

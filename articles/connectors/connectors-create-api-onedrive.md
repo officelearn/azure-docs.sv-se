@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75378440"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524222"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Komma åt och hantera filer i OneDrive-anslutning med hjälp av Azure Logic Apps
 
@@ -39,11 +40,11 @@ En utlösare är en händelse som kan användas för att starta arbets flödet s
 
 1. I Logic App Designer skriver `onedrive` du för att hämta en lista över utlösare:  
 
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![En dialog ruta med namnet "Visa Microsoft Managed API: er" har en ruta som innehåller "OneDrive". Nedan visas en lista över fyra utlösare. Den första av dessa är "OneDrive-när en fil skapas". Den andra, "OneDrive-när en fil ändras", har marker ATS.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Välj **när en fil ändras**. Om det redan finns en anslutning väljer du knappen Visa väljare för att välja en mapp.
 
-   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+   ![En dialog ruta som heter "när en fil ändras" har en ruta med namnet "mapp" med en associerad bläddringsknappen.](./media/connectors-create-api-onedrive/sample-folder.png)
 
    Om du uppmanas att logga in anger du inloggnings informationen för att skapa anslutningen. [Skapa anslutningen](connectors-create-api-onedrive.md#create-the-connection) i den här artikeln som beskriver stegen.
 
@@ -51,7 +52,7 @@ En utlösare är en händelse som kan användas för att starta arbets flödet s
 
 3. Välj knappen **Redigera** och ange värdena för **frekvens** och **intervall** . Om du till exempel vill att utlösaren ska avsöka var 15: e minut anger du **frekvensen** till **minut**och anger **intervallet** till **15**. 
 
-   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+   ![En dialog ruta med namnet "när en fil ändras" visar fem rutor märkta: "mapp", "frekvens", "intervall", "tidszon" och "START tid". Det finns List Rute listor för fälten "frekvens" och "tidszon".](./media/connectors-create-api-onedrive/trigger-properties.png)
 
 4. **Spara** ändringarna (övre vänstra hörnet i verktygsfältet). Din Logic app sparas och kan aktive ras automatiskt.
 
@@ -61,23 +62,23 @@ En åtgärd är en åtgärd som utförs av arbets flödet som definierats i en L
 
 1. Välj plus tecknet. Du ser flera alternativ: **Lägg till en åtgärd**, **Lägg till ett villkor**eller något av de **fler** alternativen.
 
-   ![](./media/connectors-create-api-onedrive/add-action.png)
+   ![En skärm bild visar fyra knappar: "+ nytt steg", "lägga till en åtgärd", "Lägg till ett villkor" och "... Mer ".](./media/connectors-create-api-onedrive/add-action.png)
 
 2. Välj **Lägg till en åtgärd**.
 
 3. I rutan Sök skriver `onedrive` du för att hämta en lista över alla tillgängliga åtgärder.
 
-   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![En dialog ruta med namnet "Visa Microsoft Managed API: er" har en ruta som innehåller "OneDrive". Nedan visas en lista över åtta åtgärder. Den första är "OneDrive-skapa fil" och är markerad.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. I vårt exempel väljer du **OneDrive-skapa fil**. Om det redan finns en anslutning väljer du **mappsökvägen** för att placera filen, anger **fil namnet**och väljer det **fil innehåll** som du vill använda:  
 
-   ![](./media/connectors-create-api-onedrive/sample-action.png)
+   ![En dialog ruta med namnet "skapa fil" visar tre rutor med namnet "MAPPSÖKVÄG", "fil namn" och "MAPPINNEHÅLL". Det finns en katalogs bläddringsknappen bredvid rutan "MAPPSÖKVÄG".](./media/connectors-create-api-onedrive/sample-action.png)
 
    Om du uppmanas att ange anslutnings information anger du informationen för att [skapa anslutningen enligt beskrivningen](#create-the-connection) i det här avsnittet.
 
    I det här exemplet skapar du en ny fil i en OneDrive-mapp. Du kan använda utdata från en annan utlösare för att skapa OneDrive-filen. Lägg till exempel till Office 365 Outlook *när ett nytt e-postmeddelande kommer* till utlösare. Lägg sedan till åtgärden OneDrive *Skapa fil* som använder fälten bifogad fil och innehålls typ i en förhandling för att skapa den nya filen i OneDrive.
 
-   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+   ![En dialog ruta med namnet "för varje" har en ruta med etiketten "Välj utdata från föregående steg" som innehåller "bilagor". Det finns en dialog ruta för att skapa fil som täcker resten av rutorna för varje, med rutor som är märkta "MAPPSÖKVÄG", "fil namn" och "filinnehåll". ](./media/connectors-create-api-onedrive/foreach-action.png)
 
 5. **Spara** ändringarna (övre vänstra hörnet i verktygsfältet). Din Logic app sparas och kan aktive ras automatiskt.
 
@@ -87,4 +88,4 @@ Visa eventuella utlösare och åtgärder som definierats i Swagger och se även 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Anslutningsprogram för Azure Logic Apps](apis-list.md)
+* [Anslutningsappar för Azure Logic Apps](apis-list.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120508"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520161"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Så här migrerar du ditt konto från Cloud Partner Portal till Partner Center
 
@@ -27,7 +27,7 @@ Om du är en användare med ägar rollen i CPP för ett specifikt konto visas en
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>Ditt konto har migrerats till Partner Center
 
-För alla konton som har slutfört migreringen från CPP till Partner Center, sker konto hantering i Partner Center. Ändringar som användar tillägg/borttagning kommer att synkroniseras tillbaka till CPP.
+Nu hanterar du ditt konto i Partner Center. Ändringar som användar tillägg/borttagning kommer att synkroniseras tillbaka till CPP.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Du har ännu inte migrerat ditt konto till Partner Center
 
@@ -45,7 +45,7 @@ Klicka på banderollen för att starta processen för migrering av konto. Du fö
 
 ## <a name="publishers-moving-from-cpp"></a>Utgivare som flyttar från CPP
 
-Om ditt konto har migrerats från [Cloud Partner Portal (cpp)](https://cloudpartner.azure.com)behöver du inte skapa ett nytt Partner Center-konto. Du bör ha fått en anpassad länk till ditt nya partner Center-konto i e-postmeddelandet och i ett informations meddelande efter att du loggat in på ditt befintliga CPP-konto.
+Om ditt konto har migrerats från CPP behöver du inte skapa ett nytt Partner Center-konto. Du bör ha fått en anpassad länk till ditt nya partner Center-konto i e-postmeddelandet och i ett informations meddelande när du har loggat in på ditt befintliga CPP-konto.
 
 När du har aktiverat ditt nya partner Center-konto genom att gå till den här anpassade länken kan du gå tillbaka till ditt konto genom att gå till [instrument panelen för kommersiellt marknads platser](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) i Partner Center.
 

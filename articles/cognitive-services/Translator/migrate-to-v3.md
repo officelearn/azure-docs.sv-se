@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996218"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523986"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator v2 till v3-migrering
 
@@ -49,8 +49,8 @@ I följande lista med v2-och v3-metoder identifieras de v3-metoder och API: er s
 | `GetLanguagesForTranslate`     | [Språk](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Upptäcka](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Upptäcka](reference/v3-0-detect.md)         |
+| `Detect`     | [Identifiering](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Identifiering](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Funktionen stöds inte längre       |
 | `AddTranslationArray`    | Funktionen stöds inte längre          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -116,8 +116,8 @@ Microsoft Translator v3 använder neurala maskin översättning som standard. De
 
 Neurala-översättning med v3-text-API: t stöder inte användning av standard kategorier (SMT, tal, Tech, generalnn).
 
-| |Slutpunkt|    Kompatibilitet för GDPR-processor|    Använd Translator Hub|    Använd anpassad översättare (förhands granskning)|
-|:-----|:-----|:-----|:-----|:-----|
+| Version | Slutpunkt | Kompatibilitet för GDPR-processor | Använd Translator Hub | Använd anpassad översättare (förhands granskning) |
+| :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Översättare, version 2|    api.microsofttranslator.com|    Nej    |Ja    |Nej|
 |Översättare, version 3|    api.cognitive.microsofttranslator.com|    Ja|    Nej|    Ja|
 

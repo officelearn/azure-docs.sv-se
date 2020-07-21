@@ -72,6 +72,10 @@
           href: how-to-manage-routes.md
         - name: Integrera med Azure Maps
           href: how-to-integrate-maps.md
+    - name: Felsöka
+      items:
+        - name: Kända problem
+          href: troubleshoot-known-issues.md
 - name: Referens
   items:
     - name: Digital Twins-tjänstbegränsningar

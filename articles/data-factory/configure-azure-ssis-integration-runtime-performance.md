@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255542"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523323"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för hög prestanda
 
@@ -104,11 +104,15 @@ Om du inte har många paket att köra och du vill att paketen ska köras snabbt,
 
 Den här informationen representerar ett enskilt paket som körs på en enskild arbetsnod. Paketet läser in 3 000 000 poster med kolumnerna förnamn och efter namn från Azure Blob Storage, genererar en kolumn med fullständigt namn och skriver poster som har det fullständiga namnet som är längre än 20 tecken till Azure Blob Storage.
 
+Y-axeln är antalet paket som har slutfört körningen inom en timme. Observera att detta bara är ett test resultat av ett minnes krävande paket. Om du vill veta data flödet för ditt paket rekommenderar vi att du utför testet själv.
+
 ![Körnings hastighet för SSIS Integration Runtime-paket](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Konfigurera för övergripande data flöde
 
 Om du har många paket att köra och du bryr dig om det totala data flödet, använder du informationen i följande diagram för att välja en typ av virtuell dator som passar ditt scenario.
+
+Y-axeln är antalet paket som har slutfört körningen inom en timme. Observera att detta bara är ett test resultat av ett minnes krävande paket. Om du vill veta data flödet för ditt paket rekommenderar vi att du utför testet själv.
 
 ![SSIS Integration Runtime maximalt totalt data flöde](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

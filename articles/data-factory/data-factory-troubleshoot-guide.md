@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836166"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522864"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -122,6 +123,14 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 - **Orsak**: fel meddelanden indikerar olika problem, till exempel ett oväntat kluster tillstånd eller en speciell aktivitet. Ofta visas inget fel meddelande.
 
 - **Rekommendation**: ej tillämpligt
+
+### <a name="error-code-3208"></a>Felkod: 3208
+
+- **Meddelande**:`An error occurred while sending the request.`
+
+- **Orsak**: nätverks anslutningen till Databricks-tjänsten avbröts.
+
+- **Rekommendation**: om du använder en egen värd för integration runtime kontrollerar du att nätverks anslutningen är tillförlitlig från integration runtime-noderna. Om du använder Azure integration runtime fungerar återförsöket vanligt vis.
  
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 
@@ -626,7 +635,7 @@ Följande tabell gäller för Azure Batch.
     1. Anslut till din aktiva Head-nod som Ambari-server på den aktiva Head-noden med SSH. 
     1. Starta om den aktiva Head-noden.
 
-       Mer information hittar du i fel söknings dokumentationen för Azure HDInsight. Ett exempel:
+       Mer information hittar du i fel söknings dokumentationen för Azure HDInsight. Till exempel:
 
        * [Ambari UI 502-fel](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)
        * [RpcTimeoutException för Apache Spark Thrift-Server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)

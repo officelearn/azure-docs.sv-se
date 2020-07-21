@@ -3,19 +3,19 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026975"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519906"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
 Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Linux-dator som uppfyller kraven för maskin vara/SW för video analys i real tid
 * Azure-prenumeration som du har [ägar behörighet](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) till
@@ -24,7 +24,7 @@ Den här artikeln innehåller de steg som hjälper dig att distribuera video ana
 * [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Skapa ett Azure Media Services-konto](../latest/create-account-howto.md)
     * Använd något av följande regioner: USA, östra 2, centrala USA, norra centrala USA, Östra Japan, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike Central, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
-    * Vi rekommenderar att du använder GPv2-lagrings konton (General-Purpose v2).
+    * Vi rekommenderar att du använder GPv2-lagrings konton (General-Purpose v2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Konfigurera Azure-resurser för att använda live video analys
 
@@ -34,7 +34,7 @@ Se [Skapa anpassad Azure Resource Manager roll](create-custom-azure-resource-man
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Konfigurera en Premium-slutpunkt för direkt uppspelning
 
-Om du tänker använda real tids analys för att spela in video i molnet och sedan spela upp den igen, måste du uppdatera medie tjänsten för att använda en [slut punkt för Premium-direktuppspelning](../latest/streaming-endpoint-concept.md#types).  
+Om du tänker använda real tids analys för att spela in video kontinuerligt i molnet och sedan använda [fråge-API: er](playback-recordings-how-to.md#query-api) innan du spelar upp den igen, rekommenderar vi att du uppdaterar medie tjänsten för att använda en [slut punkt för Premium-direktuppspelning](../latest/streaming-endpoint-concept.md#types).  
 
 Detta är ett valfritt steg. Du kan använda det här Azure CLI-kommandot för att göra det:
 

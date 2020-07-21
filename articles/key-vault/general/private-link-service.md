@@ -7,14 +7,14 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610159"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521096"
 ---
-# <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med en privat Azure-länk
+# <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med Azure Private Link
 
 Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Key Vault, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket.
 
@@ -22,7 +22,7 @@ En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och 
 
 Mer information finns i [Vad är en privat Azure-länk?](../../private-link/private-link-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill integrera ett nyckel valv med en privat Azure-länk behöver du följande:
 
@@ -125,6 +125,17 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ### <a name="link-private-dns-zone-to-virtual-network"></a>Länka Privat DNS zon till Virtual Network 
 ```console
 az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+```
+### <a name="add-private-dns-records"></a>Lägg till Privat DNS poster
+```console
+# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+az network private-dns zone list -g $rg_name
+az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
+az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
+
+# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
+nslookup $vault_name.vault.azure.net
+nslookup $vault_name.privatelink.vaultcore.azure.net
 ```
 ### <a name="create-a-private-endpoint-automatically-approve"></a>Skapa en privat slut punkt (Godkänn automatiskt) 
 ```console
@@ -238,7 +249,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 Mer information finns i [Azure Private Link service: begränsningar](../../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [Azures privata länk](../../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Key Vault](overview.md)

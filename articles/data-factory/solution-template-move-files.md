@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: 81f072822226e4a573cf0086cac7e64ca1cfe45f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6baea73c0c4964bb3937304603a2a92a13d52b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628171"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522728"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Flytta filer med Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Den här artikeln beskriver en lösnings mall som du kan använda för att flytta filer från en mapp till en annan mellan filbaserade arkiv. Ett av de vanliga scenarierna med den här mallen: filer släpps kontinuerligt till en landnings katalog i käll arkivet. Genom att skapa en schema utlösare kan ADF-pipeline regelbundet flytta filerna från källan till mål lagret.  Det sätt på vilket ADF-pipelinen når "flytta filer" hämtar filerna från landnings mappen, kopierar var och en av dem till en annan mapp på mål lagret och sedan tar bort samma filer från landnings-mappen i käll arkivet.
+ADF Copy-aktiviteten har inbyggt stöd för "flytta"-scenariot vid kopiering av binärfiler mellan lagrings lager.  Sättet att aktivera det är att ange "deleteFilesAfterCompletion" som sant i kopierings aktiviteten. Genom att göra det tar kopierings aktiviteten bort filer från data käll arkivet efter att jobbet har slutförts. 
+
+Den här artikeln beskriver en lösnings mall som en annan metod som använder ADF-flexibelt kontroll flöde plus kopierings aktivitet och ta bort aktivitet för att uppnå samma scenario. Ett av de vanliga scenarierna med den här mallen: filer släpps kontinuerligt till en landnings katalog i käll arkivet. Genom att skapa en schema utlösare kan ADF-pipeline regelbundet flytta filerna från källan till mål lagret.  Det sätt på vilket ADF-pipelinen når "flytta filer" hämtar filerna från landnings mappen, kopierar var och en av dem till en annan mapp på mål lagret och sedan tar bort samma filer från landnings-mappen i käll arkivet.
 
 > [!NOTE]
 > Tänk på att den här mallen är utformad för att flytta filer i stället för att flytta mappar.  Om du vill flytta mappen genom att ändra data uppsättningen så att den bara innehåller en mappsökväg, och sedan använda aktiviteten Kopiera aktivitet och ta bort för att referera till samma data uppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte finns nya filer som kommer in i mappen mellan kopierings åtgärden och borttagnings åtgärden. Om det finns nya filer som anländer till mappen när kopierings aktiviteten precis har slutfört kopieringen men borttagnings aktiviteten inte har varit avslutad, är det möjligt att borttagnings aktiviteten tar bort den nya inkommande filen som inte har kopierats till målet ännu genom att ta bort hela mappen.

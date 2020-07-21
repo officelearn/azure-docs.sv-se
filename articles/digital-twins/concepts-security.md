@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833172"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522269"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Skydda Azure Digitals dubbla med rollbaserad åtkomst kontroll
 
@@ -58,7 +58,7 @@ Du kan tilldela roller på två sätt:
 * via fönstret åtkomst kontroll (IAM) för Azure Digitals dubbla i Azure Portal (se [lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](../role-based-access-control/role-assignments-portal.md))
 * via CLI-kommandon för att lägga till eller ta bort en roll
 
-Mer detaljerad information om hur du gör detta finns i [självstudien om Azure Digitals dubbla steg: Anslut en lösning från slut punkt till slut punkt](tutorial-end-to-end.md).
+Mer detaljerad information om hur du gör detta finns i [självstudien om Azure Digitals dubbla steg: *Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Behörighetsomfattning
 
@@ -73,6 +73,6 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se hur du går igenom de här stegen med ett exempel klient program i [How-to: autentisera ett klient program](how-to-authenticate-client.md).
+* Se hur du går igenom de här stegen med ett exempel klient program i [*How-to: autentisera ett klient program*](how-to-authenticate-client.md).
 
 * Läs mer om [RBAC för Azure](../role-based-access-control/overview.md).

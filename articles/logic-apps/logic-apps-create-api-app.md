@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834500"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520808"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -53,8 +54,8 @@ Du kan också utse registrerade anslutningar för Microsoft-certifiering. Den h�
 Mer information om anpassade anslutningar finns i 
 
 * [Översikt över anpassade anslutningar](../logic-apps/custom-connector-overview.md)
-* [Skapa anpassade anslutningar från webb-API: er](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Registrera anpassade anslutningar i Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
+* [Skapa anpassade anslutningar från webb-API: er](/connectors/custom-connectors/create-web-api-connector)
+* [Registrera anpassade anslutningar i Azure Logic Apps](/connectors/custom-connectors/)
 
 ## <a name="helpful-tools"></a>Användbara verktyg
 
@@ -172,7 +173,7 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 
 | Förfrågan ingår `triggerState` ? | API-svar | 
 | -------------------------------- | -------------| 
-| No | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
+| Nej | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
 | Ja | Kontrol lera om det finns filer som har lagts till efter for i-tjänsten `DateTime` `triggerState` . | 
 ||| 
 
@@ -227,7 +228,7 @@ Om du vill göra dina anpassade API: er tillgängliga för alla användare i Log
 
 * Kontakta om du vill ha mer information om anpassade API: er [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com) .
 
-* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 
 * På [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish) kan du hjälpa till med att förbättra Logic Apps genom att rösta på förslag eller komma med egna förslag på förbättringar. 
 

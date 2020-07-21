@@ -6,19 +6,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/10/2020
-ms.openlocfilehash: d2567a5a0374fd05f17e1153c3b2d7f3df50e0d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/15/2020
+ms.openlocfilehash: 238ede3e79b7d7c5a22d24dfc52530fe391b600b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247004"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519634"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
 Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
-## <a name="feature-announcements"></a>Funktions aviseringar
+## <a name="feature-announcements-in-2020"></a>Funktions meddelanden i 2020
+
+### <a name="july-2020"></a>Juli 2020
+
+|Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
+|---------|------------------|-------------|---------------|
+| [**.NET-klientbibliotek**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK | Ett nytt klient bibliotek som släpps av Azure SDK-teamet och är utformat för konsekvens med andra .NET-klient bibliotek. Version 11. | Allmänt tillgänglig. </br> Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) från NuGet. |
+| [**Python-klientbibliotek**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK | Ett nytt klient bibliotek som släpps av Azure SDK-teamet och är utformat för konsekvens med andra python-klient bibliotek. Version 11. | Allmänt tillgänglig. </br> Installera [paketet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) från pypi. |
+| [**Java Script-klient bibliotek**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html)  | Azure SDK | Ett nytt klient bibliotek som släpps av Azure SDK-teamet och är utformat för konsekvens med andra JavaScript-klient bibliotek. Version 11. | Allmänt tillgänglig. </br> Installera [ @azure/search-documents paketet](https://www.npmjs.com/package/@azure/search-documents) från NPM. |
 
 ### <a name="june-2020"></a>Juni 2020
 
@@ -26,7 +34,7 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 |---------|------------------|-------------|---------------|
 [**Knowledge Store**](knowledge-store-concept-intro.md) | AI-berikning | Utdata från en AI-berikad indexerare som lagrar innehåll i Azure Storage för användning i andra appar och processer. | Allmänt tillgänglig. </br> Använd [sök REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller senare, eller portalen. |
 | [**Sök REST API 2020-06-30**](https://docs.microsoft.com/rest/api/searchservice/) | REST | En ny stabil version av REST-API: erna. Förutom kunskaps lager innehåller den här versionen förbättringar för att söka efter relevans och poäng. | Allmänt tillgänglig. |
-| [**Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Fråga | Ny algoritm för rankning av relevans används automatiskt för alla nya Sök tjänster som skapats efter den 15 juli. För tjänster som skapats tidigare kan du välja att ange `similarity` egenskapen för index fält. | Allmänt tillgänglig. </br> Använd [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller senare, eller REST API 2019-05-06. |
+| [**Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Söka i data | Ny algoritm för rankning av relevans används automatiskt för alla nya Sök tjänster som skapats efter den 15 juli. För tjänster som skapats tidigare kan du välja att ange `similarity` egenskapen för index fält. | Allmänt tillgänglig. </br> Använd [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller senare, eller REST API 2019-05-06. |
 | **executionEnvironment** | Säkerhet (indexerare) | Ange uttryckligen konfigurations egenskapen för indexerare för `private` att tvinga alla anslutningar till externa data källor över en privat slut punkt. Gäller endast för Sök tjänster som utnyttjar Azures privata länk. | Allmänt tillgänglig. </br> Använd [sök REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) för att ange den här allmänna konfigurations parametern. |
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
@@ -38,7 +46,7 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 | [**Azure privat länk för en privat Sök slut punkt**](service-create-private-endpoint.md) | Säkerhet| Skärma en Sök tjänst från det offentliga Internet genom att köra den som en privat länk resurs som endast är tillgänglig för klient program och andra Azure-tjänster i samma virtuella nätverk. | Allmänt tillgänglig. </br> Använd [Management REST API 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) eller senare, eller portalen. |
 | [**Systemhanterad identitet (förhands granskning)**](search-howto-managed-identities-data-sources.md) | Säkerhet (indexerare) | Registrera en Sök tjänst som en betrodd tjänst med Azure Active Directory konfigurera anslutningar till Azure-datakälla som stöds för indexering. Gäller för [indexerare](search-indexer-overview.md) som inhämtar innehåll från Azure-datakällor som Azure SQL Database, Azure Cosmos DB och Azure Storage. | Offentlig för hands version. </br> Använd portalen för att registrera Sök tjänsten. |
 | [**parametern SessionID-fråga**](index-similarity-and-scoring.md), [scoringStatistics = global parameter](index-similarity-and-scoring.md#scoring-statistics) | Fråga (relevans) | Lägg till sessionID i en fråga för att upprätta en session för att beräkna Sök resultat, med scoringStatistics = global för att samla in resultat från alla Shards, för mer konsekventa Sök Resultat beräkningar. | Allmänt tillgänglig. </br> Använd [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller senare, eller REST API 2019-05-06. |
-| [**featuresMode (för hands version)**](index-similarity-and-scoring.md#featuresMode-param) | Fråga | Lägg till den här Frågeparametern om du vill visa mer information: per fält likhets poäng, per fält term frekvens och per fält antal unika tokens matchade. Du kan använda dessa data punkter i anpassade bedömnings algoritmer. Ett exempel som visar den här funktionen finns i [Lägg till Machine Learning (LearnToRank) för att söka efter relevans](https://github.com/Azure-Samples/search-ranking-tutorial). | Offentlig för hands version. </br> Använd [sök REST API 2020-06-30 – för hands version](https://docs.microsoft.com/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
+| [**featuresMode (för hands version)**](index-similarity-and-scoring.md#featuresMode-param) | Söka i data | Lägg till den här Frågeparametern om du vill visa mer information: per fält likhets poäng, per fält term frekvens och per fält antal unika tokens matchade. Du kan använda dessa data punkter i anpassade bedömnings algoritmer. Ett exempel som visar den här funktionen finns i [Lägg till Machine Learning (LearnToRank) för att söka efter relevans](https://github.com/Azure-Samples/search-ranking-tutorial). | Offentlig för hands version. </br> Använd [sök REST API 2020-06-30 – för hands version](https://docs.microsoft.com/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
 
 ### <a name="march-2020"></a>Mars 2020
 

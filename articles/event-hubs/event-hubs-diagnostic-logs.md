@@ -3,11 +3,12 @@ title: Konfigurera diagnostikloggar – Azure Event Hub | Microsoft Docs
 description: Lär dig hur du konfigurerar aktivitets loggar och diagnostikloggar för Event Hub i Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322460"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521946"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
@@ -194,10 +195,10 @@ Event Hubs virtuellt nätverk (VNet) Connection Event JSON innehåller element s
 | ---  | ----------- | 
 | SubscriptionId | ID för Azure-prenumeration |
 | NamespaceName | Namn på namnområde |
-| IP-adress | IP-adress för en klient som ansluter till Event Hubs tjänsten |
-| Åtgärd | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. Åtgärder som stöds **accepterar anslutning** och **neka anslutning**. |
-| Anledning | Innehåller en orsak till varför åtgärden utfördes |
-| Antal | Antal förekomster för den aktuella åtgärden |
+| IPAddress | IP-adress för en klient som ansluter till Event Hubs tjänsten |
+| Action | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. Åtgärder som stöds **accepterar anslutning** och **neka anslutning**. |
+| Orsak | Innehåller en orsak till varför åtgärden utfördes |
+| Count | Antal förekomster för den aktuella åtgärden |
 | ResourceId | Azure Resource Manager resurs-ID. |
 
 ### <a name="example"></a>Exempel
@@ -223,7 +224,7 @@ Kund hanterad nyckel användar logg JSON innehåller element som anges i följan
 | Kategori | Typ av kategori för ett meddelande. Det är ett av följande värden: **fel** och **information** |
 | ResourceId | Internt resurs-ID, som innehåller ID för Azure-prenumeration och namn område |
 | KeyVault | Namnet på Key Vault resursen |
-| Tangent | Namnet på den Key Vault nyckeln. |
+| Nyckel | Namnet på den Key Vault nyckeln. |
 | Version | Key Vault nyckelns version |
 | Åtgärd | Namnet på en åtgärd som utförs för att betjäna förfrågningar |
 | Kod | Statuskod |
@@ -232,7 +233,7 @@ Kund hanterad nyckel användar logg JSON innehåller element som anges i följan
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Introduktion till Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Introduktion till Event Hubs](./event-hubs-about.md)
 - [Event Hubs exempel](sdks.md)
 - Kom igång med händelsehubbar
     - [.NET Core](get-started-dotnet-standard-send-v2.md)

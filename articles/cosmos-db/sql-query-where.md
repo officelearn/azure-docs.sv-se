@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898782"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523510"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>WHERE-sats i Azure Cosmos DB
 
@@ -72,7 +73,7 @@ Du kan använda följande binära operatorer som stöds:
 |---------|---------|
 |Aritmetiska | +,-,*,/,% |
 |Binära    | \|, &, ^, <<, >>, >>> (högerskiftning med nollfyllning) |
-|Logiskt    | AND, OR, NOT (och, eller, inte)      |
+|Logisk    | AND, OR, NOT (och, eller, inte)      |
 |Jämförelse | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |Sträng     |  \|\| (sammanfoga) |
 
@@ -104,10 +105,10 @@ Du kan också använda unära operatorer +,-, ~ och inte i frågor, som du ser i
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Du kan också använda egenskaps referenser i frågor. Returnerar till exempel `SELECT * FROM Families f WHERE f.isRegistered` JSON-objektet som innehåller egenskapen `isRegistered` med värdet lika med `true` . Alla andra värden, till exempel,,,,, `false` `null` `Undefined` `<number>` `<string>` `<object>` eller `<array>` , utesluter objektet från resultatet.
+Du kan också använda egenskaps referenser i frågor. Returnerar till exempel `SELECT * FROM Families f WHERE f.isRegistered` JSON-objektet som innehåller egenskapen `isRegistered` med värdet lika med `true` . Alla andra värden, till exempel,,,,, `false` `null` `Undefined` `<number>` `<string>` `<object>` eller `<array>` , utesluter objektet från resultatet. Du kan också använda `IS_DEFINED` funktionen typ kontroll för att fråga efter förekomsten eller frånvaron av en specifik JSON-egenskap. Returnerar till exempel `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` alla JSON-objekt som inte har något värde för `isRegistered` .
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
 - [Nyckelordet IN (I)](sql-query-keywords.md#in)
-- [FROM-sats](sql-query-from.md)
+- [FROM-satsen](sql-query-from.md)

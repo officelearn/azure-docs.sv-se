@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Motor åtgärder för Azures frontend-dörr
 description: Den här artikeln innehåller en lista över de olika åtgärder som du kan utföra med Azures motor för front dörrs regler.
 services: frontdoor
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 74c0a2617a01e8c24cd93a015b667081250657ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313995"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521504"
 ---
-# <a name="azure-front-door-rules-engine-actions"></a>Motor åtgärder för Azures frontend-dörr
+# <a name="azure-front-door-rules-engine-actions"></a>Åtgärder för Azure Front Door-regelmotorn
 
 En regel i [AFD Rules Engine](front-door-rules-engine.md) består av noll eller flera matchnings villkor och åtgärder. Den här artikeln innehåller detaljerade beskrivningar av de åtgärder som du kan använda i AFD-regel motorn.
 
@@ -33,7 +33,7 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Action | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
@@ -45,13 +45,13 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Action | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
 Ta bort | När det här alternativet är markerat, regeln matchar och rubriken som anges i regeln är närvarande, tas rubriken bort från svaret. | Sträng
 
-## <a name="route-configuration-overrides"></a>Åsidosättningar av väg konfiguration 
+## <a name="route-configuration-overrides"></a>Åsidosättningar för routningskonfiguration 
 
 ### <a name="route-type-redirect"></a>Typ av väg: omdirigera
 
@@ -78,7 +78,7 @@ Fält | Beskrivning
 Serverdelspool | Välj den backend-pool som du vill åsidosätta och hantera begär Anden från. Då visas alla dina förkonfigurerade Server dels grupper i din profil för din klient del. 
 Protokoll för vidarebefordran | Matcha begäran, HTTP, HTTPS.
 URL-omskrivning | Använd den här åtgärden för att skriva om sökvägen för en begäran som är en väg till ditt ursprung. Om aktive rad, se nedan för ytterligare fält som krävs
-Caching | Aktiverad, inaktiverad. Se nedan för ytterligare fält som krävs om det är aktiverat. 
+Cachelagring | Aktiverad, inaktiverad. Se nedan för ytterligare fält som krävs om det är aktiverat. 
 
 #### <a name="url-rewrite"></a>URL-omskrivning
 
@@ -88,7 +88,7 @@ Fält | Beskrivning
 ------|------------
 Anpassad vidarebefordrings Sök väg | Definiera sökvägen för att vidarebefordra begär anden till. 
 
-#### <a name="caching"></a>Caching
+#### <a name="caching"></a>Cachelagring
 
 Använd de här inställningarna för att styra hur filer cachelagras för förfrågningar som innehåller frågesträngar och om innehållet ska cachelagras baserat på alla parametrar eller på valda parametrar. Du kan använda ytterligare inställningar för att skriva över TTL-värdet (Time to Live) för att styra hur lång tid innehållet stannar i cacheminnet för begär Anden som regler matchar villkoren anger. Om du vill framtvinga cachelagring som åtgärd anger du fältet cachelagring till "Enabled". När du gör detta visas följande alternativ: 
 

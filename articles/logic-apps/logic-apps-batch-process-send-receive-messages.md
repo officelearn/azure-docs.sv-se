@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4863ff0005f09ca325125667062455357687fdd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144343"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521147"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och gruppera process meddelanden i Azure Logic Apps
 
@@ -37,7 +37,7 @@ Eller [Registrera dig för en prenumeration där du betalar per](https://azure.m
 * Ett e-postkonto med en [e-postprovider som stöds av Azure Logic Apps](../connectors/apis-list.md)
 
   > [!IMPORTANT]
-  > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -117,7 +117,7 @@ Innan du kan skicka meddelanden till en batch måste den batch först finnas som
 
      ![För "brödtext" väljer du "meddelande-ID"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
-7.  Spara din logikapp. Nu har du skapat en batch-mottagare.
+7.  Spara logikappen. Nu har du skapat en batch-mottagare.
 
     ![Spara din logikapp](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
@@ -205,7 +205,7 @@ Skapa nu en eller flera Logic-appar för batch-avsändare som skickar meddelande
       Den här **slump** -funktionen genererar ett tal mellan ett och fem. 
       Så du delar upp den här gruppen i fem numrerade partitioner, vilket detta uttryck dynamiskt anger.
 
-5. Spara din logikapp. Appen för avsändar logik ser nu ut ungefär som i det här exemplet:
+5. Spara logikappen. Appen för avsändar logik ser nu ut ungefär som i det här exemplet:
 
    ![Spara avsändar Logic-appen](./media/logic-apps-batch-process-send-receive-messages/batch-sender-finished.png)
 

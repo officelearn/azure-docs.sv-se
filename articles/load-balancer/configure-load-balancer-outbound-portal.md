@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0484bc393ac97dc88fed5858f736f01fc41b507a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367401"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521077"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med hjälp av Azure Portal
 
@@ -38,7 +38,7 @@ I det här avsnittet skapar du en belastningsutjämnare som ska belastningsutjä
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Load Balancer**.
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupSLB** i text rutan.|
@@ -79,7 +79,7 @@ En hälso avsökning används för att övervaka appens status. Hälso avsöknin
 1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
 2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
@@ -106,12 +106,12 @@ I följande avsnitt skapar du en:
 2. Välj **belastnings Utjämnings regler**under **Inställningar**och välj sedan **Lägg till**.
 3. Använd de här värdena för att konfigurera belastnings Utjämnings regeln:
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myHTTPRule**. |
     | Protokoll | Välj **TCP**. |
     | Port | Ange **80**.|
-    | Backend-port | Ange **80**. |
+    | Serverdelsport | Ange **80**. |
     | Serverdelspool | Välj **myBackendPool**.|
     | Hälsoavsökning | Välj **myHealthProbe**. |
     | Skapa implicit utgående regler | Välj **Nej**. Vi skapar utgående regler i ett senare avsnitt med hjälp av en dedikerad offentlig IP-adress. |
@@ -128,12 +128,12 @@ Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för vir
 
 3. Använd de här värdena för att konfigurera klient delens IP-konfiguration för utgående:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **LoadBalancerFrontEndOutbound**. |
     | IP-version | Välj **IPv4**. |
-    | IP-typ | Välj **IP-adress**.|
-    | Offentlig IP-adress | Välj **Skapa ny**. I **Lägg till en offentlig IP-adress**, anger du **myPublicIPOutbound**.  Välj **OK**. |
+    | IP-typ | Välj **IP-adress** eller **IP-prefix**.|
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> I **Lägg till en offentlig IP-adress**, anger du **myPublicIPOutbound**. </br> Om du använder IP-prefix, i **Lägg till ett offentligt IP-prefix**, anger du **myPublicIPPrefixOutbound**. Välj en **prefixlängd** för det offentliga IP-prefixet </br> Välj **OK**.  |
 
 4. Välj **Lägg till**.
 
@@ -153,11 +153,11 @@ Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för vir
 
 3. Använd de här värdena för att konfigurera de utgående reglerna:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myOutboundRule**. |
     | IP-adress för klient del | Välj **LoadBalancerFrontEndOutbound**. |
-    | Tids gräns för inaktivitet (minuter) | Flytta skjutreglaget till * * 15 minuter.|
+    | Tids gräns för inaktivitet (minuter) | Flytta skjutreglaget till **15 minuter**.|
     | TCP-återställning | Välj **Aktiverad**.|
     | Serverdelspool | Välj **myBackendPoolOutbound** |
     | Port tilldelning – > port tilldelning | Välj **manuellt Välj antalet utgående portar** |

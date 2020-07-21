@@ -2,14 +2,14 @@
 title: Samla in & analysera resurs loggar
 description: Lär dig hur du skickar resurs loggar och händelse data från behållar grupper i Azure Container Instances till Azure Monitor loggar
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259606"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524020"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
 
@@ -24,7 +24,7 @@ I följande avsnitt beskrivs hur du skapar en loggnings aktive rad behållar gru
 > [!NOTE]
 > För närvarande kan du bara skicka händelse data från Linux container instances till Log Analytics.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 
@@ -38,11 +38,10 @@ Azure Container Instances behöver behörighet för att skicka data till din Log
 Gör följande för att hämta ID och den primära nyckeln för Log Analytics-arbetsytan:
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
-1. Under **Inställningar**väljer du **Avancerade inställningar**
-1. Välj **anslutna källor**  >  **Windows-servrar** (eller **Linux-servrar**--ID: t och nycklarna är desamma för båda)
+1. Under **Inställningar**väljer du **agent hantering**
 1. Anteckna:
-   * **ARBETSYTE-ID**
-   * **PRIMÄR NYCKEL**
+   * **Arbetsyte-ID**
+   * **Primär nyckel**
 
 ## <a name="create-container-group"></a>Skapa containergrupp
 
@@ -102,7 +101,9 @@ Du bör få ett svar från Azure som innehåller distributionsinformation strax 
 
 ## <a name="view-logs"></a>Visa loggar
 
-När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Så här visar du behållar gruppens loggar i `ContainerInstanceLog_CL` tabellen:
+När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. 
+
+Så här visar du behållar gruppens loggar i `ContainerInstanceLog_CL` tabellen:
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Allmänt**väljer du **loggar**  

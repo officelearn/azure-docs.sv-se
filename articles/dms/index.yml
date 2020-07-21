@@ -3,17 +3,19 @@ title: Dokumentation om Azure Database Migration Service
 summary: Med Azure Database Migration Service kan du migrera sömlöst från flera databaskällor till Azure-dataplattformar med minsta möjliga stilleståndstid. Tjänsten använder Data Migration Assistant för att skapa utvärderingsrapporter. Rapporterna ger rekommendationer som vägleder dig genom de ändringar som krävs innan du utför en migrering. När du är redo att påbörja migreringsprocessen utför Azure Database Migration Service alla nödvändiga steg.
 metadata:
   description: Lär dig hur du använder Azure Database Migration Service för att migrera sömlöst från flera databaskällor till Azures dataplattformar med minimal stilleståndstid.
+  keywords: azure database migration services, dms service, azure data migration, data migration service, database migration service
   author: HJToland3
   ms.author: jtoland
   ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 9a37c850426cab0d940ab546084c1c64811ccb64
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.custom: azure-migrate-seo
+  ms.openlocfilehash: 732870bef2311ac13afb9a6e2a1a329fdd3905e2
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78164567"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86522320"
 landingContent:
 - title: Om Azure Database Migration Service
   linkLists:
@@ -49,7 +51,7 @@ landingContent:
       url: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
   - linkListType: whats-new
     links:
-    - text: Ta en titt på vår blogg
+    - text: Ta en titt på bloggen
       url: https://techcommunity.microsoft.com/t5/Microsoft-Data-Migration/bg-p/MicrosoftDataMigration
 - title: Migrera SQL Server till Azure SQL Database
   linkLists:

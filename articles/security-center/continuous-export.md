@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299952"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519705"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
 
@@ -28,7 +29,6 @@ Med de här verktygen kan du:
 
 
 
-
 ## <a name="availability"></a>Tillgänglighet
 
 - Versions tillstånd: **allmänt tillgängligt**
@@ -36,10 +36,7 @@ Med de här verktygen kan du:
     - **Läsare** för prenumerationen som innehåller export konfigurationen
     - **Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)
     - Måste också ha Skriv behörighet för mål resursen
-- Moln 
-    - ✔ Kommersiella moln
-    - ✔ US Gov
-    - ✘ Kina gov, andra gov
+- Moln: ✔ kommersiella moln ✔ US Gov ✘ Kina gov, övrigt gov
 
 
 ## <a name="setting-up-a-continuous-export"></a>Konfigurera en löpande export
@@ -142,5 +139,5 @@ Information om relaterade material finns i följande dokumentation:
 
 - [Dokumentation om Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
 - [Dokumentation om Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Azure Monitor dokumentation](https://docs.microsoft.com/azure/azure-monitor/)
+- [Dokumentation för Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 - [Scheman för arbets flödes automatisering och kontinuerlig export av data typer](https://aka.ms/ASCAutomationSchemas)

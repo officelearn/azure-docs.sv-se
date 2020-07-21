@@ -3,11 +3,12 @@ title: Konfigurera offentlig registeråtkomst
 description: Konfigurera IP-regler för att aktivera åtkomst till ett Azure Container Registry från valda offentliga IP-adresser eller adress intervall.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83702083"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523833"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurera regler för offentliga IP-nätverk
 
@@ -100,6 +101,13 @@ az acr update --name myContainerRegistry --public-network-enabled true
 1. På fliken **offentlig åtkomst** , i **Tillåt offentligt nätverks åtkomst**, väljer du **alla nätverk**. Välj sedan **Spara**.
 
 ![Offentlig åtkomst från alla nätverk][acr-access-all-networks]
+
+## <a name="troubleshoot"></a>Felsöka
+
+Om en regel för offentliga nätverk anges, eller om offentlig åtkomst till registret nekas, kommer försök att logga in till registret från ett otillåtet offentligt nätverk att Miss lyckas. Klient åtkomst från bakom en HTTPS-proxy Miss söker också om ingen åtkomst regel för proxyn har angetts. Ett fel meddelande visas som liknar `Error response from daemon: login attempt failed with status: 403 Forbidden` eller `Looks like you don't have access to registry` .
+
+Dessa fel kan också uppstå om du använder en HTTPS-proxy som tillåts av en nätverks åtkomst regel, men proxyn inte har kon figurer ATS korrekt i klient miljön. Kontrol lera att både Docker-klienten och Docker daemon är konfigurerade för proxy-beteende. Mer information finns i [http/https-proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) i Docker-dokumentationen.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

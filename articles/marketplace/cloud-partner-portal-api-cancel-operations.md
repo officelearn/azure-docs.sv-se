@@ -4,20 +4,20 @@ description: 'API: et för att avbryta en åtgärd som pågår för erbjudandet'
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: anbene
+author: emuench
 ms.author: mingshen
-ms.date: 06/16/2020
-ms.openlocfilehash: e65f0a8ee0a5dfafab681010006fe190cb5bad70
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 462ca525be9cf46c87acdf4025223a98afaf8e3b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520382"
 ---
 # <a name="cancel-operation"></a>Avbryt åtgärd
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](./cloud-partner-portal-api-retrieve-operations.md) för att hämta för att `operationId` Skicka till det här API: et. Annullering är vanligt vis en synkron åtgärd, men i vissa komplexa scenarier kan det krävas en ny åtgärd för att avbryta en befintlig åtgärd. I det här fallet innehåller HTTP-svars texten den åtgärds plats som ska användas för att fråga om status.
 
@@ -34,7 +34,7 @@ Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](.
 | api-version  |  Aktuell version av API                               |    Datum           |
 |  |  |  |
 
-## <a name="header"></a>Sidhuvud
+## <a name="header"></a>Huvud
 ------
 
 |  **Namn**              |  **Värde**         |
@@ -46,7 +46,7 @@ Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](.
 ## <a name="body-example"></a>Body-exempel
 ------------
 
-### <a name="request"></a>Förfrågan
+### <a name="request"></a>Begäran
 
 ``` json
 {
@@ -63,7 +63,7 @@ Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](.
 |  meddelande – e-post     | Kommaavgränsad lista med e-post-ID: n för att få ett meddelande om förloppet för publicerings åtgärden. |
 |  |  |
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 #### <a name="migrated-offers"></a>Migrerade erbjudanden
 
@@ -77,7 +77,7 @@ Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](.
 
 |  **Namn**             |    **Värde**                       |
 |  ---------            |    ----------                      |
-| Location    | Den relativa sökvägen för att hämta den här åtgärdens status. |
+| Position    | Den relativa sökvägen för att hämta den här åtgärdens status. |
 |  |  |
 
 ### <a name="response-status-codes"></a>Svars status koder

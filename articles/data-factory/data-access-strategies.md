@@ -8,11 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 0b966b10c5bbc7bb90a4226d94dda8b75e25c3af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247486"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522881"
 ---
 # <a name="data-access-strategies"></a>Dataåtkomststrategier
 
@@ -21,6 +22,7 @@ ms.locfileid: "84247486"
 Ett viktigt mål för en organisation är att skydda sina data lager från slumpmässig åtkomst via Internet, och det kan vara ett lokalt eller ett moln/SaaS data lager. 
 
 Normalt kontrollerar ett moln data lager åtkomst med hjälp av nedanstående mekanismer:
+* Privat länk från en Virtual Network till data källor med privat slut punkt som är aktiverade
 * Brand Väggs regler som begränsar anslutningarna med IP-adress
 * Autentiseringsmekanismer som kräver att användare bekräftar sin identitet
 * Auktoriserings metoder som begränsar användare till vissa åtgärder och data
@@ -29,12 +31,13 @@ Normalt kontrollerar ett moln data lager åtkomst med hjälp av nedanstående me
 > Med [introduktionen av statiska IP-](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)adressintervall kan du nu tillåta List-IP-intervall för en viss Azure integration runtime-region så att du inte behöver tillåta alla Azure IP-adresser i dina moln data lager. På så sätt kan du begränsa de IP-adresser som tillåts komma åt data lager.
 
 > [!NOTE] 
-> IP-adressintervall blockeras för Azure integration Runtime och används för närvarande endast för data förflyttning, pipeline och externa aktiviteter. Data flöden använder nu inte dessa IP-intervall. 
+> IP-adressintervall blockeras för Azure Integration Runtime och används för närvarande endast för data förflyttning, pipeline och externa aktiviteter. Data flöden och Azure Integration Runtime som aktiverar hanterade Virtual Network använder nu inte dessa IP-intervall. 
 
 Detta bör fungera i många olika scenarier och vi förstår att en unik statisk IP-adress per integration runtime är önskvärd, men det skulle inte vara möjligt att använda Azure Integration Runtime för närvarande, som är Server lös. Vid behov kan du alltid konfigurera en egen värd Integration Runtime och använda din statiska IP-adress. 
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Data åtkomst strategier via Azure Data Factory
 
+* **[Privat länk](https://docs.microsoft.com/azure/private-link/private-link-overview)** – du kan skapa en Azure Integration Runtime i Azure Data Factory hanterade Virtual Network så utnyttjar privata slut punkter för att på ett säkert sätt ansluta till data lager som stöds. Trafik mellan hanterade Virtual Network och data källor bevarar Microsoft stamnät nätverket och exponeras inte för offentliga nätverk.
 * **[Trusted service](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** -Azure Storage (Blob, ADLS Gen2) stöder brand Väggs konfiguration som gör det möjligt att välja betrodda Azure Platform Services för att komma åt lagrings kontot säkert. Betrodda tjänster framtvingar hanterad identitetsautentisering, vilket innebär att ingen annan data fabrik kan ansluta till den här lagringen om vit listas inte använder den. Du hittar mer information i **[den här bloggen](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. Detta är därför mycket säkert och rekommenderat. 
 * **Unik statisk IP** – du måste konfigurera en integration runtime med egen värd för att få en statisk IP-adress för Data Factory anslutningar. Den här mekanismen garanterar att du kan blockera åtkomst från alla andra IP-adresser. 
 * **[Statiskt IP-intervall](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** – du kan använda Azure integration RUNTIMES IP-adresser för att tillåta en lista i din lagring (t. ex. S3, Salesforce osv.). Det begränsar i sin tur IP-adresser som kan ansluta till data lager, men som också förlitar sig på autentiserings-/auktoriseringsregler.
@@ -44,19 +47,19 @@ Detta bör fungera i många olika scenarier och vi förstår att en unik statisk
 Mer information om de mekanismer för nätverks säkerhet som stöds på data lager i Azure Integration Runtime och Integration Runtime med egen värd finns under två tabeller.  
 * **Azure Integration Runtime**
 
-    | Datalager                  | Mekanism för nätverks säkerhet som stöds på data lager         | Betrodd tjänst     | Statiskt IP-intervall | Tjänsttaggar | Tillåt Azure-tjänster |
-    |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|
-    | Data lager för Azure PaaS       | Azure Cosmos DB                                             | -                   | Ja             | -            | Ja                  |
-    |                              | Azure-datautforskaren                                         | -                   | Ja*            | Ja*         | -                    |
-    |                              | Azure Data Lake gen1                                        | -                   | Ja             | -            | Ja                  |
-    |                              | Azure Database for MariaDB, MySQL, PostgreSQL               | -                   | Ja             | -            | Ja                  |
-    |                              | Azure File Storage                                          | -                   | Ja             | -            | .                    |
-    |                              | Azure Storage (blogg, ADLS Gen2)                             | Ja (endast MSI-autentisering) | Ja             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | -                   | Ja             | -            | Ja                  |
-    |                              | Azure Key Vault (för hämtning av hemligheter/anslutnings sträng) | Ja                 | Ja             | -            | -                    |
-    | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.            | -                   | Ja             | -            | -                    |
-    | Azure-laaS                   | SQL Server, Oracle osv.                                  | -                   | Ja             | Ja          | -                    |
-    | Lokala laaS              | SQL Server, Oracle osv.                                  | -                   | Ja             | -            | -                    |
+    | Datalager                  | Mekanism för nätverks säkerhet som stöds på data lager | Private Link     | Betrodd tjänst     | Statiskt IP-intervall | Tjänsttaggar | Tillåt Azure-tjänster |
+    |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
+    | Data lager för Azure PaaS       | Azure Cosmos DB                                     | Ja              | -                   | Ja             | -            | Ja                  |
+    |                              | Azure-datautforskaren                                 | -                | -                   | Ja*            | Ja*         | -                    |
+    |                              | Azure Data Lake gen1                                | -                | -                   | Ja             | -            | Ja                  |
+    |                              | Azure Database for MariaDB, MySQL, PostgreSQL       | -                | -                   | Ja             | -            | Ja                  |
+    |                              | Azure File Storage                                  | Ja              | -                   | Ja             | -            | .                    |
+    |                              | Azure Storage (BLOB, ADLS Gen2)                     | Ja              | Ja (endast MSI-autentisering) | Ja             | -            | .                    |
+    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml  | Ja (endast Azure SQL DB/DW)        | -                   | Ja             | -            | Ja                  |
+    |                              | Azure Key Vault (för hämtning av hemligheter/anslutnings sträng) | yes      | Ja                 | Ja             | -            | -                    |
+    | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.    | -                | -                   | Ja             | -            | -                    |
+    | Azure-laaS                   | SQL Server, Oracle osv.                          | -                | -                   | Ja             | Ja          | -                    |
+    | Lokala laaS              | SQL Server, Oracle osv.                          | -                | -                   | Ja             | -            | -                    |
     
     **Används endast när Azure Datautforskaren är inmatat i virtuella nätverk och IP-intervall kan tillämpas på NSG/brand vägg.* 
 

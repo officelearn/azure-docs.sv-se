@@ -8,11 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980432"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520757"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa en strömmande kund insikts instrument panel med Azure Logic Apps och Azure Functions
 
@@ -21,7 +22,7 @@ Azure erbjuder [Server](https://azure.microsoft.com/solutions/serverless/) fria 
 I den här lösningen använder du dessa viktiga Azure-komponenter för appar utan server: [Azure Functions](https://azure.microsoft.com/services/functions/) och [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Azure Logic Apps tillhandahåller en server lös arbets flödes motor i molnet så att du kan skapa dirigeringar för komponenter utan server och ansluta till 200 + tjänster och API: er. Azure Functions tillhandahåller data behandling utan server i molnet. Den här lösningen använder Azure Functions för att flagga kund tweets baserat på fördefinierade nyckelord.
 
-I det här scenariot skapar du en logisk app som utlöser för att hitta feedback från kunder. Vissa anslutningar som hjälper dig att svara på kundfeedback är Outlook.com, Office 365, Survey apa, Twitter och en [http-begäran från ett webb formulär](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Arbets flödet som du skapar övervakar en hashtagg på Twitter.
+I det här scenariot skapar du en logisk app som utlöser för att hitta feedback från kunder. Vissa anslutningar som hjälper dig att svara på kundfeedback är Outlook.com, Office 365, Survey apa, Twitter och en [http-begäran från ett webb formulär](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). Arbets flödet som du skapar övervakar en hashtagg på Twitter.
 
 Du kan [bygga hela lösningen i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) och [distribuera lösningen med Azure Resource Manager mall](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). För en video genom gång som visar hur du skapar den här lösningen [tittar du på den här kanalen 9-videon](https://aka.ms/logicappsdemo). 
 
@@ -66,7 +67,7 @@ Du kan också skapa och en Azure-funktion så att du kan utföra anpassad bearbe
 
 ## <a name="process-data-with-azure-functions"></a>Bearbeta data med Azure Functions
 
-Innan du skapar en funktion skapar du en Function-app i din Azure-prenumeration. För att din Logi Kap par ska anropa en funktion måste funktionen dessutom ha en HTTP trigger-bindning, till exempel, använda **HttpTrigger** -mallen. Lär dig [hur du skapar din första Function-app och fungerar i Azure Portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Innan du skapar en funktion skapar du en Function-app i din Azure-prenumeration. För att din Logi Kap par ska anropa en funktion måste funktionen dessutom ha en HTTP trigger-bindning, till exempel, använda **HttpTrigger** -mallen. Lär dig [hur du skapar din första Function-app och fungerar i Azure Portal](../azure-functions/functions-create-first-azure-function.md).
 
 I det här scenariot använder du Tweet-texten som begär ande text för din Azure-funktion. I funktions koden definierar du den logik som avgör om tweet-texten innehåller ett nyckelord eller en fras. Håll funktionen så enkel eller komplex som krävs för scenariot.
 I slutet av funktionen returnerar du ett svar till Logic-appen med vissa data, till exempel ett enkelt booleskt värde, till exempel `containsKeyword` eller ett komplext objekt.

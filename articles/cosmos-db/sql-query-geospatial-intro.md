@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bb7fd69073dbc960904e8f7b44459ed85e98cdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79367592"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523527"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
 
@@ -20,9 +21,19 @@ Den här artikeln är en introduktion till geospatiala funktioner i Azure Cosmos
 * Hur kan jag fråga geospatiala data i Azure Cosmos DB i SQL och LINQ?
 * Hur gör jag för att aktivera eller inaktivera spatial indexering i Azure Cosmos DB?
 
+## <a name="spatial-data-use-cases"></a>Användnings fall för spatialdata
+
+Geospatiala data innefattar ofta närhets frågor, till exempel "hitta alla Café butiker nära min nuvarande plats". Vanliga användnings fall är:
+
+* Analys av geolokalisering, med en detaljerad marknads initiativ.
+* Plats baserad anpassning, för flera branscher som detalj handel och sjukvård.
+* Logistik förbättring, för transport optimering.
+* Riskanalys, särskilt för försäkrings-och finans företag.
+* Situations medvetenhet, för aviseringar och meddelanden.
+
 ## <a name="introduction-to-spatial-data"></a>Introduktion till spatialdata
 
-Spatialdata beskriver position och form för objekt i utrymme. I de flesta program motsvarar dessa objekt på jorden och geospatiala data. Spatialdata kan användas för att representera en persons plats, en intressant plats eller en stads gränser. Vanliga användnings fall innefattar ofta närhets frågor, till exempel "hitta alla Café butiker nära min nuvarande plats".
+Spatialdata beskriver position och form för objekt i utrymme. I de flesta program motsvarar dessa objekt på jorden och geospatiala data. Spatialdata kan användas för att representera en persons plats, en intressant plats eller en stads gränser.
 
 Azure Cosmos DB SQL API har stöd för två spatiala data typer: data typen **Geometry** och **geografi** data typen.
 

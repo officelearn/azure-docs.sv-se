@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2193584996ed9f2c4cf5e858b8855c6878159a84
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186868"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520706"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livsc
 
 Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -109,6 +109,24 @@ När du har lagt till din arbets yta och ditt lagrings tjänst konto i det virtu
 
 För __Azure Blob Storage__läggs arbets ytans hanterade identitet också till som en [BLOB-datakälla](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) så att den kan läsa data från Blob Storage.
 
+
+### <a name="azure-machine-learning-designer-default-datastore"></a>Standard data lager för Azure Machine Learning designer
+
+Designern använder det lagrings konto som är kopplat till din arbets yta för att lagra utdata som standard. Du kan dock ange att den ska lagra utdata till alla data lager som du har åtkomst till. Om din miljö använder virtuella nätverk kan du använda dessa kontroller för att säkerställa att dina data är skyddade och tillgängliga.
+
+Ange ett nytt standard lagrings utrymme för en pipeline:
+
+1. I ett pipeline-utkast väljer du **kugg hjuls ikonen Inställningar** nära rubriken för din pipeline.
+1. Välj **Välj standard data lager**.
+1. Ange ett nytt data lager.
+
+Du kan även åsidosätta standard data lagret per modul. Detta ger dig kontroll över lagrings platsen för varje enskild modul.
+
+1. Välj den modul vars utdata du vill ange.
+1. Expandera avsnittet **utdata-inställningar** .
+1. Välj **Åsidosätt standardinställningar för utdata**.
+1. Välj **Ange inställningar för utdata**.
+1. Ange ett nytt datstore.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 åtkomst kontroll
 
@@ -286,8 +304,8 @@ Använd följande steg om du inte vill använda de utgående standard reglerna o
 - Neka utgående Internet anslutning med NSG-reglerna.
 
 - För en __beräknings instans__ eller ett __beräknings kluster__begränsar du utgående trafik till följande objekt:
-   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
-   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
+   - Azure Storage med hjälp av __tjänst tag gen__ för __lagring__.
+   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry__.
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
    - Azure Resource Manager med hjälp av __service tag gen__ för __AzureResourceManager__
    - Azure Active Directory med hjälp av __service tag gen__ för __AzureActiveDirectory__
@@ -326,11 +344,15 @@ Regel konfigurationen för NSG i Azure Portal visas i följande bild:
 > run = exp.submit(est)
 > ```
 
-### <a name="user-defined-routes-for-forced-tunneling"></a>Användardefinierade vägar för Tvingad tunnel trafik
+### <a name="forced-tunneling"></a>Tvingad tunneltrafik
 
-Om du använder Tvingad tunnel trafik med Machine Learning-beräkning lägger du till [användardefinierade vägar (UDR)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) i det undernät som innehåller beräknings resursen.
+Om du använder [Tvingad tunnel trafik](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) med Azure Machine Learning Compute måste du tillåta kommunikation med det offentliga Internet från det undernät som innehåller beräknings resursen. Den här kommunikationen används för schemaläggning av aktiviteter och åtkomst till Azure Storage.
 
-* Upprätta en UDR för varje IP-adress som används av tjänsten Azure Batch i den region där dina resurser finns. Dessa UDR gör att batch-tjänsten kan kommunicera med datornoder för schemaläggning av aktiviteter. Lägg också till IP-adressen för den Azure Machine Learning tjänst där resurserna finns, eftersom detta krävs för åtkomst till beräknings instanser. Använd någon av följande metoder för att hämta en lista över IP-adresser för batch-tjänsten och Azure Machine Learning tjänsten:
+Du kan göra detta på två sätt:
+
+* Använd en [Virtual Network NAT](../virtual-network/nat-overview.md). En NAT-gateway ger utgående Internet anslutning för ett eller flera undernät i det virtuella nätverket. Mer information finns i [utforma virtuella nätverk med NAT-gateway-resurser](../virtual-network/nat-gateway-resource.md).
+
+* Lägg till [användardefinierade vägar (UDR)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) till det undernät som innehåller beräknings resursen. Upprätta en UDR för varje IP-adress som används av tjänsten Azure Batch i den region där dina resurser finns. Dessa UDR gör att batch-tjänsten kan kommunicera med datornoder för schemaläggning av aktiviteter. Lägg också till IP-adressen för den Azure Machine Learning tjänst där resurserna finns, eftersom detta krävs för åtkomst till beräknings instanser. Använd någon av följande metoder för att hämta en lista över IP-adresser för batch-tjänsten och Azure Machine Learning tjänsten:
 
     * Hämta [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) och Sök efter `BatchNodeManagement.<region>` och `AzureMachineLearning.<region>` , där `<region>` är din Azure-region.
 
@@ -340,14 +362,15 @@ Om du använder Tvingad tunnel trafik med Machine Learning-beräkning lägger du
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+    
+    När du lägger till UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger __nästa hopp typ__ till __Internet__. Följande bild visar ett exempel på den här UDR i Azure Portal:
 
-* Utgående trafik till Azure Storage får inte blockeras av den lokala nätverks enheten. Mer specifikt är webb adresserna i formatet `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` och `<account>.blob.core.windows.net` .
+    ![Exempel på en UDR för ett adressprefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-När du lägger till UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger __nästa hopp typ__ till __Internet__. Följande bild visar ett exempel på den här UDR i Azure Portal:
+    Förutom de UDR som du definierar måste utgående trafik till Azure Storage tillåtas via den lokala nätverks enheten. Mer specifikt är URL: erna för den här trafiken i följande format: `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` och `<account>.blob.core.windows.net` . 
 
-![Exempel på en UDR för ett adressprefix](./media/how-to-enable-virtual-network/user-defined-route.png)
+    Mer information finns i [skapa en Azure Batch pool i ett virtuellt nätverk](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
-Mer information finns i [skapa en Azure Batch pool i ett virtuellt nätverk](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>Skapa ett beräknings kluster i ett virtuellt nätverk
 
@@ -480,6 +503,40 @@ Som standard tilldelas en offentlig IP-adress till AKS-distributioner. När du a
 
 En privat IP-adress är aktive rad genom att konfigurera AKS för att använda en _intern belastningsutjämnare_. 
 
+#### <a name="network-contributor-role"></a>Rollen nätverks deltagare
+
+> [!IMPORTANT]
+> Om du skapar eller ansluter ett AKS-kluster genom att tillhandahålla ett virtuellt nätverk som du skapade tidigare, måste du bevilja tjänstens huvud namn (SP) eller hanterad identitet för ditt AKS-kluster rollen _nätverks deltagare_ till den resurs grupp som innehåller det virtuella nätverket. Detta måste göras innan du försöker ändra den interna belastnings utjämningen till privat IP.
+>
+> Använd följande steg för att lägga till identiteten som en nätverks deltagare:
+
+1. Använd följande Azure CLI-kommandon för att hitta tjänstens huvud namn eller hanterat identitets-ID för AKS. Ersätt `<aks-cluster-name>` med namnet på klustret. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller AKS-klustret_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    Om det här kommandot returnerar värdet `msi` använder du följande kommando för att identifiera ägar-ID: t för den hanterade identiteten:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. Använd följande kommando för att hitta ID: t för den resurs grupp som innehåller ditt virtuella nätverk. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller det virtuella nätverket_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. Använd följande kommando om du vill lägga till tjänstens huvud namn eller hanterade identitet som en nätverks deltagare. Ersätt `<SP-or-managed-identity>` med det ID som returnerades för tjänstens huvud namn eller hanterad identitet. Ersätt `<resource-group-id>` med det ID som returnerades för resurs gruppen som innehåller det virtuella nätverket:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
+Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [använda intern belastningsutjämnare med Azure Kubernetes service](/azure/aks/internal-lb).
+
+#### <a name="enable-private-ip"></a>Aktivera privat IP
+
 > [!IMPORTANT]
 > Du kan inte aktivera privat IP när du skapar Azure Kubernetes service-klustret. Den måste vara aktive rad som en uppdatering av ett befintligt kluster.
 
@@ -570,38 +627,6 @@ aks_target.update(update_config)
 aks_target.wait_for_completion(show_output = True)
 ```
 
-__Rollen nätverks deltagare__
-
-> [!IMPORTANT]
-> Om du skapar eller ansluter ett AKS-kluster genom att tillhandahålla ett virtuellt nätverk som du skapade tidigare, måste du bevilja tjänstens huvud namn (SP) eller hanterad identitet för ditt AKS-kluster rollen _nätverks deltagare_ till den resurs grupp som innehåller det virtuella nätverket. Detta måste göras innan du försöker ändra den interna belastnings utjämningen till privat IP.
->
-> Använd följande steg för att lägga till identiteten som en nätverks deltagare:
-
-1. Använd följande Azure CLI-kommandon för att hitta tjänstens huvud namn eller hanterat identitets-ID för AKS. Ersätt `<aks-cluster-name>` med namnet på klustret. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller AKS-klustret_:
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
-    ``` 
-
-    Om det här kommandot returnerar värdet `msi` använder du följande kommando för att identifiera ägar-ID: t för den hanterade identiteten:
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
-    ```
-
-1. Använd följande kommando för att hitta ID: t för den resurs grupp som innehåller ditt virtuella nätverk. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller det virtuella nätverket_:
-
-    ```azurecli-interactive
-    az group show -n <resource-group-name> --query id
-    ```
-
-1. Använd följande kommando om du vill lägga till tjänstens huvud namn eller hanterade identitet som en nätverks deltagare. Ersätt `<SP-or-managed-identity>` med det ID som returnerades för tjänstens huvud namn eller hanterad identitet. Ersätt `<resource-group-id>` med det ID som returnerades för resurs gruppen som innehåller det virtuella nätverket:
-
-    ```azurecli-interactive
-    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
-    ```
-Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [använda intern belastningsutjämnare med Azure Kubernetes service](/azure/aks/internal-lb).
-
 ## <a name="use-azure-container-instances-aci"></a>Använda Azure Container Instances (ACI)
 
 Azure Container Instances skapas dynamiskt när du distribuerar en modell. Om du vill aktivera Azure Machine Learning att skapa ACI i det virtuella nätverket måste du aktivera __under näts delegering__ för under nätet som används av distributionen.
@@ -630,6 +655,7 @@ Information om hur du använder Azure Machine Learning med Azure-brandväggen fi
 > Azure Container Registry (ACR) kan placeras i ett virtuellt nätverk, men du måste uppfylla följande krav:
 >
 > * Din Azure Machine Learning-arbetsyta måste vara Enterprise Edition. Information om hur du uppgraderar finns i [Uppgradera till Enterprise Edition](how-to-manage-workspace.md#upgrade).
+> * Din Azure Machine Learning regions region måste vara [privat länk aktive rad](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
 > * Din Azure Container Registry måste vara en Premium version. Mer information om hur du uppgraderar finns i [ändra SKU: er](/azure/container-registry/container-registry-skus#changing-skus).
 > * Ditt Azure Container Registry måste finnas i samma virtuella nätverk och undernät som lagrings kontot och beräknings målen som används för utbildning eller härledning.
 > * Din Azure Machine Learning-arbetsyta måste innehålla ett [Azure Machine Learning Compute-kluster](how-to-set-up-training-targets.md#amlcompute).
@@ -638,7 +664,7 @@ Information om hur du använder Azure Machine Learning med Azure-brandväggen fi
 
 1. Använd någon av följande metoder för att hitta namnet på Azure Container Registry för din arbets yta:
 
-    __Azure Portal__
+    __Azure-portalen__
 
     I översikts avsnittet på arbets ytan länkar __registervärdet__ till Azure Container Registry.
 

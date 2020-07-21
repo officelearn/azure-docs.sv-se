@@ -6,24 +6,24 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e5b1250170830af24ddc1f2e3b78965ebcea051e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540323"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Anslut din Java-funktion till Azure Storage
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Den här artikeln visar hur du integrerar funktionen som du skapade i [föregående snabb starts artikel](functions-create-first-java-maven.md) med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
+Den här artikeln visar hur du integrerar funktionen som du skapade i [föregående snabb starts artikel](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser) med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 
-De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra anslutningen enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app- `AzureWebJobsStorage`inställning med namnet.  
+De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra anslutningen enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app-inställning med namnet `AzureWebJobsStorage` .  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar den här artikeln slutför du stegen i [del 1 av Java-snabb](functions-create-first-java-maven.md)starten.
+Innan du börjar den här artikeln slutför du stegen i [del 1 av Java-snabb](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)starten.
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
@@ -47,7 +47,7 @@ Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 Nu är du redo att testa den nya utgående bindningen lokalt.
 
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 Som tidigare använder du följande kommando för att skapa projektet och starta Functions-körningen lokalt:
 
@@ -64,7 +64,7 @@ gradle azureFunctionsRun
 ---
 
 > [!NOTE]  
-> Eftersom du har aktiverat tilläggs paket i Host. JSON laddades [lagrings bindnings tillägget](functions-bindings-storage-blob.md#add-to-your-functions-app) ned och installerades åt dig under starten, tillsammans med de andra Microsoft binding-tilläggen.
+> Eftersom du har aktiverat tilläggs paket i host.jspå har [lagrings bindnings tillägget](functions-bindings-storage-blob.md#add-to-your-functions-app) laddats ned och installerats åt dig under starten, tillsammans med de andra Microsoft binding-tilläggen.
 
 Som tidigare utlöser funktionen från kommando raden med hjälp av sväng i ett nytt terminalfönster:
 
@@ -72,7 +72,7 @@ Som tidigare utlöser funktionen från kommando raden med hjälp av sväng i ett
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
-Den här gången skapar bindningen för utdata också en kö `outqueue` med namnet i ditt lagrings konto och lägger till ett meddelande med samma sträng.
+Den här gången skapar bindningen för utdata också en kö med namnet `outqueue` i ditt lagrings konto och lägger till ett meddelande med samma sträng.
 
 Sedan använder du Azure CLI för att visa den nya kön och kontrol lera att ett meddelande har lagts till. Du kan också visa din kö med hjälp av [Microsoft Azure Storage Explorer][Azure Storage Explorer] eller i [Azure Portal](https://portal.azure.com).
 

@@ -4,12 +4,12 @@ description: Lär dig hur du kodar och konfigurerar Durable Functions att köras
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540306"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Köra Durable Functions som WebJobs
 
@@ -31,7 +31,7 @@ Den här artikeln förutsätter att du är bekant med grunderna i WebJobs SDK, k
 
 För att slutföra stegen i den här artikeln:
 
-* [Installera Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) med arbets belastningen **Azure Development** .
+* [Installera Visual Studio 2019](/visualstudio/install/) med arbets belastningen **Azure Development** .
 
   Om du redan har Visual Studio, men inte har den arbets belastningen, lägger du till arbets belastningen genom att välja **verktyg**  >  **Hämta verktyg och funktioner**.
 

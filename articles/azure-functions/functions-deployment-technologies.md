@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: glenga
-ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63c52b8b1ee9b9448a1ba6f78873ae6a036e3563
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735308"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540221"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -21,7 +21,7 @@ Du kan använda flera olika tekniker för att distribuera din Azure Functions pr
 
 Azure Functions stöder lokal utveckling på över plattformar och är värd för Windows och Linux. För närvarande är tre värd planer tillgängliga:
 
-+ [Bruk](functions-scale.md#consumption-plan)
++ [Förbrukning](functions-scale.md#consumption-plan)
 + [Premium](functions-scale.md#premium-plan)
 + [Dedikerad (App Service)](functions-scale.md#app-service-plan)
 
@@ -173,13 +173,13 @@ I det portalbaserade redigerings programmet kan du redigera filerna som finns i 
 
 >__När du ska använda den:__ Portalen är ett bra sätt att komma igång med Azure Functions. För mer intensiv utvecklings arbete rekommenderar vi att du använder något av följande klient verktyg:
 >
->* [Visuell Studio-kod](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](functions-create-first-function-vs-code.md)
 >* [Azure Functions Core Tools (kommando rad)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 I följande tabell visas de operativ system och språk som stöder Portal redigering:
 
-| | Windows-förbrukning | Windows Premium | Windows-dedikerad | Linux-förbrukning | Linux Premium | Linux-dedikerad |
+| Språk | Windows-förbrukning | Windows Premium | Windows-dedikerad | Linux-förbrukning | Linux Premium | Linux-dedikerad |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C#-skript |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

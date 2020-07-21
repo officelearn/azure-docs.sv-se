@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d41c018e07f792fd0af4027229449d8352aa6c55
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 65570674f16e660c4101088cd77db433abab59a2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540340"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta Azure Functions till Azure Storage med Visual Studio Code
 
@@ -29,7 +29,7 @@ Innan du startar den här artikeln måste du uppfylla följande krav:
 * Installera [Azure Storage Explorer](https://storageexplorer.com/). Storage Explorer är ett verktyg som du använder för att undersöka Kömeddelanden som genereras av din utgående bindning. Storage Explorer stöds på macOS-, Windows-och Linux-baserade operativ system.
 
 ::: zone pivot="programming-language-csharp"
-* Installera [.net Core CLI verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Installera [.net Core CLI verktyg](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
 * Slutför stegen i [del 1 av snabb starten för Visual Studio Code](functions-create-first-function-vs-code.md). 

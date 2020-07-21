@@ -5,11 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74226728"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540391"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installera Körmiljö för Azure Functions för hands version 2
 
@@ -24,7 +25,7 @@ Följ dessa steg om du vill installera Körmiljö för Azure Functions Preview 2
 1. Slutför konfigurationen av Körmiljö för Azure Functions för hands version 2.
 1. Skapa din första funktion i Körmiljö för Azure Functions för hands version
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du installerar Körmiljö för Azure Functions för hands versionen måste du ha följande resurser tillgängliga:
 
@@ -70,7 +71,7 @@ För att slutföra installationen av Körmiljö för Azure Functions måste du s
 
     ![Körmiljö för Azure Functions för hands versions konfiguration][7]
 
-1. Klicka på fliken **databas** , ange anslutnings information för din SQL Server instans, inklusive att ange en [huvud nyckel för databasen](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)och klicka på **Använd**.  Anslutning till en SQL Server instans krävs för att Körmiljö för Azure Functions ska kunna skapa en databas för att stödja körnings miljön.
+1. Klicka på fliken **databas** , ange anslutnings information för din SQL Server instans, inklusive att ange en [huvud nyckel för databasen](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)och klicka på **Använd**.  Anslutning till en SQL Server instans krävs för att Körmiljö för Azure Functions ska kunna skapa en databas för att stödja körnings miljön.
 
     ![Körmiljö för Azure Functions förhandsgranska databas konfiguration][8]
 

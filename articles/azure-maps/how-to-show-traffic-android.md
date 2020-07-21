@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92e111a6e76dbe285dd8cc7a93ce75f556142565
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335381"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540153"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafik data på kartan med Azure Maps Android SDK
 
@@ -21,9 +21,9 @@ Flödes data och incident data är de två typer av trafik data som kan visas p�
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-account-with-azure-maps)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
+Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-azure-maps-account)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
 
-## <a name="incidents-traffic-data"></a>Incident trafik data 
+## <a name="incidents-traffic-data"></a>Incident trafik data
 
 Du måste importera följande bibliotek för att kunna anropa `setTraffic` och `incidents` :
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Använd följande kodfragment för att ställa in trafik flödes data. Precis som koden i föregående avsnitt skickar vi returvärdet för `flow` metoden till- `setTraffic` metoden. Det finns fyra värden som kan skickas till `flow` och varje värde utlöser `flow` sig för att returnera respektive värde. Returvärdet från skickas `flow` sedan som argumentet till `setTraffic` . Se tabellen nedan för följande fyra värden:
 
-| | |
+|Flödes värde | Beskrivning|
 | :-- | :-- |
 | TrafficFlow. NONE | Visar inte trafik data på kartan |
 | TrafficFlow. relativ | Visar trafik data som är relativa till vägens fria flödes hastighet |

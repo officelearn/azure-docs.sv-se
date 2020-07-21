@@ -1,20 +1,20 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545103"
 ---
 **Krav för konfiguration och process Server**
 
@@ -61,6 +61,9 @@ time.windows.com | Används för att kontrol lera tidssynkronisering mellan syst
 https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | För att slutföra MySQL-nedladdning. </br> I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också vit listas, om det behövs.
 |
 
+> [!NOTE]
+> Om du har [anslutningar för privata länkar](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) till Site Recovery valv behöver du inte någon ytterligare Internet åtkomst för konfigurations servern. Ett undantag till detta är när du konfigurerar CS-datorn med hjälp av en områdesmall-mall behöver du åtkomst till följande URL: er över och över privat länk åtkomst – https://management.azure.com https://www.live.com och https://www.microsoft.com . Om du inte vill tillåta åtkomst till dessa URL: er måste du konfigurera CS med enhetligt installations program.
+
 ## <a name="required-software"></a>Programvara som krävs
 
 **Komponent** | **Krav** 
@@ -78,6 +81,6 @@ I följande tabell sammanfattas kapacitets kraven för konfigurations servern. O
 --- | --- | --- | --- | ---
 8 virtuella processorer<br/><br/> 2 Sockets * 4 kärnor \@ 2,5 GHz | 16 GB | 300 GB | 500 GB eller mindre | < 100-datorer
 12 virtuella processorer<br/><br/> 2 SOCKS * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 till 150-datorer
-16 virtuella processorer<br/><br/> 2 SOCKS * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200-datorer
+16 virtuella processorer<br/><br/> 2 SOCKS * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200-datorer
 |
 

@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8116abda71ae78b05786ede03256eb9e9bb59345
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76715060"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540272"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -240,7 +241,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-I följande exempel visas hur du använder [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) -anteckningen för att skicka ett SMS-meddelande. Värdena för `to` , `from` och `body` krävs i attributdefinitionstabellen även om du åsidosätter dem program mässigt.
+I följande exempel visas hur du använder [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) -anteckningen för att skicka ett SMS-meddelande. Värdena för `to` , `from` och `body` krävs i attributdefinitionstabellen även om du åsidosätter dem program mässigt.
 
 ```java
 package com.function;
@@ -318,7 +319,7 @@ Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Placera [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) -anteckning på en [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parameter där `T` kan vara valfri ursprunglig Java-typ, till exempel,, `int` `String` `byte[]` eller en POJO-typ.
+Placera [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) -anteckning på en [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parameter där `T` kan vara valfri ursprunglig Java-typ, till exempel,, `int` `String` `byte[]` eller en POJO-typ.
 
 ---
 
@@ -333,7 +334,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**Namn**|**Namn**| Variabel namn som används i funktions kod för SMS-textmeddelandet för Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Värdet måste anges till namnet på en app-inställning som innehåller ditt Twilio-konto-sid ( `TwilioAccountSid` ). Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Värdet måste anges till namnet på en app-inställning som innehåller din Twilio-autentiseringstoken ( `TwilioAccountAuthToken` ). Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAuthToken". |
-|**att**| Ej tillämpligt – ange i kod | **Att**| Det här värdet anges till det telefonnummer som SMS-texten skickas till.|
+|**till**| Ej tillämpligt – ange i kod | **Att**| Det här värdet anges till det telefonnummer som SMS-texten skickas till.|
 |**som**|**som** | **Som**| Det här värdet anges till det telefonnummer som SMS-texten skickas från.|
 |**brödtext**|**brödtext** | **Brödtext**| Det här värdet kan användas för att hårdkoda SMS-textmeddelandet om du inte behöver ange det dynamiskt i koden för din funktion. |  
 

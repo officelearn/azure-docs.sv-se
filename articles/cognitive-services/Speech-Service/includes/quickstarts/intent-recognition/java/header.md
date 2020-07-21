@@ -5,11 +5,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: 72fefbc993cf92a07b55eeed4ee10f00bbcf5d92
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 18427d47f4a6ceb9065c9031df821c17b9c9a3e1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421981"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544897"
 ---
-Om du föredrar att gå direkt till, Visa eller hämta alla <a href="https://aka.ms/speech/github-java">tal SDK Java-exempel</a> på GitHub. Annars sätter vi igång.
+Du kan visa eller hämta alla <a href="https://aka.ms/speech/github-java">tal SDK Java-exempel</a> på GitHub. 

@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830714"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540238"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Signalerar tjänst utlöser bindning för Azure Functions
 
@@ -43,7 +43,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="with-traditional-model"></a>Med traditionell modell
 
-Traditionell modell följer konventionen för Azure Function som utvecklats av C#. Om du inte är bekant med det kan du lära dig av [dokument](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+Traditionell modell följer konventionen för Azure Function som utvecklats av C#. Om du inte är bekant med det kan du lära dig av [dokument](./functions-dotnet-class-library.md).
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -196,7 +196,7 @@ InvocationContext innehåller allt innehåll i meddelandet skicka från SignalR-
 |Händelse| Händelse i meddelandet.|
 |ConnectionId| Anslutnings-ID för klienten som skickar meddelandet.|
 |UserId| Användar identiteten för klienten som skickar meddelandet.|
-|Rubriker| Rubrikerna för begäran.|
+|Sidhuvuden| Rubrikerna för begäran.|
 |Söka i data| Frågan om begäran när klienterna ansluter till tjänsten.|
 |Anspråk| Klientens anspråk.|
 

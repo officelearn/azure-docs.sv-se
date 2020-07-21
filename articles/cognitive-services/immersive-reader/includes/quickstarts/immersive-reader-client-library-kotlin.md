@@ -9,49 +9,49 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: d4d811d782acdd75550f05a8be28711be41ad343
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7db367222d96d7bc9dae48242992ee76a89c849d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038696"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544468"
 ---
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
-I den här snabb starten skapar du en Android-app från grunden och integrerar den fördjupade läsaren. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
+I den här snabb starten skapar du en Android-app från grunden och integrerar den fördjupade läsaren. Ett fullständigt fungerande exempel på den här snabb starten finns [på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
-* [Git](https://git-scm.com/)
-* [SDK för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk)
-* [Android Studio](https://developer.android.com/studio)
+* [Git](https://git-scm.com/).
+* [SDK för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk).
+* [Android Studio](https://developer.android.com/studio).
 
 ## <a name="create-an-android-project"></a>Skapa ett Android-projekt
 
-Starta ett nytt projekt i Android Studio. Käll koden för det här exemplet är tillgänglig som en del av [SDK: n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin)
+Starta ett nytt projekt i Android Studio. Käll koden för det här exemplet är tillgänglig som en del av [SDK: n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
 ![Nytt projekt](../../media/android/kotlin/android-studio-create-project.png)
 
-I fönstret Välj projekt väljer du **Tom aktivitet** och klickar sedan på Nästa.
+I fönstret **Välj projekt väljer du** **Tom aktivitet**och väljer sedan **Nästa**.
 
 ![Tomt aktivitets projekt](../../media/android/kotlin/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>Konfigurera projektet
 
-Namnge projektet QuickstartKotlin', Välj en lagrings plats och välj Kotlin' som programmeringsspråk och klicka sedan på Slutför.
+Ge projektet namnet **QuickstartKotlin**och välj en plats där du vill spara den. Välj **Kotlin** som programmeringsspråk och välj sedan **Slutför**.
 
 ![Konfigurera projektet](../../media/android/kotlin/android-studio-configure-project.png)
 
 ## <a name="set-up-assets-and-authentication"></a>Konfigurera till gångar och autentisering
 
-Skapa en ny **/assets** -mapp
+Skapa en ny **/assets** -mapp.
 
 ![Skapa en mapp för nya till gångar](../../media/android/kotlin/android-studio-assets-folder.png)
 
- Skapa en fil med namnet **Kuvert** i mappen till gångar. Lägg till följande, ange värden efter behov. Se till att du inte anger den här kuvert filen i käll kontrollen eftersom den innehåller hemligheter som inte bör göras offentliga.
+ Skapa en fil med namnet **Kuvert** i mappen till gångar. Lägg till följande namn och värden och ange lämpliga värden. Spara inte den här kuvert filen i käll kontrollen eftersom den innehåller hemligheter som inte ska publiceras.
 
 ![Skapa en ny kuvert fil](../../media/android/kotlin/android-studio-create-env-file.png)
 
@@ -65,7 +65,7 @@ SUBDOMAIN=<YOUR_SUBDOMAIN>
 
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
-Ersätt de befintliga beroendena i filen **build. gradle** med nedanstående implementeringar för att aktivera couroutines (asynkron programmering), GSON (JSON-parsning och serialisering) och dotenv för att referera till variablerna som definierats i miljö filen. Du kan behöva synkronisera projektet igen när du implementerar MainActivity. kt i ett senare steg i den här snabb starten.
+Ersätt de befintliga beroendena i filen **build. gradle** med följande implementeringar för att aktivera medarbetarna (asynkron programmering), GSON (JSON-parsning och serialisering) och dotenv för att referera till variablerna som definierats i miljö filen. Du kan behöva synkronisera projektet igen när du implementerar MainActivity. kt i ett senare steg i den här snabb starten.
 
 ```build.gradle
 dependencies {
@@ -88,7 +88,7 @@ dependencies {
 
 ## <a name="update-app-strings-and-layout-resources"></a>Uppdatera program strängar och layout resurser
 
-Ersätt innehållet i **res/String/strings.xml** med nedanstående strängar som ska användas i appen.
+Ersätt innehållet i **res/String/strings.xml** med följande strängar som ska användas i appen.
 
 ![App-strings.xml](../../media/android/kotlin/android-studio-strings.png)
 
@@ -106,7 +106,7 @@ Ersätt innehållet i **res/String/strings.xml** med nedanstående strängar som
 </resources>
 ```
 
-Ersätt innehållet i **res/layout/activity_main.xml** med XML-koden nedan som ska användas i appen. Detta är appens UI-layout.
+Ersätt innehållet i **res/layout/activity_main.xml** med följande XML som ska användas i appen. XML-koden är appens UI-layout.
 
 ![App-activity_main.xml](../../media/android/kotlin/android-studio-activity-main-xml.png)
 
@@ -207,7 +207,7 @@ Ersätt innehållet i **res/layout/activity_main.xml** med XML-koden nedan som s
 
 ## <a name="set-up-the-app-kotlin-code-javascript-interface"></a>Konfigurera app Kotlin Code JavaScript Interface
 
-I mappen **/Java/com.example.quickstartkotlin** skapar du en ny Kotlin-klass och namnger den **WebAppInterface**och lägger sedan till koden nedan. Detta gör att appen kan konfigureras med JavaScript-funktioner i HTML som kommer att läggas till i ett senare steg.
+I mappen **/Java/com.example.quickstartkotlin** skapar du en ny Kotlin-klass och namnger den **WebAppInterface**. Lägg sedan till följande kod i den. Den här koden gör att appen kan gränssnitt med JavaScript-funktioner i HTML som läggs till i ett senare steg.
 
 ![com. exempel. quickstartkotlin-mapp](../../media/android/kotlin/android-studio-com-folder.png)
 
@@ -262,7 +262,7 @@ class WebAppInterface(private val mContext: Context, var parentLayout: LinearLay
 
 ## <a name="set-up-the-app-kotlin-code-main-activity"></a>Konfigurera appens Kotlin kod huvud aktivitet
 
-I mappen **/Java/com.example.quickstartkotlin** ser du en befintlig klass fil för **MainActivity. kt** Kotlin. Det är här som appens logik har skapats. Ersätt dess innehåll med följande kod.
+I mappen **/Java/com.example.quickstartkotlin** ser du en befintlig klass fil för **MainActivity. kt** Kotlin. Den här filen är den plats där appens logiken har skapats. Ersätt innehållet med följande kod:
 
 ```MainActivity.kt
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -290,10 +290,10 @@ import kotlinx.coroutines.*
 import org.json.JSONObject
 import java.util.*
 
-// This sample app uses the Dotenv is a module that loads environment variables from a .env file to better manage secrets.
+// This sample app uses the Dotenv. It's a module that loads environment variables from a .env file to better manage secrets.
 // https://github.com/cdimascio/java-dotenv
-// Be sure to add a "env" file to the /assets folder
-// instead of '.env', use 'env'
+// Be sure to add a "env" file to the /assets folder.
+// Instead of '.env', use 'env'.
 
 class MainActivity : AppCompatActivity() {
     private val dotEnv = dotenv {
@@ -313,10 +313,10 @@ class MainActivity : AppCompatActivity() {
         immersiveReaderButton.setOnClickListener { GlobalScope.launch { handleLoadImmersiveReaderWebView() } }
     }
 
-    // Assigns values to the objects sent to the Immersive Reader SDK
+    // Assigns values to the objects sent to the Immersive Reader SDK,
     // acquires the token and authorizes the app, then launches
     // the Web View to get the response and load the Immersive Reader
-    // When the button is clicked in HTML.
+    // when the button is clicked in HTML.
     private suspend fun handleLoadImmersiveReaderWebView() {
         val exampleActivity = this
         val subdomain = dotEnv["SUBDOMAIN"]
@@ -358,7 +358,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // The next two functions get the token from the Immersive Reader SDK
-    // and authorizes the app.
+    // and authorize the app.
     private suspend fun getImmersiveReaderTokenAsync(): String {
         return getToken()
     }
@@ -416,7 +416,7 @@ class MainActivity : AppCompatActivity() {
                   var options: Options? = null)
 
     // Only includes Immersive Reader options relevant to Android apps.
-    // For a complete list visit https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference
+    // For a complete list, visit https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference
     class Options(var uiLang: String? = null, // Language of the UI, e.g. en, es-ES (optional). Defaults to browser language if not specified.
                   var timeout: Int? = null, // Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms).
                   var uiZIndex: Int? = null, // Z-index of the iframe that will be created (default is 1000)
@@ -507,9 +507,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                // This is where the WebAppInterface Class is used
+                // This is where the WebAppInterface Class is used.
                 // Affords a way for JavaScript to work with the app directly from
-                // the Web View's HTML
+                // the Web View's HTML.
                 val jsInterface = WebAppInterface(exampleActivity, parentLayout, contextualWebView)
                 contextualWebView.addJavascriptInterface(jsInterface, "Android")
                 contextualWebView.loadUrl("file:///android_asset/immersiveReader.html")
@@ -521,13 +521,13 @@ class MainActivity : AppCompatActivity() {
 
 ## <a name="add-the-app-html-to-the-web-view"></a>Lägg till appens HTML i webbvy
 
-Implementeringen av webbvyer kommer att kräva att HTML fungerar. Högerklicka på mappen **/assets** och skapa en ny fil och ge den namnet **immersiveReader.html**.
+WebView-implementeringen kräver att HTML fungerar. Högerklicka på mappen **/assets** , skapa en ny fil och ge den namnet **immersiveReader.html**.
 
 ![Skapa en ny HTML-fil](../../media/android/kotlin/android-studio-immersive-reader-html.png)
 
 ![Plats för HTML-till gång](../../media/android/kotlin/android-studio-immersive-reader-html-assets.png)
 
-Lägg till HTML och Java Script nedan. Detta lägger till avancerad läsar-SDK i appen och använder den för att starta den fördjupade läsaren med den app-kod vi har skrivit.
+Lägg till följande HTML och Java Script. Den här koden lägger till avancerad läsar-SDK i appen och använder den för att öppna den fördjupade läsaren genom att använda appens kod som vi har skrivit.
 
 ```immersiveReader.html
 <!-- Copyright (c) Microsoft Corporation. All rights reserved.
@@ -576,7 +576,7 @@ Licensed under the MIT License. -->
 
 ![AndroidManifest](../../media/android/kotlin/android-studio-android-manifest-xml.png)
 
-Eftersom programmet måste göra nätverks anrop till avancerad läsar-SDK för att kunna fungera måste du se till att appens behörigheter har kon figurer ATS för att tillåta nätverks åtkomst. Ersätt innehållet i **/Manifests/-AndroidManifest.xml** med följande XML-kod.
+Eftersom programmet måste göra nätverks anrop till den fördjupade läsaren SDK för att kunna fungera måste du se till att appens behörigheter är konfigurerade för att tillåta nätverks åtkomst. Ersätt innehållet i **/Manifests/-AndroidManifest.xml** med följande XML:
 
 ```AndroidManifest.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -604,12 +604,12 @@ Eftersom programmet måste göra nätverks anrop till avancerad läsar-SDK för 
 </manifest>
 ```
 
-## <a name="running-the-app"></a>Köra appen
+## <a name="run-the-app"></a>Köra appen
 
-Använd Android Studio för att köra appen på en enhets-emulator. När du klickar på knappen **fördjupad läsare** visas den fördjupade läsaren som startas med innehållet på appen.
+Använd Android Studio för att köra appen på en enhets-emulator. När du väljer **Avancerad läsare**öppnas den fördjupade läsaren med innehållet i appen.
 
 ![Avancerad läsare](../../media/android/kotlin/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](../../reference.md)
+Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](../../reference.md).

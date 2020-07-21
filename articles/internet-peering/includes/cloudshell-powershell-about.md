@@ -1,24 +1,24 @@
 ---
-title: inkludera fil
+title: ta med fil
 titleSuffix: Azure
-description: inkludera fil
+description: ta med fil
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3a5485475e3d8030bf85734faec53b0ff0747499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee071f2cf6e31d46ccd483935f137f16bcacf337
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81678483"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544258"
 ---
 Om du vill köra cmdlets kan du använda Azure Cloud Shell, ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Välj **Kopiera** för att kopiera koden och klistra in den i Cloud Shell. Välj sedan **RETUR** för att köra den. Det finns några sätt att starta Cloud Shell:
 
 
-|  |   |
+| Start metod | Skärmbild  |
 |-----------------------------------------------|---|
 | Öppna Cloud Shell i din webbläsare. | [![https://shell.azure.com/powershell](../media/launchcloudshell.png)](https://shell.azure.com/powershell) |
 | Välj knappen **Cloud Shell** i verktygsfältet längst upp till höger i Azure Portal. | [![Cloud Shell i portalen](../media/cloud-shell-menu.png)](https://portal.azure.com) |

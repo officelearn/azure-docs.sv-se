@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca8798af83108ca5e8bdfe5918a25423fd934d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84436018"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544191"
 ---
 Azure Managed disks erbjuder för närvarande fyra disk typer, och varje typ är riktad mot specifika kund scenarier.
 
@@ -21,13 +21,13 @@ Azure Managed disks erbjuder för närvarande fyra disk typer, och varje typ är
 
 Följande tabell innehåller en jämförelse av Ultra disks, Premium solid-state-hårddiskar (SSD), standard SSD och standard hård diskar (HDD) för hanterade diskar för att hjälpa dig att avgöra vad som ska användas.
 
-|   | Ultradisk   | Premium SSD   | Standard SSD   | Standard HDD   |
-|---------|---------|---------|---------|---------|
+| Information | Ultradisk | Premium SSD | Standard SSD | Standard HDD |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, företagsprogram med lätt användning och Dev/Test   |Säkerhetskopiering, icke-kritisk, lågfrekvent åtkomst   |
 |Maximal diskstorlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Maximalt dataflöde   |2 000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
-|Maximalt IOPS   |160 000    |20 000   |6 000   |2 000   |
+|Maximalt IOPS   |160 000    |20 000   |6 000   |2 000   |
 
 ## <a name="ultra-disk"></a>Ultradisk
 
@@ -48,15 +48,15 @@ Några viktiga funktioner i Ultra disks:
 
 |Disk storlek (GiB)  |IOPS-hölje  |Data flödes gräns (Mbit/s)  |
 |---------|---------|---------|
-|4     |1200         |300         |
+|4     |1 200         |300         |
 |8     |2 400         |600         |
-|16     |4 800         |1200         |
-|32     |9 600         |2 000         |
-|64     |19 200         |2 000         |
-|128     |38 400         |2 000         |
-|256     |76 800         |2 000         |
-|512     |80 000         |2 000         |
-|1 024-65536 (storlekar i det här intervallet ökar i steg om 1 TiB)     |160 000         |2 000         |
+|16     |4 800         |1 200         |
+|32     |9 600         |2 000         |
+|64     |19 200         |2 000         |
+|128     |38 400         |2 000         |
+|256     |76 800         |2 000         |
+|512     |80 000         |2 000         |
+|1 024-65536 (storlekar i det här intervallet ökar i steg om 1 TiB)     |160 000         |2 000         |
 
 ### <a name="ga-scope-and-limitations"></a>Allmän omfattning och begränsningar
 

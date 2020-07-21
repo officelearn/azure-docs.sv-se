@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 666decfe3982ea58f5db3561eb9fb6e96965df5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: caada98d3a2bcc4acb566cb02065c6451c233066
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81421950"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544604"
 ---
-Om du vill strömma i ett komprimerat ljud format till tal-tjänsten `PullAudioInputStream` skapar `PushAudioInputStream`du en eller. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
+Om du vill strömma i ett komprimerat ljud format till tal-tjänsten skapar du en `PullAudioInputStream` eller `PushAudioInputStream` . Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
 
-Vi antar att du har en data Ströms klass som `pullStream` heter och använder Opus/OGG. Din kod kan se ut så här:
+Vi antar att du har en data Ströms klass som heter `pullStream` och använder Opus/OGG. Din kod kan se ut så här:
 
 ```java
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
@@ -40,7 +40,7 @@ AudioConfig audioConfig =
         audioFormat);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get()
+SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 
 String text = result.getText();
 ```

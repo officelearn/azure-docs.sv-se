@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242201"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544779"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -157,15 +158,19 @@ Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, 
 **Vad händer när reservationen för Azure disks upphör att gälla?**    
 Du får e-postmeddelanden 30 dagar innan det går ut och sedan på förfallo datumet. När reservationen går ut fortsätter de distribuerade diskarna att köras och debiteras enligt de senaste priserna enligt principen [betala per](https://azure.microsoft.com/pricing/details/managed-disks/)användning.
 
+**Stöder Standard SSD diskar "service nivå avtal för virtuell instans"?**
+
+Ja, alla disk typer har stöd för service avtal för enskild instans av virtuell dator.
+
 ### <a name="azure-shared-disks"></a>Delade diskar i Azure
 
 **Stöds funktionen delade diskar för ohanterade diskar eller sid-blobar?**
 
-Nej, det stöds bara för Premium SSD-hanterade diskar.
+Nej, det stöds bara för Ultra disks och Premium SSD Managed disks.
 
 **Vilka regioner stöder delade diskar?**
 
-För närvarande endast västra centrala USA.
+För regional information, se vår [konceptuella artikel](../articles/virtual-machines/linux/disks-shared.md).
 
 **Kan delade diskar användas som en OS-disk?**
 
@@ -173,11 +178,11 @@ Nej, delade diskar stöds bara för data diskar.
 
 **Vilka disk storlekar stöder delade diskar?**
 
-Endast Premium-SSD som är p15 eller större stöder delade diskar.
+Information om storlekar som stöds finns i vår [konceptuella artikel](../articles/virtual-machines/linux/disks-shared.md).
 
-**Kan jag aktivera delade diskar om jag har en befintlig Premium SSD?**
+**Kan jag aktivera delade diskar på en befintlig disk?**
 
-Alla hanterade diskar som skapats med API version 2019-07-01 eller senare kan aktivera delade diskar. Om du vill göra det måste du demontera disken från alla virtuella datorer som den är kopplad till. Redigera sedan `maxShares` egenskapen på disken.
+Alla hanterade diskar som skapats med API version 2019-07-01 eller senare kan aktivera delade diskar. Om du vill göra det måste du demontera disken från alla virtuella datorer som den är kopplad till. Redigera sedan egenskapen **maxShares** på disken.
 
 **Hur inaktiverar jag det om jag inte längre vill använda en disk i delat läge?**
 
@@ -193,7 +198,7 @@ Nej.
 
 **Kan jag aktivera cachelagring av värden för en disk som har en delad disk aktive rad?**
 
-Det enda alternativet för cachelagring av värden som stöds är none.
+Det enda alternativet för cachelagring av värden som stöds är **ingen**.
 
 ## <a name="ultra-disks"></a>Ultradiskar
 
@@ -201,10 +206,10 @@ Det enda alternativet för cachelagring av värden som stöds är none.
 Om du är osäker på vad du ska ställa in disk data flödet på rekommenderar vi att du börjar med att anta en i/o-storlek på 16 KiB och justerar prestandan därifrån när du övervakar ditt program. Formeln är: data flöde i Mbit/s = # av IOPS * 16/1000.
 
 **Jag har konfigurerat min disk till 40000 IOPS men jag ser bara 12800 IOPS, varför ser jag inte diskens prestanda?**
-Förutom disk begränsningen finns det en IO-begränsning som läggs på VM-nivån. Kontrol lera att den virtuella dator storleken som du använder stöder de nivåer som har kon figurer ATS på diskarna. Information om de IO-gränser som den virtuella datorn har infört finns i [storlekar för virtuella Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md).
+Förutom disk begränsningen finns det en IO-begränsning som läggs på VM-nivån. Se till att den virtuella dator storleken som du använder stöder de nivåer som har kon figurer ATS på diskarna. Information om de IO-gränser som den virtuella datorn har infört finns i [storlekar för virtuella Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md).
 
 **Kan jag använda lagrings nivåer med en Ultra disk?**
-Nej, Ultra disks stöder inte de olika metoderna för cachelagring som stöds på andra disk typer. Ställ in diskcachelagring på ingen.
+Nej, Ultra disks stöder inte de olika metoderna för cachelagring som stöds på andra disk typer. Ställ in diskcachelagring på **ingen**.
 
 **Kan jag ansluta en Ultra disk till min befintliga virtuella dator?**
 Din virtuella dator måste kanske finnas i en region och ett tillgänglighets zon par som stöder Ultra disks. Mer information finns i [komma igång med Ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) .
@@ -261,9 +266,6 @@ Standard SSD diskar ger bättre svars tid, konsekvens, tillgänglighet och tillf
 
 **Kan jag använda standard SSD som ohanterade diskar?**
 Nej, standard SSD-diskar är bara tillgängliga som Managed Disks.
-
-**Stöder Standard SSD diskar "service nivå avtal för virtuell instans"?**
-Nej, standard-SSD har inte något service avtal för VM med en instans. Använd Premium SSD diskar för VM service avtal för enskild instans.
 
 ## <a name="migrate-to-managed-disks"></a>Migrera till Managed Disks
 
@@ -412,7 +414,7 @@ Du behöver inte uppgradera dina befintliga Azure-verktyg för att skapa, bifoga
 |Azure-verktyg      | Versioner som stöds                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versions nummer 4.1.0: utgåva 2017 juni eller senare|
-|Azure CLI v1     | Versions nummer 0.10.13: maj 2017 release eller senare|
+|Azure CLI v1     | Versions nummer 0.10.13: maj 2017 release eller senare|
 |Azure CLI v2     | Versions nummer 2.0.12: juli 2017-utgåva eller senare|
 |AzCopy              | Versions nummer 6.1.0: utgåva 2017 juni eller senare|
 
@@ -450,7 +452,41 @@ Du kan antingen stoppa och starta den virtuella datorn som disken är ansluten t
 
 **Stöder vi aktivering av cachelagring av värdar på alla disk storlekar?**
 
-Cachelagring av värden (skrivskyddad och Läs/skriv) stöds på disk storlekar som är mindre än 4 TiB. Det innebär att alla diskar som är etablerade upp till 4095 GiB kan dra nytta av cachelagring av värden. Cachelagring av värden stöds inte för disk storlekar som är större än eller lika med 4096 GiB. Till exempel kan en P50 Premium-disk som etablerades med 4095 GiB dra nytta av cachelagring av värdar och en P50 disk som tillhandahålls vid 4096 GiB kan inte dra nytta av cachelagring av värden. Vi rekommenderar att du använder cachelagring för mindre disk storlekar där du kan vänta på att få bättre prestanda ökning med cachelagrade data i den virtuella datorn.
+Cachelagring av värden (**skrivskyddad** och **Läs/skriv**) stöds på disk storlekar som är mindre än 4 TIB. Det innebär att alla diskar som är etablerade upp till 4095 GiB kan dra nytta av cachelagring av värden. Cachelagring av värden stöds inte för disk storlekar som är större än eller lika med 4096 GiB. Till exempel kan en P50 Premium-disk som etablerades med 4095 GiB dra nytta av cachelagring av värdar och en P50 disk som tillhandahålls vid 4096 GiB kan inte dra nytta av cachelagring av värden. Vi rekommenderar att du använder cachelagring för mindre disk storlekar där du kan vänta på att få bättre prestanda ökning med cachelagrade data i den virtuella datorn.
+
+## <a name="private-links-for-securely-exporting-and-importing-managed-disks"></a>Privata Länkar för att på ett säkert sätt exportera och importera Managed Disks
+
+**Vad är fördelen med att använda privata Länkar för att exportera och importera Managed Disks?**
+
+Du kan använda privata Länkar för att begränsa exporten och importen till Managed Disks endast från ditt virtuella Azure-nätverk. 
+
+**Vad kan jag se till att en disk bara kan exporteras eller importeras via privata länkar?**
+
+Du måste ange `DiskAccessId` egenskapen till en instans av ett disk åtkomst objekt och även ange egenskapen NetworkAccessPolicy till `AllowPrivate` .
+
+**Kan jag länka flera virtuella nätverk till samma disk Access-objekt?**
+
+Nej. För närvarande kan du länka ett disk åtkomst objekt till endast ett virtuellt nätverk.
+
+**Kan jag länka ett virtuellt nätverk till ett disk Access-objekt i en annan prenumeration?**
+
+Nej. För närvarande kan du länka ett disk åtkomst objekt till ett virtuellt nätverk i samma prenumeration.
+
+**Kan jag länka ett virtuellt nätverk till ett disk Access-objekt i en annan prenumeration?**
+
+Nej. För närvarande kan du länka ett disk åtkomst objekt till ett virtuellt nätverk i samma prenumeration.
+
+**Hur många exporter eller importer som använder samma disk åtkomst objekt kan ske på samma gång?**
+
+5
+
+**Kan jag använda en SAS-URI för en disk/ögonblicks bild för att ladda ned den underliggande virtuella hård disken för en virtuell dator i samma undernät som under nätet för den privata slut punkt som är kopplad till disken?**
+
+Ja.
+
+**Kan jag använda en SAS-URI för en disk/ögonblicks bild för att ladda ned den underliggande virtuella hård disken för en virtuell dator som inte tillhör samma undernät som under nätet för den privata slut punkten som inte är kopplad till disken?**
+
+Nej.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 

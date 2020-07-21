@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41f42b053181f4115770cd9973621706b248baab
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a09cc83259a6fbb07b8c88e1d8f82b720400c0d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507752"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ServiceNow
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar ServiceNow med Azur
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -43,6 +43,9 @@ För att komma igång behöver du följande objekt:
 * ServiceNow-klientorganisationen måste ha [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) (Plugin-program för enkel inloggning med flera providrar) aktiverat. Det kan du göra genom att [skicka en tjänstbegäran](https://hi.service-now.com).
 * Om du vill ha automatisk konfiguration aktiverar du plugin-programmet för flera providrar för ServiceNow.
 * Om du vill installera det klassiska ServiceNow-programmet (mobil) går du till lämpligt Arkiv och söker efter det klassiska ServiceNow-programmet. Hämta det sedan.
+
+> [!NOTE]
+> Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -101,8 +104,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     c. Ange en av följande URL: er för **svars-URL**:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | Svars-URL|
+    |----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Du måste uppdatera dessa värden med den faktiska inloggnings-URL: en och identifieraren, som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -171,8 +176,10 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     c. Ange en av följande URL: er för **svars-URL**:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | Svars-URL |
+    |-----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Du måste uppdatera dessa värden med den faktiska inloggnings-URL: en och identifieraren, som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -243,7 +250,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     1. Logga in på ditt ServiceNow-program som administratör.
 
-       * I den automatiska konfigurationen konfigureras alla nödvändiga inställningar på **ServiceNow** -sidan, men **X. 509-certifikatet** är inte aktiverat som standard. Du måste mappa den manuellt till din identitets leverantör i ServiceNow. Följ de här stegen:
+       * I den automatiska konfigurationen konfigureras alla nödvändiga inställningar på **ServiceNow** -sidan, men **X. 509-certifikatet** är inte aktiverat som standard. Du måste mappa den manuellt till din identitets leverantör i ServiceNow. Gör så här:
 
          1. I det vänstra fönstret söker du efter **SSO-avsnittet för flera providers** från sökrutan och väljer **identitets leverantörer**.
 

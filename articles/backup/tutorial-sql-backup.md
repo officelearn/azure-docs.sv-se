@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SQL Server-databaser till Azure
 description: I den här självstudien lär du dig hur du säkerhetskopierar en SQL Server databas som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81680737"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513340"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Säkerhetskopiera en SQL Server-databas på en virtuell Azure-dator
 
@@ -21,7 +21,7 @@ Den här självstudien visar hur du säkerhetskopierar en SQL Server databas som
 > * Konfigurera automatiskt skydd för databaser.
 > * Kör en säkerhets kopiering på begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 
@@ -40,7 +40,7 @@ Den virtuella SQL Server-datorn behöver ha anslutning till offentliga Azure-IP-
 
 Varje alternativ har fördelar och nack delar
 
-**Alternativet** | **Fördelar** | **Nackdelar**
+**Alternativ** | **Fördelar** | **Nackdelar**
 --- | --- | ---
 Tillåta IP-intervall | Inga ytterligare kostnader. | Komplicerat att hantera eftersom IP-adressintervallen ändras över tid. <br/><br/> Ger åtkomst till hela Azure, inte bara Azure Storage.
 Använda en HTTP-proxy   | Detaljerad kontroll i proxyn över lagrings-URL:er tillåts. <br/><br/> Enskild punkt för Internetåtkomst till virtuella datorer. <br/><br/> Inte föremål för Azure-IP-adressändringar. | Ytterligare kostnader för att köra en virtuell dator med proxyprogramvaran.
@@ -64,7 +64,7 @@ Undvik följande för databasnamn:
 * Avslutande hakparentes ”]”
 * Databas namn som börjar med "F:\"
 
-Vi har alias för tecken som inte stöds i Azure-tabellen, men vi rekommenderar att du undviker dem. [Läs mer](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Vi har alias för tecken som inte stöds i Azure-tabellen, men vi rekommenderar att du undviker dem. [Läs mer](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -84,7 +84,7 @@ Identifiera databaser som körs på den virtuella datorn.
 
     ![Välj SQL Server på Azure VM för säkerhetskopieringen](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. I **säkerhets kopierings mål** > **identifiera databaser i virtuella datorer**väljer du **Starta identifiering** för att söka efter oskyddade virtuella datorer i prenumerationen. Det kan ta ett tag beroende på antalet oskyddade virtuella datorer i prenumerationen.
+5. I **säkerhets kopierings mål**  >  **identifiera databaser i virtuella datorer**väljer du **Starta identifiering** för att söka efter oskyddade virtuella datorer i prenumerationen. Det kan ta ett tag beroende på antalet oskyddade virtuella datorer i prenumerationen.
 
    * Oskyddade virtuella datorer bör visas i listan efter identifiering, sorterade efter namn och resursgrupp.
    * Om en virtuell dator inte visas som förväntat kontrollerar du om den redan har säkerhetskopierats i ett valv.
@@ -161,7 +161,7 @@ En säkerhetskopieringspolicy definierar när säkerhetskopior skapas och hur l�
 
 Så här skapar du en säkerhetskopieringspolicy:
 
-1. I valvet klickar du på **säkerhets kopierings principer** > **Lägg till**.
+1. I valvet klickar du på **säkerhets kopierings principer**  >  **Lägg till**.
 2. I menyn **Lägg till** klickar du på **SQL Server i Azure VM** för att definiera princip typen.
 
    ![Välj en policytyp för den nya säkerhetskopieringspolicyn](./media/backup-azure-sql-database/policy-type-details.png)

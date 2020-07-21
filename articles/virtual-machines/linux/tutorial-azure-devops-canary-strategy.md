@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: e0fb26896b79fb23bb0f784c0f23aa3af0593c22
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 22f36448a4246f7cc8c66b2c4f8051c835ed939a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871854"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510165"
 ---
 # <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera strategin för Kanarie-distribution för Azure Virtuella Linux-datorer
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du konfigurerar en CI/CD-pipeline som använder Kana
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Konfigurera CI/CD på virtuella datorer
 
-Du kan lägga till virtuella datorer som mål i en [distributions grupp](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Du kan sedan rikta dem till MultiMachine-uppdateringar. När du har distribuerat till datorer, Visa **distributions historik** i en distributions grupp. I den här vyn kan du spåra från virtuell dator till pipelinen och sedan till commit.
+Du kan lägga till virtuella datorer som mål i en [distributions grupp](/azure/devops/pipelines/release/deployment-groups). Du kan sedan rikta dem till MultiMachine-uppdateringar. När du har distribuerat till datorer, Visa **distributions historik** i en distributions grupp. I den här vyn kan du spåra från virtuell dator till pipelinen och sedan till commit.
 
 ### <a name="canary-deployments"></a>Kanarie-distributioner
 
@@ -47,7 +47,7 @@ Med alternativet för kontinuerlig leverans kan du konfigurera Kanarie-distribut
    ![Panelen kontinuerlig leverans](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
 1. En distributions grupp är en logisk uppsättning distributions mål datorer som representerar de fysiska miljöerna. Utveckling, testning, UAT och produktion är exempel. Du kan skapa en ny distributions grupp eller välja en befintlig.
-1. Välj den build-pipeline som publicerar paketet som ska distribueras till den virtuella datorn. Det publicerade paketet måste ha ett distributions skript med namnet Deploy. ps1 eller deploy.sh i mappen deployscripts i paketets rotmapp. Pipelinen kör det här distributions skriptet.
+1. Välj den build-pipeline som publicerar paketet som ska distribueras till den virtuella datorn. Det publicerade paketet måste ha ett distributions skript med namnet deploy.ps1 eller deploy.sh i mappen deployscripts i paketets rotmapp. Pipelinen kör det här distributions skriptet.
 1. I **distributions strategi**väljer du **Kanarie**.
 1. Lägg till en "Kanarie"-tagg till virtuella datorer som ska ingå i Kanarie-distributioner. Lägg till en "Prod"-tagg till virtuella datorer som är en del av distributioner gjorda efter att Kanarie-distributionen lyckades. Med taggar kan du bara rikta in virtuella datorer som har en speciell roll.
 
@@ -67,7 +67,7 @@ Med alternativet för kontinuerlig leverans kan du konfigurera Kanarie-distribut
 
 1. Innan du återupptar pipeline-körningen bör du se till att minst en virtuell dator är märkt som "Prod". I den tredje fasen av pipelinen distribueras program endast till de virtuella datorer som har taggen "Prod".
 
-1. Åtgärden kör distribuera skript kör som standard distributions skriptet Deploy. ps1 eller deploy.sh. Skriptet finns i mappen deployscripts i rotmappen för det publicerade paketet. Se till att den valda Bygg pipelinen publicerar distributionen i paketets rotmapp.
+1. Åtgärden kör distribuera skript kör som standard distributions skriptet deploy.ps1 eller deploy.sh. Skriptet finns i mappen deployscripts i rotmappen för det publicerade paketet. Se till att den valda Bygg pipelinen publicerar distributionen i paketets rotmapp.
 
    ![Fönster rutan artefakter som visar deploy.sh i mappen deployscripts](media/tutorial-deployment-strategy/package.png)
 
@@ -87,5 +87,5 @@ Du kan enkelt komma igång med Azure. Med Azure DevOps Projects börjar du köra
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Distribuera till virtuella Azure-datorer med hjälp av Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementera en kontinuerlig distribution av din app till en skalnings uppsättning för en virtuell Azure-dator](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Distribuera till virtuella Azure-datorer med hjälp av Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implementera en kontinuerlig distribution av din app till en skalnings uppsättning för en virtuell Azure-dator](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

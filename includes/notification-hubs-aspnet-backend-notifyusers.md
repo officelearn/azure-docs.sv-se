@@ -1,5 +1,5 @@
 ---
-title: inkludera fil
+title: ta med fil
 description: ta med filen som innehåller koden för att skapa ett ASP .NET-WebAPI-projekt för serverdel.
 services: notification-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77192907"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530188"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
 
@@ -30,7 +30,7 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 >
 >Börja med att starta Visual Studio. På menyn **Verktyg** väljer du **Tillägg och uppdateringar**. Sök efter **NuGet Package Manager** i din version av Visual Studio och kontrollera att du har den senaste versionen. Om din version inte är den senaste versionen, avinstallera den och installera sedan om NuGet Package Manager.
 
-![][B4]
+![Skärm bild av dialog rutan tillägg och uppdateringar med NuGet-paketet hantera för Visual Studios-paketet markerat.][B4]
 
 > [!NOTE]
 > Kontrol lera att du har installerat Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) för webbplats distribution.

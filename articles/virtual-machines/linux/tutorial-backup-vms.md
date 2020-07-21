@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460078"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527004"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Linux-datorer i Azure
 
@@ -34,7 +34,7 @@ Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Az
 
 När Azure Backup-tjänsten initierar en säkerhetskopiering utlöser den ett säkerhetskopieringstillägg för att ta en ögonblicksbild. Azure Backup-tjänsten använder tillägget _VMSnapshotLinux_ i Linux. Tillägget installeras under den första säkerhetskopieringen av den virtuella datorn om den virtuella datorn körs. Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
 
-Som standard skapar Azure Backup en filsystemkonsekvent säkerhetskopia för virtuella Linux-datorer, men det kan konfigureras för att skapa en [programkonsekvent säkerhetskopia med ramverk för förskript och efterskript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). När Azure Backup-tjänsten har tagit ögonblicksbilden överförs data till valvet. För att maximera effektiviteten identifierar och överför tjänsten endast de datablock som har ändrats sedan föregående säkerhetskopia.
+Som standard skapar Azure Backup en filsystemkonsekvent säkerhetskopia för virtuella Linux-datorer, men det kan konfigureras för att skapa en [programkonsekvent säkerhetskopia med ramverk för förskript och efterskript](../../backup/backup-azure-linux-app-consistent.md). När Azure Backup-tjänsten har tagit ögonblicksbilden överförs data till valvet. För att maximera effektiviteten identifierar och överför tjänsten endast de datablock som har ändrats sedan föregående säkerhetskopia.
 
 När dataöverföringen har slutförts tas ögonblicksbilden bort och en återställningspunkt skapas.
 
@@ -171,4 +171,3 @@ Gå vidare till nästa självstudie om du vill veta mer om övervakning av virtu
 
 > [!div class="nextstepaction"]
 > [Styra virtuella datorer](tutorial-govern-resources.md)
-

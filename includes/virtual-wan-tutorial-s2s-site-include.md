@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,23 +8,23 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ac23912b12bc6c7fcd40d7433cb4e2d257eeb5d0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563035"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525193"
 ---
 1. På Portal sidan för ditt virtuella WAN-nätverk går du till avsnittet **anslutning** och väljer **VPN-platser** för att öppna sidan VPN-platser.
 2. På sidan **VPN-platser** klickar du på **+ Skapa webbplats**.
 
-   ![Grunderna](./media/virtual-wan-tutorial-site-include/basics.png "Grunderna")
+   ![Grunder](./media/virtual-wan-tutorial-site-include/basics.png "Grunder")
 3. På sidan **skapa VPN-webbplats** går du till fliken **grundläggande** och fyller i följande fält:
 
     * **Region** – tidigare kallad plats. Det här är den plats där du vill skapa den här webbplats resursen i.
     * **Namn** – namnet som du vill referera till din lokala plats.
     * **Enhets leverantör** – namnet på VPN-enhetens tillverkare (till exempel: Citrix, Cisco, Barracuda). Detta kan hjälpa Azure-teamet att bättre förstå din miljö för att lägga till ytterligare optimerings möjligheter i framtiden eller för att hjälpa dig att felsöka.
-    * **Border Gateway Protocol** -Enable innebär att alla anslutningar från platsen kommer att vara BGP-aktiverade. Du kommer att behöva konfigurera BGP-informationen för varje länk från VPN-platsen i avsnittet länkar. Konfiguration av BGP på ett virtuellt WAN-nätverk motsvarar att konfigurera BGP på en virtuell Azure-nätverksgateway VPN. Din lokala BGP-peer-adress får inte vara samma som den offentliga IP-adressen för VPN-enheten eller det virtuella nätverkets adress utrymme för VPN-platsen. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP. Det kan vara en adress som tilldelats till loopback-gränssnittet på enheten. Det kan dock inte vara en APIPA-adress (169.254. x. x). Ange den här adressen på motsvarande VPN-plats som representerar platsen. För BGP-krav, se [om BGP med Azure VPN gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Du kan alltid redigera en VPN-anslutning för att uppdatera dess BGP-parametrar (peering IP-adress på länken och AS #) när inställningen för BGP-inställningen för VPN-platsen är aktive rad.
+    * **Border Gateway Protocol** -Enable innebär att alla anslutningar från platsen kommer att vara BGP-aktiverade. Du kommer att behöva konfigurera BGP-informationen för varje länk från VPN-platsen i avsnittet länkar. Konfiguration av BGP på ett virtuellt WAN-nätverk motsvarar att konfigurera BGP på en virtuell Azure-nätverksgateway VPN. Din lokala BGP-peer-adress får inte vara samma som den offentliga IP-adressen för VPN-enheten eller det virtuella nätverkets adress utrymme för VPN-platsen. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP. Det kan vara en adress som tilldelats till loopback-gränssnittet på enheten. Ange den här adressen på motsvarande VPN-plats som representerar platsen. För BGP-krav, se [om BGP med Azure VPN gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Du kan alltid redigera en VPN-anslutning för att uppdatera dess BGP-parametrar (peering IP-adress på länken och AS #) när inställningen för BGP-inställningen för VPN-platsen är aktive rad.
     * **Privat adress utrymme** – det IP-adressutrymme som finns på din lokala plats. Trafik till det här adressutrymmet dirigeras till den lokala platsen. Detta krävs när BGP inte är aktiverat för platsen.
     * **Hubbar** – hubben som du vill att din webbplats ska ansluta till. En plats kan bara anslutas till de hubbar som har en VPN Gateway. Om du inte ser någon hubb skapar du först en VPN-gateway i hubben.
 4. Välj **länkar** om du vill lägga till information om de fysiska länkarna i grenen. Om du har en virtuell WAN-partner CPE-enhet, kontrollerar du med dem för att se om den här informationen utbyts med Azure som en del av överföringen av gren information från sina system.

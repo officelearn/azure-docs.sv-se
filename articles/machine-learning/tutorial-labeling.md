@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628398"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536172"
 ---
-# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt (för hands version) för bild klassificering med flera klasser 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt för bild klassificering med flera klasser 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Den här självstudien visar hur du hanterar processen för etiketter (kallas även för taggning) som ska användas som data för att skapa maskin inlärnings modeller. Data etiketter i Azure Machine Learning finns i offentlig för hands version.
@@ -34,9 +34,9 @@ I den här självstudien använder du bilder av katter och hundar.  Eftersom var
 > * Etikettera dina data.  Antingen du eller dina etiketter kan utföra den här uppgiften.
 > * Slutför projektet genom att granska och exportera data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
@@ -102,7 +102,7 @@ Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett e
 
 1. Använd följande indata för formuläret **skapa data uppsättning från data lager** :
 
-    1. I formuläret **grundläggande information** lägger du till ett namn. här kommer vi att använda **bilder för självstudier**.  Lägg till en beskrivning om du vill.  Välj **Nästa**.
+    1. I formuläret **grundläggande information** lägger du till ett namn. här kommer vi att använda **bilder för självstudier**.  Lägg till en beskrivning om du vill.  Välj sedan **Nästa**.
     1. Använd List rutan i **urvals formuläret för data lager** för att välja ditt **tidigare skapade data lager**, till exempel **tutorial_images (Azure Blob Storage)**
     1. Sedan väljer du **Bläddra** i formuläret lagrings **område** och väljer sedan **DogsCats**.  Välj **Spara** för att använda **/MultiClass-DogsCats** som sökväg.
     1. Välj **Nästa** för att bekräfta informationen och **skapa** sedan för att skapa data uppsättningen.
@@ -114,7 +114,7 @@ Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett e
 
 Om du planerar att lägga till nya avbildningar i din data uppsättning kommer den stegvisa uppdateringen att hitta dessa nya avbildningar och lägga till dem i projektet.  När du aktiverar den här funktionen kommer projektet att regelbundet söka efter nya avbildningar.  Du kommer inte att lägga till nya avbildningar i data lagret för den här själv studie kursen, så lämna den här funktionen omarkerad.
 
-Fortsätt genom att välja **Nästa**.
+Välj **Nästa** för att fortsätta.
 
 ### <a name="label-classes"></a>Etikett klasser
 
@@ -130,7 +130,7 @@ Fortsätt genom att välja **Nästa**.
 
 1. Välj **Nästa**.
 
-1. Lämna kryss rutan omarkerad på den **ml-märkta etiketten** . ML-etiketter kräver mer data än vad du kommer att använda i den här självstudien.
+1. Om du använder en företags arbets yta ser du ett ml-avsnitt med **stöd för märkning** .  Lämna kryss rutan avmarkerad. ML-etiketter kräver mer data än vad du kommer att använda i den här självstudien.
 
 1. Välj **Skapa projekt**.
 

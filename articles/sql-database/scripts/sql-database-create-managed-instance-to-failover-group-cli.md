@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 1f6c178c1f8813300d3473ad3b788ecd7e7b573e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: bf4e2b04c540ee5672bea6e097496ced5a0d622a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115387"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528884"
 ---
-# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Använd CLI för att lägga till en Azure SQL-hanterad instans i en failover-grupp
+# <a name="use-cli-to-create-an-azure-sql-managed-instance-to-a-failover-group"></a>Använd CLI för att skapa en hanterad Azure SQL-instans till en failover-grupp
 
 Det här Azure CLI-exemplet skapar två hanterade instanser, lägger till dem i en grupp för redundans och testar sedan redundans från den primära hanterade instansen till den sekundära hanterade instansen.
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| | |
+| Kommando | Beskrivning |
 |---|---|
 | [AZ nätverkets VNet](/cli/azure/network/vnet) | Virtuella nätverks kommandon.  |
 | [AZ Network VNet Subnet](/cli/azure/network/vnet/subnet) | Under näts kommandon för virtuellt nätverk. |

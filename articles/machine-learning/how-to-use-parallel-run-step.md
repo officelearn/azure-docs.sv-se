@@ -6,16 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: trbye, jmartens, larryfr
+ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 06/23/2020
+ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bf0aa51c64eea0aa58e679c4f9f44686ce7b9ffb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023388"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520637"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,10 +33,11 @@ I den här artikeln får du lära dig följande uppgifter:
 > * Skriv ditt härlednings skript.
 > * Skapa en [pipeline för maskin inlärning](concept-ml-pipelines.md) som innehåller ParallelRunStep och kör batch-härledning på MNIST-testavbildningar. 
 > * Skicka en ny körnings härledning igen med nya indata och parametrar. 
+> * Granska resultaten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 * För en guidad snabb start slutför du [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning-arbetsyta. 
 
@@ -158,9 +160,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
 
-output_dir = PipelineData(name="inferences", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="mnist/results")
+output_dir = PipelineData(name="inferences", datastore=def_data_store)
 ```
 
 ## <a name="prepare-the-model"></a>Förbereda modellen
@@ -265,17 +265,17 @@ Nu har du allt du behöver: data inmatningar, modell, utdata och ditt skript fö
 
 ### <a name="prepare-the-environment"></a>Förbereda miljön
 
-Börja med att ange beroenden för skriptet. På så sätt kan du installera pip-paket samt konfigurera miljön. Ta alltid med **azureml-Core-** och **azureml-nu [Pandas, säkring]-** paket.
+Börja med att ange beroenden för skriptet. På så sätt kan du installera pip-paket samt konfigurera miljön.
 
-Om du använder en anpassad Docker-avbildning (user_managed_dependencies = true) bör du även ha Conda installerat.
+Inkludera alltid **azureml-Core** och **azureml-dataset-runtime [Pandas, säkring]** i PIP-paket listan. Om du använder en anpassad Docker-avbildning (user_managed_dependencies = true) bör du även ha Conda installerat.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.15.2", "pillow", 
+                                                          "azureml-core", "azureml-dataset-runtime[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
@@ -285,7 +285,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="specify-the-parameters-using-parallelrunconfig"></a>Ange parametrar med ParallelRunConfig
 
-`ParallelRunConfig`är den viktigaste konfigurationen för `ParallelRunStep` instansen i Azure Machine Learning pipelinen. Du använder den för att omsluta ditt skript och konfigurera nödvändiga parametrar, inklusive alla följande:
+`ParallelRunConfig`är den viktigaste konfigurationen för `ParallelRunStep` instansen i Azure Machine Learning pipelinen. Du använder den för att omsluta ditt skript och konfigurera nödvändiga parametrar, inklusive alla följande poster:
 - `entry_script`: Ett användar skript som en lokal fil Sök väg som ska köras parallellt på flera noder. Om `source_directory` det finns använder du en relativ sökväg. Annars använder du valfri sökväg som är tillgänglig på datorn.
 - `mini_batch_size`: Den mini-batch-storlek som skickas till ett enda `run()` anrop. (valfritt; standardvärdet är `10` filer för FileDataset och `1MB` för TabularDataset.)
     - För är `FileDataset` det antalet filer med minimivärdet `1` . Du kan kombinera flera filer i en mini-batch.
@@ -378,7 +378,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="resubmit-a-run-with-new-data-inputs-and-parameters"></a>Skicka en körning igen med nya data inmatningar och parametrar
 
-Eftersom du har gjort inmatningarna och flera konfigureras som kan `PipelineParameter` du skicka en ny körnings härledning igen med en annan data uppsättning och finjustera parametrarna utan att behöva skapa en helt ny pipeline. Du kommer att använda samma data lager men använda bara en enda bild som data inmatning.
+Eftersom du har gjort indatana och flera konfigureras som kan `PipelineParameter` du skicka om en körning av en batch-härledning med en annan data uppsättning och finjustera parametrarna utan att behöva skapa en helt ny pipeline. Du kommer att använda samma data lager men använda bara en enda bild som data inmatning.
 
 ```python
 path_on_datastore = mnist_blob.path('mnist/0.png')
@@ -391,6 +391,28 @@ pipeline_run_2 = experiment.submit(pipeline,
 )
 
 pipeline_run_2.wait_for_completion(show_output=True)
+```
+## <a name="view-the-results"></a>Visa resultatet
+
+Resultaten från ovanstående körning skrivs till data lagret som anges i PipelineData-objektet som utdata, som i det här fallet kallas *inferences*. Resultaten lagras i standard-BLOB-behållaren, du kan navigera till ditt lagrings konto och Visa Storage Explorer, fil Sök vägen är azureml-blobstore-*GUID*/azureml/*RunId* / *output_dir*.
+
+Du kan också hämta dessa data för att visa resultatet. Nedan visas exempel koden för att visa de första 10 raderna.
+
+```python
+import pandas as pd
+import tempfile
+
+batch_run = pipeline_run.find_step_run(parallelrun_step.name)[0]
+batch_output = batch_run.get_output_data(output_dir.name)
+
+target_dir = tempfile.mkdtemp()
+batch_output.download(local_path=target_dir)
+result_file = os.path.join(target_dir, batch_output.path_on_datastore, parallel_run_config.append_row_file_name)
+
+df = pd.read_csv(result_file, delimiter=":", header=None)
+df.columns = ["Filename", "Prediction"]
+print("Prediction has ", df.shape[0], " rows")
+df.head(10) 
 ```
 
 ## <a name="next-steps"></a>Nästa steg

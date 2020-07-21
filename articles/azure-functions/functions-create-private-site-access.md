@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 8e37876e0e9666097c3cf16589e64929c670b14a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390286"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540289"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Självstudie: upprätta Azure Functions åtkomst till privat webbplats
 
@@ -39,7 +39,7 @@ Följande diagram visar arkitekturen för den lösning som ska skapas:
 
 ![Högnivå arkitektur diagram för åtkomst lösning för privat webbplats](./media/functions-create-private-site-access/topology.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien är det viktigt att du förstår IP-adressering och undernät. Du kan börja med [den här artikeln som beskriver grunderna för adressering och undernät](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Många fler artiklar och videor är tillgängliga online.
 
@@ -62,13 +62,13 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     >[!div class="mx-imgBorder"]
     >![Fliken grundläggande för en ny virtuell Windows-dator](./media/functions-create-private-site-access/create-vm-3.png)
 
-    | Inställningen      | Föreslaget värde  | Beskrivning      |
+    | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | _Prenumeration_ | Din prenumeration | Den prenumeration som dina resurser skapas under. |
-    | [_Resursgrupp_](../azure-resource-manager/management/overview.md) | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Med samma resurs grupp blir det enklare att rensa resurser när du är klar med den här självstudien. |
+    | [_Resurs grupp_](../azure-resource-manager/management/overview.md) | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Med samma resurs grupp blir det enklare att rensa resurser när du är klar med den här självstudien. |
     | _Namn på virtuell dator_ | myVM | Det virtuella dator namnet måste vara unikt i resurs gruppen |
     | [_Region_](https://azure.microsoft.com/regions/) | USA Norra centrala USA | Välj en region nära dig eller nära de funktioner som ska nås. |
-    | _Offentliga inkommande portar_ | Ingen | Välj **ingen** för att se till att det inte finns någon inkommande anslutning till den virtuella datorn från Internet. Fjärråtkomst till den virtuella datorn kommer att konfigureras via Azure skydds-tjänsten. |
+    | _Offentliga inkommande portar_ | Inga | Välj **ingen** för att se till att det inte finns någon inkommande anslutning till den virtuella datorn från Internet. Fjärråtkomst till den virtuella datorn kommer att konfigureras via Azure skydds-tjänsten. |
 
 1. Välj fliken _nätverk_ och välj **Skapa ny** för att konfigurera ett nytt virtuellt nätverk.
 
@@ -80,7 +80,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     >[!div class="mx-imgBorder"]
     >![Skapa ett nytt virtuellt nätverk för den nya virtuella datorn](./media/functions-create-private-site-access/create-vm-vnet-1.png)
 
-    | Inställningen      | Föreslaget värde  | Beskrivning      |
+    | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | _Namn_ | myResourceGroup-VNet | Du kan använda standard namnet som genereras för det virtuella nätverket. |
     | _Adressintervall_ | 10.10.0.0/16 | Använd ett enda adress intervall för det virtuella nätverket. |
@@ -105,12 +105,12 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     >[!div class="mx-imgBorder"]
     >![Börja skapa Azure-skydds](./media/functions-create-private-site-access/create-bastion-basics-1.png)
 
-    | Inställningen      | Föreslaget värde  | Beskrivning      |
+    | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | _Namn_ | myBastion | Namnet på den nya skydds-resursen |
-    | _Region_ | USA, norra centrala | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
+    | _Region_ | USA, norra centrala | Välj en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner kommer åt. |
     | _Virtuellt nätverk_ | myResourceGroup-VNet | Det virtuella nätverk där skydds-resursen ska skapas i |
-    | _Delnät_ | AzureBastionSubnet | Under nätet i det virtuella nätverket som den nya skydds-värd resursen ska distribueras till. Du måste skapa ett undernät med namnet Value **AzureBastionSubnet**. Med det här värdet kan Azure veta vilket undernät som skydds-resurserna ska distribueras till. Du måste använda ett undernät på minst **/27** eller större (/27,/26 osv.). |
+    | _Undernät_ | AzureBastionSubnet | Under nätet i det virtuella nätverket som den nya skydds-värd resursen ska distribueras till. Du måste skapa ett undernät med namnet Value **AzureBastionSubnet**. Med det här värdet kan Azure veta vilket undernät som skydds-resurserna ska distribueras till. Du måste använda ett undernät på minst **/27** eller större (/27,/26 osv.). |
 
     > [!NOTE]
     > En detaljerad steg-för-steg-guide om hur du skapar en Azure skydds-resurs finns i själv studie kursen [skapa en Azure skydds-värd](../bastion/bastion-create-host-portal.md) .
@@ -136,18 +136,18 @@ Nästa steg är att skapa en Function-app i Azure med hjälp av [förbruknings p
 1. Välj **compute > Funktionsapp**
 1. I avsnittet _grundläggande_ inställningar använder du funktionen appinställningar som anges i tabellen nedan.
 
-    | Inställningen      | Föreslaget värde  | Beskrivning      |
+    | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
-    | _Resurs grupp_ | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Genom att använda samma resurs grupp för Function-appen och den virtuella datorn blir det enklare att rensa resurser när du är klar med den här självstudien. |
-    | _Funktionsapp namn_ | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är a-z (Skift läges okänslig), 0-9 och-. |
+    | _Resursgrupp_ | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Genom att använda samma resurs grupp för Function-appen och den virtuella datorn blir det enklare att rensa resurser när du är klar med den här självstudien. |
+    | _Funktionsappens namn_ | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är a-z (Skift läges okänslig), 0-9 och-. |
     | _Publicera_ | Kod | Alternativ för att publicera kodfiler eller en Docker-container. |
     | _Körningsstack_ | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. |
-    | _Region_ | USA, norra centrala | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
+    | _Region_ | USA, norra centrala | Välj en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner kommer åt. |
 
     Välj **Nästa: Hosting >** -knappen.
 1. I avsnittet _värd_ väljer du rätt _lagrings konto_, _operativ system_och _plan_ enligt beskrivningen i följande tabell.
 
-    | Inställningen      | Föreslaget värde  | Beskrivning      |
+    | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | _Lagringskonto_ | Globalt unikt namn | Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto som måste uppfylla kraven för [lagrings kontot](./functions-scale.md#storage-account-requirements). |
     | _Operativsystem_ | Önskat operativ system | Ett operativ system är i förväg valt för dig baserat på ditt val av körnings stack, men du kan ändra inställningen om det behövs. |
@@ -194,10 +194,10 @@ Nästa steg i den här självstudien är att skapa en HTTP-utlöst Azure-funktio
 
 1. Följ någon av följande snabb starter för att skapa och distribuera din Azure Functions-app.
 
-    * [Visual Studio-koden](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Kommandorad](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-java-maven.md)
+    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
 
 1. När du publicerar Azure Functions-projektet väljer du den Function app-resurs som du skapade tidigare i den här självstudien.
 1. Kontrol lera att funktionen har distribuerats.

@@ -5,18 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 57468a4b4234809ca6293ca39ed54a3934f9a4fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560921"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506391"
 ---
-# <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad behållare
+# <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad container
 
 I den här självstudien skapar du och distribuerar din kod till Azure Functions som en anpassad Docker-behållare med hjälp av en Linux-bas avbildning. Du använder vanligt vis en anpassad bild när funktionerna kräver en specifik språk version eller har ett särskilt beroende eller en specifik konfiguration som inte tillhandahålls av den inbyggda avbildningen.
 
-Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](functions-create-first-azure-function-azure-cli-linux.md). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
+Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 I den här guiden får du lära dig att:
 
@@ -96,7 +96,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 Maven ber dig om värden som behövs för att slutföra genereringen av projektet vid distribution.   
 Ange följande värden när du uppmanas till det:
 
-| Uppmaning | Värde | Beskrivning |
+| Prompt | Värde | Beskrivning |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Ett värde som unikt identifierar ditt projekt i alla projekt, efter [paket namngivnings regler](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) för Java. |
 | **artifactId** | `fabrikam-functions` | Ett värde som är jar-namn, utan versions nummer. |
@@ -121,7 +121,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new`skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *Function. JSON*.
+Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new`skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -173,7 +173,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-När avbildningen körs i en lokal behållare öppnar du en webbläsare till `http://localhost:8080` , som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definieras i *Function. JSON* med `"authLevel": "function"` egenskapen. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa mot den lokala behållaren, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"` , återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *Function. JSON*. Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
+När avbildningen körs i en lokal behållare öppnar du en webbläsare till `http://localhost:8080` , som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definierats i *function.jspå* med `"authLevel": "function"` egenskapen. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa mot den lokala behållaren, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"` , återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *function.jspå*. Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Platshållarbild som visar att behållaren körs lokalt](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -289,7 +289,7 @@ En Function-app på Azure hanterar körningen av dina funktioner i värd planen.
 
 ## <a name="verify-your-functions-on-azure"></a>Verifiera dina funktioner i Azure
 
-Med den avbildning som distribueras till Function-appen på Azure kan du nu anropa funktionen via HTTP-begäranden. Eftersom definitionen för *Function. JSON* innehåller egenskapen `"authLevel": "function"` måste du först hämta åtkomst nyckeln (kallas även "funktions nyckel") och ta med den som en URL-parameter i alla begär anden till slut punkten.
+Med den avbildning som distribueras till Function-appen på Azure kan du nu anropa funktionen via HTTP-begäranden. Eftersom *function.js* definitionen innehåller egenskapen `"authLevel": "function"` måste du först hämta åtkomst nyckeln (kallas även "funktions nyckel") och ta med den som en URL-parameter i alla begär anden till slut punkten.
 
 1. Hämta funktions webb adressen med åtkomst nyckeln (Function) med hjälp av Azure Portal eller med hjälp av Azure CLI med `az rest` kommandot.)
 
@@ -409,9 +409,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Med SSH 
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    Skillnaderna mellan bas avbildningarna beskrivs i [själv studie kursen app Services anpassade Docker-avbildningar](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
-
+    
 1. Återskapa avbildningen med hjälp av `docker build` kommandot igen och Ersätt `<docker_id>` med ditt Docker-ID:
 
     ```
@@ -436,7 +434,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Med SSH 
 
 ## <a name="write-to-an-azure-storage-queue"></a>Skriv till en Azure Storage kö
 
-Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster och-resurser utan att behöva skriva din egen integrerings kod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar anges för funktionen som parametrar. En *utlösare* är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
+Med Azure Functions kan du ansluta dina funktioner till andra Azure-tjänster och-resurser utan att behöva skriva din egen integrerings kod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar skickas som parametrar till funktionen. En *utlösare* är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
 I det här avsnittet visas hur du integrerar din funktion med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 

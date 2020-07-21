@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 211d81b2ceec985844ed7abf7b8fc4d3e30dcca5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90b8e4273b44b46372f85f05ee48072a5e387a21
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459941"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501477"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Övervaka en virtuell dator med Azure Monitor
 
@@ -46,15 +46,15 @@ az group delete --name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Azure Monitor Agent-tillägget för att installera Log Analytics agent och registrera den virtuella datorn på en Log Analytics arbets yta. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vm create](/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
+| [azure vm extension set](/cli/azure/vm/extension) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Azure Monitor Agent-tillägget för att installera Log Analytics agent och registrera den virtuella datorn på en Log Analytics arbets yta. |
+| [az group delete](/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

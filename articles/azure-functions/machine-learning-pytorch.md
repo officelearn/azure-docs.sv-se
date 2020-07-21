@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: tracking-python
-ms.openlocfilehash: 399a5bf40cff673f96aea46997bc639865619571
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bbb784a1245ecc8d6f3d3aee45b729984568fc6c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560785"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506101"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Självstudie: Distribuera en förtränad bild klassificerings modell till Azure Functions med PyTorch
 
@@ -104,21 +104,21 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
     func init --worker-runtime python
     ```
 
-    Efter initieringen innehåller *startmappen olika* filer för projektet, inklusive konfigurationsfiler som heter [Local. Settings. JSON](functions-run-local.md#local-settings-file) och [Host. JSON](functions-host-json.md). Eftersom *Local. Settings. JSON* kan innehålla hemligheter som hämtats från Azure, undantas filen från käll kontroll som standard i *. gitignore* -filen.
+    Efter initieringen innehåller *startmappen olika* filer för projektet, inklusive konfigurationsfiler som heter [local.settings.jspå](functions-run-local.md#local-settings-file) och [host.jspå](functions-host-json.md). Eftersom *local.settings.jspå* kan innehålla hemligheter som hämtats från Azure, undantas filen från käll kontroll som standard i *. gitignore* -filen.
 
     > [!TIP]
     > Eftersom ett funktions projekt är knutet till en viss körnings miljö måste alla funktioner i projektet skrivas med samma språk.
 
-1. Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new`skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *Function. JSON*.
+1. Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new`skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
 
     ```
     func new --name classify --template "HTTP trigger"
     ```
 
-    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I mappen finns två filer: * \_ \_ init \_ \_ . py*, som innehåller funktions koden och *Function. JSON*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [Granska fil innehållet](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) i python-snabb starten.
+    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I mappen finns två filer: * \_ \_ init \_ \_ . py*, som innehåller funktions koden och *function.jspå*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [Granska fil innehållet](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) i python-snabb starten.
 
 
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 1. Starta funktionen genom att starta den lokala Azure Functions körnings värden i *startmappen:*
 
@@ -160,9 +160,9 @@ Om du vill ändra `classify` funktionen för att klassificera en bild baserat p�
 
     ---
 
-1. Kontrol lera att mappen *klassificera* innehåller filer med namnet *predict.py* och *Labels. txt*. Om inte, kontrol lera att du körde kommandot i mappen *Start* .
+1. Kontrol lera att mappen *klassificera* innehåller filer med namnet *predict.py* och *labels.txt*. Om inte, kontrol lera att du körde kommandot i mappen *Start* .
 
-1. Öppna *Start/Requirements. txt* i en text redigerare och Lägg till de beroenden som krävs av hjälp koden, som bör se ut så här:
+1. Öppna *Start/requirements.txt* i en text redigerare och Lägg till de beroenden som krävs av hjälp koden, som bör se ut så här:
 
     ```txt
     azure-functions
@@ -172,7 +172,7 @@ Om du vill ändra `classify` funktionen för att klassificera en bild baserat p�
     torchvision==0.6.0+cpu
     ```
 
-1. Spara *krav. txt*och kör sedan följande kommando från *startmappen för* att installera beroendena.
+1. Spara *requirements.txt*och kör sedan följande kommando från mappen *Start* för att installera beroenden.
 
 
     ```

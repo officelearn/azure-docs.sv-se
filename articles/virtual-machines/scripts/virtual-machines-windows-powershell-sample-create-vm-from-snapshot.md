@@ -1,5 +1,5 @@
 ---
-title: Skapa en virtuell dator från en ögonblicks bild – PowerShell-exempel
+title: Skapa virtuell dator från ögonblicks bild (Windows) – PowerShell-exempel
 description: Azure PowerShell-skriptexempel – Skapa en virtuell dator från en ögonblicksbild
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: fb10f6c2d8109d240840faf5fa864176c89f24e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f8e7f5e758c916cf7e6b96ab38607ee722152b1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75368332"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509566"
 ---
-# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Skapa en virtuell dator från en ögonblicksbild med PowerShell
+# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-windows"></a>Skapa en virtuell dator från en ögonblicks bild med PowerShell (Windows)
 
 Det här skriptet skapar en virtuell dator från en ögonblicksbild av en OS-disk. 
 
@@ -46,17 +46,17 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 Det här skriptet använder följande kommandon för att hämta egenskaper för en ögonblicksbild, för att skapa en hanterad disk från en ögonblicksbild och för att skapa en virtuell dator. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | Hämtar en ögonblicksbild med namnet på ögonblicksbilden. |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | Skapar en diskkonfiguration. Den här konfigurationen används vid diskgenereringen. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) | Skapar en hanterad disk. |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Kopplar den hanterade disken som operativsystemsdisken till den virtuella datorn |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Skapar en offentlig IP-adress. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Skapar ett nätverksgränssnitt. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Skapar en virtuell dator. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Hämtar en ögonblicksbild med namnet på ögonblicksbilden. |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Skapar en diskkonfiguration. Den här konfigurationen används vid diskgenereringen. |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Skapar en hanterad disk. |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | Kopplar den hanterade disken som operativsystemsdisken till den virtuella datorn |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Skapar en offentlig IP-adress. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Skapar ett nätverksgränssnitt. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Skapar en virtuell dator. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

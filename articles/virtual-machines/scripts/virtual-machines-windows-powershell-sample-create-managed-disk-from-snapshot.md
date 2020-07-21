@@ -1,5 +1,5 @@
 ---
-title: Skapa en hanterad disk från en ögonblicks bild – PowerShell-exempel
+title: Skapa en hanterad disk från ögonblicks bild (Windows) – PowerShell-exempel
 description: Azure PowerShell-skriptexempel – Skapa en hanterad disk från en ögonblicksbild
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 5758e31fc24d366479cbebb139f1a8376330b397
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d14f78b361c0b66b86886df7ffd7abbfc72cff35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459329"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500998"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Skapa en hanterad disk från en ögonblicksbild med PowerShell
+# <a name="create-a-managed-disk-from-a-snapshot-with-powershell-windows"></a>Skapa en hanterad disk från en ögonblicks bild med PowerShell (Windows)
 
 Det här skriptet skapar en hanterad disk från en ögonblicksbild. Du kan använda den för att återställa en virtuell dator från ögonblicksbilder av operativsystem och datadiskar. Skapa OS och hanterade datadiskar från respektive ögonblicksbilder, och skapa sedan en ny virtuell dator genom att koppla hanterade diskar. Du kan även återställa datadiskar på en befintlig virtuell dator genom att koppla datadiskar som skapats från ögonblicksbilder.
 
@@ -37,11 +37,11 @@ Det här skriptet skapar en hanterad disk från en ögonblicksbild. Du kan anvä
 
 Det här skriptet använder följande kommandon för att skapa en hanterad disk från en ögonblicksbild. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | Hämtar ögonblicksbildsegenskaper.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Skapar diskkonfigurationen som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade ögonblicksbilden, platsen (samma som platsen för den överordnade ögonblicksbilden) och lagringstypen.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Skapar en disk med diskkonfiguration, disknamn och resursgruppens namn som parametrar. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Hämtar ögonblicksbildsegenskaper.  |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Skapar diskkonfigurationen som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade ögonblicksbilden, platsen (samma som platsen för den överordnade ögonblicksbilden) och lagringstypen.  |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Skapar en disk med diskkonfiguration, disknamn och resursgruppens namn som parametrar. |
 
 
 ## <a name="next-steps"></a>Nästa steg

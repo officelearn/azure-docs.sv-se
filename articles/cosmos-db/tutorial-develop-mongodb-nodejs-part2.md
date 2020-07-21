@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119179"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523493"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa en Node.js Express-app
 
@@ -33,7 +33,7 @@ Del 2 av kursen bygger vidare på [introduktionen](tutorial-develop-mongodb-node
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Titta på [introduktionsvideon](tutorial-develop-mongodb-nodejs.md) innan du påbörjar den här delen av självstudiekursen.
 
@@ -147,11 +147,11 @@ Den här kursen kräver även följande:
 
 7. Sparar alla ändrade filer 
 
-8. Klicka på knappen **Felsök**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) i Visual Studio Code, klicka på kugghjulsknappen ![Kugghjulsknapp i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Den nya launch.json-filen öppnas i Visual Studio Code.
+8. Klicka på knappen **Felsök** i Visual Studio Code :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: , klicka på kugg hjuls knappen :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png"::: . Den nya launch.json-filen öppnas i Visual Studio Code. 
 
 8. Ändra `"${workspaceFolder}\\server"` till `"program": "${workspaceRoot}/src/server/index.js"` på rad 11 i launch.json och spara filen.
 
-9. Kör appen genom att klicka på knappen **Starta felsökning**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png).
+9. Klicka på knappen **Starta fel sökning** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: för att köra appen.
 
     Appen bör köras utan fel.
 

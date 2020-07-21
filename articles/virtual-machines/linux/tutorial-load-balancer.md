@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 89ed39d1cd18fc97cec06dce4313271731b23b90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1bd6e9280acdbde105876a6c0e8e0bc45735a558
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460043"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510148"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Självstudie: lastbalansera virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI
 
@@ -35,7 +35,7 @@ Med belastningsutjämning får du högre tillgänglighet genom att inkommande be
 > * visa en lastbalanserare i praktiken
 > * lägga till och ta bort virtuella datorer från en lastbalanserare.
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+I den här självstudien används CLI i [Azure Cloud Shell](../../cloud-shell/overview.md), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -96,7 +96,7 @@ az network lb probe create \
 ```
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
-En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
+En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen för den inkommande trafiken och IP-poolen i serverdelen som ska ta emot trafiken, samt nödvändiga käll- och målportar. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
 
 Använd [az network lb rule create](/cli/azure/network/lb/rule) för att skapa en regel för lastbalanseraren. I följande exempel skapas en belastningsutjämningsregel med namnet *myLoadBalancerRule* som använder hälsoavsökningen *myHealthProbe* och utjämnar trafiken på port *80*:
 

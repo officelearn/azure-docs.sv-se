@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 30862a85796fbe4373a88d80d9a6d26c8cf98901
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 01ccf7117cd17118941a00cc0480216bc436bc40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196742"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514772"
 ---
 # <a name="use-the-azure-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Använd Azure CLI för att skala en elastisk pool i Azure SQL Database
 
@@ -48,7 +48,7 @@ az group delete --name $resource
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| | |
+| Kommando | Beskrivning |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server kommandon. |
 | [AZ SQL DB](/cli/azure/sql/db) | Databas kommandon. |

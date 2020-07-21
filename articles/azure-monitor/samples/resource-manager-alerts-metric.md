@@ -1,18 +1,18 @@
 ---
-title: Skapa en måttvarning med en Resource Manager-mall
-description: Lär dig hur du använder en Resource Manager-mall för att skapa en måtta aviseringar.
+title: Exempel på Resource Manager-mallar för mått varningar
+description: Den här artikeln innehåller exempel på Resource Manager-mallar som används för att skapa mått varningar i Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854554"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515384"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Exempel på Resource Manager-mallar för mått varnings regler i Azure Monitor
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller exempel på hur du använder [Azure Resource Manag
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Se [resurser som stöds för mått aviseringar i Azure Monitor](../platform/alerts-metric-near-real-time.md) för en lista över resurser som kan användas med mått varnings regler. En förklaring av schema och egenskaper för en varnings regel finns på [mått aviseringar – skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Se [resurser som stöds för mått aviseringar i Azure Monitor](../platform/alerts-metric-near-real-time.md) för en lista över resurser som kan användas med mått varnings regler. En förklaring av schema och egenskaper för en varnings regel finns på [mått aviseringar – skapa eller uppdatera](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
 > Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (dvs.) `Microsoft.OperationalInsights/workspaces` kräver ytterligare steg. Mer information finns i [mått avisering för loggar – resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -249,7 +249,7 @@ I följande exempel skapas en mått varnings regel med hjälp av ett enda villko
 I följande exempel skapas en mått varnings regel med hjälp av ett enda villkor och ett dynamiskt tröskelvärde.
 
 ### <a name="template-file"></a>Mallfil
-Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som simpledynamicmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -1094,13 +1094,13 @@ Till exempel är några av de tänkbara tids serier som övervakas av den här a
 
 Du kan använda följande mall för att skapa en mer avancerad varnings regel för statiskt tröskelvärde för ett anpassat mått.
 
-Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Azure Monitor](../platform/metrics-custom-overview.md).
 
 När du skapar en varnings regel för ett anpassat mått måste du ange både måttets namn och mått namn området. Du bör också se till att det anpassade måttet redan rapporteras, eftersom du inte kan skapa en aviserings regel för ett anpassat mått som ännu inte finns.
 
 ### <a name="template-file"></a>Mallfil
 
-Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som customstaticmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -1325,7 +1325,7 @@ Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gå
 
 >[!NOTE]
 >
-> Du kan hitta mått namn området för en speciell anpassad mått genom [att bläddra bland dina anpassade mått via Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Du kan hitta mått namn området för en speciell anpassad mått genom [att bläddra bland dina anpassade mått via Azure Portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="multiple-resources"></a>Flera resurser
@@ -1348,7 +1348,7 @@ I det här avsnittet beskrivs Azure Resource Manager mallar för tre scenarier f
 
 Den här mallen skapar en varnings regel för statisk tröskel som övervakar procent CPU för alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper.
 
-Spara JSON-filen nedan som alla VM-in-Resource-Group-static. JSON för den här genom gången.
+Spara JSON-filen nedan som all-vms-in-resource-group-static.jsi för den här genom gången.
 
 ### <a name="template-file"></a>Mallfil
 

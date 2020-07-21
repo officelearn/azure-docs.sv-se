@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 25df5f37f8aef55bc025b579ec48a2fab7dd6b72
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 0ad3e6dbb63d7c89919d6d341bd62c5d57960a43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080172"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511661"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Självstudie: AI-genererat sökbart innehåll från Azure-blobbar med .NET SDK
 
@@ -30,7 +30,7 @@ I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/d
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
@@ -63,7 +63,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. På fliken grundläggande måste följande objekt vara obligatoriska. Acceptera standardvärdena för allt annat.
 
-   + **Resurs grupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
+   + **Resursgrupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
 
    + **Lagrings konto namn**. Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus*. 
 
@@ -560,10 +560,13 @@ I det här avsnittet definierar du indexschemat genom att ange vilka fält som s
 
 Den här övningen använder följande fält och fälttyp:
 
-| fält-namn: | `id`       | innehåll   | languageCode | keyPhrases         | organisationer     |
-|--------------|----------|-------|----------|--------------------|-------------------|
-| fält-typer: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
-
+| Fält namn | Fälttyper |
+| --- | --- |
+| id | Edm.String |
+| innehåll | Edm.String |
+| languageCode | Edm.String |
+| keyPhrases | List<Edm.String> |
+| organisationer | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>Skapa DemoIndex-klass
 
@@ -897,7 +900,7 @@ Slutligen lärde du dig att testa resultat och återställa systemet för ytterl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

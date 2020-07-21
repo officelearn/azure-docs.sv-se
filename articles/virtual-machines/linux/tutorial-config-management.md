@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fe53f400c1e03f0f3bb9d5e85891769d58320d84
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027604"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502001"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Linux-dator i Azure
 
@@ -76,7 +77,7 @@ Så här aktiverar du uppdateringshantering för dina virtuella datorer:
 Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn.
 Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Automation-konto, och om lösningen är i arbetsytan.
 
-En [Log Analytics](../../log-analytics/log-analytics-overview.md)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som uppdateringshantering.
+En [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som uppdateringshantering.
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppdateringar kan Azure Automation köra runbooks mot virtuella datorer, till exempel ladda ned och installera uppdateringar.
 
@@ -86,8 +87,8 @@ Välj Log Analytics arbets yta och Automation-konto och välj **Aktivera** för 
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
-* [Log Analytics](../../log-analytics/log-analytics-overview.md) arbets yta
-* [Automation-konto](../../automation/automation-offering-get-started.md)
+* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) arbets yta
+* [Automation-konto](../../automation/index.yml)
 * En [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
 
 Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics arbets ytan och automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.

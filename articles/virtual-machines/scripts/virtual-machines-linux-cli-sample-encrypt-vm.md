@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 585096f7b45a1d5396e7d59f9d54de90486a103a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e8574218ab035cc4e8ddd694dd04f8528197528
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459924"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509706"
 ---
 # <a name="encrypt-a-linux-virtual-machine-in-azure"></a>Kryptera en virtuell Linux-dator i Azure
 
@@ -46,20 +46,20 @@ az group delete --name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, Azure Key Vault, tjänstens huvudnamn, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault) | Skapar ett Azure Key Vault för lagring av säkra data, till exempel krypteringsnycklar. |
-| [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key) | Skapar en krypteringsnyckel i Key Vault. |
-| [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp) | Skapar ett huvudnamn för Azure Active Directory-tjänsten för att autentisera och kontrollera åtkomst till krypteringsnycklarna på ett säkert sätt. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault) | Anger behörigheter för Key Vault så att tjänstens huvudnamn får åtkomst till krypteringsnycklarna. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption) | Aktiverar kryptering på en virtuell dator med hjälp av autentiseringsuppgifterna för tjänstens huvudnamn och krypteringsnyckeln. |
-| [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption) | Visar status för krypteringsprocessen för den virtuella datorn. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az keyvault create](/cli/azure/keyvault) | Skapar ett Azure Key Vault för lagring av säkra data, till exempel krypteringsnycklar. |
+| [az keyvault key create](/cli/azure/keyvault/key) | Skapar en krypteringsnyckel i Key Vault. |
+| [az ad sp create-for-rbac](/cli/azure/ad/sp) | Skapar ett huvudnamn för Azure Active Directory-tjänsten för att autentisera och kontrollera åtkomst till krypteringsnycklarna på ett säkert sätt. |
+| [az keyvault set-policy](/cli/azure/keyvault) | Anger behörigheter för Key Vault så att tjänstens huvudnamn får åtkomst till krypteringsnycklarna. |
+| [az vm create](/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vm encryption enable](/cli/azure/vm/encryption) | Aktiverar kryptering på en virtuell dator med hjälp av autentiseringsuppgifterna för tjänstens huvudnamn och krypteringsnyckeln. |
+| [az vm encryption show](/cli/azure/vm/encryption) | Visar status för krypteringsprocessen för den virtuella datorn. |
+| [az group delete](/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

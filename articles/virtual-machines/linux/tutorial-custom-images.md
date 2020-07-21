@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 0ea5c11254d8dba050fe63a4cd915240c8270dd1
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: bd4da23ed3f4b2dc92652493c77efbcbc0542066
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324580"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510131"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Självstudie: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure CLI
 
@@ -29,7 +29,7 @@ Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv
 > * Dela ett avbildnings Galleri
 
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+I den här självstudien används CLI i [Azure Cloud Shell](../../cloud-shell/overview.md), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.4.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -90,11 +90,11 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 
 Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
 
-Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](./shared-image-galleries.md#image-definitions).
 
 Skapa en bild definition i galleriet med hjälp av [AZ sig-bild-definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS-avbildning. 
+I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS-avbildning. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -134,7 +134,7 @@ az sig image-version create \
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `--storage-account-type  premium_lrs` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `--storage-account-type  premium_lrs` eller [zonen redundant lagring](../../storage/common/storage-redundancy.md) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
 >
 
  
@@ -176,11 +176,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Mer information om hur du delar resurser med RBAC finns i [Hantera åtkomst med RBAC och Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Mer information om hur du delar resurser med RBAC finns i [Hantera åtkomst med RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="azure-image-builder"></a>Azure Image Builder
 
-Azure erbjuder också en tjänst som bygger på Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview). Du behöver bara beskriva dina anpassningar i en mall så att du kan hantera avbildnings skapandet. 
+Azure erbjuder också en tjänst som bygger på Packer, [Azure VM Image Builder](./image-builder-overview.md). Du behöver bara beskriva dina anpassningar i en mall så att du kan hantera avbildnings skapandet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -197,4 +197,3 @@ Gå vidare till nästa självstudie om du vill veta mer om virtuella datorer med
 
 > [!div class="nextstepaction"]
 > [Skapa virtuella datorer med hög tillgänglighet](tutorial-availability-sets.md)
-

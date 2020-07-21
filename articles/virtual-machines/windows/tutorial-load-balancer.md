@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0ece182765be2ee3b18334569799769e251d1af4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b93c8d48313dc41928400efdddf14e88c8a7e6c2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100353"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508130"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Självstudier: Belastningsutjämna virtuella Windows-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure PowerShell
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
@@ -40,10 +40,10 @@ För att styra trafikflödet definierar du regler för lastbalanseraren för spe
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-azure-load-balancer"></a>Skapa en Azure Load Balancer
-I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren skapar du en resursgrupp med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *EastUS* (Östra USA):
+I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren skapar du en resursgrupp med hjälp av [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *EastUS* (Östra USA):
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -52,7 +52,7 @@ New-AzResourceGroup `
 ```
 
 ### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med hjälp av [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLoadBalancer*:
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med hjälp av [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLoadBalancer*:
 
 ```azurepowershell-interactive
 $publicIP = New-AzPublicIpAddress `
@@ -63,7 +63,7 @@ $publicIP = New-AzPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
-Skapa en IP-adresspool på klientdelen med hjälp av [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas en IP-adresspool på klientdelen med namnet *myFrontEndPool* och adressen *myPublicIP* kopplas: 
+Skapa en IP-adresspool på klientdelen med hjälp av [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas en IP-adresspool på klientdelen med namnet *myFrontEndPool* och adressen *myPublicIP* kopplas: 
 
 ```azurepowershell-interactive
 $frontendIP = New-AzLoadBalancerFrontendIpConfig `
@@ -71,14 +71,14 @@ $frontendIP = New-AzLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Skapa en adresspool på serverdelen med hjälp av [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). Virtuella datorer ansluter till den här adresspoolen i de resterande stegen. I följande exempel skapas en adresspool på serverdelen med namnet *myBackEndPool*:
+Skapa en adresspool på serverdelen med hjälp av [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). Virtuella datorer ansluter till den här adresspoolen i de resterande stegen. I följande exempel skapas en backend-adresspool med namnet *myBackEndPool*:
 
 ```azurepowershell-interactive
 $backendPool = New-AzLoadBalancerBackendAddressPoolConfig `
   -Name "myBackEndPool"
 ```
 
-Skapa nu lastbalanseraren med hjälp av [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en lastbalanserare med namnet *myLoadBalancer* med de IP-pooler för klient- och serverdelen som skapades i föregående steg:
+Skapa nu lastbalanseraren med hjälp av [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en lastbalanserare med namnet *myLoadBalancer* med de IP-pooler för klient- och serverdelen som skapades i föregående steg:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -94,7 +94,7 @@ Om du vill att lastbalanseraren ska övervaka status för din app kan du använd
 
 I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar om du vill ha mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökning måste du skapa en hälsokontrollsida, till exempel *healthcheck.aspx*. Avsökningen måste returnera svaret **HTTP 200 OK** för att lastbalanseraren ska behålla värden i rotation.
 
-Du skapar en TCP-hälsoavsökning med hjälp av [Add-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerprobeconfig). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe* som övervakar alla virtuella datorer på *TCP*-port *80*:
+Du skapar en TCP-hälsoavsökning med hjälp av [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe* som övervakar alla virtuella datorer på *TCP*-port *80*:
 
 ```azurepowershell-interactive
 Add-AzLoadBalancerProbeConfig `
@@ -106,16 +106,16 @@ Add-AzLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-För att använda hälsoavsökningen uppdaterar du lastbalanseraren med hjälp av [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer):
+För att använda hälsoavsökningen uppdaterar du lastbalanseraren med hjälp av [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 ```azurepowershell-interactive
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
-En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
+En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen för den inkommande trafiken och IP-poolen i serverdelen som ska ta emot trafiken, samt nödvändiga käll- och målportar. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
 
-Skapa en lastbalanseringsregel med hjälp av [Add-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerruleconfig). I följande exempel skapas en lastbalanseringsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
+Skapa en lastbalanseringsregel med hjälp av [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). I följande exempel skapas en lastbalanseringsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
 
 ```azurepowershell-interactive
 $probe = Get-AzLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
@@ -131,7 +131,7 @@ Add-AzLoadBalancerRuleConfig `
   -Probe $probe
 ```
 
-Uppdatera lastbalanseraren med hjälp av [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer):
+Uppdatera lastbalanseraren med hjälp av [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 ```azurepowershell-interactive
 Set-AzLoadBalancer -LoadBalancer $lb
@@ -141,7 +141,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 Innan du kan distribuera virtuella datorer och testa din belastningsutjämnare skapar du virtuella nätverksresurser. Mer information om virtuella nätverk finns i självstudiekursen [Hantera virtuella Azure-nätverk](tutorial-virtual-network.md).
 
 ### <a name="create-network-resources"></a>Skapa nätverksresurser
-Skapa ett virtuellt nätverk med hjälp av [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med *mySubnet*:
+Skapa ett virtuellt nätverk med hjälp av [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med *mySubnet*:
 
 ```azurepowershell-interactive
 # Create subnet config
@@ -158,7 +158,7 @@ $vnet = New-AzVirtualNetwork `
   -Subnet $subnetConfig
 ```
 
-Virtuella nätverkskort skapas med hjälp av [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
+Virtuella nätverkskort skapas med hjälp av [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
@@ -176,7 +176,7 @@ for ($i=1; $i -le 3; $i++)
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 Placera dina virtuella datorer i en tillgänglighetsuppsättning för att förbättra tillgängligheten för din app.
 
-Skapa en tillgänglighetsuppsättning med hjälp av [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
+Skapa en tillgänglighetsuppsättning med hjälp av [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
 
 ```azurepowershell-interactive
 $availabilitySet = New-AzAvailabilitySet `
@@ -188,13 +188,13 @@ $availabilitySet = New-AzAvailabilitySet `
   -PlatformUpdateDomainCount 2
 ```
 
-Ange ett administratörsanvändarnamn och lösenord för de virtuella datorerna med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange ett administratörsanvändarnamn och lösenord för de virtuella datorerna med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). I följande exempel skapas tre virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns:
+Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas tre virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
@@ -219,7 +219,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
 ### <a name="install-iis-with-custom-script-extension"></a>Installera IIS med tillägget för anpassat skript
 I en tidigare självstudiekurs om [hur du anpassar en virtuell Windows-dator](tutorial-automate-vm-deployment.md) lärde du dig hur du automatiserar VM-anpassning med tillägget för anpassat skript för Windows. Du kan använda samma tillvägagångssätt för att installera och konfigurera IIS på dina virtuella datorer.
 
-Använd [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) för att installera Anpassat skripttillägg. Tillägget kör `powershell Add-WindowsFeature Web-Server` för att installera IIS-webbservern och uppdaterar sedan sidan *Default.htm* till att visa värddatornamnet för den virtuella datorn:
+Använd [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) för att installera Anpassat skripttillägg. Tillägget kör `powershell Add-WindowsFeature Web-Server` för att installera IIS-webbservern och uppdaterar sedan sidan *Default.htm* till att visa värddatornamnet för den virtuella datorn:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
@@ -237,7 +237,7 @@ for ($i=1; $i -le 3; $i++)
 ```
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren
-Hämta den offentliga IP-adressen för lastbalanseraren med hjälp av [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
+Hämta den offentliga IP-adressen för lastbalanseraren med hjälp av [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -256,7 +256,7 @@ Om du vill se hur lastbalanseraren distribuerar trafik över alla tre virtuella 
 Du kan behöva utföra underhåll på de virtuella datorerna som kör appen, till exempel installera uppdateringar av operativsystemet. För att klara ökad trafik till din app kan du behöva lägga till fler virtuella datorer. I det här avsnittet visas hur du tar bort eller lägger till en virtuell dator från lastbalanseraren.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Ta bort en virtuell dator från lastbalanseraren
-Hämta nätverkskortet med hjälp av [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) och ange sedan egenskapen *LoadBalancerBackendAddressPools* för det virtuella nätverkskortet till *$null*. Uppdatera slutligen det virtuella nätverkskortet:
+Hämta nätverkskortet med hjälp av [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) och ange sedan egenskapen *LoadBalancerBackendAddressPools* för det virtuella nätverkskortet till *$null*. Uppdatera slutligen det virtuella nätverkskortet:
 
 ```azurepowershell-interactive
 $nic = Get-AzNetworkInterface `
@@ -269,7 +269,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 Om du vill se hur lastbalanseraren distribuerar trafik över de två återstående virtuella datorerna som kör din app, kan du framtvinga uppdatering av webbläsaren. Nu kan du utföra underhåll på den virtuella datorn, till exempel installera uppdateringar av operativsystemet eller göra en omstart av den virtuella datorn.
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Lägga till en virtuell dator i lastbalanseraren
-Om du behöver utöka kapaciteten efter underhåll av den virtuella datorn anger du egenskapen *LoadBalancerBackendAddressPools* för det virtuella nätverkskortet till *BackendAddressPool* från [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer):
+Om du behöver utöka kapaciteten efter underhåll av den virtuella datorn anger du egenskapen *LoadBalancerBackendAddressPools* för det virtuella nätverkskortet till *BackendAddressPool* från [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer):
 
 Hämta lastbalanseraren:
 

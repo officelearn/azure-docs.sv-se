@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b3b57cd2a2e5d5502f3865eddcdddfac67460dc7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198249"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495048"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: skapa och använd diskar med VM-skalningsuppsättningar med Azure PowerShell
 
@@ -27,7 +27,7 @@ VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorin
 > * Diskprestanda
 > * Anslut och förbered datadiskar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -44,12 +44,12 @@ När en skalningsuppsättning skapas eller skalas, ansluts två diskar automatis
 ### <a name="temporary-disk-sizes"></a>Storlekar för temporära diskar
 | Typ | Normala storlekar | Maxstorlek för temporär disk (GiB) |
 |----|----|----|
-| [Generellt syfte](../virtual-machines/windows/sizes-general.md) | A-, B- och D-serien | 1600 |
-| [Beräkningsoptimerad](../virtual-machines/windows/sizes-compute.md) | F-serien | 576 |
-| [Minnesoptimerad](../virtual-machines/windows/sizes-memory.md) | D-, E-, G- och M-serien | 6144 |
-| [Lagringsoptimerad](../virtual-machines/windows/sizes-storage.md) | L-serien | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N-serien | 1440 |
-| [Höga prestanda](../virtual-machines/windows/sizes-hpc.md) | A- och H-serien | 2000 |
+| [Generell användning](../virtual-machines/sizes-general.md) | A-, B- och D-serien | 1600 |
+| [Beräkningsoptimerad](../virtual-machines/sizes-compute.md) | F-serien | 576 |
+| [Minnesoptimerad](../virtual-machines/sizes-memory.md) | D-, E-, G- och M-serien | 6144 |
+| [Lagringsoptimerad](../virtual-machines/sizes-storage.md) | L-serien | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N-serien | 1440 |
+| [Höga prestanda](../virtual-machines/sizes-hpc.md) | A- och H-serien | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
@@ -58,12 +58,12 @@ Du kan lägga till ytterligare datadiskar om du behöver installera program och 
 ### <a name="max-data-disks-per-vm"></a>Maximalt antal datadiskar per VM
 | Typ | Normala storlekar | Maximalt antal datadiskar per VM |
 |----|----|----|
-| [Generellt syfte](../virtual-machines/windows/sizes-general.md) | A-, B- och D-serien | 64 |
-| [Beräkningsoptimerad](../virtual-machines/windows/sizes-compute.md) | F-serien | 64 |
-| [Minnesoptimerad](../virtual-machines/windows/sizes-memory.md) | D-, E-, G- och M-serien | 64 |
-| [Lagringsoptimerad](../virtual-machines/windows/sizes-storage.md) | L-serien | 64 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N-serien | 64 |
-| [Höga prestanda](../virtual-machines/windows/sizes-hpc.md) | A- och H-serien | 64 |
+| [Generell användning](../virtual-machines/sizes-general.md) | A-, B- och D-serien | 64 |
+| [Beräkningsoptimerad](../virtual-machines/sizes-compute.md) | F-serien | 64 |
+| [Minnesoptimerad](../virtual-machines/sizes-memory.md) | D-, E-, G- och M-serien | 64 |
+| [Lagringsoptimerad](../virtual-machines/sizes-storage.md) | L-serien | 64 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N-serien | 64 |
+| [Höga prestanda](../virtual-machines/sizes-hpc.md) | A- och H-serien | 64 |
 
 
 ## <a name="vm-disk-types"></a>VM-disktyper
@@ -78,8 +78,8 @@ Premiumdiskar backas upp av SSD-baserade diskar med hög prestanda och låg late
 ### <a name="premium-disk-performance"></a>Premiumdiskprestanda
 |Premium Storage-disktyp | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
-| Högsta IOPS per disk | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
+| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
+| Högsta IOPS per disk | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
 Dataflöde per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås genom strimling över flera datadiskar. En Standard_GS5 virtuell dator kan till exempel uppnå maximalt 80 000 IOPS. Mer information om högsta IOPS per virtuell dator finns i [Storlekar för virtuella Windows-datorer](../virtual-machines/windows/sizes.md).
@@ -135,7 +135,7 @@ Update-AzVmss `
 ## <a name="prepare-the-data-disks"></a>Förbered datadiskarna
 Diskarna som skapas och ansluts till dina skalningsuppsättningar för virtuella datorinstanser är rådiskar. Innan du kan använda dem med dina data och program, måste de förberedas. För att förbereda diskarna, skapar du en partition, skapar ett filsystem och monterar dem.
 
-Du kan använda det anpassade skripttillägget för Azure för att automatisera processen på flera virtuella datorinstanser i en skalningsuppsättning. Det här tillägget kan köra skript lokalt på varje virtuell datorinstans, till exempel för att förbereda anslutna datadiskar. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/windows/extensions-customscript.md).
+Du kan använda det anpassade skripttillägget för Azure för att automatisera processen på flera virtuella datorinstanser i en skalningsuppsättning. Det här tillägget kan köra skript lokalt på varje virtuell datorinstans, till exempel för att förbereda anslutna datadiskar. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/extensions/custom-script-windows.md).
 
 
 Följande exempel kör ett skript från ett GitHub-exempellager på varje virtuell datorinstans med [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) som förbereder alla anslutna rådatadiskar:

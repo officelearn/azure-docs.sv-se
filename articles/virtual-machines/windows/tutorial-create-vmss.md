@@ -9,12 +9,12 @@ ms.subservice: windows
 ms.date: 11/30/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 14777b85fdc531b96c61882d5f244ca40ed28fa6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f6dd0792a764ef423f31131e80ab28a45f1fe4c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197992"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500301"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Självstudiekurs: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Windows med Azure PowerShell
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt. Du kan även definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure och lär dig att:
@@ -41,7 +41,7 @@ Skalningsuppsättningar har stöd för upp till 1 000 virtuella datorer när du 
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Skapa en VM-skalningsuppsättning med [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som använder *Windows Server 2016 Datacenter*-plattformsavbildningen. Azure-nätverksresurser för virtuellt nätverk, offentlig IP-adress och lastbalanserare skapas automatiskt. När du uppmanas kan du ange dina egna administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättningen:
+Skapa en VM-skalningsuppsättning med [New-AzVmss](/powershell/module/az.compute/new-azvmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som använder *Windows Server 2016 Datacenter*-plattformsavbildningen. Azure-nätverksresurser för virtuellt nätverk, offentlig IP-adress och lastbalanserare skapas automatiskt. När du uppmanas kan du ange dina egna administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättningen:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -59,7 +59,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="deploy-sample-application"></a>Distribuera exempelprogram
-Testa din skalningsuppsättning genom att installera ett grundläggande webbprogram. Det anpassade skripttillägget i Azure används för att hämta och köra ett skript som installerar IIS på de virtuella datorinstanserna. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Mer information finns i [översikten över tillägget för anpassat skript](extensions-customscript.md).
+Testa din skalningsuppsättning genom att installera ett grundläggande webbprogram. Det anpassade skripttillägget i Azure används för att hämta och köra ett skript som installerar IIS på de virtuella datorinstanserna. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Mer information finns i [översikten över tillägget för anpassat skript](../extensions/custom-script-windows.md).
 
 Använd det anpassade skripttillägget för att installera en grundläggande IIS-webbserver. Tillämpa tillägget för anpassat skript som installerar IIS på följande sätt:
 
@@ -92,7 +92,7 @@ Update-AzVmss `
 
 ## <a name="allow-traffic-to-application"></a>Tillåta trafik till program
 
-Om du vill tillåta åtkomst till den grundläggande webbappen måste du skapa en nätverkssäkerhetsgrupp med [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) och [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup). Mer information finns i [Nätverk för skalningsuppsättningar för virtuella Azure-datorer](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+Om du vill tillåta åtkomst till den grundläggande webbappen måste du skapa en nätverkssäkerhetsgrupp med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) och [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). Mer information finns i [Nätverk för skalningsuppsättningar för virtuella Azure-datorer](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -141,7 +141,7 @@ Update-AzVmss `
 ```
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om du vill testa din skalningsuppsättning, hämtar du den offentliga IP-adressen för din lastbalanserare med [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). I följande exempel visas IP-adressen för *myPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill testa din skalningsuppsättning, hämtar du den offentliga IP-adressen för din lastbalanserare med [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). I följande exempel visas IP-adressen för *myPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -160,7 +160,7 @@ Om du vill se när skalningsuppsättningen används kan du framtvinga en uppdate
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för skalningsuppsättningen. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Med Azure PowerShell kan du snabbt utföra dessa uppgifter. Här följer några vanliga uppgifter.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
-Om du vill visa en lista med virtuella datorinstanser i en skalningsuppsättning, använder du [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) på följande sätt:
+Om du vill visa en lista med virtuella datorinstanser i en skalningsuppsättning, använder du [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) på följande sätt:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -177,7 +177,7 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Om du vill visa mer information om en specifik VM-instans, lägger du till parametern `-InstanceId` till [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm). Följande exempel visar information om den virtuella datorinstansen *1*:
+Om du vill visa mer information om en specifik VM-instans, lägger du till parametern `-InstanceId` till [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). Följande exempel visar information om den virtuella datorinstansen *1*:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -188,7 +188,7 @@ Get-AzVmssVM `
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Öka eller minska VM-instanser
-Om du vill se antalet instanser som du för närvarande har i en skalningsuppsättning använder du [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) och frågar efter *sku.capacity*:
+Om du vill se antalet instanser som du för närvarande har i en skalningsuppsättning använder du [Get-AzVmss](/powershell/module/az.compute/get-azvmss) och frågar efter *sku.capacity*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
@@ -196,7 +196,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
   Select -ExpandProperty Sku
 ```
 
-Du kan sedan manuellt öka eller minska antalet virtuella datorer i skalningsuppsättningen med [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). I följande exempel anges antalet virtuella datorer i din skalningsuppsättning till *3*:
+Du kan sedan manuellt öka eller minska antalet virtuella datorer i skalningsuppsättningen med [Update-AzVmss](/powershell/module/az.compute/update-azvmss). I följande exempel anges antalet virtuella datorer i din skalningsuppsättning till *3*:
 
 ```azurepowershell-interactive
 # Get current scale set

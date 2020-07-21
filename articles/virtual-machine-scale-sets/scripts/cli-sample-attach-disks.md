@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e60e4cc907dd96d85d45978cb914e6dd8db39141
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 0d1bf55c7ddf186ab0f39b7a5d6884ac6b8e609f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700017"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495016"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Anslut och använd datadiskar med en VM-skalningsuppsättning med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning och bifogar och förbereder datadiskar.
@@ -45,4 +45,4 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, e
 | [az group delete](/cli/azure/ad/group) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure/overview).

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77670431"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516370"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -27,7 +27,7 @@ Azure Application Insights samlar in telemetri från ditt program för att ident
 > * skapa ett nytt arbetsobjekt för att åtgärda den felaktiga koden.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -35,12 +35,12 @@ För att slutföra den här kursen behöver du:
     - ASP.NET och webbutveckling
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Aktivera [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+- Aktivera [Visual Studio Snapshot Debugger](../app/snapshot-debugger.md)
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 - I självstudien spåras hur du identifierar ett undantag i ditt program, så ändra koden i din miljö för utveckling eller testning så att du genererar ett undantag. 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 
 
 ## <a name="analyze-failures"></a>Analysera fel

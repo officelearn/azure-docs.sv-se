@@ -1,16 +1,16 @@
 ---
-title: Köra en parallell arbets belastning
+title: 'Köra en parallell arbets belastning med python-API: et'
 description: Självstudie – Bearbeta mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch Python
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 63515012d10739bb018de34e040465fbe337aa02
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d9f84d90c8c06cd00999b0764419fdb1c4cbe95
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561281"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497904"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudie: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -60,7 +60,7 @@ I Python-miljön installerar du de nödvändiga paketen med `pip`.
 pip install -r requirements.txt
 ```
 
-Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med de värden som är unika för dina konton. Ett exempel:
+Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med de värden som är unika för dina konton. Till exempel:
 
 
 ```Python
@@ -71,7 +71,7 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-### <a name="run-the-app"></a>Kör appen
+### <a name="run-the-app"></a>Köra appen
 
 Kör skriptet så här:
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220630"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525196"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -51,21 +51,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Skapa ett virtuellt WAN
 
-Öppna en webbläsare, navigera till Azure Portal och logga in med ditt Azure-konto.
-
-1. Gå till den virtuella WAN-sidan. Klicka på **+Skapa en resurs** i portalen. Skriv det **virtuella WAN-nätverket** i sökrutan och välj RETUR.
-2. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa** för att öppna sidan Skapa WAN.
-3. På sidan **skapa WAN** , på fliken **grundläggande** , fyller du i följande fält:
-
-   ![Virtuellt WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
-
-   * **Prenumeration** – Välj vilken prenumeration du vill använda.
-   * **Resurs grupp** – skapa ny eller Använd befintlig.
-   * **Resurs grupps plats** – Välj en resurs plats i list rutan. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.
-   * **Namn** – ange det namn som du vill anropa ditt WAN.
-   * **Typ:** Basic eller standard. Om du skapar ett grundläggande WAN-nätverk kan du bara skapa en Basic-hubb. Basic-hubbar har endast stöd för VPN för plats-till-plats-anslutning.
-4. När du har fyllt i fälten väljer du **Granska + skapa**.
-5. När verifieringen har godkänts väljer du **skapa** för att skapa det virtuella WAN-nätverket.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="create-a-hub"></a><a name="hub"></a>Skapa en hubb
 

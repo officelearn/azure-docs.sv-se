@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: 21771fb1bb041dd2f09f5d82d9def4cfe91794f6
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 82131ab4e1f990af25c669131e20c789a0f74dcf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808385"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518665"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Självstudie – kryptera och dekryptera blobbar med Azure Key Vault
 
@@ -27,7 +27,7 @@ Den här självstudien beskriver hur du använder lagrings kryptering på klient
 
 Översikts information om kryptering på klient sidan för Azure Storage finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
@@ -210,7 +210,7 @@ Sättet att använda en hemlighet med kryptering på klient sidan är via klasse
 Här är ett exempel i PowerShell för att skapa en hemlighet i Key Vault som kan användas som en SymmetricKey.
 Observera att det hårdkodade värdet $key är endast för demonstrations syfte. I din egen kod vill du skapa den här nyckeln.
 
-```csharp
+```powershell
 // Here we are making a 128-bit key so we have 16 characters.
 //     The characters are in the ASCII range of UTF8 so they are
 //    each 1 byte. 16 x 8 = 128.

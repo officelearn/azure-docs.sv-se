@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100438"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500403"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Windows-datorer i Azure
 
@@ -27,7 +27,7 @@ Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Az
 
 ## <a name="backup-overview"></a>Översikt över Backup
 
-När Azure Backup-tjänsten initierar ett säkerhetskopieringsjobb instruerar den säkerhetskopieringstillägget att ta en ögonblicksbild. I Azure Backup tjänsten används [VMSnapshot-tillägget](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). Tillägget installeras under den första säkerhetskopieringen av den virtuella datorn om den virtuella datorn körs. Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
+När Azure Backup-tjänsten initierar ett säkerhetskopieringsjobb instruerar den säkerhetskopieringstillägget att ta en ögonblicksbild. I Azure Backup tjänsten används [VMSnapshot-tillägget](../extensions/vmsnapshot-windows.md). Tillägget installeras under den första säkerhetskopieringen av den virtuella datorn om den virtuella datorn körs. Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
 
 När Backup-tjänsten tar en ögonblicksbild av virtuella Windows-datorer kontaktar den VSS-tjänsten (Volume Shadow Copy) för att få en konsekvent ögonblicksbild av den virtuella datorns diskar. När Azure Backup-tjänsten har tagit ögonblicksbilden överförs data till valvet. För att maximera effektiviteten identifierar och överför tjänsten endast de datablock som har ändrats sedan föregående säkerhetskopia.
 
@@ -98,12 +98,3 @@ Gå vidare till nästa självstudie om du vill veta mer om övervakning av virtu
 
 > [!div class="nextstepaction"]
 > [Styra virtuella datorer](tutorial-govern-resources.md)
-
-
-
-
-
-
-
-
-

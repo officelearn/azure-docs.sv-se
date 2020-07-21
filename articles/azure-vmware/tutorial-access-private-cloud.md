@@ -3,12 +3,12 @@ title: Självstudie – lär dig hur du kommer åt ditt privata moln
 description: Lär dig hur du kommer åt ett Azure VMware-lösningar (AVS) privat moln
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 32dc5c173789996d2559eda1153b1509e10e5984
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873609"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497972"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Självstudie: Lär dig hur du får åtkomst till ett Azure VMware-lösning (AVS) privat moln
 
@@ -16,7 +16,7 @@ I för hands versionen tillåter inte AVS att du hanterar ditt privata moln med 
 
 I den här självstudien skapar du en virtuell Windows-dator för en hopp ruta i resurs gruppen som du skapade i den föregående själv studie kursen [: Konfigurera nätverk för ditt privata VMware-moln i Azure](tutorial-configure-networking.md) och logga in på vCenter. Det här är en virtuell dator i samma virtuella nätverk som du har skapat och ger åtkomst till vCenter och NSX Manager. 
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Windows-dator som ska användas för att ansluta till vCenter
@@ -36,14 +36,14 @@ Ange nödvändig information i fälten och välj sedan **Granska + skapa**. Mer 
 | **Resursgrupp** | Det här värdet är redan ifyllt för den aktuella resurs gruppen. Detta bör vara den resurs grupp som du skapade i föregående självstudie. |
 | **Namn på virtuell dator** | Ange ett unikt namn för den virtuella datorn. |
 | **Region** | Välj den geografiska platsen för den virtuella datorn. |
-| **Tillgänglighets alternativ** | Låt standardvärdet vara markerat. |
-| **Bild** | Välj avbildningen av den virtuella datorn. |
+| **Tillgängliga alternativ** | Låt standardvärdet vara markerat. |
+| **Avbildning** | Välj avbildningen av den virtuella datorn. |
 | **Storlek** | Lämna värdet för standard storlek. |
 | **Autentiseringstyp**  | Välj **lösen ord**. |
-| **Användar** | Ange användar namnet för att logga in på den virtuella datorn. |
+| **Användarnamn** | Ange användar namnet för att logga in på den virtuella datorn. |
 | **Lösenord** | Ange lösen ordet för att logga in på den virtuella datorn. |
-| **Bekräfta lösen ord** | Ange lösen ordet för att logga in på den virtuella datorn. |
-| **Offentliga inkommande portar** | Välj **Ingen**. Om du väljer Ingen kan du använda [JIT-åtkomst](../security-center/security-center-just-in-time.md#configure-jit-access-from-an-azure-vms-page-) för att kontrol lera åtkomsten till den virtuella datorn endast när du vill komma åt den.  |
+| **Bekräfta lösenord** | Ange lösen ordet för att logga in på den virtuella datorn. |
+| **Offentliga inkommande portar** | Välj **Ingen**. Om du väljer Ingen kan du använda [JIT-åtkomst](../security-center/security-center-just-in-time.md#jit-configure) för att kontrol lera åtkomsten till den virtuella datorn endast när du vill komma åt den.  |
 
 När du har angett rätt information klickar du på **Granska + skapa**. När verifieringen har godkänts väljer du **skapa** för att starta processen för att skapa virtuella datorer.
 

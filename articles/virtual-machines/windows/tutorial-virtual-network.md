@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 80f7ba4a4493299d9d1795631401689f4619d873
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5ae3f3dd31ad7a98a1b4a3d5ed00b568d1f8ed47
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014635"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508074"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Självstudie: Skapa och hantera virtuella Azure-nätverk för virtuella Windows-datorer med Azure PowerShell
 
@@ -59,13 +59,13 @@ Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra h
 
 I den här självstudien skapas ett enda virtuellt nätverk med två undernät. Ett klientdelsundernät som är värd för ett webbprogram och ett serverdelsundernät som är värd för en databasserver.
 
-Innan du kan skapa ett virtuellt nätverk skapar du en resursgrupp med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Följande exempel skapar en resursgrupp med namnet *myRGNetwork* på platsen *EastUS*:
+Innan du kan skapa ett virtuellt nätverk skapar du en resursgrupp med hjälp av [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Följande exempel skapar en resursgrupp med namnet *myRGNetwork* på platsen *EastUS*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-Skapa en undernätskonfiguration med namnet *myFrontendSubnet* med hjälp av [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig):
+Skapa en undernätskonfiguration med namnet *myFrontendSubnet* med hjälp av [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $frontendSubnet = New-AzVirtualNetworkSubnetConfig `
@@ -83,7 +83,7 @@ $backendSubnet = New-AzVirtualNetworkSubnetConfig `
 
 ## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
 
-Skapa ett virtuellt nätverk med namnet *myVNet* med hjälp av *myFrontendSubnet* och *myBackendSubnet* med hjälp av [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork):
+Skapa ett virtuellt nätverk med namnet *myVNet* med hjälp av *myFrontendSubnet* och *myBackendSubnet* med hjälp av [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
 $vnet = New-AzVirtualNetwork `
@@ -102,7 +102,7 @@ Med en offentlig IP-adress blir Azure-resurser tillgängliga på Internet. Allok
 
 Allokeringsmetoden kan anges som statisk, vilket ser till att IP-adressen förblir tilldelad till en virtuell dator, även när den frigjorts. Om du använder en statisk IP-adress går det inte att ange själva IP-adressen. I stället allokeras den från en pool med tillgängliga adresser.
 
-Skapar en offentlig IP-adress med namnet *myPublicIPAddress* med hjälp av [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress):
+Skapar en offentlig IP-adress med namnet *myPublicIPAddress* med hjälp av [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
 
 ```azurepowershell-interactive
 $pip = New-AzPublicIpAddress `
@@ -116,7 +116,7 @@ Du kan ändra parametern -AllocationMethod för `Static` för att tilldela en st
 
 ## <a name="create-a-front-end-vm"></a>Skapa en virtuell dator för klientdelen
 
-För att en virtuell dator ska kommunicera i ett virtuellt nätverk, behöver den ett virtuellt nätverksgränssnitt (NIC). Skapa ett nätverkskort med hjälp av [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface):
+För att en virtuell dator ska kommunicera i ett virtuellt nätverk, behöver den ett virtuellt nätverksgränssnitt (NIC). Skapa ett nätverkskort med hjälp av [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface):
 
 ```azurepowershell-interactive
 $frontendNic = New-AzNetworkInterface `
@@ -127,13 +127,13 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Ange användarnamn och lösenord för administratörskontot på den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). Du använder autentiseringsuppgifterna för att ansluta till den virtuella datorn i ytterligare steg:
+Ange användarnamn och lösenord för administratörskontot på den virtuella datorn med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1). Du använder autentiseringsuppgifterna för att ansluta till den virtuella datorn i ytterligare steg:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Skapa de virtuella datorerna med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -163,7 +163,7 @@ Alla NSG:er har en uppsättning standardregler. Standardreglerna kan inte tas bo
 
 ### <a name="create-network-security-groups"></a>Skapa nätverkssäkerhetsgrupper
 
-Skapa en inkommande regel med namnet *myFrontendNSGRule* för att tillåta inkommande webbtrafik på *myFrontendVM* med hjälp av [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig):
+Skapa en inkommande regel med namnet *myFrontendNSGRule* för att tillåta inkommande webbtrafik på *myFrontendVM* med hjälp av [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
 ```azurepowershell-interactive
 $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
@@ -193,7 +193,7 @@ $nsgBackendRule = New-AzNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Lägg till en nätverkssäkerhetsgrupp med namnet *myFrontendNSG* med hjälp av [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup):
+Lägg till en nätverkssäkerhetsgrupp med namnet *myFrontendNSG* med hjälp av [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
 ```azurepowershell-interactive
 $nsgFrontend = New-AzNetworkSecurityGroup `

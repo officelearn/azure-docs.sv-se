@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c84c705da99bd6f04a6737a1c781b905cbeaad6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100489"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508244"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Självstudiekurs: Övervaka virtuella Windows-datorer i Azure Security Center
 
@@ -52,7 +52,7 @@ Datainsamlingsagenten från Security Center installeras på alla virtuella dator
 
 ## <a name="set-up-a-security-policy"></a>Konfigurera en säkerhetsprincip
 
-Säkerhetsprinciper används för att definiera objekten för vilka Security Center samlar in data och lämnar rekommendationer. Du kan använda olika säkerhetsprinciper för olika uppsättningar av Azure-resurser. Även om Azures standardresurser ska utvärderas mot alla principobjekt kan du inaktivera enskilda principobjekt för alla Azure-resurser eller för en viss resursgrupp. Detaljerad information om säkerhetsprinciper i Security Center finns i [Ange säkerhetsprinciper i Azure Security Center](../../security-center/security-center-policies.md). 
+Säkerhetsprinciper används för att definiera objekten för vilka Security Center samlar in data och lämnar rekommendationer. Du kan använda olika säkerhetsprinciper för olika uppsättningar av Azure-resurser. Även om Azures standardresurser ska utvärderas mot alla principobjekt kan du inaktivera enskilda principobjekt för alla Azure-resurser eller för en viss resursgrupp. Detaljerad information om säkerhetsprinciper i Security Center finns i [Ange säkerhetsprinciper i Azure Security Center](../../security-center/tutorial-security-policy.md). 
 
 Så här ställer du in en säkerhetsprincip för en hel prenumeration:
 

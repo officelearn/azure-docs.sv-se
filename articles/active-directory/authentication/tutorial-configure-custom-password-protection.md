@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252847"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518547"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Självstudie: Konfigurera anpassade förbjudna lösen ord för Azure Active Directory lösen ords skydd
 
@@ -28,7 +28,7 @@ I den här guiden får du lära du dig hur man:
 > * Lägg till poster i den anpassade listan över förbjudna lösen ord
 > * Testa lösen ords ändringar med ett blockerat lösen ord
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -36,12 +36,12 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett konto med *Global administratörs* behörighet.
 * En icke-administratörs användare med ett lösen ord som du känner till, till exempel *testuser*. Du testar en händelse för lösen ords ändring med det här kontot i den här självstudien.
-    * Om du behöver skapa en användare, se [snabb start: Lägg till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
+    * Om du behöver skapa en användare, se [snabb start: Lägg till nya användare i Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
     * För att testa lösen ords ändrings åtgärden med ett blockerat lösen ord måste Azure AD-klienten [konfigureras för lösen ords återställning](tutorial-enable-sspr.md)via självbetjäning.
 
 ## <a name="what-are-banned-password-lists"></a>Vad är förbjudna lösen ords listor?
 
-Azure AD innehåller en lista för globalt blockerade lösen ord. Innehållet i den globala listan över förbjudna lösen ord baseras inte på någon extern data källa. I stället baseras den globala listan över förbjudna lösen ord på det pågående resultatet av Azure AD-säkerhetstelemetri och analys. När en användare eller administratör försöker ändra eller återställa sina autentiseringsuppgifter, kontrol leras det önskade lösen ordet mot listan över blockerade lösen ord. Begäran om lösen ords ändring Miss lyckas om det finns en matchning i listan globalt blockerade lösen ord.
+Azure AD innehåller en lista för globalt blockerade lösen ord. Innehållet i den globala listan över förbjudna lösen ord baseras inte på någon extern data källa. I stället baseras den globala listan över förbjudna lösen ord på det pågående resultatet av Azure AD-säkerhetstelemetri och analys. När en användare eller administratör försöker ändra eller återställa sina autentiseringsuppgifter, kontrol leras det önskade lösen ordet mot listan över blockerade lösen ord. Begäran om lösen ords ändring Miss lyckas om det finns en matchning i listan globalt blockerade lösen ord. Du kan inte redigera den här standard listan över blockerade globala lösen ord.
 
 För att ge dig flexibilitet i vilka lösen ord som tillåts kan du också definiera en anpassad lista över blockerade lösen ord. Listan med anpassade förbjudna lösen ord fungerar tillsammans med den globala listan över blockerade lösen ord för att framtvinga starka lösen ord i din organisation. Organisatoriska villkor kan läggas till i listan med anpassade förbjudna lösen ord, t. ex. följande exempel:
 
@@ -91,9 +91,9 @@ För en hybrid miljö kan du också [Distribuera Azure AD Password Protection ti
 Försök att ändra lösen ordet till en variant av en som du lade till i föregående avsnitt, om du vill se den anpassade listan över blockerade lösen ord i praktiken. När Azure AD försöker bearbeta lösen ords ändringen matchas lösen ordet mot en post i listan anpassat blockerade lösen ord. Sedan visas ett fel för användaren.
 
 > [!NOTE]
-> Innan en användare kan återställa sina lösen ord på den webbaserade portalen måste Azure AD-klienten [konfigureras för lösen ords återställning](tutorial-enable-sspr.md)via självbetjäning.
+> Innan en användare kan återställa sina lösen ord på den webbaserade portalen måste Azure AD-klienten [konfigureras för lösen ords återställning](tutorial-enable-sspr.md)via självbetjäning. Vid behov kan användaren [registrera sig för SSPR på https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup).
 
-1. Gå till sidan **Mina appar** på [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Gå till sidan **Mina appar** på [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 1. Välj ditt namn i det övre högra hörnet och välj sedan **profil** på den nedrullningsbara menyn.
 
     ![Välj profil](media/tutorial-configure-custom-password-protection/myapps-profile.png)

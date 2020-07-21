@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c233ef9cfb6ded6f3d4e96b893970d4282dfc22e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460009"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526987"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -32,13 +32,13 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 > * Ändra storlek på en virtuell dator
 > * Visa och förstå tillstånd för virtuella datorer
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+I den här självstudien används CLI i [Azure Cloud Shell](../../cloud-shell/overview.md), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group). 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). 
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I det här exemplet skapas en resursgrupp med namnet *myResourceGroupVM* i regionen *eastus*. 
 
@@ -50,7 +50,7 @@ Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i h
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](https://docs.microsoft.com/cli/azure/vm). 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
 När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I följande exempel skapas en virtuell dator med namnet *myVM* som kör en Ubuntu Server. Ett användarkonto med namnet *azureuser* skapas på den virtuella datorn och om inte SSH-nycklar finns genereras de på standardplatsen för nyckeln (*~/.ssh*):
 
@@ -155,12 +155,12 @@ I följande tabell kategoriseras storlekarna i användningsfall.
 
 | Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
-| [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
-| [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
-| [Lagringsoptimerad](sizes-storage.md)      | Lsv2, LS              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
-| [Höga prestanda](sizes-hpc.md) | H        | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). |
+| [Generell användning](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
+| [Beräkningsoptimerad](../sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
+| [Minnesoptimerad](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
+| [Lagringsoptimerad](../sizes-storage.md)      | Lsv2, LS              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
+| [Höga prestanda](../sizes-hpc.md) | H        | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). |
 
 
 ### <a name="find-available-vm-sizes"></a>Hitta tillgängliga VM-storlekar

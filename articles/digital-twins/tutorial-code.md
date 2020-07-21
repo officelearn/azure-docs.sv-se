@@ -7,17 +7,18 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027891"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537434"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Koda med Azure Digitals dubbla API: er
 
 Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen för utvecklare ger en introduktion till programmering mot Azure Digitals-tjänsten med [Azure IoT Digital-klient biblioteket för .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien används kommando raden för installation och projekt arbete. Därför kan du använda valfri kod redigerare för att gå igenom övningarna.
 
@@ -46,7 +47,7 @@ Detta skapar flera filer i katalogen, inklusive en som kallas *program.cs* där 
 Lägg sedan till två nödvändiga beroenden för att arbeta med Azure Digitals dubbla:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -173,7 +174,7 @@ Skapa en ny *. JSON* -fil med namnet *SampleModel.jspå*i katalogen där du skap
 > Om du använder Visual Studio för den här självstudien kanske du vill välja den nyss skapade JSON-filen och ange egenskapen *Kopiera till utdata-katalog* i egenskapsinspektören för att *Kopiera om* det är nyare eller *Kopiera Always*. Detta gör att Visual Studio kan hitta JSON-filen med standard Sök vägen när du kör programmet med **F5** under resten av självstudien.
 
 > [!TIP] 
-> Det finns ett språk-oberoende [DTDL-verifierings exempel](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [instruktion: parsa och validera modeller](how-to-use-parser.md).
+> Det finns ett språk-oberoende [DTDL-verifierings exempel](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [*instruktion: parsa och validera modeller*](how-to-use-parser.md).
 
 Lägg sedan till ytterligare kod i *program.cs* för att ladda upp den modell som du precis har skapat i Azure Digitals-instansen.
 
@@ -184,7 +185,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Förbered sedan att använda de asynkrona metoderna i C#-tjänst-SDK: n genom `Main` att ändra Metodsignaturen till att tillåta asynkron körning. 
@@ -530,7 +530,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>Rensa resurser
  
-Den instans som används i den här självstudien kan återanvändas i nästa självstudie, [Självstudier: utforska grunderna med ett exempel på en klient-app](tutorial-command-line-app.md). Om du planerar att fortsätta till nästa självstudie kan du behålla Azure Digitals-instansen som du ställer in här.
+Den instans som används i den här självstudien kan återanvändas i nästa självstudie, [*Självstudier: utforska grunderna med ett exempel på en klient-app*](tutorial-command-line-app.md). Om du planerar att fortsätta till nästa självstudie kan du behålla Azure Digitals-instansen som du ställer in här.
  
 Om du inte längre behöver resurserna som skapas i den här självstudien kan du ta bort dem genom att följa stegen nedan.
 
@@ -560,8 +560,8 @@ I den här självstudien har du skapat ett .NET-konsol klient program från grun
 Fortsätt till nästa självstudie för att utforska de saker du kan göra med en sådan exempel klient app: 
 
 > [!div class="nextstepaction"]
-> [Självstudie: utforska grunderna med en exempel klient program](tutorial-command-line-app.md)
+> [*Självstudie: utforska grunderna med en exempel klient program*](tutorial-command-line-app.md)
 
 Du kan också lägga till koden som du skrev i den här självstudien genom att lära dig mer om hanterings åtgärder i instruktions artiklarna eller börja titta på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien.
-* [Anvisningar: Hantera anpassade modeller](how-to-manage-model.md)
-* [Begrepp: anpassade modeller](concepts-models.md)
+* [*Anvisningar: Hantera anpassade modeller*](how-to-manage-model.md)
+* [*Begrepp: anpassade modeller*](concepts-models.md)

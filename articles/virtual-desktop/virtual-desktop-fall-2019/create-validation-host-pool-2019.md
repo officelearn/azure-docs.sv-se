@@ -1,6 +1,6 @@
 ---
-title: Uppdateringar av tjänsten Host pool i Windows virtuella skriv bord – Azure
-description: Så här skapar du en pool för validering av värdar för övervakning av tjänst uppdateringar innan uppdateringar distribueras till produktion.
+title: Uppdateringar av tjänsten värd för virtuella Windows-datorer (sjunker 2019) – Azure
+description: Lär dig hur du skapar en pool för validering av värdar för att övervaka tjänst uppdateringar innan du distribuerar uppdateringar till produktion.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe6b047d10b8aef8faf81365cae940b05b3d798c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117745"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527598"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar (hösten 2019-utgåva)
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../create-validation-host-pool.md).

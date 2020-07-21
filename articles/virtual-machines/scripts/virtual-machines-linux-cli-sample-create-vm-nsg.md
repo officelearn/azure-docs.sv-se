@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4339ab2c512a96614158f673cb07b60184f5f71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4aa938d69f1ea0e80d25cf8db76179a7cb3b0209
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459958"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501500"
 ---
 # <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Skydda nätverks trafik mellan virtuella datorer med en NSG
 
@@ -46,18 +46,18 @@ az group delete --name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och undernät. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet) | Skapar ett undernät. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Returnerar information om en regel för nätverkssäkerhetsgrupp. I det här exemplet lagras regelnamnet i en variabel för användning senare i skriptet. |
-| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Uppdaterar en NSG-regel. I det här exemplet uppdateras klientdelsregeln för att släppa igenom trafik från serverdelens undernät. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och undernät. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet) | Skapar ett undernät. |
+| [az vm create](/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az network nsg rule list](/cli/azure/network/nsg/rule) | Returnerar information om en regel för nätverkssäkerhetsgrupp. I det här exemplet lagras regelnamnet i en variabel för användning senare i skriptet. |
+| [az network nsg rule update](/cli/azure/network/nsg/rule) | Uppdaterar en NSG-regel. I det här exemplet uppdateras klientdelsregeln för att släppa igenom trafik från serverdelens undernät. |
+| [az group delete](/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

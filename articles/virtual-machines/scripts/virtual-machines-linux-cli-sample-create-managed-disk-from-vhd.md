@@ -1,5 +1,5 @@
 ---
-title: Skapa en hanterad disk från en VHD-fil i ett lagrings konto i samma prenumerations-CLI-exempel
+title: Hanterad disk från VHD-fil i samma konto (Linux) – CLI-exempel
 description: Exempelskript för Azure CLI – Skapa en hanterad disk från en VHD-fil i ett lagringskonto i samma prenumeration
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 7c6ecb41d90669cd874e28519d4c102d8f11d218
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc02fb6801aa72d5c46d5fb0dc6498e5c1ded4ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460383"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501525"
 ---
-# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>Skapa en hanterad disk från en VHD-fil i ett lagringskonto i samma prenumeration med CLI
+# <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli-linux"></a>Skapa en hanterad disk från en VHD-fil i ett lagrings konto i samma prenumeration med CLI (Linux)
 
 Det här skriptet skapar en hanterad disk från en VHD-fil i ett lagringskonto i samma prenumeration. Använd det här skriptet för att importera en specialiserad (inte generaliserad/syspreppad) VHD till en hanterad OS-disk för att skapa en virtuell dator. Du kan också använda den för att importera en data-VHD till en hanterad datadisk. 
 
@@ -40,14 +40,14 @@ Det här skriptet skapar en hanterad disk från en VHD-fil i ett lagringskonto i
 
 Det här skriptet använder följande kommandon för att skapa en hanterad disk från en VHD. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Skapar en hanterad disk från URI:n för en VHD-fil i ett lagringskonto i samma prenumeration |
+| [az disk create](/cli/azure/disk) | Skapar en hanterad disk från URI:n för en VHD-fil i ett lagringskonto i samma prenumeration |
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Skapa en virtuell dator genom att koppla en hanterad disk som OS-disk](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer och hanterade diskar finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

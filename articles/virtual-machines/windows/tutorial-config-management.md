@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508326"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Windows-dator i Azure
 
@@ -31,19 +31,19 @@ Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt som du kan anv�
 
 Om du vill öppna ett kodblock i Cloud Shell väljer du **testa det** från det övre högra hörnet i kod blocket.
 
-Du kan också öppna Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Välj **Kopiera** för att kopiera kodblock, klistra in dem på fliken Cloud Shell och välj RETUR-tangenten för att köra koden.
+Du kan också öppna Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Välj **Kopiera** för att kopiera kodblock, klistra in dem på fliken Cloud Shell och välj RETUR-tangenten för att köra koden.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
 För att konfigurera övervaknings- och uppdateringshantering i Azure i den här självstudiekursen behöver du en virtuell Windows-dator i Azure.
 
-Ange först ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange först ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Skapa sedan den virtuella datorn med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator `myVM` med namnet `East US` på platsen. Om de inte redan finns skapas resurs gruppen `myResourceGroupMonitor` och stödda nätverks resurser:
+Skapa sedan den virtuella datorn med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet `myVM` på `East US` platsen. Om de inte redan finns skapas resurs gruppen `myResourceGroupMonitor` och stödda nätverks resurser:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,7 +76,7 @@ Så här aktiverar du Uppdateringshantering för din virtuella dator:
 
 Verifiering görs för att avgöra om Uppdateringshantering har Aktiver ATS för den här virtuella datorn. Verifieringen innehåller kontroller för en Log Analytics arbets yta, för ett länkat Automation-konto och för om lösningen finns i arbets ytan.
 
-Du använder en [Log Analytics](../../log-analytics/log-analytics-overview.md) arbets yta för att samla in data som genereras av funktioner och tjänster, till exempel uppdateringshantering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
+Du använder en [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) arbets yta för att samla in data som genereras av funktioner och tjänster, till exempel uppdateringshantering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
 Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppdateringar kan du använda Azure Automation för att köra Runbooks mot virtuella datorer. Sådana åtgärder omfattar att ladda ned eller tillämpa uppdateringar.
 
@@ -86,8 +86,8 @@ I fönstret **aktivera uppdateringshantering** väljer du Log Analytics arbets y
 
 Alla följande krav som saknas vid onboarding läggs till automatiskt:
 
-* [Log Analytics](../../log-analytics/log-analytics-overview.md) arbets yta
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) arbets yta
+* [Automation](../../automation/index.yml)
 * En [hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md), som är aktiverat på den virtuella datorn
 
 När lösningen har Aktiver ATS öppnas fönstret **uppdaterings hantering** . Konfigurera platsen, Log Analytics arbets ytan och automation-kontot som ska användas, och välj sedan **Aktivera**. Om dessa alternativ är nedtonade är en annan automatiserings lösning aktive rad för den virtuella datorn och denna lösnings arbets yta och Automation-konto måste användas.

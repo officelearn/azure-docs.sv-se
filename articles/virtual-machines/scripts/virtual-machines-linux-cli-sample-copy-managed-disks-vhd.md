@@ -1,5 +1,5 @@
 ---
-title: Kopiera en hanterad disk till ett lagrings konto – CLI-exempel
+title: Kopiera en hanterad disk till ett lagrings konto – Linux CLI-exempel
 description: Azure CLI-exempel – exportera eller kopiera en hanterad disk till ett lagrings konto.
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: d841519aeedb4b85fb897b45fa09be6c62b1fa2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0939e452627cc9f624f7d96da1059b539fa5546
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459992"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509876"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportera/kopiera en hanterad disk till ett lagringskonto med hjälp av Azure CLI
 
@@ -40,10 +40,10 @@ Det här skriptet exporterar den underliggande virtuella hårddisken från en ha
 
 Det här skriptet använder följande kommandon för att generera SAS-URI:n för en hanterad disk och kopierar den underliggande virtuella hårddisken till ett lagringskonto med hjälp av SAS-URI:n. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Genererar skrivskyddad SAS som används för att kopiera den underliggande VHD-filen till ett lagringskonto eller för att ladda ned den till en lokal plats  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Kopierar en blob asynkront från ett lagringskonto till ett annat |
+| [az disk grant-access](/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Genererar skrivskyddad SAS som används för att kopiera den underliggande VHD-filen till ett lagringskonto eller för att ladda ned den till en lokal plats  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Kopierar en blob asynkront från ett lagringskonto till ett annat |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -51,6 +51,6 @@ Det här skriptet använder följande kommandon för att generera SAS-URI:n för
 
 [Skapa en virtuell dator från en hanterad disk](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer och hanterade diskar finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

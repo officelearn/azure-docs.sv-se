@@ -5,22 +5,20 @@ author: tfitzmac
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4e068f8cf64e653c6b0231cc1d1bcddfbb9e9c55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8819fae48703b0bbf1f4c9566f0b1f64aa33d540
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650305"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539252"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell-exempel
 
 Följande tabell innehåller länkar till skript för Azure Managed Applications som använder Azure PowerShell.
 
-| | |
-|-|-|
-|**Skapa hanterat program**||
+| Skapa hanterat program | Beskrivning |
+| -------------------------- | ----------- |
 | [Skapa definition av hanterade program](scripts/managed-application-powershell-sample-create-definition.md) | Skapar en definition för ett hanterat program i tjänst katalogen.  |
 | [Distribuera hanterat program](scripts/managed-application-poweshell-sample-create-application.md) | Distribuerar ett hanterat program från tjänst katalogen.  |
-| | |
-|**Uppdatera hanterad resurs grupp**||
+|**Uppdatera hanterad resurs grupp**| **Beskrivning** |
 | [Hämta resurser i hanterad resurs grupp och ändra storlek på virtuella datorer](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Hämtar resurser från den hanterade resurs gruppen och ändrar storlek på de virtuella datorerna. |

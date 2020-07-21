@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c9bad99d0ce39fb5f179043278ca4785d726744
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d080fd3cac7a0550452908e9e0265bb2ffcb462
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73157778"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Självstudie: Azure Active Directory integration med aktivitets slut punkts säkerhets kopiering
 
@@ -33,9 +33,9 @@ Integreringen av Autotask Endpoint Backup med Azure AD medför följande fördel
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Autotask Endpoint Backup behöver du följande:
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Au
     b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Autotask Endpoint Backup-kundsupporten](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Autotask Endpoint Backup-kundsupporten](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -129,7 +129,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Au
 
 ### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Konfigurera enkel inloggning för Autotask Endpoint Backup
 
-För att konfigurera enkel inloggning på **Autotask Endpoint Backup**-sidan måste du skicka den nedladdade **XML:en med fedarationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Autotask Endpoint Backup-supportteamet](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Autotask Endpoint Backup**-sidan måste du skicka den nedladdade **XML:en med fedarationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Autotask Endpoint Backup-supportteamet](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -149,7 +149,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -184,7 +184,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-autotask-endpoint-backup-test-user"></a>Skapa en testanvändare för Autotask Endpoint Backup
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i Autotask Endpoint Backup. Arbeta med  [Autotask Endpoint Backup-supportteamet](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) när du lägger till användare till Autotask Endpoint Backup-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Autotask Endpoint Backup. Arbeta med  [Autotask Endpoint Backup-supportteamet](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) när du lägger till användare till Autotask Endpoint Backup-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

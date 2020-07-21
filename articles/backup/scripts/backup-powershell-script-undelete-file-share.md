@@ -3,12 +3,12 @@ title: PowerShell-skript – ta bort en borttagen fil resurs
 description: Lär dig hur du använder ett Azure PowerShell-skript för att ta bort en fil resurs som tagits bort av misstag.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 2eb89735a8327e782d8d8a712f4f0d59911540cc
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513242"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>PowerShell-skript för att ta bort en fil resurs som tagits bort av misstag
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-1. Installera de senaste Azure PowerShell AZ-modulerna från [den här länken](https://docs.microsoft.com//powershell/azure/install-az-ps?view=azps-3.3.0) innan du kör skriptet.
+1. Installera de senaste Azure PowerShell AZ-modulerna från [den här länken](//powershell/azure/install-az-ps) innan du kör skriptet.
 2. Behåll följande information när du behöver skicka dem som värden för olika parametrar i skriptet:
 
     * **-SubscriptionId** -ID för den prenumeration där fil resursen finns.
@@ -164,7 +164,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="execution-steps"></a>Körnings steg
 
-1. Spara skriptet ovan på din dator med valfritt namn. I det här exemplet har vi sparat det som *Undelete. ps1*
+1. Spara skriptet ovan på din dator med valfritt namn. I det här exemplet sparade vi det som *Undelete.ps1*
 2. Kör skriptet enligt det scenario som passar dina krav.
 
 #### <a name="scenario-1"></a>Scenario 1
@@ -209,4 +209,3 @@ I följande exempel tar bort *01D5D7F77ACC7864* -versionen av fil resursen *Shar
 ```powershell
    .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
 ```
-

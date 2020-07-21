@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78269197"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505847"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Självstudie: samla in och analysera resurs loggar från en Azure-resurs
 
@@ -25,13 +25,13 @@ I den här guiden får du lära dig att:
 > * Skapa en enkel logg fråga för att analysera loggar
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du en Azure-resurs för att övervaka. Du kan använda vilken resurs som helst i din Azure-prenumeration som stöder diagnostikinställningar. För att avgöra om en resurs stöder diagnostikinställningar går du till dess meny i Azure Portal och kontrollerar att det finns ett **diagnostiskt inställnings** alternativ i avsnittet **övervakning** på menyn.
 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -86,7 +86,7 @@ Data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga som s
    
     ![Loggar](media/tutorial-resource-logs/logs.png)
 
-4. Tjänsten som visas i exemplet skriver resurs loggar till tabellen **AzureDiagnostics** , men andra tjänster kan skriva till andra tabeller. Se [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/diagnostic-logs-schema.md) för tabeller som används av olika Azure-tjänster.
+4. Tjänsten som visas i exemplet skriver resurs loggar till tabellen **AzureDiagnostics** , men andra tjänster kan skriva till andra tabeller. Se [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/resource-logs-schema.md) för tabeller som används av olika Azure-tjänster.
 
     > [!NOTE]
     > Flera tjänster skriver resurs loggar till AzureDiagnostics-tabellen. Om du startar Log Analytics från Azure Monitor-menyn måste du lägga till en `where` instruktion med `ResourceProvider` kolumnen för att ange en viss tjänst. När du startar Log Analytics från en resurs meny är omfånget inställt på endast poster från den här resursen, så den här kolumnen är inte obligatorisk. Se tjänstens dokumentation för exempel frågor.
@@ -104,4 +104,4 @@ Data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga som s
 Nu när du har lärt dig hur du samlar in resurs loggar i en Log Analytics arbets yta, fyller du i en själv studie kurs om hur du skriver logg frågor för att analysera data.
 
 > [!div class="nextstepaction"]
-> [Kom igång med logg frågor i Azure Monitor](../log-query/get-started-queries.md)
+> [Kom igång med loggfrågor i Azure Monitor](../log-query/get-started-queries.md)

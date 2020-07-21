@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e0e220467c8c16deb413f6c70f236f6de67f980
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 739e4fa45987f33b3a32503eaedf9aae74a7e000
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142052"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Självstudie: Azure Active Directory integrering med PolicyStat
 
@@ -32,7 +32,7 @@ Genom att integrera PolicyStat med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -40,6 +40,9 @@ Om du vill konfigurera Azure AD-integrering med PolicyStat behöver du följande
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * PolicyStat-aktiverad prenumeration med enkel inloggning
+
+> [!NOTE]
+> Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -143,7 +146,7 @@ Utför följande steg för att konfigurera enkel inloggning med PolicyStat i Azu
     
     f. I listan **parameter 1** skriver du det attributvärde som visas för raden.
 
-    g. Klicka på **Spara**.
+    ex. Klicka på **Spara**.
 
 7. I avsnittet **Konfigurera PolicyStat** kopierar du lämpliga URL: er enligt ditt krav.
 

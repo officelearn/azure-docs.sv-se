@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8f6fa00f65a99798ee105852a269247d717ad75d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84770738"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513276"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -23,9 +23,9 @@ Den här självstudien visar hur du säkerhetskopierar SAP HANA databaser som k�
 [Här](sap-hana-backup-support-matrix.md#scenario-support) följer alla scenarier som vi för närvarande stöder.
 
 >[!NOTE]
->[Kom igång](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 eller 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>[Kom igång]() med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 eller 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
@@ -53,13 +53,13 @@ Med det här alternativet tillåts [IP-intervall](https://www.microsoft.com/down
 
 ### <a name="allow-access-using-nsg-tags"></a>Tillåt åtkomst med NSG-Taggar
 
-Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup service tag för att tillåta utgående åtkomst till Azure Backup. Dessutom bör du även tillåta anslutning för autentisering och data överföring genom att använda [regler](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för Azure AD och Azure Storage. Detta kan göras från Azure Portal eller via PowerShell.
+Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup service tag för att tillåta utgående åtkomst till Azure Backup. Dessutom bör du även tillåta anslutning för autentisering och data överföring genom att använda [regler](../virtual-network/security-overview.md#service-tags) för Azure AD och Azure Storage. Detta kan göras från Azure Portal eller via PowerShell.
 
 Så här skapar du en regel med hjälp av portalen:
 
   1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
   2. Välj **utgående säkerhets regler** under **Inställningar**.
-  3. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till **service tag** och **mål tjänst tag gen** är inställt på **AzureBackup**.
+  3. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](../virtual-network/manage-network-security-group.md#security-rule-settings). Se till att alternativet **destination** har angetts till **service tag** och **mål tjänst tag gen** är inställt på **AzureBackup**.
   4. Klicka på **Lägg till**för att spara den nyligen skapade utgående säkerhets regeln.
 
 Så här skapar du en regel med hjälp av PowerShell:
@@ -85,13 +85,13 @@ Så här skapar du en regel med hjälp av PowerShell:
  7. Spara NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 
-**Tillåt åtkomst med hjälp av Azure Firewall-Taggar**. Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av AzureBackup [FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
+**Tillåt åtkomst med hjälp av Azure Firewall-Taggar**. Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av AzureBackup [FQDN-taggen](../firewall/fqdn-tags.md). Detta tillåter utgående åtkomst till Azure Backup.
 
 **Distribuera en HTTP-proxyserver för att dirigera trafik**. När du säkerhetskopierar en SAP HANA-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn HTTPS-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhets kopierings tillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
 
 Anslutnings alternativen omfattar följande fördelar och nack delar:
 
-**Alternativet** | **Fördelar** | **Nackdelar**
+**Alternativ** | **Fördelar** | **Nackdelar**
 --- | --- | ---
 Tillåta IP-intervall | Inga ytterligare kostnader | Komplext att hantera eftersom IP-adressintervall ändras med tiden <br/><br/> Ger åtkomst till hela Azure, inte bara Azure Storage
 Använda NSG service-Taggar | Enklare att hantera när intervall ändringar slås samman automatiskt <br/><br/> Inga ytterligare kostnader <br/><br/> | Kan endast användas med NSG: er <br/><br/> Ger åtkomst till hela tjänsten
@@ -153,7 +153,7 @@ Så här skapar du ett Recovery Services-valv:
    * **Namn**: namnet används för att identifiera Recovery Services-valvet och måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två, men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck. I den här självstudien har vi använt namnet **SAPHanaVault**.
    * **Prenumeration**: Välj den prenumeration som ska användas. Om du är medlem i endast en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standard prenumerationen (rekommenderas). Det finns flera alternativ bara om ditt arbets-eller skol konto är associerat med fler än en Azure-prenumeration. Här har vi använt prenumerations prenumerationen för **SAP HANA Solution Lab** .
    * **Resurs grupp**: Använd en befintlig resurs grupp eller skapa en ny. Här har vi använt **SAPHANADemo**.<br>
-   Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Om du vill skapa en ny resurs grupp väljer du **Skapa ny** och anger namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Om du vill skapa en ny resurs grupp väljer du **Skapa ny** och anger namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
    * **Plats**: Välj det geografiska området för valvet. Valvet måste finnas i samma region som den virtuella datorn som kör SAP HANA. Vi har använt **USA, östra 2**.
 
 5. Välj **Granska + skapa**.
@@ -244,7 +244,7 @@ Ange princip inställningarna enligt följande:
 
 Du har nu konfigurerat säkerhets kopiering (er) för SAP HANA databas (er).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [Kör säkerhets kopiering på begäran på SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
 * Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](sap-hana-db-restore.md)

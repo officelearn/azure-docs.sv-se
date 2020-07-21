@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 2a2db9f7342b984a8c539a345f8e5038caf5ff85
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fcf8eb8cd110fab4f1fc85a317f1dd491d21c091
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529955"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Självstudie: skicka push-meddelanden till Windows Phone appar med hjälp av Notification Hubs
 
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 > * Skapa ett Windows Phone-program
 > * Testskicka ett meddelande
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Visual Studio 2015 Express med mobila utvecklingskomponenter](https://www.visualstudio.com/vs/older-downloads/)
@@ -65,7 +65,7 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
     Hubben har nu skapats och konfigurerats för att skicka ej autentiserade meddelanden till Windows Phone.
 
     > [!NOTE]
-    > I den här kursen används MPNS i ej autentiserat läge. MPNS i ej autentiserat läge har begränsningar för vilka meddelanden du kan skicka till varje kanal. Notification Hubs stöder [MPNS i autentiserat läge](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) genom att låta dig överföra ditt certifikat.
+    > I den här kursen används MPNS i ej autentiserat läge. MPNS i ej autentiserat läge har begränsningar för vilka meddelanden du kan skicka till varje kanal. Notification Hubs stöder [MPNS i autentiserat läge](/previous-versions/windows/apps/ff941099(v=vs.105)) genom att låta dig överföra ditt certifikat.
 
 ## <a name="create-a-windows-phone-application"></a>Skapa ett Windows Phone-program
 
@@ -117,7 +117,7 @@ I det här avsnittet skapar du ett Windows Phone-program som registrerar sig sj�
     ```
 
    > [!NOTE]
-   > Värdet `MyPushChannel` är ett index som används för att söka efter en befintlig kanal i samlingen [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx). Om det inte finns någon sådan där, skapar du en ny post med det namnet.
+   > Värdet `MyPushChannel` är ett index som används för att söka efter en befintlig kanal i samlingen [HttpNotificationChannel](/previous-versions/ff402781(v=vs.110)). Om det inte finns någon sådan där, skapar du en ny post med det namnet.
 
     Infoga namnet på din hubb och den anslutningssträng med namnet `DefaultListenSharedAccessSignature` som du noterade i förra avsnittet.
     Den här koden hämtar URI-kanalen för appen från MPNS och registrerar sedan denna i din meddelandehubb. Det garanterar även att URI-kanalen registreras i meddelandehubben varje gång appen startas.
@@ -174,10 +174,10 @@ I det här enkla exemplet skickade du push-meddelanden till alla dina Windows Ph
 [213]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: https://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[MPNS authenticated mode]: /previous-versions/windows/apps/ff941099(v=vs.105)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-[toast catalog]: https://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
-[tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[toast catalog]: /previous-versions/windows/apps/jj662938(v=vs.105)
+[tile catalog]: /previous-versions/windows/apps/hh202948(v=vs.105)
 [Notification Hubs – självstudiekurs för Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari

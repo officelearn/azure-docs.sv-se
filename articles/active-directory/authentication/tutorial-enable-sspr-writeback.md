@@ -5,24 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202557"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518495"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Självstudie: Aktivera Azure Active Directory självbetjäning för återställning av lösen ord till en lokal miljö
 
 Med Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord (SSPR) kan användare uppdatera sitt lösen ord eller låsa upp sitt konto med en webbläsare. I en hybrid miljö där Azure AD är ansluten till en lokal Active Directory Domain Services-miljö (AD DS) kan det här scenariot orsaka att lösen ord skiljer sig åt mellan de två katalogerna.
 
 Tillbakaskrivning av lösen ord kan användas för att synkronisera lösen ords ändringar i Azure AD tillbaka till din lokala AD DS-miljö. Azure AD Connect ger en säker mekanism för att skicka lösen ords ändringarna tillbaka till en befintlig lokal katalog från Azure AD.
+
+> [!IMPORTANT]
+> I den här självstudien visas en administratör om hur du aktiverar självbetjäning för återställning av lösen ord tillbaka till en lokal miljö. Om du är en slutanvändare som redan är registrerad för lösen ords återställning via självbetjäning och behöver gå tillbaka till ditt konto, går du till https://aka.ms/sspr .
+>
+> Om IT-teamet inte har aktiverat möjligheten att återställa ditt eget lösen ord kan du kontakta supportavdelningen för ytterligare hjälp.
 
 I den här guiden får du lära dig att:
 
@@ -35,7 +40,7 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
-* En fungerande Azure AD-klient med minst en licens för Azure AD Premium P1 eller P2 Trial har Aktiver ATS.
+* En fungerande Azure AD-klient med minst en utvärderings licens för Azure AD Premium P1 aktive rad.
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Mer information finns i [licens krav för Azure AD SSPR](concept-sspr-licensing.md).
 * Ett konto med *Global administratörs* behörighet.
@@ -54,11 +59,9 @@ För att fungera korrekt med SSPR tillbakaskrivning måste det konto som anges i
 * **Återställ lösenord**
 * **Skriv behörigheter** för`lockoutTime`
 * **Skriv behörigheter** för`pwdLastSet`
-* **Utökade rättigheter** för "utgående lösen ord" på något av följande:
-   * Rotobjektet för *varje domän* i skogen
-   * De användar organisationsenheter (OU) som du vill ska ingå i omfånget för SSPR
+* **Utökade rättigheter** för "utgående lösen ord" på rotobjektet för *varje domän* i skogen, om de inte redan angetts.
 
-Om du inte tilldelar dessa behörigheter visas tillbakaskrivning som korrekt konfigurerad, men användarna stöter på fel när de hanterar sina lokala lösen ord från molnet. Behörigheter måste tillämpas på **det här objektet och alla underordnade objekt** för "lösen ordet upphör att gälla" visas.  
+Om du inte tilldelar dessa behörigheter kan tillbakaskrivning vara korrekt konfigurerat, men användarna stöter på fel när de hanterar sina lokala lösen ord från molnet. Behörigheter måste tillämpas på **det här objektet och alla underordnade objekt** för "lösen ordet upphör att gälla" visas.  
 
 > [!TIP]
 >
@@ -74,7 +77,7 @@ Utför följande steg för att ställa in rätt behörigheter för tillbakaskriv
 1. I list rutan **gäller väljer du** **underordnade användar objekt**.
 1. Under *behörigheter*väljer du kryss rutan för följande alternativ:
     * **Återställ lösenord**
-1. Under *Egenskaper*väljer du rutorna för följande alternativ. Du måste bläddra igenom listan för att hitta de här alternativen, som kanske redan är inställda som standard:
+1. Under *Egenskaper*väljer du rutorna för följande alternativ. Bläddra igenom listan för att hitta de här alternativen, som kanske redan är inställda som standard:
     * **Skriv lockoutTime**
     * **Skriv pwdLastSet**
 
@@ -89,13 +92,13 @@ Lösen ords principer i den lokala AD DS-miljön kan förhindra att lösen ord �
 Om du uppdaterar grup principen väntar du tills den uppdaterade principen replikeras eller använder `gpupdate /force` kommandot.
 
 > [!Note]
-> För att lösen ord ska kunna ändras direkt måste tillbakaskrivning av lösen ord anges till 0. Men om användarna följer de lokala principerna och *lägsta ålder för lösen ord* anges till ett värde som är större än noll, fungerar tillbakaskrivning av lösen ord när de lokala principerna utvärderas. 
+> För att lösen ord ska kunna ändras omedelbart måste tillbakaskrivning av lösen ord anges till 0. Men om användarna följer de lokala principerna och *lägsta ålder för lösen ord* anges till ett värde som är större än noll, fungerar inte tillbakaskrivning av lösen ord när de lokala principerna utvärderas.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Aktivera tillbakaskrivning av lösen ord i Azure AD Connect
 
 Ett av konfigurations alternativen i Azure AD Connect är för tillbakaskrivning av lösen ord. När det här alternativet är aktiverat, orsakar lösen ords ändrings händelser Azure AD Connect att synkronisera de uppdaterade autentiseringsuppgifterna tillbaka till den lokala AD DS-miljön.
 
-Aktivera tillbakaskrivning av lösen ord för självbetjäning genom att först aktivera alternativet tillbakaskrivning i Azure AD Connect. Utför följande steg från din Azure AD Connect Server:
+Om du vill aktivera SSPR tillbakaskrivning aktiverar du först alternativet tillbakaskrivning i Azure AD Connect. Utför följande steg från din Azure AD Connect Server:
 
 1. Logga in på Azure AD Connect-servern och starta guiden **Azure AD Connect** konfiguration.
 1. På sidan **Välkommen** klickar du på **Konfigurera**.

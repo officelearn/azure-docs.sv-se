@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e13e7c1057d5a01867b561fc7ee7d1eed1a97ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220158"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530498"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till specifika användare med Azure Notification Hubs
 
@@ -51,7 +51,7 @@ I den här självstudien gör du följande:
 Den här kursen bygger på meddelandehubben och det Visual Studio-projekt som du skapade i kursen [Självstudier: Skicka meddelanden till UWP-appar med Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Slutför den därför innan du påbörjar den här kursen.
 
 > [!NOTE]
-> Om du använder Mobile Apps i Azure App Service som serverdelstjänst, så läs [Mobile Apps-version](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) i den här kursen.
+> Om du använder Mobile Apps i Azure App Service som serverdelstjänst, så läs [Mobile Apps-version](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push) i den här kursen.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -128,7 +128,7 @@ I det här avsnittet kommer du att uppdatera koden i det projekt som du slutför
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-10. I `MainPage.xaml.cs` för projektet **WindowsApp** lägger du till följande medlem i klassen `MainPage`. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Ett exempel är `http://mybackend.azurewebsites.net`.
+10. I `MainPage.xaml.cs` för projektet **WindowsApp** lägger du till följande medlem i klassen `MainPage`. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
@@ -224,7 +224,7 @@ I det här avsnittet kommer du att uppdatera koden i det projekt som du slutför
     ```
 13. Högerklicka på **WindowsApp**-projektet, klicka på **Lägg till** och sedan på **Klass**. Namnge klassen `RegisterClient.cs` och generera sedan klassen genom att klicka på **OK**.
 
-    Den här klassen omsluter de REST-anrop som krävs för att kontakta appens serverdel och registrera push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](https://msdn.microsoft.com/library/dn743807.aspx). Den använder en autentiseringstoken som lagras lokalt när du klickar på knappen **Logga in och registrera**.
+    Den här klassen omsluter de REST-anrop som krävs för att kontakta appens serverdel och registrera push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Den använder en autentiseringstoken som lagras lokalt när du klickar på knappen **Logga in och registrera**.
 14. Lägg till följande `using`-uttryck högst upp i filen RegisterClient.cs:
 
     ```csharp
@@ -357,4 +357,4 @@ I den här självstudien har du lärt dig mer om push-meddelanden till specifika
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)

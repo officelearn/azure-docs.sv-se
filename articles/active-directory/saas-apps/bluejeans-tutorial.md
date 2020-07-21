@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c239c30b24ad110d71c43b31448a0f5b29574b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0e249c512825dc4c36ff3f6355a4a774934ee4e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84762591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499944"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med BlueJeans för Azure AD
 
@@ -32,12 +32,15 @@ I den här självstudien får du lära dig hur du integrerar BlueJeans för Azur
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * BlueJeans för Azure AD-aktiverad prenumeration med enkel inloggning (SSO).
+
+> [!NOTE]
+> Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -123,7 +126,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -214,7 +217,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
     f. I textrutan **E-postadress** anger du användarens e-postadress, som `b.simon\@contoso.com`.
 
-    g. Ange ditt mötes-ID i text rutan **skapa en BlueJeans för Azure AD-möte i. D** .
+    ex. Ange ditt mötes-ID i text rutan **skapa en BlueJeans för Azure AD-möte i. D** .
 
     h. I textrutan för att **välja ett lösenord för moderator** anger du ditt lösenord.
 

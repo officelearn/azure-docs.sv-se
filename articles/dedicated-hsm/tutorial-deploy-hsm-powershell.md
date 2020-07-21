@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/14/2020
+ms.author: johndaw
+ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79474432"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512511"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -38,7 +38,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -62,13 +62,7 @@ Som nämnts ovan kräver alla etableringsaktiviteter att tjänsten Dedikerad HSM
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-Följande kommando verifierar de nätverksfunktioner som krävs för tjänsten Dedikerad HSM.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
-```
-
-Båda kommandona bör returnera statusen ”Registrerad” (som visas nedan) innan du fortsätter vidare.  Om du behöver registrera dig för den här tjänsten kontaktar du din Microsoft-kontorepresentant.
+Kommandot ska returnera statusen "registrerad" (som visas nedan) innan du fortsätter.  Kontakta din Microsoft-konto representant om du inte har registrerat dig för den här tjänsten.
 
 ![prenumerationsstatus](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
@@ -217,7 +211,7 @@ SSH-verktyget används för att ansluta till den virtuella datorn. Kommandot lik
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Lösenordet är det som kommer från parameterfilen.
-När du är inloggad på den virtuella Linux-datorn kan du logga in på HSM med hjälp av den privata IP-adress \<som finns i portalen för att>hsm_vnic.
+När du har loggat in på den virtuella Linux-datorn kan du logga in till HSM med hjälp av den privata IP-adress som finns i portalen för resursen \<prefix>hsm_vnic.
 
 ```powershell
 

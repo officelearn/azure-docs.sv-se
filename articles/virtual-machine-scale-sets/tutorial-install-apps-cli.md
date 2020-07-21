@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 56aa67750a4ec51704a440424bfeef15e8806163
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a2335ae285ca68eb6b6deb58bb3b0e8ff4a6bb57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197108"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495046"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure CLI
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. I en föregående självstudie fick du lära dig hur du skapar och använder en anpassad virtuell datoravbildning för att distribuera dina virtuella datorinstanser. Den här anpassade avbildningen inkluderade programinstallationer och konfigurationer. Du kan också automatisera installationen av programmen till en skalningsuppsättning efter att varje virtuell datorinstans distribueras, eller uppdatera ett program som redan körs på en skalningsuppsättning. I den här guiden får du lära du dig hur man:
@@ -34,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Vad är det anpassade Azure-skripttillägget?
 Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning.
 
-Det anpassade skripttillägget integreras med Azure Resource Manager-mallar och kan också användas med Azure CLI, Azure PowerShell, Azure-portalen eller REST API:et. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/linux/extensions-customscript.md).
+Det anpassade skripttillägget integreras med Azure Resource Manager-mallar och kan också användas med Azure CLI, Azure PowerShell, Azure-portalen eller REST API:et. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/extensions/custom-script-linux.md).
 
 För att använda det anpassade skripttillägget med Azure CLI, skapar du en JSON-fil som definierar vilka filer som ska hämtas och ger den kommandot att köras. Dessa JSON-definitioner kan återanvändas i distributioner av skalningsuppsättningar för att tillämpa konsekventa programinstallationer.
 

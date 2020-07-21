@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77656270"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505881"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Övervaka och skicka aviseringar om programmets hälsotillstånd med Azure Application Insights
 
@@ -24,11 +24,11 @@ Lär dig att:
 > * Skapa tillgänglighetstest för att kontinuerligt kontrollera programmets respons
 > * Skicka e-post till administratörer när ett problem uppstår
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
-Skapa en [Application Insights-resurs](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
+Skapa en [Application Insights-resurs](./dotnetcore-quick-start.md#enable-application-insights).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -56,7 +56,7 @@ Med tillgänglighetstester i Application Insights kan du automatiskt testa ditt 
 
     ![Redigera avisering](media/tutorial-alert/edit-alert-001.png)
 
-6. Ange att platser som inte är större än eller lika med 3. Skapa en [Åtgärds grupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) för att konfigurera vem som får ett meddelande när tröskelvärdet för aviseringar överskrids.
+6. Ange att platser som inte är större än eller lika med 3. Skapa en [Åtgärds grupp](../platform/action-groups.md) för att konfigurera vem som får ett meddelande när tröskelvärdet för aviseringar överskrids.
 
     ![Spara aviserings gränssnitt](media/tutorial-alert/save-alert-001.png)
 

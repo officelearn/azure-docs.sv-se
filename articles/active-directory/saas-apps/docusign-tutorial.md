@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 00c2825b78d0774d3c428978ba66c957130d3737
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509371"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499982"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign
 
@@ -32,12 +32,15 @@ I den här självstudien får du lära dig hur du integrerar DocuSign med Micros
 
 Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [enkel inloggning till program i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * En DocuSign-prenumeration som är enkel inloggning aktive rad (SSO).
+
+> [!NOTE]
+> Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -118,7 +121,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I fältet **namn** anger du **B. Simon**.  
-   1. I fältet **användar namn** anger `<username>@<companydomain>.<extension>`du. Till exempel: `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Till exempel: `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -192,13 +195,13 @@ I det här avsnittet beviljar du B. Simon-åtkomst till DocuSign så att den hä
 
     f. För **Skicka authn-begäran av**väljer du **post**.
 
-    g. För **Skicka utloggnings förfrågan från**väljer du **Hämta**.
+    ex. För **Skicka utloggnings förfrågan från**väljer du **Hämta**.
 
     h. I avsnittet **Mappning av anpassade attribut** väljer du **Lägg till ny mappning**.
 
        ![GRÄNSSNITT för mappning av anpassade attribut][62]
 
-    i. Välj det fält som du vill mappa till Azure AD-anspråket. I det här exemplet mappas **EmailAddress** -anspråket till värdet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. Det är standard anspråks namnet från Azure AD för e-postanspråket. Välj **Spara**.
+    i. Välj det fält som du vill mappa till Azure AD-anspråket. I det här exemplet mappas **EmailAddress** -anspråket till värdet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` . Det är standard anspråks namnet från Azure AD för e-postanspråket. Välj **Spara**.
 
        ![Mappnings fält för anpassat attribut][57]
 

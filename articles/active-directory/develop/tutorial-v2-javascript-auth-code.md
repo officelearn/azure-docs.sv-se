@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 4de555f823abe5414bf117a6709e67676571c833
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553799"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518172"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från en JavaScript-app med en enda sida (SPA) med auth Code Flow
-
-> [!IMPORTANT]
-> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA).
 
 I den här självstudien får du lära dig hur du skapar ett Java Script (Single-Page Application) som använder Microsoft Authentication Library (MSAL) för Java Script v 2.0 för att:
 
@@ -54,12 +51,12 @@ Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfi
 
 Om du vill fortsätta med självstudien och bygga programmet själv kan du gå vidare till nästa avsnitt, [krav](#prerequisites).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js](https://nodejs.org/en/download/) för att köra en lokal webbserver
 * [Visual Studio Code](https://code.visualstudio.com/download) eller en annan kod redigerare
 
-## <a name="create-your-project"></a>Skapa ditt projekt
+## <a name="create-your-project"></a>Skapa projektet
 
 När du har [Node.js](https://nodejs.org/en/download/) installerat skapar du en mapp som är värd för ditt program, till exempel *msal – Spa – självstudier*.
 
@@ -521,7 +518,7 @@ Det SPA du har skapat i den här självstudien anropar `acquireTokenSilent` och/
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen ska appen inte be användarna att autentisera varje gång de behöver åtkomst till en skyddad resurs (det vill säga en token). Anropa för att förhindra sådana omautentiserings begär Anden `acquireTokenSilent` . Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Ett exempel:
+Efter den första inloggningen ska appen inte be användarna att autentisera varje gång de behöver åtkomst till en skyddad resurs (det vill säga en token). Anropa för att förhindra sådana omautentiserings begär Anden `acquireTokenSilent` . Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 
 - Användarna måste ange sina autentiseringsuppgifter på nytt eftersom lösen ordet har upphört att gälla.
 - Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.

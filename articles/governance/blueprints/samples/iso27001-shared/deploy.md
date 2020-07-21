@@ -1,13 +1,14 @@
 ---
 title: Distribuera ISO 27001-skiss för delade tjänster
 description: Distribuera steg för ISO 27001-skissen för delade tjänster, inklusive information om skiss artefakts parametrar.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 19e394f115c87c499f7839c6ef63921e68f4d357
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0f2fa71e56deadba1188ab0fa69898c261861eb5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521470"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera skiss exemplet för delade tjänster i ISO 27001
 
@@ -61,7 +62,7 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grunderna
+   - Grunder
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
      - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
@@ -111,12 +112,12 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Tillåtna SKU: er för virtuella datorer|Principtilldelning|Lista över virtuella dator-SKU: er som kan distribueras. Standardvärdet är _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
 |Skiss initiativ för ISO 27001|Principtilldelning|Resurs typer för att granska diagnostikloggar|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Log Analytics resurs grupp|Resursgrupp|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvsc-log-rg` för att göra resurs gruppen unik.|
-|Log Analytics resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
+|Log Analytics resurs grupp|Resursgrupp|Position|**Locked** – använder skiss parametern.|
 |Log Analytics mall|Resource Manager-mall|Tjänstenivå|Anger nivån för Log Analytics arbets ytan. Standardvärdet är _PerNode_.|
 |Log Analytics mall|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
-|Log Analytics mall|Resource Manager-mall|Location|Region som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
+|Log Analytics mall|Resource Manager-mall|Position|Region som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
 |Nätverks resurs grupp|Resursgrupp|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-net-rg` för att göra resurs gruppen unik.|
-|Nätverks resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
+|Nätverks resurs grupp|Resursgrupp|Position|**Locked** – använder skiss parametern.|
 |Mall för Azure-brandvägg|Resource Manager-mall|Azure Firewall privat IP|Konfigurerar den privata IP-adressen för [Azure-brandväggen](../../../../firewall/overview.md). Det här värdet används också som standard väg tabell på under nätet för delade tjänster. Ska ingå i CIDR-notationen som definieras i adressprefix för **Azure Firewall-undernätet**. Standardvärdet är _10.0.4.4_.|
 |Mall för Azure-brandvägg|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
 |Mall för nätverks säkerhets grupp|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
@@ -128,7 +129,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för Virtual Network Gateway-undernät|CIDR-notering för det virtuella nätverkets gateway-undernät. Standardvärdet är _10.0.3.0/24_.|
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för Azure Firewall-undernätet|CIDR-notering för [Azure Firewall](../../../../firewall/overview.md) -undernätet. Ska inkludera **Azure firewalls privata IP-** parameter.|
 |Key Vault resurs grupp|Resursgrupp|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-kv-rg` för att göra resurs gruppen unik.|
-|Key Vault resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
+|Key Vault resurs grupp|Resursgrupp|Position|**Locked** – använder skiss parametern.|
 |Key Vault mall|Resource Manager-mall|Användar namn för bygel-administratör|Användar namn för hopp rutan. Måste matcha samma egenskaps värde i **hopp mal len**. Standardvärdet är _JB-admin-user_.|
 |Key Vault mall|Resource Manager-mall|SSH-nyckel eller lösen ord för bygel-administratör|Nyckel eller lösen ord för kontot i hoppet. Måste matcha samma egenskaps värde i **hopp mal len**. Inget standardvärde och får inte vara tomt.|
 |Key Vault mall|Resource Manager-mall|Användar namn för domän administratör|Användar namn som används för att komma åt Active Directory VM och för att ansluta till andra virtuella datorer till en domän. Måste matcha användar egenskap svärdet för **domän administratör** i **Active Directory Domain Services mall**. Standardvärdet är _domän administratör – användare_.|
@@ -137,13 +138,13 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Key Vault mall|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
 |Key Vault mall|Resource Manager-mall|Key Vault SKU|Anger SKU: n för den Key Vault som skapas. Standardvärdet är _Premium_.|
 |Resurs grupp för hopp|Resursgrupp|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-jb-rg` för att göra resurs gruppen unik.|
-|Resurs grupp för hopp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
+|Resurs grupp för hopp|Resursgrupp|Position|**Locked** – använder skiss parametern.|
 |Flytta mall|Resource Manager-mall|Användar namn för bygel-administratör|Det användar namn som används för att komma åt de virtuella datorerna i bygel. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet är _JB-admin-user_.|
 |Flytta mall|Resource Manager-mall|Lösen ord för hopp i administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" och Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med skiss parametern **organisations namn** .|
 |Flytta mall|Resource Manager-mall|Lösen ord för bygel (Key Vault hemligt namn)|Användar namn för hopp administratören. Måste matcha värdet i **Key Vault Template** - **administratörens användar namn**.|
 |Flytta mall|Resource Manager-mall|Operativ system för hopp|Fastställer operativ systemet för den virtuella datorn i hoppet. Standardvärdet är _Windows_.|
 |Active Directory Domain Services resurs grupp|Resursgrupp|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-adds-rg` för att göra resurs gruppen unik.|
-|Active Directory Domain Services resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
+|Active Directory Domain Services resurs grupp|Resursgrupp|Position|**Locked** – använder skiss parametern.|
 |Active Directory Domain Services mall|Resource Manager-mall|Användar namn för domän administratör|Användar namn för Lägg till hopp. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet _läggs till-admin-user_.|
 |Active Directory Domain Services mall|Resource Manager-mall|Lösen ord för domän administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" och Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med skiss parametern **organisations namn** .|
 |Active Directory Domain Services mall|Resource Manager-mall|Domän administratörs lösen ord (Key Vault hemligt namn)|Användar namnet för domän administratören. Måste matcha värdet i **Key Vault mall** **domän administratör användar namn**.|

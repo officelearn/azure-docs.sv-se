@@ -1,5 +1,5 @@
 ---
-title: Flytta virtuella Azure-datorer till en annan region med Azure Site Recovery
+title: Flytta virtuella Azure IaaS-datorer till en annan region med Azure Site Recovery
 description: Använd Azure Site Recovery för att flytta virtuella IaaS-datorer i Azure från en Azure-region till en annan.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 198e07b80788629030b621dd3c5e235a91baaba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134430"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518919"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -34,7 +34,7 @@ I de här självstudierna får du:
 > [!NOTE]
 > Den här självstudien visar hur du flyttar virtuella Azure-datorer från en region till en annan. Om du behöver förbättra tillgängligheten genom att flytta virtuella datorer i en tillgänglighets uppsättning till zon fästa virtuella datorer i en annan region, se avsnittet [flytta virtuella Azure-datorer till Tillgänglighetszoner själv studie kursen](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att de virtuella Azure-datorerna finns i den Azure-region som du vill flytta.
 - Kontrol lera att valet av [käll region – kombination av mål region stöds](./azure-to-azure-support-matrix.md#region-support)och fatta ett informerat beslut om mål regionen.
@@ -72,7 +72,7 @@ I de här självstudierna får du:
     Information om hur du skapar de vanligaste nätverks resurserna som är relevanta för dig baserat på konfigurationen av den virtuella käll datorn finns i följande dokumentation:
     - [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md)
     - [Lastbalanserare](../load-balancer/index.yml)
-    -  [Offentlig IP](../virtual-network/virtual-network-public-ip-address.md)
+    -  [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](../index.yml?pivot=products&panel=network).
 
 
@@ -99,7 +99,7 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
 
 1. I nästa steg väljer du den virtuella dator som du vill flytta och väljer sedan **OK**.
 1. I **Inställningar**väljer du **haveri beredskap**.
-1. I **Konfigurera**  >  **mål region**för haveri beredskap väljer du den mål region som du vill replikera till.
+1. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion du ska replikera till.
 1. I den här självstudiekursen accepterar du de andra standardinställningarna.
 1. Välj **Aktivera replikering**. Det här steget startar ett jobb för att aktivera replikering för den virtuella datorn.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.custom: mvc
 ms.date: 04/05/2017
-ms.openlocfilehash: 00aa744f09b7bcbbbc258b92a8fd5ab750e447c7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 471690c5c0f5ebb4cea111b85cab1fe0524a36cd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74039103"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509731"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer
 
@@ -48,19 +48,19 @@ az group delete -n myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Skapar en skalningsuppsättning med virtuella datorer |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Lägg till en belastningsutjämnad slutpunkt |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Skapa det tillägg som kör det anpassade skriptet på distributionen av en virtuell dator |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Kör det anpassade skriptet på de VM-instanser som distribuerades innan tillägget tillämpades på skalningsuppsättningen. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Skala upp skalningsuppsättningen genom att lägga till flera VM-instanser. Det anpassade skriptet körs på dem när de distribueras. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Hämta IP-adresserna för de virtuella datorer som skapats av exemplet. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Hämta klient- och serverdelsportarna som används av lastbalanseraren. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vmss create](/cli/azure/vmss) | Skapar en skalningsuppsättning med virtuella datorer |
+| [az network lb rule create](/cli/azure/network/lb/rule) | Lägg till en belastningsutjämnad slutpunkt |
+| [az vmss extension set](/cli/azure/vmss/extension) | Skapa det tillägg som kör det anpassade skriptet på distributionen av en virtuell dator |
+| [az vmss update-instances](/cli/azure/vmss) | Kör det anpassade skriptet på de VM-instanser som distribuerades innan tillägget tillämpades på skalningsuppsättningen. |
+| [az vmss scale](/cli/azure/vmss) | Skala upp skalningsuppsättningen genom att lägga till flera VM-instanser. Det anpassade skriptet körs på dem när de distribueras. |
+| [az network public-ip list](/cli/azure/network/public-ip) | Hämta IP-adresserna för de virtuella datorer som skapats av exemplet. |
+| [az network lb show](/cli/azure/network/lb) | Hämta klient- och serverdelsportarna som används av lastbalanseraren. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

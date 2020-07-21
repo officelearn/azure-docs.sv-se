@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77021652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497054"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Självstudie: Bygg en Power BI leverantörs instrument panel
 
 
 
-När du skapar en kontinuerlig övervaknings lösning för patienter kan du också skapa en instrument panel för ett sjukhus för att visualisera patient data. I den här självstudien får du lära dig hur du skapar en Power BI direkt uppspelnings instrument panel i real tid från din IoT Central Mall för kontinuerlig övervakning av patienter.
+När du skapar en kontinuerlig övervaknings lösning för patienter kan du också skapa en instrument panel för ett sjukhus för att visualisera patient data. I den här självstudien får du lära dig hur du skapar en Power BI direkt uppspelnings instrument panel i real tid från din IoT Central Mall för kontinuerlig övervakning av patienter. Om du inte behöver åtkomst till real tids data i användnings fallet kan du använda [instrument panelen IoT Central Power BI](../core/howto-connect-powerbi.md), som har en förenklad distributions process. 
 
 >[!div class="mx-imgBorder"]
 >![Instrument panels GIF](media/dashboard-gif-3.gif)
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 > * Strömma data till Power BI från din Logic app
 > * Bygg en real tids instrument panel för patients viktigare
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -81,7 +81,7 @@ Om du vill ansluta din Logic app till Azure Event Hubs kan du följa instruktion
 |---|---|
 |Innehållstyp|application/json|
 |Intervall|3|
-|Frekvens|Sekund|
+|Frekvens|Second|
 
 I slutet av det här steget bör din Logic Apps designer se ut så här:
 

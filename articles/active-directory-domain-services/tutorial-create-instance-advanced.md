@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa en Azure Active Directory Domain Services hanterad domän | Microsoft Docs
+title: Självstudie – Skapa en Azure AD DS-hanterad domän med Avancerad konfiguration
 description: I den här självstudien får du lära dig hur du skapar och konfigurerar en Azure Active Directory Domain Services hanterad domän och anger avancerade konfigurations alternativ med hjälp av Azure Portal.
 author: iainfoulds
 manager: daveba
@@ -9,11 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 78eef9c84bb7610b067855b22a3fa0f51bf08253
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b8eece33e13fca9fdef6b860513368f6c47a4628
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024799"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518529"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Självstudie: skapa och konfigurera en Azure Active Directory Domain Services hanterad domän med avancerade konfigurations alternativ
 
@@ -31,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da9834636944c6bb816c4f49b0e9bf3abda2264a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3b65d04b383fdc0a409e23ab6b6649604be502c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525597"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Självstudie: skydda en webb server på en virtuell Windows-dator i Azure med TLS/SSL-certifikat som lagras i Key Vault
 
@@ -34,7 +34,7 @@ För att skydda webb servrar, en Transport Layer Security (TLS), som tidigare ka
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 
 ## <a name="overview"></a>Översikt
@@ -44,7 +44,7 @@ Istället för att använda en anpassad VM-avbildning med inbyggda certifikat ma
 
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
-Innan du kan skapa ett Key Vault och certifikat skapar du en resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* på platsen *East US* (USA, östra):
+Innan du kan skapa ett Key Vault och certifikat skapar du en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* på platsen *East US* (USA, östra):
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
@@ -52,7 +52,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Skapa sedan en Key Vault med [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt `mykeyvault` i följande exempel med ditt eget unika Key Vault-namn:
+Skapa sedan en Key Vault med [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt `mykeyvault` i följande exempel med ditt eget unika Key Vault-namn:
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -63,7 +63,7 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra det i Key Vault
-För produktions användning bör du importera ett giltigt certifikat signerat av en betrodd Provider med [import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). I den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) som använder standard certifikat principen från [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
+För produktions användning bör du importera ett giltigt certifikat signerat av en betrodd Provider med [import-AzKeyVaultCertificate](/powershell/module/az.keyvault/import-azkeyvaultcertificate). I den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/add-azkeyvaultcertificate) som använder standard certifikat principen från [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
 
 ```azurepowershell-interactive
 $policy = New-AzKeyVaultCertificatePolicy `
@@ -80,13 +80,13 @@ Add-AzKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Ange ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Nu kan du skapa den virtuella datorn med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVM* på platsen *EastUS* (Östra USA). Stödnätverksresurser skapas, om de inte redan finns. För att tillåta säker webbtrafik öppnar cmdleten även port *443*.
+Nu kan du skapa den virtuella datorn med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVM* på platsen *EastUS* (Östra USA). Stödnätverksresurser skapas, om de inte redan finns. För att tillåta säker webbtrafik öppnar cmdleten även port *443*.
 
 ```azurepowershell-interactive
 # Create a VM
@@ -112,11 +112,11 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server -IncludeManagementTools"}'
 ```
 
-Det tar några minuter att skapa den virtuella datorn. I det sista steget används tillägget för anpassat skript i Azure för att installera IIS-webbservern med [Set-AzVmExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+Det tar några minuter att skapa den virtuella datorn. I det sista steget används tillägget för anpassat skript i Azure för att installera IIS-webbservern med [Set-AzVmExtension](/powershell/module/az.compute/set-azvmextension).
 
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>Lägga till ett certifikat till en virtuell dator från Key Vault
-Om du vill lägga till certifikatet från Key Vault till en virtuell dator hämtar du certifikatets ID med [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Lägg till certifikatet till den virtuella datorn med [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
+Om du vill lägga till certifikatet från Key Vault till en virtuell dator hämtar du certifikatets ID med [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret). Lägg till certifikatet till den virtuella datorn med [Add-AzVMSecret](/powershell/module/az.compute/add-azvmsecret):
 
 ```azurepowershell-interactive
 $certURL=(Get-AzKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
@@ -130,7 +130,7 @@ Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
 
 
 ## <a name="configure-iis-to-use-the-certificate"></a>Konfigurera IIS för att använda certifikatet
-Använda tillägget för anpassat skript igen med [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) för att uppdatera IIS-konfigurationen. Den här uppdateringen tillämpar certifikatet som matats in från Key Vault till ISS och konfigurerar webbindningen:
+Använda tillägget för anpassat skript igen med [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) för att uppdatera IIS-konfigurationen. Den här uppdateringen tillämpar certifikatet som matats in från Key Vault till ISS och konfigurerar webbindningen:
 
 ```azurepowershell-interactive
 $PublicSettings = '{
@@ -150,7 +150,7 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>Testa den säkra webbappen
-Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för `myPublicIP` som skapades tidigare:
+Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för `myPublicIP` som skapades tidigare:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"

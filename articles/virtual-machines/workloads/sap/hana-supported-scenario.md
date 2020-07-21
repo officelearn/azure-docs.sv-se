@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617169"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507955"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenarier som stöds för HANA-stora instanser
 I den här artikeln beskrivs scenarier och arkitektur information som stöds för HANA Large instances (HLI).
@@ -194,7 +195,7 @@ Följande monterings punkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- Distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](./hana-overview-architecture.md).
 
 ## <a name="single-node-with-dr-using-storage-replication"></a>Enkel nod med DR med Storage Replication
  
@@ -231,9 +232,9 @@ Följande monterings punkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](./hana-overview-architecture.md).
 - På DR-platsen: volymerna och monterings punkterna konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
-- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
+- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](./hana-overview-high-availability-disaster-recovery.md).
 - Start volymen för *SKU-typ I klass* replikeras till Dr-noden.
 
 
@@ -280,9 +281,9 @@ Följande monterings punkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](./hana-overview-architecture.md).
 - På DR-platsen: volymerna och monterings punkterna konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
-- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](./hana-overview-high-availability-disaster-recovery.md). 
 - På DR-platsen: konfigureras data, logg säkerhets kopior, logg och delade volymer för frågor och svar (markerade som "frågor och svar om instans installation") för instans installationen av frågor och svar.
 - Start volymen för *SKU-typ I klass* replikeras till Dr-noden.
 
@@ -332,7 +333,7 @@ Följande monterings punkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](./hana-overview-architecture.md).
 - STONITH: en SBD har kon figurer ATS för installationen av STONITH. Användningen av STONITH är dock valfri.
 
 
@@ -386,11 +387,11 @@ Följande monterings punkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](./hana-overview-architecture.md).
 - STONITH: en SBD har kon figurer ATS för installationen av STONITH. Användningen av STONITH är dock valfri.
 - På DR-platsen: *två uppsättningar lagrings volymer krävs* för replikering av primära och sekundära noder.
 - På DR-platsen: volymerna och monterings punkterna konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
-- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](./hana-overview-high-availability-disaster-recovery.md). 
 - På DR-platsen: konfigureras data, logg säkerhets kopior, logg och delade volymer för frågor och svar (markerade som "frågor och svar om instans installation") för instans installationen av frågor och svar.
 - Start volymen för *SKU-typ I klass* replikeras till Dr-noden.
 
@@ -554,7 +555,7 @@ Följande monterings punkter är förkonfigurerade:
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
 -  På DR-platsen: volymerna och monterings punkterna konfigureras (markerade som "krävs för HANA-installation") för produktion HANA-instansen installation på DR HLI-enheten. 
-- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- På DR-platsen: replikeras data, logg säkerhets kopior och delade volymer (markerade som "lagrings replikering") via ögonblicks bild från produktions platsen. Dessa volymer monteras endast under redundans. Mer information finns i [förfarandet vid haveri beredskap](./hana-overview-high-availability-disaster-recovery.md). 
 - Start volymen för *SKU-typ I klass* replikeras till Dr-noden.
 
 
@@ -593,9 +594,9 @@ Följande monterings punkter är förkonfigurerade på både HLI-enheter (primä
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](./hana-overview-architecture.md).
 - Den primära noden synkroniseras med DR-noden med hjälp av HANA-systemreplikering. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
 
 
 
@@ -643,11 +644,11 @@ Följande monterings punkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
-- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- För MCOS: distribution av volym storlek baseras på databasens storlek i minnet. Information om vilka databas storlekar i minnet som stöds i en miljö med flera-SID finns i [Översikt och arkitektur](./hana-overview-architecture.md).
 - På DR-platsen: volymerna och monterings punkterna konfigureras (markeras som "produktions instans på DR-plats") för den produktion HANA-instansen som installeras på DR HLI-enheten. 
 - På DR-platsen: konfigureras data, logg säkerhets kopior, logg och delade volymer för frågor och svar (markerade som "frågor och svar om instans installation") för instans installationen av frågor och svar.
 - Den primära noden synkroniseras med DR-noden med hjälp av HANA-systemreplikering. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr"></a>Hög tillgänglighet och haveri beredskap med HSR 
  
@@ -692,7 +693,7 @@ Följande monterings punkter är förkonfigurerade:
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
 - På DR-platsen: volymerna och monterings punkterna har kon figurer ATS (markerade som "PROD. DR-instans") för produktion HANA-instansen installation på DR HLI-enheten. 
 - Noden för den primära platsen synkroniseras med DR-noden med hjälp av HANA-systemreplikering. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>Hög tillgänglighet och haveri beredskap med HSR (kostnads optimerad)
  
@@ -741,7 +742,7 @@ Följande monterings punkter är förkonfigurerade:
 - På DR-platsen: volymerna och monterings punkterna har kon figurer ATS (markerade som "PROD. DR-instans") för produktion HANA-instansen installation på DR HLI-enheten. 
 - På DR-platsen: konfigureras data, logg säkerhets kopior, logg och delade volymer för frågor och svar (markerade som "frågor och svar om instans installation") för instans installationen av frågor och svar.
 - Noden för den primära platsen synkroniseras med DR-noden med hjälp av HANA-systemreplikering. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
 
 ## <a name="scale-out-with-dr-using-hsr"></a>Skala ut med DR med hjälp av HSR
  
@@ -788,9 +789,9 @@ Följande monterings punkter är förkonfigurerade:
 - /usr/sap/SID är en symbolisk länk till/hana/shared/SID.
 - På DR-platsen: volymerna och monterings punkterna har kon figurer ATS för produktion HANA-instansen-installation på DR HLI-enheten. 
 - Noden för den primära platsen synkroniseras med DR-noden med hjälp av HANA-systemreplikering. 
-- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
+- [Global Reach](../../../expressroute/expressroute-global-reach.md) används för att länka ExpressRoute-kretsarna tillsammans för att skapa ett privat nätverk mellan dina regionala nätverk.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Infrastruktur och anslutningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) för Hana-stora instanser
-- [Hög tillgänglighet och haveri beredskap](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) för Hana-stora instanser
+- [Infrastruktur och anslutningar](./hana-overview-infrastructure-connectivity.md) för Hana-stora instanser
+- [Hög tillgänglighet och haveri beredskap](./hana-overview-high-availability-disaster-recovery.md) för Hana-stora instanser

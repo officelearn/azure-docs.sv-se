@@ -12,11 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
-ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124796"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509366"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Felsöka allokeringsfel när du skapar, startar om eller ändrar storlek på virtuella datorer i Azure
 
@@ -78,7 +79,7 @@ Om du använder tillgänglighets zoner kan du prova en annan zon inom den region
 
 Om din tilldelnings förfrågan är stor (mer än 500 kärnor) kan du läsa mer i anvisningarna i följande avsnitt för att dela upp begäran i mindre distributioner.
 
-Försök [att distribuera om den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Omdistribution av den virtuella datorn allokerar den virtuella datorn till ett nytt kluster inom regionen.
+Försök [att distribuera om den virtuella datorn](./redeploy-to-new-node-windows.md). Omdistribution av den virtuella datorn allokerar den virtuella datorn till ett nytt kluster inom regionen.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Allokeringsfel för äldre VM-storlekar (Av1, Dv1, DSv1, D15v2, DS15v2 osv.)
 
@@ -93,7 +94,7 @@ När vi utökar Azure-infrastrukturen distribuerar vi nyare generations maskin v
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Allokeringsfel för stora distributioner (fler än 500 kärnor)
 
-Minska antalet instanser av den begärda VM-storleken och försök sedan att distribuera igen. För större distributioner kan du dessutom vilja utvärdera [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Antalet virtuella dator instanser kan öka eller minska automatiskt som svar på efter frågan eller ett definierat schema, och du har större chans att fördelningen lyckas eftersom distributionerna kan spridas över flera kluster. 
+Minska antalet instanser av den begärda VM-storleken och försök sedan att distribuera igen. För större distributioner kan du dessutom vilja utvärdera [skalnings uppsättningar för virtuella Azure-datorer](../../virtual-machine-scale-sets/index.yml). Antalet virtuella dator instanser kan öka eller minska automatiskt som svar på efter frågan eller ett definierat schema, och du har större chans att fördelningen lyckas eftersom distributionerna kan spridas över flera kluster. 
 
 ## <a name="background-information"></a>Bakgrunds information
 ### <a name="how-allocation-works"></a>Så här fungerar allokering
@@ -104,5 +105,3 @@ Servrarna i Azure-datacenter partitioneras i kluster. Normalt utförs en begära
 När en tilldelnings förfrågan fästs i ett kluster, finns det en högre chans att det inte går att hitta kostnads fria resurser eftersom den tillgängliga resurspoolen är mindre. Om din tilldelnings förfrågan fästs i ett kluster, men den typ av resurs som du har begärt inte stöds av det klustret, kommer begäran att Miss Miss förväntas även om klustret har kostnads fria resurser. Följande diagram 3 visar det fall där en fäst allokering Miss lyckas eftersom det enda kandidat klustret inte har några lediga resurser. Diagram 4 visar det fall där en fäst allokering Miss lyckas eftersom det enda kandidat klustret inte stöder den begärda virtuella dator storleken, även om klustret har kostnads fria resurser.
 
 ![Det har fästs ett allokeringsfel](./media/virtual-machines-common-allocation-failure/Allocation2.png)
-
-

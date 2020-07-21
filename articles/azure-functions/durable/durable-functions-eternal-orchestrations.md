@@ -3,14 +3,14 @@ title: Eternal-dirigering i Durable Functions – Azure
 description: Lär dig hur du implementerar Eternal-dirigering med hjälp av Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34c70f4305ebb2c45757d982ab558aea6450003f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478818"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506374"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal-dirigeringar i Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ Som förklaras i avsnittet om [Orchestration-historik](durable-functions-orchest
 
 ## <a name="resetting-and-restarting"></a>Återställa och starta om
 
-I stället för att använda oändliga slingor återställs deras tillstånd genom att anropa `ContinueAsNew` metoden (.net) eller `continueAsNew` (Java Script) i [bindningen för Dirigerings utlösaren](durable-functions-bindings.md#orchestration-trigger). Den här metoden tar en enda JSON-serialiserbar parameter, som blir den nya ingången för nästa generations funktion i Orchestrator.
+I stället för att använda oändliga loopar kan Orchestrator-funktioner återställa sitt tillstånd genom att anropa `ContinueAsNew` metoden (.net), `continueAsNew` (Java Script) eller `continue_as_new` (python) i [bindningen för Orchestration-utlösaren](durable-functions-bindings.md#orchestration-trigger). Den här metoden tar en enda JSON-serialiserbar parameter, som blir den nya ingången för nästa generations funktion i Orchestrator.
 
 När `ContinueAsNew` anropas, kommer instansen att köa ett meddelande innan det avslutas. Meddelandet startar om instansen med det nya indatavärdet. Samma instans-ID behålls, men Orchestrator-funktionens historik trunkeras effektivt.
 
@@ -70,13 +70,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("DoCleanup")
+
+    # sleep for one hour between cleanups
+    next_cleanup = context.current_utc_datetime + timedelta(hours = 1)
+    yield context.create_timer(next_cleanup)
+
+    context.continue_as_new(None)
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 Skillnaden mellan det här exemplet och en timer-utlöst funktion är att rensnings utlösare här inte baseras på ett schema. Ett CRON-schema som kör en funktion varje timme kommer till exempel att köra den på 1:00, 2:00, 3:00 osv. och kan eventuellt leda till överlappande problem. I det här exemplet, men om rensningen tar 30 minuter, kommer den att schemaläggas till 1:00, 2:30, 4:00 osv. det finns ingen risk för överlappande.
 
 ## <a name="starting-an-eternal-orchestration"></a>Starta en Eternal-dirigering
 
-Använd `StartNewAsync` metoden (.net) eller `startNew` (Java Script) för att starta en Eternal-dirigering, precis som med andra Orchestration-funktioner.  
+Använd `StartNewAsync` metoden (.net), `startNew` (Java Script), `start_new` (python) för att starta en Eternal-dirigering, precis som med andra Orchestration-funktioner.  
 
 > [!NOTE]
 > Om du behöver se till att en singleton-Eternal-dirigering körs är det viktigt att du underhåller samma instans `id` när du startar dirigeringen. Mer information finns i [instans hantering](durable-functions-instance-management.md).
@@ -115,6 +134,19 @@ module.exports = async function (context, req) {
     return client.createCheckStatusResponse(context.bindingData.req, instanceId);
 };
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = 'StaticId'
+
+    await client.start_new('Periodic_Cleanup_Loop', instance_id, None)
+
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+    return client.create_check_status_response(req, instance_id)
+
+```
 
 ---
 
@@ -122,7 +154,7 @@ module.exports = async function (context, req) {
 
 Om en Orchestrator-funktion behöver slutföras måste du *inte* anropa `ContinueAsNew` och låta funktionen avslutas.
 
-Om en Orchestrator-funktion finns i en oändlig slinga och måste stoppas, använder du `TerminateAsync` (.net) eller `terminate` (Java Script) metoden för [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) för att stoppa den. Mer information finns i [instans hantering](durable-functions-instance-management.md).
+Om en Orchestrator-funktion finns i en oändlig slinga och måste stoppas, använder du `TerminateAsync` metoden (.net), `terminate` (Java Script) eller `terminate` (python) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) för att stoppa den. Mer information finns i [instans hantering](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

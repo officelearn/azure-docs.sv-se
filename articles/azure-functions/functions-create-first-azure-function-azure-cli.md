@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 671404b952156ff6ad20eaf082d7af33058923a3
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100017"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506357"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -40,7 +40,7 @@ Det finns också en [Visual Studio Code-baserad version](functions-create-first-
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Om maven inte är ditt fördelaktiga utvecklingsverktyg kan du ta en titt på våra liknande själv studie kurser för Java-utvecklare som använder [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ-idén](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Om maven inte är ditt fördelaktiga utvecklingsverktyg kan du ta en titt på våra liknande själv studie kurser för Java-utvecklare som använder [Gradle](./functions-create-first-java-gradle.md), [IntelliJ-idén](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och [Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -101,7 +101,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 Maven ber dig om värden som behövs för att slutföra genereringen av projektet vid distribution.   
 Ange följande värden när du uppmanas till det:
 
-| Uppmaning | Värde | Beskrivning |
+| Prompt | Värde | Beskrivning |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Ett värde som unikt identifierar ditt projekt i alla projekt, efter [paket namngivnings regler](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) för Java. |
 | **artifactId** | `fabrikam-functions` | Ett värde som är jar-namn, utan versions nummer. |
@@ -139,7 +139,7 @@ Om du vill kan du hoppa över att [köra funktionen lokalt](#run-the-function-lo
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-Returvärdet är en [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) som returnerar ett svarsmeddelande som antingen en [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) eller en [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp).
+Returvärdet är en [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) som returnerar ett svarsmeddelande som antingen en [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) eller en [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Läs mer i [Azure Functions HTTP-utlösare och bindningar](./functions-bindings-http-webhook.md?tabs=csharp).
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -169,7 +169,7 @@ Archetype genererar också ett enhets test för din funktion. När du ändrar di
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. `req`är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *function.jspå*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
+För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. `req`är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *function.jspå*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -179,7 +179,7 @@ För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` en
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. Returvärdet, som definieras som `$return` i *function.jspå*, är svaret. Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
+För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. Returvärdet, som definieras som `$return` i *function.jspå*, är svaret. Läs mer i [Azure Functions HTTP-utlösare och bindningar](./functions-bindings-http-webhook.md?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"

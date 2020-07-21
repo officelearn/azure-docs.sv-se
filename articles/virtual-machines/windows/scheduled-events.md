@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
-ms.openlocfilehash: 20e7e0dd7df469aa797100bd9d2df3cd6d633dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 213d9fe2db148c6260a1271c3c2b22978b98a8f3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260907"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508210"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -39,7 +39,7 @@ Med Schemalagda händelser kan ditt program identifiera när underhåll sker och
 
 Schemalagda händelser innehåller händelser i följande användnings fall:
 
-- [Plattform initierat underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (till exempel VM-omstart, direktmigrering eller minnes konserverings uppdateringar för värd)
+- [Plattform initierat underhåll](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (till exempel VM-omstart, direktmigrering eller minnes konserverings uppdateringar för värd)
 - Den virtuella datorn körs på en [degraderad värd maskin vara](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) som förväntas sluta att fungera snart
 - Underhåll av användaren (till exempel när en användare startar om eller distribuerar om en virtuell dator)
 - Borttagning av instans av [virtuella datorer](spot-vms.md) och [dekor skalnings uppsättningar](../../virtual-machine-scale-sets/use-spot.md) .
@@ -96,7 +96,7 @@ Om du startar om en virtuell dator är en händelse med typen `Reboot` schemalag
 
 ## <a name="use-the-api"></a>Använda API:et
 
-### <a name="headers"></a>Rubriker
+### <a name="headers"></a>Sidhuvuden
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte oavsiktligt omdirigeras. `Metadata:true`Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran resulterar det i en "felaktig begäran"-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
@@ -145,10 +145,10 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 |Typ  | Minsta meddelande |
 | - | - |
 | Tina| 15 minuter |
-| Starta om | 15 minuter |
+| Starta om datorn | 15 minuter |
 | Omdistribuera | 10 minuter |
 | Utfärdas | 30 sekunder |
-| Avsluta | [Användaren kan konfigureras](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 till 15 minuter |
+| Terminate | [Användaren kan konfigureras](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 till 15 minuter |
 
 > [!NOTE] 
 > I vissa fall kan Azure förutsäga värd felen på grund av försämrad maskin vara och försöka undvika avbrott i tjänsten genom att schemalägga en migrering. Berörda virtuella datorer får en schemalagd händelse med en `NotBefore` som vanligt vis är några dagar i framtiden. Den faktiska tiden varierar beroende på riskbedömningen för förutsägande problem. Azure försöker ge 7 dagars varsel när så är möjligt, men den faktiska tiden varierar och kan vara mindre om förutsägelsen är att det finns en hög chans att maskin varan slutar fungera på ett överhäng. För att minimera risken för din tjänst om maskin varan Miss lyckas innan den systeminitierade migreringen, rekommenderar vi att du distribuerar den virtuella datorn på egen plats så snart som möjligt.
@@ -187,7 +187,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -231,4 +231,4 @@ if __name__ == '__main__':
 - Titta på [schemalagda händelser på Azure fredagen](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) för att se en demonstration. 
 - Granska Schemalagda händelser kod exempel i [Azure instance Metadata schemalagda händelser GitHub-lagringsplatsen](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Läs mer om de API: er som är tillgängliga i [instance metadata service](instance-metadata-service.md).
-- Lär dig mer om [planerat underhåll för virtuella Windows-datorer i Azure](planned-maintenance.md).
+- Lär dig mer om [planerat underhåll för virtuella Windows-datorer i Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json).

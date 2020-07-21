@@ -10,11 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289806"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507887"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Omvärdering av stordator på Azure Virtual Machines
 
@@ -69,11 +70,11 @@ Så här kommer du igång:
 
 IBM DB2 pureScale-miljön tillhandahåller ett databas kluster för Azure. Den är inte identisk med den ursprungliga miljön, men den ger liknande tillgänglighet och skalning som IBM DB2 för z/OS som körs i en parallell Sysplex-installation.
 
-För att komma igång, se [IBM DB2 pureScale på Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
+För att komma igång, se [IBM DB2 pureScale på Azure](../../linux/ibm-db2-purescale-azure.md).
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
-När du migrerar stordator belastningar till Azure Infrastructure as a Service (IaaS) kan du välja mellan flera olika typer av skalbara dator resurser på begäran, inklusive virtuella Azure-datorer. Azure erbjuder en rad virtuella [Linux](/azure/virtual-machines/linux/overview) -och [Windows](/azure/virtual-machines/windows/overview) -datorer.
+När du migrerar stordator belastningar till Azure Infrastructure as a Service (IaaS) kan du välja mellan flera olika typer av skalbara dator resurser på begäran, inklusive virtuella Azure-datorer. Azure erbjuder en rad virtuella [Linux](../../linux/overview.md) -och [Windows](../../windows/overview.md) -datorer.
 
 ### <a name="compute"></a>Compute
 
@@ -85,21 +86,21 @@ Lär dig hur du [flyttar stordator beräkning till Azure](./concepts/mainframe-c
 
 Azure erbjuder utfästelsebaserade service nivå avtal (service avtal). Multiple-nio tillgänglighet är standard, och service avtal kan optimeras med lokal eller geo-baserad replikering av tjänster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
-Med Azure IaaS, till exempel en virtuell dator, ger vissa systemfunktioner stöd för redundans, till exempel instanser av redundanskluster och tillgänglighets uppsättningar. När du använder Azure Platform as a Service (PaaS)-resurser hanterar plattformen redundans automatiskt. Exempel på detta är [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) och [Azure Cosmos DB](/azure/cosmos-db/introduction).
+Med Azure IaaS, till exempel en virtuell dator, ger vissa systemfunktioner stöd för redundans, till exempel instanser av redundanskluster och tillgänglighets uppsättningar. När du använder Azure Platform as a Service (PaaS)-resurser hanterar plattformen redundans automatiskt. Exempel på detta är [Azure SQL Database](../../../azure-sql/database/sql-database-paas-overview.md) och [Azure Cosmos DB](../../../cosmos-db/introduction.md).
 
 ### <a name="scalability"></a>Skalbarhet
 
-Stordatorer skalar vanligt vis upp, medan moln miljöerna skalas ut. Azure erbjuder ett utbud av [Linux](/azure/virtual-machines/linux/sizes) -och [Windows](/azure/virtual-machines/windows/sizes) -storlekar för att uppfylla dina behov. Molnet kan också skalas upp eller ned för att matcha exakta specifikationer för användare. Beräkning [av strömförsörjning](/azure/architecture/best-practices/auto-scaling) , lagring och tjänster på begäran under en användnings-baserad fakturerings modell.
+Stordatorer skalar vanligt vis upp, medan moln miljöerna skalas ut. Azure erbjuder ett utbud av [Linux](../../linux/sizes.md) -och [Windows](../../windows/sizes.md) -storlekar för att uppfylla dina behov. Molnet kan också skalas upp eller ned för att matcha exakta specifikationer för användare. Beräkning [av strömförsörjning](/azure/architecture/best-practices/auto-scaling) , lagring och tjänster på begäran under en användnings-baserad fakturerings modell.
 
 ### <a name="storage"></a>Storage
 
-I molnet har du ett intervall med flexibla, skalbara lagrings alternativ och du betalar bara för det du behöver. [Azure Storage](/azure/storage/common/storage-introduction) erbjuder en massivt skalbar objekt lagring för data objekt, en fil system tjänst för molnet, ett Reliable Messaging Store och ett NoSQL-lager. För virtuella datorer, hanterade och ohanterade diskar finns beständiga, säkra disk lagring.
+I molnet har du ett intervall med flexibla, skalbara lagrings alternativ och du betalar bara för det du behöver. [Azure Storage](../../../storage/common/storage-introduction.md) erbjuder en massivt skalbar objekt lagring för data objekt, en fil system tjänst för molnet, ett Reliable Messaging Store och ett NoSQL-lager. För virtuella datorer, hanterade och ohanterade diskar finns beständiga, säkra disk lagring.
 
 Lär dig hur du [flyttar stordator lagring till Azure](./concepts/mainframe-storage-azure.md).
 
 ### <a name="backup-and-recovery"></a>Säkerhetskopiering och återställning
 
-Att underhålla en egen katastrof återställnings webbplats kan vara ett kostsamt förslag. Azure har lättanvända och kostnads effektiva alternativ för [säkerhets kopiering](/azure/backup/backup-introduction-to-azure-backup), [återställning](/azure/site-recovery/site-recovery-overview)och [redundans](/azure/storage/common/storage-redundancy) på lokala eller regionala nivåer eller via GEO-redundans.
+Att underhålla en egen katastrof återställnings webbplats kan vara ett kostsamt förslag. Azure har lättanvända och kostnads effektiva alternativ för [säkerhets kopiering](../../../backup/backup-overview.md), [återställning](../../../site-recovery/site-recovery-overview.md)och [redundans](../../../storage/common/storage-redundancy.md) på lokala eller regionala nivåer eller via GEO-redundans.
 
 ## <a name="azure-government-for-mainframe-migrations"></a>Azure Government för stordator-migreringar
 
@@ -117,7 +118,7 @@ Se även:
 
 - [Fakta blad om stordator ämnen](mainframe-white-papers.md)
 - [Stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Felsökning](/azure/virtual-machines/troubleshooting/)
+- [Felsökning](../../troubleshooting/index.yml)
 - [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

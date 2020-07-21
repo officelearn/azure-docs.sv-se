@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631784"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505745"
 ---
-# <a name="azure-monitor-log-queries"></a>Azure Monitor logg frågor
+# <a name="azure-monitor-log-queries"></a>Azure Monitor-loggfrågor
 
 Azure Monitor loggar bygger på Azure Datautforskaren och Azure Monitor logg frågor använder en version av samma Kusto. [Dokumentationen för Kusto-frågespråket](/azure/kusto/query) innehåller all information om språket och bör vara din primära resurs för att skriva Azure Monitor logg frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och om skillnader med Azure Monitor implementering av språket.
 
@@ -27,7 +27,7 @@ Azure Monitor loggar bygger på Azure Datautforskaren och Azure Monitor logg fr�
 ## <a name="concepts"></a>Begrepp
 
 - [Analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ger en kort översikt över logg frågor och beskriver hur Azure Monitor loggdata struktureras.
-- Om du [visar och analyserar loggdata i Azure Monitor](../../azure-monitor/log-query/portals.md) beskrivs de portaler där du skapar och kör logg frågor.
+- Om du [visar och analyserar loggdata i Azure Monitor](./log-query-overview.md) beskrivs de portaler där du skapar och kör logg frågor.
 
 ## <a name="reference"></a>Referens
 

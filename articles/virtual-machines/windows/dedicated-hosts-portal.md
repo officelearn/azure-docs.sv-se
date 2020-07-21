@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 53a9cd33f7bd2223be1c9f199b7a6d10d876c322
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 444f7cd7094a688c43d9aedce67d293e3c32e273
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082942"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508567"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen
 
@@ -42,7 +42,7 @@ Du kan lägga till en befintlig virtuell dator till en dedikerad värd, men den 
 
 - Storleken på den virtuella datorn måste vara i samma storleks familj som den dedikerade värden. Om din dedikerade värd till exempel är DSv3, kan storleken på den virtuella datorn vara Standard_D4s_v3, men det gick inte att Standard_A4_v2. 
 - Den virtuella datorn måste finnas i samma region som den dedikerade värden.
-- Den virtuella datorn kan inte ingå i en närhets placerings grupp. Ta bort den virtuella datorn från närhets placerings gruppen innan du flyttar den till en dedikerad värd. Mer information finns i [flytta en virtuell dator från en närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- Den virtuella datorn kan inte ingå i en närhets placerings grupp. Ta bort den virtuella datorn från närhets placerings gruppen innan du flyttar den till en dedikerad värd. Mer information finns i [flytta en virtuell dator från en närhets placerings grupp](./proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - Den virtuella datorn får inte finnas i en tillgänglighets uppsättning.
 - Om den virtuella datorn finns i en tillgänglighets zon måste den vara samma tillgänglighets zon som värd gruppen. Inställningarna för tillgänglighets zonen för den virtuella datorn och värd gruppen måste matcha.
 

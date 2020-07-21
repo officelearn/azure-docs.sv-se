@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250238"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506561"
 ---
 # <a name="how-an-application-gateway-works"></a>Så här fungerar en Application Gateway
 
@@ -62,7 +62,7 @@ En Programgateway infogar fyra ytterligare huvuden för alla begär Anden innan 
 
 Giltiga värden för x-forwarded-proto är HTTP eller HTTPS. X-vidarebefordrad Port anger den port där begäran har nått Application Gateway. X-ursprunglig-värd huvud innehåller det ursprungliga värd huvudet som begäran anlänt till. Den här rubriken är användbar i Azures webbplats integrering, där den inkommande värd rubriken ändras innan trafik dirigeras till Server delen. Om session tillhörighet är aktiverat som ett alternativ lägger den till en Gateway-hanterad tillhörighets-cookie.
 
-Du kan konfigurera Application Gateway för att ändra huvuden med hjälp av [omskrivning av HTTP-huvuden](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) eller ändra URI-sökvägen med hjälp av en sökväg – åsidosättande inställning. Men om det inte har kon figurer ATS att göra det, är alla inkommande begär Anden proxy till Server delen.
+Du kan konfigurera Application Gateway för att ändra begär ande-och svarshuvuden och URL: er med hjälp av [Skriv-HTTP-huvuden och URL](rewrite-http-headers-url.md) eller ändra URI-sökvägen med hjälp av en sökväg – åsidosättande inställning. Men om det inte har kon figurer ATS att göra det, är alla inkommande begär Anden proxy till Server delen.
 
 ## <a name="next-steps"></a>Nästa steg
 

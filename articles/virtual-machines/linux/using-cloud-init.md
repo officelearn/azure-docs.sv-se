@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: bebf4967d96177038aba64be59d43f49458b82be
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e303b713adf2925af8bc012a5b858c6f5740fccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920185"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510080"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-konfigurationer körs vid första start när resurserna har etablerats av Azure.  
 
 VM-etablering är den process där Azure ska passera din virtuella dator skapa parameter värden, till exempel värdnamn, användar namn, lösen ord osv., och göra dem tillgängliga för den virtuella datorn när den startas. En etablerings agent kommer att använda dessa värden, konfigurera den virtuella datorn och rapportera tillbaka när åtgärden har slutförts. 
 
-Azure har stöd för två etablerings agenter [Cloud-Init](https://cloudinit.readthedocs.io)och [Azure Linux-agenten (Wala)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
+Azure har stöd för två etablerings agenter [Cloud-Init](https://cloudinit.readthedocs.io)och [Azure Linux-agenten (Wala)](../extensions/agent-linux.md).
 
 ## <a name="cloud-init-overview"></a>Översikt över Cloud-Init
 [Cloud-Init](https://cloudinit.readthedocs.io) är en metod som används ofta för att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom Cloud-Init anropas under den första start processen finns det inga ytterligare steg eller nödvändiga agenter för att tillämpa konfigurationen.  Mer information om hur du formaterar `#cloud-config` filer eller andra indata på rätt sätt finns på [webbplatsen för Cloud-Init-dokumentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`filer är textfiler kodade i base64.
@@ -45,13 +45,13 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 ### <a name="rhel"></a>RHEL
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |ja | Ja-support från paket version: *18.2-1. el7_6.2*|
+|RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | Ja-support från paket version: *18.2-1. el7_6.2*|
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 september 2020) | E.t. |
-|RedHat 7,7 (gen1)|RHEL |7,7 | 7.7.2020051912 | ja | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | ja | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (gen1)|RHEL |7-LVM | 7.7.2020051921 | ja | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (Gen2)|RHEL | 7lvm – Gen2 | 7.7.2020051922  | ja | Ja-support från paket version: *18.5 -6. el7*|
-|RedHat 7,7 (gen1) |RHEL – BYOS | RHEL – lvm77 | 7.7.20200416 | ja  | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (gen1)|RHEL |7,7 | 7.7.2020051912 | yes | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | yes | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (gen1)|RHEL |7-LVM | 7.7.2020051921 | yes | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (Gen2)|RHEL | 7lvm – Gen2 | 7.7.2020051922  | yes | Ja-support från paket version: *18.5 -6. el7*|
+|RedHat 7,7 (gen1) |RHEL – BYOS | RHEL – lvm77 | 7.7.20200416 | yes  | Ja-support från paket version: *18.5 -6. el7*|
 |RedHat 8,1 (gen1) |RHEL |8,1 – CI |8.1.2020042511 | Ja (Obs! det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020|
 |RedHat 8,1 (Gen2) |RHEL |81 – CI-Gen2 |8.1.2020042524 | Ja (Obs! det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020 |
 
@@ -62,14 +62,14 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Obs! det här är en förhands gransknings bild och **får** inte användas längre. Detta kommer att tas bort 1 september 2020) | E.t. |
-|OpenLogic 7,7 |CentOS | 7,7 |7.7.2020062400 |ja | Ja-support från paket version:`18.5-6.el7.centos.5`|
-|OpenLogic 7,7 (Gen2) |CentOS | 7_7 – Gen2 |7.7.2020062401 |ja | Ja-support från paket version:`18.5-6.el7.centos.5`|
-|OpenLogic 7,7 |CentOS – HPC | 7,7 |7.6.2020062600 |ja | Ja-support från paket version:`18.5-6.el7.centos.5`|
-|OpenLogic 7,7 (Gen2) |CentOS – HPC | 7_7 – Gen2 |7.6.2020062601 |ja | Ja-support från paket version:`18.5-6.el7.centos.5`|
-|OpenLogic 8,1 |CentOS | 8_1 |8.1.2020062400 |ja | Ja-support från paket version:`18.5-7.el8_1.1`|
-|OpenLogic 8,1 (Gen2) |CentOS | 8_1 – Gen2 |8.1.2020062401 |ja | Ja-support från paket version:`18.5-7.el8_1.1`|
-|OpenLogic 8,1 |CentOS – HPC | 8_1 |8.1.2020062400 |ja | Ja-support från paket version:`18.5-7.el8_1.1`|
-|OpenLogic 8,1 (Gen2) |CentOS-HPC: 8_1-Gen2 | 8_1 – Gen2 |8.1.2020062401 |ja | Ja-support från paket version:`18.5-7.el8_1.1`|
+|OpenLogic 7,7 |CentOS | 7,7 |7.7.2020062400 |yes | Ja-support från paket version:`18.5-6.el7.centos.5`|
+|OpenLogic 7,7 (Gen2) |CentOS | 7_7 – Gen2 |7.7.2020062401 |yes | Ja-support från paket version:`18.5-6.el7.centos.5`|
+|OpenLogic 7,7 |CentOS – HPC | 7,7 |7.6.2020062600 |yes | Ja-support från paket version:`18.5-6.el7.centos.5`|
+|OpenLogic 7,7 (Gen2) |CentOS – HPC | 7_7 – Gen2 |7.6.2020062601 |yes | Ja-support från paket version:`18.5-6.el7.centos.5`|
+|OpenLogic 8,1 |CentOS | 8_1 |8.1.2020062400 |yes | Ja-support från paket version:`18.5-7.el8_1.1`|
+|OpenLogic 8,1 (Gen2) |CentOS | 8_1 – Gen2 |8.1.2020062401 |yes | Ja-support från paket version:`18.5-7.el8_1.1`|
+|OpenLogic 8,1 |CentOS – HPC | 8_1 |8.1.2020062400 |yes | Ja-support från paket version:`18.5-7.el8_1.1`|
+|OpenLogic 8,1 (Gen2) |CentOS-HPC: 8_1-Gen2 | 8_1 – Gen2 |8.1.2020062401 |yes | Ja-support från paket version:`18.5-7.el8_1.1`|
 
 * Alla OpenLogic: CentOS 7,8-och 8,2-avbildningar (gen1 och Gen2) tillhandahålls med Cloud-init.
 
@@ -106,7 +106,7 @@ Dessa SLES-avbildningar har uppdaterats för att etableras med Cloud-Init, men G
 För närvarande har Azure Stack stöd för etablering av moln-init-aktiverade avbildningar.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Vad är skillnaden mellan Cloud-Init och Linux-agenten (WALA)?
-WALA är en Azure Platform-Specific-agent som används för att etablera och konfigurera virtuella datorer och hantera [Azure-tillägg](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux). 
+WALA är en Azure Platform-Specific-agent som används för att etablera och konfigurera virtuella datorer och hantera [Azure-tillägg](../extensions/features-linux.md). 
 
 Vi förbättrar konfigurationen av virtuella datorer så att de använder Cloud-Init i stället för Linux-agenten för att tillåta att befintliga Cloud-Init-kunder använder sina aktuella moln-init-skript eller nya kunder för att dra nytta av de omfattande konfigurations funktionerna för moln initiering. Om du har befintliga investeringar i Cloud-Init-skript för att konfigurera Linux-system finns det **inga ytterligare inställningar som krävs** för att aktivera Cloud-Init-processen. 
 

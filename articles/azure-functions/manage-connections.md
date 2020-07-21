@@ -3,18 +3,18 @@ title: Hantera anslutningar i Azure Functions
 description: Lär dig att undvika prestanda problem i Azure Functions genom att använda statiska anslutnings klienter.
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ab59d82ad4b11e4ac5179ef727392a83bb263e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846763"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506000"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Hantera anslutningar i Azure Functions
 
 Funktioner i en Function-app delar resurser. Bland de delade resurserna är anslutningar: HTTP-anslutningar, databas anslutningar och anslutningar till tjänster som Azure Storage. När många funktioner körs samtidigt är det möjligt att köra slut på tillgängliga anslutningar. Den här artikeln förklarar hur du kan koda dina funktioner för att undvika att använda fler anslutningar än de behöver.
 
-## <a name="connection-limit"></a>Anslutnings gräns
+## <a name="connection-limit"></a>Anslutningsgräns
 
 Antalet tillgängliga anslutningar är begränsat delvis eftersom en Function-App körs i en [sandbox-miljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som används i den begränsade koden är en gräns för antalet utgående anslutningar, som för närvarande är 600 aktiva (totalt 1 200) anslutningar per instans. När du når den här gränsen skriver funktions körningen följande meddelande till loggarna: `Host thresholds exceeded: Connections` . Mer information finns i [funktions tjänst begränsningarna](functions-scale.md#service-limits).
 
@@ -24,8 +24,7 @@ Kontrol lera att du har aktiverat Application Insights för din Function-app vid
 
 ## <a name="static-clients"></a>Statiska klienter
 
-För att undvika att rymma fler anslutningar än nödvändigt kan du återanvända klient instanser i stället för att skapa nya med varje funktions anrop. Vi rekommenderar att du använder klient anslutningar för alla språk som du kan skriva din funktion i. Till exempel kan .NET-klienter som [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-)och Azure Storage klienter hantera anslutningar om du använder en enda statisk klient.
+För att undvika att rymma fler anslutningar än nödvändigt kan du återanvända klient instanser i stället för att skapa nya med varje funktions anrop. Vi rekommenderar att du använder klient anslutningar för alla språk som du kan skriva din funktion i. Till exempel kan .NET-klienter som [httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1), [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)och Azure Storage klienter hantera anslutningar om du använder en enda statisk klient.
 
 Här följer några rikt linjer som du följer när du använder en tjänst specifik klient i ett Azure Functions program:
 
@@ -39,7 +38,7 @@ Det här avsnittet visar metod tips för att skapa och använda klienter från d
 
 ### <a name="httpclient-example-c"></a>HttpClient-exempel (C#)
 
-Här är ett exempel på en C#-funktions kod som skapar en statisk [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) -instans:
+Här är ett exempel på en C#-funktions kod som skapar en statisk [httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) -instans:
 
 ```cs
 // Create a single, static HttpClient
@@ -52,7 +51,7 @@ public static async Task Run(string input)
 }
 ```
 
-En vanlig fråga om [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) i .net är "vill jag ta bort min klient?" I allmänhet tar du bort objekt som implementeras `IDisposable` när du är klar med dem. Men du tar inte bort en statisk klient eftersom du inte är färdig med den när funktionen avslutas. Du vill att den statiska klienten ska vara i drift för programmets varaktighet.
+En vanlig fråga om [httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) i .net är "vill jag ta bort min klient?" I allmänhet tar du bort objekt som implementeras `IDisposable` när du är klar med dem. Men du tar inte bort en statisk klient eftersom du inte är färdig med den när funktionen avslutas. Du vill att den statiska klienten ska vara i drift för programmets varaktighet.
 
 ### <a name="http-agent-examples-javascript"></a>Exempel på HTTP-agent (Java Script)
 
@@ -76,8 +75,7 @@ http.request(options, onResponseCallback);
 
 ### <a name="documentclient-code-example-c"></a>DocumentClient kod exempel (C#)
 
-[DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en singleton-Azure Cosmos DB-klient för programmets livs längd](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). I följande exempel visas ett mönster för att göra det i en funktion:
+[DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en singleton-Azure Cosmos DB-klient för programmets livs längd](../cosmos-db/performance-tips.md#sdk-usage). I följande exempel visas ett mönster för att göra det i en funktion:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -126,14 +124,13 @@ module.exports = async function (context) {
 
 ## <a name="sqlclient-connections"></a>SqlClient-anslutningar
 
-Funktions koden kan använda .NET Framework Data Provider för SQL Server ([SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)) för att upprätta anslutningar till en SQL Relations databas. Detta är även den underliggande providern för data ramverk som förlitar sig på ADO.NET, t. ex. [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Till skillnad från [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) -och [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) -anslutningar implementerar ADO.net anslutningspoolen som standard. Men eftersom du fortfarande kan ta slut på anslutningar bör du optimera anslutningar till databasen. Mer information finns i [SQL Server anslutningspoolen (ADO.net)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
+Funktions koden kan använda .NET Framework Data Provider för SQL Server ([SqlClient](/dotnet/api/system.data.sqlclient?view=dotnet-plat-ext-3.1)) för att upprätta anslutningar till en SQL Relations databas. Detta är även den underliggande providern för data ramverk som förlitar sig på ADO.NET, t. ex. [Entity Framework](/ef/ef6/). Till skillnad från [httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) -och [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) -anslutningar implementerar ADO.net anslutningspoolen som standard. Men eftersom du fortfarande kan ta slut på anslutningar bör du optimera anslutningar till databasen. Mer information finns i [SQL Server anslutningspoolen (ADO.net)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Vissa data ramverk, till exempel Entity Framework, hämtar vanligt vis anslutnings strängar från avsnittet **connectionStrings** i en konfigurations fil. I det här fallet måste du uttryckligen lägga till anslutnings strängar för SQL Database i samlingen **anslutnings strängar** för dina funktioner och i [local.settings.jspå filen](functions-run-local.md#local-settings-file) i det lokala projektet. Om du skapar en instans av [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i funktions koden bör du lagra värdet för anslutnings strängen i **program inställningarna** med dina andra anslutningar.
+> Vissa data ramverk, till exempel Entity Framework, hämtar vanligt vis anslutnings strängar från avsnittet **connectionStrings** i en konfigurations fil. I det här fallet måste du uttryckligen lägga till anslutnings strängar för SQL Database i samlingen **anslutnings strängar** för dina funktioner och i [local.settings.jspå filen](functions-run-local.md#local-settings-file) i det lokala projektet. Om du skapar en instans av [SQLConnection](/dotnet/api/system.data.sqlclient.sqlconnection?view=dotnet-plat-ext-3.1) i funktions koden bör du lagra värdet för anslutnings strängen i **program inställningarna** med dina andra anslutningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För ytterligare information om varför vi rekommenderar statiska klienter, se [felaktigt mönster för instansiering](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
+För ytterligare information om varför vi rekommenderar statiska klienter, se [felaktigt mönster för instansiering](/azure/architecture/antipatterns/improper-instantiation/).
 
 Mer Azure Functions prestanda tips finns i [optimera prestanda och tillförlitlighet för Azure Functions](functions-best-practices.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f5a414f00ffa50114f090fc19f37b8a85428547
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71057991"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509009"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Det går inte att fjärrans luta till en virtuell Windows 10-eller Windows Server 2016-dator i Azure på grund av netvsc.sys
 
@@ -69,7 +69,7 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
 
 ### <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline
 
-1. [Anslut system disken till en virtuell återställnings dator](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anslut system disken till en virtuell återställnings dator](./troubleshoot-recovery-disks-portal-windows.md).
 
 2. Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 
@@ -114,7 +114,7 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
     reg unload HKLM\BROKENSYSTEM
     ```
 
-16. [Koppla från system disken och skapa den virtuella datorn igen](../windows/troubleshoot-recovery-disks-portal.md).
+16. [Koppla från system disken och skapa den virtuella datorn igen](./troubleshoot-recovery-disks-portal-windows.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

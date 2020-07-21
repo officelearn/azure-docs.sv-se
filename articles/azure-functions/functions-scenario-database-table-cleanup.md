@@ -4,26 +4,26 @@ description: Använd Azure Functions för att schemalägga en aktivitet som ansl
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254284"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506086"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
-Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database eller en Azure SQL-hanterad instans. Funktions koden rensar rader i en tabell i databasen. Den nya C#-funktionen skapas baserat på en fördefinierad timer-mall i Visual Studio 2019. För att stödja det här scenariot måste du också ange en databas anslutnings sträng som en app-inställning i Function-appen. För Azure SQL-hanterad instans måste du [Aktivera den offentliga slut punkten](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) för att kunna ansluta från Azure Functions. I det här scenariot används en Mass åtgärd mot databasen. 
+Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database eller en Azure SQL-hanterad instans. Funktions koden rensar rader i en tabell i databasen. Den nya C#-funktionen skapas baserat på en fördefinierad timer-mall i Visual Studio 2019. För att stödja det här scenariot måste du också ange en databas anslutnings sträng som en app-inställning i Function-appen. För Azure SQL-hanterad instans måste du [Aktivera den offentliga slut punkten](../azure-sql/managed-instance/public-endpoint-configure.md) för att kunna ansluta från Azure Functions. I det här scenariot används en Mass åtgärd mot databasen. 
 
 Om det är första gången du arbetar med C#-funktioner bör du läsa [referens för Azure Functions C#-utvecklare](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Slutför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) för att skapa en lokal Function-app som är riktad mot version 2. x eller en senare version av körnings miljön. Du måste också ha publicerat projektet till en Function-app i Azure.
 
 + Den här artikeln visar ett Transact-SQL-kommando som kör en Mass rensnings åtgärd i **SalesOrderHeader** -tabellen i AdventureWorksLT-exempel databasen. Skapa AdventureWorksLT-exempel databasen genom att följa anvisningarna i artikeln [skapa en databas i Azure SQL Database med hjälp av Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Du måste lägga till en [brand Väggs regel på server nivå](../sql-database/sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen för den dator som du använder för den här snabb starten. Den här regeln krävs för att kunna komma åt SQL Database-instansen från den lokala datorn.  
++ Du måste lägga till en [brand Väggs regel på server nivå](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) för den offentliga IP-adressen för den dator som du använder för den här snabb starten. Den här regeln krävs för att kunna komma åt SQL Database-instansen från den lokala datorn.  
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 

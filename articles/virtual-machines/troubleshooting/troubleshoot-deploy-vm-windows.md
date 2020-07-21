@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 03804229221c2b1deb94f6c32a5be9defd304ff6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628290"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509144"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka problem med distribution av virtuella Windows-datorer i Azure
 
@@ -78,7 +78,7 @@ Mer information finns i följande resurser:
 
  - [Azure Hybrid Use Benefit för Windows Server och Windows-klienten](../windows/hybrid-use-benefit-licensing.md).
 
- - [Hur kan jag använda Hybrid Use-förmånen i Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
+ - [Hur kan jag använda Hybrid Use-förmånen i Azure](/archive/blogs/azureedu/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Hur gör jag för att aktivera min månads kredit för Visual Studio Enterprise (BizSpark)
 

@@ -7,11 +7,12 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 6173f2f60f5dd0b2b06c415bbf55ed31bacbe8b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b5d2e82b439454ff33a263af7710fe79f246893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658191"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508618"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Windows-dator från ohanterade till hanterade diskar
 
@@ -34,7 +35,7 @@ Om du har befintliga virtuella Windows-datorer som använder ohanterade diskar k
 ## <a name="convert-single-instance-vms"></a>Konvertera virtuella datorer med en instans
 Det här avsnittet beskriver hur du konverterar virtuella Azure-datorer med en instans från ohanterade diskar till hanterade diskar. (Om dina virtuella datorer finns i en tillgänglighets uppsättning, se nästa avsnitt.) 
 
-1. Frigör den virtuella datorn med hjälp av cmdleten [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . I följande exempel avallokeras den virtuella datorn `myVM` som heter i resurs gruppen med namnet `myResourceGroup` : 
+1. Frigör den virtuella datorn med hjälp av cmdleten [Stop-AzVM](/powershell/module/az.compute/stop-azvm) . I följande exempel avallokeras den virtuella datorn `myVM` som heter i resurs gruppen med namnet `myResourceGroup` : 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -42,7 +43,7 @@ Det här avsnittet beskriver hur du konverterar virtuella Azure-datorer med en i
    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
    ```
 
-2. Konvertera den virtuella datorn till Managed disks med hjälp av cmdleten [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) . Följande process konverterar den tidigare virtuella datorn, inklusive OS-disken och eventuella data diskar, och startar den virtuella datorn:
+2. Konvertera den virtuella datorn till Managed disks med hjälp av cmdleten [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk) . Följande process konverterar den tidigare virtuella datorn, inklusive OS-disken och eventuella data diskar, och startar den virtuella datorn:
 
    ```azurepowershell-interactive
    ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
@@ -54,7 +55,7 @@ Det här avsnittet beskriver hur du konverterar virtuella Azure-datorer med en i
 
 Om de virtuella datorerna som du vill konvertera till hanterade diskar finns i en tillgänglighets uppsättning måste du först konvertera tillgänglighets uppsättningen till en hanterad tillgänglighets uppsättning.
 
-1. Konvertera tillgänglighets uppsättningen med hjälp av cmdleten [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . I följande exempel uppdateras tillgänglighets uppsättningen `myAvailabilitySet` som heter i resurs gruppen med namnet `myResourceGroup` :
+1. Konvertera tillgänglighets uppsättningen med hjälp av cmdleten [Update-AzAvailabilitySet](/powershell/module/az.compute/update-azavailabilityset) . I följande exempel uppdateras tillgänglighets uppsättningen `myAvailabilitySet` som heter i resurs gruppen med namnet `myResourceGroup` :
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'
@@ -71,7 +72,7 @@ Om de virtuella datorerna som du vill konvertera till hanterade diskar finns i e
    Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
    ```
 
-2. Frigör och konvertera de virtuella datorerna i tillgänglighets uppsättningen. Följande skript frigör varje virtuell dator med hjälp av cmdleten [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) , konverterar den med hjälp av [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk)och startar om den automatiskt enligt konverterings processen:
+2. Frigör och konvertera de virtuella datorerna i tillgänglighets uppsättningen. Följande skript frigör varje virtuell dator med hjälp av cmdleten [Stop-AzVM](/powershell/module/az.compute/stop-azvm) , konverterar den med hjälp av [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk)och startar om den automatiskt enligt konverterings processen:
 
    ```azurepowershell-interactive
    $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -107,4 +108,3 @@ Den virtuella datorn kommer att stoppas och startas om när migreringen är klar
 [Konvertera standard Managed disks till Premium](convert-disk-storage.md)
 
 Ta en skrivskyddad kopia av en virtuell dator med hjälp av [ögonblicks bilder](snapshot-copy-managed-disk.md).
-

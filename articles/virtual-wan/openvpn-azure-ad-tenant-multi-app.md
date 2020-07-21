@@ -2,19 +2,19 @@
 title: 'Virtuellt WAN: Azure AD-klient för olika användar grupper: Azure AD-autentisering'
 description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: a1471226bcc22373904e65f95d0c07c2d5041f55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749839"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507700"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
+# <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient (AD) för P2S OpenVPN-protokoll anslutningar
 
 När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering eller RADIUS-autentisering. Men när du använder det öppna VPN-protokollet kan du också använda Azure Active Directory autentisering. Om du vill att en annan uppsättning användare ska kunna ansluta till olika gatewayer kan du registrera flera appar i AD och länka dem till olika gatewayer.
 
@@ -123,11 +123,11 @@ Använd den här [länken](https://go.microsoft.com/fwlink/?linkid=2117554) för
 
 1. Välj ellipsen (...) bredvid den klient profil som du vill ta bort. Välj sedan **ta bort**.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![ta bort](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Välj **ta bort** för att ta bort.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![ta bort](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Diagnostisera anslutnings problem
 

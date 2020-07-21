@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9374f83110176e6705e2c6cca6c7794738a8c6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78d4ffda62b98ca57a8204e6037f8ccd8c470924
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83848846"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508550"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer
 
@@ -133,11 +134,11 @@ Azure Backup tillhandahåller en mekanism för att säkerhetskopiera och återst
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag ställa frågor eller lämna feedback?
 
-Du kan ställa frågor eller lämna feedback på [sidan Microsoft Q&en fråga för Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
+Du kan ställa frågor eller lämna feedback på [sidan Microsoft Q&en fråga för Azure Disk Encryption](/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig mer om de vanligaste frågorna som rör Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
 
 - [Översikt av Azure Disk Encryption](disk-encryption-overview.md)
-- [Använd disk kryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure Data Encryption i vila](../../security/fundamentals/encryption-atrest.md)
+- [Använd disk kryptering i Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Azure-datakryptering i vila](../../security/fundamentals/encryption-atrest.md)

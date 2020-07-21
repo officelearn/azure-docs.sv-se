@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: fdf1e6cf15279a0ff5be4b45385a13a3b967d22e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44fbbbdb1c36f74a4131d4e5a82de6ef058381f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374635"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508763"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Skapa en virtuell dator med hjälp av en specialiserad avbildning 
 
 Skapa en virtuell dator från en specialiserad avbildnings version som lagras i ett delat avbildnings Galleri. Om du vill skapa en virtuell dator med en generaliserad avbildnings version, se [skapa en virtuell dator med en generaliserad avbildning](vm-generalized-image-version-powershell.md).
 
-När du har en specialiserad avbildnings version kan du skapa en eller flera nya virtuella datorer. Använda cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . 
+När du har en specialiserad avbildnings version kan du skapa en eller flera nya virtuella datorer. Använda cmdleten [New-AzVM](/powershell/module/az.compute/new-azvm) . 
 
 I det här exemplet använder vi bild Definitions-ID: t för att se till att den nya virtuella datorn kommer att använda den senaste versionen av en avbildning. Du kan också använda en speciell version med hjälp av avbildningens versions-ID för `Set-AzVMSourceImage -Id` . Om du till exempel vill använda bild versionen *1.0.0* typ: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 

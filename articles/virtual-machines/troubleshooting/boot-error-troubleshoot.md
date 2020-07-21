@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56ee4b9e541aa4b374acbb59cf64da34046a06c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769616"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509077"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Felsöka fel vid start av Azure Virtual Machines
 
@@ -35,5 +36,5 @@ Den här artikeln innehåller vanliga startfel som du kan få när du startar en
 ## <a name="next-steps"></a>Nästa steg
 
 - [Startdiagnostik](boot-diagnostics.md)
-- [Serie konsol för virtuell dator](../windows/serial-console.md)
-- [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks.md)
+- [Serie konsol för virtuell dator](./serial-console-windows.md)
+- [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-windows.md)

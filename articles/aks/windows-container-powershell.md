@@ -1,15 +1,15 @@
 ---
-title: Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS)
+title: Skapa en Windows Server-behållare i ett AKS-kluster med hjälp av PowerShell
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar ett program i en Windows Server-behållare i Azure Kubernetes service (AKS) med hjälp av PowerShell.
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf195c439a1a53d8a720505edae3c9b6d379d157
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250931"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507054"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med PowerShell
 
@@ -19,7 +19,7 @@ Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att d
 
 Den här artikeln förutsätter grundläggande kunskaper om Kubernetes-koncept. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -125,7 +125,7 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här artikeln används ett manifest för att skapa alla objekt som behövs för att köra ASP.NET-exempel programmet i en Windows Server-behållare. Det här manifestet innehåller en [Kubernetes-distribution][kubernetes-deployment] för exempel programmet ASP.net och en extern [Kubernetes-tjänst][kubernetes-service] för att komma åt programmet från Internet.
 

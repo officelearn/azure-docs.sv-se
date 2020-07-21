@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 886e6cf237df94c056ec7c592e0b535327339871
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243804"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507071"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -131,15 +131,15 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 | 1,17  | Dec-09-19  | 19 Jan   | Jul 20  | 1,20 GA | 
 | 1,18  | Mar – 23-20  | 20 maj   | Aug 20  | 1,21 GA | 
 | 1,19  | Aug – 04-20  | Aug 20   | 20 nov  | 1,22 GA | 
-| 1.20  | * Nov 20    | * Dec 21   | * Jan 21  | 1,23 GA | 
+| 1,20  | * Nov 20    | * Dec 20   | * Jan 21  | 1,23 GA | 
 
 \*Datum bekräftelse för väntande lansering av uppladdning.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Vad händer när en användare uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 
-Om du använder *n-3-* versionen eller äldre, innebär det att du inte har stöd för och att du kommer att bli ombedd att uppgradera. När uppgraderingen från version n-3 till n-2 lyckas, är du tillbaka i våra support principer. Exempel:
+Om du använder *n-3-* versionen eller äldre, innebär det att du inte har stöd för och att du kommer att bli ombedd att uppgradera. När uppgraderingen från version n-3 till n-2 lyckas, är du tillbaka i våra support principer. Till exempel:
 
 - Om den äldsta AKS-versionen som stöds är *1.15. a* och du är på *1.14. b* eller äldre är du utanför supporten.
 - När du har uppgraderat från *1.14. b* till *1.15. en* eller fler lyckas är du tillbaka i våra support principer.
@@ -181,4 +181,4 @@ Information om hur du uppgraderar klustret finns i [uppgradera ett Azure Kuberne
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

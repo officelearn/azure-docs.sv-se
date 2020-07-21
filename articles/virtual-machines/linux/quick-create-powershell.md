@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 397fac7609d9527165a1a0a35215a2e2bac23c6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759213"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510335"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure med PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera en virtuell Linux-dator (VM) i Azure. Den här snabbstarten använder Ubuntu 16.04 LTS Marketplace-avbildningen från Canonical. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -39,11 +39,11 @@ ssh-keygen -t rsa -b 2048
 
 Mer detaljerad information om hur du skapar SSH-nyckelpar, inklusive användning av PuTTy, finns i [Använd SSH-nycklar med Windows](ssh-from-windows.md).
 
-Om du skapar ditt SSH-nyckelpar med hjälp av Cloud Shell lagras det i en containeravbildning på ett [lagringskonto som skapas automatiskt av Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Ta inte bort lagringskontot, eller filerna på det, innan du har hämtat dina nycklar. Annars förlorar du åtkomsten till den virtuella datorn. 
+Om du skapar ditt SSH-nyckelpar med hjälp av Cloud Shell lagras det i en containeravbildning på ett [lagringskonto som skapas automatiskt av Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Ta inte bort lagringskontot, eller filerna på det, innan du har hämtat dina nycklar. Annars förlorar du åtkomsten till den virtuella datorn. 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras:
+Skapa en Azure-resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -111,7 +111,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Skapa ett virtuellt nätverkskort (NIC) med [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). Det virtuella nätverkskortet ansluter den virtuella datorn till ett undernät, en nätverkssäkerhetsgrupp och en offentlig IP-adress.
+Skapa ett virtuellt nätverkskort (NIC) med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). Det virtuella nätverkskortet ansluter den virtuella datorn till ett undernät, en nätverkssäkerhetsgrupp och en offentlig IP-adress.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
@@ -160,7 +160,7 @@ Add-AzVMSshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Kombinera de tidigare konfigurationsdefinitionerna för att skapa den virtuella datorn med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
+Kombinera de tidigare konfigurationsdefinitionerna för att skapa den virtuella datorn med [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -172,7 +172,7 @@ Det tar några minuter för den virtuella datorn att distribueras. När distribu
 
 ## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
-Skapa en SSH-anslutning med den virtuella datorn med hjälp av en offentlig IP-adress. Du hämtar den virtuella datorns offentliga IP-adress genom att köra cmdleten [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress):
+Skapa en SSH-anslutning med den virtuella datorn med hjälp av en offentlig IP-adress. Du hämtar den virtuella datorns offentliga IP-adress genom att köra cmdleten [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -207,7 +207,7 @@ Använd valfri webbläsare för att visa välkomstsidan för NGINX. Ange den vir
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs använder du cmdleten [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
+När de inte längre behövs använder du cmdleten [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"

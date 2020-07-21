@@ -12,13 +12,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dfc6da8dcf33f49ceb203b32e81033fd81fa329
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201401"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507496"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Konfigurera IPv6-slutpunkter i skript exempel för virtuella nätverk (för hands version)
+# <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Konfigurera IPv6-slutpunkter i virtuellt nätverk med Azure PowerShell skript exempel (för hands version)
 
 Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt stack-nätverk med dubbla stack-undernät, en belastningsutjämnare med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, dubbla regler för nätverks säkerhets grupper och dubbla offentliga IP-adresser.
 
@@ -26,7 +27,7 @@ Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershe
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du distribuerar ett program med dubbla stackar i Azure måste du konfigurera din prenumeration bara en gång för för hands versions funktionen med följande Azure PowerShell:
 
 Registrera på följande sätt:
@@ -249,7 +250,7 @@ Remove-AzResourceGroup -Name <resourcegroupname> -Force
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |

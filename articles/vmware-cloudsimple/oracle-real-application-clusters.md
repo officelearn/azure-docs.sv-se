@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793048"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507682"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimera ditt CloudSimple privata moln för att installera Oracle RAC
 
@@ -45,10 +46,10 @@ I följande exempel används diskarna som definierats i tabellen nedan.
 
 | Disk                                      | Syfte                                       | Delad disk |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Operativsystem                                        | Operativsystemdisk                         | No          |
-| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | No          |
-| DATABASE                                  | Installations plats för Oracle Database-programvara | No          |
-| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | No          |
+| Operativsystem                                        | Operativsystemdisk                         | Nej          |
+| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Nej          |
+| DATABASE                                  | Installations plats för Oracle Database-programvara | Nej          |
+| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Nej          |
 | DATA1, DATA2, DATA3, DATA4                | Disk där Oracle-databasfiler lagras   | Ja         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Gör om logg diskar                                | Ja         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | Röstnings diskar                                  | Ja         |
@@ -168,7 +169,7 @@ Följ den här processen om du vill distribuera ett vSphere-kluster i ditt priva
 
 Virtuellt SAN-principer definierar felen för att tolerera och diska randning för de data som lagras på de virtuella dator diskarna.  Den lagrings princip som skapas måste tillämpas på de virtuella dator diskarna när den virtuella datorn skapas.
 
-1. [Logga](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) in på vSphere-klienten för ditt privata moln.
+1. [Logga](./vcenter-access.md) in på vSphere-klienten för ditt privata moln.
 2. Välj **principer och profiler**på den översta menyn.
 3. På den vänstra menyn väljer du **lagrings principer för virtuella datorer** och väljer sedan **skapa en princip för VM-lagring**.
 4. Ange ett beskrivande namn för principen och klicka på **Nästa**.

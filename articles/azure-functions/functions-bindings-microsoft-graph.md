@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322523"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506544"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
 
@@ -58,7 +59,7 @@ Om du använder Visual Studio kan du hämta tilläggen genom [att installera NuG
 
 ### <a name="configuring-authentication--authorization"></a>Konfigurera autentisering/auktorisering
 
-De bindningar som beskrivs i den här artikeln kräver att en identitet används. Detta gör att Microsoft Graph kan genomdriva behörigheter och granska interaktioner. Identiteten kan vara en användare som har åtkomst till ditt program eller själva programmet. Konfigurera den här identiteten genom att konfigurera [App Service autentisering/auktorisering](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) med Azure Active Directory. Du måste också begära eventuella resurs behörigheter som dina funktioner kräver.
+De bindningar som beskrivs i den här artikeln kräver att en identitet används. Detta gör att Microsoft Graph kan genomdriva behörigheter och granska interaktioner. Identiteten kan vara en användare som har åtkomst till ditt program eller själva programmet. Konfigurera den här identiteten genom att konfigurera [App Service autentisering/auktorisering](../app-service/overview-authentication-authorization.md) med Azure Active Directory. Du måste också begära eventuella resurs behörigheter som dina funktioner kräver.
 
 > [!Note] 
 > Microsoft Graph-tillägget har endast stöd för Azure AD-autentisering. Användarna måste logga in med ett arbets-eller skol konto.
@@ -982,7 +983,7 @@ Med Webhooks kan du reagera på händelser i Microsoft Graph. För att stödja W
 - Med en [Microsoft Graph webhook-prenumeration med inbindning](#webhook-input) kan du Visa befintliga prenumerationer och eventuellt uppdatera dem.
 - Med en [Microsoft Graph webhook-prenumeration med utgående bindning](#webhook-output) kan du skapa eller ta bort webhook-prenumerationer.
 
-Själva bindningarna kräver inte några Azure AD-behörigheter, men du måste begära behörigheter som är relevanta för den resurs typ som du vill reagera på. En lista över vilka behörigheter som krävs för varje resurs typ finns i [prenumerations behörigheter](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
+Själva bindningarna kräver inte några Azure AD-behörigheter, men du måste begära behörigheter som är relevanta för den resurs typ som du vill reagera på. En lista över vilka behörigheter som krävs för varje resurs typ finns i [prenumerations behörigheter](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Mer information om Webhooks finns [i arbeta med Webhooks i Microsoft Graph].
 

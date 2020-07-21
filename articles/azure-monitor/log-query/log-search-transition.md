@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670142"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505813"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Över gång från Log Analytics loggs ökning till Azure Monitor loggar
 Loggs ökningen i Log Analytics ersattes nyligen med en ny upplevelse för analys av Azure Monitors loggar. Sidan för loggs ökning är för närvarande fortfarande tillgänglig via meny alternativet **loggar (klassisk)** på sidan **Log Analytics arbets ytor** i Azure Portal men kommer att tas bort 15 februari 2019. I den här artikeln beskrivs skillnaderna mellan de två upplevelserna som hjälper dig att övergå från loggs ökning. 
@@ -57,7 +58,7 @@ I Azure Monitor loggar måste du ändra frågan för att returnera dessa poster.
 ![Azure Monitor loggar-nedbrytning](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Vidta åtgärd
-I loggs ökning kan du [starta en Runbook](take-action.md) från ett Sök resultat genom att välja **vidta åtgärd**.
+I loggs ökning kan du [starta en Runbook](../platform/action-groups.md) från ett Sök resultat genom att välja **vidta åtgärd**.
 
 ![Vidta åtgärd](media/log-search-transition/take-action-log-search.png)
 

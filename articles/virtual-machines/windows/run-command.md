@@ -8,11 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: c6fbe66d8fbbb92c7fb668cc565da8446d97ab0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76ff9ff9479351eb3ec2a0e973fe3c44562adf55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653607"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508431"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med hjälp av kommandot kör
 
@@ -22,7 +23,7 @@ Funktionen Kör kommando använder agenten för virtuella datorer (VM) för att 
 
 ## <a name="benefits"></a>Fördelar
 
-Du kan komma åt dina virtuella datorer på flera olika sätt. Kommandot kör kan köra skript på dina virtuella datorer via en fjärr anslutning med hjälp av VM-agenten. Du använder kommandot kör via Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)eller [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) för virtuella Windows-datorer.
+Du kan komma åt dina virtuella datorer på flera olika sätt. Kommandot kör kan köra skript på dina virtuella datorer via en fjärr anslutning med hjälp av VM-agenten. Du använder kommandot kör via Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)eller [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) för virtuella Windows-datorer.
 
 Den här funktionen är användbar i alla scenarier där du vill köra ett skript i en virtuell dator. Det är ett av de enda sätt som du kan använda för att felsöka och reparera en virtuell dator som inte har RDP-eller SSH-porten öppen på grund av en felaktig konfiguration av nätverks-eller administrativa användare.
 
@@ -93,7 +94,7 @@ När du har valt kommandot väljer du **Kör** för att köra skriptet. När skr
 
 ## <a name="powershell"></a>PowerShell
 
-I följande exempel används cmdleten [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) för att köra ett PowerShell-skript på en virtuell Azure-dator. Cmdleten förväntar sig att skriptet som refereras till i `-ScriptPath` parametern ska vara lokalt till den plats där cmdleten körs.
+I följande exempel används cmdleten [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) för att köra ett PowerShell-skript på en virtuell Azure-dator. Cmdleten förväntar sig att skriptet som refereras till i `-ScriptPath` parametern ska vara lokalt till den plats där cmdleten körs.
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}

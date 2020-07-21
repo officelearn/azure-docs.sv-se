@@ -3,21 +3,21 @@ title: 'Azure AD-klient för användares VPN-anslutningar: Azure AD-autentiserin
 description: Du kan använda Azures virtuella WAN-användare VPN (punkt-till-plats) för att ansluta till ditt VNet med Azure AD-autentisering
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: 76c65d194d03dd1b7ff4cc2f3b45d84ff7909968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753361"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507564"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient för användare VPN-OpenVPN protokoll anslutningar
+# <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Förbereda Azure Active Directory-klient för VPN-OpenVPN för användare
 
-När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering eller RADIUS-autentisering. Men när du använder det öppna VPN-protokollet kan du också använda Azure Active Directory autentisering. Den här artikeln hjälper dig att skapa en Azure AD-klient för virtuella WAN-användare VPN (punkt-till-plats) med öppen VPN-autentisering.
+När du ansluter till en virtuell hubb över IKEv2-protokollet kan du använda certifikatbaserad autentisering eller RADIUS-autentisering. Men när du använder OpenVPN-protokollet kan du också använda Azure Active Directory autentisering. Den här artikeln hjälper dig att skapa en Azure AD-klient för virtuella WAN-användare VPN (punkt-till-plats) med OpenVPN-autentisering.
 
 > [!NOTE]
 > Azure AD-autentisering stöds bara för OpenVPN- &reg; protokoll anslutningar.
@@ -25,9 +25,9 @@ När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering 
 
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Skapa Azure AD-klienten
 
-Skapa en Azure AD-klient med hjälp av stegen i artikeln [skapa en ny klient organisation](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
+Kontrol lera att du har en Azure AD-klient. Om du inte har en Azure AD-klient kan du skapa en med hjälp av stegen i artikeln [skapa en ny klient](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
-* Organisations namn
+* Organisationsnamn
 * Ursprungligt domännamn
 
 Exempel:
@@ -36,24 +36,15 @@ Exempel:
 
 ## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Skapa Azure AD-klient användare
 
-Skapa sedan två användar konton. Skapa ett globalt administratörs konto och ett huvud användar konto. Huvud användar kontot används som ditt huvud inbäddnings konto (tjänst konto). När du skapar ett användar konto för Azure AD-klienten justerar du katalog rollen för den typ av användare som du vill skapa.
+Skapa sedan två användar konton i den nyligen skapade Azure AD-klienten, ett globalt administratörs konto och ett användar konto. Användar kontot kan användas för att testa OpenVPN-autentiseringen och det globala administratörs kontot kommer att användas för att bevilja godkännande till Azure VPN-appens registrering. När du har skapat ett Azure AD-användarkonto tilldelar du en **katalog roll** till användaren för att kunna delegera administratörs behörighet.
 
-Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-azure-active-directory.md) för att skapa minst två användare för din Azure AD-klient. Se till att ändra **katalog rollen** för att skapa konto typerna:
+Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-azure-active-directory.md) för att skapa de två användarna för din Azure AD-klient. Se till att ändra **katalog rollen** på ett av de skapade kontona till **Global administratör**.
 
-* Global administratör
-* Användare
+## <a name="3-grant-consent-to-the-azure-vpn-app-registration"></a><a name="enable-authentication"></a>3. bevilja medgivande till registreringen av Azure VPN-appen
 
-## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. Aktivera Azure AD-autentisering på VPN-gatewayen
+1. Logga in på Azure Portal som en användare som har tilldelats rollen som **Global administratör** .
 
-1. Leta upp katalog-ID: t för den katalog som du vill använda för autentisering. Den visas i avsnittet Egenskaper på sidan Active Directory.
-
-    ![Katalog-ID](./media/openvpn-create-azure-ad-tenant/directory-id.png)
-
-2. Kopiera katalog-ID:t.
-
-3. Logga in på Azure Portal som en användare som har tilldelats rollen som **Global administratör** .
-
-4. Ge sedan administrativt medgivande. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
+2. Därefter beviljar du administratörs medgivande för din organisation, så att Azure VPN-appen kan logga in och läsa användar profiler. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
 
     Offentlig
 
@@ -79,20 +70,18 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
-5. Välj det **globala administratörs** kontot om du uppmanas att göra det.
+3. Välj det **globala administratörs** kontot om du uppmanas att göra det.
 
     ![Katalog-ID](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-6. Välj **acceptera** när du uppmanas till detta.
+4. Välj **acceptera** när du uppmanas till detta.
 
     ![Acceptera](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
-7. I **företags program**i Azure AD visas **Azure VPN** i listan.
+5. I **företags program**i Azure AD bör du nu se **Azure VPN** i listan.
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
-8. Konfigurera Azure AD-autentisering för användar-VPN och tilldela den till en virtuell hubb genom att följa stegen i [Konfigurera Azure AD-autentisering för punkt-till-plats-anslutning till Azure](virtual-wan-point-to-site-azure-ad.md)
-
 ## <a name="next-steps"></a>Nästa steg
 
-För att kunna ansluta till ditt virtuella nätverk måste du skapa och konfigurera en profil för VPN-klienter och koppla den till en virtuell hubb. Se [Konfigurera Azure AD-autentisering för punkt-till-plats-anslutning till Azure](virtual-wan-point-to-site-azure-ad.md).
+För att kunna ansluta till dina virtuella nätverk med Azure AD-autentisering måste du skapa en VPN-konfiguration för användare och koppla den till en virtuell hubb. Se [Konfigurera Azure AD-autentisering för punkt-till-plats-anslutning till Azure](virtual-wan-point-to-site-azure-ad.md).

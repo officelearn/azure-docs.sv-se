@@ -3,18 +3,18 @@ title: Skapa Azure Advisor aviseringar för nya rekommendationer med Azure Porta
 description: Skapa Azure Advisor aviseringar för ny rekommendation
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 351d1faf0cb049babe1091aaac465ff975ab47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568949"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507224"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Skapa Azure Advisor aviseringar om nya rekommendationer med hjälp av Azure Portal 
 
 Den här artikeln visar hur du konfigurerar en avisering för nya rekommendationer från Azure Advisor med hjälp av Azure Portal. 
 
-När Azure Advisor identifierar en ny rekommendation för en av dina resurser lagras en händelse i [Azure aktivitets loggen](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). Du kan ställa in aviseringar för dessa händelser från Azure Advisor med hjälp av en rekommendation för att skapa aviseringar. Du kan välja en prenumeration och eventuellt en resurs grupp för att ange de resurser som du vill ta emot aviseringar på. 
+När Azure Advisor identifierar en ny rekommendation för en av dina resurser lagras en händelse i [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md). Du kan ställa in aviseringar för dessa händelser från Azure Advisor med hjälp av en rekommendation för att skapa aviseringar. Du kan välja en prenumeration och eventuellt en resurs grupp för att ange de resurser som du vill ta emot aviseringar på. 
 
 Du kan också bestämma rekommendationernas typer genom att använda följande egenskaper:
 
@@ -57,7 +57,7 @@ Mer information om åtgärds grupper finns i [skapa och hantera åtgärds gruppe
 
     ![Rådgivarens aviserings åtgärds grupp](./media/advisor-alerts/create6.png)
 
-7. I avsnittet **Åtgärds grupper** väljer du **Lägg till befintligt** för att använda en åtgärds grupp som du redan har skapat eller väljer **Skapa ny** för att skapa en ny [Åtgärds grupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
+7. I avsnittet **Åtgärds grupper** väljer du **Lägg till befintligt** för att använda en åtgärds grupp som du redan har skapat eller väljer **Skapa ny** för att skapa en ny [Åtgärds grupp](../azure-monitor/platform/action-groups.md). 
 
     ![Advisor-avisering Lägg till befintlig](./media/advisor-alerts/create7.png)
 

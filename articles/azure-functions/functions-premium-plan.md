@@ -5,12 +5,13 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298522"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506204"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -117,7 +118,7 @@ Se den fullständiga regionala tillgängligheten för funktioner här: [Azure.co
 |Kanada, centrala| 100 | 20 |
 |USA, centrala| 100 | 20 |
 |Asien, östra| 100 | 20 |
-|USA, östra | 100 | 20 |
+|East US | 100 | 20 |
 |USA, östra 2| 100 | 20 |
 |Frankrike, centrala| 100 | 20 |
 |Tyskland, västra centrala| 100 | Inte tillgängligt |
@@ -125,7 +126,7 @@ Se den fullständiga regionala tillgängligheten för funktioner här: [Azure.co
 |Japan, västra| 100 | 20 |
 |Sydkorea, centrala| 100 | 20 |
 |USA, norra centrala| 100 | 20 |
-|Europa, norra| 100 | 20 |
+|Norra Europa| 100 | 20 |
 |Östra Norge| 20 | 20 |
 |USA, södra centrala| 100 | 20 |
 |Indien, södra | 100 | Inte tillgängligt |

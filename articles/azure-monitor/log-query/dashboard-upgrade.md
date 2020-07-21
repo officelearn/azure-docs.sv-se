@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505779"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Uppgradera Log Analytics instrument panels visualiseringar
 
@@ -25,7 +25,7 @@ Den här nya visualiserings tekniken är på väg att skapa nya och förbättrad
 
 Azure-instrumentpaneler är ett sätt att visualisera statusen för hela Azure-arbetsytan. De är utformade för att ge en enda panel med glas till din status för din Azure-egendom och tillåta en rad olika genvägar till vanliga åtgärder. 
 
-Mer information finns i [Azure-instrumentpaneler](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+Mer information finns i [Azure-instrumentpaneler](../../azure-portal/azure-portal-dashboards.md)
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Uppgradera Log Analytics instrument panels delar
@@ -62,13 +62,13 @@ När visualiseringarna har uppgraderats måste du publicera om instrument panele
 
 När en inledande opt-in-period är över, kommer Log Analytics-teamet att uppgradera alla instrument paneler i systemet. Genom att justera alla Azure-instrumentpaneler kan teamet introducera fler visualiseringar och uppleva förbättringar på tavlan.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Log Analytics visualiseringar som fästs på en instrument panel har en viss funktion som är utformad för optimal upplevelse. Granska följande design aspekter när du fäster en visualisering på en instrument panel.
 
 ### <a name="query-time-scope---30-day-limit"></a>Tidsintervall för fråga – 30 dagars gräns
 
-Eftersom instrument paneler kan innehålla flera visualiseringar från flera frågor, är tidsintervallet för en enskild fast fråga begränsad till 30 dagar. En enskild fråga kan bara köras på ett tidsintervall som är mindre än eller lika med 30 dagar. Den här begränsningen är att säkerställa en rimlig inläsnings tid för instrument panelen.
+Eftersom instrumentpaneler kan innehålla flera visualiseringar från flera frågor är tidsintervallet för en enskild fäst fråga begränsat till 30 dagar. En enskild fråga kan bara köras på ett tidsintervall som är mindre än eller lika med 30 dagar. Den här begränsningen är att säkerställa en rimlig inläsnings tid för instrument panelen.
 
 ### <a name="query-data-values---25-values-and-other-grouping"></a>Fråga efter data värden-25 värden och annan gruppering
 

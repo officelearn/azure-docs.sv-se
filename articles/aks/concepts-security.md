@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244539"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507105"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och kluster i AKS (Azure Kubernetes Service)
 
@@ -54,9 +54,9 @@ Kubernetes-miljöer, i AKS eller någon annan stans, är för närvarande inte h
 
 ### <a name="compute-isolation"></a>Beräknings isolering
 
- Vissa arbets belastningar kan kräva en hög grad av isolering från andra kund arbets belastningar på grund av efterlevnads-eller reglerings krav. För dessa arbets belastningar tillhandahåller Azure [isolerade virtuella datorer](../virtual-machines/linux/isolation.md)som kan användas som agent-noder i ett AKS-kluster. Dessa isolerade virtuella datorer är isolerade till en viss maskin varu typ och är dedikerad till en enda kund. 
+ Vissa arbets belastningar kan kräva en hög grad av isolering från andra kund arbets belastningar på grund av efterlevnads-eller reglerings krav. För dessa arbets belastningar tillhandahåller Azure [isolerade virtuella datorer](../virtual-machines/isolation.md)som kan användas som agent-noder i ett AKS-kluster. Dessa isolerade virtuella datorer är isolerade till en viss maskin varu typ och är dedikerad till en enda kund. 
 
- Om du vill använda dessa isolerade virtuella datorer med ett AKS-kluster väljer du en av de isolerade storlekarna för virtuella datorer som visas [här](../virtual-machines/linux/isolation.md) som **Node-storlek** när du skapar ett AKS-kluster eller lägger till en Node-pool.
+ Om du vill använda dessa isolerade virtuella datorer med ett AKS-kluster väljer du en av de isolerade storlekarna för virtuella datorer som visas [här](../virtual-machines/isolation.md) som **Node-storlek** när du skapar ett AKS-kluster eller lägger till en Node-pool.
 
 
 ## <a name="cluster-upgrades"></a>Kluster uppgraderingar
@@ -81,6 +81,8 @@ För anslutning och säkerhet med lokala nätverk kan du distribuera ditt AKS-kl
 ### <a name="azure-network-security-groups"></a>Azure-nätverkssäkerhetsgrupper
 
 Azure använder regler för nätverks säkerhets grupper för att filtrera trafik flödet i virtuella nätverk. Dessa regler definierar käll-och mål-IP-intervall, portar och protokoll som tillåts eller nekas åtkomst till resurser. Standard regler skapas för att tillåta TLS-trafik till Kubernetes-API-servern. När du skapar tjänster med belastningsutjämnare, Port mappningar eller ingångs vägar ändrar AKS automatiskt nätverks säkerhets gruppen för trafik så att den flödar korrekt.
+
+I de fall där du anger ditt eget undernät för ditt AKS-kluster och du vill ändra trafik flödet, ska du inte ändra nätverks säkerhets gruppen för under nätet som hanteras av AKS. Du kan skapa ytterligare nätverks säkerhets grupper på under näts nivå för att ändra trafik flödet så länge de inte stör den trafik som behövs för att hantera klustret, t. ex. åtkomst utjämning, kommunikation med kontroll planet och [utgående][aks-limit-egress-traffic].
 
 ### <a name="kubernetes-network-policy"></a>Kubernetes nätverks princip
 
@@ -123,6 +125,7 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

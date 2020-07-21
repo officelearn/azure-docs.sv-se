@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167020"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509026"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure-seriekonsol för Linux
 
@@ -25,19 +26,19 @@ Serie konsolen i Azure Portal ger till gång till en text baserad konsol för vi
 
 Serie konsolen fungerar på samma sätt för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. I det här dokumentet kommer alla omnämnanden för virtuella datorer att implicit inkludera skalnings uppsättnings instanser för virtuella datorer om inget annat anges.
 
-Information om en dokumentation för Windows i serie konsolen finns i [serie konsol för Windows](../windows/serial-console.md).
+Information om en dokumentation för Windows i serie konsolen finns i [serie konsol för Windows](./serial-console-windows.md).
 
 > [!NOTE]
 > Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda distributions modellen för resurs hantering. Klassiska distributioner stöds inte.
 
 - Ditt konto som använder en serie konsol måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
 
-- Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste ha en lösenordsbaserad användare. Du kan skapa en med funktionen [Återställ lösen ord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för VM Access-tillägget. Välj **Återställ lösen ord** i avsnittet **support och fel sökning** .
+- Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste ha en lösenordsbaserad användare. Du kan skapa en med funktionen [Återställ lösen ord](../extensions/vmaccess.md#reset-password) för VM Access-tillägget. Välj **Återställ lösen ord** i avsnittet **support och fel sökning** .
 
 - Startdiagnostik måste vara aktiverat på den virtuella datorn eller [boot diagnostics](boot-diagnostics.md) den virtuella datorns skalnings uppsättnings instans.
 
@@ -49,11 +50,11 @@ Information om en dokumentation för Windows i serie konsolen finns i [serie kon
 
 
 > [!NOTE]
-> Serie konsolen kräver en lokal användare med ett konfigurerat lösen ord. Virtuella datorer eller skalnings uppsättningar för virtuella datorer som kon figurer ATS med en offentlig SSH-nyckel kan inte logga in i serie konsolen. Om du vill skapa en lokal användare med ett lösen ord använder du [tillägget VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), som är tillgängligt i portalen genom att välja **Återställ lösen ord** i Azure Portal och skapa en lokal användare med ett lösen ord.
+> Serie konsolen kräver en lokal användare med ett konfigurerat lösen ord. Virtuella datorer eller skalnings uppsättningar för virtuella datorer som kon figurer ATS med en offentlig SSH-nyckel kan inte logga in i serie konsolen. Om du vill skapa en lokal användare med ett lösen ord använder du [tillägget VMAccess](../extensions/vmaccess.md), som är tillgängligt i portalen genom att välja **Återställ lösen ord** i Azure Portal och skapa en lokal användare med ett lösen ord.
 > Du kan också återställa administratörs lösen ordet i ditt konto genom [att använda grub för att starta i enanvändarläge](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distribution-availability"></a>Tillgänglighet för Linux-distribution för serie konsol
-För att serie konsolen ska fungera korrekt måste gäst operativ systemet konfigureras för att läsa och skriva konsol meddelanden till den seriella porten. De mest godkända [Azure Linux-distributionerna](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har den seriella konsolen konfigurerad som standard. Om du väljer **seriell konsol** i avsnittet **support + fel sökning** i Azure Portal ger åtkomst till serie konsolen.
+För att serie konsolen ska fungera korrekt måste gäst operativ systemet konfigureras för att läsa och skriva konsol meddelanden till den seriella porten. De mest godkända [Azure Linux-distributionerna](../linux/endorsed-distros.md) har den seriella konsolen konfigurerad som standard. Om du väljer **seriell konsol** i avsnittet **support + fel sökning** i Azure Portal ger åtkomst till serie konsolen.
 
 > [!NOTE]
 > Om du inte ser något i serie konsolen ser du till att startdiagnostik är aktiverat på den virtuella datorn. Genom att trycka på **RETUR** åtgärdas ofta problem där ingenting visas i serie konsolen.
@@ -69,7 +70,7 @@ SUSE        | Nyare SLES-avbildningar som är tillgängliga i Azure har åtkomst
 Oracle Linux        | Seriell konsol åtkomst aktiverat som standard.
 
 ### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
-Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
+Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
 
 Du ska också lägga till ttyS0 som mål för seriella utdata. Mer information om hur du konfigurerar en anpassad avbildning för att arbeta med serie konsolen finns i system krav för att [skapa och ladda upp en Linux-VHD i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -82,7 +83,7 @@ Scenario          | Åtgärder i serie konsolen
 Skadad *FSTAB* -fil | Tryck på **RETUR** -tangenten för att fortsätta och Använd en text redigerare för att åtgärda *FSTAB* -filen. Du kan behöva vara i enanvändarläge för att göra det. Mer information finns i avsnittet om serie konsolen i [så här åtgärdar du fstab-problem](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [använder en serie konsol för att få åtkomst till grub och](serial-console-grub-single-user-mode.md)användarläge.
 Felaktiga brand Väggs regler |  Om du har konfigurerat program varan iptables för att blockera SSH-anslutningen kan du använda en serie konsol för att interagera med den virtuella datorn utan SSH. Mer information finns på [sidan program varan iptables man](https://linux.die.net/man/8/iptables).<br>På samma sätt kan du, om brand väggen blockerar SSH-åtkomst, komma åt den virtuella datorn via serie konsolen och konfigurera om brand väggen. Mer information hittar du i [brand väggens dokumentation](https://firewalld.org/documentation/).
 Fil system skadat/kontroll | Information om hur du felsöker skadade fil system med hjälp av en serie konsol finns i avsnittet om serie konsol i den [virtuella Azure Linux-datorn](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) .
-Problem med SSH-konfiguration | Få åtkomst till serie konsolen och ändra inställningarna. Seriell konsol kan användas oberoende av SSH-konfigurationen för en virtuell dator eftersom den inte kräver att den virtuella datorn har nätverks anslutning för att fungera. En fel söknings guide finns på [FELSÖKA SSH-anslutningar till en virtuell Azure Linux-dator som Miss lyckas, fel eller nekas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Mer information finns i [detaljerade åtgärder för SSH-felsökning för problem som ansluter till en virtuell Linux-dator i Azure](./detailed-troubleshoot-ssh-connection.md)
+Problem med SSH-konfiguration | Få åtkomst till serie konsolen och ändra inställningarna. Seriell konsol kan användas oberoende av SSH-konfigurationen för en virtuell dator eftersom den inte kräver att den virtuella datorn har nätverks anslutning för att fungera. En fel söknings guide finns på [FELSÖKA SSH-anslutningar till en virtuell Azure Linux-dator som Miss lyckas, fel eller nekas](./troubleshoot-ssh-connection.md). Mer information finns i [detaljerade åtgärder för SSH-felsökning för problem som ansluter till en virtuell Linux-dator i Azure](./detailed-troubleshoot-ssh-connection.md)
 Interagera med Start programmet | Starta om den virtuella datorn från bladet för serie konsolen för att få åtkomst till GRUB på din virtuella Linux-dator. Mer information och distribution information finns i [använda serie konsolen för att komma åt grub och enanvändarläge](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Inaktivera serie konsolen
@@ -97,8 +98,8 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ### <a name="channel-security"></a>Kanal säkerhet
 Alla data som skickas fram och tillbaka krypteras i kabeln.
 
-### <a name="audit-logs"></a>Granskningsloggar
-All åtkomst till serie konsolen är för närvarande inloggad i [Start](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
+### <a name="audit-logs"></a>Spårningsloggar
+All åtkomst till serie konsolen är för närvarande inloggad i [Start](./boot-diagnostics.md) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
 
 > [!CAUTION]
 > Inga åtkomst lösen ord för konsolen loggas. Men om kommandon som körs i-konsolen innehåller eller skickar lösen ord, hemligheter, användar namn eller någon annan form av personligt identifierbar information (PII), skrivs de till den virtuella datorns startdiagnostik loggar. De skrivs tillsammans med all annan synlig text som en del av implementeringen av den seriella konsolens funktion för att rulla bakåt. Loggarna är cirkulära och endast personer med Läs behörighet till kontot för diagnostik har åtkomst till dem. Om du lägger till alla-kommandon som innehåller hemligheter eller personligt identifierbar information rekommenderar vi att du använder SSH om inte serie konsolen är absolut nödvändig.
@@ -170,6 +171,5 @@ A. Ja. Eftersom serie konsolen inte kräver SSH-nycklar behöver du bara konfigu
 * Använd serie konsolen för att [komma åt grub och enanvändarläge](serial-console-grub-single-user-mode.md).
 * Använd serie konsolen för [NMI-och SysRq-anrop](serial-console-nmi-sysrq.md).
 * Lär dig hur du använder serie konsolen för att [Aktivera grub i olika distributioner](serial-console-grub-proactive-configuration.md)
-* Serie konsolen är också tillgänglig för [virtuella Windows-datorer](../windows/serial-console.md).
+* Serie konsolen är också tillgänglig för [virtuella Windows-datorer](./serial-console-windows.md).
 * Läs mer om [startdiagnostik](boot-diagnostics.md).
-

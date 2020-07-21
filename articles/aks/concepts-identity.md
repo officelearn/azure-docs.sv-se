@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251730"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507171"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -73,7 +73,7 @@ Säkerheten för AKS-kluster kan förbättras med integrering av Azure Active Di
 
 Med Azure AD-integrerade AKS-kluster kan du ge användare eller grupper åtkomst till Kubernetes-resurser inom ett namn område eller över klustret. För att hämta en `kubectl` konfigurations kontext kan en användare köra kommandot [AZ AKS get-credentials][az-aks-get-credentials] . När en användare interagerar med AKS-klustret med `kubectl` , uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden ger en enda källa för användar konto hantering och autentiseringsuppgifter för lösen ord. Användaren kan bara komma åt resurserna som definieras av kluster administratören.
 
-Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open-ID Connect-dokumentationen] [öppen-ID-Connect]. Från inifrån Kubernetes-klustret används [webhook-token-autentisering][webhook-token-docs] för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret.
+Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][openid-connect]. Från inifrån Kubernetes-klustret används [webhook-token-autentisering][webhook-token-docs] för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret.
 
 Från inifrån Kubernetes-klustret används webhook-token-autentisering för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret.
 
@@ -108,7 +108,7 @@ Med Azure RBAC skapar du en *roll definition* som beskriver de behörigheter som
 Mer information finns i [Vad är Azure RBAC?][azure-rbac]
 
 Det finns två åtkomst nivåer som krävs för att fullständigt kunna använda ett AKS-kluster: 
-1. [Få åtkomst till AKS-resursen på din Azure-prenumeration](#azure-rbac-to-authorize-access-to-the-aks-resource). Med den här processen kan du styra sakernas skalning eller uppgradera klustret med hjälp av AKS-API: er samt hämta din kubeconfig.
+1. [Få åtkomst till AKS-resursen i din Azure-prenumeration](#azure-rbac-to-authorize-access-to-the-aks-resource). Med den här processen kan du styra sakernas skalning eller uppgradera klustret med hjälp av AKS-API: er samt hämta din kubeconfig.
 2. Åtkomst till Kubernetes-API: et. Den här åtkomsten styrs antingen av [KUBERNETES RBAC](#kubernetes-role-based-access-controls-rbac) (traditionellt) eller genom att [integrera Azure RBAC med AKS för Kubernetes-auktorisering](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC för att ge åtkomst till AKS-resursen

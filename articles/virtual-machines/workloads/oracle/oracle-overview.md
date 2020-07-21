@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: rogardle
-ms.openlocfilehash: e9a61c631e8a74bbbd58bb991848fcf60f81ff6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6a516fc75880e3b6a5bc5b5907e8d968dce2ae31
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224442"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507870"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
 
@@ -55,13 +55,13 @@ Kör företags program i Azure på Oracle Linux avbildningar som stöds. Följan
 
 * Använd [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) för att dirigera och hantera haveri beredskap för dina Oracle Linux virtuella datorer i Azure och dina fysiska servrar. 
 
-* Aktivera Oracle Real Application Clusters (RAC) i Azure med hjälp av [Azure VMware-lösning](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) eller [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Aktivera Oracle Real Application Clusters (RAC) i Azure med hjälp av [Azure VMware-lösning](../../../vmware-cloudsimple/oracle-real-application-clusters.md) eller [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Säkerhetskopiera Oracle-arbetsbelastningar
 
-* Säkerhetskopiera dina virtuella Oracle-datorer med [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
+* Säkerhetskopiera dina virtuella Oracle-datorer med [Azure Backup](../../../backup/backup-overview.md)
 
-* Säkerhetskopiera dina Oracle Database med Oracle-RMAN och alternativt använda [Azure Blob-säkring](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) för att montera ett [mycket redundant Azure Blob Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-redundancy) och skriva dina rman-säkerhetskopieringar till det för extra återhämtning.
+* Säkerhetskopiera dina Oracle Database med Oracle-RMAN och alternativt använda [Azure Blob-säkring](../../../storage/blobs/storage-how-to-mount-container-linux.md) för att montera ett [mycket redundant Azure Blob Storage-konto](../../../storage/common/storage-redundancy.md) och skriva dina rman-säkerhetskopieringar till det för extra återhämtning.
 
 ## <a name="integration-of-azure-with-oci"></a>Integrering av Azure med OCI
 

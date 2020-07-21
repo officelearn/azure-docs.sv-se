@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 8806390fe772491b629276b21734947a149d67e4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1cfbe1db33661dd712dfbc53670fb8f0525a481
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507037"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -271,7 +271,7 @@ Pod tilldelas en intern IP-adress från Azure Virtual Network-undernätet delege
 Om du vill testa Pod som körs på den virtuella noden bläddrar du till demonstrations programmet med en webb klient. När Pod tilldelas en intern IP-adress kan du snabbt testa den här anslutningen från en annan Pod i AKS-klustret. Skapa en test-Pod och koppla en terminalsession till den:
 
 ```console
-kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
+kubectl run -it --rm testvk --image=debian
 ```
 
 Installera `curl` i pod med `apt-get` :

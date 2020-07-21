@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373887"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505544"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets
 Du kan skala in och skala ut i Virtual Machine Scale Sets baserat på prestanda mätnings trösklar, med ett återkommande schema eller med ett visst datum. Du kan också konfigurera e-post-och webhook-meddelanden för skalnings åtgärder. Den här genom gången visar ett exempel på hur du konfigurerar alla dessa objekt med en Resource Manager-mall i en skalnings uppsättning för virtuella datorer.
 
 > [!NOTE]
-> I den här genom gången beskrivs stegen för VM Scale Sets, samma information gäller för automatisk skalning [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [app service-Web Apps](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) för en enkel skala in/ut-inställning på en VM Scale-uppsättning baserat på ett enkelt prestanda mått som CPU, se [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) -och [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) -dokumenten
+> I den här genom gången beskrivs stegen för VM Scale Sets, samma information gäller för automatisk skalning [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [app service-Web Apps](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](../../api-management/api-management-key-concepts.md) för en enkel skala in/ut-inställning på en VM Scale-uppsättning baserat på ett enkelt prestanda mått som CPU, se [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) -och [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) -dokumenten
 >
 >
 
@@ -195,7 +195,7 @@ I den här genom gången använder vi [Azure Resource Explorer](https://resource
             }
           }
     ```
-    För fält som stöds och deras värden, se [AutoScale REST API-dokumentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Nu innehåller den automatiska skalnings inställningen de tre profilerna som beskrivits tidigare.
+    För fält som stöds och deras värden, se [AutoScale REST API-dokumentation](/rest/api/monitor/autoscalesettings). Nu innehåller den automatiska skalnings inställningen de tre profilerna som beskrivits tidigare.
 
 7. Titta slutligen på avsnittet om **autoskalning** . Med automatiska skalnings aviseringar kan du göra tre saker när en utskalning eller åtgärd har utlösts.
    - Meddela administratören och medadministratörerna om din prenumeration
@@ -243,9 +243,9 @@ Använd dessa länkar om du vill veta mer om autoskalning.
 
 [Metod tips för Azures autoskalning](autoscale-best-practices.md)
 
-[Hantera autoskalning med PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Hantera autoskalning med PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Hantera autoskalning med CLI](cli-samples.md#autoscale)
+[Hantera autoskalning med CLI](../samples/cli-samples.md#autoscale)
 
 [Konfigurera webhook & e-postaviseringar för autoskalning](autoscale-webhook-email.md)
 

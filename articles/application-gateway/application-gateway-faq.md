@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982007"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506578"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -336,6 +336,58 @@ För flera domänbaserade (värdbaserade) routningar kan du skapa multisite-lyss
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Kan jag använda specialtecken i lösen ordet för PFX-filen?
 
 Nej, Använd endast alfanumeriska tecken i PFX-filens lösen ord.
+
+### <a name="my-ev-certificate-is-issued-by-digicert-and-my-intermediate-certificate-has-been-revoked-how-do-i-renew-my-certificate-on-application-gateway"></a>Mitt EV-certifikat utfärdas av DigiCert och mitt mellanliggande certifikat har återkallats. Hur gör jag för att förnya mitt certifikat på Application Gateway?
+
+Webb läsar medlemmar för certifikat utfärdare (CA) har nyligen publicerat rapporter med information om flera certifikat som utfärdats av leverantörer av certifikat utfärdare som används av våra kunder, Microsoft och den större teknik communityn som inte var kompatibla med bransch standarder för offentligt betrodda certifikat utfärdare.Rapporterna om icke-kompatibla ca: er kan hittas här:  
+
+* [Bugg 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Bugg 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade icke-kompatibla certifikat utfärdare och utfärdande av kompatibla ca: er som kräver att kunderna har återupprättat sina certifikat.Microsoft samarbetar nära dessa leverantörer för att minimera den potentiella påverkan till Azure-tjänster, **men dina självutfärdade certifikat eller certifikat som används i "ta dina egna certifikat" (BYOC) är fortfarande utsatta för att oväntade återkallas**.
+
+För att kontrol lera om certifikat som används av ditt program har återkallats referens [DigiCert meddelande](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) och [Spårare för certifikat återkallning](https://misissued.com/#revoked). Om dina certifikat har återkallats eller kommer att återkallas måste du begära nya certifikat från den CA-leverantör som används i dina program. För att undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, kan du gå till våra Azure updates-uppdateringar för reparations Länkar för olika Azure-tjänster som stöder BYOC:https://azure.microsoft.com/updates/certificateauthorityrevocation/
+
+Application Gateway detaljerad information finns under
+
+Om du använder ett certifikat som utfärdats av en av de återkallade ICAs kan programmets tillgänglighet avbrytas och beroende på ditt program kan du få en rad fel meddelanden, inklusive men inte begränsat till: 
+
+1.  Ogiltigt certifikat/återkallat certifikat
+2.  Tids gränsen för anslutningen uppnåddes
+3.  HTTP 502
+
+För att undvika avbrott i ditt program på grund av det här problemet, eller för att utfärda en certifikat utfärdare som har återkallats, måste du vidta följande åtgärder: 
+
+1.  Kontakta din certifikat leverantör om hur du utfärdar certifikat på nytt
+2.  Uppdatera dina certifikat på Azure Application Gateway-WAF med en fullständig [förtroende kedja](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (löv, mellanliggande rot certifikat) när du har utfärdat det. Baserat på var du använder certifikatet, antingen på lyssnaren eller HTTP-inställningarna för Application Gateway, följer du stegen nedan för att uppdatera certifikaten och kontrol lera dokumentations länkarna som nämns för mer information.
+3.  Uppdatera Server dels applikations servrarna så att de använder det återutfärdade certifikatet. Beroende på vilken backend-server du använder kan ditt certifikat uppdaterings steg variera. Mer information finns i dokumentationen från leverantören.
+
+Så här uppdaterar du certifikatet i din lyssnare:
+
+1.  Öppna Application Gateway-resursen i [Azure Portal](https://portal.azure.com/)
+2.  Öppna inställningarna för lyssnare som är associerade med ditt certifikat
+3.  Klicka på "förnya eller redigera det valda certifikatet"
+4.  Överför ditt nya PFX-certifikat med lösen ordet och klicka på Spara
+5.  Gå till webbplatsen och kontrol lera att platsen fungerar som förväntat. mer information finns i dokumentationen [här](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+
+Om du refererar till certifikat från Azure-valv i din Application Gateway lyssnare rekommenderar vi följande steg för en snabb ändring –
+
+1.  I [Azure Portal](https://portal.azure.com/)navigerar du till dina Azure-inställningar för nyckel valv som har associerats med Application Gateway
+2.  Lägg till/importera det återkallade certifikatet i butiken. I dokumentationen [finns mer information](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) om hur du gör.
+3.  När certifikatet har importer ATS navigerar du till Application Gateway lyssnar inställningar och under "Välj ett certifikat från Key Vault" klickar du på list rutan "certifikat" och väljer det nyligen tillagda certifikatet
+4.  Klicka på Spara om du vill ha mer information om TLS-avslutning på Application Gateway med Key Vault certifikat, Läs dokumentationen [här](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+
+Så här uppdaterar du certifikatet i HTTP-inställningarna:
+
+Om du använder v1 SKU för tjänsten Application Gateway/WAF måste du ladda upp det nya certifikatet som ditt certifikat för autentisering av Server del.
+1.  Öppna Application Gateway-resursen i [Azure Portal](https://portal.azure.com/)
+2.  Öppna de HTTP-inställningar som är associerade med ditt certifikat
+3.  Klicka på "Lägg till certifikat" och överför det återutfärdade certifikatet och klicka på Spara
+4.  Du kan ta bort det gamla certifikatet senare genom att klicka på "..." alternativ knappen bredvid det gamla certifikatet och välj Ta bort och klicka på Spara.
+Mer information hittar du i dokumentationen [här](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+
+Om du använder v2-SKU: n för tjänsten Application Gateway/WAF behöver du inte ladda upp det nya certifikatet i HTTP-inställningarna eftersom v2 SKU använder "betrodda rot certifikat" och ingen åtgärd behöver vidtas här.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Konfiguration – ingress-styrenhet för AKS
 

@@ -4,11 +4,12 @@ description: Hur du använder geografiska regioner för redundans och för att r
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 481a716bd6ced5c304da41c70fdcfc687b76661d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 446a76b823ce3592a83d0c2f898041951361b47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080230"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506289"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions geo-haveri beredskap
 
@@ -21,7 +22,7 @@ Azure Functions köras i en angiven region.  Om du vill få högre tillgängligh
 * Aktiv/aktiv. Båda regionerna är aktiva och tar emot händelser (dubbletter eller rotering). Active/Active rekommenderas för HTTPS-funktioner i kombination med Azures frontend-dörr.
 * Aktiv/passiv. En region är aktiv och tar emot händelser, medan en sekundär är inaktiv.  När redundans krävs aktive ras den sekundära regionen och bearbetningen sker.  Detta rekommenderas för icke-HTTP-funktioner som Service Bus och Event Hubs.
 
-Läs hur du [Kör appar i flera regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) för mer information om distributioner i flera regioner.
+Läs hur du [Kör appar i flera regioner](/azure/architecture/reference-architectures/app-service-web-app/multi-region) för mer information om distributioner i flera regioner.
 
 ## <a name="activeactive-for-https-functions"></a>Aktiva/aktiva för HTTPS-funktioner
 

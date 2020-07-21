@@ -7,20 +7,21 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a97fd56f1dc3409666ad86e81a7ac74fee076fa1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669088"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505694"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en åtgärds grupp med en Resource Manager-mall
-Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) för att konfigurera åtgärds grupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärds grupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärds grupper säkerställer att alla rätt parter meddelas när en avisering utlöses.
+Den här artikeln visar hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera åtgärds grupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärds grupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärds grupper säkerställer att alla rätt parter meddelas när en avisering utlöses.
 
 De grundläggande stegen är:
 
 1. Skapa en mall som en JSON-fil som beskriver hur du skapar åtgärds gruppen.
 
-2. Distribuera mallen med hjälp av [valfri distributions metod](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Distribuera mallen med hjälp av [valfri distributions metod](../../azure-resource-manager/templates/deploy-powershell.md).
 
 Först beskriver vi hur du skapar en Resource Manager-mall för en åtgärds grupp där åtgärds definitionerna är hårdkodade i mallen. För det andra beskriver vi hur du skapar en mall som hämtar konfigurations informationen för webhooken som indataparametrar när mallen distribueras.
 
@@ -165,4 +166,3 @@ Om du vill skapa en åtgärds grupp med hjälp av en Resource Manager-mall skapa
 * Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
 * Lär dig mer om [aviseringar](alerts-overview.md).
 * Lär dig hur du lägger till [aviseringar med hjälp av en Resource Manager-mall](../../azure-monitor/platform/alerts-activity-log.md).
-

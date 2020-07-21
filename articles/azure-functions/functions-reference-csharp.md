@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: a8041f2514f59ac2511fcd64eeb0283565a0e07a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 177e9fcd872c594fbfb5f29077235113c6342860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249248"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506156"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referens för Azure Functions C#-skript (. CSX)
 
@@ -238,7 +238,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## <a name="logging"></a>Loggning
 
-Om du vill logga utdata till dina strömmande loggar i C# inkluderar du ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger det `log` . Undvik att använda `Console.Write` i Azure Functions.
+Om du vill logga utdata till dina strömmande loggar i C# inkluderar du ett argument av typen [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger det `log` . Undvik att använda `Console.Write` i Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -252,7 +252,7 @@ public static void Run(string myBlob, ILogger log)
 
 ## <a name="async"></a>Async
 
-Om du vill göra en funktion [asynkron](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)använder du `async` nyckelordet och returnerar ett `Task` objekt.
+Om du vill göra en funktion [asynkron](/dotnet/csharp/programming-guide/concepts/async/)använder du `async` nyckelordet och returnerar ett `Task` objekt.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -482,7 +482,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>Exempel på flera attribut
 
-I föregående exempel hämtas app-inställningen för funktions programmets huvud anslutnings sträng för lagrings konto (som är `AzureWebJobsStorage` ). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()` . Använd en `Binder` parameter, inte `IBinder` .  Exempel:
+I föregående exempel hämtas app-inställningen för funktions programmets huvud anslutnings sträng för lagrings konto (som är `AzureWebJobsStorage` ). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()` . Använd en `Binder` parameter, inte `IBinder` .  Till exempel:
 
 ```cs
 using Microsoft.Azure.WebJobs;

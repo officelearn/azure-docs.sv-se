@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: b7566260786b6fcfa639f244e2eff0cc8304ed9e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d489ed9dbf9b8075951258e0841675877e11be38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205803"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506799"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 
@@ -18,7 +18,7 @@ I den här snabb starten får du lära dig hur du skapar och distribuerar din f�
 
 När du är klar har du en Azure-resurs grupp som består av en App Service värd plan och en App Service med ett distribuerat webb program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/dotnet/).
 - Den här snabb starten distribuerar en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core-webbapp i App Service på Linux](./containers/quickstart-dotnetcore.md).
@@ -42,7 +42,7 @@ Skapa en ASP.NET Core webbapp i Visual Studio genom att följa dessa steg:
 
    ![Konfigurera ditt webbapp](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. Du kan distribuera vilken typ av ASP.NET Core webbapp som helst till Azure, men i den här snabb starten väljer du mallen för **webb program** . Kontrol lera att **autentiseringen** är inställd på **Ingen autentisering**och att inget annat alternativ har valts. Välj sedan **skapa**.
+1. Du kan distribuera vilken typ av ASP.NET Core webbapp som helst till Azure, men i den här snabb starten väljer du mallen för **webb program** . Kontrol lera att **autentiseringen** är inställd på **Ingen autentisering**och att inget annat alternativ har valts. Välj sedan **Skapa**.
 
    ![Skapa en ny ASP.NET Core webbapp](./media/app-service-web-get-started-dotnet/create-aspnet-core-web-app.png) 
    
@@ -77,10 +77,10 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
 1. Ange de värden som anges i följande tabell i dialog rutan **värd plan: skapa ny** .
 
-   | Inställningen  | Föreslaget värde | Beskrivning |
+   | Inställning  | Föreslaget värde | Beskrivning |
    | -------- | --------------- | ----------- |
    | **Värdplan**  | *myFirstAzureWebAppPlan* | Namnet på App Service-planen. |
-   | **Position**      | *Europa, västra* | Datacenter som är värd för webbappen. |
+   | **Plats**      | *Europa, västra* | Datacenter som är värd för webbappen. |
    | **Storlek**          | *Kostnadsfri* | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
    
    ![Skapa ny värd plan](./media/app-service-web-get-started-dotnet/create-new-hosting-plan-vs2019.png)
@@ -153,3 +153,8 @@ Gå vidare till nästa artikel om du vill lära dig hur du skapar en .NET Core-a
 
 > [!div class="nextstepaction"]
 > [Konfigurera ASP.NET Core app](configure-language-dotnetcore.md)
+
+Vill du optimera och Spara på dina moln utgifter?
+
+> [!div class="nextstepaction"]
+> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

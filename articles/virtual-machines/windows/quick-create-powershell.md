@@ -8,29 +8,29 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 45160e8bc406318f3b3924142899e33640ee6b73
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e9ea550b9d9579438e18a3ee1d93ab9e9e22cc65
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508482"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure med PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera en virtuell dator (VM) i Azure som kör Windows Server 2016. Du kommer även att RDP-ansluta till den virtuella datorn och installera IIS-webbservern för att se hur den virtuella datorn fungerar i praktiken.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en Azure-resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -38,7 +38,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Ange namnet på varje resurs så skapas de av cmdleten `New-AzVM` om de inte redan finns.
+Skapa en virtuell dator med [New-AzVM](/powershell/module/az.compute/new-azvm). Ange namnet på varje resurs så skapas de av cmdleten `New-AzVM` om de inte redan finns.
 
 Vid uppmaningen anger du ett användarnamn och lösenord som ska användas som autentiseringsuppgifter för inloggning på den virtuella datorn:
 
@@ -58,7 +58,7 @@ New-AzVm `
 
 När distributionen är klar ansluter du till den virtuella datorn med RDP. För att sedan se hur den virtuella datorn fungerar i praktiken installerar du IIS-webbservern.
 
-Du hämtar den virtuella datorns offentliga IP-adress genom att köra cmdleten [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress):
+Du hämtar den virtuella datorns offentliga IP-adress genom att köra cmdleten [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -70,7 +70,7 @@ Använd följande kommando för att skapa en fjärrskrivbordssession från den l
 mstsc /v:publicIpAddress
 ```
 
-I fönstret **Windows-säkerhet** väljer du **fler alternativ** och väljer sedan **Använd ett annat konto**. Skriv användar namnet som **localhost**\\*användar namn*, ange lösen ordet som du skapade för den virtuella datorn och klicka sedan på **OK**.
+I fönstret **Windows-säkerhet** väljer du **Fler alternativ** och sedan **Använd ett annat konto**. Skriv användar namnet som **localhost** \\ *användar namn*, ange lösen ordet som du skapade för den virtuella datorn och klicka sedan på **OK**.
 
 Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att skapa anslutningen
 
@@ -92,7 +92,7 @@ När IIS har installerats och port 80 är öppen på den virtuella datorn från 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs använder du cmdleten [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
+När de inte längre behövs använder du cmdleten [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup

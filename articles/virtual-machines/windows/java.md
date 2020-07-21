@@ -8,11 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f73abe108ca9c33a8ec6865a760400d16393e51
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232977"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508499"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
@@ -179,7 +180,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
 
 ## <a name="create-resources"></a>Skapa resurser
 
-### <a name="create-the-resource-group"></a>Skapa en resursgrupp
+### <a name="create-the-resource-group"></a>Skapa resursgruppen
 
 Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/management/overview.md).
 
@@ -464,5 +465,4 @@ Det bör ta ungefär fem minuter för konsol programmet att köras helt från b�
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om att använda [Azure-biblioteken för Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
-
+* Lär dig mer om att använda [Azure-biblioteken för Java](/java/azure/java-sdk-azure-overview).

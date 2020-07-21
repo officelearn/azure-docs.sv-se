@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: cf8d4cd3c70e28a6c70ab9321a8f55271ead754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3aa4a7db9982d41cf32c1ddc4de6762bf1fdecf4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807510"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508805"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -24,9 +24,9 @@ En hanterad avbildning har stöd för upp till 20 samtidiga distributioner. Om d
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalisera den virtuella Windows-datorn med hjälp av Sysprep
 
-Sysprep tar bort allt ditt personliga konto och din säkerhets information och förbereder sedan datorn som ska användas som en avbildning. Information om Sysprep finns i [Översikt över Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Sysprep tar bort allt ditt personliga konto och din säkerhets information och förbereder sedan datorn som ska användas som en avbildning. Information om Sysprep finns i [Översikt över Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) och [scenarier som inte stöds](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep kräver att enheterna avkrypteras fullständigt innan de körs. Om du har aktiverat kryptering på den virtuella datorn inaktiverar du kryptering innan du kör Sysprep.
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) och [scenarier som inte stöds](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep kräver att enheterna avkrypteras fullständigt innan de körs. Om du har aktiverat kryptering på den virtuella datorn inaktiverar du kryptering innan du kör Sysprep.
 
 > [!IMPORTANT]
 > När du har kört Sysprep på en virtuell dator betraktas den virtuella datorn som *generaliserad* och kan inte startas om. Det går inte att ångra processen för att generalisera en virtuell dator. Om du behöver behålla den ursprungliga virtuella datorn bör du skapa en [kopia av den virtuella datorn](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) och generalisera dess kopia. 
@@ -52,7 +52,7 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 6. När Sysprep har slutförts stängs den virtuella datorn av. Starta inte om den virtuella datorn.
 
 > [!TIP]
-> **Valfritt** Använd [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) för att optimera din avbildning och minska den första start tiden för den virtuella datorn.
+> **Valfritt** Använd [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) för att optimera din avbildning och minska den första start tiden för den virtuella datorn.
 >
 > För att optimera din avbildning, montera din virtuella hård disk genom att dubbelklicka på den i Utforskaren och kör sedan DISM med `/optimize-image` parametern.
 >
@@ -247,4 +247,3 @@ Om du vill skapa en hanterad avbildning från en virtuell dator som inte använd
     
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en virtuell dator från en hanterad avbildning](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
-

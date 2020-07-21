@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d66c690c3a0ba638a92150c9aa1dbb0dc2a41268
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82562074"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506170"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions-proxyservrar
 
@@ -89,7 +89,7 @@ Svars parametrar kan användas som en del av att ändra svaret till klienten. F�
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Referens program inställningar
 
-Du kan också referera till [program inställningar som definierats för Function-appen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) genom att omgivande inställnings namnet med procent tecken (%).
+Du kan också referera till [program inställningar som definierats för Function-appen](./functions-how-to-use-azure-function-app-settings.md) genom att omgivande inställnings namnet med procent tecken (%).
 
 Till exempel har en backend-URL på *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST%" ersatts med värdet för inställningen ORDER_PROCESSING_HOST.
 
@@ -110,7 +110,7 @@ Inaktivera spår helt genom att lägga till `"debug":false` dem i en viss proxy 
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
-De proxyservrar som du konfigurerar lagras i en *proxies.jspå* en fil som finns i roten i en Function app-katalog. Du kan redigera den här filen manuellt och distribuera den som en del av din app när du använder någon av de [distributions metoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som stöds av functions. 
+De proxyservrar som du konfigurerar lagras i en *proxies.jspå* en fil som finns i roten i en Function app-katalog. Du kan redigera den här filen manuellt och distribuera den som en del av din app när du använder någon av de [distributions metoder](./functions-continuous-deployment.md) som stöds av functions. 
 
 > [!TIP] 
 > Om du inte har konfigurerat någon av distributions metoderna kan du också arbeta med *proxies.js* filen i portalen. Gå till din Function-app, Välj **plattforms funktioner**och välj sedan **App Service Editor**. Genom att göra det kan du Visa hela fil strukturen för din Function-app och sedan göra ändringar.
@@ -243,8 +243,8 @@ En exempel konfiguration kan se ut så här:
 > [!NOTE] 
 > I det här exemplet anges svars texten direkt, så ingen `backendUri` egenskap krävs. Exemplet visar hur du kan använda Azure Functions-proxyservrar för att modellera API: er.
 
-[Azure Portal]: https://portal.azure.com
-[HTTP-utlösare]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
+[Azure-portalen]: https://portal.azure.com
+[HTTP-utlösare]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Definiera ett requestOverrides-objekt]: #requestOverrides

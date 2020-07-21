@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: e4ac4f669d38f07d9fe4edbd600cc06f135fac03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8abf6cdf8506dc491f4e026c9a61ac1391f6ea4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80674106"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506306"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Snabb start: skapa din första funktion med Kotlin och maven
 
@@ -19,13 +19,13 @@ Den här artikeln vägleder dig genom att använda kommando rads verktyget Maven
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill utveckla funktioner med Kotlin måste du ha följande installerat:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 eller senare
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare
 
 > [!IMPORTANT]
@@ -43,7 +43,7 @@ mvn archetype:generate \
 ```
 
 > [!NOTE]
-> Om du har problem med att köra kommandot bör du ta en titt på vilken `maven-archetype-plugin` version som används. Eftersom du kör kommandot i en tom katalog utan `.pom` fil, kan det försöka använda ett plugin-program av den äldre versionen från `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` om du har uppgraderat maven från en äldre version. I så fall kan du `maven-archetype-plugin` försöka ta bort katalogen och köra kommandot igen.
+> Om du har problem med att köra kommandot bör du ta en titt på vilken `maven-archetype-plugin` version som används. Eftersom du kör kommandot i en tom katalog utan `.pom` fil, kan det försöka använda ett plugin-program av den äldre versionen från `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` om du har uppgraderat maven från en äldre version. I så fall kan du försöka ta bort `maven-archetype-plugin` katalogen och köra kommandot igen.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
@@ -79,7 +79,7 @@ Identifierarna `com.fabrikam.functions` och `fabrikam-functions` nedan används 
 [INFO] Parameter: artifactId, Value: fabrikam-function
 </pre>
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den körklara genererade koden i projektet utgörs av en enkel [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som återspeglar en begäran:
+Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den körklara genererade koden i projektet utgörs av en enkel [HTTP-utlöst](./functions-bindings-http-webhook.md) funktion som återspeglar en begäran:
 
 ```kotlin
 class Function {
@@ -119,7 +119,7 @@ class Function {
 }
 ```
 
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 Byt katalog till den nyskapade projektmappen. Skapa och kör sedan funktionen med Maven:
 
@@ -185,7 +185,7 @@ När distributionen är klar kan du se den webbadress som används för att få 
 Testa funktionsappen som körs på Azure med hjälp av `cURL`. Du måste ändra URL-adressen från exemplet till den distribuerade URL-adressen för din egen funktionsapp från föregående steg.
 
 > [!NOTE]
-> Se till att du ställer in **åtkomst behörighet** till `Anonymous`. När du väljer standard nivån för `Function`, måste du presentera [funktions nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys) i begär Anden för att få åtkomst till funktions slut punkten.
+> Se till att du ställer in **åtkomst behörighet** till `Anonymous` . När du väljer standard nivån för `Function` , måste du presentera [funktions nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys) i begär Anden för att få åtkomst till funktions slut punkten.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions

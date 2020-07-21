@@ -3,12 +3,12 @@ title: Referens för Azure Functions C#-utvecklare
 description: Lär dig hur du utvecklar Azure Functions med C#.
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.openlocfilehash: 038c1db2d4bb4d8bd80801d36cf5feec1905bbc1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9ecc2dad8d1d520b44972022d47c312f495d5c38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254375"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506524"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens för Azure Functions C#-utvecklare
 
@@ -202,6 +202,28 @@ Om du installerar kärn verktygen med NPM, som inte påverkar den version av kä
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
 ```
 
+## <a name="readytorun"></a>ReadyToRun
+
+Du kan kompilera din Function-app som [ReadyToRun-binärfiler](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun är en form av för hands kompilering som kan förbättra start prestandan för att minska effekten av [kall start](functions-scale.md#cold-start) när den körs i en [förbruknings plan](functions-scale.md#consumption-plan).
+
+ReadyToRun är tillgängligt i .NET 3,0 och kräver [version 3,0 av Azure Functions runtime](functions-versions.md).
+
+Om du vill kompilera projektet som ReadyToRun uppdaterar du projekt filen genom att lägga `<PublishReadyToRun>` till `<RuntimeIdentifier>` elementen och. Följande är konfigurationen för att publicera till en Windows 32-bitars Function-app.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <PublishReadyToRun>true</PublishReadyToRun>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+</PropertyGroup>
+```
+
+> [!IMPORTANT]
+> ReadyToRun stöder för närvarande inte Cross-Compilation. Du måste bygga din app på samma plattform som distributions målet. Observera också att "bitness" är konfigurerat i din Function-app. Om din Function-app i Azure exempelvis är Windows 64-bitars, måste du kompilera din app i Windows med `win-x64` som [körnings-ID](/dotnet/core/rid-catalog).
+
+Du kan också bygga din app med ReadyToRun från kommando raden. Mer information finns i `-p:PublishReadyToRun=true` alternativet i [`dotnet publish`](/dotnet/core/tools/dotnet-publish) .
+
 ## <a name="supported-types-for-bindings"></a>Typer som stöds för bindningar
 
 Varje bindning har sina egna typer som stöds. ett BLOB-Utlösar-attribut kan till exempel användas för en sträng parameter, en POCO-parameter, en `CloudBlockBlob` parameter eller någon av flera andra typer som stöds. [Bindnings referens artikeln för BLOB-bindningar](functions-bindings-storage-blob-trigger.md#usage) visar alla parameter typer som stöds. Mer information finns i [utlösare och bindningar](functions-triggers-bindings.md) och [bindnings referens dokument för varje bindnings typ](functions-triggers-bindings.md#next-steps).
@@ -238,7 +260,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Loggning
 
-Om du vill logga utdata till dina strömmande loggar i C# inkluderar du ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log` , som i följande exempel:  
+Om du vill logga utdata till dina strömmande loggar i C# inkluderar du ett argument av typen [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log` , som i följande exempel:  
 
 ```csharp
 public static class SimpleExample
@@ -257,7 +279,7 @@ Undvik att använda `Console.Write` i Azure Functions. Mer information finns i [
 
 ## <a name="async"></a>Async
 
-Om du vill göra en funktion [asynkron](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)använder du `async` nyckelordet och returnerar ett `Task` objekt.
+Om du vill göra en funktion [asynkron](/dotnet/csharp/programming-guide/concepts/async/)använder du `async` nyckelordet och returnerar ett `Task` objekt.
 
 ```csharp
 public static class AsyncExample
@@ -330,7 +352,7 @@ public static class EnvironmentVariablesExample
 
 App-inställningar kan läsas från miljövariabler både när de utvecklas lokalt och när de körs i Azure. När du utvecklar lokalt hämtas app-inställningarna från `Values` samlingen i *local.settings.js* filen. I båda miljöerna, lokalt och Azure, `GetEnvironmentVariable("<app setting name>")` hämtas värdet för den namngivna appens inställningen. När du till exempel kör lokalt returneras "mitt webbplats namn" om *local.settings.jsi* filen innehåller `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }` .
 
-Egenskapen [System.Configuration.ConfigurationManager. appSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) är ett alternativt API för att hämta inställnings värden för appar, men vi rekommenderar att du använder `GetEnvironmentVariable` som visas här.
+Egenskapen [System.Configuration.ConfigurationManager. appSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) är ett alternativt API för att hämta inställnings värden för appar, men vi rekommenderar att du använder `GetEnvironmentVariable` som visas här.
 
 ## <a name="binding-at-runtime"></a>Bindning vid körning
 
@@ -378,7 +400,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Exempel på flera attribut
 
-I föregående exempel hämtas app-inställningen för funktions programmets huvud anslutnings sträng för lagrings konto (som är `AzureWebJobsStorage` ). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()` . Använd en `Binder` parameter, inte `IBinder` .  Exempel:
+I föregående exempel hämtas app-inställningen för funktions programmets huvud anslutnings sträng för lagrings konto (som är `AzureWebJobsStorage` ). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()` . Använd en `Binder` parameter, inte `IBinder` .  Till exempel:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

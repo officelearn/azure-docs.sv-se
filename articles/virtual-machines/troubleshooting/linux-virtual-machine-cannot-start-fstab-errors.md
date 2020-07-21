@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509060"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Felsöka virtuella Linux-datorer med start problem på grund av fstab-fel
 
-Det går inte att ansluta till en virtuell Azure Linux-dator (VM) med hjälp av en SSH-anslutning (Secure Shell). När du kör funktionen för [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) på [Azure Portal](https://portal.azure.com/), ser du logg poster som liknar följande exempel:
+Det går inte att ansluta till en virtuell Azure Linux-dator (VM) med hjälp av en SSH-anslutning (Secure Shell). När du kör funktionen för [startdiagnostik](./boot-diagnostics.md) på [Azure Portal](https://portal.azure.com/), ser du logg poster som liknar följande exempel:
 
 ## <a name="examples"></a>Exempel
 
@@ -106,8 +106,8 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 ### <a name="using-single-user-mode"></a>Använda enanvändarläge
 
-1. Anslut till [serie konsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
-2. Använd [en serie](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode) konsol för att ta enanvändarläge för enanvändarläge
+1. Anslut till [serie konsolen](./serial-console-linux.md).
+2. Använd [en serie](../linux/serial-console-grub-single-user-mode.md) konsol för att ta enanvändarläge för enanvändarläge
 3. När den virtuella datorn har startats i enanvändarläge. Använd din text redigerare för att öppna filen fstab. 
 
    ```
@@ -140,7 +140,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 ### <a name="using-root-password"></a>Använda rot lösen ord
 
-1. Anslut till [serie konsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+1. Anslut till [serie konsolen](./serial-console-linux.md).
 2. Logga in på systemet med hjälp av en lokal användare och ett lösen ord.
 
    > [!Note]
@@ -188,7 +188,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 ## <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline
 
-1. Anslut den virtuella datorns system disk till en datadisk till en virtuell dator för återställning (valfri fungerande Linux-dator). Om du vill göra detta kan du använda [CLI-kommandon](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) eller automatisera konfigurationen av den virtuella återställnings datorn med hjälp av [kommandona för reparation av virtuella datorer](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Anslut den virtuella datorns system disk till en datadisk till en virtuell dator för återställning (valfri fungerande Linux-dator). Om du vill göra detta kan du använda [CLI-kommandon](./troubleshoot-recovery-disks-linux.md) eller automatisera konfigurationen av den virtuella återställnings datorn med hjälp av [kommandona för reparation av virtuella datorer](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. När du har monterat system disken som en datadisk på den virtuella återställnings datorn säkerhetskopierar du fstab-filen innan du gör några ändringar och följer sedan anvisningarna i nästa steg för att korrigera fstab-filen.
 
@@ -217,7 +217,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
    > * Fält på varje rad avgränsas med tabbar eller blank steg. Tomma rader ignoreras. Rader som har ett nummer tecken (#) som det första tecknet är kommentarer. Kommenterade rader kan finnas kvar i fstab-filen, men de bearbetas inte. Vi rekommenderar att du kommenterar fstab-rader som du är osäker på i stället för att ta bort raderna.
    > * För att den virtuella datorn ska kunna återställa och starta ska fil system partitionerna vara de enda partitioner som krävs. Den virtuella datorn kan uppleva program fel om ytterligare kommenterade partitioner. Den virtuella datorn bör dock starta utan ytterligare partitioner. Du kan senare ta bort kommentarer till kommenterade rader.
    > * Vi rekommenderar att du monterar data diskar på virtuella Azure-datorer med hjälp av fil system partitionens UUID. Kör till exempel följande kommando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Ta reda på fil systemets UUID genom att köra kommandot blkid. Om du vill ha mer information om syntaxen kan du köra kommandot man blkid. Observera att den disk som du vill återställa nu har monterats på en ny virtuell dator. Även om UUID: na bör vara konsekventa är partitions-ID: n (till exempel "/dev/sda1") olika på den här virtuella datorn. Fil system partitionerna för den ursprungliga virtuella datorn som finns på en icke-systemhårddisk är inte tillgängliga för den virtuella återställnings datorn [med CLI-kommandon](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
+   > * Ta reda på fil systemets UUID genom att köra kommandot blkid. Om du vill ha mer information om syntaxen kan du köra kommandot man blkid. Observera att den disk som du vill återställa nu har monterats på en ny virtuell dator. Även om UUID: na bör vara konsekventa är partitions-ID: n (till exempel "/dev/sda1") olika på den här virtuella datorn. Fil system partitionerna för den ursprungliga virtuella datorn som finns på en icke-systemhårddisk är inte tillgängliga för den virtuella återställnings datorn [med CLI-kommandon](./troubleshoot-recovery-disks-linux.md).
    > * Alternativet nomisslyckande ser till att den virtuella datorn startar även om fil systemet är skadat eller om fil systemet inte finns vid start. Vi rekommenderar att du använder alternativet nomisslyckande i fstab-filen för att aktivera start för att fortsätta när fel uppstår i partitioner som inte krävs för att den virtuella datorn ska starta.
 
 7. Ändra eller kommentera eventuella felaktiga eller raderade rader i fstab-filen för att göra det möjligt att starta den virtuella datorn korrekt.
@@ -240,5 +240,5 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell dator för återställning med Azure CLI 2,0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
+* [Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell dator för återställning med Azure CLI 2,0](./troubleshoot-recovery-disks-linux.md)
+* [Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal](./troubleshoot-recovery-disks-portal-linux.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d424cccc0a50198f3ca8c6c040afb87f44282d47
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086780"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508907"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Det går inte att RDP till en virtuell dator eftersom den virtuella datorn startar i fel säkert läge
 
@@ -79,7 +79,7 @@ Lös problemet genom att använda seriell kontroll för att konfigurera den virt
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-portal-windows.md).
 2. Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 3. Kontrol lera att disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som tilldelas till den anslutna OS-disken.
 
@@ -143,4 +143,4 @@ Kör följande skript för att aktivera dumpa logg och seriell konsol.
     bcdedit /store F:\boot\bcd /enum
     ```
 
-5. [Koppla från OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
+5. [Koppla från OS-disken och återskapa den virtuella datorn](./troubleshoot-recovery-disks-portal-windows.md). Kontrol lera sedan om problemet är löst.

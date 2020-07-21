@@ -4,16 +4,18 @@ description: Den här artikeln beskriver hur du säkerhetskopierar och återstä
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871292"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507003"
 ---
-# <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
+# <a name="analysis-services-database-backup-and-restore"></a>Säkerhets kopiering och återställning av Analysis Services databasen
 
 Att säkerhetskopiera tabell modell databaser i Azure Analysis Services är ungefär samma som för lokala Analysis Services. Den främsta skillnaden är den plats där du lagrar dina säkerhets kopior. Säkerhetskopierade filer måste sparas i en behållare i ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Du kan använda ett lagrings konto och en behållare som du redan har, eller så kan de skapas när du konfigurerar lagrings inställningar för servern.
 
@@ -45,7 +47,7 @@ Innan du säkerhetskopierar måste du konfigurera lagrings inställningarna för
 
 4. Välj en behållare eller skapa en ny.
 
-    ![Välj container](./media/analysis-services-backup/aas-backup-container.png)
+    ![Välja container](./media/analysis-services-backup/aas-backup-container.png)
 
 5. Spara inställningarna för säkerhets kopiering.
 
@@ -105,6 +107,6 @@ Använd [restore-Database-](https://docs.microsoft.com/powershell/module/sqlserv
 
 ## <a name="related-information"></a>Relaterad information
 
-[Azure-lagringskonton](../storage/common/storage-create-storage-account.md)  
+[Azure Storage-konton](../storage/common/storage-create-storage-account.md)  
 [Hög tillgänglighet](analysis-services-bcdr.md)      
 [Vanliga frågor och svar om nätverks anslutning Analysis Services](analysis-services-network-faq.md)

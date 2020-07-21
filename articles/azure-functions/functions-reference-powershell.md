@@ -4,11 +4,12 @@ description: Lär dig hur du utvecklar funktioner med hjälp av PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697280"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506136"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -18,7 +19,7 @@ En PowerShell-funktion (funktion) i Azure representeras som ett PowerShell-skrip
 
 Precis som andra typer av funktioner, tar PowerShell-skript funktioner i parametrar som matchar namnen på alla angivna bindningar i `function.json` filen. En `TriggerMetadata` parameter skickas också som innehåller ytterligare information om utlösaren som startade funktionen.
 
-Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också ha slutfört funktionen [snabb start för PowerShell](functions-create-first-function-powershell.md) för att skapa din första PowerShell-funktion.
+Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också ha slutfört funktionen [snabb start för PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) för att skapa din första PowerShell-funktion.
 
 ## <a name="folder-structure"></a>Mappstruktur
 
@@ -124,7 +125,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding` :
 
-| Name | Typ | Position | Beskrivning |
+| Namn | Typ | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | Sträng | 1 | Namnet på den utgående bindning som du vill ange. |
 | **`-Value`** | Objekt | 2 | Värdet för den utgående bindning som du vill ange, som accepteras från pipelinen ByValue. |

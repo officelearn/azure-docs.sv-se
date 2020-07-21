@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 644d1094ec57e148804941297d50398e36b1b068
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80ece5b0704869c31ab0656eed922b3f21ba9928
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996432"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505762"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Anslut Windows-datorer till Azure Monitor
 
@@ -43,7 +44,7 @@ Innan du installerar Log Analytics agent för Windows behöver du arbets ytans I
 5. Kopiera och klistra in i din favorit redigerare, **arbetsyte-ID** och **primär nyckel**.    
    
 ## <a name="configure-agent-to-use-tls-12"></a>Konfigurera agenten att använda TLS 1,2
-Om du vill konfigurera användningen av [TLS 1,2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) -protokollet för kommunikation mellan Windows-agenten och tjänsten Log Analytics, kan du följa stegen nedan för att aktivera innan agenten installeras på den virtuella datorn eller senare.
+Om du vill konfigurera användningen av [TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) -protokollet för kommunikation mellan Windows-agenten och tjänsten Log Analytics, kan du följa stegen nedan för att aktivera innan agenten installeras på den virtuella datorn eller senare.
 
 >[!NOTE]
 >Om du konfigurerar en virtuell dator som kör Windows Server 2008 SP2 x64 för att använda TLS 1,2 måste du först installera följande [SHA-2-kod signerings uppdatering](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) innan du utför stegen nedan. 
@@ -57,7 +58,7 @@ Om du vill konfigurera användningen av [TLS 1,2](https://docs.microsoft.com/win
     * **Aktiverat** [värde = 1]
     * **DisabledByDefault** [värde = 0]  
 
-Konfigurera .NET Framework 4,6 eller senare för att stödja säker kryptografi, som standard är inaktiverat. Den [starka kryptografi](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) användningen använder säkrare nätverks protokoll som TLS 1,2 och blockerar protokoll som inte är säkra. 
+Konfigurera .NET Framework 4,6 eller senare för att stödja säker kryptografi, som standard är inaktiverat. Den [starka kryptografi](/dotnet/framework/network-programming/tls#schusestrongcrypto) användningen använder säkrare nätverks protokoll som TLS 1,2 och blockerar protokoll som inte är säkra. 
 
 1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE \software\microsoft \\ . NETFramework\v4.0.30319**.  
 2. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**.  
@@ -66,7 +67,7 @@ Konfigurera .NET Framework 4,6 eller senare för att stödja säker kryptografi,
 5. Starta om systemet för att inställningarna ska börja gälla. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Installera agenten med hjälp av installations guiden
-Följande steg installerar och konfigurerar Log Analytics agenten i Azure och Azure Government molnet med hjälp av installations guiden för agenten på datorn. Om du vill lära dig hur du konfigurerar agenten så att den rapporterar till en System Center Operations Manager hanterings grupp läser du [distribuera Operations Manager agent med installations guiden för agenten](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Följande steg installerar och konfigurerar Log Analytics agenten i Azure och Azure Government molnet med hjälp av installations guiden för agenten på datorn. Om du vill lära dig hur du konfigurerar agenten så att den rapporterar till en System Center Operations Manager hanterings grupp läser du [distribuera Operations Manager agent med installations guiden för agenten](/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. På arbets ytan Log Analytics, på sidan **Windows-servrar** som du har navigerat till tidigare, väljer du den version av Windows **agent** som du vill ladda ned beroende på processor arkitekturen i Windows-operativsystemet.   
 2. Kör installationsprogrammet för att installera agenten på datorn.
@@ -91,7 +92,7 @@ Den hämtade filen för agenten är ett fristående installations paket.  Instal
 
 I följande tabell visas de olika parametrarna som stöds av installations programmet för agenten, inklusive när du distribuerar med hjälp av Automation DSC.
 
-|MMA alternativ                   |Obs!         |
+|MMA alternativ                   |Anteckningar         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | Valfri parameter. Installerar agenten utan prestanda övervakning av .NET-program.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Konfigurera agenten att rapportera till en arbets yta                |
@@ -119,7 +120,7 @@ I följande tabell visas de olika parametrarna som stöds av installations progr
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Installera agenten med DSC i Azure Automation
 
-Du kan använda följande skript exempel för att installera agenten med hjälp av Azure Automation DSC.   Om du inte har ett Automation-konto kan du läsa [komma igång med Azure Automation](/azure/automation/) för att förstå krav och anvisningar för att skapa ett Automation-konto som krävs innan du använder Automation DSC.  Om du inte är bekant med Automation DSC kan du läsa [komma igång med Automation DSC](../../automation/automation-dsc-getting-started.md).
+Du kan använda följande skript exempel för att installera agenten med hjälp av Azure Automation DSC.   Om du inte har ett Automation-konto kan du läsa [komma igång med Azure Automation](../../automation/index.yml) för att förstå krav och anvisningar för att skapa ett Automation-konto som krävs innan du använder Automation DSC.  Om du inte är bekant med Automation DSC kan du läsa [komma igång med Automation DSC](../../automation/automation-dsc-getting-started.md).
 
 I följande exempel installeras 64-bitars agenten som identifieras av `URI` värdet. Du kan också använda 32-bitars versionen genom att ersätta URI-värdet. URI: erna för båda versionerna är:
 
@@ -132,7 +133,7 @@ I följande exempel installeras 64-bitars agenten som identifieras av `URI` vär
 
 32-bitars-och 64-bitars versionerna av agent paketet har olika produkt koder och nya versioner som släpps har också ett unikt värde.  Produkt koden är en GUID som är huvud-ID för ett program eller en produkt och representeras av egenskapen Windows Installer **ProductCode** .  `ProductId`Värdet i **MMAgent.ps1** -skriptet måste matcha produkt koden från installations paketet 32-bitars eller 64-bitars agent.
 
-Om du vill hämta produkt koden från agentens installations paket direkt kan du använda Orca.exe från [Windows SDK-komponenter för Windows Installer utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en komponent i Windows Software Development Kit eller använda PowerShell efter ett [exempel skript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) som skrivits av en Microsoft Valuable Professional (MVP).  För båda metoderna måste du först extrahera **MOMagent.msi** -filen från installations paketet för MMASetup.  Detta visas tidigare i det första steget under avsnittet [Installera agenten med hjälp av kommando raden](#install-the-agent-using-the-command-line).  
+Om du vill hämta produkt koden från agentens installations paket direkt kan du använda Orca.exe från [Windows SDK-komponenter för Windows Installer utvecklare](/windows/win32/msi/platform-sdk-components-for-windows-installer-developers) som är en komponent i Windows Software Development Kit eller använda PowerShell efter ett [exempel skript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) som skrivits av en Microsoft Valuable Professional (MVP).  För båda metoderna måste du först extrahera **MOMagent.msi** -filen från installations paketet för MMASetup.  Detta visas tidigare i det första steget under avsnittet [Installera agenten med hjälp av kommando raden](#install-the-agent-using-the-command-line).  
 
 1. Importera xPSDesiredStateConfiguration DSC-modulen från [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) till Azure Automation.  
 2.    Skapa Azure Automation variabel till gångar för *OPSINSIGHTS_WS_ID* och *OPSINSIGHTS_WS_KEY*. Ange *OPSINSIGHTS_WS_ID* till ditt Log Analytics arbetsyte-ID och ange *OPSINSIGHTS_WS_KEY* till primär nyckeln för din arbets yta.

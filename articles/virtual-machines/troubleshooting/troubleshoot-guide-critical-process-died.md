@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373367"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509111"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Windows Stop-fel-#0x000000EF "kritisk process har dött"
 
@@ -27,13 +27,13 @@ Den här artikeln innehåller steg för att lösa problem där en kritisk proces
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar fel *#0x000000EF* med meddelandets *kritiska process*.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar fel *#0x000000EF* med meddelandets *kritiska process*.
 
 !["Datorn stötte på ett problem och måste startas om. Vi har bara samlat in fel information och sedan kan du starta om. (# #% Complete) Om du vill veta mer kan du söka online senare för det här felet: 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
 ## <a name="cause"></a>Orsak
 
-Detta beror vanligt vis på att en kritisk system process slutar fungera under start. Du kan läsa mer om kritiska process problem på "[bugg check 0xEF: CRITICAL_PROCESS_DIED](https://docs.microsoft.com/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
+Detta beror vanligt vis på att en kritisk system process slutar fungera under start. Du kan läsa mer om kritiska process problem på "[bugg check 0xEF: CRITICAL_PROCESS_DIED](/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
 
 ## <a name="solution"></a>Lösning
 
@@ -49,7 +49,7 @@ Detta beror vanligt vis på att en kritisk system process slutar fungera under s
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 2. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
 ### <a name="fix-any-os-corruption"></a>Åtgärda eventuella fel i operativ systemet
@@ -61,7 +61,7 @@ Detta beror vanligt vis på att en kritisk system process slutar fungera under s
 
    * Där < start DISK enhet > är start volymen för den virtuella reparations datorn (vanligt vis "C:") och < trasig DISK DRIVE > blir enhets beteckningen för den anslutna disken från den skadade virtuella datorn. Ersätt större än/mindre än symboler samt texten som finns i dem, t. ex. "< text här >", med lämplig bokstav.
 
-3. Använd sedan [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att sätta samman den virtuella datorn och se om den startas.
+3. Använd sedan [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att sätta samman den virtuella datorn och se om den startas.
 4. Om den virtuella datorn fortfarande inte startar kan du fortsätta att samla in minnesdumpen.
 
 ### <a name="collect-the-memory-dump-file"></a>Samla in minnesdumpen
@@ -70,7 +70,7 @@ Om problemet kvarstår efter att du kört SFC, krävs analyser av en minnesdumpf
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny virtuell reparations dator
 
-1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en ny reparations-VM.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en ny reparations-VM.
 2. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett support ärende
@@ -128,4 +128,4 @@ Om det inte finns tillräckligt med utrymme på OS-disken, bör du ändra platse
 
 ### <a name="rebuild-the-original-vm"></a>Återskapa den ursprungliga virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att bygga upp den virtuella datorn igen.

@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80411079"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508057"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4,0 på Azure
 
@@ -273,7 +273,7 @@ Grattis! Nu kör du ett CICS-program i Azure med Micro Focus Enterprise Server.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Kör Enterprise Server i Docker-behållare på Azure](run-enterprise-server-container.md)
-- [Stordator-migrering – Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Stordator-migrering – Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
+- [Virtual Machines](../../../linux/overview.md)
+- [Felsökning](../../../troubleshooting/index.yml)
 - [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

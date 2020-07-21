@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb26260d0e1f59e78c8328de298c3d4d92c19d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735922"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509329"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerade storlekar på virtuella datorer
 
@@ -30,13 +31,13 @@ GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgä
 
 För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste du installera NVIDIA-och AMD GPU-drivrutiner.
 
-- För virtuella datorer som backas upp av NVIDIA GPU: er installeras lämpliga NVIDIA-CUDA eller RUTNÄTs driv rutiner i [nVidia GPU-drivrutinen](/azure/virtual-machines/extensions/hpccompute-gpu-windows) . Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](/azure/virtual-machines/extensions/hpccompute-gpu-windows) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](/azure/virtual-machines/extensions/overview).
+- För virtuella datorer som backas upp av NVIDIA GPU: er installeras lämpliga NVIDIA-CUDA eller RUTNÄTs driv rutiner i [nVidia GPU-drivrutinen](./extensions/hpccompute-gpu-windows.md) . Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](./extensions/hpccompute-gpu-windows.md) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](./extensions/overview.md).
 
-   Alternativt kan du installera NVIDIA GPU-drivrutiner manuellt. Se [Installera nVidia GPU-drivrutiner för virtuella datorer i n-serien som kör Windows](/azure/virtual-machines/windows/n-series-driver-setup) eller [Installera nVidia GPU-drivrutiner på virtuella datorer i n-serien som kör Linux](/azure/virtual-machines/linux/n-series-driver-setup) för operativ system, driv rutiner, installation och verifierings steg som stöds.
+   Alternativt kan du installera NVIDIA GPU-drivrutiner manuellt. Se [Installera nVidia GPU-drivrutiner för virtuella datorer i n-serien som kör Windows](./windows/n-series-driver-setup.md) eller [Installera nVidia GPU-drivrutiner på virtuella datorer i n-serien som kör Linux](./linux/n-series-driver-setup.md) för operativ system, driv rutiner, installation och verifierings steg som stöds.
 
-- För virtuella datorer som backas upp av AMD GPU: er, se [Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) för operativ system, driv rutiner, installation och verifierings steg som stöds.
+- För virtuella datorer som backas upp av AMD GPU: er, se [Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows](./windows/n-series-amd-driver-setup.md) för operativ system, driv rutiner, installation och verifierings steg som stöds.
 
-## <a name="deployment-considerations"></a>Distributionsöverväganden
+## <a name="deployment-considerations"></a>Överväganden för distribution
 
 - Tillgänglighet för virtuella datorer i N-serien finns i [produkt tillgänglighet per region](https://azure.microsoft.com/regions/services/).
 
@@ -50,7 +51,7 @@ För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serie
 
 ## <a name="other-sizes"></a>Andra storlekar
 
-- [Generellt syfte](sizes-general.md)
+- [Generell användning](sizes-general.md)
 - [Beräkningsoptimerad](sizes-compute.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Minnesoptimerad](sizes-memory.md)

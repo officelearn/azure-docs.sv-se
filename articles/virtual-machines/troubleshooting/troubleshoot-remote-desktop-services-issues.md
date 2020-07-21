@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b00785fed7708986885e9da9102e8f1b4fd4539
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084336"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508890"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster som inte startar på en virtuell Azure-dator
 
@@ -218,7 +218,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-portal-windows.md).
 2. Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn. Kontrol lera att den anslutna disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som är kopplad till den anslutna OS-disken.
 3. Öppna en upphöjd kommando tolks instans (**Kör som administratör**). Kör sedan följande skript. Vi antar att enhets beteckningen som är kopplad till den anslutna OS-disken är **F**. Ersätt det med lämpligt värde i den virtuella datorn. 
 
@@ -234,7 +234,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Koppla från OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
+4. [Koppla från OS-disken och återskapa den virtuella datorn](./troubleshoot-recovery-disks-portal-windows.md). Kontrol lera sedan om problemet är löst.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

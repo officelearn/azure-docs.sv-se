@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 7647283444ba41a5d629ba8a26fc711a699cd78d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc61d842550f82dc8b408ed5cd421af65d0e2be6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561108"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507904"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Installera Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Azure
 
@@ -29,7 +29,7 @@ Den här installationen använder virtuella Azure-datorer som kör Windows Serve
 
 Motsvarande utvecklings miljö för Enterprise Server är företags utvecklare, som körs på antingen Microsoft Visual Studio 2017 eller senare, Visual Studio Community (kostnads fri att ladda ned) eller Sol förmörkelse. Den här artikeln visar hur du distribuerar den med en virtuell Windows Server 2016-dator som medföljer Visual Studio 2017 eller senare installerat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du gå igenom följande krav:
 
@@ -42,7 +42,7 @@ Innan du börjar bör du gå igenom följande krav:
     > [!Note]
     > Det finns några alternativ för att kontrol lera åtkomsten till dina virtuella datorer:
     > -   Vi rekommenderar att du konfigurerar Azure- [skydds](https://azure.microsoft.com/services/azure-bastion/).
-    > -   En [plats-till-plats VPN-tunnel (virtuellt privat nätverk)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell) .
+    > -   En [plats-till-plats VPN-tunnel (virtuellt privat nätverk)](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) .
     > -   En virtuell hoppsida-dator.
 
 ## <a name="install-enterprise-server"></a>Installera Enterprise Server
@@ -125,8 +125,8 @@ När Enterprise Developer laddas, är din distribution av en Micro Focus-utveckl
 
 **Nästa steg**
 
--   [Konfigurera BankDemo-programmet](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/demo)
+-   [Konfigurera BankDemo-programmet](./demo.md)
 
--   [Kör Enterprise Server i Docker-behållare](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)
+-   [Kör Enterprise Server i Docker-behållare](./run-enterprise-server-container.md)
 
--   [Migrering av program från stordatorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [Migrering av program från stordatorer](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

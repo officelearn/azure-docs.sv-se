@@ -6,11 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114437"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505456"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
 > [!WARNING]
@@ -175,7 +176,7 @@ Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du e
 }
 ```
 
-En förklaring av schema och egenskaper för en varnings regel [finns här](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+En förklaring av schema och egenskaper för en varnings regel [finns här](/rest/api/monitor/alertrules).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Resource Manager-mall för en resurs med en klassisk måtta avisering
 En avisering i en Resource Manager-mall är oftast användbar när du skapar en avisering när du skapar en resurs. Du kanske till exempel vill se till att en "CPU% > 80"-regel konfigureras varje gång du distribuerar en virtuell dator. Om du vill göra det lägger du till varnings regeln som en resurs i resurs mat ris mal len för VM-mallen och lägger till ett beroende med `dependsOn` egenskapen till resurs-ID för virtuell dator. Här är ett fullständigt exempel som skapar en virtuell Windows-dator och lägger till en avisering som meddelar prenumerations administratörer när processor användningen går över 80%.
@@ -401,4 +402,3 @@ En avisering i en Resource Manager-mall är oftast användbar när du skapar en 
 * [Läs mer om aviseringar](alerts-overview.md)
 * [Lägg till diagnostikinställningar](../../azure-monitor/platform/diagnostic-settings-template.md) i Resource Manager-mallen
 * För JSON-syntax och egenskaper, se referens för [Microsoft. Insights/alertrules-](/azure/templates/microsoft.insights/alertrules) mallen.
-

@@ -12,11 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255241"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507836"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Säkerhets kopierings guide för SAP HANA på Azure Virtual Machines
 
@@ -24,11 +25,11 @@ ms.locfileid: "78255241"
 
 Säkerhets kopierings guiden för SAP HANA som körs på virtuella Azure-datorer kommer bara att beskriva Azure-specifika ämnen. Information om allmänna SAP HANA säkerhets kopiering finns i SAP HANA-dokumentationen. Vi förväntar dig att du är bekant med princip för säkerhets kopiering av principer, varför och motiverar att ha en ljud-och giltig säkerhets kopierings strategi och är medveten om kraven som företaget har för säkerhets kopierings proceduren, kvarhållningsperioden för säkerhets kopiering och återställnings förfarande.
 
-SAP HANA stöds officiellt på olika typer av virtuella Azure-datorer, t. ex. Azure M-serien. En fullständig lista över SAP HANA certifierade virtuella Azure-datorer och HANA stora instans enheter finns i [hitta certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Microsoft Azure erbjuder ett antal enheter där SAP HANA körs icke-virtualiserade på fysiska servrar. Den här tjänsten kallas [Hana-stora instanser](hana-overview-architecture.md). Den här guiden behandlar inte säkerhets kopierings processer och verktyg för HANA-stora instanser. Men kommer att begränsas till Azure Virtual Machines. Mer information om säkerhets kopierings-/återställnings processer med HANA-stora instanser finns i artikeln [HLI backup and Restore](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore).
+SAP HANA stöds officiellt på olika typer av virtuella Azure-datorer, t. ex. Azure M-serien. En fullständig lista över SAP HANA certifierade virtuella Azure-datorer och HANA stora instans enheter finns i [hitta certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Microsoft Azure erbjuder ett antal enheter där SAP HANA körs icke-virtualiserade på fysiska servrar. Den här tjänsten kallas [Hana-stora instanser](hana-overview-architecture.md). Den här guiden behandlar inte säkerhets kopierings processer och verktyg för HANA-stora instanser. Men kommer att begränsas till Azure Virtual Machines. Mer information om säkerhets kopierings-/återställnings processer med HANA-stora instanser finns i artikeln [HLI backup and Restore](./hana-backup-restore.md).
 
 Den här artikeln handlar om tre säkerhets kopierings möjligheter för SAP HANA på virtuella Azure-datorer:
 
-- HANA-säkerhetskopiering via [Azure Backup Services](https://docs.microsoft.com/azure/backup/backup-overview) 
+- HANA-säkerhetskopiering via [Azure Backup Services](../../../backup/backup-overview.md) 
 - HANA-säkerhetskopiering till fil systemet på en virtuell Azure Linux-dator (se [SAP HANA Azure Backup på filnivå](sap-hana-backup-file-level.md))
 - HANA-säkerhetskopiering baserat på lagrings ögonblicks bilder med hjälp av ögonblicks bilder av Azure Storage BLOB manuellt eller Azure Backup tjänsten
 
@@ -36,18 +37,18 @@ Den här artikeln handlar om tre säkerhets kopierings möjligheter för SAP HAN
 SAP HANA erbjuder ett säkerhets kopierings-API som gör det möjligt för säkerhets kopierings verktyg från tredje part att integrera direkt med SAP HANA. Produkter som Azure Backup-tjänsten eller [CommVault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/) använder det här tillverkarspecifika gränssnittet för att utlösa SAP HANA databas eller göra om säkerhets kopior. 
 
 
-Information om hur du hittar vilka SAP-program som stöds på Azure finns i artikeln [vilka SAP-program som stöds för Azure-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure).
+Information om hur du hittar vilka SAP-program som stöds på Azure finns i artikeln [vilka SAP-program som stöds för Azure-distributioner](./sap-supported-product-on-azure.md).
 
 ## <a name="azure-backup-service"></a>Azure Backup tjänst
 
 Det första scenario som visas är ett scenario där Azure Backup-tjänsten antingen använder SAP HANA- `backint` gränssnittet för att utföra en strömmande säkerhets kopiering med från en SAP HANA databas. Eller så använder du en mer allmän funktion i Azure Backup tjänst för att skapa en programkonsekvent disk ögonblicks bild och låta den överföras till tjänsten Azure Backup.
 
-Azure Backup integreras och certifieras som säkerhets kopierings lösning för SAP HANA med hjälp av det tillverkarspecifika SAP HANA gränssnittet som kallas [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Mer information om lösningen, dess funktioner och de Azure-regioner där den är tillgänglig finns i artikeln support- [matris för säkerhets kopiering av SAP HANA databaser på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). Mer information och principer om Azure Backup tjänst för HANA finns [i artikeln om säkerhets kopiering SAP HANA databas i virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
+Azure Backup integreras och certifieras som säkerhets kopierings lösning för SAP HANA med hjälp av det tillverkarspecifika SAP HANA gränssnittet som kallas [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Mer information om lösningen, dess funktioner och de Azure-regioner där den är tillgänglig finns i artikeln support- [matris för säkerhets kopiering av SAP HANA databaser på virtuella Azure-datorer](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Mer information och principer om Azure Backup tjänst för HANA finns [i artikeln om säkerhets kopiering SAP HANA databas i virtuella Azure-datorer](../../../backup/sap-hana-db-about.md). 
 
-Den andra möjligheten att utnyttja Azure Backup tjänst är att skapa en programkonsekvent säkerhets kopia med disk ögonblicks bilder av Azure Premium Storage. Andra HANA-certifierade Azure-lagringar, t. ex. [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) och [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , stöder inte den här typen av ögonblicks bilder via Azure backups tjänsten. Läser de här artiklarna:
+Den andra möjligheten att utnyttja Azure Backup tjänst är att skapa en programkonsekvent säkerhets kopia med disk ögonblicks bilder av Azure Premium Storage. Andra HANA-certifierade Azure-lagringar, t. ex. [Azure Ultra disk](../../linux/disks-enable-ultra-ssd.md) och [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , stöder inte den här typen av ögonblicks bilder via Azure backups tjänsten. Läser de här artiklarna:
 
-- [Planera din infrastruktur för VM-säkerhetskopiering i Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-- [Programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) 
+- [Planera din infrastruktur för VM-säkerhetskopiering i Azure](../../../backup/backup-azure-vms-introduction.md)
+- [Programkonsekventa säkerhetskopior av virtuella Linux-datorer på Azure](../../../backup/backup-azure-linux-app-consistent.md) 
 
 den här sekvensen av aktivitet uppstår:
 
@@ -103,7 +104,7 @@ Information om konsekvens kontroll av tabell finns också på SAP-webbplatsen i 
 
 SAP har&#39;t företräde antingen HANA-säkerhets kopiering jämfört med lagrings ögonblicks bilder. Den innehåller en lista med sina respektive-och nack delar, så att du kan avgöra vilken som ska användas beroende på situationen och tillgänglig lagrings teknik (se [Planera din strategi för säkerhets kopiering och återställning](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-På Azure bör du vara medveten om det faktum att funktionen för ögonblicks bilder av Azure-bloben&#39;t ger konsekvens i fil systemet på flera diskar (se [använda BLOB-ögonblicksbilder med PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). 
+På Azure bör du vara medveten om det faktum att funktionen för ögonblicks bilder av Azure-bloben&#39;t ger konsekvens i fil systemet på flera diskar (se [använda BLOB-ögonblicksbilder med PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 
 Dessutom måste en vara medveten om fakturerings konsekvenserna när du arbetar ofta med BLOB-ögonblicksbilder enligt beskrivningen i den här artikeln: [förstå hur ögonblicks bilder debiteras](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)– det inte är&#39;t så självklart som att använda virtuella Azure-diskar.
 

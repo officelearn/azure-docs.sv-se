@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672454"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505711"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa text data i Azure Monitor loggar
-Vissa loggdata som samlas in av Azure Monitor innehåller flera informations delar i en enda egenskap. Att parsa dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel logg post med flera värden i en enda egenskap. Genom att skapa separata egenskaper för de olika värdena kan du söka efter och aggregera dem.
+Vissa loggdata som samlas in av Azure Monitor innehåller flera informations delar i en enda egenskap. Att parsa dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../platform/data-sources-custom-logs.md) som samlar in en hel logg post med flera värden i en enda egenskap. Genom att skapa separata egenskaper för de olika värdena kan du söka efter och aggregera dem.
 
 I den här artikeln beskrivs olika alternativ för att parsa loggdata i Azure Monitor när data matas in och när de hämtas i en fråga, jämför de relativa fördelarna för var och en.
 
@@ -22,7 +23,7 @@ I den här artikeln beskrivs olika alternativ för att parsa loggdata i Azure Mo
 Du kan parsa data antingen vid inläsnings tiden när data samlas in eller vid tidpunkten när data analyseras med en fråga. Varje strategi har unika fördelar enligt beskrivningen nedan.
 
 ### <a name="parse-data-at-collection-time"></a>Parsa data vid samlings tid
-När du parsar data vid samlings tiden konfigurerar du [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) som skapar nya egenskaper i tabellen. Frågor behöver inte inkludera någon tolknings logik och använder bara dessa egenskaper som andra fält i tabellen.
+När du parsar data vid samlings tiden konfigurerar du [anpassade fält](../platform/custom-fields.md) som skapar nya egenskaper i tabellen. Frågor behöver inte inkludera någon tolknings logik och använder bara dessa egenskaper som andra fält i tabellen.
 
 Fördelarna med den här metoden är följande:
 

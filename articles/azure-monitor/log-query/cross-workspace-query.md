@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d16c62c14ff6f24e519173b979e11d21d997927
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199914"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505796"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
 
@@ -19,17 +20,17 @@ ms.locfileid: "83199914"
 
 Tidigare med Azure Monitor kunde du bara analysera data från den aktuella arbets ytan och den begränsade möjligheten att fråga över flera arbets ytor som definierats i din prenumeration.  Dessutom kan du bara söka efter telemetri som samlats in från ditt webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio. Detta gjorde också det en utmaning att internt analysera drift-och program data tillsammans.
 
-Nu kan du fråga inte bara över flera Log Analytics arbets ytor, utan även data från en speciell Application Insights app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta ger dig en systemomfattande vy över dina data. Du kan bara utföra dessa typer av frågor i [Log Analytics](portals.md).
+Nu kan du fråga inte bara över flera Log Analytics arbets ytor, utan även data från en speciell Application Insights app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta ger dig en systemomfattande vy över dina data. Du kan bara utföra dessa typer av frågor i [Log Analytics](./log-query-overview.md).
 
 ## <a name="cross-resource-query-limits"></a>Begränsningar för kors resurs frågor 
 
 * Antalet Application Insights-resurser och Log Analytics arbets ytor som du kan ta med i en enskild fråga är begränsade till 100.
 * Frågan över resurser stöds inte i View Designer. Du kan redigera en fråga i Log Analytics och fästa den på Azure-instrumentpanelen för att [visualisera en logg fråga](../learn/tutorial-logs-dashboards.md). 
-* Frågan över resurser i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa frågor om kors resurs frågor om loggen utan att göra växeln med hjälp av [Azure Resource Manager mall för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules-API: n](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) inte är Azure Portal.
+* Frågan över resurser i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa frågor om kors resurs frågor om loggen utan att göra växeln med hjälp av [Azure Resource Manager mall för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules-API: n](/rest/api/monitor/scheduledqueryrules) inte är Azure Portal.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga i Log Analytics arbets ytor och från Application Insights
-Om du vill referera till en annan arbets yta i din fråga använder du ID för [*arbets ytan*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) och för en app från Application Insights använder du [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) -ID: t.  
+Om du vill referera till en annan arbets yta i din fråga använder du ID för [*arbets ytan*](./workspace-expression.md) och för en app från Application Insights använder du [*app*](./app-expression.md) -ID: t.  
 
 ### <a name="identifying-workspace-resources"></a>Identifiera arbets ytans resurser
 Följande exempel visar frågor i Log Analytics arbets ytor för att returnera sammanfattade antal loggar från uppdaterings tabellen på en arbets yta med namnet *ContosoRetail*. 
@@ -54,7 +55,7 @@ Att identifiera en arbets yta kan utföras på flera sätt:
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för arbets ytan. Du använder resurs-ID: t när resurs namnet är tvetydigt.  För arbets ytor är formatet: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/arbets ytor/componentName*.  
 
-    Ett exempel:
+    Till exempel:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -85,7 +86,7 @@ Att identifiera ett program i Application Insights kan utföras med ett *app-utt
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för appen. Du använder resurs-ID: t när resurs namnet är tvetydigt. Formatet är: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/Components/componentName*.  
 
-    Ett exempel:
+    Till exempel:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```

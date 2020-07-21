@@ -6,17 +6,18 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 543b566300ce56bc2d765087f9a9e269c5b0cc99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41495f6f10f7337c065a06d0d9b71142475bb5c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77586180"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506323"
 ---
 # <a name="azure-event-hubs-trigger-and-bindings-for-azure-functions"></a>Azure Event Hubs-utlösare och bindningar för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) -bindningar för Azure Functions. Azure Functions stöder utlösare och utgående bindningar för Event Hubs.
+Den här artikeln förklarar hur du arbetar med [Azure Event Hubs](../event-hubs/event-hubs-about.md) -bindningar för Azure Functions. Azure Functions stöder utlösare och utgående bindningar för Event Hubs.
 
-| Åtgärd | Typ |
+| Action | Typ |
 |--------|------|
 | Svara på händelser som skickats till händelse strömmen i Event Hub. | [Utlösare](./functions-bindings-event-hubs-trigger.md) |
 | Skriva händelser till en händelse ström | [Utgående bindning](./functions-bindings-event-hubs-output.md) |

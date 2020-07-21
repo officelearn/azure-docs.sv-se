@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676139"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506034"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions tillförlitlig händelse bearbetning
 
@@ -69,7 +70,7 @@ Genom att införa fel hanterings bibliotek i dina funktioner kan du definiera b�
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) är ett exempel på ett flexibelt och tillfälligt fel hanterings bibliotek för C#-program.
 
-När du arbetar med förväntade C#-klass bibliotek kan du med [undantags filter](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) köra kod när ett ohanterat undantag inträffar.
+När du arbetar med förväntade C#-klass bibliotek kan du med [undantags filter](/dotnet/csharp/language-reference/keywords/try-catch) köra kod när ett ohanterat undantag inträffar.
 
 Exempel som visar hur du använder undantags filter finns i [Azure WEBJOBS SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) -lagrings platsen.
 

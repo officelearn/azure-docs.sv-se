@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 60ce5b868b2a8f955b32e372201613ba66d49eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58f77eaba7cd0c29899a81352f5550becb0e4128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508601"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Skapa en virtuell Windows-dator i en tillgänglighetszon med PowerShell
 
@@ -34,7 +34,7 @@ Connect-AzAccount
 ## <a name="check-vm-sku-availability"></a>Kontrollera tillgänglighet för SKU för virtuell dator
 Tillgängligheten för VM-storlek eller SKU: er kan variera beroende på region och zon. När du planerar för användningen av tillgänglighetszoner kan du visa tillgängliga VM SKU:er via Azure-region och zon. Den möjligheten säkerställer att du väljer en lämplig VM-storlek och hämtar önskad elasticitet i flera zoner. Mer information om olika VM-typer och -storlekar finns i [Översikt över VM-storlekar](sizes.md).
 
-Du kan se tillgängliga VM SKU:er med kommandot [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku). Följande exempel visar tillgängliga VM SKU:er i regionen *usaöstra2*:
+Du kan se tillgängliga VM SKU:er med kommandot [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku). Följande exempel visar tillgängliga VM SKU:er i regionen *usaöstra2*:
 
 ```powershell
 Get-AzComputeResourceSku | where {$_.Locations.Contains("eastus2")};
@@ -61,7 +61,7 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I det här exemplet ska vi skapa en resursgrupp med namnet *myResourceGroup* i regionen *eastus2*. 
+Skapa en Azure-resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I det här exemplet ska vi skapa en resursgrupp med namnet *myResourceGroup* i regionen *eastus2*. 
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS2
@@ -105,7 +105,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location e
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Skapa ett nätverkskort för den virtuella datorn 
-Skapa ett nätverkskort med [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) för den virtuella datorn. Nätverkskortet ansluter den virtuella datorn till ett undernät, en nätverkssäkerhetsgrupp och offentlig IP-adress.
+Skapa ett nätverkskort med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) för den virtuella datorn. Nätverkskortet ansluter den virtuella datorn till ett undernät, en nätverkssäkerhetsgrupp och offentlig IP-adress.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -128,7 +128,7 @@ $vmConfig = New-AzVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
     -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Skapa den virtuella datorn med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Skapa den virtuella datorn med [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```powershell
 New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
@@ -136,7 +136,7 @@ New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 
 ## <a name="confirm-zone-for-managed-disk"></a>Bekräfta zon för hanterad disk
 
-Du skapade den virtuella datorns IP-adressresurs i samma tillgänglighetszon som den virtuella datorn. Den hanterade diskresursen för den virtuella datorn skapas i samma tillgänglighetszon. Du kan kontrollera detta med [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk):
+Du skapade den virtuella datorns IP-adressresurs i samma tillgänglighetszon som den virtuella datorn. Den hanterade diskresursen för den virtuella datorn skapas i samma tillgänglighetszon. Du kan kontrollera detta med [Get-AzDisk](/powershell/module/az.compute/get-azdisk):
 
 ```powershell
 Get-AzDisk -ResourceGroupName myResourceGroup

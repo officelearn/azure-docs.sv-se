@@ -6,11 +6,12 @@ ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be2d49a824066b8926ae455978facb34c0b44310
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77667796"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505473"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Logga aviserings frågor i Azure Monitor
 [Varnings regler som baseras på Azure Monitor loggar](alerts-unified-log.md) körs med jämna mellanrum, så du bör se till att de är skrivna för att minimera omkostnader och svars tider. Den här artikeln innehåller rekommendationer om hur du skriver effektiva frågor för logg aviseringar och en process för att konvertera befintliga frågor. 
@@ -49,7 +50,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->[Frågan över resurser](../log-query/cross-workspace-query.md) i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa [frågor om kors resursfrågor](../log-query/cross-workspace-query.md) utan att göra växeln med hjälp av arm- [mallen för scheduledQueryRules-API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure Portal.
+>[Frågan över resurser](../log-query/cross-workspace-query.md) i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa [frågor om kors resursfrågor](../log-query/cross-workspace-query.md) utan att göra växeln med hjälp av arm- [mallen för scheduledQueryRules-API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) och inte från Azure Portal.
 
 ## <a name="examples"></a>Exempel
 Följande exempel innehåller logg frågor som använder `search` och `union` ger instruktioner som du kan använda för att ändra dessa frågor för användning med varnings regler.
@@ -216,4 +217,3 @@ on Hour
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [logg aviseringar](alerts-log.md) i Azure Monitor.
 - Lär dig mer om [logg frågor](../log-query/log-query-overview.md).
-

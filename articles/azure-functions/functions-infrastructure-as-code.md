@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: e56c76583f601c2e13ab4a35c1fef2996d2e3e67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170402"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506238"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -28,8 +28,8 @@ En Azure Functions distribution består vanligt vis av följande resurser:
 
 | Resurs                                                                           | Krav | Syntax och egenskaper-referens                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| En Function-app                                                                     | Krävs    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |
-| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| En Function-app                                                                     | Obligatorisk    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |
+| Ett [Azure Storage](../storage/index.yml) konto                                   | Obligatorisk    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |
 | En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -112,7 +112,7 @@ Dessutom måste instrument ställnings nyckeln tillhandahållas till Function-ap
 Definitionen av värd planen varierar och kan vara något av följande:
 * [Förbruknings plan](#consumption) (standard)
 * [Premiumplan](#premium)
-* [App Service-plan](#app-service-plan)
+* [App Service plan](#app-service-plan)
 
 ### <a name="function-app"></a>Funktionsapp
 
@@ -309,7 +309,7 @@ Premium-planen ger samma skalning som förbruknings planen men innehåller dedik
 
 ### <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
-En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att använda antingen `EP1` , `EP2` eller `EP3` för `Name` egenskap svärdet i `sku` [objektet Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att använda antingen `EP1` , `EP2` eller `EP3` för `Name` egenskap svärdet i `sku` [objektet Description](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -516,7 +516,7 @@ Linux-appar bör också innehålla en `linuxFxVersion` egenskap under `siteConfi
 }
 ```
 
-Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](/azure/app-service/containers). Ställ även in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` på `false` , eftersom ditt appdata finns i själva behållaren:
+Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](../app-service/containers/index.yml). Ställ även in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` på `false` , eftersom ditt appdata finns i själva behållaren:
 
 ```json
 {

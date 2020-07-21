@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
-ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5606da84d8311785752cc8319b7a3c642c1f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707765"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508040"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Översikt över virtuella datorer i HB-serien
 
@@ -65,6 +65,6 @@ Följande diagram visar ansvars fördelning av kärnor som är reserverade för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om HPC VM-storlekar för [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) och [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) i Azure.
+* Lär dig mer om HPC VM-storlekar för [Linux](../../sizes-hpc.md) och [Windows](../../sizes-hpc.md) i Azure.
 
-* Lär dig mer om [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) i Azure.
+* Lär dig mer om [HPC](/azure/architecture/topics/high-performance-computing/) i Azure.

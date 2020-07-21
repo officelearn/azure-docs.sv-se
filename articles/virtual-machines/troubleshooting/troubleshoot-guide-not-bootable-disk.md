@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80300984"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509043"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Startfel – det här är inte en startbar disk
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där disken inte är s
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar en prompt med meddelandet "Detta är inte en startbar disk. Sätt in en startbar diskett och tryck på valfri tangent för att försöka igen....
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar en prompt med meddelandet "Detta är inte en startbar disk. Sätt in en startbar diskett och tryck på valfri tangent för att försöka igen....
 
    Bild 1
 
@@ -52,7 +52,7 @@ Det här fel meddelandet innebär att start processen för operativ systemet int
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 2. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
 ### <a name="set-partition-status-to-active"></a>Ange partitionerings status till aktiv
@@ -148,4 +148,4 @@ Om du vill aktivera samlings-och serie konsolen för minnes dum par kör du föl
 
 ### <a name="rebuild-the-original-vm"></a>Återskapa den ursprungliga virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att bygga upp den virtuella datorn igen.

@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830068"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505490"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Så här uppdaterar du aviserings regler eller åtgärds regler när deras mål resurs flyttas till en annan Azure-region
 
-I den här artikeln beskrivs varför befintliga [varnings regler](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) och [Åtgärds regler](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) kan påverkas när du flyttar andra Azure-resurser mellan regioner och hur du identifierar och löser problemen. Mer information om när är resurs förflyttningen mellan olika regioner finns i dokumentationen för huvud [resurs flytt](https://docs.microsoft.com/azure/azure-resource-manager/management/move-region) .
+I den här artikeln beskrivs varför befintliga [varnings regler](./alerts-overview.md) och [Åtgärds regler](./alerts-action-rules.md) kan påverkas när du flyttar andra Azure-resurser mellan regioner och hur du identifierar och löser problemen. Mer information om när är resurs förflyttningen mellan olika regioner finns i dokumentationen för huvud [resurs flytt](../../azure-resource-manager/management/move-region.md) .
 
 ## <a name="why-the-problem-exists"></a>Varför problemet finns
 
-Aviserings regler och åtgärds regler hänvisar till andra Azure-resurser. Exempel på [Azure VM](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate), [azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-move-resources-across-regions)och [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-move). När du flyttar resurserna som reglerna refererar till, kommer reglerna förmodligen att sluta fungera korrekt eftersom de inte kan hitta de resurser som de refererar till.
+Aviserings regler och åtgärds regler hänvisar till andra Azure-resurser. Exempel på [Azure VM](../../site-recovery/azure-to-azure-tutorial-migrate.md), [azure SQL](../../azure-sql/database/move-resources-across-regions.md)och [Azure Storage](../../storage/common/storage-account-move.md). När du flyttar resurserna som reglerna refererar till, kommer reglerna förmodligen att sluta fungera korrekt eftersom de inte kan hitta de resurser som de refererar till.
 
 Det finns två huvudsakliga orsaker till varför dina regler slutar att fungera när mål resurserna har flyttats:
 
@@ -94,20 +94,20 @@ Om **bara några** av resurserna i omfånget har flyttats måste du ta bort de f
 
 ### <a name="change-scope-of-a-rule-using-rest-api"></a>Ändra omfattningen för en regel med hjälp av REST API
 
-1. Hämta den befintliga regeln ([mått aviseringar](https://docs.microsoft.com/rest/api/monitor/metricalerts/get), [aktivitets logg aviseringar](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/get))
-2. Ändra omfattningen ([aktivitets logg aviseringar](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/update))
-3. Distribuera om regeln ([mått aviseringar](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate), [aktivitets logg aviseringar](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/createorupdate))
+1. Hämta den befintliga regeln ([mått aviseringar](/rest/api/monitor/metricalerts/get), [aktivitets logg aviseringar](/rest/api/monitor/activitylogalerts/get))
+2. Ändra omfattningen ([aktivitets logg aviseringar](/rest/api/monitor/activitylogalerts/update))
+3. Distribuera om regeln ([mått aviseringar](/rest/api/monitor/metricalerts/createorupdate), [aktivitets logg aviseringar](/rest/api/monitor/activitylogalerts/createorupdate))
 
 ### <a name="change-scope-of-a-rule-using-powershell"></a>Ändra omfattning för en regel med hjälp av PowerShell
 
-1. Hämta den befintliga regeln ([mått aviseringar](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2), [aktivitets logg aviseringar](https://docs.microsoft.com/powershell/module/az.monitor/get-azactivitylogalert), [Åtgärds regler](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Get-AzActionRule)).
+1. Hämta den befintliga regeln ([mått aviseringar](/powershell/module/az.monitor/get-azmetricalertrulev2), [aktivitets logg aviseringar](/powershell/module/az.monitor/get-azactivitylogalert), [Åtgärds regler](/powershell/module/az.alertsmanagement/get-azactionrule)).
 2. Ändra omfånget. Om det behövs kan du dela upp i två regler (relevanta för vissa fall av mått aviseringar, som anges ovan).
-3. Distribuera om regeln ([mått aviseringar](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [aktivitets logg aviseringar](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), [Åtgärds regler](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
+3. Distribuera om regeln ([mått aviseringar](/powershell/module/az.monitor/add-azmetricalertrulev2), [aktivitets logg aviseringar](/powershell/module/az.monitor/enable-azactivitylogalert), [Åtgärds regler](/powershell/module/az.alertsmanagement/set-azactionrule)).
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Ändra omfånget för en regel med hjälp av Azure CLI
 
-1.  Hämta den befintliga regeln ([mått aviseringar](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [aktivitets logg aviseringar](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.  Uppdatera regel omfånget direkt ([mått aviseringar](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [aktivitets logg aviseringar](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope))
+1.  Hämta den befintliga regeln ([mått aviseringar](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [aktivitets logg aviseringar](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+2.  Uppdatera regel omfånget direkt ([mått aviseringar](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [aktivitets logg aviseringar](/cli/azure/monitor/activity-log/alert/scope))
 3.  Om det behövs kan du dela upp i två regler (relevanta för vissa fall av mått aviseringar, som anges ovan).
 
 ## <a name="next-steps"></a>Nästa steg

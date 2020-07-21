@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: b553256d3e6a498e36e8b5c98d90c6c14b10df75
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224578"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507938"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Utforma och implementera en Oracle-databas i Azure
 
@@ -43,17 +43,17 @@ En viktig skillnad är att i en Azure-implementering delas resurser som virtuell
 
 I följande tabell visas några av skillnaderna mellan en lokal implementering och en Azure-implementering av en Oracle-databas.
 
-> 
-> |  | **Lokal implementering** | **Azure-implementering** |
-> | --- | --- | --- |
-> | **Nätverk** |LAN/WAN  |SDN (program varu Defined Networking)|
-> | **Säkerhets grupp** |Verktyg för begränsning av IP/port |[Nätverks säkerhets grupp (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Återhämtning** |MTBF (genomsnittlig tid mellan haverier) |MTTR (genomsnittlig tid för återställning)|
-> | **Planerat underhåll** |Korrigeringar/uppgraderingar|[Tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (uppdatering/uppgraderingar som hanteras av Azure) |
-> | **Resurs** |Dedikerad  |Delas med andra klienter|
-> | **Regioner** |Datacenter |[Regionpar](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Lagring** |SAN/fysiska diskar |[Azure-hanterad lagring](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Skalning** |Lodrät skala |Horisontell skalning|
+
+|  | Lokal implementering | Azure-implementering |
+| --- | --- | --- |
+| **Nätverk** |LAN/WAN  |SDN (program varu Defined Networking)|
+| **Säkerhets grupp** |Verktyg för begränsning av IP/port |[Nätverks säkerhets grupp (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+| **Återhämtning** |MTBF (genomsnittlig tid mellan haverier) |MTTR (genomsnittlig tid för återställning)|
+| **Planerat underhåll** |Korrigeringar/uppgraderingar|[Tillgänglighets uppsättningar](../../windows/infrastructure-example.md) (uppdatering/uppgraderingar som hanteras av Azure) |
+| **Resurs** |Dedikerad  |Delas med andra klienter|
+| **Regioner** |Datacenter |[Regionpar](../../regions.md#region-pairs)|
+| **Lagring** |SAN/fysiska diskar |[Azure-hanterad lagring](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Skalning** |Lodrät skala |Horisontell skalning|
 
 
 ### <a name="requirements"></a>Krav
@@ -116,11 +116,11 @@ Följande diagram visar det totala I/O för Läs-och skriv åtgärder. Det fanns
 
 #### <a name="2-choose-a-vm"></a>2. Välj en virtuell dator
 
-Nästa steg är att välja en virtuell dator av en liknande storlek som uppfyller dina krav baserat på den information som du har samlat in från AWR-rapporten. Du hittar en lista över tillgängliga virtuella datorer i artikel [minnet optimerat](../../linux/sizes-memory.md).
+Nästa steg är att välja en virtuell dator av en liknande storlek som uppfyller dina krav baserat på den information som du har samlat in från AWR-rapporten. Du hittar en lista över tillgängliga virtuella datorer i artikel [minnet optimerat](../../sizes-memory.md).
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. finjustera storleken på den virtuella datorn med en liknande VM-serie som baseras på ACU
 
-När du har valt den virtuella datorn ska du tänka på ACU för den virtuella datorn. Du kan välja en annan virtuell dator baserat på ACU-värdet som bättre passar dina behov. Mer information finns i [Azure Compute Unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+När du har valt den virtuella datorn ska du tänka på ACU för den virtuella datorn. Du kan välja en annan virtuell dator baserat på ACU-värdet som bättre passar dina behov. Mer information finns i [Azure Compute Unit](../../acu.md).
 
 ![Skärm bild av sidan ACU units](./media/oracle-design/acu_units.png)
 
@@ -143,8 +143,8 @@ Utifrån dina krav på nätverks bandbredd finns det olika typer av gatewayer so
 
 - Nätverks fördröjningen är högre jämfört med en lokal distribution. Att minska antalet nätverks fördröjningar kan förbättra prestanda avsevärt.
 - För att minska antalet turer kan du konsolidera program som har höga transaktioner eller "chatty"-appar på samma virtuella dator.
-- Använd Virtual Machines med [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för bättre nätverks prestanda.
-- För vissa Linux-distributioner kan du överväga att aktivera [stöd för trimning/avmappning](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Använd Virtual Machines med [accelererat nätverk](../../../virtual-network/create-vm-accelerated-networking-cli.md) för bättre nätverks prestanda.
+- För vissa Linux-distributioner kan du överväga att aktivera [stöd för trimning/avmappning](../../linux/configure-lvm.md#trimunmap-support).
 - Installera [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) på en separat virtuell dator.
 - Enorma sidor är inte aktiverade på Linux som standard. Överväg att aktivera enorma sidor och ange `use_large_pages = ONLY` Oracle dB. Detta kan hjälpa till att öka prestandan. Mer information hittar du [här](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
@@ -187,7 +187,7 @@ När du har en tydlig bild av I/O-kraven kan du välja en kombination av enheter
 - Använd data komprimering för att minska I/O (för både data och index).
 - Separera återupprepnings loggar, system, och temporärt, och ångra TS på separata data diskar.
 - Lägg inte till några programfiler på standard OS-diskar (/dev/SDA). Diskarna är inte optimerade för start tider för snabb virtuell dator och de kanske inte ger dig bästa prestanda för ditt program.
-- När du använder virtuella datorer i M-serien på Premium Storage aktiverar du [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) on REG logs disks.
+- När du använder virtuella datorer i M-serien på Premium Storage aktiverar du [Skrivningsaccelerator](../../linux/how-to-enable-write-accelerator.md) on REG logs disks.
 
 ### <a name="disk-cache-settings"></a>Inställningar för disk-cache
 
@@ -225,7 +225,7 @@ När du har konfigurerat och konfigurerat Azure-miljön är nästa steg att skyd
 - *Privat nätverk* (undernät): Vi rekommenderar att du har program tjänsten och databasen på separata undernät, så att kontrollen kan ställas in av NSG-principen på ett bättre sätt.
 
 
-## <a name="additional-reading"></a>Ytterligare läsning
+## <a name="additional-reading"></a>Mer att läsa
 
 - [Konfigurera Oracle ASM](configure-oracle-asm.md)
 - [Konfigurera Oracle Data Guard](configure-oracle-dataguard.md)

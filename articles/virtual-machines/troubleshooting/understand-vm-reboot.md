@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508873"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Förstå en omstart av systemet för virtuell Azure-dator
 
@@ -33,7 +34,7 @@ Mer information om tillgänglighets uppsättningar finns i [Hantera tillgänglig
 
 ## <a name="resource-health-information"></a>Resource Health information
 
-Azure Resource Health är en tjänst som exponerar hälsan för enskilda Azure-resurser och tillhandahåller åtgärds bara vägledning för fel sökning av problem. I en moln miljö där det inte är möjligt att direkt komma åt servrar eller infrastruktur element, är målet för Resource Health att minska den tid som du lägger på fel sökning. Syftet är särskilt att minska den tid som du ägnat åt att fastställa om roten till problemet finns i programmet eller i en händelse i Azure-plattformen. Mer information finns i [förstå och använda Resource Health](../../resource-health/resource-health-overview.md).
+Azure Resource Health är en tjänst som exponerar hälsan för enskilda Azure-resurser och tillhandahåller åtgärds bara vägledning för fel sökning av problem. I en moln miljö där det inte är möjligt att direkt komma åt servrar eller infrastruktur element, är målet för Resource Health att minska den tid som du lägger på fel sökning. Syftet är särskilt att minska den tid som du ägnat åt att fastställa om roten till problemet finns i programmet eller i en händelse i Azure-plattformen. Mer information finns i [förstå och använda Resource Health](../../service-health/resource-health-overview.md).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Åtgärder och händelser som kan göra att den virtuella datorn startas om
 
@@ -45,8 +46,8 @@ Vissa uppdateringar kräver dock en omstart. I sådana fall stängs de virtuella
 
 Information om vad Azure-planerat underhåll är och hur det kan påverka tillgängligheten för dina virtuella Linux-datorer finns i artiklarna som visas här. Artiklarna innehåller information om processen för planerat underhåll av Azure och hur du schemalägger planerat underhåll för att minska påverkan ytterligare.
 
-- [Planerat underhåll av virtuella datorer i Azure](../windows/planned-maintenance.md)
-- [Så här schemalägger du planerat underhåll av virtuella Azure-datorer](../windows/classic/planned-maintenance-schedule.md)
+- [Planerat underhåll av virtuella datorer i Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [Så här schemalägger du planerat underhåll av virtuella Azure-datorer](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### <a name="memory-preserving-updates"></a>Minnesbevarande uppdateringar
 
@@ -71,7 +72,7 @@ Andra scenarier som vanligt vis leder till att den virtuella datorn startas om �
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center och Windows Update
 
-Azure Security Center övervakar dagliga virtuella Windows-och Linux-datorer för saknade uppdateringar av operativ systemet. Security Center hämtar en lista över tillgängliga säkerhets uppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har kon figurer ATS på en virtuell Windows-dator. Security Center också att söka efter de senaste uppdateringarna för Linux-system. Om en system uppdatering saknas i den virtuella datorn rekommenderar Security Center att du installerar System uppdateringar. Programmet för dessa system uppdateringar styrs via Security Center i Azure Portal. När du har installerat vissa uppdateringar kan det krävas omstarter av virtuella datorer. Mer information finns i [tillämpa system uppdateringar i Azure Security Center](../../security-center/security-center-apply-system-updates.md).
+Azure Security Center övervakar dagliga virtuella Windows-och Linux-datorer för saknade uppdateringar av operativ systemet. Security Center hämtar en lista över tillgängliga säkerhets uppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har kon figurer ATS på en virtuell Windows-dator. Security Center också att söka efter de senaste uppdateringarna för Linux-system. Om en system uppdatering saknas i den virtuella datorn rekommenderar Security Center att du installerar System uppdateringar. Programmet för dessa system uppdateringar styrs via Security Center i Azure Portal. När du har installerat vissa uppdateringar kan det krävas omstarter av virtuella datorer. Mer information finns i [tillämpa system uppdateringar i Azure Security Center](../../security-center/security-center-virtual-machine-protection.md).
 
 Precis som lokala servrar skickar Azure inga uppdateringar från Windows Update till virtuella Windows-datorer, eftersom dessa datorer är avsedda att hanteras av deras användare. Du uppmanas dock att lämna inställningen för automatisk Windows Update aktive rad. Automatisk installation av uppdateringar från Windows Update kan också medföra att omstarter sker efter att uppdateringarna har tillämpats. Mer information finns i [vanliga frågor och svar om Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -114,7 +115,7 @@ Varaktigheten för avstängningen kan vara så kort som fem minuter, men det kan
 
 **Överstiger IO-gränser**
 
-De virtuella datorerna kan tillfälligt stängas av när I/O-begäranden är konsekvent begränsade eftersom volymerna i/O-åtgärder per sekund (IOPS) överskrider diskens I/O-gränser. (Standard disk lagring är begränsad till 500 IOPS.) Du kan åtgärda det här problemet genom att använda disk ränder eller konfigurera lagrings utrymmet i den virtuella gäst datorn, beroende på arbets belastningen. Mer information finns i [Konfigurera virtuella Azure-datorer för optimala lagrings prestanda](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+De virtuella datorerna kan tillfälligt stängas av när I/O-begäranden är konsekvent begränsade eftersom volymerna i/O-åtgärder per sekund (IOPS) överskrider diskens I/O-gränser. (Standard disk lagring är begränsad till 500 IOPS.) Du kan åtgärda det här problemet genom att använda disk ränder eller konfigurera lagrings utrymmet i den virtuella gäst datorn, beroende på arbets belastningen. 
 
 ### <a name="other-incidents"></a>Andra incidenter
 

@@ -5,12 +5,12 @@ description: Läs om kända begränsningar när du kör Windows Server-nodkonfig
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a86d6f0fe942a72a96c504a61d5030624f161cd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339876"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507020"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -44,7 +44,11 @@ Huvudnoderna (kontroll planet) i ett AKS-kluster är värd för AKS-tjänsten, m
 
 ## <a name="what-network-plug-ins-are-supported"></a>Vilka nätverks-plugin-program stöds?
 
-AKS-kluster med Windows-noder måste använda nätverks modellen Azure CNI (avancerat). Kubernetes-nätverk (Basic) stöds inte. Mer information om skillnaderna i nätverks modeller finns i [nätverks koncept för program i AKS][azure-network-models]. – Nätverks modellen för Azure CNI kräver ytterligare planering och överväganden för hantering av IP-adresser. Mer information om hur du planerar och implementerar Azure-CNI finns i [Konfigurera Azure cni Networking i AKS][configure-azure-cni].
+AKS-kluster med Windows-noder måste använda nätverks modellen Azure CNI (avancerat). Kubernetes-nätverk (Basic) stöds inte. Mer information om skillnaderna i nätverks modeller finns i [nätverks koncept för program i AKS][azure-network-models]. Nätverks modellen i Azure CNI kräver ytterligare planering och överväganden för hantering av IP-adresser. Mer information om hur du planerar och implementerar Azure-CNI finns i [Konfigurera Azure cni Networking i AKS][configure-azure-cni].
+
+## <a name="is-preserving-the-client-source-ip-supported"></a>Stöds IP-adressen för klient källan?
+
+För närvarande stöds inte [IP-konservering för klient källa][client-source-ip] med Windows-noder.
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>Kan jag ändra max. antal poddar per nod?
 
@@ -103,6 +107,14 @@ GMSA-stöd (Group Managed Service accounts) är för närvarande inte tillgängl
 
 Ja du kan dock Azure Monitor finns i en offentlig för hands version för att samla in loggar (STDOUT, STDERR) och mått från Windows-behållare. Du kan också ansluta till den aktiva strömmen av STDOUT-loggar från en Windows-behållare.
 
+## <a name="are-there-any-limitations-on-the-number-of-services-on-a-cluster-with-windows-nodes"></a>Finns det några begränsningar för antalet tjänster i ett kluster med Windows-noder?
+
+Ett kluster med Windows-noder kan ha ungefär 500 tjänster innan det påträffar port överbelastning.
+
+## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Kan jag använda Kubernetes-webbinstrumentpanelen med Windows-behållare?
+
+Ja, du kan använda [Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för att få åtkomst till information om Windows-behållare, men för tillfället kan du inte köra *kubectl exec* i en Windows-behållare direkt från Kubernetes-webbinstrumentpanelen. Mer information om hur du ansluter till en Windows-behållare finns i [ansluta med RDP till Azure Kubernetes service (AKS) Cluster Windows Server-noder för underhåll eller fel sökning][windows-rdp].
+
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Vad händer om jag behöver en funktion som inte stöds?
 
 Vi arbetar hårt för att ta med alla funktioner som du behöver i Windows i AKS, men om du stöter på luckor ger det ett [AKS-motor][aks-engine] projekt med öppen källkod ett enkelt och helt anpassningsbart sätt att köra Kubernetes i Azure, inklusive Windows-support. Se till att kolla vår översikt över funktionerna som kommer [AKS-översikt][aks-roadmap].
@@ -132,3 +144,6 @@ Kom igång med Windows Server-behållare i AKS genom att [skapa en noduppsättni
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[client-source-ip]: concepts-network.md#ingress-controllers
+[kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-rdp]: rdp.md

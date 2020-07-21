@@ -5,19 +5,19 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6810ba76379e78d3cde4f3cd341d501be3725257
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506340"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindningar för Azure Functions 
 
 > [!NOTE]
 > Azure Mobile Apps-bindningar är bara tillgängliga för Azure Functions 1. x. De stöds inte i Azure Functions 2. x och högre.
 
-Den här artikeln förklarar hur du arbetar med [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) -bindningar i Azure Functions. Azure Functions stöder bindningar för indata och utdata för Mobile Apps.
+Den här artikeln förklarar hur du arbetar med [Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) -bindningar i Azure Functions. Azure Functions stöder bindningar för indata och utdata för Mobile Apps.
 
 Med Mobile Apps bindningar kan du läsa och uppdatera data tabeller i mobilappar.
 
@@ -140,7 +140,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 | **position**| saknas |Måste anges till "i"|
 | **Namn**| saknas | Namnet på Indataparametern i Function-signaturen.|
 |**tableName** |**TableName**|Namn på den mobila appens data tabell|
-| **identitet**| **Identitet** | Identifieraren för den post som ska hämtas. Kan vara statisk eller baserad på den utlösare som anropar funktionen. Om du till exempel använder en Queue-utlösare för din funktion `"id": "{queueTrigger}"` använder det strängvärdet i Queue-meddelandet som post-ID för hämtning.|
+| **id**| **Identitet** | Identifieraren för den post som ska hämtas. Kan vara statisk eller baserad på den utlösare som anropar funktionen. Om du till exempel använder en Queue-utlösare för din funktion `"id": "{queueTrigger}"` använder det strängvärdet i Queue-meddelandet som post-ID för hämtning.|
 |**anslutningen**|**Anslutning**|Namnet på en app-inställning som har appens URL för mobilapp. Funktionen använder denna URL för att skapa nödvändiga REST-åtgärder mot mobilappen. Skapa en app-inställning i din Function-app som innehåller webbappens URL och ange sedan namnet på appens inställning i `connection` egenskapen i den angivna bindningen. URL: en ser ut som `http://<appname>.azurewebsites.net` .
 |**apiKey**|**ApiKey**|Namnet på en app-inställning som har din Mobilapps API-nyckel. Ange API-nyckeln om du [implementerar en API-nyckel i din Node.js mobilapp](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)eller [implementerar en API-nyckel i din .net-mobilapp](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). För att tillhandahålla nyckeln skapar du en app-inställning i din Function-app som innehåller API-nyckeln och lägger sedan till `apiKey` egenskapen i din databindning med namnet på appens inställning. |
 

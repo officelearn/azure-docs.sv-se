@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83117129"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507853"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
 
@@ -41,11 +42,11 @@ Verifiera följande innan du påbörjar HANA-installationen:
 
 När du har fått den stora instans enheten HANA från Microsoft kontrollerar du följande inställningar och justerar vid behov.
 
-Det **första steget** efter att du har fått en stor instans av Hana och upprättar åtkomst och anslutning till instanserna är att checka in Azure Portal om instanserna visas med rätt SKU: er och OS. Läs [Azure Hana-stora instans kontroll genom Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) för de steg som krävs för att utföra kontrollerna.
+Det **första steget** efter att du har fått en stor instans av Hana och upprättar åtkomst och anslutning till instanserna är att checka in Azure Portal om instanserna visas med rätt SKU: er och OS. Läs [Azure Hana-stora instans kontroll genom Azure Portal](./hana-li-portal.md) för de steg som krävs för att utföra kontrollerna.
 
 Det **andra steget** efter att du har tagit emot den stora Hana-instansen och upprättar åtkomst och anslutning till instanserna är att registrera operativ systemet för instansen med din OS-Provider. Det här steget omfattar att registrera din SUSE Linux-OS i en instans av SUSE SMT-SMT som distribueras i en virtuell dator i Azure. 
 
-Den stora volymen HANA kan ansluta till den här SMT-instansen. (Mer information finns i [så här konfigurerar du SMT-Server för SUSE Linux](hana-setup-smt.md)). Alternativt måste ditt Red Hat-operativsystem vara registrerat med Red Hat-prenumerations hanteraren som du behöver ansluta till. Mer information finns i kommentarerna i [Vad är SAP HANA på Azure (stora instanser)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Den stora volymen HANA kan ansluta till den här SMT-instansen. (Mer information finns i [så här konfigurerar du SMT-Server för SUSE Linux](hana-setup-smt.md)). Alternativt måste ditt Red Hat-operativsystem vara registrerat med Red Hat-prenumerations hanteraren som du behöver ansluta till. Mer information finns i kommentarerna i [Vad är SAP HANA på Azure (stora instanser)?](./hana-overview-architecture.md?toc=/azure/virtual-machines/linux/toc.json). 
 
 Det här steget krävs för att korrigera operativ systemet, vilket är kundens ansvar. För SUSE hittar du dokumentationen för att installera och konfigurera SMT på den här sidan om [SMT-installation](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
@@ -126,10 +127,10 @@ Därför måste du konfigurera en separat tids server som kan användas av SAP-p
 ## <a name="networking"></a>Nätverk
 Vi antar att du har följt rekommendationerna för att utforma dina virtuella Azure-nätverk och att ansluta de virtuella nätverken till de stora HANA-instanserna, enligt beskrivningen i följande dokument:
 
-- [Översikt över SAP HANA (stor instans) och arkitektur på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Översikt över SAP HANA (stor instans) och arkitektur på Azure](./hana-overview-architecture.md)
 - [SAP HANA (stora instanser) infrastruktur och anslutning i Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Det finns vissa detaljer som är värda att nämna om nätverk för de enskilda enheterna. Varje HANA-stor instans enhet levereras med två eller tre IP-adresser som tilldelas till två eller tre NIC-portar. Tre IP-adresser används i HANA-konfigurationer och i scenariot HANA-system replikering. En av de IP-adresser som är tilldelade till NÄTVERKSKORTet finns inte på den server-IP-pool som beskrivs i [SAP HANA (stora instanser) Översikt och arkitektur på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+Det finns vissa detaljer som är värda att nämna om nätverk för de enskilda enheterna. Varje HANA-stor instans enhet levereras med två eller tre IP-adresser som tilldelas till två eller tre NIC-portar. Tre IP-adresser används i HANA-konfigurationer och i scenariot HANA-system replikering. En av de IP-adresser som är tilldelade till NÄTVERKSKORTet finns inte på den server-IP-pool som beskrivs i [SAP HANA (stora instanser) Översikt och arkitektur på Azure](./hana-overview-architecture.md).
 
 Mer information om Ethernet-information för din arkitektur finns i [scenarier för HLI som stöds](hana-supported-scenario.md).
 
@@ -264,7 +265,3 @@ Se [HLI-scenarier som stöds](hana-supported-scenario.md) för att lära dig mer
 
 
  
-
-
-
-

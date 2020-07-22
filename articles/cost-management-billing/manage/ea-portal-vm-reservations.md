@@ -3,16 +3,16 @@ title: Reserverade instanser av virtuella Azure EA-datorer
 description: I den här artikeln går vi igenom hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9d9aeae985629b4eb554220d2558d4880fc03b5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044863"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537790"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Reserverade instanser av virtuella Azure EA-datorer
 

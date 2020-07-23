@@ -3,24 +3,27 @@ title: Analysera Azure-kostnader med Power BI-appen
 description: Den här artikeln beskriver hur du installerar och använder Azure Cost Management Power BI-appen.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bd5e2c999df180c80c58711a6428678b2bb4fefa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888193"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537926"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analysera kostnader med Azure Cost Management Power BI-appen för Enterprise-avtal (EA)
 
 Den här artikeln beskriver hur du installerar och använder Azure Cost Management Power BI-appen. Appen hjälper dig att analysera och hantera dina Azure-kostnader i Power BI. Du kan använda appen till att övervaka kostnader, användningstrender och identifiera alternativ för kostnadsoptimering för att minska dina utgifter.
 
-Du laddar ned appen till Power BI Desktop. Du kan använda appen som den är, eller så kan du anpassa appen efter dina behov genom att utöka de filter, vyer och visualiseringar som ingår som standard. Sedan kan du koppla ytterligare data med appen och skapa anpassade rapporter så att du får en helhetsvy över den totala kostnaden.
+Du kan använda appen som den är, eller så kan du anpassa appen efter dina behov genom att utöka de filter, vyer och visualiseringar som ingår som standard. Sedan kan du koppla ytterligare data med appen och skapa anpassade rapporter så att du får en helhetsvy över den totala kostnaden.
 
 För närvarande kan endast kunder som har ett [Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/) använda Azure Cost Management Power BI-appen.
+
+> [!NOTE]
+> Power BI-mallappar stöder inte hämtning av PBIX-filen.
 
 ## <a name="prerequisites"></a>Krav
 

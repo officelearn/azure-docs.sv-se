@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 28080517a33f1bbf9bee3436493f178b60c0d161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601419"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523612"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Få faktureringsägarskap för Azure-prenumerationer till ditt MPA-konto
 
@@ -155,6 +155,12 @@ För en del kunder kan det krävas ytterligare granskning av Microsoft i samband
 Katalogen för de Azure-prenumerationer som överförs måste matcha katalogen för kunden som valdes när CSP-relationen etablerades.
 
 Om katalogerna inte matchar går det inte att överföra prenumerationerna. Du måste antingen upprätta en ny CSP-återförsäljarrelation med kunden genom att välja katalogen för Azure-prenumerationerna eller ändra katalogen för Azure-prenumerationer så att den matchar katalogen i kundens CSP-relation. Du kan läsa mer i [Associera en befintlig prenumeration med din Azure AD-katalog](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>EA-prenumeration i icke-organisationskatalogen
+
+EA-prenumerationer från icke-organisationskataloger kan överföras så länge katalogen har en återförsäljarrelation med molnlösningsleverantören. Om katalogen inte har en återförsäljarrelation måste du se till att organisationens användare i katalogen är *global administratör* som kan acceptera partnerrelationen. Domännamndelen av användarnamnet måste vara antingen det initiala standarddomännamnet ”[domännamn]. onmicrosoft.com” eller ett verifierat icke-federerat domännamn såsom ”contoso.com”.  
+
+Information om hur du lägger till en ny användare i katalogen finns [Snabbstart: Lägga till nya användare i Azure Active Directory för att lägga till den nya användaren i AAD-katalogen](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Kontrollera åtkomsten till ett Microsoft-partneravtal
 

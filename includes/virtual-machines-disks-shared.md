@@ -91,7 +91,7 @@ Flödet är följande:
 
 Ultra disks ger ytterligare en begränsning, för totalt två begränsningar. På grund av detta kan Ultra disks reservations flöde fungera på det sätt som beskrivs i det tidigare avsnittet, eller så kan det begränsa och distribuera prestanda mer detaljerat.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar åtkomsten "ReadOnly" eller "Läs/skriv" för reservations innehavare, registrerad och andra.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar åtkomsten ReadOnly eller Läs/skriv för reservations innehavare, registrerad och andra.":::
 
 ## <a name="performance-throttles"></a>Prestanda begränsningar
 

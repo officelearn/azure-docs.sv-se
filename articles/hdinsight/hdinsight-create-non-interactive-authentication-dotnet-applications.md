@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 48a5c192051d8e715deb7e354827ff4cd4152bcd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5be217cd2afbb95c4c02a958c1299db599c349d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074784"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa ett .NET HDInsight-program med icke-interaktiv autentisering
 
@@ -123,4 +123,4 @@ Tilldela Azure AD-programmet en [roll](../role-based-access-control/built-in-rol
 
 * [Skapa ett Azure Active Directory program och tjänstens huvud namn i Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 * Lär dig hur du [autentiserar ett huvud namn för tjänsten med Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
-* Lär dig mer om [Azure Role-baserade Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md).
+* Lär dig mer om [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).

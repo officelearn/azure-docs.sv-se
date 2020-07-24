@@ -5,29 +5,30 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a5e73039db541023b1fd4a9b75e7c14030c8e219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075295"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Övervakning av program vara utan instrumentering för Kubernetes-värdbaserade program med Istio-inaktuell
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande inaktuell och kommer inte längre att stödjas efter den 1 augusti 2020.
-> För närvarande går det bara att aktivera den kodbaserade övervakningen för [Java via fristående agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). För andra språk använder du SDK: er för att övervaka dina appar på AKS: [ASP.net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [Java Script](https://docs.microsoft.com/azure/azure-monitor/app/javascript)och [python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+> För närvarande går det bara att aktivera den kodbaserade övervakningen för [Java via fristående agent](./java-in-process-agent.md). För andra språk använder du SDK: er för att övervaka dina appar på AKS: [ASP.net Core](./asp-net-core.md), [ASP.net](./asp-net.md), [Node.js](./nodejs.md), [Java Script](./javascript.md)och [python](./opencensus-python.md).
 
 Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-kluster för att tillhandahålla program övervakning för alla Kubernetes appar som körs. Med standardinställningar för program insikter som [program karta](../../azure-monitor/app/app-map.md) för att modellera dina beroenden [Live Metrics Stream](../../azure-monitor/app/live-stream.md) för real tids övervakning, kraftfulla visualiseringar med [standard instrument panelen](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md)och [arbets böcker](../../azure-monitor/platform/workbooks-overview.md). Med den här funktionen kan användarna upptäcka Flask halsar i prestanda och fel hotspots i alla sina Kubernetes-arbetsbelastningar inom ett valt Kubernetes-namnområde. Genom att dra nytta av dina befintliga service nät investeringar med tekniker som Azure Monitor Istio aktive ras automatiskt instrumenterad app Monitoring utan någon ändring av programmets kod.
 
 > [!NOTE]
 > Det här är ett av många sätt att utföra program övervakning på Kubernetes.Du kan också instrumentera alla appar som finns i Kubernetes med hjälp av [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) utan att det behövs något service nät. Om du vill övervaka Kubernetes utan att instrumentera programmet med ett SDK kan du använda metoden nedan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Ett [Kubernetes-kluster](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
+- Ett [Kubernetes-kluster](../../aks/concepts-clusters-workloads.md).
 - Konsol åtkomst till klustret för att köra *kubectl*.
 - En [program Insight-resurs](create-new-resource.md)
-- Ha ett tjänst nät. Om klustret inte har Istio distribuerat kan du lära dig hur du [installerar och använder Istio i Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/istio-install).
+- Ha ett tjänst nät. Om klustret inte har Istio distribuerat kan du lära dig hur du [installerar och använder Istio i Azure Kubernetes-tjänsten](../../aks/servicemesh-istio-install.md).
 
 ## <a name="capabilities"></a>Funktioner
 
@@ -125,7 +126,7 @@ Nedan visas fel söknings flödet som används när telemetri inte visas i Azure
    ```
    Sök efter eventuella fel, särskilt för kommunikation med *applicationinsightsadapter* -adaptern.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 Den senaste informationen om förloppet för det här projektet finns på [Application Insights adapter för GitHub för Istio-mixer](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 

@@ -9,11 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3a607f03bf238b1b05a91c772a7ac77a79574515
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077554"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure Portal
 
@@ -34,17 +35,18 @@ Börja med att skapa en offentlig Standard Load Balancer med hjälp av portalen.
 1. I rutan Sök skriver du **Load Balancer**. Välj **belastnings utjämning**under **Marketplace** i Sök resultaten.
 1. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information:
 
-    | Inställningen                 | Värde   |
+    | Inställning                 | Värde   |
     | ---| ---|
     | Prenumeration  | Välj din prenumeration.    |    
     | Resursgrupp | Välj **Skapa ny** och skriv *myVMSSResourceGroup* i text rutan.|
-    | Name           | *myLoadBalancer*         |
+    | Namn           | *myLoadBalancer*         |
     | Region         | Välj **USA, östra**.       |
     | Typ          | Välj **Offentlig**.       |
     | SKU           | Välj **standard**.       |
     | Offentlig IP-adress | Välj **Skapa ny**. |
-    | Namn på offentlig IP-adress  | *MyPip*   |
+    | Namn på offentlig IP-adress  | *myPip*   |
     | Tilldelning| Statisk |
+    | Tillgänglighetszon | Välj **Zonredundant**. |
 
 1. När du är färdig väljer du **Granska + skapa** 
 1. När verifieringen har godkänts väljer du **skapa**. 
@@ -54,11 +56,11 @@ Börja med att skapa en offentlig Standard Load Balancer med hjälp av portalen.
 ## <a name="create-virtual-machine-scale-set"></a>Skapa VM-skalningsuppsättningar
 Du kan distribuera en skalningsuppsättning som anges med en Windows Server-avbildning eller en Linux-avbildningen som RHEL, CentOS, Ubuntu eller SLES.
 
-1. Skriv **skalnings uppsättning** i sökrutan. I resultaten, under **Marketplace**, väljer du **skalnings uppsättningar för virtuella datorer**. Sidan **skapa en skalnings uppsättning för virtuell dator** öppnas. 
+1. Skriv **skalnings uppsättning** i sökrutan. I resultaten, under **Marketplace**, väljer du **skalnings uppsättningar för virtuella datorer**. Välj **skapa** på sidan **skalnings uppsättningar för virtuell dator** , som öppnar sidan **skapa en skalnings uppsättning för virtuell dator** . 
 1. På fliken **Grundläggande inställningar** går du till **Projektinformation**, kontrollerar att korrekt prenumeration har valts och väljer sedan **Skapa ny** för resursgruppen. Skriv *myVMSSResourceGroup* som namn och välj sedan **OK** . 
 1. Skriv *myScaleSet* som namn på din skalnings uppsättning.
 1. I **region**väljer du en region som ligger nära ditt område.
-1. Lämna standardvärdet för **virtuella ScaleSet-datorer** för **Orchestrator**.
+1. Lämna standardvärdet för **virtuella ScaleSet-datorer** för **Orchestration-läge**.
 1. Välj en Marketplace-avbildning för **avbildningen**. I det här exemplet har vi valt *Ubuntu Server 18,04 LTS*.
 1. Ange önskat användarnamn och välj den autentiseringstyp du föredrar.
    - Ett **lösenord** måste innehålla minst 12 tecken och måste uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Mer information finns i [kraven om användarnamn och lösenord](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).

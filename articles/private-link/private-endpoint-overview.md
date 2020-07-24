@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d61527a7a57c82c0e1485ef249306618def9a57c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496969"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077939"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -24,7 +24,7 @@ Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och s�
 
 |Egenskap  |Beskrivning |
 |---------|---------|
-|Name    |    Ett unikt namn inom resurs gruppen.      |
+|Namn    |    Ett unikt namn inom resurs gruppen.      |
 |Undernät    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
 |Privat länk resurs    |   Den privata länk resursen för att ansluta med resurs-ID eller alias i listan över tillgängliga typer. Ett unikt nätverks-ID skapas för all trafik som skickas till den här resursen.       |
 |Mål under resurs   |      Den under resurs som ska anslutas. Varje privat länk resurs typ har olika alternativ för att välja baserat på preferens.    |
@@ -78,6 +78,13 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure Event Grid** | Microsoft. EventGrid/Domains    | domän |
 |**Azure-Webbappar** | Microsoft. Web/Sites    | webbplatser |
 |**Azure Machine Learning** | Microsoft. MachineLearningServices/arbets ytor    | arbetsyta |
+|**SignalR** | Microsoft. SignalRService/SignalR    | signalR |
+|**Azure Monitor** | Microsoft. Insights/privateLinkScopes    | azuremonitor |
+|**Cognitive Services** | (Microsoft. CognitiveServices/konton    | konto |
+|**Azure File Sync** | Microsoft. StorageSync/storageSyncServices    | Databasserver |
+    
+  
+
   
  
 ## <a name="network-security-of-private-endpoints"></a>Nätverks säkerhet för privata slut punkter 

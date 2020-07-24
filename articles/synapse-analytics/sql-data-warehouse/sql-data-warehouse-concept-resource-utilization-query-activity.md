@@ -11,11 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213558"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077681"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure Synapse Analytics
 
@@ -41,9 +42,6 @@ Följande mått är tillgängliga i Azure Portal för SQL i Synapse. Dessa mått
 | Procent andel cacheträffar    | (cacheträffar/cache missar) * 100 där cacheträffar är summan av alla träffar i det lokala SSD-cacheminnet och cache missar är columnstore-segmenten missar i den lokala SSD-cachen som summeras för alla noder | Genomsn, min, max    |
 | Procent andel som används   | (cache-använt/cache-kapacitet) * 100 där cache används är summan av alla byte i den lokala SSD-cachen på alla noder och cache-kapacitet är summan av lagrings kapaciteten för den lokala SSD-cachen på alla noder | Genomsn, min, max    |
 | Lokal tempdb-procent | Lokal tempdb-användning över alla Compute-noder – värden genereras var femte minut | Genomsn, min, max    |
-| Data lagrings storlek (GB) | Databasens totala storlek. Detta inkluderar använt, reserverat och oallokerat utrymme. Oallokerat utrymme behålls för databasen för att optimera frågor och läsa in prestanda. | Summa |
-| Katastrof återställnings storlek (GB) | Den totala storleken på Geo-säkerhetskopieringen som gjorts var 24: e timme | Summa |
-| Storlek på ögonblicks bild lagring (GB) | Total storlek för ögonblicks bilder som har vidtagits för att tillhandahålla databas återställnings punkter. Detta inkluderar automatiserade och användardefinierade ögonblicks bilder. | Summa |
 
 Saker att tänka på när du visar mått och ställer in aviseringar:
 

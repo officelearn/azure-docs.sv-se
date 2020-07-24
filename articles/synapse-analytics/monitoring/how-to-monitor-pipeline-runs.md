@@ -1,6 +1,6 @@
 ---
-title: Övervaka pipeline kör Azure Synapse Studio (för hands version)
-description: Använd Azure Synapse Studio för att övervaka pipeline-körningar i arbets ytan.
+title: Övervaka pipeline-körningar med Synapse Studio
+description: Använd Synapse Studio för att övervaka pipeline-körningar i arbets ytan.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16400d7f292ad5844add3d4a5fc019e84bd27127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075897"
 ---
-# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Använd Azure Synapse Studio för att övervaka pipeline-körningar i arbets ytan
+# <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Använd Synapse Studio för att övervaka körnings pipelinen för arbets ytan
 
-Med Azure Synapse Analytics kan du skapa komplexa pipelines som kan automatisera och dirigera din data förflyttning, data omvandling och beräknings aktiviteter i din lösning. Du kan skapa och övervaka dessa pipeliner med Azure Synapse Studio (för hands version).
+Med Azure Synapse Analytics kan du skapa komplexa pipelines som kan automatisera och dirigera din data förflyttning, data omvandling och beräknings aktiviteter i din lösning. Du kan skapa och övervaka dessa pipelines med Synapse Studio (för hands version).
 
 Den här artikeln förklarar hur du övervakar dina pipeline-körningar, vilket gör att du kan hålla koll på den senaste statusen, problemen och förloppet för dina pipeliner.
 
 ## <a name="access-the-list-of-pipeline-runs"></a>Åtkomst till listan över pipeline-körningar
 
-Om du vill se en lista över pipelines körs i din arbets yta [öppnar du först Azure Synapse Studio](https://web.azuresynapse.net/) och väljer din arbets yta.
+Om du vill se en lista över pipelines körs i din arbets yta [öppnar du först Synapse Studio](https://web.azuresynapse.net/) och väljer din arbets yta.
 
 ![Logga in på arbets ytan](./media/common/login-workspace.png)
 

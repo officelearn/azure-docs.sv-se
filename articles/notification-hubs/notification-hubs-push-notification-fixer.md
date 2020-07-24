@@ -16,11 +16,12 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bad65dbecd6e4a7d9bcb7fbdee6faafc31ead86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078022"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostisera ignorerade aviseringar i Azure Notification Hubs
 
@@ -103,7 +104,7 @@ Varje batch skickas till Push Notification Service, som i sin tur godkänner och
 
 I det här fallet tas den felaktiga registreringen bort från databasen. Sedan försöker vi leverera meddelandet igen för resten av enheterna i batchen.
 
-Om du vill ha mer information om det misslyckade leverans försöket vid en registrering kan du använda Notification Hubs REST-API [: er per meddelande telemetri: Hämta telemetri för aviseringar](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) och [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). Exempel kod finns i [Skicka rest-exemplet](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Om du vill ha mer information om det misslyckade leverans försöket vid en registrering kan du använda Notification Hubs REST-API [: er per meddelande telemetri: Hämta telemetri för aviseringar](/rest/api/notificationhubs/get-notification-message-telemetry) och [PNS feedback](/previous-versions/azure/reference/mt705560(v=azure.100)). Exempel kod finns i [Skicka rest-exemplet](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problem med Push Notification Service
 
@@ -125,9 +126,9 @@ Här följer sökvägar för att diagnosticera rotor saken till de borttagna med
 
 #### <a name="push-notification-service-developer-portal"></a>Push Notification Service Developer-portalen
 
-Verifiera autentiseringsuppgifter i respektive Push Notification Service Developer-portal (APN, FCM, Windows Notification Service osv.). Mer information finns i [Självstudier: skicka meddelanden till universell Windows-plattform appar med hjälp av Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Verifiera autentiseringsuppgifter i respektive Push Notification Service Developer-portal (APN, FCM, Windows Notification Service osv.). Mer information finns i [Självstudier: skicka meddelanden till universell Windows-plattform appar med hjälp av Azure Notification Hubs](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Om du vill granska och matcha autentiseringsuppgifterna med de som du fick från Push Notification Service Developer-portalen går du till fliken **åtkomst principer** i Azure Portal.
 
@@ -162,7 +163,7 @@ Du kan använda **test sidan skicka** för att skicka ett test meddelande:
 ![Visual Studio: testa skicka](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
-> Använd Visual Studio för att redigera registreringar endast under utveckling/testning och med ett begränsat antal registreringar. Om du behöver redigera dina registreringar i bulk bör du använda funktionen Exportera och importera registrering som beskrivs i [How to: export och ändring av registreringar i bulk](https://msdn.microsoft.com/library/dn790624.aspx).
+> Använd Visual Studio för att redigera registreringar endast under utveckling/testning och med ett begränsat antal registreringar. Om du behöver redigera dina registreringar i bulk bör du använda funktionen Exportera och importera registrering som beskrivs i [How to: export och ändring av registreringar i bulk](/previous-versions/azure/azure-services/dn790624(v=azure.100)).
 
 #### <a name="service-bus-explorer"></a>Service Bus Explorer
 
@@ -170,7 +171,7 @@ Många kunder använder [Service Bus Explorer](https://github.com/paolosalvatori
 
 ### <a name="verify-message-notifications"></a>Verifiera meddelande aviseringar
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Om du vill skicka ett test meddelande till dina klienter utan att ha en tjänst Server del igång, går du till **support + fel sökning**och väljer **testa skicka**.
 
@@ -184,7 +185,7 @@ Du kan också skicka test meddelanden från Visual Studio.
 
 Mer information om hur du använder Notification Hubs med Visual Studio Server Explorer finns i följande artiklar:
 
-* [Så här visar du enhets registreringar för Notification Hub](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
+* [Så här visar du enhets registreringar för Notification Hub](/previous-versions/windows/apps/dn792122(v=win.10))
 * [Djupgående spel: Visual Studio 2013 uppdatering 2 RC och Azure SDK 2,3]
 * [Vi presenterar lanseringen av Visual Studio 2013 Update 3 och Azure SDK 2,4]
 
@@ -198,7 +199,7 @@ Om meddelandet inte kommer till klient enheten kan ett fel uppstå när Notifica
 
 Du kan använda egenskapen [EnableTestSend] för att få insikter om fel i Push Notification Service. Den här egenskapen aktive ras automatiskt när du skickar test meddelanden från portalen eller Visual Studio-klienten. Du kan använda den här egenskapen för att se detaljerad fel söknings information och även via API: er. För närvarande kan du använda den i .NET SDK. Den kommer att läggas till i alla klient-SDK: er slutligen.
 
-Om du vill använda `EnableTestSend` egenskapen med rest-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Ett exempel:
+Om du vill använda `EnableTestSend` egenskapen med rest-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Exempel:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -247,7 +248,7 @@ Det här meddelandet anger att autentiseringsuppgifterna som kon figurer ATS i N
 
 ### <a name="review-telemetry"></a>Granska telemetri
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 I portalen kan du få en snabb överblick över all aktivitet i Notification Hub.
 
@@ -265,7 +266,7 @@ I portalen kan du få en snabb överblick över all aktivitet i Notification Hub
 
 #### <a name="programmatic-access"></a>Programmässig åtkomst
 
-Mer information om programmerings åtkomst finns i [program mässig åtkomst](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Mer information om programmerings åtkomst finns i [program mässig åtkomst](/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Flera funktioner för telemetri, t. ex. export och import av registreringar och telemetri via API: er, är bara tillgängliga på standard tjänst nivån. Om du försöker använda dessa funktioner från den kostnads fria eller grundläggande tjänst nivån får du ett undantags meddelande om du använder SDK: n. Du får ett HTTP 403-fel (förbjudet) om du använder funktionerna direkt från REST-API: erna.
@@ -287,13 +288,13 @@ Mer information om programmerings åtkomst finns i [program mässig åtkomst](ht
 <!-- LINKS -->
 [Översikt över Notification Hubs]: notification-hubs-push-notification-overview.md
 [Kom igång med Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Mallar]: https://msdn.microsoft.com/library/dn530748.aspx
+[Mallar]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APN-översikt]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Om FCM-meddelanden]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [Djupgående spel: Visual Studio 2013 uppdatering 2 RC och Azure SDK 2,3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Vi presenterar lanseringen av Visual Studio 2013 Update 3 och Azure SDK 2,4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
-[EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Programmatic telemetry access]: https://msdn.microsoft.com/library/azure/dn458823.aspx
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

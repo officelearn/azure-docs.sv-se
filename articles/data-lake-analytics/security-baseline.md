@@ -1,20 +1,20 @@
 ---
-title: Data Lake Analytics säkerhets bas linje för Azures säkerhets prestanda
+title: Azures säkerhets bas linje för Data Lake Analytics
 description: Data Lake Analytics säkerhets bas linje ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5e6d5beaad5080bf3081d5f68722623fb62d6c8a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075090"
 ---
-# <a name="data-lake-analytics-security-baseline-for-azure-security-benchmark"></a>Data Lake Analytics säkerhets bas linje för Azures säkerhets prestanda
+# <a name="azure-security-baseline-for-data-lake-analytics"></a>Azures säkerhets bas linje för Data Lake Analytics
 
 Azures säkerhets bas linje för Data Lake Analytics innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 

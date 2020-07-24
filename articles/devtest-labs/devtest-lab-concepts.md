@@ -3,12 +3,12 @@ title: DevTest Labs-koncept | Microsoft Docs
 description: Lär dig de grundläggande begreppen i DevTest Labs och hur det kan göra det enkelt att skapa, hantera och övervaka virtuella Azure-datorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074966"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs-koncept
 ## <a name="overview"></a>Översikt
@@ -56,7 +56,7 @@ Med hjälp av principer kan du kontrol lera kostnaderna i labbet. Du kan till ex
 Caps är en mekanism för att minimera spill i labbet. Du kan till exempel ange en Cap för att begränsa antalet virtuella datorer som kan skapas per användare eller i ett labb.
 
 ## <a name="security-levels"></a>Säkerhets nivåer
-Säkerhets åtkomsten bestäms av RBAC (Azure Role-based Access Control). För att förstå hur Access fungerar, hjälper det att förstå skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
+Säkerhets åtkomst bestäms av Azure-rollbaserad åtkomst kontroll (Azure RBAC). För att förstå hur Access fungerar, hjälper det att förstå skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
 
 * Behörighet – en behörighet är en definierad åtkomst till en viss åtgärd (t. ex. Läs åtkomst till alla virtuella datorer).
 * Roll – en roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Rollen *prenumerations ägare* har till exempel åtkomst till alla resurser i en prenumeration.

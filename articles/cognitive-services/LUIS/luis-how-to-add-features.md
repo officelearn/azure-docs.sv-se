@@ -1,5 +1,5 @@
 ---
-title: Funktioner – LUIS
+title: Använda funktioner för att förbättra LUIS ord lista
 titleSuffix: Azure Cognitive Services
 description: Använd Language Understanding (LUIS) för att lägga till app-funktioner som kan förbättra identifieringen eller förutsägelsen av avsikter och entiteter som kategorier och mönster
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 7d9f1e520ab5c96b9c5288383324b165a4cd74f0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25698fe2b05cbfb564e441e488bfa93221a9618a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075198"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Använd funktioner för att förstärka signalen av ord listan
 
@@ -43,7 +43,7 @@ Granska [begreppen](luis-concept-feature.md) för att förstå när och varför 
 
 1. Fras listan kan tillämpas på hela appen med den **globala** inställningen eller till en speciell modell (avsikt eller entitet). Om du skapar fras listan, som en _funktion_ från ett avsikt eller en entitet, är växlingen inte inställd för global. I det här fallet är syftet med växlingen att funktionen bara är lokal för den modellen, vilket innebär att den _inte är global_ för programmet.
 
-1. Välj **Done** (Klar). Den nya funktionen läggs till på sidan med **ml-funktioner** .
+1. Välj **Klar**. Den nya funktionen läggs till på sidan med **ml-funktioner** .
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

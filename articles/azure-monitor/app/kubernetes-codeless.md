@@ -5,16 +5,17 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 05/13/2020
-ms.openlocfilehash: 76f9f922697ef6be6c959ea7f9bafd0872dba6ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52bd6d2a98e5126ff2463de1ef99da03ca555567
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773758"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075297"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes---azure-monitor-application-insights"></a>Övervakning av program vara med noll Kubernetes-Azure Monitor Application Insights
 
 > [!IMPORTANT]
->  För närvarande kan du aktivera övervakning av Java-appar som körs på Kubernetes utan att instrumentera din kod – Använd den [fristående Java-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Lösningen för att sömlöst aktivera program övervakning är i Works för andra språk, och använder SDK: erna för att övervaka dina appar som körs på AKS: [ASP.net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [Java Script](https://docs.microsoft.com/azure/azure-monitor/app/javascript)och [python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+>  För närvarande kan du aktivera övervakning av Java-appar som körs på Kubernetes utan att instrumentera din kod – Använd den [fristående Java-agenten](./java-in-process-agent.md). Lösningen för att sömlöst aktivera program övervakning är i Works för andra språk, och använder SDK: erna för att övervaka dina appar som körs på AKS: [ASP.net Core](./asp-net-core.md), [ASP.net](./asp-net.md), [Node.js](./nodejs.md), [Java Script](./javascript.md)och [python](./opencensus-python.md).
 
 ## <a name="application-monitoring-without-instrumenting-the-code"></a>Program övervakning utan att behöva instrumentera koden
 För närvarande kan du aktivera program övervakning utan att behöva instrumentera koden med Java. Använd SDK: er för att övervaka program på andra språk. 
@@ -22,18 +23,18 @@ För närvarande kan du aktivera program övervakning utan att behöva instrumen
 ## <a name="java"></a>Java
 När den är aktive rad samlar Java-agenten automatiskt in en mängd begär Anden, beroenden, loggar och mått från de mest använda biblioteken och ramverken.
 
-Följ [de detaljerade anvisningarna](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) för att övervaka Java-appar som körs i Kubernetes-appar, samt andra miljöer. 
+Följ [de detaljerade anvisningarna](./java-in-process-agent.md) för att övervaka Java-appar som körs i Kubernetes-appar, samt andra miljöer. 
 
 ## <a name="other-languages"></a>Andra språk
 
 För program på andra språk rekommenderar vi för närvarande användning av SDK: er:
-* [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-* [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-* [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) 
-* [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-* [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+* [ASP.NET Core](./asp-net-core.md)
+* [ASP.NET](./asp-net.md)
+* [Node.js](./nodejs.md) 
+* [JavaScript](./javascript.md)
+* [Python](./opencensus-python.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) och [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-* Få en översikt över [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing) och se vilken [program karta](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) som kan utföras för ditt företag
+* Läs mer om [Azure Monitor](../overview.md) och [Application Insights](./app-insights-overview.md)
+* Få en översikt över [distribuerad spårning](./distributed-tracing.md) och se vilken [program karta](./app-map.md?tabs=net) som kan utföras för ditt företag

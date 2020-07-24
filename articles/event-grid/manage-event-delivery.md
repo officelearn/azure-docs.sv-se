@@ -2,19 +2,22 @@
 title: Principer för obeställbara meddelanden och återförsök-Azure Event Grid
 description: Beskriver hur du anpassar alternativ för händelse leverans för Event Grid. Ange ett mål för obeställbara meddelanden och ange hur lång tid överföringen ska göras.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074885"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Principer för obeställbara meddelanden och återförsök
 
 När du skapar en händelse prenumeration kan du anpassa inställningarna för händelse leverans. Den här artikeln visar hur du konfigurerar en plats för obeställbara meddelanden och hur du anpassar inställningarna för återförsök. Information om dessa funktioner finns i [Event Grid meddelande leverans och försök igen](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Om du vill veta mer om meddelande leverans, nya försök och obeställbara meddelanden, se den konceptuella artikeln: [Event Grid meddelande leverans och försök igen]().
 
 ## <a name="set-dead-letter-location"></a>Ange plats för obeställbara meddelanden
 
@@ -95,7 +98,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Om du anger både `event-ttl` och `max-deliver-attempts` , använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
+> [!NOTE]
+> Om du anger både `event-ttl` och `max-deliver-attempts` , använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas. Om du till exempel anger 30 minuter som TTL (Time-to-Live) och 10 högsta leverans försök. När en händelse inte levereras efter 30 minuter (eller) inte levereras efter 10 försök, oavsett vad som inträffar först, är händelsen obeställbara.  
 
 ### <a name="powershell"></a>PowerShell
 
@@ -123,7 +127,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Om du anger både `EventTtl` och `MaxDeliveryAttempt` , använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
+> [!NOTE]
+> Om du anger både `event-ttl` och `max-deliver-attempts` , använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas. Om du till exempel anger 30 minuter som TTL (Time-to-Live) och 10 högsta leverans försök. När en händelse inte levereras efter 30 minuter (eller) inte levereras efter 10 försök, oavsett vad som inträffar först, är händelsen obeställbara.  
 
 ## <a name="next-steps"></a>Nästa steg
 

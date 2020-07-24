@@ -1,5 +1,5 @@
 ---
-title: Vad är Dedikerad HSM? – Dedikerad HSM i Azure| Microsoft Docs
+title: Felsöka dedikerad HSM-Azure Dedicated HSM | Microsoft Docs
 description: Översikten över dedikerad HSM i Azure tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
 services: dedicated-hsm
 author: msmbaldwin
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c398049cfe1d5ec2ee090d4fabf8008803efecb1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209580"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074997"
 ---
-# <a name="troubleshooting"></a>Felsökning
+# <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Felsöka Azure Dedicated HSM-tjänsten
 
 Azure Dedicated HSM-tjänsten har två distinkta facets. För det första är registreringen och distributionen i Azure av HSM-enheterna med underliggande nätverks komponenter. För det andra är konfigurationen av HSM-enheterna som förberedelse för användning/integrering med en specifik arbets belastning eller ett program. Även om Thales Luna-nätverks HSM-enheter är desamma i Azure eftersom du skulle köpa direkt från Thales, så är det faktum att de är en resurs i Azure som skapar unika överväganden. Dessa överväganden och eventuella fel söknings insikter eller bästa praxis finns dokumenterade här för att säkerställa hög insyn och åtkomst till viktig information. När tjänsten används är den slutgiltiga informationen tillgänglig via support förfrågningar till antingen Microsoft eller Thales direkt. 
 

@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8f8a333c880850b239fbaba1ea405b94a1460e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076737"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Key Vault och Azure CLI
 
@@ -46,9 +46,9 @@ Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klie
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Övrigt  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Övrigt  | Valfri | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här guiden måste du först göra följande:
 
@@ -90,7 +90,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Observera att behörigheter för lagrings konton inte är tillgängliga på sidan åtkomst principer för lagrings kontot i Azure Portal.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Skapa ett Key Vault hanterat lagrings konto
 
- Skapa ett Key Vault hanterat lagrings konto med hjälp av kommandot Azure CLI-AZ för nyckel [valv](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Ange en tids period på 90 dagar. Efter 90 dagar återskapar Key Vault `key1` och byter den aktiva nyckeln från `key2` till `key1` . `key1`markeras sedan som den aktiva nyckeln. Ange följande parameter värden för kommandot:
+ Skapa ett Key Vault hanterat lagrings konto med hjälp av kommandot Azure CLI-AZ för nyckel [valv](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Ange en tids period på 90 dagar. När det är dags att rotera återskapar Key Vault den nyckel som inte är aktiv och anger sedan den nya nyckeln som aktiv. Det är bara en av nycklarna som används för att utfärda SAS-token vid ett tillfälle, det här är den aktiva nyckeln. Ange följande parameter värden för kommandot:
 
 - `--vault-name`: Skicka namnet på ditt nyckel valv. Om du vill hitta namnet på nyckel valvet använder du kommandot Azure CLI [AZ Key Vault List](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) .
 - `-n`: Skicka namnet på ditt lagrings konto. Du hittar namnet på ditt lagrings konto med kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .

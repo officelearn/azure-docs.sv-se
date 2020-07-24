@@ -10,26 +10,31 @@ ms.author: nibaccam
 author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/20/2020
-ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: ac5357d0f8ba03943af14d7dd4ce6928b20db128
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074630"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du skapar, utforskar och distribuerar automatiserade maskin inlärnings modeller utan en enda kodrad i Azure Machine Learning Studio-gränssnittet. Automatisk maskin inlärning är en process där den bästa Machine Learning-algoritmen som används för dina aktuella data väljs åt dig. Med den här processen kan du snabbt skapa maskin inlärnings modeller. [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md).
+I den här artikeln får du lära dig hur du skapar, utforskar och distribuerar automatiserade maskin inlärnings modeller utan en enda kodrad i Azure Machine Learning Studio.
+
+>[!IMPORTANT]
+> Den automatiska ML-upplevelsen i Azure Machine Learning Studio är en för hands version. Vissa funktioner kanske inte stöds eller har begränsade funktioner.
+
+ Automatisk maskin inlärning är en process där den bästa Machine Learning-algoritmen som används för dina aktuella data väljs åt dig. Med den här processen kan du snabbt skapa maskin inlärnings modeller. [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md).
  
 För ett slut punkt till slut punkts exempel kan du prova [självstudien för att skapa en klassificerings modell med Azure Machine Learning s automatiserade ml-gränssnitt](tutorial-first-experiment-automated-ml.md). 
 
 [Konfigurera automatiserade maskin inlärnings experiment](how-to-configure-auto-train.md) med Azure Machine Learning SDK för en python-kod baserad upplevelse.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning arbets yta med en typ av **Enterprise-utgåva**. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  Information om hur du uppgraderar en befintlig arbets yta till Enterprise Edition finns i [Uppgradera till Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
@@ -51,18 +56,22 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Välj **+ ny automatiserad ml-körning** och fyll i formuläret.
 
-1. Välj en data uppsättning från din lagrings behållare eller skapa en ny data uppsättning. Data uppsättningar kan skapas från lokala filer, webb-URL: er, data lager eller Azure Open-datauppsättningar. 
+1. Välj en data uppsättning från din lagrings behållare eller skapa en ny data uppsättning. Data uppsättningar kan skapas från lokala filer, webb-URL: er, data lager eller Azure Open-datauppsättningar. Lär dig mer om att [skapa data uppsättning](how-to-create-register-datasets.md).  
 
     >[!Important]
     > Krav för tränings data:
     >* Data måste vara i tabell form.
     >* Värdet som du vill förutse (mål kolumnen) måste finnas i data.
 
-    1. Om du vill skapa en ny data uppsättning från en fil på den lokala datorn väljer du **Bläddra** och väljer sedan filen. 
+    1. Om du vill skapa en ny data uppsättning från en fil på den lokala datorn väljer du **+ skapa data uppsättning** och väljer sedan **från lokal fil**. 
 
-    1. Ge din data uppsättning ett unikt namn och ange en valfri beskrivning. 
+    1. Ge din data uppsättning ett unikt namn och ge en valfri beskrivning i formuläret **grundläggande information** . 
 
     1. Välj **Nästa** för att öppna **formuläret data lager och fil markering**. I det här formuläret väljer du var du vill ladda upp din data uppsättning. standard lagrings behållare som skapas automatiskt med din arbets yta eller Välj en lagrings behållare som du vill använda för experimentet. 
+    
+        1. Om dina data ligger bakom ett virtuellt nätverk måste du aktivera funktionen **hoppa över verifiering** för att se till att arbets ytan kan komma åt dina data. Lär dig mer om [nätverks isolering och sekretess](how-to-enable-virtual-network.md#machine-learning-studio). 
+    
+    1. Välj **Bläddra** för att ladda upp data filen för din data uppsättning. 
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
@@ -96,8 +105,11 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     Fält|Beskrivning
     ---|---
     Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
+    Prioritet för virtuell dator| Virtuella datorer med låg prioritet är billigare men garanterar inte Compute-noderna. 
+    Typ av virtuell dator| Välj CPU eller GPU för typ av virtuell dator.
     Storlek för virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
-    Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data. Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
+    Min/högsta antal noder| Du måste ange 1 eller fler noder för att kunna profilera data. Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
+    Avancerade inställningar | Med de här inställningarna kan du konfigurera ett användar konto och ett befintligt virtuellt nätverk för experimentet. 
     
     Välj **Skapa**. Det kan ta några minuter att skapa en ny beräkning.
 
@@ -108,20 +120,22 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. Mer information finns i [aktivitets typer som stöds](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. För klassificering kan du också aktivera djup inlärning som används för text featurizations.
+    1. För **klassificering**kan du också aktivera djup inlärning som används för text featurizations.
 
-    1. För Prognosticering:
-        1. Välj tids kolumn: den här kolumnen innehåller de tids data som ska användas.
+    1. För **prognoser** kan du 
+    
+        1. Aktivera djup inlärning
+    
+        1. Välj *tids kolumn*: den här kolumnen innehåller de tids data som ska användas.
 
-        1. Välj prognos Horisont: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
+        1. Välj *prognos Horisont*: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
 
 1. Valfritt Visa ytterligare konfigurations inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
     Ytterligare konfigurationer|Beskrivning
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatisk funktionalisering| Välj det här alternativet om du vill aktivera eller inaktivera funktionalisering som gjorts av automatisk maskin inlärning. Automatisk funktionalisering innehåller automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. Stöds inte för aktivitets typen tids serie prognos. [Läs mer om funktionalisering](how-to-configure-auto-features.md#featurization). 
-    Förklara bästa modell | Välj om du vill aktivera eller inaktivera för att visa att den rekommenderade bästa modellen är klar
+    Förklara bästa modell | Välj om du vill aktivera eller inaktivera, för att visa att den rekommenderade bästa modellen är förklarad.
     Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet.
     Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)*: hur lång tid det tar att köra utbildnings jobbet. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
     Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-cross-validation-data-splits.md#prerequisites).
@@ -185,7 +199,7 @@ Fliken **Modeller** innehåller en lista över de modeller som skapats ordnade e
 
 ### <a name="view-training-run-details"></a>Visa information om tränings körningar
 
-Öka detalj nivån för alla färdiga modeller för att se information om utbildnings körning, som att köra mått på fliken **modell information** eller prestanda diagram på fliken **visualiseringar** . [Läs mer om diagram](how-to-understand-automated-ml.md).
+Öka detalj nivån för alla färdiga modeller för att se information om utbildning, t. ex. en modell sammanfattning på fliken **modell** eller diagram över prestanda mått på fliken **mått** . [Läs mer om diagram](how-to-understand-automated-ml.md).
 
 [![Upprepnings information](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
@@ -197,13 +211,18 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Du har ett par alternativ för distribution. 
 
-    + Alternativ 1: om du vill distribuera den bästa modellen (enligt de mått kriterier som du har definierat) väljer du knappen **distribuera bästa modell** på fliken **information** .
+    + Alternativ 1: distribuera den bästa modellen enligt de mått kriterier som du har definierat. 
+        1. När experimentet är klart navigerar du till den överordnade körnings sidan genom att välja **Kör 1** överst på skärmen. 
+        1.  Välj den modell som visas i avsnittet **bästa modell Sammanfattning** . 
+        1. Välj **distribuera** längst upp till vänster i fönstret. 
 
-    + Alternativ 2: om du vill distribuera en speciell modell iteration från det här experimentet går du nedåt i modellen för att öppna fliken **modell information** och väljer **distribuera modell**.
+    + Alternativ 2: om du vill distribuera en speciell modell iteration från det här experimentet.
+        1. Välj önskad modell på fliken **modeller**
+        1. Välj **distribuera** längst upp till vänster i fönstret.
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Field| Värde
+    Fält| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
     Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
@@ -218,7 +237,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     Menyn *Avancerat* erbjuder standard distributions funktioner, till exempel inställningar för [data insamling](how-to-enable-app-insights.md) och resursutnyttjande. Om du vill åsidosätta dessa standardinställningar gör du det på den här menyn.
 
 1. Välj **Distribuera**. Distributionen kan ta ungefär 20 minuter att slutföra.
-    När distributionen har påbörjats visas fliken **modell information** . Se distributions förloppet under avsnittet **distributions status** i fönstret **Egenskaper** . 
+    När distributionen har påbörjats visas fliken **modell Sammanfattning** . Se distributions förloppet i avsnittet **distributions status** . 
 
 Nu har du en fungerande webb tjänst för att generera förutsägelser! Du kan testa förutsägelserna genom att fråga tjänsten från [Power BI inbyggda Azure Machine Learning-supporten](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

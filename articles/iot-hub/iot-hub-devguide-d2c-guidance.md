@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86610910ed532e737720bb3b83e773596987aba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733217"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074668"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Vägledning för kommunikation från enhet till moln
 
@@ -31,7 +32,7 @@ När du skickar information från Device-appen till lösningens Server del, visa
 
 Här är en detaljerad jämförelse av de olika alternativen för kommunikation mellan enheter och moln.
 
-|  | Meddelanden från enheten till molnet | Enhetens dubbla egenskaper för rapporter | Fil överföringar |
+| Faktor | Meddelanden från enheten till molnet | Enhetens dubbla egenskaper för rapporter | Fil överföringar |
 | ---- | ------- | ---------- | ---- |
 | Scenario | Tids serier och aviseringar för telemetri. Till exempel är 256 KB-sensor data-batchar skickade var 5: e minut. | Tillgängliga funktioner och villkor. Till exempel det aktuella anslutnings läget för enhet, till exempel mobil nät eller WiFi. Synkronisering av tids krävande arbets flöden, till exempel konfigurations-och program uppdateringar. | Mediafiler. Stora (vanligt vis komprimerade) telemetri-batchar. |
 | Lagring och hämtning | Lagras tillfälligt med IoT Hub, upp till 7 dagar. Endast sekventiell läsning. | Lagras av IoT Hub i enheten. Hämtnings bara med [IoT Hub frågespråk](iot-hub-devguide-query-language.md). | Lagrat i Azure Storage konto för användare. |

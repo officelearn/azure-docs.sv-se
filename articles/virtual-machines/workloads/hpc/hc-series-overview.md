@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7110f3417937b623260983a9d94e9e6834fc8fc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906742"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077378"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Översikt över virtuell dator i HC-serien
 
@@ -57,11 +58,11 @@ Följande diagram visar ansvars fördelning av kärnor som är reserverade för 
 | Ytterligare ramverk       | Enhetlig kommunikation X, libfabric, PGAS |
 | Azure Storage support       | STD + Premium (max 4 diskar) |
 | OS-stöd för IOV RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 + |
-| Stöd för Azure CycleCloud    | Ja                         |
+| Stöd för Azure CycleCloud    | Yes                         |
 | Azure Batch support         | Ja                         |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om HPC VM-storlekar för [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) och [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) i Azure.
+* Lär dig mer om HPC VM-storlekar för [Linux](../../sizes-hpc.md) och [Windows](../../sizes-hpc.md) i Azure.
 
-* Lär dig mer om [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) i Azure.
+* Lär dig mer om [HPC](/azure/architecture/topics/high-performance-computing/) i Azure.

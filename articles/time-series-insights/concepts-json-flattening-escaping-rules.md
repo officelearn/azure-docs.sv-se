@@ -1,6 +1,6 @@
 ---
-title: Sammanslagen JSON och undantags regler – Azure Time Series Insights | Microsoft Docs
-description: Lär dig mer om JSON-förenkling, undantag och mat ris hantering i Azure Time Series Insights.
+title: Gen2 för JSON-förenkling och undantags regler – Azure Time Series Insights-| Microsoft Docs
+description: Lär dig mer om JSON-förenkling, undantag och mat ris hantering i Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,19 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
-ms.openlocfilehash: 45eeebcc092513a0344acaff52c31c2cebfb377c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075675"
 ---
 # <a name="ingestion-rules"></a>Inmatnings regler
 ### <a name="json-flattening-escaping-and-array-handling"></a>JSON-förenkling, undantag och mat ris hantering
 
-Din Azure Time Series Insightss miljö skapar dynamiskt kolumner i dina varma och kalla butiker, efter en viss uppsättning namngivnings konventioner. När en händelse matas in används en uppsättning regler för JSON-nyttolasten och egenskaps namnen. Detta inkluderar undantag för vissa specialtecken och förenkling av kapslade JSON-objekt. Det är viktigt att känna till de här reglerna så att du förstår hur formen på din JSON påverkar hur dina händelser lagras och frågas. I tabellen nedan finns en fullständig lista över regler. Exempel på en & B visar också hur du effektivt kan gruppera flera tids serier i en matris.
+Din Azure Time Series Insights Gen2-miljö skapar dynamiskt kolumner i dina varma och kalla lager, efter en viss uppsättning namngivnings konventioner. När en händelse matas in används en uppsättning regler för JSON-nyttolasten och egenskaps namnen. Detta inkluderar undantag för vissa specialtecken och förenkling av kapslade JSON-objekt. Det är viktigt att känna till de här reglerna så att du förstår hur formen på din JSON påverkar hur dina händelser lagras och frågas. I tabellen nedan finns en fullständig lista över regler. Exempel på en & B visar också hur du effektivt kan gruppera flera tids serier i en matris.
 
 > [!IMPORTANT]
 >
@@ -28,8 +27,8 @@ Din Azure Time Series Insightss miljö skapar dynamiskt kolumner i dina varma oc
 
 | Regel | Exempel-JSON |Kolumn namn i lagring |
 |---|---|---|
-| Informations typen för TSD läggs till i slutet av kolumn namnet som "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
-| [Egenskapen timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) för händelse källan sparas i TSD som "timestamp" i Storage och värdet som lagras i UTC. Du kan anpassa tids stämplings egenskapen för händelse källan så att den uppfyller lösningens behov, men kolumn namnet i varmt och kallt lagrings utrymme är "timestamp". Andra datetime JSON-egenskaper som inte är tids stämpling för händelse källan sparas med "_datetime" i kolumn namnet, som anges i regeln ovan.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
+| Data typen Azure Time Series Insights Gen2 läggs till i slutet av kolumn namnet som "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
+| [Egenskapen timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) för händelse källan sparas i Azure Time Series Insights Gen2 som "timestamp" i Storage och värdet som lagras i UTC. Du kan anpassa tids stämplings egenskapen för händelse källan så att den uppfyller lösningens behov, men kolumn namnet i varmt och kallt lagrings utrymme är "timestamp". Andra datetime JSON-egenskaper som inte är tids stämpling för händelse källan sparas med "_datetime" i kolumn namnet, som anges i regeln ovan.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
 | JSON-egenskaps namn som innehåller specialtecknen. [\ och "föregås av [" och "]  |  ```"id.wasp": "6A3090FD337DE6B"``` | [' ID. Wasp '] _string |
 | I ["och"] finns det ytterligare undantag av enkla citat tecken och omvänt snedstreck. Ett enkelt citat sätt skrivs som \ och ett omvänt snedstreck skrivs som\\\ | ```"Foo's Law Value": "17.139999389648"``` | [' Foo \' s lag värde '] _double |
 | Kapslade JSON-objekt förenklas med en punkt som avgränsare. Det finns stöd för att kapsla upp till 10 nivåer. |  ```"series": {"value" : 316 }``` | serien. value_long |
@@ -186,4 +185,4 @@ Konfigurationen och nytto lasten ovan kommer att producera tre kolumner och en h
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Förstå din miljös [data flödes begränsningar](concepts-streaming-throughput-limitations.md)
+* Förstå din miljös [data flödes begränsningar](./concepts-streaming-ingress-throughput-limits.md)

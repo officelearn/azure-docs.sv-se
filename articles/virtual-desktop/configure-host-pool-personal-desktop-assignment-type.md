@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop, personlig Skriv bords typ – Azure
-description: Så här konfigurerar du tilldelnings typen för en virtuell Windows-dator med egen Skriv bords värd.
+description: Så här konfigurerar du automatisk eller direkt tilldelning för en Windows-dator med egen Skriv bords värd för virtuella skriv bord.
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b000e9a83e6896266f0a6fc05195fc5599bc65f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260820"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077631"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurera tilldelnings typen egen Skriv bords värd pool
 
@@ -28,7 +28,7 @@ Du kan konfigurera tilldelnings typen för din personliga Skriv bords värd för
 >[!NOTE]
 > Anvisningarna i den här artikeln gäller bara för personliga Skriv bords värd pooler, inte pooler med pooler, eftersom användare i pooler värdar inte har tilldelats till vissa värdar för fjärrskrivbordssessioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har laddat ned och installerat Windows Virtual Desktop PowerShell-modulen. Om du inte har gjort det följer du anvisningarna i [Konfigurera PowerShell-modulen](powershell-module.md).
 

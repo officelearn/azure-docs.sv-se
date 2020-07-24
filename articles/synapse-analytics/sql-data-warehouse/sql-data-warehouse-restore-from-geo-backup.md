@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205092"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075812"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-återställning för SQL-pool
 
@@ -36,7 +36,7 @@ Om du vill återställa från en geo-säkerhets kopiering använder du cmdleten 
 > Du kan utföra en geo-återställning till Gen2! Det gör du genom att ange en Gen2-ServiceObjectiveName (t. ex. DW1000**c**) som en valfri parameter.
 >
 
-1. Innan du börjar ska du se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Innan du börjar ska du se till att [installera Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
 4. Välj den prenumeration som innehåller det data lager som ska återställas.
@@ -77,7 +77,7 @@ Den återställda databasen kommer att TDEs om käll databasen är TDE-aktive ra
 Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-säkerhets kopiering:
 
 1. Logga in på ditt [Azure Portal](https://portal.azure.com/) -konto.
-2. Klicka på **+ skapa en resurs**.
+2. Klicka på **+ Skapa en resurs**.
 
    ![Ny DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
@@ -87,9 +87,9 @@ Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-s
 
 4. Fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
 
-   ![Grunderna](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Grunder](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + skapa**.
+5. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + Skapa**.
 
    ![säkerhetskopiering](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 

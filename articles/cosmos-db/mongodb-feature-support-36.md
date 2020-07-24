@@ -4,15 +4,15 @@ description: Läs mer om Azure Cosmos DBs API för MongoDB (3,6-version) som st�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 07/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 92c94b08602fb32ccebf6115306a5000665affe2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076841"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.6): Funktioner och syntax som stöds
 
@@ -36,7 +36,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|delete | Yes |
+|ta bort | Yes |
 |find | Yes     |
 |findAndModify | Yes  |
 |getLastError|   Yes |
@@ -103,7 +103,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |listCommands     |  No       |
 |profiler     |  No       |
 |serverStatus     |  No       |
-|överst     |    No     |
+|top     |    No     |
 |whatsmyuri     |   Yes      |
 
 <a name="aggregation-pipeline"></a>
@@ -340,7 +340,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |Datum    |Yes    |
 |Null    |Yes    |
 |32-bitars heltal (int)    |Yes    |
-|Tidsstämpel    |Yes    |
+|Timestamp    |Yes    |
 |64-bitars heltal (långt)    |Yes    |
 |MinKey    |Yes    |
 |MaxKey    |Yes    |
@@ -368,7 +368,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|TTL|    Yes    |
+|TTL-värde|    Yes    |
 |Unik    |Yes|
 |Delvis|    No|
 |Skift läges okänslig    |No|
@@ -504,7 +504,7 @@ $polygon |  Yes |
 
 |Kommando  |Stöds |
 |---------|---------|
-|cursor. batchSize ()    |    Yes|
+|cursor.batchSize ()    |    Yes|
 |cursor. Close ()    |Yes|
 |cursor. isClosed ()|        Yes|
 |cursor. COLLATE ()|    No|
@@ -542,7 +542,32 @@ Med åtgärden `findOneAndUpdate` kan du använda sorteringsåtgärder på ett e
 
 ## <a name="unique-indexes"></a>Unika index
 
-Unika index säkerställer att ett särskilt fält inte har dubblettvärden i alla dokument i en samling, på liknande sätt som unika bevaras i standard nyckeln "_id". Du kan skapa anpassade index i Cosmos DB med hjälp av kommandot createIndex, inklusive begränsningen "Unique".
+[Unika index](mongodb-indexing.md#unique-indexes) säkerställer att ett särskilt fält inte har dubblettvärden i alla dokument i en samling, på liknande sätt som unika bevaras i standard nyckeln "_ID". Du kan skapa unika index i Cosmos DB genom att använda `createIndex` kommandot med `unique` begränsnings parametern:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+```
+
+## <a name="compound-indexes"></a>Sammansatta index
+
+[Sammansatta index](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) ger ett sätt att skapa ett index för fält grupper för upp till åtta fält. Den här typen av index skiljer sig från de interna MongoDB-sammansatta indexen. I Azure Cosmos DB används sammansatta index för sorterings åtgärder som tillämpas på flera fält. Om du vill skapa ett sammansatt index måste du ange mer än en egenskap som parameter:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
+{
+        "createdCollectionAutomatically" : false, 
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
 
 ## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 

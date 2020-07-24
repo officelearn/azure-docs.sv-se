@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: b853817b670f59bbfeef9ecd81c70dc63cbd367b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804618"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077875"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -109,7 +109,7 @@ Följande rekommendationer för att använda signaturer för delad åtkomst kan 
 - **Definiera en lagrad åtkomst princip för en tjänst-SAS.** Lagrade åtkomst principer ger dig möjlighet att återkalla behörigheter för en tjänst-SAS utan att behöva återskapa lagrings konto nycklarna. Ange förfallo datum för dessa hittills i framtiden (eller oändligt) och kontrol lera att de uppdateras regelbundet för att flytta den längre fram i framtiden.
 - **Använd tider med nära giltighets tider för en ad hoc SAS-tjänst SAS eller konto säkerhets associationer.** På det här sättet, även om en SAS har komprometterats, är den bara giltig under en kort tid. Den här metoden är särskilt viktig om du inte kan referera till en lagrad åtkomst princip. Snart kan förfallo tiden begränsa den mängd data som kan skrivas till en BLOB genom att begränsa den tillgängliga tiden att laddas upp till den.
 - **Låt klienterna automatiskt förnya SAS vid behov.** Klienterna bör förnya SAS-vältiden innan det går ut, för att tillåta tid för nya försök om tjänsten som tillhandahåller SAS inte är tillgänglig. Om din SAS är avsedd att användas för ett litet antal omedelbara, kortsiktiga åtgärder som förväntas bli slutförda inom förfallo perioden, kan detta vara onödigt eftersom sa-värdet inte förväntas förnyas. Men om du har en klient som rutinmässigt begär förfrågningar via SAS, kommer möjligheten att förfalla att bli i spel. Viktiga överväganden är att balansera behovet av att SAS ska vara kort livs längd (som tidigare anges) med behovet av att säkerställa att klienten begär förnyelse tillräckligt tidigt (för att undvika avbrott på grund av att SAS förfaller före en lyckad förnyelse).
-- **Var försiktig med start tiden för SAS.** Om du anger start tiden för en SAS **nu**, sedan på grund av klock skevning (skillnader i aktuell tid beroende på olika datorer), kan det hända att felen observeras period vis under de första minuterna. I allmänhet anger du Start tiden till minst 15 minuter tidigare. Eller, ange inte det alls, vilket gör det giltigt omedelbart i samtliga fall. Samma gäller vanligt vis för förfallo tid, och kom ihåg att du kan se upp till 15 minuters klock skevning i båda riktningarna. För klienter som använder en REST-version före 2012-02-12 är den maximala tiden för en SAS som inte refererar till en lagrad åtkomst princip 1 timme och alla principer som anger längre villkors period än vad som kommer att Miss förväntas.
+- **Var försiktig med start tiden för SAS.** Om du anger start tiden för en SAS till den aktuella tiden kan det hända att felen inträffar tillfälligt under de första minuterna på grund av olika datorer med små variationer för den aktuella tiden (kallas klock skevning). I allmänhet anger du Start tiden till minst 15 minuter tidigare. Eller, ange inte det alls, vilket gör det giltigt omedelbart i samtliga fall. Samma gäller vanligt vis för förfallo tid, och kom ihåg att du kan se upp till 15 minuters klock skevning i båda riktningarna. För klienter som använder en REST-version före 2012-02-12 är den maximala tiden för en SAS som inte refererar till en lagrad åtkomst princip 1 timme och alla principer som anger längre villkors period än vad som kommer att Miss förväntas.
 - **Var försiktig med SAS-formatet för SAS.** Om du ställer in start tid och/eller förfallo datum för en SAS måste du ha datetime-formatet "+% Y-% m-% dT% H:%M:% SZ", särskilt inklusive sekunder för att det ska fungera med SAS-token för vissa verktyg (till exempel för kommando rads verktyget AzCopy).  
 - **Var unik för den resurs som ska nås.** En säkerhets metod är att tillhandahålla en användare med den lägsta behörighet som krävs. Om en användare bara behöver Läs behörighet till en enskild entitet kan du ge dem Läs behörighet till den enskilda entiteten och inte läsa/skriva/ta bort åtkomst till alla entiteter. Detta hjälper också till att minska skadan om en SAS komprometteras eftersom SAS har mindre kraft i händerna på en angripare.
 - **Förstå att ditt konto debiteras för all användning, inklusive via en SAS.** Om du ger skriv åtkomst till en BLOB kan en användare välja att ladda upp en 200 GB-blob. Om du har gett dem Läs behörighet kan de välja att ladda ned det 10 gånger, vilket ger 2 TB i utgående kostnader för dig. På nytt ger du begränsade behörigheter för att minska risken för att skadliga användare kan utföra åtgärder. Använd SAS med kort livs längd för att minska det här hotet (men var mindful klock skevning vid slut tiden).

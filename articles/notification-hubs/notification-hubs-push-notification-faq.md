@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077922"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 
@@ -138,7 +138,7 @@ Registreringar från appens Server del är användbara när du måste autentiser
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>Vad är leverans säkerhets modellen för push-meddelanden?
 
-Azure Notification Hubs använder en signatur baserad säkerhets modell för [delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Du kan använda token för signaturer för delad åtkomst på rot namn områdes nivån eller på den detaljerade nivån för Notification Hub. Token för signaturer för delad åtkomst kan anges till att följa olika auktoriseringsregler, till exempel för att skicka meddelande behörigheter eller för att lyssna efter aviserings behörigheter. Mer information finns i dokumentet om [Notification Hubs säkerhets modell] .
+Azure Notification Hubs använder en signatur baserad säkerhets modell för [delad åtkomst](../storage/common/storage-sas-overview.md). Du kan använda token för signaturer för delad åtkomst på rot namn områdes nivån eller på den detaljerade nivån för Notification Hub. Token för signaturer för delad åtkomst kan anges till att följa olika auktoriseringsregler, till exempel för att skicka meddelande behörigheter eller för att lyssna efter aviserings behörigheter. Mer information finns i dokumentet om [Notification Hubs säkerhets modell] .
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Hur ska jag hantera känslig nytto Last i push-meddelanden?
 
@@ -200,18 +200,18 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 > [!NOTE]
 > Lyckade meddelanden innebär bara att push-meddelanden har levererats till den externa PNS (till exempel APN för iOS och macOS eller FCM för Android-enheter). Det åligger PNS att leverera meddelanden till mål enheter. Normalt visar PNS inte leverans måtten för tredje part.  
 
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [Notification Hubs priser]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Notification Hubs REST-API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[Notification Hubs REST-API: er]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Vägledning för Server dels registrering]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Guide för registrering av Server del 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Notification Hubs säkerhets modell]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Själv studie kurs om Notification Hubs säker push]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs fel sökning]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Vägledning för Server dels registrering]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[Guide för registrering av Server del 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Notification Hubs säkerhets modell]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Själv studie kurs om Notification Hubs säker push]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Notification Hubs fel sökning]: ./notification-hubs-push-notification-fixer.md
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Export/import av registreringar]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Azure Portal]: https://portal.azure.com
+[Export/import av registreringar]: ./export-modify-registrations-bulk.md
+[Azure-portalen]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

@@ -4,11 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077327"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -137,7 +138,7 @@ LogRhythm är en ledare i NextGen SIEM och ger organisationer på sex kontinente
 
 Mikrofokus **drifts brygga** övervakar automatiskt alla hybrid IT-resurser – alla enheter, operativ system, databaser, program eller tjänster, oavsett var den körs och tillämpar AIOps för alla data typer – händelser, statistik, loggar och beroenden. Det ger en unik kombination av övervakning av tjänst kvalitet, tillsammans med djup Application Health Analytics och innehåller omfattande övervakning av prestanda och tillgänglighet för Microsoft Azure tjänster. Med drifts bryggor kan kunder tillhandahålla en enda ruta av glas, som är tillgängligt på valfri enhet med en webbläsare, på ett sätt som både företag och IT-intressenter kan förstå.
 
-Läs mer
+Mer information
 - [Översikt över OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Ladda ned](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) – SiteScope är en komponent i Operations Bridge Suite.
@@ -269,8 +270,8 @@ Turbonomic levererar arbets belastnings automatisering för Hybrid moln genom at
 
 - [Läs mer om Azure Monitor](../../azure-monitor/overview.md)
 - [Få åtkomst till mått med hjälp av REST API](rest-api-walkthrough.md)
-- [Strömma aktivitets loggen till en tjänst som inte kommer från Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Strömma resurs loggar till en tjänst som inte kommer från Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Strömma aktivitets loggen till en tjänst som inte kommer från Microsoft](./activity-log.md#legacy-collection-methods)
+- [Strömma resurs loggar till en tjänst som inte kommer från Microsoft](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -301,4 +302,3 @@ Turbonomic levererar arbets belastnings automatisering för Hybrid moln genom at
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk-dokumentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic-dokumentation."
 [turbonomic-doc]: https://turbonomic.com/ "Introduktion till Turbonomic."
-

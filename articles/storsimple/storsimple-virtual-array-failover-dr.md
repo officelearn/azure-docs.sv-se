@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077781"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Haveriberedskap och redundansväxling av enhet för StorSimple Virtual Array via Azure-portalen
 
@@ -43,7 +44,7 @@ Haveri beredskap dirigeras via funktionen enhets växling vid fel och initieras 
 
 ## <a name="prerequisites-for-device-failover"></a>Förhandskrav för enhetsredundans
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att följande krav är uppfyllda för en enhets växling vid fel:
 
@@ -121,12 +122,12 @@ Utför följande steg för att återställa enheten till en virtuell StorSimple-
 
 5. Du uppmanas att bekräfta i bladet **inaktivera** . Enhets inaktive ring är en *permanent* process som inte kan ångras. Du blir också påmind om att ta dina resurser/volymer offline på värden. Ange enhets namnet som ska bekräftas och klicka på **inaktivera**.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![Skärm bild av bladet inaktivera. Rutan enhets namn är ifylld och knappen Inaktivera är markerad.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. Inaktive ringen startar. Du får ett meddelande när inaktive ringen har slutförts.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![Skärm bild av en förlopps indikator som visar att enheten inaktive ras.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. Enhetens tillstånd kommer nu att ändras till **inaktiverat**på sidan enheter.
-    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![Skärm bild av sidan enheter. Egenskaperna för den inaktiverade enheten visas, inklusive status, som visas som inaktive rad.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. I bladet **enheter** väljer du och klickar på den inaktiverade käll enheten för redundans. 
 9. I bladet för **enhets instrument panelen** klickar du på **redundans**. 
 10. På bladet **redundansväxla över enhet** gör du följande:
@@ -139,22 +140,22 @@ Utför följande steg för att återställa enheten till en virtuell StorSimple-
 
     4. Klicka på **redundans**.
     
-        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![Skärm bild av bladet redundansväxla över enhet med käll-och mål enheten ifylld, alternativet markerat och knappen Växla över har marker ATS.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Ett jobb för redundans initieras och du får ett meddelande. Gå till **enheter > jobb** för att övervaka redundansväxlingen.
     
-     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![Skärm bild av en förlopps indikator som visar att enheten växlar över.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. På bladet **jobb** visas ett jobb för redundans som skapats för käll enheten. Detta jobb utför DR-förbockarna.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![Skärm bild som visar att ett redundansväxlings jobb har startats.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      När DR-förbockerna har slutförts skapar redundansväxlingen återställnings jobb för varje resurs/volym som finns på käll enheten.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![Skärm bild som visar information om redundansväxlingen, till exempel status, enhet och varaktighet.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. När redundansväxlingen är klar går du till bladet **enheter** .
     
     1. Markera och klicka på den StorSimple-enhet som användes som mål enheten för redundansväxlingen.
     2. Gå till **inställningar > hanterings > resurser** (eller **volymer** om iSCSI-servern). På bladet **resurser** kan du Visa alla resurser (volymer) från den gamla enheten.
-        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![Skärm bild av bladet enheter. Mål enheten visas med statusen online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. Du måste [skapa ett DNS-alias](https://support.microsoft.com/kb/168322) så att alla program som försöker ansluta kan omdirigeras till den nya enheten.
 
 ## <a name="errors-during-dr"></a>Fel under DR

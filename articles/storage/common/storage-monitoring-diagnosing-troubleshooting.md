@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076049"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,10 +23,6 @@ ms.locfileid: "86518597"
 Att diagnostisera och felsöka problem i ett distribuerat program som finns i en moln miljö kan vara mer komplext än i traditionella miljöer. Program kan distribueras i en PaaS-eller IaaS-infrastruktur, lokalt, på en mobil enhet eller i en kombination av dessa miljöer. Normalt kan programmets nätverks trafik passera offentliga och privata nätverk och programmet kan använda flera lagrings tekniker som Microsoft Azure Storage tabeller, blobbar, köer eller filer förutom andra data lager, till exempel Relations-och dokument databaser.
 
 För att kunna hantera sådana program kan du övervaka dem proaktivt och förstå hur du diagnostiserar och felsöker alla aspekter av dem och deras beroende tekniker. Som användare av Azure Storage-tjänster bör du kontinuerligt övervaka de lagrings tjänster som programmet använder för oväntade ändringar i beteendet (till exempel långsammare än vanliga svars tider) och använda loggning för att samla in mer detaljerade data och analysera ett problem i djupet. Diagnostikinformation som du får från både övervakning och loggning hjälper dig att avgöra rotor saken till problemet som ditt program har påträffat. Sedan kan du felsöka problemet och fastställa lämpliga steg som du kan vidta för att åtgärda det. Azure Storage är en kärn tjänst i Azure och utgör en viktig del av de flesta lösningar som kunderna distribuerar till Azure-infrastrukturen. Azure Storage innehåller funktioner för att förenkla övervakning, diagnostisering och fel sökning av lagrings problem i dina molnbaserade program.
-
-> [!NOTE]
-> Azure Files stöder inte loggning för tillfället.
->
 
 En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Storage program finns i [fel sökning från slut punkt till slut punkt med hjälp av Azure Storage mått och loggning, AzCopy och analys av meddelanden](../storage-e2e-troubleshooting.md).
 
@@ -563,7 +559,7 @@ Om klient programmet försöker använda en SAS-nyckel som inte innehåller de n
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697 Z |
 | Åtgärdstyp     | GetBlobProperties            |

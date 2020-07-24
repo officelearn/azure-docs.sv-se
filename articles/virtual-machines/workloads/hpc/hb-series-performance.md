@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: e064db5f67e6f8a7e82093bdae9fac7eaa4b6a55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4745fda5417ea937c367a116f999070bd62cf8cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79534209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077412"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>HB-seriens storlekar på virtuella datorer
 
@@ -48,7 +48,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 4               | 1000            | 2,35            | 18,53           | 2,38            | 2.4             | 0,21            |
 | 8               | 1000            | 2,36            | 6,06            | 2,39            | 2,41            | 0.22            |
 | 16              | 1000            | 2,36            | 6,05            | 2,39            | 2,41            | 0,21            |
-| 32              | 1000            | 2,37            | 18,93           | 2.4             | 2,42            | 0.25            |
+| 32              | 1000            | 2,37            | 18,93           | 2.4             | 2,42            | 0,25            |
 | 64              | 1000            | 2,39            | 17,98           | 2,43            | 2.45            | 0,18            |
 | 128             | 1000            | 2,44            | 19,4            | 2,76            | 2,65            | 0,29            |
 | 256             | 1000            | 3,06            | 18,31           | 3.1             | 3,12            | 0,27            |
@@ -119,8 +119,4 @@ OSU MPI bandbredd test v 5.4.3.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [data behandling med höga prestanda](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) i Azure.
-
-
-
-
+Lär dig mer om [data behandling med höga prestanda](/azure/architecture/topics/high-performance-computing/) i Azure.

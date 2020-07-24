@@ -7,10 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79274689"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075253"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows händelse logg data källor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sources.md) för att samla in data med Windows-agenter sedan många program skriver till händelse loggen i Windows.  Du kan samla in händelser från standard loggar som system och program, förutom att ange anpassade loggar som skapats av program som du behöver övervaka.
@@ -54,7 +55,7 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 | Källa |Händelsens källa. |
 | SourceSystem |Typ av agent som händelsen samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller Operations Manager hanterat <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure-diagnostik |
 | TimeGenerated |Datum och tid då händelsen skapades i Windows. |
-| UserName |Användar namnet för det konto som loggade händelsen. |
+| Användarnamn |Användar namnet för det konto som loggade händelsen. |
 
 ## <a name="log-queries-with-windows-events"></a>Logga frågor med Windows-händelser
 Följande tabell innehåller olika exempel på logg frågor som hämtar Windows-händelseloggar.

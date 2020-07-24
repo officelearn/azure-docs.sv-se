@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027864"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075404"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
 
@@ -27,11 +28,11 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skapa inomhus Maps:
 
-1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 3. [Skapa en skapare resurs](how-to-manage-creator.md)
 4. Ladda ned [exempel ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -51,7 +52,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 
 2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara**.
 
-3. Välj metoden **post** http på fliken Builder och ange följande URL för att överföra ritnings paketet till Azure Maps-tjänsten. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `<Azure-Maps-Primary-Subscription-key>` du med den primära prenumerations nyckeln.
+3. Välj metoden **post** http på fliken Builder och ange följande URL för att överföra ritnings paketet till Azure Maps-tjänsten. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -63,10 +64,10 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 
 5. Klicka på knappen blå **sändning** och vänta tills begäran har bearbetats. När begäran har slutförts går du till fliken **sidhuvud** i svaret. Kopiera värdet för **plats** nyckeln, som är `status URL` .
 
-6. Om du vill kontrol lera status för API-anropet skapar du en **Get** http-begäran på `status URL` . Du måste lägga till din primära prenumerations nyckel till URL: en för autentisering. **Get** -begäran bör likna följande URL:
+6. Om du vill kontrol lera status för API-anropet skapar du en **Get** http-begäran på `status URL` . Du måste lägga till din primära prenumerations nyckel till URL: en för autentisering. **Get** -begäran bör se ut som följande URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. När **Get** http-begäran har slutförts returneras en `resourceLocation` . `resourceLocation`Innehåller det unika `udid` för det överförda innehållet. Du kan också använda `resourceLocation` URL: en för att hämta metadata från den här resursen i nästa steg.
@@ -101,7 +102,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 
  Nu när ritnings paketet har överförts använder vi `udid` för det överförda paketet för att konvertera paketet till kartdata. Konverterings-API: et använder en tids krävande transaktion som implementerar det mönster som definierats [här](creator-long-running-operation.md). När åtgärden har slutförts använder vi `conversionId` för att komma åt konverterade data. Följ stegen nedan för att hämta `conversionId` .
 
-1. Välj **Ny**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**.
+1. Välj **Nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**.
 
 2. Välj metoden **post** http på fliken Builder och ange följande URL för att konvertera det överförda ritnings paketet till kart data. Använd `udid` för det överförda paketet.
 
@@ -169,7 +170,7 @@ Data uppsättningen är en samling kart funktioner, till exempel byggnader, niv�
 4. Gör en **Get** -begäran på `statusURL` för att hämta `datasetId` . Lägg till din Azure Maps primära prenumerations nyckel för autentisering. Begäran bör se ut som följande URL:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. När **Get** http-begäran har slutförts, kommer svars huvudet att innehålla `datasetId` för den skapade data uppsättningen. Kopiera `datasetId` . Du måste använda `datasetId` för att skapa en TILESET.
@@ -198,7 +199,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 3. Gör en **Get** -begäran `statusURL` för TILESET. Lägg till din Azure Maps primära prenumerations nyckel för autentisering. Begäran bör se ut som följande URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. När **Get** http-begäran har slutförts innehåller svars huvudet `tilesetId` för den skapade TILESET. Kopiera `tilesetId` .
@@ -424,7 +425,7 @@ Läs mer om de olika Azure Maps tjänsterna som beskrivs i den här artikeln:
 > [Data konvertering](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data uppsättning](creator-indoor-maps.md#datasets)
+> [Datamängd](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

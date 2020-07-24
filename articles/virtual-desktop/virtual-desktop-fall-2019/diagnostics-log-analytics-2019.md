@@ -1,6 +1,6 @@
 ---
-title: Logg analys för Windows Virtual Desktop-diagnostik – Azure
-description: Så här använder du Log Analytics med funktionen Windows-diagnostik för virtuella skriv bord.
+title: Logg analys för Windows Virtual Desktop-diagnostik (hösten 2019) – Azure
+description: Lär dig hur du använder Log Analytics med diagnostikprogrammet Windows Virtual Desktop (hösten 2019 release).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077611"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
+# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Använd Log Analytics för Diagnostics-funktionen (hösten 2019-versionen)
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../diagnostics-log-analytics.md).

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: e8ab6e2e62bdcb08754d011a6b576cb615371a09
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076463"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -51,7 +51,7 @@ För att en PostgreSQL-Server ska kunna använda Kundhanterade nycklar som lagra
 * **wrapKey**: för att kunna kryptera Dek.
 * **unwrapKey**: för att kunna dekryptera Dek.
 
-Nyckel valvs administratören kan också [Aktivera loggning av Key Vault gransknings händelser](../azure-monitor/insights/azure-key-vault.md), så att de kan granskas senare.
+Nyckel valvs administratören kan också [Aktivera loggning av Key Vault gransknings händelser](../azure-monitor/insights/key-vault-insights-overview.md), så att de kan granskas senare.
 
 När servern har kon figurer ATS för att använda den Kundhanterade nyckeln som lagras i nyckel valvet skickar servern DEK till nyckel valvet för kryptering. Key Vault returnerar den krypterade DEK som lagras i användar databasen. På samma sätt skickar servern det skyddade DEK till nyckel valvet för dekryptering när det behövs. Granskare kan använda Azure Monitor för att granska Key Vault gransknings händelse loggar om loggning är aktiverat.
 

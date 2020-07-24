@@ -7,13 +7,14 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84323679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075266"
 ---
-# <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för logg aviserings regler
+# <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [logg avisering skapas i Azure](alerts-log.md)har du möjlighet att [Konfigurera den med hjälp av åtgärds grupper](action-groups.md) för att utföra en eller flera åtgärder. Den här artikeln beskriver de olika webhook-åtgärder som är tillgängliga och visar hur du konfigurerar en anpassad JSON-baserad webhook.
 
 > [!NOTE]
@@ -56,7 +57,7 @@ Webhooks innehåller en URL och en nytto last som är formaterad i JSON som data
 | *Aviserings typ*| #alerttype | Typ av logg aviserings regel som kon figurer ATS som [mått mätning](alerts-unified-log.md#metric-measurement-alert-rules) eller [antal resultat](alerts-unified-log.md#number-of-results-alert-rules).|
 | *WorkspaceID* |#workspaceid |ID för din Log Analytics-arbetsyta. |
 | *Program-ID* |#applicationid |ID för Application Insights-appen. |
-| *Prenumerations-ID:t* |#subscriptionid |ID för din Azure-prenumeration som används. 
+| *Prenumerations-ID* |#subscriptionid |ID för din Azure-prenumeration som används. 
 
 > [!NOTE]
 > De angivna länkarna skickar parametrar som *SearchQuery*, *sökintervallet StartTime*och *Sök INTERVALLETS slut tid* i URL: en till Azure Portal eller API.
@@ -264,6 +265,5 @@ Följande exempel på nytto Last är för en anpassad webhook-åtgärd för valf
 - Lär dig mer om [logg aviseringar i Azure-aviseringar](alerts-unified-log.md).
 - Förstå hur du [hanterar logg aviseringar i Azure](alerts-log.md).
 - Skapa och hantera [Åtgärds grupper i Azure](action-groups.md).
-- Läs mer om [Application Insights](../../azure-monitor/app/analytics.md).
+- Läs mer om [Application Insights](../log-query/log-query-overview.md).
 - Läs mer om [logg frågor](../log-query/log-query-overview.md). 
-

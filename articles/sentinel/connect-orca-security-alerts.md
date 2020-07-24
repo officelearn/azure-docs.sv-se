@@ -1,5 +1,5 @@
 ---
-title: Ansluta Orca-aviseringar till Azure Sentinel | Microsoft Docs
+title: Anslut Orca säkerhets aviseringar till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Orca säkerhets aviserings data till Azure Sentinel, om du vill visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen.
 services: sentinel
 documentationcenter: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076280"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Anslut dina Orca-aviseringar till Azure Sentinel 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Anslut dina Orca säkerhets aviseringar till Azure Sentinel 
+
+> [!IMPORTANT]
+> Orca Security Alerts Connector i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Med Orca Security Alerts Connector kan du enkelt få aviseringar om [Orca-aviseringar](https://orca.security/) om säkerhetslösningar i Azure Sentinel, så att du kan visa dem i arbets böcker, använda dem för att skapa anpassade aviseringar och lägga till dem för att förbättra undersökningen. Integreringen mellan Orca säkerhets aviseringar och Azure Sentinel använder REST API.
 

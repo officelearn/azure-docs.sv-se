@@ -11,18 +11,18 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: af792ccfe8e00c26abc6aab2e4a96d7ef9ff5122
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: de135b57755919a1d312783409caf3e800e03fd5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252057"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077991"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Snabb start: Konfigurera push-meddelanden i en Notification Hub
 
 Azure Notification Hubs tillhandahåller en push-motor som är lätt att använda och som skalar ut. Använd Notification Hubs för att skicka meddelanden till valfri plattform (iOS, Android, Windows, Baidu) och från valfri Server del (moln eller lokalt). Mer information finns i [Vad är Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-I den här snabb starten använder du PNS-inställningarna (Platform notification system) i Notification Hubs för att konfigurera push-meddelanden på flera plattformar. Snabb starten visar vilka steg du ska vidta i Azure Portal.  [Google Firebase Cloud Messaging](/azure/notification-hubs/configure-notification-hub-portal-pns-settings?tabs=azure-cli#google-firebase-cloud-messaging-fcm) innehåller instruktioner för hur du använder Azure CLI.
+I den här snabb starten använder du PNS-inställningarna (Platform notification system) i Notification Hubs för att konfigurera push-meddelanden på flera plattformar. Snabb starten visar vilka steg du ska vidta i Azure Portal.  [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) innehåller instruktioner för hur du använder Azure CLI.
 
 Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md) eller [skapa en Azure Notification Hub med Azure CLI](create-notification-hub-azure-cli.md)
 
@@ -66,7 +66,7 @@ När du slutför de här stegen anger en varning att Notification Hub har uppdat
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 

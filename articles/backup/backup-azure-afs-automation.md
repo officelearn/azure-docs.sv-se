@@ -3,12 +3,12 @@ title: Säkerhetskopiera en Azure-filresurs med hjälp av PowerShell
 description: I den här artikeln får du lära dig hur du säkerhetskopierar en Azure Files fil resurs med hjälp av Azure Backup tjänsten och PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076999"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Säkerhetskopiera en Azure-filresurs med hjälp av PowerShell
 
@@ -89,13 +89,13 @@ Recovery Services valvet är en Resource Manager-resurs, så du måste placera d
 
 Följ de här stegen för att skapa ett Recovery Services-valv:
 
-1. Om du inte har en befintlig resurs grupp skapar du en ny med hjälp av cmdleten [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0) . I det här exemplet skapar vi en resurs grupp i regionen USA, västra:
+1. Om du inte har en befintlig resurs grupp skapar du en ny med hjälp av cmdleten [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . I det här exemplet skapar vi en resurs grupp i regionen USA, västra:
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-1. Använd cmdleten [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) för att skapa valvet. Ange samma plats för valvet som du använde för resurs gruppen.
+1. Använd cmdleten [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) för att skapa valvet. Ange samma plats för valvet som du använde för resurs gruppen.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
@@ -103,7 +103,7 @@ Följ de här stegen för att skapa ett Recovery Services-valv:
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Visa valv i en prenumeration
 
-Om du vill visa alla valv i prenumerationen använder du [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0):
+Om du vill visa alla valv i prenumerationen använder du [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault):
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -127,7 +127,7 @@ Lagra Valve-objektet i en variabel och ange valv kontexten.
 
 Många Azure Backup-cmdletar kräver att Recovery Services Vault-objektet är inmatat, så det är praktiskt att lagra valvet i en variabel.
 
-Valvets sammanhang är typen av data som skyddas i valvet. Ange den med [set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). När kontexten har angetts gäller den för alla efterföljande cmdletar.
+Valvets sammanhang är typen av data som skyddas i valvet. Ange den med [set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). När kontexten har angetts gäller den för alla efterföljande cmdletar.
 
 I följande exempel anges valv kontexten för **testvault**:
 
@@ -152,9 +152,9 @@ En säkerhets kopierings princip är associerad med minst en bevarande princip. 
 
 Här följer några cmdletar för säkerhets kopierings principer:
 
-* Visa standard kvarhållning av säkerhets kopierings principer med hjälp av [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Visa schemat för säkerhets kopierings policy med hjälp av [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Skapa en ny säkerhets kopierings princip med hjälp av [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Du anger schema-och bevarande princip objekt som inmatade.
+* Visa standard kvarhållning av säkerhets kopierings principer med hjälp av [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject).
+* Visa schemat för säkerhets kopierings policy med hjälp av [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
+* Skapa en ny säkerhets kopierings princip med hjälp av [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy). Du anger schema-och bevarande princip objekt som inmatade.
 
 Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden måste vara i UTC-tid (Universal Coordinated Time). Exemplet förutsätter att den önskade start tiden är 01:00 AM UTC för dagliga säkerhets kopieringar.
 
@@ -190,7 +190,7 @@ När du har definierat säkerhets kopierings principen kan du aktivera skydd fö
 
 ### <a name="retrieve-a-backup-policy"></a>Hämta en princip för säkerhets kopiering
 
-Du hämtar relevant princip objekt med hjälp av [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Använd den här cmdleten för att visa de principer som associeras med en arbets belastnings typ eller för att hämta en speciell princip.
+Du hämtar relevant princip objekt med hjälp av [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy). Använd den här cmdleten för att visa de principer som associeras med en arbets belastnings typ eller för att hämta en speciell princip.
 
 #### <a name="retrieve-a-policy-for-a-workload-type"></a>Hämta en princip för en arbets belastnings typ
 
@@ -221,7 +221,7 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 ### <a name="enable-protection-and-apply-the-policy"></a>Aktivera skydd och tillämpa principen
 
-Aktivera skydd med hjälp av [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). När principen är associerad med valvet utlöses säkerhets kopieringarna enligt princip schemat.
+Aktivera skydd med hjälp av [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). När principen är associerad med valvet utlöses säkerhets kopieringarna enligt princip schemat.
 
 I följande exempel aktive ras skyddet för Azure-filresurs- **testAzureFileShare** i Storage Account **testStorageAcct**, med principen **dailyafs**:
 
@@ -237,7 +237,7 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-Mer information om hur du hämtar en lista över fil resurser för ett lagrings konto finns i [den här artikeln](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+Mer information om hur du hämtar en lista över fil resurser för ett lagrings konto finns i [den här artikeln](/powershell/module/az.storage/get-azstorageshare).
 
 ## <a name="important-notice-backup-item-identification"></a>Viktigt meddelande: identifiering av säkerhets kopierings objekt
 
@@ -262,7 +262,7 @@ Vi rekommenderar att du listar objekt och sedan hämtar deras unika namn från f
 
 ## <a name="trigger-an-on-demand-backup"></a>Utlös en säkerhets kopiering på begäran
 
-Använd [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) för att köra en säkerhets kopiering på begäran för en skyddad Azure-fil resurs:
+Använd [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) för att köra en säkerhets kopiering på begäran för en skyddad Azure-fil resurs:
 
 1. Hämta lagrings kontot från behållaren i valvet som innehåller dina säkerhetskopierade data med hjälp av [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. Starta ett säkerhets kopierings jobb genom att hämta information om Azure-filresursen med hjälp av [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).

@@ -6,11 +6,13 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076019"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autentisera Azure våren Cloud med Key Vault i GitHub-åtgärder
 Key Vault är en säker plats för att lagra nycklar. Företags användare måste lagra autentiseringsuppgifter för CI/CD-miljöer i den omfattning som de styr. Nyckeln för att hämta autentiseringsuppgifter i nyckel valvet bör begränsas till resurs omfånget.  Den har enbart åtkomst till nyckel valvets omfång, inte hela Azure-omfånget. Det är som en nyckel som bara kan öppna en stark ruta, inte en huvud nyckel som kan öppna alla dörrar i en byggnad. Det är ett sätt att hämta en nyckel till en annan nyckel, vilket är användbart i ett CICD-arbetsflöde. 

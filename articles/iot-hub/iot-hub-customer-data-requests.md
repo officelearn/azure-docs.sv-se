@@ -7,13 +7,14 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: a05fbf6e1908f88014cd8da99fafb875de033f45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074715"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktioner för begäranden om kunddata
+# <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Funktioner för begäran om kund data för Azure IoT Hub-enheter
 
 Azure IoT Hub är en REST API-baserad moln tjänst som är riktad till företags kunder och möjliggör säker dubbelriktad kommunikation mellan miljon tals enheter och en partitionerad Azure-tjänst.
 

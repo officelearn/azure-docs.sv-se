@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602592"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077191"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
 
@@ -70,6 +70,23 @@ Om dina interna virtuella nätverk till exempel VNet1 och VNet2 ska ansluta till
 
 ![Diagram över AMPLS B-topologi](./media/private-link-security/ampls-topology-b-1.png)
 
+### <a name="consider-limits"></a>Överväg begränsningar
+
+Det finns ett antal begränsningar som du bör tänka på när du planerar konfigurationen för den privata länken:
+
+* Ett VNet kan bara ansluta till ett AMPLS-objekt. Det innebär att AMPLS-objektet måste ge åtkomst till alla Azure Monitor-resurser som det virtuella nätverket ska ha åtkomst till.
+* En Azure Monitor resurs (arbets yta eller Application Insights komponent) kan ansluta till högst 5 AMPLSs.
+* Ett AMPLS-objekt kan ansluta till 20 Azure Monitor resurser högst.
+* Ett AMPLS-objekt kan endast ansluta till 10 privata slut punkter.
+
+I nedanstående topologi:
+* Varje VNet ansluter till 1 AMPLS-objekt, så det går inte att ansluta till andra AMPLSs.
+* AMPLS B ansluter till 2 virtuella nätverk: med 2/10 av dess möjliga privata slut punkts anslutningar.
+* AMPLS A ansluter till 2 arbets ytor och 1 program insikts komponent: använda 3/20 av sin möjliga Azure Monitor-resurser.
+* Arbets ytan 2 ansluter till AMPLS A och AMPLS B: med 2/5 av de möjliga AMPLS-anslutningarna.
+
+![Diagram över AMPLS-gränser](./media/private-link-security/ampls-limits.png)
+
 ## <a name="example-connection"></a>Exempel anslutning
 
 Börja med att skapa en Azure Monitor privat länk omfångs resurs.
@@ -81,7 +98,7 @@ Börja med att skapa en Azure Monitor privat länk omfångs resurs.
 2. Klicka på **skapa**.
 3. Välj en prenumeration och en resurs grupp.
 4. Ge AMPLS ett namn. Det är bäst att använda ett namn som är tydligt vilket syfte och vilken säkerhets gräns som området ska användas för, så att ingen av misstag kan bryta nätverks säkerhets gränser. Till exempel "AppServerProdTelem".
-5. Klicka på **Granska + skapa**. 
+5. Klicka på **Granska + Skapa**. 
 
    ![Skapa Azure Monitor privat länk omfång](./media/private-link-security/ampls-create-1d.png)
 
@@ -137,13 +154,13 @@ Nu har du skapat en ny privat slut punkt som är ansluten till den här Azure Mo
 
 ## <a name="configure-log-analytics"></a>Konfigurera Log Analytics
 
-Gå till Azure Portal. I din Azure Monitor Log Analytics arbets ytans resurs är ett meny objekts **nätverks isolering** på den vänstra sidan. Du kan styra två olika tillstånd från den här menyn. 
+Gå till Azure-portalen. I din Log Analytics arbets ytans resurs finns ett meny alternativ för **nätverks isolering** på den vänstra sidan. Du kan styra två olika tillstånd från den här menyn. 
 
 ![LA nätverks isolering](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 Först kan du ansluta den här Log Analytics resursen till alla Azure Monitor privata länk omfattningar som du har åtkomst till. Klicka på **Lägg till** och välj omfånget Azure Monitor privat länk.  Klicka på **Använd** för att ansluta. Alla anslutna omfattningar visas på den här skärmen. Genom att göra den här anslutningen kan nätverks trafiken i de anslutna virtuella nätverken komma åt den här arbets ytan. Att göra anslutningen har samma resultat som att ansluta den från omfånget som vi gjorde när vi [anslöt Azure Monitor-resurser](#connect-azure-monitor-resources).  
 
-För det andra kan du styra hur den här resursen kan nås utanför de privata länk definitionerna som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej**kan inte datorer utanför de anslutna omfattningarna Ladda upp data till den här arbets ytan. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej**, kan datorer utanför omfattningarna inte komma åt data på den här arbets ytan. Dessa data omfattar åtkomst till arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket annat. Upplevelser som körs utanför Azure Portal som använder Log Analytics data måste också köras i det privata, länkade VNET.
+För det andra kan du styra hur den här resursen kan nås utanför de privata länk definitionerna som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej**kan inte datorer utanför de anslutna omfattningarna Ladda upp data till den här arbets ytan. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej**, kan datorer utanför omfattningarna inte komma åt data på den här arbets ytan. Dessa data omfattar åtkomst till arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket annat. Upplevelser som körs utanför Azure Portal och som frågar Log Analytics data måste också köras i det privata, länkade VNET.
 
 Att begränsa åtkomsten på det här sättet gäller endast data i arbets ytan. Konfigurations ändringar, inklusive aktivering av de här åtkomst inställningarna på eller av, hanteras av Azure Resource Manager. Begränsa åtkomsten till Resource Manager med lämpliga roller, behörigheter, nätverks kontroller och granskning. Mer information finns i [Azure Monitor roller, behörigheter och säkerhet](roles-permissions-security.md).
 
@@ -152,7 +169,7 @@ Att begränsa åtkomsten på det här sättet gäller endast data i arbets ytan.
 
 ## <a name="configure-application-insights"></a>Konfigurera Application Insights
 
-Gå till Azure Portal. I din Azure Monitor Application Insights komponent resurs ett meny objekts **nätverks isolering** på den vänstra sidan. Du kan styra två olika tillstånd från den här menyn.
+Gå till Azure-portalen. I din Azure Monitor Application Insights komponent resurs ett meny objekts **nätverks isolering** på den vänstra sidan. Du kan styra två olika tillstånd från den här menyn.
 
 ![AI-nätverks isolering](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
@@ -162,26 +179,26 @@ För det andra kan du styra hur den här resursen kan nås utanför de privata l
 
 Observera att användnings upplevelser som inte är Portal måste köras i det privata, länkade VNET som innehåller de övervakade arbets belastningarna. 
 
-Du måste lägga till resurser som är värdar för de övervakade arbets belastningarna till den privata länken. Här är en [dokumentation](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) om hur du gör detta för app Services.
+Du måste lägga till resurser som är värdar för de övervakade arbets belastningarna till den privata länken. Här är en [dokumentation](../../app-service/networking/private-endpoint.md) om hur du gör detta för app Services.
 
 Att begränsa åtkomsten på det här sättet gäller endast för data i Application Insights-resursen. Konfigurations ändringar, inklusive aktivering av de här åtkomst inställningarna på eller av, hanteras av Azure Resource Manager. Begränsa i stället åtkomst till Resource Manager med lämpliga roller, behörigheter, nätverks kontroller och granskning. Mer information finns i [Azure Monitor roller, behörigheter och säkerhet](roles-permissions-security.md).
 
 > [!NOTE]
 > För att helt skydda arbets ytans baserade Application Insights måste du låsa både åtkomst till Application Insights resurs och den underliggande Log Analytics arbets ytan.
 >
-> Kod på kod nivå (profilerings-/fel sökning) behöver du ange ditt eget lagrings konto för att stödja privat länk. Här är en [dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) om hur du gör detta.
+> Kod på kod nivå (profilerings-/fel sökning) behöver du ange ditt eget lagrings konto för att stödja privat länk. Här är en [dokumentation](../app/profiler-bring-your-own-storage.md) om hur du gör detta.
 
 ## <a name="use-apis-and-command-line"></a>Använda API: er och kommando rad
 
 Du kan automatisera processen som beskrivs tidigare med Azure Resource Manager mallar och kommando rads gränssnitt.
 
-Om du vill skapa och hantera privata länk omfattningar använder du [AZ Monitor Private-Link-scope](https://docs.microsoft.com/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Med det här kommandot kan du skapa omfattningar, associera Log Analytics arbets ytor och Application Insights komponenter och lägga till/ta bort/godkänna privata slut punkter.
+Om du vill skapa och hantera privata länk omfattningar använder du [AZ Monitor Private-Link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Med det här kommandot kan du skapa omfattningar, associera Log Analytics arbets ytor och Application Insights komponenter och lägga till/ta bort/godkänna privata slut punkter.
 
-Om du vill hantera nätverks åtkomst använder du flaggorna `[--ingestion-access {Disabled, Enabled}]` och `[--query-access {Disabled, Enabled}]` på [Log Analytics arbets ytor](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) eller [Application Insights komponenter](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Om du vill hantera nätverks åtkomst använder du flaggorna `[--ingestion-access {Disabled, Enabled}]` och `[--query-access {Disabled, Enabled}]` på [Log Analytics arbets ytor](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) eller [Application Insights komponenter](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Samla in anpassade loggar över privat länk
 
-Lagrings konton används i inmatnings processen för anpassade loggar. Som standard används tjänst hanterade lagrings konton. Men för att mata in anpassade loggar på privata länkar måste du använda dina egna lagrings konton och koppla dem till Log Analytics arbets ytor. Se mer information om hur du konfigurerar sådana konton med hjälp av [kommando raden](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Lagrings konton används i inmatnings processen för anpassade loggar. Som standard används tjänst hanterade lagrings konton. Men för att mata in anpassade loggar på privata länkar måste du använda dina egna lagrings konton och koppla dem till Log Analytics arbets ytor. Se mer information om hur du konfigurerar sådana konton med hjälp av [kommando raden](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
 Mer information om hur du ansluter ditt eget lagrings konto finns i [kundägda lagrings konton för logg](private-storage.md) inmatning
 
@@ -189,7 +206,7 @@ Mer information om hur du ansluter ditt eget lagrings konto finns i [kundägda l
 
 ### <a name="agents"></a>Agenter
 
-De senaste versionerna av Windows-och Linux-agenterna måste användas i privata nätverk för att möjliggöra säker telemetri av telemetri till Log Analytics arbets ytor. Äldre versioner kan inte överföra övervaknings data i ett privat nätverk.
+De senaste versionerna av Windows-och Linux-agenterna måste användas i privata nätverk för att möjliggöra säker inmatning till Log Analytics arbets ytor. Äldre versioner kan inte överföra övervaknings data i ett privat nätverk.
 
 **Windows-agenten för Log Analytics**
 
@@ -204,13 +221,13 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Om du vill använda Azure Monitor Portal upplevelser som Application Insights och Log Analytics måste du tillåta att Azure Portal-och Azure Monitor-tillägg kan nås i privata nätverk. Lägg till **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**och **AzureFrontDoor. frontend** [service-Taggar](../../firewall/service-tags.md) i brand väggen.
 
 ### <a name="programmatic-access"></a>Programmässig åtkomst
 
-Om du vill använda REST API, [CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) eller PowerShell med Azure Monitor i privata nätverk lägger du till [service tag-](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)  **AzureActiveDirectory** och **AzureResourceManager** i brand väggen.
+Om du vill använda REST API, [CLI](/cli/azure/monitor?view=azure-cli-latest) eller PowerShell med Azure Monitor i privata nätverk lägger du till [service tag-](../../virtual-network/service-tags-overview.md)  **AzureActiveDirectory** och **AzureResourceManager** i brand väggen.
 
 Genom att lägga till dessa taggar kan du utföra åtgärder som att fråga logg data, skapa och hantera Log Analytics arbets ytor och AI-komponenter.
 

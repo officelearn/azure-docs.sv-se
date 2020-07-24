@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 742706f4daa518faf06e5c8b735e679f345f1279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074729"
 ---
 # <a name="use-ip-filters"></a>Använda IP-filter
 
@@ -124,7 +125,7 @@ Observera att `<ipFilterIndexToRemove>` måste motsvara ordningen av IP-filter i
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Din IoT Hubs IP-filter kan hämtas och anges via [Azure PowerShell](/powershell/azure/overview).
+Din IoT Hubs IP-filter kan hämtas och anges via [Azure PowerShell](/powershell/azure/).
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name

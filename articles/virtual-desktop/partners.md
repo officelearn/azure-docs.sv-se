@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075740"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -48,7 +48,22 @@ Som en Windows Virtual Desktop-auktoriserad Provider kan VMware hjälpa kunder s
 
 10ZiG's världs marknads ledarskap i tunna och noll klient slut punkter och hanterings program för virtuella skriv bord är WINS av hur de fungerar för kunderna. Den tunna klient maskin varan har funktioner och alternativ som utformats för att säkerställa att kunderna får rätt klient enheter utifrån deras behov. 10ZiG anpassar sina enheter så att de passar kund miljöer med Windows-baserade och Linux-baserade klienter som ger bästa möjliga prestanda i virtuella skriv bord, både i och utanför molnet.
 
-- [Gå till partner webbplatsen](https://www.10zig.com/).
+- [Gå till partner webbplatsen](https://www.10zig.com/about/microsoft-wvd).
+
+## <a name="automai"></a>Automai
+
+![Automai-logotyp](./media/partners/automai.png)
+
+Du kan använda Automais robot automatiserings plattform för att testa viktiga affärs processer i en Windows Virtual Desktop-miljö innan distributionen blir Live.
+
+Med Automai ScenarioBuilder Tool och GUI-baserad arbets flödes motor kan IT-team registrera Real slut användar arbets flöden och automatiskt översätta dem till skript. Automai använder sedan robotar som kör processer från enskilda skriv bord för att emulera slut användar aktiviteten i en simulering och rapporterar resultaten. Detta fören klar testnings processen så att IT-administratörer kan stress-testa även de mest komplexa scenarierna.
+
+När du är redo att starta kan du använda alla arbets flödes skript som du skapade för belastnings testning för att kontinuerligt övervaka prestanda i produktionen. Automai-robotar kan göra mer än bara tillgänglighets övervakning. Robotar kan också testa slut användar arbets flöden från viktiga platser, ta skärm bilder och samla in fel rapporter i real tid. Detta leder till en mer proaktiv inaktivitet än den återaktiva metoden för fel korrigeringar för Windows virtuella Skriv bords program.
+
+Med Automai kan du använda samma skript för prestanda testning, funktionell testning, prestanda övervakning och till och med robot process automatisering, allt på en plattform.
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
+- [Gå till partner webbplatsen](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ Den unika flytande slut punkts licensieringen för Ekran system klienter automat
 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Gå till partner sidan](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="fabulatech"></a>FabulaTech
+
+![FabulaTech-logotyp](./media/partners/fabulatech.png)
+
+FabulaTech integreras sömlöst med Windows virtuella Skriv bords klienter. När du har installerat FabulaTech program varan automatiskt när du upprättar en anslutning till ett fjärr skrivbord.
+
+När en användare loggar in på sitt virtuella skriv bord skapar FabulaTech-programvaran en virtuell enhet. Du kan till exempel skapa en virtuell webb kamera, skanner eller finger avtrycks läsare. Alla appar som körs i en fjärran sluten session kan komma åt den virtuella enheten som om den var en fysisk enhet. Du kan konfigurera den virtuella enheten i det virtuella Windows-skrivbordet med menyn system fälts ikon, vilket innebär att du även kan använda den här lösningen på tunna klienter. All kommunikation sker ovanpå den befintliga fjärr skrivbords anslutningen, vilket innebär att brand väggen har kon figurer ATS för dig. Allt fungerar direkt i rutan.
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
+- [Gå till partner webbplatsen](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## <a name="flexxible-it"></a>Flexxible IT
 

@@ -1,5 +1,5 @@
 ---
-title: Skala automatiskt Azure-Synapse Apache Spark instanser
+title: Skala Apache Spark instanser automatiskt
 description: Använd funktionen för automatisk skalning i Azure-Synapse för att automatiskt skala Apache Spark instanser
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 86e9b7425c8c75495a17b66af710d2c55e6e59ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6278d24e52159424c3e346b2382c93f4ab8160
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075799"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Skala automatiskt Apache Spark pooler i Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Apache Spark funktionen för automatisk skalning i Azure Synapse Analytics skala
 
 Autoskalning övervakar kontinuerligt instansen av Spark-instansen och samlar in följande mått:
 
-|Metric|Beskrivning|
+|Mått|Beskrivning|
 |---|---|
 |Total väntande processor|Det totala antalet kärnor som krävs för att starta körningen av alla väntande noder.|
 |Totalt väntande minne|Det totala minne (i MB) som krävs för att starta körningen av alla väntande noder.|

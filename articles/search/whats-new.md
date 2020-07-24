@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/15/2020
-ms.openlocfilehash: 238ede3e79b7d7c5a22d24dfc52530fe391b600b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519634"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076346"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -24,9 +24,9 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
-| [**.NET-klientbibliotek**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK | Ett nytt klient bibliotek som släpps av Azure SDK-teamet och är utformat för konsekvens med andra .NET-klient bibliotek. Version 11. | Allmänt tillgänglig. </br> Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) från NuGet. |
-| [**Python-klientbibliotek**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK | Ett nytt klient bibliotek som släpps av Azure SDK-teamet och är utformat för konsekvens med andra python-klient bibliotek. Version 11. | Allmänt tillgänglig. </br> Installera [paketet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) från pypi. |
-| [**Java Script-klient bibliotek**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html)  | Azure SDK | Ett nytt klient bibliotek som släpps av Azure SDK-teamet och är utformat för konsekvens med andra JavaScript-klient bibliotek. Version 11. | Allmänt tillgänglig. </br> Installera [ @azure/search-documents paketet](https://www.npmjs.com/package/@azure/search-documents) från NPM. |
+| [Azure.Search.Docklient bibliotek för uments](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK för .NET | .NET-klient bibliotek som släpps av Azure SDK-teamet och har utformats för konsekvens med andra .NET-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30, men har ännu inte stöd för kunskaps lager, geo-filter eller [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). | Allmänt tillgänglig. </br> Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) från NuGet. |
+| [azure.search.docklient bibliotek för uments](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK för Python| Python-klientcertifikat som publicerats av Azure SDK-teamet och som utformats för konsekvens med andra python-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [paketet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) från pypi. |
+| [@azure/search-documentsklient bibliotek](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Azure SDK för Java Script | JavaScript-klientcertifikat som publicerats av Azure SDK-teamet och som har utformats för konsekvens med andra Java Script-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [ @azure/search-documents paketet](https://www.npmjs.com/package/@azure/search-documents) från NPM. |
 
 ### <a name="june-2020"></a>Juni 2020
 

@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45b18352d88877a5d611f203d87da83fd0d58c6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79096775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077130"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor plattforms loggar arkiverade på ett lagrings konto
 
 > [!WARNING]
-> Om du skickar [Azures resurs loggar eller mått till ett lagrings konto med hjälp av diagnostikinställningar](resource-logs-collect-storage.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](resource-logs-collect-storage.md), ändrades formatet för data i lagrings kontot till JSON-linjer på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet.
+> Om du skickar [Azures resurs loggar eller mått till ett lagrings konto med hjälp av diagnostikinställningar](./resource-logs.md#send-to-azure-storage) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./resource-logs.md#send-to-azure-storage), ändrades formatet för data i lagrings kontot till JSON-linjer på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet.
 >
 
 ## <a name="what-changed"></a>Vad som ändrats
@@ -28,9 +29,9 @@ Azure Monitor erbjuder en funktion som gör att du kan skicka resurs loggar och 
 * Ställer in en diagnostisk inställning mellan före 1 november fortsatte att generera data i det aktuella formatet fram till 1 november.
 * Den här ändringen inträffade samtidigt i alla offentliga moln regioner. Ändringen görs inte i Microsoft Azure som drivs av 21Vianet, Azure Germany eller Azure Government moln ännu.
 * Den här ändringen påverkar följande data typer:
-  * [Azure resurs loggar](archive-diagnostic-logs.md) ([Se lista över resurser här](diagnostic-logs-schema.md))
+  * [Azure resurs loggar](./resource-logs.md#send-to-azure-storage) ([Se lista över resurser här](./resource-logs-schema.md))
   * [Azure-resursens mått exporteras av diagnostikinställningar](diagnostic-settings.md)
-  * [Azures aktivitets logg data exporteras av logg profiler](activity-log-collect.md)
+  * [Azures aktivitets logg data exporteras av logg profiler](./activity-log.md)
 * Den här ändringen påverkar inte:
   * Nätverks flödes loggar
   * Azures tjänst loggar är inte tillgängliga via Azure Monitor än (till exempel Azure App Service resurs loggar, lagrings analys loggar)
@@ -122,7 +123,7 @@ Det nya formatet använder [JSON-linjer](http://jsonlines.org/), där varje hän
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-Det nya formatet gör det möjligt Azure Monitor att skicka loggfiler med hjälp av [bifogade blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), vilket är mer effektivt för att kontinuerligt lägga till nya händelse data.
+Det nya formatet gör det möjligt Azure Monitor att skicka loggfiler med hjälp av [bifogade blobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), vilket är mer effektivt för att kontinuerligt lägga till nya händelse data.
 
 ## <a name="how-to-update"></a>Så här uppdaterar du
 
@@ -132,6 +133,5 @@ Anpassade verktyg bör uppdateras för att hantera både det aktuella formatet o
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [att arkivera resurs resurs loggar till ett lagrings konto](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* Lär dig mer om [att arkivera aktivitets logg data till ett lagrings konto](./../../azure-monitor/platform/archive-activity-log.md)
-
+* Läs mer om [att arkivera resurs resurs loggar till ett lagrings konto](./resource-logs.md#send-to-azure-storage)
+* Lär dig mer om [att arkivera aktivitets logg data till ett lagrings konto](./activity-log.md#legacy-collection-methods)

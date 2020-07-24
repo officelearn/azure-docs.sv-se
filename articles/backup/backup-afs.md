@@ -3,16 +3,16 @@ title: Säkerhetskopiera Azure-filresurser i Azure Portal
 description: Lär dig hur du använder Azure Portal för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58bcd7ecd7c6fac80f5b78fb2c8b568b63e3e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391169"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077142"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 
-Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera [Azure-filresurser](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera [Azure-filresurser](../storage/files/storage-files-introduction.md).
 
 I den här artikeln får du lära dig att:
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig att:
 * Identifiera fil resurser och konfigurera säkerhets kopior.
 * Kör ett säkerhets kopierings jobb på begäran för att skapa en återställnings punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Identifiera eller skapa ett [Recovery Services valv](#create-a-recovery-services-vault) i samma region som det lagrings konto som är värd för fil resursen.
 * Se till att fil resursen finns i någon av de [typer av lagrings konton som stöds](azure-file-share-support-matrix.md).

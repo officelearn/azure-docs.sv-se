@@ -3,12 +3,12 @@ title: Hanterings bibliotek – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om biblioteket som du kan använda för att hantera Azure-Event Hubs namn områden och entiteter från .NET.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79656d95cf925c21b0f0c5f2b3bafe6348e0b553
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074823"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs-hanteringsbibliotek
 
@@ -20,13 +20,13 @@ Du kan använda hanterings biblioteken för Azure-Event Hubs för att dynamiskt 
 * Event Hubs att skapa, uppdatera och ta bort
 * Skapa konsument grupp, uppdatera, ta bort
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång med Event Hubs hanterings bibliotek måste du autentisera med Azure Active Directory (AAD). AAD kräver att du autentiseras som tjänstens huvud namn, vilket ger åtkomst till dina Azure-resurser. Information om hur du skapar ett huvud namn för tjänsten finns i någon av följande artiklar:  
 
 * [Använd Azure Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+* [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 De här självstudierna ger dig ett `AppId` (klient-ID), `TenantId` och `ClientSecret` (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha **ägar** behörigheter för den resurs grupp som du vill köra.
 

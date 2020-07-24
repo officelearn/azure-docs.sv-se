@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710685"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076065"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Köra en DR-granskning för virtuella Hyper-V-datorer till en sekundär plats
 
@@ -102,17 +103,17 @@ Förbered en DNS-server för redundanstest enligt följande:
 * **DHCP**: om virtuella datorer använder DHCP bör IP-adressen för test-DNS uppdateras på test-DHCP-servern. Om du använder en nätverks typ som är Windows-nätverksvirtualisering fungerar VMM-servern som DHCP-server. IP-adressen för DNS bör därför uppdateras i nätverket för redundanstest. I det här fallet registrerar de virtuella datorerna sig själva på den relevanta DNS-servern.
 * **Statisk adress**: om virtuella datorer använder en statisk IP-adress ska IP-adressen för test-DNS-servern uppdateras i nätverket för redundanstest. Du kan behöva uppdatera DNS med IP-adressen för de virtuella test datorerna. Du kan använda följande exempel skript för detta ändamål:
 
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-
-
+  ```powershell
+  Param(
+  [string]$Zone,
+  [string]$name,
+  [string]$IP
+  )
+  $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+  $newrecord = $record.clone()
+  $newrecord.RecordData[0].IPv4Address  =  $IP
+  Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+  ```
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest
 

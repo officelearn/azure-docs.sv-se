@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 81ca6b2c365b0dd8a249a337f51d78516cb2cc61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83657190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076042"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
 
@@ -39,9 +41,9 @@ Du behöver två tjänst instanser av Azure våren Cloud som distribueras i två
 
 **Två tjänst instans uppgifter:**
 
-| Tjänstnamn | Location | Program |
+| Tjänstens namn | Plats | Program |
 |--|--|--|
-| service – exempel – a | USA, östra | Gateway/auth-service/account-service |
+| service – exempel – a | East US | Gateway/auth-service/account-service |
 | service – exempel-b | Europa, västra | Gateway/auth-service/account-service |
 
 2. Konfigurera anpassad domän för tjänst följ det [anpassade domän dokumentet](spring-cloud-tutorial-custom-domain.md) för att konfigurera en anpassad domän för dessa två befintliga tjänst instanser. När den har kon figurer ATS kommer båda tjänst instanserna att bindas till den anpassade domänen: bcdr-test.contoso.com

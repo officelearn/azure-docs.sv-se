@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976718"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075962"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Konfigurera klient dels ramverk och bibliotek med Azures statiska Web Apps för hands version
 
@@ -28,7 +28,7 @@ Avsikten med tabell kolumnerna förklaras av följande objekt:
 
 - **Anpassat build-kommando**: när ramverket kräver ett annat kommando än `npm run build` eller `npm run azure:build` , kan du definiera ett [anpassat build-kommando](github-actions-workflow.md#custom-build-commands).
 
-| Ramverk | Plats för app-artefakt | Anpassat build-kommando |
+| Ramverk | Plats för appartefakt | Anpassat build-kommando |
 |--|--|--|
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | ej tillämpligt <sup>2</sup> |
 | [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --prod` |
@@ -55,7 +55,7 @@ Avsikten med tabell kolumnerna förklaras av följande objekt:
 | [Svelte](https://svelte.dev/) | `public` | saknas |
 | [Three.js](https://threejs.org/) | `/` | saknas |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | saknas |
-| [Vue](http://vuejs.com/) | `dist` | saknas |
+| [Vue.js](https://vuejs.org/) | `dist` | saknas |
 
 <sup>1</sup> tabellen ovan är inte avsedd att vara en fullständig lista över ramverk och bibliotek som fungerar med Azures statiska Web Apps.
 

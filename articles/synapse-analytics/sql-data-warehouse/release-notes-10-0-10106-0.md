@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6af05a6c17253a2032f493a7d2cd6254dafd352c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831428"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075825"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -28,7 +28,6 @@ Den här artikeln sammanfattar de nya funktionerna och förbättringarna i de se
 När nya funktioner lyfts ut till alla regioner kontrollerar du vilken version som distribueras till din instans och den senaste versionen av funktions tillgänglighet. Du kontrollerar versionen genom att ansluta till SQL-poolen via SQL Server Management Studio (SSMS) och köra `SELECT @@VERSION;` för att returnera den aktuella versionen. Använd den här versionen för att bekräfta vilken version som har tillämpats på SQL-poolen. Datumet i utdata identifierar månaden för den version som har tillämpats på SQL-poolen. Detta gäller endast förbättringar på service nivå. 
 
 För verktygs förbättringar kontrollerar du att rätt version är installerad i versions anteckningen. 
-
 
 > [!NOTE]
 > Produkt namnet som returneras genom att välja @ @VERSION ändras från Microsoft Azure SQL Data Warehouse till Microsoft Azure Synapse-analys. Vi kommer att skicka ett avancerat meddelande innan ändringen görs. Den här ändringen är relevant för kunder som tolkar produkt namn från resultatet av SELECT @ @VERSION i sin program kod. Om du vill undvika program kod ändringar på grund av produkt anpassning, använder du dessa kommandon för att fråga efter SERVERPROPERTY för databasens produkt namn och version: för att returnera versions nummer XX. X. XXXXX. X (utan produkt namn) Använd det här kommandot:
@@ -42,11 +41,13 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 > ```
 
 ## <a name="july-2020"></a>Juli 2020
+
 | Förbättringar av tjänsten | Information |
 | --- | --- |
 |**Kryptering på kolumn nivå (offentlig för hands version)**|Skydda känslig information i Synapse SQL Data Warehouse genom att använda symmetrisk kryptering i en kolumn med data med hjälp av Transact-SQL. Kryptering på kolumn nivå har inbyggda funktioner som du kan använda för att kryptera data med hjälp av symmetriska nycklar som skyddas ytterligare med ett certifikat, lösen ord, symmetrisk nyckel eller asymmetrisk nyckel. Mer information finns [i kryptera en kolumn med data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Stöd för kompatibilitetsnivå (GA)**|I den här versionen kan användarna nu ange en databas kompatibilitetsnivå för att hämta Transact-SQL-språket och fråga efter bearbetnings beteenden för en specifik version av Synapse SQL-motorn. Mer information finns i [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [ändra databas omfattnings konfiguration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Säkerhet på radnivå**|Den här versionen innehåller en förbättring av uppdaterings-och borttagnings åtgärder på rader med RLS tillämpade på dem. I den här versionen kommer Update och Delete-åtgärder med inbyggda funktioner som is_rolemember att lyckas om den inre inte refererar till någon kolumn i DML-mål tabellen. Innan den här förbättringen misslyckades dessa åtgärder på grund av begränsning i de underliggande DML-åtgärderna.|
+|**DBCC SHRINKDATABASE (GA)**|Nu kan du minska storleken på data-och loggfilerna i den angivna databasen. Mer information finns i [dokumentationen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
 
 ## <a name="may-2020"></a>Maj 2020
 

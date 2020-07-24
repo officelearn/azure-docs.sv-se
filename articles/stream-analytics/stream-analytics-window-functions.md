@@ -6,12 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80745554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075928"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics fönster funktioner
 
@@ -34,7 +35,8 @@ Hoppande fönster hoppar framåt i tid med en fast period. Det kan vara enklare 
 ![Stream Analytics hoppande-fönster](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Glidande fönster
-Glidande fönster funktioner, till skillnad från rullande-eller hoppande-fönster, genererar **endast** utdata när en händelse inträffar. Varje fönster kommer att ha minst en händelse och fönstret flyttas kontinuerligt framåt med en ε (Epsilon). Precis som i hoppande fönster kan händelser tillhöra mer än ett skjutfönster.
+
+Glidande fönster, till skillnad från rullande-eller hoppande-fönster, utmatnings händelser endast för punkter i tid när innehållet i fönstret faktiskt ändras. Med andra ord när en händelse anges eller stänger fönstret. Varje fönster har minst en händelse, t. ex. När det gäller hoppande-fönster, kan händelser tillhöra mer än ett glidande fönster
 
 ![Stream Analytics glidande fönster](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -49,6 +51,11 @@ Om händelserna fortsätter inom den angivna tids gränsen, fortsätter sessions
 
 När du har angett en partitionsnyckel grupperas händelserna tillsammans av fönstret för nyckel-och-session-fönstret, som tillämpas på varje grupp oberoende av varandra. Denna partitionering är användbar i fall där du behöver olika sessions-fönster för olika användare eller enheter.
 
+## <a name="snapshot-window"></a>Snapshot-fönster
+
+Windows-ögonblicksbilder grupperar händelser som har samma tidsstämpel. Till skillnad från andra typer av fönster, som kräver en speciell fönster funktion (till exempel [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), kan du använda ett ögonblicks bilds fönster genom att lägga till system. timestamp () i Group by-satsen.
+
+![Stream Analytics Snapshot-fönster](media/stream-analytics-window-functions/snapshot.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

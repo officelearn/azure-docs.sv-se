@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 053ee85318d8ac9ccd5fb8b63fb44df966d34821
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075030"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 som standard lagring med hjälp av PowerShell
 
@@ -31,14 +31,14 @@ Här är några viktiga överväganden när du använder HDInsight med Data Lake
 
 Följ anvisningarna i följande fem avsnitt om du vill konfigurera HDInsight att arbeta med Data Lake Storage Gen1 med hjälp av PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Innan du börjar den här självstudien kontrollerar du att du uppfyller följande krav:
 
 * **En Azure-prenumeration**: gå till [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1,0 eller mer**: se [så här installerar och konfigurerar du PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1,0 eller mer**: se [så här installerar och konfigurerar du PowerShell](/powershell/azure/).
 * **Windows Software Development Kit (SDK)**: om du vill installera Windows SDK går du till [hämtningar och verktyg för Windows 10](https://dev.windows.com/downloads). SDK används för att skapa ett säkerhetscertifikat.
 * **Azure Active Directory tjänstens huvud namn**: den här självstudien beskriver hur du skapar ett huvud namn för tjänsten i Azure Active Directory (Azure AD). Om du vill skapa ett huvud namn för tjänsten måste du dock vara en Azure AD-administratör. Om du är administratör kan du hoppa över den här förutsättningen och fortsätta med självstudien.
 

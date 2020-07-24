@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 07/09/2020
-ms.openlocfilehash: da09cb8aa112cdf927c1a67401ab3f6a92e85ece
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 59d19bd2a1dca2a3bc3c6ec3aee9e63b8f12b5d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075192"
 ---
 # <a name="cognitive-services-docs-whats-new-for-june-1-2020---june-30-2020"></a>Cognitive Services dokument: Nyheter den 1 juni 2020 – 30 juni 2020
 
@@ -69,16 +69,16 @@ Välkommen till nyheter i Cognitive Services dokumenten från den 1 juni 2020 ti
 ### <a name="new-articles"></a>Nya artiklar
 
 - [Begrepp för anpassade kommandon](/azure/cognitive-services/speech-service/custom-commands-references)
-- [Lägg till bekräftelser i ett kommando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-confirmations)
-- [Konfigurera parametern som extern katalog-entitet](/azure/cognitive-services/speech-service/how-to-custom-commands-add-external-catalog-string-entity)
+- [Lägg till bekräftelser i ett kommando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-interaction-rules#add-confirmations-to-a-command)
+- [Konfigurera parametern som extern katalog-entitet](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#configure-parameter-as-external-catalog-entity)
 - [Använd mallar för att skapa språk för tal svar](/azure/cognitive-services/speech-service/how-to-custom-commands-add-language-generation-templates)
-- [Implementera korrigeringar i ett kommando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-one-step-correction)
+- [Implementera korrigeringar i ett kommando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration)
 - [Lägga till parametrar till kommandon](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameters-to-commands)
-- [Lägg till enkla kommandon](/azure/cognitive-services/speech-service/how-to-custom-commands-add-simple-commands)
-- [Lägg till verifieringar i anpassade kommando parametrar](/azure/cognitive-services/speech-service/how-to-custom-commands-add-validations)
-- [Skapa ett program för anpassade kommandon](/azure/cognitive-services/speech-service/how-to-custom-commands-create-empty-project)
+- [Lägg till enkla kommandon](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands)
+- [Lägg till verifieringar i anpassade kommando parametrar](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#add-validation-to-parameters)
+- [Skapa ett program för anpassade kommandon](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands#create-empty-application)
 - [CI/CD för Custom Speech](/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-- [Skapa en röst assistent för slut punkt till slut punkt med anpassade kommandon](/azure/cognitive-services/speech-service/quickstart-custom-commands-e2e-application)
+- [Skapa en röst assistent för slut punkt till slut punkt med anpassade kommandon](/azure/cognitive-services/speech-service/quickstart-custom-commands-application)
 - [Snabb start: testa en modell med en ljudfil i tal Studio](/azure/cognitive-services/speech-service/quickstarts/speech-studio-test-model)
 - [Lär dig grunderna för Talarigenkänning](/azure/cognitive-services/speech-service/speaker-recognition-basics)
 - [Vad är Azure Talarigenkänning-tjänsten?](/azure/cognitive-services/speech-service/speaker-recognition-overview)

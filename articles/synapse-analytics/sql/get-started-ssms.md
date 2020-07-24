@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: Anslut och fråga Synapse SQL'
+title: Ansluta till Synapse-SQL med SQL Server Management Studio (SSMS)
 description: Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077724"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ansluta till Synapse-SQL med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Du kan använda [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 > [!NOTE]
 > Om AAD-inloggningen har öppen anslutning i mer än 1 timme vid frågekörningen, kommer alla frågor som förlitar sig på AAD att Miss förväntas. Detta omfattar att fråga lagring med AAD-vidarekoppling och-instruktioner som interagerar med AAD (t. ex. skapa extern PROVIDER). Detta påverkar alla verktyg som håller anslutningen öppen, som i Frågeredigeraren i SSMS och ADS. Verktyg som öppnar ny anslutning för att köra frågor påverkas inte, till exempel Synapse Studio.
 > Du kan åtgärda problemet genom att starta om SSMS eller ansluta och frånkoppla i ADS. .
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du kontrol lera att du har följande krav:  
 
@@ -89,7 +89,7 @@ Följ dessa steg om du vill ansluta till Synapse SQL med SQL på begäran:
 Nu när en databas anslutning har upprättats kan du fråga efter data.
 
 1. Högerklicka på din databas i SQL Server Object Explorer.
-2. Välj **ny fråga**. Ett nytt frågefönster öppnas.
+2. Välj **Ny fråga**. Ett nytt frågefönster öppnas.
    
     ![Ny fråga](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
 3. Kopiera den här T-SQL-frågan till frågefönstret:
@@ -109,7 +109,7 @@ Nu när en databas anslutning har upprättats kan du fråga efter data.
 Nu när du har upprättat en databas anslutning kan du fråga efter data.
 
 1. Högerklicka på din databas i SQL Server Object Explorer.
-2. Välj **ny fråga**. Ett nytt frågefönster öppnas.
+2. Välj **Ny fråga**. Ett nytt frågefönster öppnas.
    
     ![Ny fråga](./media/get-started-ssms/new-query.png)
 3. Kopiera följande T-SQL-fråga till frågefönstret:

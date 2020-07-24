@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc603a890a112cf475e6ceafb79145dec5a56ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077219"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig avisering & övervakning i Azure Monitor ersätter klassisk avisering & övervakning
 
@@ -27,7 +28,7 @@ Med den nya plattformen för Azure-övervakning och avisering kommer vi att ta b
 Vi rekommenderar att du kommer igång och återskapar dina aviseringar på den nya plattformen. För kunder som har ett stort antal aviseringar, kommer vi att [lanseras i faser](alerts-understand-migration.md#rollout-phases), ett särskilt [Migreringsverktyg](alerts-using-migration-tool.md) för att flytta befintliga klassiska varningar till det nya aviserings systemet utan avbrott eller ytterligare kostnader.
 
 > [!IMPORTANT]
-> Klassiska varnings regler som skapats i aktivitets loggen är inte föråldrade eller migreras inte. Alla klassiska varnings regler som skapats i aktivitets loggen kan nås och används som de är från nya Azure Monitor-aviseringar. Mer information finns i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). På samma sätt kan aviseringar på Service Health kommas åt och användas som de är från avsnittet ny Service Health. Mer information finns i [aviseringar om meddelanden om tjänst hälsa](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+> Klassiska varnings regler som skapats i aktivitets loggen är inte föråldrade eller migreras inte. Alla klassiska varnings regler som skapats i aktivitets loggen kan nås och används som de är från nya Azure Monitor-aviseringar. Mer information finns i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). På samma sätt kan aviseringar på Service Health kommas åt och användas som de är från avsnittet ny Service Health. Mer information finns i [aviseringar om meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Enhetliga mått och aviseringar i Application Insights
 
@@ -38,7 +39,7 @@ Den nya enhetliga övervakningen och aviseringen för Application Insights komme
 - **Application Insights plattforms mått** – som ger populära förbyggda mått från Application Insights produkt. Mer information finns i den här artikeln om hur du använder [plattforms mått för Application Insights på nya Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Application Insights tillgänglighet och webbtest** – vilket ger dig möjlighet att utvärdera svars tider och tillgänglighet för din webbapp eller server. Mer information finns i den här artikeln om [att använda tillgänglighets test och aviseringar för Application Insights på nya Azure Monitor](../../azure-monitor/app/monitor-web-app-availability.md).
 - **Application Insights anpassade mått** – som gör att du kan definiera och generera egna mått för övervakning och aviseringar. Mer information finns i den här artikeln om hur du använder [anpassad mått för Application Insights på nya Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-- **Application Insights fel avvikelser (del av Smart identifiering)** – som automatiskt meddelar dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade HTTP-förfrågningar eller beroende anrop. Mer information finns i den här artikeln om att använda [Smart identifiering – fel avvikelser](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics).
+- **Application Insights fel avvikelser (del av Smart identifiering)** – som automatiskt meddelar dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade HTTP-förfrågningar eller beroende anrop. Mer information finns i den här artikeln om att använda [Smart identifiering – fel avvikelser](../app/proactive-failure-diagnostics.md).
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Enhetliga mått och aviseringar för andra Azure-resurser
 
@@ -53,11 +54,11 @@ Nya mått för Azure-resurser är tillgängliga som:
 Som tidigare nämnts kan den klassiska övervaknings-och varnings plattformen som för närvarande är användbar från [avsnittet om aviseringar (klassisk)](../../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal dras tillbaka under de kommande månaderna, förutsatt att de har ersatts av det nyare systemet.
 Äldre klassisk övervakning och avisering kommer att dras tillbaka den 31 augusti 2019; inklusive stängning av relaterade API: er, Azure Portal gränssnitt och tjänster i det. Mer specifikt är dessa funktioner inaktuella:
 
-- Äldre (klassiska) mått och aviseringar för Azure-resurser som för närvarande är tillgängliga via [aviseringar (klassisk)](../../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal; tillgänglig som [Microsoft. Insights/alertrules-](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
-- Äldre (klassisk) plattform och anpassade mått för Application Insights samt avisering om dem som för närvarande är tillgängliga via [aviseringar (klassisk)](../../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal och som är tillgängliga som [Microsoft. Insights/alertrules-](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
+- Äldre (klassiska) mått och aviseringar för Azure-resurser som för närvarande är tillgängliga via [aviseringar (klassisk)](../../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal; tillgänglig som [Microsoft. Insights/alertrules-](/rest/api/monitor/alertrules) resurs
+- Äldre (klassisk) plattform och anpassade mått för Application Insights samt avisering om dem som för närvarande är tillgängliga via [aviseringar (klassisk)](../../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal och som är tillgängliga som [Microsoft. Insights/alertrules-](/rest/api/monitor/alertrules) resurs
 - Varning om äldre (klassisk) fel avvikelser är för närvarande tillgängliga som [Smart identifiering i Application Insights](../../azure-monitor/app/proactive-diagnostics.md) i Azure Portal; med aviseringar som kon figurer ATS i [avsnittet aviseringar (klassisk)](../../azure-monitor/platform/alerts-classic.overview.md) i Azure Portal
 
-Alla klassiska övervaknings-och aviserings system, inklusive motsvarande [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure Portal sida](../../azure-monitor/platform/alerts-classic-portal.md)och [resurs mal len](../../azure-monitor/platform/alerts-enable-template.md) kommer att vara användbara tills slutet av augusti 2019. 
+Alla klassiska övervaknings-och aviserings system, inklusive motsvarande [API](/rest/api/monitor/alertrules), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure Portal sida](../../azure-monitor/platform/alerts-classic-portal.md)och [resurs mal len](../../azure-monitor/platform/alerts-enable-template.md) kommer att vara användbara tills slutet av augusti 2019. 
 
 I slutet av augusti 2019 i Azure Monitor:
 

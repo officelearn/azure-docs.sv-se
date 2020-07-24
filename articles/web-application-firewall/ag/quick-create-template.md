@@ -1,39 +1,41 @@
 ---
-title: 'Snabb start: skapa en Azure WAF v2 på Application Gateway Resource Manager-mall'
+title: 'Snabb start: skapa en Azure WAF v2 på Application Gateway-Azure Resource Manager mall'
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du använder en Resource Manager-mall för att skapa en WebApplication-brandvägg v2 på Azure Application Gateway.
+description: Lär dig hur du använder en Azure Resource Manager-mall (ARM-mall) för att skapa en brand vägg för webbaserade program v2 på Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075502"
 ---
-# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>Snabb start: skapa en Azure WAF v2 på Application Gateway Resource Manager-mall
+# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Snabb start: skapa en Azure WAF v2 på Application Gateway med en ARM-mall
 
-I den här snabb starten använder du en Resource Manager-mall för att skapa en Azure Web Application-brandvägg v2 på Application Gateway.
+I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa en Azure Web Application-brandvägg v2 på Application Gateway.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-web-application-firewall"></a>Skapa en brand vägg för webbaserade program
+## <a name="review-the-template"></a>Granska mallen
 
 Den här mallen skapar en enkel WebApplication-brandvägg v2 på Azure Application Gateway. Detta omfattar en offentlig IP-adress för IP-adress, HTTP-inställningar, en regel med en grundläggande lyssnare på port 80 och en backend-pool. En WAF-princip med en anpassad regel skapas för att blockera trafik till backend-poolen baserat på en matchnings typ för IP-adress.
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json)
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
 :::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
 
@@ -48,9 +50,9 @@ Flera Azure-resurser definieras i mallen:
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : två för de virtuella datorerna
 - [**Microsoft. Compute/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : så här konfigurerar du IIS och webb sidor
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-Distribuera Resource Manager-mall till Azure:
+Distribuera ARM-mallen till Azure:
 
 1. Välj **distribuera till Azure** för att logga in på Azure och öppna mallen. Mallen skapar en Programgateway, nätverks infrastrukturen och två virtuella datorer i den backend-pool som kör IIS.
 
@@ -61,11 +63,11 @@ Distribuera Resource Manager-mall till Azure:
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-Även om IIS inte krävs för att skapa programgatewayen, installeras den på backend-servrarna för att kontrol lera om Azure har skapat en WAF v2 på Application Gateway. 
+Även om IIS inte krävs för att skapa programgatewayen, installeras den på backend-servrarna för att kontrol lera om Azure har skapat en WAF v2 på Application Gateway.
 
 Använd IIS för att testa programgatewayen:
 
-1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** . ![Registrera den offentliga IP-adressen](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) för Application Gateway eller Välj **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och välj sedan den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
+1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** . ![ Registrera den offentliga IP-adressen för Application Gateway ](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) eller Välj **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och välj sedan den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 2. Kopiera den offentliga IP-adressen och klistra in den i adress fältet i webbläsaren för att söka efter IP-adressen.
 3. Kontrol lera svaret. Ett svar på **403 förbjuden** verifierar att WAF har skapats och blockerar anslutningar till backend-poolen.
 4. Ändra den anpassade regeln så att den **tillåter trafik**.
@@ -87,7 +89,7 @@ Använd IIS för att testa programgatewayen:
 
 När du inte längre behöver de resurser som du skapade med Application Gateway, tar du bort resurs gruppen. Detta tar bort programgatewayen och alla relaterade resurser.
 
-Anropa `Remove-AzResourceGroup` cmdleten om du vill ta bort resurs gruppen:
+Anropa cmdleten om du vill ta bort resurs gruppen `Remove-AzResourceGroup` :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "<your resource group name>"

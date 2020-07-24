@@ -3,18 +3,19 @@ title: Application Insights för Azure Cloud Services | Microsoft Docs
 description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075429"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
-[Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
+[Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](../platform/diagnostics-extension-overview.md) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
 ![Översikts instrument panel](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar behöver du:
 
 * En [Azure](https://azure.com) -prenumeration. Logga in med din Microsoft-konto för Windows, Xbox Live eller andra moln tjänster från Microsoft. 
@@ -30,7 +31,7 @@ Det här alternativet styr din app vid körning och ger dig all telemetri som du
 
 Om det här alternativet är allt du behöver så är du klar. 
 
-Nästa steg är att [Visa mått från din app](../../azure-monitor/platform/metrics-charts.md)och [fråga dina data med analyser](../../azure-monitor/app/analytics.md). 
+Nästa steg är att [Visa mått från din app](../../azure-monitor/platform/metrics-charts.md)och [fråga dina data med analyser](../log-query/log-query-overview.md). 
 
 Om du vill övervaka prestanda i webbläsaren kanske du också vill ställa in [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) och [lägga till kod på dina webb sidor](../../azure-monitor/app/javascript.md).
 
@@ -131,7 +132,7 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
 
 Det här steget behövs bara om du vill samla in fullständiga SQL-frågor på .NET Framework. 
 
-1. I `\*.csdef` filen Lägg till [Start åtgärd](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) för varje roll som liknar 
+1. I `\*.csdef` filen Lägg till [Start åtgärd](../../cloud-services/cloud-services-startup-tasks.md) för varje roll som liknar 
 
     ```xml
     <Startup>
@@ -177,7 +178,7 @@ Om det inte finns några data gör du följande:
 Mer information finns i [Felsökning][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Visa Azure-diagnostik händelser
-Du kan hitta [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information i Application Insights på följande platser:
+Du kan hitta [Azure-diagnostik](../platform/diagnostics-extension-overview.md) information i Application Insights på följande platser:
 
 * Prestandaräknare visas som anpassade mått. 
 * Windows-händelseloggar visas som spårningar och anpassade händelser.
@@ -241,7 +242,7 @@ För en omfattande diagnostik kan du se vad som ledde till en misslyckad eller h
 
 För att uppnå den här vyn för arbets roller kan du använda en anpassad telemetri för att ange ett gemensamt Operation.Id-sammanhang för all telemetri. På så sätt kan du snabbt se om svars tiden eller fel problemet orsakades av ett beroende eller koden. 
 
-Gör så här:
+Så här gör du:
 
 * Ange correlationId i ett CallContext [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). I det här fallet använder vi fråge-ID som correlationId.
 * Lägg till en anpassad TelemetryInitializer-implementering för att ange Operation.Id till det correlationId som angavs tidigare. Ett exempel finns i [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
@@ -258,7 +259,7 @@ För en övergripande bild av systemet kan du Visa viktiga övervaknings diagram
 
 Om systemet använder andra Azure-tjänster, till exempel Stream Analytics, inkluderar du även övervaknings diagrammen. 
 
-Om du har en klientmobilapp använder du [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Skapa frågor i [Analytics](../../azure-monitor/app/analytics.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
+Om du har en klientmobilapp använder du [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Skapa frågor i [Analytics](../log-query/log-query-overview.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
 
 ## <a name="example"></a>Exempel
 [Exemplet](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) övervakar en tjänst som har en webbroll och två arbetsroller.
@@ -283,6 +284,6 @@ Utvecklade du för .NET 4.6? .NET 4,6 stöds inte automatiskt i Azure Cloud Serv
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md

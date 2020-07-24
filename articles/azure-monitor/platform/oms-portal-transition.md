@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 680cd9b44cc447f9bdea38cb9d04fc661fba9c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b33bd5ba20e21d757e412e9dac7c474308c4561d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077155"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen flyttar till Azure
 
@@ -40,7 +41,7 @@ De flesta funktioner fortsätter att fungera utan att utföra någon migrering, 
 - Du måste [migrera dina användar behörigheter](#user-access-and-role-migration) till Azure Portal.
 - Se [migrera dina OMS-uppdaterings distributioner till Azure](../../automation/migrate-oms-update-deployments.md) för mer information om att överföra uppdateringshantering-lösningen.
 
-Se [vanliga frågor om över gången från OMS-portalen till Azure Portal för Log Analytics användare](oms-portal-faq.md) för information om hur du övergår till Azure Portal. 
+Se [vanliga frågor om över gången från OMS-portalen till Azure Portal för Log Analytics användare](../overview.md) för information om hur du övergår till Azure Portal. 
 
 ## <a name="user-access-and-role-migration"></a>Användar åtkomst och roll migrering
 Azure Portal åtkomst hantering är rikare och kraftfullare än åtkomst hantering i OMS-portalen. Se [utforma arbets ytan för Azure Monitor loggar](design-logs-deployment.md) för information om åtkomst hantering i Log Analytics.
@@ -69,7 +70,7 @@ Du kan inte längre skapa nya arbets ytor med OMS-portalen. Följ anvisningarna 
 
 ### <a name="alert-extension"></a>Aviserings tillägg  
 
-Aviseringar har [utökats till Azure Portal](alerts-extend.md) befintliga aviseringar visas fortfarande i OMS-portalen, men du kan bara hantera dem i Azure Portal. Om du får åtkomst till aviseringar via programmering med hjälp av Log Analytics varnings REST API eller Log Analytics aviserings resurs mal len, måste du använda åtgärds grupper i stället för åtgärder i API-anrop, Azure Resource Manager mallar och PowerShell-kommandon.
+Aviseringar har [utökats till Azure Portal](./alerts-unified-log.md) befintliga aviseringar visas fortfarande i OMS-portalen, men du kan bara hantera dem i Azure Portal. Om du får åtkomst till aviseringar via programmering med hjälp av Log Analytics varnings REST API eller Log Analytics aviserings resurs mal len, måste du använda åtgärds grupper i stället för åtgärder i API-anrop, Azure Resource Manager mallar och PowerShell-kommandon.
 
 ### <a name="alert-management-solution"></a>Lösning för aviserings hantering
 Som en ändring från ett tidigare meddelande fortsätter [aviserings hanterings lösningen](alert-management-solution.md) att vara tillgänglig och fullständigt stöd i Azure Portal. Du kan fortsätta att installera lösningen från Azure Marketplace.
@@ -101,7 +102,7 @@ Den här lösningen analyserar NSG Flow-loggar och ger insikter om följande.
 Du kan fortsätta att förlita dig på diagnostikinställningar för att skicka NSG-loggar till Log Analytics så att dina befintliga sparade sökningar, aviseringar och instrument paneler fortsätter att fungera. Kunder som redan har installerat lösningen kan fortsätta att använda den tills vidare. Från och med 5 september tas lösningen för nätverks säkerhets grupp analys bort från Marketplace och görs tillgänglig via communityn som en [Azure snabb starts mall](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-Om du har [anslutit din Operations Manager hanterings grupp till Log Analytics](om-agents.md)fortsätter den att fungera utan ändringar. För nya anslutningar måste du följa anvisningarna i [hanterings paketet för Microsoft System Center Operations Manager för att konfigurera Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
+Om du har [anslutit din Operations Manager hanterings grupp till Log Analytics](om-agents.md)fortsätter den att fungera utan ändringar. För nya anslutningar måste du följa anvisningarna i [hanterings paketet för Microsoft System Center Operations Manager för att konfigurera Operations Management Suite](https://techcommunity.microsoft.com/t5/system-center-blog/bg-p/SystemCenterBlog).
 
 ## <a name="next-steps"></a>Nästa steg
-- I [vanliga frågor och svar om över gången från OMS-portalen till Azure Portal för Log Analytics användare](oms-portal-faq.md) att flytta från OMS-portalen till Azure Portal.
+- I [vanliga frågor och svar om över gången från OMS-portalen till Azure Portal för Log Analytics användare](../overview.md) att flytta från OMS-portalen till Azure Portal.

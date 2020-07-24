@@ -9,14 +9,15 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ec96cab0a147e661df48318aadb057f9f6785b1f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075549"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
-Med skalnings uppsättningar för virtuella Azure-datorer kan du skapa och hantera en grupp med belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
+Med skalnings uppsättningar för virtuella Azure-datorer kan du skapa och hantera en grupp med belastningsutjämnade virtuella datorer. Antalet VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
 
 
 ## <a name="why-use-virtual-machine-scale-sets"></a>Varför ska man använda VM-skalningsuppsättningar?
@@ -27,7 +28,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
 - **Enkelt att skapa och hantera flera virtuella datorer**
     - När du har många virtuella datorer som kör ditt program är det viktigt att bibehålla en konsekvent konfiguration i din miljö. Om ditt program ska ha garanterat tillförlitliga prestanda måste den virtuella datorns storlek, diskkonfigurationen och programinstallationerna matcha för samtliga virtuella datorer.
     - Med skalningsuppsättningar skapas alla VM-instanser från samma grundläggande OS-avbildning och konfiguration. Med den här metoden kan du enkelt hantera hundratals virtuella datorer utan att behöva bekymra dig om ytterligare konfigurationsåtgärder eller nätverkshantering.
-    - Skalnings uppsättningar har stöd för användning av [Azure Load Balancer](../load-balancer/load-balancer-overview.md) för grundläggande Layer-4-trafikdistribution och [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) för mer avancerad Layer-7-trafik distribution och TLS-avslutning.
+    - Skalnings uppsättningar har stöd för användning av [Azure Load Balancer](../load-balancer/load-balancer-overview.md) för grundläggande Layer-4-trafikdistribution och [Azure Application Gateway](../application-gateway/overview.md) för mer avancerad Layer-7-trafik distribution och TLS-avslutning.
 
 - **Ger hög tillgänglighet och programåterhämtning**
     - Skalningsuppsättningar använder du för att köra flera instanser av ditt program. Om någon av dessa VM-instanser drabbas av problem har kunderna fortsatt åtkomst till ditt program via någon av de andra VM-instanserna, med minimalt driftstopp som följd.

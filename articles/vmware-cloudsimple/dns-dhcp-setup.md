@@ -8,17 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ef1266b783034cf18dc2b3ea4be5ebc01bc12c70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7531a22d5b0f44fdaae837a75d17ea18852acf0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024695"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077287"
 ---
 # <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>Konfigurera DNS-och DHCP-program och arbets belastningar i ditt CloudSimple privata moln
 
 Program och arbets belastningar som körs i en privat moln miljö kräver namn matchning och DHCP-tjänster för sökning och tilldelning av IP-adresser.  En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster.  Du kan konfigurera en virtuell dator för att tillhandahålla dessa tjänster i din privata moln miljö.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En distribuerad port grupp med VLAN konfigurerat
 * Dirigera installationen till lokala eller Internetbaserade DNS-servrar
@@ -32,5 +33,5 @@ Linux erbjuder olika paket för att konfigurera DNS-servrar.  Här är en [exemp
 
 Dessa Microsoft-avsnitt beskriver hur du konfigurerar en Windows-Server som en DNS-server och som en DHCP-server.
 
-* [Windows Server som DNS-Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
-* [Windows Server som DHCP-server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+* [Windows Server som DNS-Server](/windows-server/networking/dns/dns-top)
+* [Windows Server som DHCP-server](/windows-server/networking/technologies/dhcp/dhcp-top)

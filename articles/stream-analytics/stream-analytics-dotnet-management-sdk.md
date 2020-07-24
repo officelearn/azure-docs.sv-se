@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: de152a636d8751616744887a521b2f94bbd386a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043452"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077749"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Hantering av .NET SDK: Konfigurera och kör analys jobb med hjälp av Azure Stream Analytics API för .NET
 Lär dig hur du konfigurerar och kör analys jobb med hjälp av Stream Analytics API för .NET med hjälp av Management .NET SDK. Konfigurera ett projekt, skapa indata och utdata, transformeringar och start-och stopp jobb. För dina analys jobb kan du strömma data från Blob Storage eller från en Event Hub.
@@ -25,12 +25,12 @@ Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg la
 > [!NOTE]
 > Vi har uppdaterat exempel koden i den här artikeln med Azure Stream Analytics Management .NET SDK v2. x-version. Exempel kod som använder SDK-versionen för lagecy (1. x) finns i [Använd Management .NET SDK v1. x för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här artikeln måste du ha följande krav:
 
 * Installera Visual Studio 2019 eller 2015.
 * Hämta och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Skapa en Azure-resurs grupp i din prenumeration. Följande exempel är ett exempel på ett Azure PowerShell skript. Azure PowerShell information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
+* Skapa en Azure-resurs grupp i din prenumeration. Följande exempel är ett exempel på ett Azure PowerShell skript. Azure PowerShell information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/);  
 
    ```powershell
    # Log in to your Azure account

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077278"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -141,7 +141,7 @@ Följ dessa steg om du vill installera en gateway med installations guiden.
    ![Skärm bild av konfigurationen för Gateway-proxyn](./media/gateway/gateway-wizard02.png)
 
 1. Om du inte har Microsoft Update aktive rad visas sidan Microsoft Update och du kan välja att aktivera den. Gör ett val och välj sedan **Nästa**. Annars fortsätter du till nästa steg.
-1. På sidan **målmapp** lämnar du standardmappen C:\Program Files\OMS gateway eller anger den plats där du vill installera gatewayen. Välj **Nästa**.
+1. På sidan **målmapp** lämnar du standardmappen C:\Program Files\OMS gateway eller anger den plats där du vill installera gatewayen. Välj sedan **Nästa**.
 1. På sidan **klar att installera** väljer du **Installera**. Välj **Ja**om User Account Control begär behörighet att installera.
 1. När installationen är klar väljer du **Slutför**. Verifiera att tjänsten körs genom att öppna snapin-modulen Services. msc och kontrol lera att OMS- **gatewayen** visas i listan över tjänster och att dess status är **igång**.
 
@@ -149,11 +149,11 @@ Följ dessa steg om du vill installera en gateway med installations guiden.
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installera Log Analytics Gateway med hjälp av kommando raden
 
-Den hämtade filen för gatewayen är ett Windows Installer-paket som stöder tyst installation från kommando raden eller någon annan automatiserad metod. Om du inte är bekant med standard kommando rads alternativen för Windows Installer, se [kommando rads alternativ](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+Den hämtade filen för gatewayen är ett Windows Installer-paket som stöder tyst installation från kommando raden eller någon annan automatiserad metod. Om du inte är bekant med standard kommando rads alternativen för Windows Installer, se [kommando rads alternativ](/windows/desktop/msi/command-line-options).
  
 I följande tabell beskrivs de parametrar som stöds av installations programmet.
 
-|Parametrar| Anteckningar|
+|Parametrar| Kommentarer|
 |----------|------| 
 |Port | TCP-portnummer för gateway att lyssna på |
 |PROGRAMPROXYFILEN | IP-adress för proxyserver |
@@ -185,11 +185,11 @@ Efter installationen kan du bekräfta att inställningarna godkänns (exklusive 
 
 ## <a name="configure-network-load-balancing"></a>Konfigurera utjämning av nätverks belastning
 
-Du kan konfigurera gatewayen för hög tillgänglighet med utjämning av nätverks belastning (NLB) med antingen Microsoft [NLB (utjämning av nätverks belastning)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)eller maskinvarubaserad belastnings utjämning. Belastningsutjämnaren hanterar trafik genom att omdirigera de begärda anslutningarna från Log Analytics agenter eller Operations Manager hanterings servrar över noderna. Om en gateway-server kraschar omdirigeras trafiken till andra noder.
+Du kan konfigurera gatewayen för hög tillgänglighet med utjämning av nätverks belastning (NLB) med antingen Microsoft [NLB (utjämning av nätverks belastning)](/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)eller maskinvarubaserad belastnings utjämning. Belastningsutjämnaren hanterar trafik genom att omdirigera de begärda anslutningarna från Log Analytics agenter eller Operations Manager hanterings servrar över noderna. Om en gateway-server kraschar omdirigeras trafiken till andra noder.
 
 ### <a name="microsoft-network-load-balancing"></a>Microsoft NLB (utjämning av nätverks belastning)
 
-Information om hur du utformar och distribuerar ett kluster för Utjämning av nätverks belastning i Windows Server 2016 finns i [utjämning av nätverks belastning](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Följande steg beskriver hur du konfigurerar ett kluster för Utjämning av nätverks belastning i Microsoft.  
+Information om hur du utformar och distribuerar ett kluster för Utjämning av nätverks belastning i Windows Server 2016 finns i [utjämning av nätverks belastning](/windows-server/networking/technologies/network-load-balancing). Följande steg beskriver hur du konfigurerar ett kluster för Utjämning av nätverks belastning i Microsoft.  
 
 1. Logga in på Windows Server som är medlem i NLB-klustret med ett administratörs konto.  
 2. Öppna hanteraren för Utjämning av nätverks belastning i Serverhanteraren, klicka på **verktyg**och klicka sedan på **hanteraren för Utjämning av nätverks belastning**.
@@ -305,13 +305,13 @@ Se avsnittet [Konfigurera ditt nätverk](../../automation/automation-hybrid-runb
 
 Om datorn är registrerad som en Hybrid Runbook Worker automatiskt, till exempel om Uppdateringshantering lösning är aktive rad för en eller flera virtuella datorer, följer du dessa steg:
 
-1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempelvis: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Starta om tjänsten Log Analytics Gateway med hjälp av följande PowerShell-cmdlet:`Restart-Service OMSGatewayService`
 
 Följ dessa steg om datorn är ansluten till Azure Automation med hjälp av Hybrid Runbook Worker registrerings-cmdlet:
 
-1. Lägg till Agent tjänstens registrerings-URL i listan över tillåtna värdar på Log Analytics Gateway. Exempelvis: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempelvis: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Lägg till Agent tjänstens registrerings-URL i listan över tillåtna värdar på Log Analytics Gateway. Exempel: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Starta om tjänsten Log Analytics Gateway.
     `Restart-Service OMSGatewayService`
 
@@ -350,7 +350,7 @@ Om du vill samla in händelser som loggats av gatewayen bör du ha Log Analytics
 
 I följande tabell visas händelse-ID: n och beskrivningar för Log Analytics Gateway logg händelser.
 
-| **ID** | **Beskrivning** |
+| **IDENTITET** | **Beskrivning** |
 | --- | --- |
 | 400 |Alla program fel som inte har något angivet ID. |
 | 401 |Felaktig konfiguration. Till exempel List = "text" i stället för ett heltal. |

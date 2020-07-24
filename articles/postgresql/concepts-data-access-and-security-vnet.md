@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: f473a4621c6b2214717b5036eae5abeaa564fb72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099654"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076620"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Använd Virtual Network tjänst slut punkter och regler för Azure Database for PostgreSQL-enskild server
 
@@ -24,8 +25,9 @@ Om du vill skapa en regel för virtuellt nätverk måste du först vara ett [vir
 > Den här funktionen är tillgänglig i alla regioner i det offentliga Azure-molnet där Azure Database for PostgreSQL distribueras för Generell användning och minnesoptimerade servrar.
 > Om det gäller VNet-peering, om trafik flödar genom en gemensam VNet-Gateway med tjänst slut punkter och ska flöda till motparten, skapar du en ACL/VNet-regel för att tillåta Azure Virtual Machines i gatewayens VNet att komma åt Azure Database for PostgreSQL-servern.
 
-<a name="anch-terminology-and-description-82f" />
+Du kan också överväga att använda [privat länk](concepts-data-access-and-security-private-link.md) för anslutningar. Privat länk tillhandahåller en privat IP-adress i ditt VNet för Azure Database for PostgreSQL-servern.
 
+<a name="anch-terminology-and-description-82f"></a>
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
 **Virtuellt nätverk:** Du kan ha virtuella nätverk kopplade till din Azure-prenumeration.
@@ -38,19 +40,13 @@ Om du vill skapa en regel för virtuellt nätverk måste du först vara ett [vir
 
 En regel för virtuella nätverk instruerar Azure Database for PostgreSQL servern att acceptera kommunikation från varje nod som finns på under nätet.
 
-
-
-
-
-
-
 <a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Fördelar med en virtuell nätverks regel
 
 De virtuella datorerna i under näten kan inte kommunicera med din Azure Database for PostgreSQL-Server förrän du vidtar åtgärder. En åtgärd som upprättar kommunikationen är att skapa en regel för virtuella nätverk. Anledningen till att du väljer regel metoden för VNet kräver en jämförelse-och-kontrast-diskussion som involverar de konkurrerande säkerhets alternativ som erbjuds av brand väggen.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
+### <a name="a-allow-access-to-azure-services"></a>A. Tillåta åtkomst till Azure-tjänster
 
 Fönstret anslutnings säkerhet har en **på/av-** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Inställningen **on** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure IP-adresser eller undernät kanske inte ägs av dig. Den **här** inställningen är förmodligen mer öppen än du vill att din Azure Database for PostgreSQL-databas ska vara. Funktionen för regel för virtuella nätverk ger en mycket noggrannare detaljerad kontroll.
 
@@ -62,11 +58,6 @@ Du kan hämta IP-alternativet genom att skaffa en *statisk* IP-adress för den v
 
 Den statiska IP-metoden kan dock bli svår att hantera, och den är kostsam när den görs i stor skala. Det är enklare att upprätta och hantera virtuella nätverks regler.
 
-### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Det går inte att ha Azure Database for PostgreSQL i ett undernät ännu utan att definiera en tjänst slut punkt
-
-Om din **Microsoft. SQL** -Server var en nod i ett undernät i det virtuella nätverket kan alla noder i det virtuella nätverket kommunicera med din Azure Database for postgresql-server. I det här fallet kan de virtuella datorerna kommunicera med Azure Database for PostgreSQL utan att behöva några regler för virtuella nätverk eller IP-regler.
-
-Men från och med augusti 2018 är Azure Database for PostgreSQL tjänsten ännu inte bland de tjänster som kan tilldelas direkt till ett undernät.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -119,6 +110,8 @@ För Azure Database for PostgreSQL har funktionen regler för virtuellt nätverk
 
 - Stöd för VNet-tjänstens slut punkter är bara för Generell användning och minnesoptimerade servrar.
 
+- Om **Microsoft. SQL** har Aktiver ATS i ett undernät anger det att du bara vill använda VNet-regler för att ansluta. Det går inte att använda [brand Väggs regler för icke-VNet](concepts-firewall-rules.md) i det under nätet.
+
 - I brand väggen gäller IP-adressintervall för följande nätverks objekt, men regler för virtuella nätverk gör inte följande:
     - [Virtuellt privat nätverk (VPN) för plats-till-plats (S2S)][vpn-gateway-indexmd-608y]
     - Lokalt via [ExpressRoute][expressroute-indexmd-744v]
@@ -131,7 +124,7 @@ Om du vill tillåta kommunikation från din krets till Azure Database for Postgr
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Lägga till en brand Väggs regel för VNET på servern utan att aktivera VNET-tjänstens slut punkter
 
-Att bara ange en brand Väggs regel skyddar inte servern mot VNet. Du måste också aktivera VNet-tjänstens slut **punkter för att** säkerheten ska börja gälla. När du aktiverar tjänstens slut punkter **aktive**ras stillestånds tiden för VNet-undernät tills den slutför över **gången från till** **på**. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingServiceEndpoint** för att minska eller eliminera stillestånds tiden under över gången.
+Att bara ange en brand Väggs regel för VNet skyddar inte servern till VNet. Du måste också aktivera VNet-tjänstens slut **punkter för att** säkerheten ska börja gälla. När du aktiverar tjänstens slut punkter **aktive**ras stillestånds tiden för VNet-undernät tills den slutför över **gången från till** **på**. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingServiceEndpoint** för att minska eller eliminera stillestånds tiden under över gången.
 
 Du kan ställa in flaggan **IgnoreMissingServiceEndpoint** med hjälp av Azure CLI eller portalen.
 

@@ -4,11 +4,12 @@ description: Övervaka Azure blockchain-tjänsten via Azure Monitor
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076920"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Övervaka Azure blockchain-tjänsten via Azure Monitor  
 
@@ -16,20 +17,20 @@ Kunder som kör blockchain-scenarier i produktions klass på ABS (Azure blockcha
 
 ## <a name="what-is-azure-monitor"></a>Vad är Azure Monitor?
 
-Azure blockchain service skapar övervaknings data med hjälp av Azure Monitor, som är en fullständig stack övervaknings tjänst i Azure som innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser. Mer information om Azure Monitor finns i [övervaka Azure-resurser med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource).
+Azure blockchain service skapar övervaknings data med hjälp av Azure Monitor, som är en fullständig stack övervaknings tjänst i Azure som innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser. Mer information om Azure Monitor finns i [övervaka Azure-resurser med Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
  
 
 Följande avsnitt bygger på den här artikeln genom att beskriva specifika data som samlats in från Azure blockchain-tjänsten och tillhandahålla exempel för att konfigurera data insamling och analysera data med Azure-verktyg.
 
 ## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Övervaka data som samlas in från Azure blockchain-tjänsten  
 
-Azure blockchain-tjänsten samlar in samma typ av övervaknings data som andra Azure-resurser, som beskrivs i [övervaknings data](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data) från Azure-resurser. Se [övervaka data referens för Azure blockchain-tjänsten](#monitor-azure-blockchain-service-data-reference) om du vill ha en detaljerad referens för de loggar och mått som skapats av tjänsten Azure blockchain.
+Azure blockchain-tjänsten samlar in samma typ av övervaknings data som andra Azure-resurser, som beskrivs i [övervaknings data](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data) från Azure-resurser. Se [övervaka data referens för Azure blockchain-tjänsten](#monitor-azure-blockchain-service-data-reference) om du vill ha en detaljerad referens för de loggar och mått som skapats av tjänsten Azure blockchain.
 
 Översikts sidan i Azure Portal för varje Azure blockchain service member-resurs innehåller en kort vy över transaktionerna, inklusive begär Anden som hanteras och bearbetade block. En del av dessa data samlas in automatiskt och är tillgängliga för analys när du har skapat Azure blockchain-tjänstens medlems resurs, medan du kan aktivera ytterligare data insamling med ytterligare konfiguration.
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar  
 
-Plattforms mått och aktivitets loggen samlas in automatiskt, men du måste skapa en diagnostisk inställning för att samla in resurs loggar eller vidarebefordra dem utanför Azure Monitor. Mer information om hur du skapar en diagnostisk inställning med hjälp av Azure Portal, CLI eller PowerShell finns i [skapa diagnostisk inställning för att samla in plattforms loggar och statistik i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) .
+Plattforms mått och aktivitets loggen samlas in automatiskt, men du måste skapa en diagnostisk inställning för att samla in resurs loggar eller vidarebefordra dem utanför Azure Monitor. Mer information om hur du skapar en diagnostisk inställning med hjälp av Azure Portal, CLI eller PowerShell finns i [skapa diagnostisk inställning för att samla in plattforms loggar och statistik i Azure](../../azure-monitor/platform/diagnostic-settings.md) .
 
 När du skapar en diagnostisk inställning anger du vilka kategorier av loggar som ska samlas in. Kategorierna för Azure blockchain-tjänsten visas nedan.
 
@@ -41,13 +42,13 @@ När du skapar en diagnostisk inställning anger du vilka kategorier av loggar s
 
 ## <a name="analyze-metric-data"></a>Analysera mått data  
 
-Du kan analysera mått för Azure blockchain service med Metrics Explorer, gå till fliken mått under avsnittet övervakning på bladet ABS-resurs. Mer information om hur du använder verktyget finns i [komma igång med Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) . De fullständiga måtten för Azure blockchain-tjänsten finns i namn området Azure blockchain service standard mått.
+Du kan analysera mått för Azure blockchain service med Metrics Explorer, gå till fliken mått under avsnittet övervakning på bladet ABS-resurs. Mer information om hur du använder verktyget finns i [komma igång med Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) . De fullständiga måtten för Azure blockchain-tjänsten finns i namn området Azure blockchain service standard mått.
 
 Du kan använda **Node** -dimensionen när du lägger till ett filter eller delar upp mått, som i princip innehåller mått värden per Transaction-noder och validator-noder i ABS-medlemmen.
 
 ## <a name="analyze-log-data"></a>Analysera loggdata
 
-Här följer några frågor som du kan ange i logg Sök fältet för att övervaka dina Azure blockchain service-medlemmar. Dessa frågor fungerar med det [nya språket](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Här följer några frågor som du kan ange i logg Sök fältet för att övervaka dina Azure blockchain service-medlemmar. Dessa frågor fungerar med det [nya språket](../../azure-monitor/log-query/log-query-overview.md).
 
 Om du vill fråga fel villkoren i blockchain program loggar använder du nedanstående fråga:
 
@@ -73,7 +74,7 @@ Den här artikeln innehåller en referens till de logg-och mått data som samlas
 
 ### <a name="resource-logs"></a>Resursloggar
 
-Alla resurs loggar delar ett gemensamt schema på översta nivån med få unika egenskaper som är specifika för blockchain-tjänsten. Du kan referera till schemat för [resurs loggar på den översta nivån](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). information om de Azure blockchain-tjänstespeciella egenskaperna beskrivs nedan  
+Alla resurs loggar delar ett gemensamt schema på översta nivån med få unika egenskaper som är specifika för blockchain-tjänsten. Du kan referera till schemat för [resurs loggar på den översta nivån](../../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). information om de Azure blockchain-tjänstespeciella egenskaperna beskrivs nedan  
 
 I följande tabell visas egenskaperna för Azure blockchain proxy-loggar när de samlas in i Azure Monitor loggar eller Azure Storage.  
 
@@ -94,7 +95,7 @@ I följande tabell visas egenskaperna för Azure blockchain proxy-loggar när de
 | RequestMethodName | HTTP-metoden heter, de möjliga värdena här används för att skapa medlemmar, hämta information om befintlig medlem, ta bort för borttagnings medlem, uppdaterings uppdatering av medlemmar.   |
 | BlockchainMemberName  | Azure blockchain-tjänstens medlems namn tillhandahålls av användaren.  |
 | Konsortium | Namnet på konsortiet som anges av användaren.   |
-| Remote  | IP-adressen för klienten där begäran kommer.  |
+| Fjärransluten  | IP-adressen för klienten där begäran kommer.  |
 | RequestSize  | Storlek på begäran som gjorts i byte.  |
 | RequestTime  | Varaktigheten för begäran i millisekunder.|
 
@@ -123,7 +124,7 @@ I följande tabell visas egenskaperna för program loggarna för Azure blockchai
 
 I följande tabeller visas de plattforms mått som samlas in för Azure blockchain-tjänsten. Alla mått lagras i namn områdets **Azure blockchain service standard-** mått.
 
-En lista över alla Azure Monitor mått som stöds (inklusive Azure blockchain-tjänsten) finns i [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+En lista över alla Azure Monitor mått som stöds (inklusive Azure blockchain-tjänsten) finns i [Azure Monitor mått som stöds](../../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="blockchain-metrics"></a>Blockchain mått
 
@@ -132,10 +133,10 @@ Följande tabell innehåller en lista över blockchain-mått som samlas in för 
 
 | Måttnamn | Enhet  |  Sammansättningstyp| Beskrivning   |
 |---|---|---|---|
-| Väntande transaktioner   | Antal  |  Medel | Antalet transaktioner som väntar på att bli används.   |
+| Väntande transaktioner   | Antal  |  Medelvärde | Antalet transaktioner som väntar på att bli används.   |
 | Bearbetade block   | Antal  | Summa  |  Antalet behandlade block under varje tidsintervall. För närvarande är block storleken 5 sekunder, vilket innebär att varje nod i minuten bearbetar 12 block och 60 block på 5 minuter.   |
 |Bearbetade transaktioner    | Antal  | Summa  | Antalet bearbetade transaktioner i ett block.    |
-|Köade transaktioner    |  Antal | Medel  | Antalet transaktioner som inte kan används direkt. Det kan bero på att de togs emot i rätt ordning och att framtiden väntar på att en tidigare transaktion ska komma. Eller så kan det vara två transaktioner som har samma nummer endast en gång (nonce) och samma gas värde, och därför kan det andra inte vara används.   |
+|Köade transaktioner    |  Antal | Medelvärde  | Antalet transaktioner som inte kan används direkt. Det kan bero på att de togs emot i rätt ordning och att framtiden väntar på att en tidigare transaktion ska komma. Eller så kan det vara två transaktioner som har samma nummer endast en gång (nonce) och samma gas värde, och därför kan det andra inte vara används.   |
 
 ### <a name="connection-metrics"></a>Anslutnings mått  
 
@@ -145,7 +146,7 @@ I följande tabell visas de olika anslutnings mått som samlas in för Azure blo
 | Måttnamn | Enhet  |  Sammansättningstyp| Beskrivning |
 |---|---|---|---|
 | Godkända anslutningar   | Antal  |  Summa | Det totala antalet godkända klient anslutningar.   |
-| Aktiva anslutningar  | Antal  | Medel  |  Aktuellt antal aktiva klient anslutningar, inklusive väntande anslutningar.    |
+| Aktiva anslutningar  | Antal  | Medelvärde  |  Aktuellt antal aktiva klient anslutningar, inklusive väntande anslutningar.    |
 |Hanterade anslutningar    | Antal  | Summa  | Det totala antalet hanterade anslutningar. Vanligt vis är parametervärdet detsamma som godkända anslutningar om vissa resurs gränser har nåtts.     |
 |Hanterade begär Anden     |  Antal | Summa  | Det totala antalet klient begär Anden.  |
 
@@ -160,12 +161,12 @@ I följande tabell visas de prestanda mått som samlas in för varje nod i Azure
 | Procent andel CPU-användning   | Procent  |  Max | Procent andel av CPU-användningen.     |
 | Lästa byte i IO   | Kilobyte   | Summa  |  Summan av IO-lästa byte över alla noder i blockchain-medlems resursen.      |
 |Skrivna byte i IO     | Kilobyte   | Summa  | Summan av IO-skrivningar i byte för alla noder i blockchain-medlems resursen.     |
-|Minnes gräns       |  GB   | Medel    | Maximalt minne tillgängligt för blockchain-processen per nod. |
-|Minnesanvändning     | GB  |  Medel | Genomsnittligt minne som används i genomsnitt för alla noder.  |
-| Minnes användnings procent     | Procent   | Medel  |  Procent andelen minne som används i genomsnitt för alla noder.       |
-|Lagrings användning      | GB   | Medel  | Den GB lagrings utrymme som används i genomsnitt för alla noder.       |
+|Minnes gräns       |  GB   | Medelvärde    | Maximalt minne tillgängligt för blockchain-processen per nod. |
+|Minnesanvändning     | GB  |  Medelvärde | Genomsnittligt minne som används i genomsnitt för alla noder.  |
+| Minnes användnings procent     | Procent   | Medelvärde  |  Procent andelen minne som används i genomsnitt för alla noder.       |
+|Lagrings användning      | GB   | Medelvärde  | Den GB lagrings utrymme som används i genomsnitt för alla noder.       |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Blockchain Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) för att avbilda och transformera blockchain-Data till Azure Event Grid.
+Läs mer om [Blockchain Data Manager](./data-manager.md) för att avbilda och transformera blockchain-Data till Azure Event Grid.

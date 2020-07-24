@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b7ab9e63bfe92967eca22b60dceec0de882768a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075623"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Vanliga frågor och svar om Windows Virtual Desktop
 
@@ -25,7 +25,7 @@ Om du vill skapa värdar för pooler och andra objekt måste du tilldelas deltag
 
 Du måste vara tilldelad rollen administratör för användar åtkomst i en app-grupp för att publicera program grupper till användare eller användar grupper.
 
-För att begränsa en administratör till att endast hantera användarsessioner, till exempel skicka meddelanden till användare, logga ut användare och så vidare, kan du skapa anpassade roller. Till exempel: 
+För att begränsa en administratör till att endast hantera användarsessioner, till exempel skicka meddelanden till användare, logga ut användare och så vidare, kan du skapa anpassade roller. Exempel: 
 
 ```powershell
 "actions": [
@@ -62,7 +62,7 @@ Arbets ytor måste också finnas på samma plats som deras app-grupper. När arb
 
 När du kör en PowerShell-cmdlet visas bara resursens namn och plats.
 
-Till exempel:
+Exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -74,7 +74,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Om du vill se alla egenskaper för en resurs lägger du till antingen `format-list` eller `fl` i slutet av cmdleten.
 
-Till exempel:
+Exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -82,7 +82,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Om du vill se vissa egenskaper lägger du till de angivna egenskaps namnen efter `format-list` eller `fl` .
 
-Till exempel:
+Exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -121,7 +121,7 @@ Följande tabell innehåller ett exempel på hur resurser en FSLogix-profil mås
 | Resurs | Krav |
 |---|---|
 | Stabilt läge IOPS | 10 |
-| Logga in/logga ut IOPS | 5 |
+| Logga in/logga ut IOPS | 50 |
 
 Exemplet i den här tabellen är en enskild användare, men kan användas för att uppskatta kraven för det totala antalet användare i din miljö. Du behöver till exempel cirka 1 000 IOPS för 100-användare och runt 5 000 IOPS vid inloggning och utloggning.
 

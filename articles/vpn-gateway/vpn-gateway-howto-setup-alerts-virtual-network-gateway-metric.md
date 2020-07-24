@@ -2,23 +2,24 @@
 title: Konfigurera aviseringar i Azure VPN Gateway mått
 description: Steg för att konfigurera aviseringar för VPN Gateway mått
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: ce9ab972d961a9193c3aa568878f9c93ccdcf6b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2c44720853500ad6a9a4af1c8d93d6c8bc3eea2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988024"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075526"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Konfigurera aviseringar för VPN Gateway mått
 
 Den här artikeln hjälper dig att ställa in aviseringar i Azure VPN Gateway mått. Azure Monitor ger möjlighet att konfigurera aviseringar för Azure-resurser. Du kan ställa in aviseringar för virtuella nätverksgateway för typen "VPN".
 
 
-|**Mått**   | **Processor** | **Precision** | **Beskrivning** | 
+|**Mått**   | **Enhet** | **Precision** | **Beskrivning** | 
 |---       | ---        | ---       | ---            | ---       |
 |**AverageBandwidth**| Byte/s  | 5 minuter| Genomsnittlig användning av kombinerad bandbredd för alla plats-till-plats-anslutningar på gatewayen.     |
 |**P2SBandwidth**| Byte/s  | 1 minut  | Genomsnittlig användning av kombinerad bandbredd för alla punkt-till-plats-anslutningar på gatewayen.    |

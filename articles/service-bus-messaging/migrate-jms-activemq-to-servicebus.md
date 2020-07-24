@@ -1,6 +1,6 @@
 ---
-title: Migrera JMS-program (Java Message Service) från ActiveMQ till Azure Service Bus | Microsoft Docs
-description: Den här artikeln förklarar hur du migrerar befintliga JMS-program som interagerar med aktiva MQ för att interagera med Azure Service Bus.
+title: Migrera JMS-program (Java Message Service) från Apache ActiveMQ till Azure Service Bus | Microsoft Docs
+description: Den här artikeln förklarar hur du migrerar befintliga JMS-program som interagerar med Apache ActiveMQ för att interagera med Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
-ms.openlocfilehash: 3da4f693f4cfec47c5456a0c5998f58f5fe02949
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7926e3b8aedde63c3a1a5a57c42b3d4f29cb9797
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076222"
 ---
-# <a name="migrate-existing-java-message-service-jms-20-applications-from-active-mq-to-azure-service-bus"></a>Migrera befintliga JMS (Java Message Service) 2,0-program från Active MQ till Azure Service Bus
+# <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrera befintliga Java Message Service (JMS) 2,0-program från Apache ActiveMQ till Azure Service Bus
 
-Azure Service Bus stöder Java/J2EE-och våren-arbetsbelastningar som använder API: t Java Message Service (JMS) 2,0 via protokollet Advanced Message Queueing Protocol (AMQP).
+Den här artikeln beskriver hur du ändrar ett befintligt JMS 2,0-program (Java Message Service) som interagerar med en JMS-Broker för att interagera med Azure Service Bus i stället. Artikeln handlar särskilt om att migrera från Apache ActiveMQ eller Amazon MQ.
 
-Den här guiden beskriver vad du bör känna till när du vill ändra ett befintligt JMS 2,0-program (Java Message Service) som interagerar med en JMS-Broker (särskilt Apache ActiveMQ eller Amazon MQ) för att interagera med Azure Service Bus.
+Azure Service Bus stöder Java 2 Platform-, Enterprise Edition-och våren-arbetsbelastningar som använder sig av JMS 2,0 API över Advanced Message Queueing Protocol (AMQP).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 ### <a name="differences-between-azure-service-bus-and-apache-activemq"></a>Skillnader mellan Azure Service Bus-och Apache-ActiveMQ
 
-Azure Service Bus-och Apache-ActiveMQ är både meddelande hanterare som fungerar som JMS-leverantörer för klient program för att skicka meddelanden till och ta emot meddelanden från. De aktiverar både punkt-till-punkt-semantik med **köer** och publicera-prenumerera-semantik med **ämnen** och **prenumerationer**. 
+Azure Service Bus-och Apache-ActiveMQ är både meddelande hanterare, som fungerar som JMS-leverantörer för klient program för att skicka meddelanden till och ta emot meddelanden från. De aktiverar både punkt-till-punkt-semantik med köer och publicerar-prenumerera-semantik med ämnen och prenumerationer. 
 
-Dessutom finns det några skillnader i de två.
+Även om det finns några skillnader mellan de två, som följande tabell visar:
 
-| Kategori | Aktiv MQ | Azure Service Bus |
+| Kategori | ActiveMQ | Azure Service Bus |
 | --- | --- | --- |
 | Program skiktning | Klustrad monolit | Två nivåer <br> (Gateway + server del) |
 | Protokollstöd | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
-| Etableringsläge | <ul> <li> IaaS (lokalt) </li> <li> Amazon MQ (hanterad PaaS) </li> | Hanterade PaaS |
+| Etableringsläge | <ul> <li> Infrastruktur som en tjänst (IaaS), lokalt </li> <li> Amazon MQ (hanterad plattform som en tjänst) </li> | Hanterad plattform som en tjänst (PaaS) |
 | Meddelandestorlek | Kunde konfigureras | 1 MB (Premium-nivå) |
 | Hög tillgänglighet | Kund hantering | Plattform hanterad |
 | Haveriberedskap | Kund hantering | Plattform hanterad | 
@@ -47,53 +47,45 @@ Dessutom finns det några skillnader i de två.
 
 [!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
 
-### <a name="caveats"></a>Varningar
+### <a name="considerations"></a>Överväganden
 
 Azure Service Bus med två nivåer i ger olika funktioner för affärs kontinuitet (hög tillgänglighet och haveri beredskap). Det finns dock några saker att tänka på när du använder JMS-funktioner.
 
 #### <a name="service-upgrades"></a>Tjänst uppgraderingar
 
-Om du uppgraderar och startar om Service Bus tas temporära köer eller ämnen bort.
-
-Om programmet är känsligt för data förlust i temporära köer eller ämnen rekommenderar vi att du **inte** använder tillfälliga köer eller ämnen och använder varaktiga köer, ämnen och prenumerationer i stället.
+Om du uppgraderar och startar om Service Bus tas temporära köer eller ämnen bort. Om ditt program är känsligt för data förlust i tillfälliga köer eller ämnen ska du inte använda tillfälliga köer eller ämnen. Använd varaktiga köer, ämnen och prenumerationer i stället.
 
 #### <a name="data-migration"></a>Datamigrering
 
-Som en del av migreringen/ändringen av klient programmen för att interagera med Azure Service Bus migreras inte data som lagras i ActiveMQ till Service Bus.
-
-Ett anpassat program kan behövas för att tömma ActiveMQ-köer, ämnen och prenumerationer och spela upp meddelanden till Service Bus köer, ämnen och prenumerationer.
+Som en del i migrering och ändring av klient program för att interagera med Azure Service Bus migreras inte data som finns i ActiveMQ till Service Bus. Du kan behöva ett anpassat program för att tömma ActiveMQ-köer, ämnen och prenumerationer och sedan spela upp meddelandena till köer, ämnen och prenumerationer av Service Bus.
 
 #### <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
-Rollbaserad Access Control (RBAC) som stöds av Azure ActiveDirectory är den föredragna autentiseringsmetoden för Azure Service Bus.
-
-Eftersom RBAC inte stöds för närvarande på grund av brist på anspråk baserat stöd för autentisering av Apache QPID JMS.
-
-För närvarande stöds endast autentisering med SAS-nycklar.
+Rollbaserad åtkomst kontroll (RBAC), som stöds av Azure Active Directory, är den föredragna autentiseringsmetoden för Service Bus. Eftersom RBAC eller anspråksbaserad autentisering inte stöds för närvarande av Apache QPID-JMS, bör du använda SAS-nycklar för autentisering.
 
 ## <a name="pre-migration"></a>Före migrering
 
 ### <a name="version-check"></a>Versions kontroll
 
-Nedan används de komponenter som används vid skrivning av JMS-program och de olika versioner som stöds. 
+Du använder följande komponenter och versioner medan du skriver JMS-programmen: 
 
-| Komponenter | Version |
+| Komponent | Version |
 |---|---|
 | API för Java-meddelande tjänst (JMS) | 1,1 eller senare |
-| AMQP-protokoll | 1.0 |
+| AMQP-protokoll | 1,0 |
 
 ### <a name="ensure-that-amqp-ports-are-open"></a>Se till att AMQP-portarna är öppna
 
-Azure Service Bus stöder kommunikation via AMQP-protokollet. I detta syfte måste kommunikation över portarna 5671 (AMQP) och 443 (TCP) aktive ras. Beroende på var klient programmen finns kan du behöva ett support ärende för att tillåta kommunikation över dessa portar.
+Service Bus stöder kommunikation via AMQP-protokollet. För det här ändamålet aktiverar du kommunikation över portarna 5671 (AMQP) och 443 (TCP). Beroende på var klient programmen finns kan du behöva ett support ärende för att tillåta kommunikation över dessa portar.
 
 > [!IMPORTANT]
-> Azure Service Bus stöder **endast** AMQP 1,0-protokoll.
+> Service Bus stöder endast AMQP 1,0-protokoll.
 
-### <a name="set-up-enterprise-configurations-vnet-firewall-private-endpoint-etc"></a>Konfigurera Enterprise-konfigurationer (VNET, brand vägg, privat slut punkt osv.)
+### <a name="set-up-enterprise-configurations"></a>Konfigurera Enterprise-konfigurationer
 
-Azure Service Bus aktiverar olika funktioner för företags säkerhet och hög tillgänglighet. Om du vill veta mer om dem följer du länken nedan.
+Service Bus aktiverar olika funktioner för företags säkerhet och hög tillgänglighet. Mer information finns i: 
 
-  * [Virtual Network tjänst slut punkter](service-bus-service-endpoints.md)
+  * [Tjänstslutpunkter för virtuellt nätverk](service-bus-service-endpoints.md)
   * [Brandvägg](service-bus-ip-filtering.md)
   * [Kryptering på tjänst sidan med kundhanterad nyckel (BYOK)](configure-customer-managed-key.md)
   * [Privata slut punkter](private-link-service.md)
@@ -101,32 +93,29 @@ Azure Service Bus aktiverar olika funktioner för företags säkerhet och hög t
 
 ### <a name="monitoring-alerts-and-tracing"></a>Övervakning, aviseringar och spårning
 
-Mått publiceras för varje Service Bus-namnrymd till Azure Monitor och kan användas för aviseringar och dynamisk skalning av resurser som har allokerats till namn området.
+För varje Service Bus-namnrymd publicerar du mått på Azure Monitor. Du kan använda dessa mått för avisering och dynamisk skalning av resurser som har allokerats till namn området.
 
-Läs mer om de olika måtten och hur du ställer in aviseringar på dem med [Service Bus mått i Azure Monitor](service-bus-metrics-azure-monitor.md).
+Mer information om de olika måtten och hur du konfigurerar aviseringar finns i [Service Bus mått i Azure Monitor](service-bus-metrics-azure-monitor.md). Du kan också få mer information om [spårning på klient sidan för data åtgärder](service-bus-end-to-end-tracing.md) och [Operational/Diagnostic-loggning för hanterings åtgärder](service-bus-diagnostic-logs.md).
 
-Läs mer om spårning av [klient sidan för data åtgärder](service-bus-end-to-end-tracing.md) och [Operational/Diagnostic-loggning för hanterings åtgärder](service-bus-diagnostic-logs.md)
+### <a name="metrics---new-relic"></a>Mått – nya Relic
 
-### <a name="metrics---newrelic"></a>Mått – NewRelic
+Du kan korrelera vilka mått från ActiveMQ mappar till vilka mått i Azure Service Bus. Se följande från den nya Relic-webbplatsen:
 
-Nedan visas en praktisk vägledning om vilka mått från ActiveMQ som mappar till vilka mått i Azure Service Bus. Nedan refereras från NewRelic.
-
-  * [ActiveMQ/Amazon MQ NewRelic-mått](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-mq-integration)
-  * [Azure Service Bus NewRelic mått](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
+  * [ActiveMQ/Amazon MQ nya Relic-mått](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-mq-integration)
+  * [Azure Service Bus nya Relic-mått](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
 
 > [!NOTE]
-> För närvarande har NewRelic inte någon sömlös integrering med ActiveMQ direkt, men de har mått som är tillgängliga för Amazon MQ.
-> Eftersom Amazon MQ härleds från ActiveMQ, mappar nedanstående guide NewRelic-måtten från AmazonMQ till Azure Service Bus.
+> För närvarande har nya Relic inte direkt, sömlös integrering med ActiveMQ, men de har mått som är tillgängliga för Amazon MQ. Eftersom Amazon MQ härleds från ActiveMQ, mappar följande tabell de nya Relic-måtten från Amazon MQ till Azure Service Bus.
 >
 
-|Mått grupperingen| AmazonMQ/aktivt MQ-mått | Azure Service Bus mått |
+|Mått grupperingen| Amazon MQ/ActiveMQ-mått | Azure Service Bus mått |
 |------------|---------------------------|--------------------------|
 |Utjämning|`CpuUtilization`|`CPUXNS`|
 |Utjämning|`MemoryUsage`|`WSXNS`|
 |Utjämning|`CurrentConnectionsCount`|`activeConnections`|
 |Utjämning|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
-|Utjämning|`InactiveDurableTopicSubscribersCount`|Utnyttja prenumerations mått|
-|Utjämning|`TotalMessageCount`|Dra nytta av kö/ämne/prenumerations nivå`activeMessages`|
+|Utjämning|`InactiveDurableTopicSubscribersCount`|Använd prenumerations mått|
+|Utjämning|`TotalMessageCount`|Använd kö/ämne/prenumerations nivå`activeMessages`|
 |Kö/ämne|`EnqueueCount`|`incomingMessages`|
 |Kö/ämne|`DequeueCount`|`outgoingMessages`|
 |Kö|`QueueSize`|`sizeBytes`|
@@ -135,28 +124,25 @@ Nedan visas en praktisk vägledning om vilka mått från ActiveMQ som mappar til
 
 ## <a name="migration"></a>Migrering
 
-För att migrera ditt befintliga JMS 2,0-program för att interagera med Azure Service Bus måste du utföra stegen nedan.
+Om du vill migrera ditt befintliga JMS 2,0-program för att interagera med Service Bus följer du stegen i följande avsnitt.
 
-### <a name="export-topology-from-activemq-and-create-the-entities-in-azure-service-bus-optional"></a>Exportera topologi från ActiveMQ och skapa entiteter i Azure Service Bus (valfritt)
+### <a name="export-the-topology-from-activemq-and-create-the-entities-in-service-bus-optional"></a>Exportera topologin från ActiveMQ och skapa entiteterna i Service Bus (valfritt)
 
-För att säkerställa att klient programmen kan ansluta till Azure Service Bus kan topologin – som innehåller köer, ämnen och prenumerationer, behöva migreras från **Apache ActiveMQ** till **Azure Service Bus**.
+För att säkerställa att klient program kan ansluta till Service Bus kan du migrera topologin (inklusive köer, ämnen och prenumerationer) från Apache ActiveMQ till Service Bus.
 
 > [!NOTE]
-> För JMS-program (Java Message Service) skapar köer, ämnen och prenumerationer en körnings åtgärd. De flesta JMS-providers (Java Message Service) (meddelande utjämnare) erbjuder funktioner för att skapa *köer*, *ämnen* och *prenumerationer* vid körning.
->
-> Därför är steget ovan valfritt.
->
-> Säkerställ att ditt program har behörighet att skapa topologin vid körning genom att kontrol lera att behörigheterna för anslutnings strängen med ***SAS*** -behörighet används.
+> För JMS-program skapar du köer, ämnen och prenumerationer som en körnings åtgärd. De flesta JMS-providers (meddelande utjämnare) ger dig möjlighet att skapa dessa vid körning. Det är därför som det här export steget betraktas som valfritt. För att säkerställa att ditt program har behörighet att skapa topologin vid körning använder du anslutnings strängen med SAS- `Manage` behörigheter.
 
-Gör så här: 
-  * Använd [kommando rads verktygen för ActiveMQ](https://activemq.apache.org/activemq-command-line-tools-reference) för att exportera topologin
-  * Återskapa samma topologi med en Azure Resource Manager- [mall](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-  * Kör Azure Resource Manager-mallen.
+Gör så här:
+
+1. Använd [kommando rads verktyget ActiveMQ](https://activemq.apache.org/activemq-command-line-tools-reference) för att exportera topologin.
+1. Återskapa samma topologi med hjälp av en Azure Resource Manager- [mall](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+1. Kör Azure Resource Manager-mallen.
 
 
 ### <a name="import-the-maven-dependency-for-service-bus-jms-implementation"></a>Importera maven-beroendet för Service Bus JMS-implementering
 
-För att säkerställa sömlös anslutning med Azure Service Bus måste paketet ***Azure-Service Bus-JMS*** läggas till som ett beroende till maven- `pom.xml` filen enligt nedan.
+För att säkerställa sömlös anslutning med Service Bus lägger du till `azure-servicebus-jms` paketet som ett beroende till filen maven på `pom.xml` följande sätt:
 
 ```xml
 <dependencies>
@@ -171,11 +157,11 @@ För att säkerställa sömlös anslutning med Azure Service Bus måste paketet 
 
 ### <a name="application-server-configuration-changes"></a>Konfigurations ändringar för program Server
 
-Den här delen är anpassad till den program server som är värd för dina klient program som ansluter till Active MQ.
+Den här delen är anpassad till den program server som är värd för dina klient program som ansluter till ActiveMQ.
 
 #### <a name="tomcat"></a>Tomcat
 
-Här börjar vi med konfigurationen som är speciell för Active MQ som det visas i `/META-INF/context.xml` filen.
+Här börjar du med konfigurationen som är speciell för ActiveMQ, som du ser i `/META-INF/context.xml` filen.
 
 ```XML
 <Context antiJARLocking="true">
@@ -202,7 +188,7 @@ Här börjar vi med konfigurationen som är speciell för Active MQ som det visa
 </Context>
 ```
 
-som kan anpassas så att de pekar på Azure Service Bus
+Du kan anpassa detta så att det pekar på Service Bus, enligt följande:
 
 ```xml
 <Context antiJARLocking="true">
@@ -229,11 +215,9 @@ som kan anpassas så att de pekar på Azure Service Bus
 
 #### <a name="spring-applications"></a>Våren-program
 
-##### <a name="update-applicationproperties-file"></a>Uppdatera `application.properties` fil
+##### <a name="update-the-applicationproperties-file"></a>Uppdatera `application.properties` filen
 
-Om du använder ett våren Boot-program för att ansluta till ActiveMQ.
-
-Här är målet att ***ta bort*** de ActiveMQ-speciella egenskaperna från `application.properties` filen.
+Om du använder ett våren Boot-program för att ansluta till ActiveMQ vill du ta bort de ActiveMQ egenskaperna från `application.properties` filen.
 
 ```properties
 spring.activemq.broker-url=<ACTIVEMQ BROKER URL>
@@ -241,21 +225,21 @@ spring.activemq.user=<ACTIVEMQ USERNAME>
 spring.activemq.password=<ACTIVEMQ PASSWORD>
 ```
 
-***Lägg sedan till*** Service Bus vissa egenskaper i `application.properties` filen.
+Lägg sedan till de Service Bus-/regionsspecifika egenskaperna i `application.properties` filen.
 
 ```properties
 azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySharedAccessKeyName;SharedAccessKey=mySharedAccessKey
 ```
 
-##### <a name="replace-the-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Ersätt ActiveMQConnectionFactory med ServiceBusJmsConnectionFactory
+##### <a name="replace-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Ersätt `ActiveMQConnectionFactory` med`ServiceBusJmsConnectionFactory`
 
-Nästa steg är att ersätta instansen av ActiveMQConnectionFactory med ServiceBusJmsConnectionFactory.
+Nästa steg är att ersätta instansen av `ActiveMQConnectionFactory` med `ServiceBusJmsConnectionFactory` .
 
 > [!NOTE] 
-> De faktiska kod ändringarna är specifika för programmet och hur beroenden hanteras, men exemplet nedan ger vägledning om ***vad*** som ska ändras.
+> De faktiska kod ändringarna är specifika för programmet och hur beroenden hanteras, men följande exempel ger vägledning om vad som bör ändras.
 >
 
-Tidigare kan du instansiera ett objekt av ActiveMQConnectionFactory enligt nedan.
+Tidigare kan du ha instansierat ett objekt av `ActiveMQConnectionFactory` , enligt följande:
 
 ```java
 
@@ -267,7 +251,7 @@ connection.start();
 
 ```
 
-Detta skulle ändras till instansiera ett objekt i ServiceBusJmsConnectionFactory
+Nu ändrar du detta för att instansiera ett objekt av `ServiceBusJmsConnectionFactory` , enligt följande:
 
 ```java
 
@@ -283,13 +267,13 @@ connection.start();
 
 ## <a name="post-migration"></a>Efter migreringen
 
-Nu när du har ändrat programmet för att börja skicka och ta emot meddelanden från Azure Service Bus bör du kontrol lera att det fungerar som förväntat. När du är klar kan du fortsätta med att förfina och modernisera din programs tack.
+Nu när du har ändrat programmet för att börja skicka och ta emot meddelanden från Service Bus bör du kontrol lera att det fungerar som förväntat. När det är färdigt kan du fortsätta med att förfina och modernisera din programs tack.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Dra nytta av [våren Boot starter för Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) för sömlös integrering med Azure Service Bus.
+Använd [Start Start programmet våren för Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) för sömlös integrering med Service Bus.
 
-Mer information om Service Bus Messaging och Java Message Service (JMS) finns i följande avsnitt:
+Mer information om Service Bus meddelande-och JMS finns i:
 
 * [Service Bus JMS](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)

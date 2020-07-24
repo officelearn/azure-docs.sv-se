@@ -11,11 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213932"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075726"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partitionerings tabeller i Synapse SQL-pool
 
@@ -31,21 +32,33 @@ Partitionering kan dra nytta av data underhåll och frågans prestanda. Vare sig
 
 Den främsta fördelen med att partitionera i Synapse SQL-poolen är att förbättra effektiviteten och prestandan vid inläsning av data genom att använda borttagning av partition, växling och sammanslagning. I de flesta fall är data partitionerade i en datum kolumn som är nära knutna till den ordning som data läses in i databasen. En av de största fördelarna med att använda partitioner för att underhålla data är att undvika transaktions loggning. Även om du helt enkelt infogar, uppdaterar eller tar bort data är det enklaste sättet, med lite tanke och ansträngning, att använda partitionering under inläsnings processen och förbättra prestanda avsevärt.
 
-Partition växling kan användas för att snabbt ta bort eller ersätta en del av en tabell.  En försäljnings fakta tabell kan till exempel innehålla endast data för de senaste 36 månaderna. I slutet av varje månad tas den äldsta månaden av försäljnings data bort från tabellen.  Dessa data kan tas bort med hjälp av en Delete-instruktion för att ta bort data för den äldsta månaden. Att ta bort en stor mängd data rad för rad med en Delete-instruktion kan dock ta för lång tid, samt skapa risken för stora transaktioner som tar lång tid att återställa om något går fel. En mer optimal metod är att släppa den äldsta data partitionen. Det kan ta flera sekunder att ta bort enskilda rader och det kan ta flera sekunder att ta bort en hel partition.
+Partition växling kan användas för att snabbt ta bort eller ersätta en del av en tabell.  En försäljnings fakta tabell kan till exempel innehålla endast data för de senaste 36 månaderna. I slutet av varje månad tas den äldsta månaden av försäljnings data bort från tabellen.  Dessa data kan tas bort med hjälp av en Delete-instruktion för att ta bort data för den äldsta månaden. 
+
+Att ta bort en stor mängd data rad för rad med en Delete-instruktion kan dock ta för lång tid, samt skapa risken för stora transaktioner som tar lång tid att återställa om något går fel. En mer optimal metod är att släppa den äldsta data partitionen. Det kan ta flera sekunder att ta bort enskilda rader och det kan ta flera sekunder att ta bort en hel partition.
 
 ### <a name="benefits-to-queries"></a>Fördelar med frågor
 
-Partitionering kan också användas för att förbättra prestanda för frågor. En fråga som tillämpar ett filter på partitionerade data kan begränsa sökningen till endast de kvalificerade partitionerna. Den här filtrerings metoden kan undvika en fullständig tabells ökning och bara genomsöka en mindre delmängd data. Med introduktionen av grupperade columnstore-index, är de stora prestanda fördelarna mindre fördelaktiga, men i vissa fall kan det vara en fördel med frågor. Om till exempel försäljnings fakta tabellen är partitionerad i 36 månader med fältet försäljnings datum kan frågor som filtrerar på försäljnings datumet hoppa över sökning i partitioner som inte matchar filtret.
+Partitionering kan också användas för att förbättra prestanda för frågor. En fråga som tillämpar ett filter på partitionerade data kan begränsa sökningen till endast de kvalificerade partitionerna. Den här filtrerings metoden kan undvika en fullständig tabells ökning och bara genomsöka en mindre delmängd data. Med introduktionen av grupperade columnstore-index, är de stora prestanda fördelarna mindre fördelaktiga, men i vissa fall kan det vara en fördel med frågor. 
+
+Om till exempel försäljnings fakta tabellen är partitionerad i 36 månader med fältet försäljnings datum kan frågor som filtrerar på försäljnings datumet hoppa över sökning i partitioner som inte matchar filtret.
 
 ## <a name="sizing-partitions"></a>Storleksändra partitioner
 
-Medan partitionering kan användas för att förbättra prestanda för vissa scenarier, kan en tabell med **för många** partitioner försämra prestanda under vissa omständigheter.  Dessa problem gäller särskilt för grupperade columnstore-tabeller. För att partitionering ska vara till hjälp är det viktigt att förstå när du ska använda partitionering och antalet partitioner som ska skapas. Det finns ingen fast snabb regel för hur många partitioner som är för många, beroende på dina data och hur många partitioner som du läser in samtidigt. Ett lyckat partitionerings schema har vanligt vis till hundratals partitioner, inte tusentals.
+Medan partitionering kan användas för att förbättra prestanda för vissa scenarier, kan en tabell med **för många** partitioner försämra prestanda under vissa omständigheter.  Dessa problem gäller särskilt för grupperade columnstore-tabeller. 
 
-När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar Synapse SQL-poolen redan varje tabell i 60-distribuerade databaser. Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månader, och eftersom en Synapse SQL-pool har 60-distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader fylls. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. Mer information finns i [indexerings](sql-data-warehouse-tables-index.md) artikeln, som innehåller frågor som kan bedöma kvaliteten på kluster columnstore-index.
+För att partitionering ska vara till hjälp är det viktigt att förstå när du ska använda partitionering och antalet partitioner som ska skapas. Det finns ingen fast snabb regel för hur många partitioner som är för många, beroende på dina data och hur många partitioner som du läser in samtidigt. Ett lyckat partitionerings schema har vanligt vis till hundratals partitioner, inte tusentals.
+
+När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar Synapse SQL-poolen redan varje tabell i 60-distribuerade databaser. 
+
+Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månader, och eftersom en Synapse SQL-pool har 60-distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader fylls. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. 
+
+Mer information finns i [indexerings](sql-data-warehouse-tables-index.md) artikeln, som innehåller frågor som kan bedöma kvaliteten på kluster columnstore-index.
 
 ## <a name="syntax-differences-from-sql-server"></a>Skillnader i syntaxen från SQL Server
 
-Synapse SQL-pool gör det möjligt att definiera partitioner som är enklare än SQL Server. Partitionerings funktioner och scheman används inte i Synapse SQL-poolen eftersom de finns i SQL Server. I stället behöver du bara identifiera partitionerade kolumner och gränserna. Även om syntaxen för partitionering kan skilja sig något från SQL Server, är de grundläggande begreppen desamma. SQL Server-och Synapse SQL-poolen stöder en partitions kolumn per tabell som kan ha en intervall partition. Mer information om partitionering finns i [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Synapse SQL-pool gör det möjligt att definiera partitioner som är enklare än SQL Server. Partitionerings funktioner och scheman används inte i Synapse SQL-poolen eftersom de finns i SQL Server. I stället behöver du bara identifiera partitionerade kolumner och gränserna. 
+
+Även om syntaxen för partitionering kan skilja sig något från SQL Server, är de grundläggande begreppen desamma. SQL Server-och Synapse SQL-poolen stöder en partitions kolumn per tabell som kan ha en intervall partition. Mer information om partitionering finns i [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 I följande exempel används instruktionen [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att partitionera tabellen FactInternetSales i kolumnen OrderDateKey:
 
@@ -236,7 +249,11 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Läs in nya data i partitioner som innehåller data i ett steg
 
-Att läsa in data i partitioner med partitionering är ett praktiskt sätt att mellanlagra nya data i en tabell som inte är synliga för användarens växel i nya data.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  Om du vill ta bort befintliga data i en partition måste du `ALTER TABLE` använda dem för att växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  I Synapse SQL-poolen `TRUNCATE_TARGET` stöds alternativet i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` `ALTER TABLE` kommandot skriver över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
+Att läsa in data i partitioner med partitionering är ett bekvämt sätt att mellanlagra nya data i en tabell som inte är synlig för användarna.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  
+
+Om du vill ta bort befintliga data i en partition måste du `ALTER TABLE` använda dem för att växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  
+
+I Synapse SQL-poolen `TRUNCATE_TARGET` stöds alternativet i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` `ALTER TABLE` kommandot skriver över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -338,7 +355,7 @@ Om du vill undvika din tabell definition från **rusting** i ditt käll kontroll
     DROP TABLE #partitions;
     ```
 
-Med den här metoden är koden i käll kontrollen fortfarande statisk och partitionerings gränsen får vara dynamisk. utvecklas med databasen över tid.
+Med den här metoden är koden i käll kontrollen fortfarande statisk och partitionernas gränser kan vara dynamiska. utvecklas med databasen över tid.
 
 ## <a name="next-steps"></a>Nästa steg
 

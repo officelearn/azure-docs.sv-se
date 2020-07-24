@@ -4,15 +4,15 @@ description: Lär dig hur du direktuppspelar Azures resurs loggar till en Log An
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84947103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077069"
 ---
 # <a name="azure-resource-logs"></a>Azure resurs loggar
 Azures resurs loggar är [plattforms loggar](platform-logs-overview.md) som ger inblick i åtgärder som utförts i en Azure-resurs. Innehållet i resurs loggar varierar beroende på Azure-tjänsten och resurs typen. Resurs loggar samlas inte in som standard. Du måste skapa en diagnostisk inställning för varje Azure-resurs för att skicka resurs loggarna till en Log Analytics arbets yta som ska användas med [Azure Monitor loggar](data-platform-logs.md), Azure Event Hubs som ska vidarebefordras utanför Azure, eller för att Azure Storage arkivering.
@@ -85,17 +85,15 @@ Exemplet ovan skulle resultera i att tre tabeller skapas:
 
 
 ### <a name="select-the-collection-mode"></a>Välj samlings läge
-De flesta Azure-resurser kommer att skriva data till arbets ytan i **Azure-diagnostik** eller **resurs särskilt läge** utan att du behöver välja något. I [dokumentationen för varje tjänst](diagnostic-logs-schema.md) finns information om vilket läge den använder. Alla Azure-tjänster kommer att använda resurs-/regionsspecifika läge. Som en del av den här över gången kan vissa resurser välja ett läge i den diagnostiska inställningen. Ange det resursbaserade läget för alla nya diagnostikinställningar eftersom det gör det enklare att hantera data och kan hjälpa dig att undvika komplexa migreringar vid ett senare tillfälle.
+De flesta Azure-resurser kommer att skriva data till arbets ytan i **Azure-diagnostik** eller **resurs särskilt läge** utan att du behöver välja något. I [dokumentationen för varje tjänst](./resource-logs-schema.md) finns information om vilket läge den använder. Alla Azure-tjänster kommer att använda resurs-/regionsspecifika läge. Som en del av den här över gången kan vissa resurser välja ett läge i den diagnostiska inställningen. Ange det resursbaserade läget för alla nya diagnostikinställningar eftersom det gör det enklare att hantera data och kan hjälpa dig att undvika komplexa migreringar vid ett senare tillfälle.
   
    ![Läges väljare för diagnostiska inställningar](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> För närvarande går det bara att välja **Azure Diagnostics** och **resurs särskilt** läge när du konfigurerar den diagnostiska inställningen i Azure Portal. Om du konfigurerar inställningen med CLI-, PowerShell-eller REST-API är det standardinställningen för **Azure-diagnostik**.
+> Ett exempel på hur du anger samlings läget med en Resource Manager-mall finns i [exempel på Resource Manager-mallar för diagnostikinställningar i Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
-Du kan ändra en befintlig diagnostisk inställning till ett resurs speciellt läge. I det här fallet finns data som redan har samlats in kvar i _AzureDiagnostics_ -tabellen tills den tas bort enligt inställningen för kvarhållning för arbets ytan. Nya data samlas in i den dedikerade tabellen. Använd [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) -operatorn för att fråga efter data i båda tabellerna.
+
+Du kan ändra en befintlig diagnostisk inställning till ett resurs speciellt läge. I det här fallet finns data som redan har samlats in kvar i _AzureDiagnostics_ -tabellen tills den tas bort enligt inställningen för kvarhållning för arbets ytan. Nya data samlas in i den dedikerade tabellen. Använd [union](/azure/kusto/query/unionoperator) -operatorn för att fråga efter data i båda tabellerna.
 
 Fortsätt att titta på [Azures uppdaterings](https://azure.microsoft.com/updates/) blogg om du vill veta mer om Azure-tjänster som stöder resurs-/regionsspecifika läge.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minut värdet (m = 00) är alltid 00, eftersom resurs logg händelser delas upp i enskilda blobbar per timme.
 
-I PT1H.jsfilen lagras varje händelse med följande format. Detta använder ett gemensamt schema på den översta nivån, men är unikt för varje Azure-tjänst enligt beskrivningen i [resurs loggar schema](diagnostic-logs-schema.md).
+I PT1H.jsfilen lagras varje händelse med följande format. Detta använder ett gemensamt schema på den översta nivån, men är unikt för varje Azure-tjänst enligt beskrivningen i [resurs loggar schema](./resource-logs-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}

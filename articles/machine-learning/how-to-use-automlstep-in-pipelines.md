@@ -11,21 +11,21 @@ author: lobrien
 manager: cgronlun
 ms.date: 06/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b8dfa37047113d84470f86cd67c601ebf48f793
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078092"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Med hjälp av den automatiserade ML-funktionen i Azure Machine Learning kan du upptäcka modeller med höga prestanda utan att du behöver implementera om varje möjlig metod. Tillsammans med Azure Machine Learning pipelines kan du skapa arbets flöden som kan användas för att snabbt identifiera algoritmen som fungerar bäst för dina data. I den här artikeln får du lära dig hur du effektivt ansluter ett steg för förberedelse av data till ett automatiserat ML-steg. Med automatisk ML kan du snabbt upptäcka vilken algoritm som passar bäst för dina data, samtidigt som du lägger på vägen till MLOps och modellens livs cykel driftsättning med pipelines.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  
 
@@ -97,6 +97,8 @@ if not compute_name in ws.compute_targets :
 
 compute_target = ws.compute_targets[compute_name]
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 Mellanliggande data mellan förberedelsen av data och det automatiserade ML-steget kan lagras i arbets ytans standard data lager, så vi behöver inte göra mer än anrop till `get_default_datastore()` `Workspace` objektet. 
 
@@ -268,7 +270,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Jämför de två teknikerna:
 
-| Teknik |  | 
+| Teknik | Förmåner och nack delar | 
 |-|-|
 |`PipelineOutputTabularDataset`| Högre prestanda | 
 || Naturlig väg från`PipelineData` | 

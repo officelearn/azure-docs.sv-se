@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/25/2019
-ms.openlocfilehash: 1a5a2682198f9ce9f5cb39f21e244c723ca513d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 1f0fb1ee8580c0c7f6eb30228b65e0a3780ef0a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076800"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Kopiera data från Salesforce Marketing Cloud med Azure Data Factory
 
@@ -34,7 +34,7 @@ Den här Salesforce Marketing Cloud Connector stöds för följande aktiviteter:
 
 Du kan kopiera data från Salesforce Marketing Cloud till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Salesforce Marketing Cloud Connector stöder OAuth 2-autentisering. Den är byggd på [Salesforce Marketing REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+Salesforce Marketing Cloud Connector stöder OAuth 2-autentisering och stöder både äldre och utökat paket typer. Anslutningen är byggd ovanpå [REST API Salesforce Marketing Cloud](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >Den här kopplingen stöder inte hämtning av anpassade objekt eller anpassade data tillägg.
@@ -49,16 +49,20 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Salesforce Marketing Cloud:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SalesforceMarketingCloud** | Ja |
-| ClientID | Det klient-ID som är associerat med Salesforce Marketing Cloud Application.  | Ja |
-| clientSecret | Den klient hemlighet som är kopplad till Salesforce Marketing Cloud Application. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
-| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Nej |
+| typ | Egenskapen Type måste anges till: **SalesforceMarketingCloud** | Yes |
+| connectionProperties | En grupp egenskaper som definierar hur du ansluter till Salesforce Marketing-molnet. | Yes |
+| ***Under `connectionProperties` :*** | | |
+| authenticationType | Anger vilken autentiseringsmetod som ska användas. Tillåtna värden är `Enhanced sts OAuth 2.0` eller `OAuth_2.0` .<br><br>Det äldre paketet för Salesforce Marketing Cloud stöder bara `OAuth_2.0` , medan de förbättrade paket behoven `Enhanced sts OAuth 2.0` . <br>Sedan den 1 augusti 2019 har Salesforce Marketing-molnet tagit bort möjligheten att skapa äldre paket. Alla nya paket är förstärkta paket. | Yes |
+| värd | För förbättrat paket ska värden vara din [under domän](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) som representeras av en sträng på 28 tecken som börjar med bokstäverna "MC", t. ex. `mc563885gzs27c5t9-63k636ttgm` . <br>För gammalt paket anger du `www.exacttargetapis.com` . | Yes |
+| ClientID | Det klient-ID som är associerat med Salesforce Marketing Cloud Application.  | Yes |
+| clientSecret | Den klient hemlighet som är kopplad till Salesforce Marketing Cloud Application. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF, eller lagra hemligheten i Azure Key Vault och låta ADF Copy-aktivitet hämta från där när data kopieringen ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
+| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | No |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | No |
 
-**Exempel:**
+**Exempel: använda utökad STS OAuth 2-autentisering för förbättrat paket** 
 
 ```json
 {
@@ -66,14 +70,66 @@ Följande egenskaper stöds för den länkade tjänsten Salesforce Marketing Clo
     "properties": {
         "type": "SalesforceMarketingCloud",
         "typeProperties": {
-            "clientId" : "<clientId>",
+            "connectionProperties": {
+                "host": "<subdomain e.g. mc563885gzs27c5t9-63k636ttgm>",
+                "authenticationType": "Enhanced sts OAuth 2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+**Exempel: använda OAuth 2-autentisering för ett äldre paket** 
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "www.exacttargetapis.com",
+                "authenticationType": "OAuth_2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+Om du använder den länkade tjänsten för Salesforce Marketing-molnet med följande nytto Last, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vidarebefordran som lägger till förbättrat paket stöd.
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "clientId": "<clientId>",
             "clientSecret": {
                  "type": "SecureString",
                  "value": "<clientSecret>"
             },
-            "useEncryptedEndpoints" : true,
-            "useHostVerification" : true,
-            "usePeerVerification" : true
+            "useEncryptedEndpoints": true,
+            "useHostVerification": true,
+            "usePeerVerification": true
         }
     }
 }
@@ -86,9 +142,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Salesforce Marketing-molnet anger du egenskapen type för data uppsättningen till **SalesforceMarketingCloudObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SalesforceMarketingCloudObject** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **SalesforceMarketingCloudObject** | Yes |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -116,10 +172,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Salesforce Marketing-molnet anger du käll typen i kopierings aktiviteten till **SalesforceMarketingCloudSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SalesforceMarketingCloudSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SalesforceMarketingCloudSource** | Yes |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

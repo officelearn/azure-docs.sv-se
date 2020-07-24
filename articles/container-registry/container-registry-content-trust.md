@@ -3,11 +3,12 @@ title: Hantera signerade avbildningar
 description: Lär dig hur du aktiverar innehålls förtroende för Azure Container Registry och push-och pull-signerade avbildningar. Content Trust är en funktion i Premium service-nivån.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 74bc61f71fc001d5333fcd3c9ac47fa4dd90218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509567"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076858"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Innehållsförtroende i Azure Container Registry
 
@@ -75,7 +76,7 @@ Endast de användare eller system som du har beviljat behörighet kan skicka bet
 
 Information om att bevilja rollen `AcrImageSigner` i Azure-portalen och Azure CLI följer nedan.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Navigera till registret i Azure Portal och välj sedan **åtkomst kontroll (IAM)**  >  **Lägg till roll tilldelning**. Under **Lägg till rolltilldelning** väljer du `AcrImageSigner` under **Roll**. **Välj** sedan en eller flera användare eller tjänsthuvudnamn och **Spara** därefter.
 
@@ -113,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>` kan vara tjänsthuvudnamnets **appId**, **objectId**, eller något av dess **servicePrincipalNames**. Mer information om hur du arbetar med tjänsthuvudnamn och Azure Container Registry finns i avsnittet om [Azure Container Registry-autentisering med tjänsthuvudnamn](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> När rollerna har ändrats kör `az acr login` du för att uppdatera den lokala identitets-token för Azure CLI så att de nya rollerna kan börja gälla. Information om hur du verifierar roller för en identitet finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md) och [Felsöka RBAC för Azure-resurser](../role-based-access-control/troubleshooting.md).
+> När rollerna har ändrats kör `az acr login` du för att uppdatera den lokala identitets-token för Azure CLI så att de nya rollerna kan börja gälla. Information om hur du verifierar roller för en identitet finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md) och [Felsöka Azure RBAC](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Överföra en betrodd avbildning
 

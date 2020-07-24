@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691728"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075055"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämföra Azure Data Lake Storage Gen1 och Azure Blob Storage
 
@@ -19,8 +19,8 @@ ms.locfileid: "82691728"
 
 I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake Storage Gen1 och Azure Blob Storage tillsammans med några viktiga aspekter av stor data bearbetning. Azure Blob Storage är ett generellt, skalbart objekt lager som har utformats för en mängd olika lagrings scenarier. Azure Data Lake Storage Gen1 är en databas för storskalig lagring som är optimerad för Big data Analytics-arbetsbelastningar.
 
-|  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
-| --- | --- | --- |
+| Kategori | Azure Data Lake Storage Gen1 | Azure Blob Storage |
+| -------- | ---------------------------- | ------------------ |
 | Syfte |Optimerad lagring för Big data Analytics-arbetsbelastningar |Allmän objekt lagring för en mängd olika lagrings scenarier, inklusive big data Analytics |
 | Användningsfall |Batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |Alla typer av text eller binära data, t. ex. Programserver del, säkerhets kopierings data, medie lagring för strömning och generella användnings data. Dessutom är fullständig support för analys arbets belastningar. batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |
 | Viktiga begrepp |Data Lake Storage Gen1-kontot innehåller mappar, vilket i sin tur innehåller data som lagras som filer |Lagrings kontot har behållare, vilket i sin tur har data i form av blobbar |

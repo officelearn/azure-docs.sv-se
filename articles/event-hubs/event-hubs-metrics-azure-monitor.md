@@ -3,18 +3,18 @@ title: Mått i Azure Monitor Azure-Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder Azure Monitor för att övervaka Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 76df9920c517e8370409bca26e5a6533c7253c1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7841007fa1736c88c30108099f86b99d3dad0fb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314592"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074857"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Event Hubs-mått i Azure Monitor
 
 Event Hubs mått ger dig tillstånd att Event Hubs resurser i din Azure-prenumeration. Med en omfattande uppsättning Mät data kan du utvärdera den övergripande hälsan för dina händelse nav inte bara på namn områdes nivån, utan även på enhets nivå. Den här statistiken kan vara viktig när de hjälper dig att övervaka status för dina Event Hub. Mått kan också hjälpa till att felsöka rotor Saks problem utan att behöva kontakta Azure-supporten.
 
-Azure Monitor tillhandahåller enhetliga användar gränssnitt för övervakning i olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och [Hämta Azure Monitor mått med .net](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) -exempel på GitHub.
+Azure Monitor tillhandahåller enhetliga användar gränssnitt för övervakning i olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../azure-monitor/overview.md) och [Hämta Azure Monitor mått med .net](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) -exempel på GitHub.
 
 ## <a name="access-metrics"></a>Åtkomst mått
 
@@ -103,7 +103,7 @@ Azure Event Hubs stöder följande dimensioner för mått i Azure Monitor. Det �
 Routning av övervaknings data (aktivitets loggar, diagnostikloggar osv.) till en Event Hub med Azure Monitor gör att du enkelt kan integrera med verktyg för säkerhets informations-och händelse hantering (SIEM). Mer information finns i följande artiklar/blogg inlägg:
 
 - [Strömma Azure övervaknings data till en Event Hub för användning av ett externt verktyg](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
-- [Introduktion till Azure Log Integration](../security/fundamentals/azure-log-integration-overview.md)
+- [Introduktion till Azure Log Integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 - [Använda Azure Monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 I scenariot där ett SIEM-verktyg använder loggdata från en Event Hub, om du inte ser några inkommande meddelanden eller om du ser inkommande meddelanden, men inte har några utgående meddelanden i mått diagrammet, följer du dessa steg:
@@ -114,7 +114,7 @@ I scenariot där ett SIEM-verktyg använder loggdata från en Event Hub, om du i
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [Översikt över Azure Monitoring](../monitoring-and-diagnostics/monitoring-overview.md).
+* Se [Översikt över Azure Monitoring](../azure-monitor/overview.md).
 * [Hämta Azure Monitor mått med .net](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) -exempel på GitHub. 
 
 Besök följande länkar för mer utförlig information om Event Hubs:
@@ -129,6 +129,3 @@ Besök följande länkar för mer utförlig information om Event Hubs:
 
 [1]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor1.png
 [2]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor2.png
-
-
-

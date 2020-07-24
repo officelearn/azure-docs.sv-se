@@ -7,20 +7,22 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5f4a90859831e6134530b94dfa80c11eb740301a
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 8066ba5c895ec5c3fdbf06ffc0a1f30117dcd4d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85113321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076821"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
-[Azure Cosmos DB](introduction.md) är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Azure Cosmos DB erbjuder [nyckelfärdig global distribution](distribute-data-globally.md), [elastisk skalning av dataflöde och lagring](partition-data.md) världen över, ensiffrig svarstid som den 99:e percentilen, och garanterat hög tillgänglighet, och allt understöds av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexerar alla data automatiskt](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det stöder flera modeller och dokument, nyckelvärde graf och kolumndatamodeller. Som standard kan du interagera med Cosmos DB med SQL-API. Dessutom implementerar Cosmos DB-tjänsten trådprotokoll för vanliga NoSQL-API:er som Cassandra, MongoDB, Gremlin och Azure Table Storage. På så sätt kan du använda välbekanta NoSQL-klientdrivrutiner och verktyg för att interagera med din Cosmos-databas.
+[Azure Cosmos DB](introduction.md) är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Azure Cosmos DB erbjuder [nyckelfärdig global distribution](distribute-data-globally.md), [elastisk skalning av dataflöde och lagring](partition-data.md) världen över, ensiffrig svarstid som den 99:e percentilen, och garanterat hög tillgänglighet, och allt understöds av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexerar alla data automatiskt](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det är flera modeller och stöder dokument, nyckel/värde-, graf-och kolumn data modeller. Azure Cosmos DB tjänst implementerar kabel protokoll för vanliga NoSQL-API: er, inklusive Cassandra, MongoDB, Gremlin och Azure Table Storage. På så sätt kan du använda välbekanta NoSQL-klientdrivrutiner och verktyg för att interagera med din Cosmos-databas.
 
 ## <a name="wire-protocol-compatibility"></a>Trådprotokollkompatibilitet
 
-Azure Cosmos DB implementerar trådprotokoll för vanliga NoSQL-databaser som Cassandra, MongoDB, Gremlin och Azure Table Storage. Genom att tillhandahålla en ursprunglig implementering av trådprotokollen direkt och effektivt i Cosmos DB kan befintliga klient-SDK:er, drivrutiner och verktyg för NoSQL-databaser interagera transparent med Cosmos DB. Cosmos DB använder inte någon källkod för databaserna för att tillhandahålla trådkompatibla API:er för någon av NoSQL-databaserna.
+Azure Cosmos DB implementerar Wire-protokollet för MongoDB. Den här implementeringen möjliggör transparent kompatibilitet med inbyggda MongoDB-klient-SDK: er, driv rutiner och verktyg. Azure Cosmos DB är värd för MongoDB-databasmotorn. Information om vilka funktioner som stöds efter MongoDB finns här: 
+- [Azure Cosmos DB s API för mongo DB Engine version 3,6](mongodb-feature-support-36.md)
+- [Azure Cosmos DB s API för mongo DB Engine version 3,2](mongodb-feature-support.md)
 
 Som standard är nya konton som skapats med Azure Cosmos DBs API för MongoDB kompatibla med version 3,6 av MongoDB-Wire-protokollet. Eventuella MongoDB-klientdatorer som förstår den här protokoll versionen bör kunna ansluta till Cosmos DB.
 
@@ -53,5 +55,7 @@ Här följer några tips för att komma igång:
 * Följ självstudiekursen [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md) om du vill lära dig hur du importerar dina data till en Cosmos-databas.
 * Anslut till ett Cosmos-konto med [Robo 3T](mongodb-robomongo.md).
 * Lär dig hur du [konfigurerar läsinställningar för globalt distribuerade appar](../cosmos-db/tutorial-global-distribution-mongodb.md).
+* Hitta lösningarna som ofta hittar fel i vår [fel söknings guide](mongodb-troubleshoot.md)
+
 
 <sup>OBS! den här artikeln beskriver en funktion i Azure Cosmos DB som ger till gång till Wire Protocol-kompatibilitet med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplad till MongoDB, Inc.</sup>

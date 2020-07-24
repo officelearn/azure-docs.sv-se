@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 28d7f6a9fa5d128783f2eb1dfcbcb75775cc499e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075945"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Felsöka långa svarstider med hjälp av loggar i Lagringsanalys
 
@@ -97,12 +97,12 @@ Följande steg visar hur du kan identifiera och felsöka latens problem med hjä
 
    Följande tabell innehåller information om OperationType-och RequestStatus-resultaten med hög latens:
 
-   |   |RequestStatus =<br>Klart|RequestStatus =<br>SÄKERHETS NetworkError|Rekommendation|
+   | Blob-typ |RequestStatus =<br>Klart|RequestStatus =<br>SÄKERHETS NetworkError|Rekommendation|
    |---|---|---|---|
-   |GetBlob|Ja|Nej|[**GetBlob-åtgärd:** RequestStatus = lyckades](#getblob-operation-requeststatus--success)|
-   |GetBlob|Nej|Ja|[**GetBlob-åtgärd:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|Ja|Nej|[**Placerings åtgärd:** RequestStatus = lyckades](#put-operation-requeststatus--success)|
-   |PutBlob|Nej|Ja|[**Placerings åtgärd:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Ja|Inga|[**GetBlob-åtgärd:** RequestStatus = lyckades](#getblob-operation-requeststatus--success)|
+   |GetBlob|Inga|Ja|[**GetBlob-åtgärd:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Ja|Inga|[**Placerings åtgärd:** RequestStatus = lyckades](#put-operation-requeststatus--success)|
+   |PutBlob|Inga|Ja|[**Placerings åtgärd:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Status resultat
 

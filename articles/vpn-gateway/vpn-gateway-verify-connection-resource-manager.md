@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: 93a7c0bb15c17b6939d6d53018e4fed84b1ae020
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38015d62077350e0e6f6ed8e7a43f748db58d213
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984571"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086995"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verifiera en VPN Gateway anslutning
 
@@ -23,7 +24,7 @@ Den här artikeln visar hur du verifierar en VPN gateway-anslutning för både d
 
 ## <a name="powershell"></a>PowerShell
 
-Om du vill verifiera en VPN gateway-anslutning för distributions modellen i Resource Manager med hjälp av PowerShell installerar du den senaste versionen av [PowerShell-cmdletarna för Azure Resource Manager](/powershell/azure/overview).
+Om du vill verifiera en VPN gateway-anslutning för distributions modellen i Resource Manager med hjälp av PowerShell installerar du den senaste versionen av [PowerShell-cmdletarna för Azure Resource Manager](/powershell/azure/).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
@@ -46,4 +47,4 @@ Om du vill verifiera din VPN gateway-anslutning för den klassiska distributions
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du kan lägga till virtuella datorer till dina virtuella nätverk. Se [Skapa en virtuell dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för anvisningar.
+* Du kan lägga till virtuella datorer till dina virtuella nätverk. Se [Skapa en virtuell dator](../virtual-machines/windows/quick-create-portal.md) för anvisningar.

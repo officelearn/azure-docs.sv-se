@@ -5,29 +5,31 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/18/2019
-ms.openlocfilehash: e393b6a499ad2b84f25ca1a1c062ca4ef2eec21c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: MaggiePucciEvans
+ms.author: evansma
+ms.date: 07/14/2020
+ms.openlocfilehash: 853aeb03dc1a19c1960709aedf09e71164ed62d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120746"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086378"
 ---
-# <a name="marketplace-rewards"></a>Marknads förmåner
+# <a name="marketplace-rewards"></a>Marketplace Rewards
 
-Marknads förmåner har utformats för att ge stöd åt dig i ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via Marketplace kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal. 
+Marketplace-förmåner ger dig till gång till ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via den kommersiella Marketplace kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal.
 
-Programmet skapar en positiv feedback-slinga: fördelarna i varje stadium av tillväxten är utformade för att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform. 
+Programmet skapar en positiv feedback-slinga: fördelarna med varje steg i tillväxten hjälper dig att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform.
 
 Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](../determine-your-listing-type.md#choose-a-publishing-option).
 
-Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet. 
+Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet.
 
-När du ökar din fakturerade försäljning via Marketplace-plattformen för Transact-partner, så kan du låsa upp fler förmåner per nivå. 
+När du ökar din fakturerade försäljning via Marketplace-plattformen för Transact-partner, så kan du låsa upp fler förmåner per nivå.
 
-Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet via Marketplace som en plattform. 
+Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet via Marketplace som en plattform.
 
-Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
+Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Kontrol lera att du är berättigad till programmet för Marketplace-förmåner [här](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
 
@@ -43,15 +45,12 @@ Dina steg för att komma igång är enkla:
     1. Ange telefonnummer och språk för den här marknadsföringskontakten. När du har angett den här informationen väljer du **Tilldela användare**.
     1. När du har uppdaterat marknadsförings kontakten väljer du **Aktivera** för den förmån som du vill börja använda. När du aktiverar en förmån kontaktas din marknadsföringskontakt av en medlem i Rewards-teamet inom en vecka.
 
-**Tekniska fördelar**
+## <a name="technical-benefits"></a>Tekniska fördelar
 
-1. Du kan använda din tekniska fördel för att begära teknisk support under försäljnings-, design-, distributions-och app Development-faserna i dina moln-och hybrid lösningar. Om du vill be om hjälp fyller du i formuläret för begäran och väljer **skicka begäran**.
+1. Du kan använda din tekniska fördel för att begära teknisk support under fasen försäljning, design, distribution och utveckling av appar i dina moln-och hybrid lösningar. Om du vill be om hjälp fyller du i formuläret för begäran och väljer **skicka begäran**.
 2. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
 
->[!Note]
->Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått ett meddelande, kan du kontrol lera i organisationen som är ägare till erbjudandet i fråga, antingen genom att titta på Cloud Partner Portal eller i Partner Center. De bör ha kommunikation och nästa steg.
-
->[!Note] 
->Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende på https://aka.ms/marketplacepublishersupport .
+>[!NOTE]
+>Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått ett meddelande, kan du checka in Partner Center och ta reda på vem i din organisation som äger erbjudandet. De bör ha kommunikation och nästa steg. Om du inte kan fastställa ägaren eller om ägaren har lämnat företaget öppnar du ett support ärende på https://aka.ms/marketplacepublishersupport .
 
 Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.

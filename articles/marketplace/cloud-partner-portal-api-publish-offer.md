@@ -4,18 +4,20 @@ description: API för att publicera det angivna erbjudandet.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: e3bc420a60c514e704a6caa38acee155b4981552
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 1dede788242f858468c00e9f30f70ebdbe60cd1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086412"
 ---
 # <a name="publish-an-offer"></a>Publicera ett erbjudande
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Startar publicerings processen för det angivna erbjudandet. Det här anropet är en tids krävande åtgärd.
 
@@ -31,7 +33,7 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 |  api-version   | Senaste versionen av API: et                        |   Datum         |
 |  |  |
 
-## <a name="header"></a>Sidhuvud
+## <a name="header"></a>Huvud
 ------
 
 |  **Namn**        |    **Värde**          |
@@ -44,7 +46,7 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 ## <a name="body-example"></a>Body-exempel
 ------------
 
-### <a name="request"></a>Förfrågan
+### <a name="request"></a>Begäran
 
 ``` json
   { 
@@ -62,8 +64,7 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 |  meddelande – e-post    | Kommaavgränsad lista med e-postadresser som ska meddelas om förloppet för publicerings åtgärden. |
 |  |  |
 
-
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 #### <a name="migrated-offers"></a>Migrerade erbjudanden
 
@@ -73,14 +74,12 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 
 `Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
-
 ### <a name="response-header"></a>Svarshuvud
 
 |  **Namn**             |    **Värde**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Location    | Den relativa sökvägen för att hämta den här åtgärdens status     |
+| Plats    | Den relativa sökvägen för att hämta den här åtgärdens status     |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Svars status koder
 

@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087019"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i virtuella nätverk i Azure
 
@@ -46,8 +47,8 @@ Vilken typ av namnmatchning du använder beror på hur dina resurser behöver ko
 | Namn matchning från App Service Web Apps i ett virtuellt nätverk till virtuella datorer i ett annat virtuellt nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Matchning av lokala dator-och tjänst namn från virtuella datorer eller roll instanser i Azure. |Kundhanterade DNS-servrar (den lokala domänkontrollanten, den lokala skrivskyddade domänkontrollanten eller en sekundär DNS-post synkroniserad med zon överföringar, till exempel). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Matchning av Azure-värdnamn från lokala datorer. |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i det motsvarande virtuella nätverket vidarebefordrar proxyservern frågor till Azure för att lösa problemet. Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Omvänd DNS för interna IP-adresser. |[Azure DNS privata zoner](../dns/private-dns-overview.md) eller [Azure-tillhandahållen namn matchning](#azure-provided-name-resolution) eller [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Ej tillämpligt |
-| Namn matchning mellan virtuella datorer eller roll instanser som finns i olika moln tjänster, inte i ett virtuellt nätverk. |Inte tillämpligt. Anslutning mellan virtuella datorer och roll instanser i olika moln tjänster stöds inte utanför ett virtuellt nätverk. |Ej tillämpligt|
+| Omvänd DNS för interna IP-adresser. |[Azure DNS privata zoner](../dns/private-dns-overview.md) eller [Azure-tillhandahållen namn matchning](#azure-provided-name-resolution) eller [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Inte tillämpligt |
+| Namn matchning mellan virtuella datorer eller roll instanser som finns i olika moln tjänster, inte i ett virtuellt nätverk. |Inte tillämpligt. Anslutning mellan virtuella datorer och roll instanser i olika moln tjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
 
 ## <a name="azure-provided-name-resolution"></a>Azure-tillhandahållen namn matchning
 
@@ -69,7 +70,7 @@ Azure-angiven namn matchning omfattar följande funktioner:
 * Du kan använda namn matchning mellan virtuella datorer i virtuella nätverk som använder Azure Resource Manager distributions modell, utan att det krävs något fullständigt domän namn. Virtuella nätverk i den klassiska distributions modellen kräver ett fullständigt domän namn när du matchar namn i olika moln tjänster. 
 * Du kan använda värdnamn som bäst beskriver dina distributioner i stället för att arbeta med automatiskt genererade namn.
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 Saker att tänka på när du använder Azure-angiven namn matchning:
 * Det går inte att ändra Azure-skapade DNS-suffix.
@@ -176,7 +177,7 @@ När du använder Azure-tillhandahållen namn matchning tillhandahåller Azure D
 Vid behov kan du fastställa det interna DNS-suffixet med hjälp av PowerShell eller API: et:
 
 * För virtuella nätverk i Azure Resource Manager distributions modeller är suffixet tillgängligt via [nätverks gränssnittet REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), PowerShell-cmdleten [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) och [AZ Network NIC show](/cli/azure/network/nic#az-network-nic-show) Azure CLI-kommandot.
-* I klassiska distributions modeller är suffixet tillgängligt via API-anropet [Get-Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) eller cmdleten [Get-AzureVM-debug](/powershell/module/servicemanagement/azure/get-azurevm) .
+* I klassiska distributions modeller är suffixet tillgängligt via API-anropet [Get-Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) eller cmdleten [Get-AzureVM-debug](/powershell/module/servicemanagement/azure.service/get-azurevm) .
 
 Om frågor om vidarebefordran till Azure inte passar dina behov, bör du ange en egen DNS-lösning. DNS-lösningen måste:
 
@@ -214,7 +215,7 @@ När du använder Azure Resource Manager distributions modell kan du ange DNS-se
 > [!NOTE]
 > Om du väljer Anpassad DNS-server för det virtuella nätverket måste du ange minst en IP-adress för DNS-servern. annars kommer det virtuella nätverket att ignorera konfigurationen och använda Azure-DNS i stället.
 
-När du använder den klassiska distributions modellen kan du ange DNS-servrar för det virtuella nätverket i Azure Portal eller i [nätverks konfigurations filen](https://msdn.microsoft.com/library/azure/jj157100). För moln tjänster kan du ange DNS-servrar via [tjänst konfigurations filen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell, med [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
+När du använder den klassiska distributions modellen kan du ange DNS-servrar för det virtuella nätverket i Azure Portal eller i [nätverks konfigurations filen](https://msdn.microsoft.com/library/azure/jj157100). För moln tjänster kan du ange DNS-servrar via [tjänst konfigurations filen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell, med [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
 
 > [!NOTE]
 > Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du utföra ett förnyat DHCP-lån på alla berörda virtuella datorer i det virtuella nätverket för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt i den virtuella datorn. Stegen varierar beroende på operativ system. Se relevant dokumentation för din OS-typ.

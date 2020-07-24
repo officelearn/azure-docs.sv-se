@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d14ddf297afc68fd4e17795c4106271bc026c5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81258838"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085681"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar
 Azure-diagnostik-tillägget innehåller funktioner för övervakning och diagnostik på en Windows-baserad virtuell Azure-dator. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Mer information om hur du inkluderar tillägg som en del av en mall för virtuella datorer finns i [redigera Azure Resource Manager mallar med VM-tillägg](../windows/template-description.md#extensions) . I den här artikeln beskrivs hur du kan lägga till Azure-diagnostik-tillägget i en mall för virtuella Windows-datorer.  
@@ -61,7 +62,7 @@ För en enkel Resource Manager-baserad virtuell dator lägger du till tilläggs 
 ]
 ```
 
-En annan vanlig konvention är att lägga till tilläggs konfigurationen i noden rot resurser i mallen i stället för att definiera den under noden resurser för den virtuella datorn. Med den här metoden måste du uttryckligen ange en hierarkisk relation mellan tillägget och den virtuella datorn med värdena *namn* och *typ* . Ett exempel: 
+En annan vanlig konvention är att lägga till tilläggs konfigurationen i noden rot resurser i mallen i stället för att definiera den under noden resurser för den virtuella datorn. Med den här metoden måste du uttryckligen ange en hierarkisk relation mellan tillägget och den virtuella datorn med värdena *namn* och *typ* . Exempel: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -78,7 +79,7 @@ Värdet för egenskapen *Name* kan användas för att referera till tillägget i
 
 *TypeHandlerVersion* anger vilken version av tillägget som du vill använda. Genom att ange den lägre versionen av *aktiverat autoupgrademinorversion* till **True** ser du till att du får den senaste lägre versionen av tillägget som är tillgänglig. Vi rekommenderar starkt att du alltid ställer in *aktiverat autoupgrademinorversion* så att du alltid är **sann** så att du alltid kommer att använda det senaste tillgängliga diagnostikprogrammet med alla nya funktioner och fel korrigeringar. 
 
-Elementet *Settings* innehåller konfigurations egenskaper för det tillägg som kan ställas in och läsas tillbaka från tillägget (kallas ibland för offentlig konfiguration). Egenskapen *xmlcfg* innehåller XML-baserad konfiguration för diagnostikloggar, prestanda räknare som samlas in av Diagnostics-agenten. Se [konfigurations schema för diagnostik](https://msdn.microsoft.com/library/azure/dn782207.aspx) om du vill ha mer information om själva XML-schemat. En vanlig metod är att lagra den faktiska XML-konfigurationen som en variabel i Azure Resource Manager-mallen och sedan sammanfoga och base64 koda dem för att ange värdet för *xmlcfg*. Information om hur du lagrar XML i variabler finns i avsnittet om [konfigurations variabler för diagnostik](#diagnostics-configuration-variables) . Egenskapen *storageAccount* anger namnet på det lagrings konto som diagnostikdata överförs till. 
+Elementet *Settings* innehåller konfigurations egenskaper för det tillägg som kan ställas in och läsas tillbaka från tillägget (kallas ibland för offentlig konfiguration). Egenskapen *xmlcfg* innehåller XML-baserad konfiguration för diagnostikloggar, prestanda räknare som samlas in av Diagnostics-agenten. Se [konfigurations schema för diagnostik](/azure/azure-monitor/platform/diagnostics-extension-schema-windows) om du vill ha mer information om själva XML-schemat. En vanlig metod är att lagra den faktiska XML-konfigurationen som en variabel i Azure Resource Manager-mallen och sedan sammanfoga och base64 koda dem för att ange värdet för *xmlcfg*. Information om hur du lagrar XML i variabler finns i avsnittet om [konfigurations variabler för diagnostik](#diagnostics-configuration-variables) . Egenskapen *storageAccount* anger namnet på det lagrings konto som diagnostikdata överförs till. 
 
 Egenskaperna i *protectedSettings* (kallas ibland privat konfiguration) kan anges men kan inte läsas tillbaka när de har angetts. Den skrivskyddade typen av *protectedSettings* gör det användbart för att lagra hemligheter som lagrings konto nyckel där diagnostikdata skrivs.    
 
@@ -116,7 +117,7 @@ Föregående JSON-kodfragment för diagnostik definierar en *accountid* -variabe
 
 *Xmlcfg* -egenskapen för Diagnostics-tillägget definieras med flera variabler som sammanfogas tillsammans. Värdena för dessa variabler är i XML så att de måste undantas korrekt när du anger JSON-variablerna.
 
-I följande exempel beskrivs XML för diagnostik-konfiguration som samlar in prestanda räknare på standard system nivå tillsammans med vissa Windows-händelseloggar och infrastruktur loggar för diagnostik. Den har avvisats och formaterats korrekt, så att konfigurationen kan klistras in direkt i avsnittet variabler i mallen. I [konfigurations schema för diagnostik](https://msdn.microsoft.com/library/azure/dn782207.aspx) finns ett mer lättläst exempel på konfigurations-XML.
+I följande exempel beskrivs XML för diagnostik-konfiguration som samlar in prestanda räknare på standard system nivå tillsammans med vissa Windows-händelseloggar och infrastruktur loggar för diagnostik. Den har avvisats och formaterats korrekt, så att konfigurationen kan klistras in direkt i avsnittet variabler i mallen. I [konfigurations schema för diagnostik](/azure/azure-monitor/platform/diagnostics-extension-schema-windows) finns ett mer lättläst exempel på konfigurations-XML.
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
@@ -178,4 +179,4 @@ Varje WADMetrics-tabell innehåller följande kolumner:
 ## <a name="next-steps"></a>Nästa steg
 * En fullständig exempel mall för en virtuell Windows-dator med diagnostik-tillägg finns i [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Distribuera Azure Resource Manager-mallen med [Azure PowerShell](../windows/ps-template.md) eller [Azure kommando rad](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Läs mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md)
+* Läs mer om hur du [redigerar Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md)

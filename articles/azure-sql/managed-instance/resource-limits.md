@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206189"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086837"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Översikt över gränser för resurs gränser för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -128,7 +128,7 @@ SQL-hanterad instans har för närvarande endast stöd för distribution av föl
 ## <a name="regional-resource-limitations"></a>Begränsningar för regionala resurser
 
 > [!Note]
-> Den senaste informationen om regions tillgänglighet för prenumerationer får du först kontrol lera [officiella COVID-19-blogg inlägg](https://aka.ms/sqlcapacity).
+> Den senaste informationen om region tillgänglighet för prenumerationer får du först [Markera en region](https://aka.ms/sqlcapacity).
 
 Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. SQL-hanterad instans har två standard gränser per Azure-region (som kan ökas på begäran genom att skapa en särskild [supportbegäran i Azure Portal](../database/quota-increase-request.md) beroende på typ av prenumerations typ:
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
-ms.openlocfilehash: b9d333467864f67bc357314830ff885af4232ba0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133199"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086191"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Utfasning av Site Recovery data krypterings funktion
 
@@ -22,14 +22,14 @@ Det här dokumentet beskriver information om utfasning och den åtgärd som du m
 ## <a name="deprecation-information"></a>Information om utfasning
 
 
-Den Site Recovery data krypterings funktionen är tillgänglig för kunder som skyddar virtuella Hyper-V-datorer så att replikerade data skyddas mot säkerhetshot. funktionen kommer att föråldras den **30 December 2019**. Den ersätts av funktionen mer avancerad [kryptering i rest](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , som använder [kryptering för lagringstjänst](../storage/common/storage-service-encryption.md) (SSE). Med SSE krypteras data innan de bevaras till lagring och dekrypteras vid hämtning, och vid redundansväxling till Azure kommer dina virtuella datorer att köras från de krypterade lagrings kontona, vilket ger ett förbättrat återställnings tids mål (RTO).
+Den Site Recovery data krypterings funktionen är tillgänglig för kunder som skyddar virtuella Hyper-V-datorer så att replikerade data skyddas mot säkerhetshot. funktionen kommer att föråldras den **30 April 2022**. Den ersätts av funktionen mer avancerad [kryptering i rest](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , som använder [kryptering för lagringstjänst](../storage/common/storage-service-encryption.md) (SSE). Med SSE krypteras data innan de bevaras till lagring och dekrypteras vid hämtning, och vid redundansväxling till Azure kommer dina virtuella datorer att köras från de krypterade lagrings kontona, vilket ger ett förbättrat återställnings tids mål (RTO).
 
 Observera att om du är en befintlig kund som använder den här funktionen, skulle du ha tagit emot kommunikation med information om utfasnings information och åtgärder. 
 
 
 ## <a name="what-are-the-implications"></a>Vilka är följderna?
 
-Efter den **30 December 2019**kommer alla virtuella datorer som fortfarande använder den inaktuella krypterings funktionen inte att kunna utföra redundans. 
+Från och med den **30 April 2022**kommer alla virtuella datorer som fortfarande använder den inaktuella krypterings funktionen inte att kunna utföra redundans. 
 
 ## <a name="required-action"></a>Nödvändig åtgärd
 Om du vill fortsätta med redundansväxlingen och replikeringar följer du stegen som beskrivs nedan:
@@ -44,4 +44,3 @@ När du har slutfört den inledande replikeringen till lagrings konton med SSE a
 
 ## <a name="next-steps"></a>Nästa steg
 Planera för att utföra reparations stegen och kör dem tidigast. Om du har frågor om den här utfasningen kan du kontakta Microsoft Support. Om du vill läsa mer om Hyper-V till Azure-scenariot kan du läsa [här](hyper-v-vmm-architecture.md).
-

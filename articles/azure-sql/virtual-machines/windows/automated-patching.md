@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f1f564a36a3f0103832bc81bbbc65d2818c03143
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 822d74c6f080a1bb1e5e5af38bdf2c221af16d52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232021"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086769"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Automatiserad uppdatering för SQL Server på Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ Automatiserad uppdatering upprättar en underhålls period för en virtuell Azur
 
 Automatiserad uppdatering beror på [SQL Server infrastruktur som tjänst (IaaS) Agent tillägg](sql-server-iaas-agent-extension-automate-management.md).
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda automatisk uppdatering bör du tänka på följande:
 
 **Operativ system**:
@@ -51,7 +51,7 @@ Om du vill använda automatisk uppdatering bör du tänka på följande:
 
 **Azure PowerShell**:
 
-* [Installera de senaste Azure PowerShell-kommandona](/powershell/azure/overview) om du planerar att konfigurera automatisk uppdatering med PowerShell.
+* [Installera de senaste Azure PowerShell-kommandona](/powershell/azure/) om du planerar att konfigurera automatisk uppdatering med PowerShell.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -114,7 +114,7 @@ Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceG
 
 I följande tabell beskrivs den praktiska påverkan på den virtuella Azure-datorn:
 
-| Parameter | Verkan |
+| Parameter | Effekt |
 | --- | --- |
 | **DayOfWeek** |Uppdateringar installeras varje torsdag. |
 | **MaintenanceWindowStartingHour** |Starta uppdateringar vid 11:10:00. |

@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086448"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Hantera begränsnings problem (429-"för många begär Anden"-fel) i Azure Logic Apps
 
@@ -20,7 +21,7 @@ I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)returnerar din Logic [
 
 Här följer några vanliga typer av begränsningar som din Logic app kan uppleva:
 
-* [Logic app](#logic-app-throttling)
+* [Logikapp](#logic-app-throttling)
 * [Anslutningsprogram](#connector-throttling)
 * [Mål tjänst eller system](#destination-throttling)
 
@@ -76,7 +77,7 @@ För att kunna hantera begränsning på den här nivån har du följande alterna
 
 ## <a name="connector-throttling"></a>Anslutnings begränsning
 
-Varje koppling har sina egna begränsningar för begränsning, som du hittar på kopplingens tekniska referens sida. Till exempel har [Azure Service Bus Connector](https://docs.microsoft.com/connectors/servicebus/) en begränsnings gräns som tillåter upp till 6 000 anrop per minut, medan SQL Server anslutningen har [begränsningar som varierar beroende på åtgärds typ](https://docs.microsoft.com/connectors/sql/).
+Varje koppling har sina egna begränsningar för begränsning, som du hittar på kopplingens tekniska referens sida. Till exempel har [Azure Service Bus Connector](/connectors/servicebus/) en begränsnings gräns som tillåter upp till 6 000 anrop per minut, medan SQL Server anslutningen har [begränsningar som varierar beroende på åtgärds typ](/connectors/sql/).
 
 Vissa utlösare och åtgärder, till exempel HTTP, har en ["återförsöks princip"](../logic-apps/logic-apps-exception-handling.md#retry-policies) som du kan anpassa baserat på [begränsningen för återförsök](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) för att implementera undantags hantering. Den här principen anger om och hur ofta en utlösare eller åtgärd försöker utföra en begäran när den ursprungliga begäran Miss lyckas eller timeout och resulterar i ett svar på 408, 429 eller 5xx. Så när begränsningen startar och returnerar ett 429-fel, Logic Apps följande princip för återförsök som stöds.
 

@@ -6,12 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683296"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086684"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Pivot-transformering i data flöde för mappning
 
@@ -19,6 +20,8 @@ ms.locfileid: "83683296"
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Använd Pivot-transformeringen för att skapa flera kolumner från de unika rad värdena för en enskild kolumn. Pivot är en agg regerings omvandling där du väljer gruppera efter kolumner och genererar Pivot-kolumner med [mängd funktioner](data-flow-expression-functions.md#aggregate-functions).
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -68,7 +71,7 @@ Om de angivna värdena för en piltangent anges visas de pivoterade kolumnerna i
 
 Pivot genererar nya kolumn namn dynamiskt baserat på rad värden. Du kan lägga till dessa nya kolumner i metadata som kan refereras till senare i ditt data flöde. Om du vill göra det använder du åtgärden [Mappa](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) åtgärdad snabb åtgärd i data förhands granskning. 
 
-![Pivotera kolumner](media/data-flow/newpivot1.png "Mappa uppstaplade Pivot-kolumner")
+![Pivotkolumner](media/data-flow/newpivot1.png "Mappa uppstaplade Pivot-kolumner")
 
 ### <a name="sinking-pivoted-columns"></a>Handfat med pivoterade kolumner
 

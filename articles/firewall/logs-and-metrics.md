@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
-ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76315039"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086599"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och mått
 
@@ -98,9 +99,13 @@ Följande mått är tillgängliga för Azure-brand väggen:
 
     Enhet: antal
 
-- **Bearbetade data** – mängden data som passerar brand väggen.
+- **Bearbetade data** – summan av data som passerar brand väggen i en bestämd tids period.
 
     Enhet: byte
+
+- Data **flödes** frekvens för data som passerar brand väggen per sekund.
+
+    Enhet: bitar per sekund
 
 - **Hälso tillstånd för brand vägg** – anger hälso tillståndet för brand väggen baserat på SNAT-portens tillgänglighet.
 

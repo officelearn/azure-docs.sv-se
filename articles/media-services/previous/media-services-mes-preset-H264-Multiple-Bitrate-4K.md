@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b077dc2fe3ba7528d03490a19312de946647a522
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086310"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264, flera bithastigheter, 4K
 `Media Encoder Standard`definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard` kodaren finns i [uppgifts för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -28,7 +29,7 @@ ms.locfileid: "74887025"
  Den här för hands inställningen ger en uppsättning med 12 GOP MP4-filer, från 20000 kbps till 1000 kbit/s och stereo AAC-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element i de här för inställningarna innebär och giltiga värden för varje element finns i avsnittet [Media Encoder Standard schema](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  Du bör hämta den reserverade enhets typen Premium med 4K-kodar. Mer information finns i [skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Du bör hämta den reserverade enhets typen Premium med 4K-kodar. Mer information finns i [skala kodning](./media-services-scale-media-processing-overview.md).  
   
 > [!NOTE]
 >  När du ändrar `Width` värdena och i `Height` lager bör du se till att proportionerna är konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640 x 360.  

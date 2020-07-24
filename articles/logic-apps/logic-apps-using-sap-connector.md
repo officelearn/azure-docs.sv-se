@@ -7,13 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: 01c1a2b3f9455f19877f1b16b7fff5a7c2e77c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85323154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086616"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -38,7 +39,7 @@ Den här artikeln visar hur du skapar exempel på Logic Apps som integreras med 
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa med i den här artikeln behöver du följande objekt:
 
@@ -133,7 +134,7 @@ Dessa krav gäller när dina Logi Kap par körs på en Premium-nivå (inte i [in
 
   * Om din SAP-anslutning Miss lyckas med fel meddelandet "kontrol lera konto information och/eller behörigheter och försök igen", kan Assembly-filerna ha fel plats. Se till att du har kopierat Assembly-filerna till installationsmappen för datagateway.
 
-    Du kan felsöka genom att [använda logg visaren för .net-sammansättnings bindning](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), vilket gör att du kan kontrol lera att Assembly-filerna finns på rätt plats. Alternativt kan du välja alternativet **Global Assembly Cache Registration** när du installerar SAP-klient biblioteket.
+    Du kan felsöka genom att [använda logg visaren för .net-sammansättnings bindning](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), vilket gör att du kan kontrol lera att Assembly-filerna finns på rätt plats. Alternativt kan du välja alternativet **Global Assembly Cache Registration** när du installerar SAP-klient biblioteket.
 
 <a name="sap-library-versions"></a>
 
@@ -186,7 +187,7 @@ I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begära
 I Azure Logic Apps måste varje Logi Kap par starta med en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts)som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
 
 > [!NOTE]
-> När en Logi Kap par tar emot IDoc-paket från SAP, stöder inte [utlösaren](https://docs.microsoft.com/azure/connectors/connectors-native-reqres) "Plain" XML-scheman som genererats av SAP: s WE60 iDOC-dokumentation. Det finns dock stöd för XML-schemat "Plain" för scenarier som skickar meddelanden från Logic Apps *till* SAP. Du kan använda begär ande utlösare med SAP: s XML för IDoc, men inte med IDoc över RFC. Du kan också transformera XML-filen till det format som krävs. 
+> När en Logi Kap par tar emot IDoc-paket från SAP, stöder inte [utlösaren](../connectors/connectors-native-reqres.md) "Plain" XML-scheman som genererats av SAP: s WE60 iDOC-dokumentation. Det finns dock stöd för XML-schemat "Plain" för scenarier som skickar meddelanden från Logic Apps *till* SAP. Du kan använda begär ande utlösare med SAP: s XML för IDoc, men inte med IDoc över RFC. Du kan också transformera XML-filen till det format som krävs. 
 
 I det här exemplet skapar du en Logic-app med en slut punkt i Azure så att du kan skicka *http post-begäranden* till din Logic app. När din Logic app tar emot dessa HTTP-förfrågningar utlöses utlösaren och kör nästa steg i arbets flödet.
 
@@ -261,7 +262,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
       > [!TIP]
       > Ange värdet för **SAP-åtgärd** via uttrycks redigeraren. På så sätt kan du använda samma åtgärd för olika meddelande typer.
 
-      Mer information om IDoc-åtgärder finns i [meddelande scheman för iDOC-åtgärder](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      Mer information om IDoc-åtgärder finns i [meddelande scheman för iDOC-åtgärder](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
    1. Klicka i rutan **inmatat meddelande** så att listan med dynamiskt innehåll visas. Välj fältet **brödtext** under **när en http-begäran tas emot**från listan.
 
@@ -273,7 +274,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
       ![Slutför SAP-åtgärden](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 <a name="add-response"></a>
 
@@ -289,7 +290,30 @@ Lägg nu till en svars åtgärd i din Logic Apps-arbetsflöde och inkludera utda
 
    ![Slutför SAP-åtgärd](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
-1. Spara din logikapp.
+1. Spara logikappen.
+
+#### <a name="add-rfc-request-response"></a>Lägg till RFC-begäran-svar
+
+> [!NOTE]
+> SAP-utlösaren tar emot IDocs över tRFC, som inte har en svars parameter genom design. 
+
+Du måste skapa ett mönster för begäran och svar om du behöver ta emot svar genom att använda ett RPC (Remote Function Call) för att Logic Apps från SAP ABAP. Om du vill ta emot IDocs i din Logic app bör du först utföra en [http-begäran](../connectors/connectors-native-reqres.md#add-a-response-action) med status kod `200 OK` och inget innehåll. Det här rekommenderade steget Slutför SAP LUW Asynchronous Transfer över tRFC omedelbart, vilket gör att SAP CPIC-konversationen är tillgänglig igen. Du kan sedan lägga till ytterligare åtgärder i din Logic app för att bearbeta de mottagna IDoc utan att blockera ytterligare överföringar.
+
+Om du vill implementera ett mönster för begäran och svar måste du först identifiera RFC-schemat med hjälp av [ `generate schema` kommandot](#generate-schemas-for-artifacts-in-sap). Det genererade schemat har två möjliga rotnoder: 
+
+1. Noden begäran, som är det anrop som du får från SAP.
+1. Noden svar, som är ditt svar tillbaka till SAP.
+
+I följande exempel genereras ett mönster för begäran och svar från `STFC_CONNECTION` RFC-modulen. XML-begäran parsas för att extrahera ett Node-värde där SAP-begäranden `<ECHOTEXT>` . Svaret infogar den aktuella tidstämpeln som ett dynamiskt värde. Du får ett liknande svar när du skickar en `STFC_CONNECTION` RFC från en Logic app till SAP.
+
+```http
+
+<STFC_CONNECTIONResponse xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <ECHOTEXT>@{first(xpath(xml(triggerBody()?['Content']), '/*[local-name()="STFC_CONNECTION"]/*[local-name()="REQUTEXT"]/text()'))}</ECHOTEXT>
+  <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
+
+
+```
 
 ### <a name="test-your-logic-app"></a>Testa din Logic app
 
@@ -378,7 +402,7 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 
    ![Utlösnings exempel som tar emot flera meddelanden](media/logic-apps-using-sap-connector/example-trigger.png)
 
-   Mer information om SAP-åtgärden finns i [meddelande scheman för iDOC-åtgärder](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+   Mer information om SAP-åtgärden finns i [meddelande scheman för iDOC-åtgärder](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
 1. Spara din Logic app så att du kan börja ta emot meddelanden från SAP-systemet. I verktygsfältet designer väljer du **Spara**.
 
@@ -421,11 +445,11 @@ Om du inte kan skicka IDoc-paket från SAP till din Logic Apps utlösare, se med
 
 <a name="find-extended-error-logs"></a>
 
-#### <a name="find-extended-error-logs"></a>Hitta utökade fel loggar
+## <a name="find-extended-error-logs"></a>Hitta utökade fel loggar
 
 För fullständiga fel meddelanden kontrollerar du SAP-kortets utökade loggar. 
 
-För lokala data Gateway-versioner från juni 2020 och senare kan du [Aktivera Gateway-loggar i appinställningar](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+För lokala data Gateway-versioner från juni 2020 och senare kan du [Aktivera Gateway-loggar i appinställningar](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
 För lokala data Gateway-versioner från april 2020 och tidigare inaktive ras loggar som standard. Följ dessa steg om du vill hämta utökade loggar:
 
@@ -480,7 +504,7 @@ Om du vill skicka IDocs från SAP till din Logic app behöver du följande minst
 
 #### <a name="create-rfc-destination"></a>Skapa en RFC-destination
 
-1. Om du vill öppna **konfigurationen av inställningarna för RFC-anslutningar** går du till SAP-gränssnittet och använder **sm59** transaktions kod (T. ex. kod) med prefixet **/n** .
+1. Om du vill öppna **konfigurationen av inställningarna för RFC-anslutningar** går du till SAP-gränssnittet och använder **sm59** -transaktions kod (T-kod) med prefixet **/n** .
 
 1. Välj **TCP/IP-anslutningar**  >  **skapa**.
 
@@ -500,7 +524,7 @@ Om du vill skicka IDocs från SAP till din Logic app behöver du följande minst
 
 #### <a name="create-abap-connection"></a>Skapa ABAP-anslutning
 
-1. Om du vill öppna **konfigurationen av inställningarna för RFC-anslutningar** går du till SAP-gränssnittet och använder **sm59*** Transaction Code (T-kod) med kommandot **/n** .
+1. Om du vill öppna **konfigurationen av inställningarna för RFC-anslutningar** går du till SAP-gränssnittet och använder **sm59***-transaktions koden (T-Code) med kommandot **/n** .
 
 1. Välj **ABAP-anslutningar**  >  **skapa**.
 
@@ -512,7 +536,7 @@ Om du vill skicka IDocs från SAP till din Logic app behöver du följande minst
 
 #### <a name="create-receiver-port"></a>Skapa mottagar port
 
-1. Om du vill öppna **portarna i iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we21** transaktions kod (T) med kommandot **/n** .
+1. Om du vill öppna **portarna i iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we21** -transaktions kod (T-kod) med prefixet **/n** .
 
 1. Välj de **portar**som  >  **transaktions-RFC**  >  **skapa**.
 
@@ -524,7 +548,7 @@ Om du vill skicka IDocs från SAP till din Logic app behöver du följande minst
 
 #### <a name="create-sender-port"></a>Skapa avsändar port
 
-1.  Om du vill öppna **portarna i iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we21** transaktions kod (T) med kommandot **/n** .
+1.  Om du vill öppna **portarna i iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we21** -transaktions kod (T-kod) med prefixet **/n** .
 
 1. Välj de **portar**som  >  **transaktions-RFC**  >  **skapa**.
 
@@ -536,7 +560,7 @@ Om du vill skicka IDocs från SAP till din Logic app behöver du följande minst
 
 #### <a name="create-logical-system-partner"></a>Skapa logisk system partner
 
-1. Om du vill öppna **vyn ändra logiska system: översikts** inställningar i SAP-gränssnittet använder du transaktions koden **bd54** (T. ex. kod).
+1. Öppna **vyn ändra visning av logiska system: översikts** inställningar i SAP-gränssnittet med **bd54** -transaktions kod (T-Code).
 
 1. Godkänn varnings meddelandet som visas: varning **: tabellen är mellan klient**
 
@@ -552,7 +576,7 @@ Om du vill skicka IDocs från SAP till din Logic app behöver du följande minst
 
 För produktions miljöer måste du skapa två partner profiler. Den första profilen är för avsändaren, som är din organisation och SAP-system. Den andra profilen gäller för mottagaren, som är din Logic-app.
 
-1. Öppna inställningarna för **partner profiler** genom att använda **we20** transaktions kod (T. ex. kod) i SAP-gränssnittet med prefixet **/n** .
+1. Om du vill öppna inställningarna för **partner profiler** , i SAP-gränssnittet, använder du **we20** -transaktions koden (T-Code) med kommandot **/n** .
 
 1. Under **partner profiler**väljer du **partner typ LS**  >  **create**.
 
@@ -580,7 +604,7 @@ För produktions miljöer måste du skapa två partner profiler. Den första pro
 
 #### <a name="test-sending-messages"></a>Testa att skicka meddelanden
 
-1. För att öppna **test verktyget för iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we19** -transaktions koden (T. ex. kod) med **/n** -prefixet.
+1. Öppna **test verktyget för iDOC bearbetnings** inställningar i SAP-gränssnittet med **we19** -transaktions kod (T-kod) med prefixet **/n** .
 
 1. Under **mall för test**väljer du **via meddelande typ**och anger din meddelande typ, till exempel **CREMAS**. Välj **Skapa**.
 
@@ -592,7 +616,7 @@ För produktions miljöer måste du skapa två partner profiler. Den första pro
 
 1. Om du vill starta utgående IDoc-bearbetning väljer du **Fortsätt**. När bearbetningen är klar visas **iDOC som skickas till SAP-systemet eller det externa program** meddelandet.
 
-1.  Om du vill söka efter bearbetnings fel använder du **SM58** transaktions kod (T. ex. kod) med **/n** -prefixet.
+1.  Om du vill söka efter bearbetnings fel använder du **SM58** -transaktions kod (T-kod) med kommandot **/n** .
 
 ## <a name="receive-idoc-packets-from-sap"></a>Ta emot IDoc-paket från SAP
 
@@ -602,7 +626,7 @@ Här är ett exempel som visar hur du extraherar enskilda IDocs från ett paket 
 
 1. Innan du börjar måste du ha en Logic-app med en SAP-utlösare. Om du inte redan har den här Logic-appen följer du de föregående stegen i det här avsnittet för att [Konfigurera en Logic app med en SAP-utlösare](#receive-from-sap).
 
-   Ett exempel:
+   Exempel:
 
    ![Lägg till SAP-utlösare i Logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -632,12 +656,262 @@ Du kan använda snabb starts mal len för det här mönstret genom att välja de
 
 I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begäran. För att generera scheman för den angivna IDoc och BAPI skickar SAP-åtgärden **generate schema** en begäran till ett SAP-system.
 
-Denna SAP-åtgärd returnerar ett XML-schema, inte innehållet eller data i själva XML-dokumentet. Scheman som returneras i svaret överförs till ett integrations konto med hjälp av Azure Resource Manager anslutningen. Scheman innehåller följande delar:
+Denna SAP-åtgärd returnerar ett [XML-schema](#sample-xml-schemas), inte innehållet eller data i själva XML-dokumentet. Scheman som returneras i svaret överförs till ett integrations konto med hjälp av Azure Resource Manager anslutningen. Scheman innehåller följande delar:
 
 * Begär ande meddelandets struktur. Använd den här informationen för att skapa en BAPI- `get` lista.
 * Svars meddelandets struktur. Använd den här informationen för att parsa svaret. 
 
 Om du vill skicka begär ande meddelandet använder du den allmänna SAP-åtgärden **Skicka meddelande till SAP**, eller målet för målets **BAPI** -åtgärd.
+
+### <a name="sample-xml-schemas"></a>Exempel på XML-scheman
+
+Om du lär dig hur du skapar ett XML-schema som ska användas för att skapa ett exempel dokument, se följande exempel. I de här exemplen visas hur du kan arbeta med många typer av nytto laster, inklusive:
+
+* [RFC-begäranden](#xml-samples-for-rfc-requests)
+* [BAPI-begäranden](#xml-samples-for-bapi-requests)
+* [IDoc-begäranden](#xml-samples-for-idoc-requests)
+* Data typer för enkla eller komplexa XML-scheman
+* Tabell parametrar
+* Valfria XML-beteenden
+
+Du kan börja XML-schemat med en valfri XML-prolog. SAP Connector fungerar med eller utan XML-prolog.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8">
+
+```
+
+#### <a name="xml-samples-for-rfc-requests"></a>XML-exempel för RFC-begäranden
+
+Följande exempel är ett grundläggande RFC-anrop. RFC-namnet är `STFC_CONNECTION` . Den här begäran använder standard namn området `xmlns=` , men du kan tilldela och använda namn rymds Ali Aset, till exempel `xmmlns:exampleAlias=` . Namn områdets värde är namn området för alla RFC: er i SAP för Microsoft-tjänster. Det finns en enkel indataparameter i begäran `<REQUTEXT>` .
+
+```xml
+
+<STFC_CONNECTION xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <REQUTEXT>exampleInput</REQUTEXT>
+</STFC_CONNECTION>
+
+```
+
+Följande exempel är ett RFC-anrop med en tabell parameter. Det här exempel anropet och dess grupp med test-RFC: er är tillgängliga som en del av alla SAP-system. Tabell parameterns namn är `TCPICDAT` . Tabell radens typ är `ABAPTEXT` och det här elementet upprepas för varje rad i tabellen. Det här exemplet innehåller en enskild rad som kallas `LINE` . Begär Anden med en tabell parameter kan innehålla valfritt antal fält, där talet är ett positivt heltal (*n*). 
+
+```xml
+
+<STFC_WRITE_TO_TCPIC xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <RESTART_QNAME>exampleQName</RESTART_QNAME>
+    <TCPICDAT>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput1</LINE>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput2</LINE>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+        <LINE>exampleFieldInput3</LINE>
+      </ABAPTEXT>
+    </TCPICDAT>
+</STFC_WRITE_TO_TCPIC>
+
+```
+
+Följande exempel är ett RFC-anrop med en tabell parameter som har ett anonymt fält. Ett anonymt fält är när fältet inte har tilldelats något namn. Komplexa typer deklareras under en separat namnrymd där deklarationen anger en ny standard för den aktuella noden och alla dess underordnade element. Exemplet använder hex `x002F` -koden som ett escape-tecken för symbolen */* , eftersom den här symbolen är reserverad i SAP-fält namnet.
+
+```xml
+
+<RFC_XML_TEST_1 xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+  <IM_XML_TABLE>
+    <RFC_XMLCNT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+      <_x002F_AnonymousField>exampleFieldInput</_x002F_AnonymousField>
+    </RFC_XMLCNT>
+  </IM_XML_TABLE>
+</RFC_XML_TEST_1>
+
+```
+
+Följande exempel innehåller prefix för namn områden. Du kan deklarera alla prefix samtidigt, eller så kan du deklarera valfria mängder av prefix som attribut för en nod. Namn områdes Ali Aset `ns0` för RFC används som rot och parametrar för Basic-typen. Observera att komplexa typer deklareras under en annan namnrymd för RFC-typer med alias `ns3` i stället för det vanliga RFC-namnområdet med aliaset `ns0` .
+
+```xml
+
+<ns0:BBP_RFC_READ_TABLE xmlns:ns0="http://Microsoft.LobServices.Sap/2007/03/Rfc/" xmlns:ns3="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/">
+  <ns0:DELIMITER>0</ns0:DELIMITER>
+  <ns0:QUERY_TABLE>KNA1</ns0:QUERY_TABLE>
+  <ns0:ROWCOUNT>250</ns0:ROWCOUNT>
+  <ns0:ROWSKIPS>0</ns0:ROWSKIPS>
+  <ns0:FIELDS>
+    <ns3:RFC_DB_FLD>
+      <ns3:FIELDNAME>KUNNR</ns3:FIELDNAME>
+    </ns3:RFC_DB_FLD>
+  </ns0:FIELDS>
+</ns0:BBP_RFC_READ_TABLE>
+
+```
+
+#### <a name="xml-samples-for-bapi-requests"></a>XML-exempel för BAPI-begäranden
+
+> [!TIP]
+> Om du använder Logic Apps designer för att redigera din BAPI-begäran kan du använda följande Sök funktioner: 
+> 
+> * Välj ett objekt i designern för att se en nedrullningsbar meny med tillgängliga metoder.
+> * Filtrera affärs objekt typer efter nyckelord med hjälp av den sökbara lista som tillhandahålls av BAPI API-anropet.
+
+> [!NOTE]
+> SAP gör affärs objekt tillgängliga för externa system genom att beskriva dem som svar på RFC `RPY_BOR_TREE_INIT` , som Logic Apps problem utan indatamängds filter. Logic Apps kontrollerar tabellen output `BOR_TREE` . `SHORT_TEXT`Fältet används för namn på affärs objekt. Affärs objekt som inte returneras av SAP i utdatatabellen är inte tillgängliga för Logic Apps.
+> Om du använder anpassade affärs objekt måste du se till att publicera och släppa dessa affärs objekt i SAP. Annars listar inte SAP dina anpassade affärs objekt i utdatatabellen `BOR_TREE` . Du kan inte komma åt dina anpassade affärs objekt i Logic Apps förrän du exponerar affärs objekt från SAP. 
+
+I följande exempel hämtas en lista över banker med hjälp av BAPI-metoden `GETLIST` . Det här exemplet innehåller affärs objekt för en bank `BUS1011` . 
+
+```xml
+
+<GETLIST xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_CTRY>US</BANK_CTRY>
+  <MAX_ROWS>10</MAX_ROWS>
+</GETLIST>
+
+```
+
+I följande exempel skapas ett bank objekt med hjälp av- `CREATE` metoden. I det här exemplet används samma affärs objekt som i föregående exempel `BUS1011` . När du använder `CREATE` metoden för att skapa en bank måste du se till att spara ändringarna eftersom den här metoden inte är tilldelad som standard.
+
+> [!TIP]
+> Se till att XML-dokumentet följer alla verifierings regler som kon figurer ATS i SAP-systemet. I det här exempel dokumentet måste exempelvis bank nyckeln ( `<BANK_KEY>` ) vara ett bank organisations nummer, även kallat ABA-nummer, i USA.
+
+```xml
+
+<CREATE xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_ADDRESS>
+    <BANK_NAME xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleBankName</BANK_NAME>
+    <REGION xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleRegionName</REGION>
+    <STREET xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">ExampleStreetAddress</STREET>
+    <CITY xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc">Redmond</CITY>
+  </BANK_ADDRESS>
+  <BANK_COUNTRY>US</BANK_COUNTRY>
+  <BANK_KEY>123456789</BANK_KEY>
+</CREATE>
+
+```
+
+Följande exempel hämtar information om en bank som använder bankens Routing Number, värdet för `<BANK_KEY>` . 
+
+```xml
+
+<GETDETAIL xmlns="http://Microsoft.LobServices.Sap/2007/03/Bapi/BUS1011">
+  <BANK_COUNTRY>US</BANK_COUNTRY>
+  <BANK_KEY>123456789</BANK_KEY>
+</GETDETAIL>
+
+```
+
+#### <a name="xml-samples-for-idoc-requests"></a>XML-exempel för IDoc-begäranden
+
+Om du vill generera ett oformaterat SAP IDoc XML-schema använder du **SAP-inloggnings** programmet och T-koden `WE-60` . Få åtkomst till SAP-dokumentationen via det grafiska användar gränssnittet och generera XML-scheman i XSD-format för dina IDoc-typer och-tillägg. En förklaring av allmänna SAP-format och nytto laster och deras inbyggda dialog rutor finns i [SAP-dokumentationen](https://help.sap.com/viewer/index).
+
+I det här exemplet deklaras rotnoden och namn områdena. URI: n i exempel koden, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send` deklarerar följande konfiguration:
+
+* `/IDoc`är rot noteringen för alla IDocs
+* `/3`är post typen version för gemensamma segment definitioner
+* `/ORDERS05`är typen av IDoc
+* `//`är ett tomt segment eftersom det inte finns något IDoc-tillägg
+* `/700`är SAP-versionen
+* `/Send`är åtgärden för att skicka informationen till SAP
+
+```xml
+
+<ns0:Send xmlns:ns0="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send" xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization" xmlns:ns1="http://Microsoft.LobServices.Sap/2007/03/Types/Idoc/Common/" xmlns:ns2="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700">
+  <ns0:idocData>
+
+```
+
+Du kan upprepa `idocData` noden för att skicka en batch med idocs i ett enda anrop. I exemplet nedan finns det en kontroll post, `EDI_DC40` och flera data poster.
+
+```xml
+
+<...>
+  <ns0:idocData>
+    <ns2:EDI_DC40>
+      <ns1:TABNAM>EDI_DC40</ns1:TABNAM>
+<...>
+      <ns1:ARCKEY>Cor1908207-5</ns1:ARCKEY>
+    </ns2:EDI_DC40>
+    <ns2:E2EDK01005>
+      <ns2:DATAHEADERCOLUMN_SEGNAM>E23DK01005</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:CURCY>USD</ns2:CURCY>
+    </ns2:E2EDK01005>
+    <ns2:E2EDK03>
+<...>
+  </ns0:idocData>
+
+```
+
+Följande exempel är ett exempel på en IDoc kontroll post, som använder prefixet `EDI_DC` . Du måste uppdatera värdena för att matcha din SAP-installations-och IDoc-typ. IDoc-klientens kod kan till exempel inte vara `800` . Kontakta ditt SAP-team för att se till att du använder rätt värden för din SAP-installation.
+
+```xml
+
+<ns2:EDI_DC40>
+  <ns:TABNAM>EDI_DC40</ns1:TABNAM>
+  <ns:MANDT>800</ns1:MANDT>
+  <ns:DIRECT>2</ns1:DIRECT>
+  <ns:IDOCTYP>ORDERS05</ns1:IDOCTYP>
+  <ns:CIMTYP></ns1:CIMTYP>
+  <ns:MESTYP>ORDERS</ns1:MESTYP>
+  <ns:STD>X</ns1:STD>
+  <ns:STDVRS>004010</ns1:STDVRS>
+  <ns:STDMES></ns1:STDMES>
+  <ns:SNDPOR>SAPENI</ns1:SNDPOR>
+  <ns:SNDPRT>LS</ns1:SNDPRT>
+  <ns:SNDPFC>AG</ns1:SNDPFC>
+  <ns:SNDPRN>ABAP1PXP1</ns1:SNDPRN>
+  <ns:SNDLAD></ns1:SNDLAD>
+  <ns:RCVPOR>BTSFILE</ns1:RCVPOR>
+  <ns:RCVPRT>LI</ns1:RCVPRT>
+
+```
+
+Följande exempel är en exempel data post med enkla segment. I det här exemplet används formatet SAP-datum. Starkt skrivna dokument kan använda interna XML-datum format, till exempel `2020-12-31 23:59:59` .
+
+```xml
+
+<ns2:E2EDK01005>
+  <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDK01005</ns2:DATAHEADERCOLUMN_SEGNAM>
+    <ns2:CURCY>USD</ns2:CURCY>
+    <ns2:BSART>OR</ns2:BSART>
+    <ns2:BELNR>1908207-5</ns2:BELNR>
+    <ns2:ABLAD>CC</ns2:ABLAD>
+  </ns2>
+  <ns2:E2EDK03>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDK03</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:IDDAT>002</ns2:IDDAT>
+      <ns2:DATUM>20160611</ns2:DATUM>
+  </ns2:E2EDK03>
+
+```
+
+Följande exempel är en data post med grupperade segment. Detta omfattar en överordnad grupp nod, `E2EDKT1002GRP` och flera underordnade noder, inklusive `E2EDKT1002` och `E2EDKT2001` . 
+
+```xml
+
+<ns2:E2EDKT1002GRP>
+  <ns2:E2EDKT1002>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <NS2:TDID>ZONE</ns2:TDID>
+  </ns2:E2EDKT1002>
+  <ns2:E2EDKT2001>
+    <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+      <ns2:TDLINE>CRSD</ns2:TDLINE>
+  </ns2:E2EDKT2001>
+</ns2:E2EDKT1002GRP>
+
+```
+
+Den rekommenderade metoden är att skapa en IDoc-identifierare för användning med tRFC. Du kan ställa in transaktions-ID: `tid` t med hjälp av [åtgärden skicka iDOC](https://docs.microsoft.com/connectors/sap/#send-idoc) i SAP Connector-API: et.
+
+Följande exempel är en alternativ metod för att ange transaktions-ID: t eller `tid` . I det här exemplet stängs den sista noden för data post segmentet och IDoc-datanoden. Sedan används GUID, `guid` som tRFC-ID för att identifiera dubbletter. 
+
+```xml
+
+    </E2STZUM002GRP>
+  </idocData>
+  <guid>8820ea40-5825-4b2f-ac3c-b83adc34321c</guid>
+</Send>
+
+```
 
 ### <a name="add-an-http-request-trigger"></a>Lägg till en HTTP-begäran-utlösare
 
@@ -708,9 +982,9 @@ I verktygsfältet designer väljer du **Spara**.
 
    ![Visa två objekt](media/logic-apps-using-sap-connector/schema-generator-example.png)
 
-   Mer information om SAP-åtgärden finns i [meddelande scheman för iDOC-åtgärder](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+   Mer information om SAP-åtgärden finns i [meddelande scheman för iDOC-åtgärder](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 ### <a name="test-your-logic-app"></a>Testa din Logic app
 
@@ -753,7 +1027,7 @@ Du kan också hämta eller lagra de genererade schemana i-databaser, till exempe
    > }
    > ```
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 ### <a name="test-your-logic-app"></a>Testa din Logic app
 
@@ -867,11 +1141,36 @@ Här är ett exempel som visar det här mönstret:
 
    ![Skicka åtgärds egenskaper för IDOC](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
 
-1. För att explicit bekräfta transaktions-ID: t lägger du till åtgärden **Bekräfta transaktions-ID** . Klicka i rutan **transaktions-ID** så att listan med dynamiskt innehåll visas. Välj det **transaktions-ID-** värde som returneras från åtgärden **Skicka iDOC** i listan.
+1. För att explicit bekräfta transaktions-ID: t, Lägg till åtgärden **Bekräfta transaktions-ID** och se till att [undvika att skicka dubbletter av idocs till SAP](#avoid-sending-duplicate-idocs). Klicka i rutan **transaktions-ID** så att listan med dynamiskt innehåll visas. Välj det **transaktions-ID-** värde som returneras från åtgärden **Skicka iDOC** i listan.
 
    ![Bekräfta transaktions-ID-åtgärd](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
 
    När det här steget körs markeras den aktuella transaktionen som slutförd i båda ändar, på sidan SAP-koppling och på SAP system-sidan.
+
+#### <a name="avoid-sending-duplicate-idocs"></a>Undvik att skicka dubbletter av IDocs
+
+Om det uppstår ett problem med att duplicera IDocs skickas till SAP från din Logic app, följer du de här stegen för att skapa en sträng variabel som fungerar som IDoc-transaktions-ID. Genom att skapa denna transaktions identifierare kan du förhindra dubbla nätverks sändningar när det finns problem, till exempel tillfälliga avbrott, nätverks problem eller förlorade bekräftelser.
+
+> [!NOTE]
+> SAP-system glömmer ett transaktions-ID efter en angiven tid eller 24 timmar som standard. Därför Miss lyckas SAP aldrig att bekräfta en transaktions-ID om ID eller GUID är okänt.
+> Om det inte går att bekräfta ett transaktions-ID indikerar det här felet att kommunikation med SAP-systemet misslyckades innan SAP kunde bekräfta bekräftelsen.
+
+1. I Logic Apps designer lägger du till den åtgärd som **initierar variabeln** i din Logic app. 
+1. Konfigurera följande inställningar i redigerings programmet för **variabeln åtgärd initiera**. Spara sedan ändringarna.
+    1. I **namn**anger du ett namn för din variabel. Till exempel `IDOCtransferID`.
+    2. I **typ**väljer du **sträng** som variabel typ.
+    3. För **värde**väljer du text rutan **Ange start värde** för att öppna menyn för dynamiskt innehåll. Välj fliken **uttryck** . I listan med funktioner anger du funktionen `guid()` . Välj **OK** för att spara ändringarna. Fältet **värde** är nu inställt på `guid()` funktionen, vilket genererar ett GUID.
+1. Efter åtgärden **initiera variabel** lägger du till åtgärden **Skicka iDOC**.
+1. Konfigurera följande inställningar i redigerings programmet för åtgärden **Skicka iDOC**. Spara sedan ändringarna.
+    1. För **iDOC-typ** väljer du meddelande typ och anger ditt meddelande för **iDOC meddelande**.
+    1. För **SAP-version**väljer du din SAP-konfigurations värden.
+    1. För **post typer version**väljer du din SAP-konfigurations värden.
+    1. För **Bekräfta tid**väljer du **Nej**.
+    1. Välj **Lägg till ny parameter lista**  >  **transaktions-ID GUID**. Välj text rutan för att öppna menyn med dynamiskt innehåll. Under fliken **variabler** väljer du namnet på variabeln som du skapade. Till exempel `IDOCtransferID`.
+1. I namn listen för åtgärden **Skicka iDOC**väljer du **...**  >  **Inställningar**. För **principen för återförsök**väljer du **ingen**  >  **görs**.
+1. När åtgärden har **skickat iDOC**lägger du till åtgärden **Bekräfta transaktions-ID**.
+1. Konfigurera följande inställningar i redigerings programmet för åtgärd **Bekräfta transaktions-ID**. Spara sedan ändringarna.
+    1. För **transaktions-ID**anger du namnet på variabeln igen. Till exempel `IDOCtransferID`.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
@@ -883,7 +1182,7 @@ Här följer de kända problemen och begränsningarna för den hanterade SAP-ans
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/sap/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](/connectors/sap/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.

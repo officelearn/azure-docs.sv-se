@@ -3,17 +3,17 @@ title: Skapa en Azure Image Builder-mall (förhands granskning)
 description: Lär dig hur du skapar en mall som ska användas med Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 06/23/2020
+ms.date: 07/09/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d48153fa747ed9757eb8467eaf1d7c17cde3630e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085596"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -24,7 +24,7 @@ Detta är det grundläggande mallformat:
 ```json
  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
-    "apiVersion": "2019-05-01-preview", 
+    "apiVersion": "2020-02-14", 
     "location": "<region>", 
     "tags": {
         "<name": "<value>",
@@ -39,9 +39,8 @@ Detta är det grundläggande mallformat:
             "vmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
-                "name": "<vnetName>",
-                "subnetName": "<subnetName>",
-                "resourceGroupName": "<vnetRgName>"
+                "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+                }
             },
         "source": {}, 
         "customize": {}, 
@@ -54,11 +53,11 @@ Detta är det grundläggande mallformat:
 
 ## <a name="type-and-api-version"></a>Typ-och API-version
 
-`type`Är resurs typen, som måste vara `"Microsoft.VirtualMachineImages/imageTemplates"` . `apiVersion`Kommer att ändras med tiden som API-ändringar, men bör vara `"2019-05-01-preview"` för hands version.
+`type`Är resurs typen, som måste vara `"Microsoft.VirtualMachineImages/imageTemplates"` . `apiVersion`Kommer att ändras med tiden som API-ändringar, men bör vara `"2020-02-14"` för hands version.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2019-05-01-preview",
+    "apiVersion": "2020-02-14",
 ```
 
 ## <a name="location"></a>Plats
@@ -70,7 +69,7 @@ Platsen är den region där den anpassade avbildningen kommer att skapas. För f
 - USA, västra centrala
 - USA, västra
 - USA, västra 2
-- Europa, norra
+- Norra Europa
 - Europa, västra
 
 
@@ -101,9 +100,8 @@ Om du inte anger några VNET-egenskaper skapas en egen VNET-, offentlig IP-och N
 
 ```json
     "vnetConfig": {
-        "name": "<vnetName>",
-        "subnetName": "<subnetName>",
-        "resourceGroupName": "<vnetRgName>"
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        }
     }
 ```
 ## <a name="tags"></a>Taggar
@@ -121,9 +119,8 @@ Det här valfria avsnittet kan användas för att säkerställa att beroenden ha
 Mer information finns i [definiera resurs beroenden](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
 ## <a name="identity"></a>Identitet
-Som standard stöder Image Builder användningen av skript eller kopierar filer från flera platser, till exempel GitHub och Azure Storage. För att kunna använda dessa måste de vara offentligt tillgängliga.
 
-Du kan också använda en Azure User-tilldelade hanterad identitet, som definieras av dig, för att tillåta Image Builder-åtkomst Azure Storage, förutsatt att identiteten har beviljats minst "Storage BLOB data Reader" på Azure Storage-kontot. Det innebär att du inte behöver göra lagrings-blobar externt tillgängliga eller konfigurera SAS-token.
+Krävs – för att Image Builder ska ha behörighet att läsa/skriva bilder kan du läsa in skript från Azure Storage du måste skapa en Azure User-tilldelad identitet som har behörighet till de enskilda resurserna. Mer information om hur Image Builder-behörigheter fungerar och relevanta steg finns i [dokumentationen](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
 
 
 ```json
@@ -135,9 +132,10 @@ Du kan också använda en Azure User-tilldelade hanterad identitet, som definier
         },
 ```
 
-Ett fullständigt exempel finns i [använda en Azure User-tilldelade hanterad identitet för att komma åt filer i Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
-Image Builder-stöd för en användardefinierad identitet: • stöder endast en enda identitet • stöder inte anpassade domän namn
+Avbildnings-Builder-stöd för en användardefinierad identitet:
+* Har endast stöd för en enda identitet
+* Stöder inte anpassade domän namn
 
 Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 Mer information om hur du distribuerar den här funktionen finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
@@ -153,11 +151,6 @@ API: t kräver en ' SourceType ' som definierar källan för avbildnings version
 
 > [!NOTE]
 > När du använder befintliga anpassade Windows-avbildningar kan du köra Sysprep-kommandot upp till 8 gånger på en enda Windows-avbildning. mer information finns i [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) -dokumentationen.
-
-### <a name="iso-source"></a>ISO-källa
-Vi har föråldrat den här funktionen från Image Builder, eftersom det nu finns [RHEL att ta med dina egna prenumerations avbildningar](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos). granska tids linjerna nedan:
-    * 31 mars 2020 – bildmallar med RHEL ISO-källor kommer nu längre att accepteras av resurs leverantören.
-    * 30 april 2020 – bildmallar som innehåller RHEL ISO-källor kommer inte att bearbetas längre.
 
 ### <a name="platformimage-source"></a>PlatformImage-källa 
 Azure Image Builder stöder Windows Server och klient, och Linux Azure Marketplace-avbildningar finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) för den fullständiga listan. 
@@ -181,6 +174,21 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 Du kan använda "senaste" i versionen om versionen utvärderas när avbildningen skapas, inte när mallen skickas. Om du använder den här funktionen med det delade avbildnings galleriet kan du undvika att skicka mallen igen och köra avbildningen igen med intervall, så att dina avbildningar återskapas från de senaste bilderna.
 
+#### <a name="support-for-market-place-plan-information"></a>Stöd för information om marknads plats plan
+Du kan också ange plan information, till exempel:
+```json
+    "source": {
+        "type": "PlatformImage",
+        "publisher": "RedHat",
+        "offer": "rhel-byos",
+        "sku": "rhel-lvm75",
+        "version": "latest",
+        "planInfo": {
+            "planName": "rhel-lvm75",
+            "planProduct": "rhel-byos",
+            "planPublisher": "redhat"
+       }
+```
 ### <a name="managedimage-source"></a>ManagedImage-källa
 
 Anger käll avbildningen som en befintlig hanterad avbildning av en generaliserad virtuell hård disk eller virtuell dator. Den käll hanterade avbildningen måste vara av ett operativ system som stöds och vara i samma region som din Azure Image Builder-mall. 
@@ -206,6 +214,7 @@ Anger käll avbildningen av en befintlig avbildnings version i ett galleri för 
 ```
 
 `imageVersionId`Ska vara avbildnings versionens ResourceID. Använd [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version#az-sig-image-version-list) för att lista avbildnings versioner.
+
 
 ## <a name="properties-buildtimeoutinminutes"></a>Egenskaper: buildTimeoutInMinutes
 
@@ -254,7 +263,9 @@ När du använder `customize` :
 
  
 Avsnittet Anpassa är en matris. Azure Image Builder kommer att köras via anpassningarna i nummerordning. Eventuella misslyckanden i en anpassnings process kommer inte att kunna skapas. 
- 
+
+> [!NOTE]
+> Infogade kommandon kan visas i definition av avbildnings mal len och Microsoft Support när de hjälper till med ett support ärende. Om du har känslig information bör den flyttas till skript i Azure Storage, där åtkomst kräver autentisering.
  
 ### <a name="shell-customizer"></a>Shell-anpassning
 
@@ -293,7 +304,7 @@ Anpassa egenskaper:
 För kommandon som ska köras med superuser-privilegier måste de föregås av `sudo` .
 
 > [!NOTE]
-> När du kör Shell Customization med RHEL ISO-källa måste du se till att ditt första anpassnings gränssnitt hanterar registrering med en Red Hat-rättighets server innan eventuella anpassningar sker. När anpassningen är klar ska skriptet avregistreras med rättighets servern.
+> Infogade kommandon lagras som en del av definitionen för avbildnings mal len. du kan se dessa när du dumpar avbildnings definitionen, och dessa visas också för Microsoft Support i händelse av ett support ärende i fel söknings syfte. Om du har känsliga kommandon eller värden rekommenderar vi att de flyttas till skript och använder en användar identitet för att autentisera till Azure Storage.
 
 ### <a name="windows-restart-customizer"></a>Starta om anpassning av Windows 
 Med alternativet starta om anpassning kan du starta om en virtuell Windows-dator och vänta tills den är online igen, så att du kan installera program vara som kräver en omstart.  
@@ -485,7 +496,7 @@ runOutputName=<runOutputName>
 
 az resource show \
         --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-        --api-version=2019-05-01-preview
+        --api-version=2020-02-14
 ```
 
 Resultat:
@@ -569,13 +580,22 @@ Innan du kan distribuera till avbildnings galleriet måste du skapa ett galleri 
 Distribuera egenskaper för delade avbildnings gallerier:
 
 - **typ** -sharedImage  
-- **galleryImageId** – ID för det delade avbildnings galleriet. Formatet är:/Subscriptions/ \<subscriptionId> /ResourceGroups/ \<resourceGroupName> /providers/Microsoft.Compute/Galleries/ \<sharedImageGalleryName> /images/ \<imageGalleryName> .
+- **galleryImageId** – ID för galleriet för delad avbildning, detta kan anges i två format:
+    * Automatisk versions hantering – Image Builder genererar ett högfärgat versions nummer. det här är användbart när du vill fortsätta att bygga om avbildningar från samma mall: formatet är: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
+    * Explicit versions hantering – du kan skicka in det versions nummer som du vill att Image Builder ska använda. Formatet är:`/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.
-- **replicationRegions** -matris för replikering. En av regionerna måste vara den region där galleriet har distribuerats.
- 
+- **replicationRegions** -matris för replikering. En av regionerna måste vara den region där galleriet har distribuerats. Att lägga till regioner innebär en ökning av bygg tiden, eftersom versionen inte slutförs förrän replikeringen har slutförts.
+- **excludeFromLatest** (valfritt) Detta gör att du kan markera den avbildnings version som du skapar inte som den senaste versionen i sig-definitionen. standardvärdet är "false".
+- **storageAccountType** (valfritt) AIB har stöd för att ange dessa typer av lagring för avbildnings versionen som ska skapas:
+    * "Standard_LRS"
+    * "Standard_ZRS"
+
+
 > [!NOTE]
-> Du kan använda Azure Image Builder i en annan region i galleriet, men tjänsten Azure Image Builder måste överföra avbildningen mellan data centret och det tar längre tid. Bildverktyget skapar automatiskt en version av bilden, baserat på ett enkel färgs heltal, men du kan inte ange den för närvarande. 
+> Om avbildnings mal len och den refererade `image definition` inte finns på samma plats visas ytterligare tid för att skapa bilder. Image Builder har för närvarande ingen `location` parameter för avbildnings versions resursen, vi tar den från den överordnade `image definition` . Om en bild definition till exempel är i väst och du vill att avbildnings versionen ska replikeras till öster, kopieras en blob till väst, från detta skapas en avbildnings versions resurs i väst, och replikeras sedan till öster. Se till att `image definition` mallen och är på samma plats för att undvika den ytterligare replikerings tiden.
+
 
 ### <a name="distribute-vhd"></a>Distribuera: virtuell hård disk  
 Du kan skriva utdata till en virtuell hård disk. Du kan sedan kopiera den virtuella hård disken och använda den för att publicera på Azure MarketPlace eller använda med Azure Stack.  
@@ -608,8 +628,45 @@ az resource show \
 
 > [!NOTE]
 > När den virtuella hård disken har skapats kopierar du den till en annan plats så snart som möjligt. Den virtuella hård disken lagras i ett lagrings konto i den tillfälliga resurs grupp som skapas när avbildnings mal len skickas till Azure Image Builder-tjänsten. Om du tar bort avbildnings mal len förlorar du den virtuella hård disken. 
- 
+
+## <a name="image-template-operations"></a>Åtgärder för avbildnings mal len
+
+### <a name="starting-an-image-build"></a>Starta en avbildnings version
+För att starta en version måste du anropa "kör" på avbildnings mal len resurs, exempel på `run` kommandon:
+
+```PowerShell
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
+```
+
+
+```bash
+az resource invoke-action \
+     --resource-group $imageResourceGroup \
+     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+     -n helloImageTemplateLinux01 \
+     --action Run 
+```
+
+### <a name="cancelling-an-image-build"></a>Avbryta en avbildnings version
+Om du kör en avbildning som du tror är felaktig, väntar på indata från användaren eller om du tycker att det inte kommer att slutföras korrekt, kan du avbryta versionen.
+
+Versionen kan avbrytas när som helst. Om distributions fasen har startats kan du fortfarande avbryta, men du måste rensa alla avbildningar som inte är klara. Kommandot Cancel väntar inte på att Avbryt ska slutföras, övervaka `lastrunstatus.runstate` för att avbryta förloppet med dessa status [kommandon](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status).
+
+
+Exempel på `cancel` kommandon:
+
+```powerShell
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Cancel -Force
+```
+
+```bash
+az resource invoke-action \
+     --resource-group $imageResourceGroup \
+     --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
+     -n helloImageTemplateLinux01 \
+     --action Cancel 
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 Det finns exempel på JSON-filer för olika scenarier i [Azure Image Builder-GitHub](https://github.com/danielsollondon/azvmimagebuilder).
- 

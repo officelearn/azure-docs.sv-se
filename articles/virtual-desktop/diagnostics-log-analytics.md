@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a138308b48a24a78c55bdc0105379e31482456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ceb58182b34a4eccbed0dc1cdd1c351ae7868da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209393"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085919"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
@@ -133,52 +133,16 @@ Log Analytics endast rapporter i dessa mellanliggande tillstånd för anslutning
 
 ## <a name="example-queries"></a>Exempelfrågor
 
-Följande exempel frågor visar hur Diagnostics-funktionen genererar en rapport för de mest frekventa aktiviteterna i systemet.
+Till exempel frågor via Azure Monitor Log Analytics användar gränssnitt:
+1. Gå till din Log Analytics arbets yta och välj sedan **loggar**. Exempel frågans användar gränssnitt visas automatiskt.
+1. Ändra filtret till **kategori**.
+1. Välj **virtuellt Windows-skrivbord** för att granska tillgängliga frågor.
+1. Välj **Kör** för att köra den valda frågan. 
 
-Kör den här cmdleten om du vill hämta en lista över anslutningar som skapats av användarna:
+Läs mer om exempel fråga-gränssnittet i [sparade frågor i Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+I följande lista med frågor kan du granska anslutnings information eller problem för en enskild användare. Du kan köra dessa frågor i [Log Analytics Frågeredigeraren](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Ersätt `userupn` med UPN för den användare som du vill söka efter varje fråga.
 
-Visa flödes aktivitet för dina användare:
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 Så här söker du efter alla anslutningar för en enskild användare:
 
@@ -199,7 +163,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 Så här hittar du varaktigheten för sessionen per användare:
 
@@ -224,7 +187,7 @@ WVDErrors
 |take 100
 ```
 
-Ta reda på om ett angivet fel har inträffat:
+Ta reda på om ett fel har inträffat för andra användare:
 
 ```kusto
 WVDErrors
@@ -232,27 +195,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-Så här hittar du förekomst av ett fel för alla användare:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-Kör den här frågan för att fråga appar som användare har öppnat:
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- När en användare öppnar fullständig skriv bord spåras inte appens användning i sessionen som kontroll punkter i WVDCheckpoints-tabellen.
 >- Kolumnen ResourcesAlias i tabellen WVDConnections visar om en användare har anslutit till ett fullständigt skriv bord eller en publicerad app. Kolumnen visar bara den första app som de är öppna under anslutningen. Alla publicerade appar som användaren öppnar spåras i WVDCheckpoints.

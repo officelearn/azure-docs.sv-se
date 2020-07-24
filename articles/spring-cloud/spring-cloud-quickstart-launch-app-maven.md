@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: f374e0611b887e2a2c787569d9fe58bc1a5c84e9
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: devx-track-java
+ms.openlocfilehash: 9ae6524dc1d53580d0dc7de1179ccf9db8cebc61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086140"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med maven-plugin-programmet
 
@@ -47,9 +48,9 @@ För att slutföra den här snabbstarten behöver du:
 1. Ange **projekt informationen** för exempel programmet på följande sätt:
 
     1. Välj den **prenumeration** som programmet ska associeras med.
-    1. Välj eller skapa en resurs grupp för programmet. Vi rekommenderar att du skapar en ny resurs grupp.  I exemplet nedan visas en ny resurs grupp med `myspringservice`namnet.
-    1. Ange ett namn för den nya moln tjänsten Azure våren.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck. Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.  Tjänsten i exemplet nedan har namnet `contosospringcloud`.
-    1. Välj en plats för programmet från de tillhandahållna alternativen.  I det här exemplet väljer `East US`vi.
+    1. Välj eller skapa en resurs grupp för programmet. Vi rekommenderar att du skapar en ny resurs grupp.  I exemplet nedan visas en ny resurs grupp med namnet `myspringservice` .
+    1. Ange ett namn för den nya moln tjänsten Azure våren.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck. Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.  Tjänsten i exemplet nedan har namnet `contosospringcloud` .
+    1. Välj en plats för programmet från de tillhandahållna alternativen.  I det här exemplet väljer vi `East US` .
     1. Välj **Granska + skapa** för att granska en sammanfattning av den nya tjänsten.  Om allting ser korrekt ut väljer du **skapa**.
 
     > [!div class="mx-imgBorder"]
@@ -63,7 +64,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
 ## <a name="set-up-your-configuration-server"></a>Konfigurera konfigurations servern
 
 1. På sidan tjänst **Översikt** väljer du **konfigurations Server**.
-1. I avsnittet **standard databas** ställer du in **URI** till **https://github.com/Azure-Samples/piggymetrics-config**och väljer sedan **tillämpa** för att spara ändringarna.
+1. I avsnittet **standard databas** ställer du in **URI** till **https://github.com/Azure-Samples/piggymetrics-config** och väljer sedan **tillämpa** för att spara ändringarna.
 
     > [!div class="mx-imgBorder"]
     > ![Definiera och Använd konfigurations inställningar](media/maven-qs-apply-config.jpg)
@@ -96,7 +97,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
     ```
 
-    a. Välj moduler `gateway`,`auth-service`och. `account-service`
+    a. Välj moduler `gateway` , `auth-service` och `account-service` .
 
     b. Välj din prenumeration och Azure våren Cloud Service-kluster.
 
@@ -120,7 +121,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
 I den här snabb starten har du distribuerat ett fjäder moln program från en maven-lagringsplats. Om du vill veta mer om Azure våren Cloud fortsätter du till självstudien om hur du förbereder din app för distribution.
 
 > [!div class="nextstepaction"]
-> [Förbered ditt Azure våren Cloud-program för distribution](spring-cloud-tutorial-prepare-app-deployment.md)
-> [Läs mer om maven-plugin-program för Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Förbered ditt Azure våren Cloud-program för distribution](spring-cloud-tutorial-prepare-app-deployment.md) 
+>  [Lär dig mer om maven-plugin-program för Azure](https://github.com/microsoft/azure-maven-plugins)
 
 Fler exempel finns på GitHub: [Azure våren Cloud-exempel](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

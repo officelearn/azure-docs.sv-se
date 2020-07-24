@@ -3,12 +3,12 @@ title: Vanliga frågor om katastrof återställning i VMware med Azure Site Reco
 description: Få svar på vanliga frågor om haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086157"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
@@ -181,6 +181,10 @@ Nej. En ändring av VMware vCenter eller migrering kommer att påverka pågåend
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Kan jag replikera till ett cache-eller mål lagrings konto som har ett virtuellt nätverk (med Azure-brandväggar) konfigurerat?
 
 Nej, Site Recovery stöder inte replikering till Azure Storage i virtuella nätverk.
+
+### <a name="what-is-the-frequency-of-generation-of-crash-consistent-recovery-points"></a>Vad är frekvensen för generering av kraschbaserade återställnings punkter?
+
+Site Recovery genererar kraschbaserade återställnings punkter var femte minut.
 
 ## <a name="component-upgrade"></a>Komponent uppgradering
 

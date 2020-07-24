@@ -9,13 +9,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 9fd8d6428e94007002d524d9ade99f6b368b8201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 220677df3bd0c221f61efd28a80b05cfd76e2734
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70307237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086650"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Använd PowerShell för att övervaka användningen av en data resurs som skickats
+# <a name="use-a-powershell-script-to-monitor-the-usage-of-a-sent-data-share"></a>Använd ett PowerShell-skript för att övervaka användningen av en data resurs som skickats
 
 Det här PowerShell-skriptet skapar en inbjudan till data resursen.
 
@@ -39,7 +40,7 @@ New-AzDataShareInvitation -ResourceGroupName $resourceGroupName -AccountName $da
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Skapa en inbjudan till data delning. |
 |||

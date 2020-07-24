@@ -9,19 +9,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085698"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
 I det här dokumentet beskrivs version 3,0 och senare av Linux-diagnostik.
 
 > [!IMPORTANT]
-> Information om version 2,3 och äldre finns i [det här dokumentet](../linux/classic/diagnostic-extension-v2.md).
+> Information om version 2,3 och äldre finns i [det här dokumentet](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduktion
 
@@ -65,10 +65,10 @@ Distributioner och versioner som stöds:
 - Debian 9, 8, 7
 - RHEL 7, 6,7 +
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-* **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) för att uppdatera den.
-* **Azure CLI**. [Konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) -miljön på din dator.
+* **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
+* **Azure CLI**. [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
 * Kommandot wget, om du inte redan har det: kör `sudo apt-get install wget` .
 * En befintlig Azure-prenumeration och ett befintligt lagrings konto i den för att lagra data.
 
@@ -173,7 +173,7 @@ Den här uppsättningen konfigurations information innehåller känslig informat
 }
 ```
 
-Name | Värde
+Namn | Värde
 ---- | -----
 storageAccountName | Namnet på det lagrings konto där data skrivs av tillägget.
 storageAccountEndPoint | valfritt Slut punkten som identifierar molnet där lagrings kontot finns. Om den här inställningen saknas, LAD standardvärdet för det offentliga Azure-molnet `https://core.windows.net` . Om du vill använda ett lagrings konto i Azure Germany, Azure Government eller Azure Kina anger du detta värde i enlighet med detta.
@@ -243,7 +243,7 @@ Om du har skapat ett SAS-värde till och med midnatt UTC den 1 januari 2018 kan 
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Mer information om att skapa och hämta information om SAS-token för Event Hubs finns på [den här webb sidan](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Mer information om att skapa och hämta information om SAS-token för Event Hubs finns på [den här webb sidan](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>JsonBlob-mottagare
 
@@ -580,7 +580,7 @@ Förutsatt att dina skyddade inställningar finns i filen ProtectedSettings.jsp�
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-Kommandot förutsätter att du använder läget för Azure Resource Management (ARM) i Azure CLI. Om du vill konfigurera LAD för virtuella datorer med klassisk distributions modell (ASM) växlar du till "ASM"-läge ( `azure config mode asm` ) och utelämnar resurs gruppens namn i kommandot. Mer information finns i dokumentationen för plattforms [oberoende CLI](https://docs.microsoft.com/azure/xplat-cli-connect).
+Kommandot förutsätter att du använder läget för Azure Resource Management (ARM) i Azure CLI. Om du vill konfigurera LAD för virtuella datorer med klassisk distributions modell (ASM) växlar du till "ASM"-läge ( `azure config mode asm` ) och utelämnar resurs gruppens namn i kommandot. Mer information finns i dokumentationen för plattforms [oberoende CLI](/azure/xplat-cli-connect).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -763,10 +763,10 @@ Den här ögonblicks bilden av en Microsoft Azure Storage Explorer-session visar
 
 ![image](./media/diagnostics-linux/stg_explorer.png)
 
-Se relevant [EventHubs-dokumentation](../../event-hubs/event-hubs-what-is-event-hubs.md) för att lära dig hur du använder meddelanden som publicerats till en EventHubs-slutpunkt.
+Se relevant [EventHubs-dokumentation](../../event-hubs/event-hubs-about.md) för att lära dig hur du använder meddelanden som publicerats till en EventHubs-slutpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa mått varningar i [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) för de mått som du samlar in.
-* Skapa [övervaknings diagram](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för dina mått.
+* Skapa mått varningar i [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) för de mått som du samlar in.
+* Skapa [övervaknings diagram](../../azure-monitor/platform/data-platform.md) för dina mått.
 * Lär dig hur du [skapar en skalnings uppsättning för virtuella datorer](../linux/tutorial-create-vmss.md) med hjälp av dina mått för att styra autoskalning.

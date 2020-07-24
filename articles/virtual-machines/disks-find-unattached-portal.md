@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad01155259ea03806f56c6e75b315ff85b606220
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085766"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Hitta och ta bort frånkopplade Azure-hanterade och ohanterade diskar – Azure Portal
 
@@ -60,4 +61,4 @@ Om du har ohanterade diskar som inte är kopplade till en virtuell dator behöve
 
 Om du vill ha ett automatiserat sätt att hitta och ta bort ej anslutna lagrings konton, Se våra [CLI](linux/find-unattached-disks.md) -eller [PowerShell](windows/find-unattached-disks.md) -artiklar.
 
-Mer information finns i [ta bort ett lagrings konto](../storage/common/storage-account-create.md#delete-a-storage-account) och [identifiera överblivna diskar med PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+Mer information finns i [ta bort ett lagrings konto](../storage/common/storage-account-create.md#delete-a-storage-account) och [identifiera överblivna diskar med PowerShell](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell)

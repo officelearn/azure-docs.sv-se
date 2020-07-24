@@ -15,22 +15,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3b6c9d5835f6d81ab8641d8a43fb7228b6b53ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085647"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrol lera eller reparera diskar på virtuella Linux-datorer med VMAccess-tillägget med Azure CLI
 ## <a name="overview"></a>Översikt
 Disken på den virtuella Linux-datorn visar fel. Du återställer inte rot lösen ordet för din virtuella Linux-dator eller oavsiktligt tagit bort den privata SSH-nyckeln. Om detta hände i dagar för data centret måste du köra det och sedan öppna KVM för att hämta i Server konsolen. Tänk på Azure VMAccess-tillägget som en KVM-växel som gör att du kan komma åt konsolen för att återställa åtkomsten till Linux eller utföra underhåll på disk nivå.
 
-Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrol lera eller reparera en disk, återställa användar åtkomst, hantera administrativa användar konton eller uppdatera SSH-konfigurationen på Linux när den körs som Azure Resource Manager virtuella datorer. Om du behöver hantera klassiska virtuella datorer kan du följa anvisningarna i den [klassiska VM-dokumentationen](../linux/classic/reset-access-classic.md). 
+Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrol lera eller reparera en disk, återställa användar åtkomst, hantera administrativa användar konton eller uppdatera SSH-konfigurationen på Linux när den körs som Azure Resource Manager virtuella datorer. Om du behöver hantera klassiska virtuella datorer kan du följa anvisningarna i den [klassiska VM-dokumentationen](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic). 
  
 > [!NOTE]
 > Om du använder VMAccess-tillägget för att återställa lösen ordet för den virtuella datorn efter att du har installerat inloggnings tillägget AAD måste du köra inloggnings tillägget AAD igen för att återaktivera AAD-inloggningen för datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="operating-system"></a>Operativsystem
 
 Tillägget för VM-åtkomst kan köras mot dessa Linux-distributioner:

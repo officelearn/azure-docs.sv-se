@@ -6,18 +6,14 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206746"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068208"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
-
-> [!NOTE]
-> För tillfället stöder ASP.NET Core inte att den aktuella användaren fyller den aktuella användaren med funktionen autentisering/auktorisering.
->
 
 Azure App Service tillhandahåller stöd för inbyggd autentisering och auktorisering, så att du kan logga in användare och få åtkomst till data genom att skriva minimalt eller ingen kod i din webbapp, RESTful-API och mobil Server del och även [Azure Functions](../azure-functions/functions-overview.md). Den här artikeln beskriver hur App Service underlättar autentisering och auktorisering för din app.
 
@@ -28,6 +24,9 @@ Säker autentisering och auktorisering kräver djupgående förståelse av säke
 >
 > ASP.NET Core 2,1 och senare versioner som är värd för App Service har redan korrigerats för den här avbrytande ändringen och hanterar Chrome 80 och äldre webbläsare på lämpligt sätt. Dessutom distribueras samma korrigering för ASP.NET Framework-4.7.2 på App Service instanserna i januari 2020. Mer information, inklusive hur du vet om din app har tagit emot korrigeringen, finns [Azure App Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
+
+> [!NOTE]
+> Autentiserings-/auktoriserings funktionen kallas även för "enkel autentisering".
 
 Information som är specifik för interna mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
@@ -53,6 +52,10 @@ För alla språk ramverk gör App Service anspråk i inkommande token (oavsett o
 För [Azure Functions](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` är inte ifyllt för .NET-kod, men du kan fortfarande hitta användar anspråk i begärandehuvuden eller hämta `ClaimsPrincipal` objektet från kontexten för begäran eller till och med en bindnings parameter. Mer information finns i [arbeta med klient identiteter](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
 
 Mer information finns i [användar anspråk för åtkomst](app-service-authentication-how-to.md#access-user-claims).
+
+> [!NOTE]
+> För tillfället stöder ASP.NET Core inte att den aktuella användaren fyller den aktuella användaren med funktionen autentisering/auktorisering. En del [tredje part är dock fristående komponenter med öppen källkod](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) som kan hjälpa dig att fylla i denna lucka.
+>
 
 ### <a name="token-store"></a>Tokenarkiv
 
@@ -134,10 +137,6 @@ Med det här alternativet behöver du inte skriva någon autentiseringsmetod i d
 
 > [!CAUTION]
 > Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som vill ha en offentligt tillgänglig start sida, som i många program med en enda sida.
-
-> [!NOTE]
-> Autentisering/auktorisering kallades tidigare för enkel autentisering.
->
 
 ## <a name="more-resources"></a>Fler resurser
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069148"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Felsöka startfel – disk läsnings fel inträffade
 
@@ -26,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där det inte går att
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar en fråga med meddelandet "ett disk läsnings fel uppstod. Tryck på Ctrl+Alt+Del för att starta om".
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar en fråga med meddelandet "ett disk läsnings fel uppstod. Tryck på Ctrl+Alt+Del för att starta om".
 
    ![Fel meddelande: ett disk läsnings fel inträffade. Tryck på Ctrl + Alt + del för att starta om.](./media/disk-read-error-occurred/1.png)
 
@@ -50,7 +51,7 @@ Det här fel meddelandet anger att disk strukturen är skadad och oläslig. Om d
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 1. Anslut till den virtuella reparations datorn med hjälp av Anslutning till fjärrskrivbord.
 
 ### <a name="set-partition-status-to-active"></a>Ange partitionerings status till aktiv
@@ -142,4 +143,4 @@ Virtuella datorer i generation 1 bör först kontrol lera att den OS-partition s
    
 ### <a name="rebuild-the-vm"></a>Återskapa den virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att återskapa den virtuella datorn.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att återskapa den virtuella datorn.

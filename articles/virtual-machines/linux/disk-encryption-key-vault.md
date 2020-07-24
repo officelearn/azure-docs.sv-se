@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c3212ed201b5106b9c84e4e1add92508d42e675f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce52c73752691693ff42832d37c222f95edd0d51
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069733"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption
 
@@ -39,7 +39,7 @@ Du kan också, om du vill, skapa eller importera en nyckel krypterings nyckel (K
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och Anslut till Azure
 
-Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/overview)eller [Azure Portal](https://portal.azure.com). 
+Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/)eller [Azure Portal](https://portal.azure.com). 
 
 Även om portalen är tillgänglig via webbläsaren kan Azure CLI och Azure PowerShell kräva lokal installation. Se [Azure Disk Encryption for Linux: installera verktyg](disk-encryption-linux.md#install-tools-and-connect-to-azure) för mer information.
 

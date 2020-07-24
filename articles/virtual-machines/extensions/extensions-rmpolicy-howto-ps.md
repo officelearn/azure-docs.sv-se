@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Policy för att begränsa installationen av VM-tillägg
+title: Använd Azure Policy för att begränsa installationen av VM-tillägg (Windows)
 description: Använd Azure Policy för att begränsa tillägg för distribution.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 96cd16c08421a4e365391c0db0b257f71a06551f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e4959c9dca909afde4bf6d351d79ecca1e4022a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919797"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069754"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använd Azure Policy för att begränsa installationen av tillägg på virtuella Windows-datorer
 
@@ -98,7 +98,7 @@ När du är färdig trycker du på **CTRL + O** och **anger** sedan för att spa
 
 ## <a name="create-the-policy"></a>Skapa principen
 
-En princip definition är ett objekt som används för att lagra den konfiguration som du vill använda. Princip definitionen använder filerna regler och parametrar för att definiera principen. Skapa en princip definition med cmdleten [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) .
+En princip definition är ett objekt som används för att lagra den konfiguration som du vill använda. Princip definitionen använder filerna regler och parametrar för att definiera principen. Skapa en princip definition med cmdleten [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition) .
 
  Princip reglerna och parametrarna är de filer som du har skapat och lagrats som JSON-filer i Cloud Shell.
 
@@ -117,9 +117,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Tilldela principen
 
-I det här exemplet tilldelas principen en resurs grupp med hjälp av [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Alla virtuella datorer som skapats i resurs gruppen **myResourceGroup** kommer inte att kunna installera VM-agenttjänsten eller anpassade skript tillägg. 
+I det här exemplet tilldelas principen en resurs grupp med hjälp av [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). Alla virtuella datorer som skapats i resurs gruppen **myResourceGroup** kommer inte att kunna installera VM-agenttjänsten eller anpassade skript tillägg. 
 
-Använd [Get-AzSubscription | Format – tabell-](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet för att hämta ditt prenumerations-ID som ska användas i stället för det som visas i exemplet.
+Använd [Get-AzSubscription | Format – tabell-](/powershell/module/az.accounts/get-azsubscription) cmdlet för att hämta ditt prenumerations-ID som ska användas i stället för det som visas i exemplet.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
@@ -150,7 +150,7 @@ Set-AzVMAccessExtension `
    -Location EastUS 
 ```
 
-I portalen bör ändringen av lösen ordet Miss lyckas med "distribution av mallen misslyckades på grund av princip överträdelse." .
+I portalen bör ändringen av lösen ordet Miss lyckas med "distribution av mallen misslyckades på grund av princip överträdelse." som meddelande.
 
 ## <a name="remove-the-assignment"></a>Ta bort tilldelningen
 

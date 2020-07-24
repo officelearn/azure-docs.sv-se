@@ -3,16 +3,16 @@ title: Övervaka Azure App Services-prestanda | Microsoft Docs
 description: Övervakning av program prestanda för Azure App Services. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 042dd67c0e1e5a0ba2f81d5678e191dbfdd60a43
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067891"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
-Nu är det enklare än någonsin att aktivera övervakning i ASP.NET och ASP.NET Core baserade webb program som körs på [Azure App Services](https://docs.microsoft.com/azure/app-service/) . Tidigare var du tvungen att installera ett plats tillägg manuellt, det senaste tillägget/agenten är nu inbyggt i App Service-avbildningen som standard. Den här artikeln vägleder dig genom att aktivera Application Insights övervakning och ge preliminär vägledning för automatisering av processen för storskaliga distributioner.
+Nu är det enklare än någonsin att aktivera övervakning i ASP.NET och ASP.NET Core baserade webb program som körs på [Azure App Services](../../app-service/index.yml) . Tidigare var du tvungen att installera ett plats tillägg manuellt, det senaste tillägget/agenten är nu inbyggt i App Service-avbildningen som standard. Den här artikeln vägleder dig genom att aktivera Application Insights övervakning och ge preliminär vägledning för automatisering av processen för storskaliga distributioner.
 
 > [!NOTE]
 > Att manuellt lägga till ett Application Insights webbplats **Development Tools**tillägg via  >  **tillägg** för utvecklingsverktyg är föråldrad. Den här metoden för tilläggs installation var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget är nu [förinstallerad](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) som en del av App Service avbildningen. Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabil utgåva. Om du följer agentbaserade instruktioner för att aktivera övervakning nedan tas det inaktuella tillägget bort automatiskt.
@@ -26,19 +26,19 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 * Att **instrumentera programmet manuellt** genom att installera Application Insights SDK.
 
-    * Den här metoden är mycket mer anpassningsbar, men kräver [att du lägger till ett beroende på Application Insights SDK NuGet-paket](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Den här metoden innebär också att du måste hantera uppdateringarna till den senaste versionen av paketen själv.
+    * Den här metoden är mycket mer anpassningsbar, men kräver [att du lägger till ett beroende på Application Insights SDK NuGet-paket](./asp-net.md). Den här metoden innebär också att du måste hantera uppdateringarna till den senaste versionen av paketen själv.
 
-    * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte har registrerats som standard med en agent-baserad övervakning, behöver du använda den här metoden. Mer information finns i [artikeln om API för anpassade händelser och mått](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) . Detta är för närvarande det enda alternativ som stöds för Linux-baserade arbets belastningar.
+    * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte har registrerats som standard med en agent-baserad övervakning, behöver du använda den här metoden. Mer information finns i [artikeln om API för anpassade händelser och mått](./api-custom-events-metrics.md) . Detta är för närvarande det enda alternativ som stöds för Linux-baserade arbets belastningar.
 
 > [!NOTE]
-> Om både agentbaserade övervakning och manuellt SDK-baserad Instrumentation identifieras, kommer endast de manuella Instrumentation-inställningarna att användas. Detta är för att förhindra att duplicerade data skickas. Mer information om detta finns i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) nedan.
+> Om både agentbaserade övervakning och manuellt SDK-baserad Instrumentation identifieras, kommer endast de manuella Instrumentation-inställningarna att användas. Detta är för att förhindra att duplicerade data skickas. Mer information om detta finns i [fel söknings avsnittet](#troubleshooting) nedan.
 
 ## <a name="enable-agent-based-monitoring"></a>Aktivera agent-baserad övervakning
 
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> Kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaringen i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+> Kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaringen i [fel söknings avsnittet](#troubleshooting).
 
 
 1. **Välj Application Insights** på kontroll panelen i Azure för din app service.
@@ -64,19 +64,19 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 | Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
 | Samlar in undantag som hanteras av värdprocessen | Ja |Ja |
 | Förbättrar precisionen för APM-mått under belastning när sampling används | Ja |Ja |
-| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Ja |
+| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Yes |
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan kontrol lera via applicationinsights.config-filen kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
     * Om du till exempel vill ändra den inledande samplings procenten kan du skapa en program inställning av: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` och värdet `100` .
 
-    * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) och [tillhör ande dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) och [tillhör ande dokumentation](./sampling.md).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Följande versioner av .NET Core stöds: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
 
-Det finns för närvarande **inte stöd** för att rikta in hela ramverket från .net Core, fristående distribution och Linux-baserade program med agent/tillägg-baserad övervakning. ([Manuell instrumentering](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via kod fungerar i alla tidigare scenarier.)
+Det finns för närvarande **inte stöd** för att rikta in hela ramverket från .net Core, fristående distribution och Linux-baserade program med agent/tillägg-baserad övervakning. ([Manuell instrumentering](./asp-net-core.md) via kod fungerar i alla tidigare scenarier.)
 
 1. **Välj Application Insights** på kontroll panelen i Azure för din app service.
 
@@ -99,11 +99,11 @@ I App Service webbapp under **Inställningar**  >  **väljer du Application Insi
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java-App Service baserade webb program stöder för närvarande inte automatisk agent/tillägg-baserad övervakning. Om du vill aktivera övervakning för ditt Java-program måste du [manuellt instrumentera ditt program](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
+Java-App Service baserade webb program stöder för närvarande inte automatisk agent/tillägg-baserad övervakning. Om du vill aktivera övervakning för ditt Java-program måste du [manuellt instrumentera ditt program](./java-get-started.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python App Service-baserade webb program stöder för närvarande inte automatisk agent/tillägg-baserad övervakning. Om du vill aktivera övervakning för ditt python-program måste du [manuellt instrumentera ditt program](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+Python App Service-baserade webb program stöder för närvarande inte automatisk agent/tillägg-baserad övervakning. Om du vill aktivera övervakning för ditt python-program måste du [manuellt instrumentera ditt program](./opencensus-python.md).
 
 ---
 
@@ -145,15 +145,15 @@ Om du av någon anledning vill inaktivera övervakning på klient sidan:
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Om du vill aktivera övervakning på klient sidan för ditt Node.js-program måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+Om du vill aktivera övervakning på klient sidan för ditt Node.js-program måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](./javascript.md).
 
 # <a name="java"></a>[Java](#tab/java)
 
-Om du vill aktivera övervakning på klient sidan för ditt Java-program måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+Om du vill aktivera övervakning på klient sidan för ditt Java-program måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](./javascript.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
-Om du vill aktivera övervakning på klient sidan för python-programmet måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+Om du vill aktivera övervakning på klient sidan för python-programmet måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](./javascript.md).
 
 ---
 
@@ -174,7 +174,7 @@ För att kunna aktivera telemetri-samling med Application Insights, behöver du 
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>App Service program inställningar med Azure Resource Manager
 
-Program inställningar för App Services kan hanteras och konfigureras med [Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). Den här metoden kan användas när du distribuerar nya App Service-resurser med Azure Resource Manager Automation, eller för att ändra inställningarna för befintliga resurser.
+Program inställningar för App Services kan hanteras och konfigureras med [Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md). Den här metoden kan användas när du distribuerar nya App Service-resurser med Azure Resource Manager Automation, eller för att ändra inställningarna för befintliga resurser.
 
 Den grundläggande strukturen i program inställnings-JSON för en app service är nedan:
 
@@ -339,14 +339,14 @@ Kontrol lera vilken version av tillägget som du kör på`http://yoursitename.sc
 
 Från och med version 2.8.9 används det förinstallerade webbplats tillägget. Om du har en tidigare version kan du uppdatera via ett av följande två sätt:
 
-* [Uppgradera genom att aktivera via portalen](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights). (Även om du har Application Insights tillägget för Azure App Service installerat visas bara knappen **Aktivera** i användar gränssnittet. Under bakgrunden tas det gamla privata webbplats tillägget bort.)
+* [Uppgradera genom att aktivera via portalen](#enable-application-insights). (Även om du har Application Insights tillägget för Azure App Service installerat visas bara knappen **Aktivera** i användar gränssnittet. Under bakgrunden tas det gamla privata webbplats tillägget bort.)
 
-* [Uppgradera via PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell):
+* [Uppgradera via PowerShell](#enabling-through-powershell):
 
-    1. Ange program inställningarna för att aktivera det förinstallerade ApplicationInsightsAgent för webbplats tillägget. Se [Aktivera via PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell).
+    1. Ange program inställningarna för att aktivera det förinstallerade ApplicationInsightsAgent för webbplats tillägget. Se [Aktivera via PowerShell](#enabling-through-powershell).
     2. Ta bort det privata webbplats tillägget manuellt med namnet Application Insights tillägget för Azure App Service.
 
-Om uppgraderingen görs från en version före 2.5.1 kontrollerar du att DLL-filerna för ApplicationInsigths tas bort från mappen för program bin [se fel söknings steg](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+Om uppgraderingen görs från en version före 2.5.1 kontrollerar du att DLL-filerna för ApplicationInsigths tas bort från mappen för program bin [se fel söknings steg](#troubleshooting).
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -363,7 +363,7 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
     ![Skärm bild av https://yoursitename.scm.azurewebsites/applicationinsights resultat Sidan](./media/azure-web-apps/app-insights-sdk-status.png)
 
     * Bekräfta att `Application Insights Extension Status` är`Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Om den inte körs följer du anvisningarna för [att aktivera Application Insights övervakning](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
+        * Om den inte körs följer du anvisningarna för [att aktivera Application Insights övervakning](#enable-application-insights)
 
     * Bekräfta att status källan finns och ser ut så här:`Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Om ett liknande värde inte finns, innebär det att programmet inte körs eller inte stöds. För att säkerställa att programmet körs kan du försöka gå till programmets URL/program slut punkter manuellt, vilket gör att körnings informationen blir tillgänglig.
@@ -398,7 +398,7 @@ Den senaste informationen om Application Insights agent/tillägg finns i [viktig
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP och WordPress stöds inte
 
-PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiellt stöd för SDK/agent för övervakning på Server sidan av dessa arbets belastningar. Du kan dock utföra manuell instrumentering av transaktioner på klient sidan på en PHP-eller WordPress-webbplats genom att lägga till Java Script på klient sidan på dina webb sidor med hjälp av [Java Script SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiellt stöd för SDK/agent för övervakning på Server sidan av dessa arbets belastningar. Du kan dock utföra manuell instrumentering av transaktioner på klient sidan på en PHP-eller WordPress-webbplats genom att lägga till Java Script på klient sidan på dina webb sidor med hjälp av [Java Script SDK](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Anslutnings sträng och Instrumentation-nyckel
 

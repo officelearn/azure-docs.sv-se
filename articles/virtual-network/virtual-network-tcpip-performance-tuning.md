@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068517"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Prestanda justering för TCP/IP för virtuella Azure-datorer
 
@@ -125,9 +125,8 @@ För Azure rekommenderar vi att du ställer in TCP MSS ihopfogning till 1 350 by
 
 Nätverks fördröjningen styrs av hastigheten på ljuset över ett fiber optiskt nätverk. Nätverks data flödet i TCP styrs också effektivt av tiden för tur och retur mellan två nätverks enheter.
 
-| | | | |
-|-|-|-|-|
-|**Routa**|**Mellanrummet**|**Enkelriktad tid**|**RTT**|
+| Väg | Avstånd | Enkelriktad tid | RTT |
+| ----- | -------- | ------------ | --- |
 |New York till San Francisco|4 148 km|21 MS|42 MS|
 |New York till London|5 585 km|28 MS|56 MS|
 |New York till Sydney|15 993 km|80 MS|160 MS|
@@ -162,9 +161,8 @@ Här är formeln för att beräkna det maximala data flödet för en enskild TCP
 
 Den här tabellen visar det högsta antalet megabyte/per sekund för en enda TCP-anslutning. (För läsbarhet används megabyte för mått enheten.)
 
-| | | | |
-|-|-|-|-|
-|**TCP-fönster storlek (byte)**|**Svars tid (MS)**|**Maximalt data flöde i MB/sekund**|**Maximalt megabits-/sekund data flöde**|
+| TCP-fönster storlek (byte) | Svars tid (MS) | Maximalt data flöde i MB/sekund | Maximalt megabits-/sekund data flöde |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|1|65,54|524,29|
 |65 535|30|2,18|17,48|
 |65 535|60|1.09|8,74|
@@ -179,9 +177,8 @@ TCP Window Scaling är en teknik som dynamiskt ökar TCP-fönstrets storlek för
 
 Den här tabellen illustrerar dessa relationer:
 
-| | | | |
-|-|-|-|-|
-|**TCP-fönster storlek (byte)**|**Svars tid (MS)**|**Maximalt data flöde i MB/sekund**|**Maximalt megabits-/sekund data flöde**|
+| TCP-fönster storlek (byte) | Svars tid (MS) | Maximalt data flöde i MB/sekund | Maximalt megabits-/sekund data flöde |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|30|2,18|17,48|
 |131 070|30|4,37|34,95|
 |262 140|30|8,74|69,91|
@@ -221,10 +218,9 @@ Set-NetTCPSetting
 
 Detta är de effektiva TCP-inställningarna för `AutoTuningLevel` :
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Skalnings faktor**|**Skalnings multiplikator**|**Formel för att <br/> Beräkna maximal fönster storlek**|
-|Disabled|Ingen|Ingen|Fönster storlek|
+| AutoTuningLevel | Skalnings faktor | Skalnings multiplikator | Formel för att<br/>beräkna maximal fönster storlek |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
+|Inaktiverad|Ingen|Ingen|Fönster storlek|
 |Begränsade|4|2 ^ 4|Fönster storlek * (2 ^ 4)|
 |Hög begränsad|2|2 ^ 2|Fönster storlek * (2 ^ 2)|
 |Normal|8|2 ^ 8|Fönster storlek * (2 ^ 8)|

@@ -7,11 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80810241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067970"
 ---
 # <a name="azure-application-gateway-features"></a>Azure Application Gateway-funktioner
 
@@ -23,7 +24,7 @@ Application Gateway innehåller följande funktioner:
 
 - [Secure Sockets Layer (SSL/TLS) avslutning](#secure-sockets-layer-ssltls-termination)
 - [Automatisk skalning](#autoscaling)
-- [Zon redundans](#zone-redundancy)
+- [Zonredundans](#zone-redundancy)
 - [Statisk VIP](#static-vip)
 - [Brandvägg för webbaserade program](#web-application-firewall)
 - [Ingress-kontrollant för AKS](#ingress-controller-for-aks)
@@ -34,7 +35,7 @@ Application Gateway innehåller följande funktioner:
 - [Websocket- och HTTP/2-trafik](#websocket-and-http2-traffic)
 - [Anslutningstömning](#connection-draining)
 - [Anpassade felsidor](#custom-error-pages)
-- [Återskapa HTTP-huvuden](#rewrite-http-headers)
+- [Skriv om HTTP-rubriker och URL](#rewrite-http-headers-and-url)
 - [Storlekar](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Secure Sockets Layer (SSL/TLS) avslutning
@@ -49,7 +50,7 @@ Application Gateway Standard_v2 stöder automatisk skalning och kan skalas upp e
 
 Mer information om Application Gateway Standard_v2 funktioner finns i avsnittet [autoskalning v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
-## <a name="zone-redundancy"></a>Zon redundans
+## <a name="zone-redundancy"></a>Zonredundans
 
 En Standard_v2 Application Gateway kan omfatta flera Tillgänglighetszoner, vilket ger bättre fel återhämtning och tar bort behovet av att etablera separata programgatewayer i varje zon.
 
@@ -82,13 +83,13 @@ Mer information finns i [Översikt över URL-sökväg baserad routning](url-rout
 
 ## <a name="multiple-site-hosting"></a>Värd för flera platser
 
-Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom samma programgateway-instans. Med den här funktionen kan du konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway (för optimala prestanda). Varje webbplats kan dirigeras till en egen programpool. Till exempel kan programgatewayen hantera trafik för `contoso.com` och `fabrikam.com` från två serverpooler som kallas ContosoServerPool och FabrikamServerPool.
+Med Application Gateway kan du konfigurera routning baserat på värdnamn eller domän namn för mer än ett webb program på samma Application Gateway. Det gör att du kan konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 + webbplatser i en Application Gateway. Varje webbplats kan dirigeras till en egen serverdelspool. Till exempel, tre domäner, contoso.com, fabrikam.com och adatum.com, pekar du på IP-adressen för programgatewayen. Du skapar tre lyssnare för flera platser och konfigurerar varje lyssnare för respektive port-och protokoll inställning. 
 
-Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
+Begär Anden för `http://contoso.com` dirigeras till ContosoServerPool, `http://fabrikam.com` dirigeras till FabrikamServerPool och så vidare.
 
-På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara `http://blog.contoso.com` och `http://app.contoso.com` på samma distribution av en programgateway.
+På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara `http://blog.contoso.com` och `http://app.contoso.com` på samma distribution av en programgateway. Mer information finns i [Application Gateway flera webbplats värdar](multiple-site-overview.md).
 
-Mer information finns i [Application Gateway flera webbplats värdar](multiple-site-overview.md).
+Du kan också definiera jokertecken som värdnamn i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnare (för hands version)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Omdirigering
 
@@ -130,7 +131,7 @@ Med Application Gateway kan du skapa anpassade felsidor i stället för att visa
 
 Mer information finns i [anpassade fel](custom-error.md).
 
-## <a name="rewrite-http-headers"></a>Återskapa HTTP-huvuden
+## <a name="rewrite-http-headers-and-url"></a>Skriv om HTTP-rubriker och URL
 
 HTTP-huvuden gör att klienten och servern kan skicka ytterligare information med begäran eller svaret. Genom att skriva om dessa HTTP-huvuden kan du utföra flera viktiga scenarier, t. ex.:
 
@@ -138,9 +139,11 @@ HTTP-huvuden gör att klienten och servern kan skicka ytterligare information me
 - Tar bort fält för svars huvud som kan avslöja känslig information.
 - Tar fram portinformation från X-vidarebefordrade – för meddelandehuvuden.
 
-Application Gateway stöder möjligheten att lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden, medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Du får också möjlighet att lägga till villkor för att se till att de angivna rubrikerna bara skrivs om när vissa villkor är uppfyllda.
+Application Gateway-och WAF v2-SKU: n stöder möjligheten att lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden, medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Du kan också skriva om URL: er, fråga sträng parametrar och värd namn. Med URL-omskrivning och URL-baserad routning, kan du välja att antingen dirigera begär anden till en av backend-poolerna baserat på den ursprungliga sökvägen eller den omskrivna sökvägen med hjälp av alternativet för att utvärdera Sök vägs kartan igen. 
 
-Mer information finns i [skriva om HTTP-huvuden](rewrite-http-headers.md).
+Du får också möjlighet att lägga till villkor för att se till att de angivna sidhuvudena eller URL: en bara skrivs om när vissa villkor är uppfyllda. Dessa villkor baseras på begäran och svars information.
+
+Mer information finns i [skriva om HTTP-sidhuvuden och URL: en](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Storlekar
 

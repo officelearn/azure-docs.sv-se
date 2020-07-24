@@ -8,15 +8,16 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1a3d0b05f04ad8c182d428843479160666b96ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070328"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple Virtual Array – förbereda Azure Portal
 
-![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+![Diagram som visar de steg som behövs för att distribuera en virtuell matris. Det första steget är märkt kom igång och är markerat.](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
 ## <a name="overview"></a>Översikt
@@ -51,7 +52,7 @@ I konfigurations check listan beskrivs den information som du behöver samla in 
 * Ladda ned [Check lista för StorSimple virtuell array File Server Configuration](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Ladda ned [Check lista för konfiguration av iSCSI-StorSimple för virtuell matris](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här hittar du nödvändiga konfigurations krav för din StorSimple Enhetshanteraren-tjänst, din StorSimple virtuella matris och data Center nätverket.
 
@@ -126,7 +127,7 @@ Utför följande steg på [Azure-portalen](https://portal.azure.com/).
 
 #### <a name="to-get-the-virtual-array-image"></a>Så här hämtar du den virtuella mat ris avbildningen
 
-1. Logga in på [Azure Portal](https://portal.azure.com/). 
+1. Logga in på [Azure-portalen](https://portal.azure.com/). 
 2. Klicka på **bläddra > StorSimple Device Managers**i Azure Portal.
 3. Välj en befintlig StorSimple Enhetshanteraren-tjänst. Klicka på **Snabbstart**i bladet **StorSimple Enhetshanteraren** . 
 4. Klicka på länken som motsvarar den avbildning som du vill ladda ned från Microsoft Download Center. Avbildningsfilerna är cirka 4,8 GB.

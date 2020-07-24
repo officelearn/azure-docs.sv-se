@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068032"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -286,7 +286,7 @@ Genom att använda regler för att skriva om, kan du lägga till, ta bort eller 
 Parametrarna headers och URL kan anges till statiska värden eller till andra huvuden och servervariabler. Detta hjälper till med viktiga användnings fall, till exempel att extrahera klientens IP-adresser, ta bort känslig information om Server delen, lägga till mer säkerhet och så vidare.
 Mer information finns i:
 
- - [Översikt över Skriv över HTTP-rubriker](rewrite-http-headers-url.md)
+ - [Skriv över översikt över HTTP-rubriker och URL](rewrite-http-headers-url.md)
  - [Konfigurera omskrivning av HTTP-huvud](rewrite-http-headers-portal.md)
  - [Konfigurera URL-omskrivning](rewrite-url-portal.md)
 

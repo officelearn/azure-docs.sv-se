@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068304"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
@@ -35,7 +35,7 @@ Om du bara behöver en säker anslutning mellan ditt VNet och din webbapp är en
 
 Mer information finns i [tjänst slut punkter][serviceendpoint].
 
-## <a name="conceptual-overview"></a>Konceptuell översikt
+## <a name="conceptual-overview"></a>Begreppsmässig översikt
 
 En privat slut punkt är ett särskilt nätverks gränssnitt (NIC) för din Azure-webbapp i ett undernät i din Virtual Network (VNet).
 När du skapar en privat slut punkt för din webbapp ger den säker anslutning mellan klienter i ditt privata nätverk och din webbapp. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall.
@@ -70,7 +70,7 @@ När du använder en privat slut punkt för webbappen måste den begärda URL: e
 Som standard, utan privat slut punkt, är det offentliga namnet på din webbapp ett kanoniskt namn för klustret.
 Namn matchningen är till exempel:
 
-|Name |Typ |Värde |
+|Namn |Typ |Värde |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -80,7 +80,7 @@ Namn matchningen är till exempel:
 När du distribuerar en privat slut punkt uppdaterar vi DNS-posten så att den pekar på det kanoniska namnet mywebapp.privatelink.azurewebsites.net.
 Namn matchningen är till exempel:
 
-|Name |Typ |Värde |Markera om |
+|Namn |Typ |Värde |Markera om |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -91,7 +91,7 @@ Du måste konfigurera en privat DNS-server eller en Azure DNS privat zon för at
 Den DNS-zon som du behöver skapa är: **privatelink.azurewebsites.net**. Registrera posten för din webbapp med en A-post och den privata slut punktens IP-adress.
 Namn matchningen är till exempel:
 
-|Name |Typ |Värde |Markera om |
+|Namn |Typ |Värde |Markera om |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|< – du hanterar den här posten i ditt DNS-system för att peka på din privata slut punkts IP-adress|
@@ -103,7 +103,7 @@ Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassad
 
 För kudu-konsolen, eller kudu REST API (distribution med Azure DevOpss lokala agenter till exempel), måste du skapa två poster i din Azure DNS privata zon eller på din anpassade DNS-server. 
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
@@ -127,7 +127,7 @@ Vi förbättrar den privata länk funktionen och den privata slut punkten regelb
 - Information om hur du distribuerar privat slut punkt för din webbapp via portalen finns i [så här ansluter du privat till en webbapp med portalen][howtoguide1]
 - Om du vill distribuera en privat slut punkt för din webbapp med Azure CLI kan du läsa [så här ansluter du privat till en webbapp med Azure CLI][howtoguide2]
 - Om du vill distribuera en privat slut punkt för din webbapp med hjälp av PowerShell, se [så här ansluter du privat till en webbapp med PowerShell][howtoguide3]
-
+- Information om hur du distribuerar privat slut punkt för din webbapp med Azure-mall finns i [så här ansluter du privat till en webbapp med Azure-mall][howtoguide4]
 
 
 <!--Links-->
@@ -143,3 +143,4 @@ Vi förbättrar den privata länk funktionen och den privata slut punkten regelb
 [howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
+[howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint

@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Policy för att begränsa installationen av VM-tillägg
+title: Använd Azure Policy för att begränsa installationen av VM-tillägg (Linux)
 description: Använd Azure Policy för att begränsa distributioner av VM-tillägg.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f9713c0ce2df2533a49086c6c4a95aeaa24c48e
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2129130dab58c9e1fb98878efc3ec668eeb45359
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919815"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069774"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Använd Azure Policy för att begränsa installationen av tillägg på virtuella Linux-datorer
 

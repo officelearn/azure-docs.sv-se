@@ -7,18 +7,19 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676581"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069795"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Fel meddelanden för virtuella datorer och skalnings uppsättningar
 
 Här följer några möjliga fel koder som du kan få när du använder virtuella datorer och skalnings uppsättningar.
 
 
-| Tangent | Meddelande | Beskrivning |
+| Nyckel | Meddelande | Beskrivning |
 |-----|---------|-------------|
 | SkuNotAvailable | Den begärda nivån för resursen \<resource\> är för närvarande inte tillgänglig på platsen \<location\> för prenumerationen \<subscriptionID\> . Försök med en annan nivå eller distribuera till en annan plats. | Det finns inte tillräckligt med Azure-dekorfärg på den här platsen för att skapa en VM-eller skalnings uppsättnings instans. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  Borttagnings principen kan bara ställas in på Azure-Virtual Machines. | Den här virtuella datorn är inte en VM-VM, så du kan inte ange principen för borttagning. |
@@ -34,7 +35,6 @@ Här följer några möjliga fel koder som du kan få när du använder virtuell
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Högsta pris stöds bara för Azure-Virtual Machines. | Mer information finns på [plats Virtual Machines](./linux/spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  Begäran om att flytta resurser innehåller en virtuell Azure-dator. Detta stöds inte för närvarande. Kontrol lera fel informationen för virtuella dator-ID: n. | Det går inte att flytta virtuella plats datorer. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  Begäran om att flytta resurser innehåller en skalnings uppsättning för en virtuell Azure-dator. Detta stöds inte för närvarande. Kontrol lera fel informationen för skalnings uppsättnings-ID: n för virtuella datorer. | Det går inte att flytta instanser för punkt skalnings uppsättning. |
-| EphemeralOSDisksNotSupportedForSpotVMs | Tillfälliga OS-diskar stöds inte för virtuella datorer på platsen. | Använd en vanlig OS-disk för den virtuella datorn. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Virtuell dator i Azure-platsen stöds inte i skalnings uppsättningen för virtuella datorer med den virtuella datorns Orchestration-läge. | Ange Orchestration-läget till skalnings uppsättningen för den virtuella datorn för att kunna använda punkt instanser. |
 
 

@@ -1,21 +1,25 @@
 ---
-title: Använd Azure Storage-emulatorn för utveckling och testning | Microsoft Docs
+title: Använd Azure Storage-emulatorn för utveckling och testning
 description: Azure Storage-emulatorn tillhandahåller en kostnads fri lokal utvecklings miljö för att utveckla och testa dina Azure Storage-program.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512178"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070548"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure Storage-emulatorn för utveckling och testning
 
 Microsoft Azure Storage-emulatorn är ett verktyg som emulerar tjänsterna Azure Blob, Queue och table i syfte att utveckla lokala tjänster. Du kan testa ditt program mot lagrings tjänsterna lokalt utan att skapa en Azure-prenumeration eller debitera några kostnader. När du är nöjd med hur ditt program fungerar i emulatorn växlar du till att använda ett Azure Storage-konto i molnet.
+
+> [!IMPORTANT]
+> Azure Storage emulatorn är inte längre aktivt utvecklad. [**Azurite**](storage-use-azurite.md) är Storage emulator-plattformen som går framåt. Azurite ersätter Azure Storage-emulatorn. Azurite kommer fortfarande att uppdateras för att stödja de senaste versionerna av Azure Storage-API: er. Mer information finns i [**använda Azurite-emulatorn för lokal Azure Storage utveckling**](storage-use-azurite.md).
 
 ## <a name="get-the-storage-emulator"></a>Hämta Storage-emulatorn
 
@@ -74,7 +78,7 @@ Du kan använda kommando rads verktyget Storage-emulator för att initiera Stora
 
    `AzureStorageEmulator.exe init /server .`
 
-   Du kan också använda följande kommando, som initierar om databasen till standard LocalDB-instansen:
+   Du kan också använda följande kommando, som initierar databasen till standard LocalDB-instansen:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -327,3 +331,7 @@ Det finns inga skillnader vad gäller Queue Storage i emulatorn.
 * Utvärdera den plattforms oberoende [Azurite](https://github.com/azure/azurite)för lagring med öppen källkod. 
 * [Azure Storage exempel som använder .net](../storage-samples-dotnet.md) innehåller länkar till flera kod exempel som du kan använda när du utvecklar ditt program.
 * Du kan använda [Microsoft Azure Storage Explorer](https://storageexplorer.com) för att arbeta med resurser i ditt moln lagrings konto och i Storage-emulatorn.
+
+## <a name="see-also"></a>Se även
+
+* [Lokal Azure Storage utveckling med Azurite, Azure SDK: er och Azure Storage Explorer](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

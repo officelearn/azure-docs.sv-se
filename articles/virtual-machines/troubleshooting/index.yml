@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 4111df079f6e4c0d49ab1381add835d493b3540a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 1b70dfb508ef00f370f0a6fa1456ab7178ec0eae
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77519248"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87069040"
 landingContent:
 - title: Felsöka distributionsfel
   linkLists:
@@ -28,65 +28,65 @@ landingContent:
     - text: Åtgärda fel med en ogiltig mall
       url: ../../azure-resource-manager/templates/error-invalid-template.md
     - text: Åtgärda fel med otillgänglig SKU
-      url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+      url: ../../azure-resource-manager/templates/error-sku-not-available.md
 - title: Vägledning för distribution av virtuella datorer
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Förbereda en VHD eller VHDX i Windows för överföring till Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image
+      url: ../windows/prepare-for-upload-vhd-image.md
     - text: Distribuera eller skapa Windows-klientoperativsystem i Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/client-images
+      url: ../windows/client-images.md
     - text: Åtgärda fel som gäller kvoter
-      url: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors
+      url: ../../azure-resource-manager/templates/error-resource-quota.md
 - title: Jag kan inte ansluta till min virtuella dator
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Snabbsteg för att adressera vanliga RDP-anslutningsproblem
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-rdp-connection
+      url: ./troubleshoot-rdp-connection.md
     - text: Felsöka Azure VM RDP-anslutningsfel efter händelse-ID
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/event-id-troubleshoot-vm-rdp-connecton
+      url: ./event-id-troubleshoot-vm-rdp-connecton.md
     - text: Felsöka autentiseringsfel när du använder RDP för att ansluta till virtuella Azure-datorer
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm
+      url: ./troubleshoot-authentication-error-rdp-vm.md
     - text: Gästnätverkskort för virtuella datorer har inaktiverats
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-nic-disabled
+      url: ./troubleshoot-rdp-nic-disabled.md
 - title: Lösenordsåterställning
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Så här återställer du fjärrskrivbordstjänsten eller dess inloggningslösenord på en virtuell Windows-dator
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp
+      url: ./reset-rdp.md
     - text: Återställa det lokala Windows-lösenordet för en virtuell Azure-dator med offlinemetoden
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-local-password-without-agent
+      url: ./reset-local-password-without-agent.md
     - text: Felsöka specifika RDP-felmeddelanden till en virtuell Windows-dator i Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors
+      url: ./troubleshoot-specific-rdp-errors.md
     - text: Så här felsöker du fjärrskrivbordsanslutningar till virtuella Azure-datorer
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection
+      url: ./troubleshoot-rdp-connection.md
 - title: Virtuell dator startar inte
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Startfel för diskkontroll
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error
+      url: ./troubleshoot-check-disk-boot-error.md
     - text: BitLocker-startfel
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-bitlocker-boot-error
+      url: ./troubleshoot-bitlocker-boot-error.md
     - text: Fel vid uppdatering av startkonfiguration
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+      url: ./troubleshoot-vm-boot-configure-update.md
     - text: Vanligt fel med blå kraschskärm
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-common-blue-screen-error
-- title: Jag kan inte starta eller stoppa en virtuell dator
+      url: ./troubleshoot-common-blue-screen-error.md
+- title: Kan inte starta eller stoppa en virtuell dator
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Felsöka problem med distribution av virtuella datorer
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+      url: ./restart-resize-error-troubleshooting.md
     - text: Felsöka allokeringsfel (klassisk distributionsmodell)
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+      url: ./allocation-failure-classic.md
     - text: Fel vid uppdatering av startkonfiguration
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+      url: ./troubleshoot-vm-boot-configure-update.md
     - text: Livscyklar och tillstånd för virtuella datorer
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle
+      url: ../windows/states-lifecycle.md
 - title: Oväntad omstart av virtuell dator
   linkLists:
   - linkListType: how-to-guide
@@ -96,50 +96,50 @@ landingContent:
     - text: Diagnostisera startfel och återställa efter en omstart
       url: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
     - text: Förstå planerat underhåll av virtuella datorer i Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates
+      url: ../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
     - text: Starten av en virtuell Azure-dator har fastnat vid Windows Update
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-stuck-updating-boot-error
+      url: ./troubleshoot-stuck-updating-boot-error.md
 - title: Problem med hantering av virtuella diskar
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Vanliga frågor och svar om virtuella diskar
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks
+      url: ../windows/faq-for-disks.md
     - text: Felsöka allokeringsfel när du ändar storlek på en virtuell dator
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+      url: ./allocation-failure.md
     - text: Förstå den temporära enheten på din virtuella dator
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk
+      url: ../windows/managed-disks-overview.md#temporary-disk
     - text: Översikt över Azure Managed Disks
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview
+      url: ../windows/managed-disks-overview.md
 - title: Problem med diskkryptering
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Felsöka kryptering av Azure-diskar
-      url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg
+      url: ../../security/fundamentals/azure-disk-encryption-vms-vmss.md
     - text: Vanliga frågor och svar om kryptering av Azure-diskar
-      url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq
+      url: ../../security/fundamentals/azure-disk-encryption-vms-vmss.md
     - text: Så här felsöker du Azure-tillägg
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
 - title: Prestandaproblem för virtuella datorer
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Felsöka långsam replikering av delade bildgallerier
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/troubleshooting-shared-images#replication-is-slow
-- title: Problem med VM-tillägg
+      url: ../windows/troubleshooting-shared-images.md#replication-is-slow
+- title: Problem med tillägg för virtuella datorer
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Allmän felsökning av tillägg
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
     - text: Installera tillägget på din virtuella dator
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-windows
+      url: ../extensions/diagnostics-windows.md
     - text: Anpassat skripttillägg för Windows
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+      url: ../extensions/custom-script-windows.md#tips-and-tricks
 - title: Säkerhetskopiering och återställning
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Felsöka säkerhetskopiering av virtuella Azure-datorer i Azure-portalen
-      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+      url: ../../backup/backup-azure-vms-troubleshoot.md

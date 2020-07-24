@@ -6,11 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537652"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068197"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Service-plan
 
@@ -27,7 +28,7 @@ _Pris nivån_ för en app service plan avgör vilka App Service funktioner du f�
 
 - **Delad beräkning**: **kostnads fri** och **delad**, de två bas nivåerna kör en app på samma virtuella Azure-dator som andra App Service appar, inklusive appar från andra kunder. Dessa nivåer allokerar CPU-kvoter till varje app som körs på de delade resurserna, och de resurserna kan inte skalas om.
 - **Dedikerad beräkning**: nivåerna **Basic**, **standard**, **Premium**och **PremiumV2** kör appar på dedikerade virtuella Azure-datorer. Det är bara appar i samma App Service-plan som delar samma beräkningsresurser. Ju högre nivå, desto fler VM-instanser blir tillgängliga som du kan skala ut.
-- **Isolerad**: den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk. Den ger nätverks isolering ovanpå beräknings isoleringen för dina appar. Den ger maximalt med utskalningsfunktioner.
+- **Isolerad**: den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk. Den ger nätverks isolering ovanpå beräknings isoleringen för dina appar. Den här nivån har flest möjligheter till utskalning.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -78,8 +79,10 @@ Du debiteras inte för att använda de App Service funktioner som är tillgängl
 
 > [!NOTE]
 > Om du integrerar App Service med en annan Azure-tjänst kan du behöva fundera på debitering från dessa andra tjänster. Om du till exempel använder Azure Traffic Manager för att skala din app geografiskt, debiterar Azure Traffic Manager också dig utifrån din användning. Se [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/)för att beräkna dina kostnader för dina globala tjänster i Azure. 
->
->
+
+Vill du optimera och Spara på dina moln utgifter?
+
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Vad händer om min app behöver fler funktioner eller funktioner?
 
@@ -97,7 +100,7 @@ Om din app finns i samma App Service plan med andra appar, kanske du vill förb�
 
 Eftersom du betalar för de beräknings resurser som App Service plan allokerar (se [hur mycket kostar min app service plan?](#cost)) kan du spara pengar genom att placera flera appar i en app service plan. Du kan fortsätta att lägga till appar i en befintlig plan så länge planen har tillräckligt med resurser för att hantera belastningen. Tänk dock på att appar i samma App Service plan alla delar samma beräknings resurser. För att avgöra om den nya appen har de resurser som krävs måste du känna till kapaciteten för den befintliga App Service-planen och den förväntade belastningen för den nya appen. Om en App Service-plan överbelastas kan det eventuellt medföra driftstopp för dina nya och befintliga appar.
 
-Isolera din app till en ny App Service-plan när:
+Isolera din app i en ny App Service-plan när:
 
 - Appen är resurs intensiv.
 - Du vill skala appen oberoende av de andra apparna i den befintliga planen.

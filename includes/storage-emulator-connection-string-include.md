@@ -2,16 +2,16 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 07/17/2020
 ms.author: tamram
-ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85e7cb86217340e77a6f597a357c3de1f91fb8d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070536"
 ---
-Storage-emulatorn stöder ett enda fast konto och en välkänd autentiseringsnyckel för autentisering med delad nyckel. Det här kontot och nyckeln är de enda autentiseringsuppgifterna för delad nyckel som tillåts för användning med Storage-emulatorn. De är:
+Azurite stöder ett enda fast konto och en välkänd autentiseringsnyckel för autentisering med delad nyckel. Det här kontot och nyckeln är de enda autentiseringsuppgifterna för delad nyckel som tillåts för användning med Azurite. De är:
 
 ```
 Account name: devstoreaccount1
@@ -19,13 +19,13 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> Den autentiseringsnyckel som stöds av lagringsprovidern är endast avsedd för att testa funktionen hos din klientautentisering. Det fungerar inte i något säkerhets syfte. Du kan inte använda ditt produktions lagrings konto och din nyckel med Storage-emulatorn. Du bör inte använda utvecklings kontot med produktions data.
+> Den autentiseringsnyckel som stöds av Azurite är endast avsedd för att testa funktionen hos din klientautentisering. Det fungerar inte i något säkerhets syfte. Du kan inte använda ditt produktions lagrings konto och din nyckel med Azurite. Du bör inte använda utvecklings kontot med produktions data.
 > 
-> Storage-emulatorn stöder endast anslutning via HTTP. HTTPS är dock det rekommenderade protokollet för att få åtkomst till resurser i ett Azure Storage-konto för produktion.
+> Azurite stöder endast anslutning via HTTP. HTTPS är dock det rekommenderade protokollet för att få åtkomst till resurser i ett Azure Storage-konto för produktion.
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Ansluta till emulator-kontot med hjälp av en genväg
-Det enklaste sättet att ansluta till lagrings emulatorn från ditt program är att konfigurera en anslutnings sträng i programmets konfigurations fil som refererar till genvägen `UseDevelopmentStorage=true` . Här är ett exempel på en anslutnings sträng till Storage-emulatorn i en *app.config* -fil: 
+Det enklaste sättet att ansluta till Azurite från ditt program är att konfigurera en anslutnings sträng i programmets konfigurations fil som refererar till genvägen `UseDevelopmentStorage=true` . Här är ett exempel på en anslutnings sträng till Azurite i en *app.config* -fil: 
 
 ```xml
 <appSettings>
@@ -40,16 +40,7 @@ Om du vill skapa en anslutnings sträng som refererar till emulatorns konto namn
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
 AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
-TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
 Värdet är identiskt med genvägen som visas ovan `UseDevelopmentStorage=true` .
-
-#### <a name="specify-an-http-proxy"></a>Ange en HTTP-proxy
-Du kan också ange en HTTP-proxy som ska användas när du testar tjänsten mot Storage-emulatorn. Detta kan vara användbart för att observera HTTP-begäranden och svar när du felsöker åtgärder mot lagrings tjänsterna. Om du vill ange en proxy lägger du till `DevelopmentStorageProxyUri` alternativet i anslutnings strängen och anger värdet till proxy-URI: n. Här är till exempel en anslutnings sträng som pekar på Storage-emulatorn och konfigurerar en HTTP-proxy:
-
-```
-UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
-```
-

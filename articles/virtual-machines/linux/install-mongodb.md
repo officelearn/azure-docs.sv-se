@@ -11,11 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 953e474eb5d160b38981d61fbfda051f1da9f968
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069577"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Så här installerar och konfigurerar du MongoDB på en virtuell Linux-dator
 
@@ -213,5 +214,4 @@ De här exemplen distribuerar kärnan MongoDB-miljön i utvecklings syfte. Anvä
 
 Mer information om hur du skapar med hjälp av mallar finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-Azure Resource Manager-mallarna använder tillägget för anpassat skript för att ladda ned och köra skript på dina virtuella datorer. Mer information finns i [använda Azures anpassade skript tillägg med virtuella Linux-datorer](extensions-customscript.md).
-
+Azure Resource Manager-mallarna använder tillägget för anpassat skript för att ladda ned och köra skript på dina virtuella datorer. Mer information finns i [använda Azures anpassade skript tillägg med virtuella Linux-datorer](../extensions/custom-script-linux.md).

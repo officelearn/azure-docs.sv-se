@@ -6,13 +6,14 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d9a75cde58062061149fa4304eace587b1480dd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76277042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070333"
 ---
-# <a name="storsimple-solution-support"></a>Support för StorSimple-lösningar
+# <a name="storsimple-solution-support"></a>Support för StorSimple-lösningen
 
 ## <a name="storsimple-support"></a>StorSimple-stöd
 
@@ -27,8 +28,8 @@ Microsoft erbjuder flexibla support alternativ för StorSimple Enterprise Storag
 
 ## <a name="storsimple-support-plans"></a>Support avtal för StorSimple
 
-|                                                                                                                                                     | **Standard** <sup> 81.1                                                 |  **Premium** <sup> 81.1                                                                         |
-|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Support funktion | STANDARD <sup> 1 | PREMIUM <sup> 1 |
+| --------------- | --------------- | -------------- |
 | Fakturerings-och prenumerations hantering                                                                     | ✓                                                                               | ✓                                                                              |
 | Skicka Azure Portald biljett                                                                          | ✓                                                                               | ✓                                                                              |
 | Åtkomst till online support Portal                                                                            | ✓                                                                               | ✓                                                                              |
@@ -36,7 +37,7 @@ Microsoft erbjuder flexibla support alternativ för StorSimple Enterprise Storag
 | Sändning av första svars tid dygnet runt support ärendet <br> Första svars tid baserat på allvarlighets grad <sup> 2 | Allvarlighets grad A: inom 2 timmar <br> Allvarlighets grad B: inom 4 timmar <br> Allvarlighets grad C: inom 8 timmar | Allvarlighets grad A: inom 60 minuter <br> Allvarlighets grad B: inom 2 timmar <br> Allvarlighets grad C: inom 4 timmar |
 | Telefon support (motringning)                                                                               | ✓                                                                               | ✓                                                                              |
 | Utbyte av avancerade delar (endast StorSimple 8000-serien) <sup>3</sup>                                              | Nästa arbets dag <sup> 4                                                              | Inom 4 timmar                                                                 |
-| Service Engineer på plats (endast StorSimple 8000-serien) <sup>3</sup>                                         | Inte tillgänglig                                                                   | Inom 4 timmar                                                                 |
+| Service Engineer på plats (endast StorSimple 8000-serien) <sup>3</sup>                                         | Inte tillgängligt                                                                   | Inom 4 timmar                                                                 |
 | StorSimple virtuell matris <sup>5</sup>                                                                              | ✓                                                                               | ✓                                                                              |
 | Instanser av StorSimple Virtual Array <sup>5</sup>                                                                 | Obegränsad                                                                        | Obegränsad                                                                       |
 

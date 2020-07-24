@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: mimckitt
-ms.openlocfilehash: 5aeae50c9cb7497c20f785f2a32c96f5a4fdec1e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bb9b993b88b8f4b31bc56c6bb3fc16972bb6e41
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186987"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069806"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows
 
@@ -29,7 +29,7 @@ Azure-diagnostik är funktionen i Azure som möjliggör insamling av diagnostikd
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Aktivera diagnostik-tillägget om du använder distributions modellen för Resource Manager
 Du kan aktivera tillägget diagnostik när du skapar en virtuell Windows-dator genom Azure Resource Manager distributions modell genom att lägga till tilläggs konfigurationen i Resource Manager-mallen. Se [skapa en virtuell Windows-dator med övervakning och diagnostik med hjälp av Azure Resource Manager-mallen](diagnostics-template.md).
 
-Om du vill aktivera diagnostik-tillägget på en befintlig virtuell dator som har skapats via distributions modellen för Resource Manager kan du använda cmdleten [set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiagnosticsextension) PowerShell-cmdleten som visas nedan.
+Om du vill aktivera diagnostik-tillägget på en befintlig virtuell dator som har skapats via distributions modellen för Resource Manager kan du använda cmdleten [set-AzVMDiagnosticsExtension](/powershell/module/az.compute/set-azvmdiagnosticsextension) PowerShell-cmdleten som visas nedan.
 
 ```azurepowershell
 $vm_resourcegroup = "myvmresourcegroup"
@@ -52,7 +52,7 @@ Om ditt lagrings konto för diagnostik finns i en annan prenumeration än den vi
 Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 ```
 
-När diagnostik-tillägget har Aktiver ATS på en virtuell dator kan du hämta de aktuella inställningarna med hjälp av cmdleten [Get-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiagnosticsextension) .
+När diagnostik-tillägget har Aktiver ATS på en virtuell dator kan du hämta de aktuella inställningarna med hjälp av cmdleten [Get-AzVmDiagnosticsExtension](/powershell/module/az.compute/get-azvmdiagnosticsextension) .
 
 ```azurepowershell
 Get-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
@@ -67,13 +67,13 @@ $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64
 Write-Host $xmlconfig
 ```
 
-Cmdlet: en [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdiagnosticsextension) kan användas för att ta bort tillägget för diagnostik från den virtuella datorn.  
+Cmdlet: en [Remove-AzVmDiagnosticsExtension](/powershell/module/az.compute/remove-azvmdiagnosticsextension) kan användas för att ta bort tillägget för diagnostik från den virtuella datorn.  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Aktivera diagnostik-tillägget om du använder den klassiska distributions modellen
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-Du kan använda cmdleten [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) för att aktivera ett diagnostiskt tillägg på en virtuell dator som du skapar via den klassiska distributions modellen. I följande exempel visas hur du skapar en ny virtuell dator via den klassiska distributions modellen med diagnostik-tillägget aktiverat.
+Du kan använda cmdleten [set-AzureVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) för att aktivera ett diagnostiskt tillägg på en virtuell dator som du skapar via den klassiska distributions modellen. I följande exempel visas hur du skapar en ny virtuell dator via den klassiska distributions modellen med diagnostik-tillägget aktiverat.
 
 ```azurepowershell
 $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
@@ -82,7 +82,7 @@ $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path
 New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 ```
 
-Om du vill aktivera diagnostik-tillägget på en befintlig virtuell dator som har skapats via den klassiska distributions modellen använder du först cmdleten [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) för att hämta VM-konfigurationen. Uppdatera sedan VM-konfigurationen så att den inkluderar tillägget för diagnostik med hjälp av cmdleten [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) . Använd slutligen den uppdaterade konfigurationen på den virtuella datorn med hjälp av [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
+Om du vill aktivera diagnostik-tillägget på en befintlig virtuell dator som har skapats via den klassiska distributions modellen använder du först cmdleten [Get-AzureVM](/powershell/module/servicemanagement/azure.service/get-azurevm) för att hämta VM-konfigurationen. Uppdatera sedan VM-konfigurationen så att den inkluderar tillägget för diagnostik med hjälp av cmdleten [set-AzureVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) . Använd slutligen den uppdaterade konfigurationen på den virtuella datorn med hjälp av [Update-AzureVM](/powershell/module/servicemanagement/azure.service/update-azurevm).
 
 ```azurepowershell
 $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
@@ -212,5 +212,4 @@ Konfigurationen måste uppdateras för att inkludera följande:
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du använder Azure-diagnostik funktioner och andra tekniker för att felsöka problem finns i [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
-* [Schemat för diagnostikdata](https://msdn.microsoft.com/library/azure/mt634524.aspx) förklarar de olika alternativen för XML-konfigurationer för tillägget Diagnostics.
-
+* [Schemat för diagnostikdata](/azure/azure-monitor/platform/diagnostics-extension-versions) förklarar de olika alternativen för XML-konfigurationer för tillägget Diagnostics.

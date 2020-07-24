@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 549fd9851ffce4459e16b4d84f368234bfdf207d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: adc57b213a177e227fe446a4dd24e53dea1cd2fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068645"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server 
 
@@ -55,7 +55,7 @@ ms.locfileid: "86275826"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-Den här artikeln beskriver hur du distribuerar ett SAP HANA system med hög tillgänglighet i en skalbar konfiguration med standby på virtuella Azure-datorer (VM: ar) genom att använda [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/) för de delade lagrings volymerna.  
+Den här artikeln beskriver hur du distribuerar ett SAP HANA system med hög tillgänglighet i en skalbar konfiguration med standby på virtuella Azure-datorer (VM: ar) genom att använda [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) för de delade lagrings volymerna.  
 
 I exemplen konfigurationer, installations kommandon och så vidare är HANA-instansen **03** och Hana-systemets ID är **HN1**. Exemplen baseras på HANA 2,0 SP4 och SUSE Linux Enterprise Server för SAP 12 SP4. 
 
@@ -87,7 +87,7 @@ Läs följande SAP-anteckningar och dokument innan du börjar:
 
 ## <a name="overview"></a>Översikt
 
-En metod för att uppnå HANA hög tillgänglighet är genom att konfigurera automatisk redundansväxling av värden. Om du vill konfigurera automatisk redundans för värd lägger du till en eller flera virtuella datorer i HANA-systemet och konfigurerar dem som vänte läges noder. När en aktiv nod kraschar tar en nod i vänte läge automatiskt över. I den sammanställda konfigurationen med Azure Virtual Machines får du automatisk redundans genom att använda [NFS på Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
+En metod för att uppnå HANA hög tillgänglighet är genom att konfigurera automatisk redundansväxling av värden. Om du vill konfigurera automatisk redundans för värd lägger du till en eller flera virtuella datorer i HANA-systemet och konfigurerar dem som vänte läges noder. När en aktiv nod kraschar tar en nod i vänte läge automatiskt över. I den sammanställda konfigurationen med Azure Virtual Machines får du automatisk redundans genom att använda [NFS på Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).  
 
 > [!NOTE]
 > Noden vänte läge behöver åtkomst till alla databas volymer. HANA-volymerna måste monteras som NFSv4-volymer. Den förbättrade fil låne metoden för fillån i NFSv4-protokollet används för `I/O` avgränsning. 
@@ -102,7 +102,7 @@ I föregående diagram, som följer SAP HANA nätverks rekommendationer, represe
 * För kommunikation med lagrings systemet
 * För intern HANA kommunikation mellan noder
 
-Azure NetApp-volymerna finns i separata undernät, [delegerade till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+Azure NetApp-volymerna finns i separata undernät, [delegerade till Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
 I den här exempel konfigurationen är under näten:  
 
@@ -123,21 +123,21 @@ Innan du distribuerar Azure NetApp Files kan du begära onboarding till Azure Ne
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Distribuera Azure NetApp Files-resurser  
 
-Följande instruktioner förutsätter att du redan har distribuerat ditt [virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Azure NetApp Files resurser och virtuella datorer, där Azure NetApp Files resurserna ska monteras, måste distribueras i samma virtuella Azure-nätverk eller i peer-anslutna virtuella Azure-nätverk.  
+Följande instruktioner förutsätter att du redan har distribuerat ditt [virtuella Azure-nätverk](../../../virtual-network/virtual-networks-overview.md). Azure NetApp Files resurser och virtuella datorer, där Azure NetApp Files resurserna ska monteras, måste distribueras i samma virtuella Azure-nätverk eller i peer-anslutna virtuella Azure-nätverk.  
 
-1. Om du inte redan har distribuerat resurserna begär du [att registrera dig för att Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Om du inte redan har distribuerat resurserna begär du [att registrera dig för att Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).  
 
-2. Skapa ett NetApp-konto i din valda Azure-region genom att följa instruktionerna i [skapa ett NetApp-konto](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
+2. Skapa ett NetApp-konto i din valda Azure-region genom att följa instruktionerna i [skapa ett NetApp-konto](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
 
-3. Konfigurera en pool för Azure NetApp Files kapacitet genom att följa anvisningarna i [Konfigurera en Azure NetApp Files kapacitets pool](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+3. Konfigurera en pool för Azure NetApp Files kapacitet genom att följa anvisningarna i [Konfigurera en Azure NetApp Files kapacitets pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
 
-   Den HANA-arkitektur som presenteras i den här artikeln använder en pool med enskild Azure NetApp Files kapacitet på *Ultra service-* nivå. För HANA-arbetsbelastningar i Azure rekommenderar vi att du använder en Azure NetApp Files *Ultra* eller *Premium* [service nivå](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels).  
+   Den HANA-arkitektur som presenteras i den här artikeln använder en pool med enskild Azure NetApp Files kapacitet på *Ultra service-* nivå. För HANA-arbetsbelastningar i Azure rekommenderar vi att du använder en Azure NetApp Files *Ultra* eller *Premium* [service nivå](../../../azure-netapp-files/azure-netapp-files-service-levels.md).  
 
-4. Delegera ett undernät till Azure NetApp Files, enligt beskrivningen i instruktionerna i [delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+4. Delegera ett undernät till Azure NetApp Files, enligt beskrivningen i instruktionerna i [delegera ett undernät till Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
-5. Distribuera Azure NetApp Files-volymer genom att följa anvisningarna i [skapa en NFS-volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+5. Distribuera Azure NetApp Files-volymer genom att följa anvisningarna i [skapa en NFS-volym för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-   När du distribuerar volymerna, måste du välja **nfsv 4.1** -versionen. För närvarande måste åtkomst till NFSv 4.1 läggas till i en lista över tillåtna. Distribuera volymerna i det angivna Azure NetApp Files- [undernätet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). IP-adresserna för Azure NetApp-volymerna tilldelas automatiskt. 
+   När du distribuerar volymerna, måste du välja **nfsv 4.1** -versionen. För närvarande måste åtkomst till NFSv 4.1 läggas till i en lista över tillåtna. Distribuera volymerna i det angivna Azure NetApp Files- [undernätet](/rest/api/virtualnetwork/subnets). IP-adresserna för Azure NetApp-volymerna tilldelas automatiskt. 
    
    Tänk på att Azure NetApp Files-resurser och de virtuella Azure-datorerna måste finnas i samma virtuella Azure-nätverk eller i peer-nätverk med peer-nätverk. Till exempel är **HN1**-data-Mnt00001, **HN1**-log-mnt00001 och så vidare, volym namnen och NFS://10.23.1.5/**HN1**-data-mnt00001, NFS://10.23.1.4/**HN1**-log-mnt00001 och så vidare, de är fil Sök vägar för Azure NetApp Files volymerna.  
 
@@ -155,10 +155,10 @@ När du skapar din Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgäng
 
 - Den minsta kapacitets poolen är 4 tebibyte (TiB).  
 - Den minsta volym storleken är 100 gibibyte (GiB).
-- Azure NetApp Files och alla virtuella datorer där Azure NetApp Files volymer ska monteras måste finnas i samma virtuella Azure-nätverk eller i peer-anslutna [virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region.  
+- Azure NetApp Files och alla virtuella datorer där Azure NetApp Files volymer ska monteras måste finnas i samma virtuella Azure-nätverk eller i peer-anslutna [virtuella nätverk](../../../virtual-network/virtual-network-peering-overview.md) i samma region.  
 - Det valda virtuella nätverket måste ha ett undernät som är delegerat till Azure NetApp Files.
-- Data flödet för en Azure NetApp Files volym är en funktion av volym kvoten och tjänst nivån, enligt beskrivningen i [service nivå för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). När du ändrar storlek på HANA Azure NetApp-volymer ser du till att det resulterande data flödet uppfyller HANA-system kraven.  
-- Med Azure NetApp Files [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)kan du kontrol lera tillåtna klienter, åtkomst typ (Läs-och Skriv behörighet, skrivskyddad och så vidare). 
+- Data flödet för en Azure NetApp Files volym är en funktion av volym kvoten och tjänst nivån, enligt beskrivningen i [service nivå för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). När du ändrar storlek på HANA Azure NetApp-volymer ser du till att det resulterande data flödet uppfyller HANA-system kraven.  
+- Med Azure NetApp Files [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)kan du kontrol lera tillåtna klienter, åtkomst typ (Läs-och Skriv behörighet, skrivskyddad och så vidare). 
 - Azure NetApp Files funktionen är inte Zone-medveten än. Funktionen distribueras för närvarande inte i alla tillgänglighets zoner i en Azure-region. Var medveten om potentiella fördröjnings konsekvenser i vissa Azure-regioner.  
 -  
 
@@ -167,7 +167,7 @@ När du skapar din Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgäng
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Storlek för HANA-databas på Azure NetApp Files
 
-Data flödet för en Azure NetApp Files volym är en funktion av volymens storlek och tjänst nivå, enligt beskrivningen i [service nivå för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+Data flödet för en Azure NetApp Files volym är en funktion av volymens storlek och tjänst nivå, enligt beskrivningen i [service nivå för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
 När du utformar infrastrukturen för SAP i Azure bör du vara medveten om några lägsta lagrings krav för SAP, som översätter minsta data flödes egenskaper:
 
@@ -175,7 +175,7 @@ När du utformar infrastrukturen för SAP i Azure bör du vara medveten om någr
 - Aktivera Läs aktivitet på minst 400 MB/s för/Hana/data för I/O-storlekarna på 16 MB och 64 MB.  
 - Aktivera Skriv aktivitet på minst 250 MB/s för/Hana/data med I/O-storlekar på 16 MB och 64 MB. 
 
-[Azure NetApp Files data flödes gränser](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TIB volym kvot:
+[Azure NetApp Files data flödes gränser](../../../azure-netapp-files/azure-netapp-files-service-levels.md) per 1 TIB volym kvot:
 - Premium Storage nivå – 64 MiB/s  
 - Ultra Storage-nivå – 128 MiB/s  
 
@@ -206,13 +206,13 @@ Den SAP HANA konfigurationen för den layout som presenteras i den här artikeln
 ## <a name="deploy-linux-virtual-machines-via-the-azure-portal"></a>Distribuera virtuella Linux-datorer via Azure Portal
 
 Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg:
-1. Skapa [Azure Virtual Network-undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) i ditt [virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). 
+1. Skapa [Azure Virtual Network-undernät](../../../virtual-network/virtual-network-manage-subnet.md) i ditt [virtuella Azure-nätverk](../../../virtual-network/virtual-networks-overview.md). 
 1. Distribuera de virtuella datorerna. 
 1. Skapa ytterligare nätverks gränssnitt och koppla nätverks gränssnitten till motsvarande virtuella datorer.  
 
    Varje virtuell dator har tre nätverks gränssnitt som motsvarar de tre virtuella Azure-undernäten ( `client` , `storage` och `hana` ). 
 
-   Mer information finns i [skapa en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics).  
+   Mer information finns i [skapa en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort](../../linux/multiple-nics.md).  
 
 > [!IMPORTANT]
 > För SAP HANA arbets belastningar är låg latens kritiskt. För att uppnå låg latens kan du arbeta med din Microsoft-representant för att se till att de virtuella datorerna och Azure NetApp Files volymerna distribueras i nära närhet. När du registrerar [nya SAP HANA system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) som använder SAP HANA Azure NetApp Files, så skicka in nödvändig information. 
@@ -230,7 +230,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
    b. Välj den tillgänglighets uppsättning som du skapade tidigare för SAP HANA.  
 
-   c. Välj klient under nätet Azure Virtual Network. Välj [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
+   c. Välj klient under nätet Azure Virtual Network. Välj [accelererat nätverk](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
 
    När du distribuerar de virtuella datorerna genereras nätverks gränssnitts namnet automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade nätverks gränssnitten som är kopplade till klient under nätet för Azures virtuella nätverk, som **hanadb1-client**, **hanadb2-client**och **hanadb3-client**. 
 
@@ -252,7 +252,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
  
     f. Upprepa steg b till e för de återstående virtuella datorerna (i vårt exempel **hanadb2** och **hanadb3**).
  
-    ex. Lämna kvar de virtuella datorerna i stoppat tillstånd för tillfället. Därefter aktiverar vi [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för alla nyligen anslutna nätverks gränssnitt.  
+    ex. Lämna kvar de virtuella datorerna i stoppat tillstånd för tillfället. Därefter aktiverar vi [accelererat nätverk](../../../virtual-network/create-vm-accelerated-networking-cli.md) för alla nyligen anslutna nätverks gränssnitt.  
 
 6. Aktivera accelererat nätverk för de ytterligare nätverks gränssnitten för- `storage` och- `hana` undernätet genom att utföra följande steg:  
 
@@ -648,7 +648,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
 7. Lagrings utrymmet som används av Azure NetApp Files har en fil storleks begränsning på 16 terabyte (TB). SAP HANA är inte implicit medveten om lagrings begränsningen och skapar inte automatiskt en ny datafil när fil storleks gränsen på 16 TB nås. I takt med att SAP HANA försöker växa till filen bortom 16 TB kommer det här försöket att resultera i fel och till sist i en index server krasch. 
 
    > [!IMPORTANT]
-   > För att förhindra SAP HANA att öka datafilerna utöver [16 TB-gränsen](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) för underlag rings systemet anger du följande parametrar i `global.ini` .  
+   > För att förhindra SAP HANA att öka datafilerna utöver [16 TB-gränsen](../../../azure-netapp-files/azure-netapp-files-resource-limits.md) för underlag rings systemet anger du följande parametrar i `global.ini` .  
    > - datavolume_striping = sant
    > - datavolume_striping_size_gb = 15000 mer information finns i SAP NOTE [2400005](https://launchpad.support.sap.com/#/notes/2400005).
    > Tänk på SAP NOTE [2631285](https://launchpad.support.sap.com/#/notes/2631285). 

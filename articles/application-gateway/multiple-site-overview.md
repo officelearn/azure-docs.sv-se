@@ -4,21 +4,23 @@ description: Den här artikeln innehåller en översikt över stödet för Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/11/2020
+ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80257418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067939"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
-Med värd tjänster för flera webbplatser kan du konfigurera fler än ett webb program på samma port i en Programgateway. Den här funktionen låter dig konfigurera en mer effektiv topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en programgateway. Varje webbplats kan dirigeras till en egen serverdelspool. I följande exempel fungerar programgatewayen trafik för `contoso.com` och `fabrikam.com` från två backend-pooler med namnet ContosoServerPool och FabrikamServerPool.
+Med värd tjänster för flera webbplatser kan du konfigurera fler än ett webb program på samma port i en Programgateway. Det gör att du kan konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 + webbplatser i en Application Gateway. Varje webbplats kan dirigeras till en egen serverdelspool. Till exempel, tre domäner, contoso.com, fabrikam.com och adatum.com, pekar du på IP-adressen för programgatewayen. Du skapar tre lyssnare för flera platser och konfigurerar varje lyssnare för respektive port-och protokoll inställning. 
 
-![imageURLroute](./media/multiple-site-overview/multisite.png)
+Du kan också definiera jokertecken som värdnamn i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnaren](#wildcard-host-names-in-listener-preview).
+
+:::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Application Gateway för flera platser":::
 
 > [!IMPORTANT]
 > Regler bearbetas i den ordning som de visas i portalen för v1 SKU. För v2-SKU: n har exakta matchningar högre prioritet. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
@@ -26,6 +28,56 @@ Med värd tjänster för flera webbplatser kan du konfigurera fler än ett webb 
 Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
 På samma sätt kan du vara värd för flera under domäner för samma överordnade domän på samma Application Gateway-distribution. Du kan till exempel vara värd för `http://blog.contoso.com` och `http://app.contoso.com` på en enskild Application Gateway-distribution.
+
+## <a name="wildcard-host-names-in-listener-preview"></a>Jokertecken värd namn i lyssnare (förhands granskning)
+
+Application Gateway tillåter värdbaserad routning med HTTP (S)-lyssnare för flera platser. Nu kan du använda jokertecken som asterisk (*) och frågetecken (?) i värd namnet och upp till 5 värdnamn per HTTP (S)-lyssnare för flera platser. Till exempel `*.contoso.com`.
+
+Med ett jokertecken i värd namnet kan du matcha flera värdnamn i en enda lyssnare. Kan till exempel `*.contoso.com` Matcha med `ecom.contoso.com` , `b2b.contoso.com` `customer1.b2b.contoso.com` och så vidare. Med hjälp av en matris med värdnamn kan du konfigurera fler än ett värdnamn för en lyssnare, för att dirigera begär anden till en backend-pool. En lyssnare kan till exempel innehålla `contoso.com, fabrikam.com` som kommer att godkänna begär Anden för båda värd namnen.
+
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Lyssnare med jokertecken":::
+
+>[!NOTE]
+> Den här funktionen är i för hands version och är endast tillgänglig för Standard_v2 och WAF_v2 SKU för Application Gateway. Läs mer om för hands versionerna i [användnings villkor här](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+I [Azure Portal](create-multiple-sites-portal.md)kan du definiera dem i separata text rutor som visas på skärm bilden nedan.
+
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Exempel på konfiguration av jokertecken jokertecken":::
+
+>[!NOTE]
+>Om du skapar en ny lyssnare för flera platser eller lägger till fler än ett värdnamn till din befintliga lyssnare för flera platser från Azure Portal, läggs den som standard till i `HostNames` parametern för lyssnar konfigurationen, som lägger till fler funktioner till den befintliga `HostName` parametern i konfigurationen.
+
+I [Azure PowerShell](tutorial-multiple-sites-powershell.md)måste du använda `-HostNames` i stället för `-HostName` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden och använda jokertecken. Till exempel, `-HostNames "*.contoso.com,*.fabrikam.com"`
+
+I [Azure CLI](tutorial-multiple-sites-cli.md)måste du använda `--host-names` i stället för `--host-name` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden och använda jokertecken. Till exempel, `--host-names "*.contoso.com,*.fabrikam.com"`
+
+### <a name="allowed-characters-in-the-host-names-field"></a>Tillåtna tecken i fältet värdnamn:
+
+* `(A-Z,a-z,0-9)`-alfanumeriska tecken
+* `-`– bindestreck eller minus
+* `.`-period som avgränsare
+*   `*`-kan matcha flera tecken i det tillåtna intervallet
+*   `?`-kan matcha med ett enskilt Character i det tillåtna intervallet
+
+### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Villkor för användning av jokertecken och flera värdnamn i en lyssnare:
+
+*   Du kan bara nämna upp till 5 värdnamn i en enda lyssnare
+*   Asterisk `*` kan bara anges en gång i en komponent i ett domän format namn eller värdnamn. Till exempel component1 *. component2*. component3. `(*.contoso-*.com)`är giltig.
+*   Det får bara finnas upp till två asterisker `*` i ett värdnamn. Är till exempel `*.contoso.*` giltigt och `*.contoso.*.*.com` ogiltigt.
+*   Det får bara finnas 4 jokertecken i ett värdnamn. Till exempel, `????.contoso.com` `w??.contoso*.edu.*` är giltigt, men `????.contoso.*` är ogiltigt.
+*   Att använda asterisk `*` och frågetecken `?` tillsammans i en komponent i ett värdnamn ( `*?` eller `?*` eller `**` ) är ogiltigt. Till exempel, `*?.contoso.com` och `**.contoso.com` är ogiltiga.
+
+### <a name="considerations-and-limitations-of-using-wildcard-or-multiple-host-names-in-a-listener"></a>Överväganden och begränsningar för att använda jokertecken eller flera värdnamn i en lyssnare:
+
+*   [SSL-terminering och slut punkt till slut punkt](ssl-overview.md) kräver att du konfigurerar protokollet som https och laddar upp ett certifikat som ska användas i lyssnar konfigurationen. Om det är en lyssnare för flera platser kan du även mata in värd namnet, vanligt vis är det CN för SSL-certifikatet. När du anger flera värdnamn i lyssnaren eller använder jokertecken måste du tänka på följande:
+    *   Om det är ett jokertecken som *. contoso.com måste du ladda upp ett jokertecken med CN som *. contoso.com
+    *   Om flera värdnamn anges i samma lyssnare måste du ladda upp ett SAN-certifikat (alternativa namn för certifikat mottagare) med CNs som matchar de värdnamn som anges.
+*   Du kan inte använda ett reguljärt uttryck för att nämna värd namnet. Du kan bara använda jokertecken som asterisk (*) och frågetecken (?) för att skapa värd namns mönstret.
+*   För hälso kontroll av Server delen kan du inte associera flera [anpassade avsökningar](application-gateway-probe-overview.md) per http-inställningar. I stället kan du avsöka en av webbplatserna på Server delen eller använda "127.0.0.1" för att avsöka backend-serverns localhost. Men när du använder jokertecken eller flera värdnamn i en lyssnare kommer begär Anden för alla angivna domän mönster att dirigeras till backend-poolen beroende på regeltyp (Basic eller Path-based).
+*   Egenskaperna "hostname" tar en sträng som indatamängd, där du endast kan ange ett domän namn som inte är jokertecken och "värdnamn" använder en sträng mat ris som indatamängd, där du kan nämna upp till fem domän namn med jokertecken. Men båda egenskaperna kan inte användas samtidigt.
+*   Det går inte att skapa en [omdirigerings](redirect-overview.md) regel med en mål lyssnare som använder jokertecken eller flera värdnamn.
+
+Se [skapa flera webbplatser med Azure Portal](create-multiple-sites-portal.md) eller [genom att Azure POWERSHELL använda](tutorial-multiple-sites-powershell.md) [Azure CLI](tutorial-multiple-sites-cli.md) för att få stegvisa anvisningar om hur du konfigurerar jokertecken i en lyssnare för flera platser.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Värdhuvuden och servernamnsindikator (SNI)
 
@@ -41,92 +93,8 @@ Application Gateway stöder flera program som var och en lyssnar på olika porta
 
 Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att ha mer än en webbplats på samma offentliga IP-adress och port. De platser som finns i Application Gateway kan också ha stöd för TLS-avlastning med Servernamnindikator (SNI) TLS-tillägg. Det här scenariot innebär att klientens webbläsare och serverdels-webbservergrupp måste ha stöd för HTTP/1.1 och TLS-tillägg som det definieras i RFC 6066.
 
-## <a name="listener-configuration-element"></a>Listener-konfigurationselementet
-
-Befintliga konfigurations element för HTTPListener har förbättrats för att ge stöd för värdnamn och Server namns indikations element. Den används av Application Gateway för att dirigera trafik till lämplig backend-pool. 
-
-Följande kod exempel är kodfragmentet för ett HttpListeners-element från en mallfil:
-
-```json
-"httpListeners": [
-    {
-        "name": "appGatewayHttpsListener1",
-        "properties": {
-            "FrontendIPConfiguration": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
-            },
-            "FrontendPort": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
-            },
-            "Protocol": "Https",
-            "SslCertificate": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
-            },
-            "HostName": "contoso.com",
-            "RequireServerNameIndication": "true"
-        }
-    },
-    {
-        "name": "appGatewayHttpListener2",
-        "properties": {
-            "FrontendIPConfiguration": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
-            },
-            "FrontendPort": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
-            },
-            "Protocol": "Http",
-            "HostName": "fabrikam.com",
-            "RequireServerNameIndication": "false"
-        }
-    }
-],
-```
-
-Du kan besöka [Resource Manager-mallen för flera webbplatser](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) för en slutpunkt-till-slutpunkts mallbaserad distribution.
-
-## <a name="routing-rule"></a>Routingregeln
-
-Ingen ändring krävs i regeln för routning. Routingregeln Basic ska fortfarande väljas för att knyta rätt webbplats-lyssnare till motsvarande serverdels-adresspool.
-
-```json
-"requestRoutingRules": [
-{
-    "name": "<ruleName1>",
-    "properties": {
-        "RuleType": "Basic",
-        "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener1')]"
-        },
-        "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
-        },
-        "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-        }
-    }
-
-},
-{
-    "name": "<ruleName2>",
-    "properties": {
-        "RuleType": "Basic",
-        "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener2')]"
-        },
-        "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/FabrikamServerPool')]"
-        },
-        "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-        }
-    }
-
-}
-]
-```
-
 ## <a name="next-steps"></a>Nästa steg
 
-När du har lärt dig om flera webbplatser, kan du gå till [skapa en programgateway med flera webbplatser](tutorial-multiple-sites-powershell.md) för att skapa en programgateway som stöder flera en ett webbprogram.
+När du har lärt dig om flera plats värdar går du till [skapa flera platser med Azure Portal](create-multiple-sites-portal.md) eller [använder Azure PowerShell](tutorial-multiple-sites-powershell.md) eller [använder Azure CLI](tutorial-multiple-sites-cli.md) för att skapa en Application Gateway som värd för flera webbplatser.
 
+Du kan besöka [Resource Manager-mallen för flera webbplatser](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) för en slutpunkt-till-slutpunkts mallbaserad distribution.

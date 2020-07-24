@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068690"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure
 
@@ -31,7 +32,7 @@ Windows Server-redundanskluster är grunden för en hög tillgänglig SAP-ASCS/S
 
 Ett redundanskluster är en grupp med 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om ett nodfel inträffar beräknar Windows Server-redundanskluster antalet fel som kan uppstå och fortfarande upprätthåller ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja mellan olika kvorumresurser för att nå redundanskluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Läs igenom den här artikeln innan du påbörjar de uppgifter som beskrivs i den här artikeln:
 
 * [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -113,7 +114,7 @@ Lagringsdirigering används som en delad disk för en skalbar fil resurs. Du kan
 Tänk på följande när du väljer Lagringsdirigering:
 
 - De virtuella datorer som används för att skapa Lagringsdirigering-klustret måste distribueras i en Azures tillgänglighets uppsättning.
-- För haveri beredskap för ett Lagringsdirigering-kluster kan du använda [Azure Site Recovery-tjänster](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- För haveri beredskap för ett Lagringsdirigering-kluster kan du använda [Azure Site Recovery-tjänster](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 - Det finns inte stöd för att sträcka ut lagrings utrymmes Dirigerings klustret mellan olika Azure-tillgänglighetszoner.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>SAP-krav för skalbara fil resurser i Azure

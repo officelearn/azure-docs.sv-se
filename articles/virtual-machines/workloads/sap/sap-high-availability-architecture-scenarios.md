@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 045c73e3efefb29aac6bb25a8661fd510e351926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eee96702a5efbddcc66c2a0e428640f0848442a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068625"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
 
@@ -248,7 +249,7 @@ SAP hög tillgänglighet i Azure kan delas upp i tre typer:
 
 * **Hög tillgänglighet för SAP-program**: 
 
-    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Ett exempel:
+    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
     * Redundanta SAP-programservrar.
     * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -266,7 +267,7 @@ Basen för beräkningen är 30 dagar per månad eller 43 200 minuter. En drift t
 
 (Tillgänglighets tjänst #1/100) * (tillgänglighets tjänst #2/100) * (tillgänglighets tjänst #3/100) \* ...
 
-Ett exempel:
+Exempel:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 eller en övergripande tillgänglighet på 99,75%.
 
@@ -288,12 +289,12 @@ En tillgänglighets uppsättning används för att uppnå hög tillgänglighet f
 
 
 ### <a name="azure-availability-zones"></a>Tillgänglighetszoner i Azure
-Azure håller på att genomföra ett koncept i [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) i olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/regions/). I Azure-regioner där Tillgänglighetszoner erbjuds, har Azure-regionerna flera data Center som är oberoende av utbudet av ström källor, kylning och nätverk. Orsak till att erbjuda olika zoner inom en enda Azure-region är att du ska kunna distribuera program över två eller tre Tillgänglighetszoner som erbjuds. Om du antar att problem i ström källor och/eller nätverk påverkar endast en infrastruktur för tillgänglighets zoner är program distributionen i en Azure-region fortfarande fullt fungerande. Till slut, med minskad kapacitet eftersom vissa virtuella datorer i en zon kan gå förlorade. Men virtuella datorer i de andra två zonerna är fortfarande igång. Azure-regionerna som erbjuder zoner visas i [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Azure håller på att genomföra ett koncept i [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md) i olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/regions/). I Azure-regioner där Tillgänglighetszoner erbjuds, har Azure-regionerna flera data Center som är oberoende av utbudet av ström källor, kylning och nätverk. Orsak till att erbjuda olika zoner inom en enda Azure-region är att du ska kunna distribuera program över två eller tre Tillgänglighetszoner som erbjuds. Om du antar att problem i ström källor och/eller nätverk påverkar endast en infrastruktur för tillgänglighets zoner är program distributionen i en Azure-region fortfarande fullt fungerande. Till slut, med minskad kapacitet eftersom vissa virtuella datorer i en zon kan gå förlorade. Men virtuella datorer i de andra två zonerna är fortfarande igång. Azure-regionerna som erbjuder zoner visas i [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md).
 
 Det finns några saker att tänka på när du använder Tillgänglighetszoner. Övervägande listan, t. ex.:
 
 - Du kan inte distribuera Azures tillgänglighets uppsättningar inom en tillgänglighets zon. Du måste välja antingen en tillgänglighets zon eller en tillgänglighets uppsättning som distributions ram för en virtuell dator.
-- Du kan inte använda [Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) för att skapa lösningar för redundanskluster baserat på Windows-kluster tjänster för växling vid fel eller Linux-pacemaker. I stället måste du använda [Azure standard Load Balancer SKU: n](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Du kan inte använda [Basic-Load Balancer](../../../load-balancer/load-balancer-overview.md) för att skapa lösningar för redundanskluster baserat på Windows-kluster tjänster för växling vid fel eller Linux-pacemaker. I stället måste du använda [Azure standard Load Balancer SKU: n](../../../load-balancer/load-balancer-standard-availability-zones.md)
 - Azure-tillgänglighetszoner inte ger garantier för vissa avstånd mellan olika zoner inom en region
 - Nätverks fördröjningen mellan olika Azure-tillgänglighetszoner i olika Azure-regioner kan skilja sig från Azure region till region. Det finns fall där du som kund kan köra SAP-program lagret distribuerat över olika zoner eftersom nätverks fördröjningen från en zon till den aktiva DBMS-datorn fortfarande är acceptabel från en affärs process. Det kommer att finnas kund scenarier där svars tiden mellan den aktiva DBMS-datorn i en zon och en SAP-programinstans i en virtuell dator i en annan zon kan vara för påträngande och inte accepteras för SAP-affärsprocesserna. Därför måste distributions arkitekturerna vara olika med en aktiv/aktiv-arkitektur för programmet eller aktiv/passiv arkitektur om svars tiden är för hög.
 - Att använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) är obligatoriskt för distribution till Azure-tillgänglighetszoner 
@@ -333,7 +334,7 @@ Mer information om den här metoden finns i [använda Azure Infrastructure VM re
 
 ## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Hög tillgänglighet för SAP-program i Azure IaaS
 
-För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Ett exempel:
+För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
   * Redundanta SAP-programservrar.
   * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -354,12 +355,12 @@ _**Bild 1:** SAP-Programserver med hög tillgänglighet_
 
 Du måste placera alla virtuella datorer som är värdar för SAP Application Server-instanser i samma Azure-tillgänglighets uppsättning. En Azure-tillgänglighets uppsättning garanterar att:
 
-* Alla virtuella datorer ingår i samma uppdaterings domän.  
+* Alla virtuella datorer ingår inte i samma uppdaterings domän.  
     En uppdaterings domän säkerställer att de virtuella datorerna inte uppdateras samtidigt under drift stopp av planerade underhåll.
 
     De grundläggande funktionerna, som bygger på olika uppdaterings-och fel domäner i en Azure-Scale-enhet, har redan introducerats i avsnittet [uppdaterings domäner][planning-guide-3.2.2] .
 
-* Alla virtuella datorer ingår i samma feldomän.  
+* Alla virtuella datorer ingår inte i samma feldomän.  
     En feldomän säkerställer att virtuella datorer distribueras så att ingen enskild felpunkt påverkar tillgängligheten för alla virtuella datorer.
 
 Antalet uppdaterings-och fel domäner som kan användas av en Azure-tillgänglighets uppsättning i en Azure-Scale-enhet är begränsad. Om du fortsätter att lägga till virtuella datorer i en enda tillgänglighets uppsättning, kommer två eller fler virtuella datorer att sluta i samma fel-eller uppdaterings domän.
@@ -390,7 +391,7 @@ Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instansen. Lösnin
 
 * **Klustra SAP ASCS/SCS-instansen med hjälp av fil resurs**: Mer information om den här arkitekturen finns i [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share].
 
-* **Klustra SAP ASCS/SCS-instansen med hjälp av ANF SMB-resurs**: Mer information om den här arkitekturen finns i kluster [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av ANF SMB-filresurs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+* **Klustra SAP ASCS/SCS-instansen med hjälp av ANF SMB-resurs**: Mer information om den här arkitekturen finns i kluster [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av ANF SMB-filresurs](./high-availability-guide-windows-netapp-files-smb.md).
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Hög tillgänglighets arkitektur för en SAP ASCS/SCS-instans på Linux
 
@@ -398,7 +399,7 @@ Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instansen. Lösnin
 > 
 > Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av SLES Cluster Framework finns i [hög tillgänglighet för SAP-NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program][sap-suse-ascs-ha]. För alternativ HA-arkitektur på SLES, som inte kräver hög tillgänglig NFS, se [hög tillgänglighets guide för SAP NetWeaver på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program][sap-suse-ascs-ha-anf].
 
-Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat Cluster Framework finns i [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat Cluster Framework finns i [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>SAP NetWeaver multi-SID-konfiguration för en klustrad SAP-ASCS/SCS-instans
@@ -418,8 +419,8 @@ Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat 
 > Multi-SID-klustring stöds på Linux pacemaker-kluster för SAP ASCS/ERS, begränsat till **fem** SAP-sid i samma kluster.
 > Mer information om arkitektur med hög tillgänglighet för flera SID i Linux finns i:
 
-* [HA för SAP NW på virtuella Azure-datorer på SLES för SAP-program med flera SID-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [HA för SAP NW på virtuella Azure-datorer på RHEL för SAP-program med flera SID-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [HA för SAP NW på virtuella Azure-datorer på SLES för SAP-program med flera SID-guide](./high-availability-guide-suse-multi-sid.md)
+* [HA för SAP NW på virtuella Azure-datorer på RHEL för SAP-program med flera SID-guide](./high-availability-guide-rhel-multi-sid.md)
 
 ### <a name="high-availability-dbms-instance"></a>DBMS-instans med hög tillgänglighet
 

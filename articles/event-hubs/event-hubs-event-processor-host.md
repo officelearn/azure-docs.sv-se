@@ -3,12 +3,12 @@ title: Ta emot händelser med hjälp av händelse processor värden – Azure Ev
 description: I den här artikeln beskrivs händelse bearbetnings värden i Azure Event Hubs, vilket fören klar hanteringen av kontroll punkter, leasing och läsning av händelser Jon parallellt.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320646"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002530"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning
 > [!NOTE]
@@ -22,7 +22,7 @@ ms.locfileid: "85320646"
 
 Azure Event Hubs är en kraftfull tjänst för telemetri-inmatning som kan användas för att strömma miljon tals händelser till låg kostnad. I den här artikeln beskrivs hur du använder insamlade händelser med *händelse bearbetnings värden* (EPH). en intelligent konsument agent som fören klar hanteringen av kontroll punkter, leasing och parallella händelse läsare.  
 
-Den nyckel som ska skalas för Event Hubs är en uppfattning om partitionerade konsumenter. Med hjälp av mönstret för [konkurrerande konsumenter](https://msdn.microsoft.com/library/dn568101.aspx) möjliggör det partitionerade konsument mönstret hög skalning genom att ta bort Flask halsen och under lätta slut punkt till slut punkt.
+Den nyckel som ska skalas för Event Hubs är en uppfattning om partitionerade konsumenter. Med hjälp av mönstret för [konkurrerande konsumenter](/previous-versions/msp-n-p/dn568101(v=pandp.10)) möjliggör det partitionerade konsument mönstret hög skalning genom att ta bort Flask halsen och under lätta slut punkt till slut punkt.
 
 ## <a name="home-security-scenario"></a>Start säkerhets scenario
 
@@ -162,7 +162,7 @@ Dessutom tar en överlagring av [RegisterEventProcessorAsync](/dotnet/api/micros
 Så här fungerar den mottagna epoken:
 
 ### <a name="with-epoch"></a>Med epok
-Epok är en unik identifierare (värde värde) som tjänsten använder för att framtvinga ägande mellan partitioner och lån. Du skapar en epok-baserad mottagare med metoden [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Den här metoden skapar en epok-baserad mottagare. Mottagaren skapas för en specifik Event Hub-partition från den angivna konsument gruppen.
+Epok är en unik identifierare (värde värde) som tjänsten använder för att framtvinga ägande mellan partitioner och lån. Du skapar en epok-baserad mottagare med metoden [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Den här metoden skapar en epok-baserad mottagare. Mottagaren skapas för en specifik Event Hub-partition från den angivna konsument gruppen.
 
 Funktionen epok ger användarna möjlighet att se till att det bara finns en mottagare på en konsument grupp vid en viss tidpunkt, med följande regler:
 
@@ -171,7 +171,7 @@ Funktionen epok ger användarna möjlighet att se till att det bara finns en mot
 - Om det finns en mottagare med värdet ett värde av värde E1 och en ny mottagare skapas med ett värde på epoken E2 där E1 > E2, och sedan skapa E2 med fel: det finns redan en mottagare med epok E1.
 
 ### <a name="no-epoch"></a>Ingen epok
-Du skapar en icke-epok-baserad mottagare med hjälp av metoden [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
+Du skapar en icke-epok-baserad mottagare med hjälp av metoden [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
 
 Det finns vissa scenarier i Stream-bearbetningen där användare vill skapa flera mottagare i en enda konsument grupp. För att stödja sådana scenarier har vi möjlighet att skapa en mottagare utan epok och i det här fallet tillåter vi upp till 5 samtidiga mottagare på konsument gruppen.
 

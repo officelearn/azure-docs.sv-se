@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 062150c5d19a97a13fdd5567c2875bc69c839639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb6a43557da43e8f792bcc3858e7123f2b6c607
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005165"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Anslut en virtuell CentOS Linux-dator till en Azure Active Directory Domain Services hanterad domän
 
@@ -23,7 +24,7 @@ För att användarna ska kunna logga in på virtuella datorer i Azure med en end
 
 Den här artikeln visar hur du ansluter en virtuell CentOS Linux-dator till en hanterad domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -41,7 +42,7 @@ Om du har en befintlig virtuell CentOS Linux-dator i Azure ansluter du till den 
 
 Om du behöver skapa en virtuell CentOS Linux-dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln kan du använda någon av följande metoder:
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -105,7 +106,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella datorn anslut
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Slutligen ansluter du datorn till den hanterade domänen med hjälp av `realm join` kommandot. Använd samma användar konto som är en del av den hanterade domän som du angav i föregående `kinit` kommando, till exempel `contosoadmin@AADDSCONTOSO.COM` :
+1. Slutligen ansluter du den virtuella datorn till den hanterade domänen med hjälp av `realm join` kommandot. Använd samma användar konto som är en del av den hanterade domän som du angav i föregående `kinit` kommando, till exempel `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'

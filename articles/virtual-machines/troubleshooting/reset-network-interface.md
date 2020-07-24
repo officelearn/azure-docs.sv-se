@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: b9a4cf8b9bbf88ae792f345d330503cb4698c430
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6c4e507df0f112934979d4e59778b667743cf623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005964"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Återställa nätverksgränssnittet för en virtuell Azure Windows-dator 
 
@@ -47,7 +47,7 @@ Den här artikeln visar hur du återställer nätverks gränssnittet för Azure 
 
 #### <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
-1. Kontrol lera att du har [de senaste Azure PowerShell](/powershell/azure/overview) installerade
+1. Kontrol lera att du har [de senaste Azure PowerShell](/powershell/azure/) installerade
 2. Öppna en förhöjd Azure PowerShell-session (kör som administratör). Kör följande kommandon:
 
     ```powershell
@@ -90,7 +90,7 @@ Följ dessa steg om du vill återställa nätverks gränssnittet:
 
 #### <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
-1. Kontrol lera att du har [de senaste Azure PowerShell](/powershell/azure/overview) installerade.
+1. Kontrol lera att du har [de senaste Azure PowerShell](/powershell/azure/) installerade.
 2. Öppna en förhöjd Azure PowerShell-session (kör som administratör). Kör följande kommandon:
 
     ```powershell

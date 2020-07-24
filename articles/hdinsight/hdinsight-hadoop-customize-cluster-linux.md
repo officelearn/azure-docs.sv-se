@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 36aaee030dd5267a391dd9a235dd5f8dc0932fa0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006679"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -124,14 +124,14 @@ Status            : Succeeded
 
 Skript åtgärds skript kan användas via följande verktyg:
 
-* Azure Portal
+* Azure-portalen
 * Azure PowerShell
 * Azure CLI
 * HDInsight .NET SDK
 
 HDInsight innehåller skript för att installera följande komponenter i HDInsight-kluster:
 
-| Name | Skript |
+| Namn | Skript |
 | --- | --- |
 | Lägg till ett Azure Storage konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagrings konton i HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installera nyans |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [Installera och använda nyans på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
@@ -156,7 +156,7 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du något av de angivna skripten. |
-    | Name |Ange ett namn för skript åtgärden. |
+    | Namn |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
     | Head/Worker/ZooKeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
@@ -195,7 +195,7 @@ Få mer information om hur du distribuerar en mall:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Använd en skript åtgärd när klustret skapas från Azure PowerShell
 
-I det här avsnittet använder du cmdleten [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) för att anropa skript för att anpassa ett kluster. Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure PowerShell. Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/overview).
+I det här avsnittet använder du cmdleten [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) för att anropa skript för att anpassa ett kluster. Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure PowerShell. Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/).
 
 Följande skript visar hur du använder en skript åtgärd när du skapar ett kluster med hjälp av PowerShell:
 
@@ -230,7 +230,7 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du ett tillhandahållet skript. |
-    | Name |Ange ett namn för skript åtgärden. |
+    | Namn |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
     | Head/Worker/Zookeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
@@ -241,7 +241,7 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Tillämpa en skript åtgärd på ett kluster som körs från Azure PowerShell
 
-Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/overview). I följande exempel visas hur du använder en skript åtgärd för ett kluster som körs:
+Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/). I följande exempel visas hur du använder en skript åtgärd för ett kluster som körs:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 

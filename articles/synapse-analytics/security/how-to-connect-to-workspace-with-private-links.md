@@ -1,5 +1,5 @@
 ---
-title: Ansluta till en Azure Synapse-arbetsyta med privata länkar
+title: Ansluta till en Synapse-arbetsyta med privata länkar
 description: I den här artikeln får du lära dig hur du ansluter till din Azure Synapse-arbetsyta med privata länkar
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193880"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005981"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Ansluta till din Azure Synapse-arbetsyta med privata länkar (förhands granskning)
 
@@ -47,7 +47,7 @@ Välj **Nästa: konfigurations>** för att gå vidare till nästa del av install
 
 På fliken **konfiguration** väljer du det **virtuella nätverket** och **under nätet** där den privata slut punkten ska skapas. Du måste också skapa en DNS-post som mappar till den privata slut punkten.
 
-Välj **Ja** om du vill **integrera med en privat DNS-zon** för att integrera din privata slut punkt med en privat DNS-zon. Om du inte har en privat DNS-zon som är associerad med ditt VNet, skapas en ny privat DNS-zon. Välj **Granska + skapa** när du är färdig.
+Välj **Ja** om du vill **integrera med en privat DNS-zon** för att integrera din privata slut punkt med en privat DNS-zon. Om du inte har en privat DNS-zon som är kopplad till din Microsoft Azure Virtual Network skapas en ny privat DNS-zon. Välj **Granska + skapa** när du är färdig.
 
 ![Välj information om prenumeration och region](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
@@ -57,7 +57,7 @@ När distributionen är klar öppnar du Azure dataSynapses-arbetsytan i Azure Po
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [VNet för hanterad arbets yta](./synapse-workspace-managed-vnet.md)
+Läs mer om [hanterad arbets yta Virtual Network](./synapse-workspace-managed-vnet.md)
 
 Läs mer om [hanterade privata slut punkter](./synapse-workspace-managed-private-endpoints.md)
 

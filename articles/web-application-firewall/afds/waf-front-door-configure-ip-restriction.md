@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336075"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005624"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurera en regel för IP-begränsning med en brand vägg för webbaserade program för Azures front dörr
 
@@ -34,7 +34,7 @@ Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [sna
 2. Välj **Skapa**.
 3. På sidan **skapa en WAF-princip** använder du följande värden för att slutföra fliken **grundläggande** :
    
-   |Inställningen  |Värde  |
+   |Inställning  |Värde  |
    |---------|---------|
    |Princip för     |Global WAF (Front dörr)|
    |Prenumeration     |Välj din prenumeration|
@@ -50,7 +50,7 @@ Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [sna
 4. Välj **Lägg till anpassad regel**.
 5. På sidan **Lägg till anpassad regel** använder du följande test värden för att skapa en anpassad regel:
 
-   |Inställningen  |Värde  |
+   |Inställning  |Värde  |
    |---------|---------|
    |Namn på anpassad regel     |FdWafCustRule|
    |Status     |Enabled|
@@ -168,7 +168,7 @@ Innan du börjar konfigurera en princip för IP-begränsning ställer du in din 
 #### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
 Azure PowerShell innehåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) -modellen för att hantera Azure-resurser.
 
-Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) på en lokal dator och använda det i alla PowerShell-sessioner. Följ instruktionerna på sidan för att logga in på PowerShell med dina Azure-autentiseringsuppgifter och installera sedan AZ-modulen.
+Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) på en lokal dator och använda det i alla PowerShell-sessioner. Följ instruktionerna på sidan för att logga in på PowerShell med dina Azure-autentiseringsuppgifter och installera sedan AZ-modulen.
 
 1. Anslut till Azure med hjälp av följande kommando och Använd sedan en interaktiv dialog ruta för att logga in.
     ```

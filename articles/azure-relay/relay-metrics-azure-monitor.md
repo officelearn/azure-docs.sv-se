@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information om hur du kan använda Az
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0383d99aaca487bb89ab198c42d0ce189ad20249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42de5205be9a611957a6e340b5eaa55c5b7f52c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004570"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Relay mått i Azure Monitor 
 Azure Relay mått ger dig tillstånd för resurser i din Azure-prenumeration. Med en omfattande uppsättning Mät data kan du utvärdera övergripande hälso tillstånd för dina relä resurser, inte bara på namn områdes nivå, utan även på enhets nivå. Den här statistiken kan vara viktig när de hjälper dig att övervaka status för Azure Relay. Mått kan också hjälpa till att felsöka rotor Saks problem utan att behöva kontakta Azure-supporten.
@@ -29,7 +29,7 @@ Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna med
 
 Du kan övervaka mått över tid i [Azure Portal](https://portal.azure.com). I följande exempel visas hur du visar lyckade förfrågningar och inkommande begär Anden på konto nivå:
 
-![][1]
+![En sida med namnet "Monitor-Metrics (för hands version)" visar ett linje diagram över minnes användningen för de senaste 30 dagarna.][1]
 
 Du kan också komma åt mått direkt via namn området. Om du vill göra det väljer du namn området och klickar sedan på * * mått * *. 
 

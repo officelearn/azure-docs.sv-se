@@ -3,45 +3,74 @@ title: List Rute GRÄNSSNITTs element
 description: Beskriver UI-elementet Microsoft. Common. list Rute gränssnitt för Azure Portal. Använd om du vill välja mellan tillgängliga alternativ när du distribuerar ett hanterat program.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5eac1d331bd439ad4066d1dea1b9aa950fcce60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004501"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. list rutan
 
-En markerings kontroll med en nedrullningsbar lista.
+En markerings kontroll med en nedrullningsbar lista. Du kan bara välja ett enstaka objekt eller flera objekt. Du kan också välja att inkludera en beskrivning med objekten.
 
 ## <a name="ui-sample"></a>UI-exempel
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
+List elementet har olika alternativ som avgör hur det ser ut i portalen.
+
+När endast ett enda objekt tillåts för markering visas kontrollen som:
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-1.png" alt-text="Microsoft. Common. list Rute enkel markering":::
+
+När beskrivningar ingår visas kontrollen som:
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. list Rute enkel markering med beskrivningar":::
+
+När du har aktiverat flera val lägger kontrollen till alternativet **Välj alla** och kryss rutor för att markera fler än ett objekt:
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. listen Multi-SELECT":::
+
+Beskrivningar kan inkluderas med flera SELECT-aktiverade.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. listruta Multi-SELECT med beskrivningar":::
+
+När filtrering är aktiverat innehåller kontrollen en text ruta för att lägga till filtrering svärdet.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. listruta Multi-SELECT med beskrivningar":::
 
 ## <a name="schema"></a>Schema
 
 ```json
 {
-  "name": "element1",
-  "type": "Microsoft.Common.DropDown",
-  "label": "Example drop down",
-  "defaultValue": "Value two",
-  "toolTip": "",
-  "constraints": {
-    "allowedValues": [
-      {
-        "label": "Value one",
-        "value": "one"
-      },
-      {
-        "label": "Value two",
-        "value": "two"
-      }
-    ],
-    "required": true
-  },
-  "visible": true
+    "name": "element1",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Example drop down",
+    "defaultValue": "Value two",
+    "toolTip": "",
+    "multiselect": true,  
+    "selectAll": true,  
+    "filter": true,  
+    "filterPlaceholder": "Filter items ...",  
+    "multiLine": true,  
+    "defaultDescription": "A value for selection",  
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Value one",
+                "description": "The value to select for option 1.",
+                "value": "one"
+            },
+            {
+                "label": "Value two",
+                "description": "The value to select for option 2.",
+                "value": "two"
+            }
+        ],
+        "required": true
+    },
+    "visible": true
 }
 ```
 
@@ -53,10 +82,14 @@ En markerings kontroll med en nedrullningsbar lista.
 
 ## <a name="remarks"></a>Kommentarer
 
+- Används `multiselect` för att ange om användarna ska kunna välja fler än ett objekt.
+- Som standard `selectAll` är `true` när flera val är aktiverade.
+- `filter`Egenskapen gör det möjligt för användare att söka inom en lång lista med alternativ.
 - Etiketten för `constraints.allowedValues` är visnings texten för ett objekt och dess värde är utdata-värdet för elementet när det är markerat.
 - Om det här alternativet anges måste standardvärdet vara en etikett i `constraints.allowedValues` . Om inget anges väljs det första objektet i `constraints.allowedValues` . Standardvärdet är **Null**.
 - `constraints.allowedValues`måste ha minst ett objekt.
 - För att emulera ett värde som inte krävs lägger du till ett objekt med etiketten och värdet `""` (tom sträng) till `constraints.allowedValues` .
+- `defaultDescription`Egenskapen används för objekt som inte har någon beskrivning.
 
 ## <a name="next-steps"></a>Nästa steg
 

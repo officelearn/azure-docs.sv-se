@@ -13,13 +13,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 172a2ae863714b54e052819df93f872385b9c77a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 07/20/2020
+ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003225"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten Kör SSIS-paket i Azure Data Factory
 
@@ -27,7 +27,7 @@ ms.locfileid: "86183349"
 
 Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) i en Azure Data Factory-pipeline med hjälp av aktiviteten kör SSIS-paket. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -57,7 +57,7 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
 Utför följande steg på fliken **Allmänt** i AKTIVITETEN kör SSIS-paket.
 
-   ![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
    1. I **namn**anger du namnet på AKTIVITETEN kör SSIS-paket.
 
@@ -77,7 +77,7 @@ Utför följande steg på fliken **Allmänt** i AKTIVITETEN kör SSIS-paket.
 
 Utför följande steg på fliken **Inställningar** för AKTIVITETEN kör SSIS-paket.
 
-   ![Ange egenskaper på fliken Inställningar-automatisk](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+![Ange egenskaper på fliken Inställningar-automatisk](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
    1. För **Azure-SSIS IR**väljer du den angivna Azure-SSIS IR för att köra AKTIVITETEN kör SSIS-paket.
 
@@ -103,13 +103,13 @@ Utför följande steg på fliken **Inställningar** för AKTIVITETEN kör SSIS-p
 
    1. Om din Azure-SSIS IR inte körs eller om kryss rutan **manuella poster** är markerad, anger du dina paket-och miljö Sök vägar från SSISDB direkt i följande format: `<folder name>/<project name>/<package name>.dtsx` och `<folder name>/<environment name>` .
 
-   ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
 ##### <a name="package-location-file-system-package"></a>Paket plats: fil system (paket)
 
 **Fil system (paket)** som din paket plats väljs automatiskt om Azure-SSIS IR etablerades utan SSISDB eller om du kan välja det själv. Om den är markerad utför du följande steg.
 
-   ![Ange egenskaper på fliken Inställningar – fil system (paket)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+![Ange egenskaper på fliken Inställningar – fil system (paket)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
    
    1. Ange att paketet ska köras genom att ange en Universal Naming Convention (UNC)-sökväg till paket filen (med `.dtsx` ) i rutan **paket Sök väg** . Du kan bläddra och välja ditt paket genom att välja **Bläddra i fil lagring** eller ange sökvägen manuellt. Om du till exempel lagrar ditt paket i Azure Files, är sökvägen `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx` . 
    
@@ -133,13 +133,13 @@ Utför följande steg på fliken **Inställningar** för AKTIVITETEN kör SSIS-p
    
    1. Ange de autentiseringsuppgifter som ska användas för att komma åt loggmappen. Om du tidigare har angett värdena för dina paket åtkomst uppgifter (se ovan) kan du återanvända dem genom att markera kryss rutan **samma som paket åtkomst autentiseringsuppgifter** . Annars anger du värdena för inloggnings uppgifterna för inloggning i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar loggarna i Azure Files är domänen `Azure` , användar namnet `<storage account name>` och lösen ordet `<storage account key>` . Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden (se ovan).
    
-   För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
+För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
 
 ##### <a name="package-location-file-system-project"></a>Paket plats: fil system (projekt)
 
 Om du väljer **fil system (projekt)** som paket plats utför du följande steg.
 
-   ![Ange egenskaper på fliken Inställningar – fil system (projekt)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+![Ange egenskaper på fliken Inställningar – fil system (projekt)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
    1. Ange att paketet ska köras genom att tillhandahålla en UNC-sökväg till projekt filen (med `.ispac` ) i rutan **projekt Sök väg** och en paketfil (med `.dtsx` ) från projektet i rutan **paket namn** . Du kan bläddra och välja ditt projekt genom att välja **Bläddra i fil lagring** eller ange sökvägen manuellt. Om du till exempel lagrar projektet i Azure Files, är sökvägen `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac` .
 
@@ -161,19 +161,19 @@ Om du väljer **fil system (projekt)** som paket plats utför du följande steg.
    
    1. Ange de autentiseringsuppgifter som ska användas för att komma åt loggmappen. Om du tidigare har angett värdena för dina paket åtkomst uppgifter (se ovan) kan du återanvända dem genom att markera kryss rutan **samma som paket åtkomst autentiseringsuppgifter** . Annars anger du värdena för inloggnings uppgifterna för inloggning i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar loggarna i Azure Files är domänen `Azure` , användar namnet `<storage account name>` och lösen ordet `<storage account key>` . Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden (se ovan).
    
-   För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
+För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
 
 ##### <a name="package-location-embedded-package"></a>Paket plats: inbäddat paket
 
 Om du väljer **inbäddat paket** som paket plats utför du följande steg.
 
-   ![Ange egenskaper på fliken Inställningar – inbäddat paket](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+![Ange egenskaper på fliken Inställningar – inbäddat paket](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
 
-   1. Dra och släpp ditt paket för att köra eller **Ladda upp** det från en filmapp i rutan som visas. Paketet komprimeras och bäddas in automatiskt i aktivitetens nytto Last. När du har bäddat in paketet kan du **Ladda ned** det senare för redigering. Du kan också **Parameterisera** ditt inbäddade paket genom att tilldela det till en pipeline-parameter som kan användas i flera aktiviteter och därmed optimera storleken på din pipeline-nyttolast. 
+   1. Dra och släpp paket filen (med `.dtsx` ) eller **Ladda upp** den från en mapp i rutan som visas. Paketet komprimeras och bäddas in automatiskt i aktivitetens nytto Last. När du har bäddat in paketet kan du **Ladda ned** det senare för redigering. Du kan också **Parameterisera** ditt inbäddade paket genom att tilldela det till en pipeline-parameter som kan användas i flera aktiviteter och därmed optimera storleken på din pipeline-nyttolast. Det finns för närvarande inte stöd för att bädda in projektfiler (med `.ispac` ), så du kan inte använda SSIS-parametrar/anslutnings hanterare med omfång på projekt nivå i dina inbäddade paket.
    
-   1. Om det inbäddade paketet inte är krypterat och vi identifierar användningen av kör paket-uppgiften i den, markeras kryss rutan **Kör paket uppgift** automatiskt och relevanta underordnade paket med deras fil system referenser läggs till automatiskt så att du även kan bädda in dem. 
+   1. Om det inbäddade paketet inte är krypterat och vi identifierar användningen av EXECUTE Package Task (EPT), markeras kryss rutan **Kör paket uppgift** automatiskt och dina underordnade paket som refereras till av deras fil system Sök väg läggs till automatiskt, så att du kan bädda in dem.
    
-      Om vi inte kan identifiera användningen av kör paket uppgift måste du markera kryss rutan **Kör paket uppgift** manuellt och lägga till relevanta underordnade paket med sina fil system referenser en i taget så att du kan bädda in dem. Om de underordnade paketen använder SQL Server referenser kontrollerar du att SQL Server kan nås av din Azure-SSIS IR.  Det finns för närvarande inte stöd för att använda projekt referenser för underordnade paket.
+      Om vi inte kan identifiera användningen av EPT, måste du manuellt markera kryss rutan **Kör paket aktivitet** och lägga till dina underordnade paket som refereras till av deras fil system Sök väg en i taget, så att du kan bädda in dem. Om dina underordnade paket lagras i SQL Server Database (MSDB) kan du inte bädda in dem, så du måste se till att Azure-SSIS IR har åtkomst till MSDB för att kunna hämta dem med hjälp av deras SQL Server referenser. Det finns för närvarande inte stöd för att bädda in projektfiler (med `.ispac` ), så du kan inte använda projektbaserade referenser för dina underordnade paket.
    
    1. Om du använde skydds nivån **EncryptAllWithPassword** eller **EncryptSensitiveWithPassword** när du skapade paketet via SSDT anger du värdet för lösen ordet i rutan **krypterings lösen ord** . 
    
@@ -189,13 +189,13 @@ Om du väljer **inbäddat paket** som paket plats utför du följande steg.
    
    1. Ange de autentiseringsuppgifter som ska användas för att komma åt loggmappen genom att ange deras värden i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar loggarna i Azure Files är domänen `Azure` , användar namnet `<storage account name>` och lösen ordet `<storage account key>` . Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden (se ovan).
    
-   För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
+För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
 
 ##### <a name="package-location-package-store"></a>Paket plats: paket arkiv
 
 Om du väljer **paket arkiv** som paket plats utför du följande steg.
 
-   ![Ange egenskaper på fliken Inställningar-paket arkiv](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+![Ange egenskaper på fliken Inställningar-paket arkiv](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
    
    1. För **paket arkivets namn**väljer du ett befintligt paket lager som är kopplat till din Azure-SSIS IR.
 
@@ -221,49 +221,73 @@ Om du väljer **paket arkiv** som paket plats utför du följande steg.
    
    1. Ange de autentiseringsuppgifter som ska användas för att komma åt loggmappen genom att ange deras värden i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar loggarna i Azure Files är domänen `Azure` , användar namnet `<storage account name>` och lösen ordet `<storage account key>` . Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden (se ovan).
    
-   För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
+För alla UNC-sökvägar som tidigare nämnts måste det fullständigt kvalificerade fil namnet innehålla färre än 260 tecken. Katalog namnet måste innehålla färre än 248 tecken.
 
 #### <a name="ssis-parameters-tab"></a>Fliken SSIS-parametrar
 
 Utför följande steg på fliken **SSIS-parametrar** för AKTIVITETEN kör SSIS-paket.
 
-   ![Ange egenskaper på fliken SSIS-parametrar](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+![Ange egenskaper på fliken SSIS-parametrar](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
    1. Om din Azure-SSIS IR körs, väljs **SSISDB** som paket plats och kryss rutan **manuella poster** på fliken **Inställningar** är avmarkerad. de befintliga SSIS-parametrarna i det valda projektet och paketet från SSISDB visas så att du kan tilldela värden till dem. Annars kan du ange dem en i taget för att tilldela dem värden manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. 
    
    1. Om du har använt skydds nivån **EncryptSensitiveWithUserKey** när du skapade ditt paket via SSDT och **fil system (paket)**, väljs **fil system (projekt)**, **inbäddat paket**eller **paket arkiv** som din paket plats, du måste också ange de känsliga parametrarna igen för att tilldela värden till dem på den här fliken. 
    
-   När du tilldelar värden till parametrarna kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory-pipeline-parametrar eller variabler.
+När du tilldelar värden till parametrarna kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory-pipeline-parametrar eller variabler.
 
-   Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden. Det gör du genom att markera kryss rutan **Azure Key Vault** bredvid dem. Välj eller redigera din befintliga Key Vault-länkade tjänst eller skapa en ny. Välj sedan det hemliga namnet och versionen för ditt värde. När du skapar eller redigerar en länkad nyckel valvs tjänst kan du välja eller redigera ditt befintliga nyckel valv eller skapa ett nytt. Se till att bevilja Data Factory hanterad identitets åtkomst till ditt nyckel valv om du inte redan har gjort det. Du kan också ange hemligheten direkt i följande format: `<key vault linked service name>/<secret name>/<secret version>` . 
+Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden. Det gör du genom att markera kryss rutan **Azure Key Vault** bredvid dem. Välj eller redigera din befintliga Key Vault-länkade tjänst eller skapa en ny. Välj sedan det hemliga namnet och versionen för ditt värde. När du skapar eller redigerar en länkad nyckel valvs tjänst kan du välja eller redigera ditt befintliga nyckel valv eller skapa ett nytt. Se till att bevilja Data Factory hanterad identitets åtkomst till ditt nyckel valv om du inte redan har gjort det. Du kan också ange hemligheten direkt i följande format: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="connection-managers-tab"></a>Fliken anslutnings hanterare
 
 Utför följande steg på fliken **anslutnings hanterare** för AKTIVITETEN kör SSIS-paket.
 
-   ![Ange egenskaper på fliken anslutnings hanterare](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+![Ange egenskaper på fliken anslutnings hanterare](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
    1. Om din Azure-SSIS IR körs, väljs **SSISDB** som paket plats och kryss rutan **manuella poster** på fliken **Inställningar** är avmarkerad, befintliga anslutnings hanterare i det valda projektet och paketet från SSISDB visas så att du kan tilldela värden till deras egenskaper. Annars kan du ange dem en i taget för att tilldela värdena till egenskaperna manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. 
    
-   1. Om du har använt skydds nivån **EncryptSensitiveWithUserKey** när du skapade ditt paket via SSDT och **fil system (paket)**, väljs **fil system (projekt)**, **inbäddat paket**eller **paket arkiv** som paket plats, du måste också ange känsliga egenskaper för anslutnings hanteraren igen för att tilldela värden till dem på den här fliken. 
-   
-   När du tilldelar värden till egenskaperna för anslutnings hanteraren kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory pipeline-parametrar eller variabler. 
+      Du kan hämta rätt **omfång**, **namn**och **egenskaps** namn för anslutnings hanteraren genom att öppna paketet som innehåller det på SSDT. När paketet har öppnats väljer du relevant anslutnings hanterare för att visa namn och värden för alla egenskaper i fönstret **Egenskaper** för SSDT. Med den här informationen kan du åsidosätta värdena för egenskaperna för anslutnings hanteraren i körnings läge. 
 
-   Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden. Det gör du genom att markera kryss rutan **Azure Key Vault** bredvid dem. Välj eller redigera din befintliga Key Vault-länkade tjänst eller skapa en ny. Välj sedan det hemliga namnet och versionen för ditt värde. När du skapar eller redigerar en länkad nyckel valvs tjänst kan du välja eller redigera ditt befintliga nyckel valv eller skapa ett nytt. Se till att bevilja Data Factory hanterad identitets åtkomst till ditt nyckel valv om du inte redan har gjort det. Du kan också ange hemligheten direkt i följande format: `<key vault linked service name>/<secret name>/<secret version>` . 
+      ![Hämta egenskaper för anslutnings hanteraren från SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+
+      Utan att ändra ditt ursprungliga paket på SSDT kan du till exempel konvertera lokala data flöden från lokala till lokala data som körs på SQL Server till data flöden från lokala till molnet som körs på SSIS IR i ADF genom att åsidosätta värdena för egenskaperna **ConnectByProxy**, **ConnectionString**och **ConnectUsingManagedIdentity** i befintliga anslutnings hanterare vid körning.
+      
+      Dessa åsidosättningar för körning kan aktivera IR (SHIR) som proxy för SSIS IR vid åtkomst till data lokalt, se [Konfigurera SHIR som proxy för SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)och Azure SQL Database/hanterade instans anslutningar med den senaste MSOLEDBSQL-driv rutinen som i sin tur aktiverar Azure Active Directory (AAD)-autentisering med ADM-hanterad identitet, se [Konfigurera AAD-autentisering med ADF-hanterad identitet för OLEDB-anslutningar](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+
+      ![Ange egenskaper från SSDT på fliken anslutnings hanterare](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+   
+   1. Om du har använt skydds nivån **EncryptSensitiveWithUserKey** när du skapade ditt paket via SSDT och **fil system (paket)**, väljs **fil system (projekt)**, **inbäddat paket**eller **paket arkiv** som paket plats, du måste också ange känsliga egenskaper för anslutnings hanteraren igen för att tilldela värden till dem på den här fliken. 
+
+När du tilldelar värden till egenskaperna för anslutnings hanteraren kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory pipeline-parametrar eller variabler. 
+
+Du kan också använda hemligheter som lagras i Azure Key Vault som deras värden. Det gör du genom att markera kryss rutan **Azure Key Vault** bredvid dem. Välj eller redigera din befintliga Key Vault-länkade tjänst eller skapa en ny. Välj sedan det hemliga namnet och versionen för ditt värde. När du skapar eller redigerar en länkad nyckel valvs tjänst kan du välja eller redigera ditt befintliga nyckel valv eller skapa ett nytt. Se till att bevilja Data Factory hanterad identitets åtkomst till ditt nyckel valv om du inte redan har gjort det. Du kan också ange hemligheten direkt i följande format: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="property-overrides-tab"></a>Fliken åsidosättningar för egenskap
 
 Utför följande steg på fliken **åsidosättningar** för att köra SSIS-paket.
 
-   ![Ange egenskaper på fliken åsidosättningar för egenskap](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+![Ange egenskaper på fliken åsidosättningar för egenskap](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
    1. Ange Sök vägarna för de befintliga egenskaperna i det valda paketet ett i taget för att tilldela dem värden manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. Om du till exempel vill åsidosätta värdet för användar variabeln anger du dess sökväg i följande format: `\Package.Variables[User::<variable name>].Value` . 
+
+      Du kan hämta rätt **egenskaps Sök väg** för alla paket egenskaper genom att öppna paketet som innehåller det på SSDT. När paketet har öppnats väljer du egenskapen kontroll flöde och **konfigurationer** i fönstret **Egenskaper** för SSDT. Välj sedan knappen med tre punkter **(...**) bredvid dess **konfigurations** egenskap för att öppna de **paket konfigurations organisatörer** som normalt används för att [skapa paket konfigurationer i paket distributions modellen](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+
+      ![Hämta paket egenskaper från SSDT-Configurations-egenskap](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+
+      I **Sorteraren för paket konfiguration**markerar du kryss rutan **Aktivera paket konfigurationer** och knappen **Lägg till...** för att öppna **paket konfigurations guiden**. 
+      
+      I **guiden paket konfiguration**väljer du alternativet **XML-konfigurationsfil** i list rutan **konfigurations typ** och anger konfigurations **Inställningar direkt** , anger namnet på konfigurations filen och klickar på knappen **Nästa >** . 
+
+      ![Hämta paket egenskaper från SSDT-konfigurationer organisatör](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+
+      Slutligen väljer du de paket egenskaper vars sökväg du vill och **nästa >** knapp.  Nu kan du se, kopiera & klistra in de sökvägar för paket egenskaper som du vill ha och spara dem i konfigurations filen. Med den här informationen kan du åsidosätta värdena för alla paket egenskaper i körnings läge. 
+
+      ![Hämta paket egenskaper från guiden SSDT-konfiguration](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
    1. Om du har använt skydds nivån **EncryptSensitiveWithUserKey** när du skapade ditt paket via SSDT och **fil system (paket)**, väljs **fil system (projekt)**, **inbäddat paket**eller **paket arkiv** som paket plats, du måste också ange egenskaperna för det känsliga paketet igen för att tilldela värden till dem på den här fliken. 
    
-   När du tilldelar värden till dina paket egenskaper kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory pipeline-parametrar eller variabler.
+När du tilldelar värden till dina paket egenskaper kan du lägga till dynamiskt innehåll med hjälp av uttryck, funktioner, Data Factory systemvariabler och Data Factory pipeline-parametrar eller variabler.
 
-   Värdena som tilldelas i konfigurationsfiler och på fliken **SSIS Parameters** kan åsidosättas med hjälp av flikarna **anslutnings hanterare** eller **Property Overrides** . De värden som tilldelas på fliken **anslutnings hanterare** kan också åsidosättas med hjälp av fliken **åsidosättningar för egenskaper** .
+Värdena som tilldelas i konfigurationsfiler och på fliken **SSIS Parameters** kan åsidosättas med hjälp av flikarna **anslutnings hanterare** eller **Property Overrides** . De värden som tilldelas på fliken **anslutnings hanterare** kan också åsidosättas med hjälp av fliken **åsidosättningar för egenskaper** .
 
 Verifiera pipeline-konfigurationen genom att välja **Verifiera** i verktygsfältet. Om du vill stänga **verifierings rapporten för pipeline**väljer du **>>** .
 

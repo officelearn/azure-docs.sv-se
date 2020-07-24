@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80297649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006304"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – Ställ in som fil server via Azure Portal
-![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
+![Diagram som visar de steg som krävs för att distribuera en virtuell matris. Den första delen av det tredje steget är märkt konfigurerad som fil server och är markerad.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>Introduktion
 
@@ -51,16 +51,16 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    
    Använd anslutnings-URL: en som anges i föregående steg. Du ser ett fel som indikerar att det är problem med webbplatsens säkerhetscertifikat. Klicka på **Fortsätt till den här webb sidan**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
+   ![Skärm bild av ett webbläsarfönster som rapporterar ett säkerhets certifikat problem. Två länkar visas, en för webbplatsen och en för användarens hem sida.](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
 2. Logga in på webb gränssnittet för den virtuella matrisen som **StorSimpleAdmin**. Ange det lösen ord för enhets administratör som du ändrade i steg 3: starta den virtuella matrisen i [etablera en virtuell StorSimple-matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) eller i [etablera en StorSimple virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
+   ![Skärm bild av inloggnings sidan för StorSimple. Användar namnet StorSimpleAdmin visas och ett lösen ord fylls med obestämda tecken.](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. Du kommer till **Start** sidan. Den här sidan beskriver de olika inställningar som krävs för att konfigurera och registrera den virtuella matrisen med tjänsten StorSimple Enhetshanteraren. **Nätverks inställningarna**, **webbproxy-inställningarna**och **tids inställningarna** är valfria. De enda nödvändiga inställningarna är **enhets inställningar** och **moln inställningar**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
+   ![Skärm bild av start sidan. Text anger att enheten inte har kon figurer ATS. Länkar till flera olika typer av inställningar visas.](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
 4. På sidan **nätverks inställningar** under **nätverks gränssnitt**kommer data 0 att konfigureras automatiskt åt dig. Varje nätverks gränssnitt anges som standard för att hämta IP-adresser automatiskt (DHCP). Därför tilldelas en IP-adress, ett undernät och en gateway automatiskt (för både IPv4 och IPv6).
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
+   ![Skärm bild av sidan Nätverks inställningar som visar de IP-adresser som är konfigurerade för olika versioner av Internet Protocol.](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
    
    Om du har lagt till fler än ett nätverks gränssnitt under etableringen av enheten kan du konfigurera dem här. Obs! Du kan bara konfigurera nätverks gränssnittet som IPv4 eller både IPv4 och IPv6. Endast IPv6-konfigurationer stöds.
 5. DNS-servrar krävs eftersom de används när enheten försöker kommunicera med moln lagrings tjänst leverantörer eller för att matcha din enhet efter namn när den konfigureras som en fil server. På sidan **nätverks inställningar** under **DNS-servrarna**:
@@ -70,15 +70,15 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 6. På sidan **enhets inställningar** :
    
    1. Tilldela enheten ett unikt **namn** . Namnet kan innehålla 1-15 tecken och får innehålla bokstäver, siffror och bindestreck.
-   2. Klicka på ikonen **fil Server** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) för den **typ** av enhet som du skapar. Med en fil Server kan du skapa delade mappar.
+   2. Klicka på ikonen **fil Server** :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image6.png"::: för den **typ** av enhet som du skapar. Med en fil Server kan du skapa delade mappar.
    3. Eftersom enheten är en fil server måste du ansluta enheten till en domän. Ange ett **domän namn**.
    4. Klicka på **Använd**.
 7. En dialog ruta visas. Ange autentiseringsuppgifterna för domänen i det angivna formatet. Klicka på kryss ikonen. Domänautentiseringsuppgifter verifieras. Ett fel meddelande visas om autentiseringsuppgifterna är felaktiga.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
+   ![Skärm bild som visar en dialog ruta med användar namn och lösen ord ifyllt.](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
 8. Klicka på **Använd**. Detta gäller och validerar enhets inställningarna.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
+   ![Skärm bild av sidan enhets inställningar. Enhets namnet och domän namnet fylls i.](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
    > [!NOTE]
    > Se till att den virtuella matrisen finns i en egen organisationsenhet (OU) för Active Directory och att inga grup princip objekt (GPO) tillämpas på den eller ärvs. Grup princip kan installera program som antivirus program på den virtuella StorSimple-matrisen. Det finns inte stöd för att installera ytterligare program vara och det kan leda till skadade data. 
@@ -86,7 +86,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    > 
 9. (Valfritt) Konfigurera webbproxyservern. Även om webbproxykonfigurationen är valfri, var medveten om att om du använder en webbproxy så kan du bara konfigurera den här.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
+   ![Skärm bild av sidan Web Proxy-inställningar. Alternativet Aktivera webbproxy är inaktiverat och autentiseringen är inställd på ingen. Inga andra värden har angetts.](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
    
    På **webbproxy-** sidan:
    
@@ -96,7 +96,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    4. Klicka på **Använd**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
 10. (Valfritt) Konfigurera tid inställningarna för enheten, till exempel tidszon och primära och sekundära NTP-servrar. NTP-servrar krävs eftersom din enhet måste synkronisera tid så att den kan autentiseras med dina moln tjänst leverantörer.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
+    ![Skärm bild av sidan med tids inställningar. Tids zonen och den primära N T P-servern fylls i. Den sekundära N T T P-servern är tom.](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
     
     På sidan **tids inställningar** :
     
@@ -112,10 +112,10 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
        Om detta inte är den första enheten som du registrerar med tjänsten måste du ange krypterings nyckeln för tjänst data. Mer information finns i Hämta [krypterings nyckeln för tjänst data](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) i det lokala webb gränssnittet.
     3. Klicka på **Registrera**. Då startas enheten om. Du kan behöva vänta i 2-3 minuter innan enheten har registrerats. När enheten har startats om kommer du till inloggnings sidan.
        
-       ![](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
+       ![Skärm bild av sidan med moln inställningar. Rutorna registrerings nyckel och krypterings nyckel fylls i, men värdena fördelas.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
 12. Gå tillbaka till Azure-portalen. Gå till **alla resurser**, Sök efter din StorSimple Enhetshanteraren-tjänst.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
+    ![Skärm bild av sidan alla resurser i Azure Portal. En Enhetshanteraren tjänst är markerad.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. I den filtrerade listan väljer du din StorSimple-Enhetshanteraren tjänst och navigera sedan till **hanterings > enheter**. På bladet **enheter** kontrollerar du att enheten har lyckats ansluta till tjänsten och att statusen **redo att konfigureras**.
     
     ![Konfigurera en fil Server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
@@ -203,12 +203,12 @@ Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://port
 Du måste nu ansluta till en eller flera resurser som du skapade i föregående steg. Utför de här stegen på Windows Server-värden som är ansluten till din virtuella StorSimple-matris.
 
 #### <a name="to-connect-to-the-share"></a>Så här ansluter du till resursen
-1. Tryck på ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. I fönstret kör anger du * &lt; namnet &gt; på&#92;&#92;fil servern* som sökväg, ersätter *fil Server namnet* med det enhets namn som du har tilldelat till fil servern. Klicka på **OK**.
+1. Tryck på :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image22.png"::: + R. I fönstret kör anger du * &lt; namnet &gt; på&#92;&#92;fil servern* som sökväg, ersätter *fil Server namnet* med det enhets namn som du har tilldelat till fil servern. Klicka på **OK**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
+   ![Skärm bild av dialog rutan Kör. Rutan Öppna fylls i med en sökväg som leder till fil servern.](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Då öppnas Utforskaren. Du bör nu kunna se de resurser du har skapat som mappar. Välj och dubbelklicka på en resurs (mapp) för att visa innehållet.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
+   ![Skärm bild av Utforskaren. Flera mappar visas som representerar de nyligen skapade resurserna.](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
 3. Nu kan du lägga till filer till dessa resurser och göra en säkerhets kopia.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -3,12 +3,12 @@ title: Lägg till partitioner dynamiskt i en Event Hub i Azure Event Hubs
 description: Den här artikeln visar hur du lägger till partitioner i en Event Hub dynamiskt i Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ea0477dcc695c7a2fb936daadc3679c94bfac12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002547"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Lägga till partitioner i en Event Hub dynamiskt (Apache Kafka ämne) i Azure Event Hubs
 Event Hubs tillhandahåller meddelandeströmning via ett partitionerat konsumentmönster där varje konsument endast läser en specifik delmängd, eller partition, av meddelandeströmmen. Det här mönstret gör det möjligt att skala horisontellt för händelsebearbetning och tillhandahåller andra strömfokuserade funktioner som inte är tillgängliga i köer och ämnen. En partition är en ordnad sekvens av händelser som hålls kvar i en händelsehubb. När nya händelser anländer läggs de till i slutet av den här sekvensen. Mer information om partitioner i allmänhet finns i [partitioner](event-hubs-scalability.md#partitions)
@@ -33,7 +33,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### <a name="cli"></a>CLI
-Använd [AZ eventhubs eventhub Update](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI-kommandot för att uppdatera partitioner i en Event Hub. 
+Använd [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI-kommandot för att uppdatera partitioner i en Event Hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -64,13 +64,13 @@ Använd `AlterTopics` API: t (till exempel via **Kafka-topics** CLI-verktyget) f
 ## <a name="event-hubs-clients"></a>Event Hubs klienter
 Nu ska vi titta på hur Event Hubs klienter beter sig när antalet partitioner uppdateras i en händelsehubben. 
 
-När du lägger till en partition i ett befintligt jämnt NAV tar Event Hub-klienten emot en "MessagingException" från tjänsten som informerar klienterna om att entitetens metadata (entiteten är händelsehubben och metadata är partitionsinformation) har ändrats. Klienterna kommer automatiskt att öppna AMQP-länkarna igen, vilket sedan hämtar den ändrade metadata-informationen. Klienterna fungerar normalt.
+När du lägger till en partition i ett befintligt jämnt NAV tar Event Hub-klienten emot en `MessagingException` från tjänsten som informerar klienterna om att entitetens metadata (entiteten är din Event Hub och metadata är partitionens information) har ändrats. Klienterna kommer automatiskt att öppna AMQP-länkarna igen, vilket sedan hämtar den ändrade metadata-informationen. Klienterna fungerar normalt.
 
 ### <a name="senderproducer-clients"></a>Avsändare/producerande klienter
 Event Hubs innehåller tre avsändares alternativ:
 
 - **Partitions sändare** – i det här scenariot skickar klienter händelser direkt till en partition. Även om partitioner är identifierbara och händelser kan skickas direkt till dem, rekommenderar vi inte det här mönstret. Att lägga till partitioner påverkar inte det här scenariot. Vi rekommenderar att du startar om program så att de kan identifiera nya partitioner som har lagts till. 
-- **Partitionsnyckel-Sender** – i det här scenariot skickar klienter händelser med en nyckel så att alla händelser som tillhör den nyckeln slutar på samma partition. I det här fallet hash-kodar tjänsten nyckeln och vägarna till motsvarande partition. Uppdatering av partitioner kan orsaka problem som inte kan utföras på grund av hash-ändringar. Om du bryr dig om att beställa bör du se till att ditt program förbrukar alla händelser från befintliga partitioner innan du ökar antalet partitioner.
+- **Partitionsnyckel-Sender** – i det här scenariot skickar klienter händelser med en nyckel så att alla händelser som tillhör den nyckeln slutar på samma partition. I det här fallet hash-kodar tjänsten nyckeln och vägarna till motsvarande partition. Uppdatering av partitioner kan orsaka problem som inte är i följd på grund av hash-ändringar. Om du bryr dig om att beställa bör du se till att ditt program förbrukar alla händelser från befintliga partitioner innan du ökar antalet partitioner.
 - **Round-Robin-avsändare (standard)** – i det här scenariot avEvent Hubs tjänsten Robins händelserna mellan partitioner. Event Hubs tjänsten är medveten om antalet ändringar i partitionen och skickas till nya partitioner inom några sekunder efter att antalet partitioner ändrats.
 
 ### <a name="receiverconsumer-clients"></a>Mottagare/konsument klienter
@@ -84,7 +84,7 @@ Event Hubs tillhandahåller direkta mottagare och ett enkelt konsument bibliotek
 ## <a name="apache-kafka-clients"></a>Apache Kafka klienter
 I det här avsnittet beskrivs hur Apache Kafka klienter som använder Kafka-slutpunkten för Azure Event Hubs beter sig när antalet partitioner uppdateras för en Event Hub. 
 
-Kafka-klienter som använder Event Hubs med Apache Kafka-protokollet fungerar annorlunda än Event Hub-klienter som använder AMQP-protokollet. Kafka-klienterna uppdaterar sina metadata en gång i `metadata.max.age.ms` millisekunder. Du anger det här värdet i klient konfigurationerna. `librdkafka`Biblioteken använder också samma konfiguration. Uppdateringar av metadata meddelar klienterna om tjänst ändringar, inklusive antalet partitioner ökar. En lista över konfigurationer finns i [Apache Kafka konfigurationer för Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+Kafka-klienter som använder Event Hubs med Apache Kafka-protokollet fungerar annorlunda än Event Hub-klienter som använder AMQP-protokollet. Kafka-klienterna uppdaterar sina metadata en gång i `metadata.max.age.ms` millisekunder. Du anger det här värdet i klient konfigurationerna. `librdkafka`Biblioteken använder också samma konfiguration. Uppdateringar av metadata meddelar klienterna om tjänst ändringar, inklusive antalet partitioner ökar. En lista över konfigurationer finns i [Apache Kafka konfigurationer för Event Hubs](apache-kafka-configurations.md).
 
 ### <a name="senderproducer-clients"></a>Avsändare/producerande klienter
 Producenter dikterar alltid att sändnings begär Anden innehåller partitionens mål för varje uppsättning producerade poster. Därför görs all tillverkning partitionering på klient sidan med producentens vy över Broker-metadata. När de nya partitionerna har lagts till i producentens metadatacache är de tillgängliga för producent förfrågningar.
@@ -100,7 +100,7 @@ När en konsument grupp medlem utför en uppdatering av metadata och hämtar de 
     > Medan befintliga data bevarar ordning, avbryts partitionens hashing för meddelanden som hashas efter att antalet partitioner ändrats på grund av att partitioner har lagts till.
 - Att lägga till partitioner till ett befintligt ämne eller Event Hub-instans rekommenderas i följande fall:
     - När du använder metoden för resursallokering (standard) för att skicka händelser
-     - Kafka standard partitionerings strategier, exempel – StickyAssignor-strategi
+     - Kafka standard partitionerings strategier, exempel – fästis för fästisar
 
 
 ## <a name="next-steps"></a>Nästa steg

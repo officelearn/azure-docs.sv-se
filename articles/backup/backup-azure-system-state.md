@@ -3,12 +3,12 @@ title: Säkerhetskopiera Windows system State till Azure
 description: Lär dig att säkerhetskopiera system tillstånd för Windows Server och/eller Windows-datorer till Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003842"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Säkerhetskopiera Windows system State till Azure
 
@@ -40,7 +40,7 @@ När du skapar ett Recovery Services-valv ska du alltid kontrollera att lagrings
 
     ![alternativ för lagringskonfiguration](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) i denna [översikt av lagringsredundans](../storage/common/storage-redundancy.md).
+    Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy.md) och [lokalt redundant](../storage/common/storage-redundancy.md) i denna [översikt av lagringsredundans](../storage/common/storage-redundancy.md).
 
 Nu när du har skapat ett valv konfigurerar du det för att säkerhetskopiera Windows system tillstånd.
 
@@ -174,7 +174,7 @@ För att slutföra den första säkerhetskopieringen använder du Microsoft Azur
 
 5. Stäng guiden genom att klicka på **Stäng**. Om du stänger guiden innan säkerhetskopieringen är klar fortsätter guiden att köras i bakgrunden.
     > [!NOTE]
-    > MARS-agenten utlöser SFC-/verifyonly som en del av förincheckningarna före varje säkerhets kopiering av system tillstånd. Detta görs för att säkerställa att filer som säkerhets kopie ras som en del av system tillstånd har rätt versioner som motsvarar Windows-versionen. Läs mer om system fils Checker (SFC) i [den här artikeln](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    > MARS-agenten utlöser SFC-/verifyonly som en del av förincheckningarna före varje säkerhets kopiering av system tillstånd. Detta görs för att säkerställa att filer som säkerhets kopie ras som en del av system tillstånd har rätt versioner som motsvarar Windows-versionen. Läs mer om system fils Checker (SFC) i [den här artikeln](/windows-server/administration/windows-commands/sfc).
     >
 
 När den första säkerhetskopieringen har slutförts visas statusen **Jobbet har slutförts** i säkerhetskopieringskonsolen.

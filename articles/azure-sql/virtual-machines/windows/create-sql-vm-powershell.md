@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2c5ef71059fd3ba96299624818a13ebe1ae0929b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a25625e085ee07a2dc036fd40f70e6b0376b42a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003890"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Använda Azure PowerShell för att etablera SQL Server på Azure Virtual Machines
 
@@ -152,7 +152,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Den virtuella datorn kräver lagrings resurser för operativ system disken och för SQL Server data-och loggfiler. För enkelhetens skull skapar du en enskild disk för båda. Du kan lägga till ytterligare diskar senare med hjälp av cmdleten [Add-Azure disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) för att placera SQL Server data och loggfiler på dedikerade diskar. Använd cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) för att skapa ett standard lagrings konto i din nya resurs grupp. Ange de variabler som du tidigare har initierat för lagrings konto namnet, lagrings-SKU-namnet och platsen.
+Den virtuella datorn kräver lagrings resurser för operativ system disken och för SQL Server data-och loggfiler. För enkelhetens skull skapar du en enskild disk för båda. Du kan lägga till ytterligare diskar senare med hjälp av cmdleten [Add-Azure disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) för att placera SQL Server data och loggfiler på dedikerade diskar. Använd cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) för att skapa ett standard lagrings konto i din nya resurs grupp. Ange de variabler som du tidigare har initierat för lagrings konto namnet, lagrings-SKU-namnet och platsen.
 
 Kör denna cmdlet för att skapa ditt nya lagrings konto.
 

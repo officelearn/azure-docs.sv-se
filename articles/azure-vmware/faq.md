@@ -4,11 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112689"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003431"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Vanliga frågor om för hands versionen av Azure VMware-lösningen (AVS)
 
@@ -215,7 +216,7 @@ Du kan begära en kvot ökning genom att [skicka en support förfrågan](..\azur
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. I Azure Portal, under **Hjälp + Support**, skapa en **ny supportbegäran** och ange följande information för biljetten:
    - **Typ av problem:** Produkt

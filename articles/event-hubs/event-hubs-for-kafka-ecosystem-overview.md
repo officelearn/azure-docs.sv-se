@@ -2,13 +2,13 @@
 title: Använda händelsehubben från Apache Kafka app – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om Apache Kafka support av Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 733623895176bb3b573c2efcbda8a40b9e2d87c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002486"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Använda Azure Event Hubs från Apache Kafka-program
 Event Hubs tillhandahåller en Kafka-slutpunkt som kan användas av dina befintliga Kafka-baserade program som ett alternativ till att köra ditt eget Kafka-kluster. Event Hubs stöder [Apache Kafka protocol 1,0 och senare](https://kafka.apache.org/documentation/)och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker.  
@@ -26,7 +26,7 @@ Konceptuellt Kafka och Event Hubs är nästan identiska: de är både partitione
 | Kafka-koncept | Event Hubs koncept|
 | --- | --- |
 | Kluster | Namnområde |
-| Ämne | Händelsehubb |
+| Avsnitt | Händelsehubb |
 | Partition | Partition|
 | Konsument grupp | Konsument grupp |
 | Offset | Offset|
@@ -79,12 +79,10 @@ Med funktionen Event Hubs för Kafka kan du skriva med ett protokoll och läsa m
 
 Här är en lista över Kafka-funktioner som ännu inte stöds:
 
-*   Idempotenta-tillverkare
 *   Transaktion
 *   Komprimering
 *   Storleks beroende kvarhållning
 *   Logg komprimering
-*   Lägga till partitioner i ett befintligt ämne
 *   API-stöd för HTTP-Kafka
 *   Kafka strömmar
 

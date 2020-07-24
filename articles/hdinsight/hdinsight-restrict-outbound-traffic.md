@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 37e6b2986f76529b5f3b2edc69f50259485df0b4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087018"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006525"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
@@ -69,13 +69,13 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
     **Avsnittet FQDN-Taggar**
 
-    | Name | Käll adress | FQDN-tagg | Obs! |
+    | Namn | Käll adress | FQDN-tagg | Kommentarer |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate och HDInsight | Krävs för HDI-tjänster |
 
     **Avsnittet mål-FQDN**
 
-    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Obs! |
+    | Namn | Käll adresser | Protokoll: port | Mål-FQDN | Kommentarer |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
@@ -103,16 +103,16 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
     **Avsnittet IP-adresser**
 
-    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Obs! |
+    | Namn | Protokoll | Käll adresser | Mål adresser | Målportar | Kommentarer |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Tids tjänst |
-    | Rule_2 | Alla | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
+    | Rule_2 | Valfri | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
     | Rule_3 | TCP | * | IP-adress för ditt Data Lake Storage konto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverks regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brand väggen. Detta kan resultera i högre kostnader för stora data belastningar, men trafiken loggas och granskas i brand Väggs loggar. Identifiera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` -kommando för att matcha FQDN till en IP-adress.|
     | Rule_4 | TCP | * | * | 12000 | Valfritt Om du använder Log Analytics skapar du en nätverks regel i avsnittet IP-adresser för att aktivera kommunikation med arbets ytan Log Analytics. |
 
     **Avsnittet service Tags**
 
-    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Obs! |
+    | Namn | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Kommentarer |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
     | Rule_8 | TCP | * | Azure Monitor | * | valfritt Kunder som planerar att använda funktionen för automatisk skalning bör lägga till den här regeln. |
@@ -139,14 +139,14 @@ Om du till exempel vill konfigurera routningstabellen för ett kluster som skapa
 
 1. Från din nya väg går du till **Inställningar**  >  **vägar**  >  **+ Lägg till**. Lägg till följande vägar:
 
-| Vägnamn | Adressprefix | Nexthop-typ | Nexthop-adress |
+| Vägnamn | Adressprefix | Nästa hopptyp | Nexthop-adress |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
-| 13.82.225.233 | 13.82.225.233/32 | Internet | NA |
-| 40.71.175.99 | 40.71.175.99/32 | Internet | NA |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | Ej tillämpligt |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | Ej tillämpligt |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | Ej tillämpligt |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | Ej tillämpligt |
+| 13.82.225.233 | 13.82.225.233/32 | Internet | Ej tillämpligt |
+| 40.71.175.99 | 40.71.175.99/32 | Internet | Ej tillämpligt |
 | 0.0.0.0 | 0.0.0.0/0 | Virtuell installation | 10.0.2.4 |
 
 Slutför konfigureringen av routningstabellen:

@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6f16784d89d1f3edec491d5c7ae312dbd46212f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6be91be4d1189fb99ffa39ec96d555d4534cdb2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005743"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Koppla en datadisk till en virtuell Windows-dator med PowerShell
 
@@ -20,9 +21,9 @@ Den här artikeln visar hur du ansluter både nya och befintliga diskar till en 
 Börja med att gå igenom följande tips:
 
 * Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Om du vill använda Premium-SSD behöver du en [Premium Storage-aktiverad VM-typ](sizes-memory.md), t. ex. den virtuella datorn DS-serien eller GS-serien.
+* Om du vill använda Premium-SSD behöver du en [Premium Storage-aktiverad VM-typ](../sizes-memory.md), t. ex. den virtuella datorn DS-serien eller GS-serien.
 
-Den här artikeln använder PowerShell i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+Den här artikeln använder PowerShell i [Azure Cloud Shell](../../cloud-shell/overview.md), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Lägg till en tom datadisk till en virtuell dator
 
@@ -48,7 +49,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Använda hanterade diskar i en tillgänglighets zon
 
-Om du vill skapa en disk i en tillgänglighets zon använder du [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med `-Zone` parametern. I följande exempel skapas en disk i zon *1*.
+Om du vill skapa en disk i en tillgänglighets zon använder du [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) med `-Zone` parametern. I följande exempel skapas en disk i zon *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -68,7 +69,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Initiera disken
 
-När du har lagt till en tom disk måste du initiera den. För att initiera disken kan du logga in på en virtuell dator och använda disk hantering. Om du har aktiverat [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) och ett certifikat på den virtuella datorn när du skapade det kan du använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skript tillägg:
+När du har lagt till en tom disk måste du initiera den. För att initiera disken kan du logga in på en virtuell dator och använda disk hantering. Om du har aktiverat [WinRM](/windows/desktop/winrm/portal) och ett certifikat på den virtuella datorn när du skapade det kan du använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skript tillägg:
 
 ```azurepowershell-interactive
     $location = "location-name"

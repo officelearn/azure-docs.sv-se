@@ -3,21 +3,25 @@ title: OptionsGroup-GRÄNSSNITTs element
 description: Beskriver elementet Microsoft. Common. OptionsGroup UI för Azure Portal. Gör att användarna kan välja bland tillgängliga alternativ när de distribuerar ett hanterat program.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
-ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652351"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004206"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elementet Microsoft. Common. OptionsGroup UI
 
-En markerings kontroll med en rad med tillgängliga alternativ.
+Med OptionsGroup-kontrollen kan användarna välja ett alternativ från två eller fler alternativ. En användare kan bara välja ett alternativ.
+
+> [!NOTE]
+> Tidigare utsmälte den här kontrollen alternativen vågrätt. Nu visar kontrollen alternativen lodrätt som alternativ knappar.
 
 ## <a name="ui-sample"></a>UI-exempel
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## <a name="schema"></a>Schema
 

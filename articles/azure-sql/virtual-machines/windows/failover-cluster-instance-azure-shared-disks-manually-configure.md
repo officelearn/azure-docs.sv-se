@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 4e704a25e0c9700afbe4fa85031d7ff4d6a8d0c1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1a4a366b3e4fa045df69683d6e72b157ccf0a1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965570"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003635"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ I den här artikeln förklaras hur du skapar en instans av en redundanskluster (
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -157,7 +157,7 @@ Verifiera klustret med hjälp av användar gränssnittet genom att göra följan
 1. Under **Välj servrar eller ett kluster**anger du namnen på de båda virtuella datorerna.
 1. Under **test alternativ**väljer **du kör endast test som jag väljer**. 
 1. Välj **Nästa**.
-1. Under **Val av test**väljer du alla tester *utom* **Lagringsdirigering**.
+1. Under **Val av test**väljer du alla tester *utom* **lagring**
 
 ## <a name="test-cluster-failover"></a>Testa redundanskluster
 
@@ -181,9 +181,7 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
 
 1. Välj **ny SQL Server redundanskluster installationen**. Följ anvisningarna i guiden för att installera SQL Server FCI.
 
-   FCI data kataloger måste finnas i klustrad lagring. Med Lagringsdirigering är det inte en delad disk, men en monterings punkt på en volym på varje server. Lagringsdirigering synkroniserar volymen mellan båda noderna. Volymen visas för klustret som en klusterdelad volym (CSV). Använd CSV-monterings punkten för data katalogerna.
-
-   ![Data kataloger](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+FCI data kataloger måste finnas på de Azure-delade diskarna. 
 
 1. När du har slutfört anvisningarna i guiden kommer installations programmet att installera en SQL Server FCI på den första noden.
 

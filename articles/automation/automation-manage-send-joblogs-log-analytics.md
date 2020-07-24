@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186205"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004757"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 
@@ -28,7 +28,7 @@ Azure Automation kan skicka Runbook-jobbets status och jobb strömmar till arbet
 
 För att börja skicka dina Automation-loggar till Azure Monitor loggar behöver du:
 
-* Den senaste versionen av [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Den senaste versionen av [Azure PowerShell](/powershell/azure/).
 * En Log Analytics-arbetsyta. Mer information finns i [Kom igång med Azure Monitor loggar](../azure-monitor/overview.md).
 * Resurs-ID för ditt Azure Automation-konto.
 

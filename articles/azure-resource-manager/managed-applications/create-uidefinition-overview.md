@@ -3,32 +3,35 @@ title: CreateUiDefinition.jspå fil för fönstret Portal
 description: Beskriver hur du skapar användar gränssnitts definitioner för Azure Portal. Används när du definierar Azure Managed Applications.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ee489e8b596adf0767856e3358c9bdcb17fbb6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004381"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json för Azure-upplevelsen för att skapa hanterade program
 
-I det här dokumentet beskrivs de grundläggande begreppen i **createUiDefinition.jspå** filen som Azure Portal använder för att definiera användar gränssnittet när du skapar ett hanterat program.
+I det här dokumentet beskrivs de viktigaste begreppen i **createUiDefinition.jsi** filen. Azure Portal använder den här filen för att definiera användar gränssnittet när du skapar ett hanterat program.
 
 Mallen är följande
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-   "handler": "Microsoft.Azure.CreateUIDef",
-   "version": "0.1.2-preview",
-   "parameters": {
-      "basics": [ ],
-      "steps": [ ],
-      "outputs": { },
-      "resourceTypes": [ ]
-   }
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "config": {
+            "basics": { }
+        },
+        "basics": [ ],
+        "steps": [ ],
+        "outputs": { },
+        "resourceTypes": [ ]
+    }
 }
 ```
 
@@ -36,23 +39,109 @@ En CreateUiDefinition innehåller alltid tre egenskaper:
 
 * protokollhanteraren
 * version
-* parameters
+* parametrar
 
 Hanteraren bör alltid vara `Microsoft.Azure.CreateUIDef` och den senaste versionen som stöds är `0.1.2-preview` .
 
-Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som stöds `basics` , `steps` , och `outputs` . Egenskaperna grundläggande och steg innehåller [elementen](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa indatavärdena för de angivna elementen till parametrarna i mallen för Azure Resource Manager distribution.
+Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som stöds `basics` , `steps` ,, `outputs` och `config` . Egenskaperna grundläggande och steg innehåller [elementen](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa utmatnings värden för de angivna elementen till parametrarna i Azure Resource Manager-mallen. Du `config` kan bara använda när du behöver åsidosätta standard beteendet för `basics` steget.
 
 Inklusive `$schema` rekommenderas, men valfritt. Om det anges måste värdet för `version` matcha versionen i `$schema` URI: n.
 
 Du kan använda en JSON-redigerare för att skapa din createUiDefinition och sedan testa den i [sand boxen createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandbox finns i [Testa ditt Portal gränssnitt för Azure Managed Applications](test-createuidefinition.md).
 
-## <a name="basics"></a>Grunderna
+## <a name="basics"></a>Grunder
 
-Grunderna är det första steget som skapas när Azure Portal tolkar filen. Förutom att visa de element som anges i `basics` , infogar portalen element för användare för att välja prenumeration, resurs grupp och plats för distributionen. När det är möjligt bör element som frågar om distributionens globala parametrar, t. ex. namnet på ett kluster eller administratörs behörighet, fortsätta i det här steget.
+**Grundläggande** steg är det första steget som genereras när Azure Portal tolkar filen. Som standard kan du med hjälp av grundläggande steg välja prenumeration, resurs grupp och plats för distribution.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Standard för grundläggande":::
+
+Du kan lägga till fler element i det här avsnittet. När det är möjligt kan du lägga till element som frågar om globala parametrar, t. ex. namnet på ett kluster eller administratörsautentiseringsuppgifter.
+
+I följande exempel visas en text ruta som har lagts till i standard elementen.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
+
+## <a name="config"></a>Konfigurera
+
+Du anger konfigurations elementet när du behöver åsidosätta standard beteendet för grundläggande steg. I följande exempel visas tillgängliga egenskaper.
+
+```json
+"config": {  
+    "basics": {  
+        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+        "subscription": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid subscription."
+                    },
+                    {
+                        "permission": "<Resource Provider>/<Action>",
+                        "message": "Must have correct permission to complete this step."
+                    }
+                ]
+            },
+            "resourceProviders": [ "<Resource Provider>" ]
+        },
+        "resourceGroup": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid resource group."
+                    }
+                ]
+            },
+            "allowExisting": true
+        },
+        "location": {  
+            "label": "Custom label for location",  
+            "toolTip": "provide a useful tooltip",  
+            "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
+            "allowedValues": [ "eastus", "westus2" ],  
+            "visible": true  
+        }  
+    }  
+},  
+```
+
+För `description` , anger du en markdown-aktiverad sträng som beskriver din resurs. Flera rader och länkar stöds.
+
+För `location` anger du egenskaperna för den plats kontroll som du vill åsidosätta. Alla egenskaper som inte åsidosätts har angetts till standardvärdena. `resourceTypes`accepterar en sträng mat ris som innehåller fullständigt kvalificerade resurs typs namn. Plats alternativen är begränsade till endast regioner som stöder resurs typerna.  `allowedValues`   accepterar en matris med regions strängar. Endast de regionerna visas i list rutan.Du kan ange både `allowedValues`   och  `resourceTypes` . Resultatet är skärningen mellan båda listorna. Slutligen `visible` kan egenskapen användas för att villkorligt eller helt inaktivera List rutan plats.  
+
+Med `subscription` `resourceGroup` elementen och kan du ange ytterligare verifieringar. Syntaxen för att ange verifieringar är identisk med [text rutan](microsoft-common-textbox.md)anpassad verifiering för text. Du kan också ange `permission` valideringar för prenumerationen eller resurs gruppen.  
+
+Prenumerations kontrollen accepterar en lista över resurs leverantörens namn områden. Du kan till exempel ange **Microsoft. Compute**. Ett fel meddelande visas när användaren väljer en prenumeration som inte stöder resurs leverantören. Felet uppstår när resurs leverantören inte är registrerad på den prenumerationen och användaren inte har behörighet att registrera resurs leverantören.  
+
+Resurs grupps kontrollen har ett alternativ för `allowExisting` . När `true` kan användarna välja resurs grupper som redan har resurser. Den här flaggan gäller mest för Solution templates, där standard beteende användare måste välja en ny eller tom resurs grupp. I de flesta andra scenarier är det inte nödvändigt att ange den här egenskapen.  
 
 ## <a name="steps"></a>Steg
 
-Egenskapen steg kan innehålla noll eller ytterligare ytterligare steg för att visa efter grunderna, som innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå för det program som distribueras. Du kan till exempel lägga till ett steg för indata för huvudnoder och ett steg för arbetsnoder i ett kluster.
+Egenskapen steg innehåller noll eller fler ytterligare steg att visa efter grunderna. Varje steg innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå för det program som distribueras. Du kan till exempel lägga till ett steg för indata för huvudnoder och ett steg för arbetsnoder i ett kluster.
+
+```json
+"steps": [
+    {
+        "name": "demoConfig",
+        "label": "Configuration settings",
+        "elements": [
+          ui-elements-needed-to-create-the-instance
+        ]
+    }
+]
+```
 
 ## <a name="outputs"></a>Utdata
 
@@ -80,9 +169,9 @@ Om du vill filtrera tillgängliga platser till endast de platser som har stöd f
     "handler": "Microsoft.Azure.CreateUIDef",
     "version": "0.1.2-preview",
     "parameters": {
-      "resourceTypes": ["Microsoft.Compute/disks"],
-      "basics": [
-        ...
+        "resourceTypes": ["Microsoft.Compute/disks"],
+        "basics": [
+          ...
 ```  
 
 ## <a name="functions"></a>Functions

@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: d43c12681c7230dc4959261ffd6d96f74ea095d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005097"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ansluta en Red Hat Enterprise Linux virtuell dator till en Azure Active Directory Domain Services hanterad domän
 
@@ -23,7 +24,7 @@ För att användarna ska kunna logga in på virtuella datorer i Azure med en end
 
 Den här artikeln visar hur du ansluter en Red Hat Enterprise Linux (RHEL) virtuell dator till en hanterad domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -41,7 +42,7 @@ Om du har en befintlig virtuell RHEL Linux-dator i Azure ansluter du till den me
 
 Om du behöver skapa en virtuell RHEL Linux-dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln kan du använda någon av följande metoder:
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -115,7 +116,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella datorn anslut
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Slutligen ansluter du datorn till den hanterade domänen med hjälp av `realm join` kommandot. Använd samma användar konto som är en del av den hanterade domän som du angav i föregående `kinit` kommando, till exempel `contosoadmin@AADDSCONTOSO.COM` :
+1. Slutligen ansluter du den virtuella datorn till den hanterade domänen med hjälp av `realm join` kommandot. Använd samma användar konto som är en del av den hanterade domän som du angav i föregående `kinit` kommando, till exempel `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
@@ -141,7 +142,7 @@ Successfully enrolled machine in realm
     * Kontrol lera att den virtuella datorn har distribuerats till samma eller ett peer-kopplat virtuellt nätverk där den hanterade domänen är tillgänglig.
     * Bekräfta att DNS-serverinställningarna för det virtuella nätverket har uppdaterats så att de pekar på domän kontrol Lanterna i den hanterade domänen.
 
-1. Först ska du ansluta till domänen med hjälp av `adcli join` kommandot, det här kommandot skapar även keytab för att autentisera datorn. Använd ett användar konto som är en del av den hanterade domänen.
+1. Börja med att ansluta till domänen med hjälp av `adcli join` kommandot, det här kommandot skapar även keytab för att autentisera datorn. Använd ett användar konto som är en del av den hanterade domänen.
 
     ```console
     sudo adcli join aaddscontoso.com -U contosoadmin

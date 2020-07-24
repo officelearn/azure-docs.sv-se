@@ -4,12 +4,12 @@ description: Scenarier för hur du använder för hands versionen av Azure block
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 7c96e45c8bcc9834df7ef2a0b2a59f53fd8315cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003074"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Använda Azure blockchain Workbench Preview REST API
 
@@ -32,7 +32,7 @@ Blockchain Workbench-API: er nås via en slut punkt för din distribution. Hämt
 
 Begär anden till blockchain Workbench REST API skyddas med Azure Active Directory (Azure AD).
 
-Om du vill göra en autentiserad begäran till REST-API: erna kräver klient koden autentisering med giltiga autentiseringsuppgifter innan du kan anropa API: et. Autentiseringen koordineras mellan de olika aktörerna av Azure AD och ger klienten en [åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#access-token) som bevis på autentiseringen. Token skickas sedan i HTTP-Authorization-huvudet för REST API begär Anden. Mer information om Azure AD-autentisering finns i [Azure Active Directory för utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+Om du vill göra en autentiserad begäran till REST-API: erna kräver klient koden autentisering med giltiga autentiseringsuppgifter innan du kan anropa API: et. Autentiseringen koordineras mellan de olika aktörerna av Azure AD och ger klienten en [åtkomsttoken](../../active-directory/develop/developer-glossary.md#access-token) som bevis på autentiseringen. Token skickas sedan i HTTP-Authorization-huvudet för REST API begär Anden. Mer information om Azure AD-autentisering finns i [Azure Active Directory för utvecklare](../../active-directory/develop/index.yml).
 
 Exempel på hur du autentiserar finns i [REST API exempel](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples) .
 
@@ -44,7 +44,7 @@ Om du vill testa eller experimentera med Workbench-API: er kan du använda [Post
 
 Du kan använda två API-anrop för att skapa ett blockchain Workbench-program. Den här metoden kan endast utföras av användare som är Workbench-administratörer.
 
-Använd [program post-API: et](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationspost) för att ladda upp programmets JSON-fil och hämta ett program-ID.
+Använd [program post-API: et](/rest/api/azure-blockchain-workbench/applications/applicationspost) för att ladda upp programmets JSON-fil och hämta ett program-ID.
 
 ### <a name="applications-post-request"></a>Ansökan om program POST
 
@@ -70,7 +70,7 @@ Content-Type: "application/json"
 
 ### <a name="contract-code-post-request"></a>Kontrakt kod POST förfrågan
 
-Använd [program kontrakt koden post-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/contractcodepost) genom att skicka program-ID: t för att ladda upp programmets solide Code-fil. Nytto lasten kan vara en enda Solidity-fil eller en zippad fil som innehåller täckande filer.
+Använd [program kontrakt koden post-API](/rest/api/azure-blockchain-workbench/applications/contractcodepost) genom att skicka program-ID: t för att ladda upp programmets solide Code-fil. Nytto lasten kan vara en enda Solidity-fil eller en zippad fil som innehåller täckande filer.
 
 Ersätt följande värden:
 
@@ -98,7 +98,7 @@ Content-Type: "application/json"
 
 ## <a name="assign-roles-to-users"></a>Tilldela roller till användare
 
-Använd [program roll tilldelningarna post-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) genom att skicka in program-ID, användar-ID och program roll-ID för att skapa en mappning mellan användare och roll i det angivna blockchain-programmet. Den här metoden kan endast utföras av användare som är Workbench-administratörer.
+Använd [program roll tilldelningarna post-API](/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) genom att skicka in program-ID, användar-ID och program roll-ID för att skapa en mappning mellan användare och roll i det angivna blockchain-programmet. Den här metoden kan endast utföras av användare som är Workbench-administratörer.
 
 ### <a name="role-assignments-post-request"></a>POST-begäran för roll tilldelningar
 
@@ -132,7 +132,7 @@ HTTP/1.1 200
 
 ## <a name="list-applications"></a>Lista program
 
-Använd [programmen Hämta API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) för att hämta alla blockchain Workbench-program för användaren. I det här exemplet har den inloggade användaren åtkomst till två program:
+Använd [programmen Hämta API](/rest/api/azure-blockchain-workbench/applications/applicationsget) för att hämta alla blockchain Workbench-program för användaren. I det här exemplet har den inloggade användaren åtkomst till två program:
 
 - [Till gångs överföring](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
 - [Kyld transport](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
@@ -180,7 +180,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Lista arbetsflöden för ett program
 
-Använd [program arbets flöden Hämta API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) för att visa en lista över alla arbets flöden för ett angivet blockchain-program som en användare har åtkomst till i blockchain Workbench. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. För ett blockchain-klientprogram som bara har ett arbets flöde rekommenderar vi att du hoppar över användar upplevelsen som gör att användarna kan välja lämpligt arbets flöde.
+Använd [program arbets flöden Hämta API](/rest/api/azure-blockchain-workbench/applications/workflowsget) för att visa en lista över alla arbets flöden för ett angivet blockchain-program som en användare har åtkomst till i blockchain Workbench. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. För ett blockchain-klientprogram som bara har ett arbets flöde rekommenderar vi att du hoppar över användar upplevelsen som gör att användarna kan välja lämpligt arbets flöde.
 
 ### <a name="application-workflows-request"></a>Begäran om program arbets flöden
 
@@ -214,7 +214,7 @@ Content-type: application/json
 
 ## <a name="create-a-contract-instance"></a>Skapa en kontrakt instans
 
-Använd [kontrakt v2 post-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contractsv2/contractpost) för att skapa en ny smart kontrakts instans för ett arbets flöde. Användare kan bara skapa en ny smart kontrakts instans om användaren är associerad med en program roll, vilket kan initiera en smart kontrakts instans för arbets flödet.
+Använd [kontrakt v2 post-API](/rest/api/azure-blockchain-workbench/contractsv2/contractpost) för att skapa en ny smart kontrakts instans för ett arbets flöde. Användare kan bara skapa en ny smart kontrakts instans om användaren är associerad med en program roll, vilket kan initiera en smart kontrakts instans för arbets flödet.
 
 > [!NOTE]
 > I det här exemplet används version 2 av API: t. Version 2 kontrakts-API: er ger mer detaljerad information om de associerade ProvisioningStatus-fälten.
@@ -477,4 +477,4 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>Nästa steg
 
-Referensinformation om blockchain Workbench-API: er finns i [referens för Azure blockchain workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+Referensinformation om blockchain Workbench-API: er finns i [referens för Azure blockchain workbench REST API](/rest/api/azure-blockchain-workbench).

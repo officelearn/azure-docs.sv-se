@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 67064cf694445acf8472b958660133c2f2d31db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660954"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005913"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Windows-stoppfel – status slut på minne
 
@@ -26,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där Windows inte kan 
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn (VM) ser du att skärm bilden visar felkoden: `0xC0000017` . Beroende på vilken version av Windows du kör kan du se den här koden som visas i antingen **Windows Boot Manager** eller på **återställnings skärmen**.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn (VM) ser du att skärm bilden visar felkoden: `0xC0000017` . Beroende på vilken version av Windows du kör kan du se den här koden som visas i antingen **Windows Boot Manager** eller på **återställnings skärmen**.
 
    **Windows Boot Manager**
 
@@ -56,7 +57,7 @@ Operativ systemets disk är antingen full, för fragmenterad eller operativ syst
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 1. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
 ### <a name="for-generation-2-vms-assign-a-letter-to-the-extensible-firmware-interface-efi-partition"></a>Tilldela en bokstav till Extensible Firmware Interface-partitionen (EFI) för virtuella datorer i generation 2:
@@ -93,7 +94,7 @@ Om du använder en virtuell dator i generation 2 kanske inte den anslutna disken
 Nu när den skadade disken är kopplad till den virtuella reparations datorn bör du kontrol lera att operativ systemet på disken har tillräckligt med utrymme för att fungera korrekt. 
 
 1. Kontrol lera att disken är full genom att högerklicka på enheten på den anslutna disken och välja **Egenskaper**.
-1. Om disken har **mindre än 300 MB ledigt utrymme** [expanderar du den till maximalt 1 TB med hjälp av PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Om disken har **mindre än 300 MB ledigt utrymme** [expanderar du den till maximalt 1 TB med hjälp av PowerShell](../windows/expand-os-disk.md).
 1. När disk storleken är **1 TB**måste du utföra en disk rensning. Du kan frigöra utrymme med [disk rensnings verktyget](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) .
 1. Öppna en kommando tolk med förhöjd behörighet (kör som administratör) och utför en defragmentering på enheten:
 
@@ -222,4 +223,4 @@ Om du vill aktivera samlings-och serie konsolen för minnes dum par kör du föl
    
 ### <a name="rebuild-the-vm"></a>Återskapa den virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att återskapa den virtuella datorn.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att återskapa den virtuella datorn.

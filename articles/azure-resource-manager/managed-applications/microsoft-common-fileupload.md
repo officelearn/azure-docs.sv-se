@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 31e9e88bc37dc19d1d81dc55d52786de60706313
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134544"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004296"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elementet Microsoft. Common. FileUpload UI
 
@@ -18,7 +18,7 @@ En kontroll som låter en användare ange en eller flera filer som ska överför
 
 ## <a name="ui-sample"></a>UI-exempel
 
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
+![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft-common-fileupload.png)
 
 ## <a name="schema"></a>Schema
 

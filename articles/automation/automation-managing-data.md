@@ -3,14 +3,14 @@ title: Azure Automation data säkerhet
 description: Den här artikeln hjälper dig att lära dig hur Azure Automation skyddar din integritet och skyddar dina data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/03/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004655"
 ---
 # <a name="management-of-azure-automation-data"></a>Hantera Azure Automation-data
 
@@ -47,10 +47,10 @@ När du tar bort en resurs i Azure Automation sparas den i ett antal dagar för 
 
 I följande tabell sammanfattas bevarande principen för olika resurser.
 
-| Data | Princip |
+| Data | Policy |
 |:--- |:--- |
 | Konton |Ett konto tas bort permanent 30 dagar efter att användaren tagit bort det. |
-| Tillgångar |En till gång tas bort permanent 30 dagar efter att användaren tagit bort den, eller 30 dagar efter att en användare har tagit bort ett konto som innehåller till gången. |
+| Tillgångar |En till gång tas bort permanent 30 dagar efter att användaren tagit bort den, eller 30 dagar efter att en användare har tagit bort ett konto som innehåller till gången. Till gångar innehåller variabler, scheman, autentiseringsuppgifter, certifikat, python 2-paket och anslutningar. |
 | DSC-noder |En DSC-nod tas bort permanent 30 dagar efter att ha avregistrerats från ett Automation-konto med hjälp av Azure Portal eller [unregister-AzAutomationDscNode-](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdleten i Windows PowerShell. En nod tas också bort permanent 30 dagar efter att användaren tagit bort det konto som innehåller noden. |
 | Jobb |Ett jobb tas bort och tas bort permanent 30 dagar efter ändringar, till exempel när jobbet har slutförts, stoppats eller har pausats. |
 | Moduler |En modul tas bort permanent 30 dagar efter att användaren tagit bort den eller 30 dagar efter att användaren tagit bort det konto som innehåller modulen. |
@@ -66,7 +66,7 @@ När du tar bort ett Automation-konto i Azure raderas alla objekt i kontot. Obje
 
 ### <a name="runbooks"></a>Runbooks
 
-Du kan exportera dina runbooks till skriptfiler med antingen Azure Portal-eller [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) -cmdleten i Windows PowerShell. Du kan importera dessa skriptfiler till ett annat Automation-konto, enligt beskrivningen i [Hantera Runbooks i Azure Automation](manage-runbooks.md).
+Du kan exportera dina runbooks till skriptfiler med antingen Azure Portal-eller [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) -cmdleten i Windows PowerShell. Du kan importera dessa skriptfiler till ett annat Automation-konto, enligt beskrivningen i [Hantera Runbooks i Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Integreringsmoduler
 

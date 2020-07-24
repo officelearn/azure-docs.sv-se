@@ -1,5 +1,5 @@
 ---
-title: Dataidentifiering och -klassificering
+title: Dataidentifiering och klassificering
 description: Data identifiering & klassificering för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -13,14 +13,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004111"
 ---
-# <a name="data-discovery--classification"></a>Dataidentifiering och -klassificering
+# <a name="data-discovery--classification"></a>Dataidentifiering och klassificering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Data identifierings & klassificeringen är inbyggd i Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. Den innehåller avancerade funktioner för att upptäcka, klassificera, märka och rapportera känsliga data i dina databaser.
@@ -77,7 +77,7 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 > [!NOTE]
 > I exemplet nedan används Azure SQL Database, men du bör välja lämplig produkt som du vill konfigurera data identifiering & klassificering.
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 
 2. Gå till **Avancerad data säkerhet** under **säkerhets** rubriken i Azure SQL Databases fönstret. Välj **Avancerad data säkerhet**och välj sedan **klassificerings kortet data identifierings &** .
 
@@ -119,7 +119,7 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 
 En viktig aspekt av informations skyddets paradigm är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL-granskning](../../azure-sql/database/auditing-overview.md) har förbättrats för att innehålla ett nytt fält i gransknings loggen som kallas `data_sensitivity_information` . Det här fältet loggar känslighets klassificeringarna (etiketter) för de data som returnerades av en fråga. Här är ett exempel:
 
-![Gransknings logg](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
+![Granskningslogg](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
 ## <a name="permissions"></a><a id="permissions"></a>Behörigheter
 
@@ -137,7 +137,7 @@ Dessa inbyggda roller kan ändra data klassificeringen för en databas:
 - Deltagare
 - SQL Security Manager
 
-Lär dig mer om rollbaserade behörigheter i [RBAC för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Lär dig mer om rollbaserade behörigheter i [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Hantera klassificeringar
 

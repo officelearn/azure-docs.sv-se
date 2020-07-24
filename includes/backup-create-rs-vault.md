@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003825"
 ---
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -51,6 +51,10 @@ Följ dessa steg om du vill skapa ett Recovery Services valv.
       > Om du inte är säker på var data källan finns stänger du dialog rutan. Gå till listan över resurser i portalen. Om du har data källor i flera regioner skapar du ett Recovery Services-valv för varje region. Skapa valvet på den första platsen innan du skapar valvet för en annan plats. Du behöver inte ange lagrings konton för att lagra säkerhetskopierade data. Recovery Services valvet och Azure Backup handtaget automatiskt.
       >
       >
+
+1. När du har angett värdena väljer du **Granska + skapa**.
+
+    ![Skapa Recovery Services-valvet](./media/backup-create-rs-vault/review-and-create.png)
 
 1. När du är redo att skapa Recovery Services-valvet väljer du **skapa**.
 

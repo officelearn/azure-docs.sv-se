@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: bd6d02ce1cd60a6d54047139f06fa59f359f9da9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006610"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av PowerShell
 
@@ -25,7 +25,7 @@ Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShel
 
 * Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/overview) är installerad.
+* PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/) är installerad.
 
 ## <a name="run-a-mapreduce-job"></a>Kör ett MapReduce-jobb
 

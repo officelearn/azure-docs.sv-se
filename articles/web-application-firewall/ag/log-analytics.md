@@ -7,14 +7,14 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: 4d6b984fd451a835afaa51482f0158e9f315f8fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22273cf23e48de62d99a8c149ae3e2b1c05db3af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82130914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005437"
 ---
-# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Använda Log Analytics för att undersöka loggar från brandväggen för webbaserade program för Application Gateway
+# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Använd Log Analytics för att undersöka Application Gateway Länkar för brand vägg för webbaserade program (WAF)
 
 När din Application Gateway WAF fungerar kan du aktivera loggar för att kontrol lera vad som händer med varje begäran. Brand Väggs loggar ger insikt om vad WAF utvärderar, matchar och blockerar. Med Azure Monitor Log Analytics kan du undersöka data i brand Väggs loggarna för att ge ännu fler insikter. Mer information om hur du skapar en arbets yta för Log Analytics finns [i skapa en Log Analytics arbets yta i Azure Portal](../../azure-monitor/learn/quick-create-workspace.md). Mer information om logg frågor finns i [Översikt över logg frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 

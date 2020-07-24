@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006458"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
 HDInsight ger elastiskhet med alternativ för att skala upp och ned antalet arbetsnoder i klustren. Med den här elastiskheten kan du minska ett kluster efter timmar eller helger. Och expandera den under topp verksamhets kraven.
 
-Skala upp klustret före periodisk batchbearbetning så att klustret har tillräckligt med resurser. När bearbetningen är klar och användningen går nedåt, skala HDInsight-klustret till färre arbetsnoder.
+Skala upp klustret före periodisk batchbearbetning så att klustret har tillräckligt med resurser.  När bearbetningen är klar och användningen går nedåt, skala HDInsight-klustret till färre arbetsnoder.
 
 Du kan skala ett kluster manuellt med någon av de metoder som beskrivs nedan. Du kan också använda alternativ för automatisk [skalning](hdinsight-autoscale-clusters.md) för att automatiskt skala upp och ned i svar på vissa mått.
 
@@ -36,7 +36,7 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Klassisk Azure CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure Portal](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
+|[Azure-portalen](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
 
 ![Alternativet Azure Portal skalnings kluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
@@ -107,6 +107,14 @@ Effekten av att ändra antalet datanoder varierar för varje typ av kluster som 
 
     Du bör balansera om partition repliker efter skalnings åtgärder. Mer information finns i dokumentet [med hög tillgänglighet för data med Apache Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) -dokument.
 
+* Apache Hive LLAP
+
+    Efter skalning till `N` arbetsnoder ställer HDInsight automatiskt in följande konfigurationer och startar om Hive.
+
+  * Maximalt antal samtidiga frågor:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Antal noder som används av Hive-LLAP:`num_llap_nodes  = N`
+  * Antal noder för att köra Hive LLAP daemon:`num_llap_nodes_for_llap_daemons = N`
+
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Så här skalar du ned ett kluster på ett säkert sätt
 
 ### <a name="scale-down-a-cluster-with-running-jobs"></a>Skala ned ett kluster med jobb som körs
@@ -138,7 +146,7 @@ Om du vill avsluta programmet manuellt kör du följande kommando från SSH-grä
 yarn application -kill <application_id>
 ```
 
-Ett exempel:
+Exempel:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

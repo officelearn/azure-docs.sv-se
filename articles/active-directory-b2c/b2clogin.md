@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79807e8e0f798a73063576a00b8d0c32cdfe5a4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005352"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigerings-URL: er till b2clogin.com för Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ Det finns två format som du kan använda för dina b2clogin.com-omdirigerings-U
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com` . Ett exempel:
+Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com` . Exempel:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -89,24 +89,42 @@ Information om hur du migrerar Azure API Management API: er som skyddas av Azure
 
 ## <a name="microsoft-authentication-library-msal"></a>Microsoft Authentication Library (MSAL)
 
-### <a name="validateauthority-property"></a>ValidateAuthority-egenskap
+### <a name="msalnet-validateauthority-property"></a>MSAL.NET ValidateAuthority-egenskap
 
-Om du använder [MSAL.net][msal-dotnet] v2 eller tidigare anger du egenskapen **ValidateAuthority** till `false` på klientens instansiering för att tillåta omdirigering till *b2clogin.com*. Den här inställningen krävs inte för MSAL.NET v3 eller senare.
+Om du använder [MSAL.net][msal-dotnet] v2 eller tidigare anger du egenskapen **ValidateAuthority** till `false` på klientens instansiering för att tillåta omdirigering till *b2clogin.com*. Det krävs inget värde för att ange det här värdet `false` för MSAL.net v3 och senare.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
 
-Om du använder [MSAL för Java Script][msal-js]:
+### <a name="msal-for-javascript-validateauthority-property"></a>MSAL för Java Script validateAuthority-egenskap
+
+Om du använder [MSAL för Java Script][msal-js] v 1.2.2 eller tidigare anger du egenskapen **validateAuthority** till `false` .
 
 ```JavaScript
+// MSAL.js v1.2.2 and earlier
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
   this.authCallback.bind(this),
   {
-    validateAuthority: false
+    validateAuthority: false // Required in MSAL.js v1.2.2 and earlier **ONLY**
+  }
+);
+```
+
+Om du ställer in `validateAuthority: true` i MSAL.js 1.3.0 + (standard) måste du också ange en giltig token-utfärdare med `knownAuthorities` :
+
+```JavaScript
+// MSAL.js v1.3.0+
+this.clientApplication = new UserAgentApplication(
+  env.auth.clientId,
+  env.auth.loginAuthority,
+  this.authCallback.bind(this),
+  {
+    validateAuthority: true, // Supported in MSAL.js v1.3.0+
+    knownAuthorities: ['tenant-name.b2clogin.com'] // Required if validateAuthority: true
   }
 );
 ```

@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b28fa788e7b35e94482104d807c228db21f49b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003924"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Felsök tillfälliga anslutnings fel i SQL Database och SQL-hanterad instans
 
@@ -148,8 +148,8 @@ Om antalet till exempel är lika med 3 och intervallet är lika med 10 sekunder,
 
 **ConnectRetryCount** -och **ConnectRetryInterval** -parametrarna gör att **SQLConnection** -objektet kan försöka ansluta igen utan att tala eller bry dig om programmet, till exempel att returnera kontroll till programmet. Återförsök kan ske i följande situationer:
 
-- mySqlConnection. Open-metod anrop
-- Anrop för mySqlConnection.Exesöta-metoden
+- SqlConnection. Open-metod anrop
+- Anrop för SqlConnection.Exesöta-metoden
 
 Det finns en subtlety. Om ett tillfälligt fel inträffar när din *fråga* körs, kommer **SQLConnection** -objektet inte att försöka ansluta igen. Det gör inget nytt försök att köra frågan igen. **SQLConnection** måste dock snabbt kontrol lera anslutningen innan du skickar din fråga för körning. Om snabb kontrollen identifierar ett anslutnings problem, försöker **SQLConnection** att försöka ansluta igen. Om försöket lyckas skickas frågan för körning.
 
@@ -276,7 +276,7 @@ Enterprise Library 6 (EntLib60) erbjuder .NET-hanterade klasser som hjälp vid l
 
 Här följer några Transact-SQL SELECT-uttryck som frågar efter fel loggar och annan information.
 
-| Fråga efter logg | Description |
+| Fråga efter logg | Beskrivning |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys. event_log](https://msdn.microsoft.com/library/dn270018.aspx) -vyn innehåller information om enskilda händelser som innehåller vissa som kan orsaka tillfälliga fel eller anslutnings fel.<br/><br/>Vi rekommenderar att du korrelerar **start_time** -eller **end_times** värden med information om när ditt klient program fick problem.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |I [sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) -vyn finns det sammanställda antalet händelse typer för ytterligare diagnostik.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |

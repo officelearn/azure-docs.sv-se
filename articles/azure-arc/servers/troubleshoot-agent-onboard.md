@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37f99ade366a73cb96caf55a562a92476223eb6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004553"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Felsök problem med anslutning till anslutna dator agenter
 
@@ -48,6 +48,9 @@ Följande är ett exempel på kommandot för att aktivera utförlig loggning med
 
 Följande är ett exempel på kommandot för att aktivera utförlig loggning med den anslutna dator agenten för Linux när du utför en interaktiv installation.
 
+>[!NOTE]
+>Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
+
 ```
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
@@ -73,12 +76,15 @@ I följande tabell visas några kända fel och förslag på hur du felsöker och
 |--------|------|---------------|---------|
 |Det gick inte att erhålla enhets flödet för autentiseringstoken |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Det går inte att komma åt `login.windows.net` slut punkten | Verifiera anslutningen till slut punkten. |
 |Det gick inte att erhålla enhets flödet för autentiseringstoken |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Proxy eller brand vägg blockerar åtkomst till `login.windows.net` slut punkten. | Kontrol lera anslutningen till slut punkten och den blockeras inte av en brand vägg eller proxyserver. |
+|Det gick inte att erhålla enhets flödet för autentiseringstoken  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | Grupprincip objekt *dator konfiguration \ administrativa mallar \ system \ användar profiler \ ta bort användar profiler som är äldre än ett visst antal dagar efter omstart av systemet* har Aktiver ATS. | Kontrol lera att GRUPPRINCIPOBJEKTet är aktiverat och riktas mot den berörda datorn. Se fotnot <sup>[1](#footnote1)</sup> om du vill ha mer information. |
 |Det gick inte att hämta autentiseringstoken från SPN |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Proxy eller brand vägg blockerar åtkomst till `login.windows.net` slut punkten. |Kontrol lera anslutningen till slut punkten och den blockeras inte av en brand vägg eller proxyserver. |
 |Det gick inte att hämta autentiseringstoken från SPN |`Invalid client secret is provided` |Felaktig eller ogiltig hemlighet för tjänstens huvud namn. |Verifiera hemligheten för tjänstens huvud namn. |
 | Det gick inte att hämta autentiseringstoken från SPN |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' was not found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |Felaktigt tjänst huvud namn och/eller klient-ID. |Verifiera tjänstens huvud namn och/eller klient-ID: t.|
 |Hämta resurs svar för ARM |`The client 'username@domain.com' with object id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' does not have authorization to perform action 'Microsoft.HybridCompute/machines/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01' or the scope is invalid. If access was recently granted, please refresh your credentials."}}" Status Code=403` |Fel autentiseringsuppgifter och/eller behörigheter |Verifiera att du eller tjänstens huvud namn är medlem i rollen **Azure Connected Machine onboarding** . |
 |Det gick inte att AzcmagentConnect ARM-resurs |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Azure Resource providers har inte registrerats. |Registrera [resurs leverantörer](./agent-overview.md#register-azure-resource-providers). |
 |Det gick inte att AzcmagentConnect ARM-resurs |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |Proxyservern eller brand väggen blockerar åtkomst till `management.azure.com` slut punkten. |Kontrol lera anslutningen till slut punkten och den blockeras inte av en brand vägg eller proxyserver. |
+
+<a name="footnote1"></a><sup>1</sup> Om det här GRUPPRINCIPOBJEKTet är aktiverat och tillämpas på datorer med den anslutna dator agenten, tas användar profilen som är kopplad till det inbyggda kontot som angetts för *himds* -tjänsten bort. Därför tar det också bort autentiseringscertifikatet som används för att kommunicera med tjänsten som cachelagras i det lokala certifikat arkivet i 30 dagar. Före gränsen på 30 dagar görs ett försök att förnya certifikatet. Lös problemet genom att följa stegen för att [avregistrera datorn](manage-agent.md#unregister-machine) och sedan registrera den igen med tjänsten som körs `azcmagent connect` .
 
 ## <a name="next-steps"></a>Nästa steg
 

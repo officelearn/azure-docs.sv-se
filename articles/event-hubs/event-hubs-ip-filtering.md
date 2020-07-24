@@ -2,13 +2,13 @@
 title: Regler för Azure Event Hubs-brandvägg | Microsoft Docs
 description: Använd brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fb9fa72af7127224afdcf70ecca1c851e9212c4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 4c42f70a4f28c560c321f7c1e825b66514a8029e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002428"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Konfigurera IP-brandväggens regler för ett Azure Event Hubs-namnområde
 Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -21,7 +21,6 @@ Den här funktionen är användbar i scenarier där Azure Event Hubs bör endast
 > Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
-> - Azure Monitor (diagnostisk inställning)
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
 > - Azure IoT Hub vägar

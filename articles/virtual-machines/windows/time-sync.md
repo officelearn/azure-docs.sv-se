@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cd9a196e5f957782de91cff69c01fbfa5716369a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1717ebd5709c05e33e658d3798494324a702b1d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100506"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074048"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Tidssynkronisering för virtuella Windows-datorer i Azure
 
@@ -24,7 +24,7 @@ Azure backas nu upp av en infrastruktur som kör Windows Server 2016. Windows Se
 >[!NOTE]
 >Om du vill ha en snabb översikt över Windows tids tjänst kan du ta en titt på den här [översikts videon på hög nivå](https://aka.ms/WS2016TimeVideo).
 >
-> Mer information finns i [korrekt tid för Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Mer information finns i [korrekt tid för Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Översikt
 
@@ -172,9 +172,7 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 Nedan visas länkar till mer information om tidssynkroniseringen:
 
-- [Verktyg och inställningar för Windows tidstjänst](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Förbättringar i Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Korrekt tid för Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [Stöd gräns för att konfigurera Windows tids tjänst för miljöer med hög noggrannhet](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
-
-
+- [Verktyg och inställningar för Windows tidstjänst](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
+- [Förbättringar i Windows Server 2016](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Korrekt tid för Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
+- [Stöd gräns för att konfigurera Windows tids tjänst för miljöer med hög noggrannhet](/windows-server/networking/windows-time-service/support-boundary)

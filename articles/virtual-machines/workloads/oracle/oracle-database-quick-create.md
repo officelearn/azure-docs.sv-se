@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 6705d4d1edebe88a577c71b3e48cd837fa7882c6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ca40fcb6a2e483e656058835f187dc50bf7bc9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222997"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074058"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Skapa en Oracle Database på en virtuell Azure-dator
 
 Den här guiden beskriver hur du använder Azure CLI för att distribuera en virtuell Azure-dator från [Galleri avbildningen för Oracle Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) för att skapa en Oracle 12C-databas. När servern har distribuerats ansluter du via SSH för att kunna konfigurera Oracle-databasen. 
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -325,6 +325,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om andra [Oracle-lösningar på Azure](oracle-considerations.md). 
+Lär dig mer om andra [Oracle-lösningar på Azure](./oracle-overview.md). 
 
 Prova att [Installera och konfigurera Oracle-guiden för automatisk lagrings hantering](configure-oracle-asm.md) .

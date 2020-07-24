@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: e519010f902e99a3118485b3c8bc57cd47188a1f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6d1c7a48332aa49bc5c506ceeae287bc3affef16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224561"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074081"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö
 
@@ -78,7 +78,7 @@ Följande är en sammanfattning av Azure-installationen:
 ![Skärm bild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Metod 2: VPN för plats-till-plats
-VPN för plats-till-plats är ett bättre tillvägagångs sätt. Mer information om hur du konfigurerar en VPN-anslutning finns i [skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+VPN för plats-till-plats är ett bättre tillvägagångs sätt. Mer information om hur du konfigurerar en VPN-anslutning finns i [skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
 #### <a name="topology"></a>Topologi
 
@@ -95,7 +95,7 @@ Följande är en sammanfattning av Azure-installationen:
 
 ![Skärm bild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>Ytterligare läsning
+## <a name="additional-reading"></a>Mer att läsa
 
 - [Utforma och implementera en Oracle-databas på Azure](oracle-design.md)
 - [Konfigurera Oracle Data Guard](configure-oracle-dataguard.md)

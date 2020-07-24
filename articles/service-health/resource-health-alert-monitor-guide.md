@@ -3,12 +3,12 @@ title: Skapa Resource Health aviseringar med hjälp av Azure Portal
 description: Skapa en avisering med Azure Portal som meddelar dig när dina Azure-resurser blir otillgängliga.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091580"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurera resurshälsoaviseringar med Azure-portalen
 
@@ -45,7 +45,7 @@ Resource Health avisering med Azure Portal
 1. I Azure- [portalen](https://portal.azure.com/)väljer du **service Health**.
 
     ![Service Health val](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. I avsnittet **Resource Health** väljer du **Resource Health**.
+2. I avsnittet **Resource Health** väljer du **service Health**.
 3. Välj **Lägg till resurs hälso avisering** och fyll i fälten.
 4. Under aviserings mål väljer du den **prenumeration**, de **resurs typer**, **resurs grupper** och den **resurs** som du vill bli aviserad om.
 

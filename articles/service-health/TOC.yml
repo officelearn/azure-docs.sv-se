@@ -24,7 +24,7 @@
 - name: Gör så här för att
   items:
     - name: Konfigurera aviseringar för Service Health-händelser
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
       href: service-notifications.md
     - name: Skicka aviseringar till externa system via webhook

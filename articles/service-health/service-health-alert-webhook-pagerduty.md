@@ -3,11 +3,12 @@ title: Skicka Azure Service Health-aviseringar med PagerDuty
 description: Få personligt anpassade meddelanden om service Health-händelser till din PagerDuty-instans.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091546"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Skicka Azure Service Health-aviseringar med PagerDuty med webhookar
 
@@ -38,7 +39,7 @@ Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar via
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Skapa en avisering med PagerDuty i Azure Portal
 ### <a name="for-a-new-action-group"></a>För en ny åtgärds grupp:
-1. Följ steg 1 till 8 i [skapa en avisering om ett tjänst hälso meddelande för en ny åtgärds grupp med hjälp av Azure Portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Följ steg 1 till 8 i [skapa en avisering om ett tjänst hälso meddelande för en ny åtgärds grupp med hjälp av Azure Portal](./alerts-activity-log-service-notifications-portal.md).
 
 1. Definiera i listan med **åtgärder**:
 
@@ -86,5 +87,5 @@ Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar via
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurerar webhook-meddelanden för befintliga problem hanterings system](service-health-alert-webhook-guide.md).
 - Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Läs mer om [meddelanden om tjänst hälsa](../azure-monitor/platform/service-notifications.md).
+- Läs mer om [meddelanden om tjänst hälsa](./service-notifications.md).
 - Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).

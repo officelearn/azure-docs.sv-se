@@ -6,19 +6,20 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: 2aadc5806f0c5c610dc28b32039ca944af87ab13
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-java
+ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091461"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application
 Hanterade identiteter för Azure-resurser ger en automatiskt hanterad identitet i Azure Active Directory till en Azure-resurs, till exempel ditt Azure våren Cloud-program. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod.
 
 Den här artikeln visar hur du aktiverar och inaktiverar systemtilldelade hanterade identiteter för en Azure våren Cloud-App med hjälp av Azure Portal och CLI (tillgängligt från version 0.2.4).
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 Du behöver en distribuerad Azure våren-moln instans. Följ [snabb starten för att distribuera med hjälp av Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
 

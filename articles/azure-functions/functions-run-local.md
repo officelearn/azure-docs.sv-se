@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085154"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 + **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 3. x/2. x**](#v2): stöder antingen [version 3. x eller 2. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) och använder plattformsspecifika paket hanterare eller NPM för installation.
++ [**Version 3. x/2. x**](#v2): stöder antingen [version 3. x eller 2. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)och [Linux](?tabs=linux#v2) och använder plattformsspecifika paket hanterare eller NPM för installation.
 
 Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
@@ -48,7 +48,7 @@ Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Version 3. x och 2. x
 
-Version 3. x/2. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+Version 3. x/2. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)och [Linux](?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Du kan kringgå kravet för att installera .NET Core SDK med hjälp av [tilläggs paket].
@@ -240,7 +240,7 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
 ### <a name="get-your-storage-connection-strings"></a>Hämta anslutnings strängar för lagring
 
-Även när du använder Microsoft Azure Storage-emulator för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-create-storage-account.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
+Även när du använder Microsoft Azure Storage-emulator för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-account-create.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
 
 - Sök efter och välj **lagrings konton**från [Azure Portal]. 
   ![Välj lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
@@ -343,7 +343,7 @@ func start
 ```
 func start
 ```
-Det här kommandot måste [köras i en virtuell miljö](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+Det här kommandot måste [köras i en virtuell miljö](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -526,7 +526,7 @@ Följande publicerings alternativ stöds bara för version 2. x och senare versi
 | **`--nozip`** | Stänger av standard `Run-From-Package` läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
 | **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
-| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Här är ett exempel: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C#-skript (. CSX)-projekt. |
 | **`--no-build`** | Projektet har inte skapats under publiceringen. För python `pip install` utförs inte. |
@@ -574,7 +574,7 @@ Den här typen av strömnings loggar kräver att Application Insights integratio
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du utvecklar, testar och publicerar Azure Functions med Azure Functions Core Tools [Microsoft lära](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools är [öppen källkod och finns på GitHub](https://github.com/azure/azure-functions-cli).  
+Lär dig hur du utvecklar, testar och publicerar Azure Functions med Azure Functions Core Tools [Microsoft lära](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools är [öppen källkod och finns på GitHub](https://github.com/azure/azure-functions-cli).  
 Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-problem](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->

@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081873"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Begränsningar för Orchestrator-funktions kod
 
@@ -17,7 +18,7 @@ Durable Functions är en utökning av [Azure Functions](../functions-overview.md
 
 ## <a name="orchestrator-code-constraints"></a>Begränsningar för orkestrerarkod
 
-Orchestrator-funktioner använder [händelse källor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) för att säkerställa tillförlitlig körning och upprätthålla lokal variabel status. [Repetitions beteendet](durable-functions-orchestrations.md#reliability) i Orchestrator Code skapar begränsningar för den typ av kod som du kan skriva i en Orchestrator-funktion. Till exempel måste Orchestrator-funktioner vara *deterministiska*: en Orchestrator-funktion kommer att spelas upp flera gånger och det måste ge samma resultat varje gång.
+Orchestrator-funktioner använder [händelse källor](/azure/architecture/patterns/event-sourcing) för att säkerställa tillförlitlig körning och upprätthålla lokal variabel status. [Repetitions beteendet](durable-functions-orchestrations.md#reliability) i Orchestrator Code skapar begränsningar för den typ av kod som du kan skriva i en Orchestrator-funktion. Till exempel måste Orchestrator-funktioner vara *deterministiska*: en Orchestrator-funktion kommer att spelas upp flera gånger och det måste ge samma resultat varje gång.
 
 ### <a name="using-deterministic-apis"></a>Använda deterministiska API: er
 
@@ -27,7 +28,7 @@ Orchestrator-funktioner kan anropa alla API: er på deras mål språk. Det är d
 
 I följande tabell visas exempel på API: er som du bör undvika eftersom de *inte* är deterministiska. Dessa begränsningar gäller endast för Orchestrator-funktioner. Andra funktions typer har inte sådana begränsningar.
 
-| API-kategori | Anledning | Lösning |
+| API-kategori | Orsak | Lösning |
 | ------------ | ------ | ---------- |
 | Datum och tider  | API: er som returnerar aktuellt datum eller tid är icke-deterministiska eftersom det returnerade värdet är olika för varje omuppspelning. | Använd `CurrentUtcDateTime` API: t i .net eller `currentUtcDateTime` API: et i Java Script, som är säkert för uppspelning. |
 | GUID och UUID: er  | API: er som returnerar ett slumpmässigt GUID eller UUID är icke deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd `NewGuid` i .net eller `newGuid` i Java Script för att på ett säkert sätt generera slumpmässiga GUID. |

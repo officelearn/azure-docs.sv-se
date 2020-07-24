@@ -5,26 +5,25 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 07/13/2020
 ms.author: victorh
-ms.openlocfilehash: 58f670f3f55a63f0c1823adc13c98f5863d4d650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77444555"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084678"
 ---
 # <a name="azure-firewall-central-management"></a>Central hantering av Azure-brandvägg
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
 Om du hanterar flera brand väggar vet du att kontinuerlig ändring av brand Väggs regler gör det svårt att synkronisera dem. Centrala IT-team behöver ett sätt att definiera grundläggande brand Väggs principer och använda dem i flera affär senheter. Samtidigt vill DevOps-team skapa sina egna lokala, härledda brand Väggs principer för bättre flexibilitet.
 
-För hands versionen av Azure Firewall Manager kan hjälpa till att lösa dessa problem.
+Azure Firewall Manager kan hjälpa till att lösa dessa problem.
 
 
-## <a name="azure-firewall-manager-preview"></a>För hands version av Azure Firewall Manager
+## <a name="azure-firewall-manager"></a>Azure Firewall Manager
 
-Azure Firewall Manager Preview är en tjänst för nätverks säkerhets hantering som tillhandahåller Central säkerhets policy och väg hantering för molnbaserade säkerhetsperimetern. Det gör det enkelt för IT-avdelningarna för företag att centralt definiera regler för nätverks-och program nivå för trafik filtrering över flera Azure Firewall-instanser. Du kan spänna över olika Azure-regioner och-prenumerationer i Hubbs-och eker-arkitekturer för trafik styrning och skydd. Det ger också DevOps bättre flexibilitet med härledda lokala brand Väggs säkerhets principer som implementeras i organisationer.
+Azure Firewall Manager är en tjänst för nätverks säkerhets hantering som tillhandahåller Central säkerhets policy och väg hantering för molnbaserade säkerhetsperimetern. Det gör det enkelt för IT-avdelningarna för företag att centralt definiera regler för nätverks-och program nivå för trafik filtrering över flera Azure Firewall-instanser. Du kan spänna över olika Azure-regioner och-prenumerationer i Hubbs-och eker-arkitekturer för trafik styrning och skydd. Det ger också DevOps bättre flexibilitet med härledda lokala brand Väggs säkerhets principer som implementeras i organisationer.
 
 ### <a name="firewall-policy"></a>Brand Väggs princip
 
@@ -47,4 +46,4 @@ Följande ledande lösningar från tredje part stöder Azure Firewall Central Ma
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om för hands versionen av Azure Firewall Manager finns i [Vad är för hands versionen av Azure Firewall Manager?](../firewall-manager/overview.md)
+Mer information om Azure Firewall Manager finns i [Vad är Azure Firewall Manager?](../firewall-manager/overview.md)

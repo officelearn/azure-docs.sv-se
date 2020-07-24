@@ -3,11 +3,12 @@ title: Översikt över AMQP 1,0 i Azure Service Bus
 description: Lär dig hur Azure Service Bus stöder Advanced Message Queueing Protocol (AMQP), ett öppet standard protokoll.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083879"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>AMQP 1,0-stöd i Service Bus
 Både Azure Service Bus moln tjänst och lokala [Service Bus för Windows Server (Service Bus 1,1)](https://msdn.microsoft.com/library/dn282144.aspx) stöder Advanced Message Queueing Protocol (AMQP) 1,0. Med AMQP kan du skapa hybrid program mellan plattformar med ett öppet standard protokoll. Du kan skapa program med hjälp av komponenter som har skapats med olika språk och ramverk och som körs på olika operativ system. Alla dessa komponenter kan ansluta till Service Bus och sömlöst utbyta strukturerade affärs meddelanden effektivt och med full kvalitet.
@@ -53,7 +54,7 @@ AMQP 1,0-stöd i Azure Service Bus innebär att du nu kan använda Service Bus k
 
 Följande bild illustrerar en exempel distribution där Java-klienter som körs på Linux, skrivet med hjälp av JMS-API: et (standard Java Message Service) och .NET-klienter som körs på Windows, Exchange-meddelanden via Service Bus med AMQP 1,0.
 
-![][0]
+![Diagram som visar en Service Bus att utbyta meddelanden med två Linux-miljöer och två Windows-miljöer.][0]
 
 **Bild 1: exempel på distributions scenario som visar meddelanden över plattformar med hjälp av Service Bus och AMQP 1,0**
 

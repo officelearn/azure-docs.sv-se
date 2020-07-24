@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77015005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082077"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Hantera dina virtuella CloudSimple privata moln datorer i Azure
 
@@ -28,7 +29,7 @@ Följande kontroller är tillgängliga på **översikts** sidan för den valda v
 | Start | Starta den angivna virtuella datorn.  |
 | Starta om | Stäng av och starta sedan den angivna virtuella datorn.  |
 | Stoppa | Stäng av den angivna virtuella datorn.  |
-| Capture | Avbilda en avbildning av den angivna virtuella datorn så att den kan användas som en avbildning för att skapa andra virtuella datorer. Se [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Capture | Avbilda en avbildning av den angivna virtuella datorn så att den kan användas som en avbildning för att skapa andra virtuella datorer. Se [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Flytta | Flytta till den angivna virtuella datorn.  |
 | Ta bort | Ta bort den angivna virtuella datorn.  |
 | Uppdatera | Uppdatera data i visningen.  |
@@ -52,7 +53,7 @@ Om du vill lägga till en virtuell dator disk öppnar du sidan **diskar** för d
 
    | Objekt | Beskrivning |
    | ------------ | ------------- |
-   | Name | Ange ett namn för att identifiera disken.  |
+   | Namn | Ange ett namn för att identifiera disken.  |
    | Storlek | Välj en av de tillgängliga storlekarna.  |
    | SCSI-styrenhet | Välj en SCSI-styrenhet. Tillgängliga styrenheter varierar för de olika operativ system som stöds.  |
    | Läge | Anger hur disken deltar i ögonblicks bilder. Välj något av följande alternativ: <br> -Oberoende beständig: all data som skrivs till disken skrivs permanent.<br> – Oberoende, icke-permanent: ändringar som skrivs till disken ignoreras när du stänger av eller återställer den virtuella datorn.  Med det här läget kan du alltid starta om den virtuella datorn i samma tillstånd. Mer information finns i VMware- [dokumentationen](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
@@ -75,7 +76,7 @@ Klicka på **Lägg till nätverks gränssnitt**för att lägga till ett gränssn
 
    | Kontroll | Beskrivning |
    | ------------ | ------------- |
-   | Name | Ange ett namn för att identifiera gränssnittet.  |
+   | Namn | Ange ett namn för att identifiera gränssnittet.  |
    | Nätverk | Välj i listan över konfigurerade nätverk i ditt privata moln vSphere.  |
    | Adapter | Välj en vSphere-adapter i listan över tillgängliga typer som har kon figurer ATS för den virtuella datorn. Mer information finns i VMware Knowledge Base-artikeln [välja ett nätverkskort för den virtuella datorn](https://kb.vmware.com/s/article/1001805). |
    | Starta vid start | Välj om du vill aktivera NÄTVERKSKORTets maskin vara när den virtuella datorn startas. Standardvärdet är **Enable**. |

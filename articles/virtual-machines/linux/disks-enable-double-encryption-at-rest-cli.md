@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 52a52f6f7bca99d662a68ae48276062969b194f0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082536"
 ---
 # <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>Azure CLI – aktivera dubbel kryptering i vila på dina hanterade diskar
 
@@ -23,7 +23,7 @@ Azure-disklagring stöder dubbel kryptering i vila för hanterade diskar. Grundl
 
 [!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 Installera den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
@@ -73,5 +73,5 @@ Installera den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och 
 
 Nu när du har skapat och konfigurerat dessa resurser kan du använda dem för att skydda dina hanterade diskar. Följande länkar innehåller exempel skript, var och en med respektive scenario, som du kan använda för att skydda dina hanterade diskar.
 
-Exempel på Azure Resource Manager [mallar](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption) 
- [Aktivera Kundhanterade nycklar med kryptering på Server sidan – exempel](disks-enable-customer-managed-keys-cli.md#examples)
+- [Azure Resource Manager-mallexempel](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [Aktivera Kundhanterade nycklar med kryptering på Server sidan – exempel](disks-enable-customer-managed-keys-cli.md#examples)

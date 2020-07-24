@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ea986b338d977102d78e9c12bcbe5b2f2c510e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083454"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Distribuera virtuella datorer till närhets placerings grupper med hjälp av PowerShell
 
@@ -24,7 +24,7 @@ En närhets placerings grupp är en logisk gruppering som används för att se t
 
 
 ## <a name="create-a-proximity-placement-group"></a>Skapa en närhetsplaceringsgrupp
-Skapa en närhets placerings grupp med cmdleten [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) . 
+Skapa en närhets placerings grupp med cmdleten [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup) . 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator i närhets placerings gruppen med hjälp av `-ProximityPlacementGroup $ppg.Id` för att referera till närhets grupp-ID: t när du använder [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) för att skapa den virtuella datorn.
+Skapa en virtuell dator i närhets placerings gruppen med hjälp av `-ProximityPlacementGroup $ppg.Id` för att referera till närhets grupp-ID: t när du använder [New-AzVM](/powershell/module/az.compute/new-azvm) för att skapa den virtuella datorn.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -146,7 +146,7 @@ foreach ($vmId in $vmIDs){
 
 ## <a name="scale-sets"></a>Skalningsuppsättningar
 
-Du kan också skapa en skalnings uppsättning i närheten av placerings gruppen. Använd samma `-ProximityPlacementGroup` parameter med [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) för att skapa en skalnings uppsättning och alla instanser kommer att skapas i samma närhets placerings grupp.
+Du kan också skapa en skalnings uppsättning i närheten av placerings gruppen. Använd samma `-ProximityPlacementGroup` parameter med [New-AzVmss](/powershell/module/az.compute/new-azvmss) för att skapa en skalnings uppsättning och alla instanser kommer att skapas i samma närhets placerings grupp.
 
 
 Om du vill lägga till eller ta bort en befintlig skalnings uppsättning till en närhets placerings grupp måste du först stoppa skalnings uppsättningen. 

@@ -1,6 +1,6 @@
 ---
-title: Distribuera och göra förutsägelser med ONNX i Azure SQL Edge (för hands version)
-description: Lär dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Edge (för hands version) och kör sedan inbyggt FÖRUTSÄGELSEr på data med den överförda ONNX-modellen.
+title: Distribuera och göra förutsägelser med ONNX
+description: Lär dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Edge (för hands version) eller Azure SQL-hanterad instans (för hands version) och kör sedan inbyggt förutsägelse på data med den överförda ONNX-modellen.
 keywords: Distribuera SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,32 +8,40 @@ ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 05/19/2020
-ms.openlocfilehash: b5cd655aaf9992c6908a7f9287f691fd36d84871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: fe1e4a195903803d3103da5f350de30a016e614b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476741"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085021"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Distribuera och göra förutsägelser med en ONNX-modell i Azure SQL Edge (för hands version)
+# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Distribuera och göra förutsägelser med en ONNX-modell
 
-I den här snabb starten får du lära dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Edge (för hands version) och sedan kör inbyggt FÖRUTSÄGELSEr på data med den överförda ONNX-modellen. Mer information finns i [Machine Learning och AI med ONNX i SQL Edge (för hands version)](onnx-overview.md).
+I den här snabb starten får du lära dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till [Azure SQL Edge (för hands version)](onnx-overview.md) eller [Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)och sedan kör inbyggt förutsägelser på data med den överförda ONNX-modellen.
 
 Den här snabb starten baseras på **scikit – lära** och använder [data uppsättningen Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har distribuerat en Azure SQL Edge-modul följer du stegen i [Distribuera SQL Edge (för hands version) med hjälp av Azure Portal](deploy-portal.md).
+* Om du använder Azure SQL Edge och du inte har distribuerat en Azure SQL Edge-modul följer du stegen i [Distribuera SQL Edge (för hands version) med hjälp av Azure Portal](deploy-portal.md).
 
 * Installera [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
-* Öppna Azure Data Studio och följ de här stegen för att installera de paket som behövs för den här snabb starten:
+* Installera python-paket som krävs för den här snabb starten:
 
-    1. Öppna en [ny antecknings bok](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) som är ansluten till python 3-kernel. 
-    1. Klicka på **Hantera paket** och under **Lägg till ny**, Sök efter **scikit-lära**och installera scikit-lära-paketet. 
-    1. Installera även paketen **installations verktyg**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc**och **sqlalchemy** .
-    
+  1. Öppna en [ny antecknings bok](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) som är ansluten till python 3-kernel. 
+  1. Klicka på **Hantera paket**
+  1. På fliken **installerad** letar du efter följande python-paket i listan över installerade paket. Om något av dessa paket inte är installerat väljer du fliken **Lägg till ny** , söker efter paketet och klickar på **Installera**.
+     - **scikit-learn**
+     - **numpy**
+     - **onnxmltools**
+     - **onnxruntime**
+     - **pyodbc**
+     - **installations verktyg**
+     - **skl2onnx**
+     - **sqlalchemy**
+
 * För varje skript del nedan anger du den i en cell i Azure Data Studio Notebook och kör cellen.
 
 ## <a name="train-a-pipeline"></a>Träna en pipeline
@@ -219,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>Infoga ONNX-modellen
 
-Lagra modellen i Azure SQL Edge i en `models` tabell i en databas `onnx` . I anslutnings strängen anger du **Server adressen**, **användar namnet**och **lösen ordet**.
+Lagra modellen i en Azure SQL Edge-eller Azure SQL-hanterad instans i en `models` tabell i en databas `onnx` . I anslutnings strängen anger du **Server adressen**, **användar namnet**och **lösen ordet**.
 
 ```python
 import pyodbc
@@ -277,7 +285,7 @@ conn.commit()
 
 ## <a name="load-the-data"></a>Läs in data
 
-Läs in data i Azure SQL Edge.
+Läs in data i SQL.
 
 Skapa först två tabeller, **funktioner** och **mål**för att lagra del mängder av data uppsättningen Boston.
 
@@ -350,7 +358,7 @@ Nu kan du visa data i-databasen.
 
 ## <a name="run-predict-using-the-onnx-model"></a>Köra förutsägelse med ONNX-modellen
 
-Med modellen i Azure SQL Edge kör du Native PREDICT på data med den överförda ONNX-modellen.
+Med modellen i SQL kör du Native PREDICT på data med den överförda ONNX-modellen.
 
 > [!NOTE]
 > Ändra Notebook-kärnan till SQL för att köra den återstående cellen.
@@ -390,3 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>Nästa steg
 
 * [Machine Learning och AI med ONNX i SQL Edge](onnx-overview.md)
+* [Machine Learning Services i Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)

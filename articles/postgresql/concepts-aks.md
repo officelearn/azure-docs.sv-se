@@ -4,13 +4,14 @@ description: Lär dig mer om att ansluta Azure Kubernetes service (AKS) med Azur
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 5/6/2019
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4214b01f3f3651f8785f8644cf12326bf182bce7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74769888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084185"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Ansluta Azure Kubernetes-tjänsten och Azure Database for PostgreSQL-enskild server
 
@@ -40,11 +41,6 @@ Utdata blir den genererade resurs gruppen som AKS skapar med nätverks gränssni
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
-## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
-[Öppna Service Broker för Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) gör att du kan etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [öppen service BROKER API](https://www.openservicebrokerapi.org/) -implementering för Azure.
-
-Med OSBA kan du skapa en Azure Database for PostgreSQL-Server och binda den till ditt AKS-kluster med Kubernetes inbyggda språk. Lär dig mer om hur du använder OSBA och Azure Database for PostgreSQL tillsammans på [sidan OSBA GitHub](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
-
 
 ## <a name="connection-pooling"></a>Anslutningspoolen
 En anslutningspoolen minimerar kostnaden och tiden som är kopplad till att skapa och stänga nya anslutningar till databasen. Poolen är en samling anslutningar som kan återanvändas. 
@@ -53,4 +49,4 @@ Det finns flera anslutningspooler som du kan använda med PostgreSQL. En av dess
 
 
 ## <a name="next-steps"></a>Nästa steg
--  [Skapa ett Azure Kubernetes service-kluster](../aks/kubernetes-walkthrough.md)
+-  [Skapa ett Azure Kubernetes Service-kluster](../aks/kubernetes-walkthrough.md)

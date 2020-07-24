@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d91b7816ee05d4b5ef5266b4c2556abdc1175b87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084270"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Gör så här: skicka schemalagda meddelanden
 
@@ -30,7 +30,7 @@ Om du har ett scenario där du vill skicka ett meddelande vid ett senare tillfä
 
 
 ## <a name="schedule-your-notifications"></a>Schemalägg dina meddelanden
-När du skickar ett meddelande använder du bara- [ `ScheduledNotification` klassen](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) i Notification Hubs SDK, som du ser i följande exempel:
+När du skickar ett meddelande använder du bara- [ `ScheduledNotification` klassen](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification?view=azure-dotnet#microsoft_azure_notificationhubs_schedulednotification) i Notification Hubs SDK, som du ser i följande exempel:
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");

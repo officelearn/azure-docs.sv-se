@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970280"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082570"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en virtuell Linux-dator som använder SSH-autentisering med REST API
 
@@ -45,7 +46,7 @@ Följande huvuden krävs:
 | Begärandehuvud   | Beskrivning |
 |------------------|-----------------|
 | *Content-Type:*  | Krävs. Ange till `application/json`. |
-| *Auktorisering:* | Krävs. Ange till en giltig -`Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Auktorisering:* | Krävs. Ange till en giltig -`Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Allmän information om hur du arbetar med REST API begär Anden finns i [komponenter i en REST API begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -53,7 +54,7 @@ Allmän information om hur du arbetar med REST API begär Anden finns i [kompone
 
 Följande vanliga definitioner används för att bygga en begär ande text:
 
-| Name                       | Krävs | Typ                                                                                | Description  |
+| Namn                       | Krävs | Typ                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | sträng                                                                              | Resurs plats. |
 | name                       |          | sträng                                                                              | Namn på den virtuella datorn. |
@@ -121,13 +122,13 @@ En fullständig lista över tillgängliga definitioner i begär ande texten finn
 
 ## <a name="sending-the-request"></a>Begäran skickas
 
-Du kan använda klienten för din preferens för att skicka denna HTTP-begäran. Du kan också använda ett [i webb läsar verktyg](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) genom att klicka på knappen **prova** .
+Du kan använda klienten för din preferens för att skicka denna HTTP-begäran. Du kan också använda ett [i webb läsar verktyg](/rest/api/compute/virtualmachines/createorupdate) genom att klicka på knappen **prova** .
 
 ### <a name="responses"></a>Svar
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera en virtuell dator:
 
-| Name        | Typ                                                                              | Description |
+| Namn        | Typ                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 har skapats | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Skapad     |
@@ -150,4 +151,4 @@ Mer information om Azure REST-API: er eller andra hanterings verktyg som Azure C
 - [Azure Compute Provider REST API](/rest/api/compute/)
 - [Komma igång med Azure REST API](/rest/api/azure/)
 - [Azure CLI](/cli/azure/)
-- [Azure PowerShell-modul](/powershell/azure/overview)
+- [Azure PowerShell-modul](/powershell/azure/)

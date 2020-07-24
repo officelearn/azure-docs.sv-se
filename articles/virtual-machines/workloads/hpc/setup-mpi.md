@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca9a21d105be6f17c1aa40ae1a0ab7f01c38184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77023998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083420"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Konfigurera Message Passing Interface för HPC
 
@@ -199,4 +200,4 @@ Ovanstående syntax förutsätter en delad arbets katalog, annars måste du kopi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) i Azure.
+Lär dig mer om [HPC](/azure/architecture/topics/high-performance-computing/) i Azure.

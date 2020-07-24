@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081822"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i Durable Functions i Azure
 
@@ -19,7 +20,7 @@ Det finns flera alternativ för att diagnosticera problem med [Durable Functions
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) är det rekommenderade sättet att utföra diagnostik och övervakning i Azure Functions. Samma sak gäller för Durable Functions. En översikt över hur du utnyttjar Application Insights i din Function-app finns i [övervaka Azure Functions](../functions-monitoring.md).
 
-Med Azure Functions tåligt tillägg kan du också spåra *händelser* som gör att du kan spåra slut punkt till slut punkt för ett dirigering. Dessa spårnings händelser kan hittas och frågas med hjälp av [Application Insights Analytics](../../azure-monitor/app/analytics.md) -verktyget i Azure Portal.
+Med Azure Functions tåligt tillägg kan du också spåra *händelser* som gör att du kan spåra slut punkt till slut punkt för ett dirigering. Dessa spårnings händelser kan hittas och frågas med hjälp av [Application Insights Analytics](../../azure-monitor/log-query/log-query-overview.md) -verktyget i Azure Portal.
 
 ### <a name="tracking-data"></a>Spårnings data
 
@@ -382,7 +383,7 @@ Azure Functions stöder fel söknings funktions kod direkt och samma stöd vidar
 
 ## <a name="storage"></a>Storage
 
-Durable Functions lagrar som standard tillstånd i Azure Storage. Detta innebär att du kan kontrol lera statusen för dina dirigeringar med hjälp av verktyg som [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Durable Functions lagrar som standard tillstånd i Azure Storage. Detta innebär att du kan kontrol lera statusen för dina dirigeringar med hjälp av verktyg som [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ![Azure Storage Explorer skärm bild](./media/durable-functions-diagnostics/storage-explorer.png)
 

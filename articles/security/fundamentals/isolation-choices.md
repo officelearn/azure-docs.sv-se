@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084064"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 
@@ -63,9 +64,9 @@ Begreppet klient behållare är djupt inkornigt i katalog tjänsten på alla lag
 
 Även om metadata från flera Azure Active Directory klienter lagras på samma fysiska disk, finns det ingen relation mellan andra behållare än vad som definieras av katalog tjänsten, vilket i sin tur styrs av klient organisations administratören.
 
-### <a name="azure-role-based-access-control-rbac"></a>Rollbaserad Access Control i Azure (RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Rollbaserad åtkomst kontroll i Azure (Azure RBAC)
 
-Med [Azure Role-baserade Access Control (RBAC)](../../role-based-access-control/overview.md) kan du dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomst hantering för Azure. Med Azure RBAC kan du åtskilja uppgifter i organisationen och bevilja åtkomst baserat på vad användarna behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter i Azure-prenumeration eller-resurser kan du bara tillåta vissa åtgärder.
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) hjälper dig att dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomst hantering för Azure. Med Azure RBAC kan du åtskilja uppgifter i organisationen och bevilja åtkomst baserat på vad användarna behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter i Azure-prenumeration eller-resurser kan du bara tillåta vissa åtgärder.
 
 Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
@@ -144,7 +145,7 @@ Azure Fabric Controller ansvarar för att allokera infrastruktur resurser till k
 
 Azure-hypervisorn använder minnes-och process separationer mellan virtuella datorer och dirigerar nätverks trafiken säkert till gäst operativ systemets klienter. Detta eliminerar risken för angrepp på och sidans kanal på VM-nivå.
 
-I Azure är den virtuella rot datorn speciell: den kör ett härdat operativ system som kallas för det rot-OS som är värd för en infrastruktur agent (FA). FAs används i sin tur för att hantera gäst agenter (GA) inom gäst operativ system på kundens virtuella datorer. I FAs hanterar du även lagringsnoder.
+I Azure är den virtuella rot datorn speciell: den kör ett härdat operativ system som kallas för det rot-OS som är värd för en infrastruktur agent (FA). FAs används i sin tur för att hantera gäst agenter (GA) i gäst operativ system på kundens virtuella datorer. I FAs hanterar du även lagringsnoder.
 
 Samlingen av Azure-hypervisorer, rot-OS/FA och kundens virtuella datorer/GAs omfattar en Compute-nod. FAs hanteras av en Fabric Controller (FC) som finns utanför beräknings-och lagringsnoder (beräknings-och lagrings kluster hanteras av separata FCs). Om en kund uppdaterar programmets konfigurations fil medan den körs kommunicerar FC med FA, som sedan kontaktar gasen, som meddelar programmet om konfigurations ändringen. Om ett maskin varu problem uppstår hittar FC automatiskt tillgänglig maskin vara och startar om den virtuella datorn där.
 
@@ -208,9 +209,9 @@ IP Storage-data kan skyddas från obehöriga användare via en nätverks mekanis
 Azure erbjuder följande typer av kryptering för att skydda data:
 
 - Kryptering under överföring
-- Vilande kryptering
+- Kryptering i vila
 
-#### <a name="encryption-in-transit"></a>Kryptering vid överföring
+#### <a name="encryption-in-transit"></a>Kryptering under överföring
 
 Kryptering under överföring är en mekanism för att skydda data när de överförs mellan nätverk. Med Azure Storage kan du skydda data med:
 
@@ -312,10 +313,10 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 **Trafik isolering:** Ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) är den trafik isolerings gränser som finns på Azure-plattformen. Virtual Machines (VM) i ett virtuellt nätverk kan inte kommunicera direkt med virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken har skapats av samma kund. Isolering är en kritisk egenskap som garanterar att kunders virtuella datorer och kommunikation förblir privata i ett virtuellt nätverk.
 
-[Undernät](../../virtual-network/virtual-networks-overview.md) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](../../virtual-network/virtual-networks-overview.md) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
+[Undernät](../../virtual-network/virtual-networks-overview.md) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](../../virtual-network/virtual-networks-overview.md) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan associeras med antingen undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [alternativ för nätverks isolering för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Detta omfattar det klassiska klient-och Server dels scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en lista över tillåtna IP-adresser.
 
-- Lär dig mer om [isolering av virtuella datorer i Azure](../../virtual-machines/windows/isolation.md). Azure Compute erbjuder storlekar för virtuella datorer som är isolerade till en viss maskin varu typ och som är dedikerad till en enda kund.
+- Lär dig mer om [isolering av virtuella datorer i Azure](../../virtual-machines/isolation.md). Azure Compute erbjuder storlekar för virtuella datorer som är isolerade till en viss maskin varu typ och som är dedikerad till en enda kund.

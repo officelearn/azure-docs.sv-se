@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2e2925723ee07ee2215bdd82bb730e31cdcdadc9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532217"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083165"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Skriv om URL: en med Azure Application Gateway – Azure Portal (för hands version)
 
 Den här artikeln beskriver hur du använder Azure Portal för att konfigurera en instans av [Application Gateway v2-SKU](application-gateway-autoscaling-zone-redundant.md) för att skriva om URL: en.
+
+>[!NOTE]
+> Funktionen för URL-omskrivning är i för hands version och är endast tillgänglig för Standard_v2 och WAF_v2 SKU för Application Gateway. Det rekommenderas inte för användning i produktions miljöer. Läs mer om för hands versionerna i [användnings villkor här](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

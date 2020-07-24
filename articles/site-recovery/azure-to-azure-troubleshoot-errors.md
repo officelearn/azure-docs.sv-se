@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083828"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
 
@@ -475,7 +475,7 @@ Följande exempel är rader från GRUB-filer där enhets namn visas i stället f
 
 Ersätt varje enhets namn med motsvarande UUID:
 
-1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>` . Ett exempel:
+1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>` . Exempel:
 
    ```shell
    blkid /dev/sda1
@@ -534,6 +534,44 @@ Det här problemet kan uppstå om den virtuella datorn tidigare skyddades och n�
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
 Ta bort replik disken som identifierats i fel meddelandet och försök igen med det misslyckade skydds jobbet.
+
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>Det gick inte att aktivera skydd eftersom installations programmet inte kan hitta rot disken (felkod 151137)
+
+Det här felet inträffar för Linux-datorer där operativ system disken är krypterad med Azure Disk Encryption (ADE). Detta är bara ett giltigt problem i agent version 9,35.
+
+### <a name="possible-causes"></a>Möjliga orsaker
+
+Installations programmet kan inte hitta rot disken som är värd för rot fil systemet.
+
+### <a name="fix-the-problem"></a>Åtgärda problemet
+
+Åtgärda problemet genom att följa stegen nedan.
+
+1. Hitta agent bitarna under katalogen _/var/lib/waagent_ på RHEL-och CentOS-datorer med kommandot nedan: <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   Förväntad utdata:
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Skapa en ny katalog och ändra katalogen till den nya katalogen.
+3. Extrahera agent filen som finns i det första steget här, med kommandot nedan:
+
+    `tar -xf <Tar Ball File>`
+
+4. Öppna filen _prereq_check_installer.jspå_ och ta bort följande rader. Spara filen efter det.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Anropa installations programmet med kommandot: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. Om installations programmet lyckas kan du försöka aktivera replikerings jobbet igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

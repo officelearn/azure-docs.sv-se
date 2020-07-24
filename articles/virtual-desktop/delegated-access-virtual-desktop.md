@@ -1,5 +1,5 @@
 ---
-title: Delegerad åtkomst i Windows Virtual Desktop – Azure
+title: Delegerad åtkomst i Windows Virtual Desktop fjäder 2020 – Azure
 description: Så här delegerar du administrativa funktioner på en distribution av virtuella Windows-datorer, inklusive exempel.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 16b4fca475f91a8cb5b7f9a20ea5aa74b6b674a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92de6011f85079e9207ab9f1a5bd8c3a045823d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082706"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Delegerad åtkomst i Windows Virtual Desktop
 

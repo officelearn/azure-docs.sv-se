@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 3cc561a7f7f6f58c439a70315eba857e63def09d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d266dbd0ee908c41a7d29ddbb6d9c73fcfdc7c9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083471"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Kör Micro Focus Enterprise Server 5,0 i en Docker-behållare på Azure
 
@@ -27,7 +27,7 @@ Docker lägger till portabilitet och isolering för program. Du kan till exempel
 
 Den här självstudien installerar **Windows 2016-datacenter med behållare** VM från Azure Marketplace. Den här virtuella datorn innehåller **Docker 18.09.0**. Stegen nedan visar hur du distribuerar behållaren, kör den och sedan ansluter till den med en 3270-emulator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du gå igenom följande krav:
 
@@ -137,7 +137,7 @@ Den virtuella datorn körs i det här läget via RDP. Du är inloggad och redo f
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
     ~~~
 
-    Ett exempel:
+    Exempel:
 
     ~~~
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
@@ -171,6 +171,6 @@ Klart! Nu kör vi och hanterar ett CICS-program i en Docker-behållare.
 
 ## <a name="next-steps"></a>Nästa steg
 
--   [Installera Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/set-up-micro-focus-azure)
+-   [Installera Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Azure](./set-up-micro-focus-azure.md)
 
--   [Migrering av program från stordatorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [Migrering av program från stordatorer](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

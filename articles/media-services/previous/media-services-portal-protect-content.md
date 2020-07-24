@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d0e2487632971579a1a473375eb2200f3a63a46
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74978210"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084542"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurera principer för innehålls skydd med hjälp av Azure Portal
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att genomföra kursen. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Du behöver ett Azure-konto för att genomföra kursen. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 >
 
  Med Azure Media Services kan du skydda dina medier från den tid det lämnar datorn genom lagring, bearbetning och leverans. Du kan använda Media Services för att leverera ditt innehåll krypterat dynamiskt med Advanced Encryption Standard (AES) med hjälp av 128-bitars krypterings nycklar. Du kan också använda den med common Encryption (CENC) med hjälp av PlayReady och/eller Widevine Digital Rights Management (DRM) och Apple FairPlay. 
@@ -132,4 +133,3 @@ Kryptering med klar text nyckel för AES är aktiverat på alla strömnings prot
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

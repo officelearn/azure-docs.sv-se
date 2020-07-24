@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9b81d58bbb79b05ea54af8b3f06f29b4a45a6555
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 2be430fc032acd94f851072f80d14a43638c8863
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084593"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Konfigurera en auktoriseringsprincip för innehålls nycklar
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -57,7 +57,7 @@ Den öppna begränsningen innebär att systemet levererar nyckeln till alla som 
 ### <a name="token-restriction"></a>Begränsning av token
 Välj **token** -knappen om du vill välja en begränsad princip för token.
 
-Den begränsade token-principen måste åtföljas av en token som utfärdats av en säkerhetstokentjänst (STS). Media Services stöder tokens i formaten simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) och JSON Web token (JWT). Mer information finns i [JWT-autentisering](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+Den begränsade token-principen måste åtföljas av en token som utfärdats av en säkerhetstokentjänst (STS). Media Services stöder tokens i formaten simple web token ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) och JSON Web token (JWT). Mer information finns i [JWT-autentisering](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Media Services tillhandahåller inte STS. Du kan skapa en anpassad STS för att utfärda tokens. STS måste konfigureras för att skapa en token som signerats med den angivna nyckeln och utfärda anspråk som du angav i konfigurationen för token-begränsning. Om token är giltig och anspråk i token matchar de som kon figurer ATS för innehålls nyckeln, returnerar tjänsten Media Services Key Delivery krypterings nyckeln till klienten.
 
@@ -94,4 +94,3 @@ Du kan välja **XML-knappen Importera princip** och ange en annan XML-kod som ö
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-

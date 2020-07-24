@@ -6,22 +6,22 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: bb9783b38185940f0e75e888c3bc69a1edcc6cbb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02cb862c5ec6f75d546aabcd6e8ac97a4de961a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082961"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
-Azure Functions stöder design mönstret för program beroende insprutning (DI), vilket är en teknik för att uppnå [inversion av kontrollen (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
+Azure Functions stöder design mönstret för program beroende insprutning (DI), vilket är en teknik för att uppnå [inversion av kontrollen (IoC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
 
-- Beroende inmatning i Azure Functions bygger på funktionerna för .NET Core-beroende inmatning. Det rekommenderas att du är bekant med [.net Core-beroende inmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) . Det finns skillnader i hur du åsidosätter beroenden och hur konfigurations värden läses med Azure Functions i förbruknings planen.
+- Beroende inmatning i Azure Functions bygger på funktionerna för .NET Core-beroende inmatning. Det rekommenderas att du är bekant med [.net Core-beroende inmatning](/aspnet/core/fundamentals/dependency-injection) . Det finns skillnader i hur du åsidosätter beroenden och hur konfigurations värden läses med Azure Functions i förbruknings planen.
 
 - Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
@@ -115,7 +115,7 @@ I det här exemplet används paketet [Microsoft. Extensions. http](https://www.n
 
 ## <a name="service-lifetimes"></a>Livs längd för tjänsten
 
-Azure Functions appar ger samma tjänste livstid som ASP.NET- [beroende inmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). För en Functions-app beter sig de olika livs längderna för tjänsten enligt följande:
+Azure Functions appar ger samma tjänste livstid som ASP.NET- [beroende inmatning](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). För en Functions-app beter sig de olika livs längderna för tjänsten enligt följande:
 
 - **Tillfälliga**: tillfälliga tjänster skapas vid varje begäran av tjänsten.
 - **Omfattning**: livs längden för omfattnings tjänsten matchar en livs längd för funktions körning. Omfångs tjänster skapas en gång per körning. Senare begär Anden för tjänsten under körningen återanvänder den befintliga tjänst instansen.
@@ -125,7 +125,7 @@ Visa eller hämta ett [exempel på olika livs längder för tjänsten](https://a
 
 ## <a name="logging-services"></a>Loggnings tjänster
 
-Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en instans av [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) , som är tillgänglig via NuGet-paketet [Microsoft. Extensions. logging. Abstraction](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
+Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en instans av [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) , som är tillgänglig via NuGet-paketet [Microsoft. Extensions. logging. Abstraction](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
 
 Application Insights läggs till av Azure Functions automatiskt.
 
@@ -250,7 +250,7 @@ public class HttpTrigger
 }
 ```
 
-Mer information om hur du arbetar med alternativ finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) .
+Mer information om hur du arbetar med alternativ finns [i alternativ mönster i ASP.net Core](/aspnet/core/fundamentals/configuration/options) .
 
 > [!WARNING]
 > Undvik att försöka läsa värden från filer som *local.settings.jspå* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen eftersom skalnings kontrollen skapar nya instanser av appen.

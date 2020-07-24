@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 279f4cb1d8891f64fb01f4f8abb6b23a004c2b4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99c8ee79c51205c33d14328530f527ad8e3ff7b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085476"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
@@ -29,9 +29,11 @@ NVIDIA CUDA-drivrutiner för NC-, NCv2-, NCv3-, ND-och NDv2-seriens virtuella da
 
 Microsoft distribuerar NVIDIA GRID-drivrutiner installations program för virtuella datorer i NV-och NVv3-serien som används som virtuella arbets stationer eller för virtuella program. Installera endast dessa RUTNÄTs driv rutiner på virtuella datorer med Azure NV, endast på de operativ system som anges i följande tabell. Dessa driv rutiner inkluderar licensiering för virtuella GPU-program i Azure i Azure. Du behöver inte konfigurera en program licens Server för NVIDIA vGPU.
 
-| Distribution | Drivrutin |
+RUTNÄTs driv rutinerna som distribueras med Azure fungerar inte på virtuella datorer som inte är NV-serien, till exempel NC, NCv2, NCv3, ND och NDv2-seriens virtuella datorer.
+
+| Distribution | Drivrutinen |
 | --- | -- |
-|Ubuntu 18,04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,0 till 7,7<br/><br/>CentOS-baserad 7,0 till 7,7<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA-rutnät 10,1, driv rutins gren R440|
+|Ubuntu 18,04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 till 7,8, 8,0, 8,1<br/><br/>CentOS-baserad 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA-rutnät 11, driv rutins gren R450|
 
 > [!WARNING] 
 > Installation av tredjepartsprogramvara på Red Hat-produkter kan påverka supportvillkoren för Red Hat. Läs [Knowledgebase-artikeln om Red Hat](https://access.redhat.com/articles/1067).

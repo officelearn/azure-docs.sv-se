@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b258b0b5dba902e94e8d221e0d8f0292fdec9f67
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: faf0db31b458ed6b8dd4961fffbf2a810990574d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084491"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure Portal  
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Mer information finns i [Översikt över att leverera innehåll](media-services-
 > 
 > 
 
-Om du vill uppdatera ett förfallo datum på en positionerare kan du använda en [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) eller ett [.NET-API](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Om du vill uppdatera ett förfallo datum på en positionerare kan du använda en [REST API](/rest/api/media/operations/locator#update_a_locator) eller ett [.NET-API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > URL:en ändras när du uppdaterar utgångsdatumet för en SAS-lokaliserare.
@@ -97,4 +97,3 @@ Vissa förutsättningar gäller:
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
-

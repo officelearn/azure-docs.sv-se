@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f3861ab8839ba0483c5096e29cd09b6268bd765e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44d58b4e68e9f846b6bdb87765e96bcab90274a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083607"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -98,7 +98,7 @@ Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats t
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Ett exempel:
+Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Exempel:
 
 ```powershell
 #To login
@@ -110,6 +110,8 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
+
+Inställningen för kvarhållning av dagar stöds inte ännu, men du kan ta bort loggar manuellt med hjälp av ett verktyg som stöds, till exempel Azure Storage Explorer, REST eller en SDK.
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 

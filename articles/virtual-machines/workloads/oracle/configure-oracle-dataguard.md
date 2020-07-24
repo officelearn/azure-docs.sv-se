@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 2b0b85792fe1266d2ec6478561193ef0c80ac98f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083386"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle data Guard på en virtuell Azure Linux-dator 
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här artikeln beskriver hur du använder Azure CLI för att distribuera en Oracle Database 12C-databas från Azure Marketplace-avbildningen. Den här artikeln visar sedan steg för steg hur du installerar och konfigurerar data Guard på en virtuell Azure-dator (VM).
 
-Innan du börjar ska du kontrol lera att Azure CLI är installerat. Mer information finns i [installations guiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Innan du börjar ska du kontrol lera att Azure CLI är installerat. Mer information finns i [installations guiden för Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 ### <a name="assumptions"></a>Antaganden
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Att skapa en tillgänglighets uppsättning är valfritt, men vi rekommenderar den. Mer information finns i [rikt linjer för Azures tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Att skapa en tillgänglighets uppsättning är valfritt, men vi rekommenderar den. Mer information finns i [rikt linjer för Azures tillgänglighets uppsättningar](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

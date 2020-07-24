@@ -3,16 +3,16 @@ title: Cloud Solution Provider – Microsoft Commercial Marketplace
 description: Lär dig hur du säljer dina erbjudanden via program partner kanalen för Microsoft Cloud Solution Provider (CSP) på den kommersiella Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
-ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082821"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
@@ -30,31 +30,31 @@ Följande erbjudanden är berättigade att välja att säljas av partner i CSP-p
 - Hanterade program
 
 > [!NOTE]
-> Behållare och ta med din egen licens (BYOL) VM SKU: er väljs att säljas av partner i CSP-programmet som standard.
+> Behållare och ta med din egen licens (BYOL) VM-planer används som standard för att säljas av partner i CSP-programmet.
 
-## <a name="how-to-configure-an-offering"></a>Så här konfigurerar du ett erbjudande
+## <a name="how-to-configure-an-offer"></a>Så här konfigurerar du ett erbjudande
 
-Inställningen för att välja CSP-program konfigureras i Partner Center eller i Cloud Partner Portal skapa ett erbjudande. [Lär dig mer om den ändrade utgivarens upplevelse](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Konfigurera alternativet för att välja CSP-program när du skapar erbjudandet i Partner Center. [Lär dig mer om den ändrade utgivarens upplevelse](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
 
 ### <a name="partner-center-opt-in"></a>Deltagande i Partner Center
 
-I Partner Center hittar du deltagande upplevelsen under modulen CSP åter försäljare.
+Opt-in-upplevelsen finns under Audience-modulen CSP-åter försäljare:
 
 ![CSP åter försäljarens publik](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-I Audience-modulen för CSP-åter försäljaren finns tre alternativ att välja mellan:
+Välj mellan tre alternativ:
 
-- Alternativ ett: alla partner i CSP-programmet
-- Alternativ två: vissa partner i CSP-programmet som jag väljer
-- Alternativ tre: inga partner i CSP-programmet
+1. Alla partner i CSP-programmet.
+2. Vissa partner i CSP-programmet som jag väljer.
+3. Inga partner i CSP-programmet.
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>Alternativ ett: alla partner i CSP-programmet
+#### <a name="option-1-any-partner-in-the-csp-program"></a>Alternativ 1: alla partner i CSP-programmet
 
 ![Alla partner i CSP-programmet](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  Genom att välja det här alternativet är alla partner i CSP-programmet berättigade till att sälja erbjudandet till sina kunder.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Alternativ två: vissa partner i CSP-programmet som jag väljer
+#### <a name="option-2-specific-partners-in-the-csp-program-i-select"></a>Alternativ 2: vissa partner i CSP-programmet som jag väljer
 
 ![Vissa partner i CSP-programmet som jag väljer](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
@@ -87,17 +87,11 @@ Om du uppdaterar CSP-listan för ett redan publicerat erbjudande lägger du till
 
 Om du har ett erbjudande som redan har en lista över behöriga partner och du vill använda samma lista för ett annat erbjudande, använder du **import/export**. Gå till det erbjudande som innehåller CSP-listan och välj **Exportera kryptografiproviders**. Funktionen utvecklar en. csv-fil som kan importeras till ett annat erbjudande.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>Alternativ tre: inga partner i CSP-programmet
+#### <a name="option-3-no-partners-in-the-csp-program"></a>Alternativ 3: inga partner i CSP-programmet
 
 ![Inga partner i CSP-programmet](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 Genom att välja det här alternativet är du väljer ditt erbjudande från CSP-programmet. Du kan ändra det här alternativet när som helst.
-
-### <a name="cloud-partner-portal-opt-in"></a>Cloud Partner Portal Anmäl dig
-
-I Cloud Partner Portal anges opt-in på fliken Marketplace eller butik. Möjligheten att välja vissa partner i CSP-programmet är bara tillgänglig i Partner Center.
-
-![Upplevelse för att välja CSP i CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
 ## <a name="deauthorize-partners-in-the-csp-program"></a>Deauktorisera partner i CSP-programmet
 
@@ -115,9 +109,6 @@ Om en partner i CSP-programmet inte har sålt produkten till kunderna och du vil
 4. För **Välj ett problem som bäst beskriver problemet väljer du** **uppdatera befintligt erbjudande**.
 5. Välj **Nästa** för att komma till **sidan ärende information** och ange mer information om problemet.
 6. Använd **deauktorisera CSP** som ärende rubrik och fyll i resten av de nödvändiga avsnitten.
-
-
-
 
 ## <a name="navigate-between-options"></a>Navigera mellan alternativ
 
@@ -182,12 +173,6 @@ För att hjälpa partner i Cloud Solution Provider-programmet att representera d
 Om du har valt CSP-kanalen i Partner Center måste utgivare ange en URL som är värd för relevant marknadsförings material och kanal kontakt information till CSP-kanalen under modulen för erbjudande listan:
 
 ![Information om CSP-information för partner Center](media/marketplace-publishers-guide/pc-csp-channel.png)
-
-### <a name="cloud-partner-portal-csp-channel"></a>Cloud Partner Portal CSP-kanal
-
-Om du har valt KRYPTOGRAFIPROVIDER-kanalen i Cloud Partner Portal måste utgivare ange en URL som är värd för relevant marknadsförings material och kanal kontakt information till CSP-kanalen:
-
-![Information om Cloud Partner Portal CSP-säkerhet](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

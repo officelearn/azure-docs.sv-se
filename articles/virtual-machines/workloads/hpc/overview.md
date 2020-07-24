@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76271025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083437"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Data behandling med höga prestanda på virtuella datorer i H-serien
 
@@ -39,7 +39,7 @@ Se [Aktivera InfiniBand](enable-infiniband.md) för att lära dig mer om hur du 
 
 ## <a name="get-started"></a>Kom igång
 
-Bestäm först vilken virtuell dator i H-serien som du ska använda. Mer information om HPC-optimerade virtuella datorer finns i Översikt [över HB-serien](hb-series-overview.md) och [HC-serien](hc-series-overview.md). För specifikationer, se [storlekar för beräkning av virtuella datorer med höga prestanda](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
+Bestäm först vilken virtuell dator i H-serien som du ska använda. Mer information om HPC-optimerade virtuella datorer finns i Översikt [över HB-serien](hb-series-overview.md) och [HC-serien](hc-series-overview.md). För specifikationer, se [storlekar för beräkning av virtuella datorer med höga prestanda](../../sizes-hpc.md).
 
 När du har valt och skapat en virtuell dator för ditt program måste du konfigurera den genom att aktivera InfiniBand. Information om hur du aktiverar InfiniBand i både virtuella Windows-och Linux-datorer finns i [Aktivera InfiniBand](enable-infiniband.md).
 
@@ -51,4 +51,4 @@ När du har valt din VM-serie, konfigurerat InfiniBand och MPI är du redo att b
 
 - Läs översikten över [HB-serien](hb-series-overview.md) och [HC-serien](hc-series-overview.md) för att lära dig mer om viktiga skillnader och specifikationer.
 
-- För en högre nivå, arkitektonisk visning av aktiva HPC-arbetsbelastningar, se [HPC (data behandling med höga prestanda) i Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- För en högre nivå, arkitektonisk visning av aktiva HPC-arbetsbelastningar, se [HPC (data behandling med höga prestanda) i Azure](/azure/architecture/topics/high-performance-computing/).

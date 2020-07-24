@@ -6,17 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082723"
 ---
 # <a name="feature-list"></a>Funktionslista #
 Här är en lista över funktioner som har testats och funktioner som inte stöds:
 
-|                                         | UTFÖR | DELVIS TESTAD | Inte TESTat | SOM inte stöds | ANTECKNINGAR                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| Funktion | UTFÖR | DELVIS TESTAD | Inte TESTat | SOM inte stöds | ANTECKNINGAR |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | Uppspelning                                |        |                  |          |             |                                                                                                                      |
 | Grundläggande uppspelning på begäran                | X      |                  |          |             | Stöder strömmar enbart från Azure Media Services                                                                      |
 | Grundläggande direktsänd uppspelning                     | X      |                  |          |             | Stöder strömmar enbart från Azure Media Services                                                                      |
@@ -55,7 +56,7 @@ Här är en lista över funktioner som har testats och funktioner som inte stöd
 | Lokalisering av användar gränssnitt                         |        | X                |          |             |                                                                                                                      |
 | Uppspelning med flera instanser                 |        |                  |          | X           | Det här scenariot kan fungera för vissa tekniker, men det finns för närvarande inte stöd för och är inte testat. Du kan också få detta att fungera med iframes |
 | Stöd för Ads                             |        | x                |          |             | AMP har stöd för infogning av linjära annonseringar före mitten och efter valsning från enorma kompatibla AD-servrar för VOD i AzureHtml5JS-Tech |
-| Analys                               |        | X                |          |             | Med AMP kan du lyssna på analyser och diagnostiska händelser så att du kan skicka till en analys Server del som du väljer.  Alla händelser och egenskaper är inte tillgängliga i Tech på grund av plattforms begränsningar.                                                                            |
+| Analytics                               |        | X                |          |             | Med AMP kan du lyssna på analyser och diagnostiska händelser så att du kan skicka till en analys Server del som du väljer.  Alla händelser och egenskaper är inte tillgängliga i Tech på grund av plattforms begränsningar.                                                                            |
 | Anpassade skal                            |        |                  | X        |             | Aktivera inställningen för kontroller till falskt i AMP och Använd din egen HTML och CSS.           |
 | Rensning av SeekBar-fält                      |        |                  |          | X           |                                                                                                                      |
 | Lura-Play                              |        |                  |          | X           |                                                                                                                      |

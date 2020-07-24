@@ -2,13 +2,13 @@
 title: Azure Service Bus vanliga frågor och svar (FAQ) | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341453"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083862"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
@@ -30,9 +30,9 @@ En [Service Bus kö](service-bus-queues-topics-subscriptions.md) är en entitet 
 Ett ämne kan visualiseras som en kö och när du använder flera prenumerationer blir det en rikare meddelande modell. i stort sett ett ett-till-många-kommunikations verktyg. Den här publicerings-/prenumerations modellen (eller *pub/sub*) aktiverar ett program som skickar ett meddelande till ett ämne med flera prenumerationer för att få meddelandet mottaget av flera program.
 
 ### <a name="what-is-a-partitioned-entity"></a>Vad är en partitionerad entitet?
-En konventionell kö eller ett ämne hanteras av en enskild meddelande tjänst och lagras i ett meddelande arkiv. En [partitionerad kö eller ett ämne](service-bus-partitioning.md) som stöds endast på standard-och standard nivå för meddelande hantering, hanteras av flera meddelande hanterare och lagras i flera meddelande arkiv. Den här funktionen innebär att det totala data flödet för en partitionerad kö eller ett ämne inte längre begränsas av prestandan för en enskild meddelande utjämning eller meddelande arkiv. Dessutom återges inte en partitionerad kö eller ett ämne som inte är tillgängligt i ett tillfälligt avbrott i ett meddelande arkiv.
+En konventionell kö eller ett ämne hanteras av en enskild meddelande tjänst och lagras i ett meddelande arkiv. Stöds endast på nivån Basic och standard-meddelande nivåer, en [partitionerad kö eller ett ämne](service-bus-partitioning.md) hanteras av flera meddelande hanterare och lagras i flera meddelande arkiv. Den här funktionen innebär att det totala data flödet för en partitionerad kö eller ett ämne inte längre begränsas av prestandan för en enskild meddelande utjämning eller meddelande arkiv. Ett tillfälligt avbrott i ett meddelande arkiv återger inte heller en partitionerad kö eller ett ämne som inte är tillgängligt.
 
-Ordning är inte garanterad när du använder partitionerade entiteter. I händelse av att en partition inte är tillgänglig kan du fortfarande skicka och ta emot meddelanden från andra partitioner.
+Ordningen är inte säkerställd när du använder partitionerade entiteter. I händelse av att en partition inte är tillgänglig kan du fortfarande skicka och ta emot meddelanden från andra partitioner.
 
  Partitionerade entiteter stöds inte längre i [Premium-SKU: n](service-bus-premium-messaging.md). 
 
@@ -51,15 +51,15 @@ Se följande tabell för utgående portar som du måste öppna för att kunna an
 | SBMP | 9350 till 9354 | Se [anslutnings läge](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Vilka IP-adresser behöver jag för att vitlista?
-Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för dina anslutningar:
+### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Vilka IP-adresser måste jag lägga till i listan över tillåtna?
+Följ dessa steg om du vill hitta rätt IP-adresser som ska läggas till i listan över tillåtna anslutningar:
 
 1. Kör följande kommando från en kommando tolk: 
 
     ```
     nslookup <YourNamespaceName>.cloudapp.net
     ```
-2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den här IP-adressen är statisk. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
+2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den här IP-adressen är statisk. Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
 
 Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
 
@@ -77,6 +77,10 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
     ```
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
 
+### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Var kan jag hitta IP-adressen för klienten som skickar/tar emot meddelanden till/från ett namn område? 
+Vi loggar inte IP-adresserna för klienter som skickar eller tar emot meddelanden till/från namn området. Återskapa nycklar så att alla befintliga klienter inte kan autentisera och granska[RBAC](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)-inställningar (rollbaserad åtkomst kontroll) för att säkerställa att endast tillåtna användare eller program har åtkomst till namn området. 
+
+Om du använder ett **Premium** -namnområde använder du [IP-filtrering](service-bus-ip-filtering.md), [slut punkter för virtuella nätverks tjänster](service-bus-service-endpoints.md)och [privata slut punkter](private-link-service.md) för att begränsa åtkomsten till namn området. 
 
 ## <a name="best-practices"></a>Bästa praxis
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Vad är några Azure Service Bus bästa praxis?
@@ -100,25 +104,25 @@ Du kan också besöka [vanliga frågor och svar om Azure-support](https://azure.
 ### <a name="how-do-you-charge-for-service-bus"></a>Hur debiteras du för Service Bus?
 Fullständig information om Service Bus priser finns i [Service Bus pris information][Pricing overview]. Utöver de priser som anges debiteras du för tillhör ande data överföringar för utgående trafik utanför data centret där ditt program är etablerad.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Vilken användning av Service Bus är beroende av data överföring? Vad är det inte?
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-isnt"></a>Vilken användning av Service Bus är beroende av data överföring? Vad är det inte?
 All data överföring inom en angiven Azure-region tillhandahålls utan kostnad, samt all inkommande data överföring. Data överföring utanför en region omfattas av utgående kostnader som finns [här](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>Debiteras Service Bus för lagring?
-Nej, Service Bus debiteras inte för lagring. Det finns dock en kvot som begränsar den maximala mängden data som kan kvarhållas per kö/ämne. Se nästa vanliga frågor och svar.
+Nej. Service Bus debiteras inte för lagring. Det finns dock en kvot som begränsar den maximala mängden data som kan sparas per kö/ämne. Se nästa vanliga frågor och svar.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Jag har ett Service Bus standard namn område. Varför visas avgifter under resurs gruppen "$system"?
-Azure Service Bus nyligen uppgraderade fakturerings komponenterna. På grund av detta kan du se rad objekt för resursen "/Subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" under resurs gruppen "$system" om du har ett Service Bus standard namn område.
+Azure Service Bus nyligen uppgraderade fakturerings komponenterna. På grund av den här ändringen kan du se rad objekt för resursen "/Subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" under resurs gruppen "$system" om du har ett Service Bus standard namn område.
 
 Dessa avgifter representerar bas avgiften per Azure-prenumeration som har etablerad en Service Bus standard-namnrymd. 
 
-Det är viktigt att Observera att dessa inte är nya avgifter, d.v.s. de fanns i den tidigare fakturerings modellen. Den enda ändringen är att de nu visas under $system. Detta görs på grund av förändringar i det nya fakturerings systemet som grupperar prenumerations kostnader, som inte är knutna till en speciell resurs, under "$system" resurs-ID.
+Det är viktigt att Observera att dessa avgifter inte är nya, det vill säga de fanns i den tidigare fakturerings modellen. Den enda ändringen är att de nu är listade under $system. Det är färdigt på grund av begränsningar i det nya fakturerings systemet som grupperar prenumerations kostnader, som inte är knutna till en speciell resurs, under "$system" resurs-ID.
 
 ## <a name="quotas"></a>Kvoter
 
 En lista över Service Bus gränser och kvoter finns i [Översikt över Service Bus kvoter][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Hur hanterar du meddelanden med storlek > 1 MB?
-Service Bus meddelande tjänster (köer och ämnen/prenumerationer) gör att programmet kan skicka meddelanden med upp till 256 KB (standard nivå) eller 1 MB (Premium-nivå). Om du hanterar meddelanden med en storlek som är större än 1 MB använder du det kontroll mönster för anspråk som beskrivs i [det här blogg inlägget](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+Service Bus meddelande tjänster (köer och ämnen/prenumerationer) gör att programmet kan skicka meddelanden med upp till 256 KB (standard nivå) eller 1 MB (Premium-nivå). Om du hanterar meddelanden som är större än 1 MB använder du det kontroll mönster för anspråk som beskrivs i [det här blogg inlägget](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte skapa ett namn område efter att ha tagit bort det från en annan prenumeration? 
@@ -133,7 +137,7 @@ Signaturer för delad åtkomst är en autentiseringsmekanism som baseras på SHA
 ## <a name="subscription-and-namespace-management"></a>Hantering av prenumerationer och namn område
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hur gör jag för att migrera ett namn område till en annan Azure-prenumeration?
 
-Du kan flytta ett namn område från en Azure-prenumeration till en annan med hjälp av antingen [Azure Portal](https://portal.azure.com) -eller PowerShell-kommandon. För att kunna köra åtgärden måste namn området redan vara aktivt. Användaren som kör kommandona måste vara administratör både på käll-och mål prenumerationerna.
+Du kan flytta ett namn område från en Azure-prenumeration till en annan med hjälp av antingen [Azure Portal](https://portal.azure.com) -eller PowerShell-kommandon. För att kunna utföra åtgärden måste namn området redan vara aktivt. Användaren som kör kommandona måste vara administratör både på käll-och mål prenumerationerna.
 
 #### <a name="portal"></a>Portalen
 

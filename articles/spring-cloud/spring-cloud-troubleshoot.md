@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083692"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
@@ -172,7 +174,7 @@ Miljövariabler meddelar moln ramverket för Azure våren att se till att Azure 
 
 1. Starta om programmet.
 
-1. Gå till `https://<your application test endpoint>/actuator/env` och kontrol lera svaret.  Det bör se ut så här:
+1. Gå till `https://<your application test endpoint>/actuator/env` och kontrol lera svaret.  Den bör se ut så här:
 
     ```json
     {

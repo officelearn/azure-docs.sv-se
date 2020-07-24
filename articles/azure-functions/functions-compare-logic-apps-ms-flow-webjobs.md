@@ -4,12 +4,12 @@ description: 'Jämför Microsofts moln tjänster som är optimerade för integra
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 9d7531fac9610b357adb37d28f5d5e90a7e4b108
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1e6d1462a4f94db424081ea1567e5926806d3e81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169875"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083012"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välja rätt integrerings- och automationstjänster i Azure
 
@@ -38,8 +38,8 @@ I följande tabell får du hjälp att avgöra om Power-eller Logic Apps är bäs
 | --- | --- | --- |
 | **Användare** |Kontorsarbetarna, användare i verksamheten, SharePoint-administratörer |Professionella integratörer och utvecklare, IT-proffs |
 | **Scenarier** |Självbetjäning |Avancerade integreringar |
-| **Designverktyg** |I webbläsaren och mobilappen, endast användargränssnitt |I webbläsaren och [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [kodvyer](../logic-apps/logic-apps-author-definitions.md) är tillgängliga |
-| **Application Lifecycle Management (ALM)** |Utforma och testa i icke-produktionsmiljöer, skicka till produktion när det är klart |Azure DevOps: källkontroll, testning, support, automatisering och hanterbarhet i [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| **Designverktyg** |I webbläsaren och mobilappen, endast användargränssnitt |I webbläsaren och [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), [kodvyer](../logic-apps/logic-apps-author-definitions.md) är tillgängliga |
+| **Application Lifecycle Management (ALM)** |Utforma och testa i icke-produktionsmiljöer, skicka till produktion när det är klart |Azure DevOps: källkontroll, testning, support, automatisering och hanterbarhet i [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Administratörsupplevelse** |Hantera energi automatiserade miljöer och principer för data förlust skydd (DLP), spåra licensiering: [administrations Center](https://admin.flow.microsoft.com) |Hantera resurs grupper, anslutningar, åtkomst hantering och loggning: [Azure Portal](https://portal.azure.com) |
 | **Säkerhet** |Granskningsloggar för Office 365-säkerhet och efterlevnad, principer för dataförlustskydd, [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption) för känsliga data |Säkerhets garanti för Azure: [Azure-säkerhet](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [gransknings loggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
@@ -56,8 +56,8 @@ Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktione
 | **Utveckling** | Kod först (imperativt) | Design först (deklarativt) |
 | **Anslutningsmöjligheter** | [Om ett dussin inbyggda bindnings typer](functions-triggers-bindings.md#supported-bindings)skriver du kod för anpassade bindningar | [Stor mängd anslutningar](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [Bygg anpassade anslutningar](../logic-apps/custom-connector-overview.md) |
 | **Åtgärder** | Varje åtgärd är en Azure-funktion. Skriv kod för åtgärdsfunktioner |[Stor samling färdiga åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| **Övervakning** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) [Azure Monitor loggar](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| **Hantering** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| **Övervakning** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) [Azure Monitor loggar](../logic-apps/monitor-logic-apps.md)|
+| **Hantering** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Körningskontext** | Kan köras [lokalt](functions-runtime-overview.md) eller i molnet | Körs bara i molnet|
 
 <a name="function"></a>
@@ -76,7 +76,7 @@ WebJobs och WebJobs-SDK:n fungerar bäst tillsammans, men du kan använda WebJob
 
 Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutlösare och anslutningsappar med andra Azure-tjänster. Här är några faktorer som du bör tänka på när du väljer mellan Azure Functions och WebJobs med WebJobs-SDK:n:
 
-|  | Functions (Funktioner) | WebJobs med Webjobs-SDK:n |
+|  | Functions | WebJobs med Webjobs-SDK:n |
 | --- | --- | --- |
 |**[Program modell utan server](https://azure.microsoft.com/solutions/serverless/) med [automatisk skalning](functions-scale.md#how-the-consumption-and-premium-plans-work)**|✔||
 |**[Utveckla och testa i webbläsare](functions-create-first-azure-function.md)** |✔||

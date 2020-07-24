@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 585dfcd437357c638a3544a4cb74ad386f8cb218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605175"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085205"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (stora instanser) nätverks arkitektur
 
@@ -74,7 +75,7 @@ Skillnaderna med SAP-distributioner i Azure är:
 
 Med revision 3 av HANA stor instans-stämplar kan nätverks fördröjningen mellan virtuella datorer och HANA stora instans enheter vara högre än en typisk fördröjning för VM-till-VM-nätverk. Värdena som är beroende av Azure-regionen kan överstiga 0,7-MS tur och retur-svars tiden som klassificeras som under genomsnitt i [SAP obs #1100926 – vanliga frågor och svar: nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E). Beroende av Azure-region och-verktyg för att mäta fördröjningar i nätverks fördröjningar mellan en virtuell Azure-dator och HANA stor instans enhet, kan den uppmätta svars tiden vara upp till och omkring 2 millisekunder. Kunder distribuerar dock SAP HANA-baserade produktion SAP-program på SAP HANA stor instans. Se till att testa dina affärs processer noggrant i Azure HANA stor instans. En ny funktion, som kallas ExpressRoute snabb sökväg, kan minska nätverks fördröjningen mellan HANA-stora instanser och virtuella program på virtuella datorer i Azure i huvudsak (se nedan). 
 
-Med revision 4 av HANA stor instans-stämplar, är nätverks fördröjningen mellan virtuella Azure-datorer som distribueras i närheten av den stora instans stämpeln i den stora instansen att uppfylla genomsnittet eller bättre än genomsnitts klassificeringen som dokumenteras i [SAP obs #1100926 – vanliga frågor och svar: nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E) om Azure ExpressRoute snabb sökväg har kon figurer ATS (se nedan). För att kunna distribuera virtuella Azure-datorer i nära närhet till HANA stora instans enheter av revision 4 måste du utnyttja [Azure närhets placerings grupper](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Hur närhets placerings grupper kan användas för att hitta SAP-program skiktet i samma Azure-datacenter som den revision 4 värdbaserade HANA-enheten beskrivs i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
+Med revision 4 av HANA stor instans-stämplar, är nätverks fördröjningen mellan virtuella Azure-datorer som distribueras i närheten av den stora instans stämpeln i den stora instansen att uppfylla genomsnittet eller bättre än genomsnitts klassificeringen som dokumenteras i [SAP obs #1100926 – vanliga frågor och svar: nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E) om Azure ExpressRoute snabb sökväg har kon figurer ATS (se nedan). För att kunna distribuera virtuella Azure-datorer i nära närhet till HANA stora instans enheter av revision 4 måste du utnyttja [Azure närhets placerings grupper](../../linux/co-location.md). Hur närhets placerings grupper kan användas för att hitta SAP-program skiktet i samma Azure-datacenter som den revision 4 värdbaserade HANA-enheten beskrivs i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
 
 För att tillhandahålla deterministisk nätverks fördröjning mellan virtuella datorer och HANA stor instans är valet av SKU för ExpressRoute-Gateway nödvändigt. Till skillnad från trafik mönster mellan lokala och virtuella datorer kan trafik mönstret mellan virtuella datorer och HANA stor instans utveckla små men höga burst-sändningar för begär Anden och data volymer som ska överföras. För att hantera sådana burst-fel rekommenderar vi starkt att du använder UltraPerformance Gateway-SKU: n. För typ II-klassen för HANA stor instans-SKU: er är det obligatoriskt att använda UltraPerformance Gateway-SKU: n som en ExpressRoute-Gateway.
 
@@ -85,10 +86,10 @@ För att tillhandahålla deterministisk nätverks fördröjning mellan virtuella
 För att minska svars tiden har ExpressRoute snabb sökväg lanserats och lanserats i maj 2019 för den specifika anslutningen av HANA-stora instanser till virtuella Azure-nätverk som är värdar för de virtuella SAP-programmen. Den största skillnaden för lösningen som distribueras hittills, är att data flödar mellan virtuella datorer och HANA-stora instanser inte dirigeras genom ExpressRoute-gatewayen längre. I stället kommunicerar de virtuella datorerna i under näten i det virtuella Azure-nätverket direkt med den dedikerade Enterprise Edge-routern. 
 
 > [!IMPORTANT] 
-> ExpressRoute-funktionen för snabb sökväg kräver att de undernät som kör de virtuella SAP-programmen finns i samma virtuella Azure-nätverk som var anslutna till de stora HANA-instanserna. Virtuella datorer som finns i virtuella Azure-nätverk som är peer-kopplade med det virtuella Azure-nätverket som är anslutna direkt till de stora instanser i HANA-instansen är inte förmånen från ExpressRoute snabb väg. Som en typisk hubb och Ekers design för virtuella nätverk, där ExpressRoute-kretsarna ansluter mot ett virtuellt hubb nätverk och virtuella nätverk som innehåller SAP-program skiktet (ekrar), kommer inte snabb sökvägen för optimering av ExpressRoute att fungera. I utöver stöder ExpressRoute snabb sökväg inte användardefinierade regler för routning (UDR) idag. Mer information finns i [ExpressRoute virtuell nätverksgateway och FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> ExpressRoute-funktionen för snabb sökväg kräver att de undernät som kör de virtuella SAP-programmen finns i samma virtuella Azure-nätverk som var anslutna till de stora HANA-instanserna. Virtuella datorer som finns i virtuella Azure-nätverk som är peer-kopplade med det virtuella Azure-nätverket som är anslutna direkt till de stora instanser i HANA-instansen är inte förmånen från ExpressRoute snabb väg. Som en typisk hubb och Ekers design för virtuella nätverk, där ExpressRoute-kretsarna ansluter mot ett virtuellt hubb nätverk och virtuella nätverk som innehåller SAP-program skiktet (ekrar), kommer inte snabb sökvägen för optimering av ExpressRoute att fungera. I utöver stöder ExpressRoute snabb sökväg inte användardefinierade regler för routning (UDR) idag. Mer information finns i [ExpressRoute virtuell nätverksgateway och FastPath](../../../expressroute/expressroute-about-virtual-network-gateways.md). 
 
 
-Mer information om hur du konfigurerar ExpressRoute snabb sökväg, finns i dokumentet [Anslut ett virtuellt nätverk till Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).    
+Mer information om hur du konfigurerar ExpressRoute snabb sökväg, finns i dokumentet [Anslut ett virtuellt nätverk till Hana-stora instanser](./hana-connect-vnet-express-route.md).    
 
 > [!NOTE]
 > En UltraPerformance ExpressRoute-Gateway krävs för att ExpressRoute snabb väg ska fungera
@@ -123,7 +124,7 @@ För en mer skalbar nätverks arkitektur:
 
 ![Distribuera SAP-programlager över flera virtuella nätverk](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-Beroende av reglerna och begränsningarna som du vill tillämpa mellan de olika virtuella nätverk som är värdar för virtuella datorer i olika SAP-system, bör du peer-koppla dessa virtuella nätverk. Mer information om peering för virtuella nätverk finns i [peering för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+Beroende av reglerna och begränsningarna som du vill tillämpa mellan de olika virtuella nätverk som är värdar för virtuella datorer i olika SAP-system, bör du peer-koppla dessa virtuella nätverk. Mer information om peering för virtuella nätverk finns i [peering för virtuella nätverk](../../../virtual-network/virtual-network-peering-overview.md).
 
 
 ## <a name="routing-in-azure"></a>Routning i Azure
@@ -147,7 +148,7 @@ Den transitiva routningen fungerar som standard inte i följande scenarier:
 Det finns tre sätt att aktivera transitiv routning i dessa scenarier:
 
 - En omvänd proxy för att dirigera data till och från. Till exempel F5 BIG-IP, NGINX med Traffic Manager distribuerat i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokal som en virtuell brand vägg/Traffic routing-lösning.
-- Använda [program varan iptables-regler](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en virtuell Linux-dator för att aktivera routning mellan lokala platser och Hana stora instans enheter, eller mellan Hana-stora instans enheter i olika regioner. Den virtuella datorn som kör program varan iptables måste distribueras i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokalt. Den virtuella datorn måste ha en storlek enligt detta, så att nätverks data flödet på den virtuella datorn räcker för den förväntade nätverks trafiken. Mer information om bandbredd för virtuella datorer finns i artikel [storlekarna för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Använda [program varan iptables-regler](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en virtuell Linux-dator för att aktivera routning mellan lokala platser och Hana stora instans enheter, eller mellan Hana-stora instans enheter i olika regioner. Den virtuella datorn som kör program varan iptables måste distribueras i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokalt. Den virtuella datorn måste ha en storlek enligt detta, så att nätverks data flödet på den virtuella datorn räcker för den förväntade nätverks trafiken. Mer information om bandbredd för virtuella datorer finns i artikel [storlekarna för virtuella Linux-datorer i Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - [Azure-brandväggen](https://azure.microsoft.com/services/azure-firewall/) skulle vara en annan lösning för att aktivera direkt trafik mellan lokala och Hana stora instans enheter. 
 
 All trafik från dessa lösningar kommer att dirigeras via ett virtuellt Azure-nätverk och eftersom trafiken också kan begränsas av de mjuka enheter som används eller av Azures nätverks säkerhets grupper, så att vissa IP-adresser eller IP-adressintervall från lokala platser kan blockeras eller uttryckligen tillåtas åtkomst till HANA-stora instanser. 
@@ -156,7 +157,7 @@ All trafik från dessa lösningar kommer att dirigeras via ett virtuellt Azure-n
 > Tänk på att implementering och stöd för anpassade lösningar som inbegriper nätverks apparater från tredje part eller program varan iptables inte tillhandahålls av Microsoft. Support måste tillhandahållas av leverantören av komponenten som används eller integreraren. 
 
 #### <a name="express-route-global-reach"></a>Express Route-Global Reach
-Microsoft introducerade en ny funktion som kallas [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach). Global Reach kan användas för HANA-stora instanser i två scenarier:
+Microsoft introducerade en ny funktion som kallas [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md). Global Reach kan användas för HANA-stora instanser i två scenarier:
 
 - Aktivera direkt åtkomst från lokalt till dina HANA stora instanser som distribuerats i olika regioner
 - Aktivera direkt kommunikation mellan dina HANA-stora instans enheter som distribuerats i olika regioner
@@ -174,7 +175,7 @@ På samma sätt kan du, eftersom ExpressRoute Global Reach kan användas för at
 > [!IMPORTANT]  
 > Data flödet och kontroll flödet för nätverks trafiken mellan olika HANA-instanser för stora instanser skickas inte via Azure-nätverk. Det innebär att du inte kan använda Azure-funktioner eller NVA för att genomdriva kommunikations begränsningar mellan dina två HANA stora instanser-klienter. 
 
-Mer information om hur du hämtar ExpressRoute Global Reach aktiverat finns i dokumentet [Anslut ett virtuellt nätverk till Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).
+Mer information om hur du hämtar ExpressRoute Global Reach aktiverat finns i dokumentet [Anslut ett virtuellt nätverk till Hana-stora instanser](./hana-connect-vnet-express-route.md).
 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Internet anslutning för HANA stor instans
@@ -193,7 +194,7 @@ Om du vill använda UPS för haveri beredskap måste du ha SHANA stora instans e
 
 ![Virtuellt nätverk som är anslutet till Azures stora instanser i olika Azure-regioner](./media/hana-overview-architecture/image8-multiple-regions.png)
 
-Bilden visar hur de olika virtuella nätverken i båda regionerna är anslutna till två olika ExpressRoute-kretsar som används för att ansluta till SAP HANA på Azure (stora instanser) i båda Azure-regionerna (grå linjer). Anledningen till att dessa två kors anslutningar är att skydda mot ett avbrott i msee på någon av sidorna. Kommunikations flödet mellan de två virtuella nätverken i de två Azure-regionerna ska hanteras över [Global peering](https://blogs.msdn.microsoft.com/azureedu/2018/04/24/how-to-setup-global-vnet-peering-in-azure/) av de två virtuella nätverken i de två olika regionerna (blå streckad linje). Den tjocka röda linjen beskriver ExpressRoute Global Reach-anslutningen, som gör att de många HANA-instanser av dina klienter i två olika regioner kan kommunicera med varandra. 
+Bilden visar hur de olika virtuella nätverken i båda regionerna är anslutna till två olika ExpressRoute-kretsar som används för att ansluta till SAP HANA på Azure (stora instanser) i båda Azure-regionerna (grå linjer). Anledningen till att dessa två kors anslutningar är att skydda mot ett avbrott i msee på någon av sidorna. Kommunikations flödet mellan de två virtuella nätverken i de två Azure-regionerna ska hanteras över [Global peering](/archive/blogs/azureedu/how-to-setup-global-vnet-peering-in-azure) av de två virtuella nätverken i de två olika regionerna (blå streckad linje). Den tjocka röda linjen beskriver ExpressRoute Global Reach-anslutningen, som gör att de många HANA-instanser av dina klienter i två olika regioner kan kommunicera med varandra. 
 
 > [!IMPORTANT] 
 > Om du har använt flera ExpressRoute-kretsar, som sökväg i väntan och lokala inställningar för BGP-inställningar, ska du använda för att säkerställa korrekt trafik trafik.

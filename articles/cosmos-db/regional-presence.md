@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78f02c07932c6a058ba4fa27289640b7efd56169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2242e8febad5d55813721266f1286250af47111
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082893"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Regional närvaro med Azure Cosmos DB
 
-Azure Cosmos DB är en grundläggande tjänst i Azure och är som standard alltid tillgänglig i alla regioner där Azure är tillgängligt. Azure är för närvarande tillgängligt i [54-regioner](https://azure.microsoft.com/global-infrastructure/regions/) över hela världen. 
+Azure Cosmos DB är en grundläggande tjänst i Azure och är som standard alltid tillgänglig i [alla regioner där Azure är tillgängligt](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all).
 
 :::image type="content" source="./media/regional-presence/regional-presence.png" alt-text="Regioner där Azure Cosmos DB är tillgängligt" lightbox="./media/regional-presence/regional-presence.png" border="false":::
 
@@ -37,6 +37,8 @@ Cosmos DB är tillgängligt i alla fem olika Azure Cloud-miljöer som är tillg�
 Alla API: er som exponeras av Azure Cosmos DB (inklusive SQL, MongoDB, Cassandra, Gremlin och Table) är tillgängliga i alla Azure-regioner som standard. Du kan till exempel ha MongoDB-och Cassandra-API: er som exponeras av Azure Cosmos DB inte bara i alla globala Azure-regioner, utan även i suveräna moln som Kina, Tyskland, myndigheter och DoD (Department of försvar).
 
 Azure Cosmos DB är en [globalt distribuerad](distribute-data-globally.md) databas tjänst. Du kan associera ett valfritt antal Azure-regioner med ditt Azure Cosmos-konto så kommer dina data automatiskt att replikeras. Du kan när som helst lägga till eller ta bort en region i ditt Azure Cosmos-konto. Med den nyckel färdiga globala distributions funktionen och det multimastered Replication-protokollet erbjuder Azure Cosmos DB mindre än 10 MS Läs-och skriv fördröjningar för 99: e percentil, 99,999 Läs-och skriv tillgänglighet och möjlighet att elastiskt skala etablerade data flöden för läsning och skrivning i alla regioner som är kopplade till ditt Azure Cosmos-konto. Azure Cosmos DB erbjuder även fem väldefinierade konsekvens modeller och du kan välja att tillämpa en viss konsekvens modell för dina data. Slutligen är Azure Cosmos DB den enda databas tjänsten i branschen som ger en heltäckande [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) som omfattar tillhandahållet data flöde, svars tid vid 99 percentil, hög tillgänglighet och konsekvens. Ovanstående funktioner är tillgängliga i alla Azure-moln.
+
+Stöd för global replikering är begränsat till en moln miljö i Azure. Till exempel kan Azure Cosmos DB konton i *Azure Public* replikeras till valfri Azure-region i *Azure-offentligt* , men kan inte replikeras till Azure-regioner i *Azure Kina 21Vianet*.
 
 ## <a name="next-steps"></a>Nästa steg
 

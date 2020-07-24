@@ -2,14 +2,14 @@
 title: Allmänna frågor om tjänsten Azure Site Recovery
 description: I den här artikeln beskrivs populära allmänna frågor om Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083743"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -116,6 +116,19 @@ Mobilitets agenter som är installerade på replikerade objekt kommunicerar enda
 ### <a name="how-can-i-enforce-tls-12-on-hyperv-to-azure-site-recovery-scenarios"></a>Hur kan jag använda TLS 1,2 på HyperV-to-Azure Site Recovery-scenarier?
 All kommunikation mellan mikrotjänster för Azure Site Recovery sker på TLS 1,2-protokollet. Site Recovery använder säkerhetsproviders som kon figurer ATS i systemet (OS) och använder det senaste tillgängliga TLS-protokollet. En måste uttryckligen Aktivera TLS 1,2 i registret och sedan börjar Site Recovery använda TLS 1,2 för kommunikation med tjänster. 
 
+### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>Hur gör jag för att genomdriva begränsad åtkomst till mina lagrings konton som används av Site Recovery-tjänsten för att läsa/skriva replikeringsdata?
+Du kan växla till den hanterade identiteten för Recovery Services-valvet genom att gå till *identitets* inställningen. När valvet har registrerats med Azure Active Directory kan du gå till dina lagrings konton och ge följande roll tilldelningar till valvet:
+
+- Resource Manager-baserade lagrings konton (standard typ):
+  - [Deltagare](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage BLOB data-deltagare](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Resource Manager-baserade lagrings konton (Premium typ):
+  - [Deltagare](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage BLOB data-ägare](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- Klassiska lagrings konton:
+  - [Klassisk lagrings konto deltagare](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
+  - [Klassisk lagrings kontots nyckel operatörs tjänst roll](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
 ## <a name="disaster-recovery"></a>Haveriberedskap
 
 ### <a name="what-can-site-recovery-protect"></a>Vad kan Site Recovery skydda?
@@ -142,7 +155,7 @@ Ja, Site Recovery stöder haveri beredskap för lokala virtuella VMware-datorer.
 ### <a name="is-disaster-recovery-supported-for-hyper-v-vms"></a>Stöds haveri beredskap för virtuella Hyper-V-datorer?
 Ja, Site Recovery stöder haveri beredskap för lokala virtuella Hyper-V-datorer. [Läs vanliga frågor](hyper-v-azure-common-questions.md) om haveri beredskap för virtuella Hyper-V-datorer.
 
-## <a name="is-disaster-recovery-supported-for-physical-servers"></a>Stöds haveri beredskap för fysiska servrar?
+### <a name="is-disaster-recovery-supported-for-physical-servers"></a>Stöds haveri beredskap för fysiska servrar?
 Ja, Site Recovery stöder haveri beredskap för lokala fysiska servrar som kör Windows och Linux till Azure eller till en sekundär plats. Läs om kraven för haveri beredskap till [Azure](vmware-physical-azure-support-matrix.md#replicated-machines)och[en sekundär plats](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 Observera att fysiska servrar kommer att köras som virtuella datorer i Azure efter en redundansväxling. Återställning efter fel från Azure till en lokal fysisk server stöds inte för närvarande. Du kan bara växla tillbaka till en virtuell VMware-dator.
 

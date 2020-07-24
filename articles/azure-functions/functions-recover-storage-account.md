@@ -5,11 +5,12 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d84e1269fecf3bd85538415b5790c22aaf6eb01e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063789"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085120"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Fel söknings fel: "Körmiljö för Azure Functions kan inte kontaktas"
 
@@ -17,7 +18,7 @@ Den här artikeln hjälper dig att felsöka följande fel sträng som visas i Az
 
 > "Fel: Körmiljö för Azure Functions kan inte kontaktas. Klicka här om du vill ha mer information om lagrings konfiguration. "
 
-Det här problemet uppstår när Körmiljö för Azure Functions inte kan starta. Den vanligaste orsaken till problemet är att Function-appen har förlorat åtkomst till sitt lagrings konto. Mer information finns i [krav för lagrings konton](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
+Det här problemet uppstår när Körmiljö för Azure Functions inte kan starta. Den vanligaste orsaken till problemet är att Function-appen har förlorat åtkomst till sitt lagrings konto. Mer information finns i [krav för lagrings konton](./functions-create-function-app-portal.md#storage-account-requirements).
 
 Resten av den här artikeln hjälper dig att felsöka följande orsaker till det här felet, inklusive hur du identifierar och löser varje ärende.
 
@@ -25,7 +26,7 @@ Resten av den här artikeln hjälper dig att felsöka följande orsaker till det
 
 Alla Functions-appar kräver ett lagrings konto för att fungera. Om kontot tas bort fungerar inte din funktion.
 
-Börja med att leta upp ditt lagrings konto namn i dina program inställningar. Antingen `AzureWebJobsStorage` eller `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` innehåller namnet på ditt lagrings konto i en anslutnings sträng. Mer information finns i [referens för app-inställningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Börja med att leta upp ditt lagrings konto namn i dina program inställningar. Antingen `AzureWebJobsStorage` eller `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` innehåller namnet på ditt lagrings konto i en anslutnings sträng. Mer information finns i [referens för app-inställningar för Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
 
 Sök efter ditt lagrings konto i Azure Portal för att se om det fortfarande finns. Om den har tagits bort återskapar du lagrings kontot och ersätter lagrings anslutnings strängarna. Funktions koden förloras och du måste distribuera den igen.
 
@@ -36,12 +37,12 @@ I föregående steg, om du inte kan hitta någon anslutnings sträng för lagrin
 ### <a name="required-application-settings"></a>Nödvändiga program inställningar
 
 * Kunna
-    * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+    * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
 * Krävs för förbruknings plan funktioner:
-    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
-    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
+    * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
-Mer information finns i [referens för app-inställningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
+Mer information finns i [referens för app-inställningar för Azure Functions](./functions-app-settings.md).
 
 ### <a name="guidance"></a>Vägledning
 
@@ -51,7 +52,7 @@ Mer information finns i [referens för app-inställningar för Azure Functions](
 
 ## <a name="storage-account-credentials-are-invalid"></a>Autentiseringsuppgifterna för lagrings kontot är ogiltiga
 
-De tidigare diskuterade lagrings kontots anslutnings strängar måste uppdateras om du återskapar lagrings nycklar. Mer information om hantering av lagrings nycklar finns i [skapa ett Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+De tidigare diskuterade lagrings kontots anslutnings strängar måste uppdateras om du återskapar lagrings nycklar. Mer information om hantering av lagrings nycklar finns i [skapa ett Azure Storage konto](../storage/common/storage-account-create.md).
 
 ## <a name="storage-account-is-inaccessible"></a>Lagrings kontot är inte tillgängligt
 
@@ -59,7 +60,7 @@ Din Function-app måste kunna komma åt lagrings kontot. Vanliga problem som blo
 
 * Function-appen distribueras till din App Service-miljön utan rätt nätverks regler för att tillåta trafik till och från lagrings kontot.
 
-* Lagrings kontots brand vägg är aktive rad och inte konfigurerad för att tillåta trafik till och från funktioner. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Lagrings kontots brand vägg är aktive rad och inte konfigurerad för att tillåta trafik till och från funktioner. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="daily-execution-quota-is-full"></a>Kvoten för daglig körning är full
 
@@ -87,7 +88,7 @@ Så här verifierar du din App Service-miljön-konfiguration:
    
 Du kan också använda portalen från en dator som är ansluten till det virtuella nätverk som kör din app eller till en virtuell dator som körs i det virtuella nätverket. 
 
-Mer information om konfiguration av inkommande regel finns i avsnittet "nätverks säkerhets grupper" i [nätverks överväganden för en app service-miljön](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+Mer information om konfiguration av inkommande regel finns i avsnittet "nätverks säkerhets grupper" i [nätverks överväganden för en app service-miljön](../app-service/environment/network-info.md#network-security-groups).
 
 ## <a name="next-steps"></a>Nästa steg
 

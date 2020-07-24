@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 971ab39ddf4b383f92f0cd81e5258ad357e76e99
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cf2437443350cf9b21b6abc0d0dd1dbd5d22e41f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857075"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083199"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera webbjobb med hjälp av Visual Studio – Azure App Service
 
@@ -79,7 +79,7 @@ Du kan distribuera ett projekt som ett webb jobb separat eller länka det till e
 
 ![Diagram över projekt för webb jobb som länkar till webb projekt](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du använder Visual Studio 2015 installerar du [Azure SDK för .net (Visual studio 2015)](https://azure.microsoft.com/downloads/).
 
@@ -225,7 +225,7 @@ När du [skapar ett webb jobb från Azure Portal](webjobs-create.md)skapas inst�
 
 ### <a name="cron-expressions"></a>CRON-uttryck
 
-WebJobs använder samma CRON-uttryck för schemaläggning som timer-utlösaren i Azure Functions. Mer information om CRON-support finns i [referens artikeln om timer-utlösare](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+WebJobs använder samma CRON-uttryck för schemaläggning som timer-utlösaren i Azure Functions. Mer information om CRON-support finns i [timer-utlösare för Azure Functions](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 

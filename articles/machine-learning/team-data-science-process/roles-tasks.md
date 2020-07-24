@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720018"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082757"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Process roller och uppgifter för team data vetenskap
 
@@ -116,7 +117,7 @@ Arbets flödes stegen kan grupperas i tre aktiviteter:
 
 - Projekt ledare utför Sprint planering
 - Data forskare utvecklar artefakter på `git` grenar för att ta itu med arbets objekt
-- Projekt ledare eller andra grupp medlemmar gör kod granskningar och sammanfogar arbets grenar till huvud grenen
+- Projekt ledare eller andra grupp medlemmar gör kod granskningar och sammanfogar arbets grenar till den primära grenen
 
 Detaljerade anvisningar om arbets flödet för projekt körning finns i [smidig utveckling av data vetenskaps projekt](agile-development.md).
 

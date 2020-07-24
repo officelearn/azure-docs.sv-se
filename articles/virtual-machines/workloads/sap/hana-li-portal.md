@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085273"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Kontroll av Azure HANA – stora instanser med Azure Portal
-Det här dokumentet beskriver hur [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) presenteras i [Azure Portal](https://portal.azure.com) och vilka aktiviteter som kan utföras med hjälp av Azure Portal med Hana-stora instans enheter som distribueras åt dig. Visning av HANA-stora instanser i Azure Portal tillhandahålls via en Azure Resource Provider för HANA-stora instanser, som för närvarande finns i en offentlig för hands version
+Det här dokumentet beskriver hur [Hana-stora instanser](./hana-overview-architecture.md) presenteras i [Azure Portal](https://portal.azure.com) och vilka aktiviteter som kan utföras med hjälp av Azure Portal med Hana-stora instans enheter som distribueras åt dig. Visning av HANA-stora instanser i Azure Portal tillhandahålls via en Azure Resource Provider för HANA-stora instanser, som för närvarande finns i en offentlig för hands version
 
 ## <a name="register-hana-large-instance-resource-provider"></a>Registrera HANA-resurs leverantör med hög instans
 Vanligt vis har din Azure-prenumeration som du använde för HANA-stor instans distribution registrerats för resurs leverantören HANA stor instans. Men om du inte kan se distribuerade HANA stora instans enheter bör du registrera resurs leverantören i din Azure-prenumeration. Det finns två sätt att registrera resurs leverantören HANA-stor instans
@@ -35,7 +35,7 @@ Du måste vara inloggad på din Azure-prenumeration som används för distributi
 az provider register --namespace Microsoft.HanaOnAzure
 ```
 
-Mer information finns i artikeln Azure- [resurs leverantörer och typer](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+Mer information finns i artikeln Azure- [resurs leverantörer och typer](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
 
 
 ### <a name="register-through-azure-portal"></a>Registrera dig via Azure Portal
@@ -45,12 +45,12 @@ Du kan (re) registrera resurs leverantören för HANA-stor instans via Azure Por
 
 I skärm bilden som visas har resurs leverantören redan registrerats. Om resurs leverantören ännu inte har registrerats trycker du på omregistrera eller registrera.
 
-Mer information finns i artikeln Azure- [resurs leverantörer och typer](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+Mer information finns i artikeln Azure- [resurs leverantörer och typer](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)
 
 
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Visning av HANA-stora instans enheter i Azure Portal
 När du skickar en begäran om storskalig stor instans distribution uppmanas du att ange den Azure-prenumeration som du ansluter till de stora och HANA-instanserna. Vi rekommenderar att du använder samma prenumeration som du använder för att distribuera SAP-program skiktet som fungerar mot de stora instans enheterna i HANA.
-När de första HANA-stora instanserna distribueras skapas en ny [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) i Azure-prenumerationen som du skickade i distributions förfrågan för dina Hana-instanser.  Den nya resurs gruppen visar en lista över alla dina HANA stora instanser som du har distribuerat i den aktuella prenumerationen.
+När de första HANA-stora instanserna distribueras skapas en ny [Azure-resurs grupp](../../../azure-resource-manager/management/manage-resources-portal.md) i Azure-prenumerationen som du skickade i distributions förfrågan för dina Hana-instanser.  Den nya resurs gruppen visar en lista över alla dina HANA stora instanser som du har distribuerat i den aktuella prenumerationen.
 
 För att hitta den nya Azure-resurs gruppen visar du resurs gruppen i din prenumeration genom att navigera i det vänstra navigerings fönstret i Azure Portal
 
@@ -80,8 +80,8 @@ När du klickar på "Visa fler" på översikts skärmen får du en presentation 
 
 De olika attribut som visas ser till att attributen inte ser annorlunda ut än för Azure VM-attribut. På sidans vänstra rubrik visas resurs gruppen, Azure-regionen, prenumerations namnet och ID: t samt vissa taggar som du har lagt till. Som standard har HANAs stora instans enheter ingen tagg tilldelad. På den högra sidan i sidhuvudet visas namnet på enheten som tilldelad när distributionen genomfördes. Operativ systemet visas samt IP-adressen. Som med virtuella datorer visas även enhets typen HANA stor instans med antalet CPU-trådar och minne. Mer information om de olika HANA-stora instans enheterna som visas här:
 
-- [Tillgängliga SKU:er för HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [Lagrings arkitektur för SAP HANA (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [Tillgängliga SKU:er för HLI](./hana-available-skus.md)
+- [Lagrings arkitektur för SAP HANA (stora instanser)](./hana-storage-architecture.md) 
 
 Ytterligare data på den högra nedre sidan är en revidering av den stora, HANA-instansens stämpel. Möjliga värden:
 
@@ -89,7 +89,7 @@ Ytterligare data på den högra nedre sidan är en revidering av den stora, HANA
 - Revision 4
 
 Revision 4 är den senaste arkitekturen som lanseras av HANA-stora instanser med större förbättringar av nätverks fördröjningen mellan virtuella Azure-datorer och HANA stora instans enheter som distribueras i revision 4-stämplar eller rader.
-En annan viktig information finns i det nedre högra hörnet i översikten med namnet på den Azure närhets placerings grupp som skapas automatiskt för varje distribuerad HANA-stor instans enhet. Den här närhets placerings gruppen måste refereras när du distribuerar de virtuella Azure-datorer som är värdar för SAP-Programskiktet. Genom att använda [Azures närhets placering](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) som är associerad med den stora instans enheten i Hana, ser du till att de virtuella Azure-datorerna distribueras i nära närhet till den stora instans enheten i Hana. Hur närhets placerings grupper kan användas för att hitta SAP-program skiktet i samma Azure-datacenter som den revision 4 värdbaserade HANA-enheten beskrivs i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
+En annan viktig information finns i det nedre högra hörnet i översikten med namnet på den Azure närhets placerings grupp som skapas automatiskt för varje distribuerad HANA-stor instans enhet. Den här närhets placerings gruppen måste refereras när du distribuerar de virtuella Azure-datorer som är värdar för SAP-Programskiktet. Genom att använda [Azures närhets placering](../../linux/co-location.md) som är associerad med den stora instans enheten i Hana, ser du till att de virtuella Azure-datorerna distribueras i nära närhet till den stora instans enheten i Hana. Hur närhets placerings grupper kan användas för att hitta SAP-program skiktet i samma Azure-datacenter som den revision 4 värdbaserade HANA-enheten beskrivs i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
 
 Ett extra fält i den högra kolumnen i rubriken informerar om energispar läget för den stora instans enheten i HANA.
 
@@ -97,7 +97,7 @@ Ett extra fält i den högra kolumnen i rubriken informerar om energispar läget
 > Energi statusen beskriver om maskin varu enheten är påslagen eller inte. Det ger inte information om operativ systemet som körs. När du startar om en HANA-stor instans enhet kommer du att uppleva en liten stund där enhetens status ändras till **början** för att gå vidare till det **startade**stadiet. Att det är i läget för **startad** innebär att operativ systemet startas eller att operativ systemet har startats helt. Efter en omstart av enheten kan du efter en omstart av enheten omedelbart logga in i enheten så snart Tillstånds växlarna **har startats**.
 > 
 
-Om du trycker på "se mer" visas ytterligare information. En ytterligare information visar revideringen av den stora superinstansen i HANA, enheten har distribuerats i. Se artikeln [Vad är SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) för olika revisioner av Hana-stora instans stämplingar
+Om du trycker på "se mer" visas ytterligare information. En ytterligare information visar revideringen av den stora superinstansen i HANA, enheten har distribuerats i. Se artikeln [Vad är SAP HANA på Azure (stora instanser)](./hana-overview-architecture.md) för olika revisioner av Hana-stora instans stämplingar
 
 ## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Kontrol lera aktiviteter för en enskild HANA-stor instans enhet 
 Utöver att ge en översikt av de stora instans enheterna i HANA kan du kontrol lera aktiviteter för en viss enhet. En aktivitets logg kan se ut så här:
@@ -109,7 +109,7 @@ En av de viktigaste aktiviteterna som registreras är omstarter av en enhet. De 
 En annan aktivitet som registreras är ändringar i enheten i Azure metadata-data. Förutom att starta om startas kan du se aktiviteten **Skriv HANAInstances**. Den här typen av aktivitet utför inga ändringar i själva volymen i HANA-stor instans, men dokumenterar ändringar i enhetens metadata i Azure. I det fall som anges lade vi till och tog bort en tagg (se nästa avsnitt).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Lägga till och ta bort en Azure-tagg i en stor HANA-instans enhet
-En annan möjlighet är att lägga till en [tagg](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) i en stor Hana-instans enhet. Hur Taggar tilldelas skiljer sig inte från tilldelning av taggar till virtuella datorer. Precis som med virtuella datorer finns taggarna i Azure meta data och har samma begränsningar som taggar för virtuella datorer för HANA-stora instanser.
+En annan möjlighet är att lägga till en [tagg](../../../azure-resource-manager/management/tag-resources.md) i en stor Hana-instans enhet. Hur Taggar tilldelas skiljer sig inte från tilldelning av taggar till virtuella datorer. Precis som med virtuella datorer finns taggarna i Azure meta data och har samma begränsningar som taggar för virtuella datorer för HANA-stora instanser.
 
 Borttagning av Taggar fungerar på samma sätt som med virtuella datorer. Både aktiviteter, att tillämpa och ta bort en tagg listas i aktivitets loggen för den specifika HANA-stora instans enheten.
 
@@ -119,7 +119,7 @@ Avsnitts **egenskaperna** innehåller viktig information som du får när instan
 
 ![övre delen av HLI-egenskaperna i Azure Portal](./media/hana-li-portal/portal-properties-top.png)
 
-De första data elementen, som du såg i översikts skärmen redan. Men en viktig del av data är ExpressRoute krets-ID: t, som du fick när de första distribuerade enheterna överlämnades. I vissa support fall kan du bli ombedd att ange dessa data. En viktig data inmatning visas längst ned på skärm bilden. De data som visas är IP-adressen till NFS-lagrings huvudet som isolerar lagringen till **klienten** i den stora instans stacken i Hana. Den här IP-adressen behövs också när du redigerar [konfigurations filen för säkerhets kopior av lagrings ögonblicks bilder](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+De första data elementen, som du såg i översikts skärmen redan. Men en viktig del av data är ExpressRoute krets-ID: t, som du fick när de första distribuerade enheterna överlämnades. I vissa support fall kan du bli ombedd att ange dessa data. En viktig data inmatning visas längst ned på skärm bilden. De data som visas är IP-adressen till NFS-lagrings huvudet som isolerar lagringen till **klienten** i den stora instans stacken i Hana. Den här IP-adressen behövs också när du redigerar [konfigurations filen för säkerhets kopior av lagrings ögonblicks bilder](./hana-backup-restore.md#set-up-storage-snapshots). 
 
 När du bläddrar nedåt i egenskaps fönstret får du ytterligare data, till exempel ett unikt resurs-ID för din HANA stor instans enhet eller det prenumerations-ID som har tilldelats till distributionen.
 
@@ -159,6 +159,5 @@ När du svarade på frågorna och tillhandahöll ytterligare information kan du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Övervaka SAP HANA (stora instanser) i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-- [Övervaka och felsöka från HANA-sida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
-
+- [Övervaka SAP HANA (stora instanser) i Azure](./troubleshooting-monitoring.md)
+- [Övervaka och felsöka från HANA-sida](./hana-monitor-troubleshoot.md)

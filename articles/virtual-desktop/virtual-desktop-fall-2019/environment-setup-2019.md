@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop-miljö – Azure
-description: De grundläggande elementen i en Windows Virtual Desktop-miljö.
+title: Windows Virtual Desktop-miljö (hösten 2019) – Azure
+description: Lär dig mer om de grundläggande elementen i en Windows Virtual Desktop-miljö (hösten 2019 release) som klienter och värdar för pooler.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082655"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop-miljö
+# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Windows Virtual Desktop-miljö (hösten 2019-utgåva)
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../environment-setup.md).

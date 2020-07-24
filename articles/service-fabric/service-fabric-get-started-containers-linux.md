@@ -4,12 +4,12 @@ description: Skapa din första Linux-containerapp på Azure Service Fabric. Skap
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 783f6a06d57a447998710e2c8ff349b23ef751c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 547030b983dd02e7b65d404188dccdcc24d53a22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083845"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -21,11 +21,13 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 > [!NOTE]
 > Den här artikeln gäller en Linux-utvecklings miljö.  Service Fabric kluster körning och Docker-körningsmiljön måste köras på samma OS.  Det går inte att köra Linux-behållare i ett Windows-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En utvecklingsdator som kör:
   * [Service Fabric SDK och verktyg](service-fabric-get-started-linux.md).
   * [Docker CE för Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Service Fabric CLI](service-fabric-cli.md)
+
+* Ett Linux-kluster med tre eller fler noder.
 
 * Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration. 
 
@@ -103,7 +105,7 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a>Kör programmet lokalt
+## <a name="run-the-application-locally"></a>Köra appen lokalt
 Kontrollera att av programmet körs lokalt innan du skickar det till containerregistret. 
 
 Kör programmet, vilket mappar port 4000 på datorn till containerns exponerade port 80:
@@ -371,7 +373,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
 Om du vill lägga till en till containertjänst till ett program som redan har skapats med hjälp av yeoman utför du följande steg:
 
 1. Ändra katalogen till roten för det befintliga programmet. Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
-2. Kör `yo azuresfcontainer:AddService`
+2. Jag kör `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

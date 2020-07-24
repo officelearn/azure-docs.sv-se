@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ad817afd8f4e80e99055646dca34b9bb05d100f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1956090f1b927d9fd4e205eaa57bf1952cb1b070
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083998"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Förbättrade säkra poäng i Azure Security Center
 
@@ -172,7 +172,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implementera rekommenderade säkerhets metoder (max antal poäng 0)</p></strong>Modern säkerhets praxis "anta överträdelse" av nätverks omkretsen. Därför är många av de bästa metoderna i den här kontrollen fokuserade på att hantera identiteter.<br>Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">Azure Key Vault</a> skyddar nycklar och hemligheter genom att kryptera nycklar, PFX-filer och lösen ord.<br>Virtuella privata nätverk (VPN) är ett säkert sätt att komma åt dina virtuella datorer. Om VPN inte är tillgängligt använder du komplexa lösen fraser och tvåfaktorautentisering, till exempel <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>. Med tvåfaktorautentisering undviker du de svagheter som endast förlitar sig på användar namn och lösen ord.<br>Att använda kraftfulla plattformar för autentisering och auktorisering är en annan metod. Med federerade identiteter kan organisationer delegera hantering av auktoriserade identiteter. Detta är också viktigt när anställda avslutas och deras åtkomst måste återkallas.</td>
-    <td class="tg-lboi"; width=55%>-Högst 3 ägare bör anges för din prenumeration<br>-Externa konton med Läs behörighet bör tas bort från din prenumeration<br>-MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration<br>-Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas<br>-Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet<br>-En Azure Active Directory administratör bör tillhandahållas för SQL-servrar<br>-Auktoriseringsregler för Event Hub-instansen måste definieras<br>-Lagrings konton ska migreras till nya Azure Resource Manager resurser<br>-Virtuella datorer ska migreras till nya Azure Resource Manager-resurser<br>-Avancerade säkerhets inställningar för data för SQL Database bör innehålla en e-postadress för att ta emot säkerhets aviseringar<br>-Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser<br>-Alla avancerade skydds typer bör vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans<br>-E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar i SQL Server<br>-Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL Server<br>-Undernät ska associeras med en nätverks säkerhets grupp<br>-Alla avancerade skydds typer bör vara aktiverade i SQL Database avancerade data säkerhets inställningar för servern<br>-Förhandsgranskningsvyn Windows sårbarhets Guard ska vara aktive rad <br>-Förhandsgranskningsvyn Konfigurations agenten för gäster bör installeras<br>-Virtuella datorer som inte är baserade på Internet bör skyddas med nätverks säkerhets grupper</td>
+    <td class="tg-lboi"; width=55%>-Högst 3 ägare bör anges för din prenumeration<br>-Externa konton med Läs behörighet bör tas bort från din prenumeration<br>-MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration<br>-Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas<br>-Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet<br>-En Azure Active Directory administratör bör tillhandahållas för SQL-servrar<br>-Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser<br>-Auktoriseringsregler för Event Hub-instansen måste definieras<br>-Lagrings konton ska migreras till nya Azure Resource Manager resurser<br>-Virtuella datorer ska migreras till nya Azure Resource Manager-resurser<br>-Undernät ska associeras med en nätverks säkerhets grupp<br>-Förhandsgranskningsvyn Windows sårbarhets Guard ska vara aktive rad <br>-Förhandsgranskningsvyn Konfigurations agenten för gäster bör installeras<br>-Virtuella datorer som inte är baserade på Internet bör skyddas med nätverks säkerhets grupper</td>
   </tr>
 </tbody>
 </table>

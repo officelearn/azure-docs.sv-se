@@ -4,11 +4,12 @@ description: Använda utlösare och bindningar för Durable Functions-tillägget
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081856"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
 
@@ -18,7 +19,7 @@ ms.locfileid: "84698069"
 
 Genom Orchestration-utlösaren kan du skapa [robusta Orchestrator-funktioner](durable-functions-types-features-overview.md#orchestrator-functions). Den här utlösaren stöder start av nya Orchestrator Function-instanser och återupptar befintliga Orchestrator-funktioner som väntar på en aktivitet.
 
-När du använder Visual Studio-verktygen för Azure Functions konfigureras Orchestration-utlösaren med hjälp av attributet [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .net.
+När du använder Visual Studio-verktygen för Azure Functions konfigureras Orchestration-utlösaren med hjälp av attributet [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet) .net.
 
 När du skriver Orchestrator-funktioner i skript språk (till exempel java script eller C#-skript) definieras Orchestration-utlösaren av följande JSON-objekt i `bindings` matrisen för *function.jspå* filen:
 
@@ -463,7 +464,7 @@ Enhets klasser har särskilda metoder för att interagera med bindningar och .NE
 
 Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion som skrivits i Java Script. Den här funktionen definierar tre åtgärder, `add` , `reset` och `get` , som körs på ett heltals tillstånd.
 
-**function.jspå**
+**function.json**
 ```json
 {
   "bindings": [
@@ -601,7 +602,7 @@ I synnerhet är det inte meningsfullt att signalera `Get` åtgärden, eftersom i
 
 Här är ett exempel på en Queue-utlöst funktion som signalerar en "Counter"-entitet i Java Script.
 
-**function.jspå**
+**function.json**
 ```json
 {
     "bindings": [

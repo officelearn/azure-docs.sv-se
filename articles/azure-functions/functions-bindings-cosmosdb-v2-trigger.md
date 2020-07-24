@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 1ff8281a420eb1e967cb9f1d4db620d8f816794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30096e84c31f9e73e0ce02daa5765e98bdcd192
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085103"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB utlösare för Azure Functions 2. x och högre
 
@@ -209,7 +209,7 @@ Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-I [Java Functions runtime-bibliotek](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)använder du `@CosmosDBInput` anteckningen för parametrar som läser data från Cosmos dB.
+I [Java Functions runtime-bibliotek](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBInput` anteckningen för parametrar som läser data från Cosmos dB.
 
 ---
 

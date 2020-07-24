@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ff4fb08b1e627184760bb0a33797b2a324d4c55
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082638"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -35,14 +35,14 @@ Den här artikeln innehåller en översikt över VM-tillägg, krav för att anv�
 Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt användnings fall. Några exempel är:
 
 - Använd PowerShell Desired State Configurations på en virtuell dator med DSC-tillägget för Windows. Mer information finns i [tillägget Azure Desired State Configuration](dsc-overview.md).
-- Konfigurera övervakning av en virtuell dator med det virtuella Log Analytics agent-tillägget. Mer information finns i [ansluta virtuella Azure-datorer till Azure Monitor loggar](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Konfigurera övervakning av en virtuell dator med det virtuella Log Analytics agent-tillägget. Mer information finns i [ansluta virtuella Azure-datorer till Azure Monitor loggar](../../azure-monitor/learn/quick-collect-azurevm.md).
 - Konfigurera en virtuell Azure-dator med hjälp av chef. Mer information finns i [Automatisera distribution av virtuella Azure-datorer med chef](../../chef/chef-automation.md).
 - Konfigurera övervakning av din Azure-infrastruktur med Datadog-tillägget. Mer information finns i Datadog- [bloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Windows kan du köra alla PowerShell-skript på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i [anpassat skript tillägg för Windows VM](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Windows-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -65,18 +65,18 @@ Vissa tillägg stöds inte för alla operativ system och genererar *felkod 51, O
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
-Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version av agenterna som [stöds](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) , behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via den privilegierade kanalen på privat IP- [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
+Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version av agenterna som [stöds](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) , behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via den privilegierade kanalen på privat IP- [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
 
 > [!IMPORTANT]
 > Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen att fungera oberoende av ovanstående. Portarna 80, 443 och 32526 krävs.
 
-Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage eller Azure Active Directory kan du tillåta åtkomst med [Azure NSG service-Taggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) till Storage eller AzureActiveDirectory.
+Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage eller Azure Active Directory kan du tillåta åtkomst med [Azure NSG service-Taggar](../../virtual-network/security-overview.md#service-tags) till Storage eller AzureActiveDirectory.
 
 Gäst agenten i Windows har inte stöd för att dirigera om agent trafik begär Anden via, vilket innebär att gäst agenten i Windows kommer att förlita sig på din anpassade proxy (om du har en) för att komma åt resurser på Internet eller på värden via IP-168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Identifiera VM-tillägg
 
-Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista använder du [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). I följande exempel visas alla tillgängliga tillägg på platsen för *västkusten* :
+Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista använder du [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). I följande exempel visas alla tillgängliga tillägg på platsen för *västkusten* :
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +92,7 @@ Följande metoder kan användas för att köra ett tillägg mot en befintlig vir
 
 ### <a name="powershell"></a>PowerShell
 
-Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista använder du [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) och filter för *tillägg*:
+Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista använder du [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filter för *tillägg*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -127,7 +127,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-I följande exempel används VM Access-tillägget för att återställa det administrativa lösen ordet för en virtuell Windows-dator till ett tillfälligt lösen ord. Mer information om åtkomst tillägget för virtuella datorer finns i [återställa fjärr skrivbords tjänster på en virtuell Windows-dator](../windows/reset-rdp.md). När du har kört detta bör du återställa lösen ordet vid första inloggningen:
+I följande exempel används VM Access-tillägget för att återställa det administrativa lösen ordet för en virtuell Windows-dator till ett tillfälligt lösen ord. Mer information om åtkomst tillägget för virtuella datorer finns i [återställa fjärr skrivbords tjänster på en virtuell Windows-dator](../troubleshooting/reset-rdp.md). När du har kört detta bör du återställa lösen ordet vid första inloggningen:
 
 ```powershell
 $cred=Get-Credential
@@ -137,10 +137,10 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzVMExtension`Kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+`Set-AzVMExtension`Kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
@@ -267,7 +267,7 @@ När det finns en tillgänglig uppdatering installeras den bara på den virtuell
 - Behållare för startdiagnostik
 - Gäst operativ system hemligheter
 - Storlek på virtuell dator
-- Nätverks profil
+- Nätverksprofil
 
 Utgivare gör uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt att du kan ha virtuella datorer i olika regioner i olika versioner.
 
@@ -315,7 +315,7 @@ För att få de senaste fel korrigeringarna för smärre versioner, rekommendera
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identifiera om tillägget har angetts med aktiverat autoupgrademinorversion på en virtuell dator
 
-Du kan se från VM-modellen om tillägget etablerades med ' aktiverat autoupgrademinorversion '. Om du vill kontrol lera detta använder du [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) och anger resurs gruppen och namnet på den virtuella datorn enligt följande:
+Du kan se från VM-modellen om tillägget etablerades med ' aktiverat autoupgrademinorversion '. Om du vill kontrol lera detta använder du [Get-AzVm](/powershell/module/az.compute/get-azvm) och anger resurs gruppen och namnet på den virtuella datorn enligt följande:
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -371,7 +371,7 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 ### <a name="view-extension-status"></a>Visa tilläggs status
 
-När ett VM-tillägg har körts mot en virtuell dator använder du [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) för att returnera tilläggs status. *Status för under status [0]* visar att tillägget har slutförts, vilket innebär att det lyckades distribueras till den virtuella datorn, men körningen av tillägget i den virtuella datorn misslyckades, under *status [1]*.
+När ett VM-tillägg har körts mot en virtuell dator använder du [Get-AzVM](/powershell/module/az.compute/get-azvm) för att returnera tilläggs status. *Status för under status [0]* visar att tillägget har slutförts, vilket innebär att det lyckades distribueras till den virtuella datorn, men körningen av tillägget i den virtuella datorn misslyckades, under *status [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -407,7 +407,7 @@ Du kan också hitta körnings status för tillägg i Azure Portal. Om du vill vi
 
 ### <a name="rerun-vm-extensions"></a>Kör om VM-tillägg
 
-Det kan finnas fall där ett VM-tillägg måste köras igen. Du kan köra ett tillägg igen genom att ta bort det och sedan köra tillägget igen med en körnings metod som du väljer. Om du vill ta bort ett tillägg använder du [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) på följande sätt:
+Det kan finnas fall där ett VM-tillägg måste köras igen. Du kan köra ett tillägg igen genom att ta bort det och sedan köra tillägget igen med en körnings metod som du väljer. Om du vill ta bort ett tillägg använder du [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) på följande sätt:
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"

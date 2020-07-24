@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984624"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081992"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
 
@@ -35,8 +36,8 @@ I följande diagram markeras de två modellerna:
 ### <a name="azure-support-for-policy-based-vpn"></a>Azure-stöd för principbaserad VPN
 För närvarande stöder Azure båda lägena för VPN-gatewayer: routning-baserade VPN-gatewayer och principbaserad VPN-gatewayer. De bygger på olika interna plattformar, vilket resulterar i olika specifikationer:
 
-|                          | **Principbaserad VPN Gateway** | **Routningsbaserad VPN Gateway**       |**Routningsbaserad VPN Gateway**                          |
-| ---                      | ---                         | ---                              |---                                                 |
+| Kategori | Principbaserad VPN Gateway | Routningsbaserad VPN Gateway | Routningsbaserad VPN Gateway |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **Azure Gateway-SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **IKE-version**          | IKEv1                       | IKEv2                            | IKEv1 och IKEv2                         |
 | **Bekräftat. S2S-anslutningar** | **1**                       | 10                               | 30                     |
@@ -204,6 +205,6 @@ Följande rad visar om principbaserade trafik väljare används för anslutninge
       ```
 
 ## <a name="next-steps"></a>Nästa steg
-När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Se [Skapa en virtuell dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för anvisningar.
+När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Se [Skapa en virtuell dator](../virtual-machines/windows/quick-create-portal.md) för anvisningar.
 
 Granska också [Konfigurera IPSec/IKE-princip för S2S VPN-eller VNet-till-VNet-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md) för mer information om anpassade IPSec/IKE-principer.

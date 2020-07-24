@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832567"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085086"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -31,7 +31,7 @@ I följande exempel beskrivs hur du skapar en C# Function-app i Visual Studio oc
 
 ![Testa Azure Functions med C# i Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 
 Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följande steg hjälper dig att skapa appar och funktioner som krävs för att stödja testerna:
 
@@ -40,13 +40,13 @@ Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följa
 3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger**.
 4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests**.
 5. Använd NuGet för att lägga till en referens från testappen till [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Referera till *Functions* -appen](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. tests* -appen.
+6. [Referera till *Functions* -appen](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. tests* -appen.
 
 ### <a name="create-test-classes"></a>Skapa test klasser
 
 Nu när projekten har skapats kan du skapa de klasser som används för att köra automatiserade tester.
 
-Varje funktion tar en instans av [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) för att hantera meddelande loggning. Vissa tester loggar antingen inte in meddelanden eller har ingen risk för hur loggning implementeras. Andra tester måste utvärdera meddelanden som loggats för att avgöra om ett test skickas.
+Varje funktion tar en instans av [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) för att hantera meddelande loggning. Vissa tester loggar antingen inte in meddelanden eller har ingen risk för hur loggning implementeras. Andra tester måste utvärdera meddelanden som loggats för att avgöra om ett test skickas.
 
 Du skapar en ny klass med namnet `ListLogger` som innehåller en intern lista över meddelanden som ska utvärderas under ett test. För att implementera det nödvändiga `ILogger` gränssnittet behöver klassen ett definitions område. Följande klass är ett omfång för test fall att skicka till `ListLogger` klassen.
 
@@ -192,7 +192,7 @@ namespace Functions.Tests
 
 `TestFactory`Klassen implementerar följande medlemmar:
 
-- **Data**: den här egenskapen returnerar en [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckel värdes paren representerar värden som skickas till en frågesträng.
+- **Data**: den här egenskapen returnerar en [IEnumerable](/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckel värdes paren representerar värden som skickas till en frågesträng.
 
 - **CreateDictionary**: den här metoden accepterar ett nyckel/värde-par som argument och returnerar en ny som `Dictionary` används för att skapa `QueryCollection` för att representera frågesträngs värden.
 
@@ -268,7 +268,7 @@ I följande exempel beskrivs hur du skapar en JavaScript Function-app i VS Code 
 
 ![Testa Azure Functions med Java Script i VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 
 Om du vill konfigurera din miljö initierar du en ny Node.js app i en tom mapp genom att köra `npm init` .
 

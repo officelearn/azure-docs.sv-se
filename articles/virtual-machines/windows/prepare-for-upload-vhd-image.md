@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083522"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en VHD eller VHDX i Windows för överföring till Azure
 
@@ -62,7 +62,7 @@ Använd någon av metoderna i det här avsnittet för att konvertera och ändra 
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Använd PowerShell för att konvertera disken
 
-Du kan konvertera en virtuell disk med cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) i PowerShell. Klicka [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)om du behöver information om hur du installerar den här cmdleten.
+Du kan konvertera en virtuell disk med cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) i PowerShell. Klicka [här](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)om du behöver information om hur du installerar den här cmdleten.
 
 I följande exempel konverteras disken från VHDX till VHD. Den konverterar också disken från en dynamiskt expanderande disk till en disk med fast storlek.
 
@@ -86,7 +86,7 @@ Om du har en avbildning av en virtuell Windows-dator i [formatet VMDK](https://e
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Använd PowerShell för att ändra storlek på disken
 
-Du kan ändra storlek på en virtuell disk med hjälp av [ändra storlek-VHD-](/powershell/module/hyper-v/resize-vhd) cmdlet i PowerShell. Klicka [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)om du behöver information om hur du installerar den här cmdleten.
+Du kan ändra storlek på en virtuell disk med hjälp av [ändra storlek-VHD-](/powershell/module/hyper-v/resize-vhd) cmdlet i PowerShell. Klicka [här](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)om du behöver information om hur du installerar den här cmdleten.
 
 I följande exempel ändras storleken på disken från 100,5 MiB till 101 MiB för att uppfylla kraven för Azures justering.
 
@@ -138,7 +138,7 @@ När SFC-genomsökningen är klar installerar du Windows-uppdateringar och start
    netsh.exe winhttp reset proxy
    ```
 
-    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag för Azure IP-adressen ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) så att den virtuella datorn kan ansluta till Azure:
+    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag för Azure IP-adressen ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) så att den virtuella datorn kan ansluta till Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -264,7 +264,7 @@ Kontrol lera att följande inställningar är korrekt konfigurerade för fjärr�
 
 1. Om den virtuella datorn tillhör en domän kontrollerar du följande principer för att se till att de tidigare inställningarna inte har återställts.
 
-    |                 Mål                  |                                                                            Princip                                                                            |                           Värde                            |
+    |                 Mål                  |                                                                            Policy                                                                            |                           Värde                            |
     | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
     | RDP är aktiverat                        | Dator konfiguration \ konfiguration Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Connections         | Tillåt användare att fjärrans luta via fjärr skrivbord    |
     | Princip för NLA-grup princip                      | Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Security                                                    | Kräv användarautentisering för fjärråtkomst med hjälp av NLA |
@@ -308,7 +308,7 @@ Kontrol lera att följande inställningar är korrekt konfigurerade för fjärr�
 
 1. Om den virtuella datorn tillhör en domän kontrollerar du följande Azure AD-principer för att kontrol lera att de tidigare inställningarna inte har återställts.
 
-    |                 Mål                 |                                                                         Princip                                                                          |                  Värde                  |
+    |                 Mål                 |                                                                         Policy                                                                          |                  Värde                  |
     | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
     | Aktivera profiler för Windows-brandväggen | Datorn konfiguration \ konfiguration Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Skydda alla nätverks anslutningar         |
     | Aktivera RDP                           | Datorn konfiguration \ konfiguration Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Tillåt inkommande fjärr skrivbords undantag |
@@ -472,7 +472,7 @@ Du kör vanligt vis `sysprep.exe` för att skapa en mall som du kan använda fö
 Om du bara vill skapa en virtuell dator från en disk behöver du inte använda Sysprep. I stället kan du skapa den virtuella datorn från en *specialiserad avbildning*. Information om hur du skapar en virtuell dator från en specialiserad disk finns i:
 
 - [Skapa en virtuell dator från en särskild disk](create-vm-specialized.md)
-- [Skapa en virtuell dator från en specialiserad virtuell hård disk](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Skapa en virtuell dator från en specialiserad virtuell hård disk](./create-vm-specialized-portal.md)
 
 Om du vill skapa en generaliserad avbildning måste du köra Sysprep. Mer information finns i [så här använder du Sysprep: en introduktion](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -519,4 +519,4 @@ Följande inställningar påverkar inte VHD-uppladdning. Vi rekommenderar dock s
 ## <a name="next-steps"></a>Nästa steg
 
 - [Ladda upp en Windows VM-avbildning till Azure för Resource Manager-distributioner](upload-generalized-managed.md)
-- [Felsök problem med aktivering av virtuella Azure Windows-datorer](troubleshoot-activation-problems.md)
+- [Felsök problem med aktivering av virtuella Azure Windows-datorer](../troubleshooting/troubleshoot-activation-problems.md)

@@ -6,17 +6,18 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122789"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083029"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
 I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en samling inbyggda HTTP-utlösare och bindningar som gör det enkelt att skapa en slut punkt på flera olika språk, inklusive Node.js, C# med mera. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du kommer också att förbereda för att utveckla ditt API genom att integrera det med Azure Functions-proxyservrar och ställa in modellerade API: er. Dessa uppgifter utförs ovanpå funktionerna i Server lös beräknings miljö, så du behöver inte bekymra dig om att skala resurser – du kan bara fokusera på din API-logik.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -24,7 +25,7 @@ Den resulterande funktionen kommer att användas för resten av den här artikel
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
+Logga in på [Azure-portalen](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="customize-your-http-function"></a>Anpassa din HTTP-funktion
 
@@ -39,14 +40,14 @@ Som standard är din HTTP-utlösare konfigurerad att godkänna alla HTTP-metoder
     | Fält | Exempelvärde | Beskrivning |
     |---|---|---|
     | Flödesmall | /hello | Avgör vilket flöde som används för att anropa den här funktionen |
-    | Auktorisationsnivå | Anonym | Valfritt: Gör din funktion tillgänglig utan API-nyckel |
-    | Valda HTTP-metoder | HÄMTA | Tillåter endast de valda HTTP-metoderna att användas för att anropa den här funktionen |
+    | Auktoriseringsnivå | Anonym | Valfritt: Gör din funktion tillgänglig utan API-nyckel |
+    | Valda HTTP-metoder | GET | Tillåter endast de valda HTTP-metoderna att användas för att anropa den här funktionen |
 
     Du har inte angett `/api` prefixet för bas Sök väg i Route-mallen eftersom den hanteras av en global inställning.
 
 1. Välj **Spara**.
 
-Mer information om hur du anpassar HTTP Functions finns i [Azure Functions HTTP-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
+Mer information om hur du anpassar HTTP Functions finns i [Azure Functions HTTP-bindningar](./functions-bindings-http-webhook.md).
 
 ### <a name="test-your-api"></a>Testa ditt API
 
@@ -73,8 +74,8 @@ I nästa avsnitt kommer du att få fram ditt API via en proxyserver. Med Azure F
 
 En proxy kan peka på en HTTP-resurs, till exempel:
 - Azure Functions 
-- API-appar i [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)
-- Docker-container i [App Service i Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
+- API-appar i [Azure App Service](../app-service/overview.md)
+- Docker-container i [App Service i Linux](../app-service/containers/app-service-linux-intro.md)
 - Övriga värdbaserade API:er
 
 Läs mer om proxyservrar i [Arbeta med Azure Functions Proxies].
@@ -85,7 +86,7 @@ I det här avsnittet skapar du en ny proxy som fungerar som en klient del för d
 
 ### <a name="setting-up-the-frontend-environment"></a>Konfigurera klientdelsmiljön
 
-Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) och skapa en ny funktionsapp som du sedan skapar proxyservern i. Den här nya appens URL fungerar som klient del för vårt API och Function-appen som du redigerade tidigare fungerar som en server del.
+Upprepa stegen för att [Skapa en funktionsapp](./functions-create-first-azure-function.md#create-a-function-app) och skapa en ny funktionsapp som du sedan skapar proxyservern i. Den här nya appens URL fungerar som klient del för vårt API och Function-appen som du redigerade tidigare fungerar som en server del.
 
 1. Navigera till din nya klientdelsfunktionsapp i portalen.
 1. Välj **Plattformsfunktioner** och välj sedan **Programinställningar**.
@@ -106,7 +107,7 @@ Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure
 
     | Fält | Exempelvärde | Beskrivning |
     |---|---|---|
-    | Name | HelloProxy | Ett eget namn som endast används för hantering |
+    | Namn | HelloProxy | Ett eget namn som endast används för hantering |
     | Flödesmall | /api/remotehello | Avgör vilket flöde som används för att anropa den här proxyn |
     | Webbadress för serverdel | https://%HELLO_HOST%/api/hello | Anger den slutpunkt som begäran ska nå via proxy |
 
@@ -125,7 +126,7 @@ Sedan använder du en proxy för att skapa ett modell-API för din lösning. Med
 
 För att skapa den här bildmappen API skapar vi en ny proxy, den här gången med hjälp av [App Service Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Börja med att navigera till din funktionsapp i portalen. Välj **plattforms funktioner**och Sök **App Service Editor**under **utvecklingsverktyg** . App Service Editor öppnas på en ny flik.
 
-Välj `proxies.json` i det vänstra navigeringsfältet. Den här filen lagrar konfigurationen för alla dina proxyservrar. Om du använder en av [funktions distributions metoderna](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), behåller du den här filen i käll kontrollen. Läs mer om den här filen i [Avancerad proxykonfiguration](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
+Välj `proxies.json` i det vänstra navigeringsfältet. Den här filen lagrar konfigurationen för alla dina proxyservrar. Om du använder en av [funktions distributions metoderna](./functions-continuous-deployment.md), behåller du den här filen i käll kontrollen. Läs mer om den här filen i [Avancerad proxykonfiguration](./functions-proxies.md#advanced-configuration).
 
 Om du har följt den här typen av proxies.jsbör det se ut så här:
 
@@ -179,7 +180,7 @@ Nu ska du lägga till ditt modell-API. Ersätt proxies.jspå filen med följande
 }
 ```
 
-Den här koden lägger till en ny proxy, `GetUserByName` utan `backendUri` egenskapen. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. Den här tekniken är särskilt användbar vid proxyering till ett äldre system, där du kan behöva ändra huvuden, frågeparametrar och så vidare. Läs mer om åsidosättningar av begäranden och svar i [Ändra begäranden och svar i proxyservrar](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Den här koden lägger till en ny proxy, `GetUserByName` utan `backendUri` egenskapen. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. Den här tekniken är särskilt användbar vid proxyering till ett äldre system, där du kan behöva ändra huvuden, frågeparametrar och så vidare. Läs mer om åsidosättningar av begäranden och svar i [Ändra begäranden och svar i proxyservrar](./functions-proxies.md).
 
 Testa ditt fingerade API genom att anropa slutpunkten `<YourProxyApp>.azurewebsites.net/api/users/{username}` med en webbläsare eller den REST-klient du föredrar. Se till att ersätta _{username}_ med ett strängvärde som representerar ett användarnamn.
 
@@ -189,10 +190,10 @@ I den här artikeln har du lärt dig hur du skapar och anpassar ett API på Azur
 
 Följande referenser kan vara till hjälp när du utvecklar ditt API vidare:
 
-- [HTTP-bindningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [HTTP-bindningar för Azure Functions](./functions-bindings-http-webhook.md)
 - [Arbeta med proxyservrar i Azure Functions]
-- [Dokumentera ett Azure Functions-API (förhandsversion)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
+- [Dokumentera ett Azure Functions-API (förhandsversion)](./functions-openapi-definition.md)
 
 
-[Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Arbeta med proxyservrar i Azure Functions]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Create your first function]: ./functions-create-first-azure-function.md
+[Arbeta med proxyservrar i Azure Functions]: ./functions-proxies.md

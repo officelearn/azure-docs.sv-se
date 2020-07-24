@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75454199"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082824"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Använd certifikat hanterings tjänsten för OPC Vault
 
 Den här artikeln förklarar hur du registrerar program och hur du utfärdar signerade program certifikat för OPC UA-enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="deploy-the-certificate-management-service"></a>Distribuera certifikat hanterings tjänsten
 
@@ -37,7 +38,7 @@ Om du inte redan har gjort det skapar du certifikat UTFÄRDARens certifikat. Mer
 
 1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net` och logga in.
 2. Gå till **Registrera ny**. För en program registrering måste användaren ha minst en tilldelad skrivar roll.
-2. Post formuläret följer namngivnings konventioner i OPC UA. I följande skärm bild visas till exempel inställningarna för [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) som exempel i OPC UA .net-standard stack:
+2. Post formuläret följer namngivnings konventioner i OPC UA. I följande skärm bild visas till exempel inställningarna för [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) som exempel i OPC UA .net-standard stack:
 
    ![Skärm bild av UA-referens Server registrering](media/howto-opc-vault-secure/reference-server-registration.png "Registrering av UA-referens Server")
 

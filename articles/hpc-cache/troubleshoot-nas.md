@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
-ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082774"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Felsök problem med NAS-konfiguration och NFS-lagring
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller lösningar på några vanliga konfigurations fel o
 Den här artikeln innehåller information om hur du kontrollerar portar och hur du aktiverar rot åtkomst till ett NAS-system. Den innehåller också detaljerad information om mindre vanliga problem som kan orsaka att NFS-lagrings mål inte kan skapas.
 
 > [!TIP]
-> Innan du använder den här guiden måste du läsa [kraven för NFS-lagrings mål](hpc-cache-prereqs.md#nfs-storage-requirements).
+> Innan du använder den här guiden måste du läsa [kraven för NFS-lagrings mål](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 Om lösningen på problemet inte ingår här kan du [öppna ett support ärende](hpc-cache-support-ticket.md) så att Microsoft-tjänsten och supporten kan arbeta tillsammans med dig för att undersöka och lösa problemet.
 

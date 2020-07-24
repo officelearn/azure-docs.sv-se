@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082145"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
 
@@ -31,11 +31,11 @@ Artikeln visar flera alternativ som gör att du kan välja det alternativ som pa
 
 ## <a name="overview"></a>Översikt
 
-När du implementerar hög tillgänglighet för SAP-lösningar via klustring är en av de nödvändiga komponenterna [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Azure erbjuder två SKU: er för belastnings utjämning: standard och Basic.
+När du implementerar hög tillgänglighet för SAP-lösningar via klustring är en av de nödvändiga komponenterna [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). Azure erbjuder två SKU: er för belastnings utjämning: standard och Basic.
 
 Standard Azure Load Balancer erbjuder vissa fördelar jämfört med den grundläggande belastningsutjämnaren. Till exempel fungerar det över Azures tillgänglighets zoner och har bättre övervaknings-och loggnings funktioner för enklare fel sökning, kortare latens. Funktionen "HA portar" omfattar alla portar, det vill säga det är inte längre nödvändigt att lista alla enskilda portar.  
 
-Det finns några viktiga skillnader mellan Basic-och standard-SKU: n för Azure Load Balancer. En av dem är hanteringen av utgående trafik till en offentlig slut punkt. För fullständiga bas-och standardsku: er för belastningsutjämnare, se [load BALANCER SKU-jämförelse](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
+Det finns några viktiga skillnader mellan Basic-och standard-SKU: n för Azure Load Balancer. En av dem är hanteringen av utgående trafik till en offentlig slut punkt. För fullständiga bas-och standardsku: er för belastningsutjämnare, se [load BALANCER SKU-jämförelse](../../../load-balancer/load-balancer-overview.md).  
  
 När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för interna (ingen offentlig IP-adress) standard Azure-belastningsutjämnare finns det ingen utgående anslutning till offentliga slut punkter, om inte ytterligare konfiguration görs.  
 
@@ -60,20 +60,20 @@ Om din SAP-distribution inte kräver utgående anslutning till offentliga slut p
 Läs följande dokument först:
 
 * Azure-Standard Load Balancer
-  * [Översikt över azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) – omfattande översikt över Azure standard Load Balancer, viktiga principer, begrepp och självstudier 
-  * [Utgående anslutningar i Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios) – scenarier för hur du uppnår utgående anslutningar i Azure
-  * [Utgående regler för belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)– förklarar begreppen utgående regler för belastningsutjämnare och hur du skapar utgående regler
+  * [Översikt över azure standard Load Balancer](../../../load-balancer/load-balancer-overview.md) – omfattande översikt över Azure standard Load Balancer, viktiga principer, begrepp och självstudier 
+  * [Utgående anslutningar i Azure](../../../load-balancer/load-balancer-outbound-connections.md#scenarios) – scenarier för hur du uppnår utgående anslutningar i Azure
+  * [Utgående regler för belastnings utjämning](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)– förklarar begreppen utgående regler för belastningsutjämnare och hur du skapar utgående regler
 * Azure Firewall
-  * [Översikt över Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)– översikt över Azure-brandväggen
-  * [Självstudie: Distribuera och konfigurera Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) – instruktioner för hur du konfigurerar Azure firewall via Azure Portal
-* [Virtuella nätverk – användardefinierade regler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) – Azure-routning – koncept och regler  
-* [Säkerhets grupper tjänst Taggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) – hur du fören klar nätverks säkerhets grupperna och brand Väggs konfigurationen med service märken
+  * [Översikt över Azure Firewall](../../../firewall/overview.md)– översikt över Azure-brandväggen
+  * [Självstudie: Distribuera och konfigurera Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md) – instruktioner för hur du konfigurerar Azure firewall via Azure Portal
+* [Virtuella nätverk – användardefinierade regler](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) – Azure-routning – koncept och regler  
+* [Säkerhets grupper tjänst Taggar](../../../virtual-network/security-overview.md#service-tags) – hur du fören klar nätverks säkerhets grupperna och brand Väggs konfigurationen med service märken
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Ytterligare extern Azure-Standard Load Balancer för utgående anslutningar till Internet
 
-Ett alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från den offentliga slut punkten, är att skapa en andra belastningsutjämnare med offentlig IP-adress, lägga till de virtuella datorerna i backend-poolen för den andra belastningsutjämnaren och definiera enbart [utgående regler](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
-Använd [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview) för att kontrol lera de offentliga slut punkterna som är tillgängliga för utgående samtal från den virtuella datorn.  
-Mer information finns i scenario 2 i dokument [utgående anslutningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios).  
+Ett alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från den offentliga slut punkten, är att skapa en andra belastningsutjämnare med offentlig IP-adress, lägga till de virtuella datorerna i backend-poolen för den andra belastningsutjämnaren och definiera enbart [utgående regler](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
+Använd [nätverks säkerhets grupper](../../../virtual-network/security-overview.md) för att kontrol lera de offentliga slut punkterna som är tillgängliga för utgående samtal från den virtuella datorn.  
+Mer information finns i scenario 2 i dokument [utgående anslutningar](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 Konfigurationen skulle se ut så här:  
 
 ![Kontrol lera anslutningen till offentliga slut punkter med nätverks säkerhets grupper](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
@@ -81,17 +81,17 @@ Konfigurationen skulle se ut så här:
 ### <a name="important-considerations"></a>Att tänka på
 
 - Du kan använda ytterligare en offentlig Load Balancer för flera virtuella datorer i samma undernät för att få en utgående anslutning till den offentliga slut punkten och optimera kostnaden  
-- Använd [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview) för att styra vilka offentliga slut punkter som är tillgängliga från de virtuella datorerna. Du kan tilldela nätverks säkerhets gruppen antingen till under nätet eller till varje virtuell dator. Använd om möjligt [service märken](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för att minska komplexiteten i säkerhets reglerna.  
+- Använd [nätverks säkerhets grupper](../../../virtual-network/security-overview.md) för att styra vilka offentliga slut punkter som är tillgängliga från de virtuella datorerna. Du kan tilldela nätverks säkerhets gruppen antingen till under nätet eller till varje virtuell dator. Använd om möjligt [service märken](../../../virtual-network/security-overview.md#service-tags) för att minska komplexiteten i säkerhets reglerna.  
 - Azure standard Load Balancer med offentlig IP-adress och utgående regler ger direkt åtkomst till den offentliga slut punkten. Om du har företags säkerhets krav för all utgående trafik överföring via centraliserad företags lösning för granskning och loggning, kanske du inte kan uppfylla kraven i det här scenariot.  
 
 >[!TIP]
->Använd om möjligt [service märken](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för att minska komplexiteten i nätverks säkerhets gruppen. 
+>Använd om möjligt [service märken](../../../virtual-network/security-overview.md#service-tags) för att minska komplexiteten i nätverks säkerhets gruppen. 
 
 ### <a name="deployment-steps"></a>Distributionssteg
 
 1. Skapa Load Balancer  
    1. Klicka på alla resurser i [Azure Portal](https://portal.azure.com) , Lägg till och Sök sedan efter **Load Balancer**  
-   1. Klicka på **skapa** 
+   1. Klicka på **Skapa** 
    1. Load Balancer namn **MyPublicILB**  
    1. Välj **offentlig** som en typ, **standard** som SKU  
    1. Välj **skapa offentlig IP-adress** och ange som namn **MyPublicILBFrondEndIP**  
@@ -100,7 +100,7 @@ Konfigurationen skulle se ut så här:
 2. Skapa **MyBackendPoolOfPublicILB** för backend-poolen och Lägg till de virtuella datorerna.  
    1. Välj det virtuella nätverket  
    1. Välj de virtuella datorerna och deras IP-adresser och Lägg till dem i backend-poolen  
-3. [Skapa utgående regler](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Det går för närvarande inte att skapa utgående regler från Azure Portal. Du kan skapa utgående regler med [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
+3. [Skapa utgående regler](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). Det går för närvarande inte att skapa utgående regler från Azure Portal. Du kan skapa utgående regler med [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
@@ -117,13 +117,13 @@ Konfigurationen skulle se ut så här:
 
    ![Utgående anslutning med andra Load Balancer med offentlig IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Mer information om nätverks säkerhets grupper i Azure finns i [säkerhets grupper ](https://docs.microsoft.com/azure/virtual-network/security-overview). 
+   Mer information om nätverks säkerhets grupper i Azure finns i [säkerhets grupper ](../../../virtual-network/security-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure-brandvägg för utgående anslutningar till Internet
 
 Ett annat alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från offentliga slut punkter, är med Azure-brandväggen. Azure-brandväggen är en hanterad tjänst med inbyggd hög tillgänglighet och kan omfatta flera Tillgänglighetszoner.  
-Du måste också distribuera en [användardefinierad väg](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)som är associerad med ett undernät där virtuella datorer och Azure Load Balancer distribueras, peka på Azure-brandväggen för att dirigera trafik via Azure-brandväggen.  
-Mer information om hur du distribuerar Azure-brandväggen finns i [distribuera och konfigurera Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)-brandväggen.  
+Du måste också distribuera en [användardefinierad väg](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)som är associerad med ett undernät där virtuella datorer och Azure Load Balancer distribueras, peka på Azure-brandväggen för att dirigera trafik via Azure-brandväggen.  
+Mer information om hur du distribuerar Azure-brandväggen finns i [distribuera och konfigurera Azure](../../../firewall/tutorial-firewall-deploy-portal.md)-brandväggen.  
 
 Arkitekturen skulle se ut så här:
 
@@ -137,7 +137,7 @@ Arkitekturen skulle se ut så här:
 - Om företags brand Väggs lösningen inte är Azure-brandvägg och du har säkerhets krav för all utgående trafik, även om den centraliserade företags lösningen, är den här lösningen kanske inte praktisk.  
 
 >[!TIP]
->Använd om möjligt [service märken](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för att minska komplexiteten i Azures brand Väggs regler.  
+>Använd om möjligt [service märken](../../../virtual-network/security-overview.md#service-tags) för att minska komplexiteten i Azures brand Väggs regler.  
 
 ### <a name="deployment-steps"></a>Distributionssteg
 
@@ -229,5 +229,5 @@ Om utgående trafik dirigeras via brand vägg från tredje part:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du konfigurerar pacemaker på SUSE i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-* [Lär dig hur du konfigurerar pacemaker i Red Hat i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)
+* [Lär dig hur du konfigurerar pacemaker på SUSE i Azure](./high-availability-guide-suse-pacemaker.md)
+* [Lär dig hur du konfigurerar pacemaker i Red Hat i Azure](./high-availability-guide-rhel-pacemaker.md)

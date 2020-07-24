@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658149"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085494"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File Storage på virtuella Linux-datorer med SMB
 
@@ -62,7 +63,7 @@ STORAGEKEY=$(az storage account keys list \
 
 Skapa fil lagrings resursen med hjälp av [AZ Storage Share Create](/cli/azure/storage/share). 
 
-Resurs namn måste vara alla gemener, siffror och enskilda bindestreck, men får inte börja med ett bindestreck. Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Resurs namn måste vara alla gemener, siffror och enskilda bindestreck, men får inte börja med ett bindestreck. Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och Metadata](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata).
 
 I det här exemplet skapas en resurs med namnet *Unshare* med en 10-GIB kvot. 
 
@@ -110,4 +111,3 @@ För ökad säkerhet i produktions miljöer bör du lagra dina autentiseringsupp
 - [Använda Cloud-Init för att anpassa en virtuell Linux-dator när den skapas](using-cloud-init.md)
 - [Lägg till en disk till en virtuell Linux-dator](add-disk.md)
 - [Azure Disk Encryption för virtuella Linux-datorer](disk-encryption-overview.md)
-

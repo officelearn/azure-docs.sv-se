@@ -15,15 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3231241e2fbc6e02725b5611d05b9ee4f0f1a35a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74224728"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082179"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Ansluta virtuella Azure-datorer till HANA – stora instanser
 
-Artikeln [Vad är SAP HANA på Azure (stora instanser)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) nämner att den minimala distributionen av HANA-stora instanser med SAP-programlagret i Azure ser ut så här:
+Artikeln [Vad är SAP HANA på Azure (stora instanser)?](./hana-overview-architecture.md) nämner att den minimala distributionen av HANA-stora instanser med SAP-programlagret i Azure ser ut så här:
 
 ![Azure VNet är anslutet till SAP HANA på Azure (stora instanser) och lokalt](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -93,13 +94,13 @@ Några av de IP-adressintervall som krävs för att distribuera HANA stora insta
 
 Valfria IP-adressintervall som slutligen måste skickas till Microsoft:
 
-- Om du väljer att använda [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) för att aktivera dirigerad routning från lokal till Hana stora instans enheter måste du reservera ett annat/29 IP-adressintervall. Det här intervallet får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
-- Om du väljer att använda [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) för att aktivera dirigerad routning från en-stor instans klient i en Azure-region till en annan Hana stor instans-klient i en annan Azure-region måste du reservera ett annat/29 IP-adressintervall. Det här intervallet får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
+- Om du väljer att använda [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) för att aktivera dirigerad routning från lokal till Hana stora instans enheter måste du reservera ett annat/29 IP-adressintervall. Det här intervallet får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
+- Om du väljer att använda [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) för att aktivera dirigerad routning från en-stor instans klient i en Azure-region till en annan Hana stor instans-klient i en annan Azure-region måste du reservera ett annat/29 IP-adressintervall. Det här intervallet får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
 
 Mer information om ExpressRoute Global Reach och användning av HANA-stora instanser hittar du i dokumenten:
 
-- [SAP HANA (stora instanser) nätverks arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [Anslut ett virtuellt nätverk till HANA-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [SAP HANA (stora instanser) nätverks arkitektur](./hana-network-architecture.md)
+- [Anslut ett virtuellt nätverk till HANA-stora instanser](./hana-connect-vnet-express-route.md)
  
 Du måste definiera och planera IP-adressintervall som beskrevs tidigare. Du behöver dock inte skicka alla till Microsoft. De IP-adressintervall som du måste namnge till Microsoft är:
 

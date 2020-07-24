@@ -3,23 +3,27 @@ title: JavaScript-referens för utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: d71301ef73cd94c13b12e17c923ec73abb8e4aae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: c0e5dd7e1869accd309656b69bd2a07d21b1a3ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082978"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
-Den här guiden innehåller information om erna för att skriva Azure Functions med Java Script.
+Den här guiden innehåller detaljerad information som hjälper dig att utveckla Azure Functions med hjälp av Java Script.
 
-En JavaScript-funktion är en export `function` som körs när den utlöses ([utlösare konfigureras i function.jspå](functions-triggers-bindings.md)). Det första argumentet som skickas till varje funktion är ett `context` -objekt som används för att ta emot och skicka bindnings data, loggning och kommunikation med körnings miljön.
+Som Express.js, Node.js eller JavaScript-utvecklare, om du är nybörjare på Azure Functions, bör du först läsa någon av följande artiklar:
 
-Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Slutför snabb starten av funktioner för att skapa din första funktion med [Visual Studio Code](functions-create-first-function-vs-code.md) eller [i portalen](functions-create-first-azure-function.md).
+| Komma igång | Begrepp| Interaktiv utbildning |
+| -- | -- | -- | 
+| <ul><li>[Node.js funktionen med Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)</li><li>[Node.js funktion med Terminal/kommando-prompt](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-javascript)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[TypeScript-funktioner](#typescript)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> | <ul><li>[Skapa serverlösa program](/learn/paths/create-serverless-applications/)</li><li>[Node.js-och Express-API: er till Server lös API: er](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
-Den här artikeln stöder också [utveckling av typescript-appar](#typescript).
+## <a name="javascript-function-basics"></a>Grundläggande om JavaScript-funktioner
+
+En JavaScript-funktion (Node.js) är en exporterad `function` som körs när den utlöses ([utlösare konfigureras i function.jspå](functions-triggers-bindings.md)). Det första argumentet som skickas till varje funktion är ett `context` -objekt som används för att ta emot och skicka bindnings data, loggning och kommunikation med körnings miljön.
 
 ## <a name="folder-structure"></a>Mappstruktur
 
@@ -118,7 +122,7 @@ Indatamängden är indelade i två kategorier i Azure Functions: en är utlösar
    };
    ```
    
- - **Som indata med JavaScript- [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) objektet.** Detta är i stort sett detsamma som att skicka indata som parametrar, men gör att du kan hantera indata dynamiskt.
+ - **Som indata med JavaScript- [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) objektet.** Detta är i stort sett detsamma som att skicka indata som parametrar, men gör att du kan hantera indata dynamiskt.
  
    ```javascript
    module.exports = async function(context) { 
@@ -559,11 +563,11 @@ I det här exemplet är det viktigt att Observera att även om ett objekt export
 
 När den startas med `--inspect` parametern lyssnar en Node.js process efter en fel söknings klient på den angivna porten. I Azure Functions 2. x kan du ange argument som ska skickas till den Node.js processen som kör koden genom att lägga till miljövariabeln eller app-inställningen `languageWorkers:node:arguments = <args>` . 
 
-Om du vill felsöka lokalt lägger du till `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` i [local.settings.jspå](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) filen och kopplar en fel sökare till port 5858.
+Om du vill felsöka lokalt lägger du till `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` i [local.settings.jspå](./functions-run-local.md#local-settings-file) filen och kopplar en fel sökare till port 5858.
 
 När du felsöker med VS Code `--inspect` läggs parametern automatiskt till med `port` värdet i projektets launch.jsi filen.
 
-Inställningen fungerar inte i version 1. x `languageWorkers:node:arguments` . Du kan välja fel söknings port med [`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parametern på Azure Functions Core tools.
+Inställningen fungerar inte i version 1. x `languageWorkers:node:arguments` . Du kan välja fel söknings port med [`--nodeDebugPort`](./functions-run-local.md#start) parametern på Azure Functions Core tools.
 
 ## <a name="typescript"></a>TypeScript
 
@@ -575,7 +579,7 @@ TypeScript-filer (. TS) är destaplade i JavaScript-filer (. js) i `dist` utdata
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio Code
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 
@@ -632,7 +636,7 @@ När du arbetar med JavaScript-funktioner bör du vara medveten om övervägande
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Välj en vCPU App Service planer
 
-När du skapar en Function-app som använder App Service plan rekommenderar vi att du väljer en plan med en vCPU i stället för en plan med flera virtuella processorer. Idag kör funktionerna JavaScript-funktioner på ett mer effektivt sätt på virtuella datorer med en vCPU och användningen av större virtuella datorer ger inte de förväntade prestanda förbättringarna. Vid behov kan du manuellt skala ut genom att lägga till fler VM-instanser med en vCPU, eller så kan du aktivera autoskalning. Mer information finns i [skala antalet instanser manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
+När du skapar en Function-app som använder App Service plan rekommenderar vi att du väljer en plan med en vCPU i stället för en plan med flera virtuella processorer. Idag kör funktionerna JavaScript-funktioner på ett mer effektivt sätt på virtuella datorer med en vCPU och användningen av större virtuella datorer ger inte de förväntade prestanda förbättringarna. Vid behov kan du manuellt skala ut genom att lägga till fler VM-instanser med en vCPU, eller så kan du aktivera autoskalning. Mer information finns i [skala antalet instanser manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json).
 
 ### <a name="cold-start"></a>Kall start
 

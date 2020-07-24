@@ -3,11 +3,12 @@ title: Azure Service Bus identifiering av duplicerade meddelanden | Microsoft Do
 description: Den här artikeln förklarar hur du kan identifiera dubbletter i Azure Service Bus meddelanden. Det duplicerade meddelandet kan ignoreras och tas bort.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337904"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083896"
 ---
 # <a name="duplicate-detection"></a>Dubblettidentifiering
 
@@ -32,7 +33,7 @@ För en affärs process där flera meddelanden skickas i samband med hantering a
 
 I portalen aktive ras funktionen när entiteten skapas med kryss rutan **Aktivera dubblettidentifiering** , som är avstängd som standard. Inställningen för att skapa nya ämnen är likvärdig.
 
-![][1]
+![Skärm bild av dialog rutan skapa kö med alternativet Aktivera dubblettidentifiering markerat och anges i rött.][1]
 
 > [!IMPORTANT]
 > Du kan inte aktivera/inaktivera dubblettidentifiering när kön har skapats. Du kan bara göra det när du skapar kön. 
@@ -41,7 +42,7 @@ Program mässigt ställer du in flaggan med egenskapen [QueueDescription. requir
 
 Tids historiken för dubblettidentifiering är som standard 30 sekunder för köer och ämnen, med ett maximalt sju dagar. Du kan ändra den här inställningen i fönstret för kö-och ämnes egenskaper i Azure Portal.
 
-![][2]
+![Skärm bild av Service Bus-funktionen med egenskaps inställningen markerad och alternativet för dubblettidentifiering som anges i rött.][2]
 
 Program mässigt kan du konfigurera storleken på det fönster för dubblettidentifiering där meddelande-ID: n bevaras med hjälp av egenskapen [QueueDescription. DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) med fullständig .NET Framework-API. Med Azure Resource Manager API anges värdet med egenskapen [queueProperties. duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) .
 

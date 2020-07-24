@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77dc21b4a04ec5de440b1a17da4747a3dcc711f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083726"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -168,11 +169,11 @@ Hyper-V-värdar som inte hanteras av VMM samlas in i en Hyper-V-plats. Ta bort e
    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet tar bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Replikeringskonfiguration på den lokala virtuella datorn kommer att rensas och Site Recovery faktureringen för den här skyddade servern stoppas.
    - **Ta bort** – det här alternativet ska endast användas om käll miljön tas bort eller inte går att komma åt (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Det **går inte** att rensa konfigurationen på den lokala virtuella datorn. 
 
- > [!NOTE]
-     > Om du väljer alternativet **ta bort** kör du följande uppsättning skript för att rensa replikeringsinställningarna på den lokala Hyper-V-servern.
+    > [!NOTE]
+    > Om du väljer alternativet **ta bort** kör du följande uppsättning skript för att rensa replikeringsinställningarna på den lokala Hyper-V-servern.
 
-> [!NOTE]
-> Om du redan har växlat över en virtuell dator och den körs i Azure, Tänk på att inaktivera skydd inte tar bort/påverkar den felande virtuella datorn.
+    > [!NOTE]
+    > Om du redan har växlat över en virtuell dator och den körs i Azure, Tänk på att inaktivera skydd inte tar bort/påverkar den felande virtuella datorn.
 
 1. Ta bort replikering för den virtuella datorn på käll-Hyper-V-värdservern. Ersätt SQLVM1 med namnet på den virtuella datorn och kör skriptet från en administrativ PowerShell
 
@@ -195,8 +196,11 @@ Hyper-V-värdar som inte hanteras av VMM samlas in i en Hyper-V-plats. Ta bort e
      > Om du väljer alternativet **ta bort** TUN följande skript för att rensa replikeringsinställningarna för den lokala VMM-servern.
 3. Kör det här skriptet på käll-VMM-servern med PowerShell (administratörs behörighet krävs) från VMM-konsolen. Ersätt plats hållaren **SQLVM1** med namnet på den virtuella datorn.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. Stegen ovan rensar replikeringsinställningarna på VMM-servern. Kör det här skriptet för att stoppa replikeringen för den virtuella datorn som körs på Hyper-V-värdservern. Ersätt SQLVM1 med namnet på din virtuella dator och host01.contoso.com med namnet på Hyper-V-värdservern.
 
 ```powershell
@@ -219,17 +223,21 @@ Hyper-V-värdar som inte hanteras av VMM samlas in i en Hyper-V-plats. Ta bort e
 
 3. Kör det här skriptet på käll-VMM-servern med PowerShell (administratörs behörighet krävs) från VMM-konsolen. Ersätt plats hållaren **SQLVM1** med namnet på den virtuella datorn.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. På den sekundära VMM-servern kör du det här skriptet för att rensa inställningarna för den sekundära virtuella datorn:
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Remove-SCVirtualMachine -VM $vm -Force
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Remove-SCVirtualMachine -VM $vm -Force
+    ```
+
 5. Uppdatera de virtuella datorerna på Hyper-V-värdservern på den sekundära VMM-servern så att den sekundära virtuella datorn identifieras igen i VMM-konsolen.
 6. Stegen ovan rensar replikeringsinställningarna på VMM-servern. Om du vill stoppa replikeringen för den virtuella datorn kör du följande skript och de primära och sekundära virtuella datorerna. Ersätt SQLVM1 med namnet på den virtuella datorn.
 
-        Remove-VMReplication –VMName “SQLVM1”
-
-
-
-
+    ```powershell
+    Remove-VMReplication –VMName "SQLVM1"
+    ```

@@ -3,12 +3,12 @@ title: Skapa parameterfil
 description: Skapa parameter fil för att överföra värden under distributionen av en Azure Resource Manager-mall
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117513"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082944"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Skapa parameter fil för Resource Manager
 
@@ -148,7 +148,7 @@ Titta slutligen på de tillåtna värdena och eventuella begränsningar som maxi
 }
 ```
 
-## <a name="parameter-type-formats"></a>Parameter typ format
+## <a name="parameter-type-formats"></a>Format för parametertyper
 
 I följande exempel visas formaten för olika parameter typer.
 
@@ -186,8 +186,8 @@ I följande exempel visas formaten för olika parameter typer.
 
 Se:
 
-- [Distribuera resurser med ARM-mallar och Azure CLI](./deploy-powershell.md#pass-parameter-values)
-- [Distribuera resurser med ARM-mallar och Azure PowerShell](./deploy-cli.md#parameters)
+- [Distribuera resurser med ARM-mallar och Azure CLI](./deploy-cli.md#parameters)
+- [Distribuera resurser med ARM-mallar och Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
 
 ## <a name="file-name"></a>Filnamn
 

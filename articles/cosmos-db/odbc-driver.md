@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084831"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med hjälp av BI Analytics-verktyg med ODBC-drivrutinen
 
@@ -235,9 +236,9 @@ Du kan använda din nya DSN för att ansluta till Azure Cosmos DB med alla ODBC-
 
 1. Om du vill visualisera data i Power BI Skriv bordet markerar du kryss rutan framför tabell namnet och klickar sedan på **Läs in**.
 
-1. I Power BI Desktop längst till vänster väljer du fliken data ![Fliken data i Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) för att bekräfta att dina data har importer ATS.
+1. I Power BI Desktop längst till vänster väljer du fliken data :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: för att bekräfta att dina data har importer ATS. 
 
-1. Nu kan du skapa visuella objekt med Power BI genom att klicka på fliken rapport ![ rapport fliken i Power BI Desktop ](./media/odbc-driver/odbc-driver-report-tab.png) , klicka på **nytt visuellt**objekt och sedan anpassa panelen. Mer information om hur du skapar visualiseringar i Power BI Desktop finns i [visualiserings typer i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. Nu kan du skapa visuella objekt med Power BI genom att klicka på fliken rapport :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: , klicka på **nytt visuellt**objekt och sedan anpassa panelen. Mer information om hur du skapar visualiseringar i Power BI Desktop finns i [visualiserings typer i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Felsökning
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4df1aa53c09777ac2470581df07ac132255b005a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083675"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
 
@@ -22,7 +22,7 @@ Du kan lägga till Server lös API: er i Azures statiska Web Apps via integratio
 
 - Azure-konto med en aktiv prenumeration.
   - Om du inte har något konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free).
-- [Visuell Studio-kod](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Functions tillägg](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) -tillägg.
 - [Node.js](https://nodejs.org/download/) att köra API-appen lokalt
@@ -53,7 +53,7 @@ Därefter skapar du ett Azure Functions-projekt som programmets API.
 1. I _mitt-vanilj-API-_ projektet skapar du en undermapp med namnet **API**.
 1. Tryck på **F1** för att öppna kommando paletten
 1. Skriv **Azure Functions: skapa nytt projekt...**
-1. Tryck på **RETUR**
+1. Tryck på **Enter**
 1. Välj **Bläddra**
 1. Välj mappen **API** som katalog för projekt arbets ytan
 1. Välj **Välj**
@@ -133,7 +133,7 @@ Med ovanstående inställningar är API-slutpunkten:
 
 ## <a name="run-the-api-locally"></a>Kör API lokalt
 
-Visual Studio Code integreras med [Azure Functions Core tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) så att du kan köra det här projektet på den lokala utvecklings datorn innan du publicerar till Azure.
+Visual Studio Code integreras med [Azure Functions Core tools](../azure-functions/functions-run-local.md) så att du kan köra det här projektet på den lokala utvecklings datorn innan du publicerar till Azure.
 
 > [!TIP]
 > Se till att du har alla resurser som anges i avsnittet [krav](#prerequisites) som är installerade innan du fortsätter.
@@ -218,10 +218,10 @@ Använd Visual Studio Code och genomför och skicka ändringarna till den fjärr
 ## <a name="create-a-static-web-app"></a>Skapa en statisk webbapp
 
 1. Navigera till [Azure Portal](https://portal.azure.com)
-1. Klicka på **skapa en resurs**
+1. Klicka på **Skapa en resurs**
 1. Sök efter **statisk webbapp**
 1. Klicka på **statisk webbapp (förhands granskning)**
-1. Klicka på **skapa**
+1. Klicka på **Skapa**
 
 Lägg sedan till de app-/regionsspecifika inställningarna.
 
@@ -234,7 +234,7 @@ Lägg sedan till de app-/regionsspecifika inställningarna.
 1. Välj önskad _organisation_
 1. Välj **My-vanilj-API** från List rutan _databas_
 1. Välj **original** i list rutan _gren_
-1. Klicka på **Nästa: bygg >** om du vill redigera build-konfigurationen
+1. Klicka på **Nästa: Skapa >** för att redigera versionskonfigurationen
 
 Lägg sedan till följande versions information.
 
@@ -242,7 +242,7 @@ Lägg sedan till följande versions information.
 1. Ange **API** i rutan _API-plats_ .
 1. Rensa standardvärdet från _appens artefakt plats_, lämna rutan tom.
 1. Klicka på **Granska + skapa**.
-1. Klicka på knappen **skapa**
+1. Klicka på **Skapa**
 
     När du klickar på knappen _skapa_ gör Azure två saker. Först skapas de underliggande moln tjänsterna för att stödja appen. Därefter börjar en bakgrunds process att bygga och distribuera programmet.
 

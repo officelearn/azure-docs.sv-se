@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a5c5c80aaba083b0f65ac0dab41350765a8f5631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d9360a4b5c5f0ef080b3de2a9d425bcdf2b2e70
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081907"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka överskridna tidsgränser för Azure Cache for Redis
 
@@ -30,7 +30,7 @@ Azure cache för Redis uppdaterar regelbundet sin server program vara som en del
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Timeout-undantag för StackExchange. Redis
 
-StackExchange. Redis använder en konfigurations inställning med namnet `synctimeout` för synkrona åtgärder med standardvärdet 1000 MS. Om ett synkront anrop inte slutförs i den här tiden, genererar StackExchange. Redis-klienten ett tids gräns fel som liknar följande exempel:
+StackExchange. Redis använder en konfigurations inställning med namnet `synctimeout` för synkrona åtgärder med standardvärdet 5000 MS. Om ett synkront anrop inte slutförs i den här tiden, genererar StackExchange. Redis-klienten ett tids gräns fel som liknar följande exempel:
 
 ```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
@@ -47,7 +47,7 @@ Det här fel meddelandet innehåller mått som kan hjälpa dig att peka på orsa
 | qs |67 av pågående åtgärder har skickats till servern, men ett svar är ännu inte tillgängligt. Svaret kan vara `Not yet sent by the server` eller`sent by the server but not yet processed by the client.` |
 | KS |0 av pågående åtgärder har läst svar men har ännu inte marker ATS som slutförda eftersom de väntar på slut för ande av slut för ande |
 | WR |Det finns en aktiv skrivare (vilket innebär att 6 ej skickade förfrågningar inte ignoreras) byte/activewriters |
-| i |Det finns inga aktiva läsare och inga byte som är tillgängliga för läsning på NÄTVERKSKORTets byte/activereaders |
+| in |Det finns inga aktiva läsare och inga byte som är tillgängliga för läsning på NÄTVERKSKORTets byte/activereaders |
 
 Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 
@@ -73,7 +73,7 @@ Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 
 1. Kontrol lera att servern och klient programmet finns i samma region i Azure. Du kan till exempel få tids gränser när cachen är i östra USA men klienten är i västra USA och begäran inte slutförs inom `synctimeout` intervallet, eller så kan du få tids gränser när du felsöker från den lokala utvecklings datorn. 
 
-    Vi rekommenderar starkt att ha cachen och i klienten i samma Azure-region. Om du har ett scenario som omfattar anrop mellan regioner bör du ange `synctimeout` ett värde som är högre än standard intervallet 1000-MS genom att inkludera en `synctimeout` egenskap i anslutnings strängen. I följande exempel visas ett kodfragment till en anslutnings sträng för StackExchange. Redis som tillhandahålls av Azure cache för Redis med en `synctimeout` till 2000 MS.
+    Vi rekommenderar starkt att ha cachen och i klienten i samma Azure-region. Om du har ett scenario som omfattar anrop mellan regioner bör du ange `synctimeout` ett värde som är högre än standard intervallet 5000-MS genom att inkludera en `synctimeout` egenskap i anslutnings strängen. I följande exempel visas ett kodfragment till en anslutnings sträng för StackExchange. Redis som tillhandahålls av Azure cache för Redis med en `synctimeout` till 2000 MS.
 
     ```output
     synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...

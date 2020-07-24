@@ -5,40 +5,41 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89dc81cdd06bedb6237cf48312ee7ed0510d93ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084746"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referens till Azure Cosmos DB-övervakningsdata
-Den här artikeln är en referens till de logg- och måttdata som samlas in för att analysera prestanda och tillgänglighet för Azure Cosmos DB. Mer information om hur du samlar in och analyserar övervaknings data för Azure Cosmos DB finns i [övervaknings Cosmos DB](monitor-cosmos-db.md) .
 
+Den här artikeln är en referens till de logg- och måttdata som samlas in för att analysera prestanda och tillgänglighet för Azure Cosmos DB. Se artikeln [övervaka Azure Cosmos DB](monitor-cosmos-db.md) för hur du samlar in och analyserar övervaknings data för Azure Cosmos dB.
 
 ## <a name="resource-logs"></a>Resursloggar
-I följande tabell visas egenskaperna för Azure Cosmos DB resurs loggar när de samlas in i Azure Monitor loggar eller Azure Storage. I Azure Monitor loggar samlas de in i tabellen **AzureDiagnostics** med **ResourceProvider** -värdet *MICROSOFT.DOCUMENTDB*. 
+
+I följande tabell visas egenskaperna för resurs loggar i Azure Cosmos DB. Resurs loggarna samlas in i Azure Monitor loggar eller Azure Storage. I Azure Monitor samlas loggar in i tabellen **AzureDiagnostics** under resurs leverantören * * namnet på `MICROSOFT.DOCUMENTDB` .
 
 | Azure Storage fält eller egenskap | Azure Monitor loggar egenskap | Beskrivning |
 | --- | --- | --- |
 | **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
 | **resourceId** | **Resurs** | Azure Cosmos DB konto för vilka loggar är aktiverade.|
-| **kategori** | **Kategori** | För Azure Cosmos DB loggar, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** är de tillgängliga logg typerna. |
-| **operationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara någon av följande åtgärder: skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra, SqlQuery, fråga, JSQuery, Head, HeadFeed eller upsert.   |
+| **kategori** | **Kategori** | För Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** är de tillgängliga logg typerna. |
+| **operationName** | **OperationName** | Åtgärdens namn. Åtgärds namnet kan vara,,,,,,,,, `Create` `Update` `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` , eller `Upsert` .   |
 | **egenskaperna** | saknas | Innehållet i det här fältet beskrivs i raderna som följer. |
 | **activityId** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
-| **userAgent** | **userAgent_s** | En sträng som anger den klient användar agent som utför begäran. Formatet är {user agent Name}/{version}.|
-| **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara någon av följande resurs typer: databas, behållare, dokument, bilaga, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudande. |
+| **userAgent** | **userAgent_s** | En sträng som anger den klient användar agent från vilken begäran skickades. Användar agentens format är `{user agent name}/{version}` .|
+| **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara databas, behållare, dokument, bilaga, användare, behörighet, lagrad procedur, utlösare, användardefinierad funktion eller ett erbjudande. |
 | **statusCode** | **statusCode_s** | Åtgärdens svars status. |
-| **requestResourceId** | **ResourceId** | Det resourceId som hör till begäran. Värdet kan peka på databaseRid, collectionRid eller documentRid beroende på vilken åtgärd som utförts.|
+| **requestResourceId** | **ResourceId** | Det resourceId som hör till begäran. Beroende på vilken åtgärd som utförs kan det här värdet peka på `databaseRid` , `collectionRid` eller `documentRid` .|
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |
-| **requestCharge** | **requestCharge_s** | Antalet ru: er som används av åtgärden |
+| **requestCharge** | **requestCharge_s** | Antalet RU/s som används av åtgärden |
 | **collectionRid** | **collectionId_s** | Samlingens unika ID.|
-| **giltighet** | **duration_s** | Åtgärdens varaktighet i millisekunder. |
+| **giltighet** | **duration_d** | Åtgärdens varaktighet i millisekunder. |
 | **requestLength** | **requestLength_s** | Längden på begäran, i byte. |
 | **responseLength** | **responseLength_s** | Svarets längd i byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Det här värdet är icke-tomt när [resurs-token](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) används för autentisering. Värdet pekar på användarens resurs-ID. |
@@ -49,7 +50,7 @@ För en lista över alla Azure Monitor logg kategorier och länkar till associer
 ## <a name="metrics"></a>Mått
 I följande tabeller visas de plattforms mått som samlats in för Azure CosmOS DB. Alla mått lagras i namn området **Cosmos DB standard mått**.
 
-En lista över alla Azure Monitor support mått (inklusive CosmosDB) finns i [Azure Monitor mått som stöds](../azure-monitor/platform/metrics-supported.md). 
+En lista över alla Azure Monitor support mått (inklusive Azure Cosmos DB) finns i [Azure Monitor mått som stöds](../azure-monitor/platform/metrics-supported.md). 
 
 #### <a name="request-metrics"></a>Begär mått
             
@@ -98,7 +99,7 @@ En lista över alla Azure Monitor support mått (inklusive CosmosDB) finns i [Az
 |Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Användning |
 |---|---|---|---| ---| ---|
 | CassandraRequests (Cassandra-begäranden) | Antal (antal) | Antal API för Cassandra begär Anden som gjorts| DatabaseName, samlings namn, ErrorCode, region, OperationType, ResourceType| Alla| Används för att övervaka Cassandra-begäranden på en minuts kornig het. Om du vill få genomsnittlig begär Anden per sekund använder du Count-aggregering på minut och dividerar med 60.|
-| CassandraRequestCharges (Cassandra Request avgifter) | Count (sum, min, Max, AVG) | Enheter för programbegäran som förbrukas av API för Cassandra begär Anden| DatabaseName, samlings namn, region, OperationType, ResourceType| Alla| Används för att övervaka ru: er som används per minut av ett API för Cassandra-konto.|
+| CassandraRequestCharges (Cassandra Request avgifter) | Count (sum, min, Max, AVG) | Enheter för programbegäran som konsumeras av API för Cassandra | DatabaseName, samlings namn, region, OperationType, ResourceType| Alla| Används för att övervaka ru: er som används per minut av ett API för Cassandra-konto.|
 | CassandraConnectionClosures (Cassandra Connections-stängningar) |Antal (antal) |Antal stängda Cassandra-anslutningar| ClosureReason, region| Alla | Används för att övervaka anslutningen mellan klienter och Azure Cosmos DB API för Cassandra.|
 
 ## <a name="see-also"></a>Se även

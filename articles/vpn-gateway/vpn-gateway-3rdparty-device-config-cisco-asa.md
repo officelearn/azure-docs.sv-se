@@ -7,28 +7,26 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f693f6a40b87d024430c7626736fab0d0a032238
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082009"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA-enhet (IKEv2/No BGP)
 Den här artikeln innehåller exempel på konfigurationer för att ansluta Cisco adaptiv Security-enheter (ASA) till Azure VPN-gatewayer. Exemplet gäller Cisco ASA-enheter som kör IKEv2 utan Border Gateway Protocol (BGP). 
 
 ## <a name="device-at-a-glance"></a>En snabb enhet
 
-|                        |                                   |
-| ---                    | ---                               |
-| Enhets leverantör          | Cisco                             |
-| Enhetsmodell           | ASA                               |
-| Mål version         | 8,4 och senare                     |
-| Testad modell           | ASA 5505                          |
-| Testad version         | 9,2                               |
-| IKE-version            | IKEv2                             |
-| BGP                    | No                                |
-| Azure VPN gateway-typ | Routning-baserad VPN-gateway           |
-|                        |                                   |
+* Enhets tillverkare: **Cisco**
+* Enhets modell: **ASA**           
+* Mål version: **8,4 och senare**
+* Testad modell: **ASA 5505**
+* Testad version: **9,2**             
+* IKE-version: **IKEv2**                  
+* BGP: **Nej**      
+* Typ av Azure VPN-Gateway: **routning-baserad VPN-gateway**
 
 > [!NOTE]
 > Exempel konfigurationen ansluter en Cisco ASA-enhet till en Azure **Route-baserad** VPN-gateway. Anslutningen använder en anpassad IPsec/IKE-princip med alternativet **UsePolicyBasedTrafficSelectors** enligt beskrivningen i [den här artikeln](vpn-gateway-connect-multiple-policybased-rm-ps.md).

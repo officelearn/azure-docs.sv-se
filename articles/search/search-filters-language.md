@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116289"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084202"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Så här filtrerar du efter språk i Azure Kognitiv sökning 
 
@@ -34,7 +34,7 @@ I Azure Kognitiv sökning riktar sig frågor mot ett enda index. Utvecklare som 
 
 I följande exempel är ett exempel på ett [fastighets-exempel](search-get-started-portal.md) som innehåller flera sträng fält som innehåller innehåll på olika språk. Observera språk analys tilldelningarna för fälten i det här indexet. Fält som innehåller strängar fungerar bättre i full texts ökning när de kombineras med en analys som är utformad för att hantera språkspråkets språk regler.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Skärm bild som visar skärmen fält i exemplet på fast egendom. En grupp med fält markeras för att peka ut hur språk analys tilldelningarna motsvarar språken för de markerade fälten.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Kod exempel som visar fält definitioner med språk analys verktyg finns i [definiera ett index (.net)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) och [definiera ett index (rest)](search-create-index-rest-api.md).

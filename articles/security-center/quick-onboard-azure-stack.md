@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084015"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Snabb start: publicera dina Azure Stack virtuella datorer i Security Center
 När du har publicerat din Azure-prenumeration kan du aktivera Security Center för att skydda dina virtuella datorer som körs på Azure Stack genom att lägga till tillägget **Azure Monitor, uppdatering och konfigurations hantering** för virtuella datorer från Azure Stack Marketplace.
 
 Den här snabb starten visar hur du lägger till tillägget **Azure Monitor, uppdatering och konfigurations hantering** för virtuella datorer på en virtuell dator (Linux och Windows stöds båda) som körs på Azure Stack.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Du måste ha en Azure-prenumeration på Security Center standard nivån innan du startar den här snabb starten. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center standard nivån kostnads fritt i 30 dagar. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="select-your-workspace-in-azure-security-center"></a>Välj din arbets yta i Azure Security Center
 
-1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center – Översikt** öppnas. 
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center översikt** öppnas. 
 
    ![Översikt över Security Center][2]
 

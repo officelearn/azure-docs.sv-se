@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 48f0a247ed023583c8489994439a790944b90fdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082604"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Kopiera en bild från ett annat galleri med hjälp av PowerShell
 
@@ -100,7 +100,7 @@ Utdata ser ut ungefär så här:
 }
 ```
 
-Skapa en ny avbildnings definition i mål galleriet med hjälp av cmdleten [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) och informationen från utdata ovan.
+Skapa en ny avbildnings definition i mål galleriet med hjälp av cmdleten [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) och informationen från utdata ovan.
 
 
 I det här exemplet heter bild definitionen *myDestinationImgDef* i galleriet med namnet *myDestinationGallery*.
@@ -123,7 +123,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>Skapa avbildnings versionen
 
-Skapa en avbildnings version med [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Du måste skicka in käll avbildningens ID i- `--managed-image` parametern för att skapa avbildnings versionen i mål galleriet. 
+Skapa en avbildnings version med [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Du måste skicka in käll avbildningens ID i- `--managed-image` parametern för att skapa avbildnings versionen i mål galleriet. 
 
 Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version*. *MinorVersion*. *Korrigering*.
 
@@ -156,7 +156,7 @@ $job.State
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
 >
 
 

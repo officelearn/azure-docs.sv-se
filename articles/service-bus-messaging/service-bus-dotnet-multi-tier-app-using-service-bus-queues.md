@@ -4,11 +4,12 @@ description: En .NET-självstudiekurs som hjälper dig att utveckla en flernivå
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c7a64e708d860fe9e5832ad3f1375f41f9b86724
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340309"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083947"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 
@@ -27,7 +28,7 @@ I den här självstudiekursen kommer du att skapa och köra flernivåappen i en 
 
 Följande skärm bild visar det färdiga programmet.
 
-![][0]
+![Skärm bild av programmets överförings sida.][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Scenarioöversikt: kommunikation mellan roller
 Om du vill skicka in en order för bearbetning måste klientdelens UI-komponent, som kör webbrollen, interagera med den mellannivålogik som kör arbetsrollen. I det här exemplet används en meddelandetjänst via Service Bus för kommunikation mellan nivåerna.
@@ -36,7 +37,7 @@ Genom att använda en meddelandetjänst mellan webben och mellannivåerna frikop
 
 Service Bus innehåller två entiteter för att stödja den asynkrona meddelandetjänsten: köer och ämnen. När man använder köer förbrukas varje meddelande som skickas till kön av en enda mottagare. Ämnena stödjer det mönster för publicera/prenumerera där varje publicerat meddelande görs tillgängligt för en prenumeration som har registrerats med ämnet. Varje prenumeration underhåller logiskt nog sin egen meddelandekö. Prenumerationer kan också konfigureras med filterregler som begränsar den uppsättning av meddelanden som skickas vidare till prenumerationskön till dem som matchar filtret. I följande exempel används Service Bus-köer.
 
-![][1]
+![Diagram över kommunikationen mellan webb rollen, Service Bus och arbets rollen.][1]
 
 Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för direkta meddelanden:
 
@@ -44,7 +45,7 @@ Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för d
 * **Belastningsutjämning.** I många program varierar systembelastningen beroende på tidpunkten, medan den bearbetningstid som krävs för varje arbetsenhet vanligtvis är konstant. Medlingen mellan meddelandeproducenter och -konsumenter med hjälp av en kö innebär att den konsumerande appen (arbetaren) endast måste konfigureras för att kunna hantera en genomsnittlig belastning i stället för mycket hög belastning vid vissa tider. Köns djup växer och dras samman allt eftersom den inkommande belastningen varierar. Detta sparar direkt pengar eftersom den mängd infrastruktur som krävs för att underhålla programbelastningen blir mindre.
 * **Belastnings utjämning.** Allt eftersom belastningen ökar kan fler arbetsprocesser läggas till för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom gör den här pull-baserade belastningsbalanseringen att du får en optimal användning av arbetsdatorerna. Detta gäller även om arbetsdatorerna har olika processorkraft: de kommer att hämta meddelanden med den hastighet som var och en av dem klarar av. Det här mönstret kallas ofta för ett *konkurrerande konsument*-mönster.
   
-  ![][2]
+  ![Diagram över kommunikationen mellan webb rollen, Service Bus och två arbets roller.][2]
 
 I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
@@ -63,27 +64,27 @@ Efter det lägger du till kod som skickar objekt till en Service Bus-kö och vis
 
 1. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute Emulator, som diskuteras senare i den här artikel, kräver att Visual Studio startas med administratörsbehörighet.
    
-   I Visual Studio klickar du på **Nytt** i menyn **Arkiv** och sedan på **Projekt**.
+   I Visual Studio klickar du på **Nytt** på **Arkiv**-menyn och sedan på **Projekt**.
 2. Från **Installerade mallar**, under **Visual C#**, klickar du på **Moln** och sedan på **Azure Cloud Service**. Ge projektet följande namn: **MultiTierApp**. Klicka sedan på **OK**.
    
-   ![][9]
+   ![Skärm bild av dialog rutan nytt projekt med moln valt och Azure Cloud Service Visual C# markerat och beskrivs i rött.][9]
 3. Dubbelklicka på **ASP.NET Web Role** från fönstret **Roller**.
    
-   ![][10]
+   ![Skärm bild av dialog rutan ny Microsoft Azure moln tjänst med ASP.NET-webbroll vald och WebRole1 också vald.][10]
 4. Hovra över **WebRole1** under **Azure Cloud Service Solution** och klicka på pennikonen. Byt sedan namn på webbrollen till **FrontendWebRole**. Klicka sedan på **OK**. (Kontrollera att du anger ”Frontend” med ett litet ”e”, det vill säga, inte ”FrontEnd”).
    
-   ![][11]
+   ![Skärm bild av dialog rutan ny Microsoft Azure moln tjänst med lösningen ändrat namn till FrontendWebRole.][11]
 5. Från dialogrutan **Nytt ASP.NET-projekt** klickar du på **MVC** i listan **Välj en mall**.
    
-   ![][12]
+   ![Screenshotof dialog rutan nytt ASP.NET-projekt med MVC markerad och beskrivs i rött och alternativet ändra autentisering beskrivs i rött.][12]
 6. Medan du fortfarande är kvar i dialogrutan **Nytt ASP.NET-projekt**, klickar du på knappen **Ändra autentisering**. I dialogrutan **Ändra autentisering** kontrollerar du att **Ingen autentisering** har markerats och klickar sedan på **OK**. För den här självstudiekursen distribuerar du en app som inte kräver någon användarinloggning.
    
-    ![][16]
+    ![Skärm bild av dialog rutan Ändra autentisering med alternativet Ingen autentisering markerat och anges i rött.][16]
 7. Väl tillbaka i dialogrutan **Nytt ASP.NET-projekt** klickar du på **OK** för att skapa projektet.
 8. I projektet **FrontendWebRole** i **Solution Explorer** högerklickar du på **Referenser** och sedan klickar du på **Hantera NuGet-paket**.
 9. Klicka på fliken **Bläddra** och sök sedan efter **WindowsAzure.ServiceBus**. Välj paketet **WindowsAzure.ServiceBus** genom att klicka på **Installera** och godkänn användarvillkoren.
    
-   ![][13]
+   ![Skärm bild av dialog rutan hantera NuGet-paket med WindowsAzure. Service Bus markerat och alternativet Installera som beskrivs i rött.][13]
    
    Observera att de obligatoriska klientsammansättningarna nu refereras och vissa nya kodfiler har lagts till.
 10. I **Solution Explorer** högerklickar du på **Modeller**. Klicka sedan på **Lägg till** och på **Klass**. I rutan **Namn** anger du namnet **OnlineOrder.cs**. Klicka sedan på **Lägg till**.
@@ -165,16 +166,16 @@ I detta avsnitt ska du skapa de olika sidor som din app visar.
 4. I menyn **Skapa** klickar du på **Skapa lösning** för att kontrollera att det arbete du utfört hittills är korrekt.
 5. Nu ska du skapa vyn för den `Submit()`-metod som du skapade tidigare. Högerklicka inne i `Submit()`-metoden (överlagringen av `Submit()` som inte tar några parametrar) och välj sedan **Lägg till vy**.
    
-   ![][14]
+   ![Skärm bild av koden med fokus på sändnings metoden och en nedrullningsbar listruta med alternativet Lägg till vy markerat.][14]
 6. En dialogruta för att skapa vyn visas. Välj **Skapa** i listan **Mall**. Välj klassen **OnlineOrder** i listan **Modellklass**.
    
-   ![][15]
+   ![En skärm bild av dialog rutan Lägg till vy med list rutorna mall och modell klass som beskrivs i rött.][15]
 7. Klicka på **Lägg till**.
 8. Nu ska du ändra visningsnamnet för din app. Dubbelklicka på filen **Views\Shared\\_Layout.cshtml** i **Solution Explorer** för att öppna den i Visual Studio-redigeraren.
 9. Ersätt alla förekomster av **My ASP.NET Application** med **Northwind Traders Products**.
 10. Ta bort länkarna för **Start**, **Om** och **Kontakt**. Ta bort den markerade koden:
     
-    ![][28]
+    ![Skärm bild av koden med tre rader av H T M L-åtgärd länk kod markerad.][28]
 11. Slutligen ändrar du överföringssidan för att inkludera information om kön. Dubbelklicka på filen **Views\Home\Submit.cshtml** i **Solution Explorer** för att öppna den i Visual Studio-redigeraren. Lägg till följande rad efter `<h2>Submit</h2>`. Just nu är `ViewBag.MessageCount` tom. Du kommer att fylla i denna senare.
     
     ```html
@@ -182,7 +183,7 @@ I detta avsnitt ska du skapa de olika sidor som din app visar.
     ```
 12. Du har nu implementerat ditt användargränssnitt (UI). Du kan trycka på **F5** för att köra programmet och bekräfta att det ser ut som du förväntar dig att det ska göra.
     
-    ![][17]
+    ![Skärm bild av programmets överförings sida.][17]
 
 ### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Skriva koden för att skicka objekt till en Service Bus-kö
 Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du skapa en klass som innehåller anslutningsinformation för Service Bus-kön. Sedan initierar du anslutningen från Global.aspx.cs. Slutligen uppdaterar du den överföringskod som du skapade tidigare i HomeController.cs för att den faktiskt ska skicka objekt till en Service Bus-kö.
@@ -289,13 +290,13 @@ Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du s
        }
        else
        {
-           return View(order);
+           return View(order); 
        }
    }
    ```
 9. Du kan nu köra appen igen. Varje gång du skickar en order, ökar antalet meddelanden.
    
-   ![][18]
+   ![Skärm bild av programmets sändnings sida med antalet meddelanden som ökas till 1.][18]
 
 ## <a name="create-the-worker-role"></a>Skapa arbetsrollen
 Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exemplet använder vi den projektmall för Visual Studio som heter **Arbetsroll med Service Bus-kö**. Du har redan fått de autentiseringsuppgifter som krävs från portalen.
@@ -304,16 +305,16 @@ Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exe
 2. Högerklicka på **Roller** i Visual Studio, i **Solution Explorer**, under projektet **MultiTierApp**.
 3. Klicka på **Lägg till** och sedan på **Nytt arbetsrollprojekt**. Dialogrutan **Lägg till nytt rollprojekt** visas.
    
-   ![][26]
+   ![Skärm bild av fönstret lösning Explorer med det nya arbets roll projekt alternativet och Lägg till alternativet markerat.][26]
 4. Klicka på **Arbetsroll med Service Bus-kö** i dialogrutan **Lägg till nytt rollprojekt**.
    
-   ![][23]
+   ![Skärm bild av dialog rutan nytt roll projekt för AD med arbets rollen med Service Bus Queue-alternativet markerat och visas i rött.][23]
 5. Ge projektet namnet **OrderProcessingRole** i rutan **Namn**. Klicka sedan på **Lägg till**.
 6. Kopiera den anslutningssträng som du fick i steg 9 av avsnittet ”Skapa ett namnområde för Service Bus” till Urklipp.
 7. I **Solution Explorer** högerklickar du på **OrderProcessingRole** som du skapade i steg 5 (se till att du högerklickar på **OrderProcessingRole** under **Roller** och inte på klassen). Klicka sedan på **Egenskaper**.
 8. På fliken **Inställningar** i dialogrutan **Egenskaper** klickar du inuti rutan **Värde** för **Microsoft.ServiceBus.ConnectionString** och sedan klistrar du in slutpunktsvärdet som du kopierade i steg 6.
    
-   ![][25]
+   ![Skärm bild av dialog rutan egenskaper med fliken Inställningar markerad och tabell raden Microsoft. Service Bus. ConnectionString som anges i rött.][25]
 9. Skapa en **OnlineOrder**-klass för att representera ordrarna allt eftersom du behandlar dem från kön. Du kan återanvända en klass som du redan har skapat. Högerklicka på klassen **OrderProcessingRole** (högerklicka på klassikonen, inte på rollen) i **Solution Explorer**. Klicka på **Lägg till** och sedan på **Befintligt objekt**.
 10. Bläddra till undermappen för **FrontendWebRole\Models** och dubbelklicka sedan på **OnlineOrder.cs** för att lägga till den i projektet.
 11. I **WorkerRole.cs** ändrar du värdet för variabeln **QueueName** från `"ProcessingQueue"` till `"OrdersQueue"`, som visas i följande kod.
@@ -338,9 +339,9 @@ Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exe
     ```
 14. Du har nu gjort klart appen! Du kan testa den kompletta appen genom att högerklicka på MultiTierApp-projektet i Solution Explorer och välja **Ställ in som startprojekt**. Slutligen trycker du på F5. Observera att antalet meddelanden inte ökar. Detta eftersom arbetsrollen behandlar objekt från kön och sedan markeras dessa som slutförda. Du kan se spårad utdata från arbetsrollen genom att titta i användargränssnittet för Azure Compute Emulator. Du kan göra detta genom att högerklicka på emulatorikonen i aktivitetsfältets meddelandefält och välja **Visa Compute Emulator UI**.
     
-    ![][19]
+    ![Skärm bild av vad som visas när du klickar på emulator-ikonen. Visa användar gränssnittet för beräknings-emulatorn finns i listan med alternativ.][19]
     
-    ![][20]
+    ![Skärm bild av dialog rutan Microsoft Azure Compute mula (Express).][20]
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill lära dig mer om Service Bus kan du använda följande resurser:  

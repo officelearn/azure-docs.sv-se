@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db51ec682f43366f5637c461e3fe4037dec8e364
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617043"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085222"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA vid migrering av stora Azure-instanser till Azure Virtual Machines
 Den här artikeln beskriver möjliga scenarier för distribution av stora Azure-instanser och erbjuder planerings-och migrations metoder med minimerad över gångs drift
@@ -40,7 +41,7 @@ Den här artikeln gör följande antaganden:
 - Kunderna har verifierat design-och migrations planen.
 - Planera för den virtuella datorn med katastrof återställning tillsammans med den primära platsen.  Kunder kan inte använda HLI som DR-nod för den primära platsen som körs på virtuella datorer efter migreringen.
 - Kunderna kopierade de nödvändiga säkerhetskopieringsfilerna till virtuella datorer, baserat på affärs återställnings-och efterlevnads krav. Med tillgängliga säkerhets kopieringar för virtuella datorer kan du använda den för återställning till tidpunkt under över gångs perioden.
-- För HSR HA måste kunderna konfigurera och konfigurera STONITH-enheten per SAP HANA HA guider för [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) och [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).  Den är inte förkonfigurerad som HLI-fodralet.
+- För HSR HA måste kunderna konfigurera och konfigurera STONITH-enheten per SAP HANA HA guider för [SLES](./high-availability-guide-suse-pacemaker.md) och [RHEL](./high-availability-guide-rhel-pacemaker.md).  Den är inte förkonfigurerad som HLI-fodralet.
 - Den här metoden för migrering behandlar inte HLI-SKU: er med Optane-konfigurationen.
 
 ## <a name="deployment-scenarios"></a>Distributionsscenarier
@@ -48,21 +49,21 @@ Vanliga distributions modeller med HLI-kunder sammanfattas i följande tabell.  
 
 | Scenario-ID | HLI-scenario | Migrera till VM-orda Grant? | Markera om |
 | --- | --- | --- | --- |
-| 1 | [En nod med en SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-one-sid) | Ja | - |
-| 2 | [En nod med MCOS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos) | Ja | - |
-| 3 | [Enkel nod med DR med Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication) | No | Storage Replication är inte tillgängligt med Azure Virtual Platform, ändra den aktuella DR-lösningen till antingen HSR eller säkerhets kopiering/återställning |
-| 4 | [Enkel nod med DR (flera syften) med Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication) | No | Storage Replication är inte tillgängligt med Azure Virtual Platform, ändra den aktuella DR-lösningen till antingen HSR eller säkerhets kopiering/återställning |
-| 5 | [HSR med STONITH för hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability) | Ja | Inga förkonfigurerade SBD för virtuella mål datorer.  Välj och distribuera en STONITH-lösning.  Möjliga alternativ: Azure staket-agenten (stöds för både [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker), [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)), SBD |
-| 6 | [HA med HSR, DR med Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication) | No | Ersätt Storage Replication for DR-behoven med antingen HSR eller säkerhets kopiering/återställning |
-| 7 | [Automatisk redundans för värd (1 + 1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11) | Ja | Använda ANF för delad lagring med virtuella Azure-datorer |
-| 8 | [Skala ut med vänte läge](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby) | Ja | BW/4HANA med M128s, M416s, M416ms virtuella datorer med ANF enbart för lagring |
-| 9 | [Skala ut utan vänte läge](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby) | Ja | BW/4HANA med M128s, M416s, M416ms VM (med eller utan användning av ANF för lagring) |
-| 10 | [Skala ut med DR med hjälp av Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication) | No | Ersätt Storage Replication for DR-behoven med antingen HSR eller säkerhets kopiering/återställning |
-| 11 | [Enkel nod med DR med HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr) | Ja | - |
-| 12 | [Enkel nod HSR till DR (kostnads optimerad)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized) | Ja | - |
-| 13 | [HA och DR med HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr) | Ja | - |
-| 14 | [HA och DR med HSR (kostnads optimerad)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Ja | - |
-| 15 | [Skala ut med DR med hjälp av HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr) | Ja | BW/4HANA med M128s. M416s, M416ms VM (med eller utan att använda ANF för lagring) |
+| 1 | [En nod med en SID](./hana-supported-scenario.md#single-node-with-one-sid) | Yes | - |
+| 2 | [En nod med MCOS](./hana-supported-scenario.md#single-node-mcos) | Yes | - |
+| 3 | [Enkel nod med DR med Storage Replication](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | No | Storage Replication är inte tillgängligt med Azure Virtual Platform, ändra den aktuella DR-lösningen till antingen HSR eller säkerhets kopiering/återställning |
+| 4 | [Enkel nod med DR (flera syften) med Storage Replication](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | No | Storage Replication är inte tillgängligt med Azure Virtual Platform, ändra den aktuella DR-lösningen till antingen HSR eller säkerhets kopiering/återställning |
+| 5 | [HSR med STONITH för hög tillgänglighet](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | Yes | Inga förkonfigurerade SBD för virtuella mål datorer.  Välj och distribuera en STONITH-lösning.  Möjliga alternativ: Azure staket-agenten (stöds för både [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)), SBD |
+| 6 | [HA med HSR, DR med Storage Replication](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | No | Ersätt Storage Replication for DR-behoven med antingen HSR eller säkerhets kopiering/återställning |
+| 7 | [Automatisk redundans för värd (1 + 1)](./hana-supported-scenario.md#host-auto-failover-11) | Yes | Använda ANF för delad lagring med virtuella Azure-datorer |
+| 8 | [Skala ut med vänte läge](./hana-supported-scenario.md#scale-out-with-standby) | Yes | BW/4HANA med M128s, M416s, M416ms virtuella datorer med ANF enbart för lagring |
+| 9 | [Skala ut utan vänte läge](./hana-supported-scenario.md#scale-out-without-standby) | Yes | BW/4HANA med M128s, M416s, M416ms VM (med eller utan användning av ANF för lagring) |
+| 10 | [Skala ut med DR med hjälp av Storage Replication](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | No | Ersätt Storage Replication for DR-behoven med antingen HSR eller säkerhets kopiering/återställning |
+| 11 | [Enkel nod med DR med HSR](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | Yes | - |
+| 12 | [Enkel nod HSR till DR (kostnads optimerad)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | Yes | - |
+| 13 | [HA och DR med HSR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | Yes | - |
+| 14 | [HA och DR med HSR (kostnads optimerad)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Yes | - |
+| 15 | [Skala ut med DR med hjälp av HSR](./hana-supported-scenario.md#scale-out-with-dr-using-hsr) | Yes | BW/4HANA med M128s. M416s, M416ms VM (med eller utan att använda ANF för lagring) |
 
 
 ## <a name="source-hli-planning"></a>Käll planering (HLI)
@@ -72,7 +73,7 @@ När du registrerar en HLI-server gick både Microsoft Service Management och ku
 Det är en bra idé att städa upp databas innehållet så att oönskade, inaktuella data eller inaktuella loggar inte migreras till den nya databasen.  Underhåll innebär vanligt vis att ta bort eller arkivera gamla, förfallna eller inaktiva data.  Dessa åtgärder för data hygien bör testas i icke-produktionssystem för att verifiera data trimningens giltighet innan produktions användningen.
 
 ### <a name="allow-network-connectivity-for-new-vms-and-or-virtual-network"></a>Tillåt nätverks anslutning för nya virtuella datorer och virtuella nätverk 
-I en kunds HLI-distribution har nätverket ställts in baserat på den information som beskrivs i artikeln [SAP HANA (stora instanser) nätverks arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Routning av nätverks trafik görs också på det sätt som beskrivs i avsnittet routning i Azure.
+I en kunds HLI-distribution har nätverket ställts in baserat på den information som beskrivs i artikeln [SAP HANA (stora instanser) nätverks arkitektur](./hana-network-architecture.md). Routning av nätverks trafik görs också på det sätt som beskrivs i avsnittet routning i Azure.
 - När du konfigurerar en ny virtuell dator som migreringsmålet, om den placeras i det befintliga virtuella nätverket med IP-adressintervall som redan har behörighet att ansluta till HLI, krävs ingen ytterligare anslutnings uppdatering.
 - Om den nya virtuella Azure-datorn placeras i en ny Microsoft Azure Virtual Network, kan finnas i en annan region och peer-kopplas med det befintliga virtuella nätverket, kan ExpressRoute-tjänstenyckeln och resurs-ID från den ursprungliga HLI-etableringen vara användbara för att tillåta åtkomst för det här nya IP-intervallet för virtuellt nätverk.  Koordinera med Microsoft Service Management för att aktivera det virtuella nätverket för HLI-anslutning.  Obs! för att minimera nätverks fördröjningen mellan program-och databas skikten måste både program-och databas skikten finnas i samma virtuella nätverk.  
 
@@ -106,7 +107,7 @@ Håll koll på en ny infrastruktur så att den kan ta en befintlig förtjänar, 
 Det aktuella distributions området för SAP-programservrar är vanligt vis nära nära varandra med tillhör ande HLIs.  HLIs erbjuds dock på färre platser än tillgängliga Azure-regioner.  När du migrerar den fysiska HLI till Azure VM, är det också en bra tid att finjustera avståndet mellan alla relaterade tjänster för prestanda optimering.  När du gör det är en viktig faktor att se till att den valda regionen har alla resurser som krävs.  Till exempel, tillgänglighet för en viss VM-familj eller Azure-zoner för hög tillgänglighets installation.
 
 ### <a name="virtual-network"></a>Virtuellt nätverk 
-Kunder måste välja om de vill köra den nya HANA-databasen i ett befintligt virtuellt nätverk eller skapa en ny.  Den primära besluts faktorn är den aktuella nätverks utformningen för SAP-liggande.  Även när infrastrukturen går från en zon till en distribution med två zoner och använder PPG, tillämpar den arkitektur ändringar. Mer information finns i artikeln Azure- [PPG för optimal nätverks fördröjning med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).   
+Kunder måste välja om de vill köra den nya HANA-databasen i ett befintligt virtuellt nätverk eller skapa en ny.  Den primära besluts faktorn är den aktuella nätverks utformningen för SAP-liggande.  Även när infrastrukturen går från en zon till en distribution med två zoner och använder PPG, tillämpar den arkitektur ändringar. Mer information finns i artikeln Azure- [PPG för optimal nätverks fördröjning med SAP-program](./sap-proximity-placement-scenarios.md).   
 
 ### <a name="security"></a>Säkerhet
 Oavsett om den nya SAP HANA VM-vilplan i ett nytt eller befintligt VNet/undernät, representerar den en ny affärs kritisk tjänst som kräver skydd.  Åtkomst kontroll som är kompatibel med företags information säkerhets princip bör utvärderas och distribueras för denna nya tjänst klass.
@@ -115,7 +116,7 @@ Oavsett om den nya SAP HANA VM-vilplan i ett nytt eller befintligt VNet/undernä
 Den här migreringen är också en möjlighet att rätt storlek på din HANA Compute-motor.  En kan använda HANA- [systemvyer](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) tillsammans med Hana Studio för att förstå system resurs konsumtionen, vilket ger till gång till rätt storlek för att öka utgifts effektiviteten.
 
 ### <a name="storage"></a>Storage 
-Lagrings prestanda är en av de faktorer som påverkar SAP-programmets användar upplevelse.  Bas på en given VM SKU finns minst en lagrings plats som har publicerats [SAP HANA konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Vi rekommenderar att du kontrollerar dessa minimi krav och jämför med den befintliga HLI system statistiken för att säkerställa tillräcklig IO-kapacitet och prestanda för den nya HANA-VM: en.
+Lagrings prestanda är en av de faktorer som påverkar SAP-programmets användar upplevelse.  Bas på en given VM SKU finns minst en lagrings plats som har publicerats [SAP HANA konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md). Vi rekommenderar att du kontrollerar dessa minimi krav och jämför med den befintliga HLI system statistiken för att säkerställa tillräcklig IO-kapacitet och prestanda för den nya HANA-VM: en.
 
 Om du konfigurerar PPG för den nya HANA-virtuella datorn och dess associerade allvarlighets grader skickar du ett support ärende för att kontrol lera och se till att lagrings platsen och den virtuella datorn befinner sig. Eftersom din säkerhets kopierings lösning kan behöva ändras, bör lagrings kostnaden också återanvändas för att undvika oväntade drifts utgifter.
 
@@ -123,13 +124,13 @@ Om du konfigurerar PPG för den nya HANA-virtuella datorn och dess associerade a
 Med HLI erbjöds Storage Replication som standard alternativ för haveri beredskap. Den här funktionen är inte standard alternativet för SAP HANA på Azure VM. Överväg HSR, säkerhets kopiering/återställning eller andra lösningar som stöds och som uppfyller dina affärs behov.
 
 ### <a name="availability-sets-availability-zones-and-proximity-placement-groups"></a>Placerings grupper för tillgänglighets uppsättningar, Tillgänglighetszoner och närhet 
-Om du vill förkorta avståndet mellan program lagret och SAP HANA att hålla nätverks fördröjningen minst måste den nya databasen och de aktuella SAP-programservrarna placeras i en PPG. Se [placerings gruppen närhet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) för att lära dig hur Azures tillgänglighets uppsättning och Tillgänglighetszoner fungerar med PPG för SAP-distributioner.
+Om du vill förkorta avståndet mellan program lagret och SAP HANA att hålla nätverks fördröjningen minst måste den nya databasen och de aktuella SAP-programservrarna placeras i en PPG. Se [placerings gruppen närhet](./sap-proximity-placement-scenarios.md) för att lära dig hur Azures tillgänglighets uppsättning och Tillgänglighetszoner fungerar med PPG för SAP-distributioner.
 Om medlemmar i mål HANA-systemet distribueras i fler än en Azure-zon bör kunderna ha en tydlig vy över svars profilen för de valda zonerna. Placeringen av SAP-system komponenter är optimalt för proximal avstånd mellan SAP-program och-databasen.  [Testverktyget för tillgänglighets området](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) för den offentliga domänen gör det enklare att mäta måttet.  
 
 
 ### <a name="backup-strategy"></a>Säkerhets kopierings strategi
 Många kunder använder redan säkerhets kopierings lösningar från tredje part för SAP HANA på HLI.  I så fall måste du konfigurera ytterligare en skyddad virtuell dator och HANA-databaser.  Pågående HLI säkerhets kopierings jobb kan nu schemaläggas om datorn tas ur bruk efter migreringen.
-Azure Backup för SAP HANA på den virtuella datorn är nu allmänt tillgänglig.  Se dessa länkar om du vill ha detaljerad information om: [säkerhets kopiering](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database), [återställning](https://docs.microsoft.com/azure/backup/sap-hana-db-restore), [hantering](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) SAP HANA säkerhets kopiering på virtuella Azure-datorer.
+Azure Backup för SAP HANA på den virtuella datorn är nu allmänt tillgänglig.  Se dessa länkar om du vill ha detaljerad information om: [säkerhets kopiering](../../../backup/backup-azure-sap-hana-database.md), [återställning](../../../backup/sap-hana-db-restore.md), [hantering](../../../backup/sap-hana-db-manage.md) SAP HANA säkerhets kopiering på virtuella Azure-datorer.
 
 ### <a name="dr-strategy"></a>DR-strategi
 Om dina service nivå mål har en längre återställnings tid är en enkel säkerhets kopiering till Blob Storage och återställning på plats eller återställning till en ny virtuell dator den enklaste och billigaste DR-strategin.  
@@ -196,5 +197,5 @@ Eftersom VM-servrarna är Stood och HLI-bladen har inaktiverats, kan OS-prenumer
 
 ## <a name="next-steps"></a>Nästa steg
 Läs följande artiklar:
-- [SAP HANA infrastruktur konfiguration och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
-- [SAP-arbetsbelastningar på Azure: planering och distribution check lista](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
+- [SAP HANA infrastruktur konfiguration och åtgärder på Azure](./hana-vm-operations.md).
+- [SAP-arbetsbelastningar på Azure: planering och distribution check lista](./sap-deployment-checklist.md).

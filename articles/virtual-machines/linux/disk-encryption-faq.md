@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d28d7bd85326e8a4cf27dba1f3f605b64477c5aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0bdc5b9f3d43075cbeba664a5cfb4277c20de57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829947"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082553"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Linux-datorer
 
@@ -153,15 +154,15 @@ Kryptering av XFS-datadiskar stöds bara när parametern EncryptFormatAll använ
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
 
-Azure Backup tillhandahåller en mekanism för att säkerhetskopiera och återställa krypterade virtuella datorer i samma prenumeration och region.  Anvisningar finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Det finns för närvarande inte stöd för att återställa en krypterad virtuell dator till en annan region.  
+Azure Backup tillhandahåller en mekanism för att säkerhetskopiera och återställa krypterade virtuella datorer i samma prenumeration och region.  Anvisningar finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](../../backup/backup-azure-vms-encryption.md).  Det finns för närvarande inte stöd för att återställa en krypterad virtuell dator till en annan region.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag ställa frågor eller lämna feedback?
 
-Du kan ställa frågor eller lämna feedback på [sidan Microsoft Q&en fråga för Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
+Du kan ställa frågor eller lämna feedback på [sidan Microsoft Q&en fråga för Azure Disk Encryption](/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig mer om de vanligaste frågorna som rör Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
 
 - [Översikt av Azure Disk Encryption](disk-encryption-overview.md)
-- [Använd disk kryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure Data Encryption i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Använd disk kryptering i Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Azure-datakryptering i vila](../../security/fundamentals/encryption-atrest.md)

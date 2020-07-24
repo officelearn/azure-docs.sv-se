@@ -3,11 +3,12 @@ title: Beräkna kostnader för förbruknings plan i Azure Functions
 description: Lär dig hur du bättre uppskattar kostnaderna som du kan stöta på när du kör din Function-app i en förbruknings plan i Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76963996"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083046"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
 
@@ -15,7 +16,7 @@ Det finns för närvarande tre typer av värd planer för en app som körs i Azu
 
 | Planera | Beskrivning |
 | ---- | ----------- |
-| [**Bruk**](functions-scale.md#consumption-plan) | Du debiteras bara för den tid som din Function-App körs. Den här planen innehåller en[pris sida] för [gratis beviljande av bidrag]per prenumeration.|
+| [**Förbrukning**](functions-scale.md#consumption-plan) | Du debiteras bara för den tid som din Function-App körs. Den här planen innehåller en[pris sida] för [gratis beviljande av bidrag]per prenumeration.|
 | [**Premium**](functions-scale.md#premium-plan) | Ger dig samma funktioner och skalnings funktion som förbruknings planen, men med förbättrad prestanda och VNET-åtkomst. Kostnaden baseras på din valda pris nivå. Läs mer i [Azure Functions Premium-plan](functions-premium-plan.md). |
 | [**Dedikerad (App Service)**](functions-scale.md#app-service-plan) <br/>(Basic-nivån eller högre) | När du behöver köra i dedikerade virtuella datorer eller isolera, använder du anpassade avbildningar eller vill använda den överskjutande App Service plan kapaciteten. Använder [regelbunden App Service plan fakturering](https://azure.microsoft.com/pricing/details/app-service/). Kostnaden baseras på din valda pris nivå.|
 
@@ -60,7 +61,7 @@ Följande beteenden för dina funktioner kan påverka körnings tiden:
 
 ## <a name="view-execution-data"></a>Visa körnings data
 
-I [din faktura](/azure/billing/billing-download-azure-invoice)kan du Visa kostnads relaterade data för **Totalt antal körningar – funktioner** och **körnings tid**, tillsammans med de faktiska fakturerade kostnaderna. Dessa faktura data är dock en månatlig samling för en tidigare faktura period. 
+I [din faktura](../cost-management-billing/understand/download-azure-invoice.md)kan du Visa kostnads relaterade data för **Totalt antal körningar – funktioner** och **körnings tid**, tillsammans med de faktiska fakturerade kostnaderna. Dessa faktura data är dock en månatlig samling för en tidigare faktura period. 
 
 Om du vill få bättre förståelse för dina funktioner kan du använda Azure Monitor för att visa kostnads relaterade mått som för närvarande genereras av dina funktions appar. Du kan använda antingen [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) i [Azure Portal] eller REST-API: er för att hämta dessa data.
 
@@ -75,7 +76,7 @@ Använd [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getti
     ![Välj din Function-app-resurs](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |Inställningen  |Föreslaget värde  |Beskrivning  |
+    |Inställning  |Föreslaget värde  |Beskrivning  |
     |---------|---------|---------|
     | Prenumeration    |  Din prenumeration  | Prenumerationen med din Function-app.  |
     | Resursgrupp     | Din resursgrupp  | Resurs gruppen som innehåller din Function-app.   |
@@ -237,4 +238,4 @@ customMetrics
 > [Lär dig mer om att övervaka Function-appar](functions-monitoring.md)
 
 [Sidan prissättning]:https://azure.microsoft.com/pricing/details/functions/
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

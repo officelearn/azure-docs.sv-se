@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082060"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
@@ -37,7 +37,7 @@ Följande steg vägleder dig genom de inställningar som krävs för att konfigu
 
 * Båda virtuella nätverk har redan skapats. Om du behöver skapa ett virtuellt Resource Manager-nätverk kan du läsa [skapa en resurs grupp och ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Information om hur du skapar ett klassiskt virtuellt nätverk finns i [skapa ett klassiskt VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Adress intervallen för virtuella nätverk överlappar inte varandra eller överlappar något av intervallen för andra anslutningar som gatewayerna kan vara anslutna till.
-* Du har installerat de senaste PowerShell-cmdletarna. Mer information finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) . Se till att du installerar både Service Management-och Resource Manager-cmdlets (RM). 
+* Du har installerat de senaste PowerShell-cmdletarna. Mer information finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/) . Se till att du installerar både Service Management-och Resource Manager-cmdlets (RM). 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>Exempelinställningar
 

@@ -9,11 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c7621915d9393adce373f68363f6c57b70d9907
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 416b5c03686f1b008473dd843c71bbe1139c444c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027281"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083590"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure CLI
 Med en skalnings uppsättning för virtuella datorer kan du distribuera och hantera en uppsättning virtuella datorer som skalas automatiskt. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med Azure CLI.
@@ -48,7 +49,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="deploy-sample-application"></a>Distribuera exempelprogram
-Testa din skalningsuppsättning genom att installera ett grundläggande webbprogram. Tillägg för anpassat skript i Azure används för att hämta och köra ett skript som installerar ett program på VM-instanser. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/linux/extensions-customscript.md).
+Testa din skalningsuppsättning genom att installera ett grundläggande webbprogram. Tillägg för anpassat skript i Azure används för att hämta och köra ett skript som installerar ett program på VM-instanser. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/extensions/custom-script-linux.md).
 
 Använd tillägget för anpassat skript för att installera en grundläggande NGINX-webbserver. Använd tillägget för anpassat skript som installerar NGINX med [az vmss-tilläggsuppsättningen](/cli/azure/vmss/extension) på följande sätt:
 
@@ -108,4 +109,3 @@ I den här snabbstarten skapade du en grundläggande skalningsuppsättning och a
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera VM-skalningsuppsättningar för Azure](tutorial-create-and-manage-cli.md)
-

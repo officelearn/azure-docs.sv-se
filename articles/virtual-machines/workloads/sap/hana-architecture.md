@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041da4198b0bdd040a4916008a1135aa2e2a5f7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa059ec8159779969c7ef7a5f4c97f3e985993a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77614527"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082196"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>SAP HANA-arkitektur (stora instanser) på Azure
 
@@ -40,7 +41,7 @@ Arkitekturen som visas är uppdelad i tre delar:
 
    För SAP NetWeaver-program och databaser som stöds för körning i Azure, se [SAP support Note #1928533 – SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds](https://launchpad.support.sap.com/#/notes/1928533). För dokumentation om hur du distribuerar SAP-lösningar på Azure, se:
 
-  -  [Använda SAP på virtuella Windows-datorer](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Använda SAP på virtuella Windows-datorer](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Använd SAP-lösningar på Azure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 - **Left**: visar SAP HANA TDI-certifierad maskin vara i den stora Azure-instansnamnet. De stora instanser av HANA är anslutna till de virtuella nätverken i Azure-prenumerationen genom att använda samma teknik som anslutningen från lokala enheter till Azure. Från maj till 2019 har en optimering lanserats som gör det möjligt att kommunicera mellan de stora instanser av HANA och de virtuella Azure-datorerna utan medverkan av ExpressRoute-gatewayen. Den här optimeringen heter ExpressRoute snabb sökväg visas i den här arkitekturen (röda linjer). 

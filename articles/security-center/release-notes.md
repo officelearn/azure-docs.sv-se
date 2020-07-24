@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: e8dc2edf19279aff05e5d5be6096505acf1b3438
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083981"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -33,8 +33,8 @@ Den här sidan uppdateras regelbundet, så du kan uppdatera den ofta. Om du sök
 
 I juli ingår följande uppdateringar:
 - [Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Förbättringar av behållar säkerhet – snabbare register genomsökning och uppdaterad dokumentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
 - [Sex principer för avancerad data säkerhet i SQL är inaktuell](#six-policies-for-sql-advanced-data-security-deprecated)
-
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)
@@ -44,6 +44,25 @@ Skydd mot hot för Azure Storage identifierar potentiellt skadlig aktivitet på 
 Dina data kan skyddas oavsett om de lagras som BLOB-behållare, fil resurser eller data sjöar. 
 
 Läs mer om [skydd mot hot för Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Förbättringar av behållar säkerhet – snabbare register genomsökning och uppdaterad dokumentation
+
+Som en del av de kontinuerliga investeringarna i behållar säkerhets domänen är vi glada att dela en betydande prestanda förbättring i Security Center dynamiska genomsökningar av behållar avbildningar som lagras i Azure Container Registry. Genomsökningar är nu vanligt vis slutförda på ungefär två minuter. I vissa fall kan det ta upp till 15 minuter.
+
+För att förbättra skärpan och vägledningen avseende Azure Security Center behållar säkerhetsfunktioner har vi också uppdaterat dokumentations sidorna för behållar säkerhet. 
+
+Läs mer om Security Center behållar säkerhet i följande artiklar:
+
+- [Översikt över Security Center behållar säkerhetsfunktioner](https://docs.microsoft.com/azure/security-center/container-security)
+- [Information om integreringen med Azure Container Registry](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+- [Information om integrering med Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
+- [Anvisningar – söka igenom dina register och torka Docker-värdarna](https://docs.microsoft.com/azure/security-center/monitor-container-security)
+- [Säkerhets aviseringar från hot Protection-funktionerna i Azure Kubernetes service-kluster](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Säkerhets aviseringar från hot Protection-funktionerna i Azure Kubernetes service-värdar](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
+- [Säkerhets rekommendationer för behållare](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+
+
 
 
 ### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Sex principer för avancerad data säkerhet i SQL är inaktuell
@@ -230,14 +249,14 @@ Den här uppdateringen ger följande ändringar i den här funktionen:
 
 - Rekommendationen som aviserar dig om att aktivera JIT på en virtuell dator har bytt namn. Tidigare bör "just-in-Time-Network Access Control" tillämpas på virtuella datorer "det är nu:" hanterings portar för virtuella datorer bör skyddas med just-in-Time Network Access Control ".
 
-- Rekommendationen har endast Aktiver ATS om det finns öppna hanterings portar.
+- Rekommendationen utlöses endast om det finns öppna hanterings portar.
 
 Lär dig mer om [funktionen för JIT-åtkomst](security-center-just-in-time.md).
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Anpassade rekommendationer har flyttats till en separat säkerhets kontroll
 
-En av de säkerhets kontroller som introducerades med den förbättrade säkra poängen var "implementera säkerhets metod tips". Alla anpassade rekommendationer som skapats för dina prenumerationer placerades automatiskt i denna kontroll. 
+En säkerhets kontroll som introducerades med den förbättrade säkra poängen var "implementera säkerhets metod tips". Alla anpassade rekommendationer som skapats för dina prenumerationer placerades automatiskt i denna kontroll. 
 
 För att göra det lättare att hitta dina anpassade rekommendationer har vi flyttat dem till en särskild säkerhets kontroll, "anpassade rekommendationer". Den här kontrollen påverkar inte dina säkra poäng.
 
@@ -260,7 +279,7 @@ Läs mer om säkerhets kontroller i [förbättrade säkra poäng (för hands ver
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Utökad säkerhets kontroll "implementera säkerhets metod tips" 
 
-En av de säkerhets kontroller som introduceras med förbättrade säkra poäng är "implementera rekommenderade säkerhets metoder". När en rekommendation är i den här kontrollen påverkar den inte de säkra poängen. 
+En säkerhets kontroll som introduceras med förbättrade säkra poäng är "implementera säkerhets metod tips". När en rekommendation är i den här kontrollen påverkar den inte de säkra poängen. 
 
 Med den här uppdateringen har tre rekommendationer flyttats ut från de kontroller som de ursprungligen placerades i och i den här kontrollen med bästa praxis. Vi har vidtagit det här steget eftersom vi har fastställt att risken för dessa tre rekommendationer är lägre än vad som ursprungligen troddes.
 

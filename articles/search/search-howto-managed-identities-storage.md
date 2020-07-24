@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084083"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Konfigurera en anslutning till ett Azure Storage konto med hjälp av en hanterad identitet (förhands granskning)
 
@@ -53,17 +53,19 @@ I det här steget ska du ge Azure Kognitiv sökning-tjänstens behörighet att l
     ![Lägg till rolltilldelning](./media/search-managed-identities/add-role-assignment-storage.png "Lägg till rolltilldelning")
 
 4. Välj lämpliga roller baserat på lagrings konto typen som du vill indexera:
-    1. Azure Blob Storage kräver att du lägger till din Sök tjänst i rollerna **läsare och data åtkomst** och **lagrings-BLOB-datakälla** .
-    1. Azure Data Lake Storage Gen2 kräver att du lägger till din Sök tjänst i rollerna **läsare och data åtkomst** och **lagrings-BLOB-datakälla** .
-    1. Azure Table Storage kräver att du bara lägger till din Sök tjänst i rollen **läsare och data åtkomst** .
+    1. Azure Blob Storage kräver att du lägger till din Sök tjänst i rollen **Storage BLOB data Reader** .
+    1. Azure Data Lake Storage Gen2 kräver att du lägger till din Sök tjänst i rollen **Storage BLOB data Reader** .
+    1. Azure Table Storage kräver att du lägger till din Sök tjänst i **läsaren och rollen för data åtkomst** .
 5.  Lämna **tilldela åtkomst till** som **Azure AD-användare, grupp eller tjänstens huvud namn**
 6.  Sök efter Sök tjänsten, markera den och välj sedan **Spara**
 
+    Exempel för Azure Blob Storage och Azure Data Lake Storage Gen2:
+
+    ![Lägg till roll tilldelning för Storage BLOB data Reader](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Lägg till roll tilldelning för Storage BLOB data Reader")
+
+    Exempel på Azure Table Storage:
+
     ![Lägg till roll tilldelning för läsare och data åtkomst](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Lägg till roll tilldelning för läsare och data åtkomst")
-
-Observera att när du ansluter till Azure Blob Storage och Azure Data Lake Storage Gen2 måste du också lägga till roll tilldelningen **Storage BLOB data Reader** .
-
-![Lägg till roll tilldelning för Storage BLOB data Reader](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Lägg till roll tilldelning för Storage BLOB data Reader")
 
 ### <a name="3---create-the-data-source"></a>3 – skapa data källan
 

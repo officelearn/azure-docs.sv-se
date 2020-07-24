@@ -13,17 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76544726"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082621"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
 
 Chef Software tillhandahåller en DevOps-plattform för automatisering för Linux och Windows som möjliggör hantering av både fysiska och virtuella serverkonfigurationer. Kock VM-tillägget är ett tillägg som möjliggör chef på virtuella datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -66,7 +67,7 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="core-property-values"></a>Egenskaps värden för kärna
 
-| Name | Värde/exempel | Datatyp
+| Namn | Värde/exempel | Datatyp
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | sträng (datum) |
 | utgivare | `Chef.Bootstrap.WindowsAzure` | sträng |
@@ -75,7 +76,7 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="settings"></a>Inställningar
 
-| Name | Värde/exempel | Datatyp | Obligatoriskt?
+| Namn | Värde/exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ----
 | inställningar/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (URL) | Y |
 | inställningar/bootstrap_options/validation_client_name | `myorg-validator` | sträng | Y |
@@ -83,7 +84,7 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="protected-settings"></a>Skyddade inställningar
 
-| Name | Exempel | Datatyp | Obligatoriskt?
+| Namn | Exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | Y |
 
@@ -105,7 +106,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar kan
 
 En exempel Resource Manager-mall som innehåller det virtuella chefs tillägget för VM finns i [Azure snabb starts galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md).
+JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/templates/child-resource-name-type.md).
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 

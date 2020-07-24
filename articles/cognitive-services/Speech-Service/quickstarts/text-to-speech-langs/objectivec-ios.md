@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: syntetiskt tal, mål-C-tal-tjänsten'
+title: 'Snabb start: syntetisera tal i mål-C med tal-SDK'
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att syntetisera tal i mål-C på iOS med hjälp av talet SDK
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 7a1cc2c45988e0c5a8c757e4d280b48dbbe56daa
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fa1b62a987cb6c158c8d7f1fceb57bc47e5800eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084848"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabb start: syntetisera tal i mål-C på iOS med hjälp av talet SDK
 
 I den här artikeln får du lära dig hur du skapar en iOS-app i mål-C med Cognitive Services Speech SDK för att syntetisera tal från text.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 

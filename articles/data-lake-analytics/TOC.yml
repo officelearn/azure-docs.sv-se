@@ -21,6 +21,12 @@
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+- name: Begrepp
+  items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje för Azure Security Benchmark
+          href: security-baseline.md
 - name: Gör så här för att
   items:
     - name: Hantera Data Lake Analytics
@@ -87,7 +93,7 @@
               href: data-lake-analytics-data-lake-tools-develop-usql-database.md
             - name: Bläddra och visa jobb
               href: data-lake-analytics-data-lake-tools-view-jobs.md
-            - name: 'Felsöka anpassad C#-kod'
+            - name: Felsöka anpassad C#-kod
               href: data-lake-analytics-debug-u-sql-jobs.md
             - name: Felsöka återkommande jobb
               href: data-lake-analytics-data-lake-tools-debug-recurring-job.md

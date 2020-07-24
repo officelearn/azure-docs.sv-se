@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617186"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082162"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Anslut ett virtuellt nätverk till HANA-stora instanser
 
@@ -95,7 +96,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> Den sista parametern i kommandot New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** är en ny parameter som aktiverar ExpressRoute snabb sökväg. En funktion som minskar nätverks fördröjningen mellan dina HANA stora instans enheter och virtuella Azure-datorer. Funktionen lades till i maj 2019. Mer information hittar du i artikeln [SAP HANA (stora instanser) nätverks arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Kontrol lera att du kör den senaste versionen av PowerShell-cmdletar innan du kör kommandona.
+> Den sista parametern i kommandot New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** är en ny parameter som aktiverar ExpressRoute snabb sökväg. En funktion som minskar nätverks fördröjningen mellan dina HANA stora instans enheter och virtuella Azure-datorer. Funktionen lades till i maj 2019. Mer information hittar du i artikeln [SAP HANA (stora instanser) nätverks arkitektur](./hana-network-architecture.md). Kontrol lera att du kör den senaste versionen av PowerShell-cmdletar innan du kör kommandona.
 
 Om du vill ansluta gatewayen till mer än en ExpressRoute-krets som är associerad med din prenumeration kan du behöva köra det här steget mer än en gång. Till exempel kommer du förmodligen att ansluta samma virtuella nätverksgateway till ExpressRoute-kretsen som ansluter det virtuella nätverket till ditt lokala nätverk.
 
@@ -138,7 +139,7 @@ Du måste tänka på följande:
 - Det finns en begränsning i ASN: er (autonomt system nummer) som kan användas för att annonsera dina lokala vägar till HANA-stora instanser. Ditt lokala nätverk får inte annonsera några vägar med privata ASN: er i intervallet 65000 – 65020 eller 65515. 
 - För scenariot med att ansluta lokal direkt åtkomst till HANA-stora instanser måste du beräkna en avgift för kretsen som ansluter dig till Azure. För priser kontrollerar du priserna för [Global Reach-tillägg](https://azure.microsoft.com/pricing/details/expressroute/).
 
-Om du vill hämta ett eller båda scenarier som tillämpas på din distribution öppnar du ett support meddelande med Azure enligt beskrivningen i [öppna en supportbegäran för många Hana-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
+Om du vill hämta ett eller båda scenarier som tillämpas på din distribution öppnar du ett support meddelande med Azure enligt beskrivningen i [öppna en supportbegäran för många Hana-instanser](./hana-li-portal.md#open-a-support-request-for-hana-large-instances)
 
 Data som behövs och nyckelord som du behöver använda för att Microsoft ska kunna dirigera och köra på din begäran, ser ut så här:
 

@@ -5,11 +5,12 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74689254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084865"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
 Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](manage-backup.md)). Du kan återställa din app med dess länkade databaser på begäran till ett tidigare tillstånd, eller skapa en ny app baserat på en av din ursprungliga programs säkerhets kopior. Azure App Service stöder följande databaser för säkerhets kopiering och återställning:
@@ -28,14 +29,14 @@ Den här artikeln visar hur du återställer en app i [Azure App Service](../app
     ![Välj Återställ nu][ChooseRestoreNow]
 2. På sidan **Återställ** väljer du först säkerhets kopierings källan.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![Skärm bild som visar var du kan välja säkerhets kopierings källa.](./media/web-sites-restore/021ChooseSource1.png)
    
     Alternativet **säkerhets kopiering av app** visar alla befintliga säkerhets kopior av den aktuella appen, och du kan enkelt välja en.
     Med alternativet **lagring** kan du välja valfri säkerhets kopia av zip-filen från alla befintliga Azure Storage konto och behållare i din prenumeration.
     Om du försöker återställa en säkerhets kopia av en annan app använder du alternativet **lagring** .
 3. Ange sedan målet för appen Återställ i **återställnings målet**.
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![Skärm bild som visar var du anger målet för appens återställning.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Om du väljer **Skriv över**raderas och skrivs alla befintliga data i din aktuella app över. Kontrol lera att det är precis det du vill göra innan du klickar på **OK**.
@@ -76,12 +77,12 @@ Informations sidan visar tillgänglig information relaterad till återställning
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
-Du kan automatisera säkerhets kopierings hanteringen med skript med hjälp av [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
+Du kan automatisera säkerhets kopierings hanteringen med skript med hjälp av [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/).
 
 Exempel finns i:
 
 - [Azure CLI-exempel](samples-cli.md)
-- [Azure PowerShell-exempel](samples-powershell.md)
+- [Azure PowerShell exempel](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

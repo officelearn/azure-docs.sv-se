@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47fb242a82097a9fa5c9c41dac99f0a7f8ab2c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085443"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Tidssynkronisering för virtuella Linux-datorer i Azure
 
@@ -128,11 +128,11 @@ I det här exemplet är det returnerade värdet *ptp0*, så vi använder det fö
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Detta ska returnera **HyperV**.
+Detta bör returnera `hyperv` .
 
 ### <a name="chrony"></a>chrony
 
-På Ubuntu 19,10 och senare versioner, Red Hat Enterprise Linux och CentOS 7. x är [chrony](https://chrony.tuxfamily.org/) konfigurerat för att använda en PTP-datakälla. I stället för chrony använder äldre Linux-versioner Network Time Protocol Daemon (ntpd), som inte stöder PTP-källor. Om du vill aktivera PTP i dessa versioner måste chrony installeras och konfigureras manuellt (i chrony. conf) med hjälp av följande kod:
+I Ubuntu 19,10 och senare versioner, Red Hat Enterprise Linux och CentOS 8. x är [chrony](https://chrony.tuxfamily.org/) konfigurerat för att använda en PTP-datakälla. I stället för chrony använder äldre Linux-versioner Network Time Protocol Daemon (ntpd), som inte stöder PTP-källor. Om du vill aktivera PTP i dessa versioner måste chrony installeras och konfigureras manuellt (i chrony. conf) med hjälp av följande kod:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
@@ -144,9 +144,9 @@ Mer information om Red Hat och NTP finns i [Konfigurera NTP](https://access.redh
 
 Mer information om chrony finns i [använda chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
-Om både chrony-och TimeSync-källor aktive ras samtidigt kan du markera en som **prioriterad**, vilket anger den andra källan som en säkerhets kopia. Eftersom NTP-tjänster inte uppdaterar klockan för stora förvrängningar utom efter en lång period, kommer VMICTimeSync att återställa klockan från pausade virtuella dator händelser mycket snabbare än med endast NTP-baserade verktyg.
+Om både chrony-och VMICTimeSync-källor aktive ras samtidigt kan du markera en som **prioriterad**, vilket anger den andra källan som en säkerhets kopia. Eftersom NTP-tjänster inte uppdaterar klockan för stora förvrängningar utom efter en lång period, kommer VMICTimeSync att återställa klockan från pausade virtuella dator händelser mycket snabbare än med endast NTP-baserade verktyg.
 
-Som standard påskyndar eller saktar chronyd system klockan för att åtgärda eventuella tids avvikelser. Om driften blir för stor kan chrony inte åtgärda driften. För att lösa detta `makestep` kan parametern i **/etc/chrony.conf** ändras för att framtvinga en TimeSync om driften överskrider det angivna tröskelvärdet.
+Som standard påskyndar eller saktar chronyd system klockan för att åtgärda eventuella tids avvikelser. Om driften blir för stor kan chrony inte åtgärda driften. För att lösa detta `makestep` kan parametern i **/etc/chrony.conf** ändras för att tvinga en tidssynkronisering om driften överskrider tröskelvärdet som anges.
 
  ```bash
 makestep 1.0 -1

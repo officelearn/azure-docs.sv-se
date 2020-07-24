@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 77d5731738fbade97be08841428c3bc6b712a7a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09693a09e35503a2a221f8de1903b4218b8766f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678740"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082451"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Hantera meddelanden för planerat underhåll med hjälp av portalen
 
@@ -49,7 +50,7 @@ Du kan använda Azure Portal och leta efter virtuella datorer som är schemalagd
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Aviseringar och aviseringar i portalen
 
-Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till Prenumerationens ägare och gruppen med medägare. Du kan lägga till ytterligare mottagare och kanaler i den här kommunikationen genom att skapa Azure aktivitets logg aviseringar. Mer information finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till Prenumerationens ägare och gruppen med medägare. Du kan lägga till ytterligare mottagare och kanaler i den här kommunikationen genom att skapa Azure aktivitets logg aviseringar. Mer information finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Se till att ange **händelse typ** som **planerat underhåll**och **tjänster** som **Virtual Machine Scale Sets** och/eller **Virtual Machines**.
 

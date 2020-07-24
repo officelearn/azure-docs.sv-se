@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082111"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributions modeller med hjälp av portalen
 
@@ -33,7 +34,7 @@ Om du inte redan har en virtuell nätverksgateway och inte vill skapa en, kan du
 
 * De här stegen förutsätter att båda virtuella nätverk redan har skapats. Om du använder den här artikeln som en övning och inte har virtuella nätverk finns det länkar i stegen för att hjälpa dig att skapa dem.
 * Kontrol lera att adress intervallen för virtuella nätverk inte överlappar varandra eller överlappar något av intervallen för andra anslutningar som gatewayerna kan vara anslutna till.
-* Installera de senaste PowerShell-cmdletarna för både Resource Manager och Service Management (klassisk). I den här artikeln använder vi både Azure Portal och PowerShell. PowerShell krävs för att skapa anslutningen från det klassiska VNet till Resource Manager VNet. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). 
+* Installera de senaste PowerShell-cmdletarna för både Resource Manager och Service Management (klassisk). I den här artikeln använder vi både Azure Portal och PowerShell. PowerShell krävs för att skapa anslutningen från det klassiska VNet till Resource Manager VNet. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/). 
 
 ### <a name="example-settings"></a><a name="values"></a>Exempelinställningar
 
@@ -77,7 +78,7 @@ I följande tabell visas ett exempel på hur virtuella nätverk och lokala plats
 | Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |USA, västra | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |USA, östra |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="section-1---configure-the-classic-vnet-settings"></a><a name="classicvnet"></a>Avsnitt 1 – Konfigurera de klassiska VNet-inställningarna
 
@@ -172,7 +173,7 @@ I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtue
 | Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |Offentlig IP-adress för gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |USA, västra | RMVNetLocal (192.168.0.0/16) |Den offentliga IP-adress som är tilldelad ClassicVNet-gatewayen|
-| RMVNet | (192.168.0.0/16) |USA, östra |ClassicVNetLocal (10.0.0.0/24) |Den offentliga IP-adress som är tilldelad RMVNet-gatewayen.|
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |Den offentliga IP-adress som är tilldelad RMVNet-gatewayen.|
 
 Den lokala Nätverksgatewayen anger adress intervallet och den offentliga IP-adress som är kopplad till det klassiska virtuella nätverket och den virtuella Nätverksgatewayen. Om du utför dessa steg som en övning, se exempel värden.
 

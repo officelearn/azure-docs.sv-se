@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 93be10c130c1ddbdd7bd4f0c236cddc01df4961d
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 1fcb935a7a07629ba3d7424a39f6c8542628a842
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084627"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Översikt för Media Services PlayReady-licensmall
 Azure Media Services tillhandahåller nu en tjänst för att leverera PlayReady-licenser. När spelaren (till exempel Silverlight) försöker spela upp ditt PlayReady-skyddade innehåll, skickas en begäran till licens leverans tjänsten för att få en licens. Om licens tjänsten godkänner begäran utfärdar den den licens som skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
@@ -65,18 +65,18 @@ Ett slut punkt till slut punkt-exempel som använder .NET-klasser för att konfi
 ## <a name="media-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Media Services .NET-klasser som används för att konfigurera licensfiler
 Följande klasser är de viktigaste .NET-klasserna som används för att konfigurera Media Services PlayReady-licensfiler. Dessa klasser mappar till de typer som definieras i [PlayReady-licensservern XML-schema](media-services-playready-license-template-overview.md#schema).
 
-[MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) -klassen används för att serialisera och deserialisera till och från Media Services licens mal len XML.
+[MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) -klassen används för att serialisera och deserialisera till och från Media Services licens mal len XML.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): den här klassen representerar mallen för svaret som skickas tillbaka till användaren. Det innehåller ett fält för en anpassad data sträng mellan licens servern och programmet (som kan vara användbart för anpassad app-logik). Den innehåller också en lista med en eller flera licensfiler.
+[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate): den här klassen representerar mallen för svaret som skickas tillbaka till användaren. Det innehåller ett fält för en anpassad data sträng mellan licens servern och programmet (som kan vara användbart för anpassad app-logik). Den innehåller också en lista med en eller flera licensfiler.
 
 Som "översta nivån"-klassen i mapphierarkin innehåller svars mal len en lista över licensfiler. Licens mal len omfattar (direkt eller indirekt) alla andra klasser som utgör mallens data som ska serialiseras.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): den här klassen representerar en licens mal len som används för att skapa PlayReady-licenser som ska returneras till användare. Den innehåller data i innehålls nyckeln i licensen. Den innehåller också alla rättigheter eller begränsningar som PlayReady-körningsmiljön-körningsmiljön måste framtvinga när innehålls nyckeln används.
+[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate): den här klassen representerar en licens mal len som används för att skapa PlayReady-licenser som ska returneras till användare. Den innehåller data i innehålls nyckeln i licensen. Den innehåller också alla rättigheter eller begränsningar som PlayReady-körningsmiljön-körningsmiljön måste framtvinga när innehålls nyckeln används.
 
 ### <a name="playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): den här klassen representerar PlayRight för en PlayReady-licens. Den ger användaren möjlighet att spela upp innehåll som omfattas av eventuella begränsningar som kon figurer ATS i licensen och på själva PlayRight (för en uppspelnings princip). En stor del av principen på en PlayRight avser begränsningar för utdata som styr vilka typer av utdata som innehållet kan spelas upp över. Den innehåller också alla begränsningar som måste placeras på plats när en specifik utmatning används. Om DigitalVideoOnlyContentRestriction till exempel är aktive rad tillåter DRM-körningen bara att videon visas över digitala utdata. (Analoga video utmatningar är inte tillåtna för att skicka innehållet.)
+[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): den här klassen representerar PlayRight för en PlayReady-licens. Den ger användaren möjlighet att spela upp innehåll som omfattas av eventuella begränsningar som kon figurer ATS i licensen och på själva PlayRight (för en uppspelnings princip). En stor del av principen på en PlayRight avser begränsningar för utdata som styr vilka typer av utdata som innehållet kan spelas upp över. Den innehåller också alla begränsningar som måste placeras på plats när en specifik utmatning används. Om DigitalVideoOnlyContentRestriction till exempel är aktive rad tillåter DRM-körningen bara att videon visas över digitala utdata. (Analoga video utmatningar är inte tillåtna för att skicka innehållet.)
 
 > [!IMPORTANT]
 > Dessa typer av begränsningar kan vara kraftfulla, men de kan också påverka konsument upplevelsen. Om utdatafilerna är för begränsade kan det hända att innehållet inte kan spelas upp på vissa klienter. Mer information finns i reglerna för [PlayReady-efterlevnad](https://www.microsoft.com/playready/licensing/compliance/).
@@ -318,4 +318,3 @@ Ett exempel på de skydds nivåer som Silverlight stöder finns i [Silverlight-s
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

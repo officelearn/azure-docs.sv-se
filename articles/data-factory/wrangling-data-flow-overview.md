@@ -7,11 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082876"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Vad är datatransformering data flöden?
 
@@ -27,7 +28,7 @@ Datatransformering Data Flow översätter M som genereras av Power Query online 
 Datatransformering data flöden är särskilt användbara för data tekniker eller "medborgarnas data integratorer".
 
 > [!NOTE]
-> Datatransformering data flöde är för närvarande tillgängliga i offentlig för hands version
+> Datatransformering data flöde är för närvarande tillgängligt i en offentlig för hands version
 
 ## <a name="use-cases"></a>Användningsfall
 

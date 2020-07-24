@@ -3,17 +3,17 @@ title: Snabb start – Lägg till en simulerad enhet i Azure IoT Central
 description: Den här snabb starten visar hur du skapar en enhets mall och lägger till en simulerad enhet i IoT Central-programmet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 25e1742612c6fc8c326f2918a4d69c55a9888c97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001967"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Snabb start: lägga till en simulerad enhet till ditt IoT Central program
 
@@ -28,7 +28,7 @@ I den här snabb starten lägger du till en enhets mall för ett DevKit-kort ( *
 * Svarar på kommandon som aktivera och inaktivera.
 * Rapporterar allmänna enhets egenskaper, t. ex. version och serie nummer för inbyggd program vara.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför snabb starten [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) för att skapa ett IoT Central program med hjälp av den **anpassade appen > anpassade program** .
 
@@ -48,7 +48,7 @@ Det finns flera alternativ för att lägga till en enhets kapacitets modell till
 
 Följande steg visar hur du använder enhets katalogen för att importera kapacitets modellen för en **MXChip IoT DevKit** -enhet. De här enheterna skickar telemetri, till exempel temperatur, till ditt program:
 
-1. Om du vill lägga till en ny enhets mall väljer **+** du på sidan **enhets mallar** .
+1. Om du vill lägga till en ny enhets mall väljer du **+** på sidan **enhets mallar** .
 
 1. Rulla nedåt tills du hittar **MXChip IoT DevKit** -panelen på sidan **Välj Malltyp** .
 
@@ -62,20 +62,20 @@ Följande steg visar hur du använder enhets katalogen för att importera kapaci
 
     MXChip IoT DevKit Capability-modellen innehåller gränssnitt som **mxchip_sensor**, **mxchip_settings**och **enhets information**. Gränssnitt definierar funktionerna för en MXChip IoT DevKit-enhet. Funktionerna omfattar telemetri som en enhet skickar, egenskaper för enhets rapporter och de kommandon som en enhet svarar på.
 
-### <a name="add-cloud-properties"></a>Lägg till moln egenskaper
+### <a name="add-cloud-properties"></a>Lägga till molnegenskaper
 
-En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT Central programmet och skickas aldrig till eller tas emot från en enhet.
+En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT Central programmet och skickas aldrig till eller tas emot från en enhet. Så här lägger du till en moln egenskap:
 
 1. Välj **moln egenskaper** och sedan **+ Lägg till moln egenskap**. Använd informationen i följande tabell för att lägga till två moln egenskaper till din enhets mall:
 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inga          | Date   |
-    | Kund namn     | Inga          | Sträng |
+    | Senaste servicedatum | Ingen          | Datum   |
+    | Kundnamn     | Ingen          | Sträng |
 
 1. Välj **Spara** för att spara ändringarna:
 
-    ![Moln egenskaper](media/quick-create-simulated-device/cloud-properties.png)
+    ![Molnegenskaper](media/quick-create-simulated-device/cloud-properties.png)
 
 ## <a name="views"></a>Vyer
 
@@ -128,23 +128,25 @@ Om du vill lägga till en simulerad enhet i programmet använder du **MXChip IoT
 
 1. Om du vill lägga till en ny enhet som en operatör väljer du **enheter** i den vänstra rutan. Fliken **enheter** visar **alla enheter** och enhets mal len **MXChip IoT DevKit** . Välj **MXChip IoT DevKit**.
 
-1. Välj **+** om du vill lägga till en simulerad DevKit-enhet. Använd det föreslagna **enhets-ID: t** eller ange ditt eget **enhets-ID**. Du kan också ange ett namn på den nya enheten. Kontrol lera att den **simulerade** växlingen är **på** och välj sedan **skapa**.
+1. Välj om du vill lägga till en simulerad DevKit-enhet **+** . Använd det föreslagna **enhets-ID: t** eller ange ditt eget **enhets-ID**. Du kan också ange ett namn på den nya enheten. Kontrol lera att den **simulerade** växlingen är **på** och välj sedan **skapa**.
 
     ![Simulerad enhet](./media/quick-create-simulated-device/simulated-device.png)
 
 Nu kan du interagera med de vyer som har skapats av verktyget för enhets mal len med simulerade data:
 
-1. Välj den simulerade enheten på sidan **enheter** .
+1. Välj den simulerade enheten på sidan **enheter**
 
-1. I vyn **Översikt** visas ett observations område för den simulerade Telemetrin:
+    * I vyn **Översikt** visas ett observations område för den simulerade Telemetrin:
 
-    ![Översikt över vy](./media/quick-create-simulated-device/simulated-telemetry.png)
+        ![Översikt över vy](./media/quick-create-simulated-device/simulated-telemetry.png)
 
-1. Vyn **om** visar egenskaps värden, inklusive de moln egenskaper som du har lagt till i vyn.
+    * Vyn **om** visar egenskaps värden, inklusive de moln egenskaper som du har lagt till i vyn.
 
-1. I vyn **kommandon** kan du köra kommandon, till exempel **blinka** på enheten.
+    * I vyn **kommandon** kan du köra kommandon, till exempel **blinka** på enheten.
 
-1. Vyn **Hantera enheter** är det formulär som du skapade för operatören för att hantera enheten.
+    * Vyn **Hantera enheter** är det formulär som du skapade för operatören för att hantera enheten.
+
+    * I vyn **rå data** kan du Visa de obehandlade telemetri-och egenskaps värden som skickas av enheten. Den här vyn är användbar för fel sökning av enheter.
 
 ## <a name="use-a-simulated-device-to-improve-views"></a>Använd en simulerad enhet för att förbättra vyer
 
@@ -154,7 +156,7 @@ När du har skapat en ny simulerad enhet kan verktyget använda den här enheten
 
 1. Välj någon av de vyer som du vill redigera eller skapa en ny vy. Välj **Konfigurera för hands versions enhet**och **Välj sedan från en enhet som körs**. Här kan du välja att inte ha någon förhands gransknings enhet, en riktig enhet som kon figurer ATS för testning eller en befintlig enhet som du har lagt till i IoT Central.
 
-1. Välj den simulerade enheten i listan. Välj därefter **Tillämpa**. Nu kan du se samma simulerade enhet i din enhets mall för att skapa upplevelser. Den här vyn är användbar för diagram och andra visualiseringar.
+1. Välj den simulerade enheten i listan. Välj sedan **Använd**. Nu kan du se samma simulerade enhet i din enhets mall för att skapa upplevelser. Den här vyn är användbar för diagram och andra visualiseringar.
 
     ![Konfigurera för hands versions enhet](./media/quick-create-simulated-device/configure-preview.png)
 

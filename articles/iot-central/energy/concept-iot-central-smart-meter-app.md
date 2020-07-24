@@ -1,5 +1,5 @@
 ---
-title: Arkitektur koncept i Azure IoT Central-Energy | Microsoft Docs
+title: Arkitektur koncept i Azure IoT Central – smart mätare | Microsoft Docs
 description: Den här artikeln beskriver viktiga begrepp som rör arkitekturen i Azure IoT Central Energy app-mall
 author: op-ravi
 ms.author: omravi
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77024321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001850"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – arkitektur för smart avläsning av program vara
 

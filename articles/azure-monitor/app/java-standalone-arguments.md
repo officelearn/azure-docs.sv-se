@@ -3,12 +3,12 @@ title: Övervaka Java-program som körs i valfri miljö – Azure Monitor Applic
 description: Övervakning av program prestanda för Java-program som körs på alla miljöer med fristående Java-agent utan att instrumentera appen. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6499fbc62a78cb333c623dbea8269144e623921c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82508045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014249"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurera JVM args Java standalone agent för Azure Monitor Application Insights
 
@@ -16,7 +16,7 @@ ms.locfileid: "82508045"
 
 ## <a name="azure-environments"></a>Azure-miljöer
 
-Konfigurera [app Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
+Konfigurera [app Services](../../app-service/configure-language-java.md#set-java-runtime-options).
 
 ## <a name="spring-boot"></a>Spring Boot
 

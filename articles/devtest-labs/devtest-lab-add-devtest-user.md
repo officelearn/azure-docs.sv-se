@@ -3,19 +3,19 @@ title: Lägg till ägare och användare i Azure DevTest Labs | Microsoft Docs
 description: Lägg till ägare och användare i Azure DevTest Labs med antingen Azure Portal eller PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d5e7a166f9b79e2ff46f5874d53a40ed16750100
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b54e372a9b85b76737c0780be4bce9362765301b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013495"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Åtkomst i Azure DevTest Labs styrs av [RBAC (Azure Role-Based Access Control)](../role-based-access-control/overview.md). Med hjälp av RBAC kan du åtskilja uppgifter i ditt team i *roller* där du endast beviljas den mängd åtkomst som krävs för att användarna ska kunna utföra sina jobb. Tre av dessa RBAC-roller är *ägare*, *DevTest Labs-användare*och *deltagare*. I den här artikeln får du lära dig vilka åtgärder som kan utföras i de tre huvudsakliga RBAC-rollerna. Därifrån får du lära dig hur du lägger till användare i ett labb – både via portalen och via ett PowerShell-skript och hur du lägger till användare på prenumerations nivå.
+Åtkomst i Azure DevTest Labs styrs av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md). Med hjälp av RBAC kan du åtskilja uppgifter i ditt team i *roller* där du endast beviljas den mängd åtkomst som krävs för att användarna ska kunna utföra sina jobb. Tre av dessa RBAC-roller är *ägare*, *DevTest Labs-användare*och *deltagare*. I den här artikeln får du lära dig vilka åtgärder som kan utföras i de tre huvudsakliga RBAC-rollerna. Därifrån får du lära dig hur du lägger till användare i ett labb – både via portalen och via ett PowerShell-skript och hur du lägger till användare på prenumerations nivå.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Åtgärder som kan utföras i varje roll
 Det finns tre huvud roller som du kan tilldela en användare:
@@ -29,19 +29,19 @@ Följande tabell visar de åtgärder som kan utföras av användare i var och en
 | **Åtgärder som användare med den här rollen kan utföra** | **DevTest Labs-användare** | **Ägare** | **Deltagare** |
 | --- | --- | --- | --- |
 | **Labb uppgifter** | | | |
-| Lägga till användare i ett labb |Nej |Ja |Nej |
-| Uppdatera kostnads inställningar |Nej |Ja |Ja |
+| Lägga till användare i ett labb |Inga |Yes |Inga |
+| Uppdatera kostnads inställningar |Inga |Ja |Ja |
 | **Bas uppgifter för virtuella datorer** | | | |
-| Lägga till och ta bort anpassade avbildningar |Nej |Ja |Ja |
+| Lägga till och ta bort anpassade avbildningar |Inga |Ja |Ja |
 | Lägga till, uppdatera och ta bort formler |Ja |Ja |Ja |
-| Vitlista Azure Marketplace-avbildningar |Nej |Ja |Ja |
+| Vitlista Azure Marketplace-avbildningar |Inga |Ja |Ja |
 | **VM-aktiviteter** | | | |
 | Skapa VM:ar |Ja |Ja |Ja |
 | Starta, stoppa och ta bort virtuella datorer |Endast virtuella datorer som har skapats av användaren |Ja |Ja |
-| Uppdatera VM-principer |Nej |Ja |Ja |
+| Uppdatera VM-principer |Inga |Ja |Ja |
 | Lägga till/ta bort data diskar till och från virtuella datorer |Endast virtuella datorer som har skapats av användaren |Ja |Ja |
 | **Artefakt uppgifter** | | | |
-| Lägga till och ta bort artefakt databaser |Nej |Ja |Ja |
+| Lägga till och ta bort artefakt databaser |Inga |Ja |Ja |
 | Tillämpa artefakter |Ja |Ja |Ja |
 
 > [!NOTE]
@@ -127,4 +127,3 @@ Följ dessa steg om du vill lägga till en ägare till en Azure-prenumeration:
 11. När du återgår till bladet **användare** har användaren lagts till som ägare. Den här användaren är nu ägare till alla labb som skapats under den här prenumerationen och kan därmed utföra ägar uppgifter. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

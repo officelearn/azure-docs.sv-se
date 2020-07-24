@@ -3,11 +3,12 @@ title: Azure Application Insights IP-webbplatssamling | Microsoft Docs
 description: Förstå hur IP-adresser och geolokalisering hanteras med Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1576207eb267166a33b84009407ec119de471e6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014447"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Hantering av geolokalisering och IP-adresser
 
@@ -26,7 +27,7 @@ Det här beteendet är avsiktligt för att undvika onödig insamling av personli
 
 ## <a name="overriding-default-behavior"></a>Åsidosätter standard beteende
 
-Även om standard beteendet är att minimera insamling av personliga data, erbjuder vi fortfarande flexibiliteten att samla in och lagra IP-Datadata. Innan du väljer att lagra personliga data, t. ex. IP-adresser, rekommenderar vi starkt att du verifierar att detta inte bryter mot eventuella krav på efterlevnad eller lokala regler som du kan omfattas av. Mer information om personlig data hantering i Application Insights finns i [rikt linjerna för person uppgifter](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
+Även om standard beteendet är att minimera insamling av personliga data, erbjuder vi fortfarande flexibiliteten att samla in och lagra IP-Datadata. Innan du väljer att lagra personliga data, t. ex. IP-adresser, rekommenderar vi starkt att du verifierar att detta inte bryter mot eventuella krav på efterlevnad eller lokala regler som du kan omfattas av. Mer information om personlig data hantering i Application Insights finns i [rikt linjerna för person uppgifter](../platform/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Lagra IP-Datadata
 
@@ -98,7 +99,7 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
 
 ### <a name="rest-api"></a>REST-API
 
-[REST API](https://docs.microsoft.com/rest/api/azure/) -nyttolasten för att göra samma ändringar är följande:
+[REST API](/rest/api/azure/) -nyttolasten för att göra samma ändringar är följande:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -119,7 +120,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Telemetri-initierare
 
-Om du behöver ett mer flexibelt alternativ än `DisableIpMasking` att registrera hela eller delar av IP-adresser kan du använda en [telemetri-initierare](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) för att kopiera hela eller delar av IP-adressen till ett anpassat fält. 
+Om du behöver ett mer flexibelt alternativ än `DisableIpMasking` att registrera hela eller delar av IP-adresser kan du använda en [telemetri-initierare](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) för att kopiera hela eller delar av IP-adressen till ett anpassat fält. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -232,6 +233,6 @@ Nyligen insamlade IP-adresser ska visas i `customDimensions_client-ip` kolumnen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [insamling av personliga data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) i Application Insights.
+* Lär dig mer om [insamling av personliga data](../platform/personal-data-mgmt.md) i Application Insights.
 
 * Lär dig mer om hur [IP-webbplatssamling](https://apmtips.com/posts/2016-07-05-client-ip-address/) i Application Insights fungerar. (Det här är ett äldre externt blogg inlägg som skrivits av någon av våra tekniker. Detta fördaterar det aktuella standard beteendet där IP-adressen registreras som `0.0.0.0` , men den ökar djupet på Mechanics för det inbyggda `ClientIpHeaderTelemetryInitializer` .)

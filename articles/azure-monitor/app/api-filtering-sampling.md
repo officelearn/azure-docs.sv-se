@@ -3,12 +3,12 @@ title: Filtrera och Förbearbeta i Application Insights SDK | Microsoft Docs
 description: Skriv telemetri och telemetri initierare för SDK för att filtrera eller lägga till egenskaper till data innan telemetri skickas till Application Insights portalen.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014634"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrera och Förbearbeta telemetri i Application Insights SDK
 
@@ -498,7 +498,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Lägg till information från HttpContext
 
-Följande exempel initierare läser data från [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) och lägger till dem i en `RequestTelemetry` instans. `IHttpContextAccessor`Tillhandahålls automatiskt genom insprutning av konstruktorn.
+Följande exempel initierare läser data från [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) och lägger till dem i en `RequestTelemetry` instans. `IHttpContextAccessor`Tillhandahålls automatiskt genom insprutning av konstruktorn.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -543,7 +543,7 @@ Vad är skillnaden mellan telemetri-processorer och telemetri-initierare?
 ## <a name="reference-docs"></a>Referens dokument
 
 * [API-översikt](../../azure-monitor/app/api-custom-events-metrics.md)
-* [ASP.NET-referens](https://msdn.microsoft.com/library/dn817570.aspx)
+* [ASP.NET-referens](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>SDK-kod
 
@@ -554,4 +554,4 @@ Vad är skillnaden mellan telemetri-processorer och telemetri-initierare?
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 * [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
 * [Sampling](../../azure-monitor/app/sampling.md)
-* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)
+* [Felsökning](../faq.md)

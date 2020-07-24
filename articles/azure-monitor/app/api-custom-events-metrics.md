@@ -3,11 +3,12 @@ title: Application Insights-API för anpassade händelser och mått | Microsoft 
 description: Infoga några rader kod i din enhet eller Skriv bords app, webb sida eller tjänst, för att spåra användning och diagnostisera problem.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43951a415256577144b93c7deea168e30e7a13ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014736"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
@@ -144,7 +145,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Anpassade händelser i Analytics
 
-Telemetrin är tillgänglig i `customEvents` tabellen i [Application Insights Analytics](analytics.md). Varje rad representerar ett anrop till `trackEvent(..)` i din app.
+Telemetrin är tillgänglig i `customEvents` tabellen i [Application Insights Analytics](../log-query/log-query-overview.md). Varje rad representerar ett anrop till `trackEvent(..)` i din app.
 
 Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackEvent (), men samplings processen överför bara en av dem. För att få rätt antal anpassade händelser bör du därför använda kod som `customEvents | summarize sum(itemCount)` .
 
@@ -200,7 +201,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>Anpassade mått i Analytics
 
-Telemetrin är tillgänglig i `customMetrics` tabellen i [Application Insights Analytics](analytics.md). Varje rad representerar ett anrop till `trackMetric(..)` i din app.
+Telemetrin är tillgänglig i `customMetrics` tabellen i [Application Insights Analytics](../log-query/log-query-overview.md). Varje rad representerar ett anrop till `trackMetric(..)` i din app.
 
 * `valueSum`– Det här är summan av måtten. Hämta medelvärdet genom att dividera med `valueCount` .
 * `valueCount`-Antalet mått som samlats in i det här `trackMetric(..)` anropet.
@@ -270,7 +271,7 @@ Den resulterande sid inläsningens varaktighet som visas i Metrics Explorer här
 
 ### <a name="page-telemetry-in-analytics"></a>Sid telemetri i analys
 
-I [Analytics](analytics.md) två tabeller visas data från webb läsar åtgärder:
+I [Analytics](../log-query/log-query-overview.md) två tabeller visas data från webb läsar åtgärder:
 
 * `pageViews`Tabellen innehåller data om URL: en och sid rubriken
 * `browserTimings`Tabellen innehåller data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data
@@ -306,7 +307,7 @@ Det rekommenderade sättet att skicka telemetri för begäran är dock där beg�
 
 ## <a name="operation-context"></a>Åtgärds kontext
 
-Du kan korrelera telemetri-objekt tillsammans genom att associera dem med åtgärds kontext. Standardmodulen för fråge spårning gör detta för undantag och andra händelser som skickas medan en HTTP-begäran bearbetas. I [Sök](../../azure-monitor/app/diagnostic-search.md) och [analyser](analytics.md)kan du enkelt hitta händelser som är associerade med begäran med hjälp av dess åtgärds-ID.
+Du kan korrelera telemetri-objekt tillsammans genom att associera dem med åtgärds kontext. Standardmodulen för fråge spårning gör detta för undantag och andra händelser som skickas medan en HTTP-begäran bearbetas. I [Sök](../../azure-monitor/app/diagnostic-search.md) och [analyser](../log-query/log-query-overview.md)kan du enkelt hitta händelser som är associerade med begäran med hjälp av dess åtgärds-ID.
 
 Se [telemetri-korrelation i Application Insights](../../azure-monitor/app/correlation.md) för mer information om korrelation.
 
@@ -344,7 +345,7 @@ Mer information om anpassad drift spårning finns i avsnittet [spåra anpassade 
 
 ### <a name="requests-in-analytics"></a>Förfrågningar i analys
 
-I [Application Insights Analytics](analytics.md)visas begär anden i `requests` tabellen.
+I [Application Insights Analytics](../log-query/log-query-overview.md)visas begär anden i `requests` tabellen.
 
 Om [sampling](../../azure-monitor/app/sampling.md) är i drift visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackRequest (), men samplings processen överför bara en av dem. Använd kod som till exempel för att få ett korrekt antal begär Anden och genomsnittlig varaktighet per beställnings namn:
 
@@ -426,7 +427,7 @@ SDK: erna fångar många undantag automatiskt, så du behöver inte alltid anrop
 
 ### <a name="exceptions-in-analytics"></a>Undantag i analys
 
-I [Application Insights Analytics](analytics.md)visas undantagen i `exceptions` tabellen.
+I [Application Insights Analytics](../log-query/log-query-overview.md)visas undantagen i `exceptions` tabellen.
 
 Om [sampling](../../azure-monitor/app/sampling.md) är i drift `itemCount` Visar egenskapen ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackException (), men samplings processen överför bara en av dem. För att få rätt antal undantag segment av typen av undantag, Använd kod som:
 
@@ -435,7 +436,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details` strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Ett exempel:
+De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details` strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Exempel:
 
 ```kusto
 exceptions
@@ -490,7 +491,7 @@ Logga en diagnostisk händelse som att ange eller lämna en metod.
  Parameter | Beskrivning
 ---|---
 `message` | Diagnostikdata. Kan vara mycket längre än ett namn.
-`properties` | Mappning av sträng till sträng: ytterligare data som används för att [filtrera undantag](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) i portalen. Standardvärdet är tomt.
+`properties` | Mappning av sträng till sträng: ytterligare data som används för att [filtrera undantag](#properties) i portalen. Standardvärdet är tomt.
 `severityLevel` | Värden som stöds: [SeverityLevel. TS](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 Du kan söka efter meddelande innehåll, men (till skillnad från egenskaps värden) Det går inte att filtrera på det.
@@ -498,7 +499,7 @@ Du kan söka efter meddelande innehåll, men (till skillnad från egenskaps vär
 Storleks gränsen på `message` är mycket högre än gränsen för egenskaper.
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.  
 
-Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
+Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Exempel:
 
 *C#*
 
@@ -521,7 +522,7 @@ I [sökningen](../../azure-monitor/app/diagnostic-search.md)kan du sedan enkelt 
 
 ### <a name="traces-in-analytics"></a>Spår i analys
 
-I [Application Insights Analytics](analytics.md)visas anrop till TrackTrace i `traces` tabellen.
+I [Application Insights Analytics](../log-query/log-query-overview.md)visas anrop till TrackTrace i `traces` tabellen.
 
 Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 innebär att 10 anrop till `trackTrace()` , och att endast en av dem överförs av samplings processen. För att få ett korrekt antal spårnings anrop bör du använda kod som `traces | summarize sum(itemCount)` .
 
@@ -600,7 +601,7 @@ Om du vill stänga av standard modulen för beroende spårning i C# redigerar du
 
 ### <a name="dependencies-in-analytics"></a>Beroenden i analys
 
-I [Application Insights Analytics](analytics.md)visas trackDependency-anrop i `dependencies` tabellen.
+I [Application Insights Analytics](../log-query/log-query-overview.md)visas trackDependency-anrop i `dependencies` tabellen.
 
 Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackDependency (), men samplings processen överför bara en av dem. Använd kod som till exempel för att få rätt antal beroenden som segmenteras av mål komponenten:
 
@@ -809,7 +810,7 @@ telemetry.TrackEvent(event);
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Anpassade mätningar och egenskaper i Analytics
 
-I [Analytics](analytics.md)visas anpassade mått och egenskaper i `customMeasurements` `customDimensions` attributen och för varje telemetri-post.
+I [Analytics](../log-query/log-query-overview.md)visas anpassade mått och egenskaper i `customMeasurements` `customDimensions` attributen och för varje telemetri-post.
 
 Om du till exempel har lagt till en egenskap med namnet "Game" i din begäran om telemetri, räknar den här frågan förekomster av olika värden för "Game" och visar genomsnittet för det anpassade måttet "score":
 
@@ -1061,7 +1062,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Ett exempel:
+TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Exempel:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1081,7 +1082,7 @@ Om du anger något av dessa värden själv kan du ta bort den relevanta raden fr
 * **Session**: användarens session. ID: t har angetts till ett genererat värde, vilket ändras när användaren inte har varit aktiv under ett tag.
 * **Användare**: användar information.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
@@ -1091,8 +1092,8 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 
 ## <a name="reference-docs"></a>Referens dokument
 
-* [ASP.NET-referens](https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Java-referens](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [ASP.NET-referens](/dotnet/api/overview/azure/insights?view=azure-dotnet)
+* [Java-referens](/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [JavaScript-referens](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="sdk-code"></a>SDK-kod
@@ -1108,7 +1109,7 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 
 * *Vilka undantag kan Track_ ()-anropen Throw?*
 
-    Inga. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
+    Inget. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
 * *Finns det ett REST API för att hämta data från portalen?*
 
     Ja, [API för data åtkomst](https://dev.applicationinsights.io/). Andra sätt att extrahera data är [att exportera från Analytics till Power BI](../../azure-monitor/app/export-power-bi.md ) och [löpande export](../../azure-monitor/app/export-telemetry.md).
@@ -1116,4 +1117,4 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 
 * [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
-* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)
+* [Felsökning](../faq.md)

@@ -6,11 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2b9f705c73e667f34e46fdeed3c80af1e65fb12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61aec3936ffef488b989f54894568d206c759b12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830114"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014991"
 ---
 # <a name="automation-account-authentication-overview"></a>Översikt över autentisering av Automation-konto
 
@@ -47,5 +48,5 @@ Runbooks som körs på en Hybrid Runbook Worker i ditt data Center eller från d
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du skapar ett Automation-konto från Azure Portal finns i [skapa ett fristående Azure Automation-konto](automation-create-standalone-account.md).
-* Om du föredrar att skapa ditt konto med hjälp av en mall kan du läsa [skapa ett Automation-konto med hjälp av en Azure Resource Manager-mall](automation-create-account-template.md).
+* Om du föredrar att skapa ditt konto med hjälp av en mall kan du läsa [skapa ett Automation-konto med hjälp av en Azure Resource Manager-mall](quickstart-create-automation-account-template.md).
 * För autentisering med hjälp av Amazon Web Services, se [autentisera Runbooks med Amazon Web Services](automation-config-aws-account.md).

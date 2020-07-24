@@ -1,43 +1,44 @@
 ---
 title: 'Snabb start: interaktiv kart sökning med Azure Maps'
 description: Lär dig hur du skapar ett demonstrations webb program för interaktiv kart sökning genom att använda Microsoft Azure Maps-webbsdk.
-author: philmea
-ms.author: philmea
-ms.date: 5/21/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 7/10/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: da225f9a0bac5d179efadb7d507750c8aa0bc13e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: bb6c5ee48e22e0c913e7fc6150d3986af805a08f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872108"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004634"
 ---
-# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta genom att använda Azure Maps
+# <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta med Azure Maps
 
-Den här artikeln visar funktionerna i Azure Maps för att skapa en karta som ger användarna en interaktiv sökupplevelse. Vi går igenom de grundläggande stegen:
+Den här artikeln visar hur du använder Azure Maps för att skapa en karta som ger användarna en interaktiv Sök upplevelse. Vi går igenom de grundläggande stegen:
 
 * Skapa ditt eget Azure Maps-konto.
 * Hämta din primär nyckel som ska användas i demonstrations webb programmet.
+* Ladda ned och öppna programmet demo karta.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="prerequisites"></a>Krav
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+* Logga in på [Azure-portalen](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
-## <a name="create-an-account-with-azure-maps"></a>Skapa ett konto med Azure Maps
+## <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
-Skapa ett nytt Maps-konto med följande steg:
+Skapa ett nytt Azure Maps-konto med följande steg:
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
-2. Skriv **Maps** i rutan *Sök på Marketplace*.
-3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
+2. I rutan *Sök på Marketplace skriver du* **Azure Maps**.
+3. Välj **Azure Maps**i *resultatet*. Klicka på knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Maps-konto**:
     * Den *Prenumeration* som ska användas för det här kontot.
     * Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
@@ -46,7 +47,7 @@ Skapa ett nytt Maps-konto med följande steg:
     * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
     * Klicka på knappen **Skapa**.
 
-![Skapa Maps-konto i portalen](./media/quick-demo-map-app/create-account.png)
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Skapa Maps-konto i portalen":::
 
 <a id="getkey"></a>
 
@@ -61,15 +62,15 @@ När ditt Maps-konto har skapats hämtar du den primära nyckeln som gör att du
 >[!NOTE]
 > Om du använder prenumerations nyckeln i stället för den primära nyckeln återges kartan inte korrekt. Av säkerhets skäl rekommenderar vi också att du roterar mellan dina primära och sekundära nycklar. Om du vill rotera nycklar uppdaterar du appen så att den använder den sekundära nyckeln, distribuerar och trycker sedan på knappen cykel/uppdatera bredvid den primära nyckeln för att generera en ny primär nyckel. Den gamla primär nyckeln kommer att inaktive ras. Mer information om nyckel rotation finns i [konfigurera Azure Key Vault med nyckel rotation och granskning](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-![Hämta primär nyckel Azure Maps nyckel i Azure Portal](./media/quick-demo-map-app/get-key.png)
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Hämta primär nyckel Azure Maps nyckel i Azure Portal":::
 
-## <a name="download-the-application"></a>Hämta programmet
+## <a name="download-the-demo-application"></a>Hämta demoprogrammet
 
-1. Gå till [interactiveSearch. html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Kopiera innehållet i filen.
+1. Gå till [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Kopiera innehållet i filen.
 2. Spara innehållet i den här filen lokalt som **AzureMapDemo.html**. Öppna den i en textredigerare.
 3. Sök efter strängen `<Your Azure Maps Key>`. Ersätt den med **primärnyckelvärdet** från föregående avsnitt.
 
-## <a name="open-the-application"></a>Öppna programmet
+## <a name="open-the-demo-application"></a>Öppna demonstrations programmet
 
 1. Öppna filen **AzureMapDemo.html** i en webbläsare.
 2. Observera kartan som visas för staden Los Angeles. Zooma in och ut om du vill se hur kartan automatiskt återges med mer eller mindre information beroende på zoomnivån.
@@ -77,18 +78,23 @@ När ditt Maps-konto har skapats hämtar du den primära nyckeln som gör att du
 4. Prova den interaktiva sökupplevelsen. I sökrutan i det övre vänstra hörnet i demowebbappen söker du efter **restauranger**.
 5. Flytta musen över listan med adresser och platser som visas under sökrutan. Observera hur motsvarande nål på kartan visar information om den platsen. Observera att namnen och adresserna som visas är fiktiva för att skydda privata företag.
 
-    ![Webb program för interaktiv kart sökning](./media/quick-demo-map-app/interactive-search.png)
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Webb program för interaktiv kart sökning":::
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Självstudierna förklarar hur du använder och konfigurerar Azure Maps med ditt konto. Rensa inte resurserna som du skapar i den här snabbstarten om du planerar att fortsätta med självstudierna. Om du inte planerar att fortsätta rensar du resurserna genom att utföra dessa steg:
+>[!WARNING]
+>Självstudierna som anges i avsnittet [Nästa steg](#next-steps) beskriver hur du använder och konfigurerar Azure Maps med ditt konto. Rensa inte resurserna som du skapar i den här snabbstarten om du planerar att fortsätta med självstudierna.
+
+Om du inte planerar att fortsätta med självstudierna gör du följande för att rensa resurserna:
 
 1. Stäng webbläsaren som kör webbprogrammet **AzureMapDemo.html**.
-2. Välj **Alla resurser** på menyn längst till vänster på Azure-portalen. Välj sedan ditt Azure Maps-konto. Välj **Ta bort** överst på bladet **Alla resurser**.
+2. Gå till sidan Azure Portal. Välj **alla resurser** på huvud Portal sidan. Du kan också klicka på Meny ikonen i det övre vänstra hörnet. Välj **Alla resurser**.
+3. Klicka på ditt Azure Maps-konto. Klicka på **ta bort**längst upp på sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ditt Azure Maps-konto och en demonstrationsapp. Ta en titt på följande självstudier om du vill lära dig mer om Azure Maps:
+I den här snabb starten skapade du ditt Azure Maps-konto och skapade ett demo program. Ta en titt på följande självstudier om du vill lära dig mer om Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Sök i närliggande punkter av intresse med Azure Maps](tutorial-search-location.md)

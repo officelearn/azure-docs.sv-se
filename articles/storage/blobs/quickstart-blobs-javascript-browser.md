@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f884e6d3cbc2e1f3127b251818f4617fccb6a999
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833425"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011336"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,7 +20,12 @@ ms.locfileid: "85833425"
 
 Azure Blob Storage är optimerat för att lagra stora mängder ostrukturerade data. Blobbar är objekt som kan innehålla text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. I den här snabb starten lär du dig att hantera blobbar med hjälp av Java Script i en webbläsare. Du överför och listar blobbar och skapar och tar bort behållare.
 
-[API-referens dokumentation](/javascript/api/@azure/storage-blob)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Ytterligare resurser:
+
+* [Referensdokumentation för API](/javascript/api/@azure/storage-blob)
+* [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+* [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob)
+* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 > [!NOTE]
 > För att komma igång med den tidigare SDK-versionen, se [snabb start: hantera blobbar med Java Script v10 SDK i Node.js](storage-quickstart-blobs-nodejs-legacy.md).
@@ -71,7 +76,7 @@ I Azure Portal väljer du ditt lagrings konto. Om du vill definiera en ny CORS-r
 
 I följande tabell beskrivs varje CORS-inställning och de värden som används för att definiera regeln.
 
-|Inställningen  |Värde  | Beskrivning |
+|Inställning  |Värde  | Beskrivning |
 |---------|---------|---------|
 | **TILLÅTNA URSPRUNG** | **\*** | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `*` ges alla domäner åtkomst till lagringskontot. |
 | **TILLÅTNA METODER** | **Ta bort**, **Hämta**, **huvud**, **slå samman**, **anslå**, **alternativ**och **Placera** | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |
@@ -155,7 +160,7 @@ Exempel koden visar hur du utför följande uppgifter med Azure Blob Storage-kli
 * [Skapa och ta bort en lagrings behållare](#create-and-delete-a-storage-container)
 * [Lista blobar](#list-blobs)
 * [Ladda upp blobbar](#upload-blobs)
-* [Ta bort blobbar](#delete-blobs)
+* [Ta bort blobar](#delete-blobs)
 
 Du kör koden när du har lagt till alla kodfragment i *index.js* -filen.
 
@@ -215,7 +220,7 @@ Spara *index.js* -filen.
 
 Den här koden ansluter knappen **Välj och ladda upp filer** till det dolda `file-input` elementet. Knapp `click` händelsen utlöser fil indata- `click` händelsen och visar fil väljaren. När du har valt filer och stängt dialog rutan `input` inträffar händelsen och `uploadFiles` funktionen anropas. Den här funktionen skapar ett [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) -objekt och anropar sedan funktionen endast [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) för varje fil som du har valt. Varje anrop returnerar en `Promise` . Varje `Promise` läggs till i en lista så att de kan avvisas tillsammans, vilket gör att filerna överförs parallellt.
 
-### <a name="delete-blobs"></a>Ta bort blobbar
+### <a name="delete-blobs"></a>Ta bort blobar
 
 Ta bort filer från lagrings behållaren när du klickar på knappen **ta bort markerade filer** . Lägg till följande kod i slutet av *index.js* -filen.
 
@@ -267,7 +272,7 @@ I [Azure Portal](https://portal.azure.com)kan du verifiera resultatet av API-anr
 #### <a name="step-1---create-a-container"></a>Steg 1 – Skapa en behållare
 
 1. I webbapp väljer du **skapa behållare**. Statusen anger att en behållare har skapats.
-2. Om du vill verifiera i Azure Portal väljer du ditt lagrings konto. Under **BLOB service**väljer du **behållare**. Kontrol lera att den nya behållaren visas. (Du kan behöva välja **Uppdatera**.)
+2. Om du vill verifiera i Azure Portal väljer du ditt lagrings konto. Välj **containrar** under **Blob Service**. Kontrol lera att den nya behållaren visas. (Du kan behöva välja **Uppdatera**.)
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>Steg 2 – Ladda upp en blob till behållaren
 

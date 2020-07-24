@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015025"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -18,7 +18,7 @@ Du kan använda Hybrid Runbook Worker funktionen i Azure Automation för att kö
 
 När du har distribuerat en Runbook Worker granskar du [Kör Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md) för att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller annan moln miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har följande innan du börjar.
 
@@ -173,7 +173,7 @@ I Sök resultaten bör du se pulsslags poster för datorn, vilket indikerar att 
 
 2. Om du vill bekräfta versionen av Hybrid Runbook Worker bläddrar du till `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` och noterar undermappen **version** .
 
-### <a name="step-3---install-the-runbook-environment-and-connect-to-azure-automation"></a>Steg 3 – Installera Runbook-miljön och Anslut till Azure Automation
+### <a name="step-2---install-the-runbook-environment-and-connect-to-azure-automation"></a>Steg 2 – Installera Runbook-miljön och Anslut till Azure Automation
 
 När du konfigurerar en agent att rapportera till en Log Analytics arbets yta, pushas den Azure Automation-funktionen nedåt i `HybridRegistration` PowerShell-modulen, som innehåller `Add-HybridRunbookWorker` cmdleten. Använd denna cmdlet för att installera Runbook-miljön på datorn och registrera den med Azure Automation.
 
@@ -202,7 +202,7 @@ Du kan hämta den information som krävs för parametrarna `Url` och `Key` från
 
 * Om det behövs anger du `Verbose` parametern för att få information om installationen.
 
-### <a name="step-4----install-powershell-modules"></a>Steg 4 – installera PowerShell-moduler
+### <a name="step-3----install-powershell-modules"></a>Steg 3 – Installera PowerShell-moduler
 
 Runbooks kan använda alla aktiviteter och cmdletar som definierats i modulerna som är installerade i din Azure Automation-miljö. Eftersom dessa moduler inte distribueras automatiskt till lokala datorer måste du installera dem manuellt. Undantaget är Azure-modulen. Den här modulen installeras som standard och ger åtkomst till cmdletar för alla Azure-tjänster och-aktiviteter för Azure Automation.
 

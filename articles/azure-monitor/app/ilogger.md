@@ -4,17 +4,17 @@ description: Exempel på användning av Azure Application Insights ILogger-provi
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 33effe9cfec6d766d573617ff03b58564e5b34d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 419813eba371def9eeeb43e45b51b38d1f20c607
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81313665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014481"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger-loggar
 
 ASP.NET Core stöder en loggnings-API som fungerar med olika typer av inbyggda och utomstående loggnings leverantörer. Loggning görs genom att anropa **log ()** eller en variant av den på *ILogger* -instanser. Den här artikeln visar hur du använder *ApplicationInsightsLoggerProvider* för att avbilda ILogger-loggar i-konsolen och ASP.net Core program. Den här artikeln beskriver också hur ApplicationInsightsLoggerProvider integreras med andra Application Insights telemetri.
-Mer information finns i [Logga in ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+Mer information finns i [Logga in ASP.net Core](/aspnet/core/fundamentals/logging).
 
 ## <a name="aspnet-core-applications"></a>ASP.NET Core program
 
@@ -25,7 +25,7 @@ ApplicationInsightsLoggerProvider är aktiverat som standard i [Microsoft. Appli
 
 ILogger loggar som ApplicationInsightsLoggerProvider-avbildningar omfattas av samma konfiguration som andra telemetri som samlas in. De har samma uppsättning TelemetryInitializers och TelemetryProcessors, använder samma TelemetryChannel och korreleras och samplas på samma sätt som andra telemetri. Om du använder version 2.7.1 eller senare krävs ingen åtgärd för att avbilda ILogger-loggar.
 
-Endast *varnings* -eller högre ILogger-loggar (från alla [Kategorier](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#log-category)) skickas till Application Insights som standard. Men du kan [använda filter för att ändra det här beteendet](#control-logging-level). Ytterligare steg krävs för att avbilda ILogger-loggar från **program.cs** eller **startup.cs**. (Mer information finns i [fånga in ILogger-loggar från startup.CS och program.cs i ASP.net Core-program](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
+Endast *varnings* -eller högre ILogger-loggar (från alla [Kategorier](/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#log-category)) skickas till Application Insights som standard. Men du kan [använda filter för att ändra det här beteendet](#control-logging-level). Ytterligare steg krävs för att avbilda ILogger-loggar från **program.cs** eller **startup.cs**. (Mer information finns i [fånga in ILogger-loggar från startup.CS och program.cs i ASP.net Core-program](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
 
 Använd följande procedur om du använder en tidigare version av Microsoft. ApplicationInsights. ASPNET SDK eller om du bara vill använda ApplicationInsightsLoggerProvider utan någon annan Application Insights övervakning:
 
@@ -207,7 +207,7 @@ Microsoft. ApplicationInsights. ASPNET SDK-versioner innan 2.7.1 stödde en Logg
 
 Du kan fortfarande använda den gamla providern. (Den tas bara bort i en större versions ändring till 3. *XX*.) men vi rekommenderar att du migrerar till den nya providern av följande anledningar:
 
-- Den tidigare providern saknar stöd för [logg omfattningar](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). I den nya providern läggs egenskaper från definitions området automatiskt till som anpassade egenskaper till den insamlade Telemetrin.
+- Den tidigare providern saknar stöd för [logg omfattningar](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). I den nya providern läggs egenskaper från definitions området automatiskt till som anpassade egenskaper till den insamlade Telemetrin.
 - Loggar kan nu fångas mycket tidigare i program start pipelinen. Loggar från **program** -och **Start** klasserna kan nu fångas.
 - Med den nya providern görs filtrering på själva Ramverks nivån. Du kan filtrera loggar till Application Insights-providern på samma sätt som för andra leverantörer, inklusive inbyggda providers, t. ex. konsol, fel sökning och så vidare. Du kan också använda samma filter för flera providers.
 - I ASP.NET Core (2,0 och senare) är det rekommenderade sättet att [Aktivera loggnings leverantörer](https://github.com/aspnet/Announcements/issues/255) att använda tilläggs metoder på ILoggingBuilder i **program.cs** .
@@ -319,7 +319,7 @@ I följande avsnitt visas hur du åsidosätter standard-TelemetryConfiguration m
 
 ## <a name="control-logging-level"></a>Kontrol lera loggnings nivå
 
-ASP.NET Core *ILogger* -IR har en inbyggd mekanism för att tillämpa [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering). På så sätt kan du styra de loggar som skickas till varje registrerad Provider, inklusive Application Insights leverantören. Filtreringen kan göras antingen i konfigurationen (vanligt vis med hjälp av en *appsettings.jspå* fil) eller i kod. Den här funktionen tillhandahålls av själva ramverket. Det är inte bara för Application Insights leverantören.
+ASP.NET Core *ILogger* -IR har en inbyggd mekanism för att tillämpa [logg filtrering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering). På så sätt kan du styra de loggar som skickas till varje registrerad Provider, inklusive Application Insights leverantören. Filtreringen kan göras antingen i konfigurationen (vanligt vis med hjälp av en *appsettings.jspå* fil) eller i kod. Den här funktionen tillhandahålls av själva ramverket. Det är inte bara för Application Insights leverantören.
 
 I följande exempel används filter regler till ApplicationInsightsLoggerProvider.
 
@@ -437,7 +437,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> Om du använder Microsoft. ApplicationInsights. AspNetCore-paketet för att aktivera Application Insights ändrar du koden så att den blir `TelemetryClient` direkt i konstruktorn. Ett exempel finns i [vanliga frågor och svar](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#frequently-asked-questions).
+> Om du använder Microsoft. ApplicationInsights. AspNetCore-paketet för att aktivera Application Insights ändrar du koden så att den blir `TelemetryClient` direkt i konstruktorn. Ett exempel finns i [vanliga frågor och svar](./asp-net-core.md#frequently-asked-questions).
 
 
 ### <a name="what-application-insights-telemetry-type-is-produced-from-ilogger-logs-or-where-can-i-see-ilogger-logs-in-application-insights"></a>Vilken Application Insights telemetri skapas från ILogger-loggar? Eller var kan jag se ILogger-loggar i Application Insights?
@@ -498,5 +498,5 @@ Den här koden krävs bara när du använder en fristående Logging-Provider. Vi
 
 Läs mer om:
 
-* [Logga in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)
+* [Logga in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET-spårnings loggar i Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)

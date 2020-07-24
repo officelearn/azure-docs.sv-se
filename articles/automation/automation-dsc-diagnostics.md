@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0560d9a5156f06f7ae7473f63359d9d17926b7ab
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015161"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integrera med Azure Monitor loggar
 
@@ -30,11 +30,11 @@ Azure Monitor-loggar ger bättre drifts insyn i konfigurations data för Automat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna börja skicka konfigurations rapporter för automatiserings tillstånd till Azure Monitor loggar behöver du:
 
-- Utgåvan 2016 eller senare av [Azure PowerShell](/powershell/azure/overview) (v-2.3.0).
+- Utgåvan 2016 eller senare av [Azure PowerShell](/powershell/azure/) (v-2.3.0).
 - Ett Azure Automation-konto. Mer information finns i [Introduktion till Azure Automation](automation-intro.md).
 - En Log Analytics arbets yta med ett tjänst erbjudande för Automation &-kontroll. Mer information finns i [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 - Minst en nod för Azure Automation tillstånds konfiguration. Mer information finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).

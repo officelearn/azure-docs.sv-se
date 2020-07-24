@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012952"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning Designer (förhandsversion)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -115,25 +115,6 @@ Publicerade pipelines är flexibla, de kan användas för att träna eller trän
 En publicerad pipeline körs på de beräknings resurser som du definierar i pipeline-utkastet för varje modul.
 
 Designern skapar samma [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) -objekt som SDK: n.
-
-
-## <a name="moving-from-the-visual-interface-to-the-designer"></a>Flytta från det visuella gränssnittet till designern
-
-Visual Interface (för hands version) har uppdaterats och är nu Azure Machine Learning designer (för hands version). Designern har återskapats för att använda en pipeline-baserad server del som helt kan integreras med de andra funktionerna i Azure Machine Learning. 
-
-Som ett resultat av dessa uppdateringar har vissa begrepp och villkor för det visuella gränssnittet ändrats eller bytt namn. Se tabellen nedan för de viktigaste koncept ändringarna. 
-
-| Koncept i designern | Tidigare i det visuella gränssnittet |
-| ---- |:----:|
-| Pipeline-utkast | Experiment |
-| Slut punkt i real tid | Webbtjänst |
-
-### <a name="migrating-to-the-designer"></a>Migrera till designern
-
-Du kan konvertera befintliga experiment och webb tjänster för visuella gränssnitt till pipelines och real tids slut punkter i designern. Använd följande steg för att migrera dina Visual Interface-till gångar:
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
 
 ## <a name="next-steps"></a>Nästa steg
 

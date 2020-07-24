@@ -4,12 +4,12 @@ description: I den här snabb starten får du lära dig hur du konfigurerar öve
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: b47f3ce1ebed12d14dffd68e87dd013bb86218ea
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: fa2ecd5d953ec0411a122dc7107ce23de1ae5bc6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014056"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Snabb start: börja övervaka din webbplats med Azure Monitor Application Insights
 
@@ -17,7 +17,7 @@ I den här snabb starten lär du dig att lägga till Application Insights Java S
 
 Med Azure Monitor Application Insights kan du enkelt övervaka din webbplats med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Application Insights tillhandahåller övervakning på både server sidan och klient-och webb läsar sidan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * En webbplats där du kan lägga till Application Insights JavaScript SDK.
@@ -26,24 +26,24 @@ Med Azure Monitor Application Insights kan du enkelt övervaka din webbplats med
 
 Application Insights kan samla in telemetridata från alla Internet-anslutna program som körs lokalt eller i molnet. Använd följande steg för att visa dessa data:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-1. Välj **skapa ett resurs** > **hanterings verktyg** > **Application Insights**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Välj **skapa ett resurs**  >  **hanterings verktyg**  >  **Application Insights**.
 
    > [!NOTE]
-   >Om det här är första gången du skapar en Application Insights-resurs, se [skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >Om det här är första gången du skapar en Application Insights-resurs, se [skapa en Application Insights resurs](./create-new-resource.md).
 1. När konfigurations rutan visas, använder du följande tabell för att fylla i inmatade fält:
 
     | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namnet som identifierar den app som du övervakar. |
-   | **Resurs grupp**     | myResourceGroup      | Namnet på den nya resurs gruppen som ska vara värd för Application Insights data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
-   | **Position** | USA, östra | Välj en plats nära dig eller nära den plats där din app finns. |
+   | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resurs gruppen som ska vara värd för Application Insights data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
+   | **Plats** | East US | Välj en plats nära dig eller nära den plats där din app finns. |
 1. Välj **Skapa**.
 
 ## <a name="create-an-html-file"></a>Skapa en HTML-fil
 
-1. På din lokala dator skapar du en fil med namnet ``hello_world.html``. I det här exemplet skapar du filen i roten på enhet C så att den ser ut ``C:\hello_world.html``.
-1. Kopiera och klistra in följande skript i ``hello_world.html``:
+1. På din lokala dator skapar du en fil med namnet ``hello_world.html``. I det här exemplet skapar du filen i roten på enhet C så att den ser ut ``C:\hello_world.html`` .
+1. Kopiera och klistra in följande skript i ``hello_world.html`` :
 
     ```html
     <!DOCTYPE html>
@@ -60,7 +60,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
 ## <a name="configure-application-insights-sdk"></a>Konfigurera Application Insights SDK
 
-1. Välj **Översikt** > **Essentials**och kopiera sedan programmets **Instrumentation-nyckel**.
+1. Välj **Översikt**  >  **Essentials**och kopiera sedan programmets **Instrumentation-nyckel**.
 
    ![Nytt Application Insights-resursformulär](media/website-monitoring/instrumentation-key-001.png)
 
@@ -86,7 +86,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
    De fyra standarddiagrammen på översiktssidan är begränsade till programdata på serversidan. Eftersom vi instrumenterar klient-och webb läsar interaktioner med Java Script SDK, gäller inte den här vyn om vi även har installerat SDK för Server sidan.
 
-1. Välj **Analytics** ![ikonen](media/website-monitoring/006.png)analys program karta.  Den här åtgärden öppnar **analys**, som innehåller ett omfattande frågespråk för analys av alla data som samlas in av Application Insights. Kör följande fråga om du vill visa data som är relaterade till förfrågningar på klient sidan:
+1. Välj ikonen **analys** ![ program karta ](media/website-monitoring/006.png) .  Den här åtgärden öppnar **analys**, som innehåller ett omfattande frågespråk för analys av alla data som samlas in av Application Insights. Kör följande fråga om du vill visa data som är relaterade till förfrågningar på klient sidan:
 
     ```kusto
     // average pageView duration by name
@@ -132,4 +132,4 @@ Om du planerar att fortsätta arbeta med ytterligare snabb starter eller självs
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hitta och diagnostisera prestandaproblem](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [Hitta och diagnostisera prestandaproblem](../log-query/log-query-overview.md)

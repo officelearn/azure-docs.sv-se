@@ -1,6 +1,6 @@
 ---
 title: Konfigurera data baserat på STIG för konfiguration av Azure Automation tillstånd
-description: Den här artikeln beskriver hur du konfigurerar data baserat på STIG för Azure Automation tillstånds konfiguration.
+description: Den här artikeln beskriver hur du konfigurerar data baserat på DoD-STIG för konfiguration av Azure Automation tillstånd.
 keywords: DSC, PowerShell, konfiguration, installation
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 113a6a259f0c69bdcc3b1684803af54ed7ecbddf
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: dab0cd7f7d660808b4ed7a91318baad55f80928c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015144"
 ---
-# <a name="configure-data-based-on-stig"></a>Konfigurera data baserat på STIG
+# <a name="configure-data-based-on-security-technical-information-guide-stig"></a>Konfigurera data baserat på teknisk informations guide för säkerhet (STIG)
 
 > Gäller för: Windows PowerShell 5,1
 

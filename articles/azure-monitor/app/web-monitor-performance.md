@@ -4,11 +4,12 @@ description: Kom igång med Application Insights. Analysera användning, tillgä
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014173"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
 
@@ -25,7 +26,7 @@ Om du ännu inte har lagt till Application Insights i projektet (det vill säga 
 * [ASP.NET-webbappar](../../azure-monitor/app/asp-net.md)
   * [Lägg till undantags övervakning](../../azure-monitor/app/asp-net-exceptions.md)
   * [Lägg till beroende övervakning](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE-webbappar](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Java EE-webbappar](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Utforska prestanda mått
 I [Azure Portal](https://portal.azure.com)bläddrar du till den Application Insights resurs som du har konfigurerat för ditt program. Bladet översikt visar grundläggande prestanda information:
@@ -60,15 +61,15 @@ Sök efter ovanliga toppar. I allmänhet förväntar du svars tiden på att öka
 
 Klicka på panelen för att hämta tider för vissa URL: er.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![Skärm bild av fönstret Application Health som visar linje diagram över tid för att flytta medelvärden för förfrågningar och svars tid.](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>Långsammaste begär Anden
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![Skärm bild av en lista med långsammaste förfrågningar och deras svars tider.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 Visar vilka begär Anden som kan kräva prestanda justering.
 
 ### <a name="failed-requests"></a>Misslyckade förfrågningar
-![](./media/web-monitor-performance/appinsights-46failed.png)
+![Skärm bild av ett linje diagram över tid för antalet misslyckade förfrågningar. det vill säga begär Anden som utlöste undantag som inte har fångats.](./media/web-monitor-performance/appinsights-46failed.png)
 
 Antal begär Anden som utlöste undantag som inte har fångats.
 
@@ -86,7 +87,7 @@ Om du väljer något mått inaktive ras de andra som inte kan visas i samma diag
 ## <a name="set-alerts"></a>Ställa in avisering
 För att få ett meddelande via e-post om ovanliga värden för alla mått, Lägg till en avisering. Du kan antingen välja att skicka e-postmeddelandet till konto administratörer eller till vissa e-postadresser.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![Skärm bild av dialog rutan Lägg till en varnings regel, tillsammans med skärm bilder som är anslutna via pilar som visar hur du når den dialog rutan från Metrics Explorer.](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 Ange resursen före de andra egenskaperna. Välj inte webbtest-resurserna om du vill ange aviseringar för prestanda-eller användnings statistik.
 
@@ -144,12 +145,9 @@ Prestanda undersöknings upplevelsen visar relevanta insikter längs den exempel
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
 [usage]: usage-overview.md
 [livestream]: ../../azure-monitor/app/live-stream.md
 [snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
-

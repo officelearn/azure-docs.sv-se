@@ -7,20 +7,25 @@ ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: d30260f8718d061473dfa4b29b7c35e33b27390d
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 41d6457986ac3c97b3e7a19d089e7ce6a15d1f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011285"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Snabb start: hantera blobbar med Java V12 SDK
 
 I den här snabb starten lär du dig att hantera blobbar med hjälp av Java. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar och skapar och tar bort behållare.
 
-[API Reference dokumentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Ytterligare resurser:
 
-## <a name="prerequisites"></a>Krav
+* [Referensdokumentation för API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html)
+* [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
+* [Paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
+* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -101,7 +106,7 @@ Skapa ett Java-program med namnet *BLOB-snabb start-V12*.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-Öppna filen *Pom. XML* i text redigeraren. Lägg till följande beroende element i gruppen med beroenden.
+Öppna *pom.xml* -filen i text redigeraren. Lägg till följande beroende element i gruppen med beroenden.
 
 ```xml
 <dependency>
@@ -118,7 +123,7 @@ Från projekt katalogen:
 1. Navigera till katalogen */src/main/Java/com/blobs/QuickStart*
 1. Öppna filen *app. java* i redigeraren
 1. Ta bort `System.out.println("Hello world!");` instruktionen
-1. Lägg `import` till direktiv
+1. Lägg till `import` direktiv
 
 Här är koden:
 
@@ -157,10 +162,10 @@ Följande diagram visar relationen mellan de här resurserna.
 Använd följande Java-klasser för att interagera med dessa resurser:
 
 * [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClient.html): `BlobServiceClient` klassen låter dig ändra Azure Storage-resurser och blob-behållare. Lagrings kontot innehåller namn området på den översta nivån för Blob Service.
-* [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html): `BlobServiceClientBuilder` klassen innehåller en Fluent Builder-API som hjälper till att hjälpa till att konfigurera `BlobServiceClient` och instansiera objekt.
+* [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html): `BlobServiceClientBuilder` klassen innehåller en Fluent Builder-API som hjälper till att hjälpa till att konfigurera och instansiera `BlobServiceClient` objekt.
 * [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html): `BlobContainerClient` klassen låter dig ändra Azure Storage behållare och deras blobbar.
 * [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html): `BlobClient` klassen låter dig ändra Azure Storage blobbar.
-* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): `BlobItem` klassen representerar enskilda blobbar som returneras från ett anrop till `listBlobsFlat`.
+* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): `BlobItem` klassen representerar enskilda blobbar som returneras från ett anrop till `listBlobsFlat` .
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -177,7 +182,7 @@ I de här exempel kods tycken visas hur du gör följande med klient biblioteket
 
 Koden nedan hämtar anslutnings strängen för lagrings kontot från den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
 
-Lägg till den här koden `Main` i-metoden:
+Lägg till den här koden i- `Main` metoden:
 
 ```java
 System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
@@ -279,7 +284,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med [Delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--) -metoden. Den tar också bort de lokala filer som skapats av appen.
 
-Appen pausar indata från användaren genom att `System.console().readLine()` anropa innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna har skapats korrekt innan de tas bort.
+Appen pausar indata från användaren genom `System.console().readLine()` att anropa innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna har skapats korrekt innan de tas bort.
 
 Lägg till den här koden i slutet av `Main` metoden:
 
@@ -302,7 +307,7 @@ System.out.println("Done");
 
 Den här appen skapar en test fil i din lokala mapp och laddar upp den till Blob Storage. Exemplet visar sedan blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
 
-Navigera till den katalog som innehåller filen *Pom. XML* och kompilera projektet med hjälp av följande `mvn` kommando.
+Navigera till den katalog som innehåller *pom.xml* -filen och kompilera projektet med hjälp av följande `mvn` kommando.
 
 ```console
 mvn compile

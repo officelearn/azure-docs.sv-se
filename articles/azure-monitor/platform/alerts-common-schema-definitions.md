@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445380"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013971"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
@@ -149,7 +149,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 ### <a name="log-alerts"></a>Loggaviseringar
 
 > [!NOTE]
-> För logg aviseringar som har ett anpassat e-postämne och/eller en JSON-nyttolast definierad, aktiverar det gemensamma schemat e-postämnet och/eller nytto Last schema till det som beskrivs i följande avsnitt. Aviseringar med det gemensamma schemat aktiverat har en övre storleks gräns på 256 KB per varning. Sök resultaten är inte inbäddade i logg aviserings nytto lasten om de orsakar aviserings storleken mellan detta tröskelvärde. Du kan fastställa detta genom att kontrol lera flaggan `IncludeSearchResults` . När Sök resultaten inte ingår bör du använda Sök frågan tillsammans med [Log Analytics-API: et](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
+> För logg aviseringar som har ett anpassat e-postämne och/eller en JSON-nyttolast definierad, aktiverar det gemensamma schemat e-postämnet och/eller nytto Last schema till det som beskrivs i följande avsnitt. Aviseringar med det gemensamma schemat aktiverat har en övre storleks gräns på 256 KB per varning. Sök resultaten är inte inbäddade i logg aviserings nytto lasten om de orsakar aviserings storleken mellan detta tröskelvärde. Du kan fastställa detta genom att kontrol lera flaggan `IncludeSearchResults` . När Sök resultaten inte ingår bör du använda Sök frågan tillsammans med [Log Analytics-API: et](/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -220,7 +220,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
                     "Heartbeat"
                 ]
             }
-        ]
+        ],
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
     }
@@ -500,5 +500,4 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs).
-- Lär dig [hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
-
+- Lär dig [hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar](./alerts-common-schema-integrations.md). 

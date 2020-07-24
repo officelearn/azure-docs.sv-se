@@ -3,13 +3,14 @@ title: HTTP-funktioner i Durable Functions-Azure Functions
 description: Lär dig mer om de integrerade HTTP-funktionerna i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16a133205b13a3d0a4aa76f75c8ce316f6c09199
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014906"
 ---
 # <a name="http-features"></a>HTTP-funktioner
 
@@ -50,9 +51,60 @@ I [artikeln om http-API: er](durable-functions-http-api.md) finns en fullständi
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-**function.jspå**
+**function.json**
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+**__init__. py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    function_name = req.route_params['functionName']
+    event_data = req.get_body()
+
+    instance_id = await client.start_new(function_name, instance_id, event_data)
+    
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+    return client.create_check_status_response(req, instance_id)
+```
+
+**function.json**
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    }
+  ]
+}
+```
 
 ---
 
@@ -147,6 +199,22 @@ module.exports = df.orchestrator(function*(context){
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    response = yield context.call_http('GET', url)
+    
+    if response["statusCode"] >= 400:
+        # handling of error codes goes here
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 
 ---
 
@@ -169,7 +237,7 @@ API: t "anropa HTTP" kan automatiskt implementera klient sidan för avsökningen
 
 Durable Functions inbyggt stöder anrop till API: er som accepterar Azure Active Directory-token (Azure AD) för auktorisering. Det här stödet använder [Azure Managed identiteter](../../active-directory/managed-identities-azure-resources/overview.md) för att hämta dessa tokens.
 
-Följande kod är ett exempel på en .NET Orchestrator-funktion. Funktionen gör autentiserade anrop för att starta om en virtuell dator med hjälp av Azure Resource Manager [virtuella datorer REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+Följande kod är ett exempel på en .NET Orchestrator-funktion. Funktionen gör autentiserade anrop för att starta om en virtuell dator med hjälp av Azure Resource Manager [virtuella datorer REST API](/rest/api/compute/virtualmachines).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -221,6 +289,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    subscription_id = "mySubId"
+    resource_group = "myRg"
+    vm_name = "myVM"
+    api_version = "2019-03-01"
+    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net")
+
+    # get a list of the Azure subscriptions that I have access to
+    restart_response = yield context.call_http("POST", 
+        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        None,
+        None,
+        token_source)
+    return restart_response
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 I föregående exempel `tokenSource` är parametern konfigurerad för att hämta Azure AD-token för [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Tokens identifieras av resurs-URI `https://management.core.windows.net` : n. Exemplet förutsätter att den aktuella Function-appen körs lokalt eller har distribuerats som en Function-app med en hanterad identitet. Den lokala identiteten eller den hanterade identiteten antas ha behörighet att hantera virtuella datorer i den angivna resurs gruppen `myRG` .
@@ -255,7 +347,7 @@ Om någon av dessa begränsningar kan påverka ditt användnings fall bör du i 
 
 ### <a name="extensibility-net-only"></a>Utökning (endast .NET)
 
-Det går att anpassa beteendet för dirigeringens interna HTTP-klient med hjälp av [Azure Functions .net-beroende inmatning](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Den här funktionen kan vara användbar för att göra små beteende ändringar. Det kan också vara användbart för enhet som testar HTTP-klienten genom att mata in de blå objekten.
+Det går att anpassa beteendet för dirigeringens interna HTTP-klient med hjälp av [Azure Functions .net-beroende inmatning](../functions-dotnet-dependency-injection.md). Den här funktionen kan vara användbar för att göra små beteende ändringar. Det kan också vara användbart för enhet som testar HTTP-klienten genom att mata in de blå objekten.
 
 I följande exempel visas hur du använder beroende inmatning för att inaktivera TLS/SSL-certifikat verifiering för Orchestrator-funktioner som anropar externa HTTP-slutpunkter.
 

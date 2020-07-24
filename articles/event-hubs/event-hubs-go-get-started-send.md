@@ -3,12 +3,12 @@ title: 'Snabb start: skicka och ta emot händelser med go-Azure Event Hubs'
 description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett Go-program som skickar händelser från Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002462"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Snabb start: skicka händelser till eller ta emot händelser från Event Hubs med go
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
@@ -18,7 +18,7 @@ I den här självstudien beskrivs hur du skriver Go-program för att skicka hän
 > [!NOTE]
 > Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -31,7 +31,7 @@ Det här avsnittet visar hur du skapar ett Go-program för att skicka händelser
 
 ### <a name="install-go-package"></a>Installera go-paket
 
-Hämta go-paketet för Event Hubs med `go get` eller `dep` . Till exempel:
+Hämta go-paketet för Event Hubs med `go get` eller `dep` . Exempel:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -126,7 +126,7 @@ Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ### <a name="create-a-storage-account-and-container"></a>Skapa ett lagrings konto och en behållare
 
-Tillstånd som lån på partitioner och kontroll punkter i händelse strömmen delas mellan mottagare som använder en Azure Storage-behållare. Du kan skapa ett lagrings konto och en behållare med go SDK, men du kan också skapa en genom att följa anvisningarna i [om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
+Tillstånd som lån på partitioner och kontroll punkter i händelse strömmen delas mellan mottagare som använder en Azure Storage-behållare. Du kan skapa ett lagrings konto och en behållare med go SDK, men du kan också skapa en genom att följa anvisningarna i [om Azure Storage-konton](../storage/common/storage-account-create.md).
 
 Exempel på hur du skapar lagrings artefakter med go SDK finns i [exemplen lagrings platsen](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) och i exemplet som motsvarar den här självstudien.
 

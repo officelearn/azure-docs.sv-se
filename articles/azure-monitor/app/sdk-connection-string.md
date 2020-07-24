@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014146"
 ---
 # <a name="connection-strings"></a>Anslutningssträngar
 
@@ -25,18 +25,18 @@ Nyckel värdes paren ger ett enkelt sätt för användare att definiera en kombi
 > Vi rekommenderar inte att du anger både anslutnings sträng och instrument nyckel. I händelse av att en användare anger båda, prioriteras det som angetts senast. 
 
 
-## <a name="scenario-overview"></a>Scenarioöversikt 
+## <a name="scenario-overview"></a>Översikt över scenario 
 
 Kund scenarier där vi visualiserar detta med största påverkan:
 
 - Brand Väggs undantag eller omdirigering av proxy 
 
-    I de fall där övervakning av intranäts webb server krävs, uppmanade vi våra tidigare lösningar att lägga till enskilda tjänst slut punkter i konfigurationen. Mer information finns [här](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    I de fall där övervakning av intranäts webb server krävs, uppmanade vi våra tidigare lösningar att lägga till enskilda tjänst slut punkter i konfigurationen. Mer information finns [här](../faq.md#can-i-monitor-an-intranet-web-server). 
     Anslutnings strängar ger ett bättre alternativ genom att minska den här ansträngningen till en enda inställning. Ett enkelt prefix innebär att suffixet ändras tillåter automatisk ifyllning och omdirigering av alla slut punkter till rätt tjänster. 
 
 - Suveräna miljöer eller hybrid moln miljöer
 
-    Användare kan skicka data till en definierad [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+    Användare kan skicka data till en definierad [Azure Government Region](../../azure-government/compare-azure-government-global-azure.md#application-insights).
     Med anslutnings strängar kan du definiera slut punkts inställningar för dina intranät servrar eller hybrid moln inställningar. 
 
 ## <a name="getting-started"></a>Komma igång

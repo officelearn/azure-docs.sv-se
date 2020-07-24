@@ -3,12 +3,12 @@ title: Övervaka Java-program var som helst Azure Monitor Application Insights
 description: Kod för program prestanda övervakning för Java-program som körs i en miljö utan att du instrumenterar appen. Hitta rotor saken till problemen d med hjälp av Distributed tracing och program karta.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a01f2e9339f3ba4f8f50fc41617fabf9da9d8cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014209"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
 
@@ -216,7 +216,7 @@ Här är ett exempel på hur du ställer in samplingen på **10% av alla transak
 
 ## <a name="http-proxy"></a>HTTP-proxy
 
-Om ditt program ligger bakom en brand vägg och inte kan ansluta direkt till Application Insights (se [IP-adresser som används av Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)) kan du konfigurera Application Insights Java 3,0 Preview för att använda en http-proxy:
+Om ditt program ligger bakom en brand vägg och inte kan ansluta direkt till Application Insights (se [IP-adresser som används av Application Insights](./ip-addresses.md)) kan du konfigurera Application Insights Java 3,0 Preview för att använda en http-proxy:
 
 ```json
 {

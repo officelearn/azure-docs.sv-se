@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147102"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012730"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Förhindra överanpassning och obalanserade data med automatiserad maskin inlärning
 
@@ -101,7 +101,7 @@ Följande tekniker är ytterligare alternativ för att hantera sambalanserade da
 
 - Omsampling till till och med klassen obalans, antingen genom att ta sampling av de mindre klasserna eller nedåt, och samtidigt ta bort de större klasserna. Dessa metoder kräver expertis för att bearbeta och analysera.
 
-- Granska prestanda mått för obalanserade data. Till exempel är F1-poängen ett viktat medelvärde för precision och åter kallelse. Precision mäter en klassificerares exakta värde – låg precision visar ett stort antal falska positiva identifieringar--, samtidigt som åtgärdar mått för en klassificerares komplettahet – låg återkallning anger ett stort antal falska negativa värden.
+- Granska prestanda mått för obalanserade data. Till exempel är F1-poängen det harmoniska medelvärdet för precision och återkallande. Precision mäter en klassificerares exaktahet, där högre precision visar färre falska positiva identifieringar, medan återkallande mäter en klassificerares fullständighet, där högre åter kallelse visar färre falska negativa värden.
 
 ## <a name="next-steps"></a>Nästa steg
 

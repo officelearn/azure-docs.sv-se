@@ -12,11 +12,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
-ms.openlocfilehash: eba53254d58ddfa2577212723b7234bbb5939a6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34d91b23b0383f4128b7f03619ad0e2b07496f33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708462"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014175"
 ---
 # <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>transparent datakryptering i SQL-hanterad instans med hjälp av din egen nyckel från Azure Key Vault
 
@@ -24,7 +25,7 @@ ms.locfileid: "84708462"
 
 Detta exempel på PowerShell-skript konfigurerar transparent datakryptering (TDE) med en kundhanterad nyckel för Azure SQL-hanterad instans med hjälp av en nyckel från Azure Key Vault. Detta kallas ofta BYOK-scenario () för TDE. Läs mer i [Azure SQL Transparent datakryptering med kundhanterad nyckel](../../database/transparent-data-encryption-byok-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En befintlig hanterad instans. Se [använda PowerShell för att skapa en hanterad instans](create-configure-managed-instance-powershell.md).
 
@@ -44,6 +45,6 @@ Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/).
 
 Ytterligare PowerShell-skript exempel för SQL-hanterad instans finns i [PowerShell-skript för Azure SQL-hanterad](../../database/powershell-script-content-guide.md)instans.

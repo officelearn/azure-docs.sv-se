@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79461018"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000966"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services är en molnbaserad plattform för att skapa lösningar för
 Media Services v3-SDK: er baseras på [Media Services v3 openapi-specifikation (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att: Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), Visa (inte hantera) v3- [till gångar](assets-concept.md), [få information om åtkomst till API: er](access-api-portal.md). För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att: Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), Visa (inte hantera) v3- [till gångar](assets-concept.md), [få information om åtkomst till API: er](./access-api-howto.md). För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,8 +53,8 @@ Med Media Services kan du bygga en mängd olika medie arbets flöden i molnet. N
 * Analysera inspelat video- eller ljudinnehåll. För att till exempel uppnå högre kundnöjdhet kan organisationer extrahera tal till text och skapa sökindex och instrumentpaneler. De kan sedan extrahera information kring vanliga klagomål, källor till klagomål och andra relevanta data.
 * Skapa en prenumerationsvideotjänst och strömma DRM-skyddat innehåll när en kund (till exempel en filmstudio) behöver begränsa åtkomst och användning av upphovsrättsskyddat arbete.
 * Leverera offline-innehåll för uppspelning på flygplan tåg och bilar. En kund kan behöva ladda ner innehåll till sin telefon eller surfplatta för uppspelning när de vet att de kan kopplas ned från nätverket.
-* Implementera en video plattform för e-utbildning i utbildning med Azure Media Services och [Azure API:er för Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) för tal-till-text-textning, översättning till flera språk och så vidare.
-* Använd Azure Media Services tillsammans med [API:er för Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) för att lägga till textning och beskrivningar till videor och därmed tillgodose en bredare publik (till exempel personer med handikapp) eller användare som vill kunna läsa på ett annat språk.
+* Implementera en video plattform för e-utbildning i utbildning med Azure Media Services och [Azure API:er för Cognitive Services](../../index.yml?pivot=products&panel=ai) för tal-till-text-textning, översättning till flera språk och så vidare.
+* Använd Azure Media Services tillsammans med [API:er för Cognitive Services](../../index.yml?pivot=products&panel=ai) för att lägga till textning och beskrivningar till videor och därmed tillgodose en bredare publik (till exempel personer med handikapp) eller användare som vill kunna läsa på ett annat språk.
 * Aktivera Azure CDN för att uppnå hög skalning för att bättre hantera omedelbara höga belastningar (till exempel start av en produktlansering).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3? 
@@ -88,14 +88,14 @@ Självstudierna visar scenariobaserade procedurer för några av de främsta Med
 
 ### <a name="samples"></a>Exempel
 
-Använd [den här exempel webbläsaren](https://docs.microsoft.com/samples/browse/?products=azure-media-services) för att bläddra bland Azure Media Services kod exempel.
+Använd [den här exempel webbläsaren](/samples/browse/?products=azure-media-services) för att bläddra bland Azure Media Services kod exempel.
 
-### <a name="how-to-guides"></a>Anvisningar
+### <a name="how-to-guides"></a>Instruktionsguider
 
 Instruktions guider innehåller kod exempel som visar hur du utför en uppgift. I det här avsnittet hittar du många exempel. Här är några av dem:
 
-* [Skapa ett konto – CLI](create-account-cli-how-to.md)
-* [Använd API:er – CLI](access-api-cli-how-to.md)
+* [Skapa ett konto – CLI](./create-account-howto.md)
+* [Använd API:er – CLI](./access-api-howto.md)
 * [Koda med HTTPS som Job-inkommande – .NET](job-input-from-http-how-to.md)  
 * [Övervaka händelser – portalen](monitor-events-portal-how-to.md)
 * [Kryptera dynamiskt med multi-DRM-.NET](protect-with-drm.md) 

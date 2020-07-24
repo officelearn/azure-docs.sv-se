@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3d785edb82e62363dd96d9fd67447f1be7ffe8f5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b90acafb9146ec6cd796a0916ad46bf880398b22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013988"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Hantera databaser i Azure SQL Database med Azure Automation
 
@@ -34,7 +34,7 @@ Sänk drifts kostnader och frigör IT/DevOps-personalen och fokusera på arbete 
 
 ## <a name="how-azure-automation-can-help-manage-your-databases"></a>Hur Azure Automation kan hjälpa dig att hantera dina databaser
 
-Med Azure Automation kan du hantera databaser i Azure SQL Database med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) som är tillgängliga i [Azure PowerShell-verktyg](/powershell/azure/overview). Azure Automation har dessa Azure SQL Database PowerShell-cmdlets tillgängliga i rutan så att du kan utföra alla dina SQL Database hanterings uppgifter i tjänsten. Du kan också para ihop dessa cmdlets i Azure Automation med cmdletar för andra Azure-tjänster, för att automatisera komplexa uppgifter i Azure-tjänster och på olika system.
+Med Azure Automation kan du hantera databaser i Azure SQL Database med hjälp av [PowerShell-cmdletar](/powershell/module/servicemanagement/azure.service/#sql) som är tillgängliga i [Azure PowerShell-verktyg](/powershell/azure/). Azure Automation har dessa Azure SQL Database PowerShell-cmdlets tillgängliga i rutan så att du kan utföra alla dina SQL Database hanterings uppgifter i tjänsten. Du kan också para ihop dessa cmdlets i Azure Automation med cmdletar för andra Azure-tjänster, för att automatisera komplexa uppgifter i Azure-tjänster och på olika system.
 
 Azure Automation kan också kommunicera med SQL-servrar direkt genom att utfärda SQL-kommandon med PowerShell.
 

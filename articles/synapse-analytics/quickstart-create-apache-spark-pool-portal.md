@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en Apache Spark pool (förhands granskning) med hjälp av Azure Portal'
+title: 'Snabb start: skapa en Apache Spark pool med hjälp av Azure Portal'
 description: Skapa en ny Apache Spark pool med hjälp av Azure Portal genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006083"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Snabb start: skapa en ny Apache Spark pool (förhands granskning) med hjälp av Azure Portal
+# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Snabb start: skapa en ny Apache Spark pool med hjälp av Azure Portal
 
 Azure Synapse Analytics erbjuder olika analys verktyg som hjälper dig att mata in, transformera, modellera, analysera och distribuera dina data. En Apache Spark pool tillhandahåller funktioner för Big data Compute med öppen källkod. När du har skapat en Apache Spark-pool på din Synapse-arbetsyta, kan data läsas in, modelleras, bearbetas och distribueras för snabbare analytiska insikter.
 
@@ -27,7 +27,7 @@ I den här snabb starten får du lära dig hur du använder Azure Portal för at
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)

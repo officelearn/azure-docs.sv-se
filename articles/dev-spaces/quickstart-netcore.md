@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 104e812cc9e792ce71f263085ba1a3474cc2226b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002785"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio Code och .NET Core – Azure dev Spaces
 
@@ -118,7 +118,7 @@ Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings p
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Till exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Exempel:
 
 1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
 1. Uppdatera [rad 22 i `Controllers/HomeController.cs` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) till:
@@ -147,7 +147,7 @@ Ta bort Bryt punkten genom att placera markören på rad 22 i `Controllers/HomeC
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-När tjänsten körs i fel söknings läge uppdaterar du rad 22 i `Controllers/HomeController.cs` . Till exempel:
+När tjänsten körs i fel söknings läge uppdaterar du rad 22 i `Controllers/HomeController.cs` . Exempel:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Spara filen. Klicka på *Felsök* och *starta om fel sökning* eller klicka på knappen *starta om fel sökning* i *verktygsfältet Felsök*.
 
-![Fel söknings verktygsfältet är ett litet fönster överst i mitten av sidan (strax under sid rubriken). Knappen starta om visar en cirkulär pil och är markerad. Hov rings bilden för knappen är "starta om (Ctrl + Shift + F5)".](media/common/debug-action-refresh.png)
+![Fel söknings verktygsfältet är ett litet fönster överst i mitten av sidan (strax under sid rubriken). Knappen starta om visar en cirkulär pil och är markerad. Hov rings bilden för knappen är "starta om (Ctrl + Shift + f 5)".](media/common/debug-action-refresh.png)
 
 Öppna din tjänst i en webbläsare och Observera att det uppdaterade meddelandet visas.
 

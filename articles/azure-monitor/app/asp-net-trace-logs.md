@@ -3,12 +3,12 @@ title: Utforska .NET-spårnings loggar i Application Insights
 description: Sök efter loggar som genereras av trace, NLog eller Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014583"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Utforska loggarna .NET/.NET Core och python i Application Insights
 
@@ -84,7 +84,7 @@ Om du föredrar log4net eller NLog använder du:
 ```
 
 ## <a name="use-eventsource-events"></a>Använda EventSource-händelser
-Du kan konfigurera [system. Diagnostics. tracing. EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i [ApplicationInsights.configs](../../azure-monitor/app/configuration-with-applicationinsights-config.md) filen.
+Du kan konfigurera [system. Diagnostics. tracing. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i [ApplicationInsights.configs](../../azure-monitor/app/configuration-with-applicationinsights-config.md) filen.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -135,7 +135,7 @@ För varje källa kan du ange följande parametrar:
 ## <a name="use-the-trace-api-directly"></a>Använda trace API direkt
 Du kan anropa API: et för Application Insights trace direkt. Loggnings korten använder detta API.
 
-Ett exempel:
+Exempel:
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -144,7 +144,7 @@ telemetry.TrackTrace("Slow response - database01");
 
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.
 
-Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
+Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Exempel:
 
   ```csharp
   var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -190,7 +190,7 @@ Du kan till exempel:
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="how-do-i-do-this-for-java"></a>Hur gör jag för att gör du detta för Java?
-I Java codeal Instrumentation (rekommenderas) loggar samlas in direkt i rutan, använder du [java 3,0-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+I Java codeal Instrumentation (rekommenderas) loggar samlas in direkt i rutan, använder du [java 3,0-agenten](./java-in-process-agent.md).
 
 Om du använder Java SDK använder du [Java log-nätverkskorten](../../azure-monitor/app/java-trace-logs.md).
 
@@ -200,7 +200,7 @@ Om du använder Java SDK använder du [Java log-nätverkskorten](../../azure-mon
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Det finns inget logg korts alternativ i konfigurations verktyget
 * Installera loggnings ramverket först.
-* Om du använder system. Diagnostics. trace kontrollerar du att du har [konfigurerat den i *web.config* ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Om du använder system. Diagnostics. trace kontrollerar du att du har [konfigurerat den i *web.config* ](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Kontrol lera att du har den senaste versionen av Application Insights. I Visual Studio går du till **verktyg**  >  **tillägg och uppdateringar**och öppnar fliken **uppdateringar** . Om **Developer Analytics tools** finns där väljer du det för att uppdatera det.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Jag får fel meddelandet "Instrumentation-nyckeln kan inte vara tom"
@@ -228,5 +228,5 @@ Om ditt program skickar Voluminous data mängder och du använder Application In
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

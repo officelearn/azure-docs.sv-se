@@ -10,18 +10,18 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015229"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Distribuera till Azure Kubernetes Service
 
 Den här artikeln innehåller steg för att distribuera en lokal gateway-komponent i Azure API Management till [Azure Kubernetes-tjänsten](https://azure.microsoft.com/services/kubernetes-service/). Om du vill distribuera en lokal gateway till ett Kubernetes-kluster ser du det här[dokumentet](how-to-deploy-self-hosted-gateway-kubernetes.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - [Skapa ett Azure Kubernetes-kluster](../aks/kubernetes-walkthrough-portal.md)
@@ -29,7 +29,7 @@ Den här artikeln innehåller steg för att distribuera en lokal gateway-kompone
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>Distribuera den egna värdbaserade gatewayen till AKS
 
-1. Välj **gateways** från **Inställningar**.
+1. Välj **gateways** från under **distribution och infrastruktur**.
 2. Välj den lokal gateway-resurs som du vill distribuera.
 3. Välj **distribution**.
 4. Observera att en ny token i text rutan **token** genererades automatiskt när du använder standard värdena för **förfallo datum** och **hemlig nyckel** . Justera antingen eller båda om du vill och välj **generera** för att skapa en ny token.

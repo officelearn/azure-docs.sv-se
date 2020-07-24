@@ -3,11 +3,12 @@ title: Användnings analys med Azure Application Insights | Microsoft-dokument
 description: Förstå dina användare och vad de gör med din app.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1acc803d66bef29a77266d4e38e1605ffd75f36f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797779"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014073"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
@@ -33,7 +34,7 @@ Den bästa upplevelsen erhålls genom att installera Application Insights både 
     </script>
     ```
 
-    Mer avancerade konfigurationer för övervakning av webbplatser finns i [referens artikeln för Java Script SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Mer avancerade konfigurationer för övervakning av webbplatser finns i [referens artikeln för Java Script SDK](./javascript.md).
 
 3. **Kod för mobilapp:** Använd App Center SDK för att samla in händelser från din app och skicka sedan kopior av dessa händelser till Application Insights för analys genom att [följa den här hand boken](../../azure-monitor/learn/mobile-center-quickstart.md).
 
@@ -44,7 +45,7 @@ Den bästa upplevelsen erhålls genom att installera Application Insights både 
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Inkludera användar-och sessions-ID i din telemetri
 För att spåra användare över tid kräver Application Insights ett sätt att identifiera dem. Events-verktyget är det enda användnings verktyget som inte kräver ett användar-ID eller sessions-ID.
 
-Börja skicka användar-och sessions-ID med [den här processen](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Börja skicka användar-och sessions-ID med [den här processen](./usage-send-user-context.md).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Utforska användnings demografiskhet och statistik
 Ta reda på när användarna använder din app, vilka sidor de är mest intresserade av, var dina användare finns, vilka webbläsare och operativ system de använder. 

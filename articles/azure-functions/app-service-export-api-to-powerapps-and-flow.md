@@ -4,11 +4,12 @@ description: Översikt över hur du exponerar ett API som finns i App Service ti
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115836"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015093"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserad API till PowerApps och Microsoft Flow
 
@@ -57,7 +58,7 @@ Slutför exporten i **Express** läge genom att följa dessa steg:
 
 2. Använd de inställningar som anges i tabellen.
 
-    |Inställningen|Beskrivning|
+    |Inställning|Beskrivning|
     |--------|------------|
     |**Miljö**|Välj den miljö som den anpassade anslutningen ska sparas i. Mer information finns i [Översikt över miljöer](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Anpassat API-namn**|Ange ett namn som PowerApps och Microsoft Flows byggare ser i sin kopplings lista.|
@@ -145,9 +146,9 @@ När du använder Azure AD behöver du två Azure AD-programregistreringar: en f
 
 - Om du vill konfigurera registrering för API: et använder du funktionen [App Service autentisering/auktorisering](../app-service/configure-authentication-provider-aad.md) .
 
-- Om du vill konfigurera registreringen för anslutningen följer du stegen i [lägga till ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Registreringen måste ha delegerad åtkomst till ditt API och svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect` . 
+- Om du vill konfigurera registreringen för anslutningen följer du stegen i [lägga till ett Azure AD-program](../active-directory/develop/quickstart-register-app.md). Registreringen måste ha delegerad åtkomst till ditt API och svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect` . 
 
-Mer information finns i exempel på Azure AD-registrering för [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) och [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). I de här exemplen används Azure Resource Manager som API: et. Ersätt ditt API om du följer anvisningarna.
+Mer information finns i exempel på Azure AD-registrering för [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) och [Microsoft Flow](/connectors/custom-connectors/azure-active-directory-authentication). I de här exemplen används Azure Resource Manager som API: et. Ersätt ditt API om du följer anvisningarna.
 
 Följande konfigurations värden måste anges:
 - **Klient-ID** – klient-ID för din ANSLUTNINGS Azure AD-registrering
@@ -168,5 +169,3 @@ Följande konfigurations värden måste anges:
 - **URL för auktorisering** – URL för OAuth 2,0-auktorisering
 - **Token-URL** – URL för OAuth 2,0-token
 - **Uppdatera URL** – uppdaterings-URL: en för OAuth 2,0
-
-

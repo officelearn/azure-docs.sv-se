@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/06/2020
+ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: feababd3d6f6845142a13ccb3b2b31b78315704b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 99c22edac7acefe3ec34ff40e892a7071b932ada
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027933"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013818"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabb start: använda python-REST API för att anropa tjänsten Textanalys kognitiv 
 <a name="HOLTop"></a>
@@ -24,7 +25,7 @@ Använd den här snabb starten för att börja analysera språk med Textanalys R
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.x](https://python.org)
 
@@ -64,7 +65,7 @@ I följande avsnitt beskrivs hur du anropar var och en av API-funktionerna.
 
 ## <a name="detect-languages"></a>Identifiera språk
 
-Lägg till i `/text/analytics/v3.0/languages` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`
+Lägg till i `/text/analytics/v3.0/languages` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v3.0/languages"
@@ -131,7 +132,7 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-Om du vill identifiera sentiment (som sträcker sig mellan positivt eller negativt) i en uppsättning dokument lägger du till `/text/analytics/v3.0/sentiment` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
+Om du vill identifiera sentiment (som sträcker sig mellan positivt eller negativt) i en uppsättning dokument lägger du till `/text/analytics/v3.0/sentiment` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v3.0/sentiment"
@@ -220,7 +221,7 @@ Sentiment-poängen för ett dokument är mellan 0,0 och 1,0, med en högre poän
 
 ## <a name="extract-key-phrases"></a>Extrahering av diskussionsämne
  
-Extrahera nyckel fraserna från en uppsättning dokument genom att lägga till i `/text/analytics/v3.0/keyPhrases` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+Extrahera nyckel fraserna från en uppsättning dokument genom att lägga till i `/text/analytics/v3.0/keyPhrases` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v3.0/keyphrases"
@@ -294,10 +295,10 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-Identifiera välkända entiteter (personer, platser och saker) i text dokument genom att lägga till i `/text/analytics/v3.0/entities/recognition/general` textanalys bas slut punkten för att bilda URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+Identifiera välkända entiteter (personer, platser och saker) i text dokument genom att lägga till i `/text/analytics/v3.0/entities/recognition/general` textanalys bas slut punkten för att bilda URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
     
 ```python
-entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general/recognition/general"
+entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general"
 ```
 
 Skapa en samling dokument, som i de föregående exemplen. 

@@ -3,12 +3,12 @@ title: Övervaka Java-program på valfri miljö – Azure Monitor Application In
 description: Övervakning av program prestanda för Java-program som körs i en miljö utan att behöva instrumentera appen. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319711"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014345"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-kodad program övervakning Azure Monitor Application Insights – offentlig för hands version
 
@@ -32,11 +32,11 @@ Lägg till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` i 
 
 Typiska JVM-argument inkluderar `-Xmx512m` och `-XX:+UseG1GC` . Så om du vet var du vill lägga till dessa, vet du redan var du ska lägga till det.
 
-Mer hjälp om hur du konfigurerar programmets JVM-argument finns i [3,0 Preview: tips för att uppdatera dina JVM-argument](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
+Mer hjälp om hur du konfigurerar programmets JVM-argument finns i [3,0 Preview: tips för att uppdatera dina JVM-argument](./java-standalone-arguments.md).
 
 **3. peka agenten till din Application Insights-resurs**
 
-Om du inte redan har en Application Insights resurs kan du skapa en ny genom att följa stegen i guiden för att [Skapa resurser](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Om du inte redan har en Application Insights resurs kan du skapa en ny genom att följa stegen i guiden för att [Skapa resurser](./create-new-resource.md).
 
 Peka agenten till Application Insights resurs, antingen genom att ange en miljö variabel:
 
@@ -80,7 +80,7 @@ I `ApplicationInsights.json` filen kan du också konfigurera:
 * HTTP-proxy
 * Själv diagnostik
 
-Se information på [3,0 offentlig för hands version: konfigurations alternativ](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
+Se information på [3,0 offentlig för hands version: konfigurations alternativ](./java-standalone-config.md).
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Autosamlade begär Anden, beroenden, loggar och mått
 

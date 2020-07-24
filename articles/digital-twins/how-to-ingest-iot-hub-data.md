@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725859"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131573"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Mata in IoT Hub telemetri i Azure Digitals, dubbla
 
@@ -37,11 +38,11 @@ Det här scenariot beskrivs i ett diagram nedan:
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="En IoT Hub-enhet skickar temperatur telemetri genom IoT Hub, Event Grid eller system ämnen till en Azure-funktion, som uppdaterar en temperatur egenskap på dubbla i Azures digitala dubbla." border="false":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter med det här exemplet måste du uppfylla följande krav.
 1. Skapa en IoT-hubb. Anvisningar finns i avsnittet *skapa en IoT Hub* i [den här IoT Hub snabb](../iot-hub/quickstart-send-telemetry-cli.md) starten.
-2. Skapa minst en Azure-funktion för att bearbeta händelser från IoT Hub. Se [anvisningar: Konfigurera en Azure-funktion för bearbetning av data](how-to-create-azure-function.md) för att skapa en grundläggande Azure-funktion som kan ansluta till Azure Digitals dubbla och anropa Azure Digitals dubbla API-funktioner. Resten av den här instruktionen bygger på den här funktionen.
+2. Skapa minst en Azure-funktion för att bearbeta händelser från IoT Hub. Se [*anvisningar: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md) för att skapa en grundläggande Azure-funktion som kan ansluta till Azure Digitals dubbla och anropa Azure Digitals dubbla API-funktioner. Resten av den här instruktionen bygger på den här funktionen.
 3. Konfigurera ett händelse mål för Hub-data. I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen. Under *händelser*skapar du en prenumeration för Azure-funktionen. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure Portal: lägga till en händelse prenumeration":::
@@ -54,7 +55,7 @@ Innan du fortsätter med det här exemplet måste du uppfylla följande krav.
 
 ## <a name="create-an-azure-function-in-visual-studio"></a>Skapa en Azure-funktion i Visual Studio
 
-I det här avsnittet används samma start steg i Visual Studio och Azure Function Skeleton från [anvisningar: Konfigurera en Azure-funktion för bearbetning av data](how-to-create-azure-function.md). Skeleton hanterar autentisering och skapar en tjänst klient som är redo att bearbeta data och anropa Azure Digitals dubbla API: er som svar. 
+I det här avsnittet används samma start steg i Visual Studio och Azure Function Skeleton från [*anvisningar: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md). Skeleton hanterar autentisering och skapar en tjänst klient som är redo att bearbeta data och anropa Azure Digitals dubbla API: er som svar. 
 
 Hjärtat i Skeleton-funktionen är följande:
 
@@ -267,9 +268,9 @@ Nu har du en Azure-funktion som är utrustad att läsa och tolka de scenario dat
 
 ## <a name="debug-azure-function-apps-locally"></a>Felsöka Azure Function Apps lokalt
 
-Det går att felsöka Azure Functions med en Event Grid-utlösare lokalt. Mer information om detta finns i [felsöka Event Grid utlösare lokalt](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Det går att felsöka Azure Functions med en Event Grid-utlösare lokalt. Mer information om detta finns i [*felsöka Event Grid utlösare lokalt*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs om data ingress och utgånget med Azure Digitals:
-* [Koncept: integrering med andra tjänster](concepts-integration.md)
+* [*Koncept: integrering med andra tjänster*](concepts-integration.md)

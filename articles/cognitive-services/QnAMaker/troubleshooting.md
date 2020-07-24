@@ -3,13 +3,12 @@ title: Fel sökning – QnA Maker
 description: Den granskade listan med de vanligaste frågorna om QnA Maker tjänsten hjälper dig att komma igång med tjänsten snabbare och med bättre resultat.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.author: diberry
-ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804358"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131998"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -30,7 +29,7 @@ Läs mer om [pris nivåer](Concepts/azure-resources.md).
 <details>
 <summary><b>Så här hämtar du QnAMaker-tjänstens slut punkt</b></summary>
 
-**Svar**: QnAMaker-tjänstens slut punkt är användbart för fel sökning när du kontaktar QnAMaker-support eller UserVoice. Slut punkten är en URL i det här formuläret `https://your-resource-name.azurewebsites.net`:.
+**Svar**: QnAMaker-tjänstens slut punkt är användbart för fel sökning när du kontaktar QnAMaker-support eller UserVoice. Slut punkten är en URL i det här formuläret: `https://your-resource-name.azurewebsites.net` .
 
 1. Gå till din QnAMaker-tjänst (resurs grupp) i [Azure Portal](https://portal.azure.com)
 
@@ -134,7 +133,7 @@ Alla borttagningar är permanenta, inklusive frågor och svars par, filer, URL: 
 <details>
 <summary><b>Stöder kunskaps basen omfattande data eller Multimedia?</b></summary>
 
-**Svar:**
+**Svar**:
 
 #### <a name="multimedia-auto-extraction-for-files-and-urls"></a>Automatisk extrahering av multimedia för filer och URL: er
 
@@ -173,7 +172,7 @@ Om du har innehåll från flera språk, måste du skapa en separat tjänst för 
 </details>
 
 <details>
-<summary><b>Jag har tagit `testkb` bort mitt index i min search-tjänst. Hur kan jag åtgärda detta?</b></summary>
+<summary><b>Jag har tagit bort mitt `testkb` index i min search-tjänst. Hur kan jag åtgärda detta?</b></summary>
 
 **Svar**: dina gamla data kan inte återställas. Skapa en ny QnA Maker resurs och skapa din kunskaps bas igen.
 
@@ -209,12 +208,12 @@ Om du har innehåll från flera språk, måste du skapa en separat tjänst för 
 1. När du fortfarande är i App Service väljer du **utvecklingsverktyg**, sedan **Avancerade verktyg**och sedan **gå**. Då öppnas ett nytt fönster i webbläsaren.
 1. Välj **fel söknings konsolen**och sedan **cmd** för att öppna ett kommando rads verktyg.
 1. Navigera till _platsen/wwwroot/data/QnAMaker/_ Directory.
-1. Ta bort alla mappar vars namn börjar med `rd`.
+1. Ta bort alla mappar vars namn börjar med `rd` .
 
     **Ta inte bort** följande:
 
-    * KbIdToRankerMappings. txt-fil
-    * EndpointSettings. JSON-fil
+    * KbIdToRankerMappings.txt fil
+    * EndpointSettings.jspå fil
     * EndpointKeys-mapp
 
 1. Starta App Service.
@@ -244,12 +243,12 @@ Om du har innehåll från flera språk, måste du skapa en separat tjänst för 
 **Svar**: du måste ha följande information om din kunskaps bas:
 
 * Kunskaps bas-ID.
-* Det anpassade under domän namnet för den publicerade slut punkten i kunskaps basen, känt som `host`, hittades på sidan **Inställningar** när du har publicerat.
+* Det anpassade under domän namnet för den publicerade slut punkten i kunskaps basen, känt som `host` , hittades på sidan **Inställningar** när du har publicerat.
 * Kunskaps basens publicerade slut punkts nyckel finns på **inställnings** sidan när du har publicerat.
 
 Med den här informationen går du till appens robots App Service i Azure Portal. Under **Inställningar-> konfiguration – inställningar för > program**, ändra dessa värden.
 
-Kunskaps basens slut punkts nyckel är `QnAAuthkey` märkt i ABS-tjänsten.
+Kunskaps basens slut punkts nyckel är märkt `QnAAuthkey` i ABS-tjänsten.
 
 </details>
 
@@ -275,7 +274,7 @@ Kunskaps basens slut punkts nyckel är `QnAAuthkey` märkt i ABS-tjänsten.
 <details>
 <summary><b>Vilka data lagras och var lagras de?</b></summary>
 
-**Svar:**
+**Svar**:
 
 När du skapar din QnA Maker-tjänst valde du en Azure-region. Dina kunskaps baser och loggfiler lagras i den här regionen.
 

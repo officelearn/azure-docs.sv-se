@@ -3,17 +3,15 @@ title: Säkra Azure Data Lake Analytics för flera användare
 description: Lär dig hur du konfigurerar flera användare att köra jobb i Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 services: data-lake-analytics
-author: matt1883
-ms.author: mahi
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/30/2018
-ms.openlocfilehash: 758bf7a41218bcb8f34761db6cbbd541b97b6a86
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9006a22c588a7f1456585d40da0b4345145c6d05
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120882"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132491"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Konfigurera användar åtkomst till jobb information till jobb information i Azure Data Lake Analytics 
 

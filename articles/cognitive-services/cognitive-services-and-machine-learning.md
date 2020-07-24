@@ -3,18 +3,16 @@ title: Cognitive Services och Machine Learning
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur Azure Cognitive Services passar ihop med andra Azure-erbjudanden för maskininlärning.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: diberry
-ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856723"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132848"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
@@ -25,8 +23,8 @@ Cognitive Services tillhandahåller funktioner för maskin inlärning för att l
 |Tjänste kategori|Syfte|
 |--|--|
 |[Beslut](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Skapa appar som ger rekommendationer för välinformerade och effektiva beslut.|
-|[Språk](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Tillåt att dina appar behandlar naturligt språk med fördefinierade skript, utvärderar känslor och lär sig att känna igen vad användare vill.|
-|[Sök](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Lägg till API:er för Bing-sökning i dina appar och utnyttja möjligheten att söka i miljontals webbsidor, bilder, videor och nyheter med ett enda API-anrop.|
+|[Språk](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Få dina appar att bearbeta naturligt språk med fördefinierade skript, utvärdera sentiment och lär dig att förstå vad användarna vill.|
+|[Sök](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Lägg till API:er för Bing-sökresultat i dina appar och utnyttja möjligheten att kombinera miljarder olika webbsidor, bilder, videor och nyheter med ett enda API-anrop.|
 |[Tal](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Konvertera tal till text och text till tal som låter naturligt. Översätt från ett språk till ett annat och aktivera talarverifiering och -igenkänning.|
 |[Visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Avkänning, identifiering, textning, indexering och moderering för bilder, videor och innehåll med digitala pennanteckningar.|
 ||||
@@ -92,7 +90,7 @@ Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåt
 |Kognitiv tjänst|Inga tränings data krävs|Du anger några eller alla tränings data|Data insamling i real tid eller nästan i real tid|
 |--|--|--|--|
 |[Avvikelseidentifiering](./Anomaly-Detector/overview.md)|x|x|x|
-|Bing Search |x|||
+|Bing-sökning |x|||
 |[Visuellt innehåll](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./Custom-Vision-Service/home.md)||x||
@@ -131,7 +129,7 @@ Cognitive Services som innehåller exporterade modeller för andra Machine Learn
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|[Exportera](./Custom-Vision-Service/export-model-python.md) för Tensorflow för Android, CoreML för IOS11, ONNX för Windows ml|
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
 * [Arkitektur guide – vilka är Machine Learning-produkter på Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Maskin inlärning – introduktion till djup inlärning jämfört med Machine Learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)

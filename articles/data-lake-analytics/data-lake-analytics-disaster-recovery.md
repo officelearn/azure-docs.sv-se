@@ -2,18 +2,16 @@
 title: Vägledning om haveri beredskap för Azure Data Lake Analytics
 description: Lär dig hur du planerar haveri beredskap för dina Azure Data Lake Analytics-konton.
 services: data-lake-analytics
-author: MikeRys
-ms.author: mrys
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: ba231c4a68d92b3f6f35542d739ad9daedd65776
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ab39ca8e71376fed681c049d338096ff992fed99
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121409"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132576"
 ---
 # <a name="disaster-recovery-guidance-for-azure-data-lake-analytics"></a>Vägledning om haveri beredskap för Azure Data Lake Analytics
 

@@ -3,19 +3,17 @@ title: Etik och ansvarig användning – Personanpassare
 titleSuffix: Azure Cognitive Services
 description: Dessa rikt linjer syftar till att hjälpa dig att implementera anpassning på ett sätt som hjälper dig att bygga upp förtroende för ditt företag och din tjänst. Se till att pausa till forskning, lär dig och ta del av hur anpassningen påverkar användarnas liv. Vid tvivel, Sök vägledning.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: diberry
-ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478103"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132729"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Rikt linjer för ansvarig implementering av Personanpassare
 
@@ -50,7 +48,7 @@ Att implementera personanpassa kan vara mycket bra för dina användare och ditt
 
 Användning av en tjänst som lär sig att anpassa innehåll och användar gränssnitt är användbart. Det kan också vara fel om anpassningen skapar negativa sido effekter i verkligheten, inklusive om användarna inte kan anpassa innehållet.
 
-Exempel på användning av Personanpassare med förhöjd potential för negativa sido effekter eller brist på genomskinlighet är scenarier där "belöningen" är beroende av många långsiktiga komplexa faktorer som, vid överanvändning i en omedelbar belöning, kan ha ofördelaktiga resultat för enskilda användare. Dessa tenderar att anses vara "sekventiella" alternativ eller val som innebär risk för skador. Ett exempel:
+Exempel på användning av Personanpassare med förhöjd potential för negativa sido effekter eller brist på genomskinlighet är scenarier där "belöningen" är beroende av många långsiktiga komplexa faktorer som, vid överanvändning i en omedelbar belöning, kan ha ofördelaktiga resultat för enskilda användare. Dessa tenderar att anses vara "sekventiella" alternativ eller val som innebär risk för skador. Exempel:
 
 
 * **Finans**: personanpassa erbjudanden på låne-, finans-och försäkrings produkter, där riskfaktorer baseras på data som personer inte vet om, inte kan få eller inte kan ifrågasätta.
@@ -132,10 +130,10 @@ Följande är design områden för ansvariga implementeringar av AI. Lär dig me
 ### <a name="transparency"></a>Transparens
 *AI-system bör vara begripliga*. Med Personanpassare:
 
-* *Ge användare information om hur innehållet har anpassats.* Du kan till exempel Visa dina användare en knapp som `Why These Suggestions?` visar vilka Top-funktioner i användaren och åtgärder som spelade en roll i resultatet av en personanpassare.
+* *Ge användare information om hur innehållet har anpassats.* Du kan till exempel Visa dina användare en knapp `Why These Suggestions?` som visar vilka Top-funktioner i användaren och åtgärder som spelade en roll i resultatet av en personanpassare.
 * Se till att användnings villkoren är tänkta att du använder information om användare och deras beteende för att anpassa upplevelsen.
 
-### <a name="fairness"></a>Skälighet
+### <a name="fairness"></a>Rättvisa
 *AI-system bör behandla alla personer*på ett ganska mycket.
 
 * Använd inte Personanpassare för användnings fall där resultatet är långsiktigt, följd eller rör verklig skada.

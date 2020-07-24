@@ -1,18 +1,19 @@
 ---
 title: Så här använder du den Azure Maps spatiala i/o-modulen | Microsoft Azure Maps
 description: Lär dig hur du använder den spatiala IO-modul som tillhandahålls av Azure Maps Web SDK. Den här modulen ger robusta funktioner som gör det enkelt för utvecklare att integrera spatialdata med Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0532b1548af9be04a53f3ba06147fdde4722f307
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804647"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130706"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Använda den Azure Maps spatiala IO-modulen
 
@@ -36,9 +37,9 @@ Den här videon ger en översikt över den spatiala IO-modulen i Azure Maps Web 
 > [!WARNING]
 > Använd endast data och tjänster från en källa som du litar på, särskilt om du refererar till den från en annan domän. Den spatiala i/o-modulen vidtar åtgärder för att minimera risken, men den säkraste metoden är för att inte tillåta att danagerous-data i ditt program börjar med. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan använda den spatiala IO-modulen måste du [skapa ett Azure Maps konto](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) och [Hämta den primära prenumerations nyckeln för ditt konto](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Innan du kan använda den spatiala IO-modulen måste du [skapa ett Azure Maps konto](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) och [Hämta den primära prenumerations nyckeln för ditt konto](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Installera den spatiala IO-modulen
 

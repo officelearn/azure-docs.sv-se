@@ -4,11 +4,12 @@ description: Beskriver hur du distribuerar en tjänst i flera regioner med Azure
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057933"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130230"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera distributions metoder för säker distribution med Azure Deployment Manager (offentlig för hands version)
 
@@ -36,7 +37,7 @@ Ytterligare resurser:
 
 ## <a name="identity-and-access"></a>Identitet och åtkomst
 
-Med Deployment Manager utför en [användardefinierad hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) distributions åtgärderna. Du skapar den här identiteten innan du påbörjar distributionen. Den måste ha åtkomst till prenumerationen som du distribuerar tjänsten till och tillräcklig behörighet för att slutföra distributionen. Information om vilka åtgärder som beviljas via roller finns [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+Med Deployment Manager utför en [användardefinierad hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) distributions åtgärderna. Du skapar den här identiteten innan du påbörjar distributionen. Den måste ha åtkomst till prenumerationen som du distribuerar tjänsten till och tillräcklig behörighet för att slutföra distributionen. Information om vilka åtgärder som beviljas via roller finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Identiteten måste finnas på samma plats som distributionen.
 

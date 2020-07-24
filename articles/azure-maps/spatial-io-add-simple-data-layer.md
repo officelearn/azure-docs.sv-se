@@ -1,19 +1,19 @@
 ---
 title: Lägg till ett enkelt data lager | Microsoft Azure Maps
 description: Lär dig hur du lägger till ett enkelt data lager med hjälp av den spatiala IO-modulen, som tillhandahålls av Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 61272bee350fc7c7dd7d0e17adc55c436f4706ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 622aa41975fdec015e4ca4964309c5c4bf274ef2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885950"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131454"
 ---
 # <a name="add-a-simple-data-layer"></a>Lägga till ett enkelt datalager
 

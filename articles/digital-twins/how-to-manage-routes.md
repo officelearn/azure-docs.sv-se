@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 923ae652872246916b2a4c5e8be95871983dbe95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559833"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132270"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Hantera slut punkter och vägar i digitala Azure-dubbla
 
@@ -23,14 +23,9 @@ Slut punkts typer som stöds är:
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Mer information om de olika slut punkterna finns i [Välj mellan Azure Messaging Services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
+Mer information om de olika slut punkterna finns i [*Välj mellan Azure Messaging Services*](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
 Slut punkter och vägar hanteras med EventRoutes- [**API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md). De kan också hanteras via [Azure Portal](https://portal.azure.com).
-
-> [!NOTE]
-> Hantering av händelse vägar via Azure Portal är för närvarande bara tillgängligt för Azure-användare på företags domän konton. 
->
->Om du använder en personlig [Microsoft-konto (MSA)](https://account.microsoft.com/account/Account), t. ex. ett @outlook.com konto, använder du Azures digitala dubbla API: er eller CLI för att hantera händelse vägar enligt beskrivningen i den här artikeln.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Skapa en slut punkt för Azure Digitals dubbla
 
@@ -70,7 +65,14 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ## <a name="manage-event-routes-with-apis"></a>Hantera händelse vägar med API: er
 
-Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en händelse väg. Med Azure Digitals **EventRoutes-API: er** kan utvecklare skapa händelse flöde, i hela systemet och i underordnade tjänster. Läs mer om händelse vägar i [begrepp: routing Azure Digitals, dubbla händelser](concepts-route-events.md).
+Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en händelse väg. Med Azure Digitals **EventRoutes-API: er** kan utvecklare skapa händelse flöde, i hela systemet och i underordnade tjänster. Läs mer om händelse vägar i [*begrepp: routing Azure Digitals, dubbla händelser*](concepts-route-events.md).
+
+Du kan fortsätta att skapa en händelse väg när slut punkterna har koner ATS.
+
+>[!NOTE]
+>Om du nyligen har distribuerat dina slut punkter kontrollerar du att de är klara med distributionen **innan** du försöker använda dem för en ny händelse väg. Om väg distributionen Miss lyckas eftersom slut punkterna inte är klara, väntar du några minuter och försöker igen.
+>
+> Om du använder skript för det här flödet kanske du vill ta hänsyn till det genom att skapa i 2-3 minuter vänte tid för slut punkts tjänsten för att slutföra distributionen innan du går vidare till väg installationen.
 
 I exemplen i den här artikeln används C# SDK.
 
@@ -149,7 +151,7 @@ Här följer de väg filter som stöds.
 | --- | --- | --- | --- |
 | Typ | Den [typ av händelse](./concepts-route-events.md#types-of-event-messages) som flödar genom den digitala dubbla instansen | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Källa | Namn på Azure Digitals dubbla instanser | `"filter" : "source = '<hostname>'"`|  **För meddelanden**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **För telemetri**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
-| Subjekt | En beskrivning av händelsen i kontexten för händelse källan ovan | `"filter": " subject = '<subject>'"` | **För meddelanden**: ämnet är`<twinid>` <br> eller ett URI-format för ämnen som identifieras unikt av flera delar eller ID:<br>`<twinid>/relationships/<relationshipid>`<br> **För telemetri**: ämnet är komponent Sök vägen (om telemetri skickas från en dubbel komponent), till exempel `comp1.comp2` . Om telemetri inte genereras från en komponent är dess ämnes fält tomt. |
+| Ämne | En beskrivning av händelsen i kontexten för händelse källan ovan | `"filter": " subject = '<subject>'"` | **För meddelanden**: ämnet är`<twinid>` <br> eller ett URI-format för ämnen som identifieras unikt av flera delar eller ID:<br>`<twinid>/relationships/<relationshipid>`<br> **För telemetri**: ämnet är komponent Sök vägen (om telemetri skickas från en dubbel komponent), till exempel `comp1.comp2` . Om telemetri inte genereras från en komponent är dess ämnes fält tomt. |
 | Data schema | DTDL modell-ID | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **För telemetri**: dataschemat är modell-ID: t för den dubbla eller komponenten som utvärderar Telemetrin <br>**För meddelanden**: data schema stöds inte|
 | Innehållstyp | Innehålls typ för data värde | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Specifikations version | Den version av händelse schemat som du använder | `"filter": "specversion = '<version>'"` | Måste vara `1.0` . Detta anger CloudEvents-schema version 1,0 |
@@ -174,7 +176,7 @@ När du implementerar eller uppdaterar ett filter kan det ta några minuter inna
 
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Hantera slut punkter och vägar med CLI
 
-Slut punkter och vägar kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [anvisningar: använda Azure Digitals flätade CLI](how-to-use-cli.md).
+Slut punkter och vägar kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
 
 ## <a name="monitor-event-routes"></a>Övervaka händelse vägar
 
@@ -189,4 +191,4 @@ Härifrån kan du visa måtten för din instans och skapa anpassade vyer.
 ## <a name="next-steps"></a>Nästa steg
 
 Läs om de olika typerna av händelse meddelanden som du kan ta emot:
-* [Anvisningar: tolka händelse data](how-to-interpret-event-data.md)
+* [*Anvisningar: tolka händelse data*](how-to-interpret-event-data.md)

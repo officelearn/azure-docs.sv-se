@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850281"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130196"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Du kan övervaka dina data med mått på klient sidan och Server sidan. När du 
 
 * **Övervaka från Azure Cosmos DB Portal:** Du kan övervaka med de mått som är tillgängliga på fliken **mått** i Azure Cosmos-kontot. Måtten på den här fliken är data flöde, lagring, tillgänglighet, latens, konsekvens och system nivå mått. Som standard har dessa mått en kvarhållningsperiod på 7 dagar. Läs mer i avsnittet [övervaknings data som samlas in från Azure Cosmos DB](#monitoring-from-azure-cosmos-db) i den här artikeln.
 
-* **Övervaka med mått i Azure Monitor:** Du kan övervaka måtten för ditt Azure Cosmos-konto och skapa instrument paneler från Azure Monitor. Azure Monitor samlar in Azure Cosmos DB mått som standard har du inte konfigurerat något explicit. Dessa mått samlas in med en-minuters kornig het, medan kornigheten kan variera beroende på vilket mått du väljer. Som standard har dessa mått en kvarhållningsperiod på 30 dagar. De flesta mått som är tillgängliga från föregående alternativ är också tillgängliga i dessa mått. Mer information finns i avsnittet [analysera mått data](#analyze-metric-data) i den här artikeln.
+* **Övervaka med mått i Azure Monitor:** Du kan övervaka måtten för ditt Azure Cosmos-konto och skapa instrument paneler från Azure Monitor. Azure Monitor samlar in Azure Cosmos DB mått som standard har du inte konfigurerat något explicit. Dessa mått samlas in med en-minuters kornig het, medan kornigheten kan variera beroende på vilket mått du väljer. Som standard har dessa mått en kvarhållningsperiod på 30 dagar. De flesta mått som är tillgängliga från föregående alternativ är också tillgängliga i dessa mått. Dimensionsvärdena för måtten, till exempel container Name, är Skift läges okänsliga. Du måste därför använda Skift läges okänslig jämförelse när du utför sträng jämförelser på dessa dimensions värden. Mer information finns i avsnittet [analysera mått data](#analyze-metric-data) i den här artikeln.
 
 * **Övervaka med diagnostikloggar i Azure Monitor:** Du kan övervaka loggarna för ditt Azure Cosmos-konto och skapa instrument paneler från Azure Monitor. Telemetri som händelser och spår som inträffar vid en andra kornig het lagras som loggar. Till exempel, om data flödet för en behållare är ändringar, ändras egenskaperna för ett Cosmos-konto och dessa händelser samlas in i loggarna. Du kan analysera dessa loggar genom att köra frågor på insamlade data. Mer information finns i avsnittet [analysera logg data](#analyze-log-data) i den här artikeln.
 

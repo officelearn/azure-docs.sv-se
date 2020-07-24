@@ -1,20 +1,20 @@
 ---
 title: Utveckla ett U-SQL Database-projekt – Azure Data Lake
 description: Lär dig hur du utvecklar en U-SQL-databas med hjälp av Azure Data Lake verktyg för Visual Studio.
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+author: liudan66
+ms.author: liud
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: a81f623b3bca2877fce1a9aee7cd2dff6e44f37d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ee35385b88bf4fbd5f899fde032b11b99a20d050
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117431"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130043"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Använd ett U-SQL Database-projekt för att utveckla en U-SQL-databas för Azure Data Lake
 

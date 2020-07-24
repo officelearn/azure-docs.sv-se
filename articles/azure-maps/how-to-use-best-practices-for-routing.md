@@ -1,18 +1,19 @@
 ---
 title: Metod tips för Azure Maps Route Service | Microsoft Azure Maps
 description: Lär dig hur du dirigerar fordon med hjälp av Route Service från Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266703"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132219"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
 
@@ -28,9 +29,9 @@ API: er för väg riktning och väg mat ris i Azure Maps [Route service](https:/
 * Optimera alternativa vägar med hjälp av stöd punkter. Du kan till exempel erbjuda alternativa vägar som passerar en station med elektrisk fordons debitering.
 * Använd [Route service](https://docs.microsoft.com/rest/api/maps/route) med Azure Maps webb-SDK
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill ringa till Azure Maps-API: er behöver du ett Azure Maps konto och en nyckel. Mer information finns i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och [Hämta en primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Den primära nyckeln kallas även primär prenumerations nyckel eller prenumerations nyckel.
+Om du vill ringa till Azure Maps-API: er behöver du ett Azure Maps konto och en nyckel. Mer information finns i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) och [Hämta en primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Den primära nyckeln kallas även primär prenumerations nyckel eller prenumerations nyckel.
 
 Information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md). Om du vill ha mer information om Route Serviceens omfattning [kan du läsa](routing-coverage.md)mer om disponering.
 

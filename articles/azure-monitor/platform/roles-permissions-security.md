@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ffbe10a1f9a1629c74c144b8773a7de89890576
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836387"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132032"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roller, behörigheter och säkerhet i Azure Monitor
 
@@ -27,10 +28,10 @@ Personer som har tilldelats rollen övervaknings läsare kan visa alla övervakn
 
 * Visa övervaknings instrument paneler i portalen och skapa egna instrument paneler för privat övervakning.
 * Visa aviserings regler som definierats i [Azure-aviseringar](alerts-overview.md)
-* Fråga efter mått med hjälp av [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](powershell-quickstart-samples.md)eller [plattforms oberoende CLI](../samples/cli-samples.md).
+* Fråga efter mått med hjälp av [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell-cmdletar](../samples/powershell-samples.md)eller [plattforms oberoende CLI](../samples/cli-samples.md).
 * Fråga aktivitets loggen med hjälp av portalen, Azure Monitor REST API, PowerShell-cmdletar eller plattforms oberoende CLI.
 * Visa [diagnostikinställningar](diagnostic-settings.md) för en resurs.
-* Visa [logg profilen](activity-log-export.md) för en prenumeration.
+* Visa [logg profilen](./activity-log.md#legacy-collection-methods) för en prenumeration.
 * Visa inställningar för autoskalning.
 * Visa aviserings aktivitet och inställningar.
 * Åtkomst Application Insights data och visa data i AI-analys.
@@ -51,7 +52,7 @@ Personer som har tilldelats rollen övervaknings deltagare kan visa alla överva
 
 * Publicera övervaknings instrument paneler som en delad instrument panel.
 * Ange [diagnostiska inställningar](diagnostic-settings.md) för en resurs.\*
-* Ange [logg profilen](activity-log-export.md) för en prenumeration.\*
+* Ange [logg profilen](./activity-log.md#legacy-collection-methods) för en prenumeration.\*
 * Ange aviserings regel aktivitet och inställningar via [Azure-aviseringar](alerts-overview.md).
 * Skapa Application Insights webbtest och-komponenter.
 * Visar Log Analytics delade nycklar för arbets ytan.
@@ -66,8 +67,8 @@ Personer som har tilldelats rollen övervaknings deltagare kan visa alla överva
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Övervakningsbehörigheter och anpassade RBAC-roller
-Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, kan du [skapa en anpassad RBAC-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan visas de vanliga Azure Monitor RBAC-åtgärder med beskrivningar.
+## <a name="monitoring-permissions-and-azure-custom-roles"></a>Övervaknings behörigheter och Azure-anpassade roller
+Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, kan du [skapa en anpassad Azure-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan visas de vanliga Azure Monitor RBAC-åtgärder med beskrivningar.
 
 | Åtgärd | Beskrivning |
 | --- | --- |
@@ -96,7 +97,7 @@ Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, ka
 > 
 > 
 
-Med tabellen ovan kan du till exempel skapa en anpassad RBAC-roll för en "aktivitets logg läsare" som detta:
+Med tabellen ovan kan du exempelvis skapa en anpassad Azure-roll för en "aktivitets logg läsare" så här:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -125,7 +126,7 @@ Alla tre dessa data typer kan lagras i ett lagrings konto eller strömmas till H
 * Bevilja aldrig Listnycklar-behörighet för antingen lagrings konton eller händelse nav i prenumerations omfattning när en användare bara behöver åtkomst till övervaknings data. Ge i stället dessa behörigheter till användaren vid en resurs eller resurs grupp (om du har en dedikerad övervaknings resurs grupp) omfattning.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Begränsa åtkomsten till övervaknings-relaterade lagrings konton
-När en användare eller ett program behöver åtkomst till övervaknings data i ett lagrings konto bör du [skapa en konto säkerhets Association](https://msdn.microsoft.com/library/azure/mt584140.aspx) på det lagrings konto som innehåller övervaknings data med skrivskyddad åtkomst på tjänst nivå till Blob Storage. I PowerShell kan detta se ut så här:
+När en användare eller ett program behöver åtkomst till övervaknings data i ett lagrings konto bör du [skapa en konto säkerhets Association](/rest/api/storageservices/create-account-sas) på det lagrings konto som innehåller övervaknings data med skrivskyddad åtkomst på tjänst nivå till Blob Storage. I PowerShell kan detta se ut så här:
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -134,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Du kan sedan ge token till den entitet som behöver läsa från det lagrings kontot, och den kan visa och läsa från alla blobbar i det lagrings kontot.
 
-Alternativt, om du behöver kontrol lera den här behörigheten med RBAC, kan du bevilja den entiteten Microsoft. Storage/storageAccounts/listnycklar/åtgärd-behörighet för just det lagrings kontot. Detta är nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att arkivera till ett lagrings konto. Du kan till exempel skapa följande anpassade RBAC-roll för en användare eller ett program som bara behöver läsa från ett lagrings konto:
+Alternativt, om du behöver kontrol lera den här behörigheten med RBAC, kan du bevilja den entiteten Microsoft. Storage/storageAccounts/listnycklar/åtgärd-behörighet för just det lagrings kontot. Detta är nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att arkivera till ett lagrings konto. Du kan till exempel skapa följande anpassade Azure-roll för en användare eller ett program som bara behöver läsa från ett lagrings konto:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -188,5 +189,3 @@ Mer information finns i [nätverks säkerhet och Azure Storage](../../storage/co
 ## <a name="next-steps"></a>Nästa steg
 * [Läs om RBAC och behörigheter i Resource Manager](../../role-based-access-control/overview.md)
 * [Läs översikten över övervakning i Azure](../../azure-monitor/overview.md)
-
-

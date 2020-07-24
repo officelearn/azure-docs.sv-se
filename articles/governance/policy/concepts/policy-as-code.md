@@ -1,14 +1,14 @@
 ---
 title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970951"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131505"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
@@ -20,6 +20,24 @@ När du fortskrider på resan med moln styrning vill du byta från manuellt hant
 Princip som kod är kombinationen av dessa idéer. Använd i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
 
 Validerings steget bör också vara en komponent i andra kontinuerliga integreringar eller arbets flöden för kontinuerlig distribution. Exempel på detta är att distribuera en program miljö eller virtuell infrastruktur. Genom att göra Azure Policy validera en tidig komponent i bygg-och distributions processen kan program-och drift grupper upptäcka om deras ändringar inte är kompatibla, långa innan de är för sent och de försöker distribuera i produktion.
+
+## <a name="definitions-and-foundational-information"></a>Definitioner och grundläggande information
+
+Innan du hämtar information om principen som kod arbets flöde kan du läsa följande definitioner och exempel:
+
+- [Principdefinition](./definition-structure.md)
+- [Initiativ definition](./initiative-definition-structure.md)
+
+Fil namnen anpassas till delar av antingen principen eller initiativ definitionen:
+- `policy(set).json`– Hela definitionen
+- `policy(set).parameters.json`– `properties.parameters` Delen av definitionen
+- `policy.rules.json`– `properties.policyRule` Delen av definitionen
+- `policyset.definitions.json`– `properties.policyDefinitions` Delen av definitionen
+
+Exempel på dessa fil format finns i [Azure policy GitHub lagrings platsen](https://github.com/Azure/azure-policy/):
+
+- Princip definition: [Lägg till en tagg till resurser](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Initiativ definition: [fakturerings koder](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>Översikt över arbets flöde
 
@@ -119,7 +137,7 @@ Det allmänna arbets flödet för princip som kod är för att utveckla och dist
 
 I dessa fall, när distributionen av program eller infrastrukturen görs i en test prenumeration eller resurs grupp, bör princip utvärderingen utföras för den omfattningen för att kontrol lera valideringen av alla befintliga principer och initiativ. Även om de kan konfigureras som **enforcementMode** _inaktiverade_ i en sådan miljö, är det bra att veta tidigt om en program-eller infrastruktur distribution strider mot princip definitionerna tidigt. Den här princip utvärderingen bör därför vara ett steg i dessa arbets flöden och misslyckade distributioner som skapar icke-kompatibla resurser.
 
-## <a name="review"></a>Granska
+## <a name="review"></a>Genomgång
 
 Den här artikeln beskriver det allmänna arbets flödet för policy som kod och även var princip utvärderingen ska ingå i andra distributions arbets flöden. Det här arbets flödet kan användas i alla miljöer som har stöd för skriptbaserade steg och automatisering baserat på utlösare.
 

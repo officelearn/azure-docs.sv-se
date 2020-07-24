@@ -8,18 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e609e755f02d4321664804bfbb90f979c1c06ead
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259832"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133069"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Kryptering på Server sidan av Azure-disklagring
 
 Server Side Encryption (SSE) skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. SSE krypterar automatiskt dina data som lagras på Azure Managed disks (OS-och data diskar) i vila som standard när de sparas i molnet. 
 
-Data i Azure Managed disks krypteras transparent med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Mer information om de kryptografiska modulerna underliggande Azure Managed disks finns i [Cryptography-API: nästa generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Data i Azure Managed disks krypteras transparent med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Mer information om de kryptografiska modulerna underliggande Azure Managed disks finns i [Cryptography-API: nästa generation](/windows/desktop/seccng/cng-portal)
 
 Kryptering på Server sidan påverkar inte prestanda för hanterade diskar och det finns ingen ytterligare kostnad. 
 
@@ -50,9 +50,9 @@ För närvarande har Kundhanterade nycklar följande begränsningar:
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Kryptering vid värd-slutpunkt-till-slutpunkt-kryptering för dina VM-data
 
-Kryptering från slut punkt till slut punkt börjar från VM-värden, den Azure-server som den virtuella datorn allokeras till. Data på dina temporära diskar och OS/datadisk-cachen lagras på den virtuella dator värden. När du aktiverar kryptering från slut punkt till slut punkt krypteras alla dessa data i vila och flöden krypteras till lagrings tjänsten, där de sparas. Kryptering från slut punkt till slut punkt använder inte den virtuella datorns processor och påverkar inte den virtuella datorns prestanda. 
+Kryptering från slut punkt till slut punkt börjar från VM-värden, den Azure-server som den virtuella datorn allokeras till. Data på temporära diskar, tillfälliga OS-diskar och sparade OS/datadisk-cachen lagras på den virtuella dator värden. När du aktiverar kryptering från slut punkt till slut punkt krypteras alla dessa data i vila och flöden krypteras till lagrings tjänsten, där de sparas. Kryptering från slut punkt till slut punkt använder inte den virtuella datorns processor och påverkar inte den virtuella datorns prestanda. 
 
-Temporära diskar krypteras i vila med plattforms hanterade nycklar när du aktiverar kryptering från slut punkt till slut punkt. Cacheminnen för operativ system och datadisk är krypterade i vila med antingen Kundhanterade eller plattforms hanterade nycklar, beroende på krypterings typ. Om en disk till exempel krypteras med Kundhanterade nycklar, krypteras cachen för disken med Kundhanterade nycklar, och om en disk krypteras med plattforms hanterade nycklar krypteras cachen för disken med plattforms hanterade nycklar.
+Temporära diskar och tillfälliga OS-diskar är krypterade i vila med plattforms hanterade nycklar när du aktiverar kryptering från slut punkt till slut punkt. Cacheminnen för operativ system och datadisk är krypterade i vila med antingen Kundhanterade eller plattforms hanterade nycklar, beroende på krypterings typ. Om en disk till exempel krypteras med Kundhanterade nycklar, krypteras cachen för disken med Kundhanterade nycklar, och om en disk krypteras med plattforms hanterade nycklar krypteras cachen för disken med plattforms hanterade nycklar.
 
 ### <a name="restrictions"></a>Begränsningar
 
@@ -68,7 +68,7 @@ Temporära diskar krypteras i vila med plattforms hanterade nycklar när du akti
 
 ## <a name="double-encryption-at-rest"></a>Dubbel kryptering i vila
 
-Hög säkerhets känsliga kunder som är intresserade av den risk som är kopplad till en viss krypteringsalgoritm, implementering eller nyckel som komprometteras kan nu välja ytterligare lager av kryptering med hjälp av en annan krypteringsalgoritm/läge på infrastruktur lagret med hjälp av plattforms hanterade krypterings nycklar. Det nya lagret kan tillämpas på diskar, ögonblicks bilder och avbildningar, som alla kommer att krypteras i vila med dubbel kryptering.
+Hög säkerhets känsliga kunder som är intresserade av den risk som är kopplad till en viss krypteringsalgoritm, implementering eller nyckel som komprometteras kan nu välja ytterligare lager av kryptering med hjälp av en annan krypteringsalgoritm/läge på infrastruktur lagret med hjälp av plattforms hanterade krypterings nycklar. Det nya lagret kan tillämpas på beständiga operativ system och data diskar, ögonblicks bilder och avbildningar, som är krypterade i vila med dubbel kryptering.
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
@@ -76,7 +76,7 @@ Hög säkerhets känsliga kunder som är intresserade av den risk som är koppla
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Kryptering på Server sidan jämfört med Azure Disk Encryption
 
-[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utnyttjar [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) -funktionen i Windows för att kryptera hanterade diskar med Kundhanterade nycklar i den virtuella gäst datorn.  Kryptering på Server sidan med Kundhanterade nycklar förbättrar på ADE genom att du kan använda alla OS-typer och avbildningar för dina virtuella datorer genom att kryptera data i lagrings tjänsten.
+[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utnyttjar [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) -funktionen i Windows för att kryptera hanterade diskar med Kundhanterade nycklar i den virtuella gäst datorn. Kryptering på Server sidan med Kundhanterade nycklar förbättrar på ADE genom att du kan använda alla OS-typer och avbildningar för dina virtuella datorer genom att kryptera data i lagrings tjänsten.
 
 > [!IMPORTANT]
 > Kundhanterade nycklar är beroende av hanterade identiteter för Azure-resurser, en funktion i Azure Active Directory (Azure AD). När du konfigurerar Kundhanterade nycklar, tilldelas en hanterad identitet automatiskt till dina resurser under försättsblad. Om du senare flyttar prenumerationen, resurs gruppen eller den hanterade disken från en Azure AD-katalog till en annan överförs inte den hanterade identitet som är kopplad till hanterade diskar till den nya klienten, så Kundhanterade nycklar kanske inte längre fungerar. Mer information finns i [överföra en prenumeration mellan Azure AD-kataloger](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
@@ -84,9 +84,8 @@ Hög säkerhets känsliga kunder som är intresserade av den risk som är koppla
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera kryptering från slut punkt till slut punkt med kryptering på värd – PowerShell](disks-enable-host-based-encryption-powershell.md)
-- [Aktivera dubbel kryptering i vila för dina hanterade diskar – PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
-- [Aktivera Kundhanterade nycklar för dina hanterade diskar – PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Aktivera Kundhanterade nycklar för dina hanterade diskar – portalen](disks-enable-customer-managed-keys-portal.md)
+- Aktivera kryptering från slut punkt till slut punkt med hjälp av kryptering på värd med antingen [PowerShell](disks-enable-host-based-encryption-powershell.md) eller [Azure Portal](disks-enable-host-based-encryption-portal.md).
+- Aktivera dubbel kryptering i vila för hanterade diskar med antingen [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) eller [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
+- Aktivera Kundhanterade nycklar för hanterade diskar med antingen [PowerShell](disks-enable-customer-managed-keys-powershell.md) eller [Azure Portal](disks-enable-customer-managed-keys-portal.md).
 - [Utforska Azure Resource Manager mallar för att skapa krypterade diskar med Kundhanterade nycklar](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Vad är Azure Key Vault?](../../key-vault/general/overview.md)

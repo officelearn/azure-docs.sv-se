@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7ac04b29853ce0d4f6ac4004bdfad4effd283170
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103797"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133001"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ansluta hybrid datorer till Azure i stor skala
 
@@ -76,7 +76,7 @@ Den **Azure-anslutna dator onboarding** -rollen innehåller bara de behörighete
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installera agenten och Anslut till Azure
 
-Följande steg installerar och konfigurerar den anslutna dator agenten på dina hybrid datorer med hjälp av skript mal len, som utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln. Skillnaden är i det sista steget där du upprättar anslutningen till Azure-bågen med hjälp av `azcmagent` kommandot med hjälp av tjänstens huvud namn. 
+Följande steg installerar och konfigurerar den anslutna dator agenten på dina hybrid datorer med hjälp av skript mal len, som utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln. Skillnaden är i det sista steget där du upprättar anslutningen till Azure-bågen med hjälp av `azcmagent` kommandot med hjälp av tjänstens huvud namn.
 
 Följande är de inställningar som du konfigurerar `azcmagent` kommandot som ska användas för tjänstens huvud namn.
 
@@ -110,6 +110,10 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>Skriptet stöder bara körning från en 64-bitars version av Windows PowerShell.
+>
+
 ### <a name="linux-installation-script"></a>Installations skript för Linux
 
 Följande är ett exempel på installations skriptet för den anslutna dator agenten för Linux som har ändrats för att använda tjänstens huvud namn för att stödja en helt automatiserad, icke-interaktiv installation av agenten.
@@ -131,7 +135,10 @@ azcmagent connect \
   --subscription-id "{subscriptionID}"
 ```
 
-När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure Portal](https://aka.ms/hybridmachineportal).
+>[!NOTE]
+>Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
+
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
 
 ![En lyckad Server anslutning](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

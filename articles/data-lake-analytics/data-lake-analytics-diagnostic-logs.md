@@ -3,16 +3,14 @@ title: Aktivera och Visa diagnostikloggar för Azure Data Lake Analytics
 description: Lär dig att konfigurera och komma åt diagnostikloggar för Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121443"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132610"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Åtkomst till diagnostikloggar för Azure Data Lake Analytics
 
@@ -128,7 +126,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 
 #### <a name="request-log-schema"></a>Begär logg schema
 
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |Identifieraren för resursen som åtgärden utfördes på |
@@ -142,7 +140,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 
 #### <a name="request-log-properties-schema"></a>Schema för begär ande logg egenskaper
 
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | HttpMethod |Sträng |HTTP-metoden som används för åtgärden. Till exempel GET. |
 | Sökväg |Sträng |Den sökväg som åtgärden utfördes på |
@@ -176,9 +174,9 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 }
 ```
 
-#### <a name="audit-log-schema"></a>Schema för spårningslogg
+#### <a name="audit-log-schema"></a>Schema för granskningslogg
 
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |Identifieraren för resursen som åtgärden utfördes på |
@@ -196,7 +194,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 
 #### <a name="audit-log-properties-schema"></a>Schema för gransknings logg egenskaper
 
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | JobId |Sträng |Det ID som tilldelats jobbet |
 | JobName |Sträng |Det namn som har angetts för jobbet |

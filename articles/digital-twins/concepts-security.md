@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522269"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131624"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Skydda Azure Digitals dubbla med rollbaserad åtkomst kontroll
 
@@ -35,7 +35,7 @@ Steget autentisering kräver att en program förfrågan innehåller en OAuth 2,0
 
 Auktoriserings steget kräver att en RBAC-roll tilldelas till säkerhets objekt. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Azure Digitals dubbla ger RBAC-roller som omfattar uppsättningar med behörigheter för Azure Digitals dubbla resurser. Dessa roller beskrivs längre fram i den här artikeln.
 
-Mer information om roller och roll tilldelningar som stöds i Azure finns i [förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md) i Azure RBAC-dokumentationen.
+Mer information om roller och roll tilldelningar som stöds i Azure finns i [*förstå de olika rollerna*](../role-based-access-control/rbac-and-directory-admin-roles.md) i Azure RBAC-dokumentationen.
 
 ### <a name="authentication-with-managed-identities"></a>Autentisering med hanterade identiteter
 
@@ -46,19 +46,19 @@ Med hanterade identiteter hanterar Azure-plattformen den här körnings identite
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Auktorisering: RBAC-roller för Azure Digitals dubbla
 
 Azure tillhandahåller de nedan inbyggda RBAC-rollerna för att auktorisera åtkomst till en Azure Digital-resurs med dubbla resurser:
-* Azure Digitals flätat-ägare (för hands version) – Använd den här rollen för att ge fullständig åtkomst till resurser med Azure Digitals.
-* Azure Digitals flätad läsare (för hands version) – Använd den här rollen för att ge skrivskyddad åtkomst till Azure Digitals-resurser.
+* *Azure Digitals flätat-ägare (för hands version)* – Använd den här rollen för att ge fullständig åtkomst till resurser med Azure Digitals.
+* *Azure Digitals flätad läsare (för hands version)* – Använd den här rollen för att ge skrivskyddad åtkomst till Azure Digitals-resurser.
 
 > [!TIP]
-> Azure Digitals (för hands version)-rollen stöder nu även webb relationer.
+> *Azure Digitals (för hands version)* -rollen stöder nu även webb relationer.
 
-Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md) i Azure RBAC-dokumentationen. Information om hur du skapar anpassade RBAC-roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
+Mer information om hur inbyggda roller definieras finns i [*förstå roll definitioner*](../role-based-access-control/role-definitions.md) i Azure RBAC-dokumentationen. Information om hur du skapar anpassade Azure-roller finns i [*Azure-anpassade roller*](../role-based-access-control/custom-roles.md).
 
 Du kan tilldela roller på två sätt:
-* via fönstret åtkomst kontroll (IAM) för Azure Digitals dubbla i Azure Portal (se [lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](../role-based-access-control/role-assignments-portal.md))
+* via fönstret åtkomst kontroll (IAM) för Azure Digitals dubbla i Azure Portal (se [*lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI-kommandon för att lägga till eller ta bort en roll
 
-Mer detaljerad information om hur du gör detta finns i [självstudien om Azure Digitals dubbla steg: *Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
+Mer detaljerad information om hur du gör detta finns i självstudien om Azure Digitals dubbla steg [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Behörighetsomfattning
 
@@ -71,8 +71,14 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Azur
 * Digital, dubbel relation: åtgärderna för den här resursen definierar kontroll över CRUD-åtgärder på relationer mellan digitala [band](concepts-twins-graph.md) i den dubbla grafen.
 * Händelse väg: åtgärder för den här resursen bestämmer behörigheter för att [dirigera händelser](concepts-route-events.md) från Azure Digitals till en slut punkts tjänst som [händelsehubben](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)eller [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
+## <a name="troubleshooting"></a>Felsökning
+
+Om en användare försöker utföra en åtgärd som inte tillåts av deras roll, kan de få ett fel meddelande från begäran om läsning av tjänst `403 (Forbidden)` . Mer information och fel söknings steg finns i [*fel sökning: Azure Digitals-begäran misslyckades med status: 403 (förbjuden)*](troubleshoot-error-403.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-* Se hur du går igenom de här stegen med ett exempel klient program i [*How-to: autentisera ett klient program*](how-to-authenticate-client.md).
+* Se de här koncepten i instruktionen [*så här: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md).
+
+* Se hur du interagerar med dessa begrepp från klient program kod i [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
 * Läs mer om [RBAC för Azure](../role-based-access-control/overview.md).

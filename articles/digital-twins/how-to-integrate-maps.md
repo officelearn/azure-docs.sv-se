@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f3e670a4f2a49bcce48be1ba0452a36cbf96df1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aad6201136bb925d5e094de115cc7274cc7872a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392326"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131420"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Använd Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta
 
@@ -25,11 +25,11 @@ Den här instruktionen kommer att avse:
 2. Skapa en Azure-funktion för att uppdatera en Azure Maps inomhus Maps-funktion stateset.
 3. Så här lagrar du ditt Maps-ID och funktions stateset-ID i Azure Digitals grafen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-* Följ självstudien om Azure Digitals dubbla [steg: Anslut en lösning från slut punkt till slut punkt](./tutorial-end-to-end.md).
+* Följ självstudien om Azure Digitals dubbla [*steg: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md).
     * Du kommer att utöka den här dubbla med en ytterligare slut punkt och väg. Du kommer även att lägga till en annan funktion i din Function-app från den självstudien. 
-* Följ Azure Maps [själv studie kursen: använd Azure Maps Creator för att skapa inlednings kartor](../azure-maps/tutorial-creator-indoor-maps.md) för att skapa en Azure Maps inomhus karta med en *funktions stateset*.
+* Följ Azure Maps [*själv studie kursen: använd Azure Maps Creator för att skapa inlednings kartor*](../azure-maps/tutorial-creator-indoor-maps.md) för att skapa en Azure Maps inomhus karta med en *funktions stateset*.
     * [Funktionen statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) är samlingar med dynamiska egenskaper (tillstånd) som har tilldelats till data uppsättnings funktioner, till exempel rum eller utrustning. I Azure Maps självstudien ovan lagrar funktionen stateset rums status som visas på en karta.
     * Du behöver ditt funktions *stateset-ID* och Azure Maps *prenumerations-ID*.
 
@@ -45,11 +45,11 @@ Först ska du skapa en väg i Azure Digitals flätas för att vidarebefordra all
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Skapa en väg och filtrera till dubbla uppdaterings meddelanden
 
-Azure Digitals dubbla instanser kan generera dubbla uppdaterings händelser när en dubbel status uppdateras. [Självstudien om Azure Digitals dubblare: Anslut en lösning från slut punkt till slut punkt](./tutorial-end-to-end.md) som är länkad ovan går igenom ett scenario där en termometer används för att uppdatera ett testattribut som är kopplat till rummets dubbla. Du kommer att utöka lösningen genom att prenumerera på uppdaterings meddelanden för dubbla och använda informationen för att uppdatera våra kartor.
+Azure Digitals dubbla instanser kan generera dubbla uppdaterings händelser när en dubbel status uppdateras. Självstudien om Azure Digitals dubblare [*: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md) som är länkad ovan går igenom ett scenario där en termometer används för att uppdatera ett testattribut som är kopplat till rummets dubbla. Du kommer att utöka lösningen genom att prenumerera på uppdaterings meddelanden för dubbla och använda informationen för att uppdatera dina kartor.
 
-Det här mönstret läser från rummet direkt, i stället för IoT-enheten, vilket ger oss flexibiliteten att ändra den underliggande data källan för temperatur utan att behöva uppdatera vår mappnings logik. Du kan till exempel lägga till flera termometers eller ange det här rummet för att dela en termometer med ett annat rum, allt utan att du behöver uppdatera vår kart logik.
+Det här mönstret läser från rummet direkt, i stället för IoT-enheten, vilket ger dig flexibiliteten att ändra den underliggande data källan för temperatur utan att behöva uppdatera mappnings logiken. Du kan till exempel lägga till flera termometers eller ange det här rummet för att dela en termometer med ett annat rum, utan att du behöver uppdatera din kart logik.
 
-1. Skapa ett event Grid-ämne, som tar emot händelser från vår Azure Digital-instansen.
+1. Skapa ett event Grid-ämne, som tar emot händelser från din Azure Digital-instansen.
     ```azurecli
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
@@ -61,14 +61,14 @@ Det här mönstret läser från rummet direkt, i stället för IoT-enheten, vilk
 
 3. Skapa en väg i Azure Digitals flätas för att skicka dubbla uppdaterings händelser till din slut punkt.
     ```azurecli
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-an-azure-function-to-update-maps"></a>Skapa en Azure-funktion för att uppdatera Maps
 
-Du kommer att skapa en Event Grid-utlöst funktion i vår Function-app från [slut punkt till slut punkt](./tutorial-end-to-end.md). Den här funktionen kommer att packa upp dessa meddelanden och skicka uppdateringar till en Azure Maps funktion stateset för att uppdatera temperaturen för ett rum. 
+Du ska skapa en Event Grid utlöst funktion i din Function-app från slut punkt till slut punkt ([*Självstudier: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md)). Den här funktionen kommer att packa upp dessa meddelanden och skicka uppdateringar till en Azure Maps funktion stateset för att uppdatera temperaturen för ett rum. 
 
-Se följande dokument som referens information: [Azure Event Grid utlösare för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Se följande dokument som referens information: [*Azure Event Grid utlösare för Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
 
 Ersätt funktions koden med följande kod. Den filtrerar bara uppdateringar till utrymmes visare, läser den uppdaterade temperaturen och skickar informationen till Azure Maps.
 
@@ -100,7 +100,7 @@ namespace SampleFunctionsApp
 
             //Parse updates to "space" twins
             if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in our map. 
+            {   //Set the ID of the room to be updated in your map. 
                 //Replace this line with your logic for retrieving featureID. 
                 string featureID = "UNIT103";
 
@@ -138,9 +138,9 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 Följ stegen nedan om du vill se färsk uppdaterings temperatur:
 
-1. Börja skicka simulerade IoT-data genom att köra **DeviceSimulator** -projektet från Azure Digitals [själv studie kurs: Anslut en lösning från slut punkt till slut punkt](tutorial-end-to-end.md). Anvisningarna för detta finns i avsnittet [*Konfigurera och köra simuleringen*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
+1. Börja skicka simulerade IoT-data genom att köra **DeviceSimulator** -projektet från Azure Digitals [*själv studie kurs: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md). Anvisningarna för detta finns i avsnittet [*Konfigurera och köra simuleringen*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
 2. Använd [modulen **Azure Maps inomhus** ](../azure-maps/how-to-use-indoor-module.md) för att rendera dina inliggande kartor som skapats i Azure Maps Creator.
-    1. Kopiera HTML-koden från [*exemplet: Använd modulen inomhus Maps-modul*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) i [självstudierna i inomhus Maps: Använd modulen Azure Maps inomhus Maps](../azure-maps/how-to-use-indoor-module.md) till en lokal fil.
+    1. Kopiera HTML-koden från [*exemplet: Använd modulen inomhus Maps-modul*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) i [*självstudierna i inomhus Maps: Använd modulen Azure Maps inomhus Maps*](../azure-maps/how-to-use-indoor-module.md) till en lokal fil.
     1. Ersätt *tilesetId* och *statesetID* i den lokala HTML-filen med dina värden.
     1. Öppna filen i webbläsaren.
 
@@ -160,5 +160,5 @@ Beroende på konfigurationen av din topologi kommer du att kunna lagra dessa tre
 
 Läs mer om hur du hanterar, uppgraderar och hämtar information från diagrammet med dubbla diagram i följande referenser:
 
-* [Anvisningar: hantera digitala dubbla](./how-to-manage-twin.md)
-* [Anvisningar: fråga det dubbla diagrammet](./how-to-query-graph.md)
+* [*Anvisningar: hantera digitala dubbla*](./how-to-manage-twin.md)
+* [*Anvisningar: fråga det dubbla diagrammet*](./how-to-query-graph.md)

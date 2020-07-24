@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258277"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131641"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -24,12 +24,12 @@ Modeller skrivs med hjälp av ett JSON-LD-baserat **digitalt definitions språk 
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Digitalt DTDL (Digital Definition Language) för att skriva modeller
 
-Modeller för digitala Azure-dubbla grupper definieras med hjälp av DTDL (Digital enforming Definition Language). DTDL baseras på JSON-LD och är programmerings språk oberoende. DTDL är inte exklusiv för Azure Digitals, men används också för att representera enhets data i andra IoT-tjänster som [iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digitals flätar använder DTDL *version 2*.
+Modeller för digitala Azure-dubbla grupper definieras med hjälp av DTDL (Digital enforming Definition Language). DTDL baseras på JSON-LD och är programmerings språk oberoende. DTDL är inte exklusiv för Azure Digitals, men används också för att representera enhets data i andra IoT-tjänster som [iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
+
+Azure Digitals flätar använder DTDL *version 2*. Mer information om den här versionen av DTDL finns i Specifikations dokumentationen för GitHub: [*digital, Definition Language (DTDL)-version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 > [!TIP] 
 > Alla tjänster som använder DTDL implementerar exakt samma funktioner i DTDL. IoT Plug and Play använder till exempel inte de DTDL-funktioner som är för grafer, medan Azures digitala dubbla för närvarande inte implementerar DTDL-kommandon. Mer information om de DTDL-funktioner som är speciella för Azure Digitals dubbla finns i avsnittet längre fram i den här artikeln om [Azure Digitals DTDL-implementerings information](#azure-digital-twins-dtdl-implementation-specifics).
-
-Mer information om DTDL i allmänhet finns i Specifikations dokumentationen för GitHub: [digital, Definition Language (DTDL)-version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## <a name="elements-of-a-model"></a>Element i en modell
 
@@ -62,7 +62,9 @@ För att en DTDL-modell ska vara kompatibel med Azure Digital-dubbla, måste den
 
 Dubbla typ modeller kan skrivas i valfri text redigerare. DTDL-språket följer JSON-syntax, så du bör lagra modeller med fil namns tillägget *. JSON*. Med JSON-tillägget kan många programmerings text redigerare tillhandahålla grundläggande syntaxkontroll och markeringar för dina DTDL-dokument. Det finns också ett [DTDL-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) tillgängligt för [Visual Studio Code](https://code.visualstudio.com/).
 
-Här är ett exempel på en typisk modell som skrivs som ett DTDL-gränssnitt. Modellen beskriver planet, var och en med ett namn, en massa och en temperatur. Planet kan ha måne som satelliter och kan innehålla lådor.
+Det här avsnittet innehåller ett exempel på en typisk modell som skrivs som ett DTDL-gränssnitt. Modellen beskriver **planet**, var och en med ett namn, en massa och en temperatur.
+ 
+Tänk på att planeterna också kan samverka med **måne** som är deras satelliter och kan innehålla **lådor**. I exemplet nedan `Planet` uttrycker modellen anslutningar till dessa andra entiteter genom att referera till två externa modeller – `Moon` och `Crater` . Dessa modeller definieras också i exempel koden nedan, men de är mycket enkla så att de inte subtraheras från det primära `Planet` exemplet.
 
 ```json
 [
@@ -101,6 +103,11 @@ Här är ett exempel på en typisk modell som skrivs som ett DTDL-gränssnitt. M
   },
   {
     "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2"
   }
@@ -204,13 +211,13 @@ Det finns ett språk oberoende exempel som kan användas för att validera model
 
 DTDL validator-exemplet bygger på ett .NET DTDL parser-bibliotek, som är tillgängligt på NuGet som ett bibliotek på klient sidan: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Du kan också använda biblioteket direkt för att skapa en egen verifierings lösning. När du använder parser-biblioteket ska du se till att använda en version som är kompatibel med den version som Azure Digital är igång. Under för hands versionen är detta versions *3.7.0*.
 
-Du kan lära dig mer om parser-biblioteket, inklusive exempel på användning, i [How-to: parsa och validera modeller](how-to-use-parser.md).
+Du kan lära dig mer om parser-biblioteket, inklusive exempel på användning, i [*How-to: parsa och validera modeller*](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se Hantera modeller med DigitalTwinsModels-API: er:
-* [Anvisningar: Hantera anpassade modeller](how-to-manage-model.md)
+* [*Anvisningar: Hantera anpassade modeller*](how-to-manage-model.md)
 
 Du kan också läsa mer om hur digitala dubbla modeller skapas baserat på modeller:
-* [Koncept: digitala och dubbla grafer](concepts-twins-graph.md)
+* [*Koncept: digitala och dubbla grafer*](concepts-twins-graph.md)
 

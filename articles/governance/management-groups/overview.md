@@ -3,23 +3,23 @@ title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963690"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132933"
 ---
 # <a name="what-are-azure-management-groups"></a>Vad är Azures hanterings grupper?
 
-Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsvillkor för hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen. Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.
+Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Azure-hanteringsgrupper ger en omgångsnivå som omfattar prenumerationer. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsvillkor för hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen. Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.
 Alla prenumerationer i en hanteringsgrupp måste ha förtroende för samma Azure Active Directory-klientorganisation.
 
 Du kan till exempel tillämpa principer för en hanteringsgrupp som begränsar regionerna som är tillgängliga för att skapa virtuella datorer (VM). Den här principen tillämpas för alla hanteringsgrupper, prenumerationer och resurser under hanteringsgruppen genom att endast tillåta att virtuella datorer skapas i den regionen.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarki för hanteringsgrupper och prenumerationer
 
-Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer för att organisera dina resurser i en hierarki för enhetlig princip- och åtkomsthantering. Följande diagram visar ett exempel på att skapa en hierarki för styrning med hjälp av hanteringsgrupper.
+Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer för att organisera dina resurser i en hierarki för enhetlig princip- och åtkomsthantering. Följande diagram visar ett exempel på hur du skapar en hierarki för styrning med hjälp av hanteringsgrupper.
 
 :::image type="content" source="./media/tree.png" alt-text="Exempel på ett hierarkiträd för hanteringsgrupp" border="false":::
 
@@ -33,7 +33,7 @@ Ett annat scenario där du kan använda hanteringsgrupper är för att ge använ
 - Ett träd för hanteringsgruppen har stöd för upp till sex nivåer.
   - Den här gränsen omfattar inte rotnivån eller prenumerationsnivån.
 - Varje hanteringsgrupp och prenumeration har endast stöd för ett överordnat element.
-- Varje hanteringsgrupp kan ha många underordnade element.
+- Varje hanteringsgrupp kan ha många underordnade.
 - Alla prenumerationer och hanteringsgrupper ingår i en hierarki i varje katalog. Läs [Viktiga fakta om rothanteringsgruppen](#important-facts-about-the-root-management-group).
 
 ## <a name="root-management-group-for-each-directory"></a>En rothanteringsgrupp för varje katalog
@@ -100,9 +100,9 @@ Följande diagram visar listan över roller och åtgärder som stöds för hante
 \*: MG Contributor och MG Reader tillåter endast att användare utför dessa åtgärder i hanterings gruppens omfattning.  
 \*\*: Roll tilldelningar för rot hanterings gruppen krävs inte för att flytta en prenumeration eller hanterings grupp till och från den. Läs [Hantera dina resurser med hanteringsgrupper](manage.md) för mer information om att flytta objekt inom hierarkin.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Anpassad roll definition och tilldelning för RBAC
+## <a name="azure-custom-role-definition-and-assignment"></a>Anpassad roll definition och tilldelning i Azure
 
-Anpassad RBAC-roll-support för hanterings grupper är för närvarande en för hands version med vissa [begränsningar](#limitations). Du kan definiera hanteringsgruppers omfattning i rolldefinitionens tilldelningsbara omfattning. Den anpassade RBAC-rollen är sedan tillgänglig för tilldelning för den hanteringsgruppen och alla hanteringsgrupper, prenumerationer, resursgrupper och resurser under den. Den här anpassade rollen ärvs nedåt i hierarkin precis som en inbyggd roll.  
+Azures anpassade roll stöd för hanterings grupper är för närvarande en för hands version med vissa [begränsningar](#limitations). Du kan definiera hanteringsgruppers omfattning i rolldefinitionens tilldelningsbara omfattning. Den anpassade Azure-rollen kommer sedan att vara tillgänglig för tilldelning för den hanterings gruppen och alla hanterings grupper, prenumerationer, resurs grupper och resurser under den. Den här anpassade rollen ärvs nedåt i hierarkin precis som en inbyggd roll.  
 
 ### <a name="example-definition"></a>Exempel definition
 

@@ -2,18 +2,19 @@
 title: Så här skyddar du ett webb program med interaktiv enkel inloggning
 titleSuffix: Azure Maps
 description: Så här konfigurerar du ett webb program som stöder enkel inloggning med Azure AD med Azure Maps Web SDK med OpenID Connect-protokollet.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1f591e52ba0c54dcf3242d11f7e81e8e73a570c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b21f487e2800a051b59bf94c038b3c1f40e658c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988687"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130825"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Skydda ett webb program med användar inloggning
 

@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444462"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132831"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
@@ -87,7 +88,7 @@ Tjänstslutpunkter har följande fördelar:
 - Det virtuella nätverket där slutpunkten konfigureras kan vara i samma prenumeration som Azure-tjänstresursen eller i en annan. Mer information om vilka behörigheter som krävs för att konfigurera slutpunkter och skydda Azure-tjänster finns under [Etablering](#provisioning).
 - För tjänster som stöds kan du skydda nya eller befintliga resurser i virtuella nätverk som använder tjänstslutpunkter.
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 - När du har aktiverat en tjänst slut punkt växlar Källans IP-adresser från att använda offentliga IPv4-adresser till att använda sin privata IPv4-adress när de kommunicerar med tjänsten från det under nätet. Befintliga öppna TCP-anslutningar till tjänsten stängs under bytet. Kontrollera att inga kritiska uppgifter körs när du aktiverar eller inaktiverar en tjänstslutpunkt för en tjänst för ett undernät. Kontrollera även att dina program ansluter automatiskt till Azure-tjänster efter IP-adressbytet.
 
@@ -122,7 +123,7 @@ När du har konfigurerat tjänstens slut punkter till en tjänst kontrollerar du
 
 Tjänst slut punkter kan konfigureras på virtuella nätverk oberoende av en användare med Skriv behörighet till ett virtuellt nätverk. För att skydda Azure-tjänstens resurser till ett VNet måste användaren ha behörighet till *Microsoft. Network/virtualNetworks/subnets/joinViaServiceEndpoint/Action* för de tillagda under näten. De inbyggda tjänst administratörs rollerna inkluderar denna behörighet som standard. Du kan ändra behörigheten genom att skapa anpassade roller.
 
-Mer information om inbyggda roller finns i [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Mer information om hur du tilldelar vissa behörigheter till anpassade roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Mer information om inbyggda roller finns i [inbyggda roller i Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Mer information om hur du tilldelar vissa behörigheter till anpassade roller finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om det virtuella nätverket och Azure-tjänstresurser finns i olika prenumerationer måste resurserna finnas under samma AD-klientorganisation (Active Directory). 
 
@@ -151,4 +152,3 @@ Vanliga frågor och svar [Virtual Network finns i vanliga frågor och svar om se
 - [Azure Service integration i virtuella nätverk](virtual-network-for-azure-services.md)
 - [Virtual Network tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
-

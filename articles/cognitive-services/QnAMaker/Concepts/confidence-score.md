@@ -3,20 +3,18 @@ title: Förtroende poäng – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 'En kunskaps bas måste publiceras. När den har publicerats frågas kunskaps basen vid körnings förutsägelse slut punkten med generateAnswer-API: et.'
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: d901a803311805825c22503af6098e805a67e8f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faf24f11763ca2bcd9bb872b09b5d1b69e78bd06
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76843460"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131165"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Förtroende poängen för ett svar
 När en användar fråga matchas mot en kunskaps bas, returnerar QnA Maker relevanta svar, tillsammans med en förtroende poäng. Den här poängen indikerar att svaret är den rätta matchningen för den aktuella användar frågan.
@@ -57,11 +55,11 @@ När du väljer ditt tröskelvärde bör du tänka på balansen mellan precision
 > [!NOTE]
 > Nyare versioner av QnA Maker innehåller förbättringar av bedömnings logik och kan påverka din tröskel. När som helst kan du uppdatera tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrol lera din QnA-version [här](https://www.qnamaker.ai/UserSettings)och se hur du hämtar de senaste uppdateringarna [här](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-## <a name="set-threshold"></a>Ange tröskel
+## <a name="set-threshold"></a>Ange tröskelvärde
 
 Ange tröskelvärdet som en egenskap för [GENERATEANSWER API-JSON-texten](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Det innebär att du ställer in den för varje anrop till GenerateAnswer.
 
-I bot-ramverket ställer du in poängen som en del av alternativ-objektet med [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) eller [Node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+I bot-ramverket ställer du in poängen som en del av alternativ-objektet med [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) eller [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Förbättra förtroende poängen
 Om du vill förbättra förtroende poängen för ett visst svar på en användar fråga kan du lägga till användar frågan i kunskaps basen som en annan fråga på det svaret. Du kan också använda Skift läges känsliga [ord ändringar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord i din KB.

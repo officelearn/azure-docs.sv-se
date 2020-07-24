@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc273c2e6e27c191b4407ffae86a4ba227ee642b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461675"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131046"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure App Service
 
@@ -33,7 +33,7 @@ Azure App Service är ett PaaS-erbjudande (Platform-as-a-Service) som gör att d
 App Service tillhandahåller en OAuth 2,0-tjänst för din identitets leverantör. OAuth 2,0 fokuserar på Client Developer enkelhet samtidigt som du tillhandahåller vissa auktoriseringsarkiv för webb program, skriv bords program och mobil telefoner. Azure AD använder OAuth 2,0 för att ge åtkomst till mobil-och webb program. Mer information finns [i autentisering och auktorisering i Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Begränsa åtkomst baserat på roll
-Det är absolut nödvändigt att begränsa åtkomsten för organisationer som vill tillämpa säkerhets principer för data åtkomst. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att tilldela behörigheter till användare, grupper och program i ett visst omfång, till exempel behovet av att känna till och minsta behörighets säkerhets principer. Mer information om hur du beviljar användare åtkomst till program finns i [Vad är rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview).
+Det är absolut nödvändigt att begränsa åtkomsten för organisationer som vill tillämpa säkerhets principer för data åtkomst. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att tilldela behörigheter till användare, grupper och program i ett visst omfång, till exempel behovet av att känna till och minsta behörighets säkerhets principer. Mer information om hur du beviljar användare åtkomst till program finns i [Vad är rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview).
 
 ## <a name="protect-your-keys"></a>Skydda dina nycklar
 Det spelar ingen roll om du förlorar dina prenumerations nycklar. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse. Se [vad som är Azure Key Vault](../../key-vault/general/overview.md) om du vill veta mer.

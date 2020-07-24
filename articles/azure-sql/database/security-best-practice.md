@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986792"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132950"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -240,9 +240,9 @@ Tilldela endast de [behörigheter](https://docs.microsoft.com/sql/relational-dat
   - Se till att inte tilldela användare till onödiga roller.
 
 - I Azure Resource Manager:
-  - Använd inbyggda roller om det finns tillgängliga eller anpassade RBAC-roller och tilldela de nödvändiga behörigheterna.
-    - [Inbyggda roller för Azure](../../role-based-access-control/built-in-roles.md)
-    - [Anpassade roller för Azure-resurser](../../role-based-access-control/custom-roles.md)
+  - Använd inbyggda roller om tillgängliga eller Azure-anpassade roller och tilldela de behörigheter som krävs.
+    - [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)
+    - [Anpassade roller i Azure](../../role-based-access-control/custom-roles.md)
 
 **Bästa praxis**:
 
@@ -291,7 +291,7 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
 - Identifiera en omfattande hierarki med användare (och automatiserade processer) som har åtkomst till systemet.
 
 - Skapa roller enligt de användar grupper som behövs och tilldela roller behörigheter.
-  - För aktiviteter på hanterings nivå i Azure Portal eller via PowerShell-Automation används RBAC-roller. Hitta antingen en inbyggd roll som matchar kravet eller skapa en anpassad RBAC-roll med hjälp av de tillgängliga behörigheterna
+  - För aktiviteter på hanterings nivå i Azure Portal eller via PowerShell-Automation används RBAC-roller. Hitta antingen en inbyggd roll som matchar kravet eller skapa en anpassad Azure-roll med hjälp av de tillgängliga behörigheterna
   - Skapa Server roller för Server-wide-aktiviteter (skapa nya inloggningar, databaser) i en hanterad instans.
   - Skapa databas roller för aktiviteter på databas nivå.
 
@@ -342,8 +342,8 @@ För läsarna som vill gå djupare till SoD rekommenderar vi följande resurser:
   - [Signering av lagrade procedurer](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - För Azure-resurs hantering:
-  - [Inbyggda roller för Azure](../../role-based-access-control/built-in-roles.md)
-  - [Anpassade roller för Azure-resurser](../../role-based-access-control/custom-roles.md)
+  - [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)
+  - [Anpassade roller i Azure](../../role-based-access-control/custom-roles.md)
   - [Använda Azure AD Privileged Identity Management för utökad åtkomst](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### <a name="perform-regular-code-reviews"></a>Utföra regelbunden kod granskning

@@ -3,19 +3,17 @@ title: Batch-test TSV-format – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Förstå TSV-formatet för batch-testning
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: dccf034b6497651db70b6cc09fff3f1b1d645a1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0ed948b4bf69fc672a59a7825279a12868d10521
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73507829"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132134"
 ---
 # <a name="batch-testing-tsv-format"></a>Batch-test av TSV-format
 
@@ -36,7 +34,7 @@ Använd följande information för att förstå och implementera TSV-formatet f�
 
 ## <a name="tsv-input-fields"></a>Indatatyper för TSV
 
-|Fält för TSV-indatafiler|Obs!|
+|Fält för TSV-indatafiler|Kommentarer|
 |--|--|
 |KBID|Ditt KB-ID finns på publicerings sidan.|
 |Fråga|Frågan som en användare skulle ange.|
@@ -48,7 +46,7 @@ Använd följande information för att förstå och implementera TSV-formatet f�
 
 ## <a name="tsv-output-fields"></a>Fält för TSV-utdata 
 
-|Parametrar för TSV output-filer|Obs!|
+|Parametrar för TSV output-filer|Kommentarer|
 |--|--|
 |KBID|Ditt KB-ID finns på publicerings sidan.|
 |Fråga|Frågan som anges i indatafilen.|

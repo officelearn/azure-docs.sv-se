@@ -1,19 +1,19 @@
 ---
 title: Geografiskt JSON-dataformat för geografiskt avgränsnings tecken | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du förbereder de avgränsnings data som kan användas i Microsoft Azure Maps GET-och POST-API.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335624"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131313"
 ---
 # <a name="geofencing-geojson-data"></a>Polystaket, polyjson-data
 
@@ -30,7 +30,7 @@ Data för avgränsning eller uppsättning av gränser representeras av `Feature`
 * `expiredTime`Är förfallo datum och-tid för avgränsning av data. Om värdet för `userTime` i begäran är senare än det här värdet betraktas motsvarande avgränsnings data som utgångna data och inte efter frågas. Då kommer geometryId för dessa avgränsnings data att ingå i `expiredGeofenceGeometryId` matrisen inom ett gräns värde.
 * `validityPeriod`Är en lista över tids perioden för giltighets tiden för den här gränsen. Om värdet för `userTime` i begäran faller utanför giltighets perioden betraktas motsvarande avgränsnings information som ogiltig och kommer inte att frågas. GeometryId för dessa avgränsnings data ingår i `invalidPeriodGeofenceGeometryId` matrisen inom ett gräns värde. I följande tabell visas egenskaperna för validityPeriod-elementet.
 
-| Name | Typ | Obligatorisk  | Beskrivning |
+| Namn | Typ | Obligatorisk  | Beskrivning |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datumtid  | true | Start datum tiden för giltighets tids perioden. |
 | endTime   | Datumtid  | true |  Slutdatumet för giltighets tids perioden. |

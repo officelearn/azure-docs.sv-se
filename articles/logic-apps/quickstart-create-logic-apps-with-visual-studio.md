@@ -1,18 +1,18 @@
 ---
-title: Automatisera arbets flöden för aktiviteter i Visual Studio
-description: Skapa, Schemalägg och kör återkommande arbets flöden för företags integrering med hjälp av Azure Logic Apps och Visual Studio
+title: Automatisera uppgifter och arbets flöden med Visual Studio
+description: Skapa, Schemalägg och köra automatiserade arbets flöden för företags integrering med hjälp av Azure Logic Apps och Visual Studio
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
-ms.openlocfilehash: 4416c9f9d1c55a460cb983089706e984d90ba082
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520774"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132372"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
@@ -51,9 +51,15 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
   
     Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller läsa mer om [hur du installerar tillägget från Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Se till att starta om Visual Studio när installationen är klar.
 
+  * Information om hur du använder Azure Government-prenumerationer med Visual Studio finns i följande avsnitt om ytterligare konfiguration:
+
+    * Visual Studio 2019: [snabb start: Anslut till Azure Government med Visual Studio](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [Introduktion till Visual Studio-tillägget för Azure-miljön](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), som du kan hämta och installera från [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
 * Tillgång till Internet när du använder den inbäddade Logic App Designer
 
-  Designern behöver en Internet anslutning för att skapa resurser i Azure och läsa egenskaper och data från kopplingar i din Logic app. För Dynamics CRM Online-anslutningar kontrollerar designern till exempel din CRM-instans för standard och anpassade egenskaper.
+  Designern behöver en Internet anslutning för att skapa resurser i Azure och läsa egenskaper och data från kopplingar i din Logic app.
 
 * Ett e-postkonto som stöds av Logic Apps, t.ex. Office 365 Outlook, Outlook.com eller Gmail. För andra leverantörer granskar du [kopplings listan här](/connectors/). I det här exemplet används Office 365 Outlook. Om du använder en annan provider är övergripande stegen desamma, men ditt användargränssnitt kan skilja sig något.
 

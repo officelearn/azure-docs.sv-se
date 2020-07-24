@@ -1,16 +1,16 @@
 ---
-title: Instrument panelen för användning i Microsofts marknads plats analys
+title: Instrument panelen för användning i Microsofts marknads plats analys, Azure Marketplace och Microsoft AppSource
 description: Lär dig hur du kommer åt alla virtuella datorer erbjuder användning och mätning av mät värden. Gå till användnings instrument panelen i Partner Center under kommersiell marknads plats.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 8747ff98cd2b53773d9e0a95436d90fef74fda55
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+ms.openlocfilehash: a03ef316b409fdeff687f0ee7bbbf6316857c54b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120678"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131753"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Instrument panelen för användning i Microsofts marknads plats analys
 
@@ -30,14 +30,13 @@ På fliken VM-användning finns grafiska representationer av följande objekt:
 - [Användnings översikt](#usage-summary)
 - [Användning efter geografi](#usage-by-geography)
 - [Användning efter erbjudanden](#usage-by-offers)
-- [Användnings trend per erbjudanden och SKU: er](#usage-trend-by-offers-and-skus)
+- [Användnings trend per erbjudanden och planer](#usage-trend-by-offers-and-plans)
 - [Användning per erbjudande typ](#usage-by-offer-type)
 - [Användning efter VM-storlek](#usage-by-vm-size)
 - [Användning per försäljnings kanal](#usage-by-sales-channel)
 - [Detaljerade användnings data](#detailed-usage-data)
 
-> [!NOTE]
-> Analys rapporter visas på olika sätt i Cloud Partner Portal (CPP) och partner Center. **Säljare insikter** i cpp har fliken beställningar och användning, som visar data för både användnings erbjudanden och icke-användnings erbjudanden. Användnings måtten visas på en separat sida i Partner Center.
+Maximal latens mellan generering och rapportering av användnings händelser i Partner Center är 48 timmar.
 
 ### <a name="usage-summary"></a>Användningssammanfattning
 
@@ -52,7 +51,7 @@ I tabellen användnings översikt visas kund förbruknings timmar för alla erbj
 
 ### <a name="usage-by-geography"></a>Användning efter geografi
 
-Den **normaliserade användningen av geografi** -termisk karta visar användnings timmar som mappats enligt kundens land/region. Färg variationen för land/region representerar normaliserad användnings koncentration. Återgå till den ursprungliga vyn genom att trycka på knappen **Start** på kartan.
+Värme specifikationen **normaliserad användning per geografi** visar användnings timmar som mappas enligt kundens land/region. Färg variationen för land/region representerar normaliserad användnings koncentration. Återgå till den ursprungliga vyn genom att trycka på knappen **Start** på kartan.
 
 ### <a name="usage-by-offers"></a>Användning efter erbjudanden
 
@@ -60,9 +59,9 @@ Den **normaliserade användningen av geografi** -termisk karta visar användning
 - Stapeldiagrammet visar en tillväxt trend i månaden för det valda datum intervallet. Månads kolumnerna representerar användnings timmar från erbjudandena med högst användnings timmar för respektive månad. Linje diagrammet visar trenden för tillväxt procent ritad på den sekundära Y-axeln.
 - Använd skjutreglaget överst i diagrammet för att rulla från höger till vänster längs x-axeln och/eller fokusera på vissa data punkter.
 
-### <a name="usage-trend-by-offers-and-skus"></a>Användnings trend per erbjudanden och SKU: er
+### <a name="usage-trend-by-offers-and-plans"></a>Användnings trend per erbjudanden och planer
 
-Det här diagrammet visar trenden för normaliserad användning för de valda SKU: erna för ett erbjudande. Erbjudandet ranknings lista visar de översta 50-erbjudandenna med högsta användning, sorterade efter användnings timmar. SKU-ranknings lista visar de översta 50 SKU: erna med den högsta användningen för det valda erbjudandet.
+Det här diagrammet visar trenden för normaliserad användning för de valda planerna (tidigare kallade SKU: er) för ett erbjudande. Erbjudandet ranknings lista visar de översta 50-erbjudandenna med högsta användning, sorterade efter användnings timmar. Planen ranknings lista visar de 50 främsta planerna med den högsta användningen för det valda erbjudandet.
 
 ### <a name="usage-by-offer-type"></a>Användning per erbjudande typ
 
@@ -72,7 +71,7 @@ Det här diagrammet visar trenden för normaliserad användning för de valda SK
 
 ### <a name="usage-by-vm-size"></a>Användning efter VM-storlek
 
-Det här diagrammet representerar användnings trenden för valda VM-storlekar (högst 5) av alla dina erbjudanden/SKU: er. Stapeldiagrammet staplas med användnings tiderna för de valda VM-storlekarna.
+Det här diagrammet representerar användnings trenden för valda VM-storlekar (högst fem) av alla dina erbjudanden/planer. Stapeldiagrammet staplas med användnings tiderna för de valda VM-storlekarna.
 
 Ranknings lista visar de virtuella 50 VM-storlekarna med högsta användning och sorterat efter användnings timmar.
 
@@ -90,7 +89,7 @@ Ranknings lista visar de virtuella 50 VM-storlekarna med högsta användning och
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en CSV-fil om antalet poster är mindre än 1000.
 - Om antalet poster är över 1000 placeras export data asynkront på en nedladdnings sida som kommer att vara tillgänglig under de närmaste 30 dagarna.
-- Filter kan tillämpas på **detaljerad användnings information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land/region, försäljnings kanal, Marketplace-licens typ, användnings typ, erbjudande namn, erbjudande typ, kostnads fri utvärderings prenumerations-ID, kund-ID och företags namn.
+- Använd filter för **detaljerad användnings information** för att visa endast de data som du är intresse rad av. Filtrera data efter land/region, försäljnings kanal, marknads plats licens typ, användnings typ, erbjudande namn, erbjudande typ, kostnads fri utvärderings prenumerations-ID, kund-ID och företags namn.
 
 > [!NOTE]
 > Välj **användnings typen** i sid filtret för att visa diagram på sidan i antingen "normaliserad vy" eller "rå vy". Standardvyn för de här diagrammen är "normaliserad vy".
@@ -107,7 +106,7 @@ Ranknings lista visar de virtuella 50 VM-storlekarna med högsta användning och
 På fliken **avgiftsbelagd fakturerings användning** visas användnings information för erbjudande typer där användningen mäts per mätnings dimension. Skriv överanvändning av SaaS visas för närvarande. På fliken visas grafiska representationer av överförbruknings trender för SaaS-avläsning av fakturerings användning:
 
 - **Överförbruknings trend per mätnings dimension**: visar den månatliga överförbruknings trenden för den valda mätar dimensionen för ett erbjudande. X-axeln representerar månaden och Y-axeln representerar förbruknings antalet. Mått enheten för den anpassade mätaren visas också på Y-axeln.
-- Överförbruknings **trend per SKU**: representerar trenden för användnings antalet för den valda mätar dimensionen enligt SKU: er. De SKU: er som visas visar de 5 främsta SKU: erna med högsta användnings nivå för det valda erbjudandet.
+- Överförbruknings **trend per plan**: representerar trenden för användnings antalet för den valda mätnings dimensionen enligt planer. De planer som visas visar de fem främsta planerna med den högsta användnings mängden för det valda erbjudandet.
 - Överförbruknings **trend med de främsta 50 kunderna**: de översta 50-erbjudandena med högst användnings timmar visas på en ***ledare*** och rangordnas med den högsta användningen av den anpassade mätaren. Välj en kund i ranknings lista om du vill visa användnings trenden för en vald mätnings dimension.
 - **Överförbruknings trend per främsta kunder**: visar de främsta kund percentilerna som bidrar till% av den övergripande användningen. Den främsta kund percentilen visas längs X-axeln och bestäms av kundens användnings antal. Y-axeln visar användnings antalet. Du kan visa information genom att hovra över punkter längs linje diagrammet.
 

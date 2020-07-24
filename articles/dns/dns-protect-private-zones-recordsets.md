@@ -7,11 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: a817cb0722bff721891cd290ea4a6552c778dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550ed5791df821b1793755f5046da92adf6e3f3a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701872"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131556"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Skydda privata DNS-zoner och-poster
 
@@ -23,7 +24,7 @@ I den här artikeln förklaras hur Azure DNS hjälper dig att skydda dina privat
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Med Azure Role-baserade Access Control (RBAC) kan du få detaljerad åtkomst hantering för Azure-användare, grupper och resurser. Med RBAC kan du ge den åtkomst nivå som användarna behöver. Mer information om hur RBAC hjälper dig att hantera åtkomst finns i [Vad är rollbaserad Access Control](../role-based-access-control/overview.md).
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure-användare, grupper och resurser. Med RBAC kan du ge den åtkomst nivå som användarna behöver. Mer information om hur RBAC hjälper dig att hantera åtkomst finns i [Vad är rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 ### <a name="the-private-dns-zone-contributor-role"></a>Rollen Privat DNS Zone Contributor
 
@@ -167,7 +168,7 @@ Egenskapen åtgärder definierar följande DNS-/regionsspecifika behörigheter:
 * `Microsoft.Network/privateDNSZones/read`ger behörighet att läsa DNS-privata zoner, men inte att ändra dem, så att du kan se i vilken zon som CNAME skapas.
 
 > [!NOTE]
-> Om du använder en anpassad RBAC-roll för att förhindra borttagning av post uppsättningar samtidigt som du tillåter att den uppdateras är inte en effektiv kontroll. Det förhindrar att post uppsättningar tas bort, men den förhindrar inte att de ändras.  Tillåtna ändringar omfattar att lägga till och ta bort poster från post uppsättningen, inklusive att ta bort alla poster för att lämna en tom post uppsättning. Detta har samma resultat som när du tar bort post uppsättningen från en DNS-matchning.
+> Att använda en anpassad Azure-roll för att förhindra borttagning av post uppsättningar samtidigt som de fortfarande kan uppdateras är inte en effektiv kontroll. Det förhindrar att post uppsättningar tas bort, men den förhindrar inte att de ändras.  Tillåtna ändringar omfattar att lägga till och ta bort poster från post uppsättningen, inklusive att ta bort alla poster för att lämna en tom post uppsättning. Detta har samma resultat som när du tar bort post uppsättningen från en DNS-matchning.
 
 Det går för närvarande inte att definiera anpassade roll definitioner via Azure Portal. En anpassad roll som baseras på den här roll definitionen kan skapas med hjälp av Azure PowerShell:
 

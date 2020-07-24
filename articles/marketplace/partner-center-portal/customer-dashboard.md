@@ -1,16 +1,16 @@
 ---
-title: Kund instrument panel i Microsofts marknads plats analys på Partner Center
+title: Kund instrument panel i Microsofts marknads plats analys på Partner Center, Azure Marketplace och Microsoft AppSource
 description: Lär dig hur du får åtkomst till information om dina kunder, inklusive tillväxt trender, med hjälp av kund instrument panelen i den kommersiella Marketplace-analysen.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 9f71a668b3473521e9d8d7c9318ab2e557380845
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+ms.openlocfilehash: f4dbdbfc3b835871516233e601881012190169ce
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121766"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131777"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för kunder i Commercial Marketplace-analys
 
@@ -29,17 +29,19 @@ På **instrument panelen** för kunder i **analys** menyn visas data för kunder
 - [Kund efter geografi](#customer-by-geography)
 - [Kund trender](#customer-trends)
 - [Kunder per order och användning](#customers-by-orders-and-usage)
-- [Kunder per SKU](#customers-by-skus)
+- [Kunder efter abonnemang](#customers-by-plans)
 - [Beställningar och användning efter kundtyp](#orders-and-usage-by-customer-type)
 - [Tabellen Kund information](#customer-details-table)
 - [Kund sid filter](#customer-page-filters)
+
+Den maximala svars tiden mellan kund förvärv och rapportering i Partner Center är 48 timmar.
 
 ### <a name="customer-summary"></a>Kund Sammanfattning
 
 Avsnittet kund Sammanfattning visar antalet kunder, inklusive nya, befintliga och omsättnings bara under det valda datum intervallet.
 
 - Totalt antal kunder definieras som antalet kunder som har köpt ditt erbjudande och har minst en order som inte har annullerats.
-- Kundernas procentuella tillväxt jämfört med föregående månad anges av talet och uppåt i den gröna eller nedåtriktade indikatorn i rött.
+- Kund procent andelen av tillväxten jämfört med föregående månad anges av indikatorn för tal och uppåt i grönt eller nedåt i rött.
 - Tillväxt trender representeras av Stolp diagram och visar värdet för varje månad genom att hovra över kolumnerna i diagrammet.
 
 Det finns tre **kund typer**: nya, befintliga och uppdelade.
@@ -50,9 +52,9 @@ Det finns tre **kund typer**: nya, befintliga och uppdelade.
 
 ### <a name="customer-by-geography"></a>Kund efter geografi
 
-Diagrammet **kund per geografi** visar antalet kunder och kunder som har köpts under det valda datum intervallet och som mappas baserat på kundens land/region. Ljuset till mörkt färg på kartan representerar det låga värdet för kund antalet. Klicka på en post i tabellen om du vill zooma in i ett land/en region.
+Diagrammet **kund per geografi** visar antalet kunder och kunder som har köpts under det valda datum intervallet, som mappas baserat på kundens land/region. Ljuset till mörkt färg på kartan representerar det låga värdet för kund antalet. Välj en post i tabellen om du vill zooma in i ett land/en region.
 
-Termisk karta visar kund antalet och% per kund land/region. Du kan flytta kartan för att visa den exakta platsen och zooma in på en bestämd plats. Den här kartan har ett kompletterande rutnät som gör att du kan visa% av kunderna efter plats, samt kunder som nyligen har lagts till på den platsen.
+Värme kartan visar antalet kunder och procent andelen per kund land/region. Du kan flytta kartan för att visa den exakta platsen och zooma in på en bestämd plats. Den här kartan har ett kompletterande rutnät som gör att du kan visa% av kunderna efter plats, samt kunder som nyligen har lagts till på den platsen.
 
 ### <a name="customer-trends"></a>Kund trender
 
@@ -71,14 +73,14 @@ Diagrammet **kunder per order/användning** har tre flikar, "order", "normaliser
 
 Som exempel kan du se diagrammet nedan för normaliserad användning: den översta 30: e percentilen av kunder bidrar till 87% av den normaliserade användningen ackumulerat. Den 30: e percentilen av kunder bidrar bara till 1 570 000 timmars användning.
 
-### <a name="customers-by-skus"></a>Kunder per SKU
+### <a name="customers-by-plans"></a>Kunder efter abonnemang
 
-Diagrammen **kunder efter SKU/användning** beskrivs nedan.
+Diagram över **kunder per plan/användning** beskrivs nedan.
 
 1. Brädet presenterar information om de främsta 50 kunderna rangordnas efter antal beställningar. När du har valt en kund visas information om kunden i avsnitten 2, 3 och 4 i den här ledaren.
 2. Kund profil informationen visas i det här utrymmet när utgivare är inloggad med en ägar roll. Om utgivare är inloggade med en deltagar roll kommer informationen i det här avsnittet inte att vara tillgänglig.
-3. I diagrammet beställningar per SKU ring visas en uppdelning av beställningar som har köpts för SKU: er. De 5 främsta SKU: erna med det högsta antalet order visas, medan resten av orderna grupperas under rest all.
-4. Diagrammet platser per SKU ring visar en uppdelning av platser som har beställts för SKU: er. De 5 främsta SKU: erna med de högsta platserna visas, medan resten av orderna grupperas under rest all.
+3. Ring diagrammet **order by-planer** visar en uppdelning av beställningar som har köpts för planer. De fem främsta planerna med högst antal order visas, medan resten av orderna grupperas under "rest all".
+4. Ring diagrammet **platser efter planer** visar en uppdelning av platser som har beställts för planer. De fem främsta planerna med de högsta platserna visas, medan resten av orderna grupperas under rest all.
 
 ### <a name="orders-and-usage-by-customer-type"></a>Beställningar och användning efter kundtyp
 
@@ -95,7 +97,7 @@ Tabellen **kund information** visar en numrerad lista över de 1000 främsta kun
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
 - Om poster är över 1000 kommer exporterade data att placeras asynkront på en nedladdnings sida under de närmaste 30 dagarna.
-- Filter kan tillämpas på tabellen för att visa endast de data som du är intresse rad av. Data kan filtreras efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, förvärvs datum, datum förlorat, kund-e-post, kund land/region/delstat/stad/post, kund språk och så vidare.
+- Använd filter i tabellen om du bara vill visa de data som du är intresse rad av. Filtrera data efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, förvärvs datum, datum förlorat, kund-e-post, kund land/region/delstat/ort/post, kund språk och så vidare.
 - När ett erbjudande köps av en skyddad kund kommer information i **kundens detaljerade data** att maskeras (* * * * * * * *).
 - Kund dimensions information som företagets namn, kund namn och kund-e-post finns på en organisations-ID-nivå, inte på Azure Marketplace-eller AppSource transaktions nivå.
 
@@ -104,7 +106,7 @@ Tabellen **kund information** visar en numrerad lista över de 1000 främsta kun
 **Sidan kunders** filter tillämpas på sidan kunders sid nivå. Du kan välja flera filter för att återge diagrammet för de kriterier du väljer att visa och de data som du vill se i "detaljerade order data"-rutnät/-export. Filter tillämpas på de data som extraheras för det data intervall som du har valt i det övre högra hörnet på sidan beställningar.
 
 >[!NOTE]
-> Detaljerade definitioner för var och en av fälten i kund rutnät, sid filter och deras möjliga val finns i [vanliga frågor och terminologi för affärs marknads analyser](./faq-terminology.md).
+> Detaljerade definitioner för var och en av fälten i kund rutnät, sid filter och de möjliga valen finns i artikeln vanliga frågor och svar nedan.
 
 ## <a name="next-steps"></a>Nästa steg
 

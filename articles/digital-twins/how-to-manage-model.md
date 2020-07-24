@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 01bb5f9ae6d8c7a6374a8b1392b061f31fdb63a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390592"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132287"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -66,7 +66,7 @@ Den här modellen definierar ett namn och ett unikt ID för patient rummet och e
 Efter den här metoden kan du gå vidare till för att definiera modeller för sjukhuss rapporter, zoner eller själva sjukhus.
 
 > [!TIP]
-> Det finns ett bibliotek på klient sidan som kan tolkas och verifieras DTDL. Den genererar en C#-objekt modell av DTDL-innehållet, som kan användas i modell drivna utvecklings scenarier som att generera GRÄNSSNITTs element. Du kan också använda det här biblioteket för att se till att dina modeller inte har några syntaxfel innan du laddar upp dem. Mer information om det här biblioteket och åtkomst till ett exempel som är byggt på det för en DTDL-verifierare finns i [How-to: parse and validate Models](how-to-use-parser.md).
+> Det finns ett bibliotek på klient sidan som kan tolkas och verifieras DTDL. Den genererar en C#-objekt modell av DTDL-innehållet, som kan användas i modell drivna utvecklings scenarier som att generera GRÄNSSNITTs element. Du kan också använda det här biblioteket för att se till att dina modeller inte har några syntaxfel innan du laddar upp dem. Mer information om det här biblioteket och åtkomst till ett exempel som är byggt på det för en DTDL-verifierare finns i [*How-to: parse and validate Models*](how-to-use-parser.md).
 
 ## <a name="manage-models-with-apis"></a>Hantera modeller med API: er.
 
@@ -109,7 +109,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Ett exempel:
+Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Exempel:
 
 ```json
 [
@@ -190,7 +190,7 @@ En modells inaktive rings status ingår i `ModelData` posterna som returneras av
 
 Du kan ta bort alla modeller i din instans på samma gång, eller så kan du göra det på individuell basis.
 
-Ett exempel på hur du tar bort alla modeller får du genom att hämta den exempel app som används i [självstudien: utforska grunderna med ett exempel på ett klient program](tutorial-command-line-app.md). *CommandLoop.cs* -filen gör detta i en `CommandDeleteAllModels` funktion.
+Ett exempel på hur du tar bort alla modeller får du genom att hämta den exempel app som används i [*självstudien: utforska grunderna med ett exempel på ett klient program*](tutorial-command-line-app.md). *CommandLoop.cs* -filen gör detta i en `CommandDeleteAllModels` funktion.
 
 Resten av det här avsnittet delar ned modell borttagning i närmare detalj, och visar hur du gör det för en enskild modell.
 
@@ -247,9 +247,9 @@ Azures digitala dubblare förhindrar inte det här läget, så var noga med att 
 
 ## <a name="manage-models-with-cli"></a>Hantera modeller med CLI
 
-Modeller kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [anvisningar: använda Azure Digitals flätade CLI](how-to-use-cli.md).
+Modeller kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se hur du skapar och hanterar digitala dubbla, baserade på dina modeller:
-* [Anvisningar: hantera digitala dubbla](how-to-manage-twin.md)
+* [*Anvisningar: hantera digitala dubbla*](how-to-manage-twin.md)

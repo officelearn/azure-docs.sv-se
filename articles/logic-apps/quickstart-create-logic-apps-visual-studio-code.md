@@ -1,20 +1,20 @@
 ---
-title: Automatisera aktiviteter med Visual Studio Code
-description: Skapa eller redigera logiska appar underliggande JSON-definitioner med hjälp av Visual Studio Code (VS Code)
+title: Automatisera uppgifter och arbets flöden med Visual Studio Code
+description: Skapa eller redigera arbets flödes definitioner för Logic app med hjälp av Visual Studio Code (VS Code)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, deli, logicappspm
+ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 3dccb596be2d97dd0f38d680537913a76ce09e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147065"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131488"
 ---
-# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Snabb start: skapa och hantera arbets flödes definitioner för Logic app med hjälp av Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Snabbstart: Skapa och hantera arbetsflödesdefinitioner för logikappar med hjälp av Visual Studio Code
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio Code, kan du skapa och hantera Logi Kap par som hjälper dig att automatisera uppgifter, arbets flöden och processer för att integrera appar, data, system och tjänster mellan organisationer och företag. Den här snabb starten visar hur du kan skapa och redigera de underliggande arbets flödes definitionerna, som använder JavaScript Object Notation (JSON) för Logic Apps genom en kod baserad upplevelse. Du kan också arbeta med befintliga Logic Apps som redan har distribuerats till Azure.
 
@@ -50,9 +50,9 @@ Innan du börjar bör du kontrollera att du har följande:
 
     Mer information finns i [tillägg Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). Om du vill bidra till den här tilläggets version av öppen källkod går du till [Azure Logic Apps tillägget för Visual Studio Code på GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
-<a name="sign-in-azure"></a>
+<a name="access-azure"></a>
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="access-azure-from-visual-studio"></a>Få åtkomst till Azure från Visual Studio
 
 1. Öppna Visual Studio Code. Välj Azure-ikonen i verktygsfältet Visual Studio Code.
 
@@ -99,7 +99,7 @@ Innan du börjar bör du kontrollera att du har följande:
 
 ## <a name="create-new-logic-app"></a>Skapa ny Logic-app
 
-1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#sign-in-azure).
+1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#access-azure).
 
 1. I Visual Studio Code, under **Logic Apps**, öppnar du din prenumerations snabb meny och väljer **skapa Logic app**.
 
@@ -123,17 +123,17 @@ Innan du börjar bör du kontrollera att du har följande:
 
    ![Ange namn på din Logic app](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
-   I Azure-fönstret, under din Azure-prenumeration, visas din nya och tomma Logic-app. Visual Studio Code öppnar också en JSON-fil (. logicapp. JSON) som innehåller en Skeleton-arbetsflöde definition för din Logic app. Nu kan du börja redigera din Logic Apps arbets flödes definition i den här JSON-filen. Teknisk referens om struktur och syntax för en arbets flödes definition finns i [språk schema för arbets flödes definition för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
+   I Azure-fönstret, under din Azure-prenumeration, visas din nya och tomma Logic-app. Visual Studio Code öppnar också en JSON-fil (.logicapp.jspå), som innehåller en Skeleton-arbetsflöde för din Logic app. Nu kan du börja redigera din Logic Apps arbets flödes definition i den här JSON-filen. Teknisk referens om struktur och syntax för en arbets flödes definition finns i [språk schema för arbets flödes definition för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
 
    ![Töm JSON-filen definition för Logic app-arbetsflöde](./media/quickstart-create-logic-apps-visual-studio-code/empty-logic-app-workflow-definition.png)
 
    Här är till exempel en exempel arbets flödes definition för en exempel logik som börjar med en RSS-utlösare och en Outlook 365 Outlook-åtgärd. Normalt visas JSON-element i alfabetisk ordning i varje avsnitt. Det här exemplet visar dock dessa element ungefär i den ordning som Logic Apps-stegen visas i designern.
 
    > [!IMPORTANT]
-   > Om du vill återanvända den här exempel definitionen av Logic-appen behöver du ett Office 365-organisations konto, @fabrikam.comtill exempel. Se till att du ersätter den fiktiva e-postadressen med din egen e-postadress. Om du vill använda en annan e-postkoppling, till exempel Outlook.com eller `Send_an_email_action` Gmail, ersätter du åtgärden med en liknande åtgärd som är tillgänglig från en [e-postanslutning som stöds av Azure Logic Apps](../connectors/apis-list.md).
+   > Om du vill återanvända den här exempel definitionen av Logic-appen behöver du ett Office 365-organisations konto, till exempel @fabrikam.com . Se till att du ersätter den fiktiva e-postadressen med din egen e-postadress. Om du vill använda en annan e-postkoppling, till exempel Outlook.com eller Gmail, ersätter du `Send_an_email_action` åtgärden med en liknande åtgärd som är tillgänglig från en [e-postanslutning som stöds av Azure Logic Apps](../connectors/apis-list.md).
    >
    > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. 
-   > Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+   > Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). 
    > Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
    ```json
@@ -226,7 +226,7 @@ Följ dessa steg om du vill granska din Logic app i Azure Portal:
 
 Om du redigerar en publicerad Logic-app och sparar dina ändringar i Visual Studio Code, *skriver du över* din redan distribuerade app. För att undvika att du bryter din Logic app i produktion och minimerar avbrott kan du inaktivera din Logic app först. Du kan sedan återaktivera din Logic-app när du har bekräftat att din Logic app fortfarande fungerar.
 
-1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#sign-in-azure).
+1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#access-azure).
 
 1. I Azure-fönstret, under **Logic Apps**, expanderar du din Azure-prenumeration så att du kan visa alla Logic Apps i den prenumerationen.
 
@@ -247,7 +247,7 @@ I Visual Studio Code kan du öppna och redigera arbets flödes definitionen för
 > [!IMPORTANT] 
 > Innan du redigerar en aktivt logisk app i produktion bör du undvika risken för att kunna dela upp den Logic appen och minimera störningar genom [att först inaktivera din Logic app](#disable-enable-logic-app).
 
-1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#sign-in-azure).
+1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#access-azure).
 
 1. I Azure-fönstret, under **Logic Apps**, expanderar du din Azure-prenumeration och väljer den logiska app som du vill använda.
 
@@ -255,7 +255,7 @@ I Visual Studio Code kan du öppna och redigera arbets flödes definitionen för
 
    ![Öppna redigerings programmet för befintlig Logic app](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
-   Visual Studio Code öppnar. logicapp. JSON-filen i din lokala tillfälliga mapp så att du kan visa din Logic Apps arbets flödes definition.
+   Visual Studio Code öppnar .logicapp.jsfilen i din lokala tillfälliga mapp så att du kan visa din Logic Apps arbets flödes definition.
 
    ![Visa arbets flödes definition för den publicerade Logic-appen](./media/quickstart-create-logic-apps-visual-studio-code/edit-published-logic-app-workflow-definition.png)
 

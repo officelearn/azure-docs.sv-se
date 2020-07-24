@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195255"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131828"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Azures säkerhets bas linje för Cosmos DB
 
@@ -78,7 +78,7 @@ Konfigurera resurs delning mellan ursprung:https://docs.microsoft.com/azure/cosm
 
 Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade till dina Azure Cosmos DB instanser för att skydda mot DDoS-attacker. Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända Internet-IP-adresser.
 
-Så här configureAzure du Cosmos DB Avancerat skydd:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Så här konfigurerar du Azure Cosmos DB Avancerat skydd:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 Så här konfigurerar du DDoS-skydd:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -121,7 +121,7 @@ Så här konfigurerar du Cosmos DB Avancerat skydd:https://docs.microsoft.com/az
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimera komplexitet och administrativa kostnader för nätverks säkerhets regler
 
-**Vägledning**: för resurser som behöver åtkomst till ditt Azure Cosmos-konto använder du Virtual Network Service-taggar för att definiera nätverks åtkomst kontroller på nätverks SecuritygGroups eller Azure-brandväggen. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. AzureCosmosDB) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
+**Vägledning**: för resurser som behöver åtkomst till ditt Azure Cosmos-konto använder du Virtual Network Service-taggar för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. AzureCosmosDB) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
 Mer information om att använda service märken:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 

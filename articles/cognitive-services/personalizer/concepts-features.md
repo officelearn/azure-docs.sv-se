@@ -3,19 +3,17 @@ title: 'Funktioner: åtgärd och kontext – Personanpassare'
 titleSuffix: Azure Cognitive Services
 description: Personanpassare använder funktioner, information om åtgärder och kontext för att göra bättre rangordnings förslag. Funktioner kan vara mycket generiska eller bara för ett objekt.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77026157"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132780"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -25,8 +23,8 @@ I personanpassaren används **funktioner**, som innehåller information om den *
 
 Du kan till exempel ha en **funktion** om:
 
-* _Användar personen_ , till exempel en `Sports_Shopper`. Detta bör inte vara ett enskilt användar-ID. 
-* _Innehållet_ , till exempel om en video är en `Documentary`, en `Movie`, eller en `TV Series`, eller om en butiks artikel är tillgänglig i butiken.
+* _Användar personen_ , till exempel en `Sports_Shopper` . Detta bör inte vara ett enskilt användar-ID. 
+* _Innehållet_ , till exempel om en video är en, `Documentary` en, `Movie` eller en `TV Series` , eller om en butiks artikel är tillgänglig i butiken.
 * Den _aktuella_ tids perioden, till exempel vilken veckodag det är.
 
 Personanpassaren anger inte, begränsar eller åtgärdar vilka funktioner du kan skicka för åtgärder och kontext:
@@ -61,7 +59,7 @@ Följande är exempel på funktions namn rymder som används av program:
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Väder
+* Vädret
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -69,10 +67,10 @@ Följande är exempel på funktions namn rymder som används av program:
 Du kan namnge funktions namn rymder efter dina egna konventioner så länge de är giltiga JSON-nycklar. Namn områden används för att organisera funktioner i olika uppsättningar och för att disambiguate funktioner med liknande namn. Du kan tänka på namn områden som "prefix" som läggs till i funktions namn. Det går inte att kapsla namn områden.
 
 
-I följande JSON, `user`, `state`, och `device` är funktions namn rymder. 
+I följande JSON, `user` ,, `state` och `device` är funktions namn rymder. 
 
 > [!Note]
-> För närvarande rekommenderar vi starkt att du använder namn för funktions namn rymder som är UTF-8-baserade och börjar med olika bokstäver. Till exempel `user` `state`,, `device` och börjar med `u`, `s`, och. `d` För närvarande har namn rymder med samma första tecken kan leda till konflikter i index som används för maskin inlärning.
+> För närvarande rekommenderar vi starkt att du använder namn för funktions namn rymder som är UTF-8-baserade och börjar med olika bokstäver. Till exempel, `user` , `state` och `device` börjar med `u` , `s` , och `d` . För närvarande har namn rymder med samma första tecken kan leda till konflikter i index som används för maskin inlärning.
 
 JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En matris kan bara tas med om mat ris elementen är siffror. 
 
@@ -146,7 +144,7 @@ Artificiell intelligens och klar att köra Cognitive Services kan vara ett mycke
 
 Genom att Förbearbeta dina objekt med hjälp av artificiell intelligens-tjänster kan du automatiskt extrahera information som troligen är relevant för anpassning.
 
-Ett exempel:
+Exempel:
 
 * Du kan köra en filmfil via [video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) för att extrahera scen element, text, sentiment och många andra attribut. Dessa attribut kan sedan göras mer kompakta för att avspegla egenskaper som det ursprungliga objektets metadata inte hade. 
 * Avbildningar kan köras genom objekt identifiering, ansikten genom sentiment osv.
@@ -179,9 +177,9 @@ Skicka inte mer än 50 åtgärder vid rangordning av åtgärder. Detta kan vara 
 
 De åtgärder som du skickar till ranknings-API: et beror på vad du försöker anpassa.
 
-Här följer några exempel:
+Här är några exempel:
 
-|Syfte|Action|
+|Syfte|Åtgärd|
 |--|--|
 |Anpassa vilken artikel som är markerad på en nyhets webbplats.|Varje åtgärd är en potentiell nyhets artikel.|
 |Optimera AD-placering på en webbplats.|Varje åtgärd är en layout eller regler för att skapa en layout för annonserna (till exempel överst, till höger, små bilder, stora bilder).|

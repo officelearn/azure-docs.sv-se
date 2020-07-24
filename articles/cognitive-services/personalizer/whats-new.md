@@ -2,26 +2,28 @@
 title: Nyheter – Personanpassare
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller nyheter om Personanpassare.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 06/10/2020
-ms.author: diberry
-ms.openlocfilehash: 973a8b7eb8dad66568a5beb45adea9740dd0402a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 07/17/2020
+ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84700642"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133086"
 ---
 # <a name="whats-new-in-personalizer"></a>Nyheter i Personanpassaren
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan innehålla viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="july-2020"></a>Juli 2020
+
+* Ny självstudie – [använda personanpassaren i en chatt-robot](tutorial-use-personalizer-chat-bot.md)
 
 ### <a name="june-2020"></a>Juni 2020
 
@@ -48,7 +50,7 @@ Följande för hands versions funktioner släpptes på Build 2019-konferensen:
 
 * [Inlärnings slinga för rang och belöning](what-is-personalizer.md)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Video
 
 ### <a name="2019-build-videos"></a>2019 Bygg videor
 

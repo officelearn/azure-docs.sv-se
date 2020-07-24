@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8b19b5bbb327c55b4f4103a133e77e73f0ae4bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77591361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088265"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program
 
@@ -56,9 +57,9 @@ ms.locfileid: "77591361"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Den här artikeln beskriver hur du distribuerar, konfigurerar de virtuella datorerna, installerar kluster ramverket och installerar ett SAP NetWeaver 7,50-system med hög tillgänglighet på virtuella Windows-datorer med hjälp av [SMB](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) på [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
+Den här artikeln beskriver hur du distribuerar, konfigurerar de virtuella datorerna, installerar kluster ramverket och installerar ett SAP NetWeaver 7,50-system med hög tillgänglighet på virtuella Windows-datorer med hjälp av [SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) på [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).  
 
-Databas lagret beskrivs inte i detalj i den här artikeln. Vi förutsätter att det [virtuella](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure-nätverket redan har skapats.  
+Databas lagret beskrivs inte i detalj i den här artikeln. Vi förutsätter att det [virtuella](../../../virtual-network/virtual-networks-overview.md) Azure-nätverket redan har skapats.  
 
 Läs följande SAP-anteckningar och dokument först:
 
@@ -75,17 +76,17 @@ Läs följande SAP-anteckningar och dokument först:
 * SAP NOTE [2802770](https://launchpad.support.sap.com/#/notes/2802770) innehåller felsöknings information för den långsamma SAP-transaktionen AL11 på Windows 2012 och 2016.
 * SAP NOTE [1911507](https://launchpad.support.sap.com/#/notes/1911507) innehåller information om funktionen transparent redundans för en fil resurs i Windows Server med SMB 3,0-protokollet.
 * SAP NOTE [662452](https://launchpad.support.sap.com/#/notes/662452) har rekommendation (inaktivera generering av 8,3-namn) för att lösa dåliga fil system prestanda/fel vid data åtkomst.
-* [Installera SAP NetWeaver med hög tillgänglighet på ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share) 
-* [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+* [Installera SAP NetWeaver med hög tillgänglighet på ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser på Azure](./sap-high-availability-installation-wsfc-file-share.md) 
+* [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Lägg till avsöknings port i ASCS kluster konfiguration](sap-high-availability-installation-wsfc-file-share.md)
 * [Installation av en (A) SCS-instans i ett redundanskluster](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Skapa en SMB-volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
+* [Skapa en SMB-volym för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
 * [NetApp SAP-program på Microsoft Azure med Azure NetApp Files][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Översikt
 
 SAP utvecklade en ny metod och ett alternativ till klusterdelade diskar för klustring av en SAP ASCS/SCS-instans i ett Windows-redundanskluster. I stället för att använda klusterdelade diskar kan du använda en SMB-filresurs för att distribuera globala SAP-databasfiler. Azure NetApp Files stöder SMBv3 (tillsammans med NFS) med NTFS-ACL med Active Directory. Azure NetApp Files har automatiskt hög tillgänglighet (eftersom det är en PaaS-tjänst). Dessa funktioner gör Azure NetApp Files bra alternativ för att vara värd för SMB-filresursen för SAP global.  
-Både [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) och [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) stöds. Du kan använda befintliga Active Directory domänkontrollanter med Azure NetApp Files. Domänkontrollanter kan vara i Azure som virtuella datorer eller lokalt via ExpressRoute eller S2S VPN. I den här artikeln kommer vi att använda domänkontrollanten i en virtuell Azure-dator.  
+Både [Azure Active Directory (AD) Domain Services](../../../active-directory-domain-services/overview.md) och [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) stöds. Du kan använda befintliga Active Directory domänkontrollanter med Azure NetApp Files. Domänkontrollanter kan vara i Azure som virtuella datorer eller lokalt via ExpressRoute eller S2S VPN. I den här artikeln kommer vi att använda domänkontrollanten i en virtuell Azure-dator.  
 Hög tillgänglighet för SAP NetWeaver Central Services kräver delad lagring. För att uppnå detta i Windows, så hittills var det nödvändigt att skapa antingen SOFS-kluster eller Använd klusterdelad disk s/w som SIOS. Nu är det möjligt att uppnå SAP NetWeaver HA med hjälp av delad lagring, distribuerat på Azure NetApp Files. Om du använder Azure NetApp Files för delad lagring elimineras behovet av antingen SOFS eller SIOS.  
 
 > [!NOTE]
@@ -106,16 +107,16 @@ Resursen för de centrala SAP-tjänsterna i denna referens arkitektur erbjuds av
 
 Utför följande steg, som förberedelse för användning av Azure NetApp Files.  
 
-1. Följ stegen för att [Registrera dig för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)  
-2. Skapa ett Azure NetApp-konto genom att följa stegen som beskrivs i [skapa ett NetApp-konto](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account)  
-3. Konfigurera kapacitetsutnyttjandet genom att följa anvisningarna i [Konfigurera en pool för kapacitet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool)
-4. Azure NetApp Files-resurser måste finnas i delegerade undernät. Följ instruktionerna i [delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) för att skapa delegerade undernät.  
+1. Följ stegen för att [Registrera dig för Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md)  
+2. Skapa ett Azure NetApp-konto genom att följa stegen som beskrivs i [skapa ett NetApp-konto](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)  
+3. Konfigurera kapacitetsutnyttjandet genom att följa anvisningarna i [Konfigurera en pool för kapacitet](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
+4. Azure NetApp Files-resurser måste finnas i delegerade undernät. Följ instruktionerna i [delegera ett undernät till Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) för att skapa delegerade undernät.  
 
 > [!IMPORTANT]
-> Du måste skapa Active Directory anslutningar innan du skapar en SMB-volym. Granska [kraven för Active Directory anslutningar](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections).  
+> Du måste skapa Active Directory anslutningar innan du skapar en SMB-volym. Granska [kraven för Active Directory anslutningar](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
 
-5. Skapa Active Directory anslutning enligt beskrivningen i [skapa en Active Directory anslutning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#create-an-active-directory-connection)  
-6. Skapa SMB-Azure NetApp Files SMB-volym genom att följa anvisningarna i [lägga till en SMB-volym](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#add-an-smb-volume)  
+5. Skapa Active Directory anslutning enligt beskrivningen i [skapa en Active Directory anslutning](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)  
+6. Skapa SMB-Azure NetApp Files SMB-volym genom att följa anvisningarna i [lägga till en SMB-volym](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
 7. Montera SMB-volymen på den virtuella Windows-datorn.
 
 > [!TIP]
@@ -123,15 +124,15 @@ Utför följande steg, som förberedelse för användning av Azure NetApp Files.
 
 ## <a name="prepare-the-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster"></a>Förbereda infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster 
 
-1. [Ange de DNS-IP-adresser som krävs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#b22d7b3b-4343-40ff-a319-097e13f62f9e)  
-2. [Ange statiska IP-adresser för virtuella SAP-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#84c019fe-8c58-4dac-9e54-173efd4b2c30).
-3. [Ange en statisk IP-adress för intern belastningsutjämnare i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#7a8f3e9b-0624-4051-9e41-b73fff816a9e).
-4. [Ange standard regler för ASCS/SCS-belastning för den interna belastningsutjämnaren i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#f19bd997-154d-4583-a46e-7f5a69d0153c).
-5. [Ändra standard reglerna för belastnings utjämning för ASCS/SCS för den interna Azure-belastningsutjämnaren](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#fe0bd8b5-2b43-45e3-8295-80bee5415716).
-6. [Lägg till virtuella Windows-datorer i domänen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#e69e9a34-4601-47a3-a41c-d2e11c626c0c).
-7. [Lägg till register poster på båda klusternoderna för SAP ASCS/SCS-instansen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#661035b2-4d0f-4d31-86f8-dc0a50d78158)
-8. [Konfigurera ett Windows Server-redundanskluster för en SAP ASCS/SCS-instans](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk#0d67f090-7928-43e0-8772-5ccbf8f59aab)
-9. Om du använder Windows Server 2016 rekommenderar vi att du konfigurerar [Azure Cloud-vittnet](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+1. [Ange de DNS-IP-adresser som krävs](./sap-high-availability-infrastructure-wsfc-shared-disk.md#b22d7b3b-4343-40ff-a319-097e13f62f9e)  
+2. [Ange statiska IP-adresser för virtuella SAP-datorer](./sap-high-availability-infrastructure-wsfc-shared-disk.md#84c019fe-8c58-4dac-9e54-173efd4b2c30).
+3. [Ange en statisk IP-adress för intern belastningsutjämnare i Azure](./sap-high-availability-infrastructure-wsfc-shared-disk.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e).
+4. [Ange standard regler för ASCS/SCS-belastning för den interna belastningsutjämnaren i Azure](./sap-high-availability-infrastructure-wsfc-shared-disk.md#f19bd997-154d-4583-a46e-7f5a69d0153c).
+5. [Ändra standard reglerna för belastnings utjämning för ASCS/SCS för den interna Azure-belastningsutjämnaren](./sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716).
+6. [Lägg till virtuella Windows-datorer i domänen](./sap-high-availability-infrastructure-wsfc-shared-disk.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c).
+7. [Lägg till register poster på båda klusternoderna för SAP ASCS/SCS-instansen](./sap-high-availability-infrastructure-wsfc-shared-disk.md#661035b2-4d0f-4d31-86f8-dc0a50d78158)
+8. [Konfigurera ett Windows Server-redundanskluster för en SAP ASCS/SCS-instans](./sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
+9. Om du använder Windows Server 2016 rekommenderar vi att du konfigurerar [Azure Cloud-vittnet](/windows-server/failover-clustering/deploy-cloud-witness).
 
 
 ## <a name="install-sap-ascs-instance-on-both-nodes"></a>Installera SAP ASCS-instans på båda noderna
@@ -139,7 +140,7 @@ Utför följande steg, som förberedelse för användning av Azure NetApp Files.
 Du behöver följande program vara från SAP:
    * SAP Software Provisioning Manager (SWPM)-installations verktyg version SPS25 eller senare.
    * SAP kernel 7,49 eller senare
-   * Skapa ett virtuellt värdnamn (kluster nätverks namn) för den klustrade SAP ASCS/SCS-instansen, enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade SAP-ASCS/SCS-instansen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#a97ad604-9094-44fe-a364-f89cb39bf097).
+   * Skapa ett virtuellt värdnamn (kluster nätverks namn) för den klustrade SAP ASCS/SCS-instansen, enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade SAP-ASCS/SCS-instansen](./sap-high-availability-installation-wsfc-shared-disk.md#a97ad604-9094-44fe-a364-f89cb39bf097).
 
 > [!NOTE]
 > Att klustra SAP ASCS/SCS-instanser med hjälp av en fil resurs stöds för SAP NetWeaver 7,40 (och senare), med SAP kernel 7,49 (och senare).  
@@ -157,7 +158,7 @@ Du behöver följande program vara från SAP:
 > [!TIP]
 > Om krav kontrollen i SWPM visar att växlings storleks villkoret inte uppfylls, kan du justera VÄXLINGs storleken genom att gå till den här datorn>system egenskaper>prestanda inställningar> avancerad> virtuellt minne> ändring.  
 
-4. Konfigurera en SAP-kluster resurs, `SAP-SID-IP` avsöknings porten med hjälp av PowerShell. Kör den här konfigurationen på en av SAP-ASCS/SCS-klusternoderna, enligt beskrivningen i [Konfigurera avsöknings port](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761).
+4. Konfigurera en SAP-kluster resurs, `SAP-SID-IP` avsöknings porten med hjälp av PowerShell. Kör den här konfigurationen på en av SAP-ASCS/SCS-klusternoderna, enligt beskrivningen i [Konfigurera avsöknings port](./sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761).
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Installera en ASCS/SCS-instans på den andra ASCS/SCS-klusternoden
 

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e66af8e55f7b60347d9577c64b7183c6ef8b44f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193421"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089319"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställningen | Exempelvärde | Beskrivning |
+|Inställning | Exempelvärde | Beskrivning |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -112,7 +112,7 @@ Nu kan du lägga till och ta bort användare i de tre säkerhets grupperna för 
 
 Användare i varje roll behöver utföra följande steg:
 
-|   | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
+| Antal | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
 | --- | --- | --- | --- | --- |
 | 1 | Ladda upp en Parquet-fil till CNT1 | JA | JA | JA |
 | 2 | Läs filen Parquet med SQL på begäran | JA | NO | JA |

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5fb992edea38c3dff9beffab1f131d3e7a6fdbf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087228"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper (RDP) för en värd pool
 
@@ -30,18 +30,6 @@ Se [Inställningar för RDP-filer som stöds](https://docs.microsoft.com/windows
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar följer du anvisningarna i [Konfigurera Windows Virtual Desktop PowerShell-modulen](powershell-module.md) för att konfigurera din PowerShell-modul och logga in på Azure.
-
-## <a name="default-rdp-properties"></a>Standard egenskaper för RDP
-
-Som standard innehåller publicerade RDP-filer följande egenskaper:
-
-|RDP-egenskaper | Stationära datorer | RemoteApp |
-|---|---| --- |
-| Läge för flera övervakare | Enabled | E.t. |
-| Aktiverade enhets omdirigeringar | Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort| Enheter, urklipp och skrivare |
-| Fjärr ljud läge | Spela lokalt | Spela lokalt |
-
-De anpassade egenskaper som du definierar för poolen åsidosätter dessa standardvärden.
 
 ## <a name="configure-rdp-properties-in-the-azure-portal"></a>Konfigurera RDP-egenskaper i Azure Portal
 

@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5613453667e3bb278f4da22ebed4502def70235b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83675895"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087279"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure-lagringsanalys mått (klassisk)
 
@@ -145,18 +146,16 @@ I avsnittet **övervakning (klassisk)** i ditt lagrings kontos meny fönster i A
 
 Om du vill hämta måtten för långsiktig lagring eller analysera dem lokalt måste du använda ett verktyg eller skriva kod för att läsa tabellerna. Du måste ladda ned minut måtten för analys. Tabellerna visas inte om du visar alla tabeller i ditt lagrings konto, men du kan komma åt dem direkt efter namn. Många verktyg för lagrings surfning är medvetna om dessa tabeller och gör att du kan visa dem direkt. En lista över tillgängliga verktyg finns i [Azure Storage klient verktyg](/azure/storage/storage-explorers).
 
-||||  
+|Mått|Tabell namn|Kommentarer| 
 |-|-|-|  
-|**Mått**|**Tabell namn**|**Anteckningar**|  
 |Tim mått|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|I tidigare versioner än den 15 augusti 2013 var de här tabellerna kända som:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Mått för fil tjänsten är tillgängliga från och med version 5 april 2015.|  
 |Minut mått|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Kan endast aktive ras med hjälp av PowerShell eller program mässigt.<br /><br /> Mått för fil tjänsten är tillgängliga från och med version 5 april 2015.|  
 |Kapacitet|$MetricsCapacityBlob|Endast Blob Service.|  
 
 Fullständig information om scheman för dessa tabeller finns i [Lagringsanalys Metrics Table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema). Följande exempel rader visar bara en delmängd av tillgängliga kolumner, men de illustrerar några viktiga funktioner i hur lagrings statistik sparar dessa mått:  
 
-||||||||||||  
+|PartitionKey|RowKey|Timestamp|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|Tillgänglighet|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Tidsstämpel**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Tillgänglighet**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|användarvänlig Vissa|2014-05-22T11:01:16.7650250 Z|7|7|4003|46801|100|104,4286|6,857143|100|  
 |20140522T1100|användarvänlig QueryEntities|2014-05-22T11:01:16.7640250 Z|5|5|2694|45951|100|143,8|7,8|100|  
 |20140522T1100|användarvänlig QueryEntity|2014-05-22T11:01:16.7650250 Z|1|1|538|633|100|3|3|100|  

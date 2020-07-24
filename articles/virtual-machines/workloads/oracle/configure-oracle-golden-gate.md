@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 60d06fa4cf6d116f9c802cda544a356e469755b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223082"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088367"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera den gyllene Oracle-porten på en virtuell Azure Linux-dator 
 
@@ -27,7 +27,7 @@ Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden
 
 Det här dokumentet beskriver steg för steg hur du skapar, installerar och konfigurerar Oracle gyllene-grind på en virtuell Azure-dator. I den här självstudien installeras två virtuella datorer i en tillgänglighets uppsättning i en enda region. Samma självstudie kan användas för att konfigurera OracleGolden-grind för virtuella datorer i olika Tillgänglighetszoner i en enda Azure-region eller för installation av virtuella datorer i två olika regioner.
 
-Kontrollera att Azure CLI har installerats innan du börjar. Mer information finns i [installationsguiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Kontrollera att Azure CLI har installerats innan du börjar. Mer information finns i [installationsguiden för Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
@@ -68,7 +68,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Följande steg är valfritt men rekommenderas. Mer information finns i [Guide för tillgänglighets uppsättningar för Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Följande steg är valfritt men rekommenderas. Mer information finns i [Guide för tillgänglighets uppsättningar för Azure](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

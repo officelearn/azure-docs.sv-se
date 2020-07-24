@@ -3,12 +3,12 @@ title: Översikt över Service Health | Microsoft Docs
 description: Anpassad information om hur dina Azure-appar påverkas av aktuella och framtida problem och underhåll av Azure-tjänsten.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563395"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089608"
 ---
 # <a name="service-health-overview"></a>Översikt över Service Health
 
@@ -68,7 +68,7 @@ Filtrera Service Health för att Visa affärs kritiska prenumerationer, regioner
 
 ## <a name="configure-service-health-alerts"></a>Konfigurera aviseringar för tjänst hälsa
 
-Service Health integreras med Azure Monitor för att varna dig via e-post, SMS och webhook-meddelanden när affärs kritiska resurser påverkas. Konfigurera en aktivitets logg avisering för lämplig tjänst hälso händelse. Dirigera aviseringen till lämpliga personer i din organisation med hjälp av åtgärds grupper. Mer information finns i [Konfigurera aviseringar för service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+Service Health integreras med Azure Monitor för att varna dig via e-post, SMS och webhook-meddelanden när affärs kritiska resurser påverkas. Konfigurera en aktivitets logg avisering för lämplig tjänst hälso händelse. Dirigera aviseringen till lämpliga personer i din organisation med hjälp av åtgärds grupper. Mer information finns i [Konfigurera aviseringar för service Health](./alerts-activity-log-service-notifications-portal.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 

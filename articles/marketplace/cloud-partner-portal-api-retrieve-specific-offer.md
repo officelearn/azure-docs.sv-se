@@ -4,19 +4,20 @@ description: API för att hämta det angivna erbjudandet inom utgivarens namnrym
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: a4bbe133d8b223bf717597467336eb486f432380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115544"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087415"
 ---
-<a name="retrieve-a-specific-offer"></a>Hämta ett Special erbjudande
-=========================
+# <a name="retrieve-a-specific-offer"></a>Hämta ett Special erbjudande
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Hämtar det angivna erbjudandet inom utgivarens namnrymd.  
 
@@ -34,23 +35,18 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 
 ```
 
-
-<a name="uri-parameters"></a>URI-parametrar
---------------
-
+## <a name="uri-parameters"></a>URI-parametrar
 
 | **Namn**    | **Beskrivning**                                                                          | **Datatyp** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId. Till exempel contoso                                                        | Sträng        |
 | offerId     | GUID som unikt identifierar erbjudandet.                                                 | Sträng        |
-| version     | Version av erbjudandet som hämtas. Den senaste versionen av erbjudandet hämtas som standard. | Integer       |
+| version     | Version av erbjudandet som hämtas. Den senaste versionen av erbjudandet hämtas som standard. | Heltal       |
 | slotId      | Den plats som erbjudandet ska hämtas från kan vara något av följande:      <br/>  - `Draft`(standard) hämtar erbjudande versionen för närvarande i utkastet.  <br/>  -  `Preview`hämtar den erbjudande version som för närvarande finns i för hands version.     <br/>  -  `Production`hämtar den erbjudande version som för närvarande finns i produktion.          |      räkning |
 | api-version | Senaste versionen av API                                                                    | Datum          |
 |  |  |  |
 
-
-<a name="header"></a>Huvud
-------
+## <a name="header"></a>Huvud
 
 |  **Namn**          |   **Värde**            |
 |  ---------------   |  --------------        |
@@ -58,11 +54,9 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |  Auktorisering     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
+## <a name="body-example"></a>Body-exempel
 
-<a name="body-example"></a>Body-exempel
-------------
-
-### <a name="response"></a>Åtgärd
+### <a name="response"></a>Svarsåtgärder
 
 ``` json
 {
@@ -175,7 +169,6 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 }
 ```
 
-
 ### <a name="response-body-properties"></a>Egenskaper för svars text
 
 |  **Namn**       |   **Beskrivning**                                                                                                               |
@@ -189,7 +182,6 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |  changedTime    | UTC datetime när erbjudandet senast ändrades                                                                                   |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Svars status koder
 
 | **Kod**  | **Beskrivning**                                                                                                                 |
@@ -199,7 +191,6 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |  403      | `Forbidden`-Klienten har inte åtkomst till den angivna namn rymden.                                                        |
 |  404      | `Not found`-Den angivna entiteten finns inte. Klienten bör kontrol lera publisherId, offerId och version (om det anges).      |
 |  |  |
-
 
 ### <a name="offer-status"></a>Erbjudande status
 

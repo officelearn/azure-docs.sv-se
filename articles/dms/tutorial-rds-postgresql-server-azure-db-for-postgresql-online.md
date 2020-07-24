@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera RDS-PostgreSQL online till Azure Database for Post
 titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från RDS PostgreSQL till Azure Database for PostgreSQL med hjälp av Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: be6f0cd734d31f43557b49f8e9314e925b383899
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b466a42e1e232d35bd7bd70c8943a254b026f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113953"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087704"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Självstudie: Migrera RDS-PostgreSQL till Azure DB för PostgreSQL online med DMS
 
@@ -42,7 +43,7 @@ I den här guiden får du lära dig att:
 
 Den här artikeln beskriver hur du utför en online-migrering från en lokal instans av PostgreSQL för att Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -99,7 +100,7 @@ För att slutföra den här kursen behöver du:
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    Ett exempel:
+    Exempel:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -220,7 +221,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 1. Välj **Spara**. på skärmen **mål information** anger du sedan anslutnings information för mål Azure Database for PostgreSQL servern, som är fördefinierad och har schemat för **DVD-hyresering** distribuerat med pg_dump.
 
-    ![Information om mål](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
+    ![Målinformation](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
 
 2. Välj **Spara** och mappa sedan på sidan **Mappa till måldatabaser** käll- och måldatabasen för migrering.
 

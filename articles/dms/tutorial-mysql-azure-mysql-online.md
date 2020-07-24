@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera MySQL online till Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från MySQL lokalt för att Azure Database for MySQL med hjälp av Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ea351fb6b88a020a466849181fed0381baa7f04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087755"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
 
@@ -44,7 +45,7 @@ I den här guiden får du lära dig att:
 >
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -99,7 +100,7 @@ Förutsatt att du har MySQL- **anställda** exempel databas i det lokala systeme
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Ett exempel:
+Exempel:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -111,7 +112,7 @@ Om du vill importera schemat till Azure Database for MySQL-mål kör du följand
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Ett exempel:
+Exempel:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -138,6 +139,11 @@ SET group_concat_max_len = 8192;
  ```
 
 Kör drop-sekundärnyckeln (som är den andra kolumnen) i frågeresultatet till drop-sekundärnyckeln.
+
+> [!NOTE]
+> Azure DMS stöder inte referens åtgärden CASCADE, som hjälper dig att automatiskt ta bort eller uppdatera en matchande rad i den underordnade tabellen när en rad tas bort eller uppdateras i den överordnade tabellen. Mer information finns i avsnittet referens åtgärder i artikelns [begränsningar för sekundär nyckel](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
+> Azure DMS kräver att du släpper sekundär nyckel begränsningar i mål databas servern under den inledande data inläsningen och du kan inte använda referens åtgärder. Om din arbets belastning är beroende av att uppdatera en relaterad underordnad tabell via den här referens åtgärden, rekommenderar vi att du utför en [dumpning och återställning](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) i stället. 
+
 
 > [!IMPORTANT]
 > Om du importerar data med hjälp av en säkerhets kopia tar du bort kommandona skapa avskärmar manuellt eller genom att använda kommandot--Skip-definar när du utför en mysqldump. Definar kräver Super-behörighet för att skapa och är begränsad i Azure Database for MySQL.

@@ -1,18 +1,18 @@
 ---
 title: Logga in på en virtuell Linux-dator med Azure Active Directory autentiseringsuppgifter
 description: Lär dig hur du skapar och konfigurerar en virtuell Linux-dator för att logga in med Azure Active Directory autentisering.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: 89b89d30de46727f4d5b52a236a4b0133e663bb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088775"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -113,7 +113,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera roll tilldelningar för den virtuella datorn
 
-Princip för Azure rollbaserad Access Control (RBAC) bestämmer vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM-inloggning:
+Azures rollbaserade åtkomst kontroll (Azure RBAC) policy avgör vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM-inloggning:
 
 - **Administratörs inloggning för virtuell dator**: användare med den här rollen som tilldelas kan logga in på en virtuell Azure-dator med Windows-administratör eller Linux-rot användar privilegier.
 - **Användar inloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.

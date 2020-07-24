@@ -1,5 +1,5 @@
 ---
-title: Skapa en anpassad avsökning med PowerShell – Azure Application Gateway
+title: Skapa en anpassad avsökning med hjälp av den klassiska distributions modellen – Azure Application Gateway
 description: Lär dig hur du skapar en anpassad avsökning för Application Gateway med hjälp av PowerShell i den klassiska distributions modellen
 services: application-gateway
 author: vhorne
@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807294"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088078"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Skapa en anpassad avsökning för Azure Application Gateway (klassisk) med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure-portalen](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -146,7 +146,7 @@ Konfigurations parametrarna är:
 | **Protokoll** | Protokoll som används (möjliga värden är HTTP eller HTTPS).|
 | **Värd** och **sökväg** | Fullständig URL-sökväg som anropas av Application Gateway för att fastställa instansens hälso tillstånd. Om du till exempel har en webbplats http: \/ /contoso.com/, kan den anpassade avsökningen konfigureras för "http: \/ /contoso.com/Path/custompath.htm" för avsöknings kontroller för att få ett lyckat http-svar.|
 | **Intervall** | Konfigurerar avsöknings intervallet i sekunder.|
-| **Tidsgräns** | Definierar avsöknings tids gränsen för en HTTP-svars kontroll.|
+| **Standardvärde** | Definierar avsöknings tids gränsen för en HTTP-svars kontroll.|
 | **UnhealthyThreshold** | Antalet misslyckade HTTP-svar som krävs för att flagga backend-instansen som *ohälsosam*.|
 
 Avsöknings namnet refereras till i \<BackendHttpSettings\> konfigurationen för att tilldela vilken backend-pool som använder anpassade avsöknings inställningar.

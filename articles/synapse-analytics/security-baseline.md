@@ -1,19 +1,20 @@
 ---
-title: Synapse Analytics säkerhets bas linje för Azures säkerhets benchmark
+title: Azures säkerhets bas linje för Synapse-analys
 description: Säkerhets bas linjen för Synapse Analytics ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4b40bdeb6f60aafea760c6c6e3e0b0f99b419614
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089336"
 ---
-# <a name="synapse-analytics-security-baseline-for-azure-security-benchmark"></a>Synapse Analytics säkerhets bas linje för Azures säkerhets benchmark
+# <a name="azure-security-baseline-for-synapse-analytics"></a>Azures säkerhets bas linje för Synapse-analys
 
 Azures säkerhets bas linje för Synapse Analytics innehåller rekommendationer som hjälper dig att förbättra distributionens säkerhets position.
 
@@ -27,9 +28,9 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
-**Vägledning**: skydda Azure SQL Database till ett virtuellt nätverk via en privat länk. Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster via en privat slut punkt i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten flyttar Microsoft stamnät nätverket.
+**Vägledning**: skydda Azure-SQL Server till ett virtuellt nätverk via en privat länk. Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster via en privat slut punkt i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten flyttar Microsoft stamnät nätverket.
 
-När du ansluter till din Synapse SQL-pool begränsar du den utgående anslutningens omfattning till SQL Database genom att använda en nätverks säkerhets grupp. Inaktivera all Azure Service-trafik för att SQL Database via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster STÄNGs av. Se till att inga offentliga IP-adresser tillåts i brand Väggs reglerna.
+När du ansluter till din Synapse SQL-pool begränsar du den utgående anslutningens omfattning till SQL-databasen med hjälp av en nätverks säkerhets grupp. Inaktivera all Azure-tjänstetrafik till SQL-databasen via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster STÄNGs av. Se till att inga offentliga IP-adresser tillåts i brand Väggs reglerna.
 
 * [Förstå privat Azure-länk](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -43,7 +44,7 @@ När du ansluter till din Synapse SQL-pool begränsar du den utgående anslutnin
 
 **Ansvar**: kund
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverkskort
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverks gränssnitt
 
 **Vägledning**: när du ansluter till din Azure Synapse SQL-pool och du har aktiverat flödes loggar för nätverks säkerhets grupper (NSG) skickar du loggar till ett Azure Storage konto för trafik granskning.
 
@@ -123,7 +124,7 @@ Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade til
 
 **Vägledning**: Använd taggar för virtuella nätverks tjänster för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. API Management) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
-När du använder en tjänst slut punkt för din Azure Synapse SQL-pool krävs utgående till Azure SQL Database offentliga IP-adresser: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG service-taggar för Azure SQL Database.
+När du använder en tjänst slut punkt för din Azure Synapse SQL-pool krävs utgående till Azure SQL Databases offentliga IP-adresser: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG service-taggar för Azure SQL Database.
 
 * [Förstå service märken med tjänst slut punkter för Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -359,7 +360,7 @@ Om du vill identifiera administratörs konton för en databas öppnar du Azure P
 
 **Ansvar**: kund
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Använd Azure Active Directory enkel inloggning (SSO)
 
 **Vägledning**: Använd en Azure App-registrering (tjänstens huvud namn) för att hämta en token som kan användas för att interagera med ditt informations lager i kontroll planet (Azure Portal) via API-anrop.
 
@@ -373,7 +374,7 @@ Om du vill identifiera administratörs konton för en databas öppnar du Azure P
 
 **Ansvar**: kund
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory-baserad åtkomst
 
 **Vägledning**: Aktivera Azure Active Directory (AD) Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
@@ -387,7 +388,7 @@ Om du vill identifiera administratörs konton för en databas öppnar du Azure P
 
 **Ansvar**: kund
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: Använd säkra, Azure-hanterade arbets stationer för administrativa uppgifter
 
 **Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Multi-Factor Authentication (MFA) som kon figurer ATS för att logga in på och konfigurera Azure-resurser.
 
@@ -475,7 +476,7 @@ När du använder SQL-autentisering skapar du inneslutna databas användare i da
 
 **Ansvar**: kund
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: avisering om beteende för beteende för konto inloggning
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: varning vid inloggnings beteende för konto
 
 **Vägledning**: Använd Azure Active Directory (Azure AD) identitets skydd och funktioner för identifiering av risker för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Dessutom kan du använda data på kort och mata in i Azure Sentinel för ytterligare undersökning.
 
@@ -583,7 +584,7 @@ Dessutom kan du konfigurera en princip för dynamisk data maskering (DDM) i Azur
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
 
-**Vägledning**: Använd Azure rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till Azure SQL Database i din Synapse SQL-pool.
+**Vägledning**: Använd Azure rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till Azure SQL-databaser i din Synapse SQL-pool.
 
 Auktoriseringen styrs av ditt användar kontos databas roll medlemskap och behörigheter på objekt nivå. Ett bra tips är att du ska ge användare så få behörigheter som möjligt.
 
@@ -641,9 +642,9 @@ Dessutom kan du ställa in aviseringar för databaser i SQL Synapse-poolen med h
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
-**Vägledning**: aktivera avancerad data säkerhet och följ rekommendationer från Azure Security Center om att utföra sårbarhets bedömningar på SQL Database.
+**Vägledning**: aktivera avancerad data säkerhet och följ rekommendationer från Azure Security Center om att utföra sårbarhets bedömningar på dina Azure SQL-databaser.
 
-* [Så här kör du sårbarhets bedömningar på Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Så här kör du sårbarhets bedömningar i Azure SQL-databaser](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Så här aktiverar du avancerad data säkerhet](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -737,7 +738,7 @@ Klassificering av data identifiering &amp; är inbyggt i Azure SYNAPSE SQL. Den 
 
 **Ansvar**: kund
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla en inventering av godkända Azure-resurser
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla inventering av godkända Azure-resurser
 
 **Vägledning**: definiera en lista över godkända Azure-resurser som är relaterade till din Synapse SQL-pool.
 
@@ -845,8 +846,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenume
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. SQL" för att skapa anpassade principer för att granska eller framtvinga konfigurationen av resurser som är relaterade till din Synapse SQL-pool. Du kan också använda inbyggda princip definitioner för Azure-databaser, till exempel:
-
+**Vägledning**: Använd Azure policy alias i namn området "Microsoft. SQL" för att skapa anpassade principer för att granska eller framtvinga konfigurationen av resurser som är relaterade till din Synapse SQL-pool. Du kan också använda inbyggda princip definitioner för Azure Database/Server, till exempel:
 - Distribuera hot identifiering på SQL-servrar
 - SQL Server bör använda en tjänst slut punkt för virtuellt nätverk
 
@@ -978,7 +978,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenume
 
 *Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd en centralt hanterad program vara mot skadlig kod
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser. Microsoft hanterar skydd mot skadlig kod för den underliggande plattformen.
 
@@ -1010,7 +1010,7 @@ Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Comput
 
 *Mer information finns i [säkerhets kontroll: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Säkerställ regelbunden automatisk säkerhets kopiering
 
 **Vägledning**: ögonblicks bilder av din Synapse SQL-pool tas automatiskt under dagen som skapar återställnings punkter som är tillgängliga i sju dagar. Kvarhållningsperioden kan inte ändras. SQL-poolen har stöd för ett återställnings punkt mål på 8 timmar. Du kan återställa ditt informations lager i den primära regionen från någon av de ögonblicks bilder som tagits under de senaste sju dagarna. Observera att du även kan utlösa ögonblicks bilder manuellt om det behövs.
 

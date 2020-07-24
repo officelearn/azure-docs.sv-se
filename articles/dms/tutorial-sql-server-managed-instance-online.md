@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera SQL Server online till SQL-hanterad instans'
 titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från SQL Server till en Azure SQL-hanterad instans med hjälp av Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087670"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL-hanterad instans online med DMS
 
@@ -50,7 +50,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs en online-migrering från SQL Server till en SQL-hanterad instans. En offline-migrering finns i [migrera SQL Server till en SQL-hanterad instans offline med DMS](tutorial-sql-server-to-managed-instance.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -88,6 +88,9 @@ För att slutföra den här kursen behöver du:
   > Azure Database Migration Service kräver behörigheten deltagare för prenumerationen för angivet program-ID. Du kan också skapa anpassade roller som ger de angivna behörigheterna som Azure Database Migration Service kräver. Steg-för-steg-anvisningar om hur du använder anpassade roller finns i artikeln [anpassade roller för SQL Server till migrering av SQL-hanterade instanser online](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Skapa eller anteckna **Standard Performance-nivå** och Azure Storage-konto, som DMS-tjänsten kan överföra de säkerhetskopierade databasfilerna till och använda för att migrera databaser.  Se till att skapa Azure Storage kontot i samma region som Azure Database Migration Services instansen skapas.
+
+  > [!NOTE]
+  > När du migrerar en databas som skyddas av [Transparent datakryptering](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview) till en hanterad instans med hjälp av online-migrering måste motsvarande certifikat från den lokala eller virtuella Azure VM SQL Server-instansen migreras innan databasen återställs. Detaljerade anvisningar finns i [Migrera ett TDE-certifikat till en hanterad instans](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 

@@ -3,16 +3,16 @@ title: Skapa en händelsehubb med Capture aktiverat – Azure Event Hubs | Micro
 description: Skapa ett namnområde för Azure Event Hubs med en händelsehubb och aktivera avbildningsfunktionen med hjälp av Azure Resource Manager-mallar
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 51b654635fa7e06901a257c930e04bff3ea86cf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7308d951cf48d8123df050bdf58772ec914aac3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087602"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för [Event Hubs](event-hubs-what-is-event-hubs.md) med en händelsehubbinstans och även aktiverar [avbildningsfunktionen](event-hubs-capture-overview.md) på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för [Event Hubs](./event-hubs-about.md) med en händelsehubbinstans och även aktiverar [avbildningsfunktionen](event-hubs-capture-overview.md) på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
 Den här artikeln visar även hur du anger att händelser ska samlas in i Azure Storage Blobs eller en Azure Data Lake Store, utifrån det mål som du väljer.
 
@@ -418,8 +418,8 @@ Du kan även konfigurera Event Hubs Capture via [Azure Portal](https://portal.az
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
+* [Översikt över Event Hubs](./event-hubs-about.md)
+* [Skapa en händelsehubben](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md

@@ -6,14 +6,14 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82779050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087296"
 ---
-# <a name="localization"></a>Lokalisering #
+# <a name="azure-media-player-localization"></a>Azure Media Player lokalisering #
 
 Stöd för flera språk gör att användare av andra språk än engelska kan interagera med spelaren internt. Azure Media Player instansieras med en global ord lista med språk, vilket kommer att lokalisera fel meddelandena baserat på sid språket. En utvecklare kan också skapa en Player-instans med ett tvingat set-språk. Standard språket är engelska (en).
 

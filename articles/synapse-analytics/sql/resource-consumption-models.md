@@ -1,5 +1,5 @@
 ---
-title: Synapse Analytics SQL-resursförbrukning
+title: Synapse för SQL-resursförbrukning
 description: Lär dig mer om Synapse SQL-förbruknings modeller i Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 364f1676740106d57e61f94beaec53682656ef40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089217"
 ---
-# <a name="azure-synapse-analytics-sql-resource-consumption"></a>Användning av SQL-resursanvändning för Azure Synapse Analytics
+# <a name="synapse-sql-resource-consumption"></a>Synapse för SQL-resursförbrukning
 
 I den här artikeln beskrivs resurs förbruknings modeller av Synapse SQL (för hands version).
 
@@ -45,7 +45,7 @@ Prestanda för informations lager enheter baseras på dessa data lager arbets be
 - Ökar antalet läsare och skribenter för PolyBase-inläsnings åtgärder
 - Ökar det maximala antalet samtidiga frågor och samtidiga platser.
 
-### <a name="service-level-objective"></a>Servicenivåmål
+### <a name="service-level-objective"></a>Service Level Objective (servicenivåmål)
 
 Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Service nivåerna för Gen2 mäts i beräknings data lager enheter (cDWU), till exempel DW2000c. Gen1 service nivåer mäts i DWU: er, till exempel DW2000.
 
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="change-data-warehouse-units"></a>Ändra informations lager enheter
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Ändra DWU: er:
 

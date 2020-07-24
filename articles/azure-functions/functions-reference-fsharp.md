@@ -6,12 +6,12 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 005cb0044cb4d225c8b94602fb907fee09fb00b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088027"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F # referens för utvecklare
 
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Loggning
-Om du vill logga utdata till dina [strömmande loggar](../app-service/troubleshoot-diagnostic-logs.md) i F # ska funktionen ha ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). För konsekvens rekommenderar vi att argumentet heter `log` . Exempel:
+Om du vill logga utdata till dina [strömmande loggar](../app-service/troubleshoot-diagnostic-logs.md) i F # ska funktionen ha ett argument av typen [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). För konsekvens rekommenderar vi att argumentet heter `log` . Exempel:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -293,4 +293,3 @@ Mer information finns i följande resurser:
 * [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)
 * [Azure Functions testning](functions-test-a-function.md)
 * [Azure Functions skalning](functions-scale.md)
-

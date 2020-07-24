@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dce46fd5de4eb4584af32c24738ebbdc2282ef83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088486"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exempelskript för Azure Disk Encryption 
 
@@ -87,14 +87,14 @@ ServerManagerCmd -install BitLockers
 ```
 
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Förbered operativ system volymen för BitLocker med hjälp av`bdehdcfg`
-Om du vill komprimera OS-partitionen och förbereda datorn för BitLocker kör du [BdeHdCfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) vid behov:
+Om du vill komprimera OS-partitionen och förbereda datorn för BitLocker kör du [BdeHdCfg](/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) vid behov:
 
 ```console
 bdehdcfg -target c: shrink -quiet 
 ```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Skydda operativ system volymen med hjälp av BitLocker
-Använd [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) kommandot för att aktivera kryptering på Start volymen med hjälp av ett externt nyckel skydd. Placera även den externa nyckeln (. Bek-filen) på den externa enheten eller volymen. Kryptering är aktiverat på system-/start volymen efter nästa omstart.
+Använd [`manage-bde`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff829849(v=ws.11)) kommandot för att aktivera kryptering på Start volymen med hjälp av ett externt nyckel skydd. Placera även den externa nyckeln (. Bek-filen) på den externa enheten eller volymen. Kryptering är aktiverat på system-/start volymen efter nästa omstart.
 
 ```console
 manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
@@ -150,7 +150,7 @@ Använd [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecr
 Använd `$secretUrl` i nästa steg för att [koppla OS-disken utan att använda KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk krypterings hemlighet krypterad med en KEK
-Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdleten.
+Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](/rest/api/keyvault/wrapkey) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdleten.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

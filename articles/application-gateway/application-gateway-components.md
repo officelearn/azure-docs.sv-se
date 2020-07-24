@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088095"
 ---
 # <a name="application-gateway-components"></a>Application Gateway-komponenter
 
@@ -69,13 +69,13 @@ Det finns två typer av lyssnare:
 
 - **Basic**. Den här typen av lyssnare lyssnar på en enda domän plats, där den har en enda DNS-mappning till programgatewayens IP-adress. Den här lyssnar konfigurationen krävs när du är värd för en enskild plats bakom en Programgateway.
 
-- **Flera platser**. Den här lyssnar konfigurationen krävs när du konfigurerar fler än ett webb program på samma Application Gateway-instans. Det gör att du kan konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway. Varje webbplats kan dirigeras till en egen serverdelspool. Till exempel, tre under domäner, abc.contoso.com, xyz.contoso.com och pqr.contoso.com, pekar du på IP-adressen för programgatewayen. Du skapar tre lyssnare för flera platser och konfigurerar varje lyssnare för respektive port-och protokoll inställning.
+- **Flera platser**. Den här lyssnar konfigurationen krävs om du vill konfigurera routning baserat på värdnamn eller domän namn för mer än ett webb program på samma Application Gateway. Det gör att du kan konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 + webbplatser i en Application Gateway. Varje webbplats kan dirigeras till en egen serverdelspool. Till exempel, tre domäner, contoso.com, fabrikam.com och adatum.com, pekar du på IP-adressen för programgatewayen. Du skapar tre [lyssnare för flera platser](multiple-site-overview.md) och konfigurerar varje lyssnare för respektive port-och protokoll inställning. 
 
-    Mer information finns i [värd för flera platser](application-gateway-web-app-overview.md).
+    Du kan också definiera jokertecken som värdnamn i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnare (för hands version)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
-När du har skapat en lyssnare associerar du den med en regel för anslutningsbegäran. Den här regeln avgör hur begäran som tagits emot på lyssnaren ska dirigeras till Server delen.
+    Mer information om hur du konfigurerar en lyssnare för flera platser finns [i Application Gateway som är värd för flera platser i att använda Azure Portal](create-multiple-sites-portal.md).
 
-Application Gateway bearbetar lyssnare i den [ordning som visas](configuration-overview.md#order-of-processing-listeners).
+När du har skapat en lyssnare associerar du den med en regel för anslutningsbegäran. Den här regeln avgör hur begäran som tagits emot på lyssnaren ska dirigeras till Server delen. Regeln för routning av förfrågningar innehåller även den backend-pool som ska dirigeras till och HTTP-inställningen där backend-porten, protokollet osv.
 
 ## <a name="request-routing-rules"></a>Regler för routning av begäran
 
@@ -99,13 +99,13 @@ Du kan välja det omdirigerings mål som ska vara en annan lyssnare (som kan hj�
 
 Mer information finns i [omdirigera trafik på din Application Gateway](redirect-overview.md).
 
-### <a name="rewrite-http-headers"></a>Återskapa HTTP-huvuden
+### <a name="rewrite-http-headers-and-url"></a>Skriv om HTTP-rubriker och URL
 
-Genom att använda regler för routning av begär Anden kan du lägga till, ta bort eller uppdatera HTTP (S)-begäran och svarshuvuden när paketen för begäran och svar flyttas mellan klienten och backend-pooler via programgatewayen.
+Genom att använda regler för att skriva om, kan du lägga till, ta bort eller uppdatera HTTP (S)-begäran och svars rubriker samt URL-sökväg och parametrar för frågesträngar som begär ande-och svars paket flyttas mellan klienten och backend-pooler via Application Gateway.
 
-Rubrikerna kan anges till statiska värden eller till andra huvuden och servervariabler. Detta hjälper till med viktiga användnings fall, till exempel att extrahera klientens IP-adresser, ta bort känslig information om Server delen, lägga till mer säkerhet och så vidare.
+Parametrarna headers och URL kan anges till statiska värden eller till andra huvuden och servervariabler. Detta hjälper till med viktiga användnings fall, till exempel att extrahera klientens IP-adresser, ta bort känslig information om Server delen, lägga till mer säkerhet och så vidare.
 
-Mer information finns i [skriva om HTTP-huvuden på din Application Gateway](rewrite-http-headers.md).
+Mer information finns i [skriva om HTTP-sidhuvuden och URL: en i Application Gateway](rewrite-http-headers-url.md).
 
 ## <a name="http-settings"></a>HTTP-inställningar
 
@@ -140,7 +140,7 @@ En Programgateway kan också kommunicera med lokala servrar när de är anslutna
 
 Du kan skapa olika backend-pooler för olika typer av begär Anden. Du kan till exempel skapa en backend-pool för allmänna begär Anden och sedan en annan backend-pool för förfrågningar till mikrotjänster för ditt program.
 
-## <a name="health-probes"></a>Hälsotillståndsavsökningar
+## <a name="health-probes"></a>Hälsoavsökningar
 
 Som standard övervakar en Programgateway hälsan för alla resurser i sin backend-pool och tar automatiskt bort felaktiga. Den övervakar sedan skadade instanser och lägger tillbaka dem till den felfria backend-poolen när de blir tillgängliga och svarar på hälso avsökningar.
 

@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99e637099e54698e9d6eabb14920251a9d4a81f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194384"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087432"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
 
@@ -30,13 +31,13 @@ I följande tabell sammanfattas alternativen för att flytta data till en Azure 
 | <b>Flat fil (CSV eller TSV formaterad)</b> |[Mass infogning av SQL-fråga](#bulk-insert-sql-query) |
 | <b>Lokala SQL Server</b> |1.[Exportera till flat fil](#export-flat-file)<br> 2. [guiden SQL Database migrering](#insert-tables-bcp)<br> 3. [säkerhetskopiera och Återställ databasen](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
-## <a name="prerequisites"></a><a name="prereqs"></a>Krav
+## <a name="prerequisites"></a><a name="prereqs"></a>Förutsättningar
 De procedurer som beskrivs här kräver att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
 * Ett **Azure Storage-konto**. Du använder ett Azure Storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure Storage-konto går du till artikeln [skapa ett lagrings konto](../../storage/common/storage-account-create.md) . När du har skapat lagrings kontot måste du hämta den konto nyckel som används för att få åtkomst till lagringen. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 * Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database ger [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) information om hur du etablerar en ny instans av en Azure SQL Database.
-* Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+* Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 **Data**: migreringsprocessen visas med hjälp av [NYC taxi-datauppsättningen](https://chriswhong.com/open-data/foil_nyc_taxi/). NYC taxi-datauppsättningen innehåller information om rese data och mässor och finns i Azure Blob Storage: [NYC taxi-data](https://www.andresmh.com/nyctaxitrips/). Ett exempel på och en beskrivning av dessa filer finns i [Beskrivning av NYC taxi TRIPs-data uppsättning](sql-walkthrough.md#dataset).
 

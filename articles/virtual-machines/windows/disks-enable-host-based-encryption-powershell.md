@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a13c17b2fcd6a42947b2f7d97f087735a5b18204
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 6cb6235c5c1a34cb3f48d315adee565591bb72c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236028"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088469"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-powershell"></a>Aktivera kryptering från slut punkt till slut punkt med kryptering på värd-Azure PowerShell
 
@@ -33,7 +33,7 @@ När du aktiverar kryptering på värden krypteras data som lagras på den virtu
 
 Du kan också hitta VM-storlekar program mässigt. Information om hur du hämtar dem program mässigt finns i avsnittet [hitta stödda VM-storlekar](#finding-supported-vm-sizes) .
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna använda kryptering på värden för dina virtuella datorer eller skalnings uppsättningar för virtuella datorer måste du få funktionen aktive rad i din prenumeration. Skicka ett e-postmeddelande till encryptionAtHost@microsoft . com med dina prenumerations-ID: n för att få funktionen aktive rad för dina prenumerationer.
 
@@ -86,7 +86,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
 
 Äldre VM-storlekar stöds inte. Du hittar listan över virtuella dator storlekar som stöds genom att antingen:
 
-Anropar [resurs-SKU API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) och kontrollerar att `EncryptionAtHostSupported` funktionen har angetts till **Sant**.
+Anropar [resurs-SKU API](/rest/api/compute/resourceskus/list) och kontrollerar att `EncryptionAtHostSupported` funktionen har angetts till **Sant**.
 
 ```json
     {
@@ -107,7 +107,7 @@ Anropar [resurs-SKU API](https://docs.microsoft.com/rest/api/compute/resourcesku
     }
 ```
 
-Eller, anropar PowerShell-cmdleten [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) .
+Eller, anropar PowerShell-cmdleten [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) .
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

@@ -7,25 +7,25 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259260"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089506"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Snabb start: skapa din första statiska webbapp
 
-Azures statiska Web Apps publicerar webbplatser till en produktions miljö genom att bygga appar från en GitHub-lagringsplats. I den här snabb starten skapar du ett webb program med hjälp av det önskade front-end-ramverket från en GitHub-lagringsplats.
+Azure Static Web Apps publicerar webbplatser i en produktionsmiljö genom att bygga appar från en GitHub-lagringsplats. I den här snabb starten skapar du ett webb program med hjälp av det önskade front-end-ramverket från en GitHub-lagringsplats.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [GitHub](https://github.com) -konto
 - [Azure](https://portal.azure.com) -konto
 
-## <a name="create-a-repository"></a>Skapa en lagrings plats
+## <a name="create-a-repository"></a>Klona en lagringsplats
 
 Den här artikeln använder GitHub för att göra det enkelt för dig att skapa en ny lagrings plats. Funktionerna för mallar startappar har skapats med olika klient dels ramverk.
 
@@ -35,7 +35,7 @@ Den här artikeln använder GitHub för att göra det enkelt för dig att skapa 
   - https://github.com/staticwebdev/angular-basic/generate
 - Namnge din lagrings plats **först statisk-webb-app**
 
-# <a name="react"></a>[Reagera](#tab/react)
+# <a name="react"></a>[React](#tab/react)
 
 - Kontrol lera att du är inloggad på GitHub och navigera till följande plats för att skapa en ny lagrings plats
   - https://github.com/staticwebdev/react-basic/generate
@@ -54,7 +54,7 @@ Den här artikeln använder GitHub för att göra det enkelt för dig att skapa 
 - Namnge din lagrings plats **först statisk-webb-app**
 
 > [!NOTE]
-> Azures statiska Web Apps kräver minst en HTML-fil för att skapa en webbapp. Lagrings platsen som du skapar i det här steget innehåller en enskild _index. html-_ fil.
+> Azures statiska Web Apps kräver minst en HTML-fil för att skapa en webbapp. Lagrings platsen som du skapar i det här steget omfattar en enda _index.html_ -fil.
 
 ---
 
@@ -67,12 +67,12 @@ Klicka på knappen **skapa databas från mall** .
 Nu när du har skapat databasen kan du skapa en statisk webbapp från Azure Portal.
 
 - Navigera till [Azure Portal](https://portal.azure.com)
-- Klicka på **skapa en resurs**
-- Sök efter **statiska Web Apps**
-- Klicka på **statisk Web Apps (förhands granskning)**
-- Klicka på **skapa**
+- Klicka på **Skapa en resurs**
+- Sök efter **Statiska webbappar**
+- Klicka på **Statiska webbappar (förhandsversion)**
+- Klicka på **Skapa**
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grunder
 
 Börja med att konfigurera din nya app och länka den till en GitHub-lagringsplats.
 
@@ -81,7 +81,7 @@ Börja med att konfigurera din nya app och länka den till en GitHub-lagringspla
 - Välj din _Azure-prenumeration_
 - Välj eller skapa en ny _resurs grupp_
 - Namnge appen **mitt-första-statiskt-Web-App**.
-  - Giltiga tecken är `a-z` (Skift läges okänsligt), `0-9` och `-` .
+  - Giltiga tecken är `a-z` (skiftlägesokänsligt), `0-9` och `-`.
 - Välj en _region_ som är närmast dig
 - Välj den **kostnads fria** _SKU: n_
 - Klicka på knappen **Logga in med GitHub** och autentisera med GitHub
@@ -93,13 +93,16 @@ När du har loggat in med GitHub anger du lagrings plats informationen.
 - Välj önskad _organisation_
 - Välj **min-första-webb-statisk-app** från List rutan _databas_
 - Välj **original** i list rutan _gren_
-- Klicka på **Nästa: bygg >** om du vill redigera build-konfigurationen
+- Klicka på **Nästa: Skapa >** för att redigera versionskonfigurationen
 
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Nästa build-knapp":::
 
-### <a name="build"></a>Utveckla
+> [!NOTE]
+>  Om du inte ser några databaser kan du behöva auktorisera Azures statiska Web Apps i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **inställningar > program > auktoriserade OAuth-appar**, Välj **Azure static Web Apps**och välj sedan **bevilja**. Du måste vara ägare till organisationen för att kunna bevilja behörighet för organisations databaser.
 
-Lägg sedan till konfigurations information som är speciell för ditt prioriterade front-end-ramverk.
+### <a name="build"></a>Skapa
+
+Lägg sedan till konfigurationsinformation som är specifik för ditt klientramverk.
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
@@ -107,7 +110,7 @@ Lägg sedan till konfigurations information som är speciell för ditt prioriter
 - Rensa standardvärdet från rutan _API-plats_
 - Ange **förd/vinkel-Basic** i rutan _app artefakt plats_
 
-# <a name="react"></a>[Reagera](#tab/react)
+# <a name="react"></a>[React](#tab/react)
 
 - Ange **/** i rutan _app location_
 - Rensa standardvärdet från rutan _API-plats_
@@ -137,17 +140,17 @@ Om du vill ändra dessa värden när du har skapat appen kan du redigera [arbets
 
 När begäran har validerats kan du fortsätta att skapa programmet.
 
-Klicka på knappen **skapa**
+Klicka på **Skapa**
 
 :::image type="content" source="media/getting-started/create-button.png" alt-text="Knappen Skapa":::
 
 När resursen har skapats klickar du på knappen **gå till resurs**
 
-:::image type="content" source="media/getting-started/resource-button.png" alt-text="Knappen gå till resurs":::
+:::image type="content" source="media/getting-started/resource-button.png" alt-text="Knappen Gå till resurs":::
 
 ## <a name="view-the-website"></a>Visa webbplatsen
 
-Det finns två aspekter av att distribuera en statisk app. De första etablerar de underliggande Azure-resurserna som utgör din app. Det andra är ett arbets flöde för GitHub åtgärder som skapar och publicerar ditt program.
+Det finns två aspekter av att distribuera en statisk app. Den första etablerar de underliggande Azure-resurserna som utgör din app. Den andra är ett GitHub Actions-arbetsflöde som bygger och publicerar din app.
 
 Innan du kan navigera till den nya statiska platsen måste distributions versionen först slutföras.
 
@@ -163,7 +166,7 @@ I fönstret Översikt över statisk Web Apps visas en serie länkar som hjälper
 
 Om du inte kommer att fortsätta att använda det här programmet kan du ta bort den statiska Azure-Web Apps-instansen genom följande steg:
 
-1. Öppna [Azure Portal](https://portal.azure.com)
+1. Öppna [Azure-portalen](https://portal.azure.com)
 1. Sök efter **min-First-Web-static-app** från det övre Sök fältet
 1. Klicka på appens namn
 1. Klicka på knappen **ta bort**

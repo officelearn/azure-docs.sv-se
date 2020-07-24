@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7e59ee029b1705f6f789812b870de96bbb74a6e5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 23556d6c0d64c6b6351d09ac1a658da0e5a4dd68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223558"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088843"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrera från en hanterad avbildning till en bild för ett delat avbildnings Galleri
 
@@ -54,9 +54,9 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 
 När du gör en avbildnings definition ser du till att har all rätt information. Eftersom hanterade avbildningar alltid är generaliserade bör du ställa in `-OsState generalized` . 
 
-Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](./windows/shared-image-galleries.md#image-definitions).
 
-Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för ett generaliserat Windows-operativsystem. Använd om du vill skapa en definition för avbildningar med hjälp av ett Linux-operativsystem `-OsType Linux` . 
+Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för ett generaliserat Windows-operativsystem. Använd om du vill skapa en definition för avbildningar med hjälp av ett Linux-operativsystem `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -73,7 +73,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="get-the-managed-image"></a>Hämta den hanterade avbildningen
 
-Du kan se en lista över avbildningar som är tillgängliga i en resurs grupp med hjälp av [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). När du känner till avbildningens namn och vilken resurs grupp det finns i kan du använda `Get-AzImage` igen för att hämta objektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en bild med namnet *image* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$managedImage*. 
+Du kan se en lista över avbildningar som är tillgängliga i en resurs grupp med hjälp av [Get-AzImage](/powershell/module/az.compute/get-azimage). När du känner till avbildningens namn och vilken resurs grupp det finns i kan du använda `Get-AzImage` igen för att hämta objektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en bild med namnet *image* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$managedImage*. 
 
 ```azurepowershell-interactive
 $managedImage = Get-AzImage `
@@ -84,7 +84,7 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-version"></a>Skapa en avbildningsversion
 
-Skapa en avbildnings version från den hanterade avbildningen med [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Skapa en avbildnings version från den hanterade avbildningen med [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version*. *MinorVersion*. *Korrigering*.
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version. 
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
 >
 
 ## <a name="delete-the-managed-image"></a>Ta bort den hanterade avbildningen

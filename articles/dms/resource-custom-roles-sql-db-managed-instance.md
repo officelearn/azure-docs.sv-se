@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 479c5165c206ced9f387d7b4a475945173da8a16
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086236"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087687"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Anpassade roller för SQL Server till Azure SQL Managed instance online-migreringar
 
@@ -83,7 +83,7 @@ Vi rekommenderar för närvarande att du skapar minst två anpassade roller för
 
 JSON ovan måste lagras i tre textfiler och du kan använda antingen AzureRM, AZ PowerShell-cmdletar eller Azure CLI för att skapa roller med hjälp av antingen **New-AzureRmRoleDefinition (AzureRM)** eller **New-AzRoleDefinition (AZ)**.
 
-Mer information finns i artikeln [anpassade roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Mer information finns i artikeln Azure- [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 När du har skapat dessa anpassade roller måste du lägga till roll tilldelningar till användare och APP-ID: n till lämpliga resurser eller resurs grupper:
 

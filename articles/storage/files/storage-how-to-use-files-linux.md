@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0270cebec21ca10327a86ea5efebef9a52455930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509854"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089353"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med `mount` kommandot och i start genom att skapa en post i `/etc/fstab` .
 
 Det rekommenderade sättet att montera en Azure-filresurs på Linux är att använda SMB 3,0. Som standard kräver Azure Files kryptering under överföring, som endast stöds av SMB 3,0. Azure Files stöder också SMB 2,1, som inte stöder kryptering under överföring, men du kan inte montera Azure-filresurser med SMB 2,1 från en annan Azure-region eller lokalt av säkerhets skäl. Såvida inte ditt program specifikt kräver SMB 2,1, finns det mycket anledning att använda det eftersom de flesta populära, nyligen utgivna Linux-distributioner har stöd för SMB 3,0:  
 
-| | SMB 2.1 <br>(Monteras på virtuella datorer inom samma Azure-region) | SMB 3.0 <br>(Monteras från lokalt och över flera regioner) |
+| Linux-distribution | SMB 2.1 <br>(Monteras på virtuella datorer inom samma Azure-region) | SMB 3.0 <br>(Monteras från lokalt och över flera regioner) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04 + | 16.04 + |
 | Red Hat Enterprise Linux (RHEL) | 7 + | 7.5 + |
@@ -34,7 +34,7 @@ Om du använder en Linux-distribution som inte finns med i tabellen ovan kan du 
 uname -r
 ```
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Se till att CIFS-utils-paketet är installerat.**  
@@ -249,18 +249,18 @@ Från och med linux kernel 4,18, anropar SMB-kernel-modulen, som kallas `cifs` f
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Ja |
-| Ubuntu 19.04 + | Ja |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04 + | Yes |
 | Debian 8-9 | No |
-| Debian 10 + | Ja |
-| Fedora 29 + | Ja |
+| Debian 10 + | Yes |
+| Fedora 29 + | Yes |
 | CentOS 7 | No | 
-| CentOS 8 + | Ja |
+| CentOS 8 + | Yes |
 | Red Hat Enterprise Linux 6. x-7. x | No |
-| Red Hat Enterprise Linux 8 + | Ja |
+| Red Hat Enterprise Linux 8 + | Yes |
 | openSUSE skottår 15,0 | No |
-| openSUSE skottår 15.1 + | Ja |
-| openSUSE Tumbleweed | Ja |
+| openSUSE skottår 15.1 + | Yes |
+| openSUSE Tumbleweed | Yes |
 | SUSE Linux Enterprise 11. x-12. x | No |
 | SUSE Linux Enterprise 15 | No |
 | SUSE Linux Enterprise 15,1 | No |
@@ -323,6 +323,6 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
 
-* [Planera för distribution av Azure Files](storage-files-planning.md)
+* [Planera för en Azure Files-distribution](storage-files-planning.md)
 * [Vanliga frågor och svar](../storage-files-faq.md)
 * [Felsökning](storage-troubleshoot-linux-file-connection-problems.md)

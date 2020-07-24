@@ -1,5 +1,5 @@
 ---
-title: Optimera Spark-jobb för prestanda i Azure Synapse Analytics
+title: Optimera Spark-jobb för prestanda
 description: Den här artikeln innehåller en introduktion till Apache Spark i Azure Synapse Analytics och de olika begreppen.
 services: synapse-analytics
 author: euangMS
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089268"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimera Apache Spark jobb (för hands version) i Azure Synapse Analytics
 
-Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnes belastning på grund av felaktiga konfigurationer (särskilt fel storleks körningar), långvariga åtgärder och uppgifter som resulterar i kartesiska-åtgärder. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
+Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnesbelastning på grund av felaktiga konfigurationer (särskilt utförare i fel storlek), långvariga åtgärder och uppgifter som resulterar i kartesiska operationer. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
 
 I följande avsnitt beskrivs vanliga Spark-jobb optimeringar och rekommendationer.
 
@@ -41,14 +41,14 @@ Tidigare Spark-versioner använder RDD till abstrakta data, Spark 1,3 och 1,6 in
   * Lägger till omkostnader för serialisering/deserialisering.
   * Hög global kostnad.
   * Delar upp kod generation i hela fasen.
-* **RDD**
+* **RDD:er**
   * Du behöver inte använda RDD, om du inte behöver bygga en ny anpassad RDD.
   * Ingen fråga optimering via katalysator.
   * Ingen hel stegs kod genereras.
   * Hög global kostnad.
   * Måste använda Spark 1. x äldre API: er.
 
-## <a name="use-optimal-data-format"></a>Använd optimalt data format
+## <a name="use-optimal-data-format"></a>Använd optimalt dataformat
 
 Spark stöder många format, till exempel CSV, JSON, XML, Parquet, Orc och Avro. Spark kan utökas för att ge stöd för många fler format med externa data källor – mer information finns i [Apache Spark-paket](https://spark-packages.org).
 
@@ -58,7 +58,7 @@ Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vi
 
 Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan användas på olika sätt, till exempel `.persist()` , `.cache()` och `CACHE TABLE` . Denna inbyggda cachelagring är effektiv med små data uppsättningar samt i ETL-pipelines där du behöver cachelagra mellanliggande resultat. Spark-intern cachelagring fungerar dock för närvarande inte bra med partitionering, eftersom en cachelagrad tabell inte behåller partitionerings data.
 
-## <a name="use-memory-efficiently"></a>Använd minne effektivt
+## <a name="use-memory-efficiently"></a>Använd minnet effektivt
 
 Spark arbetar genom att placera data i minnet, så att hantering av minnes resurser är en viktig aspekt i att optimera körningen av Spark-jobb.  Det finns flera tekniker som du kan använda för att använda klustrets minne på ett effektivt sätt.
 
@@ -82,14 +82,14 @@ Prova följande om du vill ta bort meddelanden om slut på minne:
 * Utnyttja DataFrames i stället för RDD-objekt på lägre nivå.
 * Skapa ComplexTypes som kapslar in åtgärder, till exempel "Top N", olika agg regeringar eller fönster åtgärder.
 
-## <a name="optimize-data-serialization"></a>Optimera Dataserialisering
+## <a name="optimize-data-serialization"></a>Optimera dataserialiseringen
 
 Spark-jobb distribueras, så lämplig data serialisering är viktig för bästa möjliga prestanda.  Det finns två alternativ för serialisering för Spark:
 
 * Java-serialisering är standard.
 * Kryo-serialisering är ett nyare format och kan resultera i snabbare och mer kompakt serialisering än Java.  Kryo kräver att du registrerar klasserna i ditt program och ännu inte har stöd för alla serialiserbara typer.
 
-## <a name="use-bucketing"></a>Använd Bucket
+## <a name="use-bucketing"></a>Använd bucket
 
 Bucket liknar data partitionering, men varje Bucket kan innehålla en uppsättning kolumn värden i stället för bara en. Bucket fungerar bra för partitionering på stora (i miljon tals eller fler) värden, t. ex. produkt identifierare. En Bucket bestäms genom hashing av radens Bucket-nyckel. Bucked-tabeller ger unika optimeringar eftersom de lagrar metadata om hur de är i Bucket och sorterade.
 
@@ -101,7 +101,7 @@ Vissa avancerade Bucket-funktioner är:
 
 Du kan använda partitionering och Bucket på samma tid.
 
-## <a name="optimize-joins-and-shuffles"></a>Optimera kopplingar och blanda
+## <a name="optimize-joins-and-shuffles"></a>Optimera kopplingar och blandningar
 
 Om du har långsamma jobb för en koppling eller blanda är orsaken förmodligen *dataskevning*, som är asymmetry i dina jobb data. Till exempel kan ett kart jobb ta 20 sekunder, men att köra ett jobb där data är anslutna eller blandade tar timmar. Om du vill åtgärda data skevningen bör du salta hela nyckeln eller använda ett *isolerat salt* för vissa nycklar. Om du använder ett isolerat salt bör du ytterligare filtrera för att isolera din delmängd av saltade nycklar i kart kopplingar. Ett annat alternativ är att introducera en Bucket-kolumn och församlad i Bucket först.
 
@@ -162,7 +162,7 @@ Tänk på följande när du kör samtidiga frågor:
 
 Du kan till exempel ha minst två gånger så många uppgifter som antalet utförar-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true` .
 
-## <a name="optimize-job-execution"></a>Optimera jobb körningen
+## <a name="optimize-job-execution"></a>Optimera jobbkörningen
 
 * Cachelagra vid behov, till exempel om du använder data två gånger och sedan cachelagrar det.
 * Broadcast-variabler till alla körningar. Variablerna serialiseras bara en gång, vilket resulterar i snabbare sökningar.

@@ -1,5 +1,5 @@
 ---
-title: Ansluta till och fråga Synapse SQL med Visual Studio och SSDT
+title: Anslut och fråga Synapse SQL med Visual Studio och SSDT
 description: Använd Visual Studio för att fråga SQL-pool med Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f98a9d6dd79ba1da1a3be1e9e187ed4e8eca8ee
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962994"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089251"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ansluta till Synapse SQL med Visual Studio och SSDT
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Använd Visual Studio för att fråga SQL-pool med Azure Synapse Analytics. Den 
 > [!NOTE]
 > SQL på begäran (för hands version) stöds inte av SSDT.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda den här självstudien måste du ha följande komponenter:
 
 * En befintlig SQL-pool. Om du inte har en sådan, se [skapa en SQL-pool](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att slutföra det här kravet.
@@ -62,7 +62,7 @@ Om du vill använda den här självstudien måste du ha följande komponenter:
 Nu när en anslutning har upprättats till databasen skriver du en fråga.
 
 1. Högerklicka på din databas i SQL Server Object Explorer.
-2. Välj **ny fråga**. Ett nytt frågefönster öppnas.
+2. Välj **Ny fråga**. Ett nytt frågefönster öppnas.
    
     ![Ny fråga](./media/get-started-visual-studio/new-query2.png)
 3. Kopiera följande T-SQL-fråga till frågefönstret:

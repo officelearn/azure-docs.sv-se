@@ -3,12 +3,12 @@ title: Azure Event Grid leverans och försök igen
 description: Beskriver hur Azure Event Grid levererar händelser och hur de hanterar meddelanden som inte levererats.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e565bbc8592dc2818e3573672e6e3035c3c8983a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087619"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
@@ -78,8 +78,12 @@ Som ett slut punkts problem med leverans fel börjar Event Grid fördröja lever
 Det funktionella syftet med försenad leverans är att skydda Felaktiga slut punkter och Event Grid systemet. Utan avstängning och fördröjning av leverans till felaktiga slut punkter, kan Event Grids princip för återförsök och volym kapacitet lätt överbelasta ett system.
 
 ## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
+När Event Grid inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**. Event Grid obeställbara meddelanden en händelse när **något av följande** villkor uppfylls. 
 
-När Event Grid inte kan leverera en händelse kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för obeställbara meddelanden. Som standard aktiverar Event Grid inte obeställbara meddelanden. Om du vill aktivera det måste du ange ett lagrings konto som ska innehålla ej levererade händelser när händelse prenumerationen skapas. Du kan hämta händelser från det här lagrings kontot för att lösa leveranser.
+- Händelsen har inte levererats inom Time-to-Live-perioden
+- Antalet försök att leverera händelsen har överskridit gränsen
+
+Om något av villkoren är uppfyllt tas händelsen bort eller tas bort från kön.  Som standard aktiverar Event Grid inte obeställbara meddelanden. Om du vill aktivera det måste du ange ett lagrings konto som ska innehålla ej levererade händelser när händelse prenumerationen skapas. Du kan hämta händelser från det här lagrings kontot för att lösa leveranser.
 
 Event Grid skickar en händelse till platsen för obeställbara meddelanden när den har provat alla nya försök. Om Event Grid får en 400 (felaktig begäran) eller 413 (den begärda entiteten för stor) svars kod skickar den omedelbart händelsen till slut punkten för obeställbara meddelanden. Dessa svars koder indikerar att händelsen levereras aldrig.
 
@@ -111,8 +115,8 @@ Alla andra koder som inte finns i ovanstående uppsättning (200-204) betraktas 
 
 | Statuskod | Omprövnings beteende |
 | ------------|----------------|
-| 400 Felaktig begäran | Försök igen om 5 minuter eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
-| 401 obehörig | Försök igen om 5 minuter eller mer |
+| 400 – Felaktig begäran | Försök igen om 5 minuter eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
+| 401 – Ej behörig | Försök igen om 5 minuter eller mer |
 | 403 – Förbjuden | Försök igen om 5 minuter eller mer |
 | 404 – Hittades inte | Försök igen om 5 minuter eller mer |
 | 408 Timeout för begäran | Försök igen om 2 minuter eller mer |

@@ -4,17 +4,17 @@ description: Förstå den aktuella listan med åtgärder som stöds av Azure Syn
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9f6a61dfa688980fa6400a2fa93ab8862798750
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 7fbc7b1cb8119a6ee9403bf0139380aa5dcd0613
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089132"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse-länk (för hands version) för Azure Cosmos DB funktioner som stöds
 
@@ -35,8 +35,8 @@ Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-län
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Stöd för körning** |Stöd för läsning eller skrivning av Azure Synapse körnings tid| ✓ | [Kontakta oss](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Stöd för Azure Cosmos DB-API** |API-stöd som en Synapse-länk| SQL/MongoDB | SQL/MongoDB |
-| **Objekt**  |Objekt som en tabell som kan skapas, peka direkt på Azure Cosmos DB behållare| Visa, tabell | Visa |
-| **Läs**    |Läsa data från en Azure Cosmos DB-behållare| OLTP/HTAP | HTAP  |
+| **Jobbobjektet**  |Objekt som en tabell som kan skapas, peka direkt på Azure Cosmos DB behållare| Visa, tabell | Vy |
+| **Läsa**    |Läsa data från en Azure Cosmos DB-behållare| OLTP/HTAP | HTAP  |
 | **Skriva**   |Skriva data från körnings tid till en Azure Cosmos DB-behållare| OLTP | saknas |
 
 * Om du skriver data till en Azure Cosmos DB behållare från Spark sker den här processen genom transaktions arkivet för Azure Cosmos DB och påverkar transaktions prestandan för Azure Cosmos DB genom att använda enheter för programbegäran.

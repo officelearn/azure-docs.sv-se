@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089676"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
@@ -216,7 +216,7 @@ Du kan använda [RBAC](/azure/role-based-access-control/overview) för att tilld
 * **Segment hanterings grupp** för team med begränsad omfattning (vanligt vis på grund av regler eller andra organisatoriska gränser)
 
 **Bästa praxis**: ge lämpliga behörigheter till säkerhets grupper som har direkt drifts ansvar.
-**Information**: granska de inbyggda RBAC-rollerna för den aktuella roll tilldelningen. Om de inbyggda rollerna inte uppfyller organisationens speciella behov kan du skapa [anpassade roller för Azure-resurser](/azure/role-based-access-control/custom-roles). Precis som med inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänstens huvud namn vid prenumeration, resurs grupp och resurs omfång.
+**Information**: granska de inbyggda RBAC-rollerna för den aktuella roll tilldelningen. Om de inbyggda rollerna inte uppfyller organisationens speciella behov kan du skapa [Azure-anpassade roller](/azure/role-based-access-control/custom-roles). Precis som med inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänstens huvud namn vid prenumeration, resurs grupp och resurs omfång.
 
 **Bästa praxis**: bevilja Azure Security Center åtkomst till säkerhets roller som behöver den. Security Center gör det möjligt för säkerhets team att snabbt identifiera och åtgärda risker.
 **Information**: Lägg till säkerhets team med dessa behov av rollen RBAC- [säkerhetsadministratör](/azure/role-based-access-control/built-in-roles#security-admin) så att de kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer och stänga av aviseringar och rekommendationer. Du kan göra detta med hjälp av rot hanterings gruppen eller segment hanterings gruppen, beroende på ansvars området.

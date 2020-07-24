@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cec3e3ad4934ce368baa44984d252dc981d5d81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088214"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av Azure Portal
 
@@ -29,7 +30,7 @@ ms.locfileid: "84687981"
 
 ## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Skapa en virtuell dator med flera IP-adresser
 
-Om du vill skapa en virtuell dator med flera IP-adresser eller en statisk privat IP-adress måste du skapa den med hjälp av PowerShell eller Azure CLI. Klicka på PowerShell-eller CLI-alternativen överst i den här artikeln om du vill veta mer. Du kan skapa en virtuell dator med en enda dynamisk privat IP-adress och (valfritt) en enskild offentlig IP-adress. Använd portalen genom att följa stegen i [skapa en virtuell Windows-dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md) eller [skapa en Linux VM](../virtual-machines/linux/quick-create-portal.md) -artikel. När du har skapat den virtuella datorn kan du ändra IP-adress typen från dynamisk till statisk och lägga till ytterligare IP-adresser med hjälp av portalen genom att följa stegen i avsnittet [Lägg till IP-adresser till en virtuell dator](#add) i den här artikeln.
+Om du vill skapa en virtuell dator med flera IP-adresser eller en statisk privat IP-adress måste du skapa den med hjälp av PowerShell eller Azure CLI. Klicka på PowerShell-eller CLI-alternativen överst i den här artikeln om du vill veta mer. Du kan skapa en virtuell dator med en enda dynamisk privat IP-adress och (valfritt) en enskild offentlig IP-adress. Använd portalen genom att följa stegen i [skapa en virtuell Windows-dator](../virtual-machines/windows/quick-create-portal.md) eller [skapa en Linux VM](../virtual-machines/linux/quick-create-portal.md) -artikel. När du har skapat den virtuella datorn kan du ändra IP-adress typen från dynamisk till statisk och lägga till ytterligare IP-adresser med hjälp av portalen genom att följa stegen i avsnittet [Lägg till IP-adresser till en virtuell dator](#add) i den här artikeln.
 
 ## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Lägg till IP-adresser till en virtuell dator
 

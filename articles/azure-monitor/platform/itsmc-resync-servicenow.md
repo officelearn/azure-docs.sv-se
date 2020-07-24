@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3382f93990612b0ab34eb0848cbf3d6577c44ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81313668"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087942"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>Åtgärda ServiceNow-synkroniseringsproblem manuellt
 
@@ -38,7 +38,7 @@ Använd följande synkroniseringsprocess för att återaktivera anslutningen och
     1. Klicka på kopplingens namn för att konfigurera det
     1. Ta bort alla kopplingar som inte längre används
 
-    1. Uppdatera fälten enligt [dessa definitioner](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections) baserat på din partner typ
+    1. Uppdatera fälten enligt [dessa definitioner](./itsmc-connections.md) baserat på din partner typ
 
     1. Klicka på synkronisera
 

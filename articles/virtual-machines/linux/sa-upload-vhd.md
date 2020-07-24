@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 7ec9b670f8b2eb1731511deb1d01cfc7db55054f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc7c69809ae623606bd091821c5f2fc661f6c8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088758"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
 
@@ -78,10 +79,10 @@ För att utföra följande steg behöver du:
 
 * **Linux-operativsystem installerat i en VHD-fil** – installera en [Azure-godkänd Linux-distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller Visa [information om icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) till en virtuell disk i VHD-formatet. Det finns flera verktyg för att skapa en virtuell dator och en virtuell hård disk:
   * Installera och konfigurera [qemu](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) eller [kvm](https://www.linux-kvm.org/page/RunningKVM)och ta hand om att använda VHD som avbildnings format. Om det behövs kan du [konvertera en avbildning](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) med hjälp av `qemu-img convert` .
-  * Du kan också använda Hyper-V [på Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) eller [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+  * Du kan också använda Hyper-V [på Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) eller [Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> Det nya VHDX-formatet stöds inte i Azure. När du skapar en virtuell dator anger du VHD som format. Vid behov kan du konvertera VHDX-diskar till en virtuell hård disk med hjälp av [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) eller [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell-cmdleten. Dessutom stöder Azure inte överföring av dynamiska virtuella hård diskar, så du måste konvertera sådana diskar till statiska virtuella hård diskar innan du laddar upp. Du kan använda verktyg som [Azure VHD-verktyg för att gå](https://github.com/Microsoft/azure-vhd-utils-for-go) till konvertera dynamiska diskar under processen med att ladda upp till Azure.
+> Det nya VHDX-formatet stöds inte i Azure. När du skapar en virtuell dator anger du VHD som format. Vid behov kan du konvertera VHDX-diskar till en virtuell hård disk med hjälp av [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) eller [`Convert-VHD`](/powershell/module/hyper-v/convert-vhd?view=win10-ps) PowerShell-cmdleten. Dessutom stöder Azure inte överföring av dynamiska virtuella hård diskar, så du måste konvertera sådana diskar till statiska virtuella hård diskar innan du laddar upp. Du kan använda verktyg som [Azure VHD-verktyg för att gå](https://github.com/Microsoft/azure-vhd-utils-for-go) till konvertera dynamiska diskar under processen med att ladda upp till Azure.
 > 
 > 
 
@@ -156,7 +157,7 @@ info:    storage account keys list command OK
 
 Anteckna `key1` som du kommer att använda den för att interagera med ditt lagrings konto i nästa steg.
 
-## <a name="create-a-storage-container"></a>Skapa en lagrings behållare
+## <a name="create-a-storage-container"></a>Skapa en lagringscontainer
 På samma sätt som du skapar olika kataloger för att logiskt organisera ditt lokala fil system, skapar du behållare i ett lagrings konto för att ordna diskarna. Ett lagrings konto kan innehålla valfritt antal behållare. Skapa en behållare med [AZ Storage container Create](/cli/azure/storage/container).
 
 I följande exempel skapas en behållare med namnet `mydisks` :
@@ -236,4 +237,3 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>Nästa steg
 När du har för berett och överfört din anpassade virtuella disk kan du läsa mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/management/overview.md). Du kanske också vill [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) till de nya virtuella datorerna. Om du har program som körs på dina virtuella datorer som du behöver åtkomst till, måste du [öppna portar och slut punkter](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

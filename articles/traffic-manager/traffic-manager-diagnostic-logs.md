@@ -10,11 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089067"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Aktivera resurs loggning i Azure Traffic Manager
 
@@ -67,9 +68,8 @@ Alla resurs loggar som är tillgängliga via Azure Monitor dela ett gemensamt sc
 
 Följande tabell innehåller loggar schema som är speciellt för Azure Traffic Manager Profile-resursen.
 
-|||||
+|Fältnamn|Fälttyp|Definition|Exempel|
 |----|----|---|---|
-|**Fält namn**|**Fälttyp**|**Definition**|**Exempel**|
 |EndpointName|Sträng|Namnet på Traffic Manager slut punkten vars hälso status registreras.|*myPrimaryEndpoint*|
 |Status|Sträng|Hälso tillståndet för den Traffic Manager slut punkten som avsöktes. Statusen kan antingen vara **upp** eller **ned**.|**Upp**|
 |||||

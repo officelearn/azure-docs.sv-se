@@ -7,13 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087551"
 ---
-# <a name="azure-firewall-rule-processing-logic"></a>Regelbearbetningslogik för Azure Firewall
+# <a name="configure-azure-firewall-rules"></a>Konfigurera Azures brand Väggs regler
 Du kan konfigurera NAT-regler, nätverks regler och program regler på Azure-brandväggen. Regel samlingar bearbetas enligt regel typen i prioritetsordning, lägre siffror till högre tal från 100 till 65 000. Ett namn på en regel samling får bara innehålla bokstäver, siffror, under streck, punkter eller bindestreck. Det måste börja med en bokstav eller en siffra, och sluta med en bokstav, en siffra eller ett under streck. Den maximala namn längden är 80 tecken.
 
 Det är bäst att först få plats med prioritets numren för regel samlingen i 100-steg (100, 200, 300 osv.), så att du har plats att lägga till fler regel samlingar om det behövs.
@@ -54,7 +55,7 @@ Anslutning till google.com tillåts på grund av en matchande nätverks regel.
 
 **Program regel**
 
-- Åtgärd: neka
+- Åtgärd: Deny
 
 |name  |Källtyp  |Källa  |Protokoll: port|Mål-FQDN|
 |---------|---------|---------|---------|----------|----------|
@@ -82,7 +83,7 @@ SSH-trafik nekas eftersom en högre *prioritet blockerar* nätverks regel samlin
 
 - Namn: neka-samling
 - Prioritet: 100
-- Åtgärd: neka
+- Åtgärd: Deny
 
 |name  |Protokoll  |Källtyp  |Källa  |Måltyp  |Mål adress  |Målportar|
 |---------|---------|---------|---------|----------|----------|--------|

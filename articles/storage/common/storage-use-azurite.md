@@ -1,22 +1,22 @@
 ---
 title: Använd Azurite-emulatorn för lokal Azure Storage utveckling
-description: Azurite-emulatorn med öppen källkod (för hands version) tillhandahåller en kostnads fri lokal miljö för att testa dina Azure Storage-program.
+description: Azurite-emulatorn med öppen källkod tillhandahåller en kostnads fri lokal miljö för att testa dina Azure Storage-program.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512139"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089421"
 ---
-# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling och testning (för hands version)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling
 
-Azurite-versionen 3,2 med öppen källkod (för hands version) är en kostnads fri lokal miljö för att testa dina Azure blob-och Queue Storage-program. När du är nöjd med hur ditt program fungerar lokalt växlar du till att använda ett Azure Storage konto i molnet. Emulatorn ger plattforms oberoende stöd för Windows, Linux och macOS. Azurite v3 stöder API: er som implementeras av Azure-Blob Service.
+Azurite-emulatorn med öppen källkod tillhandahåller en kostnads fri lokal miljö för att testa dina Azure blob-och Queue Storage-program. När du är nöjd med hur ditt program fungerar lokalt växlar du till att använda ett Azure Storage konto i molnet. Emulatorn ger plattforms oberoende stöd för Windows, Linux och macOS.
 
 Azurite är den framtida Storage mula-plattformen. Azurite ersätter Azure Storage- [emulatorn](storage-use-emulator.md). Azurite kommer fortfarande att uppdateras för att stödja de senaste versionerna av Azure Storage-API: er.
 
@@ -34,8 +34,6 @@ I Visual Studio Code väljer du rutan **tillägg** och söker efter *Azurite* i 
 ![Visual Studio Code Extensions Marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 Du kan också gå till [Visual Studio Code Extension marknad](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) i webbläsaren. Välj knappen **Installera** för att öppna Visual Studio Code och gå direkt till Azurite-tilläggs sidan.
-
-Du kan snabbt starta eller stänga Azurite i statusfältet i Visual Studio Code. Klicka på **[Azurite BLOB service]** eller **[Azurite Queue Service]**.
 
 Tillägget har stöd för följande Visual Studio Code-kommandon. Öppna kommando paletten genom att trycka på F1 i Visual Studio Code. 
 
@@ -67,6 +65,7 @@ Följande inställningar stöds:
    - **Azurite: köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
    - **Azurite: Queue port** -den kötjänst lyssnings porten. Standard porten är 10001.
    - **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **falskt**.
+   - **Azurite: hoppa över kontroll av API-version** – hoppa över kontroll av begäran API-version. Standardvärdet är **falskt**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installera och kör Azurite med NPM
 
@@ -311,6 +310,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 
 Azurite stöder grundläggande autentisering genom att ange `basic` parametern till `--oauth` växeln. Azurite kommer att utföra grundläggande autentisering, t. ex. validera inkommande Bearer-token, kontrol lera utfärdare, mål grupp och förfallo datum. Azurite kontrollerar inte signaturen eller behörigheterna för token.
 
+### <a name="skip-api-version-check"></a>Hoppa över kontroll av API-version
+
+**Valfritt** – vid start, kontrollerar Azurite att den BEGÄRda API-versionen är giltig. Följande kommando hoppar över kontroll av API-version:
+
+```console
+azurite --skipApiVersionCheck
+```
+
+
 ## <a name="authorization-for-tools-and-sdks"></a>Auktorisering för verktyg och SDK: er
 
 Anslut till Azurite från Azure Storage SDK: er eller verktyg, t. ex. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), genom att använda valfri strategi för autentisering. Autentisering krävs. Azurite stöder auktorisering med OAuth, delad nyckel och signaturer för delad åtkomst (SAS). Azurite stöder även anonym åtkomst till offentliga behållare.
@@ -554,4 +562,4 @@ Bidrag och förslag för Azurite är välkommen. Gå till Azurite [GitHub Projec
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använd Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md) av dokument i den äldre Azure Storage-emulatorn, som ersätts av Azurite.
-- [Konfigurera Azure Storage anslutnings strängar](storage-configure-connection-string.md) förklarar hur du sätter samman en giltig Azure Storage-anslutningssträng.
+- [Konfigurera Azure Storage anslutnings strängar](storage-configure-connection-string.md) förklarar hur du sätter samman en giltig Azure Storage anslutnings sträng.

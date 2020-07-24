@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: ed4f2d769dbda3dec7b353fddfd1e5e0f3d00f9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532174"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089659"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Anslut din Infoblox-NIOS till Azure Sentinel
+
+> [!IMPORTANT]
+> Infoblox NIOS data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här artikeln förklarar hur du ansluter din [Nios-installation (Infoblox Network Identity Opera ting system)](https://www.infoblox.com/glossary/network-identity-operating-system-nios/) till Azure Sentinel. Med Infoblox NIOS data Connector kan du enkelt ansluta dina Infoblox-loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Integreringen mellan Infoblox NIOS och Azure Sentinel använder syslog.
 

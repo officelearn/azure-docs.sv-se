@@ -1,15 +1,15 @@
 ---
 title: Resurs typer som stöds Azure Resource Manager
 description: Ange en lista över de Azure Resource Manager resurs typer som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 06/04/2020
+ms.date: 07/16/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087534"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -19,6 +19,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 
 - Microsoft. Advisor/konfigurationer
 - Microsoft. Advisor/rekommendationer
+- Microsoft. Advisor/rekommendationer/undertryckar
 - Microsoft. Advisor/undertrycker
 
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources

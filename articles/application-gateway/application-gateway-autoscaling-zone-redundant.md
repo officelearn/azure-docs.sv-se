@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088114"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -148,10 +148,10 @@ Det kan dock ta tid att skapa en ny instans (cirka sex eller sju minuter). Om du
 
 I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 
-|                                                   | v1 SKU   | v2-SKU   |
+| Funktion                                           | v1 SKU   | v2-SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Automatisk skalning                                       |          | &#x2713; |
-| Zon redundans                                   |          | &#x2713; |
+| Zonredundans                                   |          | &#x2713; |
 | Statisk VIP                                        |          | &#x2713; |
 | Ingångs kontroll för Azure Kubernetes service (AKS) |          | &#x2713; |
 | Azure Key Vault-integrering                       |          | &#x2713; |
@@ -176,17 +176,17 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 
 I det här avsnittet beskrivs funktioner och begränsningar för v2-SKU: n som skiljer sig från v1 SKU.
 
-|Skillnad|Information|
+|Differens|Information|
 |--|--|
-|Certifikat för autentisering|Stöds inte.<br>Mer information finns i [Översikt över TLS to end-TLS med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
+|Certifikat för autentisering|Stöds ej.<br>Mer information finns i [Översikt över TLS to end-TLS med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Mixa Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
 |Användardefinierad väg (UDR) i Application Gateway undernät|Stöds (vissa scenarier). I för hands version.<br> Mer information om vilka scenarier som stöds finns i [Application Gateway konfigurations översikt](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG för inkommande port intervall| – 65200 till 65535 för Standard_v2 SKU<br>– 65503 till 65534 för standard-SKU.<br>Mer information finns i [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Prestanda loggar i Azure Diagnostics|Stöds inte.<br>Azure-mått ska användas.|
+|Prestanda loggar i Azure Diagnostics|Stöds ej.<br>Azure-mått ska användas.|
 |Fakturering|Faktureringen är schemalagd för att starta den 1 juli 2019.|
 |FIPS-läge|Dessa stöds inte för närvarande.|
 |Läge för endast ILB|Detta stöds inte för närvarande. Offentliga och ILB läge stöds tillsammans.|
-|Net Watcher-integrering|Stöds inte.|
+|Net Watcher-integrering|Stöds ej.|
 |Azure Security Center-integration|Ännu inte tillgängligt.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrera från v1 till v2

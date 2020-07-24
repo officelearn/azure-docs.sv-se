@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera PostgreSQL till Azure Database for PostgreSQL onli
 titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från PostgreSQL lokalt till Azure Database for PostgreSQL genom att använda Azure Database Migration Service via CLI.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087636"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Självstudie: Migrera PostgreSQL till Azure DB för PostgreSQL online med DMS via Azure CLI
 
@@ -37,7 +38,7 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -107,7 +108,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    Ett exempel:
+    Exempel:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -170,7 +171,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
            az extension list-available –otable
            ```
 
-       * Kör följande kommando om du vill installera tillägget:
+       * Kör följande kommando för att installera tillägget:
 
            ```azurecli
            az extension add –n dms-preview
@@ -229,7 +230,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    Ett exempel:
+    Exempel:
 
     ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -475,7 +476,7 @@ För att säkerställa att alla data har samlats in, verifiera radantal mellan k
     az dms project task cutover -h
     ```
 
-    Ett exempel:
+    Exempel:
 
     ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory

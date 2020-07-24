@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92b6d8c6cd59f82439beec24c003aac6673014e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84551983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088333"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av python
 
@@ -31,7 +32,7 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **python-utveckling** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **Python 3 64-bitar (3.6.0)** automatiskt väljs åt dig. Om du redan har installerat Visual Studio kan du lägga till python-arbetsbelastningen med Visual Studio Launcher.
+1. Om du inte redan har gjort det installerar du [Visual Studio](/visualstudio/install/install-visual-studio). Välj **python-utveckling** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **Python 3 64-bitar (3.6.0)** automatiskt väljs åt dig. Om du redan har installerat Visual Studio kan du lägga till python-arbetsbelastningen med Visual Studio Launcher.
 2. När du har installerat och startat Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt**.
 3. Klicka på **mallar**  >  **python**  >  **python Application**, ange *myPythonProject* som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.
 
@@ -565,6 +566,5 @@ Eftersom du debiteras för resurser som används i Azure är det alltid en bra i
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om det var problem med distributionen, är nästa steg att titta på [Felsöka resursgruppdistribueringar med Azure-portalen](../../resource-manager-troubleshoot-deployments-portal.md)
-- Läs mer om [Azure python-biblioteket](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
+- Om det var problem med distributionen, är nästa steg att titta på [Felsöka resursgruppdistribueringar med Azure-portalen](../../azure-resource-manager/templates/deployment-history.md)
+- Läs mer om [Azure python-biblioteket](/python/api/overview/azure/?view=azure-python)

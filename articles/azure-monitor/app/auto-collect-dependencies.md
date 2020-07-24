@@ -5,15 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087993"
 ---
 # <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
-Nedan visas en lista över beroende anrop som identifieras automatiskt som beroenden, utan att det krävs någon ytterligare ändring av programmets kod. Dessa beroenden visualiseras i vyerna Application Insights [program karta](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) och [transaktions-diagnostik](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) . Om ditt beroende inte finns med i listan nedan kan du fortfarande spåra det manuellt med ett [spår beroende anrop](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Nedan visas en lista över beroende anrop som identifieras automatiskt som beroenden, utan att det krävs någon ytterligare ändring av programmets kod. Dessa beroenden visualiseras i vyerna Application Insights [program karta](./app-map.md) och [transaktions-diagnostik](./transaction-diagnostics.md) . Om ditt beroende inte finns med i listan nedan kan du fortfarande spåra det manuellt med ett [spår beroende anrop](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -61,7 +62,7 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 
 > [!NOTE]
 > * Förutom stöd för omaktivering av program.
-> <br>† Kräver installation av [JVM-agenten](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>† Kräver installation av [JVM-agenten](./java-agent.md#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js
 

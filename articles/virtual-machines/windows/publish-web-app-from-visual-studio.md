@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088401"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-webbapp till en virtuell Azure-dator från Visual Studio
 
@@ -69,7 +69,7 @@ I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogra
 
 11. Om publiceringen lyckas startas en webbläsare för att öppna URL: en för den nyligen publicerade platsen.
 
-**Lyckades!**
+**Resultatet!**
 
 Nu har du publicerat din webbapp på en virtuell Azure-dator.
 
@@ -111,7 +111,7 @@ Inställningarna bör se ut ungefär så här:
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Konfigurera CI/CD för automatisk distribution till virtuell Azure-dator
 
-Om du vill konfigurera en pipeline för kontinuerlig leverans med Azure-pipelines, se [distribuera till en virtuell Windows-dator](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Om du vill konfigurera en pipeline för kontinuerlig leverans med Azure-pipelines, se [distribuera till en virtuell Windows-dator](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

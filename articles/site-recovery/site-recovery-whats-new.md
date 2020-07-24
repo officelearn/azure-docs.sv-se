@@ -3,12 +3,12 @@ title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3017be90e84441ad84c6a5a9d54498028388dffe
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4e3153ae611f368f66b045a69bab23ca0a52a033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206397"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089523"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -22,7 +22,8 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 **Uppdatera** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Samlad uppdatering 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
+[Samlad uppdatering 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+[Samlad uppdatering 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV-datorer – 2.0.9183.0 <br> VMware-datorer – 2.0.9177.0
 [Samlad uppdatering 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Samlad uppdatering 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Samlad uppdatering 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -34,6 +35,18 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 > Samlad uppdatering 44 visas inte i tabellen eftersom den inte inkluderade uppdateringar för Site Recovery leverantörer och agenter.
 
 ## <a name="updates-july-2020"></a>Uppdateringar (juli 2020)
+
+### <a name="update-rollup-48"></a>Samlad uppdatering 48
+
+Samlad [uppdatering 48](https://support.microsoft.com/help/4573888/update-rollup-48-for-azure-site-recovery) innehåller följande uppdateringar:
+
+**Uppdatera** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar till Site Recovery agenter och leverantörer enligt beskrivningen i den samlade uppdateringen.
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar som beskrivs i den samlade uppdateringen.
+
+> [!NOTE]
+> Samlad uppdatering 48 har ett känt problem med att aktivera replikering för Linux-datorer som har krypterats med ADE. [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
 
 ### <a name="update-rollup-47"></a>Samlad uppdatering 47
 

@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087262"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfigurera Azure Storage-anslutningssträngar
 
 En anslutnings sträng innehåller den autentiseringsinformation som krävs för att ditt program ska kunna komma åt data i ett Azure Storage konto vid körning med hjälp av autentisering med delad nyckel. Du kan konfigurera anslutnings strängar för att:
 
-* Anslut till Azure Storage-emulatorn.
+* Anslut till Azurite Storage-emulatorn.
 * Få åtkomst till ett lagrings konto i Azure.
 * Få åtkomst till angivna resurser i Azure via en signatur för delad åtkomst (SAS).
 
@@ -37,15 +37,15 @@ Ditt program måste ha åtkomst till anslutnings strängen vid körning för att
 * Ett program som körs på Skriv bordet eller på en enhet kan lagra anslutnings strängen i en **app.config** eller **web.config** fil. Lägg till anslutnings strängen i avsnittet **appSettings** i de här filerna.
 * Ett program som körs i en Azure-molnbaserad tjänst kan lagra anslutnings strängen i [Azure Service Configuration schema-filen (. cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Lägg till anslutnings strängen i **ConfigurationSettings** -avsnittet i tjänst konfigurations filen.
 
-Genom att lagra anslutnings strängen i en konfigurations fil kan du enkelt uppdatera anslutnings strängen för att växla mellan Storage-emulatorn och ett Azure Storage-konto i molnet. Du behöver bara redigera anslutnings strängen för att peka på mål miljön.
+Genom att lagra anslutnings strängen i en konfigurations fil kan du enkelt uppdatera anslutnings strängen för att växla mellan [Azurite](../common/storage-use-azurite.md) och ett Azure Storage-konto i molnet. Du behöver bara redigera anslutnings strängen för att peka på mål miljön.
 
 Du kan använda [Microsoft Azures Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) för att få åtkomst till anslutnings strängen vid körning oavsett var programmet körs.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Konfigurera en anslutnings sträng för Storage-emulatorn
+## <a name="configure-a-connection-string-for-azurite"></a>Konfigurera en anslutnings sträng för Azurite
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Mer information om Storage-emulatorn finns i [använda Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md).
+Mer information om Azurite finns i [använda Azurite-emulatorn för lokal Azure Storage utveckling](../common/storage-use-azurite.md).
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Konfigurera en anslutnings sträng för ett Azure Storage-konto
 
@@ -140,6 +140,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md)
+* [Använd Azurite-emulatorn för lokal Azure Storage utveckling](../common/storage-use-azurite.md)
 * [Azure Storage Explorer](storage-explorers.md)
 * [Använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md)

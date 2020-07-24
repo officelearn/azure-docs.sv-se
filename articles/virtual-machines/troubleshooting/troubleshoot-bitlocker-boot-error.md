@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132948"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088541"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en virtuell Azure-dator
 
@@ -28,7 +28,7 @@ ms.locfileid: "86132948"
 
 ## <a name="symptom"></a>Symptom
 
- En virtuell Windows-dator startar inte. När du kontrollerar skärm bilderna i fönstret [Boot Diagnostics](../windows/boot-diagnostics.md) visas något av följande fel meddelanden:
+ En virtuell Windows-dator startar inte. När du kontrollerar skärm bilderna i fönstret [Boot Diagnostics](./boot-diagnostics.md) visas något av följande fel meddelanden:
 
 - Anslut USB-drivrutinen som har BitLocker-nyckeln
 
@@ -48,7 +48,7 @@ Lös problemet genom att stoppa och frigöra den virtuella datorn och sedan star
 Om den här metoden inte löser problemet följer du dessa steg för att återställa BEK-filen manuellt:
 
 1. Ta en ögonblicks bild av system disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
-2. [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md). Om du vill köra kommandot [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) i steg 7 måste **BitLocker-diskkryptering** funktionen vara aktive rad i den virtuella återställnings datorn.
+2. [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md). Om du vill köra kommandot [manage-bde](/windows-server/administration/windows-commands/manage-bde) i steg 7 måste **BitLocker-diskkryptering** funktionen vara aktive rad i den virtuella återställnings datorn.
 
     När du ansluter en hanterad disk kan du få ett fel meddelande om att "innehåller krypterings inställningar och inte kan användas som en data disk". I den här situationen kör du följande skript för att försöka ansluta disken:
 
@@ -70,7 +70,7 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
     ```
      Det går inte att ansluta en hanterad disk till en virtuell dator som har återställts från en BLOB-avbildning.
 
-3. När disken är ansluten gör du en fjärr skrivbords anslutning till den virtuella återställnings datorn så att du kan köra vissa Azure PowerShell skript. Kontrol lera att du har den [senaste versionen av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installerad på den virtuella återställnings datorn.
+3. När disken är ansluten gör du en fjärr skrivbords anslutning till den virtuella återställnings datorn så att du kan köra vissa Azure PowerShell skript. Kontrol lera att du har den [senaste versionen av Azure PowerShell](/powershell/azure/) installerad på den virtuella återställnings datorn.
 
 4. Öppna en förhöjd Azure PowerShell-session (kör som administratör). Kör följande kommandon för att logga in på Azure-prenumerationen:
 

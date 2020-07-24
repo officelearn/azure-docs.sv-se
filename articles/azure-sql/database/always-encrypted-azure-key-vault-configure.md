@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087972"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
 
@@ -45,7 +45,7 @@ Följ stegen i den här artikeln och lär dig hur du konfigurerar Always Encrypt
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 eller senare.
 - [.NET Framework 4,6](https://msdn.microsoft.com/library/w0x726c2.aspx) eller senare (på klient datorn).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](/powershell/azure/overview) eller [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure PowerShell](/powershell/azure/) eller [Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="enable-client-application-access"></a>Aktivera åtkomst till klient program
 
@@ -606,7 +606,7 @@ När databasen har kon figurer ATS för att använda Always Encrypted kanske du 
 ## <a name="related-information"></a>Relaterad information
 
 - [Always Encrypted (klient utveckling)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Transparent data kryptering](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Transparent datakryptering](https://msdn.microsoft.com/library/bb934049.aspx)
 - [SQL Server kryptering](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Always Encrypted guiden](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Always Encrypted blogg](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cbec961f6249ebd59324dca1745bfd9e77f5388
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696008"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088180"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Nätverks bandbredd för virtuell dator
 
@@ -55,8 +56,8 @@ Data överföring mellan slut punkter kräver att flera flöden skapas förutom 
 
 Idag stöder Azure Networking stack 250 000 totala nätverks flöden med höga prestanda för virtuella datorer med mer än 8 CPU-kärnor och 100 000 totala flöden med höga prestanda för virtuella datorer med färre än 8 CPU-kärnor. Tidigare minskade nätverks prestandan på ett smidigt sätt för ytterligare flöden upp till en hård gräns på 500 000 totala flöden, 250 000 inkommande och 250 000 utgående, efter vilken ytterligare flöden har släppts.
 
-||Virtuella datorer med <8 CPU-kärnor|Virtuella datorer med 8 CPU-kärnor|
-|---|---|---|
+| Prestanda nivå | Virtuella datorer med <8 CPU-kärnor | Virtuella datorer med 8 CPU-kärnor |
+| ----------------- | --------------------- | --------------------- |
 |<b>Bästa prestanda</b>|100 000 flöden |250 000 flöden|
 |<b>Försämrade prestanda</b>|Över 100 000 flöden|Över 250 000 flöden|
 |<b>Flödes gräns</b>|500 000 flöden|500 000 flöden|

@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop, personlig Skriv bords typ – Azure
-description: Så här konfigurerar du tilldelnings typen för en virtuell Windows-dator med egen Skriv bords värd.
+title: Windows Virtual Desktop, personlig Skriv bords tilldelning (hösten 2019) – Azure
+description: Lär dig hur du konfigurerar tilldelnings typen för en virtuell Windows-dator (hösten 2019-utgåva) för en egen Skriv bords värd pool.
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 036e144922fcb49c486813b8668d944dd771536e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087194"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurera tilldelnings typen egen Skriv bords värd pool
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-fall-2019-release"></a>Konfigurera tilldelnings typen för den personliga Skriv bords värden (hösten 2019-versionen)
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../configure-host-pool-personal-desktop-assignment-type.md).

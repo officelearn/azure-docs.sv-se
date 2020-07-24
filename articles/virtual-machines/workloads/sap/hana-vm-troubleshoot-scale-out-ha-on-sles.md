@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088316"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och Felsök SAP HANA skalnings-och hög tillgänglighets installation på SLES 12 SP3 
 
@@ -171,7 +172,7 @@ Konfigurations filen för **corosync** måste vara korrekt på varje nod i klust
 
 Innehållet i **corosync. conf** från test systemet är ett exempel.
 
-Det första avsnittet är **totem**, som beskrivs i [kluster installationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), steg 11. Du kan ignorera värdet för **mcastaddr**. Behåll bara den befintliga posten. Posterna för **token** och **konsensus** måste anges i enlighet med [Microsoft Azure SAP HANA-dokumentationen][sles-pacemaker-ha-guide].
+Det första avsnittet är **totem**, som beskrivs i [kluster installationen](./high-availability-guide-suse-pacemaker.md#cluster-installation), steg 11. Du kan ignorera värdet för **mcastaddr**. Behåll bara den befintliga posten. Posterna för **token** och **konsensus** måste anges i enlighet med [Microsoft Azure SAP HANA-dokumentationen][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -278,7 +279,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD-enhet
 
-Hur du konfigurerar en SBD-enhet på en virtuell Azure-dator beskrivs i [SBD-staket](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Hur du konfigurerar en SBD-enhet på en virtuell Azure-dator beskrivs i [SBD-staket](./high-availability-guide-suse-pacemaker.md#sbd-fencing).
 
 Börja med att kontrol lera den virtuella SBD-serverdatorn om det finns ACL-poster för varje nod i klustret. Kör följande kommando på den virtuella SBD-servern:
 
@@ -421,7 +422,7 @@ På den virtuella mål datorn, **HSO-Hana-VM-S2-2** i det här exemplet kan du h
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Kontrol lera att posterna i **/etc/sysconfig/SBD** motsvarar beskrivningen i ställa in [pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Kontrol lera att start inställningen i **/etc/iSCSI/iscsid.conf** är inställd på automatisk.
+Kontrol lera att posterna i **/etc/sysconfig/SBD** motsvarar beskrivningen i ställa in [pacemaker på SUSE Linux Enterprise Server i Azure](./high-availability-guide-suse-pacemaker.md#sbd-fencing). Kontrol lera att start inställningen i **/etc/iSCSI/iscsid.conf** är inställd på automatisk.
 
 Följande poster är viktiga i **/etc/sysconfig/SBD**. Anpassa **ID-** värdet vid behov:
 
@@ -978,4 +979,3 @@ Den sista skärm bilden visar **detalj** avsnittet i en enda över gång. Klustr
 ## <a name="next-steps"></a>Nästa steg
 
 Den här fel söknings guiden beskriver hög tillgänglighet för SAP HANA i en skalbar konfiguration. Förutom-databasen är en annan viktig komponent i ett SAP-landskap den NetWeaver stacken. Lär dig mer om [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer som använder SUSE Enterprise Linux-server][sap-nw-ha-guide-sles].
-

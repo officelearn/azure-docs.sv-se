@@ -2,13 +2,13 @@
 title: Azure Service Bus mått i Azure Monitor | Microsoft Docs
 description: Den här artikeln förklarar hur du använder Azure Monitor för att övervaka Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089693"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
 
@@ -29,17 +29,17 @@ Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna med
 
 Du kan övervaka mått över tid i [Azure Portal](https://portal.azure.com). I följande exempel visas hur du visar lyckade förfrågningar och inkommande begär Anden på konto nivå:
 
-![][1]
+![Skärm bild av sidan övervaka – mått (för hands version) i Azure Portal.][1]
 
 Du kan också komma åt mått direkt via namn området. Det gör du genom att välja ditt namn område och sedan klicka på **mått**. Om du vill visa mått som filtrerats till omfånget för entiteten väljer du entiteten och klickar sedan på **mått**.
 
-![][2]
+![Skärm bild av sidan övervakaren-Metrics (för hands version) filtrerad till entitetens omfång.][2]
 
 För mått som stöder dimensioner måste du filtrera med det önskade dimension svärdet.
 
 ## <a name="billing"></a>Fakturering
 
-Mått och aviseringar på Azure Monitor debiteras per avisering. Dessa avgifter bör vara tillgängliga på portalen när aviseringen är konfigurerad och innan den sparas. 
+Mått och aviseringar på Azure Monitor debiteras per avisering. Dessa avgifter bör vara tillgängliga på portalen när aviseringen har kon figurer ATS och innan den sparas. 
 
 Ytterligare lösningar som inhämtar mått data debiteras direkt av dessa lösningar. Till exempel debiteras du per Azure Storage om du arkiverar mått data till ett Azure Storage konto. Du debiteras också av Log Analytics om du strömmar mått data till Log Analytics för avancerad analys.
 
@@ -56,11 +56,11 @@ Räknar antalet data-och hanterings åtgärder som begärs.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Inkommande förfrågningar| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Slutförda förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Server fel|Antalet begär Anden som inte behandlats på grund av ett fel i tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Användar fel (se följande underavsnitt)|Antalet begär Anden som inte behandlats på grund av användar fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Begränsade begär Anden|Antalet begär Anden som har begränsats eftersom användningen överskreds.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+| Inkommande förfrågningar| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Slutförda förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Server fel|Antalet begär Anden som inte behandlats på grund av ett fel i tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Användar fel (se följande underavsnitt)|Antalet begär Anden som inte behandlats på grund av användar fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Begränsade begär Anden|Antalet begär Anden som har begränsats eftersom användningen överskreds.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 
 ### <a name="user-errors"></a>Användar fel
 
@@ -74,12 +74,13 @@ Följande två typer av fel klassificeras som användar fel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Inkommande meddelanden|Antalet händelser eller meddelanden som skickats till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Utgående meddelanden|Antalet händelser eller meddelanden som har tagits emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-| Meddelanden| Antal meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimension: EntityName |
-| ActiveMessages| Antal aktiva meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimension: EntityName |
-| Meddelanden med obeställbara meddelanden| Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/>Dimension: EntityName |
-| Schemalagda meddelanden| Antal schemalagda meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt  <br/> Dimension: EntityName |
+|Inkommande meddelanden|Antalet händelser eller meddelanden som skickats till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Utgående meddelanden|Antalet händelser eller meddelanden som har tagits emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+| Meddelanden| Antal meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimension: entitetsnamn |
+| Aktiva meddelanden| Antal aktiva meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimension: entitetsnamn |
+| Meddelanden med obeställbara meddelanden| Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/>Dimension: entitetsnamn |
+| Schemalagda meddelanden| Antal schemalagda meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt  <br/> Dimension: entitetsnamn |
+| Storlek | Storleken på en entitet (kö eller ämne) i byte. <br/><br/>Enhet: antal <br/>Sammansättnings typ: genomsnitt <br/>Dimension: entitetsnamn | 
 
 > [!NOTE]
 > Värden för följande mått är tidpunkts värden. Inkommande meddelanden som förbrukas direkt efter den tidpunkten kanske inte återspeglas i dessa mått. 
@@ -92,9 +93,9 @@ Följande två typer av fel klassificeras som användar fel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|ActiveConnections|Antalet aktiva anslutningar i ett namn område samt på en entitet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Öppna anslutningar |Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Stängda anslutningar |Antalet stängda anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|Aktiva anslutningar|Antalet aktiva anslutningar i ett namn område samt på en entitet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Öppna anslutningar |Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Stängda anslutningar |Antalet stängda anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 
 ## <a name="resource-usage-metrics"></a>Användnings statistik för resursanvändningen
 
@@ -107,8 +108,8 @@ Följande två typer av fel klassificeras som användar fel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|CPU-användning per namnrymd|Procent andel CPU-användning för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: EntityName|
-|Minnes storleks användning per namnrymd|Den procentuella minnes användningen för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: EntityName|
+|CPU-användning per namnrymd|Procent andel CPU-användning för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: entitetsnamn|
+|Minnes storleks användning per namnrymd|Den procentuella minnes användningen för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: entitetsnamn|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
@@ -116,7 +117,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
 
 |Dimensions namn|Beskrivning|
 | ------------------- | ----------------- |
-|Entitetsnamnet| Service Bus stöder meddelande enheter under namn området.|
+|Entitetsnamn| Service Bus stöder meddelande enheter under namn området.|
 
 ## <a name="set-up-alerts-on-metrics"></a>Konfigurera aviseringar för mått
 

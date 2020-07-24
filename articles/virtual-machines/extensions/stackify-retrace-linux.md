@@ -14,10 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79253798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088860"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify för att spåra om Linux-Agent
 
@@ -36,7 +37,7 @@ Att spåra är det enda verktyg som tillhandahåller alla följande funktioner i
 
 Det här tillägget innehåller en installations Sök väg för Linux-agenten för spårning. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem 
 

@@ -3,11 +3,12 @@ title: Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure
 description: Aviseringar för tjänst hälsa gör att du kan visa meddelanden om tjänst hälsa som publicerats av Microsoft Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 21416edc95d345eb183030a9b0cccb7529305d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f8297ae708d3f4e7921221f2c4bacee12a7a2b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75748647"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089574"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
 
@@ -29,7 +30,7 @@ Mer information om de olika klasserna för meddelanden om tjänst hälsa finns i
 
     ![Skärm bild av aktivitets loggen övervakare med valda aviseringar](./media/service-notifications/service-health-summary.png)
 
-1. Välj **+ Lägg till aktivitets logg avisering**och konfigurera en avisering för att se till att du får ett meddelande om framtida tjänst meddelanden. Mer information finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Välj **+ Lägg till aktivitets logg avisering**och konfigurera en avisering för att se till att du får ett meddelande om framtida tjänst meddelanden. Mer information finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](./alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

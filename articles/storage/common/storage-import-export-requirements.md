@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 877d1442c346b321562cb396a77224a6b40c7df2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512421"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087245"
 ---
 # <a name="azure-importexport-system-requirements"></a>Systemkrav för Azure Import/Export
 
@@ -50,7 +50,7 @@ Mer information om lagrings konton finns i [Översikt över Azure Storage-konton
 Varje jobb kan användas för att överföra data till eller från ett enda lagrings konto. Med andra ord kan ett enda import/export-jobb inte omfatta över flera lagrings konton. Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 
 > [!IMPORTANT]
-> Azure import export-tjänsten stöder inte lagrings konton där funktionen för [Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)   har Aktiver ATS. 
+> För lagrings konton där funktionen [Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)   har Aktiver ATS använder du inställningen **Tillåt betrodda Microsoft-tjänster...** om du vill [Aktivera import](/storage-network-security.md) /export-tjänsten för att importera/exportera data till/från Azure.
 
 ## <a name="supported-storage-types"></a>Lagringstyper som stöds
 

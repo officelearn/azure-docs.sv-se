@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089557"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning från Distributionshanteraren för Azure Site Recovery 
 
@@ -119,7 +119,7 @@ Så här lägger du till virtuella datorer manuellt:
 
     f. **Varaktighet för varje DR-test (dagar)**
 
-    ex. **OS-typ**
+    ex. **Typ av operativsystem**
 
     h. **Dataredundans**
 
@@ -167,16 +167,16 @@ usaöstra, usaöstra2, usavästra, usacentrala, usanorracentrala, usasödracentr
 ## <a name="supported-currencies"></a>Valutor som stöds
 Distributionshanteraren för Site Recovery kan generera kostnadsrapporten i någon av följande valutor.
 
-|Valuta|Name||Valuta|Name||Valuta|Name|
+|Valuta|Namn|Valuta|Namn|Valuta|Namn|
 |---|---|---|---|---|---|---|---|
-|ARS|Argentinska pesos ($)||AUD|Australiensiska dollar ($)||BRL|Brasilianska real (R$)|
-|CAD|Kanadensiska dollar ($)||CHF|Schweiziska franc (chf)||DKK|Danska kronor (kr)|
-|EUR|Euro (€)||GBP|Brittiska pund (£)||HKD|Hongkongdollar (HK$)|
-|IDR|Indonesiska rupier (Rp)||INR|Indiska rupier (₹)||JPY|Japanska yen (¥)|
-|KRW|Koreanska won (₩)||MXN|Mexikanska Peso (MX$)||MYR|Malaysiska Ringgit (RM$)|
+|ARS|Argentinska pesos ($)|AUD|Australiensiska dollar ($)|BRL|Brasilianska real (R$)|
+|CAD|Kanadensiska dollar ($)|CHF|Schweiziska franc (chf)|DKK|Danska kronor (kr)|
+|EUR|Euro (€)|GBP|Brittiska pund (£)|HKD|Hongkongdollar (HK$)|
+|IDR|Indonesiska rupier (Rp)|INR|Indiska rupier (₹)|JPY|Japanska yen (¥)|
+|KRW|Koreanska won (₩)|MXN|Mexikanska Peso (MX$)|MYR|Malaysiska Ringgit (RM$)|
 |NOK|Norska kronor (kr)||NZD|Nya zeeländska dollar ($)||RUB|Rysk rubel (руб)|
-|SAR|Saudiarabiska riyal (SR)||SEK|Svenska kronor (kr)||TWD|Taiwanesiska dollar (NT$)|
-|TRY|Turkiska lira (TL)||USD| Amerikanska dollar ($)||ZAR|Sydafrikanska rand (R)|
+|SAR|Saudiarabiska riyal (SR)|SEK|Svenska kronor (kr)|TWD|Taiwanesiska dollar (NT$)|
+|TRY|Turkiska lira (TL)|USD| Amerikanska dollar ($)|ZAR|Sydafrikanska rand (R)|
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om hur du skyddar [virtuella Hyper-V-datorer till Azure med Site Recovery](hyper-v-azure-tutorial.md).

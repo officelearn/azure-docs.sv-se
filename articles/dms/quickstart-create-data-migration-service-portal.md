@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 07/21/2020
+ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087789"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Snabbstart: Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen
 
@@ -30,6 +30,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 Öppna webbläsaren, gå till [Microsoft Azure-portalen](https://portal.azure.com/) och logga in genom att ange dina autentiseringsuppgifter.
 
 Standardvyn är instrumentpanelen.
+
+> [!NOTE]
+> Du kan skapa upp till 10 instanser av DMS per prenumeration. Om du behöver ett större antal instanser skapar du ett support ärende.
 
 ## <a name="register-the-resource-provider"></a>Registrera resursprovidern
 
@@ -53,7 +56,7 @@ Registrera resursprovidern Microsoft.DataMigration innan du skapar din första i
 
     - Välj ett **tjänst namn** som är minnes värt och unikt för att identifiera din instans av Azure Database migration service.
     - Välj den Azure-**prenumeration** där du vill skapa instansen.
-    - Välj en befintlig **resursgrupp** eller skapa en ny.
+    - Välj en befintlig **resurs grupp** eller skapa en ny.
     - Välj den **plats** som ligger närmast din käll- eller målserver.
     - Välj ett befintligt **virtuellt nätverk** eller skapa ett.
 

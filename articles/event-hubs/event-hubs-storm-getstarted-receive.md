@@ -3,12 +3,12 @@ title: 'Snabb start: ta emot händelser med Apache Storm-Azure Event Hubs'
 description: 'Snabb start: den här artikeln innehåller information om hur du tar emot händelser från Azure Event Hubs att använda Apache Storm.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087585"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Snabb start: ta emot händelser från Event Hubs med Apache Storm
 
@@ -16,7 +16,7 @@ ms.locfileid: "85315353"
 
 Mer information om Event Hubs ta emot mönster finns i [Event Hubs översikt][Event Hubs overview].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar med snabb starten **skapar du ett Event Hubs-namnområde och en Event Hub**. Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Skapa projekt och Lägg till kod
@@ -234,11 +234,11 @@ I den här självstudien används en [HDInsight Storm][HDInsight Storm] -install
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Översikt över Event Hubs][Event Hubs overview]
-* [Skapa en händelsehubb](event-hubs-create.md)
+* [Skapa en händelsehubben](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
 [HDInsight Storm med Event Hub-exempel]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 

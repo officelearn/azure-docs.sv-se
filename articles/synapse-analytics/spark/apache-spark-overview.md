@@ -1,5 +1,5 @@
 ---
-title: Vad är Apache Spark i Azure Synapse Analytics?
+title: Vad är Apache Spark
 description: Den här artikeln innehåller en introduktion till Apache Spark i Azure Synapse Analytics och de olika scenarier där du kan använda Spark.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 0fce972b6b0ceb426ab4b08ab26e664d068af16f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476792"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089285"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Vad är Apache Spark i Azure Synapse Analytics
 
@@ -32,11 +32,11 @@ Apache Spark innehåller primitiver för minnes intern kluster användning. Ett 
 
 Spark-pooler i Azure Synapse erbjuder en fullständigt hanterad Spark-tjänst. Fördelarna med att skapa en spark-pool i Synapse Analytics visas här.
 
-| Funktion | Description |
+| Funktion | Beskrivning |
 | --- | --- |
 | Hastighet och effektivitet |Spark-instanser startar på ungefär 2 minuter för färre än 60 noder och ungefär 5 minuter för fler än 60 noder. Instansen stängs av som standard, 5 minuter efter det senaste jobbet som utförts om det inte hålls alivet av en Notebook-anslutning. |
 | Enkelt att skapa |Du kan skapa en ny Spark-pool i Azure Synapse på bara några minuter med hjälp av Azure Portal, Azure PowerShell eller Synapse Analytics .NET SDK. Se [Kom igång med Spark-pooler i Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
-| Användbarhet |Synapse Analytics innehåller en anpassad Notebook som härletts från [nteract](https://nteract.io/). Du kan de här anteckningsböckerna för interaktiv databehandling och visualisering.|
+| Enkel att använda |Synapse Analytics innehåller en anpassad Notebook som härletts från [nteract](https://nteract.io/). Du kan de här anteckningsböckerna för interaktiv databehandling och visualisering.|
 | REST API:er |Spark i Synapse Analytics innehåller [Apache livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), en REST API-baserad Spark-jobbiljett för att skicka och övervaka jobb på distans. |
 | Stöd för Azure Data Lake Storage generation 2| Spark-pooler i Azure Synapse kan använda Azure Data Lake Storage generation 2 och BLOB Storage. Mer information om Data Lake Storage finns i [Översikt över Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
 | Integrering med tredje parts IDEs | Azure Synapse tillhandahåller ett IDE-plugin-program för [JetBrains "IntelliJ-idé](https://www.jetbrains.com/idea/) som är användbar för att skapa och skicka program till en spark-pool. |

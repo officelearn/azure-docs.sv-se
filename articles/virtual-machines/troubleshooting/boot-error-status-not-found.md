@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664993"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088673"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Felsöka Windows Boot Manager-fel-0xC0000225 "status hittades inte"
  
@@ -26,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där fel kod 0xC000022
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att det inte gick att starta ett Windows-fel med status koden *0xc0000225*.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att det inte gick att starta ett Windows-fel med status koden *0xc0000225*.
 
 Filen som är associerad med den här felkoden meddelar dig vilka steg du ska vidta för att lösa problemet. Leta upp **filen:** avsnittets text för att fastställa rätt åtgärds riktning.
 
@@ -89,7 +90,7 @@ En skadad registrerings data fil kan bero på att:
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 1. Anslut till den virtuella reparations datorn med hjälp av Anslutning till fjärrskrivbord.
 
 ### <a name="select-a-solution"></a>Välj en lösning
@@ -177,7 +178,7 @@ Om den här informations insamlingen ger ett fel där det inte finns någon **\b
          sel disk <DISK #>
          ```
 
-         Följande bild visar resultatet av att visa och välja en disk. Disk 0 (127 GB | Online), disk 1 (32 GB | Online) och disk 2 (127 GB | Online) visas, med disk 2, som väljs med hjälp av kommandot `sel disk 2` .
+         Följande bild visar resultatet av att visa och välja en disk. Disk 0 (127 GB/online), disk 1 (32 GB/online) och disk 2 (127 GB/online) visas, med disk 2 som väljs med hjälp av kommandot `sel disk 2` .
 
          ![Resultatet av registreringen och sedan att välja en disk. Disk 0 (127 GB | Online), disk 1 (32 GB | Online) och disk 2 (127 GB | Online) visas, med disk 2 som väljs.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -188,7 +189,7 @@ Om den här informations insamlingen ger ett fel där det inte finns någon **\b
          sel partition <PARTITION #>
          ```
 
-         Följande bild visar resultatet av att visa och välja en partition. Partition 1 (reserverad | 16 MB), partition 2 (system | 100 MB) och partition 3 (primär | 126 GB) visas, med partition 2 som väljs med hjälp av kommandot `sel part 2` .
+         Följande bild visar resultatet av att visa och välja en partition. Partition 1 (reserverad/16 MB), partition 2 (system/100 MB) och partition 3 (primär/126 GB) visas, med partition 2 som väljs med hjälp av kommandot `sel part 2` .
 
          ![Resultatet av registreringen och sedan välja en partition. Partition 1 (reserverad | 16 MB), partition 2 (system | 100 MB) och partition 3 (primär | 126 GB) visas, med partition 2 som väljs.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -302,4 +303,4 @@ När den här uppgiften är slutförd fortsätter du att [Aktivera samlings kons
    
 ### <a name="rebuild-the-vm"></a>Återskapa den virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att återskapa den virtuella datorn.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att återskapa den virtuella datorn.

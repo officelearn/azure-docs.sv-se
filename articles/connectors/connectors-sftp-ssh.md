@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807753"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087891"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -23,6 +23,7 @@ Om du vill automatisera aktiviteter som övervakar, skapar, skickar och tar emot
 > SFTP-SSH-anslutningen har för närvarande inte stöd för dessa SFTP-servrar:
 > 
 > * IBM-DataPower
+> * MessageWay
 > * Säker MFT för OpenText
 > * GXS för OpenText
 
@@ -38,7 +39,7 @@ Du kan använda utlösare som övervakar händelser på din SFTP-server och gör
 
 Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns i avsnittet [jämföra SFTP – SSH och SFTP](#comparison) senare i det här avsnittet.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 * SFTP – SSH-åtgärder som stöder [segment](../logic-apps/logic-apps-handle-large-messages.md) hantering kan hantera filer på upp till 1 GB, medan SFTP-SSH-åtgärder som inte stöder segment hantering kan hantera filer upp till 50 MB. Även om standard segment storleken är 15 MB, kan den här storleken dynamiskt ändra, med start från 5 MB och gradvis öka till 50 MB, baserat på faktorer som nätverks fördröjning, Server svars tid och så vidare.
 
@@ -51,18 +52,18 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 
   | Åtgärd | Segment stöd | Åsidosätt stöd för segment storlek |
   |--------|------------------|-----------------------------|
-  | **Kopiera fil** | No | Ej tillämpligt |
+  | **Kopiera fil** | No | Inte tillämpligt |
   | **Skapa fil** | Ja | Ja |
-  | **Skapa mapp** | Ej tillämpligt | Ej tillämpligt |
-  | **Ta bort panel** | Ej tillämpligt | Ej tillämpligt |
-  | **Extrahera arkiv till mapp** | Ej tillämpligt | Ej tillämpligt |
+  | **Skapa mapp** | Inte tillämpligt | Inte tillämpligt |
+  | **Ta bort panel** | Inte tillämpligt | Inte tillämpligt |
+  | **Extrahera arkiv till mapp** | Inte tillämpligt | Inte tillämpligt |
   | **Hämta fil innehåll** | Ja | Ja |
   | **Hämta fil innehåll med hjälp av sökväg** | Ja | Ja |
-  | **Hämta filens metadata** | Ej tillämpligt | Ej tillämpligt |
-  | **Hämta metadata för fil med hjälp av sökväg** | Ej tillämpligt | Ej tillämpligt |
-  | **Lista filer i mappen** | Ej tillämpligt | Ej tillämpligt |
-  | **Byt namn på fil** | Ej tillämpligt | Ej tillämpligt |
-  | **Uppdatera fil** | No | Ej tillämpligt |
+  | **Hämta filens metadata** | Inte tillämpligt | Inte tillämpligt |
+  | **Hämta metadata för fil med hjälp av sökväg** | Inte tillämpligt | Inte tillämpligt |
+  | **Lista filer i mappen** | Inte tillämpligt | Inte tillämpligt |
+  | **Byt namn på fil** | Inte tillämpligt | Inte tillämpligt |
+  | **Uppdatera fil** | No | Inte tillämpligt |
   ||||
 
 * SFTP – SSH-utlösare stöder inte meddelande segment. När du begär fil innehåll väljer utlösare endast filer som är 15 MB eller mindre. Om du vill hämta filer som är större än 15 MB följer du detta mönster i stället:
@@ -85,7 +86,7 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 * Cachelagrar anslutningen till SFTP-servern *i upp till 1 timme*, vilket förbättrar prestandan och minskar antalet försök att ansluta till servern. Om du vill ställa in varaktigheten för den här funktionen för cachelagring redigerar du egenskapen [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) i SSH-konfigurationen på din SFTP-server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -136,7 +137,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Ett exempel:
+   Exempel:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -156,7 +157,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
 1. Spara den privata nyckel filen med `.pem` fil namns tillägget.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 I det här avsnittet beskrivs vad du bör tänka på vid granskningen av kopplingens utlösare och åtgärder.
 

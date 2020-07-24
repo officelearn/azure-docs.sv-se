@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970815"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089710"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
@@ -59,8 +59,9 @@ När du har konfigurerat kan du inte ändra den plats där dina data lagras. Om 
 
 Om du vill publicera servrar till Security Center klickar **du på gå till Azure Security Center till onboard-servrar** från Microsoft Defender ATP-serverns onboarding.
 
-1. I området **onboarding** väljer eller skapar du en arbets yta där data ska lagras. <br>
-2. Om du inte kan se alla dina arbets ytor kan det bero på otillräcklig behörighet, se till att din arbets yta är inställd på Azure Security Standard-nivån. Mer information finns i [Uppgradera till Security Center standard nivå för ökad säkerhet](security-center-pricing.md).
+1. I området **onboarding** väljer eller skapar du en arbets yta där data ska lagras.
+
+2. Om du inte kan se alla dina arbets ytor kan det bero på otillräcklig behörighet, se till att din arbets yta är inställd på Azure Security Standard-pris nivån. Mer information finns i [Uppgradera till Security Center standard nivå för ökad säkerhet](security-center-pricing.md).
     
 3. Välj **Lägg till servrar** för att visa instruktioner om hur du installerar Log Analytics agenten. 
 

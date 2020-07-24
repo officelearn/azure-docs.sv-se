@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera Oracle online till Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från Oracle lokalt eller på virtuella datorer för att Azure Database for PostgreSQL genom att använda Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087772"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudie: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
 
@@ -42,7 +43,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs hur du utför en online-migrering från Oracle till Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -185,7 +186,7 @@ Du kan köra ora2pg för att exportera varje databas objekt i. SQL-filer. Du kan
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-Ett exempel:
+Exempel:
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -238,7 +239,7 @@ Så här kommer du igång:
 
     Om schema namnet i Oracle-källan och matchar det i Azure Database for PostgreSQL, *skapar Azure Database migration service tabell schemat med samma Skift läge som i målet*.
 
-    Ett exempel:
+    Exempel:
 
     | Käll-Oracle-schema | Mål PostgreSQL Database. schema | DMS skapade schema. tabell. Column |
     | ------------- | ------------- | ------------- |

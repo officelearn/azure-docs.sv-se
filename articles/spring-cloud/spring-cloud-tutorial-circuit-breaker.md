@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.custom: devx-track-java
+ms.openlocfilehash: 8cc8f347330904bfab980b79cf5c5f351ce16629
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089489"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Använda krets brytarens instrument panel med Azure våren Cloud
 Våren [Cloud Netflix turbin](https://github.com/Netflix/Turbine) används ofta för att aggregera flera [hystrix](https://github.com/Netflix/Hystrix) -dataströmmar så att strömmar kan övervakas i en enda vy med hjälp av hystrix-instrumentpanelen. Den här självstudien visar hur du använder dem i Azure våren Cloud.

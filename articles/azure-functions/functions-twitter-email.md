@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a7cdeb7bfde7396026b782382b34228c309b37d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088153"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -32,13 +32,13 @@ I den här guiden får du lära dig att:
 > * Anslut logikappen till funktionen.
 > * Skicka ett e-postmeddelande baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Ett aktivt [Twitter](https://twitter.com/)-konto. 
 + Ett [Outlook.com](https://outlook.com/)-konto (för att skicka meddelanden).
 
 > [!NOTE]
-> Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsningar i Logic Apps. Om du har ett Gmail-konto kan du använda Gmail-anslutningen med endast vissa Google-godkända appar och tjänster, eller så kan du [skapa en Google-klient som används för autentisering i Gmail-anslutningen](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+> Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsningar i Logic Apps. Om du har ett Gmail-konto kan du använda Gmail-anslutningen med endast vissa Google-godkända appar och tjänster, eller så kan du [skapa en Google-klient som används för autentisering i Gmail-anslutningen](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 + För den här artikeln förutsätts de resurser som skapades i avsnittet om hur du [skapar din första funktion i Azure-portalen](functions-create-first-azure-function.md).
 Om du inte redan har gjort detta måste du slutföra stegen för att skapa din funktionsapp.
@@ -55,11 +55,11 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
 
     ![Skapa Cognitive-resurssida](media/functions-twitter-email/01-create-text-analytics.png)
 
-    | Inställningen      |  Föreslaget värde   | Beskrivning                                        |
+    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | --- |
     | **Namn** | MyCognitiveServicesAccnt | Välj ett unikt kontonamn. |
-    | **Position** | USA, västra | Använd platsen som är närmast dig. |
-    | **Pris nivå** | F0 | Börja med den lägsta nivån. Om du får slut på anrop skalar du till en högre nivå.|
+    | **Plats** | USA, västra | Använd platsen som är närmast dig. |
+    | **Prisnivå** | F0 | Börja med den lägsta nivån. Om du får slut på anrop skalar du till en högre nivå.|
     | **Resursgrupp** | myResourceGroup | Använd samma resursgrupp för alla tjänster i självstudien.|
 
 4. Klicka på **Skapa** för att skapa resursen. 
@@ -142,11 +142,11 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
 
     ![Skapa logikapp i Azure-portalen](./media/functions-twitter-email/08-logic-app-create.png)
 
-    | Inställningen      |  Föreslaget värde   | Beskrivning                                        |
+    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | ----------------- | ------------ | ------------- |
     | **Namn** | TweetSentiment | Välj ett lämpligt namn för din app. |
     | **Resursgrupp** | myResourceGroup | Välj samma befintliga resursgrupp som tidigare. |
-    | **Position** | USA, östra | Välj en plats i närheten av dig. |    
+    | **Plats** | East US | Välj en plats i närheten av dig. |    
 
 4. När du har angett rätt inställningsvärden klickar du på **Skapa** för att skapa logikappen. 
 
@@ -166,7 +166,7 @@ Skapa först en anslutning till ditt Twitter-konto. Logikappen söker efter twee
 
     ![Twitter-anslutningsinställningar](media/functions-twitter-email/10-tweet-settings.png)
 
-    | Inställningen      |  Föreslaget värde   | Beskrivning                                        |
+    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | ----------------- | ------------ | ------------- |
     | **Genomsöka text** | #Azure | Använd en hashtagg som är tillräckligt populär för att generera nya tweets i det valda intervallet. När du använder den kostnadsfria nivån och din hashtagg är för populär kan du snabbt förbruka transaktionskvoten i din Cognitive Services-API. |
     | **Intervall** | 15 | Tiden som går mellan Twitter-begäran, i frekvensenheter. |
@@ -237,10 +237,10 @@ Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när senti
 
     ![Konfigurera e-postmeddelandet för åtgärden skicka ett e-postmeddelande.](media/functions-twitter-email/21-configure-email.png)
     
-| Inställningen      |  Föreslaget värde   | Beskrivning  |
+| Inställning      |  Föreslaget värde   | Beskrivning  |
 | ----------------- | ------------ | ------------- |
 | **Att** | Skriv din e-postadress | E-postadressen som tar emot ett meddelande. |
-| **Subjekt** | Negativt tweetsentiment identifierat  | E-postmeddelandets ämnesrad.  |
+| **Ämne** | Negativt tweetsentiment identifierat  | E-postmeddelandets ämnesrad.  |
 | **Brödtext** | Tweet-text, plats | Klicka på parametrarna **Tweet-text** och **Plats**. |
 
 1. Klicka på **Spara**.
@@ -304,4 +304,3 @@ Gå vidare till nästa självstudie där du får lära dig att skapa en API utan
 > [Skapa ett API utan server med Azure Functions](functions-create-serverless-api.md)
 
 Om du vill veta mer om Logic Apps läser du [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
-

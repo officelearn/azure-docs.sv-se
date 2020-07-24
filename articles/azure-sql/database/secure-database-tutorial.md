@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252924"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092940"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Självstudie: skydda en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database]
 > [!TIP]
 > Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar databasen i Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -52,7 +52,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 - En [Server](logical-servers.md) och en enkel databas
   - Skapa dem med [Azure Portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md)eller [PowerShell](powershell-script-content-guide.md)
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -146,7 +146,7 @@ Information om hur du konfigurerar Azure AD finns i:
 - [Lägga till ditt eget domännamn i Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure har nu stöd för federation med Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrera Azure AD-katalogen](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Hantera Azure AD med hjälp av PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Hantera Azure AD med hjälp av PowerShell](/powershell/azure/?view=azureadps-2.0)
 - [Portar och protokoll som krävs för Hybrid identitet](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Hantera databasåtkomst

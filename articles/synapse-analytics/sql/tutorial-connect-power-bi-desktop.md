@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: ansluta SQL på begäran till Power BI Desktop & Skapa rapport'
+title: Anslut SQL på begäran till Power BI Desktop & Skapa rapport
 description: I den här självstudien får du lära dig hur du ansluter SQL på begäran i Azure Synapse Analytics till Power BI Desktop och skapar en demo rapport som baseras på en vy.
 services: synapse analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2f4a1ab6dc2f5cb8576931ea5fc1da85f5597624
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213235"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089183"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran med Power BI Desktop & skapa en rapport
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -27,7 +27,7 @@ I de här självstudierna får du lära dig att
 > - Anslut Power BI Desktop till SQL på begäran
 > - Skapa rapport baserat på vy
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 

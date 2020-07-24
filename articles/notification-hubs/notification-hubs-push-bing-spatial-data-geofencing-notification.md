@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116923"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Självstudie: skicka platsbaserade push-meddelanden med Notification Hubs data och Bing-spatialdata
 
@@ -63,7 +63,7 @@ I den här självstudien gör du följande:
 
     Pipe-filen representerar denna entitet:
 
-    ![Skärm bild av en AP av San Francisco-Waterfront med en röd polygon som visar en del av Piers.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Skärm bild av en karta över San Francisco-Waterfront med en röd polygon som visar en del av Piers.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Gör följande på sidan **Överför en datakälla**:
    1. Välj **pipe** som **Dataformat**.
    2. Bläddra och välj den `NotificationHubGeofence.pipe`-fil som du skapade i föregående steg.
@@ -164,7 +164,7 @@ I den här självstudien gör du följande:
     }
     ```
 
-    Mer information om hur du hämtar användarens plats i UWP-appar finns i[Hämta användarens plats](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    Mer information om hur du hämtar användarens plats i UWP-appar finns i[Hämta användarens plats](/windows/uwp/maps-and-location/get-location).
 5. Om du vill kontrollera att platsinsamlingen faktiskt fungerar, kan du öppna din huvudsidas kodsida (`MainPage.xaml.cs`). Skapa en ny händelsehanterare för `Loaded`-händelsen i `MainPage`-konstruktorn.
 
     ```csharp
@@ -393,7 +393,7 @@ I den här självstudien gör du följande:
 
 Det finns några steg som du kan behöva följa för att göra lösningen produktionsklar.
 
-1. Först och främst måste du se till att geofence-områdena är dynamiska. Detta kräver lite extraarbete med Bing-API:iet så att det ska gå att ladda upp nya gränser inom den befintliga datakällan. Mer information finns i [Bing Spatial Data Services API-dokumentationen](https://msdn.microsoft.com/library/ff701734.aspx).
+1. Först och främst måste du se till att geofence-områdena är dynamiska. Detta kräver lite extraarbete med Bing-API:iet så att det ska gå att ladda upp nya gränser inom den befintliga datakällan. Mer information finns i [Bing Spatial Data Services API-dokumentationen](/bingmaps/spatial-data-services/).
 2. Och för det andra: När du jobbar med att säkerställa att leveransen görs till rätt deltagare kanske du vill rikta in dig på dem med hjälp av [taggning](notification-hubs-tags-segment-push-message.md).
 
-Lösningen i den här självstudien beskriver ett scenario där du kan ha en stor mängd olika målplattformar. Därför begränsar den inte denna geofencing till systemspecifika funktioner. Men det bör understrykas att UWP har inbyggda, [kraftfulla funktioner för att detektera geofence-områden](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+Lösningen i den här självstudien beskriver ett scenario där du kan ha en stor mängd olika målplattformar. Därför begränsar den inte denna geofencing till systemspecifika funktioner. Men det bör understrykas att UWP har inbyggda, [kraftfulla funktioner för att detektera geofence-områden](/windows/uwp/maps-and-location/set-up-a-geofence).

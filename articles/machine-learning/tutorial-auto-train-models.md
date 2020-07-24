@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 595440dc727f3faf1fa475266825a671f00d9153
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 2e22ac4601384508869ff43d473dd191f405cd43
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092310"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du *självstudierna/regression-automl-NYC-taxi-data/regression-Automated-ml. ipynb* Notebook med samma Notebook-Server.
@@ -310,7 +310,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>0,50</td>
       <td>0.3</td>
-      <td>1.75</td>
+      <td>1,75</td>
       <td>0,00</td>
       <td>ndet</td>
       <td>9,55</td>
@@ -598,7 +598,7 @@ green_taxi_df.head(10)
       <td>– 73,95</td>
       <td>...</td>
       <td>0.3</td>
-      <td>1.75</td>
+      <td>1,75</td>
       <td>0,00</td>
       <td>ndet</td>
       <td>9,55</td>
@@ -773,7 +773,7 @@ green_taxi_df.describe()
       <th>75 %</th>
       <td>2,00</td>
       <td>1,00</td>
-      <td>3.60</td>
+      <td>3,60</td>
       <td>– 73,92</td>
       <td>40,80</td>
       <td>– 73,91</td>
@@ -863,12 +863,12 @@ För att träna en modell automatiskt gör du följande:
 
 ### <a name="define-training-settings"></a>Definiera utbildnings inställningar
 
-Definiera experiment parametern och modell inställningarna för träning. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med dessa standardinställningar tar cirka 5-20 min, men om du vill ha en kortare körnings tid minskar du `experiment_timeout_minutes` parametern.
+Definiera experiment parametern och modell inställningarna för träning. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med dessa standardinställningar tar cirka 5-20 min, men om du vill ha en kortare körnings tid minskar du `experiment_timeout_hours` parametern.
 
 |Egenskap| Värde i den här självstudien |Beskrivning|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
-|**experiment_timeout_minutes**|20|Den maximala tid i minuter som alla iterationer kombineras kan ta innan experimentet avslutas.|
+|**experiment_timeout_hours**|0.3|Maximal tid i timmar som alla iterationer kombineras kan ta innan experimentet avslutas.|
 |**enable_early_stopping**|Sant|Flagga för att aktivera tidig uppsägning om poängen inte förbättras på kort sikt.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
 |**funktionalisering**| disk | Genom att använda **Auto**kan experimentet Förbearbeta indata (hantering av saknade data, konvertera text till numeriskt osv.)|
@@ -880,7 +880,7 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "experiment_timeout_minutes": 20,
+    "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
     "featurization": 'auto',
@@ -984,7 +984,9 @@ print(fitted_model)
 Använd den bästa modellen för att köra förutsägelser på test data uppsättningen för att förutse taxi-priser. Funktionen `predict` använder den bästa modellen och förutsäger värdena för y, **rese kostnad**, från `x_test` data uppsättningen. Skriv ut de 10 första förutsagda kostnadsvärdena från `y_predict`.
 
 ```python
-y_predict = fitted_model.predict(x_test.values)
+y_test = x_test.pop("totalAmount")
+
+y_predict = fitted_model.predict(x_test)
 print(y_predict[:10])
 ```
 

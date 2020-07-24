@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: cd4128328ac0c3e9f03ecc80abb6e7b17537b2ee
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086803"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -497,7 +497,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Skapa en anpassad roll för stängsel-agenten
 
-Följ själv studie kursen för att [skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Följ själv studie kursen för att [skapa en anpassad Azure-roll med hjälp av Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Din JSON-fil bör se ut ungefär så här:
 
@@ -951,17 +951,17 @@ Vi kommer att följa guiden för att [skapa tillgänglighets grupps resurserna i
 
 1. Använd något av följande kommandon som baseras på den miljö som valdes tidigare för att skapa resursen `ag_cluster` i tillgänglighets gruppen `ag1` .
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. Kontrol lera din resurs och se till att de är online innan du fortsätter med följande kommando:
 
@@ -1203,7 +1203,7 @@ sudo pcs stonith fence <VM3> --debug
 > [!NOTE]
 > Avgränsnings åtgärden tar som standard noden av och sedan på. Om du bara vill ta noden offline använder du alternativet `--off` i kommandot.
 
-Du bör få följande utdata:
+Du bör se följande utdata:
 
 ```output
 [<username>@<VM1> ~]$ sudo pcs stonith fence <VM3> --debug

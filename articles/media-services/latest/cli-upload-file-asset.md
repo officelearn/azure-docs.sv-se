@@ -14,20 +14,20 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68dbeba62f5b59e2c047c7f403e7c50e7325e8ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80383012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092124"
 ---
 # <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Azure CLI-exempel: Ladda upp en lokal fil till en behållare
 
 Azure CLI-skriptet i den här artikeln visar hur du laddar upp en lokal fil till en lagringscontainer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+* [Skapa ett Media Services-konto](./create-account-howto.md).
 * Granska [Hantera till gångar](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]

@@ -4,12 +4,12 @@ description: Övervaka webb program för tillgänglighet, prestanda och användn
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: d3d1d8aafaea8dcb9e67b842acfbd493e02e4854
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 955988cd16af5269c474061cf60fb18a040909e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091240"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
@@ -18,7 +18,7 @@ Med [Application Insights](../../azure-monitor/app/app-insights-overview.md) kan
 Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in med ett Microsoft-konto som du kan ha för Windows, Xbox Live eller andra Microsoft-molntjänster. Ditt team kan ha en organisations prenumeration på Azure: Be ägaren att lägga till dig med hjälp av din Microsoft-konto.
 
 > [!NOTE]
-> Vi *rekommenderar starkt* att du använder paketet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) och tillhör ande [instruktioner för alla](../../azure-monitor/app/worker-service.md) konsol program. Det här paketet [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) är mål och kan därför användas i .net Core 2,1 eller högre, och .NET Framework 4.7.2 eller högre.
+> Vi *rekommenderar starkt* att du använder paketet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) och tillhör ande [instruktioner för alla](../../azure-monitor/app/worker-service.md) konsol program. Det här paketet [`NetStandard2.0`](/dotnet/standard/net-standard) är mål och kan därför användas i .net Core 2,1 eller högre, och .NET Framework 4.7.2 eller högre.
 
 ## <a name="getting-started"></a>Komma igång
 

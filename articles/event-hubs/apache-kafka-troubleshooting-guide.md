@@ -3,17 +3,18 @@ title: Felsök problem med Azure Event Hubs för Apache Kafka
 description: Den här artikeln visar hur du felsöker problem med Azure Event Hubs för Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090577"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka fel söknings guide för Event Hubs
 Den här artikeln innehåller fel söknings tips för problem som du kan köra i när du använder Event Hubs för Apache Kafka. 
 
 ## <a name="server-busy-exception"></a>Undantag för Server upptagen
-Du kan få ett inaktivt undantag på servern på grund av Kafka-begränsning. Med AMQP-klienter returnerar Event Hubs omedelbart en **Server upptagen** undantag vid tjänst begränsning. Det motsvarar meddelandet "försök igen senare". I Kafka försenas meddelanden innan de slutförs. Fördröjnings längden returneras i millisekunder som `throttle_time_ms` i svaret på framställning/hämtning. I de flesta fall loggas inte dessa fördröjda förfrågningar som ServerBusy-undantag på Event Hubs instrument paneler. I stället bör svarets `throttle_time_ms` värde användas som en indikator att data flödet har överskridit den etablerade kvoten.
+Du kan få ett upptaget Server-undantag på grund av Kafka-begränsning. Med AMQP-klienter returnerar Event Hubs omedelbart en **Server upptagen** undantag vid tjänst begränsning. Det motsvarar meddelandet "försök igen senare". I Kafka försenas meddelanden innan de slutförs. Fördröjnings längden returneras i millisekunder som `throttle_time_ms` i svaret på framställning/hämtning. I de flesta fall loggas inte dessa fördröjda förfrågningar som server upptagna undantag på Event Hubs instrument paneler. I stället bör svarets `throttle_time_ms` värde användas som en indikator att data flödet har överskridit den etablerade kvoten.
 
 Om trafiken är för hög, har tjänsten följande beteende:
 
@@ -48,13 +49,13 @@ Kontrol lera följande objekt om du ser problem när du använder Kafka på Even
 - **Brand vägg som blockerar trafik** – kontrol lera att port **9093** inte blockeras av brand väggen.
 - **TopicAuthorizationException** – de vanligaste orsakerna till detta undantag är:
     - Ett skrivfel i anslutnings strängen i konfigurations filen, eller
-    - Försöker använda Event Hubs för Kafka på ett Basic-skikts namn område. Event Hubs för Kafka [stöds endast för standard-och dedikerade-namnområden](https://azure.microsoft.com/pricing/details/event-hubs/).
+    - Försöker använda Event Hubs för Kafka på ett Basic-skikts namn område. Funktionen Event Hubs för Kafka [stöds bara för namn områden som är standard och dedikerade](https://azure.microsoft.com/pricing/details/event-hubs/).
 - **Kafka-versionen matchar inte** -Event Hubs för Kafka-eko system stöder Kafka-versionerna 1,0 och senare. Vissa program som använder Kafka version 0,10 och senare kan ibland fungera på grund av Kafka-protokollets bakåtkompatibla kompatibilitet, men vi rekommenderar starkt att du använder gamla API-versioner. Kafka version 0,9 och tidigare stöder inte de SASL-protokoll som krävs och kan inte ansluta till Event Hubs.
 - **Onormala kodningar i AMQP-huvuden vid användning med Kafka** – när du skickar händelser till en Event Hub via AMQP serialiseras alla AMQP nytto Last rubriker i AMQP encoding. Kafka-konsumenter deserialiserar inte huvudena från AMQP. Om du vill läsa rubrik värden avkodar du AMQP-huvudena manuellt. Alternativt kan du undvika att använda AMQP-huvuden om du vet att du kommer att använda Kafka-protokollet. Mer information finns i [det här GitHub-problemet](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **Sasl-autentisering** – få ditt ramverk att samar beta med sasl-autentiseringsprotokollet som krävs av Event Hubs kan vara svårare än vad som uppfyller ögat. Se om du kan felsöka konfigurationen med hjälp av ramverkets resurser på SASL-autentisering. 
 
-## <a name="limits"></a>Begränsningar
-Apache Kafka vs. Event Hubs Kafka. I de flesta fall har Event Hubs för Kafka eko system samma standardinställningar, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. De instanser där de här två uttryckligen skiljer sig åt (eller där Event Hubs tillämpar en gräns för att Kafka inte) visas nedan:
+## <a name="limits"></a>Gränser
+Apache Kafka vs. Event Hubs Kafka. För det mesta är Event Hubs Kafka har samma standardinställningar, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. Instanserna som dessa två skiljer sig åt (eller där Event Hubs tillämpar en gräns som Kafka inte) visas nedan:
 
 - `group.id`Egenskapens max längd är 256 tecken
 - Max storleken på `offset.metadata.max.bytes` är 1024 byte
@@ -67,4 +68,4 @@ Mer information om Event Hubs och Event Hubs för Kafka finns i följande artikl
 - [Apache Kafka Developer Guide för Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka migrations guide för Event Hubs](apache-kafka-migration-guide.md)
 - [Vanliga frågor och svar – Event Hubs för Apache Kafka](apache-kafka-frequently-asked-questions.md)
-- [Rekommenderade konfigurationer](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Rekommenderade konfigurationer](apache-kafka-configurations.md)

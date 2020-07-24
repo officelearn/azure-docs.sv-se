@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107707"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090101"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Skapa migreringsplan med Azure Migrate
 
@@ -151,7 +151,7 @@ Innan du Slutför migreringen bör du se till att dessa överväganden inte spel
 
 - Få support för din implementering om det behövs. Många organisationer väljer utanför hjälpen för att stödja sin migrering av molnet. För att snabbt och säkert flytta till Azure med personligt anpassad hjälp bör du överväga en [Azure expert-hanterad tjänst leverantör](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)   eller [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
-Skapa en effektiv molnbaserad plan för molnet som innehåller detaljerad information om listan/grupperna med program som du vill migrera, dina program-och databas tillgänglighets-och drift stopps begränsningar och önskade migrerings mil stolpar. Din migrerings plan bör också ta hänsyn till hur lång tid data kopian tar och innehåller en considerate-buffert för testning och start punkt-aktiviteter efter migreringen. Testet efter migrering måste omfatta användnings fall för funktioner, integrering, säkerhet och prestanda för att säkerställa att de migrerade programmen fungerar som förväntat och att alla databas objekt och data relationer har överförts till molnet. Testet efter migrering måste omfatta användnings fall för funktioner, integrering, säkerhet och prestanda för att säkerställa att de migrerade programmen fungerar som förväntat och att alla databas objekt och data relationer har överförts till molnet.  
+Skapa en effektiv molnbaserad plan för molnet som innehåller detaljerad information om listan/grupperna med program som du vill migrera, dina program-och databas tillgänglighets-och drift stopps begränsningar och önskade migrerings mil stolpar. Din migrerings plan bör också ta hänsyn till hur lång tid data kopian tar och innehåller en considerate-buffert för testning och start punkt-aktiviteter efter migreringen. Testet efter migrering måste omfatta användnings fall för funktioner, integrering, säkerhet och prestanda för att säkerställa att de migrerade programmen fungerar som förväntat och att alla databas objekt och data relationer har överförts till molnet.  
 
 Använd den här analysen för att bygga en översikt över migreringen och deklarera en underhålls period för att migrera dina program och databaser med minimal till noll stillestånds tid och begränsa den potentiella driften/verksamhets påverkan under migreringen.  
 

@@ -3,12 +3,12 @@ title: Azure Migrate vanliga frågor och svar
 description: Få svar på vanliga frågor om tjänsten Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81530325"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090016"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: vanliga frågor
 
@@ -32,6 +32,10 @@ Använd Azure Migrate för att identifiera, utvärdera och migrera lokal infrast
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) är en katastrof återställnings lösning. 
 
 Verktyget Azure Migrate: Migreringsverktyg använder vissa backend-Site Recovery-funktioner för att lyfta och flytta migreringen av vissa lokala datorer.
+
+## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Jag har ett projekt med den tidigare klassiska upplevelsen av Azure Migrate. Hur gör jag för att börja använda den nya versionen?
+
+Du kan inte uppgradera projekt eller komponenter i den tidigare versionen till den nya versionen. Du måste [skapa ett nytt Azure Migrate-projekt](create-manage-projects.md)och [lägga till verktyg för utvärdering och migrering](how-to-add-tool-first-time.md) i det. Använd självstudierna för att lära dig hur du använder verktyg för bedömning och migrering som är tillgängliga. Om du har en Log Analytics arbets yta som är kopplad till ett klassiskt projekt kan du koppla den till ett projekt med aktuell version när du har tagit bort det klassiska projektet.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Vad är skillnaden mellan Azure Migrate: Server utvärdering och kart verktyg?
 

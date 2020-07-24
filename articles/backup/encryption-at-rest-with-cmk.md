@@ -3,16 +3,16 @@ title: Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade data med Kundhanterade nycklar (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091104"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
-Med Azure Backup kan du kryptera dina säkerhets kopierings data med Kundhanterade nycklar (CMK) i stället för att använda plattforms hanterade nycklar, som är aktiverade som standard. Dina nycklar som används för att kryptera säkerhetskopierade data måste lagras i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Med Azure Backup kan du kryptera dina säkerhets kopierings data med Kundhanterade nycklar (CMK) i stället för att använda plattforms hanterade nycklar, som är aktiverade som standard. Dina nycklar som används för att kryptera säkerhetskopierade data måste lagras i [Azure Key Vault](../key-vault/index.yml).
 
 Krypterings nyckeln som används för kryptering av säkerhets kopior kan skilja sig från den som används för källan. Data skyddas med hjälp av en AES 256-baserad data krypterings nyckel (DEK), som i sin tur skyddas med hjälp av dina nycklar (KEK). Detta ger dig fullständig kontroll över data och nycklar. För att tillåta kryptering krävs det att Recovery Services valvet beviljas åtkomst till krypterings nyckeln i Azure Key Vault. Du kan ändra nyckeln som och när det behövs.
 
@@ -31,7 +31,7 @@ I den här artikeln beskrivs följande:
 
 - Den här funktionen **stöder för närvarande inte säkerhets kopiering med mars-agenten**och du kanske inte kan använda ett CMK-krypterat valv för samma. MARS-agenten använder en kryptering baserad på användar lösen fras. Den här funktionen stöder inte heller säkerhets kopiering av klassiska virtuella datorer.
 
-- Den här funktionen är inte relaterad till [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss), som använder gästkod kryptering av en virtuell dators diskar med BitLocker (för Windows) och dm-crypt (för Linux)
+- Den här funktionen är inte relaterad till [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), som använder gästkod kryptering av en virtuell dators diskar med BitLocker (för Windows) och dm-crypt (för Linux)
 
 - Recovery Services-valvet kan bara krypteras med nycklar som lagras i en Azure Key Vault, som finns i **samma region**. Nycklar måste också vara **RSA 2048-nycklar** enbart och ska vara i **aktiverat** läge.
 
@@ -92,7 +92,7 @@ Du måste nu tillåta Recovery Services-valvet att få åtkomst till Azure Key V
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Aktivera mjuk borttagning och tömning av skydd på Azure Key Vault
 
-Du måste **Aktivera mjuk borttagning och tömning av skydd** på Azure Key Vault som lagrar din krypterings nyckel. Du kan göra detta från Azure Key Vault användar gränssnittet som visas nedan. (Du kan också ange dessa egenskaper när du skapar Key Vault). Läs mer om dessa Key Vaults egenskaper [här](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+Du måste **Aktivera mjuk borttagning och tömning av skydd** på Azure Key Vault som lagrar din krypterings nyckel. Du kan göra detta från Azure Key Vault användar gränssnittet som visas nedan. (Du kan också ange dessa egenskaper när du skapar Key Vault). Läs mer om dessa Key Vaults egenskaper [här](../key-vault/general/overview-soft-delete.md).
 
 ![Aktivera mjuk borttagning och rensnings skydd](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -193,13 +193,13 @@ Innan du fortsätter att konfigurera skyddet rekommenderar vi starkt att du ser 
 >
 >Om alla ovanstående steg har bekräftats fortsätter du med att konfigurera säkerhets kopieringen.
 
-Processen för att konfigurera och utföra säkerhets kopieringar till ett Recovery Services valv som är krypterade med Kundhanterade nycklar är samma som för ett valv som använder plattforms hanterade nycklar, utan **ändringar i upplevelsen**. Detta gäller även för [säkerhets kopiering av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal) samt säkerhets kopiering av arbets belastningar som körs i en virtuell dator (till exempel [SAP HANA](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup) databaser).
+Processen för att konfigurera och utföra säkerhets kopieringar till ett Recovery Services valv som är krypterade med Kundhanterade nycklar är samma som för ett valv som använder plattforms hanterade nycklar, utan **ändringar i upplevelsen**. Detta gäller även för [säkerhets kopiering av virtuella Azure-datorer](./quick-backup-vm-portal.md) samt säkerhets kopiering av arbets belastningar som körs i en virtuell dator (till exempel [SAP HANA](./tutorial-backup-sap-hana-db.md) [SQL Server](./tutorial-sql-backup.md) databaser).
 
 ## <a name="restoring-data-from-backup"></a>Återställa data från säkerhets kopia
 
 ### <a name="vm-backup"></a>VM-säkerhetskopiering
 
-Data som lagras i Recovery Services-valvet kan återställas enligt de steg som beskrivs [här](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms). När du återställer från ett Recovery Services valv som är krypterat med Kundhanterade nycklar kan du välja att kryptera återställda data med en disk krypterings uppsättning (DES).
+Data som lagras i Recovery Services-valvet kan återställas enligt de steg som beskrivs [här](./backup-azure-arm-restore-vms.md). När du återställer från ett Recovery Services valv som är krypterat med Kundhanterade nycklar kan du välja att kryptera återställda data med en disk krypterings uppsättning (DES).
 
 #### <a name="restoring-vm--disk"></a>Återställa VM/disk
 

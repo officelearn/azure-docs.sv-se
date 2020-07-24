@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090390"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot och bekräfta B2B AS2-meddelanden med hjälp av Azure Logic Apps och Enterprise-integrationspaket
 
@@ -20,7 +21,7 @@ När du har ett integrations konto som definierar handels partner och avtal, kan
 
 Den här artikeln visar hur du skapar en Logi Kap par som tar emot en HTTP-begäran genom att använda en begär ande utlösare, avkodar meddelande innehållet med hjälp av åtgärderna AS2 och X12 och returnerar sedan ett svar med hjälp av svars åtgärden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -34,7 +35,7 @@ Den här artikeln visar hur du skapar en Logi Kap par som tar emot en HTTP-begä
 
   Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-accounts.md) som är associerat med din Azure-prenumeration och länkat till din Logic app. Både din Logic app och ditt integrations konto måste finnas på samma plats eller i Azure-regionen.
+* Ett [integrations konto](./logic-apps-enterprise-integration-create-integration-account.md) som är associerat med din Azure-prenumeration och länkat till din Logic app. Både din Logic app och ditt integrations konto måste finnas på samma plats eller i Azure-regionen.
 
 * Minst två [handels partner](../logic-apps/logic-apps-enterprise-integration-partners.md) som du redan har definierat i ditt integrations konto tillsammans med [AS2-och X12-avtal](logic-apps-enterprise-integration-agreements.md) för dessa partner.
 
@@ -104,7 +105,7 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
 1. Under **AS2 avkodnings** åtgärd väljer du **nytt steg**.
 
-1. Under **Välj en åtgärd**går du till rutan Sök och väljer **inbyggd**. Skriv `condition` i sökrutan. I listan **åtgärder** väljer du **villkor**.
+1. Under **Välj en åtgärd**går du till rutan Sök och väljer **inbyggd**. Skriv `condition` i sökrutan. I listan **Åtgärder** väljer du **Villkor**.
 
    ![Lägg till åtgärden "villkor"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
@@ -142,7 +143,7 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
    1. För det fall då åtgärden **AS2-avkoda** Miss lyckas väljer du **Lägg till en åtgärd**i formen **om falskt** . Under **Välj en åtgärd**i sökrutan anger `response` du och väljer **svar**. Konfigurera **svars** åtgärden för att returnera den status och det fel som du vill ha.
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
 ## <a name="add-decode-x12-message-action"></a>Lägg till åtgärden avkoda X12-meddelande
 
@@ -166,7 +167,7 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
     ![Konvertera Base64-kodat innehåll till en sträng](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
    Om du behöver ytterligare anvisningar för den här Logic-appen, till exempel för att avkoda meddelande innehållet och mata ut innehållet i JSON-objekt, fortsätter du att skapa din Logic app.
 

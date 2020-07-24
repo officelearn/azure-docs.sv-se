@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ae1ec7eb566871402d44a0f24878b4ea92197f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090237"
 ---
 # <a name="collect-data-from-models-in-production"></a>Samla in data från modeller i produktion
 
@@ -71,7 +71,7 @@ Sökvägen till utdata i bloben följer den här syntaxen:
 
 ## <a name="enable-data-collection"></a>Aktivera datainsamling
 
-Du kan aktivera data insamling oavsett vilken modell du distribuerar via Azure Machine Learning eller andra verktyg.
+Du kan aktivera [data insamling](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) oavsett vilken modell du distribuerar via Azure Machine Learning eller andra verktyg.
 
 Om du vill aktivera data insamling måste du:
 

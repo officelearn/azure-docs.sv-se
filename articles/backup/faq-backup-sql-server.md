@@ -4,11 +4,12 @@ description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090985"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -48,7 +49,7 @@ Standardvärdet för DefaultBackupTasksThreshold är **20**.
 
 3. Spara ändringarna och Stäng filen.
 4. I SQL Server-instansen öppnar du **Aktivitetshanteraren**. Starta om tjänsten **AzureWLBackupCoordinatorSvc**.<br/> <br/>
- Även om den här metoden hjälper om säkerhets kopierings programmet använder en stor mängd resurser, är SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) ett mer allmänt sätt att ange gränser för mängden processor, fysisk IO och minne som inkommande program begär Anden kan använda.
+ Även om den här metoden hjälper om säkerhets kopierings programmet använder en stor mängd resurser, är SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) ett mer allmänt sätt att ange gränser för mängden processor, fysisk IO och minne som inkommande program begär Anden kan använda.
 
 > [!NOTE]
 > I UX-UX kan du fortfarande gå vidare och schemalägga så många säkerhets kopieringar varje gång, men de bearbetas i ett glidande fönster, t. ex. 5, i enlighet med exemplet ovan.

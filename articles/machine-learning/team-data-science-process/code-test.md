@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090305"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data vetenskaps kod testning på Azure med team data science-processen och Azure DevOps-tjänster
 Den här artikeln innehåller preliminära rikt linjer för testning av kod i ett data vetenskaps flöde. Sådan testning ger data experter ett systematiskt och effektivt sätt att kontrol lera kvaliteten och förväntat resultat av koden. Vi använder ett TDSP-projekt (Team data science process) [som använder den data uppsättning för den sexuella](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) värde som vi publicerade tidigare för att visa hur kod testning kan göras. 
@@ -141,7 +142,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
     ![Knappen Spara & kö](./media/code-test/save_and_queue_build_definition.PNG)
 
-Varje gång som ett nytt genomförande skickas till kod lagrings platsen, kommer Bygg processen att starta automatiskt. (Här använder vi Master som lagrings plats, men du kan definiera vilken gren som helst.) Processen kör **test1.py** -filen på agent datorn för att kontrol lera att allting som definieras i koden körs på rätt sätt. 
+Varje gång som ett nytt genomförande skickas till kod lagrings platsen, kommer Bygg processen att starta automatiskt. Du kan definiera valfri gren. Processen kör **test1.py** -filen på agent datorn för att kontrol lera att allting som definieras i koden körs på rätt sätt. 
 
 Om aviseringar ställs in korrekt får du ett meddelande via e-post när versionen är färdig. Du kan också kontrol lera Bygg status i Azure DevOps. Om det Miss lyckas kan du kontrol lera informationen om versionen och ta reda på vilken del som är bruten.
 

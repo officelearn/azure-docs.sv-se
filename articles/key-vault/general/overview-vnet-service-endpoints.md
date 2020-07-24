@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: eff74fca5ac21a7df431b55cd5c307d3e994010b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34e1b7e58a3ceb6c1c2d2b6bc4efd34ee93e9e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090492"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
@@ -39,7 +39,7 @@ Här följer några exempel på hur du kan använda tjänst slut punkter:
 
 Här är de steg som krävs för att konfigurera brand väggar och virtuella nätverk. De här stegen gäller oavsett om du använder PowerShell, Azure CLI eller Azure Portal.
 
-1. Aktivera [Key Vault loggning](logging.md)) om du vill se detaljerade åtkomst loggar. Detta hjälper i diagnostik, när brand väggar och virtuella nätverks regler förhindrar åtkomst till ett nyckel valv. (Det här steget är valfritt, men rekommenderas.)
+1. Aktivera [Key Vault loggning](logging.md) för att se detaljerade åtkomst loggar. Detta hjälper i diagnostik, när brand väggar och virtuella nätverks regler förhindrar åtkomst till ett nyckel valv. (Det här steget är valfritt, men rekommenderas.)
 2. Aktivera **tjänst slut punkter för nyckel valv** för virtuella mål nätverk och undernät.
 3. Ange brand väggar och virtuella nätverks regler för ett nyckel valv för att begränsa åtkomsten till nyckel valvet från vissa virtuella nätverk, undernät och IPv4-adress intervall.
 4. Om det här nyckel valvet måste vara tillgängligt för alla betrodda Microsoft-tjänster aktiverar du alternativet för att tillåta att **betrodda Azure-tjänster** ansluter till Key Vault.
@@ -80,7 +80,7 @@ Här är en lista över betrodda tjänster som har behörighet att komma åt ett
 |Azure Event Hubs|[Tillåt åtkomst till ett nyckel valv för kund hanterade nyckel scenarier](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[Tillåt åtkomst till ett nyckel valv för kund hanterade nyckel scenarier](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Azure Import/Export| [Använda Kundhanterade nycklar i Azure Key Vault för import/export-tjänsten](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
-|Azure Container Registry|[Register kryptering med Kundhanterade nycklar](../../container-registry/container-registry-customer-managed-keys.md)
+|Azure Container Registry|[Register kryptering med Kundhanterade nycklar](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Överföra artefakter till ett annat register](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]
 > Du måste ställa in relevanta Key Vault åtkomst principer så att motsvarande tjänster får åtkomst till Key Vault.

@@ -1,5 +1,5 @@
 ---
-title: Bildpoängmodell
+title: Använd den tränade & djup rekommenderar-modulen
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder den tränade & djup rekommendations modulen för att träna en rekommendations modell.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84740059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090186"
 ---
 # <a name="train-wide--deep-recommender"></a>Träna bred & djup rekommendation
 Den här artikeln beskriver hur du använder modulen **träna Wide & djup rekommenderar** i Azure Machine Learning designer (för hands version) för att träna en rekommendations modell. Den här modulen baseras på bred & djup inlärning, som föreslås av Google.
@@ -66,7 +66,7 @@ Data uppsättningen för **användar funktioner** måste innehålla identifierar
 
 En typisk uppsättning användar funktioner kan till exempel se ut så här: 
 
-|UserId|Ålder|Kön|Intressanta|Location|
+|UserId|Ålder|Kön|Intressanta|Plats|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|man| Drama    |Europa|
 |223|40|kvinna|Madrid|Asien|

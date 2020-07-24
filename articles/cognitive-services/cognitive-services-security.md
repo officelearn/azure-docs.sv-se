@@ -1,21 +1,21 @@
 ---
-title: Säkerhet
+title: Azure Cognitive Services-säkerhet
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om de olika säkerhets aspekterna för Cognitive Services användning.
 services: cognitive-services
-author: aahill
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 07/10/2020
+ms.author: erhopf
 ms.custom: tracking-python
-ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 51a9829a7ea19665e1081a48207f176b1a8e68c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090849"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services-säkerhet
 
@@ -203,9 +203,19 @@ Customer Lockbox är tillgängligt för den här kognitiva tjänsten:
 
 * Översättare
 
-För Language Understanding kommer Microsoft-tekniker inte att komma åt någon kund information i E0-SKU: n. För att begära möjlighet att använda E0 SKU, fyller du i och skickar [Luis service förfrågnings formulär](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda E0 SKU med LUIS måste du skapa en ny Language Understanding resurs från Azure Portal och välja E0 som pris nivå. Användarna kommer inte att kunna uppgradera från F0 till den nya E0 SKU: n.
+För följande tjänster kommer Microsoft-tekniker inte att komma åt någon kund information på E0-nivån: 
 
-Tal tjänsten har för närvarande inte stöd för Customer Lockbox. Kund information kan dock lagras med BYOS ("ta med din egen lagring"), så att du kan uppnå liknande data kontroller för [Customer lockbox](../security/fundamentals/customer-lockbox-overview.md). Tänk på att tal tjänst data är kvar och bearbetas i den region där tal resursen skapades. Detta gäller för alla data i vila och data under överföring. När du använder anpassnings funktioner som Custom Speech och anpassad röst överförs all kund information, lagras och bearbetas i samma region där din BYOS (om den används) och en röst tjänst resurs finns.
+* Language Understanding
+* Ansikte
+* Content Moderator
+* Personanpassning
+
+> [!IMPORTANT]
+> För **formulär igenkänning**kommer Microsoft-tekniker inte att komma åt någon kund information i resurser som skapats efter den 10 juli 2020.
+
+För att begära möjlighet att använda E0 SKU, fyller du i och skickar det här [formuläret för begäran](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda E0 SKU med LUIS måste du skapa en ny resurs från Azure Portal och välja E0 som pris nivå. Användarna kommer inte att kunna uppgradera från F0 till den nya E0 SKU: n.
+
+Tal tjänsten har för närvarande inte stöd för Customer Lockbox. Kund information kan dock lagras med hjälp av din egen lagring (BYOS), så att du kan uppnå liknande data kontroller för Customer Lockbox. Tänk på att tal tjänst data är kvar och bearbetas i den region där tal resursen skapades. Detta gäller för alla data i vila och data under överföring. När du använder anpassnings funktioner som Custom Speech och anpassad röst överförs all kund information, lagras och bearbetas i samma region där din BYOS (om den används) och en röst tjänst resurs finns.
 
 > [!IMPORTANT]
 > Microsoft använder **inte** kund information för att förbättra sina tal modeller. Om slut punkts loggningen är inaktive rad och inga anpassningar används, lagras även inga kund uppgifter. 

@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb3b319c583422b32798fce9cef4c73a4aa1f8de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090050"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Hantera slut punkter för direkt uppspelning med Media Services v3
 
 När ditt Media Services-konto skapas, läggs en **standard** [slut punkt för direkt uppspelning](streaming-endpoint-concept.md) till på ditt konto i **stoppat** tillstånd. Om du vill börja strömma ditt innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och [dynamisk kryptering](content-protection-overview.md), måste den strömmande slut punkten från vilken du vill strömma innehåll vara i **Kör** tillstånd.
 
-Den här artikeln visar hur du kör kommandot [Start](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) på slut punkten för direkt uppspelning med olika tekniker. 
+Den här artikeln visar hur du kör kommandot [Start](/rest/api/media/streamingendpoints/start) på slut punkten för direkt uppspelning med olika tekniker. 
  
 > [!NOTE]
 > Du faktureras bara när slut punkten för direkt uppspelning är i körnings läge.
     
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Beakta 
 
@@ -45,7 +46,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Mer information finns i: 
 
-* Referens dokumentationen för att [starta en StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) -referens.
+* Referens dokumentationen för att [starta en StreamingEndpoint](/rest/api/media/streamingendpoints/start) -referens.
 * Att starta en slut punkt för direkt uppspelning är en asynkron åtgärd. 
 
     Information om hur du övervakar långvariga åtgärder finns i [långvariga åtgärder](media-services-apis-overview.md).
@@ -69,7 +70,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Mer information finns i [AZ AMS streaming-Endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Mer information finns i [AZ AMS streaming-Endpoint start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Använda SDK:er
 
@@ -105,4 +106,4 @@ Se det fullständiga [.NET-kod exemplet](https://github.com/Azure-Samples/media-
 ## <a name="next-steps"></a>Nästa steg
 
 * [Media Services v3 OpenAPI-specifikation (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Slut punkts åtgärder för direkt uppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Slut punkts åtgärder för direkt uppspelning](/rest/api/media/streamingendpoints)

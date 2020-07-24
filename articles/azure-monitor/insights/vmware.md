@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091189"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-övervakning (inaktuell) lösning i Azure Monitor
 
@@ -49,14 +50,14 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Kontrol lera vSphere-konsolen för att kontrol lera att syslog har kon figurer ATS korrekt. Bekräfta att ESXI-värden som port **1514** är konfigurerad på.
 1. Ladda ned och installera Log Analytics-agenten för Linux på Linux-servern. Mer information finns i [dokumentationen för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. När Log Analytics-agenten för Linux har installerats går du till katalogen/etc/opt/Microsoft/omsagent/sysconf/omsagent.d och kopierar filen vmware_esxi. conf till katalogen/etc/opt/Microsoft/omsagent/conf/omsagent.d och ändrar ägare/grupp och behörigheter för filen. Ett exempel:
+1. När Log Analytics-agenten för Linux har installerats går du till katalogen/etc/opt/Microsoft/omsagent/sysconf/omsagent.d och kopierar filen vmware_esxi. conf till katalogen/etc/opt/Microsoft/omsagent/conf/omsagent.d och ändrar ägare/grupp och behörigheter för filen. Exempel:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Starta om Log Analytics agent för Linux genom att köra `sudo /opt/microsoft/omsagent/bin/service_control restart` .
-1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av `nc` kommandot på ESXi-värden. Ett exempel:
+1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av `nc` kommandot på ESXi-värden. Exempel:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -157,7 +158,7 @@ Att spara logg frågor är en standard funktion i Azure Monitor och kan hjälpa 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Skapa aviseringar från frågor
-När du har skapat dina frågor kanske du vill använda frågorna för att varna dig när vissa händelser inträffar. Information om hur du skapar aviseringar finns [i varningar i Log Analytics](../platform/alerts-overview.md) . Exempel på aviserings frågor och andra fråge exempel finns i [Övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogg inlägg.
+När du har skapat dina frågor kanske du vill använda frågorna för att varna dig när vissa händelser inträffar. Information om hur du skapar aviseringar finns [i varningar i Log Analytics](../platform/alerts-overview.md) . Exempel på aviserings frågor och andra fråge exempel finns i [Övervaka VMware med Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blogg inlägg.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Vad måste jag göra på ESXi-värd inställningen? Vilken effekt kommer den att ha i min nuvarande miljö?

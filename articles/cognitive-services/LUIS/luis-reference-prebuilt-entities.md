@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090951"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kultur i din LUIS-modell
 
 Language Understanding (LUIS) tillhandahåller färdiga entiteter. När en fördefinierad entitet ingår i ditt program, innehåller LUIS motsvarande enhets förutsägelse i slut punkts svaret. Alla exempel-yttranden är också märkta med entiteten. Det **går inte** att ändra beteendet för förbyggda entiteter. Om inget annat anges är fördefinierade entiteter tillgängliga i alla LUIS program-språkområden (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
 
-|Culture (Kultur)|Underkulturer|Anteckningar|
+|Culture (Kultur)|Underkulturer|Kommentarer|
 |--|--|--|
 |Kinesiska|[zh-CN](#chinese-entity-support)||
 |Nederländska|[nl-NL](#dutch-entity-support)||
@@ -44,12 +44,12 @@ Tillgängligheten för en fördefinierad entitet i ett särskilt språk bestäms
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```zh-CN``` |
-------|:------:|
+| Fördefinierad entitet | zh-CN |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    -   |
@@ -66,12 +66,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```nl-NL``` |
-------|:------:|
+| Fördefinierad entitet | nl-NL |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -88,12 +88,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```en-US``` |
-------|:------:|
+| Fördefinierad entitet | sv-SE |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -110,12 +110,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```fr-FR``` |
-------|:------:|
+| Fördefinierad entitet | fr-FR |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -132,12 +132,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```fr-CA``` |
-------|:------:|
+| Fördefinierad entitet | fr-CA |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -154,12 +154,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```de-DE``` |
-------|:------:|
+|Fördefinierad entitet | de-DE |
+| -------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -178,12 +178,12 @@ Italiensk fördefinierad ålder, valuta, dimension, nummer, procentuell _matchni
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```it-IT``` |
-------|:------:|
+| Fördefinierad entitet | it-IT |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -200,12 +200,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```ja-JP``` |
-------|:------:|
+|Fördefinierad entitet | ja-JP |
+| -------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2,-   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2,-   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2,-   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2,-   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -222,12 +222,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```ko-KR``` |
-------|:------:|
+| Fördefinierad entitet | ko-KR |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    -   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    -   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    -   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    -   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -244,12 +244,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```pt-BR``` |
-------|:------:|
+| Fördefinierad entitet | pt-BR |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -266,12 +266,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```es-ES``` |
-------|:------:|
+| Fördefinierad entitet | es-ES |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -288,12 +288,12 @@ Följande entiteter stöds:
 
 Följande entiteter stöds:
 
-|Fördefinierad entitet|```es-MX``` |
-------|:------:|
+| Fördefinierad entitet | ES – MX |
+| --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    -   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>Vägt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    -   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    -   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
@@ -316,8 +316,8 @@ En fras är inte tillgänglig i alla under odlingar av portugisiska (Brasilien)-
 
 <!--
 
-|Prebuilt entity|```tr-tr``` |
-------|:------:|
+| Prebuilt entity | tr-tr |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |

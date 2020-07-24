@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e54b9add52e484a95cf5a8291dec90a6bb258b8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3024c79b6295762636518e3f77d506ad45f73682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090764"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -44,7 +44,9 @@ När enheten har tagits emot konfigurerar du den snabbt med hjälp av det lokala
 A. Om du har 40-500 TB data som du vill överföra till eller från Azure kan du dra nytta av Data Box-enhet. För data storlekar < 40 TB använder du Data Box Disk och för data storlekar > 500 TB registrerar du dig för [data Box Heavy](data-box-heavy-overview.md).
 
 ### <a name="q-what-is-the-price-of-data-box"></a>F. Hur mycket kostar Data Box?
-A. Data Box-tjänsten är tillgänglig mot en nominell kostnad i tio dagar. Kostnaden för enheten visas när du väljer produktmodellen när du skapar din beställning på Azure-portalen. Leveransen kostar inte heller någonting, men vi tar ut avgifter för Azure-lagringen. Mer information finns på [prissidan för Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/). 
+A. Data Box-tjänsten är tillgänglig mot en nominell kostnad i tio dagar. Kostnaden för enheten visas när du väljer produktmodellen när du skapar din beställning på Azure-portalen. Standard Frakt kostnader och avgifter för Azure Storage gäller också. Export order följer en liknande pris modell som för import order, även om ytterligare utgående avgifter kan tillkomma. 
+
+Mer information finns i [Azure Data Box priser](https://azure.microsoft.com/pricing/details/storage/databox/) och [utgående kostnader](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>F. Vad är den maximala mängden data som jag kan överföra samtidigt med Data Box?
 A. Data Box har en råkapacitet på 100 TB och en användbar kapacitet på 80 TB. Du kan överföra upp till 80 TB data med Data Box. Om du vill överföra en större datamängd måste du beställa fler enheter.
@@ -250,7 +252,7 @@ A.  Följande rapportering är tillgänglig för spårbarhet och övervakning:
 A.  Transportföretagets spårningsloggar samlas in Data Box-orderhistoriken. Den här rapporten är tillgänglig när enheten har returnerats till Azure-datacentret och data på enhetsdiskarna har rensats. För omedelbar behov kan du också gå direkt till operatörens webbplats med order spårnings numret och hämta spårnings informationen.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Kan jag själv transportera Data Box till Azures datacenter? 
-A.  Nej. Om du har valt Microsoft-hanterad leverans kan du inte transportera datumet. Azures datacenter accepterar för närvarande inte leverans av Data Box från kunder eller andra transportföretag än UPS.
+A.  Nej. Om du har valt Microsoft-hanterad leverans kan du inte transportera data. Azures datacenter accepterar för närvarande inte leverans av Data Box från kunder eller andra transportföretag än UPS.
 
 Om du väljer själv hanterad leverans kan du hämta eller ta bort din Data Box-enhet från Azure-datacentret.
 

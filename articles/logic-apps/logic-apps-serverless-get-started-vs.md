@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090254"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Bygg din första app utan server genom att använda Azure Logic Apps och Azure Functions i Visual Studio
 
 Du kan snabbt utveckla och distribuera molnappar med hjälp av Server lös verktyg och funktioner i Azure, till exempel [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Azure Functions](../azure-functions/functions-overview.md). Den här artikeln visar hur du börjar skapa en app utan server, som använder en Logic app som anropar en Azure-funktion i Visual Studio. Om du vill veta mer om lösningar utan server i Azure kan du läsa mer i [Azure server med Functions och Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill bygga en app utan server i Visual Studio behöver du:
 
@@ -31,7 +32,7 @@ Om du vill bygga en app utan server i Visual Studio behöver du:
     > När du installerar Visual Studio 2019 eller 2017 ser du till att du väljer arbets belastningen **Azure Development** .
 
   * [Microsoft Azure SDK för .net (version 2.9.1 eller senare)](https://azure.microsoft.com/downloads/). 
-  Läs mer om [Azure SDK för .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Läs mer om [Azure SDK för .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -43,7 +44,7 @@ Om du vill bygga en app utan server i Visual Studio behöver du:
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller läsa mer om [hur du installerar tillägget från Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+    Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller läsa mer om [hur du installerar tillägget från Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Se till att starta om Visual Studio när installationen är klar.
 
   * [Azure Functions Core tools](https://www.npmjs.com/package/azure-functions-core-tools) för lokalt fel söknings funktioner.
@@ -135,7 +136,7 @@ Om du vill redigera din Logic app efter distributionen öppnar du din Logic app 
 
 ## <a name="create-your-azure-functions-project"></a>Skapa ett Azure Functions-projekt
 
-Om du vill skapa ett Functions-projekt och en funktion med hjälp av Java Script, python, F #, PowerShell, batch eller bash följer du stegen i [arbeta med Azure Functions Core tools](../azure-functions/functions-run-local.md). Om du vill utveckla din Azure-funktion genom att använda C# i lösningen använder du ett C#-klass bibliotek genom att följa stegen i [publicera ett .NET-klass bibliotek som en Funktionsapp](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+Om du vill skapa ett Functions-projekt och en funktion med hjälp av Java Script, python, F #, PowerShell, batch eller bash följer du stegen i [arbeta med Azure Functions Core tools](../azure-functions/functions-run-local.md). Om du vill utveckla din Azure-funktion genom att använda C# i lösningen använder du ett C#-klass bibliotek genom att följa stegen i [publicera ett .NET-klass bibliotek som en Funktionsapp](https://azure.microsoft.com/blog/).
 
 ## <a name="deploy-functions-from-visual-studio"></a>Distribuera funktioner från Visual Studio
 

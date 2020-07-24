@@ -3,12 +3,12 @@ title: Så här stoppar du övervakning av ditt hybrid Kubernetes-kluster | Micr
 description: Den här artikeln beskriver hur du kan sluta övervaka ditt hybrid Kubernetes-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 86a774737d5269d77c4053ad61ab870b13288aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091206"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Så här stoppar du övervakning av ditt hybrid kluster
 
@@ -120,4 +120,4 @@ Konfigurations ändringen kan ta några minuter att slutföra. Eftersom Helm sp�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om Log Analytics arbets ytan bara har skapats för att stödja övervakning av klustret och den inte längre behövs, måste du ta bort den manuellt. Om du inte är bekant med hur du tar bort en arbets yta, se [ta bort en Azure Log Analytics-arbetsyta](../../log-analytics/log-analytics-manage-del-workspace.md).
+Om Log Analytics arbets ytan bara har skapats för att stödja övervakning av klustret och den inte längre behövs, måste du ta bort den manuellt. Om du inte är bekant med hur du tar bort en arbets yta, se [ta bort en Azure Log Analytics-arbetsyta](../platform/delete-workspace.md).

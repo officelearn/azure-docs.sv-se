@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090220"
 ---
 # <a name="collaborative-coding-with-git"></a>Samarbetsbaserad kodning med Git
 
@@ -28,7 +29,7 @@ Om du vill ansluta ett arbets objekt till en ny gren väljer du ellipsen **åtg�
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-I dialog rutan **skapa en gren** anger du det nya gren namnet och den grundläggande Azure databaser git-lagringsplatsen och grenen. Bas lagrings platsen måste finnas i samma Azure DevOps-projekt som arbets uppgiften. Bas grenen kan vara huvud grenen eller en annan befintlig gren. Välj **skapa gren**. 
+I dialog rutan **skapa en gren** anger du det nya gren namnet och den grundläggande Azure databaser git-lagringsplatsen och grenen. Bas lagrings platsen måste finnas i samma Azure DevOps-projekt som arbets uppgiften. Bas grenen kan vara vilken befintlig gren som helst. Välj **skapa gren**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -50,7 +51,7 @@ När du har växlat till arbets grenen kan du börja utveckla kod-eller dokument
 
 Det är en bra idé att skapa en git-gren för varje arbets objekt i användar artikeln. För varje aktivitets arbets objekt kan du sedan skapa en gren som baseras på grenen för användar artikeln. Organisera grenarna i en hierarki som motsvarar användar artikeln – uppgifts relation när du har flera personer som arbetar med olika användar berättelser för samma projekt, eller på olika uppgifter i samma användar berättelse. Du kan minimera konflikter genom att låta varje grupp medlem arbeta på en annan gren eller på en annan kod eller andra artefakter när du delar en gren. 
 
-I följande diagram visas den rekommenderade gren strategin för TDSP. Du kanske inte behöver så många grenar som visas här, särskilt när endast en eller två personer arbetar med ett projekt, eller bara en person arbetar på alla uppgifter i en användar berättelse. Men att åtskilja utvecklings grenen från huvud grenen är alltid en bra idé och kan hjälpa till att förhindra att versions grenen avbryts av utvecklings aktiviteter. En fullständig beskrivning av Git-grenens modell finns i [en lyckad git-förgrenings modell](https://nvie.com/posts/a-successful-git-branching-model/).
+I följande diagram visas den rekommenderade gren strategin för TDSP. Du kanske inte behöver så många grenar som visas här, särskilt när endast en eller två personer arbetar med ett projekt, eller bara en person arbetar på alla uppgifter i en användar berättelse. Men att åtskilja utvecklings grenen från den primära grenen är alltid en bra metod och kan hjälpa till att förhindra att versions grenen avbryts av utvecklings aktiviteter. En fullständig beskrivning av Git-grenens modell finns i [en lyckad git-förgrenings modell](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

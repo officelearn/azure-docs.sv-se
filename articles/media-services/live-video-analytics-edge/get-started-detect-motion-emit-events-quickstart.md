@@ -3,12 +3,12 @@ title: Kom igång med live video analys på IoT Edge – Azure
 description: Den här snabb starten visar hur du kommer igång med live video analys på IoT Edge. Lär dig hur du identifierar rörelser i en video ström i real tid.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 98ab333a495c31889bee2a9cddab778a12876af5
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090084"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Snabb start: kom igång – direktsända video analyser på IoT Edge
 
@@ -18,7 +18,7 @@ När du har slutfört installations stegen kan du köra en simulerad real tids v
 
 ![Real video analys baserat på rörelse identifiering](./media/analyze-live-video/motion-detection.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto som har en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/) på din utvecklings dator. Kontrol lera att du har [tillägget Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
@@ -34,7 +34,7 @@ I den här självstudien krävs följande Azure-resurser:
 * IoT Hub
 * Lagringskonto
 * Azure Media Services konto
-* En virtuell Linux-dator i Azure, med [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installerat
+* En virtuell Linux-dator i Azure, med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installerat
 
 I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de nödvändiga resurserna i din Azure-prenumeration. Det gör du på följande sätt:
 
@@ -561,7 +561,7 @@ I fönstret **utdata** visas följande meddelande:
 
 Lägg märke till följande information:
 
-* Meddelandet innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Meddelandet innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * I `applicationProperties` `subject` refererar den nod som `MediaGraph` meddelandet skapades från. I det här fallet kommer meddelandet från processen för identifiering av rörelser.
 * I `applicationProperties` `eventType` anger att den här händelsen är en analys händelse.
 * `eventTime`Värdet är den tidpunkt då händelsen inträffade.

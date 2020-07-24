@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f8850b83b2af7f0d3007cd716f9e077361a02e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091121"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md).
@@ -153,6 +153,7 @@ I följande tabell visas de paket som krävs för Linux-distributioner som stöd
 |Glibc |    GNU C-bibliotek | 2.5-12 
 |Openssl    | OpenSSL-bibliotek | 1.0. x eller 1.1. x |
 |Curl | webb klient för sväng | 7.15.5 |
+|Python | | 2.6 + eller 3.3 +
 |Python – ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
 
@@ -188,10 +189,10 @@ I följande tabell visas den konfigurations information för proxy och brand vä
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Utgående|Ja |  
-|*.oms.opinsights.azure.com |Port 443 |Utgående|Ja |  
-|*.blob.core.windows.net |Port 443 |Utgående|Ja |
-|*.azure-automation.net |Port 443 |Utgående|Ja |
+|*.ods.opinsights.azure.com |Port 443 |Utgående|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Utgående|Yes |  
+|*.blob.core.windows.net |Port 443 |Utgående|Yes |
+|*.azure-automation.net |Port 443 |Utgående|Yes |
 
 För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 

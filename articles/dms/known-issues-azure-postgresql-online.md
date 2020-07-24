@@ -3,8 +3,8 @@ title: 'Kända problem: online-migreringar från PostgreSQL till Azure Database 
 titleSuffix: Azure Database Migration Service
 description: Läs om kända problem och begränsningar för migrering med online-migrering från PostgreSQL till Azure Database for PostgreSQL med hjälp av Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3d1bc627ccb8814ab2dfb61fb0653ef0ac644038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 564581a102ac3fab504e82db00ef54b3e45d0c19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090747"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Kända problem/migrerings begränsningar med online-migreringar från PostgreSQL till Azure DB för PostgreSQL
 
@@ -91,12 +91,12 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 
 När du försöker utföra en online-migrering från AWS RDS PostgreSQL till Azure Database for PostgreSQL kan du stöta på följande fel.
 
-- **Fel**: standardvärdet för kolumnen {Column} i tabellen {Table} i databasen {Database} är inte samma på käll-och mål servrarna. Det har ”{value on source}” i källan och ”{value on target}” i målet.
+- **Fel**: Standardvärdet för kolumnen ”{column}” i tabellen ”{table}” i databasen ”{database}” är olika på käll- och målservrarna. Det har ”{value on source}” i källan och ”{value on target}” i målet.
 
   **Begränsning**: det här felet uppstår när standardvärdet i ett kolumn schema skiljer sig mellan käll-och mål databaserna.
   **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Fel**: mål databasen {Database} innehåller {Number of tables}-tabeller där som käll databasen {Database} har {Number of tables} tabeller. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
+- **Fel**: Måldatabasen ”{database}” har ”{number of tables}” tabeller, medan källdatabasen ”{database}” har ”{number of tables}” tabeller. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
 
   **Begränsning**: det här felet uppstår när antalet tabeller skiljer sig mellan käll-och mål databaserna.
 

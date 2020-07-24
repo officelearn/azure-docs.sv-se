@@ -3,11 +3,13 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655618"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091019"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -31,10 +33,10 @@ I följande tabell beskrivs funktionerna i Recovery Services-valv:
 --- | ---
 **Valv i prenumerationen** | Upp till 500 Recovery Services-valv i en enstaka prenumeration.
 **Datorer i ett valv** | Upp till 1 000 virtuella Azure-datorer i ett enda valv.<br/><br/> Upp till 50 MABS-servrar kan registreras i ett enda valv.
-**Datakällor** | Den maximala storleken för en enskild [data källa](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) är 54 400 GB. Den här begränsningen gäller inte för virtuella Azure-säkerhetskopieringar. Inga gränser gäller för den totala mängden data som du kan säkerhetskopiera till valvet.
+**Datakällor** | Den maximala storleken för en enskild [data källa](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) är 54 400 GB. Den här begränsningen gäller inte för virtuella Azure-säkerhetskopieringar. Inga gränser gäller för den totala mängden data som du kan säkerhetskopiera till valvet.
 **Säkerhetskopieringar till valv** | **Virtuella Azure-datorer:** En gång om dagen.<br/><br/>**Datorer som skyddas av DPM/Mabs:** Två gånger om dagen.<br/><br/> **Datorer som har säkerhetskopierats direkt med hjälp av mars-agenten:** Tre gånger per dag.
 **Säkerhets kopieringar mellan valv** | Säkerhets kopiering är inom en region.<br/><br/> Du behöver ett valv i varje Azure-region som innehåller de virtuella datorer som du vill säkerhetskopiera. Du kan inte säkerhetskopiera till en annan region.
-**Flytta valv** | Du kan [Flytta valv](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) mellan prenumerationer eller mellan resurs grupper i samma prenumeration. Det finns dock inte stöd för att flytta valv mellan regioner.
+**Flytta valv** | Du kan [Flytta valv](./backup-azure-move-recovery-services-vault.md) mellan prenumerationer eller mellan resurs grupper i samma prenumeration. Det finns dock inte stöd för att flytta valv mellan regioner.
 **Flytta data mellan valv** | Det finns inte stöd för att flytta säkerhetskopierade data mellan valv.
 **Ändra lagrings typ för valv** | Du kan ändra typen av lagrings replik (antingen Geo-redundant lagring eller lokalt redundant lagring) för ett valv innan säkerhets kopiorna lagras. När säkerhetskopiering börjar i valvet går det inte att ändra replikeringstypen.
 
@@ -42,7 +44,7 @@ I följande tabell beskrivs funktionerna i Recovery Services-valv:
 
 Här är what's som stöds om du vill säkerhetskopiera lokala datorer:
 
-**Dator** | **Vad har säkerhetskopierats** | **Position** | **Funktioner**
+**Dator** | **Vad har säkerhetskopierats** | **Plats** | **Funktioner**
 --- | --- | --- | ---
 **Direkt säkerhets kopiering av Windows-dator med MARS-agent** | Filer, mappar, systemtillstånd | Säkerhetskopiera till Recovery Services Vault. | Säkerhetskopiera tre gånger per dag<br/><br/> Ingen app-medveten säkerhets kopiering<br/><br/> Återställa fil, mapp, volym
 **Direkt säkerhets kopiering av Linux-datorer med MARS-agent** | Säkerhets kopiering stöds inte
@@ -55,14 +57,14 @@ Här är what's som stöds om du vill säkerhetskopiera lokala datorer:
 
 **Gräns** | **Detaljer**
 --- | ---
-**Datadiskar för virtuella Azure-datorer** | Se [support mat ris för säkerhets kopiering av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
+**Datadiskar för virtuella Azure-datorer** | Se [support mat ris för säkerhets kopiering av virtuella Azure-datorer](./backup-support-matrix-iaas.md#vm-storage-support).
 **Datadiskstorlek för virtuella Azure-datorer** | Enskild disk storlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
 
 ### <a name="azure-vm-backup-options"></a>Alternativ för säkerhetskopiering av virtuella Azure-datorer
 
 Här är what's som stöds om du vill säkerhetskopiera virtuella Azure-datorer:
 
-**Dator** | **Vad har säkerhetskopierats** | **Position** | **Funktioner**
+**Dator** | **Vad har säkerhetskopierats** | **Plats** | **Funktioner**
 --- | --- | --- | ---
 **VM-säkerhetskopiering i Azure med hjälp av VM-tillägget** | Hela VM | Säkerhetskopiera till valvet. | Tillägg som installeras när du aktiverar säkerhets kopiering för en virtuell dator.<br/><br/> Säkerhetskopiera en gång om dagen.<br/><br/> App-medveten säkerhets kopiering för virtuella Windows-datorer; filkonsekvent säkerhets kopiering för virtuella Linux-datorer. Du kan konfigurera program konsekvens för Linux-datorer med hjälp av anpassade skript.<br/><br/> Återställ virtuell dator eller disk.<br/><br/> Det går inte att säkerhetskopiera en virtuell Azure-dator till en lokal plats.
 **Virtuell Azure VM-säkerhetskopiering med MARS-agenten** | Filer, mappar, systemtillstånd | Säkerhetskopiera till valvet. | Säkerhetskopiera tre gånger per dag.<br/><br/> Om du vill säkerhetskopiera vissa filer eller mappar i stället för hela den virtuella datorn, kan MARS-agenten köras tillsammans med VM-tillägget.
@@ -75,11 +77,11 @@ Här är what's som stöds om du vill säkerhetskopiera Linux-datorer:
 
 **Typ av säkerhetskopiering** | **Linux (Azure-godkänt)**
 --- | ---
-**Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds inte. MARS-agenten kan bara installeras på Windows-datorer.
+**Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds ej. MARS-agenten kan bara installeras på Windows-datorer.
 **Använda agent tillägget för att säkerhetskopiera virtuell Azure-dator som kör Linux** | Programkonsekvent säkerhets kopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Återställning på filnivå.<br/><br/> Återställ genom att skapa en virtuell dator från en återställningspunkt eller disk.
 **Använda DPM för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
 **Använda MABS för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
-**Använda MABS eller DPM för att säkerhetskopiera virtuella Linux Azure-datorer** | Stöds inte.
+**Använda MABS eller DPM för att säkerhetskopiera virtuella Linux Azure-datorer** | Stöds ej.
 
 ## <a name="daylight-saving-time-support"></a>Stöd för sommar tid
 
@@ -128,13 +130,13 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-**Direkt säkerhets kopiering av lokala Windows-datorer** | NA | ![Ja][green]
+**Direkt säkerhets kopiering av lokala Windows-datorer** | Ej tillämpligt | ![Yes][green]
 **Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | NA
 **Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Begränsningar**
+**Inställning** | **Gränser**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
 **Maximal förfallotid för en återställningspunkt** | Obegränsad
@@ -151,9 +153,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | No                                                           | E.t.               |
-| SQL-/SAP HANA          | No                                                           | E.t.               |
-| DATABASSERVER                    | No                                                           | E.t.               |
+| MARS-agent/lokalt | No                                                           | Ej tillämpligt               |
+| SQL-/SAP HANA          | No                                                           | Ej tillämpligt               |
+| DATABASSERVER                    | No                                                           | Ej tillämpligt               |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 05/08/2020
-ms.openlocfilehash: ad4e80c98097955703e4a6fb3c64e93a338f2720
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090152"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads platser
 
@@ -46,7 +46,7 @@ Om du vill veta mer kan du visa videon på [Varför sälja via Marketplace](http
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Finns det en registrerings avgift för Microsoft Commercial Marketplace?
 
-Nej, det kostar inget att publicera erbjudanden på vår kommersiella marknads plats. Vi behåller en liten procent andel av försäljningen, som en transaktions avgift och investerar den i Marketplace-anslags programmet, plattforms innovation och kommersiella Marketplace-åtgärder.
+Nej, det kostar inget att publicera erbjudanden på vår kommersiella marknads plats. Vi behåller en liten procent andel av försäljningen, som en transaktions avgift och investerar den i Marketplace-anslags programmet, plattforms innovation och kommersiella Marketplace-åtgärder. Den här transaktions avgiften är minskad för [Azure IP Co-Sälj motiverade-](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) erbjudanden.
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Hur gör jag för att registrera dig för att vara utgivare på Microsoft Commercial Marketplace?
 
@@ -311,7 +311,7 @@ Kunder kan avbryta prenumerationer inom en angiven tidsram för att få pengarna
 
 Här är några resurser som hjälper dig att komma igång:
 
-- [Introduktion till Microsofts kommersiella marknads plats](/azure/marketplace/marketplace-publishers-guide)
+- [Introduktion till Microsofts kommersiella marknadsplats](/azure/marketplace/marketplace-publishers-guide)
 - [Microsofts partner hubb för marknads plats](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 - [Välkommen till den kommersiella marknadsplatsen](index.yml)
 
@@ -340,7 +340,7 @@ Information om Microsoft administrations Center finns i [hantera program prenume
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Var kan jag läsa om Azure Government och Azure Government Marketplace?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
-- [Microsoft Säkerhetscenter](https://www.microsoft.com/trust-center)
-- [Azure Government dokumentation](../azure-government/index.yml)
+- [Säkerhetscenter](https://www.microsoft.com/trust-center)
+- [Dokumentation om Azure Government](../azure-government/index.yml)
 - [Azure Government Marketplace](../azure-government/documentation-government-manage-marketplace.md)
 - [Azure Government efterlevnad](../azure-government/documentation-government-plan-compliance.md)

@@ -12,18 +12,18 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b718a0a67381e2b1eb19d2397ecf86e4a9c196d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090135"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Koda med en anpassad transformering – Azure CLI
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna, baserat på bransch metod tips, som visas i snabb starten av [strömmande filer](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 När du skapar anpassade för inställningar gäller följande aspekter:
 
@@ -32,7 +32,7 @@ När du skapar anpassade för inställningar gäller följande aspekter:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[Skapa ett Media Services-konto](create-account-cli-how-to.md).
+[Skapa ett Media Services-konto](./create-account-howto.md).
 
 Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
 

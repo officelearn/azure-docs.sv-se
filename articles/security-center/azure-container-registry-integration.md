@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 07/19/2020
 ms.author: memildin
-ms.openlocfilehash: f3ef633ff0271d74eea7320faadf17685976d3b6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089914"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integration med Security Center
 
@@ -30,6 +30,11 @@ Om du är på Azure Security Center standard nivån kan du lägga till behållar
 
 - Versions tillstånd: **allmän tillgänglighet**
 - Nödvändiga roller: rollen **säkerhet läsare** och [Azure Container Registry läsare](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Register som stöds:
+    - ✔ Register för Linux-värdbaserade ACR som är tillgängliga från det offentliga Internet och ger åtkomst till gränssnittet.
+    - ✘ Windows-värdbaserade ACR-register.
+    - ✘ "Privata"-register-Security Center kräver att dina register kan nås från det offentliga Internet. Om du har begränsad åtkomst till dina register med en brand vägg, en tjänst slut punkt eller genom att använda privat slut punkt (t. ex. en privat Azure-länk) kan Security Center inte ansluta till, eller skanna, registret.
+    - ✘ Super minimalist-bilder som [Docker](https://hub.docker.com/_/scratch/) -bilder, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS.
 - Moln 
     - ✔ Kommersiella moln
     - ✘ US regering-moln
@@ -40,7 +45,7 @@ Om du är på Azure Security Center standard nivån kan du lägga till behållar
 
 När en bild skickas till ditt register, Security Center skannar automatiskt avbildningen. Om du vill utlösa en genomsökning av en avbildning kan du skicka den till din lagrings plats.
 
-När genomsökningen är klar (vanligt vis efter cirka 10 minuter, men kan vara upp till 40 minuter), är avgöranden tillgängliga som Security Center rekommendationer som detta:
+När genomsökningen är klar (vanligt vis efter cirka 2 minuter, men kan vara upp till 15 minuter), är avgöranden tillgängliga som Security Center rekommendationer som detta:
 
 [![Exempel på Azure Security Center rekommendation om sårbarheter som identifierats i en Azure Container Registry (ACR) värd avbildning](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -58,11 +63,6 @@ Security Center identifierar ARM-baserade ACR-register i din prenumeration och g
 
 
 ## <a name="acr-with-security-center-faq"></a>ACR med Security Center vanliga frågor och svar
-
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>Vilka typer av avbildningar kan Azure Security Center skanning?
-Security Center söker igenom Linux OS-baserade avbildningar som ger shell-åtkomst. 
-
-Qualys-skannern har inte stöd för Super minimalist-bilder som [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-bilder som bara innehåller ditt program och dess körnings beroenden utan paket hanteraren, Shell eller OS.
 
 ### <a name="how-does-azure-security-center-scan-an-image"></a>Hur skannar Azure Security Center en avbildning?
 Avbildningen hämtas från registret. Den körs sedan i en isolerad sandbox med Qualys-skannern som extraherar en lista över kända sårbarheter.

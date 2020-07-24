@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090339"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Förbättra säkerheten för B2B-meddelanden med hjälp av certifikat
 
@@ -59,7 +59,7 @@ Om du vill använda ett *offentligt certifikat* i Logi Kap par som har B2B-funkt
 
 ## <a name="upload-a-private-certificate"></a>Ladda upp ett privat certifikat
 
-Om du vill använda ett *privat certifikat* i Logi Kap par som har B2B-funktioner måste du först ladda upp certifikatet till ditt integrations konto. Du måste också ha en privat nyckel som du först lägger till i [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Om du vill använda ett *privat certifikat* i Logi Kap par som har B2B-funktioner måste du först ladda upp certifikatet till ditt integrations konto. Du måste också ha en privat nyckel som du först lägger till i [Azure Key Vault](../key-vault/general/overview.md). 
 
 När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integration-agreements.md) som du skapar är certifikatet tillgängligt för att hjälpa dig att skydda dina B2B-meddelanden.
 
@@ -68,7 +68,7 @@ När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integrati
 
 1. [Lägg till din privata nyckel i Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) och ange ett **nyckel namn**.
    
-2. Auktorisera Azure Logic Apps att utföra åtgärder på Azure Key Vault. Om du vill bevilja åtkomst till Logic Apps tjänstens huvud namn använder du PowerShell [-kommandot Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), till exempel:
+2. Auktorisera Azure Logic Apps att utföra åtgärder på Azure Key Vault. Om du vill bevilja åtkomst till Logic Apps tjänstens huvud namn använder du PowerShell [-kommandot Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), till exempel:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
@@ -86,7 +86,7 @@ När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integrati
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | <*certifikat-namn*> | Certifikatets namn, som är "privateCert" i det här exemplet | 
-   | **Certifikat typ** | Privat | Ditt certifikats typ |
+   | **Certifikat typ** | Privata | Ditt certifikats typ |
    | **Certifikatmallens** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . När du använder ett nyckel valv för den privata nyckeln är den överförda filen det offentliga certifikatet. | 
    | **Resursgrupp** | <*integrering – konto – resurs grupp*> | Integrations kontots resurs grupp, som är "MyResourceGroup" i det här exemplet | 
    | **Key Vault** | <*Key-valv-namn*> | Ditt Azure Key Vault-namn |

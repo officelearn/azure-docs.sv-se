@@ -5,17 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 16abe8d155a0d7d7f65c69e6305da62bd8813ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091308"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
+
+>[!IMPORTANT]
+> Om du besöker den här sidan från hösten 2019-dokumentationen ser du till att [återgå till den 2019-dokumentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) när du är klar.
 
 Windows-klienten för virtuellt Windows-skrivbord är ett utmärkt alternativ för att integrera virtuella Windows-datorer med din lokala dator. Men när du konfigurerar ditt Windows-konto för virtuella skriv bord till Windows-klienten, finns det vissa mått som du måste vidta för att hålla dig trygg och dina användare.
 
@@ -23,7 +26,7 @@ När du först loggar in frågar klienten efter ditt användar namn, lösen ord 
 
 Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här behöver du för att komma igång:
 
@@ -36,28 +39,39 @@ Det här behöver du för att komma igång:
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-I det här avsnittet visas hur du skapar en princip för villkorlig åtkomst som kräver Multi-Factor Authentication när du ansluter till det virtuella Windows-skrivbordet.
+Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor Authentication vid anslutning till virtuella Windows-datorer:
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 2. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 3. Välj **ny princip**.
 4. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 5. Under **Tilldelningar** väljer du **Användare och grupper**.
-   - Under **Inkludera**väljer du **Välj användare och grupper**  >  **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
-   - Välj **Klar**.
-6. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
-   - Välj **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07) och **Välj**sedan, och sedan **Slutför**.
+6. Under **Inkludera**väljer du **Välj användare och grupper**  >  **användare och grupper** > väljer den grupp som du skapade i [krav](#prerequisites) stadiet.
+7. Välj **Klar**.
+8. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
+9. Välj en av följande appars grupper baserat på vilken version av Windows Virtual Desktop som du använder.
+   - Om du använder hösten 2019-versionen väljer du de två apparna:
+       - **Windows Virtual Desktop** (app-ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Windows Virtual Desktop-klient** (app-ID fa4345a4-a730-4230-84a8-7d9651b86739)
+   - Om du använder våren 2020-versionen väljer du dessa två appar i stället:
+       -  **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       -  **Windows Virtual Desktop-klient** (app-ID a85cf173-4192-42F8-81fa-777a763e6e2c)
 
-     > [!div class="mx-imgBorder"]
-     > ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
+   >[!IMPORTANT]
+   > Windows-klientens appar för virtuella skriv bord används för webb klienten. Men Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha MFA.
+  
+1. När du har valt din app väljer du **Välj**och väljer sedan **klar**.
 
-     >[!NOTE]
-     >Om du vill hitta app-ID: t för den app som du vill välja går du till **företags program** och väljer **Microsoft-program** i den nedrullningsbara menyn program typ.
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
 
-7. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
-8. Under **Access Controls**  >  -**session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
-9. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
-10. Välj **skapa** för att aktivera principen.
+   >[!NOTE]
+   >Om du vill hitta app-ID: t för den app som du vill välja går du till **företags program** och väljer **Microsoft-program** i den nedrullningsbara menyn program typ.
+
+10. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
+11. Under **Access Controls**  >  -**session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
+12. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
+13. Välj **skapa** för att aktivera principen.
 
 ## <a name="next-steps"></a>Nästa steg
 

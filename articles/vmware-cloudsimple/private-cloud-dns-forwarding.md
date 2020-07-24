@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961132"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091257"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Aktivera CloudSimple privata moln DNS-servrar för att vidarebefordra DNS-sökning av lokala resurser till dina DNS-servrar
 
@@ -31,7 +32,7 @@ Genom att vidarebefordra DNS-sökning för din lokala DNS-server kan du använda
 En nätverks anslutning måste vara tillgänglig från ditt privata moln nätverk till ditt lokala nätverk för att DNS-vidarebefordran ska fungera.  Du kan konfigurera nätverks anslutning med:
 
 * [Ansluta från den lokala platsen till CloudSimple med ExpressRoute](on-premises-connection.md)
-* [Konfigurera en plats-till-plats-VPN-gateway](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Konfigurera en plats-till-plats-VPN-gateway](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 Brand Väggs portar måste öppnas på den här anslutningen för att DNS-vidarebefordran ska fungera.  Portarna som används är TCP-port 53 eller UDP-port 53.
 

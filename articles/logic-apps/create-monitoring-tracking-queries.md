@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76908077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090407"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Visa och skapa frågor för att övervaka och spåra Azure Monitor loggar för Azure Logic Apps
 
-Du kan visa de underliggande frågorna som producerar resultatet från [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och skapa frågor som filtrerar resultaten baserat på dina kriterier. Du kan till exempel hitta meddelanden baserat på ett speciellt utbytes kontroll nummer. Frågor använder [Kusto-frågespråket](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. Mer information finns i [Azure Monitor logg frågor](../azure-monitor/log-query/query-language.md).
+Du kan visa de underliggande frågorna som producerar resultatet från [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) och skapa frågor som filtrerar resultaten baserat på dina kriterier. Du kan till exempel hitta meddelanden baserat på ett speciellt utbytes kontroll nummer. Frågor använder [Kusto-frågespråket](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. Mer information finns i [Azure Monitor logg frågor](../azure-monitor/log-query/query-language.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Log Analytics-arbetsyta. Om du inte har en Log Analytics arbets yta, lär du dig [hur du skapar en Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md).
 

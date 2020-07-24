@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med hjälp av Azure Data Box
 description: Lär dig hur du kan använda Azure Data Box för att dirigera stora första säkerhets kopierings data offline från MARS-agenten till ett Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513701"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091036"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup offline-säkerhetskopiering med Azure Data Box
 
@@ -153,7 +153,7 @@ MARS-agenten fungerar i det lokala systemets kontext, så den kräver att samma 
 För att säkerställa att du kan montera din Data Box-enhet-enhet som ett lokalt system med hjälp av NFS-protokollet:
 
 1. Aktivera klienten för NFS-funktionen på Windows-servern som har MARS-agenten installerad. Ange alternativ källa *WIM: D: \Sources\Install.wim: 4*.
-1. Ladda ned PSExec från <https://download.sysinternals.com/files/PSTools.zip> till servern med mars-agenten installerad.
+1. Hämta PsExec från [Sysinternals](/sysinternals/downloads/psexec) -sidan till servern med mars-agenten installerad.
 1. Öppna en kommando tolk med förhöjd behörighet och kör följande kommando med katalogen som innehåller *PSExec.exe* som den aktuella katalogen.
 
     ```cmd

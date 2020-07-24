@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090611"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -47,6 +47,8 @@ Innan du fortsätter kontrollerar du att följande krav uppfylls:
 * För enheter som arbetar i lokala nätverk konfigurerar du [virtuella privata nätverk (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privata peering i ditt Azure VNet.
 
 ### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Konfigurera en privat slut punkt för IoT Hub ingress
+
+Privat slut punkt fungerar för IoT Hub enhets-API: er (t. ex. "enhet till molnet"-meddelanden) och service-API: er (som att skapa och uppdatera enheter
 
 1. I Azure Portal väljer du **nätverk**, **anslutningar för privata slut punkter**och klickar på den **privata slut punkten**.
 

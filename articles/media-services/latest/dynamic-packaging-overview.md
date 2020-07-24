@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/11/2020
 ms.author: juliako
-ms.openlocfilehash: 20389c8298f4e970c4b3ba93d96f811fdc905003
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090118"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
@@ -28,7 +28,7 @@ Microsoft Azure Media Services kan användas för att koda många fil format fö
 I Media Services representerar en [strömmande slut punkt](streaming-endpoint-concept.md) (ursprung) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren. Det använder ett av de vanliga protokollen för strömmande media som anges i följande avsnitt. *Dynamisk paketering* är en funktion som levereras som standard på alla slut punkter för direkt uppspelning (standard eller Premium).
 
 > [!NOTE]
-> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Förbereda dina källfiler för leverans
 
@@ -126,7 +126,7 @@ Information om Direktsänd strömning i Media Services v3 finns i [Översikt öv
 Dynamisk paketering stöder MP4-filer som innehåller video som är kodad med [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC eller avc1) eller [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (hevc, hev1 eller hvc1).
 
 > [!NOTE]
-> Lösningar på upp till 4K och bild Rute hastigheter på upp till 60 bild rutor per sekund har testats med *dynamisk paketering*. [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till H. 265 via äldre v2-API: er.
+> Lösningar på upp till 4K och bild Rute hastigheter på upp till 60 bild rutor per sekund har testats med *dynamisk paketering*. [Premium-kodaren](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) stöder kodning till H. 265 via äldre v2-API: er.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Ljud-codec som stöds av dynamisk paketering
 

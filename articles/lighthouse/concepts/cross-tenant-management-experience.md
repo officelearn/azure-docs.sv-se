@@ -3,12 +3,12 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b3aa15dd968b4cded831934103a02420d020b9a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: be4f9581e8a276b4296faedb65691232dee2ea95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090424"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -53,7 +53,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
   - Hantera anslutna datorer med hjälp av Azure-konstruktioner, till exempel Azure Policy och taggning
   - Se till att samma uppsättning principer tillämpas på kunders hybrid miljöer
   - Använd Azure Security Center för att övervaka efterlevnad över kunders hybrid miljöer
-- Hantera hybrid Kubernetes-kluster i skala – [Azure Arc för Kubernetes (för hands version)](../../azure-arc/kubernetes/overview.md):
+- Hantera hybrid Kubernetes-kluster i skala – [Azure Arc Enabled Kubernetes (för hands version)](../../azure-arc/kubernetes/overview.md):
   - [Anslut ett Kubernetes-kluster till Azure-bågen](../../azure-arc/kubernetes/connect-cluster.md) till delegerade prenumerationer och/eller resurs grupper i Azure
   - [Använda GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) för anslutna kluster
   - Tillämpa principer i anslutna kluster

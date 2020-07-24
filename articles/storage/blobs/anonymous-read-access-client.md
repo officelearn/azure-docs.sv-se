@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f4263d372b82779fe68a6a15cc7db61a31359e14
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ac5fad935e5c37df3a8bd64189a59612eaf097aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091376"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Få åtkomst till offentliga behållare och blobbar anonymt med .NET
 
-Azure Storage stöder Anonym, offentlig Läs behörighet för behållare och blobbar. Klienter kan komma åt offentliga behållare och blobbar anonymt med hjälp av Azure Storage klient bibliotek, samt med hjälp av andra verktyg och verktyg som har stöd för data åtkomst till Azure Storage.
+Azure Storage stöder valfri offentlig Läs behörighet för behållare och blobbar. Klienter kan komma åt offentliga behållare och blobbar anonymt med hjälp av Azure Storage klient bibliotek, samt med hjälp av andra verktyg och verktyg som har stöd för data åtkomst till Azure Storage.
 
-Den här artikeln visar hur du kommer åt en offentlig behållare eller BLOB från .NET. Information om hur du konfigurerar anonym Läs åtkomst på en behållare finns i. Information om hur du förhindrar anonym åtkomst till ett lagrings konto finns i.
+Den här artikeln visar hur du kommer åt en offentlig behållare eller BLOB från .NET. Information om hur du konfigurerar anonym Läs åtkomst på en behållare finns i [Konfigurera anonym offentlig Läs behörighet för behållare och blobbar](anonymous-read-access-configure.md). Information om hur du förhindrar anonym åtkomst till ett lagrings konto finns i [förhindra anonym offentlig Läs behörighet till behållare och blobbar](anonymous-read-access-prevent.md).
 
 En klient som har åtkomst till behållare och blobbar anonymt kan använda konstruktorer som inte kräver autentiseringsuppgifter. I följande exempel visas några olika sätt att referera till behållare och blobbar anonymt.
 

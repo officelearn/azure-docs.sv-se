@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090543"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -40,7 +40,7 @@ Innan du börjar arbeta med nycklar, hemligheter eller certifikat i ditt nyckel 
 
 - [Skapa och hantera nyckel valv med CLI](../secrets/quick-create-cli.md)
 - [Skapa och hantera nyckel valv med PowerShell](../secrets/quick-create-powershell.md)
-- [Skapa och hantera nyckel valv med Azure-porten](../secrets/quick-create-portal.md)
+- [Skapa och hantera nyckel valv med Azure Portal](../secrets/quick-create-portal.md)
 - [Skapa och hantera nyckel valv med python](../secrets/quick-create-python.md)
 - [Skapa och hantera nyckel valv med Java](../secrets/quick-create-java.md)
 - [Skapa och hantera nyckel valv med Node.js](../secrets/quick-create-node.md)
@@ -75,11 +75,11 @@ Mer information om 2. x-versionen av .NET SDK finns i [viktig](dotnet2api-releas
 
 I Node.js separeras API för Key Vault hantering och Key Vault objekt-API. I följande översikts artikel får du till gång till båda. 
 
-[Azure Key Vault moduler för Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Azure Key Vault moduler för Node.js](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Azure Key Vault bibliotek för python](/python/api/overview/azure/key-vault?view=azure-python)
+[Azure Key Vault bibliotek för python](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### <a name="azure-cli"></a>Azure CLI
 
@@ -100,7 +100,7 @@ Fullständiga exempel som använder Key Vault med dina program finns i:
 
 Följande artiklar och scenarier innehåller en detaljerad vägledning för att arbeta med Azure Key Vault:
 
-- [Ändra nyckel valvets klient-ID efter prenumerations flytt](subscription-move-fix.md) – när du flyttar din Azure-prenumeration från klient A till klient b är dina befintliga nyckel valv otillgängliga för huvud kontona (användare och program) i klient b. åtgärda detta med hjälp av den här guiden.
+- [Ändra nyckel valvets klient-ID efter prenumerations flytt](move-subscription.md) – när du flyttar din Azure-prenumeration från klient A till klient b är dina befintliga nyckel valv otillgängliga för huvud kontona (användare och program) i klient b. åtgärda detta med hjälp av den här guiden.
 - [Åtkomst till Key Vault bakom brand väggen](access-behind-firewall.md) – för att få åtkomst till ett nyckel valv måste klient programmet för nyckel valv kunna komma åt flera slut punkter för olika funktioner.
 - [Så här genererar och överför du HSM-skyddade nycklar för Azure Key Vault](../keys/hsm-protected-keys.md) – det hjälper dig att planera för, generera och överföra dina egna HSM-skyddade nycklar som du kan använda med Azure Key Vault.
 - [Så här skickar du säkra värden (t. ex. lösen ord) under distributionen](../../azure-resource-manager/templates/key-vault-parameter.md) – när du behöver skicka ett säkert värde (till exempel ett lösen ord) som en parameter under distributionen kan du lagra värdet som en hemlighet i en Azure Key Vault och referera till värdet i andra Resource Manager-mallar.

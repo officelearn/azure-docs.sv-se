@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090968"
 ---
 # <a name="create-application-with-simple-commands"></a>Skapa program med enkla kommandon
 
@@ -81,7 +81,7 @@ Sedan måste kommandot ha en regel för slut för ande. Den här regeln anger an
 1. Välj standard regel för slut för **ande slutförd** och redigera den på följande sätt:
 
     
-    | Inställningen    | Föreslaget värde                          | Beskrivning                                        |
+    | Inställning    | Föreslaget värde                          | Beskrivning                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Namn**       | ConfirmationResponse                  | Ett namn som beskriver syftet med regeln          |
     | **Villkor** | Ingen                                     | Villkor som avgör när regeln kan köras    |
@@ -96,11 +96,10 @@ Sedan måste kommandot ha en regel för slut för ande. Den här regeln anger an
 1. Spara åtgärden genom att välja **Spara** .
 1. Gå tillbaka till avsnittet **regler för slut för ande** och välj **Spara** för att spara alla ändringar. 
 
-
- > [!NOTE]
+    > [!NOTE]
     > Du behöver inte använda standard regeln för slut för ande som medföljer kommandot. Om det behövs kan du ta bort den befintliga regeln för standard slut för ande och lägga till en egen regel.
 
-### <a name="try-it-out"></a>Prova nu
+### <a name="try-it-out"></a>Prova
 
 Testa beteendet med hjälp av panelen test chatt
 1. Välj **träna** ikon överst i den högra rutan.
@@ -123,7 +122,7 @@ Följ stegen som visas för kommandot **TurnON** för att skapa ett nytt kommand
 
 Redigera sedan **de befintliga reglerna för färdig komplettering** enligt följande:
 
-| Inställningen    | Föreslaget värde                          |
+| Inställning    | Föreslaget värde                          |
 | ---------- | ---------------------------------------- |
 | Namn  | ConfirmationResponse                  |
 | Villkor | Ingen                                     |
@@ -134,7 +133,7 @@ Välj **Spara** för att spara alla ändringar i kommandot.
 ## <a name="add-setalarm-command"></a>Lägg till SetAlarm-kommando
 Skapa ett nytt kommando **SetAlarm** med hjälp av exempel meningen "**Ange ett larm för 9 am imorgon**". Redigera sedan **de befintliga reglerna för färdig komplettering** enligt följande:
 
-| Inställningen    | Föreslaget värde                          |
+| Inställning    | Föreslaget värde                          |
 | ---------- | ---------------------------------------- |
 | Regelnamn  | ConfirmationResponse                  |
 | Villkor | Ingen                                     |
@@ -142,10 +141,10 @@ Skapa ett nytt kommando **SetAlarm** med hjälp av exempel meningen "**Ange ett 
 
 Välj **Spara** för att spara alla ändringar i kommandot.
 
-## <a name="try-it-out"></a>Prova nu
+## <a name="try-it-out"></a>Prova
 
 Testa beteendet med hjälp av panelen test chatt
-1. Välj **träna**. När utbildningen är klar väljer du **testa** och provar:
+1. Välj **Träna** (Träna). När utbildningen är klar väljer du **testa** och provar:
     - Du skriver: Ange temperatur till 40 grader
     - Förväntat svar: OK, ställer in temperatur på 40 grader
     - Du skriver: Aktivera TV: n

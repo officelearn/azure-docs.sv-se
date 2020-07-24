@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6accd303ba11c4c1406c7a157fa8176972fc7a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022915"
 ---
 # <a name="manage-assets"></a>Hantera tillgångar
 
-I Azure Media Services är en [till gång](https://docs.microsoft.com/rest/api/media/assets) där du 
+I Azure Media Services är en [till gång](/rest/api/media/assets) där du 
 
 * Ladda upp mediefiler till en till gång,
 * Mata in och arkivera Live-strömmar till en till gång,
@@ -56,13 +56,13 @@ När de digitala filerna har överförts till lagring och associerats med en til
     ```
 2. Hämta en SAS-URL med läs- och skrivbehörigheter som används för att ladda upp digitala filer till tillgångscontainern.
 
-    Du kan använda Media Services API för att [lista URL:er för tillgångscontainern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+    Du kan använda Media Services API för att [lista URL:er för tillgångscontainern](/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas. listContainerSas** använder en [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) -parameter som du anger `expiryTime` . Tiden måste anges till < 24 timmar.
+    **AssetContainerSas. listContainerSas** använder en [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) -parameter som du anger `expiryTime` . Tiden måste anges till < 24 timmar.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returnerar flera SAS-URL: er eftersom det finns två lagrings konto nycklar för varje lagrings konto. Ett lagrings konto har två nycklar eftersom det hjälper till med redundans och sömlös rotation av lagrings konto nycklar. Den första SAS-URL: en representerar den första lagrings konto nyckeln och den andra SAS-URL: en representerar den andra nyckeln.
+    [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) returnerar flera SAS-URL: er eftersom det finns två lagrings konto nycklar för varje lagrings konto. Ett lagrings konto har två nycklar eftersom det hjälper till med redundans och sömlös rotation av lagrings konto nycklar. Den första SAS-URL: en representerar den första lagrings konto nyckeln och den andra SAS-URL: en representerar den andra nyckeln.
 3. Använd Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att ladda upp filer till till gångs behållaren.
-4. Använd Media Services v3-API:er för att skapa en transformering och ett jobb för att bearbeta din ”indatatillgång”. Mer information finns i [Transformeringar och jobb](transform-concept.md).
+4. Använd Media Services v3-API:er för att skapa en transformering och ett jobb för att bearbeta din ”indatatillgång”. Mer information finns i [Transformeringar och jobb](./transforms-jobs-concept.md).
 5. Strömma innehållet från "output"-till gången.
 
 ### <a name="create-a-new-asset"></a>Skapa en ny tillgång
@@ -76,7 +76,7 @@ När de digitala filerna har överförts till lagring och associerats med en til
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-Ett REST-exempel finns i exemplet [skapa en till gång med rest](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) .
+Ett REST-exempel finns i exemplet [skapa en till gång med rest](/rest/api/media/assets/createorupdate#examples) .
 
 Exemplet visar hur du skapar **begär ande texten** där du kan ange beskrivning, container namn, lagrings konto och annan användbar information.
 
@@ -107,7 +107,7 @@ curl -X PUT \
 
 ## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Mata in och arkivera Live-strömmar till en till gång
 
-I Media Services är ett [Live-utmatnings](https://docs.microsoft.com/rest/api/media/liveoutputs) objekt som en digital videobandspelare som fångar upp och registrerar din Live-dataström till en till gång i ditt Media Services-konto. Det inspelade innehållet sparas i den behållare som definieras av [resurs resursen.](https://docs.microsoft.com/rest/api/media/assets)
+I Media Services är ett [Live-utmatnings](/rest/api/media/liveoutputs) objekt som en digital videobandspelare som fångar upp och registrerar din Live-dataström till en till gång i ditt Media Services-konto. Det inspelade innehållet sparas i den behållare som definieras av [resurs resursen.](/rest/api/media/assets)
 
 Mer information finns i:
 
@@ -145,6 +145,6 @@ Se [filtrering, sortering, sid indelning för Media Services entiteter](entities
 
 Se fullständiga kod exempel som visar hur du överför, kodar, analyserar, strömmar Live och på begäran: 
 
-* [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.Net](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [Rest](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [Java](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
+* [.Net](/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
+* [Rest](/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).

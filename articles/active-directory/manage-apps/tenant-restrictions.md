@@ -2,25 +2,22 @@
 title: Använd klient begränsningar för att hantera åtkomst till SaaS-appar – Azure AD
 description: Så här använder du klient begränsningar för att hantera vilka användare som kan komma åt appar baserade på deras Azure AD-klient.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: kenwith
-ms.reviewer: richagi
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019258"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS-molnprogram
 
@@ -60,7 +57,7 @@ Om du vill använda klient begränsningar måste klienterna kunna ansluta till f
 
 Följande konfiguration krävs för att aktivera klient begränsningar via proxyservern för infrastrukturen. Den här vägledningen är generisk, så du bör läsa dokumentationen för proxy-leverantören för att få detaljerade implementerings steg.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 - Proxyn måste kunna utföra TLS-avlyssning, infoga HTTP-huvud och filtrera mål med hjälp av FQDN/URL: er.
 
@@ -89,7 +86,7 @@ Klienter måste tvingas att använda proxyn för alla begär anden till login.mi
 
 I det här avsnittet beskrivs upplevelsen för både slutanvändare och administratörer.
 
-### <a name="end-user-experience"></a>Upplevelse för slutanvändaren
+### <a name="end-user-experience"></a>Slutanvändarens upplevelse
 
 Ett exempel på en användare finns i Contoso-nätverket, men försöker komma åt Fabrikam-instansen av ett delat SaaS-program som Outlook online. Om Fabrikam är en icke-tillåten klient för Contoso-instansen ser användaren ett nekat åtkomst meddelande, som säger att du försöker få åtkomst till en resurs som tillhör en organisation som inte har godkänts av IT-avdelningen.
 
@@ -101,7 +98,7 @@ Medan konfigurationen av klient begränsningar görs i infrastrukturen för för
 
 2. Välj **Azure Active Directory** i den vänstra rutan. Sidan Azure Active Directory översikt visas.
 
-3. I rubriken **andra funktioner** väljer du **begränsningar för innehavare**.
+3. På sidan Översikt väljer du **begränsningar för innehavare**.
 
 Administratören för den klient som anges som den begränsade åtkomst kontext klienten kan använda den här rapporten för att se vilka inloggningar som blockeras på grund av principen för klient begränsningar, inklusive den identitet som används och mål katalog-ID: t. Inloggningar inkluderas om klient inställningen begränsningen är antingen användar klienten eller resurs klienten för inloggningen.
 
@@ -120,8 +117,8 @@ Precis som med andra rapporter i Azure Portal kan du använda filter för att an
 - **MFA-resultat**
 - **IP-adress**
 - **Klient**
-- **Användar**
-- **Position**
+- **Användarnamn**
+- **Plats**
 - **Mål klient-ID**
 
 ## <a name="office-365-support"></a>Office 365-stöd
@@ -169,7 +166,7 @@ Fiddler är en kostnads fri webb fel söknings proxy som kan användas för att 
       }
       ```
 
-      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Ett exempel:
+      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Exempel:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

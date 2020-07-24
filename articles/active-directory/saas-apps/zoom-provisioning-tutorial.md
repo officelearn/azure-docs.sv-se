@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384083"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016274"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Självstudie: Konfigurera zoom för automatisk användar etablering
 
@@ -153,6 +153,9 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 * Med zoom får du maximalt 9 999 grundläggande användare idag.
+
+## <a name="change-log"></a>Ändringslogg
+* 05/14/2020 – stöd för UPPDATERINGs åtgärder som har lagts till för e-post [Type EQ "Work"]-attribut.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

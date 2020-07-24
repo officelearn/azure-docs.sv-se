@@ -1,5 +1,5 @@
 ---
-title: Använda temporära tabeller med Synapse SQL
+title: Använda temporära tabeller i Synapse SQL
 description: Grundläggande rikt linjer för att använda temporära tabeller i Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 090f453771dba6f537ad60605c6e9b96f3ca9957
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e871b7959c11d7fbae650abf8394811b9088ed1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020568"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Temporära tabeller i Synapse SQL
 
@@ -33,7 +33,7 @@ I SQL-gruppresursen ger temporära tabeller en prestanda förmån eftersom deras
 
 ### <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
 
-Temporära tabeller skapas genom att prefixet för ditt tabell namn används `#` .  Till exempel:
+Temporära tabeller skapas genom att prefixet för ditt tabell namn används `#` .  Exempel:
 
 ```sql
 CREATE TABLE #stats_ddl

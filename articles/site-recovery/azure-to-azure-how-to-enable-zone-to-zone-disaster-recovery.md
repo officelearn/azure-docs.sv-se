@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528986"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021655"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Aktivera zon haveri beredskap för virtuella Azure-datorer
 
@@ -20,7 +20,6 @@ Den här artikeln beskriver hur du replikerar, redundansväxlas och återställe
 
 >[!NOTE]
 >
->- Site Recovery stöder för närvarande inte återställnings planer för zon till haveri beredskap för zoner via portalen. Använd PowerShell eller REST API för att utnyttja återställnings planer för zon till haveri beredskap för zoner. 
 >- Stöd för katastrof återställning för zoner till zoner är för närvarande begränsat till två regioner: Sydostasien och Storbritannien, södra.  
 >- Site Recovery flyttar eller lagrar inte kund information från den region där den distribueras när kunden använder zoner för haveri beredskap i zoner. Kunder kan välja ett Recovery Services valv från en annan region om de så vill. Recovery Services valvet innehåller metadata men inga faktiska kund uppgifter.
 

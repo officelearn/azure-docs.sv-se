@@ -14,11 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022131"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs säker push
 
@@ -121,7 +122,7 @@ För att uppnå det här målet måste vi skriva logiken för att hämta det sä
 4. Nu måste vi hantera det inkommande meddelandet och använda metoden ovan för att hämta innehållet som ska visas. Först måste vi aktivera att iOS-appen ska köras i bakgrunden när du tar emot ett push-meddelande. I **Xcode**väljer du ditt app-projekt på den vänstra panelen och klickar sedan på ditt huvud program mål i avsnittet **mål** i fönstret Central.
 5. Klicka sedan på fliken **funktioner** överst i det centrala fönstret och markera kryss rutan **fjärraviseringar** .
 
-    ![][IOS1]
+    ![Skärm bild av XCode med valt app-projekt och fliken funktioner öppen. Kryss rutan fjärraviseringar är markerad.][IOS1]
 
 6. I `AppDelegate.m` Lägg till följande metod för att hantera push-meddelanden:
 

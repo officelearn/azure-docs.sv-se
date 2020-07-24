@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016351"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera slack för automatisk användar etablering
 
@@ -36,7 +36,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i sla
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-tutorial) till slack (rekommenderas)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -112,7 +112,7 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till slack-API: et 
    |displayName|Sträng|
    |Name. familyName|Sträng|
    |Name. givenName|Sträng|
-   |rubrik|Sträng|
+   |title|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |userName|Sträng|
    |Smek namn|Sträng|
@@ -169,7 +169,7 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
 3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="connector-limitations"></a>Kopplings begränsningar
+## <a name="troubleshooting-tips"></a>Felsökningstips
 
 * När du konfigurerar Slackets **DisplayName** -attribut bör du vara medveten om följande beteenden:
 
@@ -179,11 +179,15 @@ När du har konfigurerat etableringen använder du följande resurser för att �
   
   * Tillåten interpunktion innehåller punkter, under streck, bindestreck, apostrofer, hakparenteser (t. ex. **([{}])**) och avgränsare (t. **ex.,/;**).
   
+  * displayName-egenskapen får inte ha ett @-Character. Om en @ ingår kan du hitta en överhoppad händelse i etablerings loggarna med beskrivningen "AttributeValidationFailed".
+
   * Endast uppdateringar om de här två inställningarna har kon figurer ATS i slack s arbets plats/organisation – **profil synkronisering är aktiverat** och **användarna inte kan ändra sina visnings namn**.
-  
+
 * Slackets **username** -attribut måste vara under 21 tecken och ha ett unikt värde.
 
 * Slack tillåter endast matchning med attributen **användar namn** och **e-post**.  
+  
+* Vanliga erorr-koder finns dokumenterade i dokumentation om officiella slack –https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Ändringslogg
 

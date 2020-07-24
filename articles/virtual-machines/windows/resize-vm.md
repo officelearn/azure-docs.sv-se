@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a0a1a2ce0a5122a953b8cc9916e2bf56955feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020245"
 ---
 # <a name="resize-a-windows-vm"></a>Ändra storlek på en virtuell Windows-dator
 
@@ -25,7 +25,7 @@ Om din virtuella dator använder Premium Storage, se till att du väljer en **s*
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-1. Öppna [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Öppna sidan för den virtuella datorn.
 1. I den vänstra menyn väljer du **storlek**.
 1. Välj en ny storlek i listan över tillgängliga storlekar och välj sedan **ändra storlek**.
@@ -126,5 +126,4 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill ha ytterligare skalbarhet kan du köra flera virtuella dator instanser och skala ut. Mer information finns i skala [Windows-datorer automatiskt i en skalnings uppsättning för virtuella datorer](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
+Om du vill ha ytterligare skalbarhet kan du köra flera virtuella dator instanser och skala ut. Mer information finns i skala [Windows-datorer automatiskt i en skalnings uppsättning för virtuella datorer](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

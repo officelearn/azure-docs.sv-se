@@ -1,5 +1,5 @@
 ---
-title: Skapa, uppdatera statistik
+title: Skapa och uppdatera statistik med Azure Synapse SQL-resurser
 description: Rekommendationer och exempel för att skapa och uppdatera statistik för att optimera frågor i Synapse SQL.
 services: synapse-analytics
 author: filippopovic
@@ -11,11 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020607"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
@@ -172,7 +173,7 @@ CREATE STATISTICS [statistics_name]
     ON [schema_name].[table_name]([column_name]);
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -189,7 +190,7 @@ CREATE STATISTICS [statistics_name]
     WITH FULLSCAN;
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -402,7 +403,7 @@ Använd följande syntax för att uppdatera ett enskilt statistik objekt:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -418,7 +419,7 @@ En enkel metod för att uppdatera alla statistik objekt i en tabell är:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -505,7 +506,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data ingår i tre delar:
 
-- Sidhuvud
+- Huvud
 - Densitets vektor
 - Histogram
 
@@ -521,7 +522,7 @@ Det här enkla exemplet visar alla tre delarna i ett statistik objekt:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -536,7 +537,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
     WITH stat_header, histogram, density_vector
 ```
 
-Ett exempel:
+Exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1)

@@ -12,11 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764935"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019547"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -116,7 +117,7 @@ Tillåt åtkomst till följande webbadresser:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.net <br> *. msauthimages.net<br>*. msecnd.net <br> *. msftauth.net<br>*. msftauthimages.net <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
-Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net. Om inte måste du tillåta åtkomst till [Azure DataCenter IP-intervallen](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervallen uppdateras varje vecka.
+Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net. Om inte, måste du tillåta åtkomst till [Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervallen uppdateras varje vecka.
 
 Om du inte kan tillåta anslutning av FQDN och behöver ange IP-adressintervall i stället, använder du följande alternativ:
 
@@ -152,6 +153,9 @@ Aktivera detta genom att följa nästa steg:
 4.  Konfigurera de proxyinställningar som krävs. 
 
 De här inställningarna gör att anslutningen använder samma vidarebefordrande proxy för kommunikationen till Azure och Server dels programmet. Om anslutningen till Azure-kommunikationen inte kräver någon vidarebefordrande proxy eller en annan vidarebefordran proxy kan du konfigurera detta med att ändra filen ApplicationProxyConnectorService.exe.config enligt beskrivningen i avsnitten kringgå utgående proxyservrar eller använda den utgående proxyservern.
+
+> [!NOTE]
+> Det finns olika sätt att konfigurera Internet-proxyn i operativ systemet. Proxyinställningar som kon figurer ATS via NETSH WINHTTP (kör `NETSH WINHTTP SHOW PROXY` för att verifiera) Åsidosätt proxyinställningarna som du konfigurerade i steg 2. 
 
 I anslutnings tjänsten för anslutningar används även datorns proxyserver. Du kan ändra det här beteendet genom att ändra filen ApplicationProxyConnectorUpdaterService.exe.config.
 

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2385171a501d00f91c58f3fde9b487505ec21c60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896061"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023219"
 ---
 # <a name="creating-filters-with-cli"></a>Skapa filter med CLI 
 
@@ -26,14 +27,14 @@ När du levererar ditt innehåll till kunder (strömma live-händelser eller vid
 
 Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
 
-Det här avsnittet visar hur du konfigurerar ett filter för en video på begäran-till gång och använder CLI för Media Services v3 för att skapa [konto filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) och [filter för till gångar](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+Det här avsnittet visar hur du konfigurerar ett filter för en video på begäran-till gång och använder CLI för Media Services v3 för att skapa [konto filter](/cli/azure/ams/account-filter?view=azure-cli-latest) och [filter för till gångar](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 > [!NOTE]
 > Se till att granska [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
+- [Skapa ett Media Services-konto](./create-account-howto.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -79,7 +80,7 @@ I följande exempel definieras villkoren för spåra val som läggs till i det s
 
 ## <a name="create-account-filters"></a>Skapa konto filter
 
-Följande [AZ AMS Account-filter-](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) kommando skapar ett konto filter med val av filter spårning som [definierades tidigare](#define-a-filter). 
+Följande [AZ AMS Account-filter-](/cli/azure/ams/account-filter?view=azure-cli-latest) kommando skapar ett konto filter med val av filter spårning som [definierades tidigare](#define-a-filter). 
 
 Med kommandot kan du skicka en valfri `--tracks` parameter som innehåller JSON som representerar spår valen.  Använd @ {File} för att läsa in JSON från en fil. Om du använder Azure CLI lokalt anger du hela fil Sök vägen:
 
@@ -87,17 +88,17 @@ Med kommandot kan du skicka en valfri `--tracks` parameter som innehåller JSON 
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
-Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Se även [JSON-exempel för filter](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## <a name="create-asset-filters"></a>Skapa till gångs filter
 
-Följande [AZ AMS Asset Asset filter-](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) kommando skapar ett till gångs filter med val av filter spårning som [definierades tidigare](#define-a-filter). 
+Följande [AZ AMS Asset Asset filter-](/cli/azure/ams/asset-filter?view=azure-cli-latest) kommando skapar ett till gångs filter med val av filter spårning som [definierades tidigare](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
-Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
+Se även [JSON-exempel för filter](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
@@ -131,4 +132,4 @@ I följande tabell visas några exempel på URL: er med filter:
 
 ## <a name="see-also"></a>Se även
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams?view=azure-cli-latest)

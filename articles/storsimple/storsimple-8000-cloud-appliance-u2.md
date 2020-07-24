@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021383"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -63,7 +64,7 @@ I följande tabell beskrivs några huvudsakliga skillnader mellan StorSimple-mol
 
 |  | Fysisk enhet | Molninstallation |
 | --- | --- | --- |
-| **Position** |Finns i datacentret. |Körs i Azure. |
+| **Plats** |Finns i datacentret. |Körs i Azure. |
 | **Nätverksgränssnitt** |Har sex nätverksgränssnitt: DATA 0 till DATA 5. |Har bara ett nätverksgränssnitt: DATA 0. |
 | **Registrering** |Registreras i det inledande konfigurationssteget. |Registreringen är en separat åtgärd. |
 | **Krypterings nyckel för tjänst data** |Återskapa på den fysiska enheten och uppdatera sedan molninstallationen med den nya nyckeln. |Det går inte att återskapa från molninstallationen. |
@@ -83,7 +84,7 @@ Innan du etablerar molninstallationen måste du göra följande förberedelser i
 * [Konfigurera ett virtuellt nätverk i Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) för molninstallationen. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Premium Storage-regioner är regioner som motsvarar raden för disklagring i [listan över Azure-tjänster baserat på region](https://azure.microsoft.com/regions/services/).
 * Vi rekommenderar att du använder DNS-standardservern från Azure i stället för att ange ett eget DNS-servernamn. Om DNS-servernamnet inte är giltigt eller om DNS-servern inte kan matcha IP-adresser korrekt går det inte att skapa molninstallationen.
 * Punkt-till-plats och plats-till-plats går att välja, men är inget krav. Om du vill kan du konfigurera dessa alternativ för mer avancerade scenarier.
-* Du kan skapa [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (värdservrar) i det virtuella nätverket som kan använda de volymer som exponeras av molninstallationen. Servrarna måste uppfylla följande krav:
+* Du kan skapa [Azure Virtual Machines](../virtual-machines/windows/quick-create-portal.md) (värdservrar) i det virtuella nätverket som kan använda de volymer som exponeras av molninstallationen. Servrarna måste uppfylla följande krav:
 
   * Vara virtuella Windows eller Linux-datorer som har installerad programvara med iSCSI-initierare.
   * Köras i samma virtuella nätverk som molninstallationen.
@@ -194,7 +195,7 @@ Du behöver en intern eller privat IP-adress för molninstallationen för att de
 
      ![Välj virtuell dator för din molninstallation](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
 
-2. Gå till **Inställningar > Nätverk**. Du ser den privata IP-adressen för molninstallationen i det högra fönstret. Anteckna den.
+2. Gå till **Inställningar > Nätverk**. Du ser den privata IP-adressen för molninstallationen i det högra fönstret. Anteckna det.
 
     ![Få en privat IP-adress för din molninstallation](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 

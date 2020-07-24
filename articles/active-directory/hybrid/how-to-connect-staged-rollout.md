@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019836"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
-Genom att använda en stegvis distributions metod kan du undvika en start punkt av hela domänen.  På så sätt kan du selektivt testa grupper av användare med funktioner för molnbaserad autentisering som Azure Multi-Factor Authentication (MFA), villkorlig åtkomst, identitets skydd för läckta autentiseringsuppgifter, identitets styrning och andra.  Den här artikeln beskriver hur du gör-växeln. Innan du påbörjar den mellanlagrade distributionen bör du ta hänsyn till konsekvenserna om ett eller flera av följande villkor är uppfyllda:
+Med mellanlagrad distribution kan du selektivt testa grupper av användare med funktioner för molnbaserad autentisering, till exempel Azure Multi-Factor Authentication (MFA), villkorlig åtkomst, identitets skydd för läckta autentiseringsuppgifter, identitets styrning och andra, innan du klipper över dina domäner.  Den här artikeln beskriver hur du gör-växeln. Innan du påbörjar den mellanlagrade distributionen bör du ta hänsyn till konsekvenserna om ett eller flera av följande villkor är uppfyllda:
     
 -  Du använder för närvarande en lokal Multi-Factor Authentication-Server. 
 -  Du använder smartkort för autentisering. 
@@ -33,7 +33,7 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Du har en Azure Active Directory-klient (Azure AD) med federerade domäner.
 
@@ -45,7 +45,7 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 -   Du har konfigurerat alla lämpliga principer för klient anpassning och villkorlig åtkomst som du behöver för användare som migreras till molnbaserad autentisering.
 
--   Om du planerar att använda Azure Multi-Factor Authentication rekommenderar vi att du använder [konvergerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) för att användarna ska kunna registrera sina autentiseringsmetoder en gång.
+-   Om du planerar att använda Azure Multi-Factor Authentication rekommenderar vi att du använder [kombinerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) för att användarna ska kunna registrera sina autentiseringsmetoder en gång.
 
 -   Om du vill använda funktionen för stegvis distribution måste du vara global administratör för din klient.
 
@@ -81,6 +81,8 @@ Följande scenarier stöds inte för stegvis distribution:
 
 
 - När du först lägger till en säkerhets grupp för stegvis distribution är du begränsad till 200 användare för att undvika en UX-timeout. När du har lagt till gruppen kan du lägga till fler användare direkt till den, efter behov.
+
+- Medan användarna är i steg införd, anges principen för lösen ords förfallo datum till 90 dagar utan alternativ för att anpassa den. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Kom igång med stegvis distribution
@@ -173,6 +175,7 @@ Gör följande:
 
    >[!NOTE]
    >Medlemmarna i en grupp aktive ras automatiskt för mellanlagrad distribution. Kapslade och dynamiska grupper stöds inte för mellanlagrad distribution.
+   >När du lägger till en ny grupp kommer användare i gruppen (upp till 200 användare för en ny grupp) att uppdateras för att använda Managed auth immidiatly. Genom att redigera en grupp (lägga till eller ta bort användare) kan det ta upp till 24 timmar innan ändringarna börjar gälla.
 
 ## <a name="auditing"></a>Granskning
 

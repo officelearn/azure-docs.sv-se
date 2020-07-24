@@ -14,11 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015892"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -31,7 +32,7 @@ Under processen för adminövertagande kan du bevisa ägarskapet enligt instrukt
 
 * När du utför en ["extern" administratörs övertag](#external-admin-takeover) ande av en ohanterad Azure-katalog lägger du till DNS-domännamnet för den ohanterade katalogen i din hanterade Azure-katalog. När du lägger till domännamnet skapas en mappning av användare till resurser i din hanterade Azure-katalog så att användare kan fortsätta att använda tjänsterna utan avbrott. 
 
-## <a name="internal-admin-takeover"></a>Intern administratörs övertag Ande
+## <a name="internal-admin-takeover"></a>Internt övertagande av administratörsrollen
 
 Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365, har inte stöd för extern övertag Ande. Om det är ditt scenario, eller om du är en administratör och vill ta över en ohanterad Azure AD-organisation skapa av användare som använde självbetjänings registrering, kan du göra detta med ett internt administratörs övertag Ande.
 
@@ -73,7 +74,7 @@ När du har slutfört föregående steg är du nu den globala administratören f
 > [!NOTE]
 > Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser som tilldelats i Office 365-organisationen måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *användarens \@ fourthcoffeexyz.onmicrosoft.com* i stället för *User \@ fourthcoffee. xyz*.
 
-## <a name="external-admin-takeover"></a>Extern administratörs övertag Ande
+## <a name="external-admin-takeover"></a>Externt övertagande av administratörsrollen
 
 Om du redan hanterar en organisation med Azure-tjänster eller Office 365 kan du inte lägga till ett anpassat domän namn om det redan har verifierats i en annan Azure AD-organisation. Från din hanterade organisation i Azure AD kan du dock ta över en ohanterad organisation som en extern administratörs övertag Ande. Den allmänna proceduren följer artikeln [lägga till en anpassad domän i Azure AD](../fundamentals/add-custom-domain.md).
 
@@ -81,13 +82,13 @@ När du verifierar ägarskapet för domän namnet tar Azure AD bort domän namne
 
 - Användare
 - Prenumerationer
-- Licens tilldelningar
+- Licenstilldelningar
 
 ### <a name="support-for-external-admin-takeover"></a>Stöd för extern administratörs övertag Ande
 Extern administratörs övertag ande stöds av följande onlinetjänster:
 
 - Azure Rights Management
-- exchange online
+- Exchange Online
 
 Service planerna som stöds är:
 
@@ -143,12 +144,12 @@ cmdlet | Användning
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    Ett exempel:
+    Exempel:
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Kopiera värdet (utmaningen) som returneras från det här kommandot. Ett exempel:
+4. Kopiera värdet (utmaningen) som returneras från det här kommandot. Exempel:
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -159,7 +160,7 @@ cmdlet | Användning
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   Ett exempel:
+   Exempel:
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
@@ -169,9 +170,9 @@ En lyckad utmaning går tillbaka till prompten utan ett fel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lägg till ett anpassat domän namn i Azure AD](../fundamentals/add-custom-domain.md)
-* [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Lägga till ett anpassat domännamn i Azure AD](../fundamentals/add-custom-domain.md)
+* [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet-referens](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 

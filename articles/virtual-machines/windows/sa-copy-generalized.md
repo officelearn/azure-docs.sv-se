@@ -9,11 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 31b8200b63780388fb53db588c418951c500ac19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8077689bce988124da34428842df8fd2ef757bf0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020193"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Så här skapar du en ohanterad VM-avbildning från en virtuell Azure-dator
 
@@ -24,9 +25,9 @@ Den här artikeln visar hur du använder Azure PowerShell för att skapa en avbi
  
 
 ## <a name="generalize-the-vm"></a>Generalisera den virtuella datorn 
-Det här avsnittet visar hur du generaliserar din virtuella Windows-dator för användning som en avbildning. Generalisera en virtuell dator tar bort all personlig konto information, bland annat, och förbereder datorn som ska användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
+Det här avsnittet visar hur du generaliserar din virtuella Windows-dator för användning som en avbildning. Generalisera en virtuell dator tar bort all personlig konto information, bland annat, och förbereder datorn som ska användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)) (Använda Sysprep: En introduktion).
 
-Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Om du laddar upp din virtuella hård disk till Azure för första gången måste du se till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) datorn innan du kör Sysprep. 
@@ -251,5 +252,3 @@ När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal
 
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du hanterar din nya virtuella dator med Azure PowerShell finns i [Hantera virtuella datorer med Azure Resource Manager och PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

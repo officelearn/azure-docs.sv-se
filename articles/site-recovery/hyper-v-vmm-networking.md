@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73961427"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021672"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurera IP-adressering för att ansluta till en sekundär lokal plats efter redundans
 
@@ -78,12 +79,12 @@ Efter redundansväxlingen allokerar Site Recovery en IP-adress för varje nätve
 
 När du har aktiverat skydd för en virtuell dator kan du använda följande exempel skript för att verifiera den adress som tilldelats den virtuella datorn. Den här IP-adressen har angetts som IP-adress för redundans och tilldelas den virtuella datorn vid tidpunkten för redundans:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>Använd en annan IP-adress
 
@@ -92,7 +93,7 @@ I det här scenariot ändras IP-adresserna för de virtuella datorer som växlar
 - Använd låga TTL-värden för intranät program.
 - Använd följande skript i en Site Recovery återställnings plan för en tids uppdatering av DNS-servern. Du behöver inte skriptet om du använder dynamisk DNS-registrering.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,

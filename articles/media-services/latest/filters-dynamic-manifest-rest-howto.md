@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ef342ecee9bb9e2f32400655db0cacc01835c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75780342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023117"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Skapa filter med Media Services REST API
 
@@ -25,12 +26,12 @@ När du levererar ditt innehåll till kunder (strömma live-händelser eller vid
 
 Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
 
-Det här avsnittet visar hur du definierar ett filter för en video på begäran till gång och använder REST-API: er för att skapa [konto filter](https://docs.microsoft.com/rest/api/media/accountfilters) och [filter för till gångar](https://docs.microsoft.com/rest/api/media/assetfilters). 
+Det här avsnittet visar hur du definierar ett filter för en video på begäran till gång och använder REST-API: er för att skapa [konto filter](/rest/api/media/accountfilters) och [filter för till gångar](/rest/api/media/assetfilters). 
 
 > [!NOTE]
 > Se till att granska [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 För att slutföra stegen som beskrivs i det här avsnittet måste du:
 
@@ -96,7 +97,7 @@ Välj **Skicka**.
 
 Filtret har skapats.
 
-Mer information finns i [skapa eller uppdatera](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Mer information finns i [skapa eller uppdatera](/rest/api/media/accountfilters/createorupdate). Se även [JSON-exempel för filter](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## <a name="create-asset-filters"></a>Skapa till gångs filter  
 
@@ -114,13 +115,13 @@ Välj **Skicka**.
 
 Till gångs filtret har skapats.
 
-Mer information om hur du skapar eller uppdaterar till gångs filter finns i [skapa eller uppdatera](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
+Mer information om hur du skapar eller uppdaterar till gångs filter finns i [skapa eller uppdatera](/rest/api/media/assetfilters/createorupdate). Se även [JSON-exempel för filter](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
 Du kan ange en lista över till gångs-eller konto filter, som gäller för din strömmande positionerare. Den [dynamiska Paketeraren (slut punkt för direkt uppspelning)](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i de URL: er som du anger på en strömmande positionerare. Vi rekommenderar att du använder den här funktionen om du vill tillämpa filter men inte vill visa filter namnen i URL: en.
 
-Om du vill skapa och associera filter med en strömmande positionerare med hjälp av REST använder du [strömmande positionerare-skapa](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API och anger `properties.filters` i [begär ande texten](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+Om du vill skapa och associera filter med en strömmande positionerare med hjälp av REST använder du [strömmande positionerare-skapa](/rest/api/media/streaminglocators/create) API och anger `properties.filters` i [begär ande texten](/rest/api/media/streaminglocators/create#request-body).
                                 
 ## <a name="stream-using-filters"></a>Data ström med filter
 

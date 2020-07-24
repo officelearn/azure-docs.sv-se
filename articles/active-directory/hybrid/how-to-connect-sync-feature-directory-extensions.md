@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019769"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalog tillägg
 Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [tillägg](https://docs.microsoft.com/graph/extensibility-overview
@@ -33,8 +33,8 @@ Inga Office 365-arbetsbelastningar förbrukar dessa attribut.
 
 Du konfigurerar vilka ytterligare attribut som du vill synkronisera i sökvägen för anpassade inställningar i installations guiden.
 
->[!NOTE]
->Rutan Tillgängliga attribut är Skift läges känslig.
+> [!NOTE]
+> I Azure AD Connect versioner tidigare än 1.2.65.0 är sökrutan för **tillgängliga attribut** Skift läges känslig.
 
 ![Guiden schema tillägg](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 

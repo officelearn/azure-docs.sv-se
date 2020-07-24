@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2020
+ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019394"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-programproxy: versions historik
 Den här artikeln innehåller versioner och funktioner i Azure Active Directory (Azure AD) Application Proxy som har släppts. Azure AD-teamet uppdaterar regelbundet programproxy med nya funktioner och funktioner. Application Proxy-kopplingar uppdateras automatiskt när en ny version släpps. 
@@ -35,6 +35,31 @@ Resurs |  Information
 Så här aktiverar du tillämpningsproxy | För hands krav för att aktivera programproxy och installera och registrera en anslutning beskrivs i den här [självstudien](application-proxy-add-on-premises-application.md).
 Förstå Azure AD-programproxy-kopplingar | Lär dig mer om [anslutnings hantering](application-proxy-connectors.md) och hur anslutningar [uppgraderas automatiskt](application-proxy-connectors.md#automatic-updates).
 Hämtning av Azure AD-programproxy Connector |  [Hämta den senaste anslutningen](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+
+## <a name="1519750"></a>1.5.1975.0
+
+### <a name="release-status"></a>Versionsstatus
+
+Den 22 juli 2020: lanserad för nedladdning den här versionen är bara tillgänglig för installation via nedladdnings sidan. En version av automatisk uppgradering av den här versionen kommer att frisläppas vid ett senare tillfälle.
+
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
+-   Förbättrat stöd för Azure Government moln miljöer. Anvisningar om hur du installerar anslutningen för Azure Government Cloud genom att granska [kraven](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) och [installations stegen](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+- Stöd för att använda Fjärrskrivbordstjänster-webbklient med programproxy. Mer information finns i [publicera fjärr skrivbord med Azure AD-programproxy](application-proxy-integrate-with-remote-desktop-services.md) .
+- Förbättrade förhandlingar om WebSocket-tillägg. 
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+- Ett WebSocket-problem har åtgärd ATS som framtvingade gemener av strängar.
+- Ett problem har åtgärd ATS som gjorde att kopplingar inte svarade occassionally.
+
+## <a name="1516260"></a>1.5.1626.0
+
+### <a name="release-status"></a>Versionsstatus
+
+17 juli 2020: har släppts för hämtning. Den här versionen är bara tillgänglig för installation via nedladdnings sidan. En version av automatisk uppgradering av den här versionen kommer att frisläppas vid ett senare tillfälle.
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+- Löst minnes läcka problem som finns i tidigare version
+- Allmänna förbättringar för WebSocket-stöd
 
 ## <a name="1515260"></a>1.5.1526.0
 

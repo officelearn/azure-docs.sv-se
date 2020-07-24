@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1df17ccb41c974c8939710850b5bb71ee3a5ef1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134801"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021587"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägga till Azure Automation Runbook-rutiner i återställningsplaner
 
@@ -199,7 +199,7 @@ I vissa fall kanske du inte kan skapa separata variabler för varje återställn
 - Till exempel har en SharePoint-återställning två frontend-sidor. Ett grundläggande LOB-program (Line-of-Business) har bara en klient del.
 - I det här scenariot kan du inte skapa separata variabler för varje återställnings plan.
 
-I följande exempel skapar vi en [komplex variabel](/powershell/module/servicemanagement/azure/set-azureautomationvariable) i Azure Automation-kontot.
+I följande exempel skapar vi en [komplex variabel](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) i Azure Automation-kontot.
 
 Vi gör detta genom att ange flera värden med hjälp av Azure PowerShell.
 

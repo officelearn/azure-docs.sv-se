@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23d3d287238d2813f7381941dc279851bc3afdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a61bd162baf6f079b625dc07d4faa397493ba618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015875"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Vad är självbetjänings registrering för Azure Active Directory?
 
@@ -77,9 +77,9 @@ Mer information och exempel på hur du använder dessa parametrar finns i [set-M
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lägg till ett anpassat domän namn i Azure AD](../fundamentals/add-custom-domain.md)
-* [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Lägga till ett anpassat domännamn i Azure AD](../fundamentals/add-custom-domain.md)
+* [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet-referens](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 * [Stäng ditt arbets-eller skol konto i en ohanterad katalog](users-close-account.md)

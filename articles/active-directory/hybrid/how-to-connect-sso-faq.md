@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674befe7d01d0ef88026afeb2cb9179b167a88ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357944"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019739"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -54,7 +54,7 @@ Dessutom får användarna en tyst inloggnings upplevelse om ett program skickar 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
 | sharepoint online | https: \/ /contoso.SharePoint.com |
-| Azure Portal | https: \/ /Portal.Azure.com/contoso.com |
+| Azure-portalen | https: \/ /Portal.Azure.com/contoso.com |
 
 I tabellerna ovan ersätter du "contoso.com" med ditt domän namn för att komma till rätt program-URL: er för din klient.
 
@@ -102,6 +102,10 @@ Följ de här stegen på den lokala server där du kör Azure AD Connect:
    >Det domän administratörs konto som används får inte vara medlem i gruppen för skyddade användare. I så fall kommer åtgärden att Miss Miss läge.
 
    2. Anropa `Update-AzureADSSOForest -OnPremCredentials $creds` . Det här kommandot uppdaterar Kerberos-dekrypterings nyckeln för `AZUREADSSO` dator kontot i den här särskilda AD-skogen och uppdaterar det i Azure AD.
+   
+   >[!NOTE]
+   >Om du inte är domän administratör och har tilldelats behörigheter av domän administratören, bör du anropa`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Upprepa föregående steg för varje AD-skog som du har konfigurerat funktionen på.
 
    >[!IMPORTANT]

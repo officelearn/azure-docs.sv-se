@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019071"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -55,9 +55,12 @@ Hanterade identiteter har inget program objekt i katalogen, vilket är det som o
 
 Nej, det finns inga planer på att stödja hanterade identiteter för Azure-resurser i Azure Cloud Services.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Fungerar hanterade identiteter för Azure-resurser med Active Directory-autentiseringsbibliotek (ADAL) eller Microsoft Authentication Library (MSAL)?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>Vad är den autentiseringsuppgift som är associerad med en hanterad identitet? Hur länge är det giltigt och hur ofta det roteras?
 
-Nej, hanterade identiteter för Azure-resurser är ännu inte integrerade med ADAL eller MSAL. Information om hur du hämtar en token för hanterade identiteter för Azure-resurser med hjälp av REST-slutpunkten finns i [så här använder du hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att få en](how-to-use-vm-token.md)åtkomsttoken.
+> [!NOTE]
+> Hur hanterade identiteter autentiserar är en intern implementerings information som kan ändras utan föregående meddelande.
+
+Hanterade identiteter använder certifikatbaserad autentisering. Varje hanterad identitets autentiseringsuppgift har ett förfallo datum på 90 dagar och den har registrerats efter 45 dagar.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Vad är säkerhets gränserna för hanterade identiteter för Azure-resurser?
 
@@ -133,7 +136,7 @@ Lösning för hanterade identiteter i en prenumeration som har flyttats till en 
  - För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
  - För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
 
-Mer information finns i [överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)](../../role-based-access-control/transfer-subscription.md).
+Mer information finns i [Överföra en Azure-prenumeration till en annan Azure AD-katalog (förhandsversion)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Flytta en användardefinierad hanterad identitet till en annan resurs grupp/prenumeration
 

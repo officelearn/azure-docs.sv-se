@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d02800d39e918478243429971c0d48c4d0c59148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758137"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020124"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning
 
@@ -29,7 +30,7 @@ Att välja rätt autentiseringsmetod är det första sättet för organisationer
 Identitet är det nya kontroll planet för IT-säkerhet, så autentisering är en organisations åtkomst skydd till den nya moln världen. Organisationer behöver ett identitets kontroll plan som förstärker säkerheten och skyddar sina molnappar mot inkräktare.
 
 > [!NOTE]
-> Att ändra autentiseringsmetoden kräver planering, testning och eventuella stillestånds tider. [Mellanlagrad](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) distribution är ett bra sätt att testa och gradvis migrera från Federation till molnbaserad autentisering.
+> Att ändra autentiseringsmetoden kräver planering, testning och eventuella stillestånds tider. [Mellanlagrad](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) distribution är ett bra sätt att testa användarnas migrering från Federation till molnbaserad autentisering.
 
 ### <a name="out-of-scope"></a>Utanför definitions området
 Organisationer som inte har något befintligt lokalt katalog utrymme är inte fokus i den här artikeln. Vanligt vis skapar företagen bara identiteter i molnet, vilket inte kräver en hybrid identitets lösning. Enbart moln identiteter finns bara i molnet och är inte kopplade till motsvarande lokala identiteter.
@@ -46,7 +47,7 @@ Azure AD stöder följande autentiseringsmetoder för Hybrid identitets lösning
 ### <a name="cloud-authentication"></a>Molnbaserad autentisering
 När du väljer den här autentiseringsmetoden hanterar Azure AD användarnas inloggnings processer. Tillsammans med sömlös enkel inloggning (SSO) kan användarna logga in till molnappar utan att behöva ange sina autentiseringsuppgifter på annat sätt. Med molnbaserad autentisering kan du välja mellan två alternativ:
 
-**Azure AD Password hash-synkronisering**. Det enklaste sättet att aktivera autentisering för lokala katalog objekt i Azure AD. Användare kan använda samma användar namn och lösen ord som de använder lokalt utan att behöva distribuera någon ytterligare infrastruktur. Vissa Premium funktioner i Azure AD, som identitets skydd och [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md), kräver synkronisering av lösen ords-hash, oavsett vilken autentiseringsmetod du väljer.
+**Synkronisering av lösenordshash för Azure AD**. Det enklaste sättet att aktivera autentisering för lokala katalog objekt i Azure AD. Användare kan använda samma användar namn och lösen ord som de använder lokalt utan att behöva distribuera någon ytterligare infrastruktur. Vissa Premium funktioner i Azure AD, som identitets skydd och [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md), kräver synkronisering av lösen ords-hash, oavsett vilken autentiseringsmetod du väljer.
 
 > [!NOTE]
 > Lösen ord lagras aldrig i klartext eller krypteras med en omvänd algoritm i Azure AD. Mer information om den faktiska processen för synkronisering av lösen ords-hash finns i [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
@@ -173,12 +174,12 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 
 |Att tänka på|Password-hash-synkronisering + sömlös SSO|Direktautentisering + sömlös SSO|Federation med AD FS|
 |:-----|:-----|:-----|:-----|
-|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokalt|
+|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokal|
 |Vilka är de lokala server kraven utöver etablerings systemet: Azure AD Connect?|Ingen|En server för varje ytterligare Authentication agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverket|
 |Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Ingen|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
-|Finns det ett TLS/SSL-certifikat krav?|Nej|Nej|Ja|
+|Finns det ett TLS/SSL-certifikat krav?|Inga|Inga|Ja|
 |Finns det en lösning för hälso övervakning?|Krävs inte|Agent status som tillhandahålls av [Azure Active Directory administrations Center](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja|
+|Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Yes|
 |Vilka inloggnings typer stöds?|UserPrincipalName + lösen ord<br><br>Windows-integrerad autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + lösen ord<br><br>Windows-integrerad autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + lösen ord<br><br>sAMAccountName + lösen ord<br><br>Windows-integrerad autentisering<br><br>[Autentisering med certifikat och smartkort](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternativt inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Stöds Windows Hello för företag?|[Nyckel förtroende modell](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Nyckel förtroende modell](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Kräver domän funktions nivå för Windows Server 2016*|[Nyckel förtroende modell](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certifikat förtroende modell](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Vad är alternativen för multifaktorautentisering?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA-Server](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA från tredje part](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|

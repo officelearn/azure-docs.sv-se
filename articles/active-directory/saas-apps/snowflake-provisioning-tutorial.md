@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016349"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Självstudie: Konfigurera snö för automatisk användar etablering
 
@@ -38,7 +38,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 > * Etablera grupper och grupp medlemskap i snö flingor
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/snowflake-tutorial) till snö flingor (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -163,6 +163,10 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
 * De snö SCIM token som skapats upphör att gälla om 6 månader. Tänk på att dessa måste uppdateras innan de upphör att gälla för att slutföra etableringen av synkroniseringen. 
+
+## <a name="change-log"></a>Ändrings logg
+
+* 07/21/2020-aktive rad mjuk borttagning för alla användare (via det aktiva attributet).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

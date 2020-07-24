@@ -11,11 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b6bda6d35391543e416c377557e34de317e293eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015978"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator-appen
 
@@ -49,7 +50,7 @@ Lägg till ditt Google-konto genom att aktivera tvåstegsverifiering och sedan l
 
 ### <a name="add-your-google-account-to-the-app"></a>Lägg till ditt Google-konto i appen
 
-1. Gå till avsnittet **Konfigurera alternativa andra steg** på Google-sidan på datorn och välj **Konfigurera** i avsnittet **Authenticator-app** .
+1. På sidan med Google-kontots säkerhet på din dator ( https://myaccount.google.com/security) går du till avsnittet **Lägg till fler andra steg för att kontrol lera att det är du** , väljer du **Konfigurera** i avsnittet **Authenticator-app** .
 
 2. På sidan **Hämta koder från Authentication-appen** väljer du antingen **Android** eller **iPhone** baserat på telefon typen och väljer sedan **Nästa**.
 

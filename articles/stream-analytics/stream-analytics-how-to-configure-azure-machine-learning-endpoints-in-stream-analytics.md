@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 63c54369ecda6a4f242ca76730c48a414a9d4724
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 33d1e73523ca85a21c032729b6537ee3297ea23e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020839"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Azure Machine Learning Studio (klassisk) integrering i Stream Analytics (förhands granskning)
 Stream Analytics stöder användardefinierade funktioner som anropar till Azure Machine Learning Studio (klassiska) slut punkter. REST API stöd för den här funktionen beskrivs i [Stream Analytics rest Apis biblioteket](https://msdn.microsoft.com/library/azure/dn835031.aspx). Den här artikeln innehåller kompletterande information som krävs för lyckad implementering av den här funktionen i Stream Analytics. En själv studie kurs har också publicerats och är tillgänglig [här](stream-analytics-machine-learning-integration-tutorial.md).
@@ -28,7 +28,7 @@ Microsoft Azure Machine Learning Studio (klassisk) tillhandahåller ett samarbet
 Varje slut punkt har API: er för batch-körning och synkron körning. Stream Analytics använder synkron körning. Den aktuella tjänsten kallas för en [begäran/svar-tjänst](../machine-learning/studio/consume-web-services.md) i Azure Machine Learning Studio (klassisk).
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Machine Learning resurser som krävs för Stream Analytics jobb
-För att Stream Analytics jobb bearbetning, krävs en begäran/svars slut punkt, en [apiKey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)och en Swagger-definition för lyckad körning. Stream Analytics har en ytterligare slut punkt som konstruerar URL: en för Swagger-slutpunkten, letar upp gränssnittet och returnerar en fördefinierad UDF-definition för användaren.
+För att Stream Analytics jobb bearbetning, krävs en begäran/svars slut punkt, en [apiKey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)och en Swagger-definition för lyckad körning. Stream Analytics har en ytterligare slut punkt som konstruerar URL: en för Swagger-slutpunkten, letar upp gränssnittet och returnerar en fördefinierad UDF-definition för användaren.
 
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Konfigurera en Stream Analytics och Machine Learning UDF via REST API
 Med hjälp av REST API: er kan du konfigurera jobbet för att anropa funktioner i Azure Machine language. Stegen är följande:

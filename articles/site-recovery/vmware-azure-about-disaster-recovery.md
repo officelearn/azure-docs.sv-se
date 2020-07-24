@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021468"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Om haveri beredskap för virtuella VMware-datorer till Azure
 
@@ -23,6 +23,9 @@ En strategi för affärs kontinuitet och haveri beredskap (BCDR) hjälper dig at
 
 - [Azure Backup](../backup/backup-overview.md) säkerhetskopierar dina lokala och virtuella Azure-Datadata. Du kan säkerhetskopiera en fil och mappar, vissa arbets belastningar eller en hel virtuell dator. 
 - [Azure Site Recovery](site-recovery-overview.md) ger återhämtning och haveri beredskap för appar och arbets belastningar som körs på lokala datorer eller virtuella Azure IaaS-datorer. Site Recovery dirigerar replikeringen och hanterar redundansväxling till Azure när avbrott inträffar. Den hanterar också återställning från Azure till din primära plats. 
+
+> [!NOTE]
+> Site Recovery flyttar eller lagrar inte kund information från mål regionen, där haveri beredskap har kon figurer ATS för käll datorerna. Kunder kan välja ett Recovery Services valv från en annan region om de så vill. Recovery Services valvet innehåller metadata men inga faktiska kund uppgifter.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Hur gör Site Recovery haveri beredskap?
 

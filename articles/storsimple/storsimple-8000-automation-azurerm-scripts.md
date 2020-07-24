@@ -6,11 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 009e8c7e1cb59d68f3d3aa15de32ec47083095f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b9a7bf243931443b8273253dee7618c0e594aaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020873"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
 
@@ -48,13 +49,13 @@ Följande exempel skript är tillgängliga för att automatisera olika StorSimpl
 
 Det här avsnittet tar ett exempel skript och innehåller information om de olika stegen som krävs för att köra skriptet.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har:
 
 *   Azure PowerShell installerat. Så här installerar du Azure PowerShell-moduler:
-    * I en Windows-miljö följer du stegen i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Du kan installera Azure PowerShell på Windows Server-värden för din StorSimple om du använder en sådan.
-    * I en Linux-eller MacOS-miljö följer du stegen i [Installera och konfigurera Azure PowerShell på MacOS eller Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
+    * I en Windows-miljö följer du stegen i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). Du kan installera Azure PowerShell på Windows Server-värden för din StorSimple om du använder en sådan.
+    * I en Linux-eller MacOS-miljö följer du stegen i [Installera och konfigurera Azure PowerShell på MacOS eller Linux](/powershell/azure/install-az-ps).
 
 Om du vill ha mer information om hur du använder Azure PowerShell går du till [komma igång med att använda Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 

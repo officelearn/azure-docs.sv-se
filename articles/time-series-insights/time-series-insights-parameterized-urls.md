@@ -5,27 +5,27 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170b90816535562d6740449157840cedb00f291d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416996"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020516"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
-Om du vill dela en anpassad vy i Time Series Insights Explorer kan du program mässigt skapa en parametriserad URL för den anpassade vyn.
+Om du vill dela en anpassad vy i Azure Time Series Insights Explorer kan du program mässigt skapa en parametriserad URL för den anpassade vyn.
 
-Time Series Insights Explorer stöder URL-frågeparametrar för att ange vyer i upplevelsen direkt från URL: en. Med bara URL:en kan du till exempel ange en målmiljö, ett sökpredikat och önskat tidsintervall. När en användare väljer den anpassade URL: en, tillhandahåller gränssnittet en länk direkt till den till gången i Time Series Insights portalen. Dataåtkomstprinciper tillämpas.
+Azure Time Series Insights Explorer stöder parametrar för URL-frågor för att ange vyer i upplevelsen direkt från URL: en. Med bara URL:en kan du till exempel ange en målmiljö, ett sökpredikat och önskat tidsintervall. När en användare väljer den anpassade URL: en, tillhandahåller gränssnittet en länk direkt till den till gången i Azure Time Series Insights portalen. Dataåtkomstprinciper tillämpas.
 
 > [!TIP]
-> * Visa den kostnads fria [Time Series Insights demonstrationen](https://insights.timeseries.azure.com/samples).
-> * Läs dokumentationen om den medföljande [Time Series Insights Explorer](./time-series-insights-explorer.md) .
+> * Visa den kostnads fria [Azure Time Series Insights demonstrationen](https://insights.timeseries.azure.com/samples).
+> * Läs dokumentationen om den medföljande [Azure Time Series Insights Explorer](./time-series-insights-explorer.md) .
 
 ## <a name="environment-id"></a>Miljö-ID
 
@@ -53,7 +53,7 @@ För ett relativt tids värde använder `relativeMillis=<value>` , där *värdet
 
 `&relativeMillis=3600000` visar till exempel data från de senaste 60 minuterna.
 
-Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer och inkluderar:
+Godkända värden motsvarar **snabb tids** menyn i Azure Time Series Insights Explorer och inkluderar:
 
 * `1800000`(Senaste 30 minuterna)
 * `3600000`(Senaste 60 minuter)
@@ -66,7 +66,7 @@ Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer
 
 ### <a name="optional-parameters"></a>Valfria parametrar
 
-`timeSeriesDefinitions=<collection of term objects>`Parametern anger vilka predikat som ska visas i en Time Series Insights vy:
+`timeSeriesDefinitions=<collection of term objects>`Parametern anger vilka predikat som ska visas i en Azure Time Series Insights vy:
 
 | Parameter | URL-objekt | Beskrivning |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer
 
 ### <a name="examples"></a>Exempel
 
-Lägg till tids serie definitioner i en Time Series Insights miljö som en URL-parameter genom att lägga till:
+Lägg till tids serie definitioner i en Azure Time Series Insights miljö som en URL-parameter genom att lägga till:
 
 ```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -117,16 +117,16 @@ Du kan skapa följande parametriserade URL för en vy:
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-[![URL för Time Series Insights Explorer-parameter](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+[![URL för Azure Time Series Insights Explorer-parameter](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
 
 > [!TIP]
 > Se Explorer Live [med hjälp av URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) -exemplet ovan.
 
-URL: en ovan beskriver och visar den parameterstyrda Time Series Insights Explorer-vyn. 
+URL: en ovan beskriver och visar den parameterstyrda Azure Time Series Insights Explorer-vyn. 
 
 * Parametriserade predikat.
 
-  [![Time Series Insights Explorer-parametriserade predikat.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
+  [![Azure Time Series Insights Explorer-parametriserade predikat.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
 * Vyn delat fullständigt diagram.
 
@@ -136,4 +136,4 @@ URL: en ovan beskriver och visar den parameterstyrda Time Series Insights Explor
 
 * Lär dig hur du [frågar data med C#](time-series-insights-query-data-csharp.md).
 
-* Lär dig mer om [Time Series Insights Explorer](./time-series-insights-explorer.md).
+* Lär dig mer om [Azure Time Series Insights Explorer](./time-series-insights-explorer.md).

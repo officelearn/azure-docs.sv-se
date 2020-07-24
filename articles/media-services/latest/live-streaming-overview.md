@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd592469a4435504f1eecf1f24e50faf23fad17a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022981"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -34,7 +35,7 @@ För kunder som vill leverera innehåll till stora Internet-åhörare rekommende
 Den här artikeln ger en översikt och vägledning för Live streaming med Media Services och länkar till andra relevanta artiklar.
  
 > [!NOTE]
-> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ## <a name="dynamic-packaging-and-delivery"></a>Dynamisk paketering och leverans
 
@@ -53,7 +54,7 @@ Dynamisk filtrering används för att styra antalet spår, format, bit hastighet
 
 ## <a name="live-event-types"></a>Direktsända händelse typer
 
-[Live-händelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända video flöden. En Live-händelse kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). Mer information om Direktsänd strömning i Media Services v3 finns i [Live-händelser och Live-utdata](live-events-outputs-concept.md).
+[Live-händelser](/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända video flöden. En Live-händelse kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). Mer information om Direktsänd strömning i Media Services v3 finns i [Live-händelser och Live-utdata](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Direkt
 
@@ -107,7 +108,7 @@ För att förstå Live streaming-arbetsflödet i Media Services v3 måste du fö
     * Stoppa Live-händelsen. När Live-händelsen har stoppats debiteras inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
     * Du kan stoppa slut punkten för direkt uppspelningen om du inte vill fortsätta att ange en Live-händelse som Arkiv lag ring. Om Live-händelsen är i stoppat tillstånd debiteras inga avgifter.
 
-Till gången som Live-utdata arkiveras till blir automatiskt en till gång på begäran när Live-utdata tas bort. Du måste ta bort alla Live-utdata innan en Live-händelse kan stoppas. Du kan använda en valfri flagga [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) för att automatiskt ta bort Live-utdata vid stopp. 
+Till gången som Live-utdata arkiveras till blir automatiskt en till gång på begäran när Live-utdata tas bort. Du måste ta bort alla Live-utdata innan en Live-händelse kan stoppas. Du kan använda en valfri flagga [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) för att automatiskt ta bort Live-utdata vid stopp. 
 
 > [!TIP]
 > I [självstudien om direkt uppspelning](stream-live-tutorial-with-api.md), artikeln undersöker den kod som implementerar stegen som beskrivs ovan.

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: a08b59464855b805173fa76d696107f8a7673d39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ce6a754ce09e227332309878bdddd3d8c1733be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529580"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021910"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Hantera Azure Kognitiv sökning-tjänsten med PowerShell
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ I en tjänst är skapandet och hanteringen av innehåll via [Search Service REST
 
 ## <a name="check-versions-and-load-modules"></a>Kontrol lera versioner och läsa in moduler
 
-Exemplen i den här artikeln är interaktiva och kräver förhöjd behörighet. Azure PowerShell ( **AZ** -modulen) måste vara installerad. Mer information finns i [installera Azure PowerShell](/powershell/azure/overview).
+Exemplen i den här artikeln är interaktiva och kräver förhöjd behörighet. Azure PowerShell ( **AZ** -modulen) måste vara installerad. Mer information finns i [installera Azure PowerShell](/powershell/azure/).
 
 ### <a name="powershell-version-check-51-or-later"></a>PowerShell-versions kontroll (5,1 eller senare)
 

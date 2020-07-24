@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 01d41b20c543262280e215cf4e31fd0cccce877f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6de717f0ed9a2e27e15199b6f0ea566e0fdcd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021638"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Anslut din puls anslutning säkert till Azure Sentinel
+
+> [!IMPORTANT]
+> Pulse Connect Secure data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här artikeln förklarar hur du ansluter en säker dator med [Pulse Connect](https://www.pulsesecure.net/products/pulse-connect-secure/) till Azure Sentinel. Med kopplings säkra data Connector i Pulse kan du enkelt ansluta dina puls säkra loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Integreringen mellan Pulse Connect Secure och Azure Sentinel använder syslog.
 

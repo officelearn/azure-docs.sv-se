@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256669"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019619"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Vad är Azure Active Directory Identity Protection?
 
@@ -71,7 +71,7 @@ Mer information finns i artikeln [så här gör du: Undersök risker](howto-iden
 
 ## <a name="exporting-risk-data"></a>Exportera risk data
 
-Data från identitets skydd kan exporteras till andra verktyg för arkivering och ytterligare undersökning och samrelation. Microsoft Graph baserade API: er gör det möjligt för organisationer att samla in data för vidare bearbetning i ett verktyg som deras SIEM. Information om hur du kommer åt Identity Protection-API: et finns i artikeln, [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](howto-identity-protection-graph-api.md)
+Data från identitets skydd kan exporteras till andra verktyg för arkivering och ytterligare undersökning och korrelation. Microsoft Graph baserade API: er gör det möjligt för organisationer att samla in data för vidare bearbetning i ett verktyg som deras SIEM. Information om hur du kommer åt Identity Protection-API: et finns i artikeln, [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](howto-identity-protection-graph-api.md)
 
 Information om hur du integrerar identitets skydds information med Azure Sentinel finns i artikeln [koppla data från Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 
@@ -96,15 +96,15 @@ Administratörer för villkorlig åtkomst kan också skapa principer som faktorr
 
 | Funktion | Information | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free/Office 365-appar |
 | --- | --- | --- | --- | --- |
-| Risk principer | Användar risk princip (via identitets skydd) | Ja | Nej | Nej |
-| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst) | Ja | Nej | Nej |
-| Säkerhetsrapporter | Översikt | Ja | Nej | Nej |
+| Risk principer | Användar risk princip (via identitets skydd) | Ja | Inga | Inga |
+| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst) | Ja | Inga | Inga |
+| Säkerhetsrapporter | Översikt | Ja | Inga | Inga |
 | Säkerhetsrapporter | Riskfyllda användare | Fullständig åtkomst | Begränsad information | Begränsad information |
 | Säkerhetsrapporter | Riskfyllda inloggningar | Fullständig åtkomst | Begränsad information | Begränsad information |
-| Säkerhetsrapporter | Riskidentifieringar | Fullständig åtkomst | Begränsad information | Nej |
-| Aviseringar | Varningar för användare med risk identifiering | Ja | Nej | Nej |
-| Aviseringar | Vecko sammandrag | Ja | Nej | Nej |
-| | Registreringsprincip för multifaktorautentisering | Ja | Nej | Nej |
+| Säkerhetsrapporter | Riskidentifieringar | Fullständig åtkomst | Begränsad information | No |
+| Meddelanden | Varningar för användare med risk identifiering | Ja | Inga | Inga |
+| Meddelanden | Vecko sammandrag | Ja | Inga | Inga |
+| | Registreringsprincip för multifaktorautentisering | Ja | Inga | Inga |
 
 ## <a name="next-steps"></a>Nästa steg
 

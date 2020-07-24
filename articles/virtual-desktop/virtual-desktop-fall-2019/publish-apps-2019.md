@@ -1,5 +1,5 @@
 ---
-title: Publicera inbyggda appar i Windows Virtual Desktop – Azure
+title: Publicera inbyggda appar i Windows Virtual Desktop sjunker 2019 – Azure
 description: Publicera inbyggda appar i Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a453ef44a1ede86290f4130a6147eaaad09fa97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e20d2ca8f2f0ef2b8c0290702a2b9e91cc22bb09
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020381"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicera inbyggda appar i Windows Virtual Desktop
+# <a name="publish-built-in-apps-in-windows-virtual-desktop---fall-2019"></a>Publicera inbyggda appar i Windows Virtual Desktop-hösten 2019
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../publish-apps.md).

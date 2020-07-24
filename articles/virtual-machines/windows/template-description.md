@@ -7,16 +7,16 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac2e94e9c0213f14999d730027e118df6584519
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020210"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
-Den här artikeln beskriver aspekter av en Azure Resource Manager-mall som gäller för virtuella datorer. Den här artikeln beskriver inte en fullständig mall för att skapa en virtuell dator. för att du behöver resurs definitioner för lagrings konton, nätverks gränssnitt, offentliga IP-adresser och virtuella nätverk. Mer information om hur dessa resurser kan definieras tillsammans finns i [genom gången av Resource Manager-mallen](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Den här artikeln beskriver aspekter av en Azure Resource Manager-mall som gäller för virtuella datorer. Den här artikeln beskriver inte en fullständig mall för att skapa en virtuell dator. för att du behöver resurs definitioner för lagrings konton, nätverks gränssnitt, offentliga IP-adresser och virtuella nätverk. Mer information om hur dessa resurser kan definieras tillsammans finns i [genom gången av Resource Manager-mallen](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 Det finns många [mallar i galleriet](https://azure.microsoft.com/documentation/templates/?term=VM) som innehåller den virtuella dator resursen. Alla element som kan inkluderas i en mall beskrivs inte här.
 
@@ -156,14 +156,14 @@ Den version av API: n som du anger i mallen påverkar vilka egenskaper du kan de
 
 Använd de här möjligheterna för att hämta de senaste API-versionerna:
 
-- REST API – [Visa alla resurs leverantörer](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell- [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Azure CLI – [AZ Provider show](https://docs.microsoft.com/cli/azure/provider)
+- REST API – [Visa alla resurs leverantörer](/rest/api/resources/providers)
+- PowerShell- [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI – [AZ Provider show](/cli/azure/provider)
 
 
 ## <a name="parameters-and-variables"></a>Parametrar och variabler
 
-[Parametrar](../../resource-group-authoring-templates.md) gör det enkelt för dig att ange värden för mallen när du kör den. Det här parameter avsnittet används i exemplet:
+[Parametrar](../../azure-resource-manager/templates/template-syntax.md) gör det enkelt för dig att ange värden för mallen när du kör den. Det här parameter avsnittet används i exemplet:
 
 ```json
 "parameters": {
@@ -175,7 +175,7 @@ Använd de här möjligheterna för att hämta de senaste API-versionerna:
 
 När du distribuerar exempel mal len anger du värden för namn och lösen ord för administratörs kontot på varje virtuell dator och antalet virtuella datorer som ska skapas. Du kan välja att ange parameter värden i en separat fil som hanteras med mallen eller ange värden när du uppmanas att göra det.
 
-[Variabler](../../resource-group-authoring-templates.md) gör det enkelt för dig att konfigurera värden i mallen som används upprepade gånger i den eller som kan ändras över tid. Avsnittet med följande variabler används i exemplet:
+[Variabler](../../azure-resource-manager/templates/template-syntax.md) gör det enkelt för dig att konfigurera värden i mallen som används upprepade gånger i den eller som kan ändras över tid. Avsnittet med följande variabler används i exemplet:
 
 ```json
 "variables": { 
@@ -208,7 +208,7 @@ När du distribuerar exempel mal len anger du värden för namn och lösen ord f
 }, 
 ```
 
-När du distribuerar exempel mal len används variabel värden för namnet och identifieraren för det tidigare skapade lagrings kontot. Variabler används också för att ange inställningar för diagnostiskt tillägg. Använd de [bästa metoderna för att skapa Azure Resource Manager mallar](../../resource-manager-template-best-practices.md) som hjälper dig att bestämma hur du vill strukturera parametrarna och variablerna i mallen.
+När du distribuerar exempel mal len används variabel värden för namnet och identifieraren för det tidigare skapade lagrings kontot. Variabler används också för att ange inställningar för diagnostiskt tillägg. Använd de [bästa metoderna för att skapa Azure Resource Manager mallar](../../azure-resource-manager/templates/template-best-practices.md) som hjälper dig att bestämma hur du vill strukturera parametrarna och variablerna i mallen.
 
 ## <a name="resource-loops"></a>Resurs slingor
 
@@ -247,7 +247,7 @@ Tänk på att om du skapar en loop för en resurs i mallen kan du behöva använ
 
 ## <a name="dependencies"></a>Beroenden
 
-De flesta resurser är beroende av att andra resurser fungerar korrekt. Virtuella datorer måste associeras med ett virtuellt nätverk och för att göra det krävs ett nätverks gränssnitt. [DependsOn](../../resource-group-define-dependencies.md) -elementet används för att kontrol lera att nätverks gränssnittet är klart att användas innan de virtuella datorerna skapas:
+De flesta resurser är beroende av att andra resurser fungerar korrekt. Virtuella datorer måste associeras med ett virtuellt nätverk och för att göra det krävs ett nätverks gränssnitt. [DependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) -elementet används för att kontrol lera att nätverks gränssnittet är klart att användas innan de virtuella datorerna skapas:
 
 ```json
 "dependsOn": [
@@ -277,7 +277,7 @@ Flera profil element används när du definierar en resurs för virtuella datore
 - [ändra](sizes.md)
 - [namn](/azure/architecture/best-practices/resource-naming) och autentiseringsuppgifter
 - disk-och [operativ system inställningar](cli-ps-findimage.md)
-- [nätverks gränssnitt](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [nätverks gränssnitt](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - startdiagnostik
 
 ## <a name="disks-and-images"></a>Diskar och avbildningar
@@ -369,7 +369,7 @@ Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar]
 
 ## <a name="extensions"></a>Tillägg
 
-Även om [tillägg](extensions-features.md) är en separat resurs är de nära kopplade till virtuella datorer. Tillägg kan läggas till som en underordnad resurs för den virtuella datorn eller som en separat resurs. Exemplet visar det [diagnostiska tillägg](extensions-diagnostics-template.md) som läggs till i de virtuella datorerna:
+Även om [tillägg](../extensions/features-windows.md) är en separat resurs är de nära kopplade till virtuella datorer. Tillägg kan läggas till som en underordnad resurs för den virtuella datorn eller som en separat resurs. Exemplet visar det [diagnostiska tillägg](../extensions/diagnostics-template.md) som läggs till i de virtuella datorerna:
 
 ```json
 { 
@@ -404,7 +404,7 @@ Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar]
 
 Den här tilläggs resursen använder variabeln storageName och de diagnostiska variablerna för att ange värden. Om du vill ändra de data som samlas in av det här tillägget kan du lägga till fler prestanda räknare i wadperfcounters-variabeln. Du kan också välja att spara diagnostikdata i ett annat lagrings konto än där de virtuella dator diskarna lagras.
 
-Det finns många tillägg som du kan installera på en virtuell dator, men den mest användbara är förmodligen det [anpassade skript tillägget](extensions-customscript.md). I exemplet körs ett PowerShell-skript med namnet start.ps1 på varje virtuell dator när det startas första gången:
+Det finns många tillägg som du kan installera på en virtuell dator, men den mest användbara är förmodligen det [anpassade skript tillägget](../extensions/custom-script-windows.md). I exemplet körs ett PowerShell-skript med namnet start.ps1 på varje virtuell dator när det startas första gången:
 
 ```json
 {
@@ -447,11 +447,11 @@ Om du är nyfiken på statusen för resurser i distributionen kan du Visa resurs
 
 ![Hämta distributions information](./media/template-description/virtual-machines-deployment-info.png)
     
-Det går inte att använda samma mall för att skapa resurser eller uppdatera befintliga resurser. När du använder kommandon för att distribuera mallar har du möjlighet att säga vilket [läge](../../resource-group-template-deploy.md) du vill använda. Läget kan anges till antingen **fullständig** eller **stegvis**. Standardvärdet är att göra stegvisa uppdateringar. Var försiktig när du använder det **fullständiga** läget eftersom du kan ta bort resurser av misstag. När du anger att läget ska **slutföras**, tar Resource Manager bort alla resurser i resurs gruppen som inte finns i mallen.
+Det går inte att använda samma mall för att skapa resurser eller uppdatera befintliga resurser. När du använder kommandon för att distribuera mallar har du möjlighet att säga vilket [läge](../../azure-resource-manager/templates/deploy-powershell.md) du vill använda. Läget kan anges till antingen **fullständig** eller **stegvis**. Standardvärdet är att göra stegvisa uppdateringar. Var försiktig när du använder det **fullständiga** läget eftersom du kan ta bort resurser av misstag. När du anger att läget ska **slutföras**, tar Resource Manager bort alla resurser i resurs gruppen som inte finns i mallen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en egen mall med hjälp av [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
+- Skapa en egen mall med hjälp av [redigera Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md).
 - Distribuera mallen som du skapade med [skapa en virtuell Windows-dator med en Resource Manager-mall](ps-template.md).
 - Lär dig hur du hanterar de virtuella datorer som du skapade genom att granska [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - För JSON-syntax och egenskaper för resurs typer i mallar, se [Azure Resource Manager Template Reference](/azure/templates/).

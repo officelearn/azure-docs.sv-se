@@ -16,19 +16,19 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251d156afbd367e83945397760a6afe98a1cfb98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01e53b30a4c27296e30e031ffb771697afa8e1e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019683"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synkronisering: Tekniska begrepp
 Den här artikeln är en sammanfattning av avsnittet [förstå arkitekturen](how-to-connect-sync-technical-concepts.md).
 
 Azure AD Connect Sync-versioner på en solid metakatalogdesign-synkroniseringspartner.
 I följande avsnitt introduceras begreppen för metakatalogdesign-synkronisering.
-När du bygger på MIIS, ILM och FIM tillhandahåller Azure Active Directory Sync-tjänster nästa plattform för att ansluta till data källor, synkronisera data mellan data källor, samt etablering och avetablering av identiteter.
+När du bygger på MIIS (Microsoft Identity Integration Server), ILM (identitets livs cykel hanterare) och FIM (Forefront Identity Manager) tillhandahåller Azure Active Directory Sync-tjänster nästa plattform för att ansluta till data källor, synkronisera data mellan data källor, samt etablering och avetablering av identiteter.
 
 ![Tekniska begrepp](./media/how-to-connect-sync-technical-concepts/scenario.png)
 

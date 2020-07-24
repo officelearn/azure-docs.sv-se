@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 809e9fa5143ede65f5bc6bf8d81020d508272fd8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021842"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Säkerhets ram: auktorisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -48,9 +49,9 @@ ms.locfileid: "85322666"
 | **Komponent**               | Datorns förtroende gränser | 
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | Kontrol lera att rätt ACL: er är konfigurerade för att begränsa obehörig åtkomst till data på enheten|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Kontrol lera att rätt ACL: er är konfigurerade för att begränsa obehörig åtkomst till data på enheten|
 
 ## <a name="ensure-that-sensitive-user-specific-application-content-is-stored-in-user-profile-directory"></a><a id="sensitive-directory"></a>Se till att känsligt användarspecifika program innehåll lagras i användar profil katalogen
 
@@ -59,9 +60,9 @@ ms.locfileid: "85322666"
 | **Komponent**               | Datorns förtroende gränser | 
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | Se till att känsligt användarspecifika program innehåll lagras i användar profil katalogen. Detta är för att förhindra att flera användare av datorn får åtkomst till var and ras data.|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Se till att känsligt användarspecifika program innehåll lagras i användar profil katalogen. Detta är för att förhindra att flera användare av datorn får åtkomst till var and ras data.|
 
 ## <a name="ensure-that-the-deployed-applications-are-run-with-least-privileges"></a><a id="deployed-privileges"></a>Kontrol lera att de distribuerade programmen körs med lägsta behörighet
 
@@ -70,53 +71,53 @@ ms.locfileid: "85322666"
 | **Komponent**               | Datorns förtroende gränser | 
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | Kontrol lera att det distribuerade programmet körs med minst behörighet. |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Kontrol lera att det distribuerade programmet körs med minst behörighet. |
 
 ## <a name="enforce-sequential-step-order-when-processing-business-logic-flows"></a><a id="sequential-logic"></a>Använd sekventiell steg ordning vid bearbetning av affärs logiks flöden
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | För att verifiera att den här fasen kördes genom av en äkta användare vill du göra det möjligt för programmet att endast bearbeta affärs logik flöden i sekventiell steg ordning, med alla steg som bearbetas på verklighetstrogen mänsklig tid, och inte bearbeta i ordning, hoppa över steg, bearbetade steg från en annan användare eller för snabbt skickade transaktioner.|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | För att verifiera att den här fasen kördes genom av en äkta användare vill du göra det möjligt för programmet att endast bearbeta affärs logik flöden i sekventiell steg ordning, med alla steg som bearbetas på verklighetstrogen mänsklig tid, och inte bearbeta i ordning, hoppa över steg, bearbetade steg från en annan användare eller för snabbt skickade transaktioner.|
 
 ## <a name="implement-rate-limiting-mechanism-to-prevent-enumeration"></a><a id="rate-enumeration"></a>Implementera hastighets begränsning för att förhindra uppräkning
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | Se till att känsliga identifierare är slumpmässiga. Implementera CAPTCHA-kontroll på anonyma sidor. Se till att fel och undantag inte ska avslöja vissa data|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Se till att känsliga identifierare är slumpmässiga. Implementera CAPTCHA-kontroll på anonyma sidor. Se till att fel och undantag inte ska avslöja vissa data|
 
 ## <a name="ensure-that-proper-authorization-is-in-place-and-principle-of-least-privileges-is-followed"></a><a id="principle-least-privilege"></a>Kontrol lera att rätt tillstånd är på plats och principen om lägsta behörigheten följs
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | <p>Principen innebär bara att ge ett användar konto behörighet som är nödvändig för att användarna ska fungera. En säkerhets kopierings användare behöver t. ex. inte installera program vara: säkerhets kopierings användaren har därför bara rättigheter att köra säkerhets kopierings-och säkerhets kopierings program. Alla andra behörigheter, till exempel installation av ny program vara, blockeras. Principen gäller också för en personlig dator användare som vanligt vis arbetar i ett normalt användar konto och öppnar ett skyddat, lösenordsskyddat konto (dvs. en superanvändare) endast när situationen absolut kräver det. </p><p>Den här principen kan också tillämpas på dina webb program. I stället för att bara beroende på rollbaserad autentiseringsmetoder med hjälp av sessioner, vill vi hellre tilldela användare behörighet med hjälp av ett databas-baserat autentiseringspaket. Vi använder fortfarande sessioner för att identifiera om användaren har loggat in på rätt sätt, bara nu i stället för att tilldela den användaren en speciell roll, tilldelar han han med behörighet för att verifiera vilka åtgärder han är behörig att utföra i systemet. Dessutom är det en stor Pro av den här metoden, när en användare måste tilldelas färre behörigheter kommer dina ändringar att tillämpas i farten eftersom tilldelningen inte är beroende av den session som annars var tvungen att upphöra att gälla först.</p>|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | <p>Principen innebär bara att ge ett användar konto behörighet som är nödvändig för att användarna ska fungera. En säkerhets kopierings användare behöver t. ex. inte installera program vara: säkerhets kopierings användaren har därför bara rättigheter att köra säkerhets kopierings-och säkerhets kopierings program. Alla andra behörigheter, till exempel installation av ny program vara, blockeras. Principen gäller också för en personlig dator användare som vanligt vis arbetar i ett normalt användar konto och öppnar ett skyddat, lösenordsskyddat konto (dvs. en superanvändare) endast när situationen absolut kräver det. </p><p>Den här principen kan också tillämpas på dina webb program. I stället för att bara beroende på rollbaserad autentiseringsmetoder med hjälp av sessioner, vill vi hellre tilldela användare behörighet med hjälp av ett databas-baserat autentiseringspaket. Vi använder fortfarande sessioner för att identifiera om användaren har loggat in på rätt sätt, bara nu i stället för att tilldela den användaren en speciell roll, tilldelar han han med behörighet för att verifiera vilka åtgärder han är behörig att utföra i systemet. Dessutom är det en stor Pro av den här metoden, när en användare måste tilldelas färre behörigheter kommer dina ändringar att tillämpas i farten eftersom tilldelningen inte är beroende av den session som annars var tvungen att upphöra att gälla först.</p>|
 
 ## <a name="business-logic-and-resource-access-authorization-decisions-should-not-be-based-on-incoming-request-parameters"></a><a id="logic-request-parameters"></a>Beslut om affärs logik och resurs åtkomst kan inte baseras på parametrar för inkommande begäran
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | När du kontrollerar om en användare är begränsad till att granska vissa data, ska åtkomst begränsningarna bearbetas på Server sidan. UserID bör lagras i en sessionsvariabel vid inloggning och ska användas för att hämta användar data från databasen |
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | När du kontrollerar om en användare är begränsad till att granska vissa data, ska åtkomst begränsningarna bearbetas på Server sidan. UserID bör lagras i en sessionsvariabel vid inloggning och ska användas för att hämta användar data från databasen |
 
 ### <a name="example"></a>Exempel
 ```SQL
@@ -131,33 +132,33 @@ Nu kan en angripare inte manipulera och ändra program åtgärden eftersom ident
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | <p>Känsliga statiska filer och konfigurationsfiler bör inte behållas i webb roten. För att innehåll inte måste vara offentligt bör du använda lämpliga åtkomst kontroller eller ta bort själva innehållet.</p><p>Dessutom kombineras Tvingad bläddring vanligt vis med brute force-teknik för att samla in information genom att försöka få åtkomst till så många URL: er som möjligt för att räkna upp kataloger och filer på en server. Angripare kan kontrol lera alla variationer av vanliga filer. En lösen ords fils ökning omfattar till exempel filer som psswd.txt, password.htm, Password. dat och andra variationer.</p><p>För att minimera detta bör funktioner för identifiering av Brute Force-försök inkluderas.</p>|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | <p>Känsliga statiska filer och konfigurationsfiler bör inte behållas i webb roten. För att innehåll inte måste vara offentligt bör du använda lämpliga åtkomst kontroller eller ta bort själva innehållet.</p><p>Dessutom kombineras Tvingad bläddring vanligt vis med brute force-teknik för att samla in information genom att försöka få åtkomst till så många URL: er som möjligt för att räkna upp kataloger och filer på en server. Angripare kan kontrol lera alla variationer av vanliga filer. En lösen ords fils ökning omfattar till exempel filer som psswd.txt, password.htm, Password. dat och andra variationer.</p><p>För att minimera detta bör funktioner för identifiering av Brute Force-försök inkluderas.</p>|
 
 ## <a name="ensure-that-least-privileged-accounts-are-used-to-connect-to-database-server"></a><a id="privileged-server"></a>Se till att konton med lägst privilegier används för att ansluta till databas servern
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [SQL-behörighet-hierarki](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](https://docs.microsoft.com/sql/relational-databases/security/securables) |
-| **Sätt** | Konton med minst privilegier ska användas för att ansluta till databasen. Program inloggningen bör vara begränsad i databasen och bör endast köra valda lagrade procedurer. Programmets inloggning ska inte ha någon direkt tabell åtkomst. |
+| **Steg** | Konton med minst privilegier ska användas för att ansluta till databasen. Program inloggningen bör vara begränsad i databasen och bör endast köra valda lagrade procedurer. Programmets inloggning ska inte ha någon direkt tabell åtkomst. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementera säkerhet på radnivå för att förhindra att klienter får åtkomst till var and ras data
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | SQL-version – V12, SQL-version – MsSQL2016 |
 | **Referenser**              | [SQL Server säkerhet på radnivå (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
-| **Sätt** | <p>Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext).</p><p>Säkerhet på radnivå (RLS) fören klar utformningen och kodningen av säkerhet i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.</p><p>Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databas systemet tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Detta gör säkerhets systemet mer tillförlitligt och stabilt genom att minska säkerhets systemets Area.</p><p>|
+| **Steg** | <p>Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext).</p><p>Säkerhet på radnivå (RLS) fören klar utformningen och kodningen av säkerhet i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.</p><p>Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databas systemet tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Detta gör säkerhets systemet mer tillförlitligt och stabilt genom att minska säkerhets systemets Area.</p><p>|
 
 Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att SQL Server första 2016, Azure SQL Database och SQL-hanterad instans. Om RLS-funktionen är inaktive ras, bör den säkerställa att data åtkomsten är begränsad med hjälp av vyer och procedurer
 
@@ -166,11 +167,11 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [SQL-behörighet-hierarki](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](https://docs.microsoft.com/sql/relational-databases/security/securables) |
-| **Sätt** | Medlemmar i den fasta Server rollen SysAdmin bör vara mycket begränsade och innehåller aldrig konton som används av program.  Kontrol lera listan med användare i rollen och ta bort eventuella onödiga konton|
+| **Steg** | Medlemmar i den fasta Server rollen SysAdmin bör vara mycket begränsade och innehåller aldrig konton som används av program.  Kontrol lera listan med användare i rollen och ta bort eventuella onödiga konton|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Ansluta till en molnbaserad Gateway med hjälp av minst privilegierade token
 
@@ -181,62 +182,62 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Gateway-val – Azure-IoT Hub |
 | **Referenser**              | [IoT Hub-Access Control](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
-| **Sätt** | Ge minst behörighet till olika komponenter som ansluter till en molnbaserad Gateway (IoT Hub). Vanligt exempel är – enhets hantering/etablerings komponent använder registryread/Write, händelse processor (ASA) använder tjänst anslutning. Enskilda enheter ansluter med autentiseringsuppgifter för enhet|
+| **Steg** | Ge minst behörighet till olika komponenter som ansluter till en molnbaserad Gateway (IoT Hub). Vanligt exempel är – enhets hantering/etablerings komponent använder registryread/Write, händelse processor (ASA) använder tjänst anslutning. Enskilda enheter ansluter med autentiseringsuppgifter för enhet|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>Använd en SAS-nyckel för endast skicka-behörighet för att skapa enhets-token
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Event Hub | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Sätt** | En SAS-nyckel används för att generera enskilda enhets-token. Använd en SAS-nyckel för endast skicka-behörighet när du genererar enhets-token för en specifik utgivare|
+| **Steg** | En SAS-nyckel används för att generera enskilda enhets-token. Använd en SAS-nyckel för endast skicka-behörighet när du genererar enhets-token för en specifik utgivare|
 
 ## <a name="do-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>Använd inte åtkomsttoken som ger direkt åtkomst till Händelsehubben
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Event Hub | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Sätt** | En token som beviljar direkt åtkomst till händelsehubben ska inte ges till enheten. Om du använder en minst privilegie rad token för den enhet som ger åtkomst till en utgivare, kan det hjälpa att identifiera och svartlista den om den har visat sig vara en falsk eller komprometterad enhet.|
+| **Steg** | En token som beviljar direkt åtkomst till händelsehubben ska inte ges till enheten. Om du använder en minst privilegie rad token för den enhet som ger åtkomst till en utgivare, kan det hjälpa att identifiera och svartlista den om den har visat sig vara en falsk eller komprometterad enhet.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Anslut till Händelsehubben med SAS-nycklar som har de lägsta behörigheter som krävs
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Event Hub | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Sätt** | Ge minsta behörighet till olika Server dels program som ansluter till Event Hub. Skapa separata SAS-nycklar för varje server dels program och ange endast de behörigheter som krävs – skicka, ta emot eller hantera dem.|
+| **Steg** | Ge minsta behörighet till olika Server dels program som ansluter till Event Hub. Skapa separata SAS-nycklar för varje server dels program och ange endast de behörigheter som krävs – skicka, ta emot eller hantera dem.|
 
 ## <a name="use-resource-tokens-to-connect-to-cosmos-db-whenever-possible"></a><a id="resource-docdb"></a>Använd Resource tokens för att ansluta till Cosmos DB närhelst det är möjligt
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | En resurs-token är kopplad till en Azure Cosmos DB behörighets resurs och fångar upp relationen mellan användaren av en databas och den behörighet som användaren har för en specifik Azure Cosmos DB program resurs (t. ex. samling, dokument). Använd alltid en Resource-token för att få åtkomst till Azure Cosmos DB om klienten inte är betrodd med hantering av Master-eller skrivskyddade nycklar – som ett program för slutanvändare som en mobil-eller Skriv bords klient. Använd huvud nyckel eller skrivskyddade nycklar från backend-program som kan lagra nycklarna på ett säkert sätt.|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | En resurs-token är kopplad till en Azure Cosmos DB behörighets resurs och fångar upp relationen mellan användaren av en databas och den behörighet som användaren har för en specifik Azure Cosmos DB program resurs (t. ex. samling, dokument). Använd alltid en Resource-token för att få åtkomst till Azure Cosmos DB om klienten inte är betrodd med hantering av Master-eller skrivskyddade nycklar – som ett program för slutanvändare som en mobil-eller Skriv bords klient. Använd huvud nyckel eller skrivskyddade nycklar från backend-program som kan lagra nycklarna på ett säkert sätt.|
 
 ## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Aktivera detaljerad åtkomst hantering för Azure-prenumeration med RBAC
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Trust-gränser | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
-| **Sätt** | Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete.|
+| **Steg** | Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Begränsa klientens åtkomst till kluster åtgärder med RBAC
 
@@ -247,73 +248,73 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure |
 | **Referenser**              | [Rollbaserad åtkomst kontroll för Service Fabric klienter](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
-| **Sätt** | <p>Azure Service Fabric har stöd för två olika åtkomst kontroll typer för klienter som är anslutna till ett Service Fabric-kluster: administratör och användare. Med åtkomst kontroll kan kluster administratören begränsa åtkomsten till vissa kluster åtgärder för olika grupper av användare, vilket gör klustret säkrare.</p><p>Administratörer har fullständig åtkomst till hanterings funktioner (inklusive Läs-och skriv funktioner). Användare har som standard endast Läs behörighet till hanterings funktioner (till exempel fråge funktioner) och möjligheten att lösa program och tjänster.</p><p>Du anger de två klient rollerna (administratör och klient) när klustret skapas genom att tillhandahålla separata certifikat för var och en.</p>|
+| **Steg** | <p>Azure Service Fabric har stöd för två olika åtkomst kontroll typer för klienter som är anslutna till ett Service Fabric-kluster: administratör och användare. Med åtkomst kontroll kan kluster administratören begränsa åtkomsten till vissa kluster åtgärder för olika grupper av användare, vilket gör klustret säkrare.</p><p>Administratörer har fullständig åtkomst till hanterings funktioner (inklusive Läs-och skriv funktioner). Användare har som standard endast Läs behörighet till hanterings funktioner (till exempel fråge funktioner) och möjligheten att lösa program och tjänster.</p><p>Du anger de två klient rollerna (administratör och klient) när klustret skapas genom att tillhandahålla separata certifikat för var och en.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Utför säkerhets modellering och Använd säkerhet på fält nivå där det behövs
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | Utför säkerhets modellering och Använd säkerhet på fält nivå där det behövs|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Utför säkerhets modellering och Använd säkerhet på fält nivå där det behövs|
 
 ## <a name="perform-security-modeling-of-portal-accounts-keeping-in-mind-that-the-security-model-for-the-portal-differs-from-the-rest-of-crm"></a><a id="portal-security"></a>Utför säkerhets modellering av Portal konton i åtanke att säkerhets modellen för portalen skiljer sig från resten av CRM
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM-Portal | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | Utför säkerhets modellering av Portal konton i åtanke att säkerhets modellen för portalen skiljer sig från resten av CRM|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Utför säkerhets modellering av Portal konton i åtanke att säkerhets modellen för portalen skiljer sig från resten av CRM|
 
 ## <a name="grant-fine-grained-permission-on-a-range-of-entities-in-azure-table-storage"></a><a id="permission-entities"></a>Ge detaljerad behörighet för en serie entiteter i Azure Table Storage
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | StorageType – tabell |
 | **Referenser**              | [Så här delegerar du åtkomst till objekt i ditt Azure Storage-konto med hjälp av SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Sätt** | I vissa affärs scenarier kan Azure Table Storage krävas för att lagra känsliga data som består till olika parter. T. ex. känsliga data som rör olika länder/regioner. I sådana fall kan SAS-signaturer skapas genom att ange nyckel intervall för partition och rad, så att en användare kan komma åt data som är specifika för ett visst land/en viss region.| 
+| **Steg** | I vissa affärs scenarier kan Azure Table Storage krävas för att lagra känsliga data som består till olika parter. T. ex. känsliga data som rör olika länder/regioner. I sådana fall kan SAS-signaturer skapas genom att ange nyckel intervall för partition och rad, så att en användare kan komma åt data som är specifika för ett visst land/en viss region.| 
 
 ## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Aktivera rollbaserad Access Control (RBAC) till Azure Storage-konto med Azure Resource Manager
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Skydda ditt lagrings konto med rollbaserad Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
-| **Sätt** | <p>När du skapar ett nytt lagrings konto väljer du en distributions modell av klassisk eller Azure Resource Manager. Den klassiska modellen för att skapa resurser i Azure tillåter bara all-eller-ingen åtkomst till prenumerationen, och i sin tur är lagrings kontot.</p><p>Med Azure Resource Manager-modellen ska du lagra lagrings kontot i en resurs grupp och kontrol lera åtkomsten till hanterings planet för det angivna lagrings kontot med hjälp av Azure Active Directory. Du kan till exempel ge vissa användare möjlighet att komma åt lagrings konto nycklarna, medan andra användare kan visa information om lagrings kontot, men inte åtkomst till lagrings konto nycklarna.</p>|
+| **Steg** | <p>När du skapar ett nytt lagrings konto väljer du en distributions modell av klassisk eller Azure Resource Manager. Den klassiska modellen för att skapa resurser i Azure tillåter bara all-eller-ingen åtkomst till prenumerationen, och i sin tur är lagrings kontot.</p><p>Med Azure Resource Manager-modellen ska du lagra lagrings kontot i en resurs grupp och kontrol lera åtkomsten till hanterings planet för det angivna lagrings kontot med hjälp av Azure Active Directory. Du kan till exempel ge vissa användare möjlighet att komma åt lagrings konto nycklarna, medan andra användare kan visa information om lagrings kontot, men inte åtkomst till lagrings konto nycklarna.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementera implicit upplåsning eller identifiering av rottips
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobil klient | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | <p>Programmet bör skydda sina egna konfigurations-och användar data om telefonen är rotad eller jailbrokad bruten. Rot-/jailbrokad-brytning innebär otillåten åtkomst, vilket normala användare inte gör på sina egna telefoner. Därför bör programmet ha implicit identifierings logik vid program Start, för att identifiera om telefonen har rotats.</p><p>Identifierings logiken kan bara komma åt filer som vanligt vis bara rot användare kan komma åt, till exempel:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Om programmet kan komma åt någon av dessa filer anger det att programmet körs som rot användare.</p>|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | <p>Programmet bör skydda sina egna konfigurations-och användar data om telefonen är rotad eller jailbrokad bruten. Rot-/jailbrokad-brytning innebär otillåten åtkomst, vilket normala användare inte gör på sina egna telefoner. Därför bör programmet ha implicit identifierings logik vid program Start, för att identifiera om telefonen har rotats.</p><p>Identifierings logiken kan bara komma åt filer som vanligt vis bara rot användare kan komma åt, till exempel:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Om programmet kan komma åt någon av dessa filer anger det att programmet körs som rot användare.</p>|
 
 ## <a name="weak-class-reference-in-wcf"></a><a id="weak-class-wcf"></a>Svag klass referens i WCF
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
-| **Sätt** | <p>Systemet använder en svag klass referens, vilket kan göra det möjligt för en angripare att köra oauktoriserad kod. Programmet refererar till en användardefinierad klass som inte har identifierats unikt. När .NET läser in den svag identifierade klassen söker CLR-typ inläsaren efter klassen på följande platser i angiven ordning:</p><ol><li>Om sammansättningen av typen är känd söker inläsaren igenom konfigurations filens omdirigerings platser, GAC, den aktuella sammansättningen med hjälp av konfigurations information och programmets bas katalog</li><li>Om sammansättningen är okänd söker inläsaren efter den aktuella sammansättningen, mscorlib och den plats som returneras av händelse hanteraren för TypeResolve</li><li>Den här CLR-sökordningen kan ändras med krokar, till exempel mekanismen för typ vidarebefordran och händelsen AppDomain. TypeResolve</li></ol><p>Om en angripare utnyttjar CLR-sökordningen genom att skapa en alternativ klass med samma namn och placera den på en alternativ plats som CLR kommer att läsa in först, kommer CLR att oavsiktligt köra angriparen-kod som anges</p>|
+| **Steg** | <p>Systemet använder en svag klass referens, vilket kan göra det möjligt för en angripare att köra oauktoriserad kod. Programmet refererar till en användardefinierad klass som inte har identifierats unikt. När .NET läser in den svag identifierade klassen söker CLR-typ inläsaren efter klassen på följande platser i angiven ordning:</p><ol><li>Om sammansättningen av typen är känd söker inläsaren igenom konfigurations filens omdirigerings platser, GAC, den aktuella sammansättningen med hjälp av konfigurations information och programmets bas katalog</li><li>Om sammansättningen är okänd söker inläsaren efter den aktuella sammansättningen, mscorlib och den plats som returneras av händelse hanteraren för TypeResolve</li><li>Den här CLR-sökordningen kan ändras med krokar, till exempel mekanismen för typ vidarebefordran och händelsen AppDomain. TypeResolve</li></ol><p>Om en angripare utnyttjar CLR-sökordningen genom att skapa en alternativ klass med samma namn och placera den på en alternativ plats som CLR kommer att läsa in först, kommer CLR att oavsiktligt köra angriparen-kod som anges</p>|
 
 ### <a name="example"></a>Exempel
 `<behaviorExtensions/>`Elementet i WCF-konfigurationsfilen nedan instruerar WCF att lägga till en anpassad beteende klass i ett visst WCF-tillägg.
@@ -346,11 +347,11 @@ Att använda fullständigt kvalificerade (starka) namn identifierar unikt en typ
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
-| **Attribut**              | E.t.  |
+| **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
-| **Sätt** | <p>Den här tjänsten använder inte en Authorization-kontroll. När en klient anropar en viss WCF-tjänst tillhandahåller WCF olika auktoriserings scheman som kontrollerar att anroparen har behörighet att köra tjänst metoden på servern. Om verifierings kontroller inte är aktiverade för WCF-tjänster kan en autentiserad användare få behörighets eskalering.</p>|
+| **Steg** | <p>Den här tjänsten använder inte en Authorization-kontroll. När en klient anropar en viss WCF-tjänst tillhandahåller WCF olika auktoriserings scheman som kontrollerar att anroparen har behörighet att köra tjänst metoden på servern. Om verifierings kontroller inte är aktiverade för WCF-tjänster kan en autentiserad användare få behörighets eskalering.</p>|
 
 ### <a name="example"></a>Exempel
 Följande konfiguration instruerar WCF att inte kontrol lera klientens autentiseringsnivå när tjänsten körs:
@@ -394,11 +395,11 @@ return result;
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Generisk, MVC5 |
 | **Attribut**              | Ej tillämpligt, identitetsprovider-ADFS, identitetsprovider – Azure AD |
 | **Referenser**              | [Autentisering och auktorisering i ASP.NET webb-API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
-| **Sätt** | <p>Roll information för program användarna kan härledas från Azure AD eller ADFS-anspråk om programmet förlitar sig på dem som identitets leverantör eller själva programmet kan tillhandahålla det. I något av dessa fall ska implementeringen av anpassad auktorisering validera användar Rolls informationen.</p><p>Roll information för program användarna kan härledas från Azure AD eller ADFS-anspråk om programmet förlitar sig på dem som identitets leverantör eller själva programmet kan tillhandahålla det. I något av dessa fall ska implementeringen av anpassad auktorisering validera användar Rolls informationen.</p>
+| **Steg** | <p>Roll information för program användarna kan härledas från Azure AD eller ADFS-anspråk om programmet förlitar sig på dem som identitets leverantör eller själva programmet kan tillhandahålla det. I något av dessa fall ska implementeringen av anpassad auktorisering validera användar Rolls informationen.</p><p>Roll information för program användarna kan härledas från Azure AD eller ADFS-anspråk om programmet förlitar sig på dem som identitets leverantör eller själva programmet kan tillhandahålla det. I något av dessa fall ska implementeringen av anpassad auktorisering validera användar Rolls informationen.</p>
 
 ### <a name="example"></a>Exempel
 ```csharp
@@ -445,19 +446,19 @@ public class CustomController : ApiController
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | <p>Enheten ska auktorisera anroparen för att kontrol lera om anroparen har de behörigheter som krävs för att utföra den begärda åtgärden. T. ex. kan du säga att enheten är ett smart dörr Lås som kan övervakas från molnet, samt att det ger funktioner som fjärrlåser dörren.</p><p>Smart dörr låset tillhandahåller en enda låsning av funktioner när någon fysiskt kommer nära dörren med ett kort. I det här fallet bör implementeringen av fjärrkommandot och kontrollen göras på ett sådant sätt att den inte tillhandahåller några funktioner för att låsa upp dörren eftersom moln-gatewayen inte har behörighet att skicka ett kommando för att låsa upp dörren.</p>|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | <p>Enheten ska auktorisera anroparen för att kontrol lera om anroparen har de behörigheter som krävs för att utföra den begärda åtgärden. T. ex. kan du säga att enheten är ett smart dörr Lås som kan övervakas från molnet, samt att det ger funktioner som fjärrlåser dörren.</p><p>Smart dörr låset tillhandahåller en enda låsning av funktioner när någon fysiskt kommer nära dörren med ett kort. I det här fallet bör implementeringen av fjärrkommandot och kontrollen göras på ett sådant sätt att den inte tillhandahåller några funktioner för att låsa upp dörren eftersom moln-gatewayen inte har behörighet att skicka ett kommando för att låsa upp dörren.</p>|
 
 ## <a name="perform-authorization-checks-in-the-field-gateway-if-it-supports-various-actions-that-require-different-permission-levels"></a><a id="field-permission"></a>Utföra verifierings kontroller i fältet Gateway om det stöder olika åtgärder som kräver olika behörighets nivåer
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-fält Gateway | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Build |  
 | **Tillämpliga tekniker** | Allmänna |
-| **Attribut**              | E.t.  |
-| **Referenser**              | E.t.  |
-| **Sätt** | Fält-gatewayen ska auktorisera anroparen för att kontrol lera om anroparen har de behörigheter som krävs för att utföra den begärda åtgärden. Till exempel bör det finnas olika behörigheter för ett administratörs användar gränssnitt/API som används för att konfigurera en fält-Gateway v/s-enheter som ansluter till den.|
+| **Attribut**              | Ej tillämpligt  |
+| **Referenser**              | Ej tillämpligt  |
+| **Steg** | Fält-gatewayen ska auktorisera anroparen för att kontrol lera om anroparen har de behörigheter som krävs för att utföra den begärda åtgärden. Till exempel bör det finnas olika behörigheter för ett administratörs användar gränssnitt/API som används för att konfigurera en fält-Gateway v/s-enheter som ansluter till den.|

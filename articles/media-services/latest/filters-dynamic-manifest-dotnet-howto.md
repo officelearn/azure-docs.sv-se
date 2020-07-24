@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2226d7a769caf049af30bbca81ca3079d72970b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75779254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023134"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Skapa filter med Media Services .NET SDK
 
@@ -25,21 +26,21 @@ När du levererar ditt innehåll till kunder (strömma live-händelser eller vid
 
 Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
 
-Det här avsnittet visar hur du använder Media Services .NET SDK för att definiera ett filter för en video på begäran till gång och skapa [konto filter](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) och [till gångs filter](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+Det här avsnittet visar hur du använder Media Services .NET SDK för att definiera ett filter för en video på begäran till gång och skapa [konto filter](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) och [till gångs filter](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
 > Se till att granska [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 - Granska [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
-- Hämta information som krävs för att [få åtkomst till API: er](access-api-cli-how-to.md)
+- [Skapa ett Media Services-konto](./create-account-howto.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
+- Hämta information som krävs för att [få åtkomst till API: er](./access-api-howto.md)
 - Granska [Ladda upp, koda och strömma med Azure Media Services](stream-files-tutorial-with-api.md) för att se hur du [börjar använda .NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)
 
 ## <a name="define-a-filter"></a>Definiera ett filter  
 
-I .NET konfigurerar du spåra val med [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) -och [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) -klasser. 
+I .NET konfigurerar du spåra val med [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) -och [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) -klasser. 
 
 Följande kod definierar ett filter som innehåller ljud spår som är EG-3 och alla video spår som har bit hastighet i intervallet 0-1000000.
 
@@ -118,5 +119,3 @@ I följande tabell visas några exempel på URL: er med filter:
 ## <a name="next-steps"></a>Nästa steg
 
 [Strömma videor](stream-files-tutorial-with-api.md) 
-
-

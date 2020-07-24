@@ -9,11 +9,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
-ms.openlocfilehash: b189e246a2c15fa3579f093d286067fd39f781f7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b71f94a6a05eb372025430cde21c668b47ac36b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241187"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103041"
 ---
-Om du föredrar att gå direkt till, Visa eller hämta alla [exempel på tal-SDK C#](https://aka.ms/speech/github-csharp) på GitHub. Annars sätter vi igång.
+Du kan visa eller hämta alla [exempel på tal-SDK C#](https://aka.ms/speech/github-csharp) på GitHub. 

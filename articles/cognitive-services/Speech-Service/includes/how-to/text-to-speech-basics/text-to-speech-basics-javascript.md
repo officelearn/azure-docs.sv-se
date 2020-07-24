@@ -4,13 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: 57db307b1fe5c5112b08fbcffda06e6f24177bff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37f74933f231951347d14b3fa110f957e8fe81d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103062"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 
@@ -23,31 +24,7 @@ class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Beroende på mål miljön använder du dessutom något av följande:
 
-# <a name="import"></a>[export](#tab/import)
-
-```javascript
-import { readFileSync } from "fs";
-import {
-    AudioConfig,
-    SpeechConfig,
-    SpeechSynthesisOutputFormat,
-    SpeechSynthesizer 
-} from "microsoft-cognitiveservices-speech-sdk";
-```
-
-Mer information finns i `import` <a href="https://javascript.info/import-export" target="_blank">Exportera och importera <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
-
-# <a name="require"></a>[innebära](#tab/require)
-
-```javascript
-const readFileSync = require("fs").readFileSync;
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-Mer information om `require` finns i <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">Vad kräver <span class="docon docon-navigate-external x-hidden-focus"></span> ? </a>.
-
-
-# <a name="script"></a>[skript](#tab/script)
+# <a name="script"></a>[över](#tab/script)
 
 Hämta och extrahera <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">talet SDK för Java Script <span class="docon docon-navigate-external x-hidden-focus"></span> </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* -filen och placera den i en mapp som är tillgänglig för HTML-filen.
 
@@ -58,7 +35,24 @@ Hämta och extrahera <a href="https://aka.ms/csspeech/jsbrowserpackage" target="
 > [!TIP]
 > Om du är mål för en webbläsare och använder `<script>` taggen, `sdk` behövs inte prefixet. `sdk`Prefixet är ett alias som används för att namnge `require` modulen.
 
+# <a name="import"></a>[export](#tab/import)
+
+```javascript
+import * from "microsoft-cognitiveservices-speech-sdk";
+```
+
+Mer information finns i `import` <a href="https://javascript.info/import-export" target="_blank">Exportera och importera <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+
+# <a name="require"></a>[innebära](#tab/require)
+
+```javascript
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+```
+
+Mer information om `require` finns i <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">Vad kräver <span class="docon docon-navigate-external x-hidden-focus"></span> ? </a>.
+
 ---
+
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 

@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81685903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115676"
 ---
-# <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault certifikat
+# <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault-certifikat
 
 Stöd för Key Vault certifikat ger till gång till hantering av x509-certifikat och följande beteenden:  
 
@@ -66,7 +66,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 -   *NBF*: IntDate: innehåller värdet för datumet för x509-certifikatet.  
 
 > [!Note] 
-> Om ett Key Vault certifikat upphör att gälla, är det adresser bara nyckeln och hemligheten blir oanvändbar.  
+> Om ett nyckelvalvscertifikat upphör att gälla går det inte att använda dess adresserbara nyckel och hemlighet.  
 
 ### <a name="tags"></a>Taggar
 
@@ -81,10 +81,10 @@ En certifikat princip innehåller information om hur du skapar och hanterar livs
 
 När ett Key Vault-certifikat skapas från grunden måste en princip anges. Principen anger hur du skapar den här Key Vault certifikat versionen eller nästa Key Vault certifikat version. När en princip har upprättats krävs det inte med efterföljande skapande åtgärder för framtida versioner. Det finns bara en instans av en princip för alla versioner av ett Key Vault certifikat.  
 
-En certifikat princip innehåller följande information på hög nivå:  
+På en hög nivå innehåller en certifikat princip följande information (deras definitioner hittar du [här](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   Egenskaper för X509-certifikat: innehåller ämnes namn, alternativa namn för certifikat mottagare och andra egenskaper som används för att skapa en x509-certifikatbegäran.  
--   Nyckel egenskaper: innehåller nyckel typer, nyckel längd, exporter bara och återanvända nyckel fält. Dessa fält instruerar nyckel valvet om hur man genererar en nyckel.  
+-   Nyckel egenskaper: innehåller fält av nyckel typ, nyckel längd, export bar och ReuseKeyOnRenewal. Dessa fält instruerar nyckel valvet om hur man genererar en nyckel.  
 -   Hemliga egenskaper: innehåller hemliga egenskaper som innehålls typ för adresser bar hemlighet för att generera det hemliga värdet, för att hämta certifikat som en hemlighet.  
 -   Livs längds åtgärder: innehåller livs längds åtgärder för KV-certifikatet. Varje livs längds åtgärd innehåller:  
 
@@ -150,7 +150,7 @@ Om ett certifikats princip ställs in på automatisk förnyelse skickas ett medd
 
 ## <a name="certificate-access-control"></a>Certifikat Access Control
 
- Åtkomst kontroll för certifikat hanteras av Key Vault och tillhandahålls av Key Vault som innehåller dessa certifikat. Åtkomst kontroll principen för certifikat skiljer sig från principerna för åtkomst kontroll för nycklar och hemligheter i samma Key Vault. Användare kan skapa ett eller flera valv för att lagra certifikat, för att upprätthålla lämplig segmentering och hantering av certifikat.  
+ Åtkomstkontroll för certifikat hanteras av Key Vault och tillhandahålls av Key Vault som innehåller dessa certifikat. Åtkomst kontroll principen för certifikat skiljer sig från principerna för åtkomst kontroll för nycklar och hemligheter i samma Key Vault. Användare kan skapa ett eller flera valv för att lagra certifikat, för att upprätthålla lämplig segmentering och hantering av certifikat.  
 
  Följande behörigheter kan användas, per huvud konto, i åtkomst kontroll posten hemligheter i ett nyckel valv och speglar noggrant de åtgärder som tillåts för ett hemligt objekt:  
 

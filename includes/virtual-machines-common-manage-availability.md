@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e0f9bbf4e0d8edd153798b39f880f0adb8be6587
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 04a25b6b0b243744cc81c8b71a1f03e7c7375a68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502304"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103032"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -99,7 +99,7 @@ När du prenumererar på [schemalagda händelser](https://docs.microsoft.com/azu
 
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Kombinera en belastningsutjämnare med tillgänglighets zoner eller uppsättningar
-Kombinera [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) med en tillgänglighets zon eller Ställ in för att få de flesta program återhämtning. Azure Load Balancer distribuerar trafiken mellan flera virtuella datorer. Azure Load Balancer ingår i standardnivån för Virtual Machines. Azure Load Balancer ingår inte i alla nivåer för Virtual Machines. Mer information om belastningsutjämning för virtuella datorer finns i [Belastningsutjämna virtuella datorer](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
+Kombinera [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) med en tillgänglighets zon eller Ställ in för att få de flesta program återhämtning. Azure Load Balancer distribuerar trafiken mellan flera virtuella datorer. Azure Load Balancer ingår i standardnivån för Virtual Machines. Azure Load Balancer ingår inte i alla nivåer för Virtual Machines. Mer information om belastningsutjämning för virtuella datorer finns i [Belastningsutjämna virtuella datorer](../articles/virtual-machines/linux/tutorial-load-balancer.md).
 
 Om lastbalanseraren inte konfigureras för att jämna ut trafiken mellan flera virtuella datorer kommer varje planerat underhåll att påverka endast den virtuella dator som hanterar trafik och orsaka ett avbrott på programnivån. Om du placerar flera virtuella datorer av samma nivå under samma lastbalanserare och tillgänglighetsuppsättning kommer trafiken att hanteras kontinuerligt av minst en instans.
 
@@ -108,7 +108,7 @@ En själv studie kurs om belastnings utjämning över tillgänglighets zoner fin
 
 <!-- Link references -->
 [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Kombinera en Load Balancer med tillgänglighets uppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Kombinera en lastbalanserare med tillgänglighetsuppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]: #use-managed-disks-for-vms-in-an-availability-set
 [Använda tillgänglighets zoner för att skydda från data center nivå problem]: #use-availability-zones-to-protect-from-datacenter-level-failures

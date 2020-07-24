@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165710"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093076"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribution utan drift avbrott för Durable Functions
 
-Den [tillförlitliga körnings modellen](durable-functions-checkpointing-and-replay.md) för Durable Functions kräver att dirigeringar är deterministiska, vilket skapar en ytterligare utmaning att tänka på när du distribuerar uppdateringar. När en distribution innehåller ändringar i aktivitets funktionens signaturer eller Orchestrator-logik, går det inte att utföra Dirigerings instanser i flygning. Den här situationen är särskilt ett problem för instanser av långvariga dirigeringar som kan representera timmar eller arbets dagar.
+Den [tillförlitliga körnings modellen](./durable-functions-orchestrations.md) för Durable Functions kräver att dirigeringar är deterministiska, vilket skapar en ytterligare utmaning att tänka på när du distribuerar uppdateringar. När en distribution innehåller ändringar i aktivitets funktionens signaturer eller Orchestrator-logik, går det inte att utföra Dirigerings instanser i flygning. Den här situationen är särskilt ett problem för instanser av långvariga dirigeringar som kan representera timmar eller arbets dagar.
 
 För att förhindra att de här felen inträffar har du två alternativ: 
 - Fördröj distributionen tills alla pågående Dirigerings instanser har slutförts.
@@ -52,7 +52,7 @@ Använd följande procedur för att konfigurera det här scenariot.
 
 1. För varje plats ställer du in [program inställningen AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) på anslutnings strängen för ett delat lagrings konto. Den här anslutnings strängen för lagrings kontot används av Azure Functions Runtime. Det här kontot används av Azure Functions Runtime och hanterar funktionens nycklar.
 
-1. Skapa en ny app-inställning för varje plats, till exempel `DurableManagementStorage` . Ange värdet för anslutnings strängen för olika lagrings konton. Dessa lagrings konton används av Durable Functions-tillägget för [tillförlitlig körning](durable-functions-checkpointing-and-replay.md). Använd ett separat lagrings konto för varje plats. Markera inte den här inställningen som en distributions plats inställning.
+1. Skapa en ny app-inställning för varje plats, till exempel `DurableManagementStorage` . Ange värdet för anslutnings strängen för olika lagrings konton. Dessa lagrings konton används av Durable Functions-tillägget för [tillförlitlig körning](./durable-functions-orchestrations.md). Använd ett separat lagrings konto för varje plats. Markera inte den här inställningen som en distributions plats inställning.
 
 1. I din Function-appens [host.jspå filens durableTask-avsnitt](durable-functions-bindings.md#hostjson-settings)anger `azureStorageConnectionStringName` du som namn på den app-inställning som du skapade i steg 3.
 
@@ -172,4 +172,3 @@ Mer information finns i [Hantera instanser i Durable Functions i Azure](durable-
 
 > [!div class="nextstepaction"]
 > [Versions Durable Functions](durable-functions-versioning.md)
-

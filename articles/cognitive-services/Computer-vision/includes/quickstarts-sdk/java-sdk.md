@@ -9,18 +9,18 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 3d52e83aa574dcd506270dc8e2f244a9f96add53
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 6506dd0a0aea1957db85658e4f70aed4df72d071
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103054"
 ---
 <a name="HOLTop"></a>
 
 [Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)  |  [Artefakt (maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)  |  [Exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Den aktuella versionen av [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -91,7 +91,7 @@ dependencies {
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll Java SDK.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
 |[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Den här klassen kommer från klient objekt och hanterar direkt alla avbildnings åtgärder, till exempel bild analys, text identifiering och generering av miniatyrer.|
@@ -210,7 +210,7 @@ Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en te
 
 ### <a name="call-the-recognize-api"></a>Anropa API: et för igenkänning
 
-Använd först följande kod för att anropa **recognizePrintedTextInStream** -metoden för den aktuella avbildningen. När du lägger till den här koden i projektet måste du ersätta värdet för `localTextImagePath` med sökvägen till den lokala avbildningen. 
+Använd först följande kod för att anropa **recognizePrintedTextInStream** -metoden för den aktuella avbildningen. När du lägger till den här koden i projektet måste du ersätta värdet för `localTextImagePath` med sökvägen till den lokala avbildningen. Du kan ladda ned en [exempel bild](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) som du kan använda här.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 

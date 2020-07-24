@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/12/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201454"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115537"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begär en åtkomsttoken i Azure Active Directory B2C
 
@@ -26,7 +27,7 @@ Den här artikeln visar hur du begär en åtkomsttoken för ett webb program och
 > [!NOTE]
 > **Webb-API-kedjor (på-plats-av) stöds inte av Azure AD B2C.** – Många arkitekturer innehåller ett webb-API som måste anropa ett annat underordnat webb-API, som båda skyddas av Azure AD B2C. Det här scenariot är vanligt i klienter som har en server del för webb-API, som i sin tur anropar en annan tjänst. Det här länkade webb-API-scenariot kan stödjas med hjälp av OAuth 2,0 JWT Bearer Credential Grant, på annat sätt kallas för flöde på uppdrag. Det finns dock för närvarande inte implementerat flöde på uppdrag i Azure AD B2C.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 - Om du inte redan har gjort det [lägger du till ett webb-API-program till din Azure Active Directory B2C-klient](add-web-api-application.md).

@@ -9,14 +9,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 1c631f4dea3b182c97f11f3892dff834c7681507
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1068f715eb80eb5b7991a5b25c71c81d26d9f3c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81275525"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103035"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -35,13 +35,13 @@ Det första steget är att se till att projektet är öppet i Visual Studio.
 
 Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
-1. Öppna **Solution Explorer** `MainPage.xaml`i Solution Explorer.
+1. Öppna i **Solution Explorer** `MainPage.xaml` .
 
-2. I designerns XAML-vy infogar du följande XAML-kodfragment i **Rutnäts** tag gen ( `<Grid>` mellan `</Grid>`och):
+2. I designerns XAML-vy infogar du följande XAML-kodfragment i **Rutnäts** tag gen (mellan `<Grid>` och `</Grid>` ):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml#StackPanel)]
 
-3. Öppna **Solution Explorer**käll filen `MainPage.xaml.cs`bakomliggande kod i Solution Explorer. (Det är grupperat `MainPage.xaml`under.)
+3. Öppna käll filen bakomliggande kod i **Solution Explorer** `MainPage.xaml.cs` . (Det är grupperat under `MainPage.xaml` .)
 
 4. Ersätt koden med följande grundläggande kod:
 
@@ -49,21 +49,19 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan initiera ett `SpeechRecognizer` objekt måste du skapa en konfiguration som använder din prenumerations nyckel och din prenumerations region. Infoga den här koden i `RecognizeSpeechAsync()` -metoden.
+Innan du kan initiera ett `SpeechRecognizer` objekt måste du skapa en konfiguration som använder din prenumerations nyckel och din prenumerations region. Infoga den här koden i- `SpeechRecognitionFromMicrophone_ButtonClicked()` metoden.
 
 > [!NOTE]
-> I det här exemplet `FromSubscription()` används metoden för att `SpeechConfig`bygga. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/)[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
+> I det här exemplet används `FromSubscription()` metoden för att bygga `SpeechConfig` . En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/)[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
 
 ## <a name="initialize-a-speechrecognizer"></a>Initiera en SpeechRecognizer
 
-Nu ska vi skapa en `SpeechRecognizer`. Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i `RecognizeSpeechAsync()` metoden, precis under din tal konfiguration.
+Nu ska vi skapa en `SpeechRecognizer` . Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i `SpeechRecognitionFromMicrophone_ButtonClicked()` metoden, precis under din tal konfiguration.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
 ## <a name="recognize-a-phrase"></a>Identifiera en fras
 
-Från- `SpeechRecognizer` objektet kommer du att anropa- `RecognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
-
-I using-instruktionen lägger du till den här koden.
+`SpeechRecognizer`Du anropar-metoden från objektet `RecognizeOnceAsync()` . Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats, så att du inte kan identifiera tal.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
 
@@ -77,9 +75,9 @@ När igenkännings resultatet returneras av tal tjänsten vill du göra något m
 
 Nu är du redo att bygga och testa ditt program.
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
+1. Starta programmet genom att välja **Felsök**  >  **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
 
    ![Exempel på UWP tal igenkännings program i C# – snabb start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-helloworld-window.png)
 

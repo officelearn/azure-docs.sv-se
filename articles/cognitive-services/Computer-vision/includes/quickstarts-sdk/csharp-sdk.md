@@ -9,18 +9,18 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a8d27b77e210236216883bf630464324a47d2e80
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: c1406b5e7297b1d48b23d9dfa684e0d76b68139f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073289"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103053"
 ---
 <a name="HOLTop"></a>
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)  |  [Exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Den senaste versionen av [.net Core SDK](https://dotnet.microsoft.com/download/).
@@ -70,7 +70,7 @@ I programmets **program** klass skapar du variabler för resursens Azure-slutpun
 I program katalogen installerar du Visuellt innehåll klient biblioteket för .NET med följande kommando:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
 ```
 
 Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
@@ -79,7 +79,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll .NET SDK.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
 |[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Den här klassen innehåller ytterligare metoder för **ComputerVisionClient**.|
@@ -211,7 +211,7 @@ Följande kod skriver ut information om typen av bild &mdash; oavsett om den är
 
 ## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
 
-Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. Koden i det här avsnittet definierar en metod, `ExtractTextUrl` som använder-klient objekt för att identifiera och extrahera utskrift eller handskriven text i bilden.
+Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. Mer information om text igenkänning finns i konceptuellt dokument för [OCR (optisk tecken läsning)](../../concept-recognizing-text.md#read-api) . Koden i det här avsnittet definierar en metod, `BatchReadFileUrl` som använder-klient objekt för att identifiera och extrahera text i avbildningen.
 
 Lägg till metod anropet i din `Main` metod.
 
@@ -219,7 +219,7 @@ Lägg till metod anropet i din `Main` metod.
 
 ### <a name="set-up-test-image"></a>Konfigurera test avbildning
 
-Spara en referens till URL: en för den bild som du vill extrahera text från i **program** klassen.
+Spara en referens till URL: en för den avbildning som du vill extrahera text från i **program** klassen. Det här kodfragmentet innehåller exempel bilder för både utskrift och handskriven text.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
 
@@ -228,13 +228,13 @@ Spara en referens till URL: en för den bild som du vill extrahera text från i 
 
 ### <a name="call-the-read-api"></a>Anropa Read API
 
-Definiera den nya metoden för att läsa text. Lägg till koden nedan, som anropar **BatchReadFileAsync** -metoden för den aktuella avbildningen. Detta returnerar ett åtgärds-ID och startar en asynkron process för att läsa innehållet i avbildningen.
+Definiera den nya metoden för att läsa text. Lägg till koden nedan, som anropar **ReadAsync** -metoden för den aktuella avbildningen. Detta returnerar ett åtgärds-ID och startar en asynkron process för att läsa innehållet i avbildningen.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
 
 ### <a name="get-read-results"></a>Hämta Läs resultat
 
-Hämta sedan det åtgärds-ID som returnerades från **BatchReadFileAsync** -anropet och Använd det för att fråga tjänsten efter åtgärds resultat. Följande kod kontrollerar åtgärden vid en sekunds intervall tills resultatet returneras. Den skriver sedan ut de extraherade text data till-konsolen.
+Hämta sedan det åtgärds-ID som returnerades från **ReadAsync** -anropet och Använd det för att fråga tjänsten efter åtgärds resultat. Följande kod kontrollerar åtgärden vid en sekunds intervall tills resultatet returneras. Den skriver sedan ut de extraherade text data till-konsolen.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
 

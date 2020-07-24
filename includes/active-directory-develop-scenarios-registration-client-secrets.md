@@ -1,5 +1,5 @@
 ---
-title: inkludera fil
+title: ta med fil
 description: inkludera fil för klient scenariots landnings sidor (daemon, webbapp, webb-API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773395"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103034"
 ---
 ## <a name="register-secrets-or-certificates"></a>Registrera hemligheter eller certifikat
 
@@ -31,12 +31,10 @@ Hantering av klientautentiseringsuppgifter sker på sidan **certifikat & hemligh
 
 ![Sidan certifikat & hemligheter](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
-- Program hemligheten (kallas även klient hemligheten) genereras av Azure AD under registreringen av det konfidentiella klient programmet. Den här generationen sker när du väljer **ny klient hemlighet**. Vid det här skedet måste du kopiera den hemliga strängen till Urklipp för användning i appen innan du väljer **Spara**. Den här strängen visas inte längre.
+- Du skapar en *klient hemlighet* genom att välja **ny klient hemlighet** i appens registrering i Azure Portal. När du skapar en klient hemlighet _måste_ du registrera hemlighetens sträng innan du navigerar bort från fönstret **certifikat & hemligheter** . Hemlighetens sträng visas aldrig igen.
 - Under program registrering använder du knappen **Ladda upp certifikat** för att ladda upp certifikatet. Azure AD stöder bara certifikat som är direkt registrerade i programmet och som inte följer certifikat kedjor.
 
 Mer information finns i [snabb start: Konfigurera ett klient program för åtkomst till webb-API: er | Lägg till autentiseringsuppgifter i ditt program](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
-
-
 
 ### <a name="register-client-secrets-by-using-powershell"></a>Registrera klient hemligheter med hjälp av PowerShell
 

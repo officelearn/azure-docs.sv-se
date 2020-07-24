@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: storsimple
 author: alkohli
 ms.service: storsimple
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103025"
 ---
 Om du vill ta bort en volym behållare måste du
  - ta bort volymer i volym containern. Om volym containern har associerade volymer ska du koppla från dessa volymer först. Följ stegen i koppla från [en volym](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). När volymerna är offline kan du ta bort dem. 
@@ -36,6 +36,6 @@ När volym containern inte har några associerade volymer, säkerhets kopierings
 
 Listan över volym behållare uppdateras för att avspegla den borttagna volym containern.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![Skärm bild av sidan med volym behållare. Tabell listan över volym behållare innehåller inte längre den borttagna behållaren.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 

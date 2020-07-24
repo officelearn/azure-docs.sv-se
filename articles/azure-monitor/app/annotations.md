@@ -3,15 +3,16 @@ title: Versions anteckningar för Application Insights | Microsoft Docs
 description: Lägg till distribution eller skapa markörer i dina Metrics Explorer-diagram i Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010751"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093042"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på mått diagram i Application Insights
 
-Anteckningar visar var du har distribuerat en ny version eller andra viktiga händelser. Anteckningar gör det enkelt att se om ändringarna hade någon effekt på programmets prestanda. De kan skapas automatiskt av versions systemet för [Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) . Du kan också skapa anteckningar för att flagga alla händelser som du vill genom att skapa dem från PowerShell.
+Anteckningar visar var du har distribuerat en ny version eller andra viktiga händelser. Anteckningar gör det enkelt att se om ändringarna hade någon effekt på programmets prestanda. De kan skapas automatiskt av versions systemet för [Azure pipelines](/azure/devops/pipelines/tasks/) . Du kan också skapa anteckningar för att flagga alla händelser som du vill genom att skapa dem från PowerShell.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Versions anteckningar med Azure pipelines build
 

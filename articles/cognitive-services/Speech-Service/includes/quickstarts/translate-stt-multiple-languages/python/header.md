@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 071caeacd4f310ca88b95fc95328b0994f2cae12
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4265e0158d19bbc4f1d879e4bc045bc44fbd7b28
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75468719"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103046"
 ---
-Om du föredrar att gå direkt till, Visa eller ladda ned alla <a href="https://aka.ms/speech/github-python">tal SDK python-exempel</a> på GitHub. Annars sätter vi igång.
+Du kan visa eller hämta alla <a href="https://aka.ms/speech/github-python">python-exempel för tal-SDK</a> på GitHub. 

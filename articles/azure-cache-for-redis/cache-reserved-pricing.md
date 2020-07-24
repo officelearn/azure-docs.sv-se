@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974848"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093025"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Förskottsbetala för Azure cache för Redis Compute-resurser med reserverad kapacitet
 
@@ -32,7 +32,7 @@ Information om hur företags kunder och kunder som betalar per användning debit
 
 Reservationens storlek bör baseras på den totala mängden minnes storlek som används av den befintliga eller närmast distribuerade cachen inom en angiven region och med samma tjänst nivå.
 
-Anta till exempel att du kör två cacheminnen – en till 13 GB och den andra vid 26 GB. Du behöver både i minst ett år. Dessutom antar vi att du planerar att skala de befintliga 13 GB cacheminnena till 26 GB under en månad för att uppfylla dina säsongs behov och sedan skala tillbaka. I det här fallet kan du köpa antingen 1 P1 cache och 1 P2 cache eller 3 P1-cacheminnen på en ett-års reservation för att maximera besparingarna. Du får rabatt på den totala mängden cache-minne som du reserverar, oberoende av hur detta belopp allokeras i cacheminnet.
+Anta till exempel att du kör två cacheminnen – en till 13 GB och den andra vid 26 GB. Du behöver både i minst ett år. Dessutom antar vi att du planerar att skala de befintliga 13 GB cacheminnena till 26 GB under en månad för att uppfylla dina säsongs behov och sedan skala tillbaka. I det här fallet kan du köpa antingen 1 P2 cache och 1 P3 cache eller 3 P2 cacheminnen på ett engångs reservation för att maximera besparingarna. Du får rabatt på den totala mängden cache-minne som du reserverar, oberoende av hur detta belopp allokeras i cacheminnet.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Köp Azure-cache för Redis reserverad kapacitet
@@ -55,7 +55,7 @@ I följande tabell beskrivs obligatoriska fält.
 | Region | Den Azure-region som omfattas av Azure-cachen för Redis reserverad kapacitets reservation.
 | Prisnivå | Tjänst nivån för Azure cache för Redis-servrar.
 | Term | Ett år eller tre år
-| Kvantitet | Mängden data bearbetnings resurser som köps i Azure-cachen för Redis reserverad kapacitet reservation. Antalet är ett antal cacheminnen i den valda Azure-regionen och tjänst nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure-cache för Redis-servrar med den totala cache-kapaciteten på 26 GB i regionen USA, östra, anger du kvantitet som 26 för att maximera fördelarna med alla cacheminnen.
+| Antal | Mängden data bearbetnings resurser som köps i Azure-cachen för Redis reserverad kapacitet reservation. Antalet är ett antal cacheminnen i den valda Azure-regionen och tjänst nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure-cache för Redis-servrar med den totala cache-kapaciteten på 26 GB i regionen USA, östra, anger du den kvantitet som ger dig motsvarande 26 GB för att maximera fördelarna med alla cacheminnen. Detta kan vara 1 P3 eller 2 P2 cacheminnen.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 

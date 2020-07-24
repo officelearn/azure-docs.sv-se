@@ -11,12 +11,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 2e6feb7c1d406a26c5a668d36d60ea0dbbae160c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cfe85db7a49f2d7b830165d05acaa458f51119f0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115768"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster med Azure CLI
 
@@ -88,6 +88,9 @@ För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster anv
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!NOTE]
+> Kommandot ovan använder standard platsen för konfigurations filen Kubernetes, som är `~/.kube/config` . Du kan ange en annan plats för Kubernetes-konfigurations filen med *--File*.
 
 Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl get][kubectl-get] för att returnera en lista över klusternoderna.
 

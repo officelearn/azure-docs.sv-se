@@ -1,18 +1,19 @@
 ---
-title: Zoomnings nivåer och panels rutnät | Microsoft Azure Maps
+title: Zoomnings nivåer och panel rutnät i Microsoft Azure Maps
 description: I den här artikeln får du lära dig om zoomnings nivåer och panel rutnät i Microsoft Azure Maps.
-author: Philmea
-ms.author: philmea
-ms.date: 01/22/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: philmea
+ms.openlocfilehash: 9493ad21847cca230606ff1641c9ac02c3355f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093059"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
@@ -23,15 +24,11 @@ Azure Maps använda det sfäriska Mercator i projekt koordinatsystemet (EPSG: 38
 
 För att optimera prestanda för kart hämtning och visning är kartan indelad i fyrkantiga paneler. Azure Maps SDK: s användnings paneler som har en storlek på 512 x 512 pixlar för väg kartor och mindre 256 x 256 pixlar för satellit-bilder. Azure Maps innehåller raster-och vektor paneler för 23 zoomnings nivåer, numrerade 0 till och med 22. På zoomnings nivå 0 passar hela världen på en enda panel:
 
-<center>
-
-![Panelen karta](./media/zoom-levels-and-tile-grid/world0.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/world0.png" alt-text="Panelen karta":::
 
 Zoomnings nivå 1 använder fyra paneler för att rendera världen: en fyrkant på 2 x 2
 
-<center>
-
-![layout för 2x2-kart panel](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="layout för 2x2-kart panel":::
 
 Varje ytterligare zoomnings nivå är fyra delar av panelerna i föregående, vilket skapar ett rutnät med 2<sup>zoom</sup> x 2-<sup>zoomning</sup>. Zoomnings nivå 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>eller 4 194 304 x 4 194 304 paneler (17 592 186 044 416 paneler totalt).
 
@@ -79,11 +76,7 @@ var mapHeight = mapWidth;
 
 Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pixel koordinaterna. Bild punkten i det övre vänstra hörnet av kartan har alltid pixel koordinater (0, 0). Bild punkten i det nedre högra hörnet av kartan har pixel koordinater *(bredd-1, höjd-1)* eller hänvisar till ekvationerna i föregående avsnitt *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)*. Om du till exempel använder 512 fyrkantiga paneler på nivå 2, sträcker sig pixel koordinaterna från (0, 0) till (2047, 2047), så här:
 
-<center>
-
-![Karta som visar pixel dimensioner](media/zoom-levels-and-tile-grid/map-width-height.png)
-
-</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Karta som visar pixel dimensioner":::
 
 Med hänsyn till latitud och longitud i grader, och detalj nivån, beräknas pixlarnas XY-koordinater på följande sätt:
 
@@ -109,9 +102,7 @@ var numberOfTilesHigh = numberOfTilesWide;
 
 Varje bricka tilldelas XY-koordinater från (0, 0) i det övre vänstra hörnet till *(2<sup>zoom</sup>– 1, 2<sup>zoom</sup>– 1)* längst ned till höger. Till exempel, vid zoomnings nivå 2, sträcker sig panelerna från (0, 0) till (7, 7) enligt följande:
 
-<center>
-
-![Karta över panel koordinater](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Karta över panel koordinater":::
 
 Om du har ett par med punkt-koordinater för pixlar kan du enkelt fastställa panelernas XY-koordinater i panelen som innehåller den pixeln:
 
@@ -125,17 +116,13 @@ Paneler kallas för zoomnings nivå. X-och y-koordinaterna motsvarar panelens po
 
 När du bestämmer vilken zoomnings nivå som ska användas, kommer du ihåg att varje plats har en fast position på sin panel. Det innebär att antalet paneler som behövs för att visa en bestämd expanse område är beroende av den exakta placeringen av zoomnings rutnätet på världs kartan. Om det t. ex. finns två punkter 900 meters avstånd *kan* det bara ta tre paneler att visa en väg mellan dem i zoomnings nivå 17. Men om den västerländska punkten är till höger om dess panel och den östra punkten till vänster om panelen, kan det ta fyra paneler:
 
-<center>
-
-![Zooma demo skala](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Zooma demo skala":::
 
 När zoomnings nivån har fastställts kan x-och y-värdena beräknas. Den övre vänstra panelen i varje zoom-rutnät är x = 0, y = 0; den nedre högra panelen är x = 2<sup>Zoom-1</sup>, y = 2<sup>Zoom-1</sup>.
 
 Här är zoomnings rutnätet för zoomnings nivå 1:
 
-<center>
-
-![Zoom-rutnät för zoomnings nivå 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Zoom-rutnät för zoomnings nivå 1":::
 
 ## <a name="quadkey-indices"></a>Quadkey index
 
@@ -156,9 +143,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 `Qquadkeys`ha flera intressanta egenskaper. Först är längden på a `quadkey` (antalet siffror) lika med zoomnivån för motsvarande panel. För det andra `quadkey` startar en panel med den `quadkey` överordnade panelen (som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
 
-<center>
-
-![Pyramid i Quadkey-panel](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Pyramid i Quadkey-panel":::
 
 Slutligen `quadkeys` anger du en endimensionell index nyckel som vanligt vis bevarar avståndet mellan brickorna i XY-utrymmet. Två brickor som har närliggande XY-koordinater har med andra ord vanligt vis en `quadkeys` relativt nära varandra. Detta är viktigt för att optimera databas prestanda eftersom intilliggande paneler ofta begärs i grupper, och det är önskvärt att behålla dessa paneler på samma disk block, för att minimera antalet disk läsningar.
 

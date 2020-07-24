@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343454"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103031"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -45,22 +45,30 @@ Du kan använda [rollbaserad åtkomst kontroll (RBAC) i Azure](../articles/role-
 
 ### <a name="upload-your-vhd"></a>Ladda upp din virtuella hård disk
 
- Med direkt uppladdning är det enkelt att överföra din virtuella hård disk till en Azure-hanterad disk. Tidigare var du tvungen att följa en mer engagerad process som inkluderade mellanlagring av dina data i ett lagrings konto. Nu finns det färre steg. Det är enklare att ladda upp lokala virtuella datorer till Azure, ladda upp till stora hanterade diskar och säkerhets kopierings-och återställnings processen för enklas. Det minskar också kostnaden genom att tillåta att du överför data till hanterade diskar direkt utan att koppla dem till virtuella datorer. Du kan använda direkt uppladdning för att ladda upp virtuella hård diskar upp till 32 TiB i storlek.
+Med direkt uppladdning är det enkelt att överföra din virtuella hård disk till en Azure-hanterad disk. Tidigare var du tvungen att följa en mer engagerad process som inkluderade mellanlagring av dina data i ett lagrings konto. Nu finns det färre steg. Det är enklare att ladda upp lokala virtuella datorer till Azure, ladda upp till stora hanterade diskar och säkerhets kopierings-och återställnings processen för enklas. Det minskar också kostnaden genom att tillåta att du överför data till hanterade diskar direkt utan att koppla dem till virtuella datorer. Du kan använda direkt uppladdning för att ladda upp virtuella hård diskar upp till 32 TiB i storlek.
 
- Information om hur du överför din virtuella hård disk till Azure finns i [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) -eller [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) -artiklarna.
+Information om hur du överför din virtuella hård disk till Azure finns i [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) -eller [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) -artiklarna.
 
-## <a name="encryption"></a>Kryptering
+## <a name="security"></a>Säkerhet
+
+### <a name="private-links"></a>Privata länkar
+
+Managed disks stöder användning av privata Länkar för att importera eller exportera en hanterad disk internt till nätverket. Med privata länkar kan du generera en tidsbunden SAS-URI (signatur för delad åtkomst) för icke anslutna hanterade diskar och ögonblicks bilder som du kan använda för att exportera data till andra regioner för regional expansion, haveri beredskap och kriminal tekniska analys. Du kan också använda SAS-URI: n för att direkt ladda upp en virtuell hård disk till en tom disk lokalt. Nu kan du använda [privata länkar](../articles/private-link/private-link-overview.md) för att begränsa exporten och importen av Managed disks så att den bara kan ske i det virtuella Azure-nätverket. Med privata länkar kan du se till att dina data bara skickas inom det säkra Microsoft stamnät nätverket.
+
+Information om hur du aktiverar privata Länkar för att importera eller exportera en hanterad disk finns i [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) -eller [Portal](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) artiklarna.
+
+### <a name="encryption"></a>Kryptering
 
 Hanterade diskar erbjuder två olika typer av kryptering. Det första är Server Side Encryption (SSE) som utförs av lagrings tjänsten. Den andra är Azure Disk Encryption (ADE) som du kan aktivera på operativ systemets och data diskarna för dina virtuella datorer.
 
-### <a name="server-side-encryption"></a>Kryptering på serversidan
+#### <a name="server-side-encryption"></a>Kryptering på serversidan
 
-[Kryptering på Server sidan](../articles/virtual-machines/windows/disk-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. (Temporära diskar, å andra sidan, är inte krypterade med Kryptering för lagringstjänst. se [disk roller: temporära diskar](#temporary-disk)).
+Kryptering på Server sidan ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. (Temporära diskar krypteras å andra sidan inte av kryptering på Server sidan om du inte aktiverar kryptering på värden. se [disk roller: temporära diskar](#temporary-disk)).
 
-Du kan antingen tillåta Azure att hantera dina nycklar åt dig, dessa är plattforms hanterade nycklar, eller så kan du hantera nycklarna själv, som är Kundhanterade nycklar. Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+Du kan antingen tillåta Azure att hantera dina nycklar åt dig, dessa är plattforms hanterade nycklar, eller så kan du hantera nycklarna själv, som är Kundhanterade nycklar. Mer information finns på [Server sidans kryptering av Azure-disklagring](../articles/virtual-machines/windows/disk-encryption.md) artikel.
 
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella Linux-datorer](../articles/virtual-machines/linux/disk-encryption-overview.md) eller [Azure Disk Encryption för virtuella Windows-datorer](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
@@ -82,9 +90,9 @@ Den här disken har en maximal kapacitet på 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Tillfällig disk
 
-Varje virtuell dator innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, t. ex. sid-eller växlings fil. Data på den tillfälliga disken kan gå förlorade under händelsen [Underhåll](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du distribuerar om [en virtuell dator](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå.  
+Varje virtuell dator innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, t. ex. sid-eller växlings fil. Data på den tillfälliga disken kan gå förlorade under en [underhålls händelse](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuerar om en virtuell dator](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå.  
 
-På virtuella Azure Linux-datorer är den temporära disken vanligt vis/dev/SDB och på virtuella Windows-datorer är den temporära disken D: som standard. Den temporära disken är inte krypterad med kryptering på Server sidan (se [kryptering](#encryption)).
+På virtuella Azure Linux-datorer är den temporära disken vanligt vis/dev/SDB och på virtuella Windows-datorer är den temporära disken D: som standard. Den tillfälliga disken krypteras inte med kryptering på Server sidan om du inte aktiverar kryptering på värden.
 
 ## <a name="managed-disk-snapshots"></a>Ögonblicks bilder av hanterade diskar
 
@@ -97,7 +105,7 @@ Mer information om hur du skapar ögonblicks bilder för Managed disks finns i f
 * [Skapa en ögonblicks bild av en hanterad disk i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Skapa en ögonblicks bild av en hanterad disk i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-### <a name="images"></a>Avbildningar
+### <a name="images"></a>Bilder
 
 Managed disks stöder också skapande av en hanterad anpassad avbildning. Du kan skapa en avbildning från din anpassade virtuella hård disk i ett lagrings konto eller direkt från en generaliserad (Sysprep) virtuell dator. Den här processen fångar upp en enda avbildning. Den här avbildningen innehåller alla hanterade diskar som är associerade med en virtuell dator, inklusive både operativ system och data diskar. Den här hanterade anpassade avbildningen gör det möjligt att skapa hundratals virtuella datorer med din anpassade avbildning utan att behöva kopiera eller hantera lagrings konton.
 

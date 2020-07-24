@@ -1,6 +1,6 @@
 ---
-title: Belastnings utjämning för Windows-adresspoolen för virtuella skriv bord – Azure
-description: Belastnings Utjämnings metoder för värdbaserade pooler för en Windows-miljö med virtuella skriv bord.
+title: Belastnings utjämning för Windows-adresspoolen för virtuella skriv bord (hösten 2019) – Azure
+description: Lär dig mer om belastnings Utjämnings metoder för värdar för en Windows Virtual Desktop-miljö (hösten 2019 release).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2bfbd580d0e114cf4a135879340745107183b6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614816"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046269"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Belastningsutjämningsmetoder för värdpool
+# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Belastnings Utjämnings metoder för värd pool (hösten 2019-version)
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../host-pool-load-balancing.md).

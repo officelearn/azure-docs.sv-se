@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: charwen
-ms.openlocfilehash: 5c4bbdde04176edf693fc58d172a7dcc250c495a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d094f614cbaf75158c38b86345fd5f925310d6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039318"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Flytta ExpressRoute-kretsar från klassisk till Resource Manager-distributions modell med PowerShell
 
@@ -21,7 +22,7 @@ Om du vill använda en ExpressRoute-krets för både den klassiska distributions
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* Kontrol lera att du har installerat både de klassiska och AZ-Azure PowerShell modulerna lokalt på datorn. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+* Kontrol lera att du har installerat både de klassiska och AZ-Azure PowerShell modulerna lokalt på datorn. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/).
 * Kontrol lera att du har granskat [prerequisites](expressroute-prerequisites.md) [kraven, routningsstatus](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 * Granska informationen som anges under [flytta en ExpressRoute-krets från klassisk till Resource Manager](expressroute-move.md). Se till att du fullständigt förstår begränsningarna och begränsningarna.
 * Kontrol lera att kretsen är fullt fungerande i den klassiska distributions modellen.

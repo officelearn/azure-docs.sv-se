@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4c9998488013ce89b17a30a6c3948a02407d06bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53ea43213a48cb712eb6ce685f03b733b83948b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045530"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa mått varningar för loggar i Azure Monitor
 
@@ -68,10 +68,10 @@ Steg-för-steg-information och exempel – se [skapa och hantera mått avisering
 - Den signal som valts för mått avisering för den valda *Log Analytics arbets ytan* är av typen **mått**
 - Filtrera efter vissa villkor eller resurser med dimensions filter; mått för loggar är flerdimensionella
 - När du konfigurerar *signal logik*kan en enskild avisering skapas för att omfatta flera dimensions värden (t. ex. datorer)
-- Om du **inte** använder Azure Portal för att skapa mått aviseringar för den valda *Log Analytics arbets ytan*; Därefter måste användaren manuellt skapa en explicit regel för att konvertera loggdata till ett mått med [Azure Monitor-schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
+- Om du **inte** använder Azure Portal för att skapa mått aviseringar för den valda *Log Analytics arbets ytan*; Därefter måste användaren manuellt skapa en explicit regel för att konvertera loggdata till ett mått med [Azure Monitor-schemalagda Frågeregler](/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
-> När du skapar mått avisering för Log Analytics arbets yta via Azure Portal motsvarande regel för att konvertera loggdata till mått via [Azure Monitor-schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) skapas automatiskt i bakgrunden *utan att användaren behöver vidta några åtgärder eller åtgärder*. För mått varningar för skapande av loggar med andra metoder än Azure Portal, se [resurs mal len för mått aviseringar för](#resource-template-for-metric-alerts-for-logs) avsnittet om loggar i exempel på hur du skapar en ScheduledQueryRule baserad logg till mått konverterings regeln innan måttet skapas, annars kommer det inte att finnas några data för mått varningen för loggar som skapats.
+> När du skapar mått avisering för Log Analytics arbets yta via Azure Portal motsvarande regel för att konvertera loggdata till mått via [Azure Monitor-schemalagda Frågeregler](/rest/api/monitor/scheduledqueryrules) skapas automatiskt i bakgrunden *utan att användaren behöver vidta några åtgärder eller åtgärder*. För mått varningar för skapande av loggar med andra metoder än Azure Portal, se [resurs mal len för mått aviseringar för](#resource-template-for-metric-alerts-for-logs) avsnittet om loggar i exempel på hur du skapar en ScheduledQueryRule baserad logg till mått konverterings regeln innan måttet skapas, annars kommer det inte att finnas några data för mått varningen för loggar som skapats.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Resurs mal len för mått varningar för loggar
 

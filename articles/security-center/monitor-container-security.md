@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801384"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038622"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Övervaka säkerheten för dina behållare
 
@@ -35,13 +36,11 @@ På den här sidan förklaras hur du använder behållar säkerhetsfunktioner so
 
 1. Om du vill utlösa skanningen av en avbildning, push-överför den till registret. 
 
-    När genomsökningen är klar (vanligt vis efter cirka 10 minuter), finns det ett avgörande i Security Center rekommendationer.
-    
+    När genomsökningen är klar (vanligt vis efter cirka 2 minuter, men kan vara upp till 15 minuter), är avgöranden tillgängliga som Security Center rekommendationer som detta:
 
 1. Om du vill visa resultaten går du till sidan **rekommendationer** . Om problem påträffas visas följande rekommendation:
 
     ![Rekommendation för att åtgärda problem ](media/monitor-container-security/acr-finding.png)
-
 
 1. Välj rekommendationen. 
     Sidan med rekommendations information öppnas med ytterligare information. Den här informationen omfattar listan över register med sårbara avbildningar ("resurser som påverkas") och åtgärds stegen. 

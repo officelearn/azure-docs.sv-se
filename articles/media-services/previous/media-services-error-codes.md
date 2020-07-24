@@ -14,35 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6911b16c3fdf5bb94d42a40198943c3b1baa00da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042839"
 ---
-# <a name="azure-media-services-error-codes"></a>Azure Media Services felkoder
+# <a name="azure-media-services-error-codes"></a>Azure Media Services-felkoder
 När du använder Microsoft Azure Media Services kan du få HTTP-felkoder från tjänsten, beroende på problem som token för autentisering som går ut till åtgärder som inte stöds i Media Services. Följande är en lista över **http-felkoder** som kan returneras av Media Services och möjliga orsaker till dem.  
 
-## <a name="400-bad-request"></a>400 Felaktig begäran
+## <a name="400-bad-request"></a>400 – Felaktig begäran
 Begäran innehåller ogiltig information och avvisas på grund av en av följande orsaker:
 
 * En API-version som inte stöds har angetts. Den senaste versionen finns i [installations programmet för Media Services REST API utveckling](media-services-rest-how-to-use.md).
-* API-versionen för Media Services har inte angetts. Information om hur du anger API-versionen finns [Media Services åtgärder REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+* API-versionen för Media Services har inte angetts. Information om hur du anger API-versionen finns [Media Services åtgärder REST API referens](/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Om du använder .NET eller Java SDK: er för att ansluta till Media Services, anges API-versionen åt dig när du försöker och utför en åtgärd mot Media Services.
   > 
   > 
-* En odefinierad egenskap har angetts. Egenskaps namnet visas i fel meddelandet. Endast de egenskaper som är medlemmar i en viss entitet kan anges. Se [Azure Media Services REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) för en lista över entiteter och deras egenskaper.
+* En odefinierad egenskap har angetts. Egenskaps namnet visas i fel meddelandet. Endast de egenskaper som är medlemmar i en viss entitet kan anges. Se [Azure Media Services REST API referens](/rest/api/media/operations/azure-media-services-rest-api-reference) för en lista över entiteter och deras egenskaper.
 * Ett ogiltigt egenskaps värde har angetts. Egenskaps namnet visas i fel meddelandet. Se föregående länk för giltiga egenskaps typer och deras värden.
 * Ett egenskaps värde saknas och måste anges.
 * En del av den angivna URL: en innehåller ett felaktigt värde.
 * Ett försök gjordes att uppdatera en WriteOnce-egenskap.
 * Ett försök gjordes att skapa ett jobb som har en inmatad till gång med en primär AssetFile som inte har angetts eller som inte kunde fastställas.
-* Ett försök gjordes att uppdatera en SAS-lokaliserare. SAS-positionerare kan bara skapas eller tas bort. Du kan uppdatera strömmande positionerare. Mer information finns i [positionerare](https://docs.microsoft.com/rest/api/media/operations/locator).
+* Ett försök gjordes att uppdatera en SAS-lokaliserare. SAS-positionerare kan bara skapas eller tas bort. Du kan uppdatera strömmande positionerare. Mer information finns i [positionerare](/rest/api/media/operations/locator).
 * En åtgärd som inte stöds eller fråga skickades.
 
-## <a name="401-unauthorized"></a>401 obehörig
+## <a name="401-unauthorized"></a>401 – Ej behörig
 Det gick inte att autentisera begäran (innan den kan auktoriseras) på grund av en av följande orsaker:
 
 * Authentication-huvud saknas.
@@ -73,7 +74,7 @@ Begäran tillåts inte för en resurs på grund av en av följande orsaker:
 * Ett försök gjordes att hämta en entitet som inte finns.
 * Ett försök gjordes att ange ett lagrings konto som inte är kopplat till Media Services kontot.  
 
-## <a name="409-conflict"></a>409 konflikt
+## <a name="409-conflict"></a>409 – Konflikt
 Begäran tillåts inte på grund av en av följande orsaker:
 
 * Fler än ett AssetFile har det angivna namnet inom till gången.
@@ -87,7 +88,7 @@ Begäran tillåts inte på grund av en av följande orsaker:
 * Ett försök gjordes att skapa en positionerare till en till gång som redan har 5 lokaliserare som används. (Azure Storage tillämpar gränsen för fem principer för delad åtkomst på en lagrings behållare.)
 * Länkning av lagrings konto för en till gång till en IngestManifestAsset är inte samma som det lagrings konto som används av den överordnade IngestManifest.  
 
-## <a name="500-internal-server-error"></a>500 Internt serverfel
+## <a name="500-internal-server-error"></a>500 internt serverfel
 Under bearbetningen av begäran upptäcker Media Services fel som förhindrar bearbetningen från att fortsätta. Detta kan bero på något av följande:
 
 * Det går inte att skapa en till gång eller ett jobb eftersom Media Services kontots tjänst kvot information är tillfälligt otillgänglig.
@@ -95,10 +96,10 @@ Under bearbetningen av begäran upptäcker Media Services fel som förhindrar be
 * Andra oväntade fel.
 
 ## <a name="503-service-unavailable"></a>503 Tjänsten är inte tillgänglig
-Servern kan för närvarande inte ta emot begär Anden. Det här felet kan orsakas av för många begär anden till tjänsten. Media Services begränsnings metoden begränsar resursanvändningen för program som gör överdriven begäran till tjänsten.
+Servern kan för närvarande inte ta emot begär Anden. Det här felet kan orsakas av för många förfrågningar till tjänsten. Begränsningsfunktionen i Media Services begränsar resursanvändningen för program som skickar för många förfrågningar till tjänsten.
 
 > [!NOTE]
-> Kontrol lera fel meddelandet och fel kod strängen för att få mer detaljerad information om orsaken till att du fick 503-felet. Detta fel innebär inte alltid begränsning.
+> Kontrollera felmeddelandet och felkodsträngen för att få mer detaljerad information om orsaken till 503-felet. Det här felet medför inte alltid begränsning.
 > 
 > 
 
@@ -108,7 +109,7 @@ Beskrivningar av möjliga status är:
 * "Servern är upptagen. Fler än {0} begär Anden per sekund kan begränsas. "
 * "Servern är upptagen. Fler än {0} begär Anden inom {1} några sekunder kan begränsas. "
 
-För att hantera det här felet rekommenderar vi att du använder exponentiella omprövnings logik. Det innebär att användningen av progressivt väntar mellan upprepade försök för efterföljande fel svar.  Mer information finns i [program block för tillfälligt fel hantering](https://msdn.microsoft.com/library/hh680905.aspx).
+För att hantera det här felet rekommenderar vi att du använder exponentiella omprövnings logik. Det innebär att användningen av progressivt väntar mellan upprepade försök för efterföljande fel svar.  Mer information finns i [program block för tillfälligt fel hantering](/previous-versions/msp-n-p/hh680905(v=pandp.50)).
 
 > [!NOTE]
 > Om du använder [Azure Media Services SDK för .net](https://github.com/Azure/azure-sdk-for-media-services/tree/master)har omprövnings logiken för 503-felet implementerats av SDK: n.  
@@ -116,11 +117,10 @@ För att hantera det här felet rekommenderar vi att du använder exponentiella 
 > 
 
 ## <a name="see-also"></a>Se även
-[Fel koder för Media Services hantering](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Fel koder för Media Services hantering](/rest/api/media/)
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

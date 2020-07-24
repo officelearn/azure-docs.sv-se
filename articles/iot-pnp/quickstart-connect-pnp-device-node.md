@@ -1,6 +1,6 @@
 ---
-title: Ansluta IoT Plug and Play förhandsgranska exempel enhets kod till IoT Hub | Microsoft Docs
-description: Använd Node. js för att skapa och köra IoT Plug and Play exempel enhets kod som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Anslut IoT Plug and Play Preview-kod till IoT Hub-Node.js | Microsoft Docs
+description: Använda Node.js, skapa och köra IoT Plug and Play Preview-exempel enhets kod som ansluts till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/26/2019
@@ -8,24 +8,24 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: c5d69ae21cd240b0c68b9694a55de2cf879a1966
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68d8aca755f7b8df8eb7e65f4a3c21513feefede
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76964795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044178"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-nodejs"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview enhets program till IoT Hub (Node. js)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-nodejs"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview enhets program till IoT Hub (Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
-Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet är skrivet för Node. js och ingår i Azure IoT Hub Device SDK för Node. js. En lösnings utvecklare kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
+Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet är skrivet för Node.js och ingår i Azure IoT Hub Device SDK för Node.js. En lösnings utvecklare kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här snabb starten behöver du Node. js på utvecklings datorn. Du kan ladda ned den senaste rekommenderade versionen för flera plattformar från [NodeJS.org](https://nodejs.org).
+För att slutföra den här snabb starten behöver du Node.js på din utvecklings dator. Du kan ladda ned den senaste rekommenderade versionen för flera plattformar från [NodeJS.org](https://nodejs.org).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 
@@ -47,9 +47,9 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
-I den här snabb starten förbereder du en utvecklings miljö som du kan använda för att klona och bygga Azure IoT Hub Device SDK för Node. js.
+I den här snabb starten förbereder du en utvecklings miljö som du kan använda för att klona och skapa Azure IoT Hub Device SDK för Node.js.
 
-Öppna en kommando tolk i valfri katalog. Kör följande kommando för att klona [Microsoft Azure IoT SDK för Node. js](https://github.com/Azure/azure-iot-sdk-node) GitHub-lagringsplatsen till den här platsen:
+Öppna en kommando tolk i valfri katalog. Kör följande kommando för att klona [Microsoft Azure IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub-lagringsplatsen på den här platsen:
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-node --recursive -b digitaltwins-preview

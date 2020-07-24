@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041601"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Lösningar för övervakning av Azure-nätverk i Azure Monitor
 
@@ -23,18 +24,18 @@ Azure Monitor erbjuder följande lösningar för att övervaka dina nätverk:
     * Azure Application Gateway-loggar
     * Azure Application Gateway-mått
 * Lösningar för att övervaka och granska nätverks aktivitet i moln nätverket
-    * [Trafikanalys](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Trafikanalys](../../networking/network-monitoring-overview.md#traffic-analytics) 
     * Azure-nätverkssäkerhetsgruppanalys
 
 ## <a name="network-performance-monitor-npm"></a>Övervakare av nätverksprestanda (NPM)
 
-Den [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) hanterings lösningen är en lösning för nätverks övervakning som övervakar hälsa, tillgänglighet och nåbarhet för nätverk.  Den används för att övervaka anslutningen mellan:
+Den [övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md) hanterings lösningen är en lösning för nätverks övervakning som övervakar hälsa, tillgänglighet och nåbarhet för nätverk.  Den används för att övervaka anslutningen mellan:
 
 * Offentligt moln och lokalt
 * Data Center och användar platser (avdelnings kontor)
 * Undernät är värdar för olika nivåer av ett program med flera nivåer.
 
-Mer information finns i [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
+Mer information finns i [övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway och nätverks säkerhets grupp analys
 Använda lösningarna:

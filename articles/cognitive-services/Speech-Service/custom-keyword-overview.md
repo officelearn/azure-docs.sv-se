@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044879"
 ---
 # <a name="what-is-a-keyword"></a>Vad är ett nyckelord?
 
@@ -33,10 +33,13 @@ Med anpassade nyckelords anpassnings-, prestanda-och integrerings funktioner kan
 
 ## <a name="get-started-with-custom-keywords"></a>Kom igång med anpassade nyckelord
 
-* Självstudie: [skapa ett anpassat nyckelord med tal Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-* Självstudie: så här [aktiverar du din produkt med tal-SDK med hjälp av C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* Snabb start: [identifiera nyckelord med talet SDK, på universell Windows-plattform med C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* Snabb start: [identifiera nyckelord med talet SDK, på Android med Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* Se [grunderna för anpassade nyckelord](custom-keyword-basics.md) för grundläggande användning och design mönster.
+* Så här [aktiverar du din produkt med tal-SDK: n med C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="see-samples-on-github"></a>Se exempel på GitHub
+
+* [Identifiera nyckelord med talet SDK, på Universell Windows-plattform med C #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Identifiera nyckelord med talet SDK, på Android med Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Nästa steg
 

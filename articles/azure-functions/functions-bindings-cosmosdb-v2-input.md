@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 5e41f5d2189cce19dab3e0b48943ef0568ddedb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c3e872dee06ac4fa0c8c37ce8fb77bd34dc78bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041865"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB bindning för Azure Functions 2. x och högre
 
@@ -296,7 +296,7 @@ namespace CosmosDBSamplesV2
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. I koden används en `DocumentClient` instans som tillhandahålls av Azure Cosmos DB bindningen för att läsa en lista över dokument. `DocumentClient`Instansen kan också användas för Skriv åtgärder.
 
 > [!NOTE]
-> Du kan också använda [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) -gränssnittet för att göra testningen enklare.
+> Du kan också använda [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) -gränssnittet för att göra testningen enklare.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1420,7 +1420,7 @@ Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)använder du `@CosmosDBOutput` anteckningen för parametrar som skriver till Cosmos dB. Kommentar parameter typen bör vara `OutputBinding<T>` , där `T` är antingen en ursprunglig Java-typ eller en POJO.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBOutput` anteckningen för parametrar som skriver till Cosmos dB. Kommentar parameter typen bör vara `OutputBinding<T>` , där `T` är antingen en ursprunglig Java-typ eller en POJO.
 
 ---
 
@@ -1435,7 +1435,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** |**DatabaseName** |Databasen som innehåller dokumentet.        |
 |**Samling** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
-|**identitet**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte både `id` egenskaperna och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |
+|**id**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte både `id` egenskaperna och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos DB SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i det här exemplet: `SELECT * FROM c where c.departmentId = {departmentId}` . Ange inte både `id` egenskaperna och `sqlQuery` . Om du inte anger någon, hämtas hela samlingen.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Namnet på den app-inställning som innehåller Azure Cosmos DB anslutnings strängen. |
 |**partitionKey**|**PartitionKey**|Anger partitionens nyckel värde för sökningen. Kan innehålla bindnings parametrar. Det krävs för uppslag i [partitionerade](../cosmos-db/partition-data.md#logical-partitions) samlingar.|
@@ -1463,7 +1463,7 @@ Data görs tillgängliga för funktionen via en `DocumentList` parameter. Ändri
 
 # <a name="java"></a>[Java](#tab/java)
 
-I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) visar anteckningen Cosmos db data till funktionen. Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med hjälp av `Optional<T>` .
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime) [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) visar anteckningen Cosmos db data till funktionen. Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med hjälp av `Optional<T>` .
 
 ---
 

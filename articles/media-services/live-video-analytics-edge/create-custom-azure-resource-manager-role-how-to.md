@@ -3,26 +3,27 @@ title: Skapa en anpassad Azure Resource Manager roll och tilldela till tjänsten
 description: Den här artikeln innehåller vägledning om hur du skapar en anpassad Azure Resource Manager roll och tilldelar tjänstens huvud namn för video analys på IoT Edge med Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: be317ac1e86fd38c72b87734909004a64dc2938b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043170"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Skapa anpassad Azure Resource Manager roll och tilldela till tjänstens huvud namn
 
-Live video analys på IoT Edge module-instans måste ha ett aktivt Azure Media Services-konto för att det ska fungera korrekt. Relationen mellan live video analys i IoT Edge-modulen och Azure Media Service-kontot upprättas via en uppsättning av modulens dubbla egenskaper. En av dessa dubbla egenskaper är ett [tjänst huvud namn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) som gör att module-instansen kan kommunicera med och utlösa nödvändiga åtgärder på det Media Services kontot. För att minimera potentiell missbruk och/eller oavsiktlig data exponering från gräns enheten bör det här tjänstens huvud namn ha minst en mängd privilegier.
+Live video analys på IoT Edge module-instans måste ha ett aktivt Azure Media Services-konto för att det ska fungera korrekt. Relationen mellan live video analys i IoT Edge-modulen och Azure Media Service-kontot upprättas via en uppsättning av modulens dubbla egenskaper. En av dessa dubbla egenskaper är ett [tjänst huvud namn](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) som gör att module-instansen kan kommunicera med och utlösa nödvändiga åtgärder på det Media Services kontot. För att minimera potentiell missbruk och/eller oavsiktlig data exponering från gräns enheten bör det här tjänstens huvud namn ha minst en mängd privilegier.
 
 Den här artikeln visar hur du skapar en anpassad Azure Resource Manager roll med Azure Cloud Shell, som sedan används för att skapa ett huvud namn för tjänsten.
 
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 
 Krav för den här artikeln är följande:
 
 * Azure-prenumeration med ägar prenumeration.
 * En Azure Active Directory med behörighet att skapa en app och tilldela tjänstens huvud namn till en roll.
 
-Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="overview"></a>Översikt  
 
@@ -48,7 +49,7 @@ Om du inte har ett media service-konto kan du skapa ett med hjälp av följande 
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Skapa en [resurs grupp](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) och ett [lagrings konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Skapa en [resurs grupp](/cli/azure/group?view=azure-cli-latest#az-group-create) och ett [lagrings konto](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 1. Skapa nu ett Azure Media Service-konto med hjälp av följande kommando mal len i Cloud Shell:
 
     ```
@@ -84,8 +85,8 @@ Det här kommandot ger ett svar så här:
 ```
 1. Utdata för ett huvud namn för tjänsten med lösenordsautentisering innehåller lösen ords nyckeln som i det här fallet är parametern "AadSecret". 
 
-    Se till att du kopierar det här värdet – det går inte att hämta det. Om du glömmer bort lösen ordet [återställer du autentiseringsuppgifterna för tjänstens huvud namn](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. AppId och klient nyckeln visas i utdata som "AadClientId" respektive "AadTenantId". De används vid autentisering av tjänstens huvud namn. Registrera sina värden, men de kan hämtas när som helst med [AZ AD SP-lista](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Se till att du kopierar det här värdet – det går inte att hämta det. Om du glömmer bort lösen ordet [återställer du autentiseringsuppgifterna för tjänstens huvud namn](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
+1. AppId och klient nyckeln visas i utdata som "AadClientId" respektive "AadTenantId". De används vid autentisering av tjänstens huvud namn. Registrera sina värden, men de kan hämtas när som helst med [AZ AD SP-lista](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Skapa en anpassad roll definition  
 
@@ -170,7 +171,7 @@ Kommandot ovan kommer att skriva ut objectId för tjänstens huvud namn.
 “objectId” : “<yourObjectId>”,
 ```
 
-Använd [AZ roll tilldelning skapa kommando](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) mal len för länken till den anpassade rollen med tjänstens huvud namn:
+Använd [AZ roll tilldelning skapa kommando](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) mal len för länken till den anpassade rollen med tjänstens huvud namn:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

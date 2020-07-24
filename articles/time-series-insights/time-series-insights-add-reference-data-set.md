@@ -5,23 +5,24 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.custom: seodec18~~~~
-ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.custom: seodec18
+ms.openlocfilehash: 2503a58f7d5fe05240f374fabbe2bf88d34dcf6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046623"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Time Series Insights-miljö med hjälp av Azure Portal
+# <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Azure Time Series Insights gen1-miljö med hjälp av Azure Portal
 
 I den här artikeln beskrivs hur du lägger till en referens data uppsättning i din Azure Time Series Insightss miljö. Referens data är användbara för att ansluta till dina källdata för att öka värdena.
 
-En referens data uppsättning är en samling objekt som utökar händelserna från din händelse källa. Time Series Insights ingress-motorn kopplar varje händelse från din händelse källa till motsvarande datarad i referens data uppsättningen. Den här förhöjda händelsen är sedan tillgängliga för frågor. Den här kopplingen baseras på primär nyckel kolumnerna som definierats i referens data uppsättningen.
+En referens data uppsättning är en samling objekt som utökar händelserna från din händelse källa. Azure Time Series Insights ingress-motorn kopplar varje händelse från din händelse källa till motsvarande datarad i referens data uppsättningen. Den här förhöjda händelsen är sedan tillgängliga för frågor. Den här kopplingen baseras på primär nyckel kolumnerna som definierats i referens data uppsättningen.
 
 Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella och framtida ingångs data matchas och kopplas till den angivna referens tiden när den har kon figurer ATS och laddats upp.
 
@@ -35,15 +36,15 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
+1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj din Azure Time Series Insightss miljö.
 
-1. Välj **översikts** sidan. Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
+1. Välj sidan **Översikt**. Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
 
    [![Avsnittet Visa Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Visa Utforskaren för din Time Series Insightss miljö.
+   Visa Utforskaren för din Azure Time Series Insightss miljö.
 
-1. Expandera miljö väljaren i Time Series Insights Explorer. Välj den aktiva miljön. Välj referens data ikonen längst upp till höger på sidan Utforskaren.
+1. Expandera miljö väljaren i Azure Time Series Insights Explorer. Välj den aktiva miljön. Välj referens data ikonen längst upp till höger på sidan Utforskaren.
 
    [![Lägg till referens data](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 

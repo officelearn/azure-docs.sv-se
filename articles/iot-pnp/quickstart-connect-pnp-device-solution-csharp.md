@@ -1,5 +1,5 @@
 ---
-title: Interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din Azure IoT-lösning | Microsoft Docs
+title: Interagera med IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning – C# | Microsoft Docs
 description: Använd C# (.NET) för att ansluta till och interagera med en IoT Plug and Play Preview-enhet som är ansluten till din Azure IoT-lösning.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0953f68839217c1c75eb86f8399ce023f3863ab4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 226acdda94eb88825d60e35d48bfdd476ad1339c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76963979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044095"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-c"></a>Snabb start: interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning (C#)
 
@@ -21,7 +21,7 @@ ms.locfileid: "76963979"
 
 IoT Plug and Play Preview fören klar IoT genom att göra det möjligt för dig att interagera med enhetens funktioner utan att du behöver känna till den underliggande enhets implementeringen. Den här snabb starten visar hur du använder C# (med .NET) för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du installera .NET Core (2. x. x eller 3. x) på din utvecklings dator. Du kan ladda ned den önskade versionen av .NET Core SDK för flera plattformar från [Ladda ned .net Core](https://dotnet.microsoft.com/download/dotnet-core/).
 
@@ -95,7 +95,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i C# för att inte
     dotnet run
     ```
 
-1. Rulla till _service_ `environmentalSensor` komponenten i utdata från tjänsten. Du ser att `state` egenskapen, som används för att ange om enheten är online, har rapporter ATS som _Sant_:
+1. Rulla till komponenten i utdata från _tjänsten_ `environmentalSensor` . Du ser att `state` egenskapen, som används för att ange om enheten är online, har rapporter ATS som _Sant_:
 
     ```JSON
     "environmentalSensor": {

@@ -3,11 +3,12 @@ title: Analysera direktsänd video med din egen modell – Azure
 description: I den här snabb starten ska du använda dator vision för att analysera direktsända video flöden från en (simulerad) IP-kamera.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: e19c5bd6b44f9a4dd225f6a849ee9aaf62fa6273
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2ff618e275624bc46c6fc3221507c5584047c51c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027672"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043201"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Snabb start: analysera direktsänd video med din egen modell
 
@@ -15,7 +16,7 @@ Den här snabb starten visar hur du använder video analys i real tid för IoT E
 
 Den här snabb starten använder en virtuell Azure-dator som en IoT Edge enhet och använder en simulerad direktuppspelad video ström. Den baseras på exempel kod som skrivits i C# och bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) . 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto som innehåller en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/)med följande tillägg:
@@ -183,7 +184,7 @@ Högerklicka på Live Video Analytics-enheten och välj **starta övervakning in
 
 ## <a name="interpret-results"></a>Tolka resultaten
 
-När du kör medie diagrammet passerar resultatet från noden för HTTP-tillägget processor genom noden IoT Hub mottagare till IoT Hub. De meddelanden som visas i fönstret **utdata** innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+När du kör medie diagrammet passerar resultatet från noden för HTTP-tillägget processor genom noden IoT Hub mottagare till IoT Hub. De meddelanden som visas i fönstret **utdata** innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 I följande meddelanden definierar modulen live video analys program egenskaperna och innehållet i bröd texten. 
 
@@ -286,5 +287,4 @@ Om du tänker prova andra snabb starter behåller du de resurser som du har skap
 Granska ytterligare utmaningar för avancerade användare:
 
 * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) som har stöd för RTSP i stället för att använda RTSP-simulatorn. Du kan söka efter IP-kameror som stöder RTSP på sidan [ONVIF](https://www.onvif.org/conformant-products/) -produkter. Sök efter enheter som uppfyller profilerna G, S eller T.
-* Använd en AMD64-eller x64 Linux-enhet i stället för en virtuell Azure Linux-dator. Enheten måste finnas i samma nätverk som IP-kameran. Du kan följa anvisningarna i [installera Azure IoT Edge runtime på Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Registrera sedan enheten med Azure IoT Hub genom att följa anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
-
+* Använd en AMD64-eller x64 Linux-enhet i stället för en virtuell Azure Linux-dator. Enheten måste finnas i samma nätverk som IP-kameran. Du kan följa anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Registrera sedan enheten med Azure IoT Hub genom att följa anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md).

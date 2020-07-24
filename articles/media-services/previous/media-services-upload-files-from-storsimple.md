@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e6a834e98d3b8447a68d149bb40e75d74959f39
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64868302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038502"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Ladda upp filer till ett Azure Media Services-konto från Azure StorSimple  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 >
 > 
 > Azure StorSimple Data Manager finns för närvarande som privat förhandsutgåva. 
@@ -34,7 +34,7 @@ ms.locfileid: "64868302"
 
 I Media Services överför du dina digitala filer till en tillgång. Till gången kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.) När filerna har laddats upp lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
-[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) använder lagringsutrymmet i molnet som ett tillägg till den lokala lösningen och fördelar automatiskt data mellan det lokala lagringsutrymmet och lagringsutrymmet i molnet. StorSimple-enheten deduplicerar och komprimerar data innan du skickar dem till molnet, vilket gör det mycket effektivt för att skicka stora filer till molnet. Tjänsten [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md) innehåller API: er som gör det möjligt att extrahera data från StorSimple och presentera dem som AMS-tillgångar.
+[Azure StorSimple](../../storsimple/index.yml) använder lagringsutrymmet i molnet som ett tillägg till den lokala lösningen och fördelar automatiskt data mellan det lokala lagringsutrymmet och lagringsutrymmet i molnet. StorSimple-enheten deduplicerar och komprimerar data innan du skickar dem till molnet, vilket gör det mycket effektivt för att skicka stora filer till molnet. Tjänsten [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md) innehåller API: er som gör det möjligt att extrahera data från StorSimple och presentera dem som AMS-tillgångar.
 
 ## <a name="get-started"></a>Kom igång
 

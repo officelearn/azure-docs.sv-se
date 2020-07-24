@@ -12,11 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042631"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -28,6 +29,18 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 * Kända problem
 * Felkorrigeringar
 * Föråldrade funktioner
+
+## <a name="june-2020"></a>Juni 2020
+
+### <a name="search-by-topics"></a>Sök efter ämnen
+
+Du kan nu använda Sök-API: et för att söka efter videor med specifika ämnen (endast API).
+
+Ämnen läggs till som en del av `textScope` (valfri parameter). Se [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) för mer information.  
+
+### <a name="labels-enhancement"></a>Etiketter förbättring
+
+Etiketten tagger har uppgraderats och innehåller nu fler visuella etiketter som kan identifieras.
 
 ## <a name="may-2020"></a>Maj 2020
 
@@ -162,7 +175,7 @@ Flera framsteg lanseras i IBC 2019:
     Möjlighet att identifiera grup AD identifiera tecken i animerat innehåll via integrering med anpassad vision. Mer information finns i [animerat teckensnitts identifiering](animated-characters-recognition.md).
 * Identifiering på flera språk (offentlig för hands version)
 
-    Identifiera segment i flera språk i ljud spåret och skapa en flerspråkig avskrifts enhet baserat på dem. Första support: engelska, spanska, tyska och franska. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
+    Identifiera segment i flera språk i ljud spåret och skapa en flerspråkig avskrifts enhet baserat på dem. Första support: engelska, spanska, tyska och franska. Mer information finns i [Identifiera och transkribera innehåll på olika språk automatiskt](multi-language-identification-transcription.md).
 * Extraktion av namngiven enhet för personer och plats
 
     Extraherar varumärken, platser och personer från tal och visuell text via naturlig språk bearbetning (NLP).

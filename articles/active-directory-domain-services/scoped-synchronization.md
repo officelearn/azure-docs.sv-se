@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5f2c823b0932db42876be6ab04ebcd82783729aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097c894594987e92038beeaf4b17a3e67538fdad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734429"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046060"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Konfigurera omfångst synkronisering från Azure AD till Azure Active Directory Domain Services
 
@@ -39,11 +40,11 @@ I följande tabell beskrivs hur du använder omfångst synkronisering:
 
 Du kan använda Azure Portal eller PowerShell för att konfigurera inställningarna för omfånget synkronisering:
 
-| Åtgärd | | |
-|--|--|--|
-| Skapa en hanterad domän och konfigurera omfångs synkronisering | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Ändra omfångs synkronisering | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Inaktivera omfångs synkronisering | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Åtgärd | Användning<br>Azure-portalen | Användning<br>PowerShell |
+| ------ | ------------------- | ----------------- |
+| Skapa en hanterad domän och konfigurera omfångs synkronisering | [Azure-portalen](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Ändra omfångs synkronisering | [Azure-portalen](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Inaktivera omfångs synkronisering | [Azure-portalen](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Följande gäller:

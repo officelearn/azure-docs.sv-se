@@ -6,16 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736daa8a09a8f08721c7b7d9c20f012f274b384a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480291"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045524"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exempel på Azure Monitor logg frågor
 Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) som använder [Kusto-frågespråket](/azure/kusto/query/) för att hämta olika typer av loggdata från Azure Monitor. Olika metoder används för att konsolidera och analysera data, så att du kan använda dessa exempel för att identifiera olika strategier som du kan använda för dina egna krav.  
 
-Mer information om de olika nyckelord som används i de här exemplen finns i [språk referens för Kusto](https://docs.microsoft.com/azure/kusto/query/) . Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare på Azure Monitor.
+Mer information om de olika nyckelord som används i de här exemplen finns i [språk referens för Kusto](/azure/kusto/query/) . Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare på Azure Monitor.
 
 ## <a name="events"></a>Händelser
 
@@ -374,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Användning
 
-`Usage`Data typen kan användas för att spåra den inmatade data volymen efter lösning eller datatyp. Det finns andra metoder för att undersöka inmatade data volymer av [dator](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) eller [Azure-prenumeration, resurs grupp eller resurs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+`Usage`Data typen kan användas för att spåra den inmatade data volymen efter lösning eller datatyp. Det finns andra metoder för att undersöka inmatade data volymer av [dator](../platform/manage-cost-storage.md#data-volume-by-computer) eller [Azure-prenumeration, resurs grupp eller resurs](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Datavolym per lösning
 

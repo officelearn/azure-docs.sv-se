@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040208"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Åsidosätt HTTP-beteende med Azure CDN från Verizon Premium Rules Engine
 
@@ -40,7 +40,7 @@ Om du vill komma åt regel motorn måste du först välja **Hantera** överst p�
 
     ![Regel motor för DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
-## <a name="tutorial"></a>Självstudier
+## <a name="tutorial"></a>Självstudie
 
 1. På sidan **CDN-profil** väljer du **Hantera**.
    
@@ -55,7 +55,7 @@ Om du vill komma åt regel motorn måste du först välja **Hantera** överst p�
     ![Nya regel alternativ för CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > Ordningen för hur flera regler visas påverkar hur de hanteras. En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel.
+   > Ordningen för hur flera regler visas påverkar hur de hanteras. En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel. Om du till exempel har en regel som tillåter åtkomst till en resurs baserat på en Request-egenskap och en regel som nekar åtkomst till alla begär Anden, åsidosätter den andra regeln den första. Regler åsidosätter tidigare regler endast om de interagerar med samma egenskaper.
    >
 
 3. Ange ett namn i text rutan **namn/beskrivning** .

@@ -1,5 +1,5 @@
 ---
-title: Snabb start – Azure Key Vault klient bibliotek för python
+title: Snabb start – Azure Key Vault python-klient bibliotek – hantera certifikat
 description: Lär dig hur du skapar, hämtar och tar bort certifikat från ett Azure Key Vault med hjälp av python-klient biblioteket
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 7c67bc77984af8a25c3514931ed0983df1751d5e
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: abbe07d96daf5848d01cd1f4943d4969fe1e59d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043719"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Snabb start: Azure Key Vault klient bibliotek för python
+# <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Snabb start: klient bibliotek för Azure Key Vault certifikat för python
 
 Kom igång med Azure Key Vault klient biblioteket för python. Följ stegen nedan för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
@@ -29,11 +29,11 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 
 [API-referens dokumentation](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault)  |  [Paket (python-paket index)](https://pypi.org/project/azure-keyvault/)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2,7, 3.5.3 eller senare
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/)
 
 Den här snabb starten förutsätter att du kör [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) i ett Linux-terminalfönster.
 

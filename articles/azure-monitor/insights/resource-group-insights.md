@@ -7,11 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045776"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resurs grupper med Azure Monitor (för hands version)
 
@@ -45,10 +46,10 @@ Sidan resurs grupp insikter innehåller flera andra verktyg som är begränsade 
 
    |         |          |
    | ---------------- |:-----|
-   | [**Aviseringar**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Visa, skapa och hantera dina aviseringar. |
-   | [**Mått**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualisera och utforska dina Metric-baserade data.    |
-   | [**Aktivitetsloggar**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Händelser på prenumerations nivå som har inträffat i Azure.  |
-   | [**Program karta**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navigera i den distribuerade appens topologi för att identifiera Flask halsar för prestanda eller felaktiga hotspots. |
+   | [**Aviseringar**](../platform/alerts-overview.md)      |  Visa, skapa och hantera dina aviseringar. |
+   | [**Mått**](../platform/data-platform.md) | Visualisera och utforska dina Metric-baserade data.    |
+   | [**Aktivitets loggar**](../platform/platform-logs-overview.md) | Händelser på prenumerations nivå som har inträffat i Azure.  |
+   | [**Program karta**](../app/app-map.md) | Navigera i den distribuerade appens topologi för att identifiera Flask halsar för prestanda eller felaktiga hotspots. |
 
 ## <a name="failures-and-performance"></a>Haverier och prestanda
 
@@ -116,6 +117,6 @@ Azure Monitor för resurs grupper förlitar sig på Azure Monitor aviserings han
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
-- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Azure Monitor aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor arbets böcker](../platform/workbooks-overview.md)
+- [Azure Resource Health](../../service-health/resource-health-overview.md)
+- [Azure Monitor-aviseringar](../platform/alerts-overview.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19acd39be11a33424008662eb27cd68ec0005f77
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038961"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan vis
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+- [Skapa ett Media Services-konto](./create-account-howto.md).
 - Granska [övervaknings Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Dirigera data till lagrings kontot med hjälp av portalen
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Till exempel:
+Exempel:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 46108ed06659d234907c6eaa6841dc18022c73bf
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144158"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044391"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel-format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,14 +29,15 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Excel**.   | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . | Ja      |
-| Inställda SheetName        | Namnet på Excel-kalkylbladet för att läsa data.                       | Ja      |
-| intervall            | Cell området i det aktuella kalkyl bladet för att hitta de selektiva data, t. ex. `A3:H5` (en tabell från a3 till H5), `A3` (en tabell som börjar från cell A3), `A3:A3` (enkel cell). Om inget anges läser ADF-filen från hela kalkyl bladet som en tabell. | Nej       |
-| firstRowAsHeader | Anger om den första raden i angivet kalkyl blad/intervall ska behandlas som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | Nej       |
-| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | Nej       |
-| compressionCodec | Komprimerings-codec som används för att läsa Excel-filer. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. Standardvärdet är inte komprimerat. <br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate". <br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** -filer och skriva till filbaserat mottagar data lager, extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/` . | Nej       |
-| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nej       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Excel**.   | Yes      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . | Yes      |
+| Inställda SheetName        | Namnet på Excel-kalkylbladet för att läsa data.                       | Yes      |
+| intervall            | Cell området i det aktuella kalkyl bladet för att hitta de selektiva data, t. ex. `A3:H5` (en tabell från a3 till H5), `A3` (en tabell som börjar från cell A3), `A3:A3` (enkel cell). Om inget anges läser ADF-filen från hela kalkyl bladet som en tabell. | No       |
+| firstRowAsHeader | Anger om den första raden i angivet kalkyl blad/intervall ska behandlas som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | No       |
+| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | No       |
+| komprimering | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | No |
+| typ<br/>(*under `compression` *) | Komprimerings-codec som används för att läsa/skriva JSON-filer. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. att använda när du sparar filen. Standardvärdet är inte komprimerat.<br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate".<br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** -filer och skriva till filbaserat mottagar data lager, extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/` . | Nej.  |
+| nivå<br/>(*under `compression` *) | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Nedan visas ett exempel på en Excel-datauppsättning på Azure Blob Storage:
 
@@ -74,8 +75,8 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ExcelSource**. | Ja      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | Nej       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ExcelSource**. | Yes      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | No       |
 
 ```json
 "activities": [

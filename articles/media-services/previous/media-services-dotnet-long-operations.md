@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 43d9a6adc935010eab6e5e52d73f2019c8afcf5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7298e935da8b4c81bfb0a7b07d9f94f7c100b2b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038791"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Leverera Direktsänd strömning med Azure Media Services
 
@@ -26,7 +27,7 @@ ms.locfileid: "74887190"
 
 Microsoft Azure Media Services erbjuder API: er som skickar begär anden till Media Services för att starta åtgärder (till exempel: skapa, starta, stoppa eller ta bort en kanal). De här åtgärderna är tids krävande.
 
-Media Services .NET SDK innehåller API: er som skickar begäran och väntar på att åtgärden ska slutföras (internt, API: erna avsöker för åtgärds förlopp i vissa intervall). Till exempel när du anropar en kanal. Start (), metoden returnerar när kanalen har startats. Du kan också använda den asynkrona versionen: väntar på kanal. StartAsync () (för information om uppgiftsbaserade asynkrona mönster, se [Knacka](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API: er som skickar en åtgärds förfrågan och sedan söker efter statusen tills åtgärden har slutförts kallas för "avsöknings metoder". Dessa metoder (särskilt den asynkrona versionen) rekommenderas för omfattande klient program och/eller tillstånds känsliga tjänster.
+Media Services .NET SDK innehåller API: er som skickar begäran och väntar på att åtgärden ska slutföras (internt, API: erna avsöker för åtgärds förlopp i vissa intervall). Till exempel när du anropar en kanal. Start (), metoden returnerar när kanalen har startats. Du kan också använda den asynkrona versionen: väntar på kanal. StartAsync () (för information om uppgiftsbaserade asynkrona mönster, se [Knacka](/azure/media-services/previous/media-services-mes-schema)). API: er som skickar en åtgärds förfrågan och sedan söker efter statusen tills åtgärden har slutförts kallas för "avsöknings metoder". Dessa metoder (särskilt den asynkrona versionen) rekommenderas för omfattande klient program och/eller tillstånds känsliga tjänster.
 
 Det finns scenarier där ett program inte kan vänta på en tids krävande http-begäran och vill söka efter åtgärdens förlopp manuellt. Ett typiskt exempel är en webbläsare som interagerar med en tillstånds lös webb tjänst: när webbläsaren begär att skapa en kanal, initierar webb tjänsten en tids krävande åtgärd och returnerar åtgärds-ID: t till webbläsaren. Webbläsaren kan sedan be webb tjänsten att hämta åtgärds status baserat på ID. Media Services .NET SDK innehåller API: er som är användbara för det här scenariot. Dessa API: er kallas "icke-avsöknings metoder".
 "Icke-avsöknings metoder" har följande namn mönster: skicka*OperationName*-åtgärd (till exempel SendCreateOperation). Skicka*OperationName*-åtgärds metoder returnerar **IOperation** -objektet; det returnerade objektet innehåller information som kan användas för att spåra åtgärden. **Uppgiften \<IOperation> **skicka*OperationName*-OperationAsync metoder returneras.
@@ -214,4 +215,3 @@ Console.WriteLine(channelId);
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

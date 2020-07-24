@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88e0e1c18722fd86e79fc1fa7722b59b3cb8966a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a931955451722d7d925be482a78e1f6cc6d43d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042992"
 ---
 # <a name="content-protection-overview"></a>Översikt över innehållsskydd 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Du kan använda Azure Media Services för att skydda dina medier från den tid det lämnar datorn genom lagring, bearbetning och leverans. Med Media Services kan du leverera direktsänd och innehåll på begäran som krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser (PlayReady, Widevine och FairPlay) till auktoriserade klienter. 
 
@@ -83,7 +84,7 @@ När du konfigurerar den begränsade token-principen måste du ange primär veri
 
 Funktionen för att *förhindra repetition av token* tillåter Media Services kunder att ange en gräns för hur många gånger samma token kan användas för att begära en nyckel eller en licens. Kunden kan lägga till ett anspråk av typen `urn:microsoft:azure:mediaservices:maxuses` i token, där värdet är antalet gånger som token kan användas för att hämta en licens eller nyckel. Alla efterföljande förfrågningar med samma token till nyckel leverans returnerar ett obehörigt svar. Se hur du lägger till anspråk i [DRM-exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
-#### <a name="considerations"></a>Att tänka på
+#### <a name="considerations"></a>Överväganden
 
 * Kunder måste ha kontroll över genereringen av token. Anspråket måste placeras i själva token.
 * När du använder den här funktionen avvisas begär Anden med token vars utgångs tid är mer än en timme från den tidpunkt då begäran tas emot avvisas med ett obehörigt svar.

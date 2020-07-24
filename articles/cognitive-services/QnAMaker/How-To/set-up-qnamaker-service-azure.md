@@ -2,13 +2,13 @@
 title: Konfigurera en QnA Maker tjänst – QnA Maker
 description: Innan du kan skapa en QnA Maker kunskaps banker måste du först konfigurera en QnA Maker tjänst i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan konfigurera en QnA Maker-tjänst.
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 07/13/2020
+ms.openlocfilehash: 7ba8134f58a4f0e4e26a3246a44574df295e3c20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040383"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
@@ -62,7 +62,7 @@ Den här proceduren skapar de Azure-resurser som krävs för att hantera innehå
 
 ## <a name="find-authoring-keys-in-the-azure-portal"></a>Hitta redigerings nycklar i Azure Portal
 
-Du kan visa och återställa dina redigerings nycklar från Azure Portal, där du skapade QnA Maker resursen. Dessa nycklar kan kallas för prenumerations nycklar. 
+Du kan visa och återställa dina redigerings nycklar från Azure Portal, där du skapade QnA Maker resursen. Dessa nycklar kan kallas för prenumerations nycklar.
 
 1. Gå till QnA Maker resursen i Azure Portal och välj den resurs som har _Cognitive Servicess_ typ:
 
@@ -90,7 +90,11 @@ Slut punkts nycklar kan hanteras från [QNA Maker-portalen](https://qnamaker.ai)
     >[!NOTE]
     >Uppdatera dina nycklar om du tror att de har komprometterats. Detta kan kräva motsvarande ändringar i klient programmet eller bot koden.
 
-## <a name="upgrade-qna-maker-sku"></a>Uppgradera QnA Maker SKU
+### <a name="update-the-resources"></a>Uppdatera resurserna
+
+Lär dig hur du uppgraderar de resurser som används av din kunskaps bas.
+
+### <a name="upgrade-qna-maker-sku"></a>Uppgradera QnA Maker SKU
 
 Om du vill ha fler frågor och svar i din kunskaps bas, utöver din nuvarande nivå, uppgraderar du QnA Maker-tjänstens pris nivå.
 
@@ -104,7 +108,7 @@ Så här uppgraderar du SKU: n för QnA Maker hantering:
 
     ![QnA Maker priser](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-## <a name="upgrade-app-service"></a>Uppgradera App Service
+### <a name="upgrade-app-service"></a>Uppgradera App Service
 
  När din kunskaps bas behöver hantera fler förfrågningar från din klient program, uppgraderar du App Service pris nivå.
 
@@ -114,7 +118,7 @@ Gå till App Service resursen i Azure Portal och välj alternativet **skala upp*
 
 ![QnA Maker App Service skala](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-## <a name="upgrade-the-azure-cognitive-search-service"></a>Uppgradera Azure Kognitiv sökning-tjänsten
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Uppgradera Azure Kognitiv sökning-tjänsten
 
 Om du planerar att ha många kunskaps baser uppgraderar du pris nivån för Azure Kognitiv sökning-tjänsten.
 
@@ -163,7 +167,11 @@ Du kan kontrol lera din aktuella version på https://www.qnamaker.ai/UserSetting
 
     ![Omstart av QnAMaker App Service-instansen](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Konfigurera QnA Maker att använda olika Kognitiv sökning resurser
+## <a name="cognitive-search-consideration"></a>Kognitiv sökning överväganden
+
+Kognitiv sökning, som en separat resurs, har en del olika konfigurationer som du bör vara medveten om.
+
+### <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Konfigurera QnA Maker att använda olika Kognitiv sökning resurser
 
 Om du skapar en QnA-tjänst och dess beroenden (till exempel Sök) via portalen skapas en Sök tjänst för dig och länkas till QnA Maker tjänsten. När resurserna har skapats kan du uppdatera App Service-inställningen för att använda en tidigare befintlig Sök tjänst och ta bort den som du nyss skapade.
 
@@ -192,9 +200,37 @@ Om du skapar en QnA-tjänst via Azure Resource Manager mallar kan du skapa alla 
 
 Läs mer om hur du konfigurerar [program inställningarna](../../../app-service/configure-common.md#configure-app-settings)för App Service.
 
+### <a name="configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet"></a>Konfigurera Kognitiv sökning som en privat slut punkt i ett VNET
+
+När en Sök instans skapas när en QnA Maker resurs skapas kan du tvinga Kognitiv sökning till att stödja en privat slut punkts konfiguration som skapats helt i en kunds VNet.
+
+Alla resurser måste skapas i samma region för att en privat slut punkt ska kunna användas.
+
+* QnA Maker resurs
+* ny Kognitiv sökning resurs
+* ny Virtual Network resurs
+
+Utför följande steg i [Azure Portal](https://portal.azure.com):
+
+1. Skapa en [QNA Maker-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
+1. Skapa en ny Kognitiv sökning resurs med slut punkts anslutning (data) inställt på _privat_. Skapa resursen i samma region som QnA Maker resursen som skapades i steg 1. Lär dig mer om att [skapa en kognitiv sökning resurs](../../../search/search-create-service-portal.md)och Använd sedan den här länken för att gå direkt till [sidan Skapa i resursen](https://ms.portal.azure.com/#create/Microsoft.Search).
+1. Skapa en ny [Virtual Network-resurs](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
+1. Konfigurera VNET på App Service-resursen som skapades i steg 1 i den här proceduren.
+    1. Skapa en ny DNS-post i VNET för ny Kognitiv sökning-resurs som skapades i steg 2. till Kognitiv sökning IP-adress.
+1. [Koppla app service till den nya kognitiv sökning-resurs som](#configure-qna-maker-to-use-different-cognitive-search-resource) skapades i steg 2. Sedan kan du ta bort den ursprungliga Kognitiv sökning-resursen som skapades i steg 1.
+
+Skapa din första kunskaps bas i [QNA Maker-portalen](https://www.qnamaker.ai/).
+
+
+### <a name="inactivity-policy-for-free-search-resources"></a>Princip för inaktivitet för kostnads fria Sök resurser
+
+Om du inte använder en QnA Maker-resurs bör du ta bort alla resurser. Om du inte tar bort oanvända resurser slutar din kunskaps bas att fungera om du har skapat en kostnads fri Sök resurs.
+
+Kostnads fria Sök resurser tas bort efter 90 dagar utan att ha fått ett API-anrop.
+
 ## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Konfigurera inställningen för inaktiv App Service för att undvika tids gräns
 
-App Service, som hanterar QnA Maker förutsägelse körning för en publicerad kunskaps bas, har en konfiguration för tids gräns för inaktivitet, som är standardvärdet för automatisk timeout om tjänsten är inaktiv. För QnA Maker innebär det att ditt förutsägelse körnings generateAnswer-API ibland går ut efter perioder utan trafik.
+App Service, som hanterar QnA Maker förutsägelse körning för en publicerad kunskaps bas, har en konfiguration för tids gräns för inaktivitet, som automatiskt tar slut om tjänsten är inaktiv. För QnA Maker innebär det att ditt förutsägelse körnings generateAnswer-API ibland går ut efter perioder utan trafik.
 
 För att hålla appen för förutsägelse slut punkt inläst även när det inte finns någon trafik, ställer du in inaktivitet till Always On.
 
@@ -210,11 +246,21 @@ För att hålla appen för förutsägelse slut punkt inläst även när det inte
 1. Du tillfrågas om du vill starta om appen för att använda den nya inställningen. Välj **Fortsätt**.
 
 Läs mer om hur du konfigurerar App Service [allmänna inställningar](../../../app-service/configure-common.md#configure-general-settings).
-## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Konfigurera App Service-miljön som värd för QNA Maker App Service
+
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Konfigurera App Service-miljön som värd QnA Maker App Service
 App Service-miljön kan användas som värd för QnA Maker app service. Om App Service-miljön är internt måste du följa dessa steg:
 1. Skapa en app service och en Azure Search-tjänst.
-2. Exponera app service på en offentlig DNS-och vitlista-QnA Maker service tag: CognitiveServicesManagement eller håll den mot Internet.
-3. Skapa en QnA Maker kognitiv tjänst instans (Microsoft. CognitiveServices/Accounts) med Azure Resource Manager där QnA Maker-slutpunkten ska vara inställd på App Service-miljön. 
+2. Exponera app service och Tillåt QnA Maker tillgänglighet som:
+    * Offentligt tillgänglig – standard
+    * DNS-service tag:
+        * `CognitiveServicesManagement`
+    * IP-adresser som är kopplade till QnA Maker är:
+        * 13.91.138.229
+        * 40.88.22.25
+        * 13.86.184.142
+        * 20.185.105.28
+        * 13.86.178.10
+1. Skapa en QnA Maker kognitiv tjänst instans (Microsoft. CognitiveServices/Accounts) med Azure Resource Manager där QnA Maker-slutpunkten ska vara inställd på App Service-miljön.
 
 ## <a name="business-continuity-with-traffic-manager"></a>Affärs kontinuitet med Traffic Manager
 

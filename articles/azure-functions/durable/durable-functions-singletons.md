@@ -3,13 +3,14 @@ title: Singleton för Durable Functions – Azure
 description: Använda singleton i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: deb64cf8128fd548cb74c064ab9fd6f169db5300
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041936"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-Dirigerare i Durable Functions (Azure Functions)
 
@@ -55,7 +56,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**function.jspå**
+**function.json**
 
 ```json
 {
@@ -111,9 +112,65 @@ module.exports = async function(context, req) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+**__init__. py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = req.route_params['instanceId']
+    function_name = req.route_params['functionName']
+
+    existing_instance = await client.get_status(instance_id)
+
+    if existing_instance != None:
+        event_data = req.get_body()
+        instance_id = await client.start_new(function_name, instance_id, event_data)
+        logging.info(f"Started orchestration with ID = '{instance_id}'.")
+        return client.create_check_status_response(req, instance_id)
+    else:
+        return {
+            'status': 409,
+            'body': f"An instance with ID '${instance_id}' already exists"
+        }
+
+```
+
 ---
 
-Instans-ID: n är som standard slumpmässigt genererade GUID. I föregående exempel skickas instans-ID: t i flödes data från URL: en. Kod anropen `GetStatusAsync` (C#) eller `getStatus` (Java Script) för att kontrol lera om en instans med det angivna ID: t redan körs. Om ingen sådan instans körs skapas en ny instans med detta ID.
+Instans-ID: n är som standard slumpmässigt genererade GUID. I föregående exempel skickas instans-ID: t i flödes data från URL: en. Kod anropen `GetStatusAsync` (C#), `getStatus` (Java Script) eller `get_status` (python) för att kontrol lera om en instans med det angivna ID: t redan körs. Om ingen sådan instans körs skapas en ny instans med detta ID.
 
 > [!NOTE]
 > Det finns ett möjligt konkurrens villkor i det här exemplet. Om två instanser av **HttpStartSingle** körs samtidigt, rapporterar båda funktions anropen att de lyckas, men endast en Dirigerings instans kommer att starta. Detta kan ha oönskade sido effekter, beroende på dina behov. Därför är det viktigt att se till att det inte finns två begär Anden som kan köra den här utlösnings funktionen samtidigt.

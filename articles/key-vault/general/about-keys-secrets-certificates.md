@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 627dfee81cb10e4e442b3cefb10d786d87d5c81d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: cb8a29c5d2eff46eecb2cf977bfb492f28731e68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043638"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -46,7 +46,7 @@ Se JOSE-specifikationerna för relevanta data typer för nycklar, kryptering och
 
 Objekt som lagras i Key Vault versioner skapas när en ny instans av ett objekt skapas. Varje version tilldelas en unik identifierare och URL. När ett objekt skapas första gången får den ett unikt versions-ID och markerat som den aktuella versionen av objektet. Om du skapar en ny instans med samma objekt namn får det nya objektet ett unikt versions-ID, vilket gör att den blir den aktuella versionen.  
 
-Objekt i Key Vault kan åtgärdas genom att specifing en version eller genom att utesluta version för åtgärder på den aktuella versionen av objektet. Till exempel kan en nyckel med namnet `MasterKey`, som utför åtgärder utan specifing en version, orsaka att systemet använder den senaste tillgängliga versionen. Att utföra åtgärder med den versions bara identifierade identifieraren gör att systemet använder den aktuella versionen av objektet.  
+Objekt i Key Vault kan åtgärdas genom att specifing en version eller genom att utesluta version för åtgärder på den aktuella versionen av objektet. Till exempel kan en nyckel med namnet, som `MasterKey` utför åtgärder utan specifing en version, orsaka att systemet använder den senaste tillgängliga versionen. Att utföra åtgärder med den versions bara identifierade identifieraren gör att systemet använder den aktuella versionen av objektet.  
 
 Objekt identifieras unikt inom Key Vault med hjälp av en URL. Inga två objekt i systemet har samma URL, oavsett Geo-plats. Den fullständiga URL: en till ett objekt kallas för objekt-ID. URL: en består av ett prefix som identifierar Key Vault, objekt typ, användardefinierat objekt namn och en objekt version. Objekt namnet är Skift läges okänsligt och oföränderligt. Identifierare som inte innehåller objekt versionen kallas för bas identifierare.  
 
@@ -58,7 +58,7 @@ En objekt identifierare har följande allmänna format:
 
 Där:  
 
-|||  
+| Element | Beskrivning |  
 |-|-|  
 |`keyvault-name`|Namnet på ett nyckel valv i Microsoft Azure Key Vault-tjänsten.<br /><br /> Key Vault namn väljs av användaren och är globalt unika.<br /><br /> Key Vault namn måste vara en 3-24-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
 |`object-type`|Objektets typ, "nycklar", "hemligheter" eller "certifikat".|  

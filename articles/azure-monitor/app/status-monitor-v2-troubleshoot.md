@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041402"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Felsöka Application Insights agent (tidigare namngiven Statusövervakare v2)
 
@@ -54,7 +55,7 @@ Du kan använda fel söknings verktyg för att Visa symptomatic beteende:
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Konflikt med delad IIS-konfiguration
 
-Om du har ett kluster av webb servrar kan du använda en [delad konfiguration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Om du har ett kluster av webb servrar kan du använda en [delad konfiguration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 Det går inte att mata in HttpModule i denna delade konfiguration.
 Kör kommandot enable på varje webb server för att installera-DLL-filen i varje servers GAC.
 
@@ -130,7 +131,7 @@ Se [API-referensen](status-monitor-v2-api-reference.md) för en detaljerad beskr
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Samla in ETW-loggar med PerfView
 
-#### <a name="setup"></a>Installation
+#### <a name="setup"></a>Konfiguration
 
 1. Ladda ned PerfView.exe och PerfView64.exe från [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Starta PerfView64.exe.

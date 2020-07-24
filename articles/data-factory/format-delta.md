@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: 74c2e738153b1afa5c90f4769b6d9b0e982af363
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044527"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Delta format i Azure Data Factory
 
@@ -22,6 +22,8 @@ I den här artikeln beskrivs hur du kopierar data till och från en delta Lake s
 
 > [!NOTE]
 > Delta formatet Connector för att mappa data flöden är för närvarande tillgängligt som en offentlig för hands version.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
@@ -37,7 +39,7 @@ I tabellen nedan visas de egenskaper som stöds av en delta källa. Du kan redig
 | Filsystem | Container/File-systemet för delta Lake | yes | Sträng | Fil Systems |
 | Mappsökväg | Direct of delta sjö | yes | Sträng | folderPath |
 | Komprimerings typ | Den komprimerings typ som tillhör delta tabellen | Nej | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Komprimerings nivå | Välj om komprimeringen ska slutföras så fort som möjligt eller om den resulterande filen ska komprimeras optimalt. | krävs om `compressedType` har angetts. | compressionLevel |
+| Komprimerings nivå | Välj om komprimeringen ska slutföras så fort som möjligt eller om den resulterande filen ska komprimeras optimalt. | krävs om `compressedType` har angetts. | `Optimal` eller `Fastest` | compressionLevel |
 | Res tid | Välj om du vill fråga en äldre ögonblicks bild av en delta tabell | Nej | Fråga efter tidsstämpel: tidsstämpel <br> Fråga efter version: heltal | timestampAsOf <br> versionAsOf |
 
 #### <a name="import-schema"></a>Importera schema
@@ -73,8 +75,8 @@ I tabellen nedan visas de egenskaper som stöds av en delta mottagare. Du kan re
 | Filsystem | Container/File-systemet för delta Lake | yes | Sträng | Fil Systems |
 | Mappsökväg | Direct of delta sjö | yes | Sträng | folderPath |
 | Komprimerings typ | Den komprimerings typ som tillhör delta tabellen | Nej | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Komprimerings nivå | Välj om komprimeringen ska slutföras så fort som möjligt eller om den resulterande filen ska komprimeras optimalt. | krävs om `compressedType` har angetts. | compressionLevel |
-| Vakuum | Ange tröskelvärde för kvarhållning i timmar för äldre versioner av tabell. Värdet 0 eller lägre är 30 dagar | yes | Integer | Dammsug |
+| Komprimerings nivå | Välj om komprimeringen ska slutföras så fort som möjligt eller om den resulterande filen ska komprimeras optimalt. | krävs om `compressedType` har angetts. | `Optimal` eller `Fastest` | compressionLevel |
+| Vakuum | Ange tröskelvärde för kvarhållning i timmar för äldre versioner av tabell. Värdet 0 eller lägre är 30 dagar | yes | Heltal | Dammsug |
 | Uppdaterings metod | Ange vilka uppdaterings åtgärder som tillåts på delta Lake. För metoder som inte infogas krävs en föregående Alter Row-omvandling för att markera rader. | yes | `true` eller `false` | bort <br> infognings bara <br> uppdaterings bara <br> upsertable |
 
 ### <a name="delta-sink-script-example"></a>Skript exempel för delta mottagare

@@ -4,12 +4,12 @@ description: Varnar dig om ovanliga ändringar av antalet misslyckade förfrågn
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045802"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
@@ -61,13 +61,13 @@ Aviseringarna utlöses av vår leverantörsspecifika Machine Learning-algoritm s
 
 ## <a name="configure-alerts"></a>Konfigurera varningar
 
-Du kan inaktivera aviserings regeln för smart identifiering från portalen eller använda Azure Resource Manager ([se mall exempel](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+Du kan inaktivera aviserings regeln för smart identifiering från portalen eller använda Azure Resource Manager ([se mall exempel](./proactive-arm-config.md)).
 
-Den här varnings regeln skapas med en associerad [Åtgärds grupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) med namnet "Application Insights Smart identifiering" som innehåller e-post-och webhook-åtgärder och kan utökas för att utlösa ytterligare åtgärder när aviseringen utlöses.
+Den här varnings regeln skapas med en associerad [Åtgärds grupp](../platform/action-groups.md) med namnet "Application Insights Smart identifiering" som innehåller e-post-och webhook-åtgärder och kan utökas för att utlösa ytterligare åtgärder när aviseringen utlöses.
 
 > [!NOTE]
-> E-postmeddelanden som skickas från den här varnings regeln skickas nu som standard till användare som är associerade med prenumerationens roll för övervakning och övervakning av deltagare. Mer [information finns här.](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)
-> Meddelanden som skickas från den här aviserings regeln följer det [vanliga aviserings schemat](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+> E-postmeddelanden som skickas från den här varnings regeln skickas nu som standard till användare som är associerade med prenumerationens roll för övervakning och övervakning av deltagare. Mer [information finns här.](./proactive-email-notification.md)
+> Meddelanden som skickas från den här aviserings regeln följer det [vanliga aviserings schemat](../platform/alerts-common-schema.md).
 >
 
 Öppna sidan aviseringar. Aviserings regler för fel avvikelser inkluderas tillsammans med eventuella aviseringar som du har angett manuellt, och du kan se om det är i aviserings tillstånd.
@@ -348,7 +348,7 @@ Smart identifiering av fel avvikelser kompletterar andra liknande, men distinkta
 
 *Några av aviseringarna är om kända problem och jag vill inte ta emot dem.*
 
-* Du kan använda [varnings åtgärds funktionen regler](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) för att ignorera.
+* Du kan använda [varnings åtgärds funktionen regler](../platform/alerts-action-rules.md) för att ignorera.
 
 ## <a name="next-steps"></a>Nästa steg
 De här diagnostikverktygen hjälper dig att inspektera data från din app:

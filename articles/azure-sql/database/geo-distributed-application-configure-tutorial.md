@@ -11,11 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e76ccc83be8f269cb14826b5e3e8873d4c7c427a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045028"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Självstudie: implementera en geo-distribuerad databas (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,9 +29,9 @@ Konfigurera en databas i SQL Database och klient program för redundansväxling 
 > - Köra ett Java-program för att fråga en databas i SQL Database
 > - Redundanstest
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
 Kontrol lera att du har installerat följande objekt för att slutföra självstudien:
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - En enda databas i Azure SQL Database. För att skapa en användning,
   - [Azure Portal](single-database-create-quickstart.md)
   - [Azure CLI](az-cli-script-samples-content-guide.md)

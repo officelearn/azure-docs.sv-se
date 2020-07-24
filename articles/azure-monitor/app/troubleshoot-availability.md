@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041392"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
@@ -35,7 +35,7 @@ Den här artikeln hjälper dig att felsöka vanliga problem som kan uppstå när
 |----|---------|
 |Ett anslutnings försök misslyckades på grund av att den anslutna parten inte svarade korrekt efter en tids period  | Test agenter på vissa platser blockeras av en brand vägg.|
 |    |Omdirigering av vissa IP-adresser sker via (belastnings utjämning, geo Traffic Manager, Azure Express Route.) 
-|    |Om du använder Azure ExpressRoute finns det scenarier där paket kan släppas i fall där [asymmetrisk routning sker](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
+|    |Om du använder Azure ExpressRoute finns det scenarier där paket kan släppas i fall där [asymmetrisk routning sker](../../expressroute/expressroute-asymmetric-routing.md).|
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>Test fel med ett protokoll fel
 
@@ -66,11 +66,11 @@ Kontrol lera den klassiska aviserings konfigurationen för att bekräfta att dit
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Jag fick inte webhook-meddelandet?
 
-Kontrol lera att det program som tar emot webhook-meddelandet är tillgängligt och att webhook-begärandena bearbetas. Se [det här](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) för mer information.
+Kontrol lera att det program som tar emot webhook-meddelandet är tillgängligt och att webhook-begärandena bearbetas. Se [det här](../platform/alerts-log-webhook.md) för mer information.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Jag får 403 förbjudna fel, vad innebär det?
 
-Det här felet indikerar att du behöver lägga till brand Väggs undantag för att tillåta tillgänglighets agenter att testa mål-URL: en. En fullständig lista över vilka agent-IP-adresser som tillåts finns i [artikeln om IP-undantag](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+Det här felet indikerar att du behöver lägga till brand Väggs undantag för att tillåta tillgänglighets agenter att testa mål-URL: en. En fullständig lista över vilka agent-IP-adresser som tillåts finns i [artikeln om IP-undantag](./ip-addresses.md#availability-tests).
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Tillfälligt test misslyckades med ett protokollfel?
 
@@ -97,7 +97,7 @@ De är synonyma begrepp. Tillgänglighetstest är ett mer allmänt begrepp som i
    Det finns två möjliga lösningar:
 
    * Konfigurera din brandvägg att tillåta inkommande förfrågningar från [IP-adresserna för webbtestagenter](../../azure-monitor/app/ip-addresses.md).
-   * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultaten visas på bladet tillgänglighet för webbtester, även om upplevelsen kommer att vara något förenklad från vad som är tillgängligt för test som skapats via portalen. Tester av anpassad tillgänglighet visas också som tillgänglighets resultat i analys, sökning och mått.
+   * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultaten visas på bladet tillgänglighet för webbtester, även om upplevelsen kommer att vara något förenklad från vad som är tillgängligt för test som skapats via portalen. Tester av anpassad tillgänglighet visas också som tillgänglighets resultat i analys, sökning och mått.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Det går inte att överföra ett webbtest med flera steg
 

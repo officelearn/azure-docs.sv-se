@@ -3,11 +3,12 @@ title: Kontinuerlig video inspelning – Azure
 description: Kontinuerlig videoinspelning (CVR) avser processen att kontinuerligt spela in videon från en video källa. I det här avsnittet beskrivs vad CVR är.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043308"
 ---
 # <a name="continuous-video-recording"></a>Kontinuerlig videoinspelning  
 
@@ -33,7 +34,7 @@ Real tids analys på IoT Edge stöder drift under mindre än perfekt nätverks f
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-De två sistnämnda egenskaperna är relevanta för elastisk registrering (båda är också nödvändiga egenskaper för en nod för till gångs mottagare). Egenskapen localMediaCachePath anger att till gångs mottagare ska använda den mappsökvägen för att cachelagra medie data innan de överförs till till gången. Du kan se [den här](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) artikeln för att förstå hur Edge-modulen kan använda enhetens lokala lagring. Egenskapen localMediaCacheMaximumSizeMiB definierar hur mycket disk utrymme som till gångs mottagaren kan använda som cache (1 MiB = 1024 * 1024 byte). 
+De två sistnämnda egenskaperna är relevanta för elastisk registrering (båda är också nödvändiga egenskaper för en nod för till gångs mottagare). Egenskapen localMediaCachePath anger att till gångs mottagare ska använda den mappsökvägen för att cachelagra medie data innan de överförs till till gången. Du kan se [den här](../../iot-edge/how-to-access-host-storage-from-module.md) artikeln för att förstå hur Edge-modulen kan använda enhetens lokala lagring. Egenskapen localMediaCacheMaximumSizeMiB definierar hur mycket disk utrymme som till gångs mottagaren kan använda som cache (1 MiB = 1024 * 1024 byte). 
 
 Om din Edge-modul förlorar anslutningen under en mycket lång tid och innehållet som lagras i cache-mappen når localMediaCacheMaximumSizeMiB-värdet, kommer till gångs mottagaren att börja ta bort data från cachen, med början från de äldsta data. Om till exempel enheten tappade anslutningen på 10 och cachen träffar Max gränsen på. 18:00 börjar till gångs mottagaren ta bort data som registrerats på 10. 
 

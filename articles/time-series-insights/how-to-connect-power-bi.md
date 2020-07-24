@@ -3,24 +3,25 @@ title: Anslut din miljö till Power BI-Azure Time Series Insights | Microsoft Do
 description: Lär dig hur du ansluter Azure Time Series Insights till Power BI för att dela, rita och visa data i hela organisationen.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: ea46f37b0c09ca655b29ac3cfa2f168e18c85590
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.openlocfilehash: b9d91921fc375a1209e8fa8df6e3c6ff56e55be0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046706"
 ---
-# <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualisera data från Time Series Insights i Power BI
+# <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualisera data från Azure Time Series Insights i Power BI
 
-Azure Time Series Insights är en plattform för att lagra, hantera, fråga och visualisera Time Series-data i molnet. [Power BI](https://powerbi.microsoft.com) är ett företags analys verktyg med omfattande visualiserings funktioner som gör att du kan dela insikter och resultat i hela organisationen. Båda tjänsterna kan nu integreras för att få det bästa av både Time Series Insights "inbyggda visualiserings funktioner" och Power BI.
+Azure Time Series Insights är en plattform för att lagra, hantera, fråga och visualisera Time Series-data i molnet. [Power BI](https://powerbi.microsoft.com) är ett företags analys verktyg med omfattande visualiserings funktioner som gör att du kan dela insikter och resultat i hela organisationen. Båda tjänsterna kan nu integreras för att få det bästa av både Azure Time Series Insights "inbyggda visualiserings funktioner" och Power BI.
 
 Du lär dig följande:
 
-* Ansluta Time Series Insights till Power BI med hjälp av Cloud Connector
+* Ansluta Azure Time Series Insights till Power BI med hjälp av Cloud Connector
 * Skapa visuella objekt med dina data i Power BI
 * Publicera rapporten för att Power BI och dela den med resten av organisationen
 
@@ -28,19 +29,21 @@ I slutet får du lära dig hur du visualiserar Time Series-data via Azure Time S
 
 Se till att du registrerar dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Hämta och installera den senaste versionen av [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Ha eller skapa en [instans av Azure Time Series Insights för hands version](time-series-insights-update-how-to-manage.md)
+* Ha eller skapa en [Azure Time Series Insights Gen2-miljö](time-series-insights-update-how-to-manage.md)
 
 > [!IMPORTANT]
-> Power BI Connector stöds för närvarande i Time Series Insights för hands versions förhands gransknings miljöer *som* har kon figurer ATS för **varmt lagring**.
+>
+> * Anslutningen stöds för närvarande i Azure Time Series Insights Gen2-miljöer som kon figurer ATS med **endast varm lagring**.
+> * Om du har gäst åtkomst till Azure Time Series Insights Gen2-miljön från en annan Azure AD-klient kommer du inte att kunna komma åt anslutningen. Läs om [miljö åtkomst principer](./concepts-access-policies.md).
 
-## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Anslut data från Time Series Insights till Power BI
+## <a name="connect-data-from-azure-time-series-insights-to-power-bi"></a>Anslut data från Azure Time Series Insights till Power BI
 
-Följ dessa steg om du vill ansluta din Time Series Insights-miljö till Power BI:
+Följ dessa steg om du vill ansluta din Azure Time Series Insights-miljö till Power BI:
 
-1. Öppna Time Series Insights Explorer
+1. Öppna Azure Time Series Insights Explorer
 1. Exportera data som en fråga eller som rå data
 1. Öppna Power BI Desktop
 1. Läs in från anpassad fråga
@@ -49,10 +52,10 @@ Följ dessa steg om du vill ansluta din Time Series Insights-miljö till Power B
 
 Så här kommer du igång:
 
-1. Öppna Time Series Insights Preview Explorer och granska dina data.
+1. Öppna Azure Time Series Insights Gen2 Explorer och granska dina data.
 1. När du har skapat en vy som du är nöjd med, navigerar du till List menyn **fler åtgärder** och väljer **Anslut till Power BI**.
 
-    [![Time Series Insights Preview Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Azure Time Series Insights Gen2 Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Ange parametrarna i den här fliken:
 
@@ -64,11 +67,11 @@ Så här kommer du igång:
        > Du kan alltid aggregera dina data senare i Power BI, men du kan inte återgå till rå data efter AGG regering. 
        
        > [!NOTE]
-       > Det finns en gräns för antal 100-K-händelser för rå data på händelse nivå.
+       > Det finns en gräns för antal 250 000-händelser för rå data på händelse nivå.
 
        [![Anslut](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Om du inte har konfigurerat Time Series Insights-instansen för **varm lagring**visas en varning.
+   1. Om du inte har konfigurerat din Azure Time Series Insightss miljö med ett **varmt Arkiv**får du en varning.
 
        [![Varning om varma lager](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
@@ -81,9 +84,9 @@ Så här kommer du igång:
 
     [![List rutan hem](media/how-to-connect-power-bi/power-bi-home-drop-down.png)](media/how-to-connect-power-bi/power-bi-home-drop-down.png#lightbox)
 
-1. Sök efter **Time Series Insights**, Välj **Azure Time Series Insights (beta)** och **Anslut**.
+1. Sök efter **Azure Time Series Insights**, Välj **Azure Time Series Insights (beta)** och **Anslut**.
 
-    [![Anslut Power BI till Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
+    [![Anslut Power BI till Azure Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
 
     Du kan också navigera till fliken **Azure** , välja **Azure Time Series Insights (beta)** och sedan **ansluta**.
     
@@ -146,5 +149,3 @@ Gränssnittet visar nu de önskade ändringarna som du har använt.
 * Läs om [Power BI anslutnings begrepp](https://docs.microsoft.com/power-bi/desktop-query-overview) för Azure Time Series Insights.
 
 * Läs mer om [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
-
-* Läs [Time Series Insights ga Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) och [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

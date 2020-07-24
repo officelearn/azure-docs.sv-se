@@ -1,25 +1,26 @@
 ---
-title: Planera din GA-miljö – Azure Time Series Insights | Microsoft Docs
-description: Metod tips för att förbereda, konfigurera och distribuera din Azure Time Series Insights GA-miljö.
+title: Planera din gen1-miljö – Azure Time Series Insights | Microsoft Docs
+description: Metod tips för att förbereda, konfigurera och distribuera din Azure Time Series Insights gen1-miljö.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272720"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046414"
 ---
-# <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planera din Azure Time Series Insights GA-miljö
+# <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planera din Azure Time Series Insights gen1-miljö
 
-Den här artikeln beskriver hur du planerar din Azure Time Series Insights generella tillgänglighets miljö baserat på dina förväntade ingångs priser och dina krav för data lagring.
+I den här artikeln beskrivs hur du planerar din Azure Time Series Insights gen1-miljö baserat på dina förväntade ingångs takt och dina krav på data lagring.
 
 ## <a name="video"></a>Video
 
@@ -31,11 +32,11 @@ Den här artikeln beskriver hur du planerar din Azure Time Series Insights gener
 
 För att komma igång med Azure Time Series Insights är det bäst om du vet hur mycket data du förväntar dig att pusha per minut och hur länge du behöver lagra dina data.  
 
-Läs [Time Series Insights prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/)för mer information om kapacitet och kvarhållning för båda Time Series Insights SKU: er.
+Läs [Azure Time Series Insights prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/)för mer information om kapacitet och kvarhållning för båda Azure Time Series Insights SKU: er.
 
-Om du vill planera Time Series Insightss miljön för långsiktig framgång bör du tänka på följande attribut:
+Om du vill planera Azure Time Series Insightss miljön för långsiktig framgång bör du tänka på följande attribut:
 
-- [Lagrings kapacitet](#storage-capacity)
+- [Lagringskapacitet](#storage-capacity)
 - [Datakvarhållningstid](#data-retention)
 - [Ingress-kapacitet](#ingress-capacity)
 - [Forma dina händelser](#shape-your-events)
@@ -43,7 +44,7 @@ Om du vill planera Time Series Insightss miljön för långsiktig framgång bör
 
 ## <a name="storage-capacity"></a>Lagringskapacitet
 
-Som standard behåller Time Series Insights data baserat på mängden lagring som du etablerar (enheter &#215; mängden lagrings utrymme per enhet) och ingress.
+Som standard behåller Azure Time Series Insights data baserat på mängden lagring som du etablerar (enheter &#215; mängden lagrings utrymme per enhet) och ingress.
 
 ## <a name="data-retention"></a>Datakvarhållning
 
@@ -57,7 +58,7 @@ Azure Time Series Insights har två lägen:
 Du kan justera kvarhållning och växla mellan de två lägena på miljöns konfigurations sida i Azure Portal.
 
 > [!IMPORTANT]
-> Du kan konfigurera högst 400 dagars data kvarhållning i Azure Time Series Insights GA-miljön.
+> Du kan konfigurera högst 400 dagar av datakvarhållning i din Azure Time Series Insights gen1-miljö.
 
 ### <a name="configure-data-retention"></a>Konfigurera datakvarhållning
 
@@ -74,21 +75,21 @@ Du kan justera kvarhållning och växla mellan de två lägena på miljöns konf
 
 ## <a name="ingress-capacity"></a>Ingress-kapacitet
 
-[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
+[!INCLUDE [Azure Time Series Insights Gen1 limits](../../includes/time-series-insights-ga-limits.md)]
 
 ### <a name="environment-planning"></a>Miljö planering
 
-Den andra arean för att fokusera på att planera Time Series Insightss miljön är ingångs kapacitet. Den dagliga ingångs lagringen och händelse kapaciteten mäts per minut i block om 1 KB. Den största tillåtna paket storleken är 32 KB. Data paket som är större än 32 KB trunkeras.
+Den andra arean för att fokusera på att planera Azure Time Series Insightss miljön är ingångs kapacitet. Den dagliga ingångs lagringen och händelse kapaciteten mäts per minut i block om 1 KB. Den största tillåtna paket storleken är 32 KB. Data paket som är större än 32 KB trunkeras.
 
 Du kan öka kapaciteten för en S1-eller S2-SKU till 10 enheter i en enda miljö. Du kan inte migrera från en S1-miljö till en S2. Du kan inte migrera från en S2-miljö till S1.
 
 För ingress-kapacitet ska du först fastställa de totala ingångs värden som du behöver per månad. Ta sedan reda på vad dina behov per minut är. 
 
-Begränsning och latens spelar en roll i per minut-kapacitet. Om du har en insamling i dina data ingångar som varar mindre än 24 timmar kan Time Series Insights "fånga upp" vid en ingångs frekvens på två gånger enligt de priser som anges i tabellen ovan.
+Begränsning och latens spelar en roll i per minut-kapacitet. Om du har en insamling i dina data ingångar som varar mindre än 24 timmar kan Azure Time Series Insights "fånga upp" vid en ingångs frekvens på två gånger enligt de priser som anges i tabellen ovan.
 
 Om du till exempel har en enda S1-SKU intränger data med 720 händelser per minut och data hastigheterna i mindre än en timme till en hastighet av 1 440 händelser eller mindre, det finns ingen märkbar fördröjning i din miljö. Men om du överskrider 1 440 händelser per minut i mer än en timme, kommer du troligen att uppleva svars tid i data som visualiseras och är tillgängliga för frågor i din miljö.
 
-Du kanske inte vet i förväg hur mycket data du förväntar dig att skicka. I det här fallet kan du hitta datatelemetri för [azure IoT Hub](../iot-hub/iot-hub-metrics.md) och [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) i din Azure Portal prenumeration. Telemetrin kan hjälpa dig att avgöra hur du ska etablera din miljö. Använd fönstret **mått** i Azure Portal för respektive händelse källa för att visa dess telemetri. Om du förstår dina evenemangs käll mått kan du effektivare planera och etablera din Time Series Insightss miljö.
+Du kanske inte vet i förväg hur mycket data du förväntar dig att skicka. I det här fallet kan du hitta datatelemetri för [azure IoT Hub](../iot-hub/iot-hub-metrics.md) och [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) i din Azure Portal prenumeration. Telemetrin kan hjälpa dig att avgöra hur du ska etablera din miljö. Använd fönstret **mått** i Azure Portal för respektive händelse källa för att visa dess telemetri. Om du förstår dina evenemangs käll mått kan du effektivare planera och etablera din Azure Time Series Insightss miljö.
 
 ### <a name="calculate-ingress-requirements"></a>Beräkna ingress-krav
 
@@ -104,26 +105,26 @@ Om du vill ha mer information om hur du förhindrar begränsning och svars tider
 
 ## <a name="shape-your-events"></a>Forma dina händelser
 
-Det är viktigt att se till att du skickar händelser till Time Series Insights stöder storleken på den miljö som du håller på att konfigurera. (Omvänt kan du mappa storleken på miljön till hur många händelser Time Series Insights läsa och storleken på varje händelse.) Det är också viktigt att tänka på de attribut som du kanske vill använda för att segmentera och filtrera efter när du frågar dina data.
+Det är viktigt att se till att du skickar händelser till Azure Time Series Insights stöder storleken på den miljö som du håller på att konfigurera. (Omvänt kan du mappa storleken på miljön till hur många händelser Azure Time Series Insights läsa och storleken på varje händelse.) Det är också viktigt att tänka på de attribut som du kanske vill använda för att segmentera och filtrera efter när du frågar dina data.
 
 > [!TIP]
 > Läs igenom JSON Forms-dokumentationen när du [skickar händelser](time-series-insights-send-events.md).
 
 ## <a name="ensure-that-you-have-reference-data"></a>Kontrol lera att du har referens data
 
-En *referens data uppsättning* är en samling objekt som utökar händelserna från din händelse källa. Time Series Insights ingress-motorn kopplar varje händelse från din händelse källa till motsvarande datarad i referens data uppsättningen. Den förhöjda händelsen är sedan tillgänglig för fråga. Kopplingen baseras på **primär nyckel** kolumnerna som definieras i din referens data uppsättning.
+En *referens data uppsättning* är en samling objekt som utökar händelserna från din händelse källa. Azure Time Series Insights ingress-motorn kopplar varje händelse från din händelse källa till motsvarande datarad i referens data uppsättningen. Den förhöjda händelsen är sedan tillgänglig för fråga. Kopplingen baseras på **primär nyckel** kolumnerna som definieras i din referens data uppsättning.
 
 > [!NOTE]
-> Referens data är inte anslutna retroaktivt. Endast aktuella och framtida ingångs data matchas och kopplas till referens data uppsättningen när den har kon figurer ATS och laddats upp. Om du planerar att skicka en stor mängd historiska data till Time Series Insights och inte först ladda upp eller skapa referens data i Time Series Insights kan du behöva göra om arbetet (Tips: inte roligt).  
+> Referens data är inte anslutna retroaktivt. Endast aktuella och framtida ingångs data matchas och kopplas till referens data uppsättningen när den har kon figurer ATS och laddats upp. Om du planerar att skicka en stor mängd historiska data till Azure Time Series Insights och inte först ladda upp eller skapa referens data i Azure Time Series Insights kan du behöva göra om arbetet (Tips: inte roligt).  
 
-Om du vill veta mer om hur du skapar, överför och hanterar referens data i Time Series Insights läser du vår [dokumentation om referens data uppsättning](time-series-insights-add-reference-data-set.md).
+Om du vill veta mer om hur du skapar, överför och hanterar referens data i Azure Time Series Insights läser du vår [dokumentation om referens data uppsättning](time-series-insights-add-reference-data-set.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kom igång genom [att skapa en ny Time Series Insights miljö i Azure Portal](time-series-insights-get-started.md).
+- Kom igång genom [att skapa en ny Azure Time Series Insights miljö i Azure Portal](time-series-insights-get-started.md).
 
-- Lär dig hur du [lägger till en Event Hubs händelse källa](time-series-insights-how-to-add-an-event-source-eventhub.md) i Time Series Insights.
+- Lär dig hur du [lägger till en Event Hubs händelse källa](time-series-insights-how-to-add-an-event-source-eventhub.md) i Azure Time Series Insights.
 
 - Läs om hur du [konfigurerar en händelse källa för IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md).

@@ -12,16 +12,16 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 900e76fff3e5ccf88fa1e25ebea97f26e406a358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610378"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042550"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Distribuera Micro Focus Enterprise Server 5,0 till AKS
 
-I en annan [artikel](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)beskrivs stegen för att köra Micro Focus Enterprise Server 5,0 i en Docker-behållare. Nu ska jag visa dig hur du tar det ett steg ytterligare och distribuerar Docker-avbildningen som du skapade i Azure Kubernetes service (AKS).
+I en annan [artikel](./run-enterprise-server-container.md)beskrivs stegen för att köra Micro Focus Enterprise Server 5,0 i en Docker-behållare. Nu ska jag visa dig hur du tar det ett steg ytterligare och distribuerar Docker-avbildningen som du skapade i Azure Kubernetes service (AKS).
 
 Azure Kubernetes-tjänsten är en hanterad Orchestration-tjänst baserad på Kubernetes. Det gör att du kan distribuera, skala och hantera Docker-behållare (och andra behållarebaserade program) i ett kluster med behållar värdar.
 
@@ -31,7 +31,7 @@ Det här är en tre stegs process. Du måste:
 
 2.  Skapa ett Azure Kubernetes-kluster för att köra Docker-avbildningen.
 
-3.  Kör appen.
+3.  Kör programmet.
 
 På så sätt kan du skala ut (och skala ned) dina stordator modernisering-arbetsbelastningar i Azure, med tanke på den faktiska fördelen med moln plattformen.
 

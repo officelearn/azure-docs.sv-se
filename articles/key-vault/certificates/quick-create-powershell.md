@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Ange och hämta ett certifikat från Azure Key Vault'
+title: 'Snabb start: Ange & Visa Azure Key Vault certifikat – Azure PowerShell'
 description: Snabb start visar hur du ställer in och hämtar ett certifikat från Azure Key Vault med Azure PowerShell
 services: key-vault
 author: msmbaldwin
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecb9262a96d1c9857283de00224950d9bc7a583f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: efd73907a8ca691ceb451391477c9c8e2239c250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043903"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Snabb start: Ange och hämta ett certifikat från Azure Key Vault med Azure PowerShell
 
-I den här snabb starten skapar du ett nyckel valv i Azure Key Vault med Azure PowerShell. Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault kan du läsa [översikten](../general/overview.md). Azure PowerShell används för att skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det kommer du att lagra ett certifikat.
+I den här snabb starten skapar du ett nyckel valv i Azure Key Vault med Azure PowerShell. Azure Key Vault är en molntjänst som fungerar som ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault kan du läsa [översikten](../general/overview.md). Azure PowerShell används för att skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det kommer du att lagra ett certifikat.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -61,8 +61,6 @@ Utdata från denna cmdlet visar egenskaper för nyckelvalvet du precis skapade. 
 * **Valvets URI**: I det här exemplet är det https://Contoso-Vault2.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 När du har skapat valvet så är ditt Azure-konto det enda kontot med behörighet att göra någonting i valvet.
-
-![Utdata när kommandot för att skapa Key Vault har slutförts](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="add-a-certificate-to-key-vault"></a>Lägg till ett certifikat i Key Vault
 

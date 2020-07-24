@@ -1,6 +1,6 @@
 ---
 title: Uppgradera till standard nivå – Azure Security Center
-description: I den här snabbstarten får du lära dig att uppgradera till Security Centers Standard-prisnivå för ytterligare säkerhet.
+description: Den här snabb starten visar hur du uppgraderar till Security Center standard pris nivån för ytterligare säkerhet.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 3f0d624605f617a8e5ab914c49c4c94a40ebdcc6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80435787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038553"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
-Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. På den kostnadsfria nivån erbjuds endast begränsad säkerhet för dina Azure-resurser, medan Standard-nivån utökar funktionerna till lokala resurser och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
+Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. Även om den kostnads fria nivån erbjuder begränsad säkerhet för dina Azure-resurser, utökar standard nivån dessa funktioner till lokala och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 I den här artikeln ska du uppgradera till standard nivån för ytterligare säkerhet och installera Log Analytics-agenten på dina virtuella datorer för att övervaka säkerhets problem och hot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-Om du vill uppgradera en prenumeration till standardnivån måste du vara tilldelad rollen som prenumerationsägare, prenumerationsdeltagare eller säkerhetsadministratör.
+Om du vill uppgradera en prenumeration till standard nivån måste du tilldelas rollen som prenumerations ägare, prenumerations deltagare eller säkerhets administratör.
 
 ## <a name="enable-your-azure-subscription"></a>Aktivera din Azure-prenumeration
 
-1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center – Översikt** öppnas.
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
@@ -49,8 +49,8 @@ Inom några minuter efter att du har startat Security Center för första gånge
 
 Om du vill dra full nytta av Security Center måste du slutföra stegen nedan för att uppgradera till standard nivån och installera Log Analytics agenten.
 
-## <a name="upgrade-to-the-standard-tier"></a>Uppgradera till standardnivån
-Du måste uppgradera till standardnivån för att kunna använda snabbstart och självstudier i Security Center. Det finns en kostnadsfri utvärderingsversion av Security Center Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). 
+## <a name="upgrade-to-the-standard-pricing-tier"></a>Uppgradera till standard pris nivån
+I syfte att Security Center snabb starter och självstudier måste du uppgradera till standard nivån. Det finns en kostnadsfri utvärderingsversion av Security Center Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. På huvudmenyn i Security Center väljer du **Komma igång**.
  
@@ -84,11 +84,11 @@ Med de här nya kunskaperna om dina virtuella datorer i Azure kan Security Cente
   ![Rekommendationer][8]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
+De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabb starter och självstudier kan du fortsätta att köra standard-nivån och behålla automatisk etablering aktive rad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
 
 1. Gå tillbaka till Security Center huvud menyn och välj **pris & inställningar**.
 2. Klicka på den prenumeration som du vill ändra till den kostnads fria nivån.
-3. Välj **Prisnivå** och välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
+3. Välj **pris nivå** och välj **kostnads fri** för att ändra prenumerationen från standard nivån till den kostnads fria nivån.
 5. Välj **Spara**.
 
 Om du vill avaktivera automatisk etablering:
@@ -107,6 +107,11 @@ I den här snabb starten har du uppgraderat till standard nivån och etablerade 
 
 > [!div class="nextstepaction"]
 > [Snabbstart: Publicera Windows-datorer till Azure Security Center](quick-onboard-windows-computer.md)
+
+Vill du optimera och Spara på dina moln utgifter?
+
+> [!div class="nextstepaction"]
+> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

@@ -2,16 +2,17 @@
 title: Distribuera resurser med Azure CLI och mall
 description: Använd Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: da865d3b425da6b5969e540a424b513d9a58bd9a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432078"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040804"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuera resurser med ARM-mallar och Azure CLI
 
-Den här artikeln förklarar hur du använder Azure CLI med Azure Resource Manager ARM-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar kan du läsa [Översikt över mall-distribution](overview.md).
+Den här artikeln förklarar hur du använder Azure CLI med Azure Resource Manager mallar (ARM-mallar) för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar kan du läsa [Översikt över mall-distribution](overview.md).
 
 Distributions kommandona ändrades i Azure CLI-version 2.2.0. Exemplen i den här artikeln kräver Azure CLI version 2.2.0 eller senare.
 
@@ -63,7 +64,7 @@ När du distribuerar resurser till Azure:
 
 1. Logga in på ditt Azure-konto
 2. Skapa en resurs grupp som fungerar som behållare för de distribuerade resurserna. Namnet på resurs gruppen får bara innehålla alfanumeriska tecken, punkter, under streck, bindestreck och parenteser. Det kan vara upp till 90 tecken. Det får inte sluta med en punkt.
-3. Distribuera till resurs gruppen med mallen som definierar vilka resurser som ska skapas
+3. Distribuera till resurs gruppen med mallen som definierar vilka resurser som ska skapas.
 
 En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Du kan till exempel ange värden som är anpassade för en viss miljö (till exempel utveckling, testning och produktion). Exempel mal len definierar en parameter för lagrings kontots SKU.
 
@@ -83,6 +84,32 @@ Det kan ta några minuter att slutföra distributionen. När det är klart visas
 ```output
 "provisioningState": "Succeeded",
 ```
+
+## <a name="deployment-name"></a>Distributions namn
+
+I föregående exempel hette du distributionen `ExampleDeployment` . Om du inte anger något namn på distributionen används namnet på mallfilen. Om du till exempel distribuerar en mall med namnet `azuredeploy.json` och inte anger ett distributions namn, namnges distributionen `azuredeploy` .
+
+Varje gång du kör en distribution läggs en post till i resurs gruppens distributions historik med distributions namnet. Om du kör en annan distribution och ger den samma namn ersätts den tidigare posten med den aktuella distributionen. Om du vill behålla unika poster i distributions historiken ger du varje distribution ett unikt namn.
+
+Om du vill skapa ett unikt namn kan du tilldela ett slumpmässigt nummer.
+
+```azurecli-interactive
+deploymentName='ExampleDeployment'$RANDOM
+```
+
+Eller Lägg till ett datum värde.
+
+```azurecli-interactive
+deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
+```
+
+Om du kör samtidiga distributioner till samma resurs grupp med samma distributions namn slutförs bara den senaste distributionen. Alla distributioner med samma namn som inte har avslut ATS ersätts av den senaste distributionen. Om du till exempel kör en distribution med namnet `newStorage` som distribuerar ett lagrings konto med namnet `storage1` , och samtidigt kör en annan distribution med namnet `newStorage` som distribuerar ett lagrings konto med namnet `storage2` , distribuerar du bara ett lagrings konto. Det resulterande lagrings kontot namnges `storage2` .
+
+Men om du kör en distribution med namnet `newStorage` som distribuerar ett lagrings konto med namnet `storage1` och omedelbart efter att det har slutförts, kör du en annan distribution med namnet `newStorage` som distribuerar ett lagrings konto med namnet `storage2` , så har du två lagrings konton. En är namngiven `storage1` och den andra heter `storage2` . Men du har bara en post i distributions historiken.
+
+När du anger ett unikt namn för varje distribution kan du köra dem samtidigt utan konflikter. Om du kör en distribution med namnet `newStorage1` som distribuerar ett lagrings konto med namnet `storage1` , och samtidigt kör en annan distribution med namnet `newStorage2` som distribuerar ett lagrings konto med namnet `storage2` , har du två lagrings konton och två poster i distributions historiken.
+
+För att undvika konflikter med samtidiga distributioner och för att säkerställa unika poster i distributions historiken ger du varje distribution ett unikt namn.
 
 ## <a name="deploy-remote-template"></a>Distribuera fjärran sluten mall
 
@@ -171,7 +198,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Hantera utökat JSON-format
 
-Om du vill distribuera en mall med strängar med flera rader eller kommentarer med hjälp av Azure CLI med version 2.3.0 eller äldre måste du använda `--handle-extended-json-format` växeln.  Ett exempel:
+Om du vill distribuera en mall med strängar med flera rader eller kommentarer med hjälp av Azure CLI med version 2.3.0 eller äldre måste du använda `--handle-extended-json-format` växeln.  Exempel:
 
 ```json
 {

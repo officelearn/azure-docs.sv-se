@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d40618c5d1a7200b452268a6b36841a846c6cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041892"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Event Grid utlösare för Azure Functions
 
@@ -399,7 +399,7 @@ Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händel
 
 Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-prenumeration som anger slut punkts-URL: en som anropar funktionen.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **integration** och väljer sedan **Event Grid utlösare** och väljer **Skapa event Grid prenumeration**.
 
@@ -413,7 +413,7 @@ Mer information om hur du skapar prenumerationer med hjälp av Azure Portal finn
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill skapa en prenumeration med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)använder du kommandot [AZ eventgrid Event-Subscription Create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) .
+Om du vill skapa en prenumeration med hjälp av [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)använder du kommandot [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) .
 
 Kommandot kräver slut punkts-URL: en som anropar funktionen. I följande exempel visas det användarspecifika URL-mönstret:
 
@@ -508,7 +508,7 @@ Om du vill testa en Event Grid-utlösare lokalt måste du få Event Grid HTTP-be
 1. [Generera en begäran](#generate-a-request) och kopiera begär ande texten från visnings programmet.
 1. [Publicera begäran](#manually-post-the-request) till localhost-URL: en manuellt för din event Grid trigger-funktion.
 
-När du är klar med testningen kan du använda samma prenumeration för produktion genom att uppdatera slut punkten. Använd kommandot [AZ eventgrid Event-Subscription Update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI.
+När du är klar med testningen kan du använda samma prenumeration för produktion genom att uppdatera slut punkten. Använd kommandot [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI.
 
 ### <a name="create-a-viewer-web-app"></a>Skapa ett visnings program för webb program
 

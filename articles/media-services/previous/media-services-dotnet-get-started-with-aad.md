@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9458f6d66dbf95429172a0767b9293efdfa51113
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c1bf77881f672bf3bd2b2dccf91c30855c520052
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086644"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042896"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använd Azure AD-autentisering för att komma åt Azure Media Services API med .NET
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Från och med windowsazure. Media Services 4.0.0.4 stöder Azure Media Services autentisering baserat på Azure Active Directory (Azure AD). Det här avsnittet visar hur du använder Azure AD-autentisering för att komma åt Azure Media Services API med Microsoft .NET.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Mer information finns i [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).

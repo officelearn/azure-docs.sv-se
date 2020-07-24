@@ -1,5 +1,5 @@
 ---
-title: Ansluta IoT Plug and Play förhandsgranska exempel enhets kod till IoT Hub | Microsoft Docs
+title: Ansluta IoT Plug and Play Preview-kod till IoT Hub-C# | Microsoft Docs
 description: Använda C# (.NET), skapa och köra IoT Plug and Play enhets kod som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d598bbb792c071db281ebdc562402ba0198305ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77121010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044193"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview enhets program till IoT Hub (C#)
 
@@ -23,7 +23,7 @@ Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Dev
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du installera .NET Core 3,0 på din utvecklings dator. Du kan hämta den här versionen av .NET Core SDK för flera plattformar från [Hämta .net Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 

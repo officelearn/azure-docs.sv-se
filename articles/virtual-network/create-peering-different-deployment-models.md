@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 318e51f12653b5cbe6bd47b9c48a57d72286a4a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 148d57da549e8364620c8417cbd61d975cea1498
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710056"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046091"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Skapa en virtuell nätverks-peering-olika distributions modeller, samma prenumeration
 
@@ -144,7 +145,7 @@ Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. D
 
 ## <a name="create-peering---powershell"></a><a name="powershell"></a>Skapa peering – PowerShell
 
-1. Installera den senaste versionen av PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) -och [AZ](https://www.powershellgallery.com/packages/Az/) -modulerna. Om du inte har använt Azure PowerShell kan du läsa [Översikt över Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Installera den senaste versionen av PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) -och [AZ](https://www.powershellgallery.com/packages/Az/) -modulerna. Om du inte har använt Azure PowerShell kan du läsa [Översikt över Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Starta en PowerShell-session.
 3. I PowerShell loggar du in på Azure genom att ange `Add-AzureAccount` kommandot. Det konto som du loggar in med måste ha de behörigheter som krävs för att skapa en virtuell nätverks-peering. En lista över behörigheter finns i [behörigheter för virtuella nätverks-peering](virtual-network-manage-peering.md#requirements-and-constraints).
 4. Om du vill skapa ett virtuellt nätverk (klassiskt) med PowerShell måste du skapa en ny eller ändra en befintlig nätverks konfigurations fil. Lär dig hur du [exporterar, uppdaterar och importerar filer för nätverks konfiguration](virtual-networks-using-network-configuration-file.md). Filen bör innehålla följande **VirtualNetworkSite** -element för det virtuella nätverk som används i den här självstudien:
@@ -209,7 +210,7 @@ Utför följande steg med hjälp av den klassiska Azure-CLI: en och Azure CLI. D
 
 När du är klar med den här självstudien kanske du vill ta bort de resurser som du skapade i självstudien, så du får inte använda avgifter för användning. Om du tar bort en resurs grupp tas även alla resurser i resurs gruppen bort.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a name="delete-portal"></a>Azure-portalen
 
 1. Skriv **myResourceGroup**i rutan Portal Sök. Klicka på **myResourceGroup**i Sök resultaten.
 2. Klicka på ikonen **ta bort** på bladet **myResourceGroup** .

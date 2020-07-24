@@ -1,15 +1,16 @@
 ---
-title: Azure IoT Hub-bindningar för Azure Functions
+title: Azure IoT Hub-utlösare för Azure Functions
 description: Lär dig att svara på händelser som skickas till en händelse ström i IoT Hub i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: f63fe965b3f37add8ddf9d262f1ef1dae9fff966
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25396da3fb9a4293633308bf2e9d3c6b3d07265d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77589732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041642"
 ---
 # <a name="azure-iot-hub-trigger-for-azure-functions"></a>Azure IoT Hub-utlösare för Azure Functions
 

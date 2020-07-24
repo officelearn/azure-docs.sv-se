@@ -3,20 +3,26 @@ title: Referens för Java-utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f1c2c3a3b6c28813cc9ecd9eb794e26e1e60d5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041544"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
-Azure Functions runtime stöder [Java se 8 LTS (Zulu 8.31.0.2-JRE 8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Den här guiden innehåller information om erna för att skriva Azure Functions med Java.
+Den här guiden innehåller detaljerad information som hjälper dig att utveckla Azure Functions med Java.
 
-När det sker på andra språk kan en Funktionsapp ha en eller flera funktioner. En Java-funktion är en `public` metod, dekorerad med anteckningen `@FunctionName` . Den här metoden definierar posten för en Java-funktion och måste vara unik i ett visst paket. En Funktionsapp som skrivits i Java kan ha flera klasser med flera offentliga metoder som är kommenterade med `@FunctionName` .
+Som Java-utvecklare, om du är nybörjare på Azure Functions, bör du först läsa någon av följande artiklar:
 
-Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också slutföra en av följande funktioner snabb starter: [skapa din första Java-funktion med Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) eller [skapa din första Java-funktion från kommando raden med maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+| Komma igång | Begrepp| 
+| -- | -- |  
+| <ul><li>[Java-funktion med Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Java/maven-funktion med Terminal/kommando-prompt](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Java-funktion med Gradle](functions-create-first-java-gradle.md)</li><li>[Java-funktion med Sol förmörkelse](functions-create-maven-eclipse.md)</li><li>[Java-funktion med IntelliJ idé](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> |
+
+## <a name="java-function-basics"></a>Grundläggande om Java-funktioner
+
+En Java-funktion är en `public` metod, dekorerad med anteckningen `@FunctionName` . Den här metoden definierar posten för en Java-funktion och måste vara unik i ett visst paket. Paketet kan ha flera klasser med flera offentliga metoder som är kommenterade med `@FunctionName` . Ett enda paket distribueras till en Function-app i Azure. När du kör i Azure tillhandahåller Function-appen distributions-, körnings-och hanterings kontexten för dina enskilda Java-funktioner.
 
 ## <a name="programming-model"></a>Programmeringsmodell 
 
@@ -30,7 +36,7 @@ För att göra det enklare att skapa Java-funktioner finns det maven verktyg och
 
 Följande utvecklings miljöer har Azure Functions verktyg som du kan använda för att skapa Java-funktions projekt: 
 
-+ [Visuell Studio-kod](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
 
@@ -48,7 +54,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-För att komma igång med den här archetype, se [Java-snabb](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)starten. 
+För att komma igång med den här archetype, se [Java-snabb](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)starten. 
 
 ## <a name="folder-structure"></a>Mappstruktur
 
@@ -87,7 +93,7 @@ Du kan använda mer än en funktion i ett projekt. Undvik att placera dina funkt
 Använd de Java-anteckningar som ingår i [com. Microsoft. Azure. Azure. functions. Annotation. *-](/java/api/com.microsoft.azure.functions.annotation) paketet för att binda indata och utdata till dina metoder. Mer information finns i [referens dokumenten för Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Du måste konfigurera ett Azure Storage konto i [local.settings.jsför](/azure/azure-functions/functions-run-local#local-settings-file) att köra Azure Blob Storage, Azure Queue Storage eller Azure Table Storage-utlösare lokalt.
+> Du måste konfigurera ett Azure Storage konto i [local.settings.jsför](./functions-run-local.md#local-settings-file) att köra Azure Blob Storage, Azure Queue Storage eller Azure Table Storage-utlösare lokalt.
 
 Exempel:
 
@@ -125,9 +131,58 @@ Här är det genererade `function.json` som motsvarar [Azure-Functions-maven-plu
 
 ```
 
+## <a name="java-versions"></a>Java-versioner
+
+_Stöd för Java 11 är för närvarande en för hands version_
+
+Den version av Java som används när du skapade Function-appen där funktioner körs i Azure anges i pom.xml-filen. Maven-archetype genererar för närvarande en pom.xml för Java 8, som du kan ändra innan du publicerar. Java-versionen i pom.xml måste matcha den version som du har utvecklat lokalt och testat din app på. 
+
+### <a name="supported-versions"></a>Versioner som stöds
+
+I följande tabell visas aktuella Java-versioner som stöds för varje huvud version av Functions-körningen, efter operativ system:
+
+| Funktions version | Java-versioner (Windows) | Java-versioner (Linux) |
+| ----- | ----- | --- |
+| 3.x | 11 (för hands version)<br/>7,8<sup>\*</sup> | 11 (för hands version)<br/>8 |
+| 2x | 8 | saknas |
+
+<sup>\*</sup>Detta är den aktuella standardinställningen för den pom.xml som genereras av maven-archetype.
+
+### <a name="specify-the-deployment-version"></a>Ange distributions version
+
+För närvarande genererar maven-archetype en pom.xml som är riktad mot Java 8. Följande element i pom.xml måste uppdateras för att skapa en Function-app som kör Java 11.
+
+| Element |  Java 8-värde | Java 11-värde | Beskrivning |
+| ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | Den version av Java som används av maven-compiler-plugin-programmet. |
+| **`JavaVersion`** | 8 | 11 | Java-version som körs av Function-appen i Azure. |
+
+I följande exempel visas inställningarna för Java 8 i relevanta avsnitt i pom.xml-filen:
+
+#### `Java.version`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="12-19" highlight="14":::
+
+#### `JavaVersion`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="80":::
+
+> [!IMPORTANT]
+> Du måste ha variabeln JAVA_HOME-miljövariabeln korrekt angiven till JDK-katalogen som används vid kompilering av kod med hjälp av Maven. Kontrol lera att JDK-versionen är minst lika hög som `Java.version` inställningen. 
+
+### <a name="specify-the-deployment-os"></a>Ange distributions-OS
+
+Med maven kan du också ange det operativ system som din Function-App körs på i Azure. Använd- `os` elementet för att välja operativ system. 
+
+| Element |  Windows | Linux | Docker |
+| ---- | ---- | ---- | --- |
+| **`os`** | windows | Linux | Docker |
+
+I följande exempel visas operativ system inställningen i `runtime` avsnittet i pom.xml-filen:
+
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
+ 
 ## <a name="jdk-runtime-availability-and-support"></a>Tillgänglighet och support för JDK-körning 
 
-För lokal utveckling av Java Functions-appar laddar du ned och använder [Azul Zulu Enterprise för Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs från [Azul-system](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions använder Azul Java 8 JDK runtime när du distribuerar dina funktions program till molnet.
+För lokal utveckling av Java Functions-appar laddar du ned och använder lämpligt [Azul Zulu Enterprise för Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java-JDKs från [Azul-system](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions använder en Java JDK-körning i Azul när du distribuerar din Function-app till molnet.
 
 [Azure-support](https://azure.microsoft.com/support/) för problem med JDKs-och Function-appar är tillgänglig med ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal.
 
@@ -146,7 +201,7 @@ Du kan ange ytterligare argument i en app-inställning med namnet `JAVA_OPTS` . 
 > [!IMPORTANT]  
 > I förbruknings planen måste du också lägga till inställningen WEBSITE_USE_PLACEHOLDER med värdet 0 för att anpassningen ska fungera. Den här inställningen ökar kall start tider för Java functions.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 I [Azure Portal](https://portal.azure.com)använder du [fliken program inställningar](functions-how-to-use-azure-function-app-settings.md#settings) för att lägga till `JAVA_OPTS` inställningen.
 
@@ -154,7 +209,7 @@ I [Azure Portal](https://portal.azure.com)använder du [fliken program inställn
 
 Du kan använda kommandot [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings) för att ange `JAVA_OPTS` , som i följande exempel:
 
-#### <a name="consumption-plan"></a>[Förbruknings plan](#tab/consumption)
+#### <a name="consumption-plan"></a>[Förbrukningsplan](#tab/consumption)
 ```azurecli-interactive
 az functionapp config appsettings set \
 --settings "JAVA_OPTS=-Djava.awt.headless=true" \
@@ -334,7 +389,7 @@ Du anropar den här funktionen på en HttpRequest. Den skriver flera värden til
 
 ## <a name="metadata"></a>Metadata
 
-Några utlösare skickar [Utlös ande metadata](/azure/azure-functions/functions-triggers-bindings) tillsammans med indata. Du kan använda anteckningen `@BindingName` för att binda till Utlös ande metadata.
+Några utlösare skickar [Utlös ande metadata](./functions-triggers-bindings.md) tillsammans med indata. Du kan använda anteckningen `@BindingName` för att binda till Utlös ande metadata.
 
 
 ```Java

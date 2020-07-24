@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641106"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042807"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -174,7 +175,7 @@ Du kan definiera de IP-adresser som tillåts att publicera video till den här k
 Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
 ## <a name="channel-preview"></a>Kanal för hands version
-### <a name="preview-urls"></a>Förhandsgranska URL: er
+### <a name="preview-urls"></a>Förhandsgransknings-URL:er
 Kanaler tillhandahåller en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
 
 Du kan hämta URL: en för för hands versionen när du skapar kanalen. Kanalen behöver inte vara i **körnings** läge för att hämta URL: en.
@@ -218,12 +219,12 @@ Anger den för inställning som ska användas av direktsänd kodare i den här k
 
 | Hastigheten | Bredd | Höjd | MaxFPS | Profil | Namn på utdataström |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Hög |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Hög |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Hög |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Hög |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Hög |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Hög |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Högt |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Högt |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Högt |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Högt |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Högt |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Högt |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Utdata, ljud ström
 
@@ -312,7 +313,7 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 | Kanal tillstånd | Portal GRÄNSSNITTs indikatorer | Debiteras? |
 | --- | --- | --- |
 | Startar |Startar |Nej (tillfälligt tillstånd) |
-| Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |Ja |
+| Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |Yes |
 | Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
 | Stoppad |Stoppad |No |
 
@@ -321,7 +322,7 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 > 
 > 
 
-## <a name="considerations"></a><a id="Considerations"></a>Att tänka på
+## <a name="considerations"></a><a id="Considerations"></a>Överväganden
 * När en kanal med **standard** kodnings typ får en förlust av inmatnings källa/bidrags flöden, kompenseras det genom att ersätta käll videon/ljudet med fel på Skriv-och-ljud. Kanalen fortsätter att generera en arbets gång tills inmatnings-/bidrags flödet återupptas. Vi rekommenderar att en Live-kanal inte lämnas i ett sådant tillstånd längre än 2 timmar. Utöver den punkten garanteras inte beteendet för kanalen vid åter anslutning av inaktivitet, varken dess beteende som svar på ett återställnings kommando. Du måste stoppa kanalen, ta bort den och skapa en ny.
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
 * Varje gång du konfigurerar om Live-kodaren anropar du **återställnings** metoden i kanalen. Innan du återställer kanalen måste du stoppa programmet. Starta om programmet när du har återställt kanalen.
@@ -359,11 +360,10 @@ Granska sökvägarna för Media Services-utbildning.
 
 [Skapa kanaler som utför live encoding från en enkel bit hastighet till data ström med anpassningsbar bit hastighet med .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Hantera kanaler med REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Hantera kanaler med REST API](/rest/api/media/operations/channel)
 
 [Media Services begrepp](media-services-concepts.md)
 
 [Azure Media Services-specifikation för fragmenterad MP4 Live](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

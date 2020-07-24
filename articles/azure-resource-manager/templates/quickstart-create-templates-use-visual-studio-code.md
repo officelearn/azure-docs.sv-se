@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040515"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Snabb start: Skapa Azure Resource Manager mallar med Visual Studio Code
 
@@ -18,7 +18,7 @@ Azure Resource Manager Tools för Visual Studio Code tillhandahåller språk st�
 
 För att slutföra den här snabb starten behöver du [Visual Studio Code](https://code.visualstudio.com/)med [tillägget Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installerat. Du behöver också antingen [Azure CLI](/cli/azure/?view=azure-cli-latest) eller Azure PowerShell- [modulen](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installerad och autentiserad.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-arm-template"></a>Skapa en ARM-mall
 
@@ -102,7 +102,7 @@ Välj `New`  >  `All Parameters` > Välj ett namn och en plats för parameter fi
 
 Den här åtgärden skapar en ny parameter fil och mappar den till den mall som den skapades från. Du kan se och ändra den aktuella mallen för mall-/parameter fil i statusfältet i Visual Studio Code medan mallen är markerad.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Bild som visar mall-och parameter fil mappning i statusfältet i Visual Studio Code.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Nu när parameter filen har mappats till mallen validerar tillägget både mall-och parameter filen tillsammans. Om du vill se den här verifieringen i praktiken lägger du till ett två-Character-värde i `storageAccountName` parametern i parameter filen och sparar filen.
 

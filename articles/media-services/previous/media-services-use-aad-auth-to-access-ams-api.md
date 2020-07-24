@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d73c280e3f5639b11e0d07b9ef2f775f48cd3c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682049"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038496"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Ansluta till API:et för Azure Media Services med Azure AD-autentisering  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-Azure Media Services API är ett RESTful-API. Du kan använda den för att utföra åtgärder på medie resurser genom att använda en REST API eller genom att använda tillgängliga klient-SDK: er. Azure Media Services erbjuder ett Media Services klient-SDK för Microsoft .NET. För att få åtkomst till Media Services resurser och Media Services-API: et måste du först autentiseras. 
+Azure Media Services API är ett RESTful-API. Du kan använda den för att utföra åtgärder på medie resurser genom att använda en REST API eller genom att använda tillgängliga klient-SDK: er. Azure Media Services erbjuder ett Media Services klient-SDK för Microsoft .NET. Du måste autentiseras innan du kan få åtkomst till Media Services-resurser och Media Services-API:et. 
 
 Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../../active-directory/fundamentals/active-directory-whatis.md). Tjänsten Azure Media REST kräver att användaren eller programmet som gör REST API begär Anden antingen har rollen **deltagare** eller **ägare** för att få åtkomst till resurserna. Mer information finns i [Kom igång med rollbaserad Access Control i Azure Portal](../../role-based-access-control/overview.md).  
 
@@ -45,7 +46,7 @@ Obehöriga begär Anden kan inte utföras med status koden 401. Om den här felk
  
 När du använder Azure AD-autentisering med Azure Media Services har du två autentiserings alternativ:
 
-- **Användarautentisering**. Autentisera en person som använder appen för att interagera med Media Services resurser. Det interaktiva programmet bör först uppmana användaren att ange användarens autentiseringsuppgifter. Ett exempel är en hanterings konsol app som används av behöriga användare för att övervaka kodnings jobb eller direktsänd strömning. 
+- **Användarautentisering**. Autentisera en person som använder appen för att interagera med Media Services resurser. Det interaktiva programmet bör först uppmana användaren att ange användarens autentiseringsuppgifter. Ett exempel är en hanteringskonsolapp som används av behöriga användare för att övervaka kodningsjobb eller liveuppspelning. 
 - **Autentisering av tjänstens huvud namn**. Autentisera en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb. Exempel är webbappar, Function-appar, Logic Apps, API och mikrotjänster.
 
 ### <a name="user-authentication"></a>Användarautentisering 
@@ -148,12 +149,11 @@ Lösning: för att Media Services REST-begäran ska lyckas måste den anropande 
 
 Följande artiklar är översikter över Azure AD-autentisering: 
 
-- [Autentiserings scenarier som hanteras av Azure AD](../../active-directory/develop/authentication-scenarios.md)
-- [Lägga till, uppdatera eller ta bort ett program i Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Autentiserings scenarier som hanteras av Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
+- [Lägga till, uppdatera eller ta bort ett program i Azure AD](../../active-directory/develop/quickstart-register-app.md)
 - [Konfigurera och hantera rollbaserade Access Control med hjälp av PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd Azure Portal för att [få åtkomst till Azure AD-autentisering för att använda Azure Media Services API](media-services-portal-get-started-with-aad.md).
 * Använd Azure AD-autentisering för att [komma åt Azure Media Services API med .net](media-services-dotnet-get-started-with-aad.md).
-

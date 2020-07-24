@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5d775e876a0cce1ba13964d6d4777307a34fdf3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4481e62fb15b5ec21b48deb00f1438abf01aa27a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041477"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Effekt analys med Application Insights
 
@@ -79,7 +80,7 @@ Hur påverkan beräknas i slut ändan beroende på om vi analyserar av mått ell
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sid visningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)om du vill aktivera användnings upplevelser.
+- Börja skicka [anpassade händelser](./api-custom-events-metrics.md#trackevent) eller [sid visningar](./api-custom-events-metrics.md#page-views)om du vill aktivera användnings upplevelser.
 - Om du redan skickar anpassade händelser eller sid visningar, utforska användnings verktygen för att lära dig hur användarna använder tjänsten.
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](usage-retention.md)

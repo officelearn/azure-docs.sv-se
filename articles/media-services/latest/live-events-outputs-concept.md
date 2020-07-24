@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c41538acdb8ed94ee4995ad8d5f5e4cebb2e14d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043443"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Live-händelser och Live-utdata i Media Services
 
@@ -29,11 +30,11 @@ Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azur
 
 ## <a name="live-events"></a>Livehändelser
 
-[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en Live-händelse skapas en slut punkt för primär och sekundär ingång som du kan använda för att skicka en Live-signal från en fjär kodare. Remote Live Encoder skickar bidrags flödet till den angivna slut punkten med hjälp av antingen [RTMP](https://www.adobe.com/devnet/rtmp.html) -eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) -protokollet (fragmenterad-MP4). I RTMP-inmatnings protokollet kan innehållet skickas i klartext ( `rtmp://` ) eller säkert krypterat i kabeln ( `rtmps://` ). För det Smooth Streaming inmatnings protokollet är de URL-scheman som stöds `http://` eller `https://` .  
+[Livehändelser](/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en Live-händelse skapas en slut punkt för primär och sekundär ingång som du kan använda för att skicka en Live-signal från en fjär kodare. Remote Live Encoder skickar bidrags flödet till den angivna slut punkten med hjälp av antingen [RTMP](https://www.adobe.com/devnet/rtmp.html) -eller [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) -protokollet (fragmenterad-MP4). I RTMP-inmatnings protokollet kan innehållet skickas i klartext ( `rtmp://` ) eller säkert krypterat i kabeln ( `rtmps://` ). För det Smooth Streaming inmatnings protokollet är de URL-scheman som stöds `http://` eller `https://` .  
 
 ## <a name="live-event-types"></a>Direktsända händelse typer
 
-En [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). Typerna anges när du skapar med [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+En [Live-händelse](/rest/api/media/liveevents) kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). Typerna anges när du skapar med [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType. None**: en lokal Live-kodare skickar en data ström med flera bit hastigheter. Den inmatade strömmen passerar genom Live-händelsen utan ytterligare bearbetning. Kallas även genom strömnings läge.
 * **LiveEventEncodingType. standard**: en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. Om bidrags flödet är av 720p eller högre, kommer **Default720p** att koda en uppsättning med 6 lösnings-/bit hastighets par.
@@ -86,7 +87,7 @@ När du skapar en Live-händelse kan du ange följande alternativ:
 ### <a name="naming-rules"></a>Namngivningsregler
 
 * Max namnet för Live-händelser är 32 tecken.
-* Namnet ska följa det här [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
+* Namnet ska följa det här [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 Se även [namn konventioner för direkt uppspelnings slut punkter](streaming-endpoint-concept.md#naming-convention).
 
@@ -123,9 +124,9 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 
     |Språk|Aktivera anpassad-URL|Ange åtkomst-token|
     |---|---|---|
-    |REST|[egenskaper. vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--anpassad-URL](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--åtkomsttoken](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[egenskaper. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--anpassad-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--åtkomsttoken](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>Namn regler för Live-inmatnings-URL
 
@@ -163,7 +164,7 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 
 ## <a name="live-event-preview-url"></a>URL för förhands granskning av live event
 
-När Live-händelsen börjar ta emot mottagar flödet kan du använda dess förhands gransknings slut punkt för att förhandsgranska och validera att du tar emot den aktiva strömmen innan du publicerar den. När du har kontrollerat att förhands gransknings strömmen är korrekt kan du använda direkt sändningen för att göra en Live-dataström tillgänglig för leverans via en eller flera slut punkter för direkt uppspelning. Det gör du genom att skapa en ny [Live-utmatning](https://docs.microsoft.com/rest/api/media/liveoutputs) för Live-evenemanget.
+När Live-händelsen börjar ta emot mottagar flödet kan du använda dess förhands gransknings slut punkt för att förhandsgranska och validera att du tar emot den aktiva strömmen innan du publicerar den. När du har kontrollerat att förhands gransknings strömmen är korrekt kan du använda direkt sändningen för att göra en Live-dataström tillgänglig för leverans via en eller flera slut punkter för direkt uppspelning. Det gör du genom att skapa en ny [Live-utmatning](/rest/api/media/liveoutputs) för Live-evenemanget.
 
 > [!IMPORTANT]
 > Se till att videon flödar till förhands gransknings-URL: en innan du fortsätter!
@@ -174,7 +175,7 @@ Mer information finns i [tids krävande åtgärder](media-services-apis-overview
 
 ## <a name="live-outputs"></a>Liveutdata
 
-När strömmen flödar in i Live-evenemanget kan du starta den strömmande händelsen genom att skapa en [till gång](https://docs.microsoft.com/rest/api/media/assets), en [Live-utgång](https://docs.microsoft.com/rest/api/media/liveoutputs)och en [strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators). Live-utdata kommer att arkivera strömmen och göra den tillgänglig för användare via [slut punkten för direkt uppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
+När strömmen flödar in i Live-evenemanget kan du starta den strömmande händelsen genom att skapa en [till gång](/rest/api/media/assets), en [Live-utgång](/rest/api/media/liveoutputs)och en [strömmande positionerare](/rest/api/media/streaminglocators). Live-utdata kommer att arkivera strömmen och göra den tillgänglig för användare via [slut punkten för direkt uppspelning](/rest/api/media/streamingendpoints).  
 
 Detaljerad information om direktsända utdata finns i [använda en moln-DVR](live-event-cloud-dvr.md).
 

@@ -5,15 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/09/2020
+ms.date: 07/20/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8edb36345de4516077b3c857cff33389062cc7f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044561"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Felsöka Azure Data Factory-anslutningsprogram
 
@@ -156,12 +157,28 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 - **Meddelande**:`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-### <a name="error-code--adlsgen2timeouterror"></a>Felkod: AdlsGen2TimeoutError
+### <a name="error-code-adlsgen2timeouterror"></a>Felkod: AdlsGen2TimeoutError
 
 - **Meddelande**:`Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+
+### <a name="error-message-the-underlying-connection-was-closed-could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Fel meddelande: den underliggande anslutningen stängdes: det gick inte att upprätta en förtroende relation för den säkra SSL/TLS-kanalen.
+
+- **Symptom**: kopierings aktiviteten Miss lyckas med följande fel: 
+
+    ```
+    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    ```
+
+- **Orsak**: certifikat valideringen misslyckades under TLS-handskakning.
+
+- **Lösning**: lösning: Använd mellanlagrad kopia för att hoppa över TLS-valideringen för ADLS gen1. Du måste återskapa det här problemet och samla in Netmon-spårning och sedan engagera nätverks teamet för att kontrol lera den lokala nätverks konfigurationen enligt [den här artikeln](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace).
+
+
+    ![Felsöka ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Fel meddelande: fjärrservern returnerade ett fel: (403) ej tillåtet
 
@@ -221,6 +238,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 - **Orsak**: om fel meddelandet innehåller "InvalidOperationException", orsakas det vanligt vis av ogiltiga indata.
 
 - **Rekommendation**: om du vill identifiera vilken rad som stöter på problemet aktiverar du fel tolerans funktionen för kopierings aktiviteten, som kan dirigera om problematiska rader till lagringen för ytterligare undersökning. Referens dokument: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
+
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Felkod: SqlUnauthorizedAccess
@@ -371,7 +389,7 @@ Den här artikeln visar vanliga fel söknings metoder för anslutningar i Azure 
 
 - **Lösning**: ange alternativet**Använd typ standard**som falskt under PolyBase Settings i kopierings aktivitets handfat.
 
-### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>Fel meddelande: Java-undantags meddelande: HdfsBridge:: CreateRecordReader
+### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>Fel meddelande: Java-undantags meddelande: HdfsBridge:: CreateRecordReader
 
 - **Symptom**: du kopierar data till Azure SQL Data Warehouse med PolyBase och trycker på följande fel:
 

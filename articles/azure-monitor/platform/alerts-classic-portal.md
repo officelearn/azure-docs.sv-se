@@ -5,11 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97c1819d665e6964343e853249a0d22aa07c3588
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045593"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, Visa och hantera klassiska mått varningar med Azure Monitor
 
@@ -51,7 +52,7 @@ När du har skapat en avisering kan du välja den och utföra en av följande up
 
 ## <a name="with-azure-cli"></a>Med Azure CLI
 
-I föregående avsnitt beskrivs hur du skapar, visar och hanterar mått varnings regler med hjälp av Azure Portal. Det här avsnittet beskriver hur du gör på samma sätt som med plattforms oberoende [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Det snabbaste sättet att börja använda Azure CLI är genom [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
+I föregående avsnitt beskrivs hur du skapar, visar och hanterar mått varnings regler med hjälp av Azure Portal. Det här avsnittet beskriver hur du gör på samma sätt som med plattforms oberoende [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Det snabbaste sättet att börja använda Azure CLI är genom [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest).
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Hämta alla klassiska mått för varnings regler i en resurs grupp
 
@@ -87,7 +88,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 I det här avsnittet visas hur du använder PowerShell-kommandon för att skapa, Visa och hantera klassiska mått varningar. I exemplen i artikeln visas hur du kan använda Azure Monitor-cmdletar för klassiska mått varningar.
 
-1. Om du inte redan har gjort det konfigurerar du PowerShell att köras på datorn. Mer information finns i [så här installerar och konfigurerar du PowerShell](/powershell/azure/overview). Du kan också granska hela listan med Azure Monitor PowerShell-cmdletar i [Azure Monitor (insikter)-cmdletar](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+1. Om du inte redan har gjort det konfigurerar du PowerShell att köras på datorn. Mer information finns i [så här installerar och konfigurerar du PowerShell](/powershell/azure/). Du kan också granska hela listan med Azure Monitor PowerShell-cmdletar i [Azure Monitor (insikter)-cmdletar](/powershell/module/az.applicationinsights).
 
 2. Börja med att logga in på din Azure-prenumeration.
 

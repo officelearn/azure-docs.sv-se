@@ -12,15 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039150"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Använd den innehålls medveten kodnings inställningen för att hitta det optimala värdet för bit hastighet för en specifik lösning
 
-För att förbereda innehåll för leverans av [direkt uppspelning med anpassningsbar bit hastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)måste video kodas med flera bit hastigheter (hög till låg). Detta säkerställer en korrekt försämring av kvaliteten, eftersom bit hastigheten sänks så är videons upplösning. Sådan kodning med flera bit hastigheter använder en så kallad kodnings steg – en tabell över lösningar och bit hastigheter finns i Media Services [inbyggda kodnings för inställningar](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+För att förbereda innehåll för leverans av [direkt uppspelning med anpassningsbar bit hastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)måste video kodas med flera bit hastigheter (hög till låg). Detta säkerställer en korrekt försämring av kvaliteten, eftersom bit hastigheten sänks så är videons upplösning. Sådan kodning med flera bit hastigheter använder en så kallad kodnings steg – en tabell över lösningar och bit hastigheter finns i Media Services [inbyggda kodnings för inställningar](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 Du bör vara medveten om det innehåll som du bearbetar och anpassa/finjustera kodnings stegen till den enskilda videons komplexitet. Vid varje lösning är det en bit hastighet utöver vilken eventuell ökning av kvalitet inte är Perceptive – kodaren fungerar med detta värde för optimal bit hastighet. Nästa optimerings nivå är att välja lösningarna baserat på innehållet, till exempel om en video i en PowerPoint-presentation inte drar nytta av under 720p. Om du går vidare kan kodaren utföra åtgärder för att optimera inställningarna för varje bild i videon. 
 
@@ -81,7 +82,7 @@ TransformOutput[] output = new TransformOutput[]
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudie: Ladda upp, koda och strömma videor med Media Services v3](stream-files-tutorial-with-api.md)
-* [Självstudie: koda en fjärrfil baserat på URL och strömma videon REST](stream-files-tutorial-with-rest.md)
+* [Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)
 * [Självstudie: koda en fjärrfil baserat på URL och strömma video-CLI](stream-files-cli-quickstart.md)
 * [Självstudie: koda en fjärrfil baserat på URL och strömma videon – .NET](stream-files-dotnet-quickstart.md)
 * [Självstudie: koda en fjärrfil baserat på URL och strömma video-Node.js](stream-files-nodejs-quickstart.md)

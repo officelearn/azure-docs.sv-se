@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ca1b8b453be433f7db428f3b256677b9945ce40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038910"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services begrepp 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Det här avsnittet ger en översikt över de viktigaste Media Services begreppen.
 
-## <a name="assets-and-storage"></a><a id="assets"/>Till gångar och lagring
+## <a name="assets-and-storage"></a><a name="assets"></a>Till gångar och lagring
 ### <a name="assets"></a>Tillgångar
-En [till gång](https://docs.microsoft.com/rest/api/media/operations/asset) innehåller digitala filer (inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning) och metadata om dessa filer. När de digitala filerna har laddats upp till en till gång kan de användas i Media Services kodning och strömnings arbets flöden.
+En [till gång](/rest/api/media/operations/asset) innehåller digitala filer (inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning) och metadata om dessa filer. När de digitala filerna har laddats upp till en till gång kan de användas i Media Services kodning och strömnings arbets flöden.
 
 En till gång mappas till en BLOB-behållare i Azure Storage-kontot och filerna i till gången lagras som block-blobbar i den behållaren. Page blobbar stöds inte av Azure Media Services.
 
@@ -39,7 +39,7 @@ När du bestämmer vilket medie innehåll som ska laddas upp och lagras i en til
 * En till gång får inte innehålla flera åter givningar eller redigeringar av en audiovisuell fil. Ett exempel på en felaktig användning av en till gång skulle försöka lagra fler än ett TV-avsnitt, annons eller flera kamera vinklar från en enda produktion i en till gång. Att lagra flera åter givningar eller redigeringar av en audiovisuell fil i en till gång kan leda till problem med att skicka kodnings jobb, strömma och säkra leverans av till gången senare i arbets flödet.  
 
 ### <a name="asset-file"></a>Till gångs fil
-En [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representerar en faktisk video-eller ljudfil som lagras i en BLOB-behållare. En till gångs fil är alltid kopplad till en till gång och en till gång kan innehålla en eller flera filer. Media Services Encoder-aktiviteten Miss lyckas om ett till gångs fil objekt inte är associerat med en digital fil i en BLOB-behållare.
+En [AssetFile](/rest/api/media/operations/assetfile) representerar en faktisk video-eller ljudfil som lagras i en BLOB-behållare. En till gångs fil är alltid kopplad till en till gång och en till gång kan innehålla en eller flera filer. Media Services Encoder-aktiviteten Miss lyckas om ett till gångs fil objekt inte är associerat med en digital fil i en BLOB-behållare.
 
 **AssetFile** -instansen och den faktiska medie filen är två distinkta objekt. AssetFile-instansen innehåller metadata om medie filen, medan medie filen innehåller det faktiska medie innehållet.
 
@@ -63,7 +63,7 @@ För att kunna leverera en lagrings krypterad till gång måste du konfigurera t
 
 ### <a name="access-policy"></a>Åtkomstprincip
 
-En [Access policy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) definierar behörigheter (t. ex. läsa, skriva och lista) och varaktigheten för åtkomst till en till gång. Du skickar vanligt vis ett Access policy-objekt till en positionerare som sedan används för att komma åt filerna som finns i en till gång.
+En [Access policy](/rest/api/media/operations/accesspolicy) definierar behörigheter (t. ex. läsa, skriva och lista) och varaktigheten för åtkomst till en till gång. Du skickar vanligt vis ett Access policy-objekt till en positionerare som sedan används för att komma åt filerna som finns i en till gång.
 
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
@@ -76,8 +76,8 @@ En BLOB-behållare tillhandahåller en gruppering av en uppsättning blobbar. BL
 > 
 > 
 
-### <a name="locators"></a><a id="locators"/>Positionerare
-[Locator](https://docs.microsoft.com/rest/api/media/operations/locator)s ger en start punkt för att komma åt filerna som ingår i en till gång. En åtkomst princip används för att definiera behörigheter och varaktighet som en klient har åtkomst till en specifik till gång. Lokaliserare kan ha en många-till-en-relation med en åtkomst princip, så att olika positionerare kan ge olika start tider och anslutnings typer till olika klienter samtidigt som du använder samma behörighets-och varaktighets inställningar. men på grund av en begränsning för delad åtkomst princip som anges av Azure Storage-tjänster kan du inte ha fler än fem unika positionerare som är kopplade till en specifik till gång på samma gång. 
+### <a name="locators"></a><a name="locators"></a>Positionerare
+[Locator](/rest/api/media/operations/locator)s ger en start punkt för att komma åt filerna som ingår i en till gång. En åtkomst princip används för att definiera behörigheter och varaktighet som en klient har åtkomst till en specifik till gång. Lokaliserare kan ha en många-till-en-relation med en åtkomst princip, så att olika positionerare kan ge olika start tider och anslutnings typer till olika klienter samtidigt som du använder samma behörighets-och varaktighets inställningar. men på grund av en begränsning för delad åtkomst princip som anges av Azure Storage-tjänster kan du inte ha fler än fem unika positionerare som är kopplade till en specifik till gång på samma gång. 
 
 Media Services stöder två typer av lokaliserare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG-streck, HLS eller Smooth Streaming) eller progressivt Ladda ned Media och SAS URL-positionerare som används för att ladda upp eller ladda ned mediefiler to\from Azure Storage. 
 
@@ -85,12 +85,12 @@ Media Services stöder två typer av lokaliserare: OnDemandOrigin-positionerare 
 >List behörigheten (AccessPermissions. list) bör inte användas när du skapar en OnDemandOrigin-lokaliserare. 
 
 ### <a name="storage-account"></a>Lagringskonto
-All åtkomst till Azure Storage görs via ett lagrings konto. Ett media service-konto kan associeras med ett eller flera lagrings konton. Ett konto kan innehålla ett obegränsat antal behållare, så länge den totala storleken är under 500TB per lagrings konto.  Media Services tillhandahåller verktyg för SDK-nivå så att du kan hantera flera lagrings konton och belastningsutjämna distributionen av dina till gångar under överföring till dessa konton baserat på mått eller slumpmässig distribution. Mer information finns i arbeta med [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
+All åtkomst till Azure Storage görs via ett lagrings konto. Ett media service-konto kan associeras med ett eller flera lagrings konton. Ett konto kan innehålla ett obegränsat antal behållare, så länge den totala storleken är under 500TB per lagrings konto.  Media Services tillhandahåller verktyg för SDK-nivå så att du kan hantera flera lagrings konton och belastningsutjämna distributionen av dina till gångar under överföring till dessa konton baserat på mått eller slumpmässig distribution. Mer information finns i arbeta med [Azure Storage](/previous-versions/azure/dn767951(v=azure.100)). 
 
 ## <a name="jobs-and-tasks"></a>Jobb och uppgifter
-Ett [jobb](https://docs.microsoft.com/rest/api/media/operations/job) används vanligt vis för att bearbeta (till exempel indexera eller koda) en ljud-/video presentation. Om du bearbetar flera videor skapar du ett jobb för varje video som ska kodas.
+Ett [jobb](/rest/api/media/operations/job) används vanligt vis för att bearbeta (till exempel indexera eller koda) en ljud-/video presentation. Om du bearbetar flera videor skapar du ett jobb för varje video som ska kodas.
 
-Ett jobb innehåller metadata om den bearbetning som ska utföras. Varje jobb innehåller en eller flera [uppgifter](https://docs.microsoft.com/rest/api/media/operations/task)som anger en atomisk bearbetnings uppgift, dess inmatnings till gångar, utgående till gångar, en medie processor och dess associerade inställningar. Aktiviteter i ett jobb kan kopplas samman, där utdata till gång till en aktivitet anges som indata till gång till nästa uppgift. På så sätt kan ett jobb innehålla all bearbetning som krävs för en Media presentation.
+Ett jobb innehåller metadata om den bearbetning som ska utföras. Varje jobb innehåller en eller flera [uppgifter](/rest/api/media/operations/task)som anger en atomisk bearbetnings uppgift, dess inmatnings till gångar, utgående till gångar, en medie processor och dess associerade inställningar. Aktiviteter i ett jobb kan kopplas samman, där utdata till gång till en aktivitet anges som indata till gång till nästa uppgift. På så sätt kan ett jobb innehålla all bearbetning som krävs för en Media presentation.
 
 ## <a name="encoding"></a><a id="encoding"></a>Kodning
 Azure Media Services tillhandahåller flera alternativ för kodning av media i molnet.
@@ -116,14 +116,14 @@ I Azure Media Services representerar en kanal en pipeline för bearbetning av di
 * En data ström med en bit hastighet (i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4)) skickas till den kanal som är aktive rad för att utföra direktsänd kodning med Media Services. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
 ### <a name="channel"></a>Kanal
-I Media Services är [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s ansvarig för bearbetning av direktsänd strömmande innehåll. En kanal tillhandahåller en inmatnings slut punkt (inmatnings-URL) som du sedan anger till en Live-kodare. Kanalen tar emot direktsända indata strömmar från direktsänd kodare och gör den tillgänglig för strömning via en eller flera strömnings slut punkter. Kanaler tillhandahåller också en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
+I Media Services är [kanal](/rest/api/media/operations/channel)s ansvarig för bearbetning av direktsänd strömmande innehåll. En kanal tillhandahåller en inmatnings slut punkt (inmatnings-URL) som du sedan anger till en Live-kodare. Kanalen tar emot direktsända indata strömmar från direktsänd kodare och gör den tillgänglig för strömning via en eller flera strömnings slut punkter. Kanaler tillhandahåller också en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
 
 Du kan hämta inmatnings-URL: en och URL: en för för hands versionen när du skapar kanalen. För att hämta dessa URL: er behöver kanalen inte vara i Start läge. När du är redo att börja skicka data från en Live-kodare till kanalen måste du starta kanalen. När Live-kodaren börjar mata in data kan du förhandsgranska data strömmen.
 
 Varje Media Services konto kan innehålla flera kanaler, flera program och flera strömnings slut punkter. Beroende på bandbredds-och säkerhets behoven kan StreamingEndpoint-tjänster vara dedikerade till en eller flera kanaler. Alla StreamingEndpoint kan hämta från vilken kanal som helst.
 
 ### <a name="program-event"></a>Program (händelse)
-Ett [program (Event)](https://docs.microsoft.com/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en Live-dataström. Kanaler hanterar program (händelser). Kanal-och program relationen liknar traditionella medier där en kanal har en konstant ström med innehåll och ett program är begränsad till en viss tids period på den kanalen.
+Ett [program (Event)](/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en Live-dataström. Kanaler hanterar program (händelser). Kanal-och program relationen liknar traditionella medier där en kanal har en konstant ström med innehåll och ett program är begränsad till en viss tids period på den kanalen.
 Du kan ange hur många timmar du vill behålla det inspelade innehållet för programmet genom att ange egenskapen **ArchiveWindowLength** . Det här värdet kan anges från minst 5 minuter till högst 25 timmar.
 
 ArchiveWindowLength anger också den maximala tid som klienter kan söka bakåt i tiden från den nuvarande aktiva positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
@@ -161,7 +161,7 @@ Mer information finns i följande artiklar:
 - [Skydda med PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Kvalitativ
-### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Dynamisk paketering
+### <a name="dynamic-packaging"></a><a name="dynamic_packaging"></a>Dynamisk paketering
 När du arbetar med Media Services bör du koda dina mezzaninfil-filer till en MP4-uppsättning med anpassad bit hastighet och sedan konvertera uppsättningen till önskat format med hjälp av den [dynamiska packningen](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Slutpunkt för direktuppspelning
@@ -181,7 +181,7 @@ Som standard kan du ha upp till 2 strömnings slut punkter i Media Services-kont
 Du debiteras bara när StreamingEndpoint är i körnings läge.
 
 ### <a name="asset-delivery-policy"></a>Till gångs leverans princip
-Ett av stegen i arbets flödet för Media Services innehålls leverans är att konfigurera [leverans principer för till gångar](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)som du vill strömma. Policyn för till gångs leverans anger Media Services hur du vill att din till gång ska levereras: i vilket strömnings protokoll ska din till gång vara dynamiskt paketerad (till exempel MPEG-streck, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera till gången dynamiskt och hur (kuvert eller gemensam kryptering).
+Ett av stegen i arbets flödet för Media Services innehålls leverans är att konfigurera [leverans principer för till gångar](/rest/api/media/operations/assetdeliverypolicy)som du vill strömma. Policyn för till gångs leverans anger Media Services hur du vill att din till gång ska levereras: i vilket strömnings protokoll ska din till gång vara dynamiskt paketerad (till exempel MPEG-streck, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera till gången dynamiskt och hur (kuvert eller gemensam kryptering).
 
 Om du har en lagrings krypterad till gång, innan din till gång kan strömmas, tar streaming-servern bort lagrings krypteringen och strömmar ditt innehåll med den angivna leverans principen. Om du till exempel vill leverera din till gång krypterad med Advanced Encryption Standard AES-kryptering, anger du princip typen till DynamicEnvelopeEncryption. Om du vill ta bort lagrings kryptering och strömma till gången i Clear, anger du princip typen till NoDynamicEncryption.
 
@@ -191,7 +191,7 @@ Med progressiv nedladdning kan du starta uppspelning av media innan hela filen h
 >[!NOTE]
 >Du måste dekryptera krypterade resurser om du vill att de ska vara tillgängliga för progressiv nedladdning.
 
-För att ge användarna en URL för progressiv nedladdning måste du först skapa en OnDemandOrigin-lokaliserare. När du skapar en positionerare får du bas sökvägen till till gången. Du måste lägga till namnet på MP4-filen. Till exempel:
+För att ge användarna en URL för progressiv nedladdning måste du först skapa en OnDemandOrigin-lokaliserare. När du skapar en positionerare får du bas sökvägen till till gången. Du måste lägga till namnet på MP4-filen. Exempel:
 
 `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
@@ -238,4 +238,3 @@ http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

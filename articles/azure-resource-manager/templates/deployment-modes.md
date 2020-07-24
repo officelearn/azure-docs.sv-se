@@ -2,12 +2,13 @@
 title: Distributionsmodeller
 description: Beskriver hur du anger om du vill använda ett fullständigt eller stegvis distributions läge med Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040431"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager distributions lägen
 
@@ -20,6 +21,9 @@ Standard läget är stegvist.
 ## <a name="complete-mode"></a>Fullständigt läge
 
 I fullständigt läge tar Resource Manager **bort** resurser som finns i resurs gruppen men som inte har angetts i mallen.
+
+> [!NOTE]
+> Använd alltid [åtgärden konsekvens](template-deploy-what-if.md) innan du distribuerar en mall i fullständigt läge. Vad händer om du ser vilka resurser som kommer att skapas, tas bort eller ändras. Använd what-if för att undvika oavsiktlig borttagning av resurser.
 
 Om din mall innehåller en resurs som inte har distribuerats eftersom [villkoret](conditional-resource-deployment.md) utvärderas till false beror resultatet på vilken REST API version som du använder för att distribuera mallen. Om du använder en tidigare version än 2019-05-10 **tas inte resursen bort**. Med 2019-05-10 eller senare **tas resursen bort**. De senaste versionerna av Azure PowerShell och Azure CLI tar bort resursen.
 
@@ -49,6 +53,8 @@ I stegvist läge lämnar Resource Manager **oförändrade** resurser som finns i
 
 > [!NOTE]
 > När du omdistribuerar en befintlig resurs i stegvist läge tillämpas alla egenskaper igen. **Egenskaperna läggs inte till stegvis**. En vanlig förståelse är att betrakta egenskaper som inte är angivna i mallen oförändrade. Om du inte anger vissa egenskaper tolkar Resource Manager distributionen som att skriva över dessa värden. Egenskaper som inte ingår i mallen återställs till standardvärdena. Ange alla värden som inte är standardvärden för resursen, inte bara de som du uppdaterar. Resurs definitionen i mallen innehåller alltid slut tillstånd för resursen. Den kan inte representera en delvis uppdatering av en befintlig resurs.
+>
+> I sällsynta fall implementeras egenskaper som du anger för en resurs i själva verket som en underordnad resurs. När du till exempel anger plats konfigurations värden för en webbapp implementeras dessa värden i den underordnade resurs typen `Microsoft.Web/sites/config` . Om du distribuerar om webbappen och anger ett tomt objekt för plats konfigurations värden, uppdateras inte den underordnade resursen. Men om du anger nya plats konfigurations värden uppdateras den underordnade resurs typen.
 
 ## <a name="example-result"></a>Exempel resultat
 

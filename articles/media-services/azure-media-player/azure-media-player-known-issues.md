@@ -6,11 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
-ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043615"
 ---
 # <a name="known-issues"></a>Kända problem #
 
@@ -49,7 +50,7 @@ Den aktuella versionen har följande kända problem:
 
 - Till gångar som endast är ljud spelas bara tillbaka via AzureHtml5JS-Tech.
   - Om du vill spela upp till gångar utan ljud kan du göra det genom att infoga ett tomt ljud med [verktyget Azure Media Services Explorer](https://aka.ms/amse)
-  - Anvisningar om hur du infogar tyst ljud finns [här](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+  - Anvisningar om hur du infogar tyst ljud finns [här](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
 ## <a name="flash"></a>Utvecklingsverktyget ##
 

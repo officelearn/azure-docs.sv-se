@@ -4,11 +4,12 @@ description: Aktivera eller inaktivera moduler för data insamling och Lägg til
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: dde2cbf227f085b751f6ad22e1f2fa95f38c5915
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c62ed09435c470df606b610a6ce127326d32fb1e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041510"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. [Kärn paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) tillhandahåller telemetri- *moduler* och *initierare* för automatisk spårning av telemetri från ditt program och dess kontext. Genom att justera konfigurations filen kan du aktivera eller inaktivera moduler för telemetri och initierare och ange parametrar för några av dem.
@@ -85,7 +86,7 @@ Rapporterar [svars tid och resultat kod](../../azure-monitor/app/asp-net.md) fö
 * [Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft. ApplicationInsights
-Microsoft. ApplicationInsights-paketet innehåller [kärn-API: t](https://msdn.microsoft.com/library/mt420197.aspx) för SDK: n. De andra modulerna för telemetri använder detta, och du kan också [använda det för att definiera din egen telemetri](../../azure-monitor/app/api-custom-events-metrics.md).
+Microsoft. ApplicationInsights-paketet innehåller [kärn-API: t](/dotnet/api/microsoft.applicationinsights?view=azure-dotnet) för SDK: n. De andra modulerna för telemetri använder detta, och du kan också [använda det för att definiera din egen telemetri](../../azure-monitor/app/api-custom-events-metrics.md).
 
 * Ingen post i ApplicationInsights.config.
 * [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet-paket. Om du bara installerar den här NuGet genereras ingen. config-fil.

@@ -1,5 +1,5 @@
 ---
-title: Bildpoängmodell
+title: Använda modell modulen för Poäng avbildning
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder modulen för Poäng avbildnings modell i Azure Machine Learning för att generera förutsägelser med hjälp av en utbildad avbildnings modell.
 services: machine-learning
@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 021572aef673cf88f7744a0a210ef794c739448b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b949603b3e6ee51311f9c54f3e1326217f00c82d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450719"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039128"
 ---
 # <a name="score-image-model"></a>Bildpoängmodell
 

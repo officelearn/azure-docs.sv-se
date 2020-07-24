@@ -15,16 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038740"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Hantera slut punkter för direkt uppspelning med .NET SDK  
 
 >[!NOTE]
->Läs igenom [översikts](media-services-streaming-endpoints-overview.md) artikeln. Granska även [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Läs igenom [översikts](media-services-streaming-endpoints-overview.md) artikeln. Granska även [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 Koden i den här artikeln visar hur du utför följande uppgifter med hjälp av Azure Media Services .NET SDK:
 
@@ -149,4 +150,3 @@ Granska sökvägarna för Media Services-utbildning.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

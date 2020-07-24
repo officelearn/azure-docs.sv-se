@@ -4,11 +4,12 @@ description: Application Insights utför Smart analys av din app-telemetri och v
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5152a3deb73c7069655ff016fbfc03f6b9cee16d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045797"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering-prestanda avvikelser
 
@@ -48,7 +49,7 @@ Aviseringarna innehåller diagnostikinformation. Här är ett exempel:
 
 ## <a name="configure-email-notifications"></a>Konfigurera e-postaviseringar
 
-Meddelanden om Smart identifiering är aktiverade som standard och skickas till dem som har [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervaknings deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) åtkomst till den prenumeration där Application Insights resursen finns. Ändra detta genom att antingen klicka på **Konfigurera** i e-postmeddelandet eller öppna Inställningar för smart identifiering i Application Insights. 
+Meddelanden om Smart identifiering är aktiverade som standard och skickas till dem som har [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader) och [övervaknings deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) åtkomst till den prenumeration där Application Insights resursen finns. Ändra detta genom att antingen klicka på **Konfigurera** i e-postmeddelandet eller öppna Inställningar för smart identifiering i Application Insights. 
   
   ![Inställningar för smart identifiering](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -56,7 +57,7 @@ Meddelanden om Smart identifiering är aktiverade som standard och skickas till 
 
 E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade till en e-postadress per dag per Application Insights resurs. E-postmeddelandet skickas endast om det finns minst ett nytt problem som har upptäckts den dagen. Du får inte upprepas upprepade meddelanden. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 * *Så kommer Microsoft-personal att titta på mina data?*
   * Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](../../azure-monitor/app/data-retention-privacy.md).
@@ -69,12 +70,12 @@ E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade
 * *Kan jag skapa egna regler för avvikelse identifiering eller anpassa befintliga regler?*
 
   * Ännu inte, men du kan:
-    * [Konfigurera aviseringar](/azure/azure-monitor/platform/alerts-log) som anger när ett mått korsar ett tröskelvärde.
+    * [Konfigurera aviseringar](../platform/alerts-log.md) som anger när ett mått korsar ett tröskelvärde.
     * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till Power BI](../../azure-monitor/app/export-power-bi.md ), där du kan analysera dem själv.
 * *Hur ofta utförs analysen?*
 
   * Vi kör analysen dagligen på Telemetrin från föregående dag (hela dagen i UTC-tidszonen).
-* *Detta ersätter [mått aviseringar](/azure/azure-monitor/platform/alerts-log)?*
+* *Detta ersätter [mått aviseringar](../platform/alerts-log.md)?*
   * Nej.  Vi åtar mig inte att upptäcka varje beteende som du kan tänka på onormalt.
 
 
@@ -175,9 +176,9 @@ De här diagnostikverktygen hjälper dig att inspektera Telemetrin från din app
 * [Profilerare](profiler.md) 
 * [Fel sökning av ögonblicks bild](../../azure-monitor/app/snapshot-debugger.md)
 * [Analys](../../azure-monitor/log-query/get-started-portal.md)
-* [Analytics-Smart diagnostik](../../azure-monitor/app/analytics.md)
+* [Analytics-Smart diagnostik](../log-query/log-query-overview.md)
 
 Smart identifiering är helt automatisk. Men kanske vill du konfigurera ytterligare aviseringar?
 
-* [Manuellt konfigurerade mått varningar](/azure/azure-monitor/platform/alerts-log)
+* [Manuellt konfigurerade mått varningar](../platform/alerts-log.md)
 * [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)

@@ -6,32 +6,16 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8fce451d9b806d2fa9a4f3d9e1c117de0aaa9fc0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bdde2076039a6f7687e06edef6dfd6f6f5148ce4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532294"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044148"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Kända problem i Azure Digitals, dubbla
 
 Den här artikeln innehåller information om kända problem som är associerade med Azure Digitals.
-
-## <a name="managing-event-routes-in-the-azure-portal"></a>Hantera händelse vägar i Azure Portal
-
-Om du är inloggad på portalen med en personlig [**Microsoft-konto (MSA)**](https://account.microsoft.com/account/Account), till exempel ett *@outlook.com* konto, ser du en skärm som säger *att du måste ha behörighet att visa händelse vägar när du* försöker hantera händelse vägar i portalen, oavsett vilken behörighets nivå som används.
-
-:::image type="content" source="media/troubleshoot-known-issues/event-route-need-permission.png" alt-text="Skärm bild från Azure Portal av behörighets fel vid försök att skapa händelse vägar på en digital Azure-instans":::
-
-### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
-
-Användare som för närvarande inte kan hantera händelse vägar i portalen kan fortfarande hantera händelse vägar med hjälp av Azure Digitals dubbla API: er eller CLI. Att växla till ett av dessa verktyg för hantering av händelse vägar är den rekommenderade strategin för att undvika det här problemet.
-
-Instruktionerna för detta finns i [*instruktion: hantera slut punkter och vägar*](how-to-manage-routes.md).
-
-### <a name="possible-causes"></a>Möjliga orsaker
-
-Du är inloggad på portalen med en personlig [Microsoft-konto (MSA)](https://account.microsoft.com/account/Account), till exempel ett *@outlook.com* konto. Hantering av händelse vägar i Azure Portal är för närvarande bara tillgängligt för Azure-användare på företags domän konton.
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"400-klient fel: felaktig begäran" i Cloud Shell
 

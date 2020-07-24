@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945417"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045859"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Utforska Azure Monitor för Azure cache för Redis (för hands version)
 
@@ -120,7 +120,7 @@ När du väljer **felen** överst på sidan öppnas tabellen med **felaktiga** t
 
 ### <a name="metric-definitions"></a>Mått definitioner
 
-Om du vill ha en fullständig lista över mått definitionerna som utgör arbets böckerna kan du läsa [artikeln om tillgängliga mått och rapporterings intervall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Om du vill ha en fullständig lista över mått definitionerna som utgör arbets böckerna kan du läsa [artikeln om tillgängliga mått och rapporterings intervall](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Visa från en Azure-cache för Redis-resurs
 
@@ -156,7 +156,7 @@ Om du väljer någon av de andra flikarna för **prestanda** eller **åtgärder*
 
 ## <a name="pin-export-and-expand"></a>Fäst, exportera och expandera
 
-Om du vill fästa mått avsnitt på en [Azure-instrumentpanel](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)väljer du kartnålen i det övre högra hörnet i avsnittet.
+Om du vill fästa mått avsnitt på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md)väljer du kartnålen i det övre högra hörnet i avsnittet.
 
 ![Ett mått avsnitt med kartnåls symbolen markerad](./media/cosmosdb-insights-overview/pin.png)
 
@@ -186,6 +186,6 @@ Information om fel sökning finns i [artikeln](troubleshoot-workbooks.md)om att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Konfigurera [mått aviseringar](../platform/alerts-metric.md) och [meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications.md) för att konfigurera automatiserade aviseringar som hjälper till att identifiera problem.
+* Konfigurera [mått aviseringar](../platform/alerts-metric.md) och [meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications-portal.md) för att konfigurera automatiserade aviseringar som hjälper till att identifiera problem.
 
 * Lär dig mer om scenarier som arbets böcker stöder, hur du skapar och anpassar rapporter med mera genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../platform/workbooks-overview.md).

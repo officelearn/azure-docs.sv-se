@@ -4,12 +4,12 @@ description: Lär dig hur du skapar din första Azure Resource Manager-mall med 
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040735"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Skapa och distribuera ARM-mallar med hjälp av IntelliJ-idén
 
@@ -19,15 +19,15 @@ Lär dig hur du distribuerar en Azure Resource Manager-mall (ARM) till Azure med
 
 När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. Samma process kan användas till att distribuera andra Azure-resurser.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition eller Community Edition installerat
 * [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) installerat, läs mer i [IntelliJ-guiden om hantering av insticksprogram](https://www.jetbrains.com/help/idea/managing-plugins.html)
-* Vara [inloggad](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) på Azure-kontot för Azure Toolkit for IntelliJ
+* Vara [inloggad](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) på Azure-kontot för Azure Toolkit for IntelliJ
 
 ## <a name="deploy-a-quickstart-template"></a>Distribuera en snabb starts mall
 

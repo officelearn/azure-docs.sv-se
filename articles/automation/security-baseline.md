@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187429"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045903"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Azures säkerhets bas linje för Automation
 
@@ -918,7 +918,7 @@ När du använder funktionen Hybrid Runbook Worker använder du Azure Security C
 
 * [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
-* [Distribuera ett Automation-konto med hjälp av en Azure Resource Manager mall](./automation-create-account-template.md#deploy-the-template)
+* [Distribuera ett Automation-konto med hjälp av en Azure Resource Manager mall](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Azure Policy exempel på inbyggda program för Azure Automation](./policy-samples.md)
 
@@ -1064,7 +1064,7 @@ När du använder funktionen Hybrid Runbook Worker använder du Azure Automation
 
 **Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
-* [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1124,7 +1124,7 @@ Använd funktionen för käll kontrolls integrering för att hålla dina Runbook
 
 * [Azure Resource Manager mal len referens för Azure Automation resurser](/azure/templates/microsoft.automation/allversions)
 
-* [Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall](./automation-create-account-template.md)
+* [Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall](./quickstart-create-automation-account-template.md)
 
 * [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Använd funktionen för käll kontrolls integrering för att hålla dina Runbook
 
 * [Azure Resource Manager mal len referens för Azure Automation resurser](/azure/templates/microsoft.automation/allversions)
 
-* [Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall](./automation-create-account-template.md)
+* [Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall](./quickstart-create-automation-account-template.md)
 
 * [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 

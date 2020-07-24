@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c6b3732d0a77580c27f6cc8720b414e8e49d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038995"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Uppdateringar för Azure Media Services v3-dokumentation
 
@@ -26,7 +26,7 @@ Den här artikeln pratar om de senaste Media Services v3-dokumentations uppdater
 
 ## <a name="june-2020"></a>Juni 2020
 
-* För hands versionen av video analys på IoT Edge gick att publicera. Mer information finns i dokumentationen [om direktsänd video analys på IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* För hands versionen av video analys på IoT Edge gick att publicera. Mer information finns i dokumentationen [om direktsänd video analys på IoT Edge](../live-video-analytics-edge/index.yml) .
 * Nya snabb starter:
 
     * [Använda portalen för att ladda upp, koda och strömma innehåll](manage-assets-quickstart.md)

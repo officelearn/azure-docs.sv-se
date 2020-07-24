@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045688"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager-hälsokontrollösningen (förhandsversion)
 
@@ -64,7 +64,7 @@ Data samlas in på hanterings servern och vidarebefordras till Log Analytics var
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Kör som-konton i Operations Manager för Log Analytics
 
-Log Analytics bygger på hanterings paket för arbets belastningar för att tillhandahålla värde-Lägg till tjänster. För varje arbets belastning krävs arbets belastnings bara privilegier för att köra hanterings paket i en annan säkerhets kontext, till exempel ett domän användar konto. Konfigurera ett Kör som-konto Operations Manager med privilegierade autentiseringsuppgifter. Mer information finns i [så här skapar du ett Kör som-konto](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) i Operations Manager-dokumentationen.
+Log Analytics bygger på hanterings paket för arbets belastningar för att tillhandahålla värde-Lägg till tjänster. För varje arbets belastning krävs arbets belastnings bara privilegier för att köra hanterings paket i en annan säkerhets kontext, till exempel ett domän användar konto. Konfigurera ett Kör som-konto Operations Manager med privilegierade autentiseringsuppgifter. Mer information finns i [så här skapar du ett Kör som-konto](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) i Operations Manager-dokumentationen.
 
 Använd följande information för att ange Operations Manager kör som-konto för System Center Operations Manager-hälsokontroll.
 
@@ -147,7 +147,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 I hanterings paketet för System Center Operations Manager-hälsokontrolls lösningen ingår en regel med namnet *Microsoft System Center Operations Manager kör hälso kontrolls regel*. Den här regeln ansvarar för att köra hälso kontrollen. Använd anvisningarna nedan om du vill aktivera regeln och konfigurera frekvensen.
 
-Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Följ stegen nedan.
+Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Följ dessa steg.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Aktivera regeln för en specifik hanteringsserver
 

@@ -1,6 +1,6 @@
 ---
-title: Interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din Azure IoT-lösning | Microsoft Docs
-description: Använd Node. js för att ansluta till och interagera med en IoT-Plug and Play förhands gransknings enhet som är ansluten till din Azure IoT-lösning.
+title: Interagera med IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning – Node.js | Microsoft Docs
+description: Använd Node.js för att ansluta till och interagera med en IoT Plug and Play-förhands gransknings enhet som är ansluten till din Azure IoT-lösning.
 author: miagdp
 ms.author: miag
 ms.date: 12/27/2019
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 9962763e647faddc5a2179f304aeb3fa8ca256e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f86ae8ffefa88fe1cdfa429b7de4671422839ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75550748"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044009"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning (Node. js)
+# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning (Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
 
-IoT Plug and Play Preview fören klar IoT genom att göra det möjligt för dig att interagera med enhetens funktioner utan att du behöver känna till den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Node. js för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
+IoT Plug and Play Preview fören klar IoT genom att göra det möjligt för dig att interagera med enhetens funktioner utan att du behöver känna till den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Node.js för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här snabb starten behöver du Node. js på utvecklings datorn. Du kan ladda ned den senaste rekommenderade versionen för flera plattformar från [NodeJS.org](https://nodejs.org).
+För att slutföra den här snabb starten behöver du Node.js på din utvecklings dator. Du kan ladda ned den senaste rekommenderade versionen för flera plattformar från [NodeJS.org](https://nodejs.org).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 
@@ -43,9 +43,9 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="run-the-sample-device"></a>Kör exempel enheten
 
-I den här snabb starten använder du en exempel miljö sensor som är skriven i Node. js som IoT Plug and Play-enhet. Följande instruktioner visar hur du installerar och kör enheten:
+I den här snabb starten använder du ett exempel på en miljö sensor som är skriven i Node.js som IoT Plug and Play-enheten. Följande instruktioner visar hur du installerar och kör enheten:
 
-1. Öppna ett terminalfönster i valfri katalog. Kör följande kommando för att klona [Azure IoT-exemplen för Node. js](https://github.com/azure-samples/azure-iot-samples-node) GitHub-lagringsplatsen till den här platsen:
+1. Öppna ett terminalfönster i valfri katalog. Kör följande kommando för att klona [Azure IoT-exemplen för Node.js](https://github.com/azure-samples/azure-iot-samples-node) GitHub-lagringsplats till den här platsen:
 
     ```cmd/sh
     git clone https://github.com/azure-samples/azure-iot-samples-node
@@ -73,7 +73,7 @@ I den här snabb starten använder du en exempel miljö sensor som är skriven i
 
 ## <a name="run-the-sample-solution"></a>Kör exempel lösningen
 
-I den här snabb starten använder du en exempel-IoT-lösning i Node. js för att interagera med exempel enheten.
+I den här snabb starten använder du en exempel-IoT-lösning i Node.js för att interagera med exempel enheten.
 
 1. Öppna ett annat terminalfönster (det här är din _tjänsts_ Terminal). Gå till mappen för den klonade lagrings platsen och navigera till mappen **/Azure-IoT-samples-Node/Digital-Twins/Quickstarts/service** . Installera alla beroenden genom att köra följande kommando:
 
@@ -95,7 +95,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node. js för at
     reported state property as online
     ```
 
-1. Öppna filen **get_digital_twin. js**i mappen **/Azure-IoT-samples-Node/Digital-Twins/Quickstarts/service** . Ersätt `<DEVICE_ID_GOES_HERE>` plats hållaren med ditt enhets-ID och spara filen.
+1. I mappen **/Azure-IoT-samples-Node/Digital-Twins/Quickstarts/service** öppnar du filen **get_digital_twin.js**. Ersätt `<DEVICE_ID_GOES_HERE>` plats hållaren med ditt enhets-ID och spara filen.
 
 1. Gå till _tjänsten_ Terminal och Använd följande kommando för att köra exemplet för att läsa enhets information:
 
@@ -103,7 +103,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node. js för at
     node get_digital_twin.js
     ```
 
-1. Rulla till _service_ `environmentalSensor` komponenten i utdata från tjänsten. Du ser att `state` egenskapen har rapporter ATS som _online_:
+1. Rulla till komponenten i utdata från _tjänsten_ `environmentalSensor` . Du ser att `state` egenskapen har rapporter ATS som _online_:
 
     ```JSON
     "environmentalSensor": {
@@ -120,7 +120,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node. js för at
 
 ### <a name="update-a-writable-property"></a>Uppdatera en skrivbar egenskap
 
-1. Öppna filen **update_digital_twin_property. js**.
+1. Öppna filen **update_digital_twin_property.js**.
 
 1. I början av filen finns en uppsättning konstanter definierade med plats hållare för versaler. Ersätt `<DEVICE_ID_GOES_HERE>` plats hållaren med ditt faktiska enhets-ID, uppdatera de återstående konstanterna med följande värden och spara filen:
 
@@ -198,7 +198,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node. js för at
 
 ### <a name="invoke-a-command"></a>Anropa ett kommando
 
-1. Öppna filen **invoke_command. js**.
+1. Öppna filen **invoke_command.js**.
 
 1. I början av filen ersätter du `<DEVICE_ID_GOES_HERE>` plats hållaren med det aktuella enhets-ID: t. Uppdatera de återstående konstanterna med följande värden och spara sedan filen:
 

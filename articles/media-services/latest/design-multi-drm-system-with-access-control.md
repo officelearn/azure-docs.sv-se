@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039199"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll 
 
@@ -137,8 +138,8 @@ I följande tabell visas mappningen.
 | **Secure token service (STS)** |Azure AD |
 | **Arbets flöde för DRM-skydd** |Azure Media Services dynamiskt skydd |
 | **DRM-licensleverans** |* Media Services licens leverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licens Server <br/>* Anpassad PlayReady-licensserver |
-| **Ursprung** |Slut punkt för Azure Media Services strömning |
-| **Nyckelhantering** |Krävs inte för referens implementering |
+| **Kommer** |Slut punkt för Azure Media Services strömning |
+| **Nyckel hantering** |Krävs inte för referens implementering |
 | **Innehållshantering** |Ett C#-konsol program |
 
 Med andra ord tillhandahålls både IDP och STS av Azure AD. [Azure Media Player-API](https://amp.azure.net/libs/amp/latest/docs/) : t används för spelaren. Både Azure Media Services och Azure Media Player stöd för CENC över streck, FairPlay över HLS, PlayReady över smidig strömning och AES-128-kryptering för streck, HLS och smidighet.
@@ -213,7 +214,7 @@ Mer information finns i [JWT token-autentisering i Azure Media Services och dyna
 För information om Azure AD:
 
 * Du kan hitta information om utvecklare i [Azure Active Directory Developer ' s guide](../../active-directory/develop/v2-overview.md).
-* Du kan hitta administratörs information i [administrera din Azure AD-klient katalog](../../active-directory/fundamentals/active-directory-administer.md).
+* Du kan hitta administratörs information i [administrera din Azure AD-klient katalog](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Några problem i implementeringen
 

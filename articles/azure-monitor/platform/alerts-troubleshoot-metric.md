@@ -4,14 +4,14 @@ description: Vanliga problem med Azure Monitor metriska aviseringar och möjliga
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/15/2020
+ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0d569facb6c2b58222980cfa1488de3b1f5fb60f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045236"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -32,7 +32,7 @@ Om du tror att en måtta avisering ska ha utlösts men den inte har startats och
 
 2. **Utlöses men ingen avisering** – granska [listan över utlösta aviseringar](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) för att se om du kan hitta den utlöst aviseringen. Om du kan se aviseringen i listan, men har problem med några av dess åtgärder eller aviseringar, se mer information [här](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
-3. **Redan aktiv** -kontrol lera om det redan finns en utlöst avisering på den Metric Time-serie som du förväntar dig att få en avisering för. Mått aviseringar är tillstånds känsliga, vilket innebär att när en avisering har Aktiver ATS för en speciell mått tids serie, utlöses inte ytterligare aviseringar för den tids serien förrän problemet inte längre har iakttagits. Det här design alternativet minskar bruset. Aviseringen löses automatiskt när varnings villkoret inte uppfylls för tre efterföljande utvärderingar.
+3. **Redan aktiv** -kontrol lera om det redan finns en utlöst avisering på den Metric Time-serie som du förväntar dig att få en avisering för. Måttaviseringar är tillståndskänsliga, vilket innebär att när en avisering har aktiverats för en specifik måttidsserie så utlöses inte ytterligare aviseringar i den tidsserien förrän problemet inte längre observeras. Det här design alternativet minskar bruset. Aviseringen löses automatiskt när varnings villkoret inte uppfylls för tre efterföljande utvärderingar.
 
 4. **Använda dimensioner** – om du har valt några [Dimensions värden för ett mått](./alerts-metric-overview.md#using-dimensions)övervakar varnings regeln varje individuell mått tids serie (som definieras av kombinationen av dimensions värden) för en tröskel överträdelse. För att övervaka den sammanställda mått tids serien (utan valda dimensioner) konfigurerar du ytterligare en varnings regel för måttet utan att välja dimensioner.
 
@@ -47,7 +47,7 @@ Om du tror att din måtta avisering inte borde ha utlösts utan den gjorde kan f
 1. Granska [listan över aktiverade varningar](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) för att hitta den utlöst aviseringen och klicka på för att visa information om den. Läs informationen under **Varför hjälpte den här aviseringen?** om du vill se mått diagrammet, **Metric-värdet**och **tröskelvärdet** vid den tidpunkt då aviseringen utlöstes.
 
     > [!NOTE] 
-    > Om du använder villkorstypen Dynamiska tröskelvärden och anser att tröskelvärdena som används var felaktiga kan du ge feedback med ikonen för bister min. Den här feedbacken påverkar forskningen om Machine Learning-algoritmer och hjälper till att förbättra framtida identifieringar.
+    > Om du använder en villkors typ för dynamiskt tröskelvärden och tror att de tröskelvärden som använts inte var korrekta, ger du feedback med hjälp av den bister ikonen. Den här feedbacken påverkar forskningen om Machine Learning-algoritmer och hjälper till att förbättra framtida identifieringar.
 
 2. Om du har valt flera dimensions värden för ett mått utlöses aviseringen när **någon** av mått tids serien (som definieras av kombinationen av dimensions värden) bryter mot tröskelvärdet. Mer information om hur du använder dimensioner i måttaviseringar finns [här](./alerts-metric-overview.md#using-dimensions).
 
@@ -67,7 +67,7 @@ Om du tror att din måtta avisering inte borde ha utlösts utan den gjorde kan f
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Det går inte att hitta måttet för avisering på virtuella datorer gäst mått
 
-Kontrol lera att du har installerat den agent som krävs för att samla in dessa data för att Azure Monitor måtten om du vill meddela om gäst operativ systemets mått för virtuella datorer (t. ex. minne, disk utrymme).
+Se till att du har installerat den agent som krävs för att samla in data för att Azure Monitor måtten om du vill varna för gäst operativ systemets mått för virtuella datorer (till exempel minne, disk utrymme).
 - [För virtuella Windows-datorer](./collect-custom-metrics-guestos-resource-manager-vm.md)
 - [För virtuella Linux-datorer](./collect-custom-metrics-linux-telegraf.md)
 
@@ -83,7 +83,7 @@ Om du kan se vissa mått för resursen men inte kan hitta ett visst mått, [kont
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Det går inte att hitta mått dimensionen som ska aviseras
 
-Observera följande om du vill få en avisering om [ett måtts dimensions värden](./alerts-metric-overview.md#using-dimensions), men inte kan hitta dessa värden:
+Tänk på följande om du vill få [en avisering om ett måtts dimensions värden](./alerts-metric-overview.md#using-dimensions), men inte kan hitta dessa värden:
 
 1. Det kan ta några minuter innan dimensionsvärden visas under listan **Dimensionsvärden**
 1. Dimensionsvärden som visas baseras på måttdata som samlats in under de senaste tre dagarna
@@ -106,12 +106,35 @@ Mått varningar är tillstånds känsliga som standard och därför utlöses int
 > [!NOTE] 
 > Att göra en regel för att varna regler förhindrar att skickade aviseringar löses, så även när villkoret inte är uppfyllt, kommer de aktiverade aviseringarna att behållas i ett utlöst tillstånd fram till den 30 dagarnas kvarhållningsperiod.
 
+## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Definiera en varnings regel för ett anpassat mått som inte har genererats än
+
+När du skapar en regel för mått varningar verifieras mått namnet mot [mått definitions-API: et](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) för att se till att det finns. I vissa fall vill du skapa en varnings regel för ett anpassat mått även innan den släpps. Till exempel när du skapar (med en ARM-mall) en Application Insights-resurs som genererar ett anpassat mått, tillsammans med en varnings regel som övervakar det måttet.
+
+För att undvika att distributionen Miss fungerar när du försöker validera de anpassade måttets definitioner, kan du använda parametern *skipMetricValidation* i avsnittet villkor i varnings regeln, vilket gör att mått verifieringen hoppas över. Se exemplet nedan för hur du använder den här parametern i en ARM-mall (för fullständiga ARM-mallar exempel för att skapa mått varnings regler finns [här]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+
+```json
+"criteria": {
+    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+        "allOf": [
+            {
+                    "name" : "condition1",
+                        "metricName": "myCustomMetric",
+                "metricNamespace": "myCustomMetricNamespace",
+                        "dimensions":[],
+                        "operator": "GreaterThan",
+                        "threshold" : 10,
+                        "timeAggregation": "Average",
+                    "skipMetricValidation": true
+        }
+              ]
+        }
+```
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Måttet för mått för varnings regler är för litet
 
 Antalet mått för aviserings regler per prenumeration omfattas av [kvot gränser](../service-limits.md).
 
-Om du har nått kvotgränsen kan följande steg hjälpa dig att lösa problemet:
+Om du har nått kvot gränsen kan följande steg hjälpa dig att lösa problemet:
 1. Försök att ta bort eller inaktivera mått regler som inte används längre.
 
 2. Växla till att använda måttaviseringsregler som övervakar flera resurser. Med den här funktionen kan en enda varnings regel övervaka flera resurser med bara en varnings regel som räknas mot kvoten. Mer information om den här funktionen och vilka resurstyper som stöds finns [här](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
@@ -133,7 +156,7 @@ Följ stegen nedan om du vill kontrol lera den aktuella användningen av mått v
 3. Se till att du inte filtrerar till en speciell resurs grupp, resurs typ eller resurs
 4. Välj **mått** i list Rute kontrollen **signal typ**
 5. Kontrol lera att List rutan **status** är inställd på **aktive rad**
-6. Det totala antalet varnings regler för mått visas ovanför regel listan
+6. Det totala antalet varnings regler för mått visas ovanför listan varnings regler
 
 ### <a name="from-api"></a>Från API
 
@@ -152,7 +175,7 @@ Om du får problem med att skapa, uppdatera, hämta eller ta bort mått aviserin
 
 ### <a name="rest-api"></a>REST-API
 
-Läs [REST API-guiden](/rest/api/monitor/metricalerts/) och kontrollera att du skickar alla parametrar korrekt
+Granska [rest Apis guiden](/rest/api/monitor/metricalerts/) för att kontrol lera att du skickar alla parametrar korrekt
 
 ### <a name="powershell"></a>PowerShell
 
@@ -171,15 +194,15 @@ Kontrol lera att du använder rätt CLI-kommandon för mått varningar:
 
 ### <a name="general"></a>Allmänt
 
-- Om du får ett fel av typen `Metric not found`:
+- Om du får ett `Metric not found` fel meddelande:
 
    - För ett plattforms mått: kontrol lera att du använder **mått** namnet på [sidan Azure Monitor mått som stöds](./metrics-supported.md)och inte **måttets visnings namn**
 
-   - För ett anpassat mått: kontrol lera att måttet redan har skickats (du kan inte skapa en varnings regel för ett anpassat mått som ännu inte finns) och att du tillhandahåller det anpassade måttets namnrymd (se en ARM-mall exempel [här](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+   - För ett anpassat mått: kontrol lera att måttet redan har skickats (du kan inte skapa en varnings regel för ett anpassat mått som ännu inte finns) och att du tillhandahåller det anpassade måttets namnrymd (se ett exempel på ARM-mall [här](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
-- Om du skapar [måttaviseringar för loggar](./alerts-metric-logs.md) bör du se till att lämpliga beroenden ingår. Se [exempelmallen](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+- Om du skapar [mått aviseringar för loggar](./alerts-metric-logs.md)bör du se till att lämpliga beroenden ingår. Se [exempelmallen](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
-- Observera följande begränsningar om du skapar en aviserings regel som innehåller flera villkor:
+- Observera följande begränsningar om du skapar en varnings regel som innehåller flera villkor:
 
    - Du kan bara välja ett värde per dimension i varje kriterium
    - Du kan inte använda ”\*” som dimensionsvärde
@@ -197,7 +220,7 @@ Om du vill skapa en regel för mått varningar måste du ha följande behörighe
 
 ## <a name="naming-restrictions-for-metric-alert-rules"></a>Namngivnings begränsningar för mått varnings regler
 
-Observera följande begränsningar för namn på mått för varnings regler:
+Tänk på följande begränsningar för namn på mått för varnings regler:
 
 - Det går inte att ändra regel namn för mått varningar (omdöpt) när den har skapats
 - Mått för varnings regel namn måste vara unika inom en resurs grupp
@@ -209,11 +232,11 @@ Observera följande begränsningar för namn på mått för varnings regler:
 
 Mått aviseringar stöder aviseringar om flerdimensionella mått samt stöd för att definiera flera villkor (upp till 5 villkor per varnings regel).
 
-Observera följande begränsningar när du använder dimensioner i en varnings regel som innehåller flera villkor:
-1. Du kan bara välja ett värde per dimension i varje villkor.
-2. Du kan inte använda alternativet "Välj alla aktuella och framtida värden" (Välj \* ).
-3. När mått som har kon figurer ATS på olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta villkoren).
-Till exempel:
+Tänk på följande begränsningar när du använder dimensioner i en varnings regel som innehåller flera villkor:
+- Du kan bara välja ett värde per dimension i varje villkor.
+- Du kan inte använda alternativet "Välj alla aktuella och framtida värden" (Välj \* ).
+- När mått som har kon figurer ATS på olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta villkoren).
+Exempel:
     - Överväg en regel för mått varningar som definieras på ett lagrings konto och övervakar två villkor:
         * Totalt antal **transaktioner** > 5
         * Genomsnittlig **SuccessE2ELatency** > 250 MS

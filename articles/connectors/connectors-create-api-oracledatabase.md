@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039988"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med Oracle Database-anslutningsprogrammet
 
@@ -77,7 +77,7 @@ Den här artikeln visar hur du använder Oracle Database Connector i en Logic ap
 
     I följande exempel returneras jobb data från en personal databas: 
 
-    ![Dialog rutan "Hämta rad (förhands granskning)" har två text rutor: "Tabell namn", som innehåller "HRJOBS" och innehåller en listruta och "rad-ID", som innehåller "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![Dialog rutan "Hämta rad (förhands granskning)" har två text rutor: "Tabell namn", som innehåller "H R JOBS" och har en listruta, och "rad i d", som innehåller "S A A REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. I det här nästa steg kan du använda någon av de andra anslutningarna för att bygga ditt arbets flöde. Om du vill testa att hämta data från Oracle skickar du ett e-postmeddelande med Oracle-data med hjälp av någon av e-postanslutningarna, till exempel Office 365 Outlook. Använd de dynamiska tokens från Oracle-tabellen för att bygga `Subject` och `Body` för din e-post:
 

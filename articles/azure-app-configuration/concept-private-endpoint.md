@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042112"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Använda privata slut punkter för Azure App konfiguration
 
@@ -23,10 +23,7 @@ Med hjälp av privata slut punkter för konfigurations arkivet för appar kan du
 - Öka säkerheten för det virtuella nätverket (VNet) som garanterar att data inte är undantagna från det virtuella nätverket.
 - Anslut säkert till appens konfigurations arkiv från lokala nätverk som ansluter till VNet med [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-locations.md) med privat peering.
 
-> [!NOTE]
-> Funktioner för privata slut punkter är nu allmänt tillgängliga i alla regioner *utom* Central Indien. I den **centrala Indien** -regionen erbjuder Azure App-konfigurationen användning av privata slut punkter som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.
-
-## <a name="conceptual-overview"></a>Konceptuell översikt
+## <a name="conceptual-overview"></a>Begreppsmässig översikt
 
 En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-tjänst i din [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). När du skapar en privat slut punkt för appens konfigurations Arkiv ger den säker anslutning mellan klienter i ditt VNet och ditt konfigurations lager. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall. Anslutningen mellan den privata slut punkten och konfigurations arkivet använder en säker privat länk.
 

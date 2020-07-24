@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7e5f7bd9ec3cc9a66adb8743ce2a56d8b2ead204
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041555"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database att använda Azure SQL-analys (förhands granskning)
 
@@ -34,7 +34,7 @@ Azure SQL-analys är en övervaknings lösning för endast moln som stöder str�
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | [Diagnostikinställningar](../platform/diagnostic-settings.md) | **Ja** | Azure Metric-och loggdata skickas till Azure Monitor loggar direkt av Azure. |
-| [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor läser inte data från ett lagrings konto. |
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor läser inte data från ett lagrings konto. |
 | [Windows-agenter](../platform/agent-windows.md) | No | Direkta Windows-agenter används inte av Azure SQL-analys. |
 | [Linux-agenter](../learn/quick-collect-linux-computer.md) | No | Direct Linux-agenter används inte av Azure SQL-analys. |
 | [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | No | En direkt anslutning från Operations Manager agent till Azure Monitor används inte av Azure SQL-analys. |
@@ -48,9 +48,9 @@ I tabellen nedan visas vilka alternativ som stöds för två versioner av Azure 
 | Resurs efter typ | Perspektiv som räknar alla övervakade resurser. | Ja | Ja |
 | Insikter | Tillhandahåller hierarkisk visning av Intelligent Insights i prestanda. | Ja | Ja |
 | Fel | Tillhandahåller hierarkisk visning av SQL-fel som har inträffat i databaserna. | Ja | Ja |
-| Timeouter | Tillhandahåller hierarkisk visning av SQL-tidsgräns som har inträffat i databaserna. | Ja | Nej |
-| Blockning | Tillhandahåller hierarkisk visning av SQL-block som har inträffat i databaserna. | Ja | Nej |
-| Databasen väntar | Ger hierarkisk visning av SQL wait-statistik på databas nivå. Innehåller sammanfattningar av den totala vänte tiden och vänte tiden per wait-typ. |Ja | Nej |
+| Timeouter | Tillhandahåller hierarkisk visning av SQL-tidsgräns som har inträffat i databaserna. | Yes | Inga |
+| Blockning | Tillhandahåller hierarkisk visning av SQL-block som har inträffat i databaserna. | Yes | Inga |
+| Databasen väntar | Ger hierarkisk visning av SQL wait-statistik på databas nivå. Innehåller sammanfattningar av den totala vänte tiden och vänte tiden per wait-typ. |Yes | Inga |
 | Frågans varaktighet | Tillhandahåller hierarkisk visning av statistik för frågekörning, till exempel fråge varaktighet, CPU-användning, data-i/o-användning, logg-i/o-användning. | Ja | Ja |
 | Fråga väntar | Tillhandahåller hierarkisk visning i frågan vänta i statistiken efter kategorin vänta. | Ja | Ja |
 

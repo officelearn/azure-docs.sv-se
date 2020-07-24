@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79369394"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045363"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera måttaviseringar med Azure Monitor
 
@@ -89,7 +90,7 @@ Du kan visa och hantera mått varnings regler med hjälp av bladet hantera regle
 
 ## <a name="with-azure-cli"></a>Med Azure CLI
 
-I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings regler för mått med hjälp av Azure Portal. Det här avsnittet beskriver hur du gör på samma sätt som med plattforms oberoende [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Det snabbaste sättet att börja använda Azure CLI är genom [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). I den här artikeln ska vi använda Cloud Shell.
+I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings regler för mått med hjälp av Azure Portal. Det här avsnittet beskriver hur du gör på samma sätt som med plattforms oberoende [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Det snabbaste sättet att börja använda Azure CLI är genom [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). I den här artikeln ska vi använda Cloud Shell.
 
 1. Gå till Azure Portal och klicka på **Cloud Shell**.
 
@@ -139,4 +140,3 @@ I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings reg
 - [Förstå hur mått aviseringar fungerar](alerts-metric-overview.md).
 - [Lär dig hur mått aviseringar med dynamiskt tröskelvärde fungerar](alerts-dynamic-thresholds.md).
 - [Förstå webbhook-schemat för mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
-

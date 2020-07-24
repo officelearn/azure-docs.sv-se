@@ -14,16 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b28e200cab2edb4c1f603e4c67264cdc1c46d7f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042855"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Översikt över direkt uppspelning med Media Services
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Översikt
 
@@ -73,16 +74,16 @@ Följande tabell innehåller en guide för att jämföra de två kanal typer som
 
 | Funktion | Direkt kanal | Standard kanal |
 | --- | --- | --- |
-| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Nej |Ja |
+| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Inga |Yes |
 | Högsta upplösning, antal lager |1080p, 8 lager, 60 + fps |720p, 6 lager, 30 fps |
 | Protokoll för indataport |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Pris |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video" |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) |
 | Maximal kör tid |runt |8 timmar |
-| Stöd för att infoga mellanliggande |Nej |Ja |
-| Stöd för AD-signalering |Nej |Ja |
+| Stöd för att infoga mellanliggande |Inga |Yes |
+| Stöd för AD-signalering |Inga |Yes |
 | Pass-through CEA 608/708-textning |Ja |Ja |
-| Stöd för icke-uniform GOPs |Ja |Nej – indatamängden måste vara fast 2sec GOPs |
-| Stöd för variabla bild Rute frekvens inmatade |Ja |Nej – indatatyper måste vara fasta bild hastigheter.<br/>Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men kodare kan inte släppa till 10 bild rutor/SEK. |
+| Stöd för icke-uniform GOPs |Yes |Nej – indatamängden måste vara fast 2sec GOPs |
+| Stöd för variabla bild Rute frekvens inmatade |Yes |Nej – indatatyper måste vara fasta bild hastigheter.<br/>Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men kodare kan inte släppa till 10 bild rutor/SEK. |
 | Shutoff av kanaler när inmatnings flöde förloras |No |Efter 12 timmar, om inget program körs |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
@@ -105,7 +106,7 @@ Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra 
 
 ### <a name="channel"></a>Kanal
 
-I Media Services är [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s ansvarig för bearbetning av direktsänd strömmande innehåll. En kanal tillhandahåller en inmatnings slut punkt (inmatnings-URL) som du sedan anger till en Live-kodare. Kanalen tar emot direktsända indata strömmar från direktsänd kodare och gör den tillgänglig för strömning via en eller flera strömnings slut punkter. Kanaler tillhandahåller också en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
+I Media Services är [kanal](/rest/api/media/operations/channel)s ansvarig för bearbetning av direktsänd strömmande innehåll. En kanal tillhandahåller en inmatnings slut punkt (inmatnings-URL) som du sedan anger till en Live-kodare. Kanalen tar emot direktsända indata strömmar från direktsänd kodare och gör den tillgänglig för strömning via en eller flera strömnings slut punkter. Kanaler tillhandahåller också en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
 
 Du kan hämta inmatnings-URL: en och URL: en för för hands versionen när du skapar kanalen. För att hämta dessa URL: er behöver kanalen inte vara i Start läge. När du är redo att börja skicka data från en Live-kodare till kanalen måste du starta kanalen. När Live-kodaren börjar mata in data kan du förhandsgranska data strömmen.
 
@@ -114,7 +115,7 @@ Varje Media Services konto kan innehålla flera kanaler, flera program och flera
 När du skapar en kanal kan du ange tillåtna IP-adresser i något av följande format: IpV4-adress med 4 nummer, CIDR-adressintervall.
 
 ### <a name="program"></a>Program
-Ett [program](https://docs.microsoft.com/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en Live-dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
+Ett [program](/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en Live-dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
 Du kan ange hur många timmar du vill behålla det inspelade innehållet för programmet genom att ange egenskapen **ArchiveWindowLength** . Det här värdet kan anges från minst 5 minuter till högst 25 timmar.
 
 ArchiveWindowLength anger också den maximala tid som klienter kan söka bakåt i tiden från den nuvarande aktiva positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klient manifesten kan växa.

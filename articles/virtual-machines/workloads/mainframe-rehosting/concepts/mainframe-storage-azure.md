@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042591"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Flytta stordator lagring till Azure
 
@@ -44,7 +45,7 @@ Azure Infrastructure-as-a-Service ([IaaS](https://azure.microsoft.com/overview/w
 
 Microsoft erbjuder petabyte lagring för program som finns i Azure och du har flera lagrings alternativ. Detta sträcker sig från SSD-lagring för hög prestanda till blob-lagring med låg kostnad för Mass lagring och arkiv. Dessutom tillhandahåller Azure ett alternativ för dataredundans för lagring – något som tar mer ansträngning att konfigurera i en stordator miljö.
 
-Azure Storage är tillgängligt som [Azure-diskar](/azure/virtual-machines/windows/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction)och [Azure-blobbar](/azure/storage/blobs/storage-blobs-overview) som följande tabell sammanfattar. Läs mer om [när du ska använda dem](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+Azure Storage är tillgängligt som [Azure-diskar](../../../windows/managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)och [Azure-blobbar](../../../../storage/blobs/storage-blobs-overview.md) som följande tabell sammanfattar. Läs mer om [när du ska använda dem](../../../../storage/common/storage-introduction.md).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -104,10 +105,10 @@ Blob Storage tillhandahåller störst lagrings volym på Azure. Utöver lagrings
 ## <a name="next-steps"></a>Nästa steg
 
 - [Stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Revärdering av stordatorer på Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Revärdering av stordatorer på Azure Virtual Machines](../overview.md)
 - [Flytta stordator beräkning till Azure](mainframe-compute-Azure.md)
-- [Bestämma när du ska använda Azure-blobbar, Azure Files eller Azure-diskar](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
-- [Standard SSD Managed Disks för virtuella Azure-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
+- [Bestämma när du ska använda Azure-blobbar, Azure Files eller Azure-diskar](../../../../storage/common/storage-introduction.md)
+- [Standard SSD Managed Disks för virtuella Azure-arbetsbelastningar](../../../windows/disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>IBM-resurser
 

@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13ffd1eeb2df3c21a6167b056557b9141444f7c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038587"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering – resten av innehållet i Azure Kognitiv sökning att använda Kundhanterade nycklar i Azure Key Vault
 
@@ -28,7 +28,7 @@ Nycklar behöver inte vara i samma Key Vault. En enskild Sök tjänst kan vara v
 > [!IMPORTANT] 
 > Den här funktionen finns i [REST API](https://docs.microsoft.com/rest/api/searchservice/) och [.net SDK version 8,0 – för hands version](search-dotnet-sdk-migration-version-9.md). Det finns för närvarande inget stöd för att konfigurera kundens hanterade krypterings nycklar i Azure Portal. Sök tjänsten måste skapas efter 2019 januari och får inte vara en kostnads fri (delad) tjänst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster används i det här exemplet. 
 
@@ -36,7 +36,7 @@ Följande tjänster används i det här exemplet.
 
 + [Skapa en Azure Key Vault resurs](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) eller hitta ett befintligt valv under din prenumeration.
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurations uppgifter.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurations uppgifter.
 
 + [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) och för [hands versionen av .NET SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa REST API. Det finns för närvarande inget Portal stöd för kundhanterad kryptering.
 

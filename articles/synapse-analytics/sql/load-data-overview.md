@@ -1,5 +1,5 @@
 ---
-title: I stället för ETL, design ELT för Synapse SQL-pool | Microsoft Docs
+title: Utforma en PolyBase data inläsnings strategi för SQL-pool
 description: I stället för ETL kan du utforma en process för extrahering, inläsning och transformering (ELT) för inläsning av data eller SQL-pool.
 services: synapse-analytics
 author: kevinvngo
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965581"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046770"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Utforma en PolyBase data inläsnings strategi för Azure Synapse SQL-poolen
 
-Traditionella SMP-datalager använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Azure SQL-poolen är en minnes trycks arkitektur med massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser. Användning av en process för att extrahera, läsa in och transformera (ELT) kan dra nytta av MPP och eliminera resurser som behövs för att transformera data innan de läses in.
+Traditionella SMP-datalager använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Azure SQL-poolen är en minnes trycks arkitektur med massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser. Att använda en process för att extrahera, läsa in och transformera (ELT) kan dra nytta av MPP och eliminera de resurser som behövs för att transformera data innan de läses in.
 
 SQL-poolen stöder många inläsnings metoder, inklusive icke-PolyBase-alternativ som BCP och SQL BulkCopy API, och det snabbaste och mest skalbara sättet att läsa in datum är genom PolyBase.  PolyBase är en teknik som använder externa data som lagras i Azure Blob Storage eller som Azure Data Lake Store via T-SQL-språket.
 
@@ -27,11 +27,11 @@ SQL-poolen stöder många inläsnings metoder, inklusive icke-PolyBase-alternati
 
 ## <a name="what-is-elt"></a>Vad är ELT?
 
-Extrahera, läsa in och transformera (ELT) är en process genom vilken data extraheras från ett käll system som läses in i ett data lager och sedan omvandlas.
+Extrahera, läsa in och transformera (ELT) är en process som data extraheras från ett käll system, läses in i ett data lager och sedan omvandlas.
 
 De grundläggande stegen för att implementera en PolyBase-ELT för SQL-poolen är:
 
-1. Extrahera källdata i textfiler.
+1. Extrahera källdata till textfiler.
 2. Landa data i Azure Blob Storage eller Azure Data Lake Store.
 3. Förbered data för inläsning.
 4. Läs in data i SQL-poolens mellanlagrings tabeller med PolyBase.
@@ -59,8 +59,8 @@ Om du exporterar från SQL Server kan du använda [kommando rads verktyget BCP](
 |          int          |                             int                              |
 |        bigint         |                            bigint                            |
 |        boolean        |                             bit                              |
-|        double         |                            float                             |
-|         float         |                             real                             |
+|        double         |                            flyt                             |
+|         flyt         |                             real                             |
 |        double         |                            money                             |
 |        double         |                          smallmoney                          |
 |        sträng         |                            nchar                             |
@@ -95,7 +95,7 @@ Du kan behöva förbereda och rensa data i ditt lagrings konto innan du läser i
 
 Innan du kan läsa in data måste du definiera externa tabeller i ditt informations lager. PolyBase använder externa tabeller för att definiera och komma åt data i Azure Storage. En extern tabell liknar en Database-vy. Den externa tabellen innehåller tabellens schema och pekar på data som lagras utanför data lagret.
 
-Definiera externa tabeller innebär att du anger data källan, formatet på textfilerna och tabell definitionerna. Det här är de avsnitt om T-SQL-syntax som du behöver:
+Definiera externa tabeller innebär att du anger data källan, formatet på textfilerna och tabell definitionerna. I följande avsnitt finns information om T-SQL-syntaxen som du behöver:
 
 - [SKAPA EXTERN DATA KÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)

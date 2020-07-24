@@ -5,20 +5,21 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81263394"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046443"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights gen1
 
 När mängden inkommande data överstiger din miljös konfiguration kan du uppleva fördröjning eller begränsning i Azure Time Series Insights.
 
@@ -26,14 +27,14 @@ Du kan undvika svars tider och begränsningar genom att konfigurera din miljö p
 
 Du upplever förmodligen svars tid och begränsning när du:
 
-- Lägg till en händelse källa som innehåller gamla data som kan överskrida den tilldelade ingångs takten (Time Series Insights måste fångas upp).
+- Lägg till en händelse källa som innehåller gamla data som kan överskrida den tilldelade ingångs takten (Azure Time Series Insights måste fångas upp).
 - Lägg till fler händelse källor i en miljö, vilket resulterar i en ökning från ytterligare händelser (vilket kan överstiga din miljös kapacitet).
-- Skicka stora mängder historiska händelser till en händelse källa, vilket resulterar i en fördröjning (Time Series Insights måste fångas upp).
+- Skicka stora mängder historiska händelser till en händelse källa, vilket resulterar i en fördröjning (Azure Time Series Insights måste fångas upp).
 - Koppla referens data med telemetri, vilket resulterar i större händelse storlek. Den största tillåtna paket storleken är 32 KB; data paket som är större än 32 KB trunkeras.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Lär dig mer om hur du Time Series Insights data ingångs beteende och hur du planerar för det.</br>
+### <a name="learn-about-azure-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Lär dig mer om hur du Azure Time Series Insights data ingångs beteende och hur du planerar för det.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -41,9 +42,9 @@ Du upplever förmodligen svars tid och begränsning när du:
 
 Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som uppstår i din miljö.
 
-1. I Azure Portal väljer du din Time Series Insights miljö. Välj sedan **aviseringar**.
+1. I Azure Portal väljer du din Azure Time Series Insights miljö. Välj sedan **aviseringar**.
 
-   [![Lägg till en avisering i Time Series Insightss miljön](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Lägg till en avisering i Azure Time Series Insightss miljön](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. Välj **+ Ny aviseringsregel**. Panelen **Skapa regel** visas sedan. Välj **Lägg till** under **villkor**.
 
@@ -55,7 +56,7 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som up
 
    Därifrån kan du konfigurera aviseringar med några av följande villkor:
 
-   |Metric  |Beskrivning  |
+   |Mått  |Beskrivning  |
    |---------|---------|
    |**Inkommande mottagna byte**     | Antal obehandlade byte som lästs från händelse källor. RAW Count inkluderar vanligt vis egenskaps namn och-värde.  |  
    |**Inkommande mottagna ogiltiga meddelanden**     | Antalet ogiltiga meddelanden som lästs från alla Azure Event Hubs-eller Azure IoT Hub-händelseloggen.      |
@@ -73,7 +74,7 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som up
 
 ## <a name="throttling-and-ingress-management"></a>Hantering av begränsning och drifts hantering
 
-* Om du är begränsad kommer ett värde för den *ingångs tids fördröjning som har tagits emot* att registreras som informerar dig om hur många sekunder som ligger bakom din Time Series Insights-miljö från den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
+* Om du är begränsad kommer ett värde för *fördröjningen av mottagna meddelanden för mottagnings tid* att registreras som informerar dig om hur många sekunder bakom din Azure Time Series Insightss miljö som är den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
 
   Ingångs *antalet mottagna meddelande antals fördröjning* bör också ha ett värde, så att du kan bestämma hur många meddelanden som ligger bakom dig.  Det enklaste sättet att komma igång är att öka din miljös kapacitet till en storlek som gör det möjligt för dig att undvika skillnaden.  
 
@@ -83,7 +84,7 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som up
 
   Om du till exempel har tre S1-enheter etablerade (eller 2100 händelser per minut ingångs kapacitet), kan du ange en varning om **inträngande lagrade händelser** för >= 1900 händelser i 2 timmar. Om du ständigt överträffar det här tröskelvärdet och därför utlöser aviseringen är du förmodligen under etablerad.  
 
-* Om du misstänker att du är begränsad kan du jämföra dina ingångs **meddelanden** med händelse källans utgående meddelanden.  Om ingångs steg i Händelsehubben är större än dina ingångs bara **mottagna meddelanden**, begränsas Time Series Insights troligt vis.
+* Om du misstänker att du är begränsad kan du jämföra dina ingångs **meddelanden** med händelse källans utgående meddelanden.  Om ingångs steg i Händelsehubben är större än dina ingångs bara **mottagna meddelanden**, begränsas Azure Time Series Insights troligt vis.
 
 ## <a name="improving-performance"></a>Förbättra prestanda
 
@@ -93,6 +94,6 @@ Du kan undvika svars tider och begränsningar genom att konfigurera din miljö p
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om [att diagnostisera och lösa problem i din Time Series Insightss miljö](time-series-insights-diagnose-and-solve-problems.md).
+- Läs om [att diagnostisera och lösa problem i din Azure Time Series Insightss miljö](time-series-insights-diagnose-and-solve-problems.md).
 
-- Lär dig [hur du skalar din Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).
+- Lär dig [hur du skalar din Azure Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).

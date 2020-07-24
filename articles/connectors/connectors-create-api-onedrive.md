@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524222"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040238"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Komma åt och hantera filer i OneDrive-anslutning med hjälp av Azure Logic Apps
 
@@ -40,7 +40,7 @@ En utlösare är en händelse som kan användas för att starta arbets flödet s
 
 1. I Logic App Designer skriver `onedrive` du för att hämta en lista över utlösare:  
 
-   ![En dialog ruta med namnet "Visa Microsoft Managed API: er" har en ruta som innehåller "OneDrive". Nedan visas en lista över fyra utlösare. Den första av dessa är "OneDrive-när en fil skapas". Den andra, "OneDrive-när en fil ändras", har marker ATS.](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![En dialog ruta med rubriken "Visa Microsoft Managed A s I" har en ruta som innehåller "OneDrive". Nedan visas en lista över fyra utlösare. Den första av dessa är "OneDrive-när en fil skapas". Den andra, "OneDrive-när en fil ändras", har marker ATS.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Välj **när en fil ändras**. Om det redan finns en anslutning väljer du knappen Visa väljare för att välja en mapp.
 
@@ -68,7 +68,7 @@ En åtgärd är en åtgärd som utförs av arbets flödet som definierats i en L
 
 3. I rutan Sök skriver `onedrive` du för att hämta en lista över alla tillgängliga åtgärder.
 
-   ![En dialog ruta med namnet "Visa Microsoft Managed API: er" har en ruta som innehåller "OneDrive". Nedan visas en lista över åtta åtgärder. Den första är "OneDrive-skapa fil" och är markerad.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![En dialog ruta med rubriken "Visa Microsoft Managed A s I" har en ruta som innehåller "OneDrive". Nedan visas en lista över åtta åtgärder. Den första är "OneDrive-skapa fil" och är markerad.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. I vårt exempel väljer du **OneDrive-skapa fil**. Om det redan finns en anslutning väljer du **mappsökvägen** för att placera filen, anger **fil namnet**och väljer det **fil innehåll** som du vill använda:  
 

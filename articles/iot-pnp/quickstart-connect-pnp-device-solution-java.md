@@ -1,5 +1,5 @@
 ---
-title: Interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din Azure IoT-lösning | Microsoft Docs
+title: Interagera med IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning – Java | Microsoft Docs
 description: Använd Java för att ansluta till och interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din Azure IoT-lösning.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 53812e68fe397b81f29869565e0e4a0640a9ef23
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43136e1a09cc771f39b92a83ca4c452fc1276091
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76964642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044040"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-java"></a>Snabb start: interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning (Java)
 
@@ -21,7 +21,7 @@ ms.locfileid: "76964642"
 
 IoT Plug and Play Preview fören klar IoT genom att göra det möjligt för dig att interagera med enhetens funktioner utan att du behöver känna till den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Java för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten behöver du Java SE 8 på din utvecklings dator. Du måste också installera maven 3.
 
@@ -88,7 +88,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Java för att in
 
 ### <a name="read-a-property"></a>Läsa en egenskap
 
-1. När du anslöt _enheten_ i terminalen var ett av utdatafilerna följande meddelande för att ange onlinestatus. `state` Egenskapen, som används för att ange om enheten är online, är _True_:
+1. När du anslöt _enheten_ i terminalen var ett av utdatafilerna följande meddelande för att ange onlinestatus. `state`Egenskapen, som används för att ange om enheten är online, är _True_:
 
     ```cmd/sh
     State of environmental sensor was set to true
@@ -100,7 +100,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Java för att in
     java -jar get-digital-twin/target/get-digital-twin-with-deps.jar
     ```
 
-1. Rulla till _service_ `environmentalSensor` komponenten i utdata från tjänsten. Du ser att `state` egenskapen har rapporter ATS som _Sant_:
+1. Rulla till komponenten i utdata från _tjänsten_ `environmentalSensor` . Du ser att `state` egenskapen har rapporter ATS som _Sant_:
     ```JSON
     "environmentalSensor" : {
       "name" : "environmentalSensor",

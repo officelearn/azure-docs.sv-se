@@ -13,17 +13,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f23bb2469136373c130ce600892b85dfcb4f3866
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67068899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038876"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Kopiera befintliga blobbar till en Media Services till gång
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här artikeln visar hur du kopierar blobbar från ett lagrings konto till en ny Azure Media Services (AMS)-till gång med [Azure Media Services .NET SDK-tillägg](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
@@ -386,4 +386,3 @@ Du kan också använda Azure Functions för att utlösa ett kodningsjobb baserat
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

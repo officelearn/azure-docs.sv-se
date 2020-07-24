@@ -3,12 +3,12 @@ title: Felsöka anslutnings problem – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om fel sökning av anslutnings problem med Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039335"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Felsöka anslutnings problem – Azure Event Hubs
 Det finns olika orsaker till att klient program inte kan ansluta till en Event Hub. De anslutnings problem som du upplever kan vara permanenta eller tillfälliga. Om problemet inträffar hela tiden (permanent) kanske du vill kontrol lera anslutnings strängen, din organisations brand Väggs inställningar, inställningar för IP-brandvägg, nätverks säkerhets inställningar (tjänst slut punkter, privata slut punkter osv.). Vid tillfälliga problem kan du uppgradera till den senaste versionen av SDK, köra kommandon för att kontrol lera ignorerade paket och hämta nätverks spår för att felsöka problemen. 
@@ -48,7 +48,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Kontrol lera att IP-adresser tillåts i företags brand väggen
-När du arbetar med Azure måste du ibland tillåta vissa IP-adressintervall eller URL: er i företagets brand vägg eller proxy för att få åtkomst till alla Azure-tjänster som du använder eller försöker använda. Kontrol lera att trafiken tillåts på IP-adresser som används av Event Hubs. För IP-adresser som används av Azure Event Hubs: se [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519) och [service tag-EventHub](network-security.md#service-tags).
+När du arbetar med Azure måste du ibland tillåta vissa IP-adressintervall eller URL: er i företagets brand vägg eller proxy för att få åtkomst till alla Azure-tjänster som du använder eller försöker använda. Kontrol lera att trafiken tillåts på IP-adresser som används av Event Hubs. För IP-adresser som används av Azure Event Hubs: se [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Kontrol lera också att IP-adressen för ditt namn område är tillåten. Följ dessa steg om du vill hitta rätt IP-adresser som tillåts för dina anslutningar:
 
@@ -75,13 +75,16 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
     ```
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
 
+### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Kontrol lera att AzureEventGrid service tag är tillåtet i dina nätverks säkerhets grupper
+Om ditt program körs i ett undernät och det finns en tillhör ande nätverks säkerhets grupp, kontrollerar du om den utgående Internet-koden är tillåten eller om AzureEventGrid är tillåten. Se [tjänst taggar för virtuella nätverk](../virtual-network/service-tags-overview.md) och Sök efter `EventHub` .
+
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Kontrol lera om programmet måste köras i ett särskilt undernät i ett virtuellt nätverk
 Bekräfta att ditt program körs i ett virtuellt nätverk under nät som har åtkomst till namn området. Om det inte är det kör du programmet i under nätet som har åtkomst till namn området eller lägger till IP-adressen för den dator där programmet körs till [IP-brandväggen](event-hubs-ip-filtering.md). 
 
 När du skapar en tjänst slut punkt för ett virtuellt nätverk för ett namn område för Event Hub accepterar namn området enbart trafik från det undernät som är kopplat till tjänstens slut punkt. Det finns ett undantag för det här beteendet. Du kan lägga till vissa IP-adresser i IP-brandväggen för att ge åtkomst till den offentliga slut punkten för Händelsehubben. Mer information finns i [nätverks tjänstens slut punkter](event-hubs-service-endpoints.md).
 
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Kontrol lera inställningarna för IP-brandväggen för ditt namn område
-Kontrol lera att IP-adressen för den dator där programmet körs inte har blockerats av IP-brandväggen.  
+Kontrol lera att den offentliga IP-adressen för den dator där programmet körs inte blockeras av IP-brandväggen.  
 
 Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
@@ -108,9 +111,9 @@ Aktivera diagnostikloggar för [Event Hubs händelser för virtuella nätverks a
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Kontrol lera om namn området kan nås enbart med en privat slut punkt
 Om Event Hubs namn området är konfigurerat att vara tillgängligt enbart via privat slut punkt kontrollerar du att klient programmet har åtkomst till namn området över den privata slut punkten. 
 
-[Azure Private Link service](../private-link/private-link-overview.md) ger dig åtkomst till Azure Event Hubs över en **privat slut punkt** i det virtuella nätverket. En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
+[Azure Private Link service](../private-link/private-link-overview.md) ger dig åtkomst till Azure Event Hubs över en **privat slut punkt** i det virtuella nätverket. En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från det virtuella nätverket, vilket effektivt ansluter tjänsten till det virtuella nätverket. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
-Mer information finns i [Konfigurera privata slut punkter](private-link-service.md). 
+Mer information finns i [Konfigurera privata slut punkter](private-link-service.md). Se avsnittet **Verifiera att den privata slut punkts anslutningen fungerar** och bekräfta att en privat slut punkt används. 
 
 ### <a name="troubleshoot-network-related-issues"></a>Felsöka nätverksrelaterade problem
 Följ dessa steg om du vill felsöka nätverksrelaterade problem med Event Hubs: 
@@ -160,7 +163,7 @@ Tillfälliga anslutnings problem kan uppstå på grund av uppgraderingar och oms
 - Programmen kan vara frånkopplade från tjänsten under några sekunder.
 - Begär Anden kan begränsas tillfälligt.
 
-Om program koden använder SDK är principen för återförsök redan inbyggd och aktiv. Programmet återansluter utan betydande påverkan på programmet/arbets flödet. Annars försöker du ansluta till tjänsten igen efter några minuter för att se om problemen försvinner. 
+Om program koden använder SDK är principen för återförsök redan inbyggd och aktiv. Programmet återansluter utan betydande påverkan på programmet/arbets flödet. Genom att fånga de här tillfälliga felen, och sedan försöka igen, ser du till att din kod är elastisk mot de här tillfälliga problemen.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

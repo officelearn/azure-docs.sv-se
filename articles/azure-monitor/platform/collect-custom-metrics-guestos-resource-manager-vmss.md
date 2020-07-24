@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76f73df01b34cb20be48aefa3b5b3a6392a35b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045201"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst operativ systemets mått till Azure Monitor Mät lagringen med hjälp av en Azure Resource Manager mall för en skalnings uppsättning för virtuella Windows-datorer
 
@@ -23,11 +24,11 @@ I den här artikeln beskrivs processen för att skicka gäst operativ systemets 
 
 Om du är nybörjare på Resource Manager-mallar kan du läsa mer om [mall distributioner](../../azure-resource-manager/management/overview.md) och deras struktur och syntax.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Din prenumeration måste vara registrerad med [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Du måste ha [Azure PowerShell](/powershell/azure) installerat, eller så kan du använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Du måste ha [Azure PowerShell](/powershell/azure) installerat, eller så kan du använda [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 - Din VM-resurs måste finnas i en [region som stöder anpassade mått](metrics-custom-overview.md#supported-regions).
 
@@ -292,5 +293,3 @@ Du kan också välja att använda dimensionerna för det här måttet för att s
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [anpassade mått](metrics-custom-overview.md).
-
-

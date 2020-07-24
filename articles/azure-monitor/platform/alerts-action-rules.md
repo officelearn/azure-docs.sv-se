@@ -4,12 +4,12 @@ description: Att förstå vilka åtgärds regler i Azure Monitor är och hur du 
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045725"
 ---
 # <a name="action-rules-preview"></a>Åtgärds regler (förhands granskning)
 
@@ -21,14 +21,13 @@ Med åtgärds regler kan du definiera eller ignorera åtgärder i Azure Resource
 
 ### <a name="suppression-of-alerts"></a>Under tryckning av aviseringar
 
-Det finns många scenarier där det är praktiskt att ignorera de meddelanden som genereras av aviseringar. De här scenarierna sträcker sig från under tryckning under en planerad underhålls period som ska undertryckas under icke-kontors tid. Teamet som ansvarar för **ContosoVM** vill t. ex. Ignorera aviserings aviseringar för den kommande helgen, eftersom **ContosoVM** har planerat underhåll. 
+Det finns många scenarier där det är praktiskt att ignorera de meddelanden som genereras av aviseringar. De här scenarierna sträcker sig från under tryckning under en planerad underhålls period som ska undertryckas under icke-kontors tid. Teamet som ansvarar för **ContosoVM** vill t. ex. Ignorera aviserings aviseringar för den kommande helgen, eftersom **ContosoVM** har planerat underhåll.
 
 Även om teamet kan inaktivera varje varnings regel som är konfigurerad på **ContosoVM** manuellt (och aktivera den igen efter underhåll), är det inte en enkel process. Med åtgärds regler kan du definiera under tryckning av aviseringar i skala med möjligheten att flexibelt konfigurera under trycknings perioden. I föregående exempel kan teamet definiera en åtgärds regel på **ContosoVM** som förhindrar alla aviserings aviseringar för helgen.
 
-
 ### <a name="actions-at-scale"></a>Åtgärder i skala
 
-Även om aviserings regler hjälper dig att definiera den åtgärds grupp som utlöser när aviseringen genereras, har kunderna ofta en gemensam åtgärds grupp för deras omfattning. Till exempel definierar ett team som ansvarar för resurs gruppen **conto sorg** förmodligen samma åtgärds grupp för alla varnings regler som definierats i **conto sorg**. 
+Även om aviserings regler hjälper dig att definiera den åtgärds grupp som utlöser när aviseringen genereras, har kunderna ofta en gemensam åtgärds grupp för deras omfattning. Till exempel definierar ett team som ansvarar för resurs gruppen **conto sorg** förmodligen samma åtgärds grupp för alla varnings regler som definierats i **conto sorg**.
 
 Med åtgärds regler kan du förenkla processen. Genom att definiera åtgärder i skala kan en åtgärds grupp aktive ras för alla aviseringar som genereras i det konfigurerade omfånget. I det tidigare exemplet kan teamet definiera en åtgärds regel på **conto sorg** som utlöser samma åtgärds grupp för alla aviseringar som genereras i den.
 
@@ -37,11 +36,13 @@ Med åtgärds regler kan du förenkla processen. Genom att definiera åtgärder 
 
 ## <a name="configuring-an-action-rule"></a>Konfigurera en åtgärdsregel
 
+### <a name="portal"></a>[Portal](#tab/portal)
+
 Du kan få åtkomst till funktionen genom att välja **Hantera åtgärder** från sidan **aviserings** landning i Azure Monitor. Välj sedan **Åtgärds regler (förhands granskning)**. Du kan komma åt reglerna genom att välja **Åtgärds regler (förhands granskning)** från instrument panelen för landnings sidan för aviseringar.
 
 ![Åtgärds regler från Azure Monitor landnings sida](media/alerts-action-rules/action-rules-landing-page.png)
 
-Välj **+ ny åtgärds regel**. 
+Välj **+ ny åtgärds regel**.
 
 ![Lägg till ny åtgärds regel](media/alerts-action-rules/action-rules-new-rule.png)
 
@@ -49,7 +50,7 @@ Du kan också skapa en åtgärds regel när du konfigurerar en varnings regel.
 
 ![Lägg till ny åtgärds regel](media/alerts-action-rules/action-rules-alert-rule.png)
 
-Nu bör du se sidan Flow för att skapa åtgärds regler. Konfigurera följande element: 
+Nu bör du se sidan Flow för att skapa åtgärds regler. Konfigurera följande element:
 
 ![Nytt flöde för skapande av åtgärds regel](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
@@ -61,9 +62,9 @@ Välj först omfånget (Azure-prenumeration, resurs grupp eller mål resurs). Du
 
 ### <a name="filter-criteria"></a>Filter villkor
 
-Du kan också definiera filter för att begränsa dem till en viss delmängd av aviseringarna. 
+Du kan också definiera filter för att begränsa dem till en viss delmängd av aviseringarna.
 
-De tillgängliga filtren är: 
+De tillgängliga filtren är:
 
 * **Allvarlighets grad**: möjlighet att välja en eller flera aviserings allvarlighets grader. **Allvarlighets grad = Sev1** innebär att åtgärds regeln gäller för alla aviseringar som angetts till Sev1.
 * **Övervaka tjänst**: ett filter som baseras på den ursprungliga övervaknings tjänsten. Det här filtret är också flera-Välj. Exempel: **Monitor Service = "Application Insights"** innebär att åtgärds regeln gäller för alla Application Insights-baserade aviseringar.
@@ -73,7 +74,7 @@ De tillgängliga filtren är:
 * **Beskrivning**: ett regex-matchning (reguljärt uttryck) som definierar en sträng matchning mot beskrivningen, definierad som en del av varnings regeln. Beskrivningen innehåller t. ex. **"Prod"** att matcha alla aviseringar som innehåller strängen "Prod" i deras beskrivningar.
 * **Aviserings kontext (nytto Last)**: en regex-matchning som definierar en sträng matchning mot aviserings kontext fälten i en aviserings nytto Last. Till exempel **innehåller aviserings kontext (nytto Last) "Computer-01"** och matchar alla aviseringar vars nytto laster innehåller strängen "Computer-01".
 
-Dessa filter används tillsammans med varandra. Om du till exempel anger **resurs typen ' = Virtual Machines** och **allvarlighets grad ' = Sev0**har du filtrerat för alla **Sev0** -aviseringar endast på dina virtuella datorer. 
+Dessa filter används tillsammans med varandra. Om du till exempel anger **resurs typen ' = Virtual Machines** och **allvarlighets grad ' = Sev0**har du filtrerat för alla **Sev0** -aviseringar endast på dina virtuella datorer.
 
 ![Åtgärds regel filter](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -83,7 +84,7 @@ Konfigurera sedan åtgärds regeln för antingen aviserings under tryckning elle
 
 #### <a name="suppression"></a>Under tryckning
 
-Om du väljer under **tryckning**konfigurerar du varaktigheten för under tryckning av åtgärder och aviseringar. Välj ett av följande alternativ:
+Om du väljer under **tryckning**konfigurerar du varaktigheten för under tryckning av åtgärder och aviseringar. Välj något av följande alternativ:
 * **Från nu (alltid)**: ignorerar alla meddelanden på obestämd tid.
 * **Vid en schemalagd tidpunkt**: undertrycker meddelanden inom en gränsad varaktighet.
 * **Med en upprepning**: ignorerar meddelanden på ett återkommande schema för varje dag, varje vecka eller månad.
@@ -92,7 +93,7 @@ Om du väljer under **tryckning**konfigurerar du varaktigheten för under tryckn
 
 #### <a name="action-group"></a>Åtgärdsgrupp
 
-Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åtgärds grupp eller skapar en ny. 
+Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åtgärds grupp eller skapar en ny.
 
 > [!NOTE]
 > Du kan bara associera en åtgärds grupp med en åtgärds regel.
@@ -102,9 +103,85 @@ Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åt
 ### <a name="action-rule-details"></a>Åtgärds regel information
 
 Konfigurera senast följande information för åtgärds regeln:
-* Name
+* Namn
 * Resurs grupp där den sparas
-* Description 
+* Beskrivning
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Du kan skapa åtgärds regler med Azure CLI med hjälp av kommandot [AZ Monitor åtgärd-Rule Create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) .  `az monitor action-rule`Referensen är bara en av många [Azure CLI-referenser för Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+
+### <a name="prepare-your-environment"></a>Förbereda din miljö
+
+1. [Installera Azure CLI](/cli/azure/install-azure-cli)
+
+   Om du vill kan du också använda Azure Cloud Shell för att slutföra stegen i den här artikeln.  Azure Cloud Shell är en interaktiv gränssnitts miljö som du använder via webbläsaren.  Starta Cloud Shell med någon av följande metoder:
+
+   - Öppna Cloud Shell genom att gå till[https://shell.azure.com](https://shell.azure.com)
+
+   - Välj knappen **Cloud Shell** på Meny raden i det övre högra hörnet i [Azure Portal](https://portal.azure.com)
+
+1. Logga in.
+
+   Om du använder en lokal installation av CLI loggar du in med kommandot [AZ login](/cli/azure/reference-index#az-login) .  Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.
+
+    ```azurecli
+    az login
+    ```
+
+1. Installera `alertsmanagement` tillägget
+
+   `az monitor action-rule`Kommandot är ett experiment tillägg till kärnan i Azure CLI. Läs mer om tilläggs referenser i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+
+   ```azurecli
+   az extension add --name alertsmanagement
+   ```
+
+   Följande varning förväntas.
+
+   ```output
+   The installed extension `alertsmanagement` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### <a name="create-action-rules-with-the-azure-cli"></a>Skapa åtgärds regler med Azure CLI
+
+Se referens innehållet i Azure CLI för [AZ övervaknings åtgärd – regel skapa](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) för att lära dig mer om obligatoriska och valfria parametrar.
+
+Skapa en åtgärds regel för att utelämna meddelanden i en resurs grupp.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --scope-type ResourceGroup \
+                              --scope /subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourceGroups/MyResourceGroupName \
+                              --suppression-recurrence-type Always \
+                              --alert-context Contains Computer-01 \
+                               --monitor-service Equals "Log Analytics"
+```
+
+Skapa en åtgärds regel för att ignorera aviseringar för alla Sev4-aviseringar på alla virtuella datorer i prenumerationen varje helg.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --severity Equals Sev4 \
+                              --target-resource-type Equals Microsoft.Compute/VirtualMachines \
+                              --suppression-recurrence-type Weekly \
+                              --suppression-recurrence 0 6 \
+                              --suppression-start-date 12/09/2018 \
+                              --suppression-end-date 12/18/2018 \
+                              --suppression-start-time 06:00:00 \
+                              --suppression-end-time 14:00:00
+
+```
+
+* * *
 
 ## <a name="example-scenarios"></a>Exempelscenarier
 
@@ -132,7 +209,7 @@ Contoso vill undertrycka aviseringar för alla logg aviseringar som genererats f
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: åtgärds grupp definierad i en resurs grupp
 
-Contoso har definierat [en mått avisering på en prenumerations nivå](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Men det vill definiera de åtgärder som utlöser specifikt för aviseringar som genereras från resurs gruppen **conto sorg**.
+Contoso har definierat [en mått avisering på en prenumerations nivå](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Men det vill definiera de åtgärder som utlöser specifikt för aviseringar som genereras från resurs gruppen **conto sorg**.
 
 **Lösning:** Skapa en åtgärds regel med:
 * Omfång = **conto sorg**
@@ -140,15 +217,39 @@ Contoso har definierat [en mått avisering på en prenumerations nivå](https://
 * Åtgärds grupp inställt på **ContosoActionGroup**
 
 > [!NOTE]
-> *Åtgärds grupper som definieras i åtgärds regler och varnings regler fungerar oberoende, utan deduplicering.* I det scenario som beskrivs tidigare, om en åtgärds grupp har definierats för varnings regeln, utlöses den tillsammans med den åtgärds grupp som definierats i åtgärds regeln. 
+> *Åtgärds grupper som definieras i åtgärds regler och varnings regler fungerar oberoende, utan deduplicering.* I det scenario som beskrivs tidigare, om en åtgärds grupp har definierats för varnings regeln, utlöses den tillsammans med den åtgärds grupp som definierats i åtgärds regeln.
 
 ## <a name="managing-your-action-rules"></a>Hantera dina åtgärds regler
+
+### <a name="portal"></a>[Portal](#tab/portal)
 
 Du kan visa och hantera dina åtgärds regler från List visningen:
 
 ![Listvy för åtgärds regler](media/alerts-action-rules/action-rules-list-view.png)
 
 Härifrån kan du aktivera, inaktivera eller ta bort åtgärds regler i skala genom att markera kryss rutan bredvid dem. När du väljer en åtgärds regel öppnas konfigurations sidan. Sidan hjälper dig att uppdatera åtgärds regelns definition och aktivera eller inaktivera den.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Du kan visa och hantera dina åtgärds regler med kommandot [AZ Monitor Action-Rule](/cli/azure/ext/alertsmanagement/monitor) från Azure CLI.
+
+Innan du hanterar åtgärds regler med Azure CLI förbereder du din miljö med hjälp av anvisningarna i [Konfigurera en åtgärds regel](#configuring-an-action-rule).
+
+```azurecli
+# List all action rules for a subscription
+az monitor action-rule list
+
+# Get details of an action rule
+az monitor action-rule show --resource-group MyResourceGroupName --name MyActionRuleName
+
+# Update an action rule.
+az monitor action-rule update --resource-group MyResourceGroupName --name MyActionRuleName --status Disabled
+
+# Delete an action rule.
+az monitor action-rule delete --resource-group MyResourceGroupName --name MyActionRuleName
+```
+
+* * *
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -181,12 +282,12 @@ När du har definierat mål resursen för aviserings regeln kan du se en lista �
 * En delmängd: den varnings regel du definierar är en prenumeration och åtgärds regeln finns i en resurs grupp i prenumerationen.
 * En supermängd: till exempel är den varnings regel du definierar en resurs grupp och åtgärds regeln finns i den prenumeration som innehåller resurs gruppen.
 * Ett snitt: till exempel är varnings regeln du definierar på **VM1** och **VM2**och åtgärds regeln finns på **VM2** och **VM3**.
-    
+
 ![Överlappande åtgärds regler](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Kan jag se de aviseringar som har ignorerats av en åtgärds regel?
 
-På [sidan aviserings lista](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances)kan du välja ytterligare en kolumn som heter **undertrycks status**. Om meddelandet för en varnings instans ignoreras visas denna status i listan.
+På [sidan aviserings lista](./alerts-managing-alert-instances.md)kan du välja ytterligare en kolumn som heter **undertrycks status**. Om meddelandet för en varnings instans ignoreras visas denna status i listan.
 
 ![Undertryckta varnings instanser](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -200,7 +301,7 @@ Under tryckning prioriteras alltid i samma omfång.
 
    `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
-För varje varning på VM1 och VM3 utlöses åtgärds grupp AG1 en gång. För varje varning på **VM2**skulle åtgärds gruppen AG1 utlösas två gånger, eftersom åtgärds regler inte deduplicerar åtgärder. 
+För varje varning på VM1 och VM3 utlöses åtgärds grupp AG1 en gång. För varje varning på **VM2**skulle åtgärds gruppen AG1 utlösas två gånger, eftersom åtgärds regler inte deduplicerar åtgärder.
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Vad händer om jag har en resurs som övervakas i två separata åtgärds regler och ett anrop för åtgärd medan en annan för under tryckning? Till exempel **VM2** i följande scenario:
 
@@ -208,7 +309,7 @@ För varje varning på VM1 och VM3 utlöses åtgärds grupp AG1 en gång. För v
 
    `action rule AR2 defined for VM2 and VM3 with suppression`
 
-För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. Åtgärder och aviseringar för varje varning på VM2 och VM3 ignoreras. 
+För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. Åtgärder och aviseringar för varje varning på VM2 och VM3 ignoreras.
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Vad händer om jag har en varnings regel och en åtgärds regel som definierats för samma resurs som anropar olika åtgärds grupper? Till exempel **VM1** i följande scenario:
 
@@ -216,8 +317,8 @@ För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. Åtg�
 
    `action rule AR1 defined for VM1 with action group AG1`
 
-För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. När varnings regeln "regel 1" utlöses, kommer den också att utlösa AG2. Åtgärds grupper som definieras i åtgärds regler och varnings regler fungerar oberoende, utan deduplicering. 
+För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. När varnings regeln "regel 1" utlöses, kommer den också att utlösa AG2. Åtgärds grupper som definieras i åtgärds regler och varnings regler fungerar oberoende, utan deduplicering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig mer om aviseringar i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
+- [Lär dig mer om aviseringar i Azure](./alerts-overview.md)

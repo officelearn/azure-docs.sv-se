@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e844934852f3eb45f665a67bbdb7087a8ba0202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039167"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Flytta logiska app-resurser till andra Azure-resurs grupper, regioner eller prenumerationer
 
@@ -27,7 +27,7 @@ Om du vill migrera din Logic app eller relaterade resurser till en annan Azure-r
 
 * Du kan bara flytta en [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) till en annan resurs grupp som finns i samma Azure-region eller Azure-prenumeration. Du kan inte flytta en ISE till en resurs grupp som finns i en annan Azure-region eller Azure-prenumeration. Efter en sådan flyttning måste du också uppdatera alla referenser till ISE i dina Logic app-arbetsflöden, integrations konton, anslutningar och så vidare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Samma Azure-prenumeration som användes för att skapa den Logic app eller det integrations konto som du vill flytta
 
@@ -94,7 +94,7 @@ Vissa Azure-resurser, till exempel lokala data Gateway-resurser i Azure, kan fin
 
 Om du till exempel vill länka en Logic app till ett integrations konto måste båda resurserna finnas i samma region. I scenarier som haveri beredskap vill du vanligt vis använda integrations konton som har samma konfiguration och artefakter. I andra scenarier kan du behöva integrations konton med olika konfigurationer och artefakter.
 
-Anpassade anslutningar i Azure Logic Apps är synliga för anslutningens författare och användare som har samma Azure-prenumeration och samma Azure Active Directory-klient. Dessa anslutningar är tillgängliga i samma region där Logic Apps distribueras. Mer information finns i [Dela anpassade anslutningsappar i organisationen](https://docs.microsoft.com/connectors/custom-connectors/share).
+Anpassade anslutningar i Azure Logic Apps är synliga för anslutningens författare och användare som har samma Azure-prenumeration och samma Azure Active Directory-klient. Dessa anslutningar är tillgängliga i samma region där Logic Apps distribueras. Mer information finns i [Dela anpassade anslutningsappar i organisationen](/connectors/custom-connectors/share).
 
 Den mall som du hämtar från Visual Studio innehåller bara resurs definitionerna för din Logic app och dess anslutningar. Så om din Logic app använder andra resurser, till exempel ett integrations konto och B2B-artefakter, till exempel partner, avtal och scheman, måste du exportera integrations kontots mall med hjälp av Azure Portal. Den här mallen innehåller resurs definitionerna för både integrations kontot och artefakterna. Mallen är dock inte helt parametriserad. Så du måste manuellt Parameterisera de värden som du vill använda för distribution.
 

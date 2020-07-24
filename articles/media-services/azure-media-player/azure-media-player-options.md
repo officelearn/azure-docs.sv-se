@@ -6,11 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab79a60f55fad6a45fadb6bf8890d2879caac62
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727169"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043586"
 ---
 # <a name="options"></a>Alternativ #
 
@@ -62,7 +63,7 @@ Attributet width anger visnings bredden för videon.
 
 `<video width="640" ...>` eller `{ "width": 640 }`
 
-### <a name="height"></a>höjd ###
+### <a name="height"></a>mankhöjd ###
 
 Attributet height anger visnings höjden för videon.
 
@@ -100,7 +101,7 @@ Genom att ställa in det här alternativet på True video-element får du full b
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-Andra egenskaper för `playbackSpeed` inställningen anges av [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) -objektet.
+Andra egenskaper för `playbackSpeed` inställningen anges av [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) -objektet.
 
 Exempel på Inställningar för uppspelnings hastighet i Java Script:
 

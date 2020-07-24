@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043493"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Azure Media Services kvoter och begränsningar
@@ -92,7 +93,7 @@ Eventuella jobb poster i ditt konto som är äldre än 90 dagar tas bort automat
 | [Strömmande principer](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unika [strömmande positionerare](streaming-locators-concept.md) som är associerade med en till gång vid ett tillfälle | 100<sup>(7)</sup> (fast) |
 
-<sup>6</sup> när du använder en anpassad [strömnings princip](https://docs.microsoft.com/rest/api/media/streamingpolicies)bör du utforma en begränsad uppsättning sådana principer för ditt Media Service-konto och sedan använda dem igen för din StreamingLocators när samma krypterings alternativ och protokoll behövs. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
+<sup>6</sup> när du använder en anpassad [strömnings princip](/rest/api/media/streamingpolicies)bör du utforma en begränsad uppsättning sådana principer för ditt Media Service-konto och sedan använda dem igen för din StreamingLocators när samma krypterings alternativ och protokoll behövs. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
 
 <sup>7</sup> strömmande positionerare är inte utformade för att hantera åtkomst kontroll per användare. Om du vill ge olika åtkomsträttigheter till enskilda användare kan du använda DRM-lösningar (Digital Rights Management).
 

@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 459c9f2d68d8a3a3c1b597665914146987aecdc2
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 9e3f5e37462b30b0201be5350dedc103a49bb39a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801809"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039301"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault finns i [översikten](../general/overview.md). I den här snabbstarten använder du PowerShell till att skapa ett nyckelvalv. Sedan lagrar du en hemlighet i valvet du skapade.
+Azure Key Vault är en molntjänst som fungerar som ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault finns i [översikten](../general/overview.md). I den här snabbstarten använder du PowerShell till att skapa ett nyckelvalv. Sedan lagrar du en hemlighet i valvet du skapade.
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -62,8 +62,6 @@ Utdata från denna cmdlet visar egenskaper för nyckelvalvet du precis skapade. 
 * **Valvets URI**: I det här exemplet är det https://Contoso-Vault2.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 När du har skapat valvet så är ditt Azure-konto det enda kontot med behörighet att göra någonting i valvet.
-
-![Utdata när kommandot för att skapa Key Vault har slutförts](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Ge ditt användar konto behörighet att hantera hemligheter i Key Vault
 

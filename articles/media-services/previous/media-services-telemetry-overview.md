@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52b737e88e13c59d260da73c6fa37a1088cb91d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74895783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038478"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services telemetri  
 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services (AMS) gör det möjligt att komma åt telemetri/Mät data för sina tjänster. Med den aktuella versionen av AMS kan du samla in telemetri-data för entiteter i Live **Channel**, **StreamingEndpoint**och Live **Archive** . 
 
@@ -50,7 +51,7 @@ Telemetri skrivs till en Azure Storage tabell i det lagrings konto som du angav 
 
 Du kan använda telemetridata på något av följande sätt:
 
-- Läs data direkt från Azure Table Storage (t. ex. med Storage SDK). Beskrivning av tabeller för telemetri-lagring finns i informationen om att använda **telemetri** i [det här](https://msdn.microsoft.com/library/mt742089.aspx) avsnittet.
+- Läs data direkt från Azure Table Storage (t. ex. med Storage SDK). Beskrivning av tabeller för telemetri-lagring finns i informationen om att använda **telemetri** i [det här](/previous-versions/azure/mt742089(v=azure.100)) avsnittet.
 
 Eller
 
@@ -77,9 +78,9 @@ Egenskap|Värde|Exempel/anteckningar
 ---|---|---
 PartitionKey|{konto-ID} _ {enhets-ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Konto-ID ingår i partitionsnyckel för att förenkla arbets flöden där flera Media Services-konton skriver till samma lagrings konto.
 RowKey|{sekunder till midnatt} _ {slump värde}|01688_00199<br/><br/>Rad nyckeln börjar med antalet sekunder till midnatt för att tillåta flest n format frågor i en partition. Mer information finns i [den här](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artikeln. 
-Tidsstämpel|Datum/tid|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
+Timestamp|Datum/tid|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
 Typ|Typ av entitet som tillhandahåller telemetridata|Kanal/StreamingEndpoint/Arkiv<br/><br/>Händelse typen är bara ett sträng värde.
-Name|Namnet på telemetri händelsen|ChannelHeartbeat/StreamingEndpointRequestLog
+Namn|Namnet på telemetri händelsen|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|Tiden då telemetri-händelsen inträffade (UTC)|2016-09-09T22:42:36.924 Z<br/><br/>Den observerade tiden tillhandahålls av den entitet som skickar Telemetrin (till exempel en kanal). Det kan finnas tidssynkroniserings problem mellan komponenter så att värdet är ungefärligt
 ServiceID|{tjänst-ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Entitet-/regionsspecifika egenskaper|Som definieras av händelsen|StreamName: STREAM1, bit hastighet 10123,...<br/><br/>De återstående egenskaperna har definierats för den angivna händelse typen. Azure Table Content är nyckel värdes par.  (det vill säga olika rader i tabellen har olika uppsättningar med egenskaper).
@@ -98,12 +99,12 @@ Egenskap|Värde|Exempel
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Tidsstämpel|Tidsstämpel|Automatisk tidsstämpel från Azure Table 2016-09-09T22:43:42.241 Z
+Timestamp|Timestamp|Automatisk tidsstämpel från Azure Table 2016-09-09T22:43:42.241 Z
 Typ|Typ|StreamingEndpoint
-Name|Name|StreamingEndpointRequestLog
+Namn|Namn|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|Tjänste-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-Värdnamn|Slut punktens värdnamn|builddemoserver.origin.mediaservices.windows.net
+HostName|Slut punktens värdnamn|builddemoserver.origin.mediaservices.windows.net
 StatusCode|Registrerar HTTP-status|200
 ResultCode|Information om resultat kod|S_OK
 RequestCount|Total begäran i agg regeringen|3
@@ -117,9 +118,9 @@ Egenskap|Värde|Exempel/anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Tidsstämpel|Tidsstämpel|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
+Timestamp|Timestamp|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
 Typ|Typ|Kanal
-Name|Name|ChannelHeartbeat
+Namn|Namn|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|Tjänste-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Typ av spår video/ljud/text|video/ljud
@@ -142,9 +143,9 @@ Egenskap|Värde|Exempel/anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Tidsstämpel|Tidsstämpel|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
+Timestamp|Timestamp|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
 Typ|Typ|Arkiv
-Name|Name|ArchiveHeartbeat
+Namn|Namn|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|Tjänste-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|Programmets URL|Asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4BD2-8c01-a92a2b38c9ba. ISM

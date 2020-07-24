@@ -6,11 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: 61e6cc22171815b15b865dd6ed5670bd9c446ead
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39b9fd8396601d777aa802a147bee3acc4a22cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114331"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045294"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Hastighets begränsning för röst, SMS, e-post, Azure App push-meddelanden och webhook-inlägg
 Hastighets begränsning är ett avbrott i meddelanden som inträffar när för många skickas till ett visst telefonnummer, en e-postadress eller en enhet. Hastighets begränsning garanterar att aviseringar kan hanteras och åtgärdas.
@@ -31,5 +32,4 @@ Tröskelvärden för frekvens gränser är:
 ## <a name="next-steps"></a>Nästa steg ##
 * Lär dig mer om [SMS-aviserings beteende](alerts-sms-behavior.md).
 * Få en [Översikt över aktivitets logg aviseringar](alerts-overview.md)och lär dig hur du tar emot aviseringar.  
-* Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-
+* Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../service-health/alerts-activity-log-service-notifications-portal.md).

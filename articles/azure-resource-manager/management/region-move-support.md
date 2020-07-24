@@ -4,13 +4,14 @@ description: Visar en lista över de Azure-resurs typer som kan flyttas mellan A
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/31/2020
+ms.date: 07/21/2020
 ms.author: raynew
-ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 70f981f2763dd36f0f417faec6c81e168e9856e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057695"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040964"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Stöd för att flytta Azure-resurser mellan regioner
 
@@ -70,7 +71,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. DBforMySQL](#microsoftdbformysql)
 > - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft. Devices](#microsoftdevices)
+> - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
@@ -345,7 +346,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | storageaccounts | Ja |  
+> | storageaccounts | Yes |  
 
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
@@ -375,7 +376,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | sharedvmimages | No | 
 > | sharedvmimages/versioner | No | 
 > | snapshots | No | 
-> | virtualmachines | Ja | 
+> | virtualmachines | Yes | 
 > | virtualmachines/tillägg | No | 
 > | virtualmachinescalesets | No | 
 
@@ -542,14 +543,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | brygghuvudservrar | Om tjänsten är etablerad med Geo-redundant lagring, kan du använda geo-återställning för att återställa i andra regioner. [Läs mer](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
+> | brygghuvudservrar | Du kan använda en skrivskyddad replik i flera regioner för att flytta en befintlig server. [Läs mer](../../postgresql/howto-move-regions-portal.md).<br/><br/> Om tjänsten är etablerad med Geo-redundant lagring, kan du använda geo-återställning för att återställa i andra regioner. [Läs mer](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | brygghuvudservrar | No |  
+> | brygghuvudservrar | Du kan använda en skrivskyddad replik i flera regioner för att flytta en befintlig server. [Läs mer](../../mysql/howto-move-regions-portal.md).
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
@@ -557,7 +558,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | servergroups | No | 
-> | brygghuvudservrar | No |  
+> | brygghuvudservrar | Du kan använda en skrivskyddad replik i flera regioner för att flytta en befintlig server. [Lär dig mer](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | No | 
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft. DeploymentManager
@@ -572,7 +573,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servicetopologies/tjänster/serviceunits | No | 
 > | steg | No | 
 
-## <a name="microsoftdevices"></a>Microsoft. Devices
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
@@ -717,7 +718,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | checknameavailability |  Nej.<br/><br/> IoT Central fungerar med geografiska områden och inte regioner.
 > | Rita | No
 
-## <a name="microsoftiothub"></a>Microsoft. IoTHub
+## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
@@ -906,13 +907,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressrouteports | No | 
 > | frontdoors | No | 
 > | frontdoorwebapplicationfirewallpolicies | No | 
-> | belastningsutjämnare | Ja <br/><br/> Du kan exportera den befintliga konfigurationen som en mall och distribuera mallen i den nya regionen. Lär dig hur du flyttar en [extern](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) eller en [intern](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) belastningsutjämnare. |
+> | belastningsutjämnare | Yes <br/><br/> Du kan exportera den befintliga konfigurationen som en mall och distribuera mallen i den nya regionen. Lär dig hur du flyttar en [extern](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) eller en [intern](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) belastningsutjämnare. |
 > | localnetworkgateways |  No | 
 > | natgateways |  No | 
 > | networkintentpolicies |  No | 
-> | NetworkInterfaces | Ja | 
+> | NetworkInterfaces | Yes | 
 > | networkprofiles | No | 
-> | networksecuritygroups | Ja | 
+> | networksecuritygroups | Yes | 
 > | networkwatchers |  No |  
 > | networkwatchers / connectionmonitors |  No | 
 > | networkwatchers/linser |  No | 
@@ -922,7 +923,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | privatednszones / virtualnetworklinks |  No |  
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
-> | publicipaddresses | Ja<br/><br/> Du kan exportera den befintliga offentliga IP-adresskonfigurationen som en mall och distribuera mallen i den nya regionen. [Läs mer](../../virtual-network/move-across-regions-publicip-portal.md) om hur du flyttar en offentlig IP-adress. |
+> | publicipaddresses | Yes<br/><br/> Du kan exportera den befintliga offentliga IP-adresskonfigurationen som en mall och distribuera mallen i den nya regionen. [Läs mer](../../virtual-network/move-across-regions-publicip-portal.md) om hur du flyttar en offentlig IP-adress. |
 > | publicipprefixes | No | 
 > | routefilters | No | 
 > | routetables |  No | 
@@ -1105,7 +1106,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | signalr |  No |  
+> | SignalR |  No |  
 
 ## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
@@ -1124,12 +1125,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | instancepools | No | 
-> | managedinstances | Ja | 
-> | managedinstances/databaser | Ja | 
-> | brygghuvudservrar | Ja | 
-> | servrar/databaser | Ja | 
-> | servrar/elasticpools | Ja | 
-> | virtualclusters | Ja | 
+> | managedinstances | Yes | 
+> | managedinstances/databaser | Yes | 
+> | brygghuvudservrar | Yes | 
+> | servrar/databaser | Yes | 
+> | servrar/elasticpools | Yes | 
+> | virtualclusters | Yes | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 
@@ -1151,7 +1152,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | storageaccounts | Ja<br/><br/> [Flytta ett Azure Storage-konto till en annan region](../../storage/common/storage-account-move.md) | 
+> | storageaccounts | Yes<br/><br/> [Flytta ett Azure Storage-konto till en annan region](../../storage/common/storage-account-move.md) | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
 

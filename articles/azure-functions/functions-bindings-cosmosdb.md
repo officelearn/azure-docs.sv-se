@@ -6,11 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37c98ca2fbffddd064b55192e9b5d83c948d88e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697630"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041966"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB bindningar för Azure Functions 1. x
 
@@ -1119,7 +1120,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** |**DatabaseName** |Databasen som innehåller dokumentet.        |
 |**Samling** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
-|**identitet**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte egenskaperna för både **ID** och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |
+|**id**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte egenskaperna för både **ID** och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos DB SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i det här exemplet: `SELECT * FROM c where c.departmentId = {departmentId}` . Ange inte egenskaperna för både **ID** och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen.|
 |**anslutningen**     |**ConnectionStringSetting**|Namnet på den app-inställning som innehåller Azure Cosmos DB anslutnings strängen.        |
 |**partitionKey**|**PartitionKey**|Anger partitionens nyckel värde för sökningen. Kan innehålla bindnings parametrar.|
@@ -1476,7 +1477,7 @@ Som standard skapas ett dokument i din databas när du skriver till Utdataparame
 
 | Bindning | Referens |
 |---|---|
-| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Felkoder för CosmosDB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Nästa steg
 

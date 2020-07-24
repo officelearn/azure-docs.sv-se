@@ -3,26 +3,25 @@ title: Prissättning för Virtual Machine-erbjudanden – Azure Marketplace
 description: Förklarar de tre metoderna för att ange prissättningen för erbjudanden för virtuella datorer.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 8d6dcd7f3f86e111cfb17fb08c4faadac1552b94
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115510"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039132"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
-==================================
+# <a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Det finns tre sätt att ange prissättning för virtuella datorer: anpassade grund priser, priser per kärna och priser för kalkyl blad.
 
-
-<a name="customized-core-pricing"></a>Anpassat kärn pris
------------------------
+## <a name="customized-core-pricing"></a>Anpassat kärn pris
 
 Priset är särskilt för varje region och kärn kombination. Varje region i försäljnings listan måste anges i **virtualMachinePricing** / **regionPrices** -avsnittet i definitionen.  Använd rätt valuta koder för varje [region](#regions) i din begäran.  Följande exempel visar dessa krav:
 
@@ -66,9 +65,7 @@ Priset är särskilt för varje region och kärn kombination. Varje region i fö
      }
 ```
 
-
-<a name="per-core-pricing"></a>Priser per kärna
-----------------
+## <a name="per-core-pricing"></a>Priser per kärna
 
 I detta fall anger utgivaren ett pris i USD för deras SKU och alla andra priser genereras automatiskt. Priset per kärna anges i den **enskilda** parametern i begäran.
 
@@ -84,9 +81,7 @@ I detta fall anger utgivaren ett pris i USD för deras SKU och alla andra priser
      }
 ```
 
-
-<a name="spreadsheet-pricing"></a>Priser för kalkyl blad
--------------------
+## <a name="spreadsheet-pricing"></a>Priser för kalkyl blad
 
 Utgivaren kan också ladda upp pris kalkyl bladet till en tillfällig lagrings plats. ta sedan med URI: n i begäran som andra fil artefakter. Kalkyl bladet laddas sedan upp, översätts för att utvärdera det angivna pris schemat och uppdaterar slutligen erbjudandet med pris informationen. Efterföljande GET-begäranden för erbjudandet returnerar kalkyl bladets URI och de utvärderade priserna för regionen.
 
@@ -101,18 +96,15 @@ Utgivaren kan också ladda upp pris kalkyl bladet till en tillfällig lagrings p
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nya kärn storlekar som lagts till på 7/2/2019
----------------------------
+## <a name="new-core-sizes-added-on-722019"></a>Nya kärn storlekar som lagts till på 7/2/2019
 
 VM-utgivaren meddelades den 2 juli 2019 om tillägg av nya priser för nya storlekar för virtuella Azure-datorer (baserat på antalet kärnor).  De nya priserna är för kärn storlekarna 10, 44, 48, 60, 120, 208 och 416.  För befintliga virtuella datorer har nya priser för dessa kärnor automatiskt beräknats baserat på aktuella priser.  Utgivare har fram till den 1 augusti 2019 att granska ytterligare priser och göra önskade ändringar.  Efter det här datumet börjar de automatiskt beräknade priserna för de nya kärn storlekarna att gälla, om de inte redan publiceras om av utgivaren.
 
-
-<a name="regions"></a>Regioner
--------
+## <a name="regions"></a>Regioner
 
 I följande tabell visas olika regioner som du kan ange för anpassade kärn priser och deras motsvarande valuta koder.
 
-| **Nationella** | **Namn**             | **Valutakod** |
+| **Region** | **Namn**             | **Valutakod** |
 |------------|----------------------|-------------------|
 | DZ         | Algeriet              | DZD               |
 | AR         | Argentina            | ARS               |

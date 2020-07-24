@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040582"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,6 +79,9 @@ Du kan konfigurera granskning för olika typer av åtgärder och åtgärds grupp
 Azure SQL Database och Azure Synapse audit lagrar 4000 tecken data för tecken fält i en gransknings post. När **instruktionen** eller **data_sensitivity_information** värden som returneras från en gransknings bar åtgärd innehåller fler än 4000 tecken kommer data utöver de första 4000 tecknen att **trunkeras och inte granskas**.
 I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure Portal.
 
+  > [!NOTE]
+  > Det går inte att aktivera granskning på en pausad Synapse SQL-pool. Om du vill aktivera granskning avbryter du Synapse SQL-poolen. Läs mer om [SQL-poolen Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Navigera till **granskning** under säkerhets rubriken i **SQL Database** eller **SQL Server** -fönstret.
 3. Om du vill konfigurera en server gransknings princip kan du välja länken **Visa Server inställningar** på sidan databas granskning. Du kan sedan Visa eller ändra server gransknings inställningarna. Server gransknings principer gäller för alla befintliga och nyligen skapade databaser på den här servern.
@@ -119,10 +122,6 @@ Om du vill konfigurera att skriva gransknings loggar till en Log Analytics arbet
 Mer information om arbets ytor i Azure Monitor loggar finns i [utforma distribution av Azure Monitors loggar](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Granska till Event Hub-målet
-
-> [!WARNING]
-> Om du aktiverar granskning på en server som har en SQL Database pool på den **, kommer SQL Database poolen att återupptas och pausas igen,** vilket kan medföra fakturerings avgifter.
-> Det går inte att aktivera granskning på en pausad SQL Database-pool. Om du vill aktivera det avbryter du den SQL Database poolen.
 
 Om du vill konfigurera att skriva gransknings loggar till en Event Hub väljer du **Event Hub (för hands version)** och **information om**att öppna händelsehubben. Välj den händelsehubben där loggar ska skrivas och klicka sedan på **OK**. Se till att händelsehubben är i samma region som din databas och server.
 

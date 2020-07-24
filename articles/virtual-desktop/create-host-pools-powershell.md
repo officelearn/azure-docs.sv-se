@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6b064c6e4107da5695e2a9945240e4276ac795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 621d654e54d1f42a8714605c0c864b7653524f05
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046284"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
+# <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Skapa en Windows-pool för virtuella skriv bord med PowerShell
 
 >[!IMPORTANT]
 >Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
@@ -25,7 +25,7 @@ ms.locfileid: "85211858"
 
 Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan associeras med flera RemoteApp-grupper, en Skriv bords grupp och flera värdbaserade sessioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har följt instruktionerna i [Konfigurera PowerShell-modulen](powershell-module.md).
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 13691fe05ca42af3a9d5b09ea36eb58bcdf1df08
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187480"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042147"
 ---
 # <a name="configure-runbook-input-parameters"></a>Konfigurera indataparametrar för Runbook
 
@@ -148,7 +148,7 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
      Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
    ```
 
-* **Cmdlets för klassiska Azure-distributions modeller:** Du kan starta en Automation-Runbook som skapats i en standard resurs grupp med hjälp av [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
+* **Cmdlets för klassiska Azure-distributions modeller:** Du kan starta en Automation-Runbook som skapats i en standard resurs grupp med hjälp av [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure.service/start-azureautomationrunbook).
   
    ```powershell
      $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}

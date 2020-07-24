@@ -6,11 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045248"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Felsöka problem i Azure Monitor aviseringar
 
@@ -240,13 +241,13 @@ Följ dessa steg om du fick ett fel meddelande när du försökte skapa, uppdate
 
 1. **Fick du ett behörighets fel?**  
 
-    Du bör antingen ha den [inbyggda rollen övervaknings deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)eller de behörigheter som är relaterade till åtgärds regler och aviseringar.
+    Du bör antingen ha den [inbyggda rollen övervaknings deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor)eller de behörigheter som är relaterade till åtgärds regler och aviseringar.
 
 1. **Verifierade du åtgärds regel parametrarna?**  
 
-    Kontrol lera [Åtgärds regel dokumentationen](alerts-action-rules.md)eller kommandot [Åtgärds regel PowerShell set-AzActionRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) . 
+    Kontrol lera [Åtgärds regel dokumentationen](alerts-action-rules.md)eller kommandot [Åtgärds regel PowerShell set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) . 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du använder en logg avisering kan du också se [fel söknings logg aviseringar](alert-log-troubleshoot.md).
+- Om du använder en logg avisering kan du också se [fel söknings logg aviseringar](./alerts-troubleshoot-log.md).
 - Gå tillbaka till [Azure Portal](https://portal.azure.com) för att kontrol lera om du har löst problemet med vägledning ovan 

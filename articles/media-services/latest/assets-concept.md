@@ -13,19 +13,20 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9b04941a5799955097fbd54ad9bdf50eccb87541
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c9f69a39f725b082771b66959a219581c281ed5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043512"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Till gångar i Azure Media Services v3
 
-I Azure Media Services är en [till gång](https://docs.microsoft.com/rest/api/media/assets) ett Core-begrepp. Det är här du matar in media (till exempel via överföring eller Live-inmatning), utdata-medium (från ett jobb) och publicerar media från (för strömning). 
+I Azure Media Services är en [till gång](/rest/api/media/assets) ett Core-begrepp. Det är här du matar in media (till exempel via överföring eller Live-inmatning), utdata-medium (från ett jobb) och publicerar media från (för strömning). 
 
 En till gång mappas till en BLOB-behållare i [Azure Storage-kontot](storage-account-concept.md) och filerna i till gången lagras som block-blobbar i den behållaren. Till gångar innehåller information om digitala filer som lagras i Azure Storage (inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning).
 
-Media Services stöder BLOB-nivåer när kontot använder General-Purpose v2-lagring (GPv2). Med GPv2 kan du flytta filer till låg frekvent [lagring eller Arkiv lag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)ring. **Arkiv** lag ring är lämpligt för att arkivera källfiler när de inte längre behövs (till exempel efter att de har kodats).
+Media Services stöder BLOB-nivåer när kontot använder General-Purpose v2-lagring (GPv2). Med GPv2 kan du flytta filer till låg frekvent [lagring eller Arkiv lag](../../storage/blobs/storage-blob-storage-tiers.md)ring. **Arkiv** lag ring är lämpligt för att arkivera källfiler när de inte längre behövs (till exempel efter att de har kodats).
 
 **Arkiv** lag rings nivån rekommenderas endast för mycket stora källfiler som redan har kodats och kodnings jobbets utdata lades till i en utgående BLOB-behållare. De blobbar i behållaren för utdata som du vill associera med en till gång och som används för att **strömma eller analysera** innehållet måste finnas på en frekvent eller låg **frekvent lagrings** nivå.
 
@@ -37,7 +38,7 @@ Till gångens namn måste vara unika. Media Services v3-resurs namn (till exempe
 
 ### <a name="blobs"></a>Blobar
 
-Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) och [kraven för NTFS-namn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Orsaken till dessa krav är att filerna kan kopieras från Blob Storage till en lokal NTFS-disk för bearbetning.
+Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) och [kraven för NTFS-namn](/windows/win32/fileio/naming-a-file). Orsaken till dessa krav är att filerna kan kopieras från Blob Storage till en lokal NTFS-disk för bearbetning.
 
 ## <a name="next-steps"></a>Nästa steg
 

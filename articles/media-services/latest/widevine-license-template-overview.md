@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 8cd79ffc619a74d3f339fe88daad89d21f230510
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 35816c693589c5a45d51e5bd093d908b68f9c0d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043277"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Översikt över Media Services v3 med Widevine-licens mal len
 
@@ -62,7 +62,7 @@ En begäran om Widevine-licens formateras som ett JSON-meddelande.
 
 ## <a name="json-message"></a>JSON-meddelande
 
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | payload |Base64-kodad sträng |Den licens förfrågan som skickas av en klient. |
 | content_id |Base64-kodad sträng |Identifierare som används för att härleda nyckel-ID och innehålls nyckel för varje content_key_specs. track_type. |
@@ -80,7 +80,7 @@ Om det finns en befintlig princip behöver du inte ange något av värdena i inn
 
 Varje content_key_specs värde måste anges för alla spår, oavsett alternativet use_policy_overrides_exclusively. 
 
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | content_key_specs. track_type |sträng |Ett namn på spår typ. Om content_key_specs anges i licens förfrågan, se till att ange alla spår typer explicit. Det gick inte att spela upp det senaste 10 sekunderna. |
 | content_key_specs  <br/> security_level |UInt32 |Definierar stabilitets kraven för klienten för uppspelning. <br/> -Programvarubaserad kryptografisk kryptering krävs. <br/> – Program kryptering och en fördunklade-avkodare krävs. <br/> -Nyckel materialet och kryptografi åtgärderna måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning. <br/> -Kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning.  <br/> – Kryptering, avkodning och all hantering av mediet (komprimerade och okomprimerade) måste hanteras i en maskin varu hanterare som är en betrodd körnings miljö. |
@@ -89,7 +89,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett alternative
 | content_key_specs. key_id |Base64-kodad sträng binär, 16 byte |Unik identifierare för nyckeln. |
 
 ## <a name="policy-overrides"></a>Princip åsidosättningar
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleskt värde, sant eller falskt |Anger att uppspelning av innehållet är tillåten. Standardvärdet är false. |
 | policy_overrides&#46;can_persist |Booleskt värde, sant eller falskt |Anger att licensen kan vara bestående av Nonvolatile Storage för offline-användning. Standardvärdet är false. |
@@ -104,7 +104,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett alternative
 | policy_overrides&#46;renew_with_usage |Booleskt värde, sant eller falskt |Anger att licensen har skickats för förnyelse när användningen startar. Det här fältet används endast om can_renew är sant. |
 
 ## <a name="session-initialization"></a>Initiering av session
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | provider_session_token |Base64-kodad sträng |Denna sessionstoken skickas tillbaka i licensen och finns i efterföljande förnyelser. Sessionstoken kvarstår utanför sessioner. |
 | provider_client_token |Base64-kodad sträng |Klient-token att skicka tillbaka i licens svaret. Om licens förfrågan innehåller en klient-token ignoreras värdet. Klientens token kvarstår utanför licens-sessioner. |
@@ -112,7 +112,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett alternative
 
 ## <a name="configure-your-widevine-license-with-net"></a>Konfigurera din Widevine-licens med .NET 
 
-Media Services tillhandahåller en klass som låter dig konfigurera en Widevine-licens. Om du vill konstruera licensen skickar du JSON till [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
+Media Services tillhandahåller en klass som låter dig konfigurera en Widevine-licens. Om du vill konstruera licensen skickar du JSON till [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
 Om du vill konfigurera mallen kan du:
 
@@ -258,7 +258,7 @@ public class WidevineTemplate
 
 #### <a name="configure-the-license"></a>Konfigurera licensen
 
-Använd klasser som definierats i föregående avsnitt för att skapa JSON som används för att konfigurera [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
+Använd klasser som definierats i föregående avsnitt för att skapa JSON som används för att konfigurera [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
 ```csharp
 private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()

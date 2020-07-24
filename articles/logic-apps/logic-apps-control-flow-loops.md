@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066339"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
 
@@ -21,7 +22,7 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -74,7 +75,7 @@ I den här exempel Logic-appen skickas en daglig sammanfattning för en RSS-feed
 
    ![Lägg till steg i "förgrunds"-loopen](media/logic-apps-control-flow-loops/for-each-loop-with-step.png)
 
-5. Spara din logikapp. Om du vill testa din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.
+5. Spara logikappen. Om du vill testa din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.
 
 <a name="for-each-json"></a>
 
@@ -161,7 +162,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
 > [!NOTE]
 > De här stegen använder Office 365 Outlook, men du kan använda vilken e-postprovider som helst som Logic Apps stöder. 
-> [Kontrol lera anslutnings listan här](https://docs.microsoft.com/connectors/). Om du använder ett annat e-postkonto förblir de allmänna stegen desamma, men användar gränssnittet kan se lite annorlunda ut. 
+> [Kontrol lera anslutnings listan här](/connectors/). Om du använder ett annat e-postkonto förblir de allmänna stegen desamma, men användar gränssnittet kan se lite annorlunda ut. 
 
 1. Skapa en tom logikapp. I Logic App Designer väljer du **alla**under sökrutan. Sök efter "upprepning". 
    Välj den här utlösaren i listan utlösare: **upprepnings schema**
@@ -191,7 +192,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
    | Egenskap | Värde | Beskrivning |
    | -------- | ----- | ----------- |
    | **Namn** | Gräns | Variabelns namn | 
-   | **Typ** | Integer | Variabelns datatyp | 
+   | **Typ** | Heltal | Variabelns datatyp | 
    | **Värde** | 0 | Variabelns start värde | 
    |||| 
 
@@ -236,7 +237,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
       | **Brödtext** | <*e-post – innehåll*> | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
       |||| 
 
-1. Spara din logikapp. Om du vill testa din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.
+1. Spara logikappen. Om du vill testa din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.
 
       När din logik börjar köras får du ett e-postmeddelande med det innehåll som du har angett:
 
@@ -248,8 +249,8 @@ En "till"-loop har standard gränser som slutar köras om något av dessa villko
 
 | Egenskap | Standardvärde | Beskrivning | 
 | -------- | ------------- | ----------- | 
-| **Reparationer** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
-| **Tidsgräns** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
+| **Antal** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
+| **Standardvärde** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
 |||| 
 
 Om du vill ändra dessa standard gränser väljer du **Visa avancerade alternativ** i formen loop-åtgärd.
@@ -334,7 +335,7 @@ I det här exemplet "till" tills "-loopen anropar en HTTP-slutpunkt, vilket skap
 
 ## <a name="get-support"></a>Få support
 
-* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * För att skicka in eller rösta på funktioner och förslag [Azure Logic Apps användarens feedback-webbplats](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

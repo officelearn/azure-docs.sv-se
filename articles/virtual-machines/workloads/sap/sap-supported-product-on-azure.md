@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065092"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Vilken SAP-programvara stöds för Azure-distributioner
 Den här artikeln beskriver hur du kan ta reda på vilka SAP-program som stöds för Azure-distributioner och vilka operativ Systems utgåvor eller DBMS-versioner som behövs.
@@ -87,12 +87,12 @@ Om du vet vilka DBMS-versioner som stöds med den riktade Azure-infrastrukturen 
 I Azure finns det två tjänster som kan användas för att köra HANA-databasen:
 
 - Azure Virtual Machines
-- [HANA stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [HANA stora instanser](./hana-overview-architecture.md)
 
 För att kunna köra SAP HANA, har SAP mer och starkare villkor att infrastrukturen måste uppfylla för att kunna köra NetWeaver eller andra SAP-program och-DBMS. Det innebär att ett mindre antal virtuella Azure-datorer är kvalificerade för att köra SAP HANA-DBMS. En lista med Azure-infrastruktur som stöds för SAP HANA finns i den kallas [SAP HANA maskin varu katalog](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
 > [!NOTE]
-> Enheterna som börjar med bokstaven ' är Hana-enheter med [stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) . 
+> Enheterna som börjar med bokstaven ' är Hana-enheter med [stora instanser](./hana-overview-architecture.md) . 
 
 > [!NOTE]
 > SAP har ingen särskild certifiering beroende av SAP HANA större versioner. I motsats till ett vanligt yttrande, är kolumnen **certifierings scenario** i de [Hana-certifierade IaaS-plattformarna](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)att det **inte finns någon information om den mest Hana-eller del versionen som certifierats av Hana**. Du måste anta att alla enheter i listan som kan användas för HANA 1,0 och HANA 2,0 så länge som certifierade operativ system versioner för de enskilda enheterna stöds av HANA 1,0-versioner. 
@@ -138,12 +138,11 @@ Stöd för SAP BPC 10,1 SP08 beskrivs i [SAP support note #2451795](https://laun
 Stöd för SAP Hybris Commerce Platform på Azure beskrivs i Hybris- [dokumentationen](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). Från och med stöd för DBMS för SAP Hybris Commerce-plattformen visas den som:
 
 - SQL Server och Oracle på plattformen för operativ systemet Windows. Samma minimi versioner gäller för SAP NetWeaver. Mer information finns i [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
-- SAP HANA för Red Hat och SUSE Linux. SAP HANA certifierade VM-typer krävs enligt beskrivningen tidigare i [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). SAP (Hybris) Commerce Platform anses vara OLTP-arbetsbelastning
+- SAP HANA för Red Hat och SUSE Linux. SAP HANA certifierade VM-typer krävs enligt beskrivningen tidigare i [det här dokumentet](#sap-hana-support). SAP (Hybris) Commerce Platform anses vara OLTP-arbetsbelastning
 - SQL Azure DB från och med SAP (Hybris) Commerce Platform version 1811
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs nästa steg i [Azure Virtual Machines planera och implementera för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-
+Läs nästa steg i [Azure Virtual Machines planera och implementera för SAP NetWeaver](./planning-guide.md)

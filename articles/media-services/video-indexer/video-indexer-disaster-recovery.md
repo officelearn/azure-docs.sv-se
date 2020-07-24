@@ -1,5 +1,5 @@
 ---
-title: Video Indexer redundans och haveri beredskap
+title: Redundans och haveriberedskap för Video Indexer
 titleSuffix: Azure Media Services
 description: Lär dig hur du växlar till ett sekundärt Video Indexer konto om ett fel eller haveri inträffar i ett regionalt Data Center.
 services: media-services
@@ -14,19 +14,20 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 17c21900448fcb6d0a40fe5407f3b8bd62f9e3e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab376c44065979de86e5c70b796be952fccffaa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499618"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065404"
 ---
-# <a name="video-indexer-failover-and-disaster-recovery"></a>Video Indexer redundans och haveri beredskap
+# <a name="video-indexer-failover-and-disaster-recovery"></a>Redundans och haveriberedskap för Video Indexer
 
-Azure Media Services Video Indexer ger inte direkt redundans för tjänsten om det uppstår ett avbrott i regionala Data Center eller fel. Den här artikeln förklarar hur du konfigurerar din miljö för redundans för att säkerställa optimal tillgänglighet för appar och minimerad återställnings tid om en katastrof inträffar.
+Azure Media Services Video Indexer tillhandahåller inte någon direkt redundansväxling för tjänsten om det skulle uppstå ett avbrott eller fel i ett regionalt datacenter. Den här artikeln förklarar hur du konfigurerar din miljö för redundans för att säkerställa optimal tillgänglighet för appar och minimerad återställnings tid om en katastrof inträffar.
 
-Vi rekommenderar att du konfigurerar haveri beredskap för affärs kontinuitet (BCDR) i regionala par för att dra nytta av Azures isolerings-och tillgänglighets principer. Mer information finns i [Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Vi rekommenderar att du konfigurerar affärskontinuitet och haveriberedskap (BCDR) i regionala par för att dra nytta av Azures isolerings- och tillgänglighetsprinciper. Mer information finns i [Azure-kopplade regioner](../../best-practices-availability-paired-regions.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure-prenumeration. Om du ännu inte har en Azure-prenumeration kan du registrera dig för en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/free/).
 
@@ -38,7 +39,7 @@ Om du vill implementera BCDR måste du ha två Video Indexer-konton för att kun
 1. Om det uppstår ett problem i din primära region växlar du till indexering med det sekundära kontot.
 
 > [!TIP]
-> Du kan automatisera BCDR genom att ställa in aktivitets logg aviseringar för meddelanden om tjänst hälsa enligt [skapa aktivitets logg aviseringar för tjänst meddelanden](../../service-health/alerts-activity-log-service-notifications.md).
+> Du kan automatisera BCDR genom att ställa in aktivitets logg aviseringar för meddelanden om tjänst hälsa enligt [skapa aktivitets logg aviseringar för tjänst meddelanden](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Information om hur du använder flera klienter finns i [Hantera flera klienter](manage-multiple-tenants.md). Om du vill implementera BCDR väljer du något av följande två alternativ: [video Indexer konto per klient](manage-multiple-tenants.md#video-indexer-account-per-tenant) eller [Azure-prenumeration per klient](manage-multiple-tenants.md#azure-subscription-per-tenant).
 

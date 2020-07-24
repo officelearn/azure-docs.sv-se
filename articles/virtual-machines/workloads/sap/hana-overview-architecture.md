@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616958"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065109"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Vad är SAP HANA på stora Azure-instanser?
 
@@ -38,9 +39,9 @@ Från och med juli 2019 skiljer vi mellan två olika revisioner av HANA-stora in
 - "Revision 3" (rev 3): är de stämplar som har gjorts tillgängliga för kunden att distribuera före 2019 juli
 - "Revision 4" (rev 4): ny stämpel-design som distribueras i nära närhet till Azure VM-värdar och som hittills är frigjord i Azure-regionerna av:
     -  USA, västra 2 
-    -  USA, östra 
+    -  East US 
     -  Europa, västra
-    -  Europa, norra
+    -  Norra Europa
 
 
 Det här dokumentet är ett av flera dokument som behandlar SAP HANA på Azure (stora instanser). Det här dokumentet innehåller en introduktion till den grundläggande arkitekturen, ansvars områden och tjänster som tillhandahålls av lösningen. Hög nivå funktioner i lösningen diskuteras också. För de flesta andra områden, t. ex. nätverk och anslutning, innehåller fyra andra dokument information och detaljerad information. Dokumentationen för SAP HANA på Azure (stora instanser) tar inte upp aspekter av SAP NetWeaver-installationen eller distributionerna av SAP NetWeaver på virtuella datorer. SAP NetWeaver på Azure beskrivs i separata dokument som finns i samma Azure-dokumentations behållare. 
@@ -53,8 +54,8 @@ De olika dokumenten i den här vägledningen HANA-stor instans tar upp följande
 - [Installera och konfigurera SAP HANA (stora instanser) i Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (stora instanser) hög tillgänglighet och haveri beredskap på Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (stora instanser) fel sökning och övervakning i Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Hög tillgänglighet har kon figurer ATS i SUSE med hjälp av STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Säkerhets kopiering och återställning av OS för typ II SKU: er av revision 3-stämplar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Hög tillgänglighet har kon figurer ATS i SUSE med hjälp av STONITH](./ha-setup-with-stonith.md)
+- [Säkerhets kopiering och återställning av OS för typ II SKU: er av revision 3-stämplar](./os-backup-type-ii-skus.md)
 
 **Nästa steg**
 - Se mer information [om villkoren](hana-know-terms.md)

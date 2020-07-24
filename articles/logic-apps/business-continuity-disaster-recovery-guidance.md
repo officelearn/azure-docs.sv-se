@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437701"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066524"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Verksamhets kontinuitet och haveri beredskap för Azure Logic Apps
 
@@ -157,7 +157,7 @@ När din Logi Kap par utlöses och börjar köras, lagras appens tillstånd på 
 
 För att minimera antalet övergivna arbets flödes instanser kan du välja mellan olika meddelande mönster som du kan implementera, till exempel:
 
-* [Mönster för fast cirkulations lista](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [Mönster för fast cirkulations lista](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   Detta företags meddelande mönster som delar upp en affärs process i mindre steg. För varje steg ställer du in en Logi Kap par som hanterar arbets belastningen för det steget. För att kommunicera med varandra använder dina Logic Apps ett asynkront meddelande protokoll som Azure Service Bus köer eller ämnen. När du delar upp en process i mindre steg minskar du antalet affärs processer som kan ha fastnat på en misslyckad Logic App-instans. Mer allmän information om det här mönstret finns i [företags integrations mönster – cirkulations lista](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
@@ -165,7 +165,7 @@ För att minimera antalet övergivna arbets flödes instanser kan du välja mell
 
   ![Dela upp en affärs process i steg som representeras av Logic Apps, som kommunicerar med varandra med hjälp av Azure Service Bus köer](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  Om både den primära och sekundära Logic app-instanserna följer samma cirkulations mönster på deras platser, kan du implementera det [konkurrerande konsument mönstret](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) genom att ställa in [aktiva roller](#roles) för dessa instanser.
+  Om både den primära och sekundära Logic app-instanserna följer samma cirkulations mönster på deras platser, kan du implementera det [konkurrerande konsument mönstret](/azure/architecture/patterns/competing-consumers) genom att ställa in [aktiva roller](#roles) för dessa instanser.
 
 * [Process hanterarens (Broker) mönster](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ När du ställer in din Logic Apps primära och sekundära instanser i ett haver
   Om du till exempel läser från en meddelandekö, till exempel en Azure Service Bus kö, använder Server sidans tillstånd eftersom tjänsten Queuing underhåller lås meddelanden för att förhindra att andra klienter läser samma meddelanden.
 
   > [!NOTE]
-  > Om din Logi Kap par behöver läsa meddelanden i en viss ordning, till exempel från en Service Bus kö, kan du använda det konkurrerande konsument mönstret men bara när det kombineras med Service Bus-sessioner, som även kallas för [ *sekventiella konvojmönster* -mönster](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy). Annars måste du konfigurera dina Logic App-instanser med aktiva passiva roller.
+  > Om din Logi Kap par behöver läsa meddelanden i en viss ordning, till exempel från en Service Bus kö, kan du använda det konkurrerande konsument mönstret men bara när det kombineras med Service Bus-sessioner, som även kallas för [ *sekventiella konvojmönster* -mönster](/azure/architecture/patterns/sequential-convoy). Annars måste du konfigurera dina Logic App-instanser med aktiva passiva roller.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ Från ett haveri beredskaps perspektiv är utlösaren för begäran en passiv mo
 
 * [Aktiv-passiv](#roles): endast den primära instansen är aktiv och hanterar allt arbete, medan den sekundära instansen väntar tills det uppstår avbrott eller haveri. Anroparen eller routern bestämmer när den sekundära instansen ska anropas.
 
-Som en rekommenderad arkitektur kan du använda Azure API Management som proxy för de Logi Kap par som använder begär ande utlösare. API Management tillhandahåller [inbyggd över-regional återhämtning och möjlighet att dirigera trafik över flera slut punkter](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
+Som en rekommenderad arkitektur kan du använda Azure API Management som proxy för de Logi Kap par som använder begär ande utlösare. API Management tillhandahåller [inbyggd över-regional återhämtning och möjlighet att dirigera trafik över flera slut punkter](../api-management/api-management-howto-deploy-multi-region.md).
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ För den här aktiviteten, på den sekundära platsen, skapar du en övervakning
 
 ### <a name="activate-your-secondary-instance"></a>Aktivera din sekundära instans
 
-Om du vill aktivera den sekundära instansen automatiskt kan du skapa en Logic-app som anropar hanterings-API: t, till exempel [Azure Resource Manager-anslutningen](https://docs.microsoft.com/connectors/arm/) för att aktivera lämpliga Logi Kap par på den sekundära platsen. Du kan expandera din övervaknings-app för att anropa den här appen för aktiverings logik när ett angivet antal problem inträffar.
+Om du vill aktivera den sekundära instansen automatiskt kan du skapa en Logic-app som anropar hanterings-API: t, till exempel [Azure Resource Manager-anslutningen](/connectors/arm/) för att aktivera lämpliga Logi Kap par på den sekundära platsen. Du kan expandera din övervaknings-app för att anropa den här appen för aktiverings logik när ett angivet antal problem inträffar.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -348,9 +348,9 @@ Du kan ställa in loggning för din Logi Kap par körning och skicka de resulter
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Återhämtnings översikt för Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Checklista för återhämtning för specifika Azure-tjänster](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Data hantering för återhämtning i Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Säkerhets kopiering och haveri beredskap för Azure-program](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Återställa från regionomfattande tjänststörningar](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Återhämtnings översikt för Azure](/azure/architecture/framework/resiliency/overview)
+* [Checklista för återhämtning för specifika Azure-tjänster](/azure/architecture/checklist/resiliency-per-service)
+* [Data hantering för återhämtning i Azure](/azure/architecture/framework/resiliency/data-management)
+* [Säkerhets kopiering och haveri beredskap för Azure-program](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Återställa från regionomfattande tjänststörningar](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Microsofts Service nivå avtal (service avtal) för Azure-tjänster](https://azure.microsoft.com/support/legal/sla/)

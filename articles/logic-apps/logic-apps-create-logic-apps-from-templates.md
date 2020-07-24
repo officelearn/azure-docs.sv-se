@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066248"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa logikappsarbetsflöden från fördefinierade mallar
 
@@ -33,7 +34,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
 ## <a name="create-logic-apps-from-templates"></a>Skapa Logic Apps från mallar
 
-1. Om du inte redan har gjort det loggar du in på [Azure Portal](https://portal.azure.com "Azure Portal").
+1. Om du inte redan har gjort det loggar du in på [Azure Portal](https://portal.azure.com "Azure-portalen").
 
 2. Välj **skapa en resurs**  >  **Enterprise-integration**  >  **Logic app**på huvud menyn i Azure.
 
@@ -43,13 +44,13 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
    ![Tillhandahålla information om logikappar](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Inställningen | Värde | Beskrivning | 
+   | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **Namn** | *logikappens-namn* | Ange ett unikt namn för logikappen. | 
-   | **Prenumeration** | *namn-på-Azure-prenumerationen* | Ange den prenumeration som du vill använda. | 
+   | **Prenumeration** | *namn-på-Azure-prenumerationen* | Välj den Azure-prenumeration som du vill använda. | 
    | **Resursgrupp** | *namn-på-Azure-resursgruppen* | Skapa eller Välj en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) för den här Logic-appen och organisera alla resurser som är associerade med den här appen. | 
-   | **Position** | *din-Azure-datacenter-region* | Välj datacenterregion för att distribuera logikappen, till exempel USA, västra. | 
-   | **Log Analytics** | **Av** (standard) eller **på** | Konfigurera [diagnostikloggning](../logic-apps/monitor-logic-apps-log-analytics.md) för din Logic app med hjälp av [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Kräver att du redan har en Log Analytics-arbetsyta. | 
+   | **Plats** | *din-Azure-datacenter-region* | Välj datacenterregion för att distribuera logikappen, till exempel USA, västra. | 
+   | **Log Analytics** | **Av** (standard) eller **på** | Konfigurera [diagnostikloggning](../logic-apps/monitor-logic-apps-log-analytics.md) för din Logic app med hjälp av [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md). Kräver att du redan har en Log Analytics-arbetsyta. | 
    |||| 
 
 4. När du är klar väljer du **Fäst på instrumentpanelen**. På så sätt visas logikappen automatiskt på din Azure-instrumentpanel och öppnas efter distributionen. Välj **Skapa**.
@@ -60,7 +61,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    När Azure har distribuerat din logikapp öppnas Logic Apps Designer och visar en sida med en introduktionsvideo. 
    Under videon finns mallar för vanliga logikappmönster. 
 
-5. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Ett exempel:
+5. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Exempel:
 
    ![Välj en mall för Logic app](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -68,7 +69,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    > Om du vill skapa din Logic app från grunden väljer du **Tom Logic app**.
 
    När du väljer en fördefinierad mall kan du Visa mer information om mallen. 
-   Ett exempel:
+   Exempel:
 
    ![Välj en fördefinierad mall](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -82,7 +83,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
    * Om du redan har konfigurerat de här anslutningarna väljer du **Fortsätt**.
 
-   Ett exempel:
+   Exempel:
 
    ![Skapa anslutningar](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -98,18 +99,18 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
 ## <a name="update-logic-apps-with-templates"></a>Uppdatera Logic Apps med mallar
 
-1. I [Azure Portal](https://portal.azure.com "Azure Portal")kan du söka efter och öppna din Logic app i th Logic App Designer.
+1. I [Azure Portal](https://portal.azure.com "Azure-portalen")kan du söka efter och öppna din Logic app i th Logic App Designer.
 
-2. I verktygsfältet designer väljer du **mallar**. Den här åtgärden tar bort alla ändringar som inte sparats, så ett varnings meddelande visas så att du kan bekräfta att du vill fortsätta. Bekräfta genom att välja **OK**. Ett exempel:
+2. I verktygsfältet designer väljer du **mallar**. Den här åtgärden tar bort alla ändringar som inte sparats, så ett varnings meddelande visas så att du kan bekräfta att du vill fortsätta. Bekräfta genom att välja **OK**. Exempel:
 
    ![Välj "mallar"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Ett exempel:
+3. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Exempel:
 
    ![Välj en mall för Logic app](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    När du väljer en fördefinierad mall kan du Visa mer information om mallen. 
-   Ett exempel:
+   Exempel:
 
    ![Välj en fördefinierad mall](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -145,7 +146,7 @@ Välj **Spara** i designerverktygsfältet.
 
 ## <a name="get-support"></a>Få support
 
-* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

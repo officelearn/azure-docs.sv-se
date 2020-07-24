@@ -1,38 +1,40 @@
 ---
-title: Returnera eller Ersätt Azure Stack Edge-enheten | Microsoft Docs
-description: Beskriver hur du returnerar eller ersätter Azure Stack Edge-enheten.
+title: Returnera din Azure Stack Edge-enhet | Microsoft Docs
+description: Beskriver hur du returnerar Azure Stack Edge-enheten.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 6e0581912a619bec11be6d322e2987a4498c5170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067028"
 ---
-# <a name="return-or-replace-your-azure-stack-edge-device"></a>Returnera eller Ersätt din Azure Stack Edge-enhet
+# <a name="return-your-azure-stack-edge-device"></a>Returnera din Azure Stack Edge-enhet
 
-I den här artikeln beskrivs hur du rensar data och sedan returnerar Azure Stack Edge-enheten. När du har returnerat enheten kan du också ta bort resursen som är kopplad till enheten eller beställa en ersättnings enhet.
+I den här artikeln beskrivs hur du rensar data och sedan returnerar Azure Stack Edge-enheten. När du har returnerat enheten kan du också ta bort resursen som är kopplad till enheten.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 >
 > * Rensa data från data diskarna på enheten
-> * Öppna ett support ärende för att returnera din enhet
+> * Starta enhets retur i Azure Portal
 > * Packa upp enheten och Schemalägg en upphämtning
 > * Ta bort resursen i Azure Portal
-> * Skaffa en ersättnings enhet
 
 ## <a name="erase-data-from-the-device"></a>Radera data från enheten
 
 Om du vill rensa bort data från enhetens data diskar måste du återställa enheten. Du kan återställa enheten med hjälp av det lokala webb gränssnittet eller PowerShell-gränssnittet.
 
 Innan du återställer skapar du en kopia av lokala data på enheten om det behövs. Du kan kopiera data från enheten till en Azure Storage behållare.
+
+Du kan initiera enhets returen även innan enheten återställs. 
 
 Utför följande steg för att återställa enheten med det lokala webb gränssnittet.
 
@@ -53,19 +55,50 @@ Du kan också ansluta till PowerShell-gränssnittet på enheten och använda `Re
 > - Om du utbyter eller uppgraderar till en ny enhet rekommenderar vi att du återställer enheten först när du har fått den nya enheten.
 > - Enhets återställningen tar bara bort alla lokala data från enheten. De data som finns i molnet tas inte bort och [kostnader](https://azure.microsoft.com/pricing/details/storage/)samlas in. Dessa data måste tas bort separat med ett hanterings verktyg för moln lagring som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="open-a-support-ticket"></a>Öppna ett support ärende
+## <a name="initiate-device-return"></a>Initiera enhets retur
 
 Utför följande steg för att påbörja retur processen.
 
-1. Öppna ett support ärende med Microsoft Support som anger att du vill returnera enheten. Välj problem typen som **Azure Stack Edge-maskinvara**.
+1. Gå till din Azure Stack Edge/Data Box Gateway-resurs i Azure Portal. I **översikten**går du till kommando fältet i den högra rutan och väljer **RETUR enhet**. 
 
-    ![Öppna supportbegäran](media/azure-stack-edge-return-device/open-support-ticket-1.png)  
+    ![Returnera enhet 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
-2. En Microsoft Support-tekniker kommer att kontakta dig. Ange leverans information.
-3. Om du behöver en retur frakt Box kan du begära den. Svara **Ja** på frågan **behöver en tom ruta för att returnera**.
+2. Under grundläggande information på bladet **RETUR enhet** , under **grundläggande information**:
 
+    1. Ange enhetens serie nummer. Hämta enhetens serie nummer genom att gå till enhetens lokala webb gränssnitt och gå till **Översikt**.  
+    
+    ![Enhets serie nummer 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+
+    2. Ange numret för service tag-numret, som är ett värde av fem eller flera bokstäver som är unika för enheten. Service Tag-numret finns i det nedre högra hörnet på enheten (när du står inför enheten). Dra ut informations tag gen (den är en uppskjuten etikett panel). Den här panelen innehåller system information, till exempel service tag, NIC, MAC-adress och så vidare. 
+    
+    ![Service tag-nummer 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+
+    3. Välj en orsak för returen i list rutan.
+
+    ![Returnera enhet 2](media/azure-stack-edge-return-device/return-device-2.png) 
+
+3. Under **leverans information**:
+
+    1. Ange ditt namn, företagets namn och den fullständiga företags adressen. Ange en arbets telefon inklusive rikt nummer och ett e-post-ID för avisering.
+    2. Om du behöver en retur frakt Box kan du begära den. Svara **Ja** på frågan **behöver en tom ruta för att returnera**.
+
+    ![Returnera enhet 3](media/azure-stack-edge-return-device/return-device-3.png)
+
+4. Läs igenom **Sekretess villkoren** och markera kryss rutan mot den anteckning som du har granskat och godkänner sekretess villkoren.
+
+5. Välj **Starta retur**.
+
+    ![Returnera enhet 4](media/azure-stack-edge-return-device/return-device-4.png) 
+
+6. När din enhets information har hämtats kan du meddela Azure Stack Edge-Operations-teamet via ett e-postmeddelande. Du kan använda ditt e-postprogram förutsatt att e-postprogrammet är installerat och konfigurerat. Du kan också kopiera data för att skapa och skicka ett e-postmeddelande.
+
+    ![Returnera enhet 5](media/azure-stack-edge-return-device/return-device-5.png) 
+
+7. När Azure Stack Edge-arbetsgruppen tar emot e-postmeddelandet så skickas en etikett för omvänd försändelse. När du får den här etiketten kan du schemalägga hämtningen av enheten med operatören. 
 
 ## <a name="schedule-a-pickup"></a>Schemalägg hämtning
+
+Följ stegen nedan om du vill schemalägga en upphämtning.
 
 1. Stäng av enheten. I det lokala webb gränssnittet går du till **underhåll > energi inställningar**.
 2. Välj **Stäng av**. När du uppmanas att bekräfta klickar du på **Ja** för att fortsätta. Mer information finns i [hantera energi](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
@@ -84,13 +117,14 @@ Utför följande steg för att påbörja retur processen.
 
 När enheten har tagits emot i Azure-datacentret, inspekteras enheten efter skada eller tecken på manipulation.
 
-- Om enheten kommer intakt och i en stark form stoppas fakturerings mätaren för resursen. Microsoft Support kommer att kontakta dig för att bekräfta att enheten returnerades. Du kan sedan ta bort resursen som är kopplad till enheten i Azure Portal.
+- Om enheten anländer och är i en lämplig form stoppas fakturerings mätaren för den resursen. Microsoft Support kommer att kontakta dig för att bekräfta att enheten returnerades. Du kan sedan ta bort resursen som är kopplad till enheten i Azure Portal.
 - Om enheten kommer kraftigt skadas kan böter gälla. Mer information finns i [vanliga frågor och svar om förlorade eller skadade enhets](https://azure.microsoft.com/pricing/details/databox/edge/) [-och produkt villkor](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Du kan ta bort enheten i Azure Portal:
--    När du har placerat beställningen och innan enheten förbereds av Microsoft.
--    När du har returnerat enheten till Microsoft, skickar den fysisk inspektion i Azure-datacentret och Microsoft Support anrop för att bekräfta att enheten har returnerats.
+
+- När du har placerat beställningen och innan enheten förbereds av Microsoft.
+- När du har returnerat enheten till Microsoft, skickar den fysisk inspektion i Azure-datacentret och Microsoft Support anrop för att bekräfta att enheten har returnerats.
 
 Om du har aktiverat enheten mot en annan prenumeration eller plats flyttar Microsoft din beställning till den nya prenumerationen eller platsen inom en arbets dag. När ordningen har flyttats kan du ta bort den här resursen.
 
@@ -107,21 +141,7 @@ Utför följande steg för att ta bort enheten och resursen i Azure Portal.
 
 Du får ett meddelande när enheten och den tillhör ande resursen har tagits bort.
 
-## <a name="get-a-replacement-device"></a>Skaffa en ersättnings enhet
-
-En ersättnings enhet krävs när den befintliga enheten har ett maskin varu problem eller behöver uppgraderas. Utför följande steg när det finns ett maskin varu problem i enheten:
-
-1. [Öppna ett support ärende för maskin varu problem](#open-a-support-ticket). Microsoft Support kommer att avgöra om en FRU-enhet (Field Replacement Unit) inte är tillgänglig för den här instansen eller om enheten behöver en maskin varu uppgradering. I båda fallen beställer support en ersättnings enhet.
-2. [Skapa en ny resurs](azure-stack-edge-deploy-prep.md#create-a-new-resource) för ersättnings enheten. Se till att markera kryss rutan mot att **Jag har en Azure Stack Edge-enhet**. 
-3. När du har fått en ersättnings enhet [installerar](azure-stack-edge-deploy-install.md) och [aktiverar](azure-stack-edge-deploy-connect-setup-activate.md) du ersättnings enheten mot den nya resursen.
-4. Följ alla steg för att returnera den ursprungliga enheten:
-    1. Öppna en annan biljett för att returnera den ursprungliga enheten.
-    2. [Radera data på enheten](#erase-data-from-the-device).
-    3. [Schemalägg hämtningen](#schedule-a-pickup).
-    5. [Ta bort resursen](#delete-the-resource) som är kopplad till den returnerade enheten.
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att [hantera bandbredd](azure-stack-edge-manage-bandwidth-schedules.md).
+- Lär dig hur du [får en ersättnings Azure Stack Edge-enhet](azure-stack-edge-replace-device.md).

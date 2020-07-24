@@ -8,17 +8,18 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83739540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066117"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
 Om du vill arbeta med X12-meddelanden i Azure Logic Apps kan du använda X12-anslutningen, som innehåller utlösare och åtgärder för att hantera X12-kommunikation. Mer information om EDIFACT-meddelanden finns i avsnittet om [Exchange EDIFACT-meddelanden](logic-apps-enterprise-integration-edifact.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -86,7 +87,7 @@ När du har angett avtals egenskaperna kan du konfigurera hur det här avtalet i
 
 ![Scheman för inkommande meddelanden](./media/logic-apps-enterprise-integration-x12/x12-receive-settings-schemas.png)
 
-I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) från [integrations kontot](../logic-apps/logic-apps-enterprise-integration-accounts.md) för varje transaktions typ (ST01) och avsändar program (GS02). Den insamlade EDI-pipeline Disassemblerar det inkommande meddelandet genom att matcha värdena och schemat som du har angett i det här avsnittet med värdena för ST01 och GS02 i det inkommande meddelandet och med schemat för det inkommande meddelandet. När du har slutfört varje rad visas en ny tom rad automatiskt.
+I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) från [integrations kontot](./logic-apps-enterprise-integration-create-integration-account.md) för varje transaktions typ (ST01) och avsändar program (GS02). Den insamlade EDI-pipeline Disassemblerar det inkommande meddelandet genom att matcha värdena och schemat som du har angett i det här avsnittet med värdena för ST01 och GS02 i det inkommande meddelandet och med schemat för det inkommande meddelandet. När du har slutfört varje rad visas en ny tom rad automatiskt.
 
 | Egenskap | Beskrivning |
 |----------|-------------|
@@ -173,7 +174,7 @@ När du har angett avtals egenskaperna kan du konfigurera hur det här avtalet i
    * [Kontroll versions nummer](#outbound-control-version-number)
    * [Kontroll nummer](#outbound-control-numbers)
    * [Teckenuppsättningar och avgränsare](#outbound-character-sets-separators)
-   * [Signaturverifiering](#outbound-validation)
+   * [Verifiering](#outbound-validation)
 
 1. När du är klar, se till att spara inställningarna genom att välja **OK**.
 
@@ -209,7 +210,7 @@ När du har angett avtals egenskaperna kan du konfigurera hur det här avtalet i
 
 ![Scheman för utgående meddelanden](./media/logic-apps-enterprise-integration-x12/x12-send-settings-schemas.png)
 
-I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) från [integrations kontot](../logic-apps/logic-apps-enterprise-integration-accounts.md) för varje transaktions typ (ST01). När du har slutfört varje rad visas en ny tom rad automatiskt.
+I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) från [integrations kontot](./logic-apps-enterprise-integration-create-integration-account.md) för varje transaktions typ (ST01). När du har slutfört varje rad visas en ny tom rad automatiskt.
 
 | Egenskap | Beskrivning |
 |----------|-------------|
@@ -235,7 +236,7 @@ I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise
 
 ![Kontroll versions nummer för utgående meddelanden](./media/logic-apps-enterprise-integration-x12/x12-send-settings-control-version-number.png)
 
-I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) från [integrations kontot](../logic-apps/logic-apps-enterprise-integration-accounts.md) för varje utbyte. När du har slutfört varje rad visas en ny tom rad automatiskt.
+I det här avsnittet väljer du ett [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) från [integrations kontot](./logic-apps-enterprise-integration-create-integration-account.md) för varje utbyte. När du har slutfört varje rad visas en ny tom rad automatiskt.
 
 | Egenskap | Beskrivning |
 |----------|-------------|
@@ -380,7 +381,7 @@ Följ dessa steg om du vill ange dessa dokument versions nummer och meddelande t
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel åtgärder och begränsningar som beskrivs i kopplingens Swagger-fil, finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/x12/).
+Mer teknisk information om den här anslutningen, till exempel åtgärder och begränsningar som beskrivs i kopplingens Swagger-fil, finns på [kopplingens referens sida](/connectors/x12/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version de [B2B-meddelande gränserna för ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

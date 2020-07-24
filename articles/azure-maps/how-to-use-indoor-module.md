@@ -3,17 +3,17 @@ title: Använd modulen Azure Maps inomhus Maps
 description: Lär dig hur du använder modulen Microsoft Azure Maps inomhus Maps för att återge Maps genom att bädda in modulens JavaScript-bibliotek.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f7bca363e22524546e7ee46bf44ddb18dacf00d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064242"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Använd modulen Azure Maps inomhus Maps
 
@@ -42,16 +42,14 @@ Om du vill använda den globalt värdbaserade Azure Content Delivery Network-ver
 
  Du kan också hämta *Azure Maps inomhus* -modulen. Den *Azure Maps inomhus* modulen innehåller ett klient bibliotek för åtkomst till Azure Maps-tjänster. Följ stegen nedan för att installera och läsa in modulen *inomhus* i webb programmet.  
   
-  1. Hämta [paketet Azure-Maps-inomhus](https://www.npmjs.com/package/azure-maps-indoor).
+  1. Installera [Azure-Maps-inomhus-paketet](https://www.npmjs.com/package/azure-maps-indoor).
   
-  2. Installera NPM-paketet. Se till att du använder administratörs behörighet i-konsolen:
-
       ```powershell
       >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
-  3. Referera till JavaScript-och format mal len *Azure Maps inomhus* modul i `<head>` HTML-filens element:
+  2. Referera till JavaScript-och format mal len *Azure Maps inomhus* modul i `<head>` HTML-filens element:
 
       ```html
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
@@ -71,7 +69,7 @@ const map = new atlas.Map("map-id", {
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
-  authOptions: { 
+  authOptions: {
       authType: 'subscriptionKey',
       subscriptionKey: subscriptionKey
   },

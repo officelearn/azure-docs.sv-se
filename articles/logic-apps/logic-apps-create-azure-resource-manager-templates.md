@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07fb91f081719a2e51cff45be67bbe9f362123f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066069"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager-mallar för att automatisera distributionen för Azure Logic Apps
 
@@ -49,14 +49,14 @@ Anta till exempel att du har en Logic-app som tar emot ett meddelande från en A
 
 De här exemplen visar hur du skapar och distribuerar Logi Kap par med hjälp av Azure Resource Manager mallar, Azure-pipelines i Azure DevOps och Azure PowerShell:
 
-* [Exempel: Anslut till Azure Service Bus köer från Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Exempel: Anslut till Azure Storage konton från Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Exempel: Konfigurera en Function-app-åtgärd för Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Exempel: Anslut till ett integrations konto från Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Exempel: Anslut till Azure Service Bus köer från Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exempel: Anslut till Azure Storage konton från Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exempel: Konfigurera en Function-app-åtgärd för Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exempel: Anslut till ett integrations konto från Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Installera PowerShell-moduler
 
-1. Om du inte redan har gjort det installerar du [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+1. Om du inte redan har gjort det installerar du [Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. För det enklaste sättet att installera LogicAppTemplate-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/LogicAppTemplate)kör du följande kommando:
 
@@ -80,7 +80,7 @@ När du kör `Get-LogicAppTemplate` kommandot med det här verktyget hämtar kom
 
 ### <a name="generate-template-with-powershell"></a>Skapa mall med PowerShell
 
-Om du vill skapa din mall efter att ha installerat LogicAppTemplate-modulen och [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)kör du följande PowerShell-kommando:
+Om du vill skapa din mall efter att ha installerat LogicAppTemplate-modulen och [Azure CLI](/cli/azure/?view=azure-cli-latest)kör du följande PowerShell-kommando:
 
 ```text
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -106,7 +106,7 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 
 | Parametrar | Krävs | Beskrivning |
 |------------|----------|-------------|
-| TemplateFile | Ja | Fil Sök vägen till mallfilen |
+| TemplateFile | Yes | Fil Sök vägen till mallfilen |
 | KeyVault | No | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
 ||||
 

@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c350b10fb3db82af47551591d95e87cacd63a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065012"
 ---
 # <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 <a name="network-security-groups"></a>
 
-Du kan använda Azures nätverks säkerhets grupp för att filtrera nätverks trafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
+Du kan använda en Azure-nätverks säkerhets grupp för att filtrera nätverks trafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
 
 I den här artikeln beskrivs egenskaperna för en regel för nätverks säkerhets grupper, de [Standard säkerhets regler](#default-security-rules) som tillämpas och de regel egenskaper som du kan ändra för att skapa en [förstärkt säkerhets regel](#augmented-security-rules).
 
@@ -32,7 +33,7 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 
 |Egenskap  |Förklaring  |
 |---------|---------|
-|Name|Ett unikt namn inom nätverkssäkerhetsgruppen.|
+|Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Prioritet | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|
 |Källa eller mål| Valfria, eller enskilda IP-adresser, CIDR-block (Classless Inter-Domain Routing) (t.ex. 10.0.0.0/24), tjänsttaggar eller programsäkerhetsgrupper. Om du anger en adress för en Azure-resurs anger du den privata IP-adressen som tilldelats till resursen. Nätverkssäkerhetsgrupper bearbetas efter att Azure omvandlar en offentlig IP-adress till en privat IP-adress för inkommande trafik, och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående trafik. . Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas [förhöjda säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen.|
 |Protokoll     | TCP, UDP, ICMP eller valfritt.|
@@ -41,6 +42,7 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 |Åtgärd     | Tillåt eller neka        |
 
 Säkerhetsregler för nätverkssäkerhetsgrupper utvärderas baserat på prioritet med hjälp av 5-tuppelinformationen (källa, källport, mål, målport och protokoll) för att tillåta eller neka trafik. En flödespost skapas för befintliga anslutningar. Kommunikation tillåts eller nekas baserat på flödespostens anslutningsstatus. Flödesposten gör att en nätverkssäkerhetsgrupp kan vara tillståndskänslig. Om du till exempel anger en utgående säkerhetsregel till en adress via port 80, behöver du inte ange en inkommande säkerhetsregel för svar på utgående trafik. Du behöver bara ange en inkommande säkerhetsregel om kommunikationen initieras externt. Även det motsatta gäller. Om inkommande trafik tillåts via en port, behöver du inte ange en utgående säkerhetsregel för svar på trafik via porten.
+
 Befintliga anslutningar kanske inte avbryts när du tar bort en säkerhetsregel som aktiverade flödet. Trafikflöden avbryts när anslutningar har stoppats och ingen trafik passerar i endera riktning under minst ett par minuter.
 
 Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkssäkerhetsgrupp. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -49,25 +51,25 @@ Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkss
 
 Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du skapar:
 
-#### <a name="inbound"></a>Inkommande
+#### <a name="inbound"></a>Inbound (Inkommande)
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
 |Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alla|Tillåt|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Valfri|Tillåt|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
 |Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alla|Tillåt|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Valfri|Tillåt|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
 |Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alla|Neka|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Valfri|Neka|
 
 #### <a name="outbound"></a>Utgående
 
@@ -75,19 +77,19 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 
 |Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alla | Tillåt |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Valfri | Tillåt |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
 |Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alla | Tillåt |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Valfri | Tillåt |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
 |Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alla | Neka |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Valfri | Neka |
 
 I kolumnerna **Källa** och **Mål** är *VirtualNetwork*, *AzureLoadBalancer*, och *Internet* så kallade [tjänsttaggar](service-tags-overview.md), inte IP-adresser. I kolumnen protokoll finns **alla** kompasser TCP, UDP och ICMP. När du skapar en regel kan du ange TCP, UDP, ICMP eller valfri. *0.0.0.0/0* i kolumnerna **Källa** och **Mål** representerar alla adresser. Klienter som Azure Portal, Azure CLI eller PowerShell kan använda * eller något av detta uttryck.
  
@@ -99,7 +101,7 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
 
 #### <a name="service-tags"></a>Tjänsttaggar
 
-En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Det bidrar till att minimera komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler.
+En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Det hjälper till att minimera komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler.
 
 Mer information finns i avsnittet om [Azure Service-Taggar](service-tags-overview.md). Ett exempel på hur du använder taggen Storage Service för att begränsa nätverks åtkomsten finns i [begränsa nätverks åtkomsten till PaaS-resurser](tutorial-restrict-network-access-to-resources.md).
 
@@ -140,9 +142,7 @@ För utgående trafik bearbetar Azure först reglerna i en nätverkssäkerhetsgr
 
 Det är viktigt att Observera att säkerhets regler i en NSG som är kopplade till ett undernät kan påverka anslutningen mellan den virtuella datorn i det. Om en regel till exempel läggs till i *NSG1* som nekar all inkommande och utgående trafik, kommer *VM1* och *VM2* inte längre att kunna kommunicera med varandra. En annan regel skulle behöva läggas till specifikt för att tillåta detta. 
 
-
-
-Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt genom att visa [gällande säkerhetsregler](virtual-network-network-interface.md#view-effective-security-rules) för ett nätverksgränssnitt. Du kan också använda funktionen [Kontrollera IP-flöde](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure Network Watcher för att ta reda på om kommunikation tillåts till eller från ett nätverksgränssnitt. Funktionen Kontrollera IP-flöde anger om kommunikation tillåts eller nekas och vilken nätverkssäkerhetsregel som tillåter eller nekar trafik.
+Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt genom att visa [gällande säkerhetsregler](virtual-network-network-interface.md#view-effective-security-rules) för ett nätverksgränssnitt. Du kan också använda funktionen [Kontrollera IP-flöde](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure Network Watcher för att ta reda på om kommunikation tillåts till eller från ett nätverksgränssnitt. Med kontrol lera IP-flöde får du information om huruvida en kommunikation tillåts eller nekas och vilken nätverks säkerhets regel som tillåter eller nekar trafiken.
 
 > [!NOTE]
 > Nätverks säkerhets grupper är kopplade till undernät eller virtuella datorer och moln tjänster som distribueras i den klassiska distributions modellen och till undernät eller nätverks gränssnitt i distributions modellen för Resource Manager. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -160,7 +160,7 @@ Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt 
 
   Om du har skapat din Azure-prenumeration före 15 november 2017 kan du, förutom att använda SMTP-relätjänster, även skicka e-post direkt via TCP-port 25. Om du har skapat din prenumeration efter 15 november 2017 kan du inte skicka e-post direkt via port 25. Beteendet för utgående kommunikation via port 25 beror på vilken typ av prenumeration du har:
 
-     - **Enterprise-avtal**: Utgående kommunikation via port 25 tillåts. Du kan skicka utgående e-post direkt från virtuella datorer till externa e-postleverantörer utan begränsningar från Azure-plattformen. 
+     - **Enterprise-avtal**: Utgående kommunikation via port 25 tillåts. Du kan skicka en utgående e-post direkt från virtuella datorer till externa e-postleverantörer utan begränsningar från Azure-plattformen. 
      - **Betala per användning:** Utgående kommunikation via port 25 blockeras från alla resurser. Om du behöver skicka e-post från en virtuell dator direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du skicka en begäran om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande och beviljas endast efter att bedrägerikontroller utförts. Om du vill skicka en förfrågan öppnar du ett supportärende med ärendetypen *Teknisk*, *Virtuell nätverksanslutning*, *Det går inte att skicka e-post (SMTP/Port 25)*. I ditt supportärende anger du information om varför du (din prenumeration) behöver skicka e-post direkt till e-postleverantörer i stället för att gå via ett autentiserat SMTP-relä. Om din prenumeration undantas kan endast virtuella datorer som skapats efter undantagsdatumet använda utgående kommunikation via port 25.
      - **MSDN, Azure-pass, Azure i Open, Education, BizSpark och kostnadsfri utvärderingsversion**: Utgående kommunikation via port 25 blockeras från alla resurser. Det går inte att skicka förfrågningar om att ta bort begränsningen eftersom dessa inte beviljas. Om du vill skicka e-post från din virtuella dator måste du använda en SMTP-relätjänst.
      - **Molntjänstleverantör**: Kunder som förbrukar Azure-resurser via en molntjänstleverantör kan skapa ett supportärende hos molntjänstleverantören och begära ett avblockeringsärende om det inte går att använda ett säkert SMTP-relä.

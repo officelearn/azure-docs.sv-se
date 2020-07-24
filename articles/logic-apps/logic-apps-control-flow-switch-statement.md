@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066217"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa switch-instruktioner som kör arbets flödes åtgärder baserat på vissa värden i Azure Logic Apps
 
@@ -22,7 +23,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
 > Precis som alla programmeringsspråk stöder switch-satser bara likhets operatorer. Om du behöver andra relationella operatorer, till exempel "större än", använder du en [villkors instruktion](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > För att säkerställa deterministiska körnings beteenden måste fall innehålla ett unikt och statiskt värde i stället för dynamiska tokens eller uttryck.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -66,12 +67,12 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
    |--------|--------------------|--------|
    | Fall 1 | **Godkänn** | Lägg till Outlook **skicka en e-** poståtgärd för att skicka information om RSS-objektet endast när god kännaren valt **Godkänn**. |
    | Fall 2 | **Avvisa** | Lägg till Outlook **skicka en e-** poståtgärd för att meddela andra god kännare om att RSS-objektet avvisades. |
-   | Default | Ingen | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
+   | Standard | Ingen | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
    |||
 
    ![Instruktionen avslutad switch](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
-1. Spara din logikapp. 
+1. Spara logikappen. 
 
    Om du vill testa det här exemplet manuellt väljer du **Kör** tills Logic-appen hittar ett nytt RSS-objekt och skickar ett e-postmeddelande om godkännande. 
    Välj **Godkänn** för att se resultatet.
@@ -120,7 +121,7 @@ Nu när du har skapat en Logic app med en switch-instruktion ska vi titta på de
 
 ## <a name="get-support"></a>Få support
 
-* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* För frågor, besök [sidan Microsoft Q&en fråga för Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Om du vill skicka in eller rösta på funktioner eller förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg

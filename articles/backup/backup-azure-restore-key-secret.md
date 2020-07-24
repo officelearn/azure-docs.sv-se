@@ -3,12 +3,12 @@ title: Återställa Key Vault nyckel & hemlighet för krypterad virtuell dator
 description: Lär dig hur du återställer Key Vault nyckel och hemlighet i Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.openlocfilehash: 826b3917fda820ed02cde425ca5a394bffec0df1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49628697b7a271fed55c752026026ab57b17cd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067205"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer med Azure Backup
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du använder Azure VM backup för att utföra åters
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **Säkerhetskopiera krypterade virtuella datorer** – krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Se artikeln [hantera säkerhets kopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) för information om hur du säkerhetskopierar krypterade virtuella Azure-datorer.
-* **Konfigurera Azure Key Vault** – kontrol lera att nyckel valvet som nycklar och hemligheter måste återställas till redan finns. Läs artikeln [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) för information om hantering av nyckel valv.
+* **Konfigurera Azure Key Vault** – kontrol lera att nyckel valvet som nycklar och hemligheter måste återställas till redan finns. Läs artikeln [Kom igång med Azure Key Vault](../key-vault/general/overview.md) för information om hantering av nyckel valv.
 * **Återställ disk** – kontrol lera att du har utlöst återställnings jobb för att återställa diskar för krypterad virtuell dator med hjälp av [PowerShell-steg](backup-azure-vms-automation.md#restore-an-azure-vm). Detta beror på att det här jobbet genererar en JSON-fil i ditt lagrings konto som innehåller nycklar och hemligheter för att den krypterade virtuella datorn ska återställas.
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>Hämta nyckel och hemlighet från Azure Backup

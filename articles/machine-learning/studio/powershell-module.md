@@ -9,11 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3977bd13d0d3300126e06626e33fde753acc964f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117549"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065781"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>PowerShell-moduler för Azure Machine Learning Studio (klassisk)
 
@@ -50,7 +51,7 @@ PowerShell Classic kan installeras tillsammans med antingen AZ eller AzureRM fö
 ## <a name="powershell-support-table"></a><a name="support-table"></a>PowerShell-support tabell
 
 
-| | **AZ** |  **Klassisk PowerShell** |
+|  **AZ** |  **Klassisk PowerShell** |
 | --- | --- | --- |
 | Skapa/ta bort arbets ytor | [Mallar för Resurshanteraren](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Hantera åtagande planer för arbets ytan | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064691"
 ---
 # <a name="how-to-use-image-templates"></a>Så här använder du avbildningsmallar
 
@@ -106,7 +106,7 @@ Se den pennan <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>-HTML-markören
 
 
 > [!TIP]
-> Bildmallar kan användas utanför kartan. GetImageTemplate-funciton returnerar en SVG-sträng med plats hållare; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Ersätt dessa plats hållarnas värden för att skapa en giltig SVG-sträng. Du kan sedan antingen lägga till SVG-strängen direkt i HTML DOM eller konvertera den till en data-URI och infoga den i en bildtagg. Ett exempel:
+> Bildmallar kan användas utanför kartan. GetImageTemplate-funciton returnerar en SVG-sträng med plats hållare; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Ersätt dessa plats hållarnas värden för att skapa en giltig SVG-sträng. Du kan sedan antingen lägga till SVG-strängen direkt i HTML DOM eller konvertera den till en data-URI och infoga den i en bildtagg. Exempel:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -119,7 +119,7 @@ Se den pennan <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>-HTML-markören
 
 Om programmet använder samma ikon med olika ikoner eller om du skapar en modul som lägger till ytterligare bildmallar, kan du enkelt lägga till och hämta dessa ikoner från Azure Maps Web SDK. Använd följande statiska funktioner i `atlas` namn området.
 
-| Name | Returtyp | Beskrivning | 
+| Namn | Returtyp | Beskrivning | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Lägger till en anpassad SVG-bildmall i Atlas-namnområdet. |
 |  `getImageTemplate(templateName: string, scale?: number)`| sträng | Hämtar en SVG-mall efter namn. |
@@ -148,44 +148,337 @@ I den här tabellen visas alla bildmallar som är tillgängliga i Azure Maps Web
 
 **Mallar för symbol ikon**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| vänsterindrag | markör-tjock | markör-cirkel | markör-Flat |
-|![markör ikon](./media/image-templates/marker.png)|![markör-tjock ikon](./media/image-templates/marker-thick.png)|![markör-cirkel-ikon](./media/image-templates/marker-circle.png)|![markör-Flat ikon](./media/image-templates/marker-flat.png)|
-||||
-| markör-fyrkant | markör-kvadratiskt-kluster | markör-pil | markör-boll-PIN-kod | 
-|![markör-kvadratisk ikon](./media/image-templates/marker-square.png)|![markör-kvadratisk-kluster ikon](./media/image-templates/marker-square-cluster.png)|![markör-pil-ikon](./media/image-templates/marker-arrow.png)|![ikon för markör-boll-fäst punkt](./media/image-templates/marker-ball-pin.png)|
-||||
-| markör-kvadratiskt rundad | markör-kvadratiskt avrundat kluster | flag | flagga – triangel |
-| ![markör – fyrkantigt rundad ikon](./media/image-templates/marker-square-rounded.png) | ![markör-kvadratiskt avrundat kluster ikon](./media/image-templates/marker-square-rounded-cluster.png) | ![flagg ikon](./media/image-templates/flag.png) | ![flagga – triangel-ikon](./media/image-templates/flag-triangle.png) |
-||||
-| triangel | triangel-tjock | triangel-pil upp | triangel-pil-vänster |
-| ![triangel-ikon](./media/image-templates/triangle.png) | ![triangel-tjock ikon](./media/image-templates/triangle-thick.png) | ![triangel-pil upp-ikon](./media/image-templates/triangle-arrow-up.png) | ![triangel-pil-vänster-ikon](./media/image-templates/triangle-arrow-left.png) |
-||||
-| sexhörning | sexhörning – tjock | sexhörning, rundad | sexhörning – rundad – tjock |
-| ![sexhörnings ikon](./media/image-templates/hexagon.png) | ![sexhörning – tjock ikon](./media/image-templates/hexagon-thick.png) | ![sexhörning, rundad ikon](./media/image-templates/hexagon-rounded.png) | ![sexhörning – rundad – tjock ikon](./media/image-templates/hexagon-rounded-thick.png) |
-||||
-| fästa | PIN-Round | rundad ruta | rundad – fyrkant – tjock |
-| ![fästikon](./media/image-templates/pin.png) | ![PIN-rundad ikon](./media/image-templates/pin-round.png) | ![rundad kvadratisk ikon](./media/image-templates/rounded-square.png) | ![rundad fyrkant – tjock ikon](./media/image-templates/rounded-square-thick.png) |
-||||
-| pil upp | pil upp-tunn | car ||
-| ![pil upp-ikonen](./media/image-templates/arrow-up.png) | ![pil upp-tunn ikon](./media/image-templates/arrow-up-thin.png) | ![bil-ikon](./media/image-templates/car.png) | |
+:::row:::
+   :::column span="":::
+      vänsterindrag
+   :::column-end:::
+   :::column span="":::
+      markör-tjock
+   :::column-end:::
+   :::column span="":::
+      markör-cirkel
+   :::column-end:::
+   :::column span="":::
+      markör-Flat
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![markör ikon](./media/image-templates/marker.png)
+   :::column-end:::
+   :::column span="":::
+      ![markör-tjock ikon](./media/image-templates/marker-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![markör-cirkel-ikon](./media/image-templates/marker-circle.png)
+   :::column-end:::
+   :::column span="":::
+      ![markör-Flat ikon](./media/image-templates/marker-flat.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      markör-fyrkant
+   :::column-end:::
+   :::column span="":::
+      markör-kvadratiskt-kluster
+   :::column-end:::
+   :::column span="":::
+      markör-pil
+   :::column-end:::
+   :::column span="":::
+      markör-boll-PIN-kod
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![markör-kvadratisk ikon](./media/image-templates/marker-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![markör-kvadratisk-kluster ikon](./media/image-templates/marker-square-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![markör-pil-ikon](./media/image-templates/marker-arrow.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikon för markör-boll-fäst punkt](./media/image-templates/marker-ball-pin.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      markör-kvadratiskt rundad
+   :::column-end:::
+   :::column span="":::
+      markör-kvadratiskt avrundat kluster
+   :::column-end:::
+   :::column span="":::
+      flag
+   :::column-end:::
+   :::column span="":::
+      flagga – triangel
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![markör – fyrkantigt rundad ikon](./media/image-templates/marker-square-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![markör-kvadratiskt avrundat kluster ikon](./media/image-templates/marker-square-rounded-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![flagg ikon](./media/image-templates/flag.png)
+   :::column-end:::
+   :::column span="":::
+      ![flagga – triangel-ikon](./media/image-templates/flag-triangle.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      triangel
+   :::column-end:::
+   :::column span="":::
+      triangel-tjock
+   :::column-end:::
+   :::column span="":::
+      triangel-pil upp
+   :::column-end:::
+   :::column span="":::
+      triangel-pil-vänster
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![triangel-ikon](./media/image-templates/triangle.png)
+   :::column-end:::
+   :::column span="":::
+      ![triangel-tjock ikon](./media/image-templates/triangle-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![triangel-pil upp-ikon](./media/image-templates/triangle-arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![triangel-pil-vänster-ikon](./media/image-templates/triangle-arrow-left.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      sexhörning
+   :::column-end:::
+   :::column span="":::
+      sexhörning – tjock
+   :::column-end:::
+   :::column span="":::
+      sexhörning, rundad
+   :::column-end:::
+   :::column span="":::
+      sexhörning – rundad – tjock
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![sexhörnings ikon](./media/image-templates/hexagon.png)
+   :::column-end:::
+   :::column span="":::
+      ![sexhörning – tjock ikon](./media/image-templates/hexagon-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![sexhörning, rundad ikon](./media/image-templates/hexagon-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![sexhörning – rundad – tjock ikon](./media/image-templates/hexagon-rounded-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      fästa
+   :::column-end:::
+   :::column span="":::
+      PIN-Round
+   :::column-end:::
+   :::column span="":::
+      rundad ruta
+   :::column-end:::
+   :::column span="":::
+      rundad – fyrkant – tjock
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![fästikon](./media/image-templates/pin.png)
+   :::column-end:::
+   :::column span="":::
+      ![PIN-rundad ikon](./media/image-templates/pin-round.png)
+   :::column-end:::
+   :::column span="":::
+      ![rundad kvadratisk ikon](./media/image-templates/rounded-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![rundad fyrkant – tjock ikon](./media/image-templates/rounded-square-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      pil upp
+   :::column-end:::
+   :::column span="":::
+      pil upp-tunn
+   :::column-end:::
+   :::column span="":::
+      car
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![pil upp-ikonen](./media/image-templates/arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![pil upp-tunn ikon](./media/image-templates/arrow-up-thin.png)
+   :::column-end:::
+   :::column span="":::
+      ![bil-ikon](./media/image-templates/car.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+
 
 **Mönster för fyllnings mönster för polygon**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| lera | rotations kontroll | cirkulär | cirklar-avstånd |
-| ![kontroll ikon](./media/image-templates/checker.png) | ![rotations ikon för kontroll](./media/image-templates/checker-rotated.png) | ![ikon för cirklar](./media/image-templates/circles.png) | ![ikonen cirklar – utrymmes ikon](./media/image-templates/circles-spaced.png) |
-|||||
-| diagonalt – linjer upp | diagonalt – linjer ned | diagonalt – ränder-upp | diagonalt – rand nedåt |
-| ![diagonalt – linjer upp-ikon](./media/image-templates/diagonal-lines-up.png) | ![Diagonal – streck nedåt-ikon](./media/image-templates/diagonal-lines-down.png) | ![Diagonal – ränder-up-ikon](./media/image-templates/diagonal-stripes-up.png) | ![Diagonal – rand ned-ikon](./media/image-templates/diagonal-stripes-down.png) |
-|||||
-| rutnät-linjer | roterat-rutnät-linjer | roterat rutnät-ränder | x-fyllning |
-| ![rutnät-linje ikon](./media/image-templates/grid-lines.png) | ![ikonen roterat rutnät-linjer](./media/image-templates/rotated-grid-lines.png) | ![ikon för roterat rutnät-ränder](./media/image-templates/rotated-grid-stripes.png) | ![x-fyllnings ikon](./media/image-templates/x-fill.png) |
-|||||
-| Sick –-Sack | Sick –-Sack-lodrätt | bild |  |
-| ![Sick--Sack-ikon](./media/image-templates/zig-zag.png) | ![Sick--Sack-lodrät ikon](./media/image-templates/zig-zag-vertical.png) | ![ikon för punkter](./media/image-templates/dots.png) | |
+:::row:::
+   :::column span="":::
+      lera
+   :::column-end:::
+   :::column span="":::
+      rotations kontroll
+   :::column-end:::
+   :::column span="":::
+      cirkulär
+   :::column-end:::
+   :::column span="":::
+      cirklar-avstånd
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![kontroll ikon](./media/image-templates/checker.png)
+   :::column-end:::
+   :::column span="":::
+      ![rotations ikon för kontroll](./media/image-templates/checker-rotated.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikon för cirklar](./media/image-templates/circles.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikonen cirklar – utrymmes ikon](./media/image-templates/circles-spaced.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      diagonalt – linjer upp
+   :::column-end:::
+   :::column span="":::
+      diagonalt – linjer ned
+   :::column-end:::
+   :::column span="":::
+      diagonalt – ränder-upp
+   :::column-end:::
+   :::column span="":::
+      diagonalt – rand nedåt
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![diagonalt – linjer upp-ikon](./media/image-templates/diagonal-lines-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![Diagonal – streck nedåt-ikon](./media/image-templates/diagonal-lines-down.png)
+   :::column-end:::
+   :::column span="":::
+      ![Diagonal – ränder-up-ikon](./media/image-templates/diagonal-stripes-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![Diagonal – rand ned-ikon](./media/image-templates/diagonal-stripes-down.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      rutnät-linjer
+   :::column-end:::
+   :::column span="":::
+      roterat-rutnät-linjer
+   :::column-end:::
+   :::column span="":::
+      roterat rutnät-ränder
+   :::column-end:::
+   :::column span="":::
+      x-fyllning
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![rutnät-linje ikon](./media/image-templates/grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikonen roterat rutnät-linjer](./media/image-templates/rotated-grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikon för roterat rutnät-ränder](./media/image-templates/rotated-grid-stripes.png)
+   :::column-end:::
+   :::column span="":::
+      ![x-fyllnings ikon](./media/image-templates/x-fill.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      Sick –-Sack
+   :::column-end:::
+   :::column span="":::
+      Sick –-Sack-lodrätt
+   :::column-end:::
+   :::column span="":::
+      bild
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![Sick--Sack-ikon](./media/image-templates/zig-zag.png)
+   :::column-end:::
+   :::column span="":::
+      ![Sick--Sack-lodrät ikon](./media/image-templates/zig-zag-vertical.png)
+   :::column-end:::
+   :::column span="":::
+      ![ikon för punkter](./media/image-templates/dots.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+<br>
 
 **Förinstallerade bild ikoner**
 

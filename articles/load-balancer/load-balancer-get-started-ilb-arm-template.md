@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 7e8f34f3d68a957dbd5bb13b69f751184d224e2c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 785054222dc3281b11b5e6abe1b82f67e2fc5ace
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066647"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Skapa en intern lastbalanserare med hjälp av en mall
 
@@ -40,7 +40,7 @@ Exempelmallen som är tillgänglig i den offentliga databasen använder en param
 
 Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av PowerShell.
 
-1. Om du aldrig har använt Azure PowerShell, se [hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview) och följer anvisningarna i slutet för att logga in på Azure och välja din prenumeration.
+1. Om du aldrig har använt Azure PowerShell, se [hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/) och följer anvisningarna i slutet för att logga in på Azure och välja din prenumeration.
 2. Hämta parameterfilen till din lokala disk.
 3. Redigera filen och spara den.
 4. Kör cmdleten **New-AzResourceGroupDeployment** för att skapa en resurs grupp med hjälp av mallen.

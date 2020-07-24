@@ -2,13 +2,13 @@
 title: Virtual Network tjänst slut punkter – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du lägger till en Microsoft. EventHub-tjänsteslutpunkt till ett virtuellt nätverk.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315425"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066694"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda Virtual Network tjänst slut punkter med Azure Event Hubs
 
@@ -24,7 +24,6 @@ Resultatet är en privat och isolerad relation mellan arbets belastningarna som 
 > Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
-> - Azure Monitor (diagnostisk inställning)
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
 > - Azure IoT Hub vägar

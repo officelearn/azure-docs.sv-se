@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: 2d615e81891d68327b3225138495262d4eab9aa3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065653"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Publicerings guide för virtuella dator erbjudanden
 
@@ -47,7 +47,7 @@ Använd den *virtuella datorns* erbjudande typ när du distribuerar en virtuell 
 > Vid detta tillfälle kan de monetära åtaganden som är kopplade till en Enterprise-avtal användas mot Azures användning av din virtuella dator, men inte mot licens avgifterna för program varan.  
 > 
 > [!NOTE]
-> Du kan begränsa identifieringen och distributionen av den virtuella datorn till en speciell uppsättning kunder genom att publicera avbildningen och prissättningen som ett privat erbjudande. Privata erbjudanden gör att du kan skapa exklusiva erbjudanden för dina närmaste kunder och erbjuda anpassade program och villkor. Med de anpassade villkoren kan du markera olika scenarier, inklusive fält LED ande avtal med särskilda priser och villkor samt tidig åtkomst till begränsad version av program vara. Med privata erbjudanden kan du ge särskilda priser eller produkter till en begränsad uppsättning kunder genom att skapa en ny SKU med dessa uppgifter.  
+> Du kan begränsa identifieringen och distributionen av den virtuella datorn till en speciell uppsättning kunder genom att publicera avbildningen och prissättningen som ett privat erbjudande. Privata erbjudanden gör att du kan skapa exklusiva erbjudanden för dina närmaste kunder och erbjuda anpassade program och villkor. Med de anpassade villkoren kan du markera olika scenarier, inklusive fält LED ande avtal med särskilda priser och villkor samt tidig åtkomst till begränsad version av program vara. Med privata erbjudanden kan du ge särskilda priser eller produkter till en begränsad uppsättning kunder genom att skapa en ny plan med dessa uppgifter.  
 >
 > Mer information finns i [privata erbjudanden på Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 

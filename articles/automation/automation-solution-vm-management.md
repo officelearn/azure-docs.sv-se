@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064451"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Översikt över Starta/stoppa virtuella datorer när de inte används
 
@@ -49,7 +49,7 @@ Du behöver inte konfigurera behörigheter om du är deltagare i prenumerationen
 
 ### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>Behörigheter för redan befintligt Automation-konto och Log Analytics arbets yta
 
-Om du vill aktivera virtuella datorer för Starta/stoppa virtuella datorer när de inte används funktionen med ett befintligt Automation-konto och Log Analytics arbets yta, behöver du följande behörigheter för resurs grupps omfånget. Mer information om roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
+Om du vill aktivera virtuella datorer för Starta/stoppa virtuella datorer när de inte används funktionen med ett befintligt Automation-konto och Log Analytics arbets yta, behöver du följande behörigheter för resurs grupps omfånget. Mer information om roller finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
 
 | Behörighet | Omfång|
 | --- | --- |
@@ -108,7 +108,7 @@ Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Denna Runbook skapar aviseringar per resurs för det automatiska stopp scenariot.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true eller false  | Skapar eller uppdaterar Azures aviserings regler på virtuella datorer i mål prenumerationen eller resurs grupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer (utan blank steg), till exempel `vm1,vm2,vm3` .<br> `WhatIf`aktiverar validering av Runbook-logik utan att köra.|
-|AutoStop_Disable | Inget | Inaktiverar automatiska stopp-aviseringar och standard schema.|
+|AutoStop_Disable | Ingen | Inaktiverar automatiska stopp-aviseringar och standard schema.|
 |AutoStop_VM_Child | WebHookData | Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en klassisk virtuell dator.|
 |AutoStop_VM_Child_ARM | WebHookData |Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en virtuell dator.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: starta eller stoppa<br> VMList  | Utför åtgärden starta eller stoppa i den klassiska VM-gruppen genom att Cloud Services. |

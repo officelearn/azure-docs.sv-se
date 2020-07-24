@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259180"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064916"
 ---
 # <a name="about-virtual-hub-routing"></a>Om routning av virtuell hubb
 
@@ -33,7 +33,7 @@ I följande avsnitt beskrivs viktiga begrepp i routning av virtuell hubb.
 
 En väg tabell för virtuell hubb kan innehålla en eller flera vägar. En väg innehåller dess namn, en etikett, en måltyp, en lista med mål prefix och nästa hopp information för ett paket som ska dirigeras. En **anslutning** har vanligt vis en routningslänk som associeras eller sprids till en routningstabell
 
-### <a name="connection"></a><a name="connection"></a>Anslutning
+### <a name="connection"></a><a name="connection"></a>Anslutningen
 
 Anslutningar är Resource Manager-resurser som har en konfiguration för routning. De fyra typerna av anslutningar är:
 
@@ -59,6 +59,9 @@ Anslutningar sprider vägar dynamiskt till en routningstabell. Med en VPN-anslut
 Det finns också en **tabell med ingen väg** för varje virtuell hubb. Spridningen till tabellen none Route innebär att det inte krävs några vägar för att spridas från anslutningen. VPN-, ExpressRoute-och användares VPN-anslutningar sprider vägar till samma uppsättning routningstabeller.
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Spridning":::
+
+### <a name="labels"></a><a name="static"></a>Etiketter
+Etiketter ger en mekanism för att gruppera väg tabeller logiskt. Detta är särskilt användbart vid spridning av vägar från anslutningar till flera väg tabeller. Standard väg tabellen har till exempel en inbyggd etikett som kallas default. När användarna sprider anslutnings vägar till etiketten default, tillämpas de automatiskt på alla standard väg tabeller i varje hubb i det virtuella WAN-nätverket. 
 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Konfigurera statiska vägar i en virtuell nätverks anslutning
 

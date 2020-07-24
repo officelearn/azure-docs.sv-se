@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: fe348c2bbd901934c6365be6efefafb44ef8d875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97b5118f74cbd098beea804c312ed08f1a152873
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262420"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067173"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Hantera Azure Cosmos-resurser med Azure CLI
 
@@ -274,7 +274,7 @@ az cosmosdb sql database throughput update \
 
 ### <a name="manage-lock-on-a-database"></a>Hantera lås på en databas
 
-Lägg ett borttagnings lås på en databas. Mer information om hur du aktiverar detta finns i, [förhindra ändringar från SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk): er.
+Lägg ett borttagnings lås på en databas. Mer information om hur du aktiverar detta finns i, [förhindra ändringar från SDK](role-based-access-control.md#prevent-sdk-changes): er.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -433,7 +433,7 @@ az cosmosdb sql container throughput update \
 
 ### <a name="manage-lock-on-a-container"></a>Hantera lås på en behållare
 
-Lägg ett borttagnings lås på en behållare. Mer information om hur du aktiverar detta finns i, [förhindra ändringar från SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk): er.
+Lägg ett borttagnings lås på en behållare. Mer information om hur du aktiverar detta finns i, [förhindra ändringar från SDK](role-based-access-control.md#prevent-sdk-changes): er.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'

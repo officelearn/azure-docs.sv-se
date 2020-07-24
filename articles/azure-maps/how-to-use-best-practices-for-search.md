@@ -1,18 +1,19 @@
 ---
 title: Metod tips för Azure Maps Search Service | Microsoft Azure Maps
 description: Lär dig hur du använder de bästa metoderna när du använder Search Service från Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84264374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064266"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Metod tips för Azure Maps Search Service
 
@@ -25,9 +26,9 @@ Den här artikeln förklarar hur du använder ljud metoder när du anropar data 
 * Lär dig skillnaderna mellan resultat typer
 * Läs adress Sök-svars strukturen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill ringa till API: erna för Azure Maps tjänsten behöver du ett Azure Maps konto och en nyckel. Mer information finns i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och [Hämta en primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+Om du vill ringa till API: erna för Azure Maps tjänsten behöver du ett Azure Maps konto och en nyckel. Mer information finns i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) och [Hämta en primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
 Information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
@@ -84,7 +85,7 @@ Vi rekommenderar att du använder Azure Maps [Sök i fuzzy API](https://docs.mic
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Omvänd-landskod och filter för en geografisk enhets typ
 
-När du gör en omvänd kod sökning i [omvänt API för Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)kan tjänsten returnera polygoner för administrativa områden. Till exempel kanske Yoi vill hämta områdes polygonen för en stad.Du kan begränsa sökningen till specifika geografi-entitetstyper genom att inkludera `entityType` parametern i dina begär Anden. 
+När du gör en omvänd kod sökning i [omvänt API för Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)kan tjänsten returnera polygoner för administrativa områden. Du kanske exempelvis vill hämta områdes polygonen för en stad.Du kan begränsa sökningen till specifika geografi-entitetstyper genom att inkludera `entityType` parametern i dina begär Anden. 
 
 Det resulterande svaret innehåller geografi-ID: t och entitetstypen som matchades. Om du anger mer än en entitet returnerar slut punkten den *minsta tillgängliga entiteten*. Du kan använda det returnerade geometri-ID: t för att hämta geografins geometri genom [tjänsten search polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -94,7 +95,7 @@ Det resulterande svaret innehåller geografi-ID: t och entitetstypen som matchad
 https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```JSON
 {
@@ -146,7 +147,7 @@ I följande exempel fråga frågar Sök adress tjänsten efter *mi*. Här har `t
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```JSON
 {
@@ -495,7 +496,7 @@ För att utforska varumärkes sökning, ska vi göra en [POI kategori Sök](http
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```JSON
 {
@@ -776,7 +777,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Kors gatan**: skärnings punkter. Kors gator representerar Knut punkter där två gator korsar varandra.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Nu ska vi titta på svars strukturen. I svaret som följer är typerna av resultat objekt olika. Om du ser noggrant ser du tre typer av resultat objekt:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065493"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine-direktuppspelning offline för Android  
 
@@ -29,7 +29,7 @@ ms.locfileid: "80294338"
 > * [Version 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Förutom att skydda innehåll för online-direktuppspelning, erbjuder medie innehålls prenumeration och hyres tjänster nedladdnings Bart innehåll som fungerar när du inte är ansluten till Internet. Du kan behöva ladda ned innehåll till din telefon eller surfplatta för uppspelning i flyg Plans läge när det är frånkopplat från nätverket. Ytterligare scenarier där du kanske vill ladda ned innehåll:
 
@@ -181,7 +181,7 @@ Det innebär att STS (Secure token service) måste ha information om affärs log
 
 ### <a name="question"></a>Fråga
 
-För Widevine säkerhets nivåer, i Googles [Widevine översikt över dokument](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) dokumentation för DRM-arkitekturen, definieras tre olika säkerhets nivåer. Men i [Azure Media Services dokumentation om Widevine licens mal len](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)beskrivs fem olika säkerhets nivåer. Vad är relationen eller mappningen mellan de två olika uppsättningarna med säkerhets nivåer?
+För Widevine säkerhets nivåer, i Googles [Widevine översikt över dokument](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) dokumentation för DRM-arkitekturen, definieras tre olika säkerhets nivåer. Men i [Azure Media Services dokumentation om Widevine licens mal len](./media-services-widevine-license-template-overview.md)beskrivs fem olika säkerhets nivåer. Vad är relationen eller mappningen mellan de två olika uppsättningarna med säkerhets nivåer?
 
 ### <a name="answer"></a>Svar
 
@@ -191,7 +191,7 @@ I Googles [Översikt över WIDEVINE DRM-arkitektur](https://storage.googleapis.c
 2.  Säkerhets nivå 2: Utför kryptografi (men inte video bearbetning) i TEE: dekrypterade buffertar returneras till program domänen och bearbetas via separat video maskin vara eller program vara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.
 3.  Säkerhets nivå 3 har inte någon TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll på värd operativ system. En nivå 3-implementering kan också innehålla en kryptografisk motor för maskin vara, men den förbättrar bara prestanda, inte säkerhet.
 
-På samma tid kan security_level egenskapen för content_key_specs ha följande fem olika värden (krav för Widevine för uppspelning) i [Azure Media Services dokumentation om licens mal len](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)för:
+På samma tid kan security_level egenskapen för content_key_specs ha följande fem olika värden (krav för Widevine för uppspelning) i [Azure Media Services dokumentation om licens mal len](./media-services-widevine-license-template-overview.md)för:
 
 1.  Programvarubaserad-baserad kryptografisk kryptering krävs.
 2.  Program varu kryptering och en fördunklade-avkodare måste anges.

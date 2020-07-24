@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f97b4877d87acec923812fd0289d5161529dbe7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081040"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
@@ -268,7 +268,7 @@ Välj den tjänst som du vill visa loggar för i Ambari-webbgränssnittet (till 
 
 Storleken på en nod kan bara väljas när klustret skapas. Du hittar en lista över de olika VM-storlekar som är tillgängliga för HDInsight på [sidan med pris](https://azure.microsoft.com/pricing/details/hdinsight/)information för HDInsight.
 
-När du skapar ett kluster kan du ange storleken på noderna. Följande information ger vägledning om hur du anger storleken med [Azure Portal](https://portal.azure.com/), [Azure PowerShell modul AZ](/powershell/azureps-cmdlets-docs)och [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+När du skapar ett kluster kan du ange storleken på noderna. Följande information ger vägledning om hur du anger storleken med [Azure Portal](https://portal.azure.com/), [Azure PowerShell modul AZ](/powershell/azure/)och [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 * **Azure Portal**: när du skapar ett kluster kan du ange storleken på noderna som används av klustret:
 
@@ -284,6 +284,6 @@ Mer information om de objekt som beskrivs i den här artikeln finns i:
 
 * [REST-referens för Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installera och konfigurera Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Installera och konfigurera Azure PowerShell modul AZ](/powershell/azure/overview)
+* [Installera och konfigurera Azure PowerShell modul AZ](/powershell/azure/)
 * [Hantera HDInsight med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)

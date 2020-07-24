@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fe3c8a3b5d63c67813a5098742392d5658e5c204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e63ff434b4367875324a26d80c937992a8c0331
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74034223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080037"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av virtuella Azure-datorer
-Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
+Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Ladda ned din användningsinformation
-Börja med att [Hämta din användnings information](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Tabellen nedan innehåller definitionen och exempel på användnings värden för Virtual Machines som distribueras via Azure Resource Manager. Det här dokumentet innehåller ingen detaljerad information för virtuella datorer som distribueras via vår klassiska modell.
+Börja med att [Hämta din användnings information](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Tabellen nedan innehåller definitionen och exempel på användnings värden för Virtual Machines som distribueras via Azure Resource Manager. Det här dokumentet innehåller ingen detaljerad information för virtuella datorer som distribueras via vår klassiska modell.
 
 
 | Fält             | Innebörd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Exempel värden                                                                                                                                                                                                                                                                                                                                                   |
@@ -39,12 +40,12 @@ Börja med att [Hämta din användnings information](https://docs.microsoft.com/
 | Förbrukad           | Mängden av den resurs som har för bruk ATS under den dagen. För Compute debiterar vi varje minut som den virtuella datorn kördes för en given timme (upp till 6 decimaler av noggrannhet).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    "1", "0,5"                                                                                                                                                                                                                                                                                                                                                    |
 | Resource Location  | Identifierar det datacenter där resursen körs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "Japan, öst"                                                                                                                                                                                                                                                                                                                                                        |
 | Consumed Service   | Den Azure-plattform som du använde.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft. Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Resursgrupp     | Resursgruppen där den distribuerade resursen körs. Mer information finns i [Azure Resource Manager översikt.](https://docs.microsoft.com/azure/virtual-machines/linux/vm-usage)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    MyRG                                                                                                                                                                                                                                                                                                                                                        |
+| Resursgrupp     | Resursgruppen där den distribuerade resursen körs. Mer information finns i [Azure Resource Manager översikt.]()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    MyRG                                                                                                                                                                                                                                                                                                                                                        |
 | Instance ID        | Resursens identifierare. Identifieraren innehåller namnet du angav för resursen när den skapades. För virtuella datorer kommer instans-ID: t innehålla SubscriptionId, ResourceGroupName och VMName (eller skalnings uppsättningens namn för användning av skalnings uppsättningar).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/Subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyRG/providers/Microsoft. Compute/virtualMachines/MyVM1"<br><br>eller<br><br>"/Subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyRG/providers/Microsoft. Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
 | Taggar               | Tagg som du tilldelar till resursen. Använd taggar för att gruppera faktureringsposter. Lär dig att [tagga din Virtual Machines.](tag.md) Detta är endast tillgängligt för virtuella Resource Manager-datorer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{" personalavdelningen ":" RD "," min användare ":" mina namn "}"                                                                                                                                                                                                                                                                                                                        |
 | Ytterligare info    | Tjänstspecifika metadata. För virtuella datorer fyller vi i följande data i fältet ytterligare information: <ul><li>Bildtyp-bestämd bild som du körde. Hitta den fullständiga listan över strängar som stöds under avbildnings typer.</li><li>Tjänst typ: den storlek som du har distribuerat.</li><li>VMName: namnet på den virtuella datorn. Det här fältet är bara ifyllt för virtuella datorer med skalnings uppsättningar. Om du behöver ditt VM-namn för virtuella datorer med skalnings uppsättningar kan du se det i instans-ID-strängen ovan.</li><li>UsageType: här anges vilken typ av användning detta representerar.<ul><li>ComputeHR är beräknings timmen för den underliggande virtuella datorn, t. ex. Standard_D1_v2.</li><li>ComputeHR_SW är avgiften för program varan om den virtuella datorn använder Premium program vara, t. ex. Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType": "kanonisk", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType": "kanonisk", "ServiceType": "Standard_DS1_v2", "VMName": "myVM1", "UsageType": "ComputeHR"}<br><br>Premium program vara {"ImageType": "", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR_SW"} |
 
-## <a name="image-type"></a>Avbildningstyp
+## <a name="image-type"></a>Avbildnings typ
 För vissa bilder i Azure-galleriet fylls avbildnings typen i fältet ytterligare information. Detta gör det möjligt för användarna att förstå och spåra vad de har distribuerat på den virtuella datorn. Följande värden som är ifyllda i det här fältet baseras på avbildningen som du har distribuerat:
   - BitRock 
   - Canonical 
@@ -77,11 +78,11 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    Indiensödra         |    Kanada, centrala                            |
 |    Indien            |    Kanada, östra                               |
 |    Kanada          |    Indien, centrala                            |
-|    USA, centrala             |    USA, centrala                            |
+|    USA, centrala             |    Central US                            |
 |    chinaeast             |    Kina, östra                            |
 |    chinanorth            |    Kina, norra                           |
 |    eastasia              |    Asien, östra                             |
-|    eastus                |    USA, östra                               |
+|    USA, östra                |    East US                               |
 |    eastus2               |    USA, östra 2                             |
 |    GermanyCentral        |    DE centrala                            |
 |    GermanyNortheast      |    DE nordöstra                          |
@@ -90,8 +91,8 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    Centrala          |    Sydkorea, centrala                            |
 |    Koreasödra            |    Sydkorea, södra                              |
 |    usanorracentrala        |    USA, norra centrala                      |
-|    northeurope           |    Europa, norra                          |
-|    southcentralus        |    USA, södra centrala                      |
+|    northeurope           |    Norra Europa                          |
+|    USA, södra centrala        |    USA, södra centrala                      |
 |    Asien, sydöstra         |    Sydostasien                        |
 |    Australienöstra            |    Indien, södra                              |
 |    UKNorth               |    Nord USA                              |
@@ -108,7 +109,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    Europa, västra            |    Europa, västra                           |
 |    Usavästracentrala             |    Indien, västra                               |
 |    westus                |    USA, västra                               |
-|    westus2               |    USA, västra 2                             |
+|    USA, västra 2               |    USA, västra 2                             |
 
 
 ## <a name="virtual-machine-usage-faq"></a>Vanliga frågor om användning av virtuell dator
@@ -131,7 +132,7 @@ ComputeHR står för beräknings timme som representerar användnings händelsen
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Hur gör jag för att veta om jag debiteras för Premium-program?
 När du utforskar vilken VM-avbildning som passar bäst för dina behov bör du ta en titt på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). Avbildningen har program Plans priset. Om du ser "kostnads fri" för priset finns det ingen extra kostnad för program varan. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Vad är skillnaden mellan Microsoft. ClassicCompute och Microsoft. Compute i den förbrukade tjänsten?
-Microsoft. ClassicCompute representerar klassiska resurser som distribueras via Azure-Service Manager. Om du distribuerar via Resource Manager fylls Microsoft. Compute i den förbrukade tjänsten. Läs mer om [Azures distributions modeller](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+Microsoft. ClassicCompute representerar klassiska resurser som distribueras via Azure-Service Manager. Om du distribuerar via Resource Manager fylls Microsoft. Compute i den förbrukade tjänsten. Läs mer om [Azures distributions modeller](../../azure-resource-manager/management/deployment-models.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Varför är InstanceID-fältet tomt för min virtuella dator användning?
 Om du distribuerar via den klassiska distributions modellen är InstanceID-strängen inte tillgänglig.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Varför är taggarna för mina virtuella datorer inte flödar till användnings informationen?
@@ -142,6 +143,4 @@ I den klassiska modellen sammanställs faktureringen av resurser på moln tjäns
 Virtuella datorer med Premium Storage-kapacitet debiteras enligt samma taxa som icke-Premium Storage-kompatibla virtuella datorer. Endast dina lagrings kostnader skiljer sig åt. Besök [sidan med pris för lagring](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om din användnings information finns i [förstå din faktura för Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
-)
-
+Mer information om din användnings information finns i [förstå din faktura för Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)

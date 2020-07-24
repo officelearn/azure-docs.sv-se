@@ -3,12 +3,12 @@ title: Installera Microsoft Azure Recovery Services (MARS)-agenten
 description: Lär dig hur du installerar Microsoft Azure Recovery Services-agenten (MARS) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079374"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installera Azure Backup MARS-agenten
 
@@ -42,10 +42,10 @@ Vilka data som är tillgängliga för säkerhets kopiering beror på var agenten
 
 ## <a name="modify-storage-replication"></a>Ändra Storage Replication
 
-Som standard använder valven [Geo-redundant lagring (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Som standard använder valven [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md).
 
 * Om valvet är din primära mekanism för säkerhets kopiering rekommenderar vi att du använder GRS.
-* Du kan använda [Lokalt Redundant lagring (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att minska kostnaderna för Azure Storage.
+* Du kan använda [Lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) för att minska kostnaderna för Azure Storage.
 
 Så här ändrar du typen av lagrings replikering:
 
@@ -95,7 +95,7 @@ Om du vill använda Microsoft-peering väljer du följande tjänster, regioner o
 * Azure-region, enligt platsen för ditt Recovery Services-valv
 * Azure Storage, enligt platsen för ditt Recovery Services-valv
 
-Mer information finns i [krav för ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Mer information finns i [krav för ExpressRoute-routning](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > Offentlig peering är föråldrad för nya kretsar.
@@ -136,13 +136,13 @@ Om du redan har installerat agenten på alla datorer kontrollerar du att du kör
 ## <a name="install-and-register-the-agent"></a>Installera och registrera agenten
 
 1. Kör *MARSagentinstaller.exe* -filen på de datorer som du vill säkerhetskopiera.
-1. I installations guiden för MARS agent väljer du **installations inställningar**. Där kan du välja var du vill installera agenten och välja en plats för cachen. Välj **Nästa**.
+1. I installations guiden för MARS agent väljer du **installations inställningar**. Där kan du välja var du vill installera agenten och välja en plats för cachen. Välj sedan **Nästa**.
    * Azure Backup använder cacheminnet för att lagra ögonblicks bilder av data innan de skickas till Azure.
    * Cacheplatsen måste ha ett ledigt utrymme som motsvarar minst 5 procent av storleken på de data som du säkerhetskopierar.
 
     ![Välj installations inställningar i installations guiden för MARS-agenten](./media/backup-configure-vault/mars1.png)
 
-1. För **proxykonfiguration**anger du hur agenten som körs på Windows-datorn ska ansluta till Internet. Välj **Nästa**.
+1. För **proxykonfiguration**anger du hur agenten som körs på Windows-datorn ska ansluta till Internet. Välj sedan **Nästa**.
 
    * Om du använder en anpassad proxy anger du eventuella nödvändiga proxyinställningar och autentiseringsuppgifter.
    * Kom ihåg att agenten behöver åtkomst till [vissa URL: er](#before-you-start).
@@ -151,7 +151,7 @@ Om du redan har installerat agenten på alla datorer kontrollerar du att du kör
 
 1. För **installation**, granska kraven och välj **Installera**.
 1. När agenten har installerats väljer **du Fortsätt till registrering**.
-1. I Guide identifiering för valv i **guiden Registrera Server**  >  **Vault Identification**bläddrar du till och väljer den inloggnings fil som du laddade ned. Välj **Nästa**.
+1. I Guide identifiering för valv i **guiden Registrera Server**  >  **Vault Identification**bläddrar du till och väljer den inloggnings fil som du laddade ned. Välj sedan **Nästa**.
 
     ![Lägg till autentiseringsuppgifter för valvet med guiden Registrera Server](./media/backup-configure-vault/register1.png)
 

@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup Server för Azure VMware-lösning
 description: Konfigurera din Azure VMware-lösning för att säkerhetskopiera virtuella datorer med hjälp av Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816864"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079544"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Konfigurera Azure Backup Server för Azure VMware-lösning
 
@@ -74,7 +74,7 @@ I följande tabell sammanfattas det högsta antalet skyddade arbets belastningar
 
 | Maximalt antal skyddade arbets belastningar | Genomsnittlig arbetsbelastningsstorlek | Genomsnittlig omsättning av arbetsbelastning (dagligen) | Minsta lagrings-IOPS | Rekommenderad disktyp/storlek      | Rekommenderad storlek på virtuell dator |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
-| 20                      | 100 GB                | Netto 5 % omsättning                   | 2 000             | Standard HDD (8 TB eller över storlek per disk)  | A4V2       |
+| 20                      | 100 GB                | Netto 5 % omsättning                   | 2 000             | Standard HDD (8 TB eller över storlek per disk)  | A4V2       |
 | 40                      | 150 GB                | Netto 10 % omsättning                  | 4 500             | Premium SSD * (1 TB eller över storlek per disk) | DS3_V2     |
 | 60                      | 200 GB                | Netto 10 % omsättning                  | 10 500            | Premium SSD * (8 TB eller över storlek per disk) | DS3_V2     |
 
@@ -309,7 +309,7 @@ Om du har laddat ned program varu paketet till en annan server kopierar du filer
    * **Databas**: **databasename** ska vara **reportserver $ \<SQLInstanceName> **.
    * **Webb portal-URL**: den **virtuella katalogen** ska vara **Reports_ \<SQLInstanceName> **.
 
-   [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
+   [Läs mer](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
 
    > [!NOTE]
    > [Microsoft Online Services-villkoren](https://www.microsoft.com/licensing/product-licensing/products) (ost) styr licensieringen för SQL Server som används som databas för Azure Backup Server. Enligt OST kan SQL Server paketerat med Azure Backup Server bara användas som databas för Azure Backup Server.
@@ -319,7 +319,7 @@ Om du har laddat ned program varu paketet till en annan server kopierar du filer
 1. Ange en plats för installationen av Microsoft Azure Backup server-filer och välj **Nästa**.
 
    > [!NOTE]
-   > Det krävs en arbets plats för att säkerhetskopiera till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras efter att installationen har slutförts. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+   > Det krävs en arbets plats för att säkerhetskopiera till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras efter att installationen har slutförts. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Microsoft Azure Backup installations inställningar](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -393,4 +393,3 @@ Fortsätt till nästa självstudie och lär dig hur du konfigurerar säkerhets k
 
 > [!div class="nextstepaction"]
 > [Konfigurera säkerhets kopiering av virtuella datorer med Azure VMware-lösningen](backup-avs-vms-with-mabs.md)
-

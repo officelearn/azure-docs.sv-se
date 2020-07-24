@@ -4,12 +4,12 @@ description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d8f8d6937cd93a9da9c82b2ed501c9fbb815b11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079357"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
 
@@ -48,7 +48,7 @@ Om du skapar ett Recovery Services valv kan du använda alla säkerhetsfunktione
     ![Skärm bild av Recovery Services valv egenskaper](./media/backup-azure-security-feature/security-settings-update.png)
 
     Uppdaterings länken öppnar bladet **säkerhets inställningar** , som innehåller en sammanfattning av funktionerna och gör att du kan aktivera dem.
-5. I list rutan **har du konfigurerat Azure-Multi-Factor Authentication?**, väljer du ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Om den är aktive rad, uppmanas du att autentisera från en annan enhet (till exempel en mobil telefon) när du loggar in på Azure Portal.
+5. I list rutan **har du konfigurerat Azure-Multi-Factor Authentication?**, väljer du ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Om den är aktive rad, uppmanas du att autentisera från en annan enhet (till exempel en mobil telefon) när du loggar in på Azure Portal.
 
    När du utför kritiska åtgärder i säkerhets kopiering måste du ange en säkerhets kod som är tillgänglig på Azure Portal. Genom att aktivera Azure Multi-Factor Authentication lägger du till ett säkerhets lager. Endast auktoriserade användare med giltiga autentiseringsuppgifter för Azure och autentiserade från en andra enhet kan komma åt Azure Portal.
 6. Om du vill spara säkerhets inställningar väljer du **Aktivera** och klickar på **Spara**. Du kan bara välja **Aktivera** när du har valt ett värde från listan **har du konfigurerat Azure Multi-Factor Authentication?** i föregående steg.

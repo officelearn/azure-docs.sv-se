@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att spåra och hantera säkerhets k
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847774"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079323"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhets kopierings-och återställnings jobb med REST API
 
@@ -33,7 +33,7 @@ En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. Exempe
 }
 ```
 
-Jobbet för säkerhets kopiering av virtuella Azure-datorer identifieras av "jobId"-fältet och kan spåras på det sätt som anges [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med en enkel *Get* -begäran.
+Jobbet för säkerhets kopiering av virtuella Azure-datorer identifieras av "jobId"-fältet och kan spåras på det sätt som anges [här](/rest/api/backup/jobdetails/) med en enkel *Get* -begäran.
 
 ## <a name="tracking-the-job"></a>Spåra jobbet
 
@@ -43,11 +43,11 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 `{jobName}`Är "jobId" som nämnts ovan. Svaret är alltid 200 OK med fältet status och indikerar jobbets aktuella status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet "extendedInfo" Mer information om jobbet.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Exempelsvar
 

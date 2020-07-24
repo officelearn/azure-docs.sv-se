@@ -3,11 +3,12 @@ title: Automatisera Azure Application insikter-processer med Logic Apps
 description: Lär dig hur du snabbt kan automatisera upprepade processer genom att lägga till Application Insights Connector i din Logic app.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79473174"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079629"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatisera Application Insights processer med Logic Apps
 
@@ -18,7 +19,7 @@ Hittar du dig själv upprepade gånger med samma frågor på dina telemetridata 
 
 Med den här integreringen kan du automatisera flera processer utan att behöva skriva en enda rad kod. Du kan skapa en Logic-app med Application Insights-anslutningen för att snabbt automatisera eventuella Application Insights processer. 
 
-Du kan också lägga till ytterligare åtgärder. Logic Apps funktionen i Azure App Service gör hundratals åtgärder tillgängliga. Genom att använda en Logic app kan du till exempel automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure-DevOps. Du kan också använda en av de många tillgängliga [mallarna](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) för att påskynda processen med att skapa din Logic app. 
+Du kan också lägga till ytterligare åtgärder. Logic Apps funktionen i Azure App Service gör hundratals åtgärder tillgängliga. Genom att använda en Logic app kan du till exempel automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure-DevOps. Du kan också använda en av de många tillgängliga [mallarna](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) för att påskynda processen med att skapa din Logic app. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Skapa en Logic app för Application Insights
 
@@ -117,7 +118,7 @@ När du skapar egna frågor måste du kontrol lera att de fungerar korrekt i Ana
       ![Skärm bild för Office 365-e-postkonfiguration](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>Steg 7: Spara och testa din Logic app
-* Klicka på **Spara** för att spara dina ändringar.
+* Klicka på **Spara** för att spara ändringarna.
 
 Du kan vänta på att utlösaren ska köra Logic-appen, eller så kan du köra Logic-appen direkt genom att välja **Kör**.
 
@@ -130,13 +131,8 @@ När din Logic App körs får mottagarna du angav i e-postlistan ett e-postmedde
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om att skapa [analys frågor](../../azure-monitor/log-query/get-started-queries.md).
-- Läs mer om [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+- Läs mer om [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
-
-
-
-
-

@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aa71062c86d57cabe8579e13011956137804f74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76277600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079799"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program
 SAP-program som baseras på SAP NetWeaver-eller SAP S/4HANA-arkitekturen är känsliga för nätverks fördröjning mellan SAP-programnivån och SAP-databasnivå. Den här känsligheten är resultatet av det mesta av affärs logiken som körs i program skiktet. Eftersom SAP-programlagret kör affärs logiken, utfärdar den frågor till databas nivån med hög frekvens, med en hastighet av tusentals eller flera tusen tusen per sekund. I de flesta fall är arten av frågorna enkel. De kan ofta köras på databas nivå i 500 mikrosekunder eller mindre.
@@ -28,7 +29,7 @@ Den tid som ägnats åt nätverket att skicka en sådan fråga från program niv
 
 I många Azure-regioner har antalet Data Center växt. Den här tillväxten har också utlösts av introduktionen av Tillgänglighetszoner. Samtidigt använder kunderna, särskilt för avancerade SAP-system, flera särskilda VM SKU: er i serien för M-serien, eller HANA-stora instanser. Dessa typer av virtuella Azure-datorer är inte tillgängliga i alla data Center i en speciell Azure-region. På grund av dessa två Tendencies har kunder haft en nätverks fördröjning som inte är i det optimala intervallet. I vissa fall resulterar denna fördröjning i en optimal prestanda för sina SAP-system.
 
-För att förhindra dessa problem erbjuder Azure [placerings grupper för närhet](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Den här nya funktionen har redan använts för att distribuera olika SAP-system. Information om begränsningar för närhets placering finns i artikeln som hänvisas till i början av det här stycket. Den här artikeln beskriver de SAP-scenarier där Azure närhets placerings grupper kan eller ska användas.
+För att förhindra dessa problem erbjuder Azure [placerings grupper för närhet](../../linux/co-location.md). Den här nya funktionen har redan använts för att distribuera olika SAP-system. Information om begränsningar för närhets placering finns i artikeln som hänvisas till i början av det här stycket. Den här artikeln beskriver de SAP-scenarier där Azure närhets placerings grupper kan eller ska användas.
 
 ## <a name="what-are-proximity-placement-groups"></a>Vad är placerings grupper för närhet? 
 En Azure närhets placerings grupp är en logisk konstruktion. När en har definierats är den kopplad till en Azure-region och en Azure-resurs grupp. När virtuella datorer distribueras refereras en närhets placerings grupp av:
@@ -39,7 +40,7 @@ En Azure närhets placerings grupp är en logisk konstruktion. När en har defin
 > [!NOTE]
 > Om det inte finns någon värd maskin vara som är distribuerad och som kan köra en speciell VM-typ i data centret där den första virtuella datorn placerades, kommer distributionen av den begärda VM-typen inte att lyckas. Du får ett fel meddelande.
 
-En enda [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) kan ha flera olika närhets placerings grupper. Men en närhets placerings grupp kan bara tilldelas till en Azure-resurs grupp.
+En enda [Azure-resurs grupp](../../../azure-resource-manager/management/manage-resources-portal.md) kan ha flera olika närhets placerings grupper. Men en närhets placerings grupp kan bara tilldelas till en Azure-resurs grupp.
 
 Tänk på följande när du använder grupper för närhets placering:
 
@@ -48,9 +49,9 @@ Tänk på följande när du använder grupper för närhets placering:
 - På grund av inaktive ring av maskin vara kan Microsoft skapa kapaciteter för en VM-typ som du använde i ett annat data Center, i stället för den som du ursprungligen använde. I det scenariot kan du behöva flytta alla virtuella datorer i närheten av placerings gruppen till ett annat data Center.
 
 ## <a name="proximity-placement-groups-with-sap-systems-that-use-only-azure-vms"></a>Närhets placerings grupper med SAP-system som bara använder virtuella Azure-datorer
-De flesta SAP NetWeaver-och S/4HANA-system distributioner på Azure använder inte [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). För distributioner som inte använder HANA-stora instanser är det viktigt att ge optimala prestanda mellan SAP-program skiktet och DBMS-nivån. Det gör du genom att definiera en placerings grupp för Azure närhet för systemet.
+De flesta SAP NetWeaver-och S/4HANA-system distributioner på Azure använder inte [Hana-stora instanser](./hana-overview-architecture.md). För distributioner som inte använder HANA-stora instanser är det viktigt att ge optimala prestanda mellan SAP-program skiktet och DBMS-nivån. Det gör du genom att definiera en placerings grupp för Azure närhet för systemet.
 
-I de flesta kund distributioner skapar kunder en enda [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) för SAP-system. I så fall finns det en en-till-en-relation mellan exempelvis resurs gruppen för produktions ERP-systemet och dess närhets placerings grupp. I andra fall ordnar kunderna sina resurs grupper horisontellt och samlar in alla produktions system i en enda resurs grupp. I det här fallet har du en en-till-många-relation mellan din resurs grupp för produktion av SAP-system och flera närhets placerings grupper för din produktion SAP ERP, SAP BW och så vidare.
+I de flesta kund distributioner skapar kunder en enda [Azure-resurs grupp](../../../azure-resource-manager/management/manage-resources-portal.md) för SAP-system. I så fall finns det en en-till-en-relation mellan exempelvis resurs gruppen för produktions ERP-systemet och dess närhets placerings grupp. I andra fall ordnar kunderna sina resurs grupper horisontellt och samlar in alla produktions system i en enda resurs grupp. I det här fallet har du en en-till-många-relation mellan din resurs grupp för produktion av SAP-system och flera närhets placerings grupper för din produktion SAP ERP, SAP BW och så vidare.
 
 Undvik att hantera flera SAP-produktions-eller icke-produktionssystem i en enda närhets placerings grupp. Om ett litet antal SAP-system eller SAP-system och vissa omgivande program behöver ha nätverks kommunikation med låg latens, kan du överväga att flytta dessa system till en närhets placerings grupp. Du bör undvika system samlingar eftersom ju fler system som du grupperar i en närhets placerings grupp, desto högre sannolikhet:
 
@@ -64,11 +65,11 @@ Det här är den perfekta konfigurationen, som du ser ovan:
 I det här fallet grupperas enkla SAP-system i en enda resurs grupp, med en närhets placerings grupp. Det finns inget beroende av om du använder långsamma skalnings-eller DBMS-konfigurationer.
 
 ## <a name="proximity-placement-groups-and-hana-large-instances"></a>Närhets placerings grupper och HANA-stora instanser
-Om några av dina SAP-system förlitar sig på [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) för program skiktet, kan du uppleva avsevärda förbättringar i nätverks fördröjningen mellan de stora instanser av Hana och virtuella Azure-datorer när du använder de stora instanser av Hana-enheter som distribueras i [revision 4-rader eller-stämplar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). En förbättring är att de HANA-stora instans enheterna, när de distribueras, distribueras med en närhets placerings grupp. Du kan använda den här närhets gruppen för att distribuera dina virtuella program lager datorer. Detta innebär att de virtuella datorerna distribueras i samma data Center som är värd för dina HANA stora instanser-enheter.
+Om några av dina SAP-system förlitar sig på [Hana-stora instanser](./hana-overview-architecture.md) för program skiktet, kan du uppleva avsevärda förbättringar i nätverks fördröjningen mellan de stora instanser av Hana och virtuella Azure-datorer när du använder de stora instanser av Hana-enheter som distribueras i [revision 4-rader eller-stämplar](./hana-network-architecture.md#networking-architecture-for-hana-large-instance). En förbättring är att de HANA-stora instans enheterna, när de distribueras, distribueras med en närhets placerings grupp. Du kan använda den här närhets gruppen för att distribuera dina virtuella program lager datorer. Detta innebär att de virtuella datorerna distribueras i samma data Center som är värd för dina HANA stora instanser-enheter.
 
-För att avgöra om din enhet av HANA-stora instanser har distribuerats i en revision 4-stämpel eller-rad, kontrollerar du artikeln [Azure Hana stor instanss-kontroll via Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). I översikten över attributen för en enhet med stora instanser av HANA kan du också bestämma namnet på närhets placerings gruppen eftersom den skapades när den stora volymen HANA stor instanserna distribuerades. Namnet som visas i översikten över attribut är namnet på den närhets placerings grupp som du bör distribuera dina virtuella program skikt till.
+För att avgöra om din enhet av HANA-stora instanser har distribuerats i en revision 4-stämpel eller-rad, kontrollerar du artikeln [Azure Hana stor instanss-kontroll via Azure Portal](./hana-li-portal.md#look-at-attributes-of-single-hli-unit). I översikten över attributen för en enhet med stora instanser av HANA kan du också bestämma namnet på närhets placerings gruppen eftersom den skapades när den stora volymen HANA stor instanserna distribuerades. Namnet som visas i översikten över attribut är namnet på den närhets placerings grupp som du bör distribuera dina virtuella program skikt till.
 
-Jämfört med SAP-system som bara använder virtuella Azure-datorer, har du mindre flexibilitet när du ska bestämma hur många [Azure-resurs grupper](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) som ska användas när du använder Hana-stora instanser. Alla instanser av HANA stora instanser av en [Hana-stor instans-klient](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) grupperas i en enda resurs grupp, enligt beskrivningen i [den här artikeln](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). Om du inte distribuerar till olika klienter för att separera, t. ex. produktions-och icke-produktions system eller andra system, kommer alla dina HANA stora instanser-enheter att distribueras i en klient för HANA-stora instanser. Den här klienten har en 1-till-1-relation med en resurs grupp. Men en annan närhets placerings grupp definieras för var och en av de enskilda enheterna.
+Jämfört med SAP-system som bara använder virtuella Azure-datorer, har du mindre flexibilitet när du ska bestämma hur många [Azure-resurs grupper](../../../azure-resource-manager/management/manage-resources-portal.md) som ska användas när du använder Hana-stora instanser. Alla instanser av HANA stora instanser av en [Hana-stor instans-klient](./hana-know-terms.md) grupperas i en enda resurs grupp, enligt beskrivningen i [den här artikeln](./hana-li-portal.md#display-of-hana-large-instance-units-in-the-azure-portal). Om du inte distribuerar till olika klienter för att separera, t. ex. produktions-och icke-produktions system eller andra system, kommer alla dina HANA stora instanser-enheter att distribueras i en klient för HANA-stora instanser. Den här klienten har en 1-till-1-relation med en resurs grupp. Men en annan närhets placerings grupp definieras för var och en av de enskilda enheterna.
 
 Det innebär att relationerna mellan Azures resurs grupper och närhets placerings grupper för en enskild klient organisation visas här:
 
@@ -161,8 +162,7 @@ Om du redan har distribuerat SAP-system kanske du vill optimera nätverks fördr
 ## <a name="next-steps"></a>Nästa steg
 Kolla in dokumentationen:
 
-- [SAP-arbetsbelastningar på Azure: planering och distribution check lista](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-- [För hands version: distribuera virtuella datorer till närhets placerings grupper med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
-- [För hands version: distribuera virtuella datorer till närhets placerings grupper med hjälp av PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
-- [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-
+- [SAP-arbetsbelastningar på Azure: planering och distribution check lista](./sap-deployment-checklist.md)
+- [För hands version: distribuera virtuella datorer till närhets placerings grupper med Azure CLI](../../linux/proximity-placement-groups.md)
+- [För hands version: distribuera virtuella datorer till närhets placerings grupper med hjälp av PowerShell](../../windows/proximity-placement-groups.md)
+- [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_general.md)

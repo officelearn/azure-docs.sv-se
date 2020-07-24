@@ -4,13 +4,14 @@ description: Instruktions artikel för att markera hur du ska dokumentera data t
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3674c316e34b1e54ed8282ac7d2c228a2b774c06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68950188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081227"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Så här dokumenterar du data källor i Azure Data Catalog
 

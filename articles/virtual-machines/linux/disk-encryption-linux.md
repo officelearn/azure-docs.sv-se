@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206158"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080292"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
@@ -205,13 +205,13 @@ I följande tabell visas parametrar för Resource Manager-mallar för befintliga
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | location | Platser för alla resurser. |
 
-Mer information om hur du konfigurerar den virtuella Linux-mallen för disk kryptering finns i [Azure Disk Encryption för Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
+Mer information om hur du konfigurerar den virtuella Linux-mallen för disk kryptering finns i [Azure Disk Encryption för Linux](../extensions/azure-disk-enc-linux.md).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Använda funktionen EncryptFormatAll för data diskar på virtuella Linux-datorer
 
 Parametern **EncryptFormatAll** minskar tiden för att Linux-datadiskarna ska krypteras. Partitioner som uppfyller vissa villkor formateras, tillsammans med de aktuella fil systemen, monteras sedan tillbaka till där de var före kommando körningen. Om du vill undanta en datadisk som uppfyller villkoren kan du Demontera den innan du kör kommandot.
 
- När du har kört det här kommandot kommer alla enheter som monterats tidigare att formateras och krypterings lagret startas ovanpå den nu tomma enheten. När det här alternativet är markerat krypteras även den temporära disk som är ansluten till den virtuella datorn. Om den tillfälliga disken återställs, formateras den om och krypteras om för den virtuella datorn med Azure Disk Encryption lösning vid nästa tillfälle. När resurs disken krypteras kommer [Microsoft Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) inte att kunna hantera resurs disken och aktivera växlings filen, men du kan konfigurera växlings filen manuellt.
+ När du har kört det här kommandot kommer alla enheter som monterats tidigare att formateras och krypterings lagret startas ovanpå den nu tomma enheten. När det här alternativet är markerat krypteras även den temporära disk som är ansluten till den virtuella datorn. Om den tillfälliga disken återställs, formateras den om och krypteras om för den virtuella datorn med Azure Disk Encryption lösning vid nästa tillfälle. När resurs disken krypteras kommer [Microsoft Azure Linux-agenten](../extensions/agent-linux.md) inte att kunna hantera resurs disken och aktivera växlings filen, men du kan konfigurera växlings filen manuellt.
 
 >[!WARNING]
 > EncryptFormatAll bör inte användas när det behövs data på en virtuell dators data volymer. Du kan utesluta diskar från kryptering genom att demontera dem. Du bör först testa EncryptFormatAll först på en virtuell test dator, förstå funktions parametern och dess indirekt innan du testar den på den virtuella produktions datorn. Alternativet EncryptFormatAll formaterar data disken och alla data på den kommer att gå förlorade. Innan du fortsätter bör du kontrol lera att diskarna som du vill undanta är korrekt demonterade. </br></br>
@@ -262,7 +262,7 @@ Vi rekommenderar en LVM-in-Encrypt-installation. I följande exempel ersätter d
 
 1. Formatera, montera och Lägg till de här diskarna i fstab-filen.
 
-1. Välj en partition standard, skapa en partition som sträcker sig över hela enheten och formatera sedan partitionen. Vi använder symlinks som genererats av Azure här. Om du använder symlinks undviker du problem som rör ändring av enhets namn. Mer information finns i artikeln [Felsök problem med enhets namn](troubleshoot-device-names-problems.md) .
+1. Välj en partition standard, skapa en partition som sträcker sig över hela enheten och formatera sedan partitionen. Vi använder symlinks som genererats av Azure här. Om du använder symlinks undviker du problem som rör ändring av enhets namn. Mer information finns i artikeln [Felsök problem med enhets namn](../troubleshooting/troubleshoot-device-names-problems.md) .
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -332,7 +332,7 @@ Du kan lägga till en ny datadisk med [AZ VM disk Attach](add-disk.md)eller [via
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Aktivera kryptering på en nyligen tillagd disk med Azure CLI
 
- Om den virtuella datorn tidigare har krypterats med "alla", ska parametern--volym typ vara kvar. Alla omfattar både OS-och data diskar. Om den virtuella datorn tidigare har krypterats med en volymtyp av typen "OS", ska parametern--type ändras till "alla" så att både operativ systemet och den nya datadisken tas med. Om den virtuella datorn har krypterats med endast volym typen "data" kan den vara kvar "data" som visas nedan. Det räcker inte att lägga till och ansluta en ny datadisk till en virtuell dator för kryptering. Den nyligen anslutna disken måste också formateras och monteras korrekt i den virtuella datorn innan krypteringen aktive ras. På Linux måste disken monteras i/etc/fstab med ett [beständigt block enhets namn](troubleshoot-device-names-problems.md).  
+ Om den virtuella datorn tidigare har krypterats med "alla", ska parametern--volym typ vara kvar. Alla omfattar både OS-och data diskar. Om den virtuella datorn tidigare har krypterats med en volymtyp av typen "OS", ska parametern--type ändras till "alla" så att både operativ systemet och den nya datadisken tas med. Om den virtuella datorn har krypterats med endast volym typen "data" kan den vara kvar "data" som visas nedan. Det räcker inte att lägga till och ansluta en ny datadisk till en virtuell dator för kryptering. Den nyligen anslutna disken måste också formateras och monteras korrekt i den virtuella datorn innan krypteringen aktive ras. På Linux måste disken monteras i/etc/fstab med ett [beständigt block enhets namn](../troubleshooting/troubleshoot-device-names-problems.md).  
 
 Till skillnad från PowerShell-syntaxen kräver CLI inte att användaren anger en unik sekvens-version när krypteringen aktive ras. CLI genererar automatiskt och använder sitt eget unika sekvens versions värde.
 
@@ -413,7 +413,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - En virtuell dator med "kapslade monterings punkter"; det vill säga flera monterings punkter i en enda sökväg (till exempel "/1stmountpoint/data/2stmountpoint").
 - En virtuell dator med en data enhet som är monterad ovanpå en OS-mapp.
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
-- Använda [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) till virtuella datorer som krypterats av ade och vice versa.
+- Använda ADE på en virtuell dator som har en datadisk krypterad med [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) (SSE + CMK) eller tillämpa SSE + CMK på en datadisk på en virtuell dator som har krypterats med ade.
 - Migrera en virtuell dator som har krypterats med ADE till [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078737"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power Automate och distribuera till Azure Logic Apps
 
@@ -19,11 +20,11 @@ Om du vill utöka och utöka ditt flödes funktioner kan du migrera flödet frå
 > [!NOTE]
 > Alla Power inautomatiserade anslutningar är inte tillgängliga i Azure Logic Apps. Du kan bara migrera energi automatiserade flöden som har motsvarande kopplingar i Azure Logic Apps. Till exempel är knapp utlösaren, godkännande Connector och meddelande Connector särskilt för automatisk energi förbrukning. För närvarande stöds inte OpenAPI-baserade flöden i energi spar läge för export och distribution som Logic app-mallar.
 >
-> * Om du vill ta reda på vilka PowerPivot-kopplingar som inte har Logic Apps motsvarigheter, se Power automater- [kopplingar](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Om du vill ta reda på vilka PowerPivot-kopplingar som inte har Logic Apps motsvarigheter, se Power automater- [kopplingar](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Om du vill ta reda på vilka Logic Apps kopplingar inte har Energis par motsvarigheter, se [Logic Apps kopplingar](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Om du vill ta reda på vilka Logic Apps kopplingar inte har Energis par motsvarigheter, se [Logic Apps kopplingar](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -69,13 +70,13 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
       |----------|-------------|
       | **Prenumeration** | Azure-prenumerationen som ska användas för fakturering |
       | **Resursgrupp** | Den Azure-resurs grupp som ska användas för din Logic app. Du kan använda en befintlig grupp eller skapa en ny grupp. |
-      | **Position** | Den Azure-region som ska användas om du skapar en ny resurs grupp |
+      | **Plats** | Den Azure-region som ska användas om du skapar en ny resurs grupp |
       | **Namn på Logic app** | Namnet som ska användas för din Logic app-resurs |
       | **Plats för Logic app** | Den Azure-region där du vill skapa en Logic app-resurs, om den skiljer sig från Azures resurs grupp |
       | <*anslutnings namn*> | Ett eller flera namn för alla tidigare skapade anslutningar som Logic-appen kan återanvända <p><p>**Obs**: om den här Logic-appen är din första skapas alla anslutningar som nya, så att du kan acceptera standard namnen. Annars kan du ange namnen på tidigare skapade anslutningar, som du kan använda i flera Logic Apps. |
       |||
 
-      Ett exempel:
+      Exempel:
 
       ![Ange indataparametrar för mall](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -155,7 +156,7 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
    ![Redigera distributions parametrar](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Ett exempel:
+   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Exempel:
 
    ![Utdatafönster](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

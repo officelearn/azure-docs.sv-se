@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 040eeda3edc8aa1165915a157cb7e1bdd1594740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8e6797d1dbbe4260f7a5b701ada887f68a88a7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079680"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azures säkerhets bas linje för Azure Functions
 
 Azures säkerhets bas linje för Azure Functions innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 
-Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](../security/benchmarks/overview.md), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
-Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Mer information finns i [Översikt över Azure Security-bas linjer](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: skydda resurser med hjälp av nätverks säkerhets grupper eller Azure-brandvägg på din Virtual Network
 
 **Vägledning**: integrera dina Azure Functions-appar med ett virtuellt Azure-nätverk. Function-appar som körs i Premium-planen har samma värd funktioner som webbappar i Azure App Service, vilket omfattar funktionen "VNet-integration".  Med virtuella Azure-nätverk kan du placera många av dina Azure-resurser, till exempel Azure Functions, i ett dirigerbart nätverk som inte är från Internet.
 
-- [Så här integrerar du funktioner med ett Azure-Virtual Network](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet)
+- [Så här integrerar du funktioner med ett Azure-Virtual Network](./functions-create-vnet.md)
 
-- [Förstå VNet-integrering för Azure Functions och Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+- [Förstå VNet-integrering för Azure Functions och Azure App Service](../app-service/web-sites-integrate-with-vnet.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -44,11 +44,11 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 Om du använder nätverks säkerhets grupper (NSG: er) med Azure Functions implementering aktiverar du NSG Flow-loggar och skickar loggar till ett Azure Storage konto för trafik granskningar. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-- [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Så här aktiverar du NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Så här aktiverar och använder du Trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -65,9 +65,9 @@ Se också till att fjärrfelsökning har inaktiverats för produktions Azure Fun
 
 Överväg att distribuera Azure Web Application Firewall (WAF) som en del av nätverks konfigurationen för ytterligare inspektion av inkommande trafik. Aktivera diagnostikinställningar för WAF och mata in loggar till ett lagrings konto, en Event Hub-eller Log Analytics-arbetsyta. 
 
-- [Skydda Azure Function-slutpunkter i produktion](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Skydda Azure Function-slutpunkter i produktion](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [Så här distribuerar du Azure-WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Så här distribuerar du Azure-WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -78,25 +78,25 @@ Se också till att fjärrfelsökning har inaktiverats för produktions Azure Fun
 **Vägledning**: Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade till dina Functions-appar för att skydda dig mot DDoS-attacker. Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända offentliga IP-adresser.
 Dessutom kan du konfigurera en frontend-Gateway, till exempel Azure Web Application-brandvägg, för att autentisera alla inkommande begär Anden och filtrera bort skadlig trafik. Azure Web Application-brandväggen kan hjälpa dig att skydda dina Azure Function-appar genom att inspektera inkommande webb trafik för att blockera SQL-injektering, skript körning över flera webbplatser, överföringar av skadlig kod och DDoS-attacker. Introduktionen av en WAF kräver antingen en App Service-miljön eller användning av privata slut punkter (för hands version). Se till att privata slut punkter inte längre är i (för hands version) innan du använder dem med produktions arbets belastningar.
 
-- [Nätverksalternativ för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Nätverksalternativ för Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions Premium-plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium-plan](./functions-scale.md#premium-plan)
 
-- [Introduktion till Azure App Service-miljöer](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introduktion till Azure App Service-miljöer](../app-service/environment/intro.md)
 
-- [Nätverksöverväganden för en App Service-miljö](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Nätverksöverväganden för en App Service-miljö](../app-service/environment/network-info.md)
 
-- [Så här konfigurerar du DDoS-skydd](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Så här konfigurerar du DDoS-skydd](../virtual-network/manage-ddos-protection.md)
 
-- [Så här distribuerar du Azure-brandvägg](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Förstå Azure Security Center integrerad Hot information](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Förstå Azure Security Center integrerad Hot information](../security-center/threat-protection.md)
 
-- [Förstå Azure Security Center anpassad nätverks härdning](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Förstå Azure Security Center anpassad nätverks härdning](../security-center/security-center-adaptive-network-hardening.md)
 
-- [Förstå Azure Security Center just-in-Time-nätverk Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Förstå Azure Security Center just-in-Time-nätverk Access Control](../security-center/security-center-just-in-time.md)
 
-- [Använda privata slut punkter för Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Använda privata slut punkter för Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -106,11 +106,11 @@ Dessutom kan du konfigurera en frontend-Gateway, till exempel Azure Web Applicat
 
 **Vägledning**: om du använder nätverks säkerhets grupper (NSG: er) med Azure Functions implementering, aktiverar du flödes loggar för nätverks säkerhets grupper och skickar loggar till ett lagrings konto för trafik granskning. Du kan också skicka flödes loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflödet i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-- [Så här aktiverar du NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Så här aktiverar och använder du Trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
 
-- [Så här aktiverar du Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Så här aktiverar du Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -122,19 +122,19 @@ Dessutom kan du konfigurera en frontend-Gateway, till exempel Azure Web Applicat
 
 Alternativt finns det flera Marketplace-alternativ som Barracuda-WAF för Azure som är tillgängliga på Azure Marketplace, som omfattar funktioner för ID/IP-adresser.
 
-- [Nätverksalternativ för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Nätverksalternativ för Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions Premium-plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium-plan](./functions-scale.md#premium-plan)
 
-- [Introduktion till Azure App Service-miljöer](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introduktion till Azure App Service-miljöer](../app-service/environment/intro.md)
 
-- [Nätverksöverväganden för en App Service-miljö](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Nätverksöverväganden för en App Service-miljö](../app-service/environment/network-info.md)
 
-- [Förstå brand väggen för Azure-webbprogram](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Förstå brand väggen för Azure-webbprogram](../web-application-firewall/index.yml)
 
-- [Använda privata slut punkter för Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Använda privata slut punkter för Azure Functions](../app-service/networking/private-endpoint.md)
 
-- [Förstå moln tjänsten Barracuda WAF](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Förstå moln tjänsten Barracuda WAF](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -144,19 +144,19 @@ Alternativt finns det flera Marketplace-alternativ som Barracuda-WAF för Azure 
 
 **Vägledning**: Konfigurera en frontend-Gateway för nätverket, till exempel en brand vägg för Azure-webbprogram med hjälp av TLS-kryptering från slut punkt till slut punkt. Introduktionen av en WAF kräver antingen en App Service-miljön eller användning av privata slut punkter (för hands version). Se till att privata slut punkter inte längre är i (för hands version) innan du använder dem med produktions arbets belastningar.
 
-- [Nätverksalternativ för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Nätverksalternativ för Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions Premium-plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium-plan](./functions-scale.md#premium-plan)
 
-- [Introduktion till Azure App Service-miljöer](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introduktion till Azure App Service-miljöer](../app-service/environment/intro.md)
 
-- [Nätverksöverväganden för en App Service-miljö](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Nätverksöverväganden för en App Service-miljö](../app-service/environment/network-info.md)
 
-- [Förstå brand väggen för Azure-webbprogram](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Förstå brand väggen för Azure-webbprogram](../web-application-firewall/index.yml)
 
-- [Så här konfigurerar du end-to-end-TLS genom att använda Application Gateway med portalen](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal)
+- [Så här konfigurerar du end-to-end-TLS genom att använda Application Gateway med portalen](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Använda privata slut punkter för Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Använda privata slut punkter för Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -166,7 +166,7 @@ Alternativt finns det flera Marketplace-alternativ som Barracuda-WAF för Azure 
 
 **Vägledning**: Använd Virtual Network Service-taggar för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. AzureAppService) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
-- [Mer information om att använda service märken](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Mer information om att använda service märken](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -181,9 +181,9 @@ Alternativt finns det flera Marketplace-alternativ som Barracuda-WAF för Azure 
 
 Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här skapar du en Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -197,7 +197,7 @@ Använd någon av de inbyggda definitioner av Azure-principer som är relaterade
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -207,9 +207,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks inställningar och resurser som är relaterade till dina Azure Functions-distributioner. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks inställningar eller resurser äger rum. 
 
-- [Visa och hämta Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Visa och hämta Azure aktivitets logg händelser](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Så här skapar du aviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -217,7 +217,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
@@ -237,13 +237,13 @@ Om du har inbyggd anpassad säkerhets-/gransknings loggning i Azure Function-app
 
 Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part. 
 
-- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-- [Så här konfigurerar du Azure Functions med Azure Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Så här konfigurerar du Azure Functions med Azure Application Insights](./functions-monitoring.md)
 
-- [Så här aktiverar du diagnostikinställningar (användarspecifika loggar) för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Så här aktiverar du diagnostikinställningar (användarspecifika loggar) för Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -255,9 +255,9 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 Om du har inbyggd anpassad säkerhets-/gransknings loggning i Azure Function-appen aktiverar du diagnostikinställningar "FunctionAppLogs" och skickar loggarna till en Log Analytics arbets yta, Azure Event Hub eller Azure Storage-konto för arkivering. 
 
-- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-- [Så här aktiverar du diagnostikinställningar (användarspecifika loggar) för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Så här aktiverar du diagnostikinställningar (användarspecifika loggar) för Azure Functions](./functions-monitor-log-analytics.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -275,7 +275,7 @@ Om du har inbyggd anpassad säkerhets-/gransknings loggning i Azure Function-app
 
 **Vägledning**: i Azure Monitor anger du logg kvarhållningsperiod för Log Analytics arbets ytor som är kopplade till dina Azure Functions-appar enligt organisationens regler för efterlevnad.
 
-- [Ange parametrar för logg bevarande](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Ange parametrar för logg bevarande](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -291,13 +291,13 @@ Om du har inbyggd anpassad säkerhets-/gransknings loggning i Azure Function-app
 
 Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part. 
 
-- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-- [Så här aktiverar du diagnostikinställningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Så här aktiverar du diagnostikinställningar för Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Konfigurera Azure Functions med Azure Application insikter och Visa telemetridata](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Konfigurera Azure Functions med Azure Application insikter och Visa telemetridata](./functions-monitoring.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -311,15 +311,15 @@ Aktivera Application Insights för dina Azure Functions appar för att samla in 
 
 Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part. 
 
-- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-- [Så här aktiverar du diagnostikinställningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Så här aktiverar du diagnostikinställningar för Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Så här aktiverar du Application Insights för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#enable-application-insights-integration)
+- [Så här aktiverar du Application Insights för Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
 
-- [Så här skapar du aviseringar i Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Så här skapar du aviseringar i Azure](../azure-monitor/learn/tutorial-response.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -351,15 +351,15 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
 **Vägledning**: Azure Active Directory (AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper. 
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center övervakning**: Ja
 
@@ -373,11 +373,11 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 Det finns flera distributions metoder för att Function-appar, varav vissa kan använda en uppsättning genererade autentiseringsuppgifter. Granska de distributions metoder som ska användas för ditt program.
 
-- [Skydda en HTTP-slutpunkt](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Skydda en HTTP-slutpunkt](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [Hämta och återskapa auktoriseringsregler](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys)
+- [Hämta och återskapa auktoriseringsregler](./functions-bindings-http-webhook-trigger.md?tabs=csharp#obtaining-keys)
 
-- [Distributions tekniker i Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies)
+- [Distributions tekniker i Azure Functions](./functions-deployment-technologies.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -389,9 +389,9 @@ Det finns flera distributions metoder för att Function-appar, varav vissa kan a
 
 För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du dessutom använda rekommendationer från Azure Security Center eller inbyggda Azure-principer, t. ex.: det bör finnas fler än en ägare som tilldelats prenumerations föråldrade konton med ägar behörighet bör tas bort från din prenumerations externa konton med ägar behörigheter bör tas bort från din prenumeration
 
-- [Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version)](../security-center/security-center-identity-access.md)
 
-- [Använda Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Använda Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -401,9 +401,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 **Vägledning**: var som helst, Använd Azure Active Directory SSO i stället för att konfigurera enskilda fristående autentiseringsuppgifter för data åtkomst till din Function-app. Använd rekommendationer för Azure Security Center identitets-och åtkomst hantering. Implementera enkel inloggning för dina Azure Functions-appar med hjälp av funktionen för autentisering/auktorisering i App Service.
 
-- [Förstå autentisering och auktorisering i Azure Functions](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Förstå autentisering och auktorisering i Azure Functions](../app-service/overview-authentication-authorization.md#identity-providers)
 
-- [Förstå SSO med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Förstå SSO med Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -413,9 +413,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 **Vägledning**: Aktivera Azure Active Directory (AD) Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Övervaka identitet och åtkomst i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -425,9 +425,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 **Vägledning**: Använd Paw (Privileged Access Workstation) med Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera Azure-resurser.
 
-- [Lär dig mer om arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -439,9 +439,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-- [Distribuera Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Distribuera Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Förstå identifieringar av Azure AD-risker](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Förstå identifieringar av Azure AD-risker](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -451,7 +451,7 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 **Vägledning**: Använd villkorlig åtkomst med namngivna platser för att tillåta åtkomst till Azure Portal från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-- [Så här konfigurerar du namngivna platser i Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -461,9 +461,9 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 **Vägledning**: Använd Azure Active Directory (AD) som central-autentiserings-och auktoriserings system för dina Azure Functions appar. Azure AD skyddar data med stark kryptering för data i vila och under överföring. Azure AD innehåller även salter, hash-värden och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-- [Så här konfigurerar du din Azure Functions-app att använda Azure AD-inloggning](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Så här konfigurerar du din Azure Functions-app att använda Azure AD-inloggning](../app-service/configure-authentication-provider-aad.md)
 
-- [Så här skapar och konfigurerar du en AAD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Så här skapar och konfigurerar du en AAD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -473,9 +473,9 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 **Vägledning**: Azure Active Directory (AD) innehåller loggar för att hjälpa dig att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
 
-- [Förstå Azure AD repor ting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml)
 
-- [Så här använder du granskningar av Azure Identity Access](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Så här använder du granskningar av Azure Identity Access](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -489,11 +489,11 @@ Du har åtkomst till Azure AD-inloggning, gransknings-och risk händelse logg k�
 
 Du kan effektivisera den här processen genom att skapa diagnostikinställningar för Azure AD-användarkonton och skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. Du kan konfigurera önskade logg aviseringar i Log Analytics.
 
-- [Så här konfigurerar du din Azure Functions-app att använda Azure AD-inloggning](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Så här konfigurerar du din Azure Functions-app att använda Azure AD-inloggning](../app-service/configure-authentication-provider-aad.md)
 
-- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Aktivera Azure-kontroll på kort](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Aktivera Azure-kontroll på kort](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -503,11 +503,11 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Vägledning**: Använd Azure Active Directory (AD) som central-autentiserings-och auktoriserings system för dina Azure Functions appar. Använd Azure Active Directory (AD) identitets skydd och identifierings funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder relaterade till användar identiteter för konto inloggnings beteende avvikelse i kontroll planet (Azure Portal). Du kan också mata in data i Azure Sentinel för ytterligare undersökning.
 
-- [Visa Azure AD-riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Så här konfigurerar och aktiverar du risk principer för identitets skydd](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -517,7 +517,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Vägledning**: inte tillgänglig för närvarande. Customer Lockbox stöds för närvarande inte för Azure Functions.
 
-- [Lista över Customer Lockbox tjänster som stöds](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -525,13 +525,13 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [säkerhets kontroll: data skydd](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känslig information.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -543,19 +543,19 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 Du kan också använda privata slut punkter för att utföra nätverks isolering. En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst (till exempel: HTTPs-slutpunkt för Azure Functions app) som drivs av en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Privata slut punkter är i (för hands version) för Function-appar som körs i Premium-planen. Se till att privata slut punkter inte längre är i (för hands version) innan du använder dem med produktions arbets belastningar.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
-- [Nätverksalternativ för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Nätverksalternativ för Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions Premium-plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium-plan](./functions-scale.md#premium-plan)
 
-- [Förstå privat slut punkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- [Förstå privat slut punkt](../private-link/private-endpoint-overview.md)
 
-- [Använda privata slut punkter för Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Använda privata slut punkter för Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -567,7 +567,7 @@ Du kan också använda privata slut punkter för att utföra nätverks isolering
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Functions och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -587,7 +587,7 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Functions och ha
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -597,7 +597,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Vägledning**: använda Azure Active Directory (AD) rollbaserad åtkomst kontroll (RBAC) för att styra åtkomsten till Azure Function Control-planet (Azure Portal). 
 
-- [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -609,7 +609,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Functions och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -619,9 +619,9 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Functions och ha
 
 **Vägledning**: när du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage-konto som stöder BLOB-, Queue-och table-lagring. Detta beror på att funktioner förlitar sig på Azure Storage för åtgärder som att hantera utlösare och loggning av funktions körningar. Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange Kundhanterade nycklar för kryptering av BLOB-och fildata. Dessa nycklar måste finnas i Azure Key Vault för att Function-appen ska kunna komma åt lagrings kontot.
 
-- [Förstå lagrings överväganden för Azure Functions](https://docs.microsoft.com/azure/azure-functions/storage-considerations)
+- [Förstå lagrings överväganden för Azure Functions](./storage-considerations.md)
 
-- [Förstå Azure Storage-kryptering för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Förstå Azure Storage-kryptering för vilande data](../storage/common/storage-service-encryption.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -631,7 +631,7 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Functions och ha
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i Azure Function-appar och andra kritiska eller relaterade resurser.
 
-- [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -639,7 +639,7 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Functions och ha
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
@@ -647,9 +647,9 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Functions och ha
 
 Följ dessutom rekommendationer från Azure Security Center för att skydda dina Azure Function-appar.
 
-- [Så här lägger du till kontinuerlig säkerhets validering till din CI/CD-pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
+- [Så här lägger du till kontinuerlig säkerhets validering till din CI/CD-pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/security-center-vulnerability-assessment-recommendations.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -683,7 +683,7 @@ Följ dessutom rekommendationer från Azure Security Center för att skydda dina
 
 **Vägledning**: Microsoft utför sårbarhets hantering på de underliggande systemen som har stöd för Azure Functions, men du kan använda rekommendationernas allvarlighets grad i Azure Security Center samt säkra Poäng för att mäta risker i din miljö. Dina säkra Poäng baseras på hur många Security Center rekommendationer som du har begränsat. För att prioritera rekommendationerna för att lösa det första, bör du tänka igenom allvarlighets graden för var och en.
 
-- [Referens guide för säkerhets rekommendationer](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Referens guide för säkerhets rekommendationer](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -691,7 +691,7 @@ Följ dessutom rekommendationer från Azure Security Center för att skydda dina
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6,1: Använd Azure Asset Discovery
 
@@ -699,11 +699,11 @@ Följ dessutom rekommendationer från Azure Security Center för att skydda dina
 
 Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
-- [Så här skapar du frågor med Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -713,7 +713,7 @@ Följ dessutom rekommendationer från Azure Security Center för att skydda dina
 
 **Vägledning**: Använd taggar till Azure-resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -725,11 +725,11 @@ Följ dessutom rekommendationer från Azure Security Center för att skydda dina
 
 Använd dessutom Azure policy för att ange begränsningar för den typ av resurser som kan skapas i kund prenumerationer med hjälp av följande inbyggda princip definitioner: ej tillåtna resurs typer tillåtna resurs typer
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -749,9 +749,9 @@ Använd dessutom Azure policy för att ange begränsningar för den typ av resur
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenumerationer.  Se till att alla Azure-resurser som finns i miljön är godkända. 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -785,9 +785,9 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i kund prenumerationer med hjälp av följande inbyggda princip definitioner: ej tillåtna resurs typer tillåtna resurs typer
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -805,7 +805,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: Konfigurera villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -825,19 +825,19 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 Distribuera Azure Function-appar med hög risk till sina egna Virtual Network (VNet). Perimeter-säkerhet i Azure Functions uppnås via virtuella nätverk. Funktioner som körs i Premium-planen eller App Service-miljön (ASE) kan integreras med virtuella nätverk. Välj den bästa arkitekturen för ditt användnings fall.
 
-- [Nätverksalternativ för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Nätverksalternativ för Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions Premium-plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium-plan](./functions-scale.md#premium-plan)
 
-- [Nätverksöverväganden för en App Service-miljö](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Nätverksöverväganden för en App Service-miljö](../app-service/environment/network-info.md)
 
-- [Så här skapar du en extern ASE](https://docs.microsoft.com/azure/app-service/environment/create-external-ase)
+- [Så här skapar du en extern ASE](../app-service/environment/create-external-ase.md)
 
 Så här skapar du en intern ASE:
 
-- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](../virtual-network/quick-create-portal.md)
 
-- [Så här skapar du en NSG med en säkerhets konfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -845,7 +845,7 @@ Så här skapar du en intern ASE:
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [säkerhets kontroll: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
@@ -854,9 +854,9 @@ Så här skapar du en intern ASE:
 - Fjärrfelsökning bör inaktive ras för Function-appar
 - Funktionsapp bör endast vara tillgängligt via HTTPS
 
-- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -874,9 +874,9 @@ Så här skapar du en intern ASE:
 
 **Vägledning**: Använd Azure policy [Deny] och [distribuera om det inte finns] för att genomdriva säkra inställningar i dina Azure-resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Förstå Azure Policys effekter](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -886,7 +886,7 @@ Så här skapar du en intern ASE:
 
 **Vägledning**: ej tillämpligt; även om det är möjligt att distribuera lokala funktioner, är den här rikt linjen avsedd för IaaS beräknings resurser. När du distribuerar lokala funktioner ansvarar du för den säkra konfigurationen för din miljö.
 
-- [Förstå lokala funktioner](https://docs.microsoft.com/azure/azure-functions/functions-runtime-install)
+- [Förstå lokala funktioner](./functions-runtime-install.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -896,13 +896,13 @@ Så här skapar du en intern ASE:
 
 **Vägledning**: lagra och hantera arm-mallar och anpassade Azure policy-definitioner på ett säkert sätt i käll kontroll.
 
-- [Vad är infrastruktur som kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
+- [Vad är infrastruktur som kod](/azure/devops/learn/what-is-infrastructure-as-code)
 
-- [Design princip som kod arbets flöden](https://docs.microsoft.com/azure/governance/policy/concepts/policy-as-code)
+- [Design princip som kod arbets flöden](../governance/policy/concepts/policy-as-code.md)
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -920,7 +920,7 @@ Så här skapar du en intern ASE:
 
 **Vägledning**: använd inbyggda Azure policy definitioner samt Azure policy alias i namn området "Microsoft. Web" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -938,7 +938,7 @@ Så här skapar du en intern ASE:
 
 **Vägledning**: använd inbyggda Azure policy definitioner samt Azure policy alias i namn området "Microsoft. Web" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure-princip [granskning], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure-resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -956,13 +956,13 @@ Så här skapar du en intern ASE:
 
 **Vägledning**: Använd hanterade identiteter tillsammans med Azure Key Vault för att förenkla och skydda hemlig hantering för dina moln program. Med hanterade identiteter kan din Function-app autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan några autentiseringsuppgifter i koden.
 
-- [Så här skapar du en Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [Så här skapar du en Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [Använda hanterade identiteter för App Service och Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [Använda hanterade identiteter för App Service och Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Så här ger Key Vault autentisering med en hanterad identitet](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Så här ger Key Vault autentisering med en hanterad identitet](../key-vault/general/managed-identity.md)
 
-- [Använd Key Vault referenser för App Service och Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+- [Använd Key Vault referenser för App Service och Azure Functions](../app-service/app-service-key-vault-references.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -972,7 +972,7 @@ Så här skapar du en intern ASE:
 
 **Vägledning**: Använd hanterade identiteter för att tillhandahålla en Azure Function-app med en automatiskt hanterad identitet i Azure AD. Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod.
 
-- [Använda hanterade identiteter för App Service och Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [Använda hanterade identiteter för App Service och Azure Functions](../app-service/overview-managed-identity.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -990,7 +990,7 @@ Så här skapar du en intern ASE:
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
 
@@ -1023,7 +1023,7 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [säkerhets kontroll: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
 
@@ -1031,13 +1031,13 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 Du kan också använda en lösning för käll kontroll som Azure databaser och Azure DevOps för att lagra och hantera din kod på ett säkert sätt. Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskin varu problem, avbrott i tjänsten eller region haverien. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
 
-- [Säkerhetskopiera din app i Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Säkerhetskopiera din app i Azure](../app-service/manage-backup.md)
 
-- [Förstå data tillgänglighet i Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Förstå data tillgänglighet i Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1049,15 +1049,15 @@ Du kan också använda en lösning för käll kontroll som Azure databaser och A
 
 Du kan också använda en lösning för käll kontroll som Azure databaser och Azure DevOps för att lagra och hantera din kod på ett säkert sätt. Azure DevOps Services utnyttjar många av funktionerna i Azure Storage för att säkerställa att data är tillgängliga i händelse av maskin varu problem, avbrott i tjänsten eller region haverien. Azure DevOps-teamet följer dessutom procedurer för att skydda data från oavsiktlig eller skadlig borttagning.
 
-- [Säkerhetskopiera din app i Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Säkerhetskopiera din app i Azure](../app-service/manage-backup.md)
 
-- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Förstå data tillgänglighet i Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Förstå data tillgänglighet i Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1067,11 +1067,11 @@ Du kan också använda en lösning för käll kontroll som Azure databaser och A
 
 **Vägledning**: Säkerställ att du regelbundet kan utföra återställning från säkerhets kopierings-och återställnings funktionen. Om du använder en annan plats offline för att säkerhetskopiera din kod, så kan du regelbundet se till att slutföra fullständiga återställningar. Testa återställning av säkerhetskopierade nycklar som hanteras av kunden.
 
-- [Återställa en app i Azure från en säkerhets kopia](https://docs.microsoft.com/azure/app-service/web-sites-restore)
+- [Återställa en app i Azure från en säkerhets kopia](../app-service/web-sites-restore.md)
 
-- [Återställa en app i Azure från en ögonblicks bild](https://docs.microsoft.com/azure/app-service/app-service-web-restore-snapshots)
+- [Återställa en app i Azure från en ögonblicks bild](../app-service/app-service-web-restore-snapshots.md)
 
-- [Återställa Key Vault-nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Återställa Key Vault-nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1083,9 +1083,9 @@ Du kan också använda en lösning för käll kontroll som Azure databaser och A
 
 Om du använder Kundhanterade nycklar ser du till att mjuk borttagning i Key Vault är aktive rad för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-- [Azure Storage-kryptering i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Azure Storage-kryptering i vila](../storage/common/storage-service-encryption.md)
 
-- [Så här aktiverar du mjuk borttagning i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Så här aktiverar du mjuk borttagning i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1093,13 +1093,13 @@ Om du använder Kundhanterade nycklar ser du till att mjuk borttagning i Key Vau
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [säkerhets kontroll: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
 **Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
 
-- [Konfigurera automatisering av arbets flöden i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Konfigurera automatisering av arbets flöden i Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1135,7 +1135,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att kundens data har öppnats av en olaglig eller obehörig part.  Granska incidenter när du är säker på att problemen är lösta.
 
-- [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1145,9 +1145,9 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-- [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
 
-- [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1157,7 +1157,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar på säkerhets aviseringar och rekommendationer med Logic Apps.
 
-- [Konfigurera automatisering av arbets flöden och Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1165,7 +1165,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
@@ -1181,5 +1181,5 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

@@ -3,11 +3,12 @@ title: Lagrings överväganden för Azure Functions
 description: Läs mer om lagrings kraven för Azure Functions och om kryptering av lagrade data.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648791"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079612"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Lagrings överväganden för Azure Functions
 
@@ -40,7 +41,7 @@ Alla Functions-appar kräver ett lagrings konto för att fungera. Om kontot har 
 
 Lagrings konto anslutningen upprätthålls i [program inställningen AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
-Anslutnings strängen för lagrings kontot måste uppdateras när du återskapar lagrings nycklar. [Läs mer om hantering av lagrings nycklar här](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+Anslutnings strängen för lagrings kontot måste uppdateras när du återskapar lagrings nycklar. [Läs mer om hantering av lagrings nycklar här](../storage/common/storage-account-create.md).
 
 ### <a name="shared-storage-accounts"></a>Delade lagrings konton
 
@@ -79,5 +80,3 @@ Läs mer om Azure Functions värd alternativ.
 
 > [!div class="nextstepaction"]
 > [Skala och var värd i Azure Functions](functions-scale.md)
-
-

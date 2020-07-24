@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522aed07d850dfdb2782ee8263f33bd3f42eb8c2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258032"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079160"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -54,7 +54,7 @@ Använda data Plans-API: er:
    - Du kan hitta SDK-källan, inklusive en mapp med exempel, i GitHub: [Azure IoT Digitals klient bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - Du kan visa [SDK Reference-dokumentationen](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - Du kan se detaljerade informations-och användnings exempel genom att gå vidare till avsnittet [.net (C#) SDK (data plan)](#net-c-sdk-data-plane) i den här artikeln.
-* Du kan skapa ett SDK för ett annat språk med hjälp av AutoRest. Följ instruktionerna i [instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest](how-to-create-custom-sdks.md).
+* Du kan skapa ett SDK för ett annat språk med hjälp av AutoRest. Följ instruktionerna i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 Du kan också utföra API: er för datum plan genom att interagera med Azure Digitals flätar via [CLI](how-to-use-cli.md).
 
@@ -71,11 +71,11 @@ Om du vill använda SDK inkluderar du NuGet-paketet **Azure. DigitalTwins. Core*
 * Med kommando rads verktyget .NET kan du köra:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 
-En detaljerad genom gång av hur du använder API: erna i praktiken finns i [självstudien: kod a klient program](tutorial-code.md). 
+En detaljerad genom gång av hur du använder API: erna i praktiken finns i [*självstudien: kod a klient program*](tutorial-code.md). 
 
 ### <a name="net-sdk-usage-examples"></a>Användnings exempel för .NET SDK
 
@@ -137,7 +137,7 @@ await foreach (string twin in result)
 }
 ```
 
-Se [självstudien: koda en klient app](tutorial-code.md) för en genom gång av den här exempel koden. 
+Se [*självstudien: koda en klient app*](tutorial-code.md) för en genom gång av den här exempel koden. 
 
 Du kan också hitta ytterligare exempel i [GitHub-lagrings platsen för .net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
@@ -290,8 +290,8 @@ Härifrån kan du visa måtten för din instans och skapa anpassade vyer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se hur du använder API: erna för att skapa en digital Azure-instans:
-* [Anvisningar: skapa en digital Azure-instans](how-to-set-up-instance.md)
+Se hur du använder API: erna för att konfigurera en digital Azure-instans och autentisering:
+* [*Anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md)
 
 Du kan också gå igenom stegen för att skapa en klient app som den som används i den här instruktionen:
-* [Självstudie: koda en klient app](tutorial-code.md)
+* [*Självstudie: koda en klient app*](tutorial-code.md)

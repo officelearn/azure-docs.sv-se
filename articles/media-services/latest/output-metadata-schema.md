@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080932"
 ---
 # <a name="output-metadata"></a>Utgående metadata
 
-Ett kodnings jobb är associerat med en ingångs till gång (eller till gångar) som du vill utföra vissa kodnings uppgifter på. Koda till exempel en MP4-fil till H. 264 MP4-anpassade bit hastighets uppsättningar; skapa en miniatyr bild. Skapa överlägg. När en aktivitet har slutförts skapas en utmatnings till gång.  Utmatnings till gången innehåller video, ljud, miniatyrer och andra filer. Till gången till utdata innehåller också en fil med metadata om utmatnings till gången. Namnet på JSON-filen för metadata har följande format: `<source_file_name>_manifest.json` (till exempel `BigBuckBunny_manifest.json` ).  
+Ett kodnings jobb är associerat med en ingångs till gång (eller till gångar) som du vill utföra vissa kodnings uppgifter på. Koda till exempel en MP4-fil till H. 264 MP4-anpassade bit hastighets uppsättningar; skapa en miniatyr bild. Skapa överlägg. När en aktivitet har slutförts skapas en utmatnings till gång.  Utmatnings till gången innehåller video, ljud, miniatyrer och andra filer. Till gången till utdata innehåller också en fil med metadata om utmatnings till gången. Namnet på JSON-filen för metadata har följande format: `<source_file_name>_manifest.json` (till exempel `BigBuckBunny_manifest.json` ). Du bör söka efter * _metadata.jspå och fråga Sök väg strängen i för att hitta käll fil namnet (utan trunkering).
 
 Media Services genomsöker inte indata till gångar för att generera metadata. Metadata för indata genereras bara som en artefakt när en indata-till gång bearbetas i ett jobb. Därför skrivs denna artefakt till utmatnings till gången. Olika verktyg används för att generera metadata för indata till gångar och utgående till gångar. Därför har metadata för indata ett något annorlunda schema än utdata-metadata.
 
@@ -33,7 +34,7 @@ Du hittar den fullständiga schema koden och JSON-exemplet i slutet av den här 
 
 Samling av AssetFile-poster för kodnings jobbet.  
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 | --- | --- |
 | **Källor** |Samling med indatafiler/källfiler, som bearbetades för att skapa den här AssetFile.<br />Exempel: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlagrad i ett lämpligt behållar format. <br />Se [VideoTracks](#videotracks). |
@@ -46,7 +47,7 @@ Samling av AssetFile-poster för kodnings jobbet.
 
 Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlagrad i ett lämpligt behållar format. Elementet **VideoTracks** representerar en samling med alla video spår.  
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 | --- | --- |
 | **Identitet**<br /> Obligatorisk |Noll-baserat index för det här video spåret. **Obs:**  Detta **ID** är inte nödvändigt vis det TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 1`|
 | **FourCC**<br />Obligatorisk | Video-codec FourCC-kod som rapporteras av ffmpeg.  <br /><br />Exempel: `"FourCC": "avc1"`|
@@ -64,7 +65,7 @@ Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlag
 
 Varje fysisk AssetFile kan innehålla i noll eller flera ljud spår som är överlagrade i ett lämpligt behållar format. **AudioTracks** -elementet representerar en samling med alla dessa ljud spår.  
 
-| Name  | Beskrivning |
+| Namn  | Beskrivning |
 | --- | --- |
 | **Identitet**<br />Obligatorisk  |Noll-baserat index för det här ljud spåret. **Obs:**  Detta är inte nödvändigt vis TrackID som används i en MP4-fil.  <br /><br />Exempel: `"Id": 2`|
 | **ADPCM**  |Ljud spårets codec-sträng.  <br /><br />Exempel: `"Codec": "aac"`|

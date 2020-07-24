@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081601"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera Application Insights regler för smart identifiering med Azure Resource Manager-mallar
 
@@ -22,7 +22,7 @@ Den här metoden kan användas när du distribuerar nya Application Insights-res
 
 Du kan konfigurera följande inställningar för en regel för smart identifiering:
 - Om regeln är aktive rad (Standardvärdet är **True**.)
-- Om e-postmeddelanden ska skickas till användare som är kopplade till prenumerationens Rolls [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervaknings deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roller när en identifiering hittas (Standardvärdet är **True**.)
+- Om e-postmeddelanden ska skickas till användare som är kopplade till prenumerationens Rolls [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader) och [övervaknings deltagar](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roller när en identifiering hittas (Standardvärdet är **True**.)
 - Ytterligare e-postmottagare som bör få ett meddelande när en identifiering hittas.
     -  E-postkonfiguration är inte tillgänglig för regler för smart identifiering som är markerade som för _hands version_.
 

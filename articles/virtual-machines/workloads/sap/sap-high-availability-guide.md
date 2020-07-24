@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines hög tillgänglighet för SAP NetWeaver | Microsoft Docs
+title: Azure Virtual Machines hög tillgänglighet för SAP NetWeaver
 description: Guide med hög tillgänglighet för SAP NetWeaver på Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1b028472785b146a45c22b3d23db7cb241c11da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbdbae3d310d6e4c3224663dd523cb124744dfbd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080190"
 ---
-# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver
+# <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Azure-Virtual Machines med hög tillgänglighet för SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -35,7 +36,7 @@ ms.locfileid: "84557321"
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:dbms-guide.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -170,7 +171,7 @@ För att förenkla distribution och konfiguration i den här artikeln använder 
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Krav
 Innan du börjar ska du kontrol lera att du uppfyller de krav som beskrivs i följande avsnitt. Se också till att kontrol lera alla resurser som anges i avsnittet [resurser][sap-ha-guide-2] .
 
-I den här artikeln använder vi Azure Resource Manager mallar för [SAP-NetWeaver på tre nivåer med hjälp av Managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). En användbar översikt över mallar finns i [SAP Azure Resource Manager-mallar](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+I den här artikeln använder vi Azure Resource Manager mallar för [SAP-NetWeaver på tre nivåer med hjälp av Managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). En användbar översikt över mallar finns i [SAP Azure Resource Manager-mallar](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap).
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>Resurser
 De här artiklarna avser SAP-distributioner i Azure:
@@ -319,7 +320,7 @@ Du måste placera alla virtuella datorer som är värdar för SAP Application Se
 * Alla virtuella datorer ingår i samma uppgraderings domän. En uppgraderings domän ser till exempel till att de virtuella datorerna inte uppdateras samtidigt under ett planerat underhålls avbrott.
 * Alla virtuella datorer ingår i samma feldomän. En feldomän ser till exempel till att virtuella datorer distribueras så att ingen enskild felpunkt påverkar tillgängligheten för alla virtuella datorer.
 
-Läs mer om hur du [hanterar tillgängligheten för virtuella datorer][virtual-machines-manage-availability].
+Läs mer om hur du [hanterar tillgängligheten för virtuella datorer] [.. /manage-availability.md].
 
 Endast ohanterad disk: eftersom Azure Storage-kontot är en enskild felpunkt är det viktigt att ha minst två Azure Storage-konton, där minst två virtuella datorer distribueras. I en idealisk installation skulle diskarna för varje virtuell dator som kör en instans av en SAP-dialogruta distribueras i ett annat lagrings konto.
 
@@ -739,7 +740,7 @@ Om du vill använda olika nummer för SAP ASCS-eller SCS-instanserna måste du �
 1. I Azure Portal väljer du ** < *sid*>-lb-ASCs**belastnings  >  **Utjämnings regler**.
 2. Ändra följande värden för alla belastnings Utjämnings regler som tillhör SAP ASCS-eller SCS-instansen:
 
-   * Name
+   * Namn
    * Port
    * Server dels port
 
@@ -770,7 +771,7 @@ Om du vill lägga till register poster på båda klusternoderna för SAP ASCS/SC
 | Variabelnamn |`KeepAliveTime` |
 | Variabel typ |REG_DWORD (decimal) |
 | Värde |120000 |
-| Länk till dokumentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Länk till dokumentation |[https://technet.microsoft.com/library/cc957549.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 
 _**Tabell 3:** Ändra den första TCP/IP-parametern_
 
@@ -781,7 +782,7 @@ Lägg sedan till dessa Windows register poster på båda Windows-klusternoderna 
 | Variabelnamn |`KeepAliveInterval` |
 | Variabel typ |REG_DWORD (decimal) |
 | Värde |120000 |
-| Länk till dokumentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Länk till dokumentation |[https://technet.microsoft.com/library/cc957548.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 _**Tabell 4:** Ändra den andra TCP/IP-parametern_
 

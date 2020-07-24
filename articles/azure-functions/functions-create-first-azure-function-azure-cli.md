@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acfe4695b94fe9337296d70ef4a2864794730ec4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081737"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -111,6 +111,9 @@ Ange följande värden när du uppmanas till det:
 Skriv `Y` eller tryck på RETUR för att bekräfta.
 
 Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions` . 
+
+Om du vill köra på Java 11 i Azure måste du ändra värdena i pom.xml-filen. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions). 
+
 ::: zone-end  
 Navigera till projektmappen:
 
@@ -157,6 +160,8 @@ Inställningarna för de Azure-resurser som skapats som **värd för din** app d
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Du kan ändra de här inställningarna för att styra hur resurser skapas i Azure, till exempel genom `runtime.os` att ändra från `windows` till `linux` före den första distributionen. En fullständig lista över inställningar som stöds av maven-plugin-programmet finns i [konfigurations informationen](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+Om du vill köra din Function-app i Java 11 i stället för Java 8 måste du manuellt uppdatera pom.xml-filen med Java 11-värden. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions). När du kör på Java 11 ser du till att  
 
 #### <a name="functiontestjava"></a>FunctionTest. java
 
@@ -367,7 +372,7 @@ Detta skapar följande resurser i Azure:
 + Resurs grupp. Namngiven som _Java-Functions-grupp_.
 + Lagrings konto. Krävs av functions. Namnet genereras slumpmässigt baserat på lagrings kontots namn krav.
 + Värd plan. Server lös värd för din Function-app i regionen _väst_ . Namnet är _Java-Functions-App-Service-plan_.
-+ Function-app. En Function-app är distributions-och körnings enheten för dina funktioner. Namnet genereras slumpmässigt utifrån du är din _artifactId_, som läggs till med ett slumpmässigt genererat nummer. 
++ Function-app. En Function-app är distributions-och körnings enheten för dina funktioner. Namnet genereras slumpmässigt baserat på din _artifactId_och läggs till med ett slumpmässigt genererat nummer. 
 
 -Distributionen paketerar projektfilerna och distribuerar dem till den nya Function-appen med hjälp av [zip-distribution](functions-deployment-technologies.md#zip-deploy). Koden körs från distributions paketet i Azure.
 ::: zone-end

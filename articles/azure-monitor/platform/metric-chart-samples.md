@@ -7,15 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 762264cfe7e0441671411e2c277a0796cd527399
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081533"
 ---
 # <a name="metric-chart-examples"></a>Exempel på mått diagram 
 
-Azure-plattformen erbjuder [över ett tusen mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), varav många har dimensioner. Genom att använda [Dimensions filter](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), använda [delning](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), styra diagram typ och justera diagram inställningar kan du skapa kraftfulla diagnostiska vyer och instrument paneler som ger insikt i din infrastruktur och dina programs hälsa. I den här artikeln visas några exempel på de diagram som du kan bygga med [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) och förklarar de steg som krävs för att konfigurera vart och ett av dessa diagram.
+Azure-plattformen erbjuder [över ett tusen mått](./metrics-supported.md), varav många har dimensioner. Genom att använda [Dimensions filter](./metrics-charts.md), använda [delning](./metrics-charts.md), styra diagram typ och justera diagram inställningar kan du skapa kraftfulla diagnostiska vyer och instrument paneler som ger insikt i din infrastruktur och dina programs hälsa. I den här artikeln visas några exempel på de diagram som du kan bygga med [Metrics Explorer](./metrics-charts.md) och förklarar de steg som krävs för att konfigurera vart och ett av dessa diagram.
 
 Vill du dela dina Fantastiska diagram exempel med världen? Bidra till den här sidan på GitHub och dela dina egna diagram exempel här!
 
@@ -37,7 +38,7 @@ Visa ditt programs tillgänglighet efter region för att identifiera vilka geogr
 
 ### <a name="how-to-configure-this-chart"></a>Hur konfigurerar du det här diagrammet?
 
-Du måste först aktivera övervakning av [Application Insights tillgänglighet](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability) för din webbplats. Efter det väljer du Application Insights resursen och sedan tillgänglighets måttet. Använd delning på dimensionen för **körnings plats** .
+Du måste först aktivera övervakning av [Application Insights tillgänglighet](../app/monitor-web-app-availability.md) för din webbplats. Efter det väljer du Application Insights resursen och sedan tillgänglighets måttet. Använd delning på dimensionen för **körnings plats** .
 
 ## <a name="volume-of-storage-account-transactions-by-api-name"></a>Volym lagrings konto transaktioner per API-namn
 

@@ -9,23 +9,24 @@ ms.subservice: autoscale
 ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 549f8fbc1e3acf435011f223faeb5b8240f0c55d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124813"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080428"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Skala med hjälp av gäst mått i en mall för en Linux-skalnings uppsättning
 
 Det finns två breda typer av mått i Azure som samlas in från virtuella datorer och skalnings uppsättningar: värd mått och gäst mått. Om du vill använda standardvärden för processor, disk och nätverk på hög nivå är värd måtten en bra anpassning. Om du däremot behöver ett större urval av mått bör du titta på gäst mått.
 
-Värd mått kräver inte ytterligare konfiguration eftersom de samlas in av den virtuella värddatorn, medan gäst mått kräver att du installerar [Windows Azure-diagnostik-tillägget](../virtual-machines/windows/extensions-diagnostics-template.md) eller [Linux Azure-diagnostik-tillägget](../virtual-machines/linux/diagnostic-extension.md) på den virtuella gäst datorn. En vanlig orsak till att använda gäst mått i stället för värd mått är att gäst mått ger större urval av mått än värd mått. Ett sådant exempel är minnes förbruknings mått som endast är tillgängliga via gäst mått. De värd mått som stöds visas [här](../azure-monitor/platform/metrics-supported.md)och ofta använda gäst mått som visas [här](../azure-monitor/platform/autoscale-common-metrics.md). Den här artikeln visar hur du ändrar [mallen för grundläggande skalbara skalnings uppsättningar](virtual-machine-scale-sets-mvss-start.md) för att använda regler för autoskalning baserat på gäst mått för Linux-skalnings uppsättningar.
+Värd mått kräver inte ytterligare konfiguration eftersom de samlas in av den virtuella värddatorn, medan gäst mått kräver att du installerar [Windows Azure-diagnostik-tillägget](../virtual-machines/extensions/diagnostics-template.md) eller [Linux Azure-diagnostik-tillägget](../virtual-machines/extensions/diagnostics-linux.md) på den virtuella gäst datorn. En vanlig orsak till att använda gäst mått i stället för värd mått är att gäst mått ger större urval av mått än värd mått. Ett sådant exempel är minnes förbruknings mått som endast är tillgängliga via gäst mått. De värd mått som stöds visas [här](../azure-monitor/platform/metrics-supported.md)och ofta använda gäst mått som visas [här](../azure-monitor/platform/autoscale-common-metrics.md). Den här artikeln visar hur du ändrar [mallen för grundläggande skalbara skalnings uppsättningar](virtual-machine-scale-sets-mvss-start.md) för att använda regler för autoskalning baserat på gäst mått för Linux-skalnings uppsättningar.
 
 ## <a name="change-the-template-definition"></a>Ändra mal len definition
 
 I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) har vi skapat en grundläggande mall för skalnings uppsättningar. Vi kommer nu att använda den tidigare mallen och ändra den för att skapa en mall som distribuerar en Linux-skalnings uppsättning med gäst mått baserat autoskalning.
 
-Lägg först till parametrar för `storageAccountName` och `storageAccountSasToken` . Diagnostics-agenten lagrar mått data i en [tabell](../cosmos-db/table-storage-how-to-use-dotnet.md) i det här lagrings kontot. Från och med version 3,0 av Linux Diagnostics-agenten stöds inte längre en lagrings åtkomst nyckel. Använd i stället en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Lägg först till parametrar för `storageAccountName` och `storageAccountSasToken` . Diagnostics-agenten lagrar mått data i en [tabell](../cosmos-db/tutorial-develop-table-dotnet.md) i det här lagrings kontot. Från och med version 3,0 av Linux Diagnostics-agenten stöds inte längre en lagrings åtkomst nyckel. Använd i stället en [SAS-token](../storage/common/storage-sas-overview.md).
 
 ```diff
      },
@@ -41,7 +42,7 @@ Lägg först till parametrar för `storageAccountName` och `storageAccountSasTok
    },
 ```
 
-Ändra sedan skalnings uppsättningen `extensionProfile` så att den inkluderar tillägget diagnostik. I den här konfigurationen anger du resurs-ID för den skalnings uppsättning som du vill samla in mått från, samt det lagrings konto och SAS-token som ska användas för att lagra måtten. Ange hur ofta måtten ska aggregeras (i det här fallet varje minut) och vilka mått som ska spåras (i det här fallet procent använt minne). Mer detaljerad information om den här konfigurationen och andra mått än procent använt minne finns i [den här dokumentationen](../virtual-machines/linux/diagnostic-extension.md).
+Ändra sedan skalnings uppsättningen `extensionProfile` så att den inkluderar tillägget diagnostik. I den här konfigurationen anger du resurs-ID för den skalnings uppsättning som du vill samla in mått från, samt det lagrings konto och SAS-token som ska användas för att lagra måtten. Ange hur ofta måtten ska aggregeras (i det här fallet varje minut) och vilka mått som ska spåras (i det här fallet procent använt minne). Mer detaljerad information om den här konfigurationen och andra mått än procent använt minne finns i [den här dokumentationen](../virtual-machines/extensions/diagnostics-linux.md).
 
 ```diff
                  }

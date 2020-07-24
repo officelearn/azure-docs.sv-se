@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ea17edc61988f13df5137686d823a424f6752ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080870"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
-Den här artikeln innehåller information om hur du arbetar med den tidigare versionen av Azure Migrate.
+Den här artikeln innehåller information om hur du arbetar med den tidigare versionen av Azure Migrate. 
 
 
 Det finns två versioner av tjänsten Azure Migrate:
 
 - **Aktuell version**: Använd den här versionen för att skapa Azure Migrate projekt, identifiera lokala datorer och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md) om vad som är nytt i den här versionen.
-- **Tidigare version**: om du använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. Om du fortfarande behöver använda Azure Migrate projekt som skapats i den tidigare versionen kan du inte göra något av följande:
+- **Tidigare version**: om du använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. De tidigare versions projekten kallas klassiska projekt i den här artikeln. Om du fortfarande behöver använda Azure Migrate projekt som skapats i den tidigare versionen kan du inte göra något av följande:
     - Du kan inte längre skapa migreringsjobb.
     - Vi rekommenderar att du inte genomför nya identifieringar.
     - Du kan fortfarande komma åt befintliga projekt.
@@ -31,7 +31,7 @@ Det finns två versioner av tjänsten Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Uppgradera mellan versioner
 
-Du kan inte uppgradera projekt eller komponenter i den tidigare versionen till den nya versionen. Du måste [skapa ett nytt Azure Migrate-projekt](how-to-add-tool-first-time.md)och lägga till verktyg för utvärdering och migrering i det.
+Du kan inte uppgradera projekt eller komponenter i den tidigare versionen till den nya versionen. Du måste [skapa ett nytt Azure Migrate-projekt](create-manage-projects.md)och [lägga till verktyg för utvärdering och migrering](how-to-add-tool-first-time.md) i det. Använd självstudierna för att lära dig hur du använder verktyg för bedömning och migrering som är tillgängliga. Om du har en Log Analytics arbets yta som är kopplad till ett klassiskt projekt kan du koppla den till ett projekt med aktuell version när du har tagit bort det klassiska projektet.
 
 ## <a name="find-projects-from-previous-version"></a>Hitta projekt från tidigare versioner
 
@@ -39,7 +39,16 @@ Hitta projekt från föregående version på följande sätt:
 
 1. I Azure Portal > **alla tjänster**söker du efter och väljer **Azure Migrate**. 
 2. På Azure Migrate-instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
-3. Klicka på länken för att öppna v1-projekt.
+3. Klicka på länken för att öppna klassiska projekt.
+
+## <a name="delete-projects-from-previous-version"></a>Ta bort projekt från tidigare version
+
+Sök efter och ta bort projekt från den tidigare versionen enligt följande:
+
+1. I Azure Portal > **alla tjänster**söker du efter och väljer **Azure Migrate**. 
+2. På Azure Migrate-instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
+3. Klicka på länken för att öppna klassiska projekt.
+4. Välj det projekt som du vill ta bort och ta bort det. 
 
 
 ## <a name="create-an-assessment"></a>Skapa en utvärdering
@@ -56,7 +65,7 @@ Skapa en utvärdering på följande sätt:
 3. Skapa gruppen och ange ett gruppnamn.
 4. Välj de datorer som du vill lägga till i gruppen.
 5. Klicka på **Skapa utvärdering** för att skapa gruppen och utvärderingen.
-6. När utvärderingen har skapats kan du Visa den i **översikts**  >  **instrument panelen**.
+6. När utvärderingen har skapats kan du se den i **Översikt** > **Instrumentpanel**.
 7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 Om du vill uppdatera en befintlig utvärdering med de senaste prestandadata, kan du använda kommandot **beräkna om** för utvärdering för att uppdatera den.
@@ -105,7 +114,7 @@ Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ sys
 
 Följande logik används.
 
-**Operativ system** | **Detaljer** | **Beredskap**
+**Operativsystem** | **Detaljer** | **Beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure

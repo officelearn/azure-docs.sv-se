@@ -4,12 +4,12 @@ description: Så här distribuerar och konfigurerar du nätverk för huvud konto
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085820"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081293"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
 
@@ -28,9 +28,9 @@ Innan du väljer att använda en lösnings mall bör du jämföra scenariot med 
 
 Alternativ | Tjänst modell | Vanligt användnings fall
 -------|---------------|-----------------
-Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar som du kan använda för att etablera en helt konfigurerad blockchain-nätverkstopologi. Mallarna distribuerar och konfigurerar Microsoft Azure beräknings-, nätverks-och lagrings tjänster för en specifik nätverks typ för blockchain. Solution templates tillhandahålls utan något service nivå avtal. Använd [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) för support.
+Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar som du kan använda för att etablera en helt konfigurerad blockchain-nätverkstopologi. Mallarna distribuerar och konfigurerar Microsoft Azure beräknings-, nätverks-och lagrings tjänster för en specifik nätverks typ för blockchain. Solution templates tillhandahålls utan något service nivå avtal. Använd [sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html) för support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | För hands versionen av Azure blockchain service fören klar investeringen, hanteringen och styrningen av konsortiet blockchain-nätverk. Använd Azure blockchain-tjänsten för lösningar som kräver PaaS, konsortiets hantering eller kontrakt och transaktions sekretess.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program. Azure Blockchain Workbench tillhandahålls utan serviceavtal. Använd [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) för support.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program. Azure Blockchain Workbench tillhandahålls utan serviceavtal. Använd [sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html) för support.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arkitektur för mikroredovisningens Fabric-konsortiet
 
@@ -113,7 +113,7 @@ Kom igång med distributionen av HLF-nätverks komponenter genom att navigera ti
     - **DNS-prefix**: Domain Name System (DNS) namn prefix för AKS-kluster. Du använder DNS för att ansluta till Kubernetes-API: et när du hanterar behållare när du har skapat klustret.
     - **Node-storlek**: Kubernetes-nodens storlek kan du välja från listan med SKU: er (VM lagerhållning Unit) i Azure. För bästa prestanda rekommenderar vi standard DS3 v2.
     - **Antal noder**: antalet Kubernetes-noder som ska distribueras i klustret. Vi rekommenderar att du behåller antalet noder minst lika med eller mer än antalet HLF-noder som anges i Fabric-inställningarna.
-    - **Klient-ID för tjänstens huvud namn**: Ange klient-ID för ett befintligt huvud namn för tjänsten eller skapa ett nytt, vilket krävs för AKS-autentiseringen. Se steg för att [skapa tjänstens huvud namn](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Klient-ID för tjänstens huvud namn**: Ange klient-ID för ett befintligt huvud namn för tjänsten eller skapa ett nytt, vilket krävs för AKS-autentiseringen. Se steg för att [skapa tjänstens huvud namn](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
     - **Tjänstens huvud namn**: Ange klient hemligheten för tjänstens huvud namn som anges i klient-ID: t för tjänstens huvud namn.
     - **Bekräfta klient hemligheten**: bekräfta den klient hemlighet som tillhandahålls i tjänstens huvud namn klient hemlighet.
     - **Aktivera övervakning av behållare**: Välj att aktivera övervakning av AKS, vilket gör att AKS-loggarna kan push-överföras till den Log Analytics arbets ytan som angetts.
@@ -138,7 +138,7 @@ Om du vill bygga blockchain-konsortiet efter att du distribuerar beställnings t
 
 Alla kommandon för att köra Azure HLF-skriptet kan köras via Azure bash-kommandoraden. Gränssnitt (CLI). Du kan logga in på Azure Shell Web-versionen via  ![Mall för redovisnings infrastruktur resurser i Azure Kubernetes service-mall](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) alternativ i det övre högra hörnet av Azure Portal. I kommando tolken skriver du bash och retur för att växla till bash CLI.
 
-Mer information finns i [Azure Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+Mer information finns i [Azure Shell](../../cloud-shell/overview.md) .
 
 ![Mall för redovisnings infrastruktur resurser i Azure Kubernetes service-mall](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
@@ -409,7 +409,7 @@ Kör följande kommando för att fråga chaincode:
 ```
 Skicka fråge funktions namn och blankstegsavgränsad lista med argument i respektive  `<queryFunction>`    `<queryFuncArgs>`   . Återigen, med chaincode_example02. go-chaincode som referens, för att ställa in värdet "a" i världs läget inställt  `<queryFunction>`   på  `query` och  `<queryArgs>` till "a".  
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 **Så här verifierar du den mall version som körs**
 
@@ -441,6 +441,6 @@ För att ge feedback på produkter eller för att begära nya funktioner, post e
 
 Engagera med Microsoft-tekniker och Azure blockchain community-experter.
 
-- [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
+- [Sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

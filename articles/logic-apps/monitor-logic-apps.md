@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536259"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078201"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Övervaka körningsstatus, granska utlösarhistorik och konfigurera aviseringar för Azure Logic Apps
 
@@ -86,7 +86,7 @@ Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och k�
      Nu kan du Visa information om t. ex. indata och utdata för det steget, till exempel:
 
    > [!NOTE]
-   > All körnings information och händelser krypteras i Logic Appss tjänsten. De dekrypteras bara när en användare begär att visa dessa data. Du kan [dölja indata och utdata i körnings historiken](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) eller kontrol lera användarnas åtkomst till den här informationen med hjälp av [RBAC (Azure rollbaserad Access Control)](../role-based-access-control/overview.md).
+   > All körnings information och händelser krypteras i Logic Appss tjänsten. De dekrypteras bara när en användare begär att visa dessa data. Du kan [dölja indata och utdata i körnings historiken](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) eller kontrol lera användarnas åtkomst till den här informationen med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 

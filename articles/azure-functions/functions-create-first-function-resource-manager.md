@@ -1,24 +1,28 @@
 ---
 title: Skapa din första funktion med Azure Resource Manager mallar
-description: Skapa och distribuera till Azure en enkel HTTP-utlöst funktion utan server med hjälp av en Azure Resource Manager mall.
+description: Skapa och distribuera till Azure en enkel HTTP-utlöst funktion utan server med hjälp av en Azure Resource Manager mall (ARM-mall).
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 403ff6407105574c78b8e600c37efbe61d2f8b79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081720"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-a-resource-manager-template"></a>Snabb start: skapa och Distribuera Azure Functions resurser från en Resource Manager-mall
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Snabb start: skapa och Distribuera Azure Functions resurser från en ARM-mall
 
-I den här artikeln använder du en Azure Resource Manager mall för att skapa en funktion som svarar på HTTP-begäranden. 
+I den här artikeln använder du en Azure Resource Manager mall (ARM-mall) för att skapa en funktion som svarar på HTTP-begäranden. 
 
 Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -32,7 +36,7 @@ Den här artikeln kräver ett kod projekt för lokala Functions som körs på de
 
 Välj någon av följande flikar, Följ länken och slutför avsnittet för att skapa en Function-app på det språk som du väljer:
 
-# <a name="visual-studio-code"></a>[Visual Studio-koden](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [Skapa ditt lokala Functions-projekt i Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
 
@@ -48,13 +52,11 @@ Välj någon av följande flikar, Följ länken och slutför avsnittet för att 
 
 När du har skapat projektet lokalt skapar du de resurser som krävs för att köra den nya funktionen i Azure. 
 
-## <a name="create-a-serverless-function-app-in-azure"></a>Skapa en server lös Function-app i Azure
+## <a name="review-the-template"></a>Granska mallen
 
-### <a name="review-the-template"></a>Granska mallen
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic).
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
 
 Följande fyra Azure-resurser skapas med den här mallen:
 
@@ -63,7 +65,7 @@ Följande fyra Azure-resurser skapas med den här mallen:
 + [**Microsoft. Web/Sites**](/azure/templates/microsoft.web/sites): skapa en Function-app.
 + [**Microsoft. Insights/komponenter**](/azure/templates/microsoft.insights/components): skapa en Application Insights-instans för övervakning.
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
@@ -97,7 +99,7 @@ Sedan validerar du de värd resurser för funktionen som du skapade genom att pu
 
 Använd följande steg för att publicera projektet till de nya Azure-resurserna:
 
-# <a name="visual-studio-code"></a>[Visual Studio-koden](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
@@ -161,7 +163,7 @@ Ersätt `<RESOURCE_GROUP_NAME>` med namnet på din resurs grupp.
 
 Nu när du har publicerat din första funktion kan du läsa mer genom att lägga till en utgående bindning till din funktion.
 
-# <a name="visual-studio-code"></a>[Visual Studio-koden](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 > [!div class="nextstepaction"]
 > [Ansluta till en Azure Storage-kö](functions-add-output-binding-storage-queue-vs-code.md)

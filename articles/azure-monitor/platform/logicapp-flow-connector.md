@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248744"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081567"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Azure Monitor loggar Connector för Logic Apps och Flow
-Med [Azure Logic Apps](/azure/logic-apps/) och [energi spar läge](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
+Med [Azure Logic Apps](../../logic-apps/index.yml) och [energi spar läge](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
 
 Du kan till exempel skapa en Logic app för att använda Azure Monitor loggdata i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller skicka ett slack-meddelande.  Du kan utlösa ett arbets flöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot. 
 
@@ -31,16 +32,16 @@ Beroende på storleken på dina data och frågan som du använder, kan det händ
 I följande tabell beskrivs de åtgärder som ingår med Azure Monitor loggar Connector. Båda låter dig köra en logg fråga mot en Log Analytics arbets yta eller Application Insights program. Skillnaden är på samma sätt som data returneras.
 
 > [!NOTE]
-> Azure Monitor loggar Connector ersätter [Azure Log Analytics-anslutningen](https://docs.microsoft.com/connectors/azureloganalytics/) och Azure Application Insights- [anslutningsprogrammet](https://docs.microsoft.com/connectors/applicationinsights/). Den här anslutningen ger samma funktioner som de andra och är den bästa metoden för att köra en fråga mot en Log Analytics arbets yta eller ett Application Insights program.
+> Azure Monitor loggar Connector ersätter [Azure Log Analytics-anslutningen](/connectors/azureloganalytics/) och Azure Application Insights- [anslutningsprogrammet](/connectors/applicationinsights/). Den här anslutningen ger samma funktioner som de andra och är den bästa metoden för att köra en fråga mot en Log Analytics arbets yta eller ett Application Insights program.
 
 
 | Åtgärd | Beskrivning |
 |:---|:---|
-| [Kör fråga-och list resultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Returnerar varje rad som ett eget objekt. Använd den här åtgärden när du vill arbeta med varje rad separat i resten av arbets flödet. Åtgärden följs vanligt vis av en [för varje aktivitet](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
-| [Kör fråga och visualisera resultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returnerar alla rader i resultat uppsättningen som ett enda formaterat objekt. Använd den här åtgärden när du vill använda resultat uppsättningen tillsammans i resten av arbets flödet, till exempel skicka resultatet i ett e-postmeddelande.  |
+| [Kör fråga-och list resultat](/connectors/azuremonitorlogs/#run-query-and-list-results) | Returnerar varje rad som ett eget objekt. Använd den här åtgärden när du vill arbeta med varje rad separat i resten av arbets flödet. Åtgärden följs vanligt vis av en [för varje aktivitet](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
+| [Kör fråga och visualisera resultat](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returnerar alla rader i resultat uppsättningen som ett enda formaterat objekt. Använd den här åtgärden när du vill använda resultat uppsättningen tillsammans i resten av arbets flödet, till exempel skicka resultatet i ett e-postmeddelande.  |
 
 ## <a name="walkthroughs"></a>Genomgångar
-Följande självstudier illustrerar användningen av Azure Monitor-kopplingar i Azure Logic Apps. Du kan utföra samma exempel med automatisk energi förbrukning, men den enda skillnaden är att du skapar det första arbets flödet och kör det när du är klar. Konfigurationen av arbets flödet och åtgärderna är samma mellan båda. Kom igång genom att se [skapa ett flöde från en mall i energi automatisering](https://docs.microsoft.com/power-automate/get-started-logic-template) .
+Följande självstudier illustrerar användningen av Azure Monitor-kopplingar i Azure Logic Apps. Du kan utföra samma exempel med automatisk energi förbrukning, men den enda skillnaden är att du skapar det första arbets flödet och kör det när du är klar. Konfigurationen av arbets flödet och åtgärderna är samma mellan båda. Kom igång genom att se [skapa ett flöde från en mall i energi automatisering](/power-automate/get-started-logic-template) .
 
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
@@ -124,6 +125,5 @@ När Logic-appen har slutförts, kontrol lera e-postmeddelandets mottagare som d
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [logg frågor i Azure Monitor](../log-query/log-query-overview.md).
-- Läs mer om [Logic Apps](/azure/logic-apps/)
+- Läs mer om [Logic Apps](../../logic-apps/index.yml)
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
-

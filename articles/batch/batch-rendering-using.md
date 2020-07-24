@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079249"
 ---
 # <a name="using-azure-batch-rendering"></a>Använda Azure Batch åter givning
 
@@ -19,7 +19,7 @@ Det finns flera sätt att använda Azure Batch åter givning:
 * API:er:
   * Skriv kod med någon av batch-API: erna.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.
 * Kommando rads verktyg:
-  * Du kan använda [Azures kommando rad](/cli/azure/) eller [PowerShell](/powershell/azure/overview) för att använda skript för batch-användning.
+  * Du kan använda [Azures kommando rad](/cli/azure/) eller [PowerShell](/powershell/azure/) för att använda skript för batch-användning.
   * I synnerhet gör [stödet för batch CLI](./batch-cli-templates.md) det mycket enklare att skapa pooler och skicka jobb.
 * Batch Explorer användar gränssnitt:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) är ett plattforms oberoende klient verktyg som också tillåter att batch-konton hanteras och övervakas.

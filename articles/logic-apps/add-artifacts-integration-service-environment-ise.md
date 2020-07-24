@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078714"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
@@ -20,7 +20,7 @@ När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-
 > [!IMPORTANT]
 > För att Logic Apps och integrations konton ska fungera tillsammans i en ISE måste båda använda *samma ISE* som plats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -44,10 +44,10 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Ja | Namnet på den Logic app som ska skapas |
-   | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som ska användas |
-   | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Position** | Ja | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
+   | **Namn** | Yes | Namnet på den Logic app som ska skapas |
+   | **Prenumeration** | Yes | Namnet på den Azure-prenumeration som ska användas |
+   | **Resursgrupp** | Yes | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
+   | **Plats** | Yes | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
    ||||
 
 1. När du är färdig väljer du **Skapa**.
@@ -76,11 +76,11 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Ja | Namnet på det integrations konto som du vill skapa |
-   | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som du vill använda |
-   | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Pris nivå** | Ja | Den pris nivå som ska användas för integrations kontot |
-   | **Position** | Ja | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
+   | **Namn** | Yes | Namnet på det integrations konto som du vill skapa |
+   | **Prenumeration** | Yes | Namnet på den Azure-prenumeration som du vill använda |
+   | **Resursgrupp** | Yes | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
+   | **Prisnivå** | Yes | Den pris nivå som ska användas för integrations kontot |
+   | **Plats** | Yes | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
    ||||
 
 1. När du är färdig väljer du **Skapa**.
@@ -127,7 +127,7 @@ Om du vill använda anpassade anslutningar i ISE skapar du de anpassade anslutni
 
    ![Välj och redigera anpassad anslutning](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
-1. Fortsätt genom att skapa anslutningen på vanligt sätt från en [openapi-definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) eller [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
+1. Fortsätt genom att skapa anslutningen på vanligt sätt från en [openapi-definition](/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) eller [SOAP](/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
 1. Information om hur du hanterar anpassade anslutningar i din ISE finns i [Hantera integrerings tjänst miljön](../logic-apps/ise-manage-integration-service-environment.md).
 

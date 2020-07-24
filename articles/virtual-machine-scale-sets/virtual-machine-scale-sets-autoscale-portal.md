@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080598"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en skalnings uppsättning för virtuella datorer i Azure Portal
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.
@@ -48,8 +48,8 @@ Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstan
     | *Tidsintervallstatistik* | Definierar hur insamlade mått i varje tids kornig het ska aggregeras för analys.                             | Medelvärde        |
     | *Operator*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
     | *Tröskelvärde*            | Procent andelen som gör att den automatiska skalnings regeln utlöser en åtgärd.                                                 | 70             |
-    | *Varaktighet*             | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 10 minuter     |
-    | *Åtgärd*            | Definierar om skalnings uppsättningen ska skala upp eller ned när regeln gäller och med vilken ökning                        | Öka procent med |
+    | *Varaktighet*             | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs. Inkluderar inte kylnings period.                                   | 10 minuter     |
+    | *Åtgärd*            | Definierar om skalnings uppsättningen ska skala upp eller ned när regeln gäller och med vilken ökning.                        | Öka procent med |
     | *Antal instanser*       | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                            | 20             |
     | *Väntetid (minuter)*  | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter      |
 

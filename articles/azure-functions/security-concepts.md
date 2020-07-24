@@ -3,19 +3,20 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079697"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
-På många sätt är planeringen av säker utveckling, distribution och drift av Server lös funktioner i stort sett densamma som för alla webbaserade eller program som körs i molnet. [Azure App Service](/azure/app-service/) tillhandahåller värd infrastrukturen för dina funktions appar. Den här artikeln innehåller säkerhets strategier för att köra funktions koden och hur App Service kan hjälpa dig att skydda dina funktioner. 
+På många sätt är planeringen av säker utveckling, distribution och drift av Server lös funktioner i stort sett densamma som för alla webbaserade eller program som körs i molnet. [Azure App Service](../app-service/index.yml) tillhandahåller värd infrastrukturen för dina funktions appar. Den här artikeln innehåller säkerhets strategier för att köra funktions koden och hur App Service kan hjälpa dig att skydda dina funktioner. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-En uppsättning säkerhets rekommendationer som följer [Azures säkerhets benchmark](/azure/security/benchmarks/overview)finns i [Azures säkerhets bas linje för Azure Functions](security-baseline.md).
+En uppsättning säkerhets rekommendationer som följer [Azures säkerhets benchmark](../security/benchmarks/overview.md)finns i [Azures säkerhets bas linje för Azure Functions](security-baseline.md).
 
 ## <a name="secure-operation"></a>Säker åtgärd 
 

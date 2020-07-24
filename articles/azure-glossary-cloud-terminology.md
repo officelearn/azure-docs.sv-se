@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079578"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure ord lista: en ord lista med moln terminologi på Azure-plattformen
 
@@ -51,7 +51,7 @@ Ett kommando rads gränssnitt som kan användas för att hantera Azure-tjänster
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Ett kommando rads gränssnitt för att hantera Azure-tjänster via en kommando rad från Windows-datorer. Vissa tjänster eller tjänst funktioner kan endast hanteras via PowerShell eller CLI.
-Se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview)
+Se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/)
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Azure Resource Manager distributions modell
 En av två [distributions modeller](resource-manager-deployment-model.md) som används för att distribuera resurser i Microsoft Azure (den andra är den klassiska distributions modellen). Vissa Azure-tjänster stöder bara distributions modellen Resource Manager, vissa stöder bara den klassiska distributions modellen och vissa stöder båda. Dokumentationen för varje Azure-tjänst anger vilken eller vilka modeller de stöder.

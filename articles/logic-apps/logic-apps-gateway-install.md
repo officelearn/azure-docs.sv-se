@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078655"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -21,11 +22,11 @@ Innan du kan [ansluta till lokala data källor från Azure Logic Apps](../logic-
 * [Microsoft Power Apps lokal datagateway](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services lokal datagateway](../analysis-services/analysis-services-gateway.md)
 
-Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala datagateway så att du kan komma åt lokala data källor från Azure Logic Apps. Du kan också lära dig mer om [hur data gatewayen fungerar](#gateway-cloud-service) senare i det här avsnittet. Mer information om gatewayen finns i [Vad är en lokal gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)? Om du vill automatisera Gateway-installation och hanterings uppgifter går du till PowerShell-galleriet för [DataGateway PowerShell-cmdletar](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
+Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala datagateway så att du kan komma åt lokala data källor från Azure Logic Apps. Du kan också lära dig mer om [hur data gatewayen fungerar](#gateway-cloud-service) senare i det här avsnittet. Mer information om gatewayen finns i [Vad är en lokal gateway](/data-integration/gateway/service-gateway-onprem)? Om du vill automatisera Gateway-installation och hanterings uppgifter går du till PowerShell-galleriet för [DataGateway PowerShell-cmdletar](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -79,7 +80,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
   * Gatewayen har två lägen: standard läge och personligt läge, som endast gäller för Power BI. Du kan inte ha mer än en gateway som körs i samma läge på samma dator.
 
-  * Azure Logic Apps stöder Läs-och skriv åtgärder via gatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * Azure Logic Apps stöder Läs-och skriv åtgärder via gatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -142,8 +143,8 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i de här ämnena:
 
-* [Justera kommunikations inställningarna för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Konfigurera proxyinställningar för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Justera kommunikations inställningarna för den lokala datagatewayen](/data-integration/gateway/service-gateway-communication)
+* [Konfigurera proxyinställningar för den lokala datagatewayen](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -155,7 +156,7 @@ För att undvika enskilda fel punkter för lokal data åtkomst kan du ha flera g
 
 * Din primära Gateway måste köra Gateway-uppdateringen från november 2017 eller senare.
 
-När du har konfigurerat din primära Gateway, väljer du **Lägg till i ett befintligt Gateway-kluster**när du går för att installera en annan gateway, väljer den primära gatewayen, som är den första gatewayen som du har installerat och anger återställnings nyckeln för den gatewayen. Mer information finns i [kluster med hög tillgänglighet för lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+När du har konfigurerat din primära Gateway, väljer du **Lägg till i ett befintligt Gateway-kluster**när du går för att installera en annan gateway, väljer den primära gatewayen, som är den första gatewayen som du har installerat och anger återställnings nyckeln för den gatewayen. Mer information finns i [kluster med hög tillgänglighet för lokal datagateway](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
@@ -185,7 +186,7 @@ Om du måste ändra gatewayens plats, flytta Gateway-installationen till en ny d
 
 ## <a name="tenant-level-administration"></a>Administration på klient nivå
 
-För att få insyn i alla lokala datagatewayer i en Azure AD-klient kan globala administratörer i den klienten logga in på [Power Platform administrations Center](https://powerplatform.microsoft.com) som innehavaradministratör och välja alternativet **datagatewayer** . Mer information finns i [Administration på klient nivå för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
+För att få insyn i alla lokala datagatewayer i en Azure AD-klient kan globala administratörer i den klienten logga in på [Power Platform administrations Center](https://powerplatform.microsoft.com) som innehavaradministratör och välja alternativet **datagatewayer** . Mer information finns i [Administration på klient nivå för den lokala datagatewayen](/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
@@ -196,7 +197,7 @@ Som standard körs Gateway-installationen på den lokala datorn som ett Windows-
 > [!NOTE]
 > Ditt Windows-tjänstkonto skiljer sig från det konto som används för att ansluta till lokala data källor och från det Azure-konto som du använder när du loggar in på Cloud Services.
 
-Precis som med andra Windows-tjänster kan du starta och stoppa gatewayen på olika sätt. Mer information finns i [starta om en lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
+Precis som med andra Windows-tjänster kan du starta och stoppa gatewayen på olika sätt. Mer information finns i [starta om en lokal datagateway](/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
@@ -217,11 +218,11 @@ Dessa steg beskriver vad som händer när du interagerar med ett element som är
 
 1. Moln tjänsten skapar en fråga, tillsammans med de krypterade autentiseringsuppgifterna för data källan. Tjänsten skickar sedan frågan och autentiseringsuppgifterna till gateway-kön för bearbetning.
 
-1. Gateway-moln tjänsten analyserar frågan och skickar begäran till Azure Service Bus.
+1. Gatewaymolntjänsten analyserar frågan och skickar begäran till Azure Service Bus.
 
-1. Azure Service Bus skickar väntande begär anden till gatewayen.
+1. Azure Service Bus skickar väntande begäranden till gatewayen.
 
-1. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till en eller flera data källor med dessa autentiseringsuppgifter.
+1. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till en eller flera datakällor med dessa autentiseringsuppgifter.
 
 1. Gatewayen skickar frågan till data källan för körning.
 
@@ -260,12 +261,12 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 ## <a name="faq-and-troubleshooting"></a>Vanliga frågor och felsökning
 
-* [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Övervaka och optimera gatewayprestanda](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Vanliga frågor och svar om lokal datagateway](/data-integration/gateway/service-gateway-onprem-faq)
+* [Felsöka den lokala datagatewayen](/data-integration/gateway/service-gateway-tshoot)
+* [Övervaka och optimera gatewayprestanda](/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ansluta till lokala data från Logic Apps](../logic-apps/logic-apps-gateway-connection.md)
 * [Enterprise-integrerings funktioner](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Anslutningsprogram för Azure Logic Apps](../connectors/apis-list.md)
+* [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md)

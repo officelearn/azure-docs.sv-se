@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855589"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080479"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
 
@@ -64,22 +64,22 @@ En regional (icke-zonindelade) skalnings uppsättning använder *placerings grup
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Fungerar skalnings uppsättningar med Azures tillgänglighets zoner?
 
-Ja! Mer information finns i avsnittet om [skalnings uppsättnings zon](./virtual-machine-scale-sets-use-availability-zones.md).
+Japp! Mer information finns i avsnittet om [skalnings uppsättnings zon](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisk skalning
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Vad är bästa praxis för Azure autoskalning?
 
-För bästa praxis för automatisk skalning, se [metod tips för automatisk skalning av virtuella datorer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
+För bästa praxis för automatisk skalning, se [metod tips för automatisk skalning av virtuella datorer](../azure-monitor/platform/autoscale-best-practices.md).
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Var hittar jag mått namn för automatisk skalning som använder värdbaserade mått?
 
-För mått namn för automatisk skalning som använder värdbaserade mått, se [mått som stöds med Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
+För mått namn för automatisk skalning som använder värdbaserade mått, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Finns det några exempel på autoskalning baserat på ett Azure Service Bus ämne och Kölängd?
 
-Ja. Exempel på automatisk skalning baserat på ett Azure Service Bus ämne och Kölängd finns i [Azure Monitor autoskalning av vanliga mått](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Ja. Exempel på automatisk skalning baserat på ett Azure Service Bus ämne och Kölängd finns i [Azure Monitor autoskalning av vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md).
 
 För en Service Bus kö använder du följande JSON:
 
@@ -104,9 +104,9 @@ Ersätt exempel värden med dina resurs-URI: er (Uniform Resource Identifier).
 
 Du kan skapa en inställning för autoskalning på en virtuell dator för att använda mått på värdnivå eller gästbaserade mått.
 
-En lista över mått som stöds finns i [Azure Monitor autoskalning av vanliga mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
+En lista över mått som stöds finns i [Azure Monitor autoskalning av vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md).
 
-Ett fullständigt exempel för skalnings uppsättningar för virtuella datorer finns i [Avancerad konfiguration av automatisk skalning med hjälp av Resource Manager-mallar för skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
+Ett fullständigt exempel för skalnings uppsättningar för virtuella datorer finns i [Avancerad konfiguration av automatisk skalning med hjälp av Resource Manager-mallar för skalnings uppsättningar för virtuella datorer](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
 
 Exemplet använder CPU-mått på värdnivå och måttet för antalet meddelanden.
 
@@ -114,13 +114,13 @@ Exemplet använder CPU-mått på värdnivå och måttet för antalet meddelanden
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Hur gör jag för att ange varnings regler för en skalnings uppsättning för virtuella datorer?
 
-Du kan skapa aviseringar för mått för skalnings uppsättningar för virtuella datorer via PowerShell eller Azure CLI. Mer information finns i [Azure Monitor PowerShell snabb starts exempel](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) och [Azure Monitor cross-platform CLI snabb starts exempel](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Du kan skapa aviseringar för mått för skalnings uppsättningar för virtuella datorer via PowerShell eller Azure CLI. Mer information finns i [Azure Monitor PowerShell snabb starts exempel](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) och [Azure Monitor cross-platform CLI snabb starts exempel](../azure-monitor/samples/cli-samples.md#work-with-alerts).
 
 TargetResourceId för den virtuella datorns skalnings uppsättning ser ut så här:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-Du kan välja en prestanda räknare för virtuella datorer som måttet för att ange en avisering för. Mer information finns i [gäst operativ systemets mått för Resource Manager-baserade virtuella Windows-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) och [gäst operativ system mått för virtuella Linux-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) i artikeln [Azure Monitor autoskalning av vanliga mått](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) .
+Du kan välja en prestanda räknare för virtuella datorer som måttet för att ange en avisering för. Mer information finns i [gäst operativ systemets mått för Resource Manager-baserade virtuella Windows-datorer](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) och [gäst operativ system mått för virtuella Linux-datorer](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) i artikeln [Azure Monitor autoskalning av vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md) .
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hur gör jag för att konfigurera autoskalning på en skalnings uppsättning för virtuella datorer med hjälp av PowerShell?
 
@@ -159,7 +159,7 @@ Använd följande JSON:
 
 Koden stöder Windows och Linux.
 
-Mer information finns i [skapa eller uppdatera en skalnings uppsättning för virtuella datorer](https://msdn.microsoft.com/library/mt589035.aspx).
+Mer information finns i [skapa eller uppdatera en skalnings uppsättning för virtuella datorer](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Hur gör jag för att använda självsignerade certifikat för Azure Service Fabric-kluster?
@@ -169,7 +169,7 @@ I det senaste exemplet använder du följande Azure CLI-instruktion i Azure-grä
 az sf cluster create -h
 ```
 
-Självsignerade certifikat kan inte användas för distribuerat förtroende från en certifikat utfärdare och ska inte användas för Service Fabric kluster som är värdar för företags produktions lösningar. Mer Service Fabric säkerhets rikt linjer finns i [metod tips för Azure Service Fabric säkerhet](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) och [Service Fabric kluster säkerhets scenarier](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Självsignerade certifikat kan inte användas för distribuerat förtroende från en certifikat utfärdare och ska inte användas för Service Fabric kluster som är värdar för företags produktions lösningar. Mer Service Fabric säkerhets rikt linjer finns i [metod tips för Azure Service Fabric säkerhet](../security/fundamentals/service-fabric-best-practices.md) och [Service Fabric kluster säkerhets scenarier](../service-fabric/service-fabric-cluster-security.md).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan jag ange ett SSH-nyckelpar som ska användas för SSH-autentisering med en skalnings uppsättning för virtuella Linux-datorer från en Resource Manager-mall?
 
@@ -197,7 +197,7 @@ Inkludera **osProfile** i mallen:
 
 Detta JSON-block används i [den här snabb starts mal len för Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-Mer information finns i [skapa eller uppdatera en skalnings uppsättning för virtuella datorer](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+Mer information finns i [skapa eller uppdatera en skalnings uppsättning för virtuella datorer](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration).
 
 ### <a name="how-do-i-remove-deprecated-certificates"></a>Hur gör jag för att ta bort föråldrade certifikat?
 
@@ -227,8 +227,8 @@ Du kan tillhandahålla offentliga SSH-nycklar i oformaterad text när du skapar 
 linuxConfiguration element namn | Krävs | Typ | Beskrivning
 --- | --- | --- | ---
 SSH | No | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
-path | Ja | Sträng | Anger sökvägen till Linux-filen där SSH-nycklar eller certifikatet ska placeras
-Data | Ja | Sträng | Anger en Base64-kodad Offentlig SSH-nyckel
+path | Yes | Sträng | Anger sökvägen till Linux-filen där SSH-nycklar eller certifikatet ska placeras
+Data | Yes | Sträng | Anger en Base64-kodad Offentlig SSH-nyckel
 
 Ett exempel finns i [snabb starts mal len 101-VM-sshkey GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -240,7 +240,7 @@ Detta kan inträffa om du försöker lägga till samma valv i stället för att 
 
 Om du vill lägga till fler hemligheter från samma nyckel valv uppdaterar du listan $vmss. Properties. osProfile. hemligheter [0]. vaultCertificates.
 
-En förväntad ingående struktur finns i [skapa eller uppdatera en virtuell dator uppsättning](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+En förväntad ingående struktur finns i [skapa eller uppdatera en virtuell dator uppsättning](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 Hitta hemligheten i det objekt i skalnings uppsättningen för virtuella datorer som finns i nyckel valvet. Lägg sedan till certifikat referensen (URL: en och namnet på den hemliga butiken) i listan som är associerad med valvet.
 
@@ -268,7 +268,7 @@ Certifikat läggs till i alla virtuella datorer, även för befintliga. Om den v
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Var ska jag lagra certifikat för virtuella Linux-datorer?
 
-Information om hur du distribuerar certifikat för virtuella Linux-datorer finns i [distribuera certifikat till virtuella datorer från ett kundhanterat nyckel valv](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
+Information om hur du distribuerar certifikat för virtuella Linux-datorer finns i [distribuera certifikat till virtuella datorer från ett kundhanterat nyckel valv](/archive/blogs/kv/deploy-certificates-to-vms-from-customer-managed-key-vault).
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Hur gör jag för att lägga till ett nytt valv certifikat i ett nytt certifikat objekt?
 
@@ -304,7 +304,7 @@ Om du skapar en virtuell dator och sedan uppdaterar din hemlighet i nyckel valve
 
 Om du vill distribuera offentliga. cer-offentliga nycklar till en skalnings uppsättning för virtuella datorer kan du generera en. pfx-fil som bara innehåller CER-filer. Använd för att göra detta `X509ContentType = Pfx` . Läs till exempel in. CER-filen som ett x509Certificate2-objekt i C# eller PowerShell och anropa sedan metoden.
 
-Mer information finns i [X509Certificate. export-metoden (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
+Mer information finns i [X509Certificate. export-metoden (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Hur gör jag för att skicka in certifikat som base64-strängar?
 
@@ -334,7 +334,7 @@ Från ett kompatibilitetsperspektiv är VM-skalningsuppsättningar en grundlägg
 
 Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Fungerar [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/msi-overview) med skalnings uppsättningar för virtuella datorer?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Fungerar [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) med skalnings uppsättningar för virtuella datorer?
 
 Ja. Du kan se några exempel på MSI-mallar i Azure snabb starts mallar för [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) och [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -436,7 +436,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Hur gör jag för att köra ett anpassat skript som finns i ett privat lagrings konto?
 
-Om du vill köra ett anpassat skript som finns på ett privat lagrings konto konfigurerar du skyddade inställningar med lagrings kontots nyckel och namn. Mer information finns i [tillägg för anpassat skript](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Om du vill köra ett anpassat skript som finns på ett privat lagrings konto konfigurerar du skyddade inställningar med lagrings kontots nyckel och namn. Mer information finns i [tillägg för anpassat skript](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
 
 ## <a name="passwords"></a>Lösenord
 
@@ -448,7 +448,7 @@ Det finns två huvudsakliga sätt att ändra lösen ordet för virtuella datorer
 
     Uppdatera admin-autentiseringsuppgifterna direkt i skalnings uppsättnings modellen (till exempel med hjälp av Azure Resource Explorer, PowerShell eller CLI). När skalnings uppsättningen har uppdaterats har alla nya virtuella datorer de nya autentiseringsuppgifterna. Befintliga virtuella datorer har bara nya autentiseringsuppgifter om de är avbildade.
 
-- Återställ lösen ordet med hjälp av tillägg för VM-åtkomst. Se till att följa lösen ords kraven som beskrivs [här](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+- Återställ lösen ordet med hjälp av tillägg för VM-åtkomst. Se till att följa lösen ords kraven som beskrivs [här](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     Använd följande PowerShell-exempel:
 
@@ -635,7 +635,7 @@ Ja, du kan flytta skalnings uppsättnings resurser till en ny prenumeration elle
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Hur uppdaterar jag skalnings uppsättningen för virtuella datorer till en ny avbildning? Hur gör jag för att hanterar du korrigering?
 
-Om du vill uppdatera skalnings uppsättningen för den virtuella datorn till en ny avbildning och hantera korrigering, se [uppgradera en skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+Om du vill uppdatera skalnings uppsättningen för den virtuella datorn till en ny avbildning och hantera korrigering, se [uppgradera en skalnings uppsättning för virtuella datorer](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Kan jag använda åtgärden för avbildning för att återställa en virtuell dator utan att ändra avbildningen? (Det vill säga jag vill återställa en virtuell dator till fabriks inställningarna i stället för till en ny avbildning.)
 

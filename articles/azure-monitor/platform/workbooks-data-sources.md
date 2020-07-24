@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081431"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor arbets böcker data källor
 
@@ -61,7 +61,7 @@ Om du vill göra en fråg-kontroll använder du den här data källan, använder
 
 ## <a name="azure-data-explorer"></a>Azure-datautforskaren
 
-Arbets böcker har nu stöd för frågor från [Azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/) -kluster med det kraftfulla [Kusto](https://docs.microsoft.com/azure/kusto/query/index) -frågespråket.   
+Arbets böcker har nu stöd för frågor från [Azure datautforskaren](/azure/data-explorer/) -kluster med det kraftfulla [Kusto](/azure/kusto/query/index) -frågespråket.   
 
 ![Skärm bild av Kusto Query-fönster](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ Med JSON-providern kan du skapa ett frågeresultat från statiskt JSON-innehåll
 > [!NOTE]
 > Det föreslagna sättet att fråga efter Azures aviserings information är att använda [Azures resurs diagram](#azure-resource-graph) data källa genom att fråga `AlertsManagementResources` tabellen.
 >
-> Se [tabell referensen för Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)eller [mallen aviseringar](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) för exempel.
+> Se [tabell referensen för Azure Resource Graph](../../governance/resource-graph/reference/supported-tables-resources.md)eller [mallen aviseringar](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) för exempel.
 >
 > Aviserings data källan kommer att vara tillgänglig under en viss tids period medan författare övergår till att använda ARG. Det rekommenderas inte att använda den här data källan i mallar. 
 
@@ -113,5 +113,5 @@ För att undvika att anrop till obetrodda värdar när du använder mallar, mås
 
 * [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
 * [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.
-* [Tips för Log Analytics optimering av frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Tips för Log Analytics optimering av frågor](../log-query/query-optimization.md)
 * 

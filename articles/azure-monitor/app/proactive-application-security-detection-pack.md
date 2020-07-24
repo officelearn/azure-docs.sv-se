@@ -3,17 +3,18 @@ title: Säkerhets identifierings paket med Azure Application insikter
 description: Övervaka program med Azure Application insikter och smart identifiering för potentiella säkerhets problem.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ed304e903bb50591e61e294b6701f8268f9d8e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081635"
 ---
 # <a name="application-security-detection-pack-preview"></a>Identifierings paket för program säkerhet (för hands version)
 
 Application Insights analyserar automatiskt den telemetri som genereras av ditt program och identifierar potentiella säkerhets problem. Med den här funktionen kan du identifiera potentiella säkerhets problem och hantera dem genom att åtgärda programmet eller genom att vidta nödvändiga säkerhets åtgärder.
 
-Den här funktionen kräver ingen särskild konfiguration, förutom [att konfigurera din app för att skicka telemetri](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
+Den här funktionen kräver ingen särskild konfiguration, förutom [att konfigurera din app för att skicka telemetri](./usage-overview.md).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När får jag den här typen av meddelande om Smart identifiering?
 Det finns tre typer av säkerhets problem som identifieras:

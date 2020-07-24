@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944499"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081618"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring
 
@@ -31,7 +31,7 @@ Kombinerat IT ger:
 
 * **Anpassningsbara** där du kan ändra vilka mått du vill se, ändra eller ange tröskelvärden som överensstämmer med dina gränser och Spara som en egen arbets bok. Diagram i arbets boken kan fästas på Azure-instrumentpanelen.  
 
-Den här funktionen kräver inte att du aktiverar eller konfigurerar något, lagrings måtten från dina lagrings konton samlas in som standard. Om du inte känner till mått som är tillgängliga på Azure Storage kan du Visa beskrivningen och definitionen i Azure Storage mått genom att granska [Azure Storage-mått](../../storage/common/storage-metrics-in-azure-monitor.md).
+Den här funktionen kräver inte att du aktiverar eller konfigurerar något, lagrings måtten från dina lagrings konton samlas in som standard. Om du inte känner till mått som är tillgängliga på Azure Storage kan du Visa beskrivningen och definitionen i Azure Storage mått genom att granska [Azure Storage-mått](../../storage/common/monitor-storage.md).
 
 >[!NOTE]
 >Det kostar inget att få åtkomst till den här funktionen och du debiteras bara för Azure Monitor viktiga funktioner som du konfigurerar eller aktiverar, enligt beskrivningen på sidan [pris information för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) .
@@ -198,7 +198,7 @@ Nu ska vi ändra färg temat för kapacitets måtten i rapporten för att använ
 
 1. Välj **kolumn inställningar** i rutnätet mått.
 
-2. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/storageaccounts-Capacity-UsedCapacity $ | Microsoft. Storage/storageaccounts/blobservices-Capacity-BlobCapacity $ | Microsoft. Storage/storageaccounts/FileServices-Capacity-FileCapacity $ | Microsoft. Storage/storageaccounts/queueservices-Capacity-QueueCapacity $ | Microsoft. Storage/storageaccounts/tableservices-Capacity-TableCapacity $**. Välj **grönt**under List rutans **färgpalett.**
+2. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/storageaccounts-Capacity-UsedCapacity $ `|` Microsoft. Storage/Storageaccounts/blobservices-Capacity-BlobCapacity $ `|` Microsoft. Storage/storageaccounts/FileServices-Capacity-FileCapacity $ `|` Microsoft. Storage/storageaccounts/queueservices-Capacity-QueueCapacity $ `|` Microsoft. Storage/storageaccounts/tableservices-Capacity-TableCapacity $**. Välj **grönt**under List rutans **färgpalett.**
 
 3. Välj **Spara och Stäng** för att bekräfta ändringen.
 
@@ -246,7 +246,7 @@ I avsnittet [ändra tröskeln för tillgänglighet](storage-insights-overview.md
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Hur analyserar och felsöker du data som visas i Azure Monitor för lagring?
 
- Information om hur du analyserar och felsöker Azure Storage data som visas i Azure Monitor för lagring finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) artikel.
+ Information om hur du analyserar och felsöker Azure Storage data som visas i Azure Monitor för lagring finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) artikel.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Varför visas inte alla typer av fel i mått?
 
@@ -269,7 +269,7 @@ Varje arbets bok sparas i det lagrings konto som du sparade det i. Försök att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Konfigurera [mått aviseringar](../platform/alerts-metric.md) och [meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications.md) för att ställa in automatiserad avisering som hjälper till att identifiera problem.
+* Konfigurera [mått aviseringar](../platform/alerts-metric.md) och [meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications-portal.md) för att ställa in automatiserad avisering som hjälper till att identifiera problem.
 
 * Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../platform/workbooks-overview.md).
 

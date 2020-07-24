@@ -3,15 +3,16 @@ title: Durable Functions publicering till Azure Event Grid (förhands granskning
 description: Lär dig hur du konfigurerar automatisk Azure Event Grid publicering för Durable Functions.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081754"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicering till Azure Event Grid (förhands granskning)
 
-Den här artikeln visar hur du konfigurerar Durable Functions att publicera livs cykel händelser för dirigering (till exempel skapade, slutförda och misslyckade) till ett anpassat [Azure Event Grid-ämne](https://docs.microsoft.com/azure/event-grid/overview).
+Den här artikeln visar hur du konfigurerar Durable Functions att publicera livs cykel händelser för dirigering (till exempel skapade, slutförda och misslyckade) till ett anpassat [Azure Event Grid-ämne](../../event-grid/overview.md).
 
 Här följer några scenarier där den här funktionen är användbar:
 
@@ -21,11 +22,11 @@ Här följer några scenarier där den här funktionen är användbar:
 
 * **Tids krävande bakgrunds aktivitet**: om du använder Durable Functions för en tids krävande bakgrunds aktivitet hjälper den här funktionen dig att känna till aktuell status.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) i ditt Durable Functions-projekt.
 * Installera [Azure Storage emulator](../../storage/common/storage-use-emulator.md) (endast Windows) eller Använd ett befintligt Azure Storage-konto.
-* Installera [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) eller Använd [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Installera [Azure CLI](/cli/azure/?view=azure-cli-latest) eller Använd [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Skapa ett anpassat Event Grid-ämne
 
@@ -167,7 +168,7 @@ Med hjälp av Azure Portal skapar du en annan Function-app för att lyssna efter
 
 ### <a name="add-an-event-grid-subscription"></a>Lägg till en Event Grid-prenumeration
 
-Nu kan du lägga till en Event Grid-prenumeration för Event Grid avsnittet som du har skapat. Mer information finns [i begrepp i Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
+Nu kan du lägga till en Event Grid-prenumeration för Event Grid avsnittet som du har skapat. Mer information finns [i begrepp i Azure Event Grid](../../event-grid/concepts.md).
 
 1. I den nya funktionen väljer du **integration** och väljer sedan **Event Grid utlösare (eventGridEvent)**. 
 

@@ -7,15 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2019
+ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d19f59635920951b506e41884f4ab79be78e247d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080734"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Använda identitet för att skapa surrogat nycklar i Synapse SQL-pool
 
@@ -23,7 +24,7 @@ I den här artikeln hittar du rekommendationer och exempel på hur du använder 
 
 ## <a name="what-is-a-surrogate-key"></a>Vad är en surrogat nyckel?
 
-En surrogat nyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabell data. Data modellerare som skapar surrogat nycklar i sina tabeller när de utformar data lager modeller. Du kan använda identitets egenskapen för att uppnå det här målet enkelt och effektivt utan att påverka belastnings prestanda.  
+En surrogat nyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabell data. Data modellerare som skapar surrogat nycklar i sina tabeller när de utformar data lager modeller. Du kan använda identitets egenskapen för att uppnå det här målet enkelt och effektivt utan att påverka belastnings prestanda. IDENTITETS egenskapen har vissa begränsningar som beskrivs i [CREATE TABLE (Transact-SQL) Identity (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). En av identitets begränsningarna är att den inte garanterat är unik. Om du anger att IDENTITETen ska INFOGAs och inte dirigerar om identitets värdet leder det till mer unika värden, men det är inte säkert att du garanterar unika uppgifter i alla situationer. Om du inte kan använda identitets värden på grund av begränsningarna med IDENTITETen, skapar du en separat tabell som innehåller ett aktuellt värde och hanterar åtkomst till tabellen och nummer tilldelningen med ditt program. 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Skapa en tabell med en identitets kolumn
 
@@ -49,7 +50,7 @@ I den här återstoden av det här avsnittet beskrivs olika delarna för impleme
 
 ### <a name="allocation-of-values"></a>Allokering av värden
 
-IDENTITETS egenskapen garanterar inte i vilken ordning surrogat värden allokeras, vilket återspeglar beteendet för SQL Server och Azure SQL Database. Men i Synapse SQL-poolen är frånvaron av en garanti mer uttalad.
+IDENTITETS egenskapen garanterar inte i vilken ordning surrogat värden tilldelas på grund av den distribuerade arkitekturen i data lagret. IDENTITETS egenskapen är utformad för att skala ut över alla distributioner i SQL-poolen Synapse utan att påverka belastnings prestandan. 
 
 Följande exempel är en illustration:
 

@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080445"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
 
@@ -111,7 +112,7 @@ När du har startat underhåll genomgår de virtuella datorerna i den virtuella 
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Kontrol lera underhålls status med hjälp av PowerShell
 
-Du kan använda Azure PowerShell för att se när virtuella datorer i dina skalnings uppsättningar för virtuella datorer är schemalagda för underhåll. Information om planerat underhåll är tillgänglig med hjälp av cmdleten [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) när du använder- `-InstanceView` parametern.
+Du kan använda Azure PowerShell för att se när virtuella datorer i dina skalnings uppsättningar för virtuella datorer är schemalagda för underhåll. Information om planerat underhåll är tillgänglig med hjälp av cmdleten [Get-AzVmss](/powershell/module/az.compute/get-azvmss) när du använder- `-InstanceView` parametern.
  
 Underhålls information returneras endast om underhållet är planerat. Om inget underhåll har schemalagts som påverkar VM-instansen returnerar cmdleten ingen underhålls information. 
 
@@ -170,7 +171,7 @@ Följande anrop initierar underhåll av en VM-instans om `IsCustomerInitiatedMai
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **F: Varför måste du starta om mina virtuella datorer nu?**
 

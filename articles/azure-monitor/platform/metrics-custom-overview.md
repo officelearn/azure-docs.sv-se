@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081499"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Anpassade mått i Azure Monitor (förhands granskning)
 
-När du distribuerar resurser och program i Azure vill du börja samla in telemetri för att få insikter om prestanda och hälsa. Azure gör vissa mått tillgängliga i rutan. Dessa mått kallas [standard eller plattform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). De är dock begränsade. 
+När du distribuerar resurser och program i Azure vill du börja samla in telemetri för att få insikter om prestanda och hälsa. Azure gör vissa mått tillgängliga i rutan. Dessa mått kallas [standard eller plattform](./metrics-supported.md). De är dock begränsade. 
 
 Du kanske vill samla in vissa anpassade prestanda indikatorer eller företagsspecifika mått för att ge djupare insikter. Dessa **anpassade** mått kan samlas in via din programtelemetri, en agent som körs på dina Azure-resurser eller till och med ett externt övervaknings system och skickas direkt till Azure Monitor. När de har publicerats till Azure Monitor kan du bläddra i, fråga och avisering om anpassade mått för dina Azure-resurser och-program sida vid sida med de standard mått som genereras av Azure.
 
@@ -37,7 +37,7 @@ På [sidan med Azure Monitor priser](https://azure.microsoft.com/pricing/details
 Anpassade mått bevaras för [samma tid som plattforms måtten](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Mått som skickas till Azure Monitor via Application Insights SDK faktureras som inmatade logg data. De endast debiteras ytterligare mått endast om Application Insights funktionen [Aktivera avisering för anpassade mått dimensioner](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) har marker ATS. Den här kryss rutan skickar data till Azure Monitor Metrics-databasen med hjälp av anpassade mått-API: et för att tillåta mer komplexa aviseringar.  Läs mer om [Application Insights pris modell](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) och [priser i din region](https://azure.microsoft.com/pricing/details/monitor/).
+> Mått som skickas till Azure Monitor via Application Insights SDK faktureras som inmatade logg data. De endast debiteras ytterligare mått endast om Application Insights funktionen [Aktivera avisering för anpassade mått dimensioner](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) har marker ATS. Den här kryss rutan skickar data till Azure Monitor Metrics-databasen med hjälp av anpassade mått-API: et för att tillåta mer komplexa aviseringar.  Läs mer om [Application Insights pris modell](../app/pricing.md#pricing-model) och [priser i din region](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="how-to-send-custom-metrics"></a>Så här skickar du anpassade mått
@@ -46,14 +46,14 @@ När du skickar anpassade mått till Azure Monitor måste varje data punkt eller
 
 ### <a name="authentication"></a>Autentisering
 För att kunna skicka in anpassade mått till Azure Monitor måste entiteten som skickar måttet ha en giltig Azure Active Directory-token (Azure AD) **i huvud rubriken** för begäran. Det finns några sätt att hämta en giltig Bearer-token:
-1. [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Ger en identitet till en Azure-resurs, till exempel en virtuell dator. Hanterad tjänstidentitet (MSI) är utformat för att ge resurser behörighet att utföra vissa åtgärder. Ett exempel är att låta en resurs generera mått om sig själv. En resurs, eller dess MSI, kan beviljas **övervaknings mått utgivar** behörigheter för en annan resurs. Med den här behörigheten kan MSI genererar mått för andra resurser också.
-2. [Azure AD-tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). I det här scenariot kan ett Azure AD-program eller-tjänst tilldelas behörigheter för att generera mått för en Azure-resurs.
+1. [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Ger en identitet till en Azure-resurs, till exempel en virtuell dator. Hanterad tjänstidentitet (MSI) är utformat för att ge resurser behörighet att utföra vissa åtgärder. Ett exempel är att låta en resurs generera mått om sig själv. En resurs, eller dess MSI, kan beviljas **övervaknings mått utgivar** behörigheter för en annan resurs. Med den här behörigheten kan MSI genererar mått för andra resurser också.
+2. [Azure AD-tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md). I det här scenariot kan ett Azure AD-program eller-tjänst tilldelas behörigheter för att generera mått för en Azure-resurs.
 För att autentisera begäran verifierar Azure Monitor programtoken med hjälp av offentliga Azure AD-nycklar. Den befintliga **övervaknings mått utgivar** rollen har redan den här behörigheten. Den finns i Azure Portal. Tjänstens huvud namn, beroende på vilka resurser som den utvärderar anpassade mått för, kan få rollen som **övervaknings mått utgivar** roll i det omfånget som krävs. Exempel är en prenumeration, en resurs grupp eller en angiven resurs.
 
 > [!TIP]  
 > När du begär en Azure AD-token för att skicka anpassade mått måste du se till att den mål grupp eller resurs som token begärs för är `https://monitoring.azure.com/` . Se till att ta med efterföljande "/".
 
-### <a name="subject"></a>Subjekt
+### <a name="subject"></a>Ämne
 Den här egenskapen registrerar vilket Azure-resurs-ID som det anpassade måttet rapporteras för. Den här informationen kommer att kodas i URL: en för det API-anrop som görs. Varje API kan bara skicka Mät värden för en enda Azure-resurs.
 
 > [!NOTE]  
@@ -68,13 +68,13 @@ Den här egenskapen registrerar vilken Azure-region som den resurs som du skicka
 >
 >
 
-### <a name="timestamp"></a>Tidsstämpel
+### <a name="timestamp"></a>Timestamp
 Varje data punkt som skickas till Azure Monitor måste markeras med en tidsstämpel. Den här tidsstämpeln fångar in det datum/tid-värde som Metric-värdet mäts eller samlas in. Azure Monitor accepterar mått data med tidsstämplar så långt som 20 minuter under de senaste och 5 minuterna i framtiden. Tidsstämpeln måste anges i formatet ISO 8601.
 
 ### <a name="namespace"></a>Namnområde
 Namn områden är ett sätt att kategorisera eller gruppera likartade mått tillsammans. Genom att använda namn rymder kan du isolera olika grupper av mått som kan samla in olika insikter eller prestanda indikatorer. Du kan till exempel ha ett namn område med namnet **contosomemorymetrics** som spårar minnes användnings mått som innehåller en profil för din app. Ett annat namn område med namnet **contosoapptransaction** kan spåra alla mått för användar transaktioner i programmet.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 **Namn** är namnet på det mått som rapporteras. Vanligt vis är namnet tillräckligt beskrivande för att hjälpa dig att identifiera vad som mäts. Ett exempel är ett mått som mäter antalet minnes byte som används på en specifik virtuell dator. Det kan ha ett Metric-namn som **minnes byte som används**.
 
 ### <a name="dimension-keys"></a>Dimensions nycklar
@@ -176,7 +176,7 @@ När anpassade mått har skickats till Azure Monitor kan du bläddra igenom dem 
 > Du måste vara en läsare eller deltagar roll för att visa anpassade mått.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Bläddra bland dina anpassade mått via Azure Portal
-1.    Gå till [Azure Portal](https://portal.azure.com).
+1.    Öppna [Azure-portalen](https://portal.azure.com).
 2.    Välj fönstret **övervaka** .
 3.    Välj **Mått**.
 4.    Välj en resurs som du har skickat anpassade mått mot.
@@ -193,12 +193,12 @@ Under den offentliga för hands versionen är möjligheten att publicera anpassa
 |USA, västra 2       | https: \/ /westus2.Monitoring.Azure.com |
 |USA, norra centrala | https: \/ /northcentralus.Monitoring.Azure.com
 |USA, södra centrala| https: \/ /southcentralus.Monitoring.Azure.com |
-|USA, centrala      | https: \/ /centralus.Monitoring.Azure.com |
+|Central US      | https: \/ /centralus.Monitoring.Azure.com |
 |Kanada, centrala | https: \/ /canadacentral.Monitoring.Azure.com |
-|USA, östra| https: \/ /eastus.Monitoring.Azure.com |
+|East US| https: \/ /eastus.Monitoring.Azure.com |
 |USA, östra 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
-|Europa, norra    | https: \/ /northeurope.Monitoring.Azure.com |
+|Norra Europa    | https: \/ /northeurope.Monitoring.Azure.com |
 |Europa, västra     | https: \/ /westeurope.Monitoring.Azure.com |
 |Storbritannien, södra | https: \/ /uksouth.Monitoring.Azure.com
 |Frankrike, centrala | https: \/ /francecentral.Monitoring.Azure.com |

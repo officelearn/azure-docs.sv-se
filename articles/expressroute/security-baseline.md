@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e539e2a26e53ded8a2c42491c1e1e596a2180ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269118"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079038"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Azures säkerhets bas linje för ExpressRoute
 
@@ -116,7 +116,7 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-* [Använd taggar för att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -246,7 +246,7 @@ Dessutom kan partner som använder API: et för ExpressRoute partner Resource Ma
 
 * [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Utnyttja RBAC i ExpressRoute partner Resource Manager-API: et](https://docs.microsoft.com/azure/expressroute/cross-connections-api-developmentment)
+* [Utnyttja RBAC i ExpressRoute partner Resource Manager-API: et](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Azure Security Center övervakning**: Ja
 

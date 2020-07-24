@@ -4,13 +4,14 @@ description: Instruktions artikel som markerar hur du kommenterar data till gån
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68950261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081244"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Kommentera data källor i Azure Data Catalog
 
@@ -33,7 +34,7 @@ Vart och ett av dessa perspektiv är värdefullt och Data Catalog använder en g
 ## <a name="different-types-of-annotations"></a>Olika typer av anteckningar
 Data Catalog stöder följande typer av anteckningar:
 
-| Anteckning | Obs! |
+| Anteckning | Kommentarer |
 | --- | --- |
 | Eget namn |Du kan ange egna namn på data till gångs nivå för att göra data till gångar lättare att förstå. Användarvänliga namn är mest användbara när det underliggande objekt namnet är krypterat, förkortat eller på annat sätt inte meningsfullt för användarna. |
 | Beskrivning |Beskrivningar kan anges i nivåerna data till gång och attribut/kolumn. Beskrivningar är kostnads fria korta text anteckningar som beskriver användarens perspektiv på data till gången eller dess användning. |

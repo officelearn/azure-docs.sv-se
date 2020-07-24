@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 558dd152aa1c6638155ad4215dc16f08d33d2e2f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601351"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080547"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatisk uppgradering av operativ system avbildningar för virtuella Azure-datorer
 
@@ -143,7 +143,7 @@ Under en uppgradering av operativ systemet uppgraderas en batch i taget av virtu
 
 En skalnings uppsättning kan alternativt konfigureras med program hälso avsökningar för att tillhandahålla en plattform med korrekt information om det pågående tillståndet för programmet. Program hälso avsökningar är anpassade Load Balancer avsökningar som används som en hälso signal. Programmet som körs på en virtuell dator instans för skalnings uppsättning kan svara på externa HTTP-eller TCP-begäranden som anger om det är felfritt. Mer information om hur anpassade Load Balancer avsökningar fungerar finns i så här fungerar [belastnings Utjämnings avsökningar](../load-balancer/load-balancer-custom-probe-overview.md). Program hälso avsökningar stöds inte för Service Fabric skalnings uppsättningar. Icke-Service Fabric skalnings uppsättningar kräver antingen Load Balancer program hälso avsökningar eller [program hälso tillägg](virtual-machine-scale-sets-health-extension.md).
 
-Om skalnings uppsättningen har kon figurer ATS för att använda flera placerings grupper, måste avsökningar som använder en [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) användas.
+Om skalnings uppsättningen har kon figurer ATS för att använda flera placerings grupper, måste avsökningar som använder en [standard Load Balancer](../load-balancer/load-balancer-overview.md) användas.
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Konfigurera en anpassad Load Balancer-avsökning som program hälso avsökning på en skalnings uppsättning
 Vi rekommenderar att du skapar en belastnings Utjämnings avsökning uttryckligen för skalnings uppsättnings hälsa. Samma slut punkt för en befintlig HTTP-avsökning eller TCP-avsökning kan användas, men en hälso avsökning kan kräva olika beteenden från en traditionell belastnings Utjämnings avsökning. En traditionell belastnings Utjämnings avsökning kan till exempel returnera fel om inläsningen på instansen är för hög, men som inte är lämplig för att fastställa instans hälsan vid en automatisk uppgradering av operativ systemet. Konfigurera avsökningen så att den har en hög avsöknings hastighet på mindre än två minuter.
@@ -161,7 +161,7 @@ Belastnings Utjämnings avsökningen kan refereras i *networkProfile* i skalning
 ```
 
 > [!NOTE]
-> När du använder automatiska OS-uppgraderingar med Service Fabric distribueras den nya operativ system avbildningen av uppdaterings domänen av en uppdaterings domän för att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Om du vill använda automatiska operativ Systems uppgraderingar i Service Fabric klustret måste konfigureras för att använda silver hållbarhets nivån eller högre. Mer information om hållbarhets egenskaperna för Service Fabric kluster finns i [den här dokumentationen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> När du använder automatiska OS-uppgraderingar med Service Fabric distribueras den nya operativ system avbildningen av uppdaterings domänen av en uppdaterings domän för att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Om du vill använda automatiska operativ Systems uppgraderingar i Service Fabric klustret måste konfigureras för att använda silver hållbarhets nivån eller högre. Mer information om hållbarhets egenskaperna för Service Fabric kluster finns i [den här dokumentationen](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Behåll autentiseringsuppgifterna aktuella
 Om din skalnings uppsättning använder autentiseringsuppgifter för att komma åt externa resurser, till exempel ett VM-tillägg som kon figurer ATS för att använda en SAS-token för lagrings kontot, kontrollerar du att autentiseringsuppgifterna har uppdaterats. Om autentiseringsuppgifter, inklusive certifikat och token, har upphört att gälla, Miss lyckas uppgraderingen och den första batchen av virtuella datorer kommer att lämnas i ett felaktigt tillstånd.

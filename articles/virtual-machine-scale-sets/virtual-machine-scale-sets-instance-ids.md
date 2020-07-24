@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f72d54c0d62748196302ed1b77ea750dede8ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84607354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080462"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Förstå instans-ID: n för virtuella datorer i Azure VM Scale-uppsättning
 I den här artikeln beskrivs instans-ID: n för skalnings uppsättningar och de olika sätt på ytan.
@@ -22,19 +23,19 @@ I den här artikeln beskrivs instans-ID: n för skalnings uppsättningar och de 
 
 Varje virtuell dator i en skalnings uppsättning hämtar ett instans-ID som identifierar den unikt. Detta instans-ID används i skalnings uppsättnings-API: er för att utföra åtgärder på en angiven virtuell dator i skalnings uppsättningen. Du kan till exempel ange ett angivet instans-ID för att återställa avbildningen när du använder avbildnings-API: et:
 
-REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (mer information finns i dokumentationen för [REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage))
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (mer information finns i dokumentationen för [REST API](/rest/api/compute/virtualmachinescalesetvms/reimage))
 
-PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (mer information finns i PowerShell- [dokumentationen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
+PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (mer information finns i PowerShell- [dokumentationen](/powershell/module/az.compute/set-azvmssvm))
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (mer information finns i CLI- [dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (mer information finns i CLI- [dokumentationen](/cli/azure/vmss?view=azure-cli-latest)).
 
 Du kan hämta listan med instans-ID: n genom att lista alla instanser i en skalnings uppsättning:
 
-REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (mer information finns i dokumentationen för [REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
+REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (mer information finns i dokumentationen för [REST API](/rest/api/compute/virtualmachinescalesetvms/list))
 
-PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (mer information finns i PowerShell- [dokumentationen](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
+PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (mer information finns i PowerShell- [dokumentationen](/powershell/module/az.compute/get-azvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (mer information finns i CLI- [dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (mer information finns i CLI- [dokumentationen](/cli/azure/vmss?view=azure-cli-latest)).
 
 Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller [Azure SDK](https://azure.microsoft.com/downloads/) : er för att visa en lista över virtuella datorer i en skalnings uppsättning.
 
@@ -65,7 +66,7 @@ Som du kan se är egenskapen "instanceId" bara ett decimal tal. Instans-ID: n ka
 
 I exemplet ovan finns det också ett "namn" för den virtuella datorn. Det här namnet använder formatet "{Scale-set-Name} _ {instance-ID}". Det här namnet är det som visas i Azure Portal när du listar instanser i en skalnings uppsättning:
 
-![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
+![Skärm bild som visar en lista över instanser i en skalnings uppsättning för virtuella datorer i Azure Portal.](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
 Den {instance-ID}-delen av namnet har samma decimal tal som egenskapen "instanceId" som beskrevs tidigare.
 

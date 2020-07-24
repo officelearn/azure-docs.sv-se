@@ -5,11 +5,12 @@ author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bddb6af777f36d04bae4a8b68c476789048be1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081788"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Haveri beredskap och geo-distribution i Azure Durable Functions
 
@@ -82,4 +83,4 @@ Precis som med andra scenarier finns det viktiga överväganden:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan läsa mer om att [utforma hög tillgängliga program med RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)
+Du kan läsa mer om att [utforma hög tillgängliga program med RA-GRS](../../storage/common/geo-redundant-design.md)

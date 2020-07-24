@@ -10,15 +10,15 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080513"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Design överväganden för skalnings uppsättningar
-I den här artikeln beskrivs design överväganden för Virtual Machine Scale Sets. Information om vad Virtual Machine Scale Sets finns i [Översikt över Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
+I den här artikeln beskrivs design överväganden för Virtual Machine Scale Sets. Information om vad Virtual Machine Scale Sets finns i [Översikt över Virtual Machine Scale Sets](./overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>När ska du använda skalnings uppsättningar i stället för virtuella datorer?
 I allmänhet är skalnings uppsättningar användbara för att distribuera infrastruktur med hög tillgänglighet där en uppsättning datorer har liknande konfiguration. Vissa funktioner är dock bara tillgängliga i skalnings uppsättningar medan andra funktioner endast är tillgängliga i virtuella datorer. För att kunna fatta ett välgrundat beslut om när du ska använda varje teknik bör du först ta en titt på några av de vanliga funktionerna som är tillgängliga i skalnings uppsättningar, men inte virtuella datorer:
@@ -27,8 +27,8 @@ I allmänhet är skalnings uppsättningar användbara för att distribuera infra
 
 - När du har angett konfigurationen för skalnings uppsättningen kan du uppdatera egenskapen *Capacity* för att distribuera fler virtuella datorer parallellt. Den här processen är bättre än att skriva ett skript för att dirigera distribution av många enskilda virtuella datorer parallellt.
 - Du kan [använda automatisk skalning i Azure för att automatiskt skala en skalnings uppsättning](./virtual-machine-scale-sets-autoscale-overview.md) men inte enskilda virtuella datorer.
-- Du kan ändra [avbildningens skalnings uppsättnings virtuella datorer](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) men [inte enskilda virtuella datorer](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Du kan [överetablera](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) skalnings uppsättningar för virtuella datorer för ökad tillförlitlighet och snabbare distributions tider. Du kan inte överetablera enskilda virtuella datorer om du inte skriver anpassad kod för att utföra den här åtgärden.
+- Du kan ändra [avbildningens skalnings uppsättnings virtuella datorer](/rest/api/compute/virtualmachinescalesets/reimage) men [inte enskilda virtuella datorer](/rest/api/compute/virtualmachines).
+- Du kan [överetablera](#overprovisioning) skalnings uppsättningar för virtuella datorer för ökad tillförlitlighet och snabbare distributions tider. Du kan inte överetablera enskilda virtuella datorer om du inte skriver anpassad kod för att utföra den här åtgärden.
 - Du kan ange en [uppgraderings princip](./virtual-machine-scale-sets-upgrade-scale-set.md) som gör det enkelt att distribuera uppgraderingar mellan virtuella datorer i din skalnings uppsättning. Med enskilda virtuella datorer måste du dirigera uppdateringar själv.
 
 ### <a name="vm-specific-features"></a>VM-/regionsspecifika funktioner
@@ -60,7 +60,7 @@ Under överetablering kan du förbättra etableringen av lyckade kostnader, men 
 
 Om din skalnings uppsättning använder användar hanterad lagring och du inaktiverar överetablering, kan du ha fler än 20 virtuella datorer per lagrings konto, men vi rekommenderar inte att gå över 40 för prestanda orsaker i i/o. 
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 En skalnings uppsättning som bygger på en Marketplace-avbildning (kallas även plattforms avbildning) och som kon figurer ATS för att använda Azure Managed Disks har stöd för en kapacitet på upp till 1 000 virtuella datorer. Om du konfigurerar din skalnings uppsättning så att den stöder fler än 100 virtuella datorer fungerar inte alla scenarier (till exempel belastnings utjämning). Mer information finns i [arbeta med stora skalnings uppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). 
 
 En skalnings uppsättning som kon figurer ATS med användar hanterade lagrings konton är för närvarande begränsad till 100 virtuella datorer (och 5 lagrings konton rekommenderas för den här skalan).
@@ -68,4 +68,3 @@ En skalnings uppsättning som kon figurer ATS med användar hanterade lagrings k
 En skalnings uppsättning som bygger på en anpassad avbildning (en som skapats av dig) kan ha en kapacitet på upp till 600 virtuella datorer när den har kon figurer ATS med Azure Managed disks. Om skalnings uppsättningen har kon figurer ATS med användar hanterade lagrings konton måste den skapa alla OS-diskar för virtuella hård diskar i ett lagrings konto. Därför är det högsta rekommenderade antalet virtuella datorer i en skalnings uppsättning som bygger på en anpassad avbildning och ett användar hanterat lagrings utrymme 20. Om du inaktiverar överetablering kan du gå upp till 40.
 
 För fler virtuella datorer än dessa gränser måste du distribuera flera skalnings uppsättningar som visas i [den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-

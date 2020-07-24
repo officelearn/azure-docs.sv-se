@@ -2,13 +2,13 @@
 title: Knappen Distribuera till Azure
 description: Använd knappen för att distribuera Azure Resource Manager mallar från en GitHub-lagringsplats.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079451"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen
 
@@ -28,7 +28,11 @@ Bilden visas som:
 
 ## <a name="create-url-for-deploying-template"></a>Skapa URL för distribution av mall
 
-Om du vill skapa en URL för mallen börjar du med den råa URL: en till mallen i din lagrings platsen:
+Om du vill skapa en URL för mallen börjar du med den råa URL: en till mallen i din lagrings platsen. Om du vill se den råa URL: en väljer du **RAW**.
+
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Välj RAW":::
+
+URL: en har följande format:
 
 ```html
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

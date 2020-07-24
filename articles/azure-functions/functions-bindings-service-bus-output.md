@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603646"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079731"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
@@ -311,7 +311,7 @@ När du arbetar med C#-funktioner:
 
 * Async Functions behöver ett retur värde eller `IAsyncCollector` i stället för en `out` parameter.
 
-* För att få åtkomst till sessions-ID: t binder du till en [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) typ och använder `sessionId` egenskapen.
+* För att få åtkomst till sessions-ID: t binder du till en [`Message`](/dotnet/api/microsoft.azure.servicebus.message) typ och använder `sessionId` egenskapen.
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
@@ -328,7 +328,7 @@ När du arbetar med C#-funktioner:
 
 * Async Functions behöver ett retur värde eller `IAsyncCollector` i stället för en `out` parameter.
 
-* För att få åtkomst till sessions-ID: t binder du till en [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) typ och använder `sessionId` egenskapen.
+* För att få åtkomst till sessions-ID: t binder du till en [`Message`](/dotnet/api/microsoft.azure.servicebus.message) typ och använder `sessionId` egenskapen.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -336,11 +336,11 @@ Få åtkomst till kön eller ämnet med hjälp av `context.bindings.<name from f
 
 # <a name="python"></a>[Python](#tab/python)
 
-Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) i stället för den inbyggda utgående bindningen.
+Använd [Azure Service Bus SDK](../service-bus-messaging/index.yml) i stället för den inbyggda utgående bindningen.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) i stället för den inbyggda utgående bindningen.
+Använd [Azure Service Bus SDK](../service-bus-messaging/index.yml) i stället för den inbyggda utgående bindningen.
 
 ---
 
@@ -348,8 +348,8 @@ Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-mes
 
 | Bindning | Referens |
 |---|---|
-| Service Bus | [Service Bus felkoder](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Service Bus | [Service Bus gränser](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Service Bus | [Service Bus felkoder](../service-bus-messaging/service-bus-messaging-exceptions.md) |
+| Service Bus | [Service Bus gränser](../service-bus-messaging/service-bus-quotas.md) |
 
 <a name="host-json"></a>  
 
@@ -384,11 +384,11 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 
 Om du har `isSessionsEnabled` ställt in till `true` , `sessionHandlerOptions` kommer att användas.  Om du har `isSessionsEnabled` ställt in till `false` , `messageHandlerOptions` kommer att användas.
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|
-|Automatisk|true|Anger om utlösaren ska anropa Complete efter bearbetning eller om funktions koden ska anropas manuellt.<br><br>Inställningen till `false` stöds bara i C#.<br><br>Om detta är inställt på `true` , slutför utlösaren meddelandet automatiskt om funktions körningen slutförs utan problem, och överger meddelandet annars.<br><br>När det är inställt på `false` , ansvarar du för att anropa [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) -metoder för att slutföra, överge eller obeställbara meddelanden kön meddelandet. Om ett undantag genereras (och ingen av `MessageReceiver` metoderna anropas), kommer låset att fortsätta. När låset har gått ut placeras meddelandet i kö igen `DeliveryCount` och låset förnyas automatiskt.<br><br>I icke-C #-funktioner resulterar undantag i funktionen i körnings anropen `abandonAsync` i bakgrunden. Om inget undantag inträffar, `completeAsync` anropas sedan i bakgrunden. |
+|Automatisk|true|Anger om utlösaren ska anropa Complete efter bearbetning eller om funktions koden ska anropas manuellt.<br><br>Inställningen till `false` stöds bara i C#.<br><br>Om detta är inställt på `true` , slutför utlösaren meddelandet automatiskt om funktions körningen slutförs utan problem, och överger meddelandet annars.<br><br>När det är inställt på `false` , ansvarar du för att anropa [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) -metoder för att slutföra, överge eller obeställbara meddelanden kön meddelandet. Om ett undantag genereras (och ingen av `MessageReceiver` metoderna anropas), kommer låset att fortsätta. När låset har gått ut placeras meddelandet i kö igen `DeliveryCount` och låset förnyas automatiskt.<br><br>I icke-C #-funktioner resulterar undantag i funktionen i körnings anropen `abandonAsync` i bakgrunden. Om inget undantag inträffar, `completeAsync` anropas sedan i bakgrunden. |
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringningen som meddelande pumpen ska initiera per skalad instans. Som standard bearbetar Functions-körningen flera meddelanden samtidigt.|
 |maxConcurrentSessions|2000|Maximalt antal sessioner som kan hanteras samtidigt per skalad instans.|
 

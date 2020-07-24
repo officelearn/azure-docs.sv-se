@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081108"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Ansluta Azure med offentliga moln
 
@@ -33,7 +34,7 @@ Layer3-providers kallas ofta IP VPN-eller MPLS VPN-providrar. Kunder utnyttjar d
  
 När du ansluter via Layer3-providern kommer Microsoft att annonsera kundens VNET-vägar till tjänst leverantören via BGP. Providern kan ha två olika implementeringar.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![Diagram som visar en Layer3-Provider.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 Leverantören kan ringa varje moln leverantör i en separat VRF, om trafik från alla moln leverantörer kommer till kundroutern. Om kunden kör BGP med tjänst leverantören annonseras dessa vägar på nytt till andra moln leverantörer som standard. 
 
@@ -44,7 +45,7 @@ Varje offentligt moln har olika prefix så när du distribuerar väg tjänst lev
 ### <a name="layer2-provider-and-direct-connection"></a>Layer2-Provider och direkt anslutning
 
 Även om den fysiska anslutningen i båda modellerna är annorlunda, men på Layer3 BGP upprättas direkt mellan MSEE: N och kund routern. För ExpressRoute Direct-kunden ansluter till MSEE: N direkt. I händelse av layer2, utökar-tjänst leverantören VLAN från kund lokalt till molnet. Kunder som kör BGP ovanpå layer2-nätverket kan ansluta sina domänkontrollanter till molnet.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Diagram som visar en layer2-Provider och direkt anslutning.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 I båda fallen kommer kunden att ha punkt-till-punkt-anslutningar till var och en av de offentliga molnen. Kunden upprättar en separat BGP-anslutning till varje offentligt moln. Vägar som tas emot av en moln leverantör annonseras som standard till en annan moln leverantör. Varje moln leverantör har olika prefix så att du kan annonsera om kund tjänsten ska ta hand om dessa gränser. Kunden kan använda vanliga BGP-rattar med Microsoft vid annonsering av vägar från andra offentliga moln.
 
 ## <a name="direct-connection-with-expressroute"></a>Direkt anslutning med ExpressRoute

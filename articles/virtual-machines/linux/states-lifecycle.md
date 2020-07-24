@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: c1452252e6cbd7b741c14c2ea52728ba144c65a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cce718c22c591210dd31eb7c0b983d7a7322d7f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080173"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Livscykler och tillstånd för Virtual Machines
 
@@ -20,4 +21,4 @@ ms.locfileid: "81757851"
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övervakning av den virtuella datorn finns i [övervaka virtuella datorer i Azure](monitor.md).
+Mer information om övervakning av den virtuella datorn finns i [övervaka virtuella datorer i Azure](../../azure-monitor/insights/monitor-vm-azure.md).

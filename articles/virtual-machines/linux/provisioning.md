@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6530d05b8e1aa565e64256054e81b785572edfb0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080156"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Azure Linux VM-etablering
 När du skapar en virtuell dator från en generaliserad avbildning (delat avbildnings Galleri eller hanterad avbildning) gör kontroll planet att du kan skapa en virtuell dator och skicka parametrar och inställningar till den virtuella datorn. Detta kallas VM- *etablering*. Under etableringen gör plattformen nödvändig virtuell dator skapa parameter värden (hostname, användar namn, lösen ord, SSH-nycklar, customData) som är tillgängliga för den virtuella datorn när den startas. 
 
 En etablerings agent bakade i avbildningen kommer att vara Interface med plattformen, ansluta upp till flera oberoende etablerings gränssnitt), ange egenskaperna och signalen till den plattform som har slutförts. 
 
-Etablerings agenterna kan vara [Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)eller [Cloud-Init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). Följande är [förutsättningar](create-upload-generic.md) för att skapa generaliserade avbildningar.
+Etablerings agenterna kan vara [Azure Linux-agenten](../extensions/agent-linux.md)eller [Cloud-Init](./using-cloud-init.md). Följande är [förutsättningar](create-upload-generic.md) för att skapa generaliserade avbildningar.
 
-Etablerings agenterna, ger stöd för alla godkända [Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)och du hittar de godkända distribution-avbildningarna i många fall kommer att levereras med både Cloud-Init och Linux-agenten. På så sätt kan du använda Cloud-Init för att hantera etableringen. sedan ger Linux-agenten stöd för att hantera Azure- [tillägg](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Genom att tillhandahålla stöd för tillägg innebär det att den virtuella datorn har rätt att stödja ytterligare Azure-tjänster, till exempel återställning av lösen ord för virtuella datorer, Azure-övervakning, Azure Backup, Azure Disk Encryption osv.
+Etablerings agenterna, ger stöd för alla godkända [Azure Linux-distributioner](./endorsed-distros.md)och du hittar de godkända distribution-avbildningarna i många fall kommer att levereras med både Cloud-Init och Linux-agenten. På så sätt kan du använda Cloud-Init för att hantera etableringen. sedan ger Linux-agenten stöd för att hantera Azure- [tillägg](../extensions/features-windows.md). Genom att tillhandahålla stöd för tillägg innebär det att den virtuella datorn har rätt att stödja ytterligare Azure-tjänster, till exempel återställning av lösen ord för virtuella datorer, Azure-övervakning, Azure Backup, Azure Disk Encryption osv.
 
 När etableringen har slutförts körs Cloud-Init på varje start. Cloud-Init övervakar ändringar i den virtuella datorn, t. ex. nätverks ändringar, montering och formatering av den tillfälliga disken och start av Linux-agenten. Linux-agenten körs kontinuerligt på servern, som söker efter ett mål tillstånd (ny konfiguration) från Azure-plattformen, så när du installerar tillägg kommer agenten att kunna bearbeta dem.
 

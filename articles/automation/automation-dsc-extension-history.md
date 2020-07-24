@@ -1,20 +1,17 @@
 ---
 title: Arbeta med Azure Desired State Configuration Extension versions historik
 description: Den här artikeln beskriver hur du arbetar med versions historiken för det önskade tillägget för tillstånds konfiguration (DSC) i Azure.
-ms.date: 06/21/2018
+ms.date: 07/22/2020
 keywords: DSC, PowerShell, Azure, tillägg
-author: mgoedtel
-ms.author: magoedte
 services: automation
-ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079765"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Arbeta med Azure Desired State Configuration Extension versions historik
 
@@ -23,6 +20,29 @@ Det virtuella Azure-tillägget för önskad tillstånds konfiguration (DSC) uppd
 Den här artikeln innehåller information om varje version av Azure DSC VM-tillägget, vilka miljöer som stöds och kommentarer och kommentarer om nya funktioner eller ändringar.
 
 ## <a name="latest-version"></a>Senaste version
+
+### <a name="version-280"></a>Version 2,80
+
+- **Utgivnings datum:**
+  - 26 september, sep-2019 (Azure) | 6 juli 2020 (Azure Kina Vianet 21) | 20 juli 2020 (Azure Government)
+- **OS-support:**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Windows-klient 7/8.1/10
+  - Nano Server
+- **WMF-support:**
+  - WMF 5.1
+  - WMF 5,0 RTM
+  - WMF 4,0-uppdatering
+  - WMF 4,0
+- **Miljö**
+  - Azure
+  - Azure Kina Vianet 21
+  - Azure Government
+- **Anmärkningar:** Inga nya funktioner ingår i den här versionen.
 
 ### <a name="version-276"></a>Version 2,76
 

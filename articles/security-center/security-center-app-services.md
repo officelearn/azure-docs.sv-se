@@ -1,5 +1,5 @@
 ---
-title: 'Skydda dina Azure App Service-webbappar och API: er'
+title: Skydda dina Azure App Service-webbappar och API:er
 description: 'Den här artikeln hjälper dig att komma igång med att skydda dina Azure App Service-webbappar och API: er i Azure Security Center.'
 services: security-center
 documentationcenter: na
@@ -10,13 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080802"
 ---
-# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Skydda dina Azure App Service-webbappar och API: er
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Skydda dina Azure App Service-webbappar och API:er
 
 Azure App Service är en helt hanterad plattform för att bygga och vara värd för dina webbappar och API: er utan att behöva hantera infrastrukturen. Den ger hantering, övervakning och Operational Insights för att uppfylla prestanda-, säkerhets-och efterlevnads krav i företags klass. Mer information finns i [Azure App Service](https://azure.microsoft.com/services/app-service/).
 

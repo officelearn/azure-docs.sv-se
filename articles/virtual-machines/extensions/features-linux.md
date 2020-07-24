@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080360"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
@@ -32,12 +32,12 @@ Den här artikeln innehåller en översikt över VM-tillägg, krav för att anv�
 Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt användnings fall. Några exempel är:
 
 - Använd PowerShell Desired State Configurations på en virtuell dator med DSC-tillägget för Linux. Mer information finns i [tillägget Azure Desired State Configuration](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Konfigurera övervakning av en virtuell dator med det virtuella dator tillägget för Microsoft Monitoring Agent. Mer information finns i [så här övervakar du en virtuell Linux-dator](../linux/tutorial-monitoring.md).
+- Konfigurera övervakning av en virtuell dator med det virtuella dator tillägget för Microsoft Monitoring Agent. Mer information finns i [så här övervakar du en virtuell Linux-dator](../linux/tutorial-monitor.md).
 - Konfigurera övervakning av din Azure-infrastruktur med chefs-eller Datadog-tillägget. Mer information finns i [chefs dokumenten](https://docs.chef.io/azure_portal.html) eller [Datadog-bloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Linux kan alla bash-skript köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i avsnittet om [anpassat skript tillägg för Linux-datorer](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Linux-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -65,7 +65,7 @@ Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, oc
 > [!IMPORTANT]
 > Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen, kommer tilläggen att fungera oberoende av ovanstående.
 
-Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](../../virtual-network/security-overview.md#service-tags).
 
 För att omdirigera begär Anden om agent trafik har Linux-agenten stöd för proxy server. Stöd för den här proxyservern tillämpar dock inte tillägg. Du måste konfigurera varje enskilt tillägg så att det fungerar med en proxy.
 
@@ -105,7 +105,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
@@ -225,7 +225,7 @@ När det finns en tillgänglig uppdatering installeras den bara på den virtuell
 - Behållare för startdiagnostik
 - Gäst operativ system hemligheter
 - Storlek på virtuell dator
-- Nätverks profil
+- Nätverksprofil
 
 Utgivare gör uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt att du kan ha virtuella datorer i olika regioner i olika versioner.
 
@@ -259,7 +259,7 @@ I föregående exempel utdata är den överordnade eller paket distribuerade ver
 
 Mål tillstånds agenten är den automatiska uppdaterings versionen.
 
-Vi rekommenderar starkt att du alltid har automatisk uppdatering av agenten, [AutoUpdate. enabled = y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Om du inte aktiverar det här alternativet måste du uppdatera agenten manuellt och inte få fel-och säkerhets korrigeringar.
+Vi rekommenderar starkt att du alltid har automatisk uppdatering av agenten, [AutoUpdate. enabled = y](./update-linux-agent.md). Om du inte aktiverar det här alternativet måste du uppdatera agenten manuellt och inte få fel-och säkerhets korrigeringar.
 
 #### <a name="extension-updates"></a>Tilläggs uppdateringar
 

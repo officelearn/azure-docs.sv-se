@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 77bba9433052c00df671caf73198ff75356b1c9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400160"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079228"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-till-tal (REST API)
 
@@ -46,16 +46,16 @@ Med `voices/list` slut punkten kan du få en fullständig lista över röster f�
 | Australien, östra | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Brasilien, södra | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Kanada, centrala | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA, centrala | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asien, östra | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA, östra | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, östra 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Frankrike, centrala | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Indien, centrala | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Japan, östra | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sydkorea, centrala | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europa, norra | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norra Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, södra centrala | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sydostasien | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Storbritannien, södra | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -69,7 +69,7 @@ I den här tabellen listas obligatoriska och valfria rubriker för text till tal
 
 | Huvud | Beskrivning | Obligatorisk/valfri |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Obligatorisk |
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -169,27 +169,27 @@ I den här tabellen listas obligatoriska och valfria rubriker för text till tal
 
 | Huvud | Beskrivning | Obligatorisk/valfri |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
-| `Content-Type` | Anger innehålls typen för den angivna texten. Accepterat värde `application/ssml+xml`:. | Krävs |
-| `X-Microsoft-OutputFormat` | Anger formatet för ljud uppspelning. En fullständig lista över godkända värden finns i [ljud utmatningar](#audio-outputs). | Krävs |
-| `User-Agent` | Programnamnet. Det tillhandahållna värdet måste vara mindre än 255 tecken. | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Obligatorisk |
+| `Content-Type` | Anger innehålls typen för den angivna texten. Accepterat värde: `application/ssml+xml` . | Obligatorisk |
+| `X-Microsoft-OutputFormat` | Anger formatet för ljud uppspelning. En fullständig lista över godkända värden finns i [ljud utmatningar](#audio-outputs). | Obligatorisk |
+| `User-Agent` | Programnamnet. Det tillhandahållna värdet måste vara mindre än 255 tecken. | Obligatorisk |
 
 ### <a name="audio-outputs"></a>Ljud utmatningar
 
-Det här är en lista över de ljud format som stöds och som skickas i varje `X-Microsoft-OutputFormat` begäran som rubrik. Vart och ett omfattar en bit hastighet och kodnings typ. Tal tjänsten har stöd för 24 kHz-, 16 kHz-och 8 kHz-ljudutdata.
+Det här är en lista över de ljud format som stöds och som skickas i varje begäran som `X-Microsoft-OutputFormat` rubrik. Vart och ett omfattar en bit hastighet och kodnings typ. Tal tjänsten har stöd för 24 kHz-, 16 kHz-och 8 kHz-ljudutdata.
 
-|||
-|-|-|
-| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
-| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
-| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
-| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
-| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
-| `audio-24khz-48kbitrate-mono-mp3` | |
+```output
+raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
+riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
+riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
+audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
+audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
+audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+```
 
 > [!NOTE]
-> Om det valda röst-och utmatnings formatet har olika bit hastigheter samplas ljudet om vid behov. 24 kHz-röster har dock inte stöd `audio-16khz-16kbps-mono-siren` för `riff-16khz-16kbps-mono-siren` och utdataformat.
+> Om det valda röst-och utmatnings formatet har olika bit hastigheter samplas ljudet om vid behov. OGG-24khz-bitarsläge-mono-Opus kan avkodas med [Opus-codec](https://opus-codec.org/downloads/)
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -233,11 +233,11 @@ HTTP-statuskoden för varje svar visar att de lyckas eller vanliga fel.
 | 400 | Felaktig begäran | En obligatorisk parameter saknas, är tom eller null. Eller, värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltigt. Ett vanligt problem är ett sidhuvud som är för långt. |
 | 401 | Behörighet saknas | Begäran är inte auktoriserad. Kontrol lera att din prenumerations nyckel eller token är giltig och i rätt region. |
 | 413 | Begär ande enheten är för stor | SSML-indatamängden är längre än 1024 tecken. |
-| 415 | Medie typen stöds inte | Det är möjligt att fel `Content-Type` har angetts. `Content-Type`ska anges till `application/ssml+xml`. |
+| 415 | Medie typen stöds inte | Det är möjligt att fel `Content-Type` har angetts. `Content-Type`ska anges till `application/ssml+xml` . |
 | 429 | För många begär Anden | Du har överskridit kvoten eller frekvensen för begär Anden som tillåts för din prenumeration. |
 | 502 | Felaktig gateway    | Problem med nätverks-eller Server sidan. Kan också indikera ogiltiga huvuden. |
 
-Om HTTP-statusen är `200 OK`, innehåller bröd texten i svaret en ljudfil i det begärda formatet. Den här filen kan spelas upp när den överförs, sparas i en buffert eller sparas i en fil.
+Om HTTP-statusen är `200 OK` , innehåller bröd texten i svaret en ljudfil i det begärda formatet. Den här filen kan spelas upp när den överförs, sparas i en buffert eller sparas i en fil.
 
 ## <a name="next-steps"></a>Nästa steg
 

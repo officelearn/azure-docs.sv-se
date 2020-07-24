@@ -16,14 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79137636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079816"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds
-Genom att utforma SAP NetWeaver, Business en `Hybris` eller S/4HANA Systems arkitektur i Azure öppnas många olika möjligheter för olika arkitekturer och verktyg som du kan använda för att komma till en skalbar, effektiv och hög tillgänglig distribution. Även om det är beroende av det operativ system eller DBMS som används, finns det några begränsningar. Dessutom stöds inte alla scenarier som stöds lokalt på samma sätt i Azure. Det här dokumentet leder till konfigurationer med stöd för icke-hög tillgänglighet och konfigurationer med hög tillgänglighet och arkitekturer med enbart virtuella Azure-datorer. För scenarier som stöds med [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)kan du läsa artikeln [om vilka scenarier som stöds för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
+Genom att utforma SAP NetWeaver, Business en `Hybris` eller S/4HANA Systems arkitektur i Azure öppnas många olika möjligheter för olika arkitekturer och verktyg som du kan använda för att komma till en skalbar, effektiv och hög tillgänglig distribution. Även om det är beroende av det operativ system eller DBMS som används, finns det några begränsningar. Dessutom stöds inte alla scenarier som stöds lokalt på samma sätt i Azure. Det här dokumentet leder till konfigurationer med stöd för icke-hög tillgänglighet och konfigurationer med hög tillgänglighet och arkitekturer med enbart virtuella Azure-datorer. För scenarier som stöds med [Hana-stora instanser](./hana-overview-architecture.md)kan du läsa artikeln [om vilka scenarier som stöds för Hana-stora instanser](./hana-supported-scenario.md). 
 
 
 ## <a name="2-tier-configuration"></a>konfiguration på två nivåer
@@ -33,7 +34,7 @@ En grafisk representation av en sådan konfiguration kan se ut så här:
 
 ![Enkel konfiguration med två nivåer](./media/sap-planning-supported-configurations/two-tier-simple-configuration.png)
 
-Sådana konfigurationer stöds med Windows, Red Hat, SUSE och Oracle Linux för DBMS-systemen i SQL Server, Oracle, DB2, maxDB och SAP ASE för produktions-och icke-produktions ärenden. För SAP HANA som DBMS stöds sådana typer av konfigurationer endast för icke-produktionsenheter. Detta inkluderar även distributions fallet av [stora instanser av Azure Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) .
+Sådana konfigurationer stöds med Windows, Red Hat, SUSE och Oracle Linux för DBMS-systemen i SQL Server, Oracle, DB2, maxDB och SAP ASE för produktions-och icke-produktions ärenden. För SAP HANA som DBMS stöds sådana typer av konfigurationer endast för icke-produktionsenheter. Detta inkluderar även distributions fallet av [stora instanser av Azure Hana](./hana-overview-architecture.md) .
 Den här typen av konfiguration stöds för alla OS/DBMS-kombinationer som stöds i Azure. Men det är obligatoriskt att du ställer in konfigurationen av DBMS och SAP-komponenter på ett sätt som DBMS och SAP-komponenter inte konkurrerar om minnes-och processor resurser och därmed överskrider de fysiska tillgängliga resurserna. Detta måste göras genom att begränsa det minne som DBMS-DBMS får allokera. Du måste också begränsa det utökade SAP-minnet för program instanser. Du måste också övervaka processor förbrukningen för den virtuella datorn för att se till att komponenterna inte maximerar processor resurserna. 
 
 > [!NOTE]
@@ -47,7 +48,7 @@ Den grafiska presentationen ser ut så här:
 
 ![Enkel konfiguration med två nivåer](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
-Den här typen av konfiguration stöds i Windows, Red Hat, SUSE och Oracle Linux för DBMS-systemen i SQL Server, Oracle, DB2, SAP HANA, maxDB och SAP ASE för produktion och icke-produktions ärenden. Det här är standard distributions konfigurationen för [Azure Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). För enkelhetens användning skiljer vi inte mellan SAP-centrala tjänster och SAP-dialogrutor i SAP-Programskiktet. I den här enkla konfigurationen på tre nivåer skulle det inte finnas något skydd för hög tillgänglighet för SAP Central Services.
+Den här typen av konfiguration stöds i Windows, Red Hat, SUSE och Oracle Linux för DBMS-systemen i SQL Server, Oracle, DB2, SAP HANA, maxDB och SAP ASE för produktion och icke-produktions ärenden. Det här är standard distributions konfigurationen för [Azure Hana-stora instanser](./hana-overview-architecture.md). För enkelhetens användning skiljer vi inte mellan SAP-centrala tjänster och SAP-dialogrutor i SAP-Programskiktet. I den här enkla konfigurationen på tre nivåer skulle det inte finnas något skydd för hög tillgänglighet för SAP Central Services.
 
 > [!NOTE]
 > För produktion av SAP-system rekommenderar vi ytterligare hög tillgänglighet och eventuell haveri beredskap som beskrivs senare i det här dokumentet
@@ -71,7 +72,7 @@ Den här typen av DBMS-distribution stöds för:
 Genom att köra flera databas instanser på en värd måste du kontrol lera att de olika instanserna inte konkurrerar om resurser och därmed överskrida de fysiska resurs gränserna för den virtuella datorn. Detta gäller särskilt för minne där du måste använda minnet för alla instanser som delar den virtuella datorn kan allokera. Det kan också vara sant för de processor resurser som de olika databas instanserna kan utnyttja. Alla DBMS som nämns har konfigurationer som tillåter begränsad minnesallokering och processor resurser på en instans nivå.
 För att ha stöd för en sådan konfiguration för virtuella Azure-datorer förväntas det att de diskar eller volymer som används för loggfilerna data och logg/gör om för de databaser som hanteras av de olika instanserna är separata. Eller med andra ord data eller logg/gör om loggfiler för databaser som hanteras av en annan DBMS-instans ska inte dela samma diskar eller volymer. 
 
-Disk konfigurationen för HANA-stora instanser levereras konfigurerad och beskrivs i scenarier som [stöds för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos). 
+Disk konfigurationen för HANA-stora instanser levereras konfigurerad och beskrivs i scenarier som [stöds för Hana-stora instanser](./hana-supported-scenario.md#single-node-mcos). 
 
 > [!NOTE]
 > För produktion av SAP-system rekommenderar vi ytterligare hög tillgänglighet och eventuella haveri beredskap som beskrivs senare i det här dokumentet. Virtuella datorer med flera DBMS-instanser stöds inte med konfigurationer för hög tillgänglighet som beskrivs senare i det här dokumentet.
@@ -91,33 +92,33 @@ När du tittar på att distribuera SAP-produktionssystem måste du överväga at
 
 I allmänhet stöder Microsoft endast konfigurationer med hög tillgänglighet och program varu paket som beskrivs under avsnittet SAP-arbetsbelastning i docs.microsoft.com. Du kan läsa samma instruktion i SAP Obs [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Microsoft tillhandahåller inte support för andra tredjepartsprogram som inte är dokumenterade av Microsoft tillsammans med SAP-arbetsbelastningar. I sådana fall är leverantören av tredje part i ramverket för hög tillgänglighet den stödande parten för den hög tillgänglighets konfiguration som du måste använda som kund i support processen. Undantag kommer att anges i den här artikeln. 
 
-I allmänhet har Microsoft stöd för en begränsad uppsättning konfigurationer med hög tillgänglighet på virtuella Azure-datorer eller HANA-enheter med stora instanser. För scenarier som stöds av HANA-stora instanser kan du läsa dokumentet [som stöds för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario).
+I allmänhet har Microsoft stöd för en begränsad uppsättning konfigurationer med hög tillgänglighet på virtuella Azure-datorer eller HANA-enheter med stora instanser. För scenarier som stöds av HANA-stora instanser kan du läsa dokumentet [som stöds för Hana-stora instanser](./hana-supported-scenario.md).
 
 För virtuella Azure-datorer stöds följande konfigurationer för hög tillgänglighet på DBMS-nivå:
 
 - SAP HANA systemreplikering baserat på Linux-pacemaker på SUSE och Red Hat. Se de detaljerade artiklarna:
-    - [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-    - [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
+    - [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
+    - [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 - SAP HANA skalbara n + m-konfigurationer med [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) på SUSE och Red Hat. Information finns i följande artiklar:
-    - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server}](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-    - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+    - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server}](./sap-hana-scale-out-standby-netapp-files-suse.md)
+    - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - SQL Server redundanskluster baserat på Windows-skalbara fil tjänster. Även om rekommendationen för produktions system är att använda SQL Server Always on i stället för klustring. SQL Server Always on ger bättre tillgänglighet med separat lagring. Information beskrivs i den här artikeln: 
-    - [Konfigurera en SQL Server-redundanskluster på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster)
+    - [Konfigurera en SQL Server-redundanskluster på virtuella Azure-datorer](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 - SQL Server Always on stöds med operativ systemet Windows för SQL Server på Azure. Detta är standard rekommendationen för produktion SQL Server instanser på Azure. Information beskrivs i de här artiklarna:
-    - [Vi presenterar SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
-    - [Konfigurera en tillgänglighets grupp som alltid är tillgänglig på virtuella Azure-datorer i olika regioner](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr).
-    - [Konfigurera en belastningsutjämnare för en Always on-tillgänglighets grupp i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
+    - [Vi presenterar SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
+    - [Konfigurera en tillgänglighets grupp som alltid är tillgänglig på virtuella Azure-datorer i olika regioner](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions.md).
+    - [Konfigurera en belastningsutjämnare för en Always on-tillgänglighets grupp i Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 - Oracle data Guard för Windows och Oracle Linux. Information om Oracle Linux hittar du i den här artikeln:
-    - [Implementera Oracle data Guard på en virtuell Azure Linux-dator](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+    - [Implementera Oracle data Guard på en virtuell Azure Linux-dator](../oracle/configure-oracle-dataguard.md)
 - IBM DB2-HADR på SUSE och RHEL detaljerad dokumentation för SUSE och RHEL med pacemaker finns här:
-    - [Hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
-    - [Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på Red Hat Enterprise Linux Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw)
+    - [Hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](./dbms-guide-ha-ibm.md)
+    - [Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)
 - SAP ASE och SAP maxDB-konfiguration enligt beskrivningen i följande dokument:
-    - [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
-    - [SAP MaxDB, liveCache och Content Server-distribution på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
+    - [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](./dbms_guide_sapase.md)
+    - [SAP MaxDB, liveCache och Content Server-distribution på virtuella Azure-datorer](./dbms_guide_maxdb.md)
 - Scenarier med stora tillgänglighets scenarier i HANA beskrivs i:
-    - [Scenarier som stöds för HANA stora instanser – HSR med STONITH för hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability)
-    - [Scenarier som stöds för HANA Large instances-Host Auto redundans (1 + 1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11)
+    - [Scenarier som stöds för HANA stora instanser – HSR med STONITH för hög tillgänglighet](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability)
+    - [Scenarier som stöds för HANA Large instances-Host Auto redundans (1 + 1)](./hana-supported-scenario.md#host-auto-failover-11)
 
 > [!IMPORTANT]
 > För inget av scenarierna som beskrivs ovan, stöder vi konfigurationer av flera DBMS-instanser på en virtuell dator. Innebär i varje fall att endast en databas instans kan distribueras per virtuell dator och skyddas med de metoder för hög tillgänglighet som beskrivs. Det finns **inte** stöd för att skydda flera DBMS-instanser under samma Windows-eller pacemaker-redundanskluster vid den här tidpunkten. Oracle data Guard stöds även för enskilda instanser per distributions fall för virtuella datorer. 
@@ -145,23 +146,23 @@ Det finns andra ramverk för hög tillgänglighet som är kända för att köras
 SAP-centrala tjänster är en andra felpunkt vid din SAP-konfiguration. Det innebär att du måste skydda dessa processer för centrala tjänster också. Erbjudandet som stöds och är dokumenterat för SAP-belastnings läsningar som:
 
 - Windows-redundanskluster med Windows-skalbara fil tjänster för sapmnt och global transport katalog. Information beskrivs i artikeln:
-    - [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
-    - [Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
+    - [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure](./sap-high-availability-guide-wsfc-file-share.md)
+    - [Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](./sap-high-availability-infrastructure-wsfc-file-share.md)
 - Windows-redundanskluster med hjälp av SMB-resurs baserat på [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) för sapmnt och global transport katalog. Mer information finns i artikeln:
-    - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
+    - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program](./high-availability-guide-windows-netapp-files-smb.md)
 - Windows växlings kluster Server baserat på SIOS `Datakeeper` . Även om du har dokumenterat av Microsoft behöver du en support relation med SIOS, så att du kan använda SIOS-support när du använder den här lösningen. Information beskrivs i artikeln:
-    - [Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-    - [Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
+    - [Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md)
+    - [Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md)
 - Pacemaker på SUSE-operativsystem med att skapa en NFS-resurs med hög tillgänglighet med två SUSE virtuella datorer och `drdb` för filreplikering. Information finns dokumenterad i artikeln
-    - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-    - [Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+    - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](./high-availability-guide-suse.md)
+    - [Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md)
 - Pacemaker SUSE-operativsystem med utnyttjar NFS-resurser som tillhandahålls av [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Information finns dokumenterad i
-    - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+    - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](./high-availability-guide-suse-netapp-files.md)
 - Pacemaker i Red Hat-operativsystemet med NFS-resurs som finns i ett `glusterfs` kluster. Information finns i artiklarna
-    - [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
-    - [`GlusterFS`på virtuella Azure-datorer med Red Hat Enterprise Linux för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+    - [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
+    - [`GlusterFS`på virtuella Azure-datorer med Red Hat Enterprise Linux för SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md)
 - Pacemaker i Red Hat-operativsystemet med NFS-resurs som finns på [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Information beskrivs i artikeln
-    - [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+    - [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](./high-availability-guide-rhel-netapp-files.md)
 
 I de listade lösningarna behöver du en support relation med SIOS för att stödja `Datakeeper` produkten och för att engagera med SIOS direkt i händelse av problem. Beroende på hur du har licensierat Windows, Red Hat och/eller SUSE OS kan du också behöva ett support avtal med din OS-Provider för att få fullständig support för de listade konfigurationerna med hög tillgänglighet.
 
@@ -194,8 +195,8 @@ För att minska antalet virtuella datorer som behövs i stor SAP-landskap, kan S
 
 På Azure stöds en kluster konfiguration med flera säkerhets typer för Windows operativ system med ENSA1 och ENSA2. Rekommendationen är inte att kombinera den äldre ENSA1 (Queue Replication Service Architecture) med den nya arkitekturen (ENSA2) på ett kluster med flera säkerhets identifierare. Information om en sådan arkitektur finns dokumenterad i artiklarna
 
-- [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och delad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk) 
-- [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med kluster för växling vid fel i Windows Server och fil resurs på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share) 
+- [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och delad disk i Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) 
+- [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med kluster för växling vid fel i Windows Server och fil resurs på Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md) 
 
 För SUSE stöds även ett multi-SID-kluster baserat på pacemaker. Så mycket stöds konfigurationen för:
 
@@ -203,7 +204,7 @@ För SUSE stöds även ett multi-SID-kluster baserat på pacemaker. Så mycket s
 - Den gamla ENSA1 (Queue Replication Server Ice Architecture)
 - Pacemaker-klusterkonfigurationer för två noder
 
-Konfigurationen dokumenteras i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+Konfigurationen dokumenteras i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera sid-guide](./high-availability-guide-suse-multi-sid.md)
 
 Ett multi-SID-kluster med en transaktionskö för replikering ser ut som
 
@@ -214,29 +215,29 @@ Ett multi-SID-kluster med en transaktionskö för replikering ser ut som
 SAP HANA skalnings scenarier stöds för en delmängd av de HANA-certifierade virtuella Azure-datorerna som anges i den [SAP HANA maskin varu katalogen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Alla virtuella datorer som marker ATS med ja i kolumnen klustring kan användas för antingen OLAP-eller S/4HANA-utskalning. Konfigurationer utan vänte läge stöds med Azure Storage typer av: 
 
 - Azure Premium Storage, inklusive Azure Write Accelerator för/Hana/log-volymen
-- [Ultradisk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
+- [Ultradisk](../../linux/disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 SAP HANA skalbara konfigurationer för OLAP-eller S/4HANA med vänte läges nod (er) stöds exklusivt med NFS-delad värd på Azure NetApp Files.
 
 Om du vill ha mer information om exakta maskinvarukonfigurationer med eller utan standby-nod, kontrollerar du artiklarna:
 
-- [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 
-- [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-- [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](./hana-vm-operations-storage.md) 
+- [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md)
+- [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - [#2080991 för SAP-support anteckning](https://launchpad.support.sap.com/#/notes/2080991)
 
 För mer information om HANA-stora instanser som stöds HANA-konfigurationer, gäller följande dokumentation:
 
-- [Scenarier som stöds för HANA stora instanser skalas ut med vänte läge](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby)
-- [Scenarier som stöds för HANA stora instanser skalas upp utan vänte läge](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby)
+- [Scenarier som stöds för HANA stora instanser skalas ut med vänte läge](./hana-supported-scenario.md#scale-out-with-standby)
+- [Scenarier som stöds för HANA stora instanser skalas upp utan vänte läge](./hana-supported-scenario.md#scale-out-without-standby)
 
 
 ## <a name="disaster-recovery-scenario"></a>Katastrof återställnings scenario
 Det finns flera olika katastrof återställnings scenarier som stöds. Vi definierar haveri arkitekturer som arkitekturer som ska kompensera för en fullständig Azure-region som går ur rutnätet. Detta innebär att haveri beredskap måste vara en annan Azure-region som mål för att kunna köra ditt SAP-landskap. Vi delar upp metoder och konfigurationer i DBMS-skiktet och på andra lager än DBMS. 
 
 ### <a name="dbms-layer"></a>DBMS-skikt
-För DBMS-skiktet stöds konfigurationer som använder sig av mekanismerna för inbyggd DBMS-replikering, som Always on, Oracle data Guard, DB2 HADR, SAP ASE Always on eller HANA System Replication. Det är obligatoriskt att replikeringsuppsättningen i sådana fall är asynkron, i stället för synkrona som i vanliga scenarier med hög tillgänglighet som distribueras i en enda Azure-region. Ett typiskt exempel på en katastrof återställnings konfiguration för ett DBMS som stöds beskrivs i artikeln [SAP HANA tillgänglighet i Azure-regioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions#combine-availability-within-one-region-and-across-regions). Den andra bilden i avsnittet beskriver ett scenario med HANA som exempel. Huvud databaserna som stöds för SAP-program kan bara distribueras i ett sådant scenario.
+För DBMS-skiktet stöds konfigurationer som använder sig av mekanismerna för inbyggd DBMS-replikering, som Always on, Oracle data Guard, DB2 HADR, SAP ASE Always on eller HANA System Replication. Det är obligatoriskt att replikeringsuppsättningen i sådana fall är asynkron, i stället för synkrona som i vanliga scenarier med hög tillgänglighet som distribueras i en enda Azure-region. Ett typiskt exempel på en katastrof återställnings konfiguration för ett DBMS som stöds beskrivs i artikeln [SAP HANA tillgänglighet i Azure-regioner](./sap-hana-availability-across-regions.md#combine-availability-within-one-region-and-across-regions). Den andra bilden i avsnittet beskriver ett scenario med HANA som exempel. Huvud databaserna som stöds för SAP-program kan bara distribueras i ett sådant scenario.
 
 Det finns stöd för att använda en mindre virtuell dator som mål instans i Disaster Recovery-regionen eftersom den virtuella datorn inte har den totala arbets belastnings trafiken. Då måste du tänka på följande:
 
@@ -245,22 +246,22 @@ Det finns stöd för att använda en mindre virtuell dator som mål instans i Di
 - Det kan vara problem med att ändra storlek på alla VM-familjer när de olika virtuella datorerna samlas in i en Azure-tillgänglighets uppsättning eller när storleks ändringen sker mellan M-seriens familj och Mv2-serien av virtuella datorer
 - PROCESSOR-och minnes förbrukning för databas instansen kan ta emot data strömmen med minimal fördröjning och tillräckligt med processor-och minnes resurser för att tillämpa dessa ändringar med minimal fördröjning på data  
 
-Mer information om begränsningar för olika VM-storlekar finns [här](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) 
+Mer information om begränsningar för olika VM-storlekar finns [här](../../linux/sizes.md) 
 
 En annan metod som stöds för att distribuera ett DR-mål är att ha en andra DBMS-instans installerad på en virtuell dator som kör en icke-produktions-DBMS-instans av en icke-produktions-SAP-instans. Detta kan vara lite mer utmanande eftersom du behöver ta reda på vad minne, processor resurser, nätverks bandbredd och lagrings bandbredd som krävs för de specifika mål instanser som ska fungera som huvud instans i DR-scenariot. Särskilt i HANA rekommenderar vi starkt att du konfigurerar instansen som fungerar som ett DR-mål på en delad värd så att data inte försätts i inläsnings mål instansen för DR.
 
 För scenarier med stora instanser av HANA kontrollerar du följande dokument:
 
-- [Enkel nod med DR med Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication)
-- [Enkel nod med DR (flera syften) med Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
-- [Enkel nod med DR (flera syften) med Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication)
-- [Hög tillgänglighet med HSR och DR med Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication)
-- [Skala ut med DR med hjälp av Storage Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication)
-- [Enkel nod med DR med HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr)
-- [Enkel nod HSR till DR (kostnads optimerad)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized)
-- [Hög tillgänglighet och haveri beredskap med HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr)
-- [Hög tillgänglighet och haveri beredskap med HSR (kostnads optimerad)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized)
-- [Skala ut med DR med hjälp av HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr)
+- [Enkel nod med DR med Storage Replication](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication)
+- [Enkel nod med DR (flera syften) med Storage Replication](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication)
+- [Enkel nod med DR (flera syften) med Storage Replication](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication)
+- [Hög tillgänglighet med HSR och DR med Storage Replication](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication)
+- [Skala ut med DR med hjälp av Storage Replication](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication)
+- [Enkel nod med DR med HSR](./hana-supported-scenario.md#single-node-with-dr-using-hsr)
+- [Enkel nod HSR till DR (kostnads optimerad)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized)
+- [Hög tillgänglighet och haveri beredskap med HSR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr)
+- [Hög tillgänglighet och haveri beredskap med HSR (kostnads optimerad)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized)
+- [Skala ut med DR med hjälp av HSR](./hana-supported-scenario.md#scale-out-with-dr-using-hsr)
 
 > [!NOTE]
 > Användningen av [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) har inte testats för DBMS-distributioner under SAP-arbetsbelastningar. Därför stöds det inte för DBMS-skiktet i SAP-system vid den här tidpunkten. Andra metoder för replikering av Microsoft och SAP som inte finns med i listan stöds inte. Att använda program vara från tredje part för att replikera DBMS-skiktet i SAP-system mellan olika Azure-regioner, behöver stödjas av leverantören av program varan och kommer inte att stödjas via Microsoft och SAP-support kanaler. 
@@ -268,7 +269,7 @@ För scenarier med stora instanser av HANA kontrollerar du följande dokument:
 ## <a name="non-dbms-layer"></a>Icke-DBMS-lager
 För SAP-Programskiktet och eventuella resurser eller lagrings platser som behövs utnyttjas de två huvud scenarierna av kunderna:
 
-- Haveri beredskaps målen i den andra Azure-regionen används inte för produktions-eller icke-produktions syfte. I det här scenariot, är de virtuella datorer som fungerar som haveri beredskaps mål inte att distribueras och avbildningen och ändringar av avbildningarna av produktions-SAP-program skiktet replikeras till Disaster Recovery-regionen. En funktion som kan utföra en sådan uppgift är [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-move-overview). Azure Site Recovery stöd för Azure-till-Azure-replikering som detta. 
+- Haveri beredskaps målen i den andra Azure-regionen används inte för produktions-eller icke-produktions syfte. I det här scenariot, är de virtuella datorer som fungerar som haveri beredskaps mål inte att distribueras och avbildningen och ändringar av avbildningarna av produktions-SAP-program skiktet replikeras till Disaster Recovery-regionen. En funktion som kan utföra en sådan uppgift är [Azure Site Recovery](../../../site-recovery/azure-to-azure-move-overview.md). Azure Site Recovery stöd för Azure-till-Azure-replikering som detta. 
 - Haveri beredskaps målen är virtuella datorer som faktiskt används av andra system än produktions system. Hela SAP-landskapet sprids över två olika Azure-regioner med produktions system vanligt vis i en region och andra datorer än produktions system i en annan region. I många kund distributioner har kunden ett icke-produktionssystem som motsvarar ett produktions system. Kunden har för hands versioner av produktions program instanser i program skiktet icke-produktions system. I händelse av en redundansväxling stängs icke-produktions instanserna, de virtuella datorernas virtuella datorer har flyttats till de virtuella datorerna som inte är produktion (när nya IP-adresser har tilldelats i DNS) och de förinstallerade produktions instanserna kommer att komma igång
 
 ### <a name="sap-central-services-clusters"></a>SAP Central Services-kluster
@@ -303,12 +304,9 @@ Scenarion som vi inte har testat och har därför ingen erfarenhet av listan som
  
 
 ## <a name="next-steps"></a>Nästa steg
-Läs nästa steg i [Azure Virtual Machines planera och implementera för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+Läs nästa steg i [Azure Virtual Machines planera och implementera för SAP NetWeaver](./planning-guide.md)
 
 
 
 
   
-
-
-

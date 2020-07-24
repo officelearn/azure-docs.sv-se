@@ -4,13 +4,14 @@ description: I den här artikeln beskrivs hur du identifierar registrerade data 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68736379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081210"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Identifiera data källor i Azure Data Catalog
 

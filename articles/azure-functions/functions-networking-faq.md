@@ -6,11 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3493cc76dfb05cca3c89114b279b99ab49bac2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75409536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081652"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Vanliga frågor om nätverk i Azure Functions
 
@@ -54,7 +55,7 @@ Du kan också utlösa en funktion från alla andra resurser i ett virtuellt nät
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Hur kan jag distribuera min Function-app i ett virtuellt nätverk?
 
-Att distribuera till en App Service-miljön är det enda sättet att skapa en Function-app som är helt inne i ett virtuellt nätverk. Om du vill ha mer information om hur du använder en intern belastningsutjämnare med en App Service-miljön börjar du med artikeln [skapa och använder en intern belastningsutjämnare med en app service-miljön](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Att distribuera till en App Service-miljön är det enda sättet att skapa en Function-app som är helt inne i ett virtuellt nätverk. Om du vill ha mer information om hur du använder en intern belastningsutjämnare med en App Service-miljön börjar du med artikeln [skapa och använder en intern belastningsutjämnare med en app service-miljön](../app-service/environment/create-ilb-ase.md).
 
 I scenarier där du behöver endast enkelriktad åtkomst till virtuella nätverks resurser eller mindre omfattande nätverks isolering, se [Översikt över funktioner i nätverket](functions-networking-options.md).
 

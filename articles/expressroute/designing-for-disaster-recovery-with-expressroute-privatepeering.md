@@ -7,17 +7,22 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081176"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Design för haveri beredskap med ExpressRoute privat peering
 
 ExpressRoute har utformats för att ge hög tillgänglighet för att tillhandahålla bärvåg för privat nätverks anslutning till Microsoft-resurser. Det finns med andra ord ingen enskild felpunkt i ExpressRoute-sökvägen i Microsoft-nätverket. Design överväganden för att maximera tillgängligheten för en ExpressRoute-krets finns i [utforma för hög tillgänglighet med ExpressRoute][HA].
 
 Men om du tar Murphy populärt Adage –*om något går fel, kommer det att*övervägas, i den här artikeln kan vi fokusera på lösningar som går utöver fel som kan åtgärdas med hjälp av en enda ExpressRoute-krets. I den här artikeln kan vi med andra ord titta på nätverks arkitektur för att skapa robusta Server dels nätverks anslutningar för haveri beredskap med geo-redundanta ExpressRoute-kretsar.
+
+>[!NOTE]
+>Begreppen som beskrivs i den här artikeln gäller även när en ExpressRoute-krets skapas under Virtual WAN eller utanför den.
+>
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Behov av redundant anslutnings lösning
 
@@ -109,7 +114,7 @@ I det första scenariot kan vi utforma haveri beredskap, så att all trafik mell
 
 Scenario 1 illustreras i följande diagram. I diagrammet indikerar gröna linjer sökvägar för trafikflöde mellan VNet1 och lokala nätverk. De blå linjerna indikerar vägar för trafikflöde mellan VNet2 och lokala nätverk. Heldragna linjer anger önskad sökväg i stabilt läge och de streckade linjerna indikerar trafik Sök vägen vid en ExpressRoute-krets som har ett stabilt tillstånds trafikflöde. 
 
-[![3,7]][7]
+[![7]][7]
 
 Du kan skapa scenariot med anslutnings vikt för att påverka virtuella nätverk för att föredra anslutning till den lokala peering-platsen ExpressRoute för den lokala nätverks bindnings trafiken. För att slutföra lösningen måste du se till att symmetriskt flöde för trafikflödet återställs. Du kan använda lokal inställning på iBGP-sessionen mellan BGP-routrarna (där ExpressRoute-kretsar avslutas på den lokala sidan) för att föredra en ExpressRoute-krets. Lösningen illustreras i följande diagram. 
 

@@ -5,51 +5,51 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: b564373780da5bba71bc46ddbac3dc69a0c94a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e78b5118a2525fbf10a3089712f75e44cb7deceb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080700"
 ---
-# <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
+# <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights gen1 Explorer
 
-I den här artikeln beskrivs de funktioner och alternativ som är allmänt tillgängliga för den Azure Time Series Insights [Explorer-webbappen](https://insights.timeseries.azure.com/). Time Series Insights Explorer visar de kraftfulla funktionerna för data visualisering som tillhandahålls av tjänsten och kan nås i din egen miljö.
+I den här artikeln beskrivs funktionerna och alternativen för Azure Time Series Insights gen1 [Explorer-webbappen](https://insights.timeseries.azure.com/). Azure Time Series Insights Explorer visar de kraftfulla funktionerna för data visualisering som tillhandahålls av tjänsten och kan nås i din egen miljö.
 
-Azure Time Series Insights är en fullständigt hanterad tjänst för analys, lagring och visualisering som gör det enkelt att utforska och analysera miljarder IoT-händelser samtidigt. Du får en global vy över dina data, vilket gör att du snabbt kan verifiera din IoT-lösning och undvika kostsamma drift stopp för verksamhets kritiska enheter. Du kan identifiera dolda trender, upptäcka avvikelser och utföra rotor Saks analyser i nära real tid. Time Series Insights Explorer är för närvarande en offentlig för hands version.
+Azure Time Series Insights är en fullständigt hanterad tjänst för analys, lagring och visualisering som gör det enkelt att utforska och analysera miljarder IoT-händelser samtidigt. Du får en global vy över dina data, vilket gör att du snabbt kan verifiera din IoT-lösning och undvika kostsamma drift stopp för verksamhets kritiska enheter. Du kan identifiera dolda trender, upptäcka avvikelser och utföra rotor Saks analyser i nära real tid. 
 
 > [!TIP]
 > En guidad rundtur i demonstrations miljön finns i snabb starten för [Azure Time Series Insights](time-series-quickstart.md).
 
 ## <a name="video"></a>Video
 
-### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>Lär dig mer om att köra frågor mot data med hjälp av Time Series Insights Explorer. </br>
+### <a name="learn-about-querying-data-by-using-the-azure-time-series-insights-explorer-br"></a>Lär dig mer om att köra frågor mot data med hjälp av Azure Time Series Insights Explorer. </br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->Spela upp föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Time Series Insights med hjälp av en Azure IoT Solution Accelerator."</a>
+>Spela upp föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Azure Time Series Insights med hjälp av en Azure IoT Solution Accelerator."</a>
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan använda Time Series Insights Explorer måste du:
+Innan du kan använda Azure Time Series Insights Explorer måste du:
 
-- Skapa en Time Series Insightss miljö. Mer information finns [i så här kommer du igång med Time Series Insights](./time-series-insights-get-started.md).
+- Skapa en Azure Time Series Insightss miljö. Mer information finns [i så här kommer du igång med Azure Time Series Insights](./time-series-insights-get-started.md).
 - [Ge åtkomst](time-series-insights-data-access.md) till ditt konto i-miljön.
 - Lägg till en händelse källa för [IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md) eller [Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) .
 
 ## <a name="explore-and-query-data"></a>Utforska och fråga efter data
 
-I minuter när du ansluter din händelse källa till din Time Series Insights-miljö kan du utforska och fråga dina tids serie data.
+I minuter när du ansluter din händelse källa till din Azure Time Series Insights-miljö kan du utforska och fråga dina tids serie data.
 
-1. Starta genom att öppna [Time Series Insights Explorer](https://insights.timeseries.azure.com/) i webbläsaren. Välj en miljö på vänster sida i fönstret. Alla miljöer som du har åtkomst till visas i alfabetisk ordning.
+1. Starta genom att öppna [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com/) i webbläsaren. Välj en miljö på vänster sida i fönstret. Alla miljöer som du har åtkomst till visas i alfabetisk ordning.
 
 1. När du har valt en miljö använder du antingen **från** och **till** konfigurationer överst eller väljer och drar över det tidsintervall som du vill använda. Välj förstorings glaset i det övre högra hörnet eller högerklicka på det valda TimeSpan och välj **Sök**.
 
@@ -57,7 +57,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
 1. Azure Cloud-ikonen tar dig till din miljö i Azure Portal.
 
-   [![Val av Time Series Insightss miljö](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
+   [![Val av Azure Time Series Insightss miljö](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
 1. Sedan visas ett diagram som visar antalet händelser under det valda tidsintervallet. Här har du ett antal kontroller:
 
@@ -71,7 +71,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
       - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operands typer som stöds är:
 
-         |Åtgärd  |Typer som stöds  |Anteckningar  |
+         |Åtgärd  |Typer som stöds  |Kommentarer  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **datetime**, **TimeSpan**       |         |
          |**=**, **!=**,**<>**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |         |
@@ -80,7 +80,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
       - **Exempelfrågor**
 
-         [![Exempel på GA-frågor](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
+         [![Exempel på gen1-frågor](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
 1. Du kan använda Slider-verktyget för **intervall storlek** för att zooma in och ut ur intervall under samma TimeSpan. Skjutreglaget ger en mer exakt kontroll av förflyttningen mellan stora sektorer, som visar jämna trender nedåt till sektorer som är små som i millisekunder, vilket gör att du kan visa och analysera detaljerade, högupplösta klipp av dina data. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val för att balansera upplösning, frågans hastighet och granularitet.
 
@@ -108,23 +108,23 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
 1. Använd **termisk karta** för att snabbt hitta unika eller avvikande data serier i en specifik fråga. Endast en sökterm kan visualiseras som en termisk karta.
 
-    [![GA Explorer termisk karta-diagram](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![Gen1 Explorer termisk karta diagram](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. När du utforskar händelser genom att markera eller högerklicka på panelen **händelser** blir panelen händelser tillgänglig. Här kan du granska alla dina obehandlade händelser och exportera dina händelser som JSON-eller CSV-filer. Time Series Insights lagrar alla rå data.
+1. När du utforskar händelser genom att markera eller högerklicka på panelen **händelser** blir panelen händelser tillgänglig. Här kan du granska alla dina obehandlade händelser och exportera dina händelser som JSON-eller CSV-filer. Azure Time Series Insights lagrar alla rå data.
 
     [![Händelser](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
 1. Välj fliken **statistik** när du har utforskat händelser för att exponera mönster och kolumn statistik.
 
-    - **Mönster**: den här funktionen utvärderar de mest statistiskt signifikanta mönstren i ett valt data område. Du behöver inte titta på tusentals händelser för att förstå vilka mönster som kräver mest tid och energi. Med Time Series Insights kan du gå direkt till dessa statistiskt betydande mönster för att fortsätta utföra en analys. Den här funktionen är också användbar för obduktions undersökningar i historiska data.
+    - **Mönster**: den här funktionen utvärderar de mest statistiskt signifikanta mönstren i ett valt data område. Du behöver inte titta på tusentals händelser för att förstå vilka mönster som kräver mest tid och energi. Med Azure Time Series Insights kan du gå direkt till dessa statistiskt betydande mönster för att fortsätta utföra en analys. Den här funktionen är också användbar för obduktions undersökningar i historiska data.
     - **Kolumn statistik**: kolumn statistik innehåller diagram och tabeller som avbryter data från varje kolumn i den valda data serien under det valda tidsintervallet.
 
       [![STATISTIK kolumn diagram och alternativ](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-Nu har du lärt dig om viktiga funktioner, konfigurations inställningar och visnings alternativ som är tillgängliga i Time Series Insights Explorer-webbappen.
+Nu har du lärt dig om viktiga funktioner, konfigurations inställningar och visnings alternativ som är tillgängliga i Azure Time Series Insights Explorer-webbappen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [diagnostiserar och löser problem](time-series-insights-diagnose-and-solve-problems.md) i din Time Series Insightss miljö.
+- Lär dig hur du [diagnostiserar och löser problem](time-series-insights-diagnose-and-solve-problems.md) i din Azure Time Series Insightss miljö.
 
 - Ta den guidade guidade visningen av [Azure Time Series Insights](time-series-quickstart.md) .

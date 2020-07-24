@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079561"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktioner i Azure Metrics Explorer
 
@@ -20,7 +21,7 @@ ms.locfileid: "82980906"
 
 ## <a name="metrics-in-azure"></a>Mått i Azure
 
-[Mått i Azure Monitor](data-platform-metrics.md) är serien med uppmätta värden och antal som samlas in och lagras över tid. Det finns standard-(eller "Platform") mått och anpassade mått. Standard måtten tillhandahålls av själva Azure-plattformen. Standard måtten återspeglar hälso-och användnings statistik för dina Azure-resurser. Anpassade mått skickas till Azure av dina program med hjälp av [Application Insights API för anpassade händelser och mått](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Windows Azure-diagnostik (wad)-tillägg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)eller [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Mått i Azure Monitor](data-platform-metrics.md) är serien med uppmätta värden och antal som samlas in och lagras över tid. Det finns standard-(eller "Platform") mått och anpassade mått. Standard måtten tillhandahålls av själva Azure-plattformen. Standard måtten återspeglar hälso-och användnings statistik för dina Azure-resurser. Anpassade mått skickas till Azure av dina program med hjälp av [Application Insights API för anpassade händelser och mått](../app/api-custom-events-metrics.md), [Windows Azure-diagnostik (wad)-tillägg](./diagnostics-extension-overview.md)eller [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Skapa vyer med flera mått och diagram
 
@@ -175,5 +176,4 @@ Kolla in den här [artikeln](alerts-metric.md) om du vill veta mer om hur du kon
 
 ## <a name="next-steps"></a>Nästa steg
 
-  Läs [skapa anpassade KPI-instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) för att lära dig mer om metod tips för att skapa åtgärds bara instrument paneler med mått.
-
+  Läs [skapa anpassade KPI-instrumentpaneler](../learn/tutorial-app-dashboards.md) för att lära dig mer om metod tips för att skapa åtgärds bara instrument paneler med mått.

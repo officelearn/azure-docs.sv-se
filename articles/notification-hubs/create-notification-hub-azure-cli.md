@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208271"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080955"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Snabb start: skapa en Azure Notification Hub med Azure CLI
 
@@ -32,7 +32,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --version` för att hitta den version och beroende bibliotek som är installerade. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Förbered din miljö
+## <a name="prepare-your-environment"></a>Förbereda din miljö
 
 1. Logga in.
 
@@ -95,7 +95,7 @@ Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --v
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   Om `--name` du har angett `az notification-hub namespace create` kommandot inte är tillgängligt eller inte uppfyller [namngivnings reglerna och begränsningarna för Azure-resurser](/azure/azure-resource-manager/management/resource-name-rules), svarar Azure CLI med följande konsol utdata:
+   Om `--name` du har angett `az notification-hub namespace create` kommandot inte är tillgängligt eller inte uppfyller [namngivnings reglerna och begränsningarna för Azure-resurser](../azure-resource-manager/management/resource-name-rules.md), svarar Azure CLI med följande konsol utdata:
 
    ```output
    #the name is not available
@@ -148,7 +148,7 @@ Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --v
 
 1. Lista åtkomst principer för en Notification Hub.
 
-   Azure Notification Hubs använder [signaturen för delad åtkomst](/azure/notification-hubs/notification-hubs-push-notification-security) med hjälp av åtkomst principer.  Två principer skapas automatiskt när du skapar en Notification Hub.  Anslutnings strängarna från dessa principer krävs för att konfigurera push-meddelanden.  Kommandot [AZ Notification – Hub Authorization-Rule List](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) innehåller en lista över princip namn och deras respektive resurs grupper.
+   Azure Notification Hubs använder [signaturen för delad åtkomst](./notification-hubs-push-notification-security.md) med hjälp av åtkomst principer.  Två principer skapas automatiskt när du skapar en Notification Hub.  Anslutnings strängarna från dessa principer krävs för att konfigurera push-meddelanden.  Kommandot [AZ Notification – Hub Authorization-Rule List](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) innehåller en lista över princip namn och deras respektive resurs grupper.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -167,7 +167,7 @@ Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --v
 
 3. Lista nycklar och anslutnings strängar för en åtkomst princip för Notification Hub
 
-   Det finns två uppsättningar nycklar och anslutnings strängar för varje åtkomst princip.  Du behöver dem senare för att [Konfigurera en Notification Hub](/azure/notification-hubs/configure-notification-hub-portal-pns-settings).  Om du vill visa en lista över nycklar och anslutnings strängar för en åtkomst princip för Notification Hub använder du kommandot [AZ Notification-Hub Authorization-Rule List-Keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) .
+   Det finns två uppsättningar nycklar och anslutnings strängar för varje åtkomst princip.  Du behöver dem senare för att [Konfigurera en Notification Hub](./configure-notification-hub-portal-pns-settings.md).  Om du vill visa en lista över nycklar och anslutnings strängar för en åtkomst princip för Notification Hub använder du kommandot [AZ Notification-Hub Authorization-Rule List-Keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) .
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature

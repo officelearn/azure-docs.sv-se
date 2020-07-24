@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078931"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
@@ -92,7 +93,7 @@ access_token = token_response.get('access_token')
 Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub.
 
 
-**Sidfot** | **Beskrivning och exempel**
+**Huvud** | **Beskrivning och exempel**
 --- | ---
 Content-Type | Formatet för begäran (Content-Type: Application/ <format> ). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
 Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
@@ -130,25 +131,25 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
 - /**SensorModel**: SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
 - /**Sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
 
-  **DeviceModel** |  |
+  DeviceModel | Beskrivning |
   --- | ---
   Typ (nod, Gateway)  | Typ av enhet-nod eller gateway |
   Tillverkare  | Tillverkarens namn |
   ProductCode  | Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800. |
   Portar  | Port namn och-typ, som är digital eller analog.  |
-  Name  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
+  Namn  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
   Beskrivning  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper från tillverkaren. |
-  **Enhet** |  |
+  **Enhet** | **Beskrivning** |
   DeviceModelId  |ID för associerad enhets modell. |
   HardwareId   |Unikt ID för enheten, till exempel en MAC-adress.  |
   ReportingInterval |Rapport intervall i sekunder. |
-  Location    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
+  Plats    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
   ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om en nod till exempel är ansluten till en gateway har noden parentDeviceID som gateway. |
-  Name  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
+  Namn  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
   Beskrivning  | Ange en meningsfull beskrivning.  |
   Egenskaper  |Ytterligare egenskaper från tillverkaren.  |
-  **SensorModel** |  |
+  **SensorModel** | **Beskrivning** |
   Typ (analog, digital)  |Nämna analog eller digital sensor.|
   Tillverkare  | Tillverkarens namn. |
   ProductCode  | Produkt kod eller modell namn eller nummer. Till exempel RS-CO2-N01.  |
@@ -159,16 +160,16 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   SensorMeasures > AggregationType  | Antingen ingen, genomsnitt, högsta, lägsta eller StandardDeviation.
   SensorMeasures > djup  | Sensorns djup i centimeter. Till exempel mätningen av fukt 10 cm under marken.
   Beskrivning av SensorMeasures->  | Ge en meningsfull beskrivning av måttet.
-  Name  | Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
+  Namn  | Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
   Beskrivning  | Ange en meningsfull beskrivning av modellen.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
-  **Mäta**  |  |
+  **Mäta**  | **Beskrivning** |
   HardwareId  | Unikt ID för sensorn som anges av tillverkaren.
   SensorModelId  | ID för associerad sensor modell.
-  Location  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
+  Plats  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
   Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som definieras i enhets modellen.
   DeviceId  | ID för den enhet som sensorn är ansluten till.
-  Name  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
+  Namn  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
   Beskrivning  | Ange en meningsfull beskrivning.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
 

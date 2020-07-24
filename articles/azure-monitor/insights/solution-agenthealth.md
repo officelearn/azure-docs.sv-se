@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 7093e20473b799a3f05ddf30803721636732241e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7fcde86c9bbf017ac3fca6025a025104b0d864
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663271"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081584"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsa lösning i Azure Monitor
 Agenthälsa lösning i Azure hjälper dig att förstå, för alla agenter som rapporterar direkt till arbets ytan Log Analytics i Azure Monitor eller en System Center Operations Manager hanterings grupp som är ansluten till Azure Monitor, som inte svarar och skickar drift data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
-## <a name="prerequisites"></a>Krav
-Innan du distribuerar den här lösningen ska du kontrol lera att du för närvarande har stöd för [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) som rapporteras till Log Analytics arbets yta eller rapportering till en [Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md) som är integrerad med arbets ytan
+## <a name="prerequisites"></a>Förutsättningar
+Innan du distribuerar den här lösningen ska du kontrol lera att du för närvarande har stöd för [Windows-agenter](../platform/agent-windows.md) som rapporteras till Log Analytics arbets yta eller rapportering till en [Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md) som är integrerad med arbets ytan
 
 ## <a name="solution-components"></a>Lösningskomponenter
 Lösningen består av följande resurser som läggs till i din arbetsyta och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.
@@ -39,8 +40,8 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| Windows-agenter | Ja | Pulsslagshändelser som samlas in direkt från Windows-agenter.|
-| System Center Operations Manager-hanteringsgrupp | Ja | Pulsslags händelser samlas in från agenter som rapporterar till hanterings gruppen var 60 sekund och vidarebefordras sedan till Azure Monitor. En direkt anslutning från Operations Manager agenter till Azure Monitor krävs inte. Pulsslags händelse data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan.|
+| Windows-agenter | Yes | Pulsslagshändelser som samlas in direkt från Windows-agenter.|
+| System Center Operations Manager-hanteringsgrupp | Yes | Pulsslags händelser samlas in från agenter som rapporterar till hanterings gruppen var 60 sekund och vidarebefordras sedan till Azure Monitor. En direkt anslutning från Operations Manager agenter till Azure Monitor krävs inte. Pulsslags händelse data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan.|
 
 ## <a name="using-the-solution"></a>Använda lösningen
 När du lägger till lösningen i Log Analytics-arbetsytan läggs panelen **agenthälsa** till på instrument panelen. Den här panelen visar det totala antalet agenter och antalet agenter som inte har svarat under de senaste 24 timmarna.<br><br> ![Panelen för Agenthälsa på instrumentpanelen](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)

@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078164"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -77,27 +77,27 @@ För logi Kap par som du skapar och kör i en ISE betalar du ett [fast pris](htt
 
 ## <a name="connectors"></a>Anslutningar
 
-Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och system i molnet i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions)eller både och. Anslutningarna klassificeras som antingen standard eller Enterprise. En översikt över dessa anslutningar finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md). Om inga färdiga kopplingar är tillgängliga för de REST-API: er som du vill använda i dina Logi Kap par, kan du skapa [anpassade anslutningar](https://docs.microsoft.com/connectors/custom-connectors), som bara omsluter runt dessa REST-API: er. Anpassade anslutningar faktureras som standard anslutningar. I följande avsnitt finns mer information om hur faktureringen för utlösare och åtgärder fungerar.
+Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och system i molnet i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions)eller både och. Anslutningarna klassificeras som antingen standard eller Enterprise. En översikt över dessa anslutningar finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md). Om inga färdiga kopplingar är tillgängliga för de REST-API: er som du vill använda i dina Logi Kap par, kan du skapa [anpassade anslutningar](/connectors/custom-connectors), som bara omsluter runt dessa REST-API: er. Anpassade anslutningar faktureras som standard anslutningar. I följande avsnitt finns mer information om hur faktureringen för utlösare och åtgärder fungerar.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Utlösare
 
-Utlösare är särskilda åtgärder som skapar en Logic App-instans när en specifik händelse inträffar. Utlösare fungerar på olika sätt, vilket påverkar hur Logic app mäts. Här är de olika typerna av utlösare som finns i Azure Logic Apps:
+En utlösare är alltid det första steget i ett Logic app-arbetsflöde och är en särskild åtgärd som skapar och kör en Logic App-instans när särskilda villkor uppfylls eller en viss händelse inträffar. Utlösare fungerar på olika sätt, vilket påverkar hur Logic app mäts. Här är de olika typerna av utlösare som finns i Azure Logic Apps:
 
-* **Avsöknings utlösare**: den här utlösaren kontrollerar kontinuerligt en slut punkt för meddelanden som uppfyller kriterierna för att skapa en Logic App-instans och starta arbets flödet. Även om ingen Logic App-instans skapas, Logic Apps mäta varje avsöknings förfrågan som en körning. Ange avsöknings intervallet genom att ställa in utlösaren via Logic App Designer.
+* **Upprepnings utlösare**: du kan använda den här generiska utlösaren, som inte är speciell för någon tjänst eller ett system, för att starta ett Logic app-arbetsflöde och skapa en Logic App-instans som körs baserat på upprepnings intervallet som du har skapat i utlösaren. Du kan till exempel ställa in en upprepnings utlösare som körs var tredje dag eller ett mer komplext schema.
+
+* **Avsöknings utlösare**: du kan använda den här mer specialiserade återkommande utlösaren, som vanligt vis är kopplad till den hanterade anslutningen för en specifik tjänst eller ett system, för att söka efter händelser eller meddelanden som uppfyller kriterierna för att skapa och köra Logi Kap par-instansen baserat på upprepnings intervallet som du har konfigurerat i utlösaren. Även om ingen Logic App-instans skapas, till exempel när utlösare hoppas över, Logic Apps service mätarna för varje avsöknings förfrågan som en körning. Ange avsöknings intervallet genom att ställa in utlösaren via Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook-utlösare**: den här utlösaren väntar på att en klient skickar en begäran till en angiven slut punkt. Varje begäran som skickas till webhook-slutpunkten räknas som en åtgärds körning. Exempelvis är utlösaren för begäran och HTTP-webhooken både webhook-utlösare.
-
-* **Upprepnings utlösare**: den här utlösaren skapar en Logic App-instans baserat på upprepnings intervallet som du ställer in i utlösaren. Du kan till exempel ställa in en upprepnings utlösare som körs var tredje dag eller ett mer komplext schema.
+* **Webhook-utlösare**: i stället för att använda en avsöknings utlösare kan du använda en webhook-utlösare för att vänta tills klienten skickar en begäran till din Logic app på en viss slut punkts-URL. Varje begäran som skickas till webhook-slutpunkten räknas som en åtgärds körning. Till exempel är begäran och HTTP webhook-utlösaren båda allmänna webhook-utlösare. Vissa anslutningar för tjänster eller system har också webhook-utlösare.
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>Åtgärder
 
-Azure Logic Apps mätare "inbyggda" åtgärder, till exempel HTTP, som inbyggda åtgärder. Inbyggda åtgärder omfattar till exempel HTTP-anrop, samtal från Azure Functions eller API Management och kontroll av flödes steg som villkor, slingor och växel uttryck. Varje åtgärd har sin egen åtgärds typ. Till exempel har åtgärder som anropar [kopplingar](https://docs.microsoft.com/connectors) typen "ApiConnection". Dessa anslutningar klassificeras som standard-eller företags anslutningar, som mäts utifrån deras respektive [priser](https://azure.microsoft.com/pricing/details/logic-apps). Företags anslutningar i för *hands versionen* debiteras som standard anslutningar.
+Azure Logic Apps mätare "inbyggda" åtgärder, till exempel HTTP, som inbyggda åtgärder. Inbyggda åtgärder omfattar till exempel HTTP-anrop, samtal från Azure Functions eller API Management och kontroll av flödes steg som villkor, slingor och växel uttryck. Varje åtgärd har sin egen åtgärds typ. Till exempel har åtgärder som anropar [kopplingar](/connectors) typen "ApiConnection". Dessa anslutningar klassificeras som standard-eller företags anslutningar, som mäts utifrån deras respektive [priser](https://azure.microsoft.com/pricing/details/logic-apps). Företags anslutningar i för *hands versionen* debiteras som standard anslutningar.
 
 Azure Logic Apps mäta alla lyckade och misslyckade åtgärder som körningar. Logic Apps mäter dock inte följande åtgärder:
 
@@ -122,7 +122,7 @@ Om du har en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtua
 
 Om du vill välja mellan ett kostnads fritt, Basic-eller standard integrations konto granskar du följande användnings Falls beskrivningar:
 
-* **Kostnads fri**: när du vill testa exempel scenarier, inte produktions scenarier. Den här nivån är endast tillgänglig för offentliga regioner i Azure, till exempel västra USA eller Sydostasien, men inte för [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) eller [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Kostnads fri**: när du vill testa exempel scenarier, inte produktions scenarier. Den här nivån är endast tillgänglig för offentliga regioner i Azure, till exempel västra USA eller Sydostasien, men inte för [Azure Kina 21Vianet](/azure/china/overview-operations) eller [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Basic**: när du vill att endast meddelande hantering eller ska fungera som en liten affärs partner som har en handels partner relation med en större affär senhet
 

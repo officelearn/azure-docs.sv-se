@@ -1,5 +1,5 @@
 ---
-title: Uppgradera från grundläggande offentlig till standard-Azure Load Balancer
+title: Uppgradera från Basic Internal till standard Public-Azure Load Balancer
 description: Den här artikeln visar hur du uppgraderar interna Azure Basic-Load Balancer till offentliga standard Load Balancer
 services: load-balancer
 author: irenehua
@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 6b4d2a5cf441eb702bc33fc862fec9cc28a998b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078750"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uppgradera intern Azure-Load Balancer-utgående anslutning krävs
 [Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/skus#skus). Eftersom interna standard Load Balancer inte tillhandahåller utgående anslutning tillhandahåller vi en lösning för att skapa en offentlig standard Load Balancer i stället.

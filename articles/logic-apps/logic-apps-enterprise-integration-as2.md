@@ -7,18 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/27/2020
-ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115507"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078630"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Utbyta AS2-meddelanden för B2B-företagsintegrering i Azure Logic Apps med Enterprise-integrationspaket
 
 > [!IMPORTANT]
-> Den ursprungliga AS2-anslutningen är inaktuell, så se till att du använder **AS2-anslutningsprogrammet (v2)** i stället. Den här versionen innehåller samma funktioner som den ursprungliga versionen, är inbyggd i Logic Apps Runtime och ger betydande prestanda förbättringar vad gäller data flöde och meddelande storlek. Dessutom kräver inte den inbyggda v2-anslutaren att du skapar en anslutning till ditt integrations konto. I stället bör du, enligt beskrivningen i kraven, se till att du länkar ditt integrations konto till den Logic-app där du planerar att använda anslutnings tjänsten.
+> Den ursprungliga AS2-anslutningen är inaktuell, så om du inte behöver spåra funktioner kan du använda **AS2-anslutningsprogrammet (v2)** i stället. Förutom spårning tillhandahåller v2-anslutaren samma funktioner som den ursprungliga versionen, är inbyggd i Logic Apps Runtime och har betydande prestanda förbättringar i meddelande storlek, data flöde och svars tid. V2-anslutaren kräver inte heller att du skapar en anslutning till ditt integrations konto. I stället bör du, enligt beskrivningen i kraven, se till att du länkar ditt integrations konto till den Logic-app där du planerar att använda anslutnings tjänsten.
 
 Om du vill arbeta med AS2-meddelanden i Azure Logic Apps kan du använda AS2-anslutningsappen, som innehåller utlösare och åtgärder för att hantera AS2-kommunikation. Om du till exempel vill skapa säkerhet och tillförlitlighet när du skickar meddelanden kan du använda följande åtgärder:
 
@@ -88,7 +88,7 @@ Den här artikeln visar hur du lägger till AS2-kodning och avkodnings åtgärde
    | **AS2 till** | Identifieraren för meddelande mottagaren som anges i ditt AS2-avtal |
    |||
 
-   Till exempel:
+   Exempel:
 
    ![Egenskaper för meddelande kodning](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
@@ -119,7 +119,7 @@ Om du vill prova att distribuera en fullständigt fungerande Logic app och exemp
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/as2/). 
+Mer teknisk information om den här anslutningen, till exempel åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](/connectors/as2/). 
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version de [B2B-meddelande gränserna för ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

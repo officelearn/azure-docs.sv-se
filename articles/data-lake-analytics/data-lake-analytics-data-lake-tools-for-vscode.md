@@ -3,18 +3,16 @@ title: Använda Azure Data Lake Tools för Visual Studio Code
 description: Lär dig hur du använder Azure Data Lake verktyg för Visual Studio Code för att skapa, testa och köra U-SQL-skript.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: Jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: 53e0628256ad37d87c260c762c2c5a5c824666b0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117669"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126490"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake Tools för Visual Studio Code
 
@@ -26,7 +24,7 @@ I den här artikeln lär du dig hur du kan använda Azure Data Lake verktyg för
 
 Azure Data Lake verktyg för VS Code stöder Windows, Linux och macOS.U-SQL lokal körning och lokal fel sökning fungerar bara i Windows.
 
-- [Visuell Studio-kod](https://www.visualstudio.com/products/code-vs.aspx)
+- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
 För MacOS och Linux:
 
@@ -367,7 +365,7 @@ Ett annat sätt att ladda upp filer till lagringen är via snabb menyn på filen
 
 Du kan [övervaka överförings statusen](#check-storage-tasks-status).
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 
 Du kan hämta en fil med hjälp av kommandot **ADL: Download File** eller **ADL: Download File (avancerat)**.
 

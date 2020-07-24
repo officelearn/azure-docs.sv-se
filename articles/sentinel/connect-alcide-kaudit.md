@@ -14,21 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 121c9258353505b6147aa059d327bc711e9fede4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf8da1d88529a823ff4399fb955c8a5e0abbd20e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038247"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Anslut din Alcide-kAudit till Azure Sentinel
+
+> [!IMPORTANT]
+> Alcide kAudit data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) hjälper dig att identifiera avvikande Kubernetes beteenden och fokusera på Kubernetes överträdelser och incidenter samtidigt som du minskar identifierings tiden. Den här artikeln förklarar hur du ansluter din Alcide kAudit-lösning till Azure Sentinel. Med Alcide kAudit data Connector kan du enkelt ta med dina kAudit-loggdata till Azure Sentinel, så att du kan visa den i arbets böcker, använda den för att skapa anpassade aviseringar och införliva den för att förbättra undersökningen. Integreringen mellan Alcide kAudit och Azure Sentinel använder REST API.
 
 > [!NOTE]
 > Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha läs-och Skriv behörighet på Azure Sentinel-arbetsytan.
 

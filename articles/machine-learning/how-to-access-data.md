@@ -11,26 +11,26 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 194864d223d908cc2d8b1d7f14efe81e16bbd058
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031515"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du **ansluter till Azure Storage-tjänster via Azure Machine Learning data lager**. Data lager lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. 
 
-**För lagrings lösningar som inte stöds**och för att spara utgående kostnader under ml-experiment, [flytta dina data](#move) till en Azure Storage-lösning som stöds.  Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). 
+**För lagrings lösningar som inte stöds**och för att spara utgångs kostnad under ml experiment, [flytta dina data](#move) till en Azure Storage-lösning som stöds.  Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). 
 
 Information om var data lagret får plats i Azure Machine Learning det totala arbets flödet för data åtkomst finns i artikeln [säker åtkomst till data](concept-data.md#data-workflow) .
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Ett Azure Storage-konto med en [Azure Blob-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) eller [Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -92,8 +92,9 @@ När data lagret har skapats utförs den här verifieringen bara för metoder so
 ### <a name="python-sdk"></a>Python SDK
 
 Alla register metoder finns i- [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klassen och har formuläret `register_azure_*` .
+
 > [!IMPORTANT]
-> Om du planerar att skapa ett data lager för lagrings konton som finns i ett virtuellt nätverk, se avsnittet åtkomst data i ett virtuellt nätverk.
+> Om du planerar att skapa ett data lager för lagrings konton som finns i ett virtuellt nätverk, se avsnittet [åtkomst data i ett virtuellt nätverk](#access-data-in-a-virtual-network) .
 
 Du hittar den information som du behöver för att fylla i `register_azure_*()` metoden på [Azure Portal](https://portal.azure.com).
 
@@ -185,7 +186,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Skapa ett nytt data lager med några steg i Azure Machine Learning Studio:
 
 > [!IMPORTANT]
-> Om ditt data lagrings konto finns i ett virtuellt nätverk krävs ytterligare konfigurations steg för att se till att Studio har åtkomst till dina data. Se [nätverks isolering & sekretess] (How-to-Enable-Virtual-Network. MD # Machine-Learning-Studio) för att se till att lämpliga konfigurations steg tillämpas. 
+> Om ditt data lagrings konto finns i ett virtuellt nätverk krävs ytterligare konfigurations steg för att se till att Studio har åtkomst till dina data. Se [nätverks isolering & sekretess](how-to-enable-virtual-network.md#machine-learning-studio) för att se till att lämpliga konfigurations steg tillämpas. 
 
 1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Välj **data lager** i det vänstra fönstret under **Hantera**.

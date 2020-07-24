@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
+ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/06/2020
-ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/16/2020
+ms.openlocfilehash: a6a3e9a7a914711f6b7c923ac2249ebf3285c877
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031039"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Felsök och felsöka ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ På grund av den distribuerade typen av ParallelRunStep-jobb finns det loggar fr
 
 - `~/logs/overview.txt`: Den här filen innehåller en information på hög nivå om antalet mini-batchar (även kallade aktiviteter) som skapats hittills och antalet mini-batchar som bearbetats hittills. I det här slutet visas resultatet av jobbet. Om jobbet misslyckades visas fel meddelandet och var du ska starta fel sökningen.
 
-- `~/logs/sys/master.txt`: Den här filen ger huvudnoden (även kallat Orchestrator) vyn för jobbet som körs. Innehåller skapande av aktiviteter, förlopps övervakning, körnings resultat.
+- `~/logs/sys/master.txt`: Den här filen ger huvudnoden (kallas även Orchestrator) vyn för jobbet som körs. Innehåller skapande av aktiviteter, förlopps övervakning, körnings resultat.
 
 Loggar som genereras från ett Entry-skript med hjälp av EntryScript-och Print-instruktioner finns i följande filer:
 
@@ -61,11 +61,11 @@ När du behöver en fullständig förståelse för hur varje nod kör Poäng skr
 Du kan också hitta information om resursanvändningen för processerna för varje arbets tagare. Den här informationen är i CSV-format och finns på `~/logs/sys/perf/overview.csv` . Information om varje process finns tillgänglig under `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Hur gör jag för att logg från mitt användar skript från en fjärran sluten kontext?
-Du kan hämta en loggare från EntryScript så som visas i nedanstående exempel kod för att visa loggarna i **loggar/User** -mappen i portalen.
+ParallelRunStep kan köra flera processer på en nod baserat på process_count_per_node. För att kunna organisera loggar från varje process på noden och kombinera print-och log-uttryck, rekommenderar vi att du använder ParallelRunStep-loggning som visas nedan. Du får en loggare från EntryScript och gör loggarna visas i **loggarna/mappen användare** i portalen.
 
 **Ett exempel på ett post skript med hjälp av loggarna:**
 ```python
-from entry_script import EntryScript
+from azureml_user.parallel_run import EntryScript
 
 def init():
     """ Initialize the node."""
@@ -87,7 +87,9 @@ def run(mini_batch):
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Hur kan jag skicka in en indata, till exempel en eller flera filer som innehåller en uppslags tabell, till alla mina anställda?
 
-Skapa en [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) som innehåller indata från sidan och registrera den med din arbets yta. Skicka den till- `side_input` parametern för din `ParallelRunStep` . Dessutom kan du lägga till dess sökväg i `arguments` avsnittet för att enkelt komma åt den monterade sökvägen:
+Användaren kan skicka referens data till skript med hjälp av side_inputs parametern ParalleRunStep. Alla data uppsättningar som tillhandahålls som side_inputs kommer att monteras på varje arbetsnod. Användaren kan hämta platsen för montering genom att skicka argumentet.
+
+Skapa en [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) som innehåller referens data och registrera den med din arbets yta. Skicka den till- `side_inputs` parametern för din `ParallelRunStep` . Dessutom kan du lägga till dess sökväg i `arguments` avsnittet för att enkelt få åtkomst till dess monterade sökväg:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")

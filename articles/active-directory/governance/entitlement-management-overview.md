@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338191"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034410"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -38,7 +38,7 @@ Företags organisationer är ofta inriktade på utmaningar när de hanterar pers
 - Användare kanske inte vet vilken åtkomst de ska ha, och även om de gör det kan de ha svårt att hitta rätt personer för att godkänna deras åtkomst
 - När användarna hittar och får åtkomst till en resurs, kan de vänta på att få åtkomst längre än vad som krävs i affärs syfte
 
-Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Till exempel:
+Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Exempel:
 
 - Ingen person vet att alla enskilda personer i andra organisations kataloger kan bjuda in dem
 - Även om de kunde bjuda in dessa användare kan ingen i organisationen komma ihåg att hantera alla användares åtkomst konsekvent
@@ -71,7 +71,7 @@ Hantering av rättigheter ger Azure AD konceptet för ett *Access-paket*. Ett Ac
 - Tilldelning till Azure AD Enterprise-program, inklusive SaaS-program och anpassade integrerade program som stöder Federation/enkel inloggning och/eller etablering
 - Medlemskap i SharePoint Online-webbplatser
 
-Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Microsoft 365 grupper.  Till exempel:
+Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Microsoft 365 grupper.  Exempel:
 
 - Du kan ge användare licenser för Microsoft 365 med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och konfigurera [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för gruppen
 - Du kan ge användarna åtkomst till att hantera Azure-resurser med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och skapa en [Azure-roll tilldelning](../../role-based-access-control/role-assignments-portal.md) för gruppen
@@ -159,7 +159,7 @@ Här följer några exempel på licens scenarier som hjälper dig att fastställ
 
 | Scenario | Beräkning | Antal licenser |
 | --- | --- | --- |
-| En global administratör på Sparbanken skapar inledande kataloger och delegerar administrativa uppgifter till 6 andra användare. En av principerna anger att **alla anställda** (2 000 anställda) kan begära en speciell uppsättning åtkomst paket. 150 anställda begär åtkomst paketen. | 2 000 anställda som **kan** begära åtkomst paket | 2 000 |
+| En global administratör på Sparbanken skapar inledande kataloger och delegerar administrativa uppgifter till 6 andra användare. En av principerna anger att **alla anställda** (2 000 anställda) kan begära en speciell uppsättning åtkomst paket. 150 anställda begär åtkomst paketen. | 2 000 anställda som **kan** begära åtkomst paket | 2 000 |
 | En global administratör på Sparbanken skapar inledande kataloger och delegerar administrativa uppgifter till 6 andra användare. En av principerna anger att **alla anställda** (2 000 anställda) kan begära en speciell uppsättning åtkomst paket. En annan princip anger att vissa användare från **användare från partner contoso** (gäster) kan begära samma åtkomst paket som omfattas av godkännande. Contoso har 30 000 användare. 150 anställda begär åtkomst paketen och 10 500-användare från contoso begär åtkomst. | 2 000 anställda + 500 gäst användare från Contoso som överstiger 1:5-förhållandet (10 500-(2 000 * 5)) | 2 500 |
 
 ## <a name="next-steps"></a>Nästa steg

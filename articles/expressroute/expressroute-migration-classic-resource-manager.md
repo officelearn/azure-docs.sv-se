@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 85b0fdd56b51a89cfbf88fac58aec4cb2f110142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7be7ce55e527d76abee0118a762c0ca666f9bdb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031702"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrera ExpressRoute-associerade virtuella nätverk från klassiskt läge till Resource Manager
 
@@ -22,16 +22,16 @@ Den här artikeln förklarar hur du migrerar ExpressRoute virtuella nätverk fr�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Kontrol lera att du har de senaste versionerna av Azure PowerShell-modulerna. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Information om hur du installerar PowerShell-modulen för service hantering (som behövs för den klassiska distributions modellen) finns i [installera modulen för Azure PowerShell Service Management](/powershell/azure/servicemanagement/install-azure-ps).
+* Kontrol lera att du har de senaste versionerna av Azure PowerShell-modulerna. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/). Information om hur du installerar PowerShell-modulen för service hantering (som behövs för den klassiska distributions modellen) finns i [installera modulen för Azure PowerShell Service Management](/powershell/azure/servicemanagement/install-azure-ps).
 * Kontrol lera att du har granskat [prerequisites](expressroute-prerequisites.md) [kraven, routningsstatus](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 * Granska informationen som anges under [flytta en ExpressRoute-krets från klassisk till Resource Manager](expressroute-move.md). Se till att du fullständigt förstår begränsningarna och begränsningarna.
 * Kontrol lera att kretsen är fullt fungerande i den klassiska distributions modellen.
 * Se till att du har en resurs grupp som har skapats i distributions modellen för Resource Manager.
 * Läs följande dokumentation om migrering av resurser:
 
-    * [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-    * [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-    * [Vanliga frågor och svar: migrering av IaaS-resurser som stöds från klassisk till Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+    * [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+    * [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+    * [Vanliga frågor och svar: migrering av IaaS-resurser som stöds från klassisk till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-faq.md)
     * [Granska de vanligaste migrerings felen och begränsningarna](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>Scenarier som stöds och som inte stöds
@@ -82,7 +82,7 @@ I det här avsnittet beskrivs de steg som ska följas för att migrera ett virtu
    ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-* [Vanliga frågor och svar: migrering av IaaS-resurser som stöds från klassisk till Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+* [Plattformsstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+* [Vanliga frågor och svar: migrering av IaaS-resurser som stöds från klassisk till Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-faq.md)
 * [Granska de vanligaste migrerings felen och begränsningarna](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

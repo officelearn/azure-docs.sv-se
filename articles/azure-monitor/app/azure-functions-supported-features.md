@@ -6,11 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033521"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights för Azure Functions stödda funktioner
 
@@ -30,23 +31,23 @@ Mer information om kompatibla versioner av Application Insights finns i [beroend
 | &bull;Undantag                   | Ja             | Ja               | 
 | &bull;Prestanda räknare         | Ja             | Ja               |
 | &bull;Relation                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash;INKOMMANDE      |                 | Ja               | 
-| &nbsp;&nbsp;&nbsp;&mdash;Service Bus|                 | Ja               | 
-| &nbsp;&nbsp;&nbsp;&mdash;EventHub  |                 | Ja               | 
-| &nbsp;&nbsp;&nbsp;&mdash;SQL       |                 | Ja               | 
+| &nbsp;&nbsp;&nbsp;&mdash;INKOMMANDE      |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash;Service Bus|                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash;EventHub  |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash;SQL       |                 | Yes               | 
 | | | | 
 | **Funktioner som stöds**                |                   |                   |               
 | &bull;QuickPulse/LiveMetrics       | Ja             | Ja               | 
-| &nbsp;&nbsp;&nbsp;&mdash;Säker kontroll kanal|                 | Ja               | 
+| &nbsp;&nbsp;&nbsp;&mdash;Säker kontroll kanal|                 | Yes               | 
 | &bull;Ta                     | Ja             | Ja               | 
-| &bull;Pulsslag                   |                 | Ja               | 
+| &bull;Pulsslag                   |                 | Yes               | 
 | | | | 
 | **Korrelation**                       |                   |                   |               
-| &bull;Service Bus                     |                   | Ja               | 
-| &bull;EventHub                       |                   | Ja               | 
+| &bull;Service Bus                     |                   | Yes               | 
+| &bull;EventHub                       |                   | Yes               | 
 | | | | 
-| **Konfigurerbara**                      |                   |                   |           
-| &bull;Helt konfigurerbart.<br/>Se [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) för instruktioner.<br/>Se [ASP.net Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) för alla alternativ.               |                   | Ja                   | 
+| **Konfigurerbar**                      |                   |                   |           
+| &bull;Helt konfigurerbart.<br/>Se [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) för instruktioner.<br/>Se [ASP.net Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) för alla alternativ.               |                   | Yes                   | 
 
 
 ## <a name="performance-counters"></a>Prestandaräknare
@@ -56,11 +57,11 @@ Automatisk insamling av prestanda räknare fungerar bara på Windows-datorer.
 
 ## <a name="live-metrics--secure-control-channel"></a>Live Metrics & säker kontroll kanal
 
-De anpassade filter kriterier som du anger skickas tillbaka till komponenten Live Metrics i Application Insights SDK. Filtren kan eventuellt innehålla känslig information, till exempel customerID. Du kan göra kanalen säker med en hemlig API-nyckel. Mer information finns i [skydda kontroll kanalen](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) .
+De anpassade filter kriterier som du anger skickas tillbaka till komponenten Live Metrics i Application Insights SDK. Filtren kan eventuellt innehålla känslig information, till exempel customerID. Du kan göra kanalen säker med en hemlig API-nyckel. Mer information finns i [skydda kontroll kanalen](./live-stream.md#secure-the-control-channel) .
 
 ## <a name="sampling"></a>Samling
 
-Azure Functions aktiverar sampling som standard i konfigurationen. Mer information finns i [Konfigurera sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+Azure Functions aktiverar sampling som standard i konfigurationen. Mer information finns i [Konfigurera sampling](../../azure-functions/functions-monitoring.md#configure-sampling).
 
 Om projektet tar ett beroende på Application Insights SDK för att utföra manuell telemetri, kan det uppstå onormalt beteende om samplings konfigurationen skiljer sig från funktionerna i samplings konfigurationen. 
 

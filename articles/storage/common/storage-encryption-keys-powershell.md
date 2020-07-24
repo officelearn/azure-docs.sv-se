@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036836"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av PowerShell
 
@@ -39,15 +39,16 @@ Mer information om hur du konfigurerar systemtilldelade hanterade identiteter me
 
 ## <a name="create-a-new-key-vault"></a>Skapa ett nytt nyckel valv
 
-Anropa [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)om du vill skapa ett nytt nyckel valv med PowerShell. Nyckel valvet som du använder för att lagra Kundhanterade nycklar för Azure Storage kryptering måste ha två nyckel skydds inställningar aktiverade, **mjuk borttagning** och **Rensa inte**.
+Om du vill skapa ett nytt nyckel valv med hjälp av PowerShell installerar du version 2.0.0 eller senare av PowerShell-modulen [AZ. Key Vault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) . Anropa sedan [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) för att skapa ett nytt nyckel valv.
 
-Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
+Nyckel valvet som du använder för att lagra Kundhanterade nycklar för Azure Storage kryptering måste ha två nyckel skydds inställningar aktiverade, **mjuk borttagning** och **Rensa inte**. I version 2.0.0 och senare av modulen AZ. Key Vault är mjuk borttagning aktiverat som standard när du skapar ett nytt nyckel valv.
+
+I följande exempel skapas ett nytt nyckel valv med den **mjuka borttagningen** och **rensnings** egenskaperna är inte aktiverade. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
@@ -78,9 +79,27 @@ Azure Storage-kryptering stöder RSA-och RSA-HSM-nycklar i storlekarna 2048, 307
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Konfigurera kryptering med Kundhanterade nycklar
 
-Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. I det här steget konfigurerar du ditt Azure Storage-konto så att det använder Kundhanterade nycklar och anger nyckeln som ska associeras med lagrings kontot.
+Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. I det här steget konfigurerar du ditt Azure Storage-konto så att det använder Kundhanterade nycklar med Azure Key Vault och anger sedan nyckeln som ska associeras med lagrings kontot.
 
-Anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar, som du ser i följande exempel. Inkludera alternativet **-KeyvaultEncryption** för att aktivera Kundhanterade nycklar för lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+När du konfigurerar kryptering med Kundhanterade nycklar kan du välja att automatiskt rotera nyckeln som används för kryptering när versionen ändras i det associerade nyckel valvet. Alternativt kan du uttryckligen ange en nyckel version som ska användas för kryptering tills nyckel versionen uppdateras manuellt.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Konfigurera kryptering för automatisk rotation av Kundhanterade nycklar
+
+Konfigurera kryptering för automatisk rotation av Kundhanterade nycklar genom att installera modulen [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) , version 2.0.0 eller senare.
+
+Om du vill rotera Kundhanterade nycklar automatiskt, utelämnar du nyckel versionen när du konfigurerar Kundhanterade nycklar för lagrings kontot. Anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar, som visas i följande exempel, och inkludera alternativet **-KeyvaultEncryption** för att aktivera Kundhanterade nycklar för lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Konfigurera kryptering för manuell rotation av nyckel versioner
+
+Ange nyckel versionen när du konfigurerar kryptering med Kundhanterade nycklar för lagrings kontot om du uttryckligen vill ange en nyckel version som ska användas för kryptering. Anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar, som visas i följande exempel, och inkludera alternativet **-KeyvaultEncryption** för att aktivera Kundhanterade nycklar för lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -91,9 +110,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Uppdatera nyckel versionen
-
-När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot för att använda den nya versionen. Börja med att anropa [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) för att hämta den senaste versionen av nyckeln. Anropa sedan [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen av nyckeln, som du ser i föregående avsnitt.
+När du roterar nyckel versionen manuellt måste du uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen. Börja med att anropa [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) för att hämta den senaste versionen av nyckeln. Anropa sedan [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen av nyckeln, som du ser i föregående exempel.
 
 ## <a name="use-a-different-key"></a>Använd en annan nyckel
 
@@ -101,7 +118,7 @@ Om du vill ändra den nyckel som används för Azure Storage kryptering, anropa 
 
 ## <a name="revoke-customer-managed-keys"></a>Återkalla Kundhanterade nycklar
 
-Om du tror att en nyckel kan ha komprometterats kan du återkalla Kundhanterade nycklar genom att ta bort åtkomst principen för nyckel valvet. Om du vill återkalla en kundhanterad nyckel anropar du kommandot [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) , som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+Du kan återkalla Kundhanterade nycklar genom att ta bort åtkomst principen för nyckel valvet. Om du vill återkalla en kundhanterad nyckel anropar du kommandot [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) , som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```powershell
 Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `

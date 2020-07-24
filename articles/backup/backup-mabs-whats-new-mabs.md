@@ -3,11 +3,12 @@ title: Nyheter i Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server ger dig förbättrade säkerhets kopierings funktioner för att skydda virtuella datorer, filer och mappar, arbets belastningar med mera.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 5f8d0aa83f6d54575b76847efa892864b32c456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032450"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Vad är nytt i Microsoft Azure Backup Server (MABS)
 
@@ -22,7 +23,7 @@ Microsoft Azure Backup Server (MABS) version 3 UR1 är den senaste uppdateringen
 
 MABS v2 introducerade [modern backup Storage](backup-mabs-add-storage.md) (MB), vilket förbättrar lagrings användningen och prestanda. MB använder ReFS som underliggande fil system och har utformats för att användas med hybrid lagring, till exempel nivå lagring.
 
-För att uppnå skalning och prestanda från MB rekommenderar vi att du använder en liten procent andel (4% av det totala lagrings utrymmet) för Flash Storage (SSD) med MABS v3-UR1 som en nivå volym i kombination med DPM HDD-lagring. MABS v3-UR1 med skiktat lagring ger 50-70% snabbare säkerhets kopieringar. Mer information om hur du konfigurerar lagring på lagrings nivå hittar du i DPM-artikeln [Konfigurera MB med Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) .
+För att uppnå skalning och prestanda från MB rekommenderar vi att du använder en liten procent andel (4% av det totala lagrings utrymmet) för Flash Storage (SSD) med MABS v3-UR1 som en nivå volym i kombination med DPM HDD-lagring. MABS v3-UR1 med skiktat lagring ger 50-70% snabbare säkerhets kopieringar. Mer information om hur du konfigurerar lagring på lagrings nivå hittar du i DPM-artikeln [Konfigurera MB med Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) .
 
 ### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Stöd för ReFS-volymer och ReFS-volymer med deduplicering aktiverat
 
@@ -38,7 +39,7 @@ Med MABS v3-UR1 kan du säkerhetskopiera ReFS-volymer och arbets belastningar so
 
 ### <a name="azure-vmware-solution-protection-support"></a>Stöd för Azure VMware-lösnings skydd
 
-Med MABS v3-UR1 kan du nu skydda virtuella datorer som distribueras i [Azure VMware-lösningen](https://docs.microsoft.com/azure/azure-vmware/).
+Med MABS v3-UR1 kan du nu skydda virtuella datorer som distribueras i [Azure VMware-lösningen](../azure-vmware/index.yml).
 
 ### <a name="vmware-parallel-backups"></a>Parallella VMware-säkerhetskopieringar
 
@@ -55,7 +56,7 @@ Med MABS v3-UR1 läggs ytterligare ett lager med autentisering till för kritisk
 
 ### <a name="offline-backup-improvements"></a>Förbättringar av offline-säkerhetskopiering
 
-MABS v3-UR1 förbättrar upplevelsen av offline-säkerhetskopiering med Azure import/export-tjänsten. Mer information finns i de uppdaterade stegen [här](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+MABS v3-UR1 förbättrar upplevelsen av offline-säkerhetskopiering med Azure import/export-tjänsten. Mer information finns i de uppdaterade stegen [här](./backup-azure-backup-server-import-export.md).
 
 >[!NOTE]
 >Uppdateringen ger även för hands versionen för säkerhets kopiering offline med Azure Data Box i MABS. Kontakta [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) för att få mer information.
@@ -69,7 +70,7 @@ MABS v3-UR1 innehåller en ny parameter **[-CheckReplicaFragmentation]**. Den ny
 Med MABS v3-UR1 stöds inte längre stöd för 32-bitars skydds agent. Du kan inte skydda 32-bitars arbets belastningar när du har uppgraderat MABS v3-servern till UR1. Alla befintliga 32-bitars skydds agenter kommer att vara i inaktiverat tillstånd och schemalagda säkerhets kopieringar Miss lyckas med **agenten är inaktive rad** . Om du vill behålla säkerhetskopierade data för de här agenterna kan du stoppa skyddet med alternativet Kvarhåll data. Annars kan skydds agenten tas bort.
 
 >[!NOTE]
->Granska den [uppdaterade skydds matrisen](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) för att lära dig om de arbets belastningar som stöds för skydd med Mabs ur 1.
+>Granska den [uppdaterade skydds matrisen](./backup-mabs-protection-matrix.md) för att lära dig om de arbets belastningar som stöds för skydd med Mabs ur 1.
 
 ## <a name="whats-new-in-mabs-v3-rtm"></a>Vad är nytt i MABS v3 RTM
 
@@ -83,7 +84,7 @@ Med Modern Backup Storage (MB) i MABS v2 presenterade vi arbets belastnings medv
 
 ### <a name="prevent-unexpected-data-loss"></a>Förhindra oväntad data förlust
 
-I företag hanteras MABS av ett team av administratörer. Även om det finns rikt linjer för lagring som ska användas för säkerhets kopieringar kan en felaktig volym ges till MABS som säkerhets kopierings lagring leda till förlust av kritiska data. Med MABS v3 kan du förhindra sådana scenarier genom att konfigurera volymerna som de som inte är tillgängliga för lagring med hjälp av [dessa PowerShell-cmdletar](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
+I företag hanteras MABS av ett team av administratörer. Även om det finns rikt linjer för lagring som ska användas för säkerhets kopieringar kan en felaktig volym ges till MABS som säkerhets kopierings lagring leda till förlust av kritiska data. Med MABS v3 kan du förhindra sådana scenarier genom att konfigurera volymerna som de som inte är tillgängliga för lagring med hjälp av [dessa PowerShell-cmdletar](./backup-mabs-add-storage.md).
 
 ### <a name="custom-size-allocation"></a>Allokering av anpassad storlek
 
@@ -114,7 +115,7 @@ MABS v3 kan installeras med SQL 2017 som MABS-databas. Du kan uppgradera SQL-ser
 MABS v3 kan installeras på Windows Server 2019. Om du vill använda MABS v3 med WS2019 kan du antingen uppgradera operativ systemet till WS2019 innan du installerar/uppgraderar till MABS v3, eller så kan du uppgradera operativ systemet efter installation/uppgradering av v3 på WS2016.
 
 MABS v3 är en fullständig version och kan installeras direkt på Windows Server 2016, Windows Server 2019 eller kan uppgraderas från MABS v2. Innan du uppgraderar till eller installerar backup server v3 bör du läsa om installations kraven.
-Mer information om installations-och uppgraderings stegen för MABS finns [här](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package).
+Mer information om installations-och uppgraderings stegen för MABS finns [här](./backup-azure-microsoft-azure-backup.md#software-package).
 
 > [!NOTE]
 >

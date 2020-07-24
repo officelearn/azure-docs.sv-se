@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: f221a0bdf579dbbf42ecf64e18803decfb718456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0f4e02a76044268946a4a482eaeccf5d622b8a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036272"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsöka SSH-anslutningar till en virtuell Linux-dator som misslyckas, returnerar fel eller avvisas
 Den här artikeln hjälper dig att hitta och åtgärda de problem som uppstår på grund av SSH-fel (Secure Shell), SSH-anslutningsfel eller SSH nekas när du försöker ansluta till en virtuell Linux-dator (VM). Du kan använda Azure Portal, Azure CLI eller VM Access-tillägget för Linux för att felsöka och lösa anslutnings problem.
@@ -34,7 +34,7 @@ Försök att ansluta till den virtuella datorn efter varje fel söknings steg.
 3. Kontrol lera att reglerna för [nätverks säkerhets grupper](../../virtual-network/security-overview.md) tillåter SSH-trafik.
    * Se till att det finns en [regel för nätverks säkerhets grupp](#security-rules) som tillåter SSH-trafik (som standard TCP-port 22).
    * Du kan inte använda omdirigering av portar/mappning utan att använda en Azure Load Balancer.
-4. Kontrol lera den [virtuella datorns resurs hälsa](../../resource-health/resource-health-overview.md).
+4. Kontrol lera den [virtuella datorns resurs hälsa](../../service-health/resource-health-overview.md).
    * Se till att den virtuella datorn rapporterar som felfri.
    * Om du har [aktiverat startdiagnostik](boot-diagnostics.md)kontrollerar du att den virtuella datorn inte rapporterar start fel i loggarna.
 5. [Starta om den virtuella datorn](#restart-vm).
@@ -69,11 +69,11 @@ Du kan också skapa en användare med behörigheten sudo på den virtuella dator
 
 ### <a name="check-security-rules"></a><a id="security-rules" />Kontrol lera säkerhets regler
 
-Använd [kontrol lera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverks säkerhets grupp blockerar trafik till eller från en virtuell dator. Du kan också granska gällande säkerhets grupps regler för att säkerställa att NSG-regeln för inkommande "Tillåt" finns och prioriteras för SSH-porten (standard 22). Mer information finns i [använda effektiva säkerhets regler för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+Använd [kontrol lera IP-flöde](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) för att bekräfta om en regel i en nätverks säkerhets grupp blockerar trafik till eller från en virtuell dator. Du kan också granska gällande säkerhets grupps regler för att säkerställa att NSG-regeln för inkommande "Tillåt" finns och prioriteras för SSH-porten (standard 22). Mer information finns i [använda effektiva säkerhets regler för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ### <a name="check-routing"></a>Kontrol lera routning
 
-Använd Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) -funktion för att bekräfta att en väg inte hindrar trafik från att dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverks gränssnitt. Mer information finns i [använda effektiva vägar för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-routing-problem.md).
+Använd Network Watcher [nästa hopp](../../network-watcher/diagnose-vm-network-routing-problem.md) -funktion för att bekräfta att en väg inte hindrar trafik från att dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverks gränssnitt. Mer information finns i [använda effektiva vägar för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-vm-serial-console"></a>Använd Azures serie konsol för virtuell dator
 Den [seriella Azure VM-konsolen](./serial-console-linux.md) ger till gång till en text baserad konsol för virtuella Linux-datorer. Du kan använda-konsolen för att felsöka SSH-anslutningen i ett interaktivt gränssnitt. Se till att du har uppfyllt [kraven](./serial-console-linux.md#prerequisites) för att använda en serie konsol och försök med kommandona nedan för att ytterligare felsöka ssh-anslutningen.
@@ -137,7 +137,7 @@ Skapa en fil med namnet `settings.json` med följande innehåll:
 
 ```json
 {
-    "reset_ssh":"True"
+    "reset_ssh":True
 }
 ```
 
@@ -173,7 +173,7 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
 ```
 
 ## <a name="use-the-azure-classic-cli"></a>Använd den klassiska Azure-CLI
-Om du inte redan har gjort [det installerar du Azures klassiska CLI och ansluter till din Azure-prenumeration](../../cli-install-nodejs.md). Kontrol lera att du använder Resource Manager-läge enligt följande:
+Om du inte redan har gjort [det installerar du Azures klassiska CLI och ansluter till din Azure-prenumeration](/cli/azure/install-classic-cli). Kontrol lera att du använder Resource Manager-läge enligt följande:
 
 ```azurecli
 azure config mode arm
@@ -209,7 +209,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="restart-a-vm"></a><a id="restart-vm" />Starta om en virtuell dator
 Om du har återställt SSH-konfigurationen och användarautentiseringsuppgifter, eller påträffat ett fel i detta, kan du prova att starta om den virtuella datorn för att åtgärda underliggande beräknings problem.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 Om du vill starta om en virtuell dator med Azure Portal väljer du den virtuella datorn och väljer sedan **starta om** som i följande exempel:
 
 ![Starta om en virtuell dator i Azure Portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
@@ -232,14 +232,14 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="redeploy-a-vm"></a><a id="redeploy-vm" />Distribuera om en VM
-Du kan distribuera om en virtuell dator till en annan nod i Azure, vilket kan åtgärda eventuella underliggande nätverks problem. Information om hur du distribuerar om en virtuell dator finns i [distribuera om virtuell dator till en ny Azure-nod](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Du kan distribuera om en virtuell dator till en annan nod i Azure, vilket kan åtgärda eventuella underliggande nätverks problem. Information om hur du distribuerar om en virtuell dator finns i [distribuera om virtuell dator till en ny Azure-nod](./redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json).
 
 > [!NOTE]
 > När den här åtgärden har slutförts försvinner tillfälliga disk data och dynamiska IP-adresser som är associerade med den virtuella datorn uppdateras.
 >
 >
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 Om du vill distribuera om en virtuell dator med hjälp av Azure Portal väljer du den virtuella datorn och bläddrar ned till avsnittet **support och fel sökning** . Välj **distribuera** igen som i följande exempel:
 
 ![Distribuera om en virtuell dator i Azure Portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
@@ -268,10 +268,10 @@ Testa de här stegen för att lösa de vanligaste SSH-anslutningsfel för virtue
 * Återställ fjärråtkomst från [Azure Portal](https://portal.azure.com). Välj den virtuella datorn på Azure Portal och välj sedan **Återställ fjärran sluten...**.
 * Starta om den virtuella datorn. Välj den virtuella datorn på [Azure Portal](https://portal.azure.com)och välj **starta om**.
 
-* Distribuera om den virtuella datorn till en ny Azure-nod. Information om hur du distribuerar om en virtuell dator finns i [distribuera om virtuell dator till en ny Azure-nod](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Distribuera om den virtuella datorn till en ny Azure-nod. Information om hur du distribuerar om en virtuell dator finns i [distribuera om virtuell dator till en ny Azure-nod](./redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json).
 
     När den här åtgärden har slutförts kommer tillfälliga disk data att gå förlorade och dynamiska IP-adresser som är associerade med den virtuella datorn uppdateras.
-* Följ anvisningarna i [så här återställer du ett lösen ord eller SSH för Linux-baserade virtuella datorer](../linux/classic/reset-access-classic.md) till:
+* Följ anvisningarna i [så här återställer du ett lösen ord eller SSH för Linux-baserade virtuella datorer](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic) till:
 
   * Återställ lösen ordet eller SSH-nyckeln.
   * Skapa ett användar konto för *sudo* .
@@ -281,5 +281,5 @@ Testa de här stegen för att lösa de vanligaste SSH-anslutningsfel för virtue
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * Om du fortfarande inte kan använda SSH till den virtuella datorn efter att ha granskat stegen efter, kan du läsa [mer i detaljerade fel söknings steg](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för att granska ytterligare steg för att lösa problemet.
-* Mer information om hur du felsöker program åtkomst finns i [Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Mer information om fel sökning av virtuella datorer som har skapats med hjälp av den klassiska distributions modellen finns i [så här återställer du ett lösen ord eller SSH för Linux-baserade virtuella datorer](../linux/classic/reset-access-classic.md).
+* Mer information om hur du felsöker program åtkomst finns i [Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json)
+* Mer information om fel sökning av virtuella datorer som har skapats med hjälp av den klassiska distributions modellen finns i [så här återställer du ett lösen ord eller SSH för Linux-baserade virtuella datorer](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic).

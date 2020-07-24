@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16452337eeda86a9b019897954179bfe6db6e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032000"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Begränsa användaråtkomst till endast dataåtgärder
 
@@ -35,10 +35,10 @@ Nästa avsnitt i den här artikeln visar hur du utför de här stegen.
 > För att kunna köra kommandona i nästa avsnitt måste du installera Azure PowerShell Module 3.0.0 eller senare, samt [rollen Azure-ägare](../role-based-access-control/built-in-roles.md#owner) för den prenumeration som du försöker ändra.
 
 I PowerShell-skripten i nästa avsnitt ersätter du följande plats hållare med värden som är speciella för din miljö:
-- `$MySubscriptionId`– Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName`– Resurs gruppen som innehåller Azure Cosmos-kontot. Exempel: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName`– Namnet på ditt Azure Cosmos-konto. Exempel: `mycosmosdbsaccount`.
-- `$MyUserName`-Inloggningen ( username@domain ) för den användare som du vill begränsa åtkomsten för. Exempel: `cosmosdbuser@contoso.com`.
+- `$MySubscriptionId`– Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Till exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName`– Resurs gruppen som innehåller Azure Cosmos-kontot. Till exempel: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName`– Namnet på ditt Azure Cosmos-konto. Till exempel: `mycosmosdbsaccount`.
+- `$MyUserName`-Inloggningen ( username@domain ) för den användare som du vill begränsa åtkomsten för. Till exempel: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Välj din Azure-prenumeration
 
@@ -51,7 +51,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## <a name="create-the-custom-azure-active-directory-role"></a>Skapa rollen för anpassad Azure Active Directory
 
-Följande skript skapar en Azure Active Directory roll tilldelning med "endast nyckel"-åtkomst för Azure Cosmos-konton. Rollen baseras på [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md) och [detaljerade åtgärder för Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Dessa roller och åtgärder är en del av `Microsoft.DocumentDB` Azure Active Directory-namnområdet.
+Följande skript skapar en Azure Active Directory roll tilldelning med "endast nyckel"-åtkomst för Azure Cosmos-konton. Rollen baseras på [Azures anpassade roller](../role-based-access-control/custom-roles.md) och [detaljerade åtgärder för Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Dessa roller och åtgärder är en del av `Microsoft.DocumentDB` Azure Active Directory-namnområdet.
 
 1. Skapa först ett JSON-dokument `AzureCosmosKeyOnlyAccess.json` med namnet med följande innehåll:
 

@@ -3,11 +3,12 @@ title: Säkerhetskopiera SQL Server arbets belastningar på Azure Stack
 description: I den här artikeln lär du dig hur du konfigurerar Microsoft Azure Backup Server (MABS) för att skydda SQL Server databaser på Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84192986"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032654"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Säkerhetskopiera SQL Server på Azure Stack
 
@@ -18,6 +19,34 @@ Hantering av SQL Server databas säkerhets kopiering till Azure och återställn
 1. Skapa en säkerhets kopierings princip för att skydda SQL Server databaser
 2. Skapa säkerhets kopior på begäran
 3. Återställa databasen från diskar och från Azure
+
+## <a name="prerequisites-and-limitations"></a>Krav och begränsningar
+
+* Om du har en databas med filer på en fjärransluten filresurs, kommer skydd att misslyckas med felet ID 104. MABS stöder inte skydd för SQL Server data på en fjärran sluten fil resurs.
+* MABS kan inte skydda databaser som lagras på fjärr-SMB-resurser.
+* Se till att [tillgänglighets grupp replikerna är skrivskyddade](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Du måste uttryckligen lägga till system kontot **NTAUTHORITY\SYSTEM** till sysadmin-gruppen på SQL Server.
+* När du utför en alternativ plats återställning för en delvis innesluten databas måste du se till att SQL-instansen har funktionen [innesluten databas](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) aktive rad.
+* När du utför en alternativ plats återställning för en fil Ströms databas måste du se till att SQL-instansen har funktionen [File Stream-databas](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) aktive rad.
+* Skydd för SQL Server AlwaysOn:
+  * MABS identifierar tillgänglighets grupper vid körning av förfrågan när en skydds grupp skapas.
+  * MABS identifierar en redundansväxling och fortsätter att skydda databasen.
+  * MABS stöder klusterkonfigurationer för flera platser för en instans av SQL Server.
+* När du skyddar databaser som använder AlwaysOn-funktionen har MABS följande begränsningar:
+  * MABS kommer att följa säkerhets kopierings principen för tillgänglighets grupper som anges i SQL Server baserat på inställningarna för säkerhets kopiering, enligt följande:
+    * Föredra sekundär – Säkerhetskopieringar sker på en sekundär replik, förutom när den primära repliken är den enda repliken som är online. Om flera sekundära repliker är tillgängliga väljs den nod med högst prioritet för säkerhets kopiering för säkerhets kopiering. OM bara den primära repliken är tillgänglig ska säkerhets kopian ske på den primära repliken.
+    * Endast sekundär – Säkerhetskopiering görs inte på den primära repliken. Om bara den primära repliken är online görs ingen säkerhetskopiering.
+    * Primär – Säkerhetskopieringar görs alltid på den primära repliken.
+    * Alla repliker – Säkerhetskopieringar kan göras på vilken tillgänglig replik som helst i tillgänglighetsgruppen. Noden som säkerhetskopieringen görs från baseras på prioriteten för säkerhetskopiering på varje nod.
+  * Observera följande:
+    * Säkerhets kopieringar kan göras från vilken läsbar replik som helst, dvs. primär, synkron sekundär, asynkron sekundär.
+    * Om någon replik exkluderas från säkerhets kopian, t. ex. om **exkludera replikering** är aktive rad eller har marker ATS som ej läsbar, väljs inte den repliken för säkerhets kopiering under något av alternativen.
+    * Om flera repliker är tillgängliga och läsbara väljs den nod med högst prioritet för säkerhets kopiering för säkerhets kopiering.
+    * Om säkerhets kopieringen Miss lyckas på den valda noden, Miss lyckas säkerhets kopieringen.
+    * Återställning till den ursprungliga platsen stöds inte.
+* SQL Server 2014 eller senare säkerhets kopierings problem:
+  * SQL Server 2014 har lagt till en ny funktion för att skapa en [databas för lokala SQL Server i Windows Azure Blob Storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS kan inte användas för att skydda den här konfigurationen.
+  * Det finns några kända problem med inställningen prioritera sekundär säkerhets kopiering för SQL AlwaysOn-alternativet. MABS tar alltid en säkerhets kopia från sekundär. Om det inte går att hitta någon sekundär, Miss lyckas säkerhets kopieringen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 

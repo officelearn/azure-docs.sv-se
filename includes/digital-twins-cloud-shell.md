@@ -3,30 +3,24 @@ author: baanders
 description: inkludera fil för Azure Digitals dubbla – konfigurera Cloud Shell och IoT-tillägget
 ms.service: digital-twins
 ms.topic: include
-ms.date: 5/25/2020
+ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 6f472865c131b873f1ae0a21fa9ec55865fb2b29
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7c91d648c06970d53799c6ff505919dea17b3c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032244"
 ---
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
-
-### <a name="set-up-cloud-shell-session"></a>Konfigurera Cloud Shell-session
-
-När du har öppnat ett Cloud Shell-fönster loggar du först in och anger gränssnitts kontexten till din prenumeration för den här sessionen. Kör de här kommandona i Cloud Shell:
+För att börja arbeta med Azure Digitals dubbla i ett öppet [Azure Cloud Shells](https://shell.azure.com) fönster, är det första att göra-loggen att logga in och ange gränssnitts kontexten till din prenumeration för den här sessionen. Kör de här kommandona i Cloud Shell:
 
 ```azurecli
 az login
-az account set --subscription <your-Azure-subscription-ID>
+az account set --subscription "<your-Azure-subscription-ID>"
 ```
 > [!TIP]
-> Du kan också ange prenumerationen med hjälp av ditt prenumerations namn. Använd det här kommandot: 
-> ```azurecli
-> az account set --subscription "your-Azure-subscription-name"
-> 
+> Du kan också använda ditt prenumerations namn i stället för ID: t i kommandot ovan. 
+
 Om det här är första gången du har använt den här prenumerationen med Azure Digitals, kör du kommandot för att registrera dig för namn rymden Azure Digitals. (Om du inte är säker är det OK att köra det igen även om du har gjort det någon gång tidigare.)
 
 ```azurecli
@@ -41,10 +35,10 @@ Kör först det här kommandot för att se en lista över alla tillägg som du r
 az extension list
 ```
 
-I utdata letar du efter `"name"` fältet för varje post i listan för att se tilläggets namn.
+Utdata är en matris med alla tillägg som du för närvarande har. Leta efter `"name"` fältet för varje List post om du vill se tilläggets namn.
 
 Använd utdata för att avgöra vilka av följande kommandon som ska köras för installations programmet (du kan köra fler än en).
-* Om listan innehåller `azure-iot` : du har redan tillägget. Kör det här kommandot för att kontrol lera att du har den senaste uppdateringen:
+* Om listan innehåller `azure-iot` : du har redan tillägget. Kör det här kommandot för att kontrol lera att du har den senaste uppdateringen och att det inte finns några tillgängliga uppdateringar:
 
    ```azurecli-interactive
    az extension update --name azure-iot

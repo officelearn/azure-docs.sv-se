@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 74d3f154f9965e44c9fba42ec094b9240972b40d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0387b4363a438ac48142d97b2a829faf38f1895d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036666"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics jobb med Azure PowerShell-cmdletar
 Lär dig hur du övervakar och hanterar Stream Analytics-resurser med Azure PowerShell-cmdletar och PowerShell-skript som kör grundläggande Stream Analytics uppgifter.
@@ -20,7 +20,7 @@ Lär dig hur du övervakar och hanterar Stream Analytics-resurser med Azure Powe
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Krav för att köra Azure PowerShell-cmdlet: ar för Stream Analytics
-* Skapa en Azure-resurs grupp i din prenumeration. Följande är ett exempel på ett Azure PowerShell-skript. Azure PowerShell information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
+* Skapa en Azure-resurs grupp i din prenumeration. Följande är ett exempel på ett Azure PowerShell-skript. Azure PowerShell information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/);  
 
 Azure PowerShell 0.9.8:  
 

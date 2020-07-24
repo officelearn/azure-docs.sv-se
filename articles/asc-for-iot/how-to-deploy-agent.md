@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82103da3f2547baab62d0d95cf9a6084ef099cba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456801"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033775"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välj och distribuera en säkerhets agent på din IoT-enhet
 
@@ -43,19 +44,18 @@ Den C-baserade säkerhets agenten har ett mindre minnes utrymme och är det idea
 
 |     | C-baserad säkerhets agent | C#-baserad säkerhets agent |
 | --- | ----------- | --------- |
-| Öppen källkod | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-c) | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-cs) |
-| Utvecklingsspråk    | C | C# |
-| Windows-plattformar som stöds? | Nej | Ja |
-| Windows-krav | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
-| Linux-plattformar som stöds? | Ja, x64 och x86 | Ja, endast x64 |
-| Förutsättningar för Linux | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program, sudo, netstat, program varan iptables |
-| Disk utrymme | 10,5 MB | 90 MB |
-| Minnes storlek (i genomsnitt) | 5,5 MB | 33 MB |
-| [Autentisering](concept-security-agent-authentication-methods.md) till IoT Hub | Ja | Ja |
-| [Insamling](how-to-agent-configuration.md#supported-security-events) av säkerhets data | Ja | Ja |
-| Händelsesammansättning | Ja | Ja |
-| Fjärrkonfiguration genom [säkerhetsmodulen dubbla](concept-security-module.md) | Ja | Ja |
-|
+| **Öppen källkod** | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-c) | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-cs) |
+| **Utvecklingsspråk**    | C | C# |
+| **Windows-plattformar som stöds?** | Inga | Yes |
+| **Windows-krav** | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| **Linux-plattformar som stöds?** | Ja, x64 och x86 | Ja, endast x64 |
+| **Förutsättningar för Linux** | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program | libunwind8, libcurl3, UUID-körning, granskad, audispd-plugin-program, sudo, netstat, program varan iptables |
+| **Disk utrymme** | 10,5 MB | 90 MB |
+| **Minnes storlek (i genomsnitt)** | 5,5 MB | 33 MB |
+| **[Autentisering](concept-security-agent-authentication-methods.md) till IoT Hub** | Ja | Ja |
+| **[Insamling](how-to-agent-configuration.md#supported-security-events) av säkerhets data** | Ja | Ja |
+| **Händelsesammansättning** | Ja | Ja |
+| **Fjärrkonfiguration genom [säkerhetsmodulen dubbla](concept-security-module.md)** | Ja | Ja |
 
 ## <a name="security-agent-installation-guidelines"></a>Installations rikt linjer för säkerhets agent
 

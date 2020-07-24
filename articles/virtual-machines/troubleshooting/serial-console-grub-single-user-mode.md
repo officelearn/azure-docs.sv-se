@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70883922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036479"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd serie konsolen för att komma åt GRUB och enanvändarläge
 GRand Unified Starter (GRUB) är förmodligen det första du ser när du startar en virtuell dator (VM). Eftersom det visas innan operativ systemet har startats går det inte att komma åt GRUB via SSH. I GRUB kan du ändra start konfigurationen till att starta i enanvändarläge, bland annat.
@@ -36,7 +37,7 @@ Om du vill ange enanvändarläge anger du GRUB när den virtuella datorn startas
 ## <a name="general-grub-access"></a>Allmän GRUB-åtkomst
 Du kommer åt GRUB genom att starta om den virtuella datorn när serie konsol fönstret är öppet. Vissa distributioner kräver tangent bords indata för att Visa GRUB, och andra visar GRUB automatiskt i några sekunder så att användaren kan avbryta tids indatan.
 
-För att kunna komma åt enanvändarläge, vill du se till att GRUB är aktiverat på den virtuella datorn. Beroende på din distribution kan vissa inställningar vara nödvändiga för att se till att GRUB har Aktiver ATS. Information om distribution finns i nästa avsnitt och [på sidan stöd för Linux på Azure](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/) .
+För att kunna komma åt enanvändarläge, vill du se till att GRUB är aktiverat på den virtuella datorn. Beroende på din distribution kan vissa inställningar vara nödvändiga för att se till att GRUB har Aktiver ATS. Information om distribution finns i nästa avsnitt.
 
 ### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Starta om den virtuella datorn för att få åtkomst till GRUB i serie konsolen
 Du kan starta om den virtuella datorn i serie konsolen genom att hovra över knappen **starta om** och sedan välja **starta om virtuell dator**. Ett meddelande om omstarten visas längst ned i fönstret.
@@ -112,7 +113,7 @@ Om du har konfigurerat GRUB och rot åtkomst genom att följa anvisningarna ovan
 
    Du uppmanas att ange administratörs lösen ordet innan du kan ange läget för en enskild användare. Det här lösen ordet är det som du skapade i föregående instruktioner.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Animerad bild som visar ett kommando rads gränssnitt. Användaren väljer en server, letar upp slutet på kernel-raden och anger sedan den angivna texten.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Ange läget för en enskild användare utan att rot kontot är aktiverat i RHEL
 Om du inte har aktiverat rot användaren genom att följa de tidigare anvisningarna kan du fortfarande återställa rot lösen ordet genom att göra följande:
@@ -136,7 +137,7 @@ Om du inte har aktiverat rot användaren genom att följa de tidigare anvisninga
 1. Du är nu i roten. Du kan återställa rot lösen ordet genom att ange `passwd` och sedan använda föregående instruktioner för att ange läget för en enskild användare. 
 1. När du är klar anger du `reboot -f` för att starta om.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Animerad bild som visar ett kommando rads gränssnitt. Användaren väljer en server, letar upp slutet på kernel-raden och anger de angivna kommandona.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > Genom att följa anvisningarna ovan blir du i nödfalls gränssnittet så att du kan utföra åtgärder som till exempel redigering `fstab` . Vi föreslår dock vanligt vis att du återställer rot lösen ordet och använder det för att ange läget för en enskild användare.
@@ -240,7 +241,7 @@ Om du vill aktivera enanvändarläge i Oracle Linux följer du de tidigare anvis
 ## <a name="next-steps"></a>Nästa steg
 Mer information om serie konsolen finns i:
 * [Dokumentation om Linux-serienummer](serial-console-linux.md)
-* [Använd en serie konsol för att aktivera GRUB i olika distributioner](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [Använd en serie konsol för att aktivera GRUB i olika distributioner](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
 * [Använda en serie konsol för NMI-och SysRq-anrop](serial-console-nmi-sysrq.md)
 * [Serie konsol för virtuella Windows-datorer](serial-console-windows.md)
 * [Startdiagnostik](boot-diagnostics.md)

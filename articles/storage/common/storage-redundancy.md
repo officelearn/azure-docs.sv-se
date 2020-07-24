@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036734"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -59,11 +59,11 @@ Microsoft rekommenderar att du använder ZRS i den primära regionen för scenar
 
 Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka regioner:
 
-|    Storage Account-typ    |    Regioner som stöds    |    Tjänster som stöds    |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Allmänt-syfte v2<sup>1</sup>    | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br />  Västeuropa<br /> Frankrike, centrala<br /> Japan, östra<br /> Sydafrika, norra<br /> Storbritannien, södra<br /> USA, centrala<br /> USA, Östra<br /> USA, östra 2<br /> USA, västra 2    |    Blockblobar<br /> Page blobbar<sup>2</sup><br /> Fil resurser (standard)<br /> Tabeller<br /> Köer<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra    |    Blockera endast blobbar    |
-|    FileStorage    | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra    |    Endast Azure Files    |
+| Storage Account-typ | Regioner som stöds | Tjänster som stöds |
+|--|--|--|
+| Allmänt-syfte v2<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br />  Västeuropa<br /> Frankrike, centrala<br /> Japan, östra<br /> Sydafrika, norra<br /> Storbritannien, södra<br /> USA, centrala<br /> USA, Östra<br /> USA, östra 2<br /> USA, västra 2 | Blockblobar<br /> Page blobbar<sup>2</sup><br /> Fil resurser (standard)<br /> Tabeller<br /> Köer<br /> |
+| BlockBlobStorage<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra | Endast Premium block-blobbar |
+| FileStorage | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra | Premium-filer endast resurser |
 
 <sup>1</sup> Arkiv nivån stöds för närvarande inte för ZRS-konton.<br />
 <sup>2</sup> lagrings konton som innehåller Azure Managed disks för virtuella datorer använder alltid LRS. Azure-ohanterade diskar bör också använda LRS. Det går att skapa ett lagrings konto för Azure unmanaged disks som använder GRS, men det rekommenderas inte på grund av potentiella problem med konsekvens över asynkron geo-replikering. Varken hanterade eller ohanterade diskar har stöd för ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -122,6 +122,9 @@ Information om priser finns i pris information för [blobbar](https://azure.micr
 
 Geo-redundant lagring (med GRS eller GZRS) replikerar dina data till en annan fysisk plats i den sekundära regionen för att skydda mot regionala avbrott. Men dessa data är tillgängliga för läsning endast om kunden eller Microsoft initierar en redundansväxling från den primära till den sekundära regionen. När du aktiverar Läs åtkomst till den sekundära regionen, är dina data tillgängliga för läsning hela tiden, inklusive i en situation där den primära regionen blir otillgänglig. Om du vill ha Läs behörighet till den sekundära regionen ska du aktivera Geo-redundant lagring med Läs behörighet (RA-GRS) eller Läs åtkomst till geo-Zone-redundant lagring (RA-GZRS).
 
+> [!NOTE]
+> Azure Files har inte stöd för Geo-redundant lagring med Läs åtkomst (RA-GRS) och Read-Access geo-Zone-redundant lagring (RA-GZRS).
+
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Utforma dina program för Läs behörighet till den sekundära
 
 Om ditt lagrings konto har kon figurer ATS för Läs åtkomst till den sekundära regionen kan du utforma dina program för att sömlöst växla till att läsa data från den sekundära regionen, om den primära regionen inte är tillgänglig av någon anledning. 
@@ -146,11 +149,11 @@ Tabellerna i följande avsnitt sammanfattar de alternativ för redundans som är
 
 I följande tabell beskrivs viktiga parametrar för varje alternativ för redundans:
 
-| Parameter                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Procentuell hållbarhet för objekt under ett angivet år<sup>1</sup>                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
-| Tillgänglighets-SLA för Läs begär Anden<sup>1</sup>  | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
-| Tillgänglighets-SLA för Skriv begär Anden<sup>1</sup>  | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
+| Parameter | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Procentuell hållbarhet för objekt under ett angivet år<sup>1</sup> | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
+| Tillgänglighets-SLA för Läs begär Anden<sup>1</sup> | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
+| Tillgänglighets-SLA för Skriv begär Anden<sup>1</sup> | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
 
 <sup>1</sup> information om Azure Storage garantier för hållbarhet och tillgänglighet finns i [service avtalet för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
@@ -158,12 +161,12 @@ I följande tabell beskrivs viktiga parametrar för varje alternativ för redund
 
 Följande tabell visar om dina data är beständiga och tillgängliga i ett specifikt scenario, beroende på vilken typ av redundans som gäller för ditt lagrings konto:
 
-| Avbrott-scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| En nod i ett Data Center blir otillgänglig                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                 |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Nej                              | Ja                              | Ja<sup>1</sup>                                  | Ja                                  |
-| Ett områdes omfattande avbrott uppstår i den primära regionen                                                                                     | Nej                              | Nej                               | Ja<sup>1</sup>                                  | Ja<sup>1</sup>                                  |
-| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Nej                              | Nej                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
+| Avbrott-scenario | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| En nod i ett Data Center blir otillgänglig | Ja | Ja | Ja | Ja |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | No | Yes | Ja<sup>1</sup> | Yes |
+| Ett områdes omfattande avbrott uppstår i den primära regionen | Inga | Inga | Ja<sup>1</sup> | Ja<sup>1</sup> |
+| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga | Inga | Ja (med RA-GRS) | Ja (med RA-GZRS) |
 
 <sup>1</sup> växling vid fel krävs för att återställa Skriv tillgängligheten om den primära regionen blir otillgänglig. Mer information finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 
@@ -171,9 +174,9 @@ Följande tabell visar om dina data är beständiga och tillgängliga i ett spec
 
 Följande tabell visar vilka alternativ för redundans som stöds av varje typ av lagrings konto. Information om lagrings konto typer finns i [Översikt över lagrings konto](storage-account-overview.md).
 
-| LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| General-purpose v2<br /> General-purpose v1<br /> Block Blob Storage<br /> Blob Storage<br /> File Storage                | General-purpose v2<br /> Block Blob Storage<br /> File Storage                             | General-purpose v2<br /> General-purpose v1<br /> Blob Storage                     | General-purpose v2                     |
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| General-purpose v2<br /> General-purpose v1<br /> Block Blob Storage<br /> Blob Storage<br /> File Storage | General-purpose v2<br /> Block Blob Storage<br /> File Storage | General-purpose v2<br /> General-purpose v1<br /> Blob Storage | General-purpose v2 |
 
 Alla data för alla lagrings konton kopieras enligt alternativen för redundans för lagrings kontot. Objekt som innehåller block-blobbar, tillägg av blobbar, sid blobbar, köer, tabeller och filer kopieras. Data på alla nivåer, inklusive Arkiv nivån, kopieras. Mer information om BLOB-nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md)lag rings nivåer.
 

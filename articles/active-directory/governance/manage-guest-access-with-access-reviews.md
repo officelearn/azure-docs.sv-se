@@ -3,7 +3,7 @@ title: Hantera gäst åtkomst med åtkomst granskningar – Azure AD
 description: Hantera gäst användare som medlemmar i en grupp eller tilldelas till ett program med Azure Active Directory åtkomst granskningar
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/13/2018
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf2f9503ae704110786a1e73aec3da18c17e4ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75932431"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034130"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäståtkomst med Azure AD-åtkomstgranskningar
 
@@ -32,7 +33,7 @@ Du kan också enkelt se till att gäst användare har lämplig åtkomst. Du kan 
 > [!NOTE]
 > Det här dokumentet fokuserar på att granska gäst användares åtkomst. Om du vill granska alla användares åtkomst, inte bara gäster, se [hantera användar åtkomst med åtkomst granskningar](manage-user-access-with-access-reviews.md). Om du vill granska användarens medlemskap i administrativa roller, t. ex. global administratör, se [starta en åtkomst granskning i Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 

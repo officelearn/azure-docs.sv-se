@@ -1,6 +1,6 @@
 ---
-title: Använd anpassade roller för Azure-resurser i PIM – Azure AD | Microsoft Docs
-description: Lär dig hur du använder anpassade roller för Azure-resurser i Azure AD Privileged Identity Management (PIM).
+title: Använd Azures anpassade roller i PIM – Azure AD | Microsoft Docs
+description: Lär dig hur du använder Azures anpassade roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,14 +14,14 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa51508746d0024be0a5acfaeeac62e86db67d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743753"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034107"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Använd anpassade roller för Azure-resurser i Privileged Identity Management
+# <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Använd Azures anpassade roller i Privileged Identity Management
 
 Du kan behöva använda inställningar för strikt Privileged Identity Management (PIM) för vissa användare i en privilegie rad roll i din Azure Active Directory (Azure AD)-organisation, samtidigt som de ger större självständighet för andra. Överväg till exempel ett scenario där din organisation anlitar flera kontrakt för att hjälpa till med utvecklingen av ett program som kommer att köras i en Azure-prenumeration.
 
@@ -31,7 +31,7 @@ Följ stegen som beskrivs i nästa avsnitt för att konfigurera riktade Privileg
 
 ## <a name="create-the-custom-role"></a>Skapa den anpassade rollen
 
-Om du vill skapa en anpassad roll för en resurs följer du stegen som beskrivs i [skapa anpassade roller för Azure Role-baserade Access Control](../role-based-access-control-custom-roles.md).
+Om du vill skapa en anpassad roll för en resurs följer du stegen som beskrivs i [Azures anpassade roller](../role-based-access-control-custom-roles.md).
 
 När du skapar en anpassad roll ska du inkludera ett beskrivande namn så att du enkelt kan komma ihåg vilken inbyggd roll du avsåg att duplicera.
 

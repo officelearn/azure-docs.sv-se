@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e44edff9ac81588e4f861b7a1d1ae1a1628d5e04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71266059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035646"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>SAP HANA hög tillgänglighet för virtuella Azure-datorer
 
@@ -37,9 +37,9 @@ Den här artikeln förutsätter också att du är van att installera SAP HANA in
 
 De här artiklarna ger en översikt över hur du använder SAP HANA i Azure:
 
-- [Manuell installation av SAP HANA med en instans på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Manuell installation av SAP HANA med en instans på virtuella Azure-datorer](./hana-get-started.md)
 - [Konfigurera SAP HANA system replikering på virtuella Azure-datorer](sap-hana-high-availability.md)
-- [Säkerhetskopiera SAP HANA på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Säkerhetskopiera SAP HANA på virtuella Azure-datorer](./sap-hana-backup-guide.md)
 
 Det är också en bra idé att bekanta dig med de här artiklarna om SAP HANA:
 
@@ -52,7 +52,7 @@ Det är också en bra idé att bekanta dig med de här artiklarna om SAP HANA:
 - [Automatisk omstart av SAP HANAs tjänst](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Konfigurera SAP HANA system replikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
-Förutom att du är bekant med att distribuera virtuella datorer i Azure, rekommenderar vi att du läser [Hantera tillgängligheten för virtuella Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)innan du definierar din tillgänglighets arkitektur i Azure.
+Förutom att du är bekant med att distribuera virtuella datorer i Azure, rekommenderar vi att du läser [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../windows/manage-availability.md)innan du definierar din tillgänglighets arkitektur i Azure.
 
 ## <a name="service-level-agreements-for-azure-components"></a>Service nivå avtal för Azure-komponenter
 
@@ -60,16 +60,16 @@ Azure har olika tillgänglighets service avtal för olika komponenter, t. ex. n�
 
 [SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) beskriver tre olika service avtal för tre olika konfigurationer:
 
-- En enskild virtuell dator som använder [Azure Premium-SSD](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) för OS-disken och alla data diskar. Det här alternativet ger en månatlig drift tid på 99,9 procent.
-- Flera (minst två) virtuella datorer som är ordnade i en [Azures tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Det här alternativet ger en månatlig drift tid på 99,95 procent.
-- Flera (minst två) virtuella datorer som är ordnade i en [tillgänglighet-zon](https://docs.microsoft.com/azure/availability-zones/az-overview). Det här alternativet tillhandahöll en månatlig drift tid på 99,99 procent.
+- En enskild virtuell dator som använder [Azure Premium-SSD](../../windows/managed-disks-overview.md) för OS-disken och alla data diskar. Det här alternativet ger en månatlig drift tid på 99,9 procent.
+- Flera (minst två) virtuella datorer som är ordnade i en [Azures tillgänglighets uppsättning](../../windows/tutorial-availability-sets.md). Det här alternativet ger en månatlig drift tid på 99,95 procent.
+- Flera (minst två) virtuella datorer som är ordnade i en [tillgänglighet-zon](../../../availability-zones/az-overview.md). Det här alternativet tillhandahöll en månatlig drift tid på 99,99 procent.
 
 Mät ditt tillgänglighets krav mot service avtal som Azure-komponenter kan tillhandahålla. Välj sedan dina scenarier för SAP HANA för att uppnå önskad tillgänglighets nivå.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [SAP HANA tillgänglighet inom en Azure-region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
-- Lär dig mer om [SAP HANA tillgänglighet i Azure-regioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 
+- Lär dig mer om [SAP HANA tillgänglighet inom en Azure-region](./sap-hana-availability-one-region.md).
+- Lär dig mer om [SAP HANA tillgänglighet i Azure-regioner](./sap-hana-availability-across-regions.md). 
 
 
 
@@ -86,5 +86,3 @@ Mät ditt tillgänglighets krav mot service avtal som Azure-komponenter kan till
 
 
   
-
-

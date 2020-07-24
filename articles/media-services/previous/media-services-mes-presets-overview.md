@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038451"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Exempel för inställningar för Media Encoder Standard (marknads status)
 
@@ -29,7 +29,7 @@ ms.locfileid: "61463411"
 Media Services har fullständigt stöd för att anpassa alla värden i för inställningar för att uppfylla dina särskilda kodnings behov och krav. Om du behöver anpassa en kodnings för inställning, bör du börja med en av de nedan system för inställningar som anges i det här avsnittet som en mall för din anpassade konfiguration. Förklaringar av vad varje element i de här för inställningarna innebär och giltiga värden för varje element finns i avsnittet [Media Encoder Standard schema](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  När du använder en för inställning för 4K-kodningar bör du hämta den `S3` reserverade enhets typen. Mer information finns i [skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  När du använder en för inställning för 4K-kodningar bör du hämta den `S3` reserverade enhets typen. Mer information finns i [skala kodning](./media-services-scale-media-processing-overview.md).  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>Standardinställning för video rotation i för inställningar:
 När du arbetar med Media Encoder Standard är video rotationen aktive rad som standard. Om din video har spelats in på en mobil enhet i stående läge, roterar dessa för inställningarna dem i liggande läge före kodning.
@@ -86,4 +86,4 @@ När du arbetar med Media Encoder Standard är video rotationen aktive rad som s
   
  [H264, enkel bit hastighet med låg kvalitet för Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) skapar en enda MP4-fil med en bit hastighet på 56 kbit/s och stereo AAC-ljud.  
   
- Mer information om Media Services kodare finns i [encoding on-demand med Azure Media Services](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).
+ Mer information om Media Services kodare finns i [encoding on-demand med Azure Media Services](./media-services-encode-asset.md).

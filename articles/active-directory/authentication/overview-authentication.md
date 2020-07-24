@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 01/17/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a6b5c22e2988ed33e6dc15a4729e7bfe938c5f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5e65149b2524d2785039be78caad4ce84924e7e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786925"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035119"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Vad är Azure Active Directory autentisering?
 
 En av huvud funktionerna i en identitets plattform är att verifiera, eller *autentisera*, autentiseringsuppgifter när en användare loggar in på en enhet, ett program eller en tjänst. I Azure Active Directory (Azure AD) omfattar autentiseringen mer än bara verifieringen av ett användar namn och lösen ord. Azure AD-autentisering innehåller följande komponenter för att förbättra säkerheten och minska behovet av support support:
 
-* Självbetjäning av lösenordsåterställning
+* Återställning av lösenord för självbetjäning
 * Azure Multi-Factor Authentication
 * Hybrid integrering för att skriva lösen ords ändringar tillbaka till en lokal miljö
 * Hybrid integrering som tillämpar principer för lösen ords skydd för en lokal miljö
@@ -38,7 +38,7 @@ Med Azure Multi-Factor Authentication kan användarna välja ytterligare en form
 
 Med lösen ords lös autentisering elimineras behovet av att användaren skapar och kommer ihåg ett säkert lösen ord. Funktioner som Windows Hello för företag eller FIDO2 säkerhets nycklar låter användarna logga in på en enhet eller ett program utan lösen ord. Den här möjligheten kan minska komplexiteten med att hantera lösen ord i olika miljöer.
 
-## <a name="self-service-password-reset"></a>Självbetjäning av lösenordsåterställning
+## <a name="self-service-password-reset"></a>Återställning av lösenord för självbetjäning
 
 Lösen ords återställning via självbetjäning ger användarna möjlighet att ändra eller återställa sitt lösen ord, utan administratörs-eller support inblandning. Om ett användar konto är låst eller om det glömmer sitt lösen ord, kan de följa prompter för att avblockera sig själva och komma tillbaka till arbetet. Detta minskar risken för support och produktivitets förlust när en användare inte kan logga in på sin enhet eller ett program.
 

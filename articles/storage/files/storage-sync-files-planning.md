@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552191"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036802"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 
@@ -147,7 +147,7 @@ Endast NTFS-volymer stöds. ReFS, FAT, FAT32 och andra fil system stöds inte.
 
 I följande tabell visas interop-tillstånd för NTFS-fil system funktioner: 
 
-| Funktion | Supportstatus | Obs! |
+| Funktion | Supportstatus | Kommentarer |
 |---------|----------------|-------|
 | Åtkomstkontrollistor (ACL) | Fullt stöd | Windows-typ Discretionary Access Control Lists bevaras av Azure File Sync och verkställs av Windows Server på Server slut punkter. ACL: er kan också tillämpas när du monterar Azure-filresursen direkt, men detta kräver ytterligare konfiguration. Mer information finns i [avsnittet om identiteter](#identity) . |
 | Hårda länkar | Överhoppad | |
@@ -195,7 +195,7 @@ Observera att volym besparingarna gäller endast för servern. dina data i Azure
 **Windows Server 2012 R2**  
 Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym på Windows Server 2012 R2. Om datadeduplicering har Aktiver ATS på en volym måste moln nivån vara inaktive rad. 
 
-**Anteckningar**
+**Kommentarer**
 - Om datadeduplicering installeras innan du installerar Azure File Sync agent krävs en omstart för att stödja datadeduplicering och moln nivåer på samma volym.
 - Om datadeduplicering har Aktiver ATS på en volym efter att moln nivån har Aktiver ATS optimerar optimerings jobbet för den inledande dedupliceringen filer på volymen som inte redan är i nivå och kommer att ha följande påverkan på moln nivåer:
     - Principen för ledigt utrymme kommer att fortsätta att göra filer på nivå av filer efter det lediga utrymmet på volymen med hjälp av termisk karta.
@@ -310,7 +310,7 @@ Azure File Sync är tillgängligt i följande regioner:
 | Offentlig | Brasilien | Brasilien, södra | `brazilsouth` |
 | Offentlig | Kanada | Kanada, centrala | `canadacentral` |
 | Offentlig | Kanada | Kanada, östra | `canadaeast` |
-| Offentlig | Europa | Europa, norra | `northeurope` |
+| Offentlig | Europa | Norra Europa | `northeurope` |
 | Offentlig | Europa | Europa, västra | `westeurope` |
 | Offentlig | Frankrike | Frankrike, centrala | `francecentral` |
 | Offentlig | Frankrike | Frankrike, södra * | `francesouth` |
@@ -326,8 +326,8 @@ Azure File Sync är tillgängligt i följande regioner:
 | Offentlig | UAE | Förenade Arabemiraten, norra | `uaenorth` |
 | Offentlig | Storbritannien | Storbritannien, södra | `uksouth` |
 | Offentlig | Storbritannien | Storbritannien, västra | `ukwest` |
-| Offentlig | USA | USA, centrala | `centralus` |
-| Offentlig | USA | USA, östra | `eastus` |
+| Offentlig | USA | Central US | `centralus` |
+| Offentlig | USA | East US | `eastus` |
 | Offentlig | USA | USA, östra 2 | `eastus2` |
 | Offentlig | USA | USA, norra centrala | `northcentralus` |
 | Offentlig | USA | USA, södra centrala | `southcentralus` |
@@ -360,7 +360,7 @@ Du kan också använda Data Box-enhet för att migrera data till en Azure File S
 Vanliga misstag som kunder gör när de migrerar data till sin nya Azure File Sync-distribution är att kopiera data direkt till Azure-filresursen i stället för på sina Windows-filservrar. Även om Azure File Sync kommer att identifiera alla nya filer på Azure-filresursen och synkronisera tillbaka dem till dina Windows-filresurser, är detta normalt betydligt långsammare än att läsa in data via Windows-filservern. När du använder Azure Copy-verktyg, till exempel AzCopy, är det viktigt att använda den senaste versionen. Se [tabellen fil kopierings verktyg](storage-files-migration-overview.md#file-copy-tools) för att få en översikt över Azure Copy-verktyg så att du kan kopiera alla viktiga metadata för en fil, till exempel tidsstämplar och ACL: er.
 
 ## <a name="antivirus"></a>Antivirus
-Eftersom antivirus programmet fungerar genom att söka igenom filer efter känd skadlig kod kan ett antivirus program orsaka återkallande av nivåbaserade filer. I version 4,0 och senare av Azure File Sync agenten har filer på nivån säker Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS angett. Vi rekommenderar att du rådfrågar din program varu leverantör för att lära dig hur du konfigurerar lösningen för att hoppa över att läsa filer med den här attributuppsättningen (många gör det automatiskt). 
+Eftersom antivirus programmet fungerar genom att söka igenom filer efter känd skadlig kod kan ett antivirus program orsaka återkallande av nivåbaserade filer, vilket resulterar i högt utgående kostnader. I version 4,0 och senare av Azure File Sync agenten har filer på nivån säker Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS angett. Vi rekommenderar att du rådfrågar din program varu leverantör för att lära dig hur du konfigurerar lösningen för att hoppa över att läsa filer med den här attributuppsättningen (många gör det automatiskt). 
 
 Microsofts interna antivirus lösningar, Windows Defender och System Center Endpoint Protection (SCEP), hoppar båda automatiskt över att läsa filer som har det här attributet angivet. Vi har testat dem och identifierat ett mindre problem: när du lägger till en server i en befintlig Sync-grupp, anropas filer som är mindre än 800 byte (nedladdade) på den nya servern. De här filerna kommer att finnas kvar på den nya servern och kommer inte att skiktas eftersom de inte uppfyller storleks kravet för skikt (>64 KB).
 
@@ -368,9 +368,9 @@ Microsofts interna antivirus lösningar, Windows Defender och System Center Endp
 > Antivirus leverantörer kan kontrol lera kompatibiliteten mellan sina produkter och Azure File Sync med hjälp av [Testsviten Azure File Sync Antivirus kompatibilitet](https://www.microsoft.com/download/details.aspx?id=58322)som är tillgänglig för hämtning på Microsoft Download Center.
 
 ## <a name="backup"></a>Backup 
-Liksom antivirus lösningar kan säkerhets kopierings lösningar orsaka åter kallelse av filer på nivå. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhets kopierings produkt.
+Om moln skiktning är aktiverat ska lösningar som direkt säkerhetskopierar Server slut punkten eller en virtuell dator där Server slut punkten finns inte användas. Moln nivåer gör att endast en delmängd av dina data lagras på Server slut punkten, med den fullständiga data uppsättningen som finns i Azure-filresursen. Beroende på vilken säkerhets kopierings lösning som används kommer filer i nivå antingen att hoppas över och inte säkerhets kopie ras (eftersom de har attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), eller så kommer de att återkallas till disk, vilket resulterar i höga utgående kostnader. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen direkt. Mer information finns i [om säkerhets kopiering av Azure-filresurser](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) eller kontakta säkerhets kopierings leverantören för att se om de stöder säkerhets kopiering av Azure-filresurser.
 
-Om du använder en lokal lösning för säkerhets kopiering ska säkerhets kopiorna utföras på en server i den synkroniserade grupp där moln nivå inaktive ras. När du utför en återställning använder du alternativen på volym-eller fil nivå återställning. Filer som återställs med alternativet Återställning på filnivå synkroniseras till alla slut punkter i Sync-gruppen och befintliga filer ersätts med den version som återställs från säkerhets kopian.  Återställningar på volym nivå ersätter inte nyare fil versioner i Azure-filresursen eller andra server slut punkter.
+Om du föredrar att använda en lokal lösning för säkerhets kopiering ska säkerhets kopieringar utföras på en server i den synkroniserade grupp där moln nivå inaktive ras. När du utför en återställning använder du alternativen på volym-eller fil nivå återställning. Filer som återställs med alternativet Återställning på filnivå synkroniseras till alla slut punkter i Sync-gruppen och befintliga filer ersätts med den version som återställs från säkerhets kopian.  Återställningar på volym nivå ersätter inte nyare fil versioner i Azure-filresursen eller andra server slut punkter.
 
 > [!Note]  
 > Återställning utan operativ system (BMR) kan orsaka oväntade resultat och stöds inte för närvarande.
@@ -383,7 +383,7 @@ Om du använder en lokal lösning för säkerhets kopiering ska säkerhets kopio
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväg inställningar för brand vägg och proxy](storage-sync-files-firewall-and-proxy.md)
-* [Planera för distribution av Azure Files](storage-files-planning.md)
+* [Planera för en Azure Files-distribution](storage-files-planning.md)
 * [Distribuera Azure Files](storage-files-deployment-guide.md)
 * [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

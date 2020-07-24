@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, v2, Azure Kinect, jämförelse, SDK, skillnader, maskin vara, program vara
-ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67452519"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031583"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Jämförelse av Azure Kinect och Kinect i Windows v2
 
@@ -22,8 +22,8 @@ Azure Kinect DK-maskin-och program utvecklings paketen har skillnader jämfört 
 
 Hög nivå skillnader mellan Azure Kinect Development Kit och Kinect för Windows v2 visas i följande tabell.
 
-|    |      | Azure Kinect DK |  Kinect för Windows v2 |
-|----------|---------------|--------| ------------|
+| Funktion | Typ | Azure Kinect DK | Kinect för Windows v2 |
+| ------- | ---- | --------------- | --------------------- |
 | **Ljud** | Information  | 7-MIC cirkulär matris | 4-MIC linjärt uppdelad matris |
 | **Rörelse sensor** | Information | 3-axel accelerometer 3-axel gyro | accelerometer för 3 axlar |
 | **RGB-kamera**    | Information | 3840 x 2160 BPT @30 fps | 1920 x 1080 BPT @30 fps |
@@ -44,7 +44,7 @@ Mer information finns i [maskin varu dokumentet för Azure Kinect DK](hardware-s
 
 I följande tabell ges jämförelse av enhets sensor för låg nivå åtkomst.
 
-| **Funktioner**| **Azure-Kinect** | **Kinect för Windows** | **Anteckningar** |
+| **Funktioner**| **Azure Kinect** | **Kinect för Windows** | **Kommentarer** |
 |---------|---------|------------|---------|
 | **Djuplodande** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
@@ -71,7 +71,7 @@ Azure Kinect SDK funktions uppsättningen skiljer sig från Kinect för Windows 
 | | BodyIndexFrame | Body tracking SDK  |
 | Koordinera mappning|CoordinateMapper| [Sensor-SDK – bild omvandlingar](use-image-transformation.md) |
 |Ansikts spårning | FaceFrame | [Cognitive Services: ansikte](https://azure.microsoft.com/services/cognitive-services/face/)       |
-|    Tal igenkänning    |    Saknas                      |    [Cognitive Services: tal](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
+|    Tal igenkänning    |    Ej tillämpligt                      |    [Cognitive Services: tal](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
 
 ## <a name="next-steps"></a>Nästa steg
 

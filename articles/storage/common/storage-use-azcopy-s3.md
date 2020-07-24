@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e917c261392da6044391efc98a81c8f90b619514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036717"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiera data från Amazon S3 till Azure Storage med hjälp av AzCopy
 
@@ -34,7 +34,7 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att hämta A
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
+> Till exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>Auktorisera med AWS S3
 
@@ -127,7 +127,7 @@ Som AzCopy kopior över filer söker den också efter namngivning av kollisioner
 
 AWS S3 och Azure tillåter olika uppsättningar av tecken i namn på objekt nycklar. Du kan läsa om de tecken som AWS S3 använder [här](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). På Azure-sidan följer BLOB-objektens namngivnings regler för C#- [identifierare](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-Som en del av ett AzCopy `copy` -kommando kan du ange ett värde för valfri `s2s-invalid-metadata-handle` flagga som anger hur du vill hantera filer där filens metadata innehåller inkompatibla nyckel namn. I följande tabell beskrivs varje flagg värde.
+Som en del av ett AzCopy `copy` -kommando kan du ange ett värde för valfri `s2s-handle-invalid-metadata` flagga som anger hur du vill hantera filer där filens metadata innehåller inkompatibla nyckel namn. I följande tabell beskrivs varje flagg värde.
 
 | Flagg värde | Beskrivning  |
 |--------|-----------|
@@ -159,6 +159,6 @@ Hitta fler exempel i någon av följande artiklar:
 
 - [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
 
-- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)

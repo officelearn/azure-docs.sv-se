@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2c118ec298ebddf16d428ea2278de42e91309
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78197495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036700"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för .NET
 
@@ -31,9 +31,14 @@ Använd klient biblioteket V12 i Azure Queue Storage för .NET för att:
 * Ta bort meddelanden från en kö
 * Ta bort en kö
 
-[API Reference dokumentation](/dotnet/api/azure.storage.queues) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Ytterligare resurser:
 
-## <a name="prerequisites"></a>Krav
+* [Referensdokumentation för API](/dotnet/api/azure.storage.queues)
+* [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+* [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -61,7 +66,7 @@ Skapa ett .NET Core-program med namnet *QueuesQuickstartV12*.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-När du fortfarande är i program katalogen installerar du klient biblioteket för Azure Queue Storage för .NET-paketet med `dotnet add package` hjälp av kommandot.
+När du fortfarande är i program katalogen installerar du klient biblioteket för Azure Queue Storage för .NET-paketet med hjälp av `dotnet add package` kommandot.
 
 ```console
 dotnet add package Azure.Storage.Queues
@@ -73,8 +78,8 @@ Från projekt katalogen:
 
 1. Öppna filen *program.cs* i redigeraren
 1. Ta bort `Console.WriteLine("Hello World!");` instruktionen
-1. Lägg `using` till direktiv
-1. Uppdatera `Main` Metod deklarationen för att [stödja asynkron kod](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
+1. Lägg till `using` direktiv
+1. Uppdatera `Main` metod deklarationen för att [stödja asynkron kod](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
 
 
 
@@ -135,7 +140,7 @@ I de här exempel kods tycken visar vi hur du utför följande åtgärder med kl
 
 Koden nedan hämtar anslutnings strängen för lagrings kontot. Anslutnings strängen lagras i den miljö variabel som skapats i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
 
-Lägg till den här koden `Main` i-metoden:
+Lägg till den här koden i- `Main` metoden:
 
 ```csharp
 Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
@@ -177,7 +182,7 @@ await queueClient.CreateAsync();
 
 ### <a name="add-messages-to-a-queue"></a>Lägga till meddelanden i en kö
 
-Följande kodfragment lägger asynkront till meddelanden i kön genom att anropa metoden [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) . Det sparar också en [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) som returneras från `SendMessageAsync` ett samtal. Kvittot används för att uppdatera meddelandet senare i programmet.
+Följande kodfragment lägger asynkront till meddelanden i kön genom att anropa metoden [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) . Det sparar också en [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) som returneras från ett `SendMessageAsync` samtal. Kvittot används för att uppdatera meddelandet senare i programmet.
 
 Lägg till den här koden i slutet av `Main` metoden:
 
@@ -194,7 +199,7 @@ SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Granska meddelanden i en kö
 
-Titta på meddelandena i kön genom att anropa metoden [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) . `PeekMessagesAsync` Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
+Titta på meddelandena i kön genom att anropa metoden [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) . `PeekMessagesAsync`Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
 
 Lägg till den här koden i slutet av `Main` metoden:
 
@@ -213,7 +218,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages)
 
 ### <a name="update-a-message-in-a-queue"></a>Uppdatera ett meddelande i en kö
 
-Uppdatera innehållet i ett meddelande genom att anropa [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) -metoden. `UpdateMessageAsync` Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Tillsammans med det nya innehållet för meddelandet skickar du värdena från det `SendReceipt` som sparades tidigare i koden. `SendReceipt` Värdena identifierar vilket meddelande som ska uppdateras.
+Uppdatera innehållet i ett meddelande genom att anropa [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) -metoden. `UpdateMessageAsync`Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Tillsammans med det nya innehållet för meddelandet skickar du värdena från det `SendReceipt` som sparades tidigare i koden. `SendReceipt`Värdena identifierar vilket meddelande som ska uppdateras.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
@@ -239,7 +244,7 @@ QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10
 
 Ta bort meddelanden från kön när de har bearbetats. I det här fallet visar bearbetningen bara meddelandet i-konsolen.
 
-Appen pausar indata från användaren genom att `Console.ReadLine` anropa innan den bearbetar och tar bort meddelandena. Kontrol lera i [Azure Portal](https://portal.azure.com) att resurserna har skapats korrekt innan de tas bort. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
+Appen pausar indata från användaren genom att anropa `Console.ReadLine` innan den bearbetar och tar bort meddelandena. Kontrol lera i [Azure Portal](https://portal.azure.com) att resurserna har skapats korrekt innan de tas bort. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
 
 Lägg till den här koden i slutet av `Main` metoden:
 

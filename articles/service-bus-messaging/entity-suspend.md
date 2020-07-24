@@ -3,12 +3,12 @@ title: Azure Service Bus – pausa meddelande enheter
 description: Den här artikeln förklarar hur du tillfälligt inaktiverar och återaktiverar Azure Service Bus meddelande enheter (köer, ämnen och prenumerationer).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038145"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Pausa och återaktivera meddelande enheter (inaktivera)
 
@@ -20,7 +20,7 @@ En SUS pension eller reaktivering kan utföras antingen av användaren eller av 
 
 I portalen gör avsnittet **Egenskaper** för respektive entitet att ändra tillstånd. följande skärm bild visar växlingen för en kö:
 
-![][1]
+![Skärm bild av Service Bus funktionen med egenskaps inställningen markerad och alternativet köläge är inställt på aktiv och beskrivs i rött.][1]
 
 Portalen tillåter bara fullständigt inaktive ring av köer. Du kan också inaktivera åtgärderna skicka och ta emot separat med Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API: er i .NET Framework SDK eller med en Azure Resource Manager-mall via Azure CLI eller Azure PowerShell.
 

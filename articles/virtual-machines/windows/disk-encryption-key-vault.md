@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa87fc874be5e60d018b5663b4655d069930ab88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036156"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption
 
@@ -25,7 +25,7 @@ Azure Disk Encryption använder Azure Key Vault för att kontrol lera och hanter
 Att skapa och konfigurera ett nyckel valv som ska användas med Azure Disk Encryption omfattar tre steg:
 
 > [!Note]
-> Du måste välja alternativet i princip inställningarna för Azure Key Vault åtkomst för att ge åtkomst till Azure Disk Encryption för volym kryptering.
+> Du måste välja alternativet i princip inställningarna för Azure Key Vault åtkomst för att ge åtkomst till Azure Disk Encryption för volym kryptering. Om du har aktiverat brand väggen i nyckel valvet måste du gå till fliken nätverk i nyckel valvet och aktivera åtkomst till Microsoft-betrodda tjänster. 
 
 1. Skapa en resurs grupp, om det behövs.
 2. Skapar ett nyckel valv. 
@@ -43,7 +43,7 @@ Du kan också, om du vill, skapa eller importera en nyckel krypterings nyckel (K
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och Anslut till Azure
 
-Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/overview)eller [Azure Portal](https://portal.azure.com).
+Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/)eller [Azure Portal](https://portal.azure.com).
 
 Även om portalen är tillgänglig via webbläsaren kan Azure CLI och Azure PowerShell kräva lokal installation. Se [Azure Disk Encryption för Windows: installera verktyg](disk-encryption-windows.md#install-tools-and-connect-to-azure) för mer information.
 

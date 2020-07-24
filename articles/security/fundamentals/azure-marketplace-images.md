@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80548660"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038281"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Säkerhets rekommendationer för Azure Marketplace-avbildningar
 
@@ -27,9 +27,8 @@ Kör alltid en säkerhets sårbarhets identifiering på avbildningen innan du sk
 
 ## <a name="open-source-based-images"></a>Öppna källbaserade avbildningar
 
-|||
-|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Kategori**                                                 | **Utcheckning**                                                                                                                                                                                                                                                                              |
+| Kategori | Markera |
+| -------- | ----- |
 | Säkerhet                                                     | Installera alla de senaste säkerhets korrigeringarna för Linux-distributionen.                                                                                                                                                                                                              |
 | Säkerhet                                                     | Följ rikt linjerna för att skydda den virtuella dator avbildningen för den aktuella Linux-distributionen.                                                                                                                                                                                     |
 | Säkerhet                                                     | Begränsa angrepps ytan genom att behålla minimalt utrymme med endast nödvändiga Windows Server-roller, funktioner, tjänster och nätverks portar.                                                                                                                                               |
@@ -50,9 +49,8 @@ Kör alltid en säkerhets sårbarhets identifiering på avbildningen innan du sk
 
 ## <a name="windows-server-based-images"></a>Windows Server-baserade avbildningar
 
-|||
-|-------------| -------------------------|
-| **Kategori**                                                     | **Utcheckning**                                                                                                                                                                |
+| Kategori | Markera |
+|--------- | ----- |
 | Säkerhet                                                         | Använd en säker OS-avbildning. Den virtuella hård disk som används för källan till alla avbildningar som baseras på Windows Server måste vara från Windows Server OS-avbildningarna som tillhandahålls via Microsoft Azure. |
 | Säkerhet                                                         | Installera alla de senaste säkerhets uppdateringarna.                                                                                                                                     |
 | Säkerhet                                                         | Program bör inte vara beroende av begränsade användar namn som administratör, rot eller administratör.                                                                |

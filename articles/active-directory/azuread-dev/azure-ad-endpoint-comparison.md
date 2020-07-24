@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154924"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034915"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför uppdatera till Microsoft-identitetsplattformen (v2.0)?
 
@@ -141,34 +141,7 @@ Appregistreringar som har stöd för arbets-och skol konton och personliga konto
 
 ### <a name="restrictions-on-redirect-urls"></a>Begränsningar för omdirigerings-URL: er
 
-Appar som har registrerats för Microsoft Identity Platform är begränsade till en begränsad uppsättning URL-värden för omdirigering. Omdirigerings-URL: en för webbappar och tjänster måste börja med schemat `https` , och alla omdirigerings-URL-värden måste dela en enda DNS-domän.  Registrerings systemet jämför hela DNS-namnet på den befintliga omdirigerings-URL: en till DNS-namnet för den omdirigerings-URL som du lägger till. `http://localhost`stöds också som en omdirigerings-URL.  
-
-Begäran om att lägga till DNS-namnet kommer att misslyckas om något av följande villkor föreligger:  
-
-* Hela DNS-namnet för den nya omdirigerings-URL: n matchar inte DNS-namnet på den befintliga omdirigerings-URL: en
-* Hela DNS-namnet för den nya omdirigerings-URL: en är inte en under domän till den befintliga omdirigerings webb adressen.
-
-#### <a name="example-1"></a>Exempel 1
-
-Om appen har en omdirigerings-URL för `https://login.contoso.com` kan du lägga till en omdirigerings-URL där DNS-namnet matchar exakt, som du ser i följande exempel:
-
-`https://login.contoso.com/new`
-
-Eller så kan du referera till en DNS-underdomän för login.contoso.com, som du ser i följande exempel:
-
-`https://new.login.contoso.com`
-
-#### <a name="example-2"></a>Exempel 2
-
-Om du vill ha en app som har `login-east.contoso.com` och `login-west.contoso.com` som omdirigerings-URL: er måste du lägga till dessa omdirigerings-URL: er i följande ordning:
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-Du kan lägga till de senare två eftersom de är under domäner för den första omdirigerings-URL: en, contoso.com.
-
-Du kan bara ha 20 svars-URL: er för ett visst program – den här gränsen gäller för alla typer av appar som registreringen stöder (SPA), ursprunglig klient, webbapp och tjänst).  
+Den senaste informationen om begränsningar för omdirigerings-URL: er för appar som har registrerats för Microsoft Identity Platform finns i [OMDIRIGERA URI/svars-URL begränsningar och begränsningar](https://docs.microsoft.com/azure/active-directory/develop/reply-url) i dokumentationen för Microsoft Identity Platform.
 
 Information om hur du registrerar en app för användning med Microsoft Identity Platform finns i [Registrera en app med hjälp av den nya Appregistreringar-upplevelsen](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

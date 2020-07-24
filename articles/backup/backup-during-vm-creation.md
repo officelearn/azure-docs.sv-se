@@ -3,11 +3,12 @@ title: Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en virtuell Azure-dator med Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032858"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -29,7 +30,7 @@ Om du inte redan har loggat in på ditt konto loggar du in på [Azure Portal](ht
 
 2. I Azure Marketplace klickar du på **Compute**och väljer sedan en VM-avbildning.
 
-3. Konfigurera den virtuella datorn i enlighet med [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) -eller [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) -instruktionerna.
+3. Konfigurera den virtuella datorn i enlighet med [Windows](../virtual-machines/windows/quick-create-portal.md) -eller [Linux](../virtual-machines/linux/quick-create-portal.md) -instruktionerna.
 
 4. Klicka på **på**fliken **hantering** i **Aktivera säkerhets kopiering**.
 5. Azure Backup säkerhets kopieringar till ett Recovery Services-valv. Klicka på **Skapa nytt** om du inte har ett befintligt valv.

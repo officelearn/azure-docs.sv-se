@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 description: Den här artikeln innehåller en översikt över DPM/Azure Backup Server skydd för en SharePoint-grupp till Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539116"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032892"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 
@@ -32,7 +32,7 @@ Ytterligare krav och begränsningar finns i artikeln [säkerhetskopiera SharePoi
 
 ## <a name="configure-backup"></a>Konfigurera säkerhetskopiering
 
-Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skydd för SharePoint med hjälp av ConfigureSharePoint.exe och skapar sedan en skyddsgrupp i DPM. Instruktioner finns i [Konfigurera säkerhets kopiering](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) i DPM-dokumentationen.
+Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skydd för SharePoint med hjälp av ConfigureSharePoint.exe och skapar sedan en skyddsgrupp i DPM. Instruktioner finns i [Konfigurera säkerhets kopiering](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) i DPM-dokumentationen.
 
 ## <a name="monitoring"></a>Övervakning
 

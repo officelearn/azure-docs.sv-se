@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: daefaca45adb061295928c64b6a0e328a12d8a3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036190"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>OS-start – datorn har startats om oväntat eller ett oväntat fel uppstod
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där den virtuella dat
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att Windows-installationen Miss känner av följande fel:
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att Windows-installationen Miss känner av följande fel:
 
 **Datorn startades om oväntat eller påträffades ett oväntat fel. Windows-installationen kan inte fortsätta. Installera Windows genom att klicka på OK för att starta om datorn och starta sedan om installationen.**
 
@@ -37,7 +37,7 @@ När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-mac
 
 ## <a name="cause"></a>Orsak
 
-Datorn försöker utföra en inledande start av en [generaliserad avbildning](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), men påträffar problem på grund av en anpassad svarsfil (unattend.xml) som bearbetas. Anpassade svarsfiler stöds inte i Azure. 
+Datorn försöker utföra en inledande start av en [generaliserad avbildning](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), men påträffar problem på grund av en anpassad svarsfil (unattend.xml) som bearbetas. Anpassade svarsfiler stöds inte i Azure. 
 
 Svars filen är en särskild XML-fil som innehåller inställnings definitioner och värden för de konfigurations inställningar som du vill automatisera under installationen av en Windows Server-installation av operativ systemet. Konfigurations alternativen innehåller instruktioner för hur du partitionerar diskar, var du hittar Windows-avbildningen som ska installeras, vilka produkt nycklar som ska användas och andra kommandon som du vill köra.
 
@@ -57,7 +57,7 @@ Den här situationen uppstår när en avbildning förbereds för användning i A
 
 - I föregående kommando ersätter du `<NameOfYourAnswerFile.XML>` med namnet på filen.
 
-Åtgärda problemet genom att följa [Azure-vägledningen om hur du förbereder/fångar en avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) och förbereder en ny generaliserad avbildning. Använd inte flagga under Sysprep `/unattend:<answerfile>` . Använd i stället bara flaggorna nedan:
+Åtgärda problemet genom att följa [Azure-vägledningen om hur du förbereder/fångar en avbildning](../windows/upload-generalized-managed.md) och förbereder en ny generaliserad avbildning. Använd inte flagga under Sysprep `/unattend:<answerfile>` . Använd i stället bara flaggorna nedan:
 
 `sysprep /oobe /generalize /shutdown`
 

@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985337"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033079"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -104,7 +104,7 @@ En redundansväxling kan initieras med hjälp av REST API eller PowerShell. För
 
 ## <a name="conclusion"></a>Slutsats
 
-Azure SQL Database och Azure SQL-hanterad instans har en inbyggd lösning för hög tillgänglighet, som är djupt integrerad med Azure-plattformen. Det beror på Service Fabric för identifiering och återställning av fel i Azure Blob Storage för data skydd och på Tillgänglighetszoner för högre fel tolerans. Dessutom utnyttjar SQL Database-och SQL-hanterade instanser den Always on-tillgänglighetsgrupper från SQL Server-instansen för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt kunna utnyttja fördelarna med en blandad lagrings modell och stödja de mest krävande service avtal.
+Azure SQL Database och Azure SQL-hanterad instans har en inbyggd lösning för hög tillgänglighet, som är djupt integrerad med Azure-plattformen. Den är beroende av Service Fabric för identifiering och återställning av fel i Azure Blob Storage för data skydd och på Tillgänglighetszoner för högre fel tolerans (som tidigare nämnts i dokument som inte gäller för Azure SQL Managed instance). Dessutom utnyttjar SQL Database-och SQL-hanterade instanser den Always on-tillgänglighetsgrupper från SQL Server-instansen för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt kunna utnyttja fördelarna med en blandad lagrings modell och stödja de mest krävande service avtal.
 
 ## <a name="next-steps"></a>Nästa steg
 

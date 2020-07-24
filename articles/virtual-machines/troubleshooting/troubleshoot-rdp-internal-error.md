@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 8600971ffd23b1c253e8de807d365c46409b37bc
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4831a084153c28576cca7c40dfefeb8c5ff3c4e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036394"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ett internt fel inträffar när du försöker ansluta till en virtuell Azure-dator via Fjärrskrivbord
 
@@ -55,8 +55,7 @@ Anslut till [serie konsolen och öppna PowerShell-instansen](./serial-console-wi
 
 #### <a name="step-1-check-the-rdp-port"></a>Steg: 1 kontrol lera RDP-porten
 
-1. I en PowerShell-instans använder du [netstat](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-) för att kontrol lera om Port 8080 används av andra program:
+1. I en PowerShell-instans använder du [netstat](/windows-server/administration/windows-commands/netstat) för att kontrol lera om Port 8080 används av andra program:
 
     ```powershell
     Netstat -anob |more
@@ -186,7 +185,7 @@ RDP-klienten använder TLS 1,0 som standard protokoll. Detta kan dock ändras ti
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-portal-windows.md).
 2. När OS-disken är ansluten till den virtuella återställnings datorn kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som tilldelas till den anslutna OS-disken.
 3. Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 
@@ -299,4 +298,4 @@ Kör följande skript för att aktivera dumpa logg och seriell konsol.
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
     ```
 
-5. Ta [bort OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md)och kontrol lera om problemet är löst.
+5. Ta [bort OS-disken och återskapa den virtuella datorn](./troubleshoot-recovery-disks-portal-windows.md)och kontrol lera om problemet är löst.

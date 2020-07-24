@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: 9525f339861b5de8dc22da753f7c36dcc6eede8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ceeb20b138307b40fcd6f8c03d614fc3e811473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70078992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035782"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Använda SAP på virtuella Linux-datorer i Azure
 Cloud Computing är en välanvänd term som ökat i vikt inom IT-branschen, från småföretag upp till stora multinationella bolag. Microsoft Azure är Microsofts molntjänstplattform som erbjuder ett brett utbud av nya möjligheter. Kunder kan snabbt etablera och avetablera program som molntjänster så att de inte behöver hålla tillbaka på grund av tekniska eller budgetbegränsningar. Istället för att investera tid och budget i maskinvaruinfrastruktur, kan företag fokusera på programmet, verksamhetsprocesserna och dess fördelar för kunder och användare.
 
-Med Microsoft Azure virtuella datorer erbjuder Microsoft en omfattande IaaS-plattform (Infrastructure as a Service). SAP NetWeaver-baserade program stöds på virtuella Azure-datorer (IaaS). I fakta bladen nedan beskrivs hur du planerar och implementerar SAP NetWeaver-baserade program på virtuella Windows-datorer i Azure. Du kan också implementera SAP NetWeaver-baserade program på [virtuella Windows-datorer](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Med Microsoft Azure virtuella datorer erbjuder Microsoft en omfattande IaaS-plattform (Infrastructure as a Service). SAP NetWeaver-baserade program stöds på virtuella Azure-datorer (IaaS). I fakta bladen nedan beskrivs hur du planerar och implementerar SAP NetWeaver-baserade program på virtuella Windows-datorer i Azure. Du kan också implementera SAP NetWeaver-baserade program på [virtuella Windows-datorer](./get-started.md?toc=/azure/virtual-machines/windows/classic/toc.json).
 
 [!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
@@ -36,5 +36,4 @@ Sammanfattning: det finns inget offentligt SAP-stöd för att köra SAP NetWeave
 
 Uppdaterad: december 2015
 
-[Den här artikeln hittar du här](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+[Den här artikeln hittar du här](./sap-deployment-checklist.md?toc=/azure/virtual-machines/linux/toc.json)

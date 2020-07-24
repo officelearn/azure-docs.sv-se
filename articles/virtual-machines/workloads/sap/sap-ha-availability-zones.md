@@ -16,25 +16,26 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a4a22771f7880c48722f410f3a2fae0c66e9c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78675613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035799"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
-[Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
+[Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
 
 Den här bilden visar den grundläggande arkitekturen i SAP hög tillgänglighet:
 
 ![Standard konfiguration för hög tillgänglighet](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-SAP-Programskiktet distribueras över en Azures [tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). För hög tillgänglighet för SAP Central Services kan du distribuera två virtuella datorer i en separat tillgänglighets uppsättning. Använd Windows Server-redundanskluster eller pacemaker (Linux) som ett ramverk med hög tillgänglighet med automatisk redundans vid en infrastruktur eller program varu problem. Mer information om de här distributionerna finns i:
+SAP-Programskiktet distribueras över en Azures [tillgänglighets uppsättning](../../windows/manage-availability.md). För hög tillgänglighet för SAP Central Services kan du distribuera två virtuella datorer i en separat tillgänglighets uppsättning. Använd Windows Server-redundanskluster eller pacemaker (Linux) som ett ramverk med hög tillgänglighet med automatisk redundans vid en infrastruktur eller program varu problem. Mer information om de här distributionerna finns i:
 
-- [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en klusterdelad disk](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-- [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
-- [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-- [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+- [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en klusterdelad disk](./sap-high-availability-guide-wsfc-shared-disk.md)
+- [Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs](./sap-high-availability-guide-wsfc-file-share.md)
+- [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](./high-availability-guide-suse.md)
+- [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
 
 En liknande arkitektur gäller för DBMS-skiktet i SAP NetWeaver, S/4HANA eller Hybris system. Du distribuerar DBMS-skiktet i ett aktivt/passivt läge med en lösning för redundanskluster som skyddar mot infrastruktur-eller program varu fel. Lösningen för kluster för växling vid fel kan vara ett DBMS-speciellt failover-ramverk, redundanskluster för Windows Server eller pacemaker.
 
@@ -56,8 +57,8 @@ När du distribuerar virtuella Azure-datorer i Tillgänglighetszoner och upprät
 
 - Du måste använda [Azure-Managed disks](https://azure.microsoft.com/services/managed-disks/) när du distribuerar till Azure-tillgänglighetszoner. 
 - Mappningen av zon uppräkningar till fysiska zoner är fast för en Azure-prenumeration. Om du använder olika prenumerationer för att distribuera dina SAP-system måste du definiera de idealiska zonerna för varje prenumeration.
-- Du kan inte distribuera Azures tillgänglighets uppsättningar i en tillgänglighets zon för Azure om du inte använder [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Hur du kan distribuera SAP-DBMS-skiktet och de centrala tjänsterna över zoner och samtidigt distribuera SAP-programlagret med tillgänglighets uppsättningar och fortfarande uppnå nära de virtuella datorerna finns dokumenterade i artikelernas [närhets grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md). Om du inte använder Azure närhets placerings grupper måste du välja en eller en annan som distributions ramverk för virtuella datorer.
-- Du kan inte använda ett [Azure Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) för att skapa lösningar för redundanskluster som baseras på Windows Server-redundanskluster eller Linux-pacemaker. I stället måste du använda [Azure standard load BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- Du kan inte distribuera Azures tillgänglighets uppsättningar i en tillgänglighets zon för Azure om du inte använder [Azure närhets placerings grupp](../../linux/co-location.md). Hur du kan distribuera SAP-DBMS-skiktet och de centrala tjänsterna över zoner och samtidigt distribuera SAP-programlagret med tillgänglighets uppsättningar och fortfarande uppnå nära de virtuella datorerna finns dokumenterade i artikelernas [närhets grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md). Om du inte använder Azure närhets placerings grupper måste du välja en eller en annan som distributions ramverk för virtuella datorer.
+- Du kan inte använda ett [Azure Basic-Load Balancer](../../../load-balancer/load-balancer-overview.md) för att skapa lösningar för redundanskluster som baseras på Windows Server-redundanskluster eller Linux-pacemaker. I stället måste du använda [Azure standard load BALANCER SKU](../../../load-balancer/load-balancer-standard-availability-zones.md).
 
 
 
@@ -90,7 +91,7 @@ Vid besluts fattandet bör du också ta del av rekommendationerna för nätverks
 
 
 > [!IMPORTANT]
-> Det förväntas att de mått som beskrivs ovan ger olika resultat i varje Azure-region som har stöd för [Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Även om kraven på nätverks fördröjning är desamma, kan du behöva använda olika distributions strategier i olika Azure-regioner eftersom nätverks fördröjningen mellan zoner kan vara olika. I vissa Azure-regioner kan nätverks fördröjningen mellan de tre olika zonerna vara mycket annorlunda. I andra regioner kan nätverks fördröjningen mellan de tre olika zonerna vara mer enhetlig. Anspråket att det alltid finns en nätverks fördröjning mellan 1 och 2 millisekunder är inte korrekt. Det går inte att generalisera nätverks fördröjningen i Tillgänglighetszoner i Azure-regioner.
+> Det förväntas att de mått som beskrivs ovan ger olika resultat i varje Azure-region som har stöd för [Tillgänglighetszoner](../../../availability-zones/az-overview.md). Även om kraven på nätverks fördröjning är desamma, kan du behöva använda olika distributions strategier i olika Azure-regioner eftersom nätverks fördröjningen mellan zoner kan vara olika. I vissa Azure-regioner kan nätverks fördröjningen mellan de tre olika zonerna vara mycket annorlunda. I andra regioner kan nätverks fördröjningen mellan de tre olika zonerna vara mer enhetlig. Anspråket att det alltid finns en nätverks fördröjning mellan 1 och 2 millisekunder är inte korrekt. Det går inte att generalisera nätverks fördröjningen i Tillgänglighetszoner i Azure-regioner.
 
 ## <a name="activeactive-deployment"></a>Aktiv/aktiv-distribution
 Den här distributions arkitekturen kallas aktiv/aktiv eftersom du distribuerar dina aktiva SAP-programservrar över två eller tre zoner. SAP Central Services-instansen som använder en transaktionskö kommer att distribueras mellan två zoner. Detsamma gäller för DBMS-skiktet, som kommer att distribueras över samma zoner som den centrala SAP-tjänsten.
@@ -103,18 +104,18 @@ Ett förenklat schema för en aktiv/aktiv-distribution över två zoner kan se u
 
 Följande överväganden gäller för den här konfigurationen:
 
-- Genom att inte använda [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)hanterar du Azure-tillgänglighetszoner som fel-och uppdaterings domäner för alla virtuella datorer eftersom det inte går att distribuera tillgänglighets uppsättningar i Azure-tillgänglighetszoner.
+- Genom att inte använda [Azure närhets placerings grupp](../../linux/co-location.md)hanterar du Azure-tillgänglighetszoner som fel-och uppdaterings domäner för alla virtuella datorer eftersom det inte går att distribuera tillgänglighets uppsättningar i Azure-tillgänglighetszoner.
 - Om du vill kombinera zonindelade-distributioner för DBMS-skiktet och centrala tjänster, men vill använda Azures tillgänglighets uppsättningar för program lagret, måste du använda Azure närhets grupper enligt beskrivningen i artikel [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
-- För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). Basic-Load Balancer fungerar inte mellan zoner.
+- För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Basic-Load Balancer fungerar inte mellan zoner.
 - Det virtuella Azure-nätverket som du har distribuerat som värd för SAP-systemet, tillsammans med dess undernät, sträcks ut över zoner. Du behöver inte separata virtuella nätverk för varje zon.
 - För alla virtuella datorer som du distribuerar måste du använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade-distributioner.
-- Azure Premium Storage och [Ultra SSD Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
+- Azure Premium Storage och [Ultra SSD Storage](../../windows/disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
 - Detsamma gäller för den delade sapmnt-katalogen, som är en delad disk (Windows), en CIFS-resurs (Windows) eller en NFS-resurs (Linux). Du måste använda en teknik som replikerar de här delade diskarna eller resurserna mellan zonerna. Dessa tekniker stöds:
-  - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-  - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
+  - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
     
-    För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
-- Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
+    För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](./sap-high-availability-infrastructure-wsfc-file-share.md), i zoner.
+- Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
 - För att uppnå körnings tids konsekvens för kritiska affärs processer kan du försöka dirigera vissa batch-jobb och användare till program instanser som finns i zoner med den aktiva DBMS-instansen med hjälp av SAP batch Server-grupper, SAP-inloggnings grupper eller RFC-grupper. Men om du vill ha en zonindelade redundans måste du manuellt flytta grupperna till instanser som körs på virtuella datorer som finns i zoner med den aktiva DB-datorn.  
 - Du kanske vill distribuera inaktiva dialog instanser i varje zon. Detta är att aktivera en omedelbar återgång till den tidigare resurs kapaciteten om en zon som används av en del av program instanserna inte är i tjänst.
 
@@ -133,16 +134,16 @@ Följande överväganden gäller för den här konfigurationen:
 
 - Det går inte att distribuera tillgänglighets uppsättningar i Azure-tillgänglighetszoner. För att kompensera för detta kan du använda Azure närhets placerings grupper som dokumenteras i artikel [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
 - När du använder den här arkitekturen måste du övervaka statusen nära och försöka behålla instanserna aktiva DBMS och SAP Central Services i samma zon som det distribuerade program lagret. Om det är en redundansväxling av SAP central service eller DBMS-instansen, vill du se till att du manuellt växlar tillbaka till zonen med SAP-program lagret distribuerat så snabbt som möjligt.
-- För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). Basic-Load Balancer fungerar inte mellan zoner.
+- För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Basic-Load Balancer fungerar inte mellan zoner.
 - Det virtuella Azure-nätverket som du har distribuerat som värd för SAP-systemet, tillsammans med dess undernät, sträcks ut över zoner. Du behöver inte separata virtuella nätverk för varje zon.
 - För alla virtuella datorer som du distribuerar måste du använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade-distributioner.
-- Azure Premium Storage och [Ultra SSD Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
+- Azure Premium Storage och [Ultra SSD Storage](../../windows/disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
 - Detsamma gäller för den delade sapmnt-katalogen, som är en delad disk (Windows), en CIFS-resurs (Windows) eller en NFS-resurs (Linux). Du måste använda en teknik som replikerar de här delade diskarna eller resurserna mellan zonerna. Dessa tekniker stöds:
-    - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+    - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
+    - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
     
-  För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
-- Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
+  För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](./sap-high-availability-infrastructure-wsfc-file-share.md), i zoner.
+- Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
 - Du bör distribuera vilande virtuella datorer i den passiva zonen (från en DBMS-vy) så att du kan starta program resurser i händelse av ett zon haveri.
     - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) kan för närvarande inte replikera aktiva virtuella datorer till inaktiva virtuella datorer mellan zoner. 
 - Du bör investera i Automation som gör det möjligt att automatiskt starta lagret SAP-program i den andra zonen.
@@ -163,16 +164,16 @@ Följande överväganden gäller för den här konfigurationen:
 - När du använder den här arkitekturen måste du övervaka statusen nära och försöka behålla instanserna aktiva DBMS och SAP Central Services i samma zon som det distribuerade program lagret. Om det är en redundansväxling av SAP central service eller DBMS-instansen, vill du se till att du manuellt växlar tillbaka till zonen med SAP-program lagret distribuerat så snabbt som möjligt.
 - Du bör vara förinstallerade för instanser av produktions program i de virtuella datorer som kör de aktiva program instanserna för frågor och svar.
 - Om det uppstår ett zon haveri stänger du program instanserna för frågor och svar och startar produktions instanserna i stället. Observera att du måste använda virtuella namn för program instanserna för att det ska fungera.
-- För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). Basic-Load Balancer fungerar inte mellan zoner.
+- För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Basic-Load Balancer fungerar inte mellan zoner.
 - Det virtuella Azure-nätverket som du har distribuerat som värd för SAP-systemet, tillsammans med dess undernät, sträcks ut över zoner. Du behöver inte separata virtuella nätverk för varje zon.
 - För alla virtuella datorer som du distribuerar måste du använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade-distributioner.
-- Azure Premium Storage och [Ultra SSD Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
+- Azure Premium Storage och [Ultra SSD Storage](../../windows/disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
 - Detsamma gäller för den delade sapmnt-katalogen, som är en delad disk (Windows), en CIFS-resurs (Windows) eller en NFS-resurs (Linux). Du måste använda en teknik som replikerar de här delade diskarna eller resurserna mellan zonerna. Dessa tekniker stöds:
-    - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+    - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
+    - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 
-  För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), i zoner.
-- Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
+  För närvarande stöds inte lösningen som använder Microsoft Skalbar filserver, som dokumenteras i [förbereda Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](./sap-high-availability-infrastructure-wsfc-file-share.md), i zoner.
+- Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
 
 
 
@@ -181,11 +182,5 @@ Följande överväganden gäller för den här konfigurationen:
 ## <a name="next-steps"></a>Nästa steg
 Här följer några exempel på hur du distribuerar i Azure-tillgänglighetszoner:
 
-- [Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-- [Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-
-
-
-
-
-
+- [Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md)
+- [Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](./sap-high-availability-infrastructure-wsfc-file-share.md)

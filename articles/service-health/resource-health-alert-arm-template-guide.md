@@ -3,12 +3,12 @@ title: Mall för att skapa Resource Health aviseringar
 description: Skapa aviseringar program mässigt som meddelar dig när dina Azure-resurser blir otillgängliga.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 18a3b2df2d159d2903c69debd79cccfc6d0af63e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 399c37f123d06e251514d0cafc3c1c4918ce3edd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037941"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resurshälsoaviseringar med Resource Manager-mallar
 
@@ -21,11 +21,11 @@ Azure Resource Health håller dig informerad om aktuella och historiska hälso s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa instruktionerna på den här sidan måste du konfigurera några saker i förväg:
 
-1. Du måste installera Azure PowerShell- [modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+1. Du måste installera Azure PowerShell- [modulen](/powershell/azure/install-az-ps)
 2. Du måste [skapa eller återanvända en åtgärds grupp](../azure-monitor/platform/action-groups.md) som kon figurer ATS för att meddela dig
 
 ## <a name="instructions"></a>Instruktioner
@@ -454,5 +454,5 @@ Läs mer om Resource Health:
 
 
 Skapa Service Health aviseringar:
--  [Konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Konfigurera aviseringar för Service Health](./alerts-activity-log-service-notifications-portal.md) 
 -  [Händelse schema för Azure aktivitets logg](../azure-monitor/platform/activity-log-schema.md)

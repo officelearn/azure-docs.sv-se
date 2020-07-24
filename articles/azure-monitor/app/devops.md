@@ -3,11 +3,12 @@ title: Prestanda övervakning av webbapp – Azure Application insikter
 description: Hur Application Insights passar i devOps-cykeln
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033690"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -109,7 +110,7 @@ Program kartan identifierar automatiskt programtopologin, vilket ger prestanda i
 ![Programkarta](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights analys
-Med [Analytics](../../azure-monitor/app/analytics.md)kan du skriva godtyckliga frågor på ett kraftfullt SQL-liknande språk.  Att diagnostisera hela app-stacken är enkelt att ansluta till olika perspektiv och du kan ställa rätt frågor för att korrelera tjänst prestanda med affärs mått och kund upplevelse. 
+Med [Analytics](../log-query/log-query-overview.md)kan du skriva godtyckliga frågor på ett kraftfullt SQL-liknande språk.  Att diagnostisera hela app-stacken är enkelt att ansluta till olika perspektiv och du kan ställa rätt frågor för att korrelera tjänst prestanda med affärs mått och kund upplevelse. 
 
 Du kan fråga alla din telemetri-instans och dina mått rå data som lagras i portalen. Språket innehåller filter, Join, aggregation och andra åtgärder. Du kan beräkna fält och utföra statistisk analys. Det finns både tabell-och grafiska visualiseringar.
 
@@ -159,4 +160,3 @@ Det är enkelt att komma igång med Application Insights. Huvud alternativen är
 * [IIS-servrar](../../azure-monitor/app/monitor-performance-live-website-now.md)och även för [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.net](../../azure-monitor/app/asp-net.md) -eller [Java](../../azure-monitor/app/java-get-started.md) -appar, samt [Node.js](../../azure-monitor/app/nodejs.md) och en värd av [andra typer](../../azure-monitor/app/platforms.md). 
 * Instrumentera en [webb sida](../../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
-

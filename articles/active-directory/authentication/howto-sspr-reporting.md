@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035306"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapporteringsalternativ för Azure AD-lösenordshantering
 
@@ -50,9 +51,9 @@ I Azure Portals upplevelsen har vi förbättrat hur du kan visa registrerings ak
 6. På **filter** -menyn längst upp i fönstret väljer du List rutan **tjänst** och ändrar den till tjänst typen självbetjäning för **lösen ords hantering** .
 7. Du kan också filtrera listan ytterligare genom att välja den angivna **aktivitet** som du är intresse rad av.
 
-### <a name="converged-registration-preview"></a>Konvergerad registrering (för hands version)
+### <a name="combined-registration"></a>Kombinerad registrering
 
-Om du deltar i den offentliga för hands versionen av konvergerad registrering finns information om användar aktivitet i gransknings loggarna **under**  >  **säkerhetsautentiseringsmetoder**.
+Om du har aktiverat [kombinerad registrering](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)visas information om användar aktivitet i gransknings loggarna **under**  >  **säkerhetsautentiseringsmetoder**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beskrivning av rapport kolumnerna i Azure Portal
 

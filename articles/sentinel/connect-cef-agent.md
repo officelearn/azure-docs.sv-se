@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 502fbe3bc7b1de2038bc444ae5daf180cfc80203
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 832bf1dd06d550f82090a336bc4cceac8cd8a9be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038196"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Steg 1: Distribuera logg vidarebefordraren
 
@@ -33,7 +33,7 @@ I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidare
     - Lyssna efter syslog-meddelanden från dina säkerhets lösningar på TCP-port 514
     - vidarebefordra enbart de meddelanden som identifieras som CEF till Log Analytics agent på localhost med TCP-port 25226
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha förhöjd behörighet (sudo) på den utsedda Linux-datorn.
 - Du måste ha python installerat på Linux-datorn.<br>Använd `python -version` kommandot för att kontrol lera.
@@ -75,8 +75,10 @@ Välj en syslog-daemon för att se lämplig beskrivning.
 
         `security-config-omsagent.conf`Filens innehåll:
 
-            :rawmsg, regex, "CEF"|"ASA"
-            *.* @@127.0.0.1:25226
+        ```console
+        :rawmsg, regex, "CEF"|"ASA"
+        *.* @@127.0.0.1:25226
+        ```
 
 1. **Starta om syslog-daemon**
 
@@ -107,9 +109,11 @@ Välj en syslog-daemon för att se lämplig beskrivning.
 
         `security-config-omsagent.conf`Filens innehåll:
 
-            filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-            destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
-            log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```console
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
 
 1. **Starta om syslog-daemon**
 

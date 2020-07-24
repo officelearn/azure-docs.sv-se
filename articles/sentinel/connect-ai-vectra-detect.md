@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 964bab2b81f6ce69e77fd69cab55f6d1894e4edb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038230"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Anslut AI-Vectra identifiera till Azure Sentinel
+
+> [!IMPORTANT]
+> AI-Vectra identifiera data koppling i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här artikeln förklarar hur du ansluter din [AI-Vectra identifiera](https://www.vectra.ai/product/cognito-detect) installationen till Azure Sentinel. Med AI-Vectra identifiera data Connector kan du enkelt se till att dina AI-Vectra identifierar data i Azure Sentinel, så att du kan visa dem i arbets böcker, använda dem för att skapa anpassade aviseringar och införliva dem för att förbättra undersökningen.
 

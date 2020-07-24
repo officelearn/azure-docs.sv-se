@@ -6,19 +6,19 @@ author: cynthn
 ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: e014dbe440f1b7baf39c290b8b7ab8fcaea0bada
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: cf0d6639f215cd0fce8dc4bbc50b4e37f48d3f7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036255"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Ändra tillgänglighetsuppsättning för en virtuell dator
 Följande steg beskriver hur du ändrar tillgänglighets uppsättningen för en virtuell dator med hjälp av Azure PowerShell. En virtuell dator kan bara läggas till i en tillgänglighets uppsättning när den skapas. Om du vill ändra tillgänglighets uppsättningen måste du ta bort och sedan återskapa den virtuella datorn. 
 
 Den här artikeln gäller både virtuella Linux-och Windows-datorer.
 
-Den här artikeln testades senast 2/12/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/powershell) och [AZ PowerShell-modulens](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0.
+Den här artikeln testades senast 2/12/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/powershell) och [AZ PowerShell-modulens](/powershell/azure/install-az-ps) version 1.2.0.
 
 I det här exemplet kontrol leras inte om den virtuella datorn är kopplad till en belastningsutjämnare. Om den virtuella datorn är kopplad till en belastningsutjämnare måste du uppdatera skriptet för att hantera det fallet. 
 
@@ -107,4 +107,3 @@ Följande skript innehåller ett exempel på hur du samlar in nödvändig inform
 ## <a name="next-steps"></a>Nästa steg
 
 Lägg till ytterligare lagrings utrymme i den virtuella datorn genom att lägga till ytterligare en [datadisk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

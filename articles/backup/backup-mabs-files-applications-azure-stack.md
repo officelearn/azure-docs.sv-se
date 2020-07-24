@@ -3,11 +3,12 @@ title: Säkerhetskopiera filer i Azure Stack virtuella datorer
 description: Använd Azure Backup för att säkerhetskopiera och återställa Azure Stack filer och program till din Azure Stack-miljö.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a64e5457963ea4a6d3b39b3f2326dbcfc5e63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032773"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Säkerhetskopiera filer och program på Azure Stack
 
@@ -43,7 +44,7 @@ Om du vill konfigurera Azure Backup Server för att skydda filer i Azure Stack v
 
     ![Guiden ny skydds grupp öppnas](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft rekommenderar att du placerar alla data som ska dela en skydds princip i en skydds grupp. Fullständig information om hur du planerar och distribuerar skydds grupper finns i artikeln System Center DPM, [distribuera skydds grupper](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft rekommenderar att du placerar alla data som ska dela en skydds princip i en skydds grupp. Fullständig information om hur du planerar och distribuerar skydds grupper finns i artikeln System Center DPM, [distribuera skydds grupper](/system-center/dpm/create-dpm-protection-groups).
 
 4. På skärmen **Välj data skydds metod** anger du ett namn på skydds gruppen. Markera kryss rutan för **Jag vill använda kortsiktigt skydd med:** och **Jag vill ha onlineskydd**. Klicka på **Nästa**.
 
@@ -132,5 +133,5 @@ Du kan visa Azure Backup Server entiteter i Azure Portal genom att följa stegen
 
 Information om hur du använder Azure Backup Server för att skydda andra arbets belastningar finns i någon av följande artiklar:
 
-* [Säkerhetskopiera SharePoint-servergrupp](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-* [Säkerhetskopiera SQL-servrar](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+* [Säkerhetskopiera SharePoint-servergrupp](./backup-mabs-sharepoint-azure-stack.md)
+* [Säkerhetskopiera SQL-servrar](./backup-mabs-sql-azure-stack.md)

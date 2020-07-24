@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7d2d3871dd9836e2c68155aa82ce01dced128bf3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea7953be25473357f7ed572fa8b76076edc6f75a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038125"
 ---
 # <a name="connect-your-illusive-attack-management-system-to-azure-sentinel"></a>Anslut ditt Illusive-angrepps hanterings system till Azure Sentinel
+
+> [!IMPORTANT]
+> Illusive attack Management Systems data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här artikeln förklarar hur du ansluter ditt [Illusive-attack hanterings system](https://www.illusivenetworks.com/technology/platform/attack-detection-system) till Azure Sentinel. Med data anslutnings verktyget Illusive attack Management Systems kan du dela Illusives data och incident loggar med Azure Sentinel och visa den här informationen i dedikerade instrument paneler som ger inblick i din organisations risk för attack ytan (ASM-instrumentpanel) och spårar obehörig lateral förflyttning i din organisations nätverk (ADS instrument panel).
 
@@ -34,7 +38,7 @@ Konfigurera angrepps hanterings system för att vidarebefordra syslog-meddelande
 
 1. Logga in på Illusive-konsolen och gå till inställningar->rapportering.
 
-1. Hitta syslog-Serversץ
+1. Hitta syslog-servrar.
 
 1. Ange följande information:
    - Värdnamn: Linux syslog-agentens IP-adress eller FQDN-värdnamn
@@ -44,7 +48,7 @@ Konfigurera angrepps hanterings system för att vidarebefordra syslog-meddelande
 
 1. Klicka på Lägg till om du vill lägga till syslog-servern.
 
-1. Om du vill använda det relevanta schemat i Log Analytics för Illusive attack Management Systems söker du efter CommonSecurityLog.
+1. Om du vill använda det relevanta schemat i **loggar** för Illusive attack Management Systems söker du efter **CommonSecurityLog**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84483785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035085"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor om Azure Multi-Factor Authentication
 
@@ -55,6 +56,8 @@ De valfria fälten kan konfigureras i Multi-Factor Authentication-server.
 
 Verifierings resultatet (lyckades eller nekas), och orsaken till att den nekades, lagras med autentiseringsdata. Dessa data är tillgängliga i autentiserings-och användnings rapporter.
 
+Mer information finns i [data placering och kund information för Azure Multi-Factor Authentication](concept-mfa-data-residency.md).
+
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>Vilka SMS-koder används för att skicka SMS-meddelanden till mina användare?
 
 I USA använder vi följande SMS-kort koder:
@@ -69,7 +72,9 @@ I Kanada använder vi följande SMS-kort koder:
 * *759731*
 * *673801*
 
-Det finns ingen garanti för konsekvent SMS-eller Voice-baserad Multi-Factor Authentication meddelande leverans med samma nummer. Vi kan när som helst lägga till eller ta bort korta koder när vi gör väg justeringar för att förbättra SMS-leveranser. Vi har inte stöd för korta koder för länder eller regioner utöver USA och Kanada.
+Det finns ingen garanti för konsekvent SMS-eller Voice-baserad Multi-Factor Authentication meddelande leverans med samma nummer. Vi kan när som helst lägga till eller ta bort korta koder när vi gör väg justeringar för att förbättra SMS-leveranser.
+
+Vi har inte stöd för korta koder för länder eller regioner utöver USA och Kanada.
 
 ## <a name="billing"></a>Fakturering
 

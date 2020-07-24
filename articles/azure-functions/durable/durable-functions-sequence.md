@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033572"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktions länkning i Durable Functions-Hello Sequence-exempel
 
@@ -59,7 +60,7 @@ Här är funktionen:
 
 Alla JavaScript-Orchestration-funktioner måste innehålla [ `durable-functions` modulen](https://www.npmjs.com/package/durable-functions). Det är ett bibliotek som du kan använda för att skriva Durable Functions i Java Script. Det finns tre viktiga skillnader mellan en Orchestration-funktion och andra JavaScript-funktioner:
 
-1. Funktionen är en [Generator-funktion.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript).
+1. Funktionen är en [Generator-funktion.](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. Funktionen omges av ett anrop till `durable-functions` modulens `orchestrator` metod (här `df` ).
 3. Funktionen måste vara synkron. Eftersom Orchestrator-metoden hanterar anrop av Context. klar, ska funktionen bara returnera.
 
@@ -77,7 +78,7 @@ Aktiviteter använder `ActivityTrigger` attributet. Använd för `IDurableActivi
 
 Implementeringen av `E1_SayHello` är en relativt trivial sträng formaterings åtgärd.
 
-I stället för att binda till en `IDurableActivityContext` kan du binda direkt till den typ som skickas till funktionen aktivitet. Ett exempel:
+I stället för att binda till en `IDurableActivityContext` kan du binda direkt till den typ som skickas till funktionen aktivitet. Exempel:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 

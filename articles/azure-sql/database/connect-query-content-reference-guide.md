@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: ceaff4575713d4bf40bea621cbb08313aad11611
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 12d91e43576647b2ffbc1e78d2e059871dbe8a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033181"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database och Azure SQL-hanterad instans Anslut och skicka frågor till artiklar
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,17 +26,17 @@ Följande dokument innehåller länkar till Azure-exempel som visar hur du anslu
 
 ## <a name="quickstarts"></a>Snabbstarter
 
-| |  |
+| Snabbstart | Beskrivning |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Den här snabb starten visar hur du använder SSMS för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Den här snabb starten visar hur du använder Azure Data Studio för att ansluta till en databas och sedan använder Transact-SQL-uttryck (T-SQL) för att skapa de TutorialDB som används i Azure Data Studio självstudier.|
-|[Azure Portal](connect-query-portal.md)|Den här snabb starten visar hur du använder Frågeredigeraren för att ansluta till en databas (endast Azure SQL Database) och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
-|[Visual Studio-koden](connect-query-vscode.md)|Den här snabb starten visar hur du använder Visual Studio Code för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
+|[Azure-portalen](connect-query-portal.md)|Den här snabb starten visar hur du använder Frågeredigeraren för att ansluta till en databas (endast Azure SQL Database) och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
+|[Visual Studio Code](connect-query-vscode.md)|Den här snabb starten visar hur du använder Visual Studio Code för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
 |[.NET med Visual Studio](connect-query-dotnet-visual-studio.md)|Den här snabb starten visar hur du använder .NET Framework för att skapa ett C#-program med Visual Studio för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
 |[.NET Core](connect-query-dotnet-core.md)|Den här snabb starten visar hur du använder .NET Core på Windows/Linux/macOS för att skapa ett C#-program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
 |[Kör](connect-query-go.md)|Den här snabb starten visar hur du använder Go för att ansluta till en databas. Här visas också hur du använder Transact-SQL-uttryck för att köra frågor mot och ändra data.|
 |[Java](connect-query-java.md)|Den här snabb starten visar hur du använder Java för att ansluta till en databas och sedan använder Transact-SQL-uttryck för att fråga data.|
-|[Node.js](connect-query-nodejs.md)|Den här snabb starten visar hur du använder Node. js för att skapa ett program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
+|[Node.js](connect-query-nodejs.md)|Den här snabb starten visar hur du använder Node.js för att skapa ett program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
 |[PHP](connect-query-php.md)|Den här snabb starten visar hur du använder PHP för att skapa ett program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
 |[Python](connect-query-python.md)|Den här snabb starten visar hur du använder python för att ansluta till en databas och använder Transact-SQL-uttryck för att fråga data. |
 |[Ruby](connect-query-ruby.md)|Den här snabb starten visar hur du använder ruby för att skapa ett program för att ansluta till en databas och använda Transact-SQL-uttryck för att fråga data.|
@@ -64,12 +64,12 @@ I följande tabell ser du vilka anslutningsbibliotek eller *drivrutiner* som kli
 
 | Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [PHP SQL-drivrutin för SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Ladda ned](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
-| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Installera](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Python SQL-drivrutin](/sql/connect/python/python-driver-for-sql-server/) | Installationsval: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Installera](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [PHP SQL-drivrutin för SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Ladda ned](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Installera](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Python SQL-drivrutin](/sql/connect/python/python-driver-for-sql-server/) | Installationsval: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Installera](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC-drivrutin för SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Ladda ned](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
 
 I följande tabell visas exempel på ramverk för objekt Relations mappning (ORM) och webb ramverk som klient program kan använda med SQL Server, Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics. Du kan använda ramverken på Linux, Windows eller Docker.
@@ -91,7 +91,7 @@ I följande tabell visas exempel på ramverk för objekt Relations mappning (ORM
 - Anslut till Azure SQL Database eller Azure SQL-hanterad instans:
   - [Anslut och fråga med .NET (C#)](connect-query-dotnet-core.md)
   - [Anslut och fråga med PHP](connect-query-php.md)
-  - [Anslut och fråga med Node. js](connect-query-nodejs.md)
+  - [Anslut och fråga med Node.js](connect-query-nodejs.md)
   - [Anslut och fråga med Java](connect-query-java.md)
   - [Anslut och fråga med python](connect-query-python.md)
   - [Anslut och fråga med ruby](connect-query-ruby.md)

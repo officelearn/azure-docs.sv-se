@@ -4,12 +4,12 @@ description: Batch stöder Azure AD för autentisering från batch-tjänsten. L�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032467"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -193,7 +193,7 @@ Här är ett exempel på en anpassad roll definition:
 }
 ```
 
-Mer allmän information om hur du skapar en anpassad roll finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
+Mer allmän information om hur du skapar en anpassad roll finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Hämta klient-ID: t för din Azure Active Directory
 

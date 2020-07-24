@@ -13,13 +13,14 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c1c03a407315fc4f1b3eb967531e2800fc7497f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034847"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorsstyrd åtkomst i Azure Active Directory
+# <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Vägledning för utvecklare för funktionen Azure Active Directory villkorlig åtkomst
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -87,7 +88,7 @@ Utvecklare kan ta denna utmaning och lägga till den på en ny begäran till Azu
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Du kan lära dig mer om licensierings krav i [rapporten olicensierad användning](../active-directory-conditional-access-unlicensed-usage-report.md). Utvecklare kan ansluta till [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), som innehåller en kostnads fri prenumeration på Enterprise Mobility Suite, som innehåller Azure AD Premium.
 

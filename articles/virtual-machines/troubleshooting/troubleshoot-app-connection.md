@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036445"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Felsöka problem med programanslutningar på virtuella Azure-datorer
 
@@ -117,7 +117,7 @@ Om du inte kan komma åt programmet kontrollerar du följande inställningar:
   
   * Kontrol lera att slut punkts konfigurationen för den virtuella datorn tillåter inkommande trafik, särskilt protokollet (TCP eller UDP) och de offentliga och privata port numren.
   * Kontrol lera att åtkomst kontrol listor (ACL: er) för slut punkten inte förhindrar inkommande trafik från Internet.
-  * Mer information finns i [så här konfigurerar du slut punkter till en virtuell dator](../windows/classic/setup-endpoints.md).
+  * Mer information finns i [så här konfigurerar du slut punkter till en virtuell dator](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 * För virtuella datorer som skapats med Resource Manager-distributions modellen:
   
   * Kontrol lera att den inkommande NAT-regelns konfiguration för den virtuella datorn tillåter inkommande trafik, särskilt protokollet (TCP eller UDP) och de offentliga och privata port numren.
@@ -138,11 +138,9 @@ Om du har åtkomst till programmet kontrollerar du att din Internet Edge-enhet t
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Steg 4 om du inte kan komma åt programmet använder du IP-verifiering för att kontrol lera inställningarna. 
 
-Mer information finns i [Översikt över Azure Network Monitoring](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+Mer information finns i [Översikt över Azure Network Monitoring](../../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 [Felsöka fjärr skrivbords anslutningar till en Windows-baserad virtuell Azure-dator](troubleshoot-rdp-connection.md)
 
 [Felsök SSH-anslutningar (Secure Shell) till en Linux-baserad virtuell Azure-dator](troubleshoot-ssh-connection.md)
-
-

@@ -3,12 +3,12 @@ title: Azure Relay autentisering och auktorisering | Microsoft Docs
 description: Den här artikeln innehåller en översikt över autentisering med signatur för delad åtkomst (SAS) med Azure Relay-tjänsten.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0a5c7a092155a006419eedd170a63abed42bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033385"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay autentisering och auktorisering
 
@@ -20,7 +20,7 @@ Program kan autentiseras för Azure Relay att använda autentisering med signatu
 
 Du kan konfigurera nycklar för SAS i ett relä namn område. Till skillnad från Service Bus meddelanden stöder [relä hybridanslutningar](relay-hybrid-connections-protocol.md) obehöriga eller anonyma avsändare. Du kan aktivera anonym åtkomst för entiteten när du skapar den, som du ser i följande skärm bild från portalen:
 
-![][0]
+![En dialog ruta med namnet "skapa hybrid anslutning" har en text ruta med namnet "namn" och en kryss ruta med etiketten "kräver klientautentisering", som är markerad.][0]
 
 Om du vill använda SAS kan du konfigurera ett [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -objekt i ett relä namn område som består av följande:
 

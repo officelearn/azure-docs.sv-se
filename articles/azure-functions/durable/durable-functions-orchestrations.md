@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033650"
 ---
 # <a name="durable-orchestrations"></a>Varaktiga dirigeringar
 
@@ -41,9 +41,9 @@ En Dirigerings instans-ID är en obligatorisk parameter för de flesta [instans 
 
 ## <a name="reliability"></a>Tillförlitlighet
 
-Orchestrator-funktioner upprätthåller sin körnings status på ett tillförlitligt sätt med hjälp av design mönstret för [händelse källor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) . I stället för att direkt lagra det aktuella läget för en dirigering använder det varaktiga aktivitets ramverket en skrivskyddad lagrings plats för att registrera en fullständig serie åtgärder som funktionen dirigerar. En skrivskyddad lagrings plats har många fördelar jämfört med "dumpning", fullständig körnings status. Fördelarna är ökad prestanda, skalbarhet och svars tider. Du får också eventuell konsekvens för transaktions data och fullständig gransknings historik och historik. Gransknings historiken har stöd för pålitliga kompenserande åtgärder.
+Orchestrator-funktioner upprätthåller sin körnings status på ett tillförlitligt sätt med hjälp av design mönstret för [händelse källor](/azure/architecture/patterns/event-sourcing) . I stället för att direkt lagra det aktuella läget för en dirigering använder det varaktiga aktivitets ramverket en skrivskyddad lagrings plats för att registrera en fullständig serie åtgärder som funktionen dirigerar. En skrivskyddad lagrings plats har många fördelar jämfört med "dumpning", fullständig körnings status. Fördelarna är ökad prestanda, skalbarhet och svars tider. Du får också eventuell konsekvens för transaktions data och fullständig gransknings historik och historik. Gransknings historiken har stöd för pålitliga kompenserande åtgärder.
 
-Durable Functions använder händelse källa transparent. I bakgrunden, `await` ger operatorn (C#) eller `yield` (Java Script) i en Orchestrator-funktion kontrollen av Orchestrator-tråden tillbaka till den varaktiga aktivitets Framework-Dispatchern. Dispatchern genomför sedan alla nya åtgärder som Orchestrator-funktionen schemalägger (till exempel anropa en eller flera underordnade funktioner eller schemalägga en varaktig timer) till lagringen. Åtgärden för att utföra transparent tillägg i körnings historiken för Orchestration-instansen. Historiken lagras i en lagrings tabell. Inchecknings åtgärden lägger sedan till meddelanden i en kö för att schemalägga det faktiska arbetet. I det här läget kan Orchestrator-funktionen tas bort från minnet.
+Durable Functions använder händelse källa transparent. I bakgrunden, `await` ger operatorn (C#) eller `yield` (Java Script/python) i en Orchestrator-funktion kontrollen av Orchestrator-tråden tillbaka till den varaktiga aktivitets Ramverks Dispatchern. Dispatchern genomför sedan alla nya åtgärder som Orchestrator-funktionen schemalägger (till exempel anropa en eller flera underordnade funktioner eller schemalägga en varaktig timer) till lagringen. Åtgärden för att utföra transparent tillägg i körnings historiken för Orchestration-instansen. Historiken lagras i en lagrings tabell. Inchecknings åtgärden lägger sedan till meddelanden i en kö för att schemalägga det faktiska arbetet. I det här läget kan Orchestrator-funktionen tas bort från minnet.
 
 När en Orchestration-funktion får mer arbete (till exempel om ett svarsmeddelande tas emot eller om en varaktig timer upphör att gälla), aktiverar Orchestrator och kör om hela funktionen från början för att återskapa det lokala läget. Om koden försöker anropa en funktion (eller något annat asynkront arbete) under uppspelningen kan du se körnings historiken för den aktuella dirigeringen. Om den finner att [aktivitets funktionen](durable-functions-types-features-overview.md#activity-functions) redan har körts och ger ett resultat spelas den upp i resultatet och Orchestrator-koden fortsätter att köras. Repetitionen fortsätter tills funktions koden är avslutad eller tills den har schemalagt nytt asynkront arbete.
 
@@ -91,9 +91,23 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity('SayHello', "Tokyo")
+    result2 = yield context.call_activity('SayHello', "Seattle")
+    result3 = yield context.call_activity('SayHello', "London")
+    return [result1, result2, result3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
-I varje `await` (C#) eller `yield` (JavaScript)-instruktion, kontrolls det varaktiga aktivitets ramverket av funktionens körnings tillstånd i en viss varaktig lagrings Server del (vanligt vis Azure Table Storage). Det här är det tillstånd som kallas för *Orchestration-historiken*.
+I varje `await` (C#) eller `yield` (JavaScript/python)-instruktion, checkpointrar det varaktiga aktivitets ramverket körnings status för funktionen i en viss varaktig lagrings Server del (vanligt vis Azure Table Storage). Det här är det tillstånd som kallas för *Orchestration-historiken*.
 
 ### <a name="history-table"></a>Historik tabell
 
@@ -110,7 +124,7 @@ När kontroll punkten har slutförts är Orchestrator-funktionen kostnads fri at
 
 Vid slut för ande ser historiken för funktionen som visas tidigare ut ungefär så här: följande tabell i Azure Table Storage (förkortat för illustration):
 
-| PartitionKey (InstanceId)                     | Typ             | Tidsstämpel               | Indata | Name             | Resultat                                                    | Status |
+| PartitionKey (InstanceId)                     | Typ             | Timestamp               | Indata | Namn             | Resultat                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362 Z |       |                  |                                                           |                     |
@@ -127,13 +141,13 @@ Vid slut för ande ser historiken för funktionen som visas tidigare ut ungefär
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919 Z |       |                  | "" "Hej London!" "                                       |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032 Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044 Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" "Hello Tokyo!", "" Hej Seattle! "," "Hej London!" "]" | Slutförd           |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" "Hello Tokyo!", "" Hej Seattle! "," "Hej London!" "]" | Slutfört           |
 
 Några anmärkningar om kolumn värden:
 
 * **PartitionKey**: innehåller ett instans-ID för dirigeringen.
 * **EventType**: representerar händelsens typ. Kan vara en av följande typer:
-  * **OrchestrationStarted**: Orchestrator-funktionen återupptogs från en await eller körs för första gången. `Timestamp`Kolumnen används för att fylla på det deterministiska värdet för `CurrentUtcDateTime` API: erna (.net) och `currentUtcDateTime` (Java Script).
+  * **OrchestrationStarted**: Orchestrator-funktionen återupptogs från en await eller körs för första gången. `Timestamp`Kolumnen används för att fylla på det deterministiska värdet för `CurrentUtcDateTime` API: erna (.net), `currentUtcDateTime` (Java Script) och `current_utc_datetime` (python).
   * **ExecutionStarted**: Orchestrator-funktionen startade körning för första gången. Den här händelsen innehåller också funktions ingången i `Input` kolumnen.
   * **TaskScheduled**: en aktivitets funktion har schemalagts. Namnet på aktivitets funktionen samlas in i `Name` kolumnen.
   * **TaskCompleted**: en aktivitets funktion har slutförts. Resultatet av funktionen finns i `Result` kolumnen.
@@ -151,7 +165,7 @@ Några anmärkningar om kolumn värden:
 > [!WARNING]
 > Även om det är användbart som ett fel söknings verktyg ska du inte göra något beroende av den här tabellen. Den kan ändras när Durable Functions tillägget utvecklas.
 
-Varje gång funktionen återupptas från en `await` (C#) eller `yield` (Java Script), kör det ständiga aktivitets ramverket om Orchestrator-funktionen från grunden. Vid varje omkörning kontaktas körnings historiken för att avgöra om den aktuella asynkrona åtgärden har ägt rum.  Om åtgärden utfördes, spelar ramverket om resultatet av åtgärden direkt och fortsätter med nästa `await` (C#) eller `yield` (Java Script). Den här processen fortsätter tills hela historiken har spelats upp. När den aktuella historiken har spelats upp, kommer de lokala variablerna att återställas till sina tidigare värden.
+Varje gång funktionen återupptas från en `await` (C#) eller `yield` (Java Script/python), kör det ständiga aktivitets ramverket om Orchestrator-funktionen från grunden. Vid varje omkörning kontaktas körnings historiken för att avgöra om den aktuella asynkrona åtgärden har ägt rum.  Om åtgärden utfördes, spelar ramverket om resultatet av åtgärden direkt och fortsätter med nästa `await` (C#) eller `yield` (Java Script/python). Den här processen fortsätter tills hela historiken har spelats upp. När den aktuella historiken har spelats upp, kommer de lokala variablerna att återställas till sina tidigare värden.
 
 ## <a name="features-and-patterns"></a>Funktioner och mönster
 
@@ -165,7 +179,7 @@ Mer information och exempel finns i artikeln [underordnad](durable-functions-sub
 
 ### <a name="durable-timers"></a>Varaktiga timers
 
-Orchestration kan schemalägga *varaktiga timers* för att implementera fördröjningar eller konfigurera tids gräns hantering för asynkrona åtgärder. Använd varaktiga timers i Orchestrator-funktioner i stället för `Thread.Sleep` och `Task.Delay` (C#) eller `setTimeout()` och `setInterval()` (Java Script).
+Orchestration kan schemalägga *varaktiga timers* för att implementera fördröjningar eller konfigurera tids gräns hantering för asynkrona åtgärder. Använd varaktiga timers i Orchestrator-funktioner i stället för `Thread.Sleep` och `Task.Delay` (C#) eller `setTimeout()` och `setInterval()` (Java Script) eller `time.sleep()` (python).
 
 Mer information och exempel finns i artikeln [varaktiga timers](durable-functions-timers.md) .
 
@@ -252,6 +266,18 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    res = yield context.call_http('GET', url)
+    if res.status_code >= 400:
+        # handing of error code goes here
+```
 ---
 
 Förutom stöd för grundläggande fråge-/svars mönster stöder metoden automatisk hantering av vanliga asynkrona HTTP 202-avsöknings mönster och stöder även autentisering med externa tjänster med [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -267,7 +293,7 @@ Det går inte att skicka flera parametrar till en aktivitets funktion direkt. Re
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-I .NET kan du också använda [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) -objekt. Följande exempel använder nya funktioner i [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) som lagts till med [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+I .NET kan du också använda [ValueTuples](/dotnet/csharp/tuples) -objekt. Följande exempel använder nya funktioner i [ValueTuples](/dotnet/csharp/tuples) som lagts till med [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -322,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="activity"></a>Aktivitet
+#### <a name="getweather-activity"></a>`GetWeather`Aktivitet
 
 ```javascript
 module.exports = async function (context, location) {
@@ -330,6 +356,36 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```python
+from collections import namedtuple
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    Location = namedtuple('Location', ['city', 'state'])
+    location = Location(city='Seattle', state= 'WA')
+
+    weather = yield context.call_activity("GetWeather", location)
+
+    # ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather`Aktivitet
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
+    city, state = location
+    return f"Hello {city}, {state}!"
 ```
 
 ---

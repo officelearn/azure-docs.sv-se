@@ -15,20 +15,21 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27b6e2e3cedcc8eca84644562639e0436e48245d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035867"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA tillgänglighet inom en Azure-region
-I den här artikeln beskrivs flera tillgänglighets scenarier i en Azure-region. Azure har många regioner, sprids över hela världen. En lista över Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/). För att distribuera SAP HANA på virtuella datorer inom en Azure-region, erbjuder Microsoft distribution av en enskild virtuell dator med en HANA-instans. För ökad tillgänglighet kan du distribuera två virtuella datorer med två HANA-instanser i en [Azures tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) som använder Hana-systemreplikering för tillgänglighet. 
+I den här artikeln beskrivs flera tillgänglighets scenarier i en Azure-region. Azure har många regioner, sprids över hela världen. En lista över Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/). För att distribuera SAP HANA på virtuella datorer inom en Azure-region, erbjuder Microsoft distribution av en enskild virtuell dator med en HANA-instans. För ökad tillgänglighet kan du distribuera två virtuella datorer med två HANA-instanser i en [Azures tillgänglighets uppsättning](../../windows/tutorial-availability-sets.md) som använder Hana-systemreplikering för tillgänglighet. 
 
-För närvarande erbjuder Azure [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). I den här artikeln beskrivs inte Tillgänglighetszoner i detalj. Men det innehåller en allmän diskussion om hur du använder tillgänglighets uppsättningar jämfört med Tillgänglighetszoner.
+För närvarande erbjuder Azure [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md). I den här artikeln beskrivs inte Tillgänglighetszoner i detalj. Men det innehåller en allmän diskussion om hur du använder tillgänglighets uppsättningar jämfört med Tillgänglighetszoner.
 
 Azure-regioner där Tillgänglighetszoner erbjuds har flera data Center. Data centren är oberoende av utbudet av ström källor, kylning och nätverk. Skälet för att erbjuda olika zoner inom en enda Azure-region är att distribuera program över två eller tre Tillgänglighetszoner som erbjuds. Distribution över zoner, problem i kraft och nätverk som bara påverkar en Azures tillgänglighets zon infrastruktur fungerar fortfarande program distributionen i en Azure-region. Viss reducerad kapacitet kan uppstå. Till exempel kan virtuella datorer i en zon gå förlorade, men virtuella datorer i de andra två zonerna är fortfarande igång. 
  
-En Azure-tillgänglighets uppsättning är en logisk grupperings funktion som hjälper till att se till att de VM-resurser som du placerar i tillgänglighets uppsättningen inte är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure ser till att de virtuella datorer du placerar i en tillgänglighetsuppsättning körs över flera fysiska servrar, datarack, lagringsenheter och nätverksväxlar. I vissa Azure-dokumentation kallas den här konfigurationen för placeringar i olika [uppdaterings-och fel domäner](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). Dessa platser är vanligt vis i ett Azure-datacenter. Om du antar att strömförsörjnings källan och nätverks problem skulle påverka data centret som du distribuerar, kommer all din kapacitet i en Azure-region att påverkas.
+En Azure-tillgänglighets uppsättning är en logisk grupperings funktion som hjälper till att se till att de VM-resurser som du placerar i tillgänglighets uppsättningen inte är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure ser till att de virtuella datorer du placerar i en tillgänglighetsuppsättning körs över flera fysiska servrar, datarack, lagringsenheter och nätverksväxlar. I vissa Azure-dokumentation kallas den här konfigurationen för placeringar i olika [uppdaterings-och fel domäner](../../windows/manage-availability.md). Dessa platser är vanligt vis i ett Azure-datacenter. Om du antar att strömförsörjnings källan och nätverks problem skulle påverka data centret som du distribuerar, kommer all din kapacitet i en Azure-region att påverkas.
 
 Placeringen av data Center som representerar Azure-tillgänglighetszoner är en kompromiss mellan att leverera acceptabel nätverks fördröjning mellan tjänster som har distribuerats i olika zoner och ett avstånd mellan data Center. Naturlig katastrofer bör helst inte påverka strömförsörjningen, nätverks utbudet och infrastrukturen för alla Tillgänglighetszoner i den här regionen. Men när Monumental naturlig katastrofer har visats kan Tillgänglighetszoner inte alltid tillhandahålla den tillgänglighet som du vill ha i en region. Tänk på orkan Maria som nådde ön Republiken Puerto Rico den 20 september 2017. Orkan har i princip en nästan 100 procents inaktive rad på 90 – mil-wide-ön.
 
@@ -81,7 +82,7 @@ Arkitekturen ser ut så här:
 
 Den här konfigurationen passar inte bra för att uppnå utmärkta återställnings punkt mål (återställnings punkt mål) och återställnings tids mål (RTO). RTO gånger skulle särskilt bli lidande på grund av behovet av att fullständigt återställa den fullständiga databasen med hjälp av de kopierade säkerhets kopiorna. Den här installationen är dock användbar för återställning från oavsiktligt data borttagning på huvud instanserna. Med den här installationen kan du när som helst återställa till en viss tidpunkt, extrahera data och importera borttagna data till huvud instansen. Därför kan det vara bra att använda en säkerhets kopierings metod i kombination med andra funktioner med hög tillgänglighet. 
 
-När säkerhets kopieringar kopieras kan du kanske använda en mindre virtuell dator än den primära virtuella datorn som SAP HANA-instansen körs på. Tänk på att du kan ansluta ett mindre antal virtuella hård diskar till mindre virtuella datorer. Information om gränserna för enskilda VM-typer finns i [storlekar för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+När säkerhets kopieringar kopieras kan du kanske använda en mindre virtuell dator än den primära virtuella datorn som SAP HANA-instansen körs på. Tänk på att du kan ansluta ett mindre antal virtuella hård diskar till mindre virtuella datorer. Information om gränserna för enskilda VM-typer finns i [storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md).
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>SAP HANA system replikering utan automatisk redundans
 
@@ -107,7 +108,7 @@ I det här scenariot är data som replikeras till HANA-instansen i den andra vir
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>SAP HANA system replikering med automatisk redundans
 
-I den standard-och den vanligaste tillgänglighets konfigurationen inom en Azure-region, har två virtuella Azure-datorer som kör SLES Linux ett redundanskluster definierat. SLES Linux-klustret är baserat på [pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) -ramverket, tillsammans med en [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) -enhet. 
+I den standard-och den vanligaste tillgänglighets konfigurationen inom en Azure-region, har två virtuella Azure-datorer som kör SLES Linux ett redundanskluster definierat. SLES Linux-klustret är baserat på [pacemaker](./high-availability-guide-suse-pacemaker.md) -ramverket, tillsammans med en [STONITH](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) -enhet. 
 
 Från ett SAP HANA perspektiv synkroniseras replikeringsläget som används och en automatisk redundans konfigureras. I den andra virtuella datorn fungerar SAP HANA-instansen som en nod för snabb växling. Noden vänte läge får en synkron ström av ändrings poster från den primära SAP HANA-instansen. När transaktionerna allokeras av programmet på den primära HANA-noden, väntar den primära HANA-noden att bekräfta incheckningen av programmet tills den sekundära SAP HANA-noden bekräftar att posten har mottagits. SAP HANA erbjuder två synkrona replikeringsinställningar. Mer information och en beskrivning av skillnaderna mellan dessa två lägen för synkron replikering finns i [replikerings lägen för SAP-artiklar för SAP HANA system replikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 
@@ -126,5 +127,4 @@ Steg för steg-anvisningar om hur du konfigurerar dessa konfigurationer i Azure 
 
 Mer information om SAP HANA tillgänglighet i Azure-regioner finns i:
 
-- [SAP HANA tillgänglighet i Azure-regioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
-
+- [SAP HANA tillgänglighet i Azure-regioner](./sap-hana-availability-across-regions.md) 

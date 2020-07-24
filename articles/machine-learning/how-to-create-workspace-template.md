@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031124"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -26,11 +26,11 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Om du vill använda en mall från en CLI behöver du antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Om du vill använda en mall från en CLI behöver du antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="workspace-resource-manager-template"></a>Resource Manager-mall för arbets yta
 
@@ -154,6 +154,9 @@ Följande exempel-mall visar hur du skapar en arbets yta med tre inställningar:
 * Aktivera inställningar för hög konfidentialitet för arbets ytan
 * Aktivera kryptering för arbets ytan
 * Använder en befintlig Azure Key Vault för att hämta Kundhanterade nycklar
+
+> [!IMPORTANT]
+> När en arbets yta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckel valv-ID eller nyckel identifierare. Om du vill ändra dessa värden måste du skapa en ny arbets yta med de nya värdena.
 
 Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-security.md#encryption-at-rest)läge.
 
@@ -353,6 +356,9 @@ En ytterligare konfiguration som du kan tillhandahålla för dina data är att s
 * Rensar upp den lokala Scratch-disken mellan körningar.
 * Skickar autentiseringsuppgifter på ett säkert sätt för lagrings kontot, behållar registret och SSH-kontot från körnings skiktet till dina beräknings kluster med hjälp av Key Vault.
 * Aktiverar IP-filtrering för att säkerställa att underliggande batch-pooler inte kan anropas av andra externa tjänster än AzureMachineLearningService.
+
+    > [!IMPORTANT]
+    > När en arbets yta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckel valv-ID eller nyckel identifierare. Om du vill ändra dessa värden måste du skapa en ny arbets yta med de nya värdena.
 
   Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-security.md#encryption-at-rest)läge.
 

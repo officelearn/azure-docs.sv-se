@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en Synapse SQL-pool (för hands version) med Synapse Studio'
+title: 'Snabb start: skapa en Synapse SQL-pool med Synapse Studio'
 description: Skapa en ny Synapse SQL-pool med Synapse Studio genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f85731a7f3ffef0adf35812ee8da4e0bbd89124f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274279"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036581"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Snabb start: skapa en Synapse SQL-pool (för hands version) med Synapse Studio
+# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>Snabb start: skapa en Synapse SQL-pool med Synapse Studio
 
 Azure Synapse Analytics erbjuder olika analys verktyg som hjälper dig att mata in, transformera, modellera och analysera dina data. En SQL-pool ger T-SQL-baserade funktioner för beräkning och lagring. När du har skapat en SQL-pool på din Synapse-arbetsyta kan data läsas in, modelleras, bearbetas och levereras för snabbare analytiska insikter.
 
@@ -25,7 +25,7 @@ I den här snabb starten beskrivs stegen för att skapa en SQL-pool i en Synapse
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse-arbetsyta](quickstart-create-workspace.md)

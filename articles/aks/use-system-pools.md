@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.openlocfilehash: 01dcd6b7b366b7a1ada581ec154409ee7598e7a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2994a616d60258e81cbd5a409690abc18538183a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250846"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015535"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
@@ -28,14 +28,16 @@ I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsam
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder system-nodkonfigurationer.
 
 * Se [kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)][quotas-skus-regions].
-* AKS-klustret måste ha skapats med skalnings uppsättningar för virtuella datorer som VM-typ.
+* AKS-klustret måste ha skapats med skalnings uppsättningar för virtuella datorer som VM-typ och *standard* -SKU-belastningsutjämnaren.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-Node-pooler måste längden vara mellan 1 och 12 tecken. För Windows Node-pooler måste längden vara mellan 1 och 6 tecken.
 * En API-version på 2020-03-01 eller större måste användas för att ange ett läge för Node-poolen. Kluster som skapats på API-versioner som är äldre än 2020-03-01 innehåller bara pooler för användar-noder, men kan migreras så att de innehåller system-nodkonfigurationer genom att följa [stegen i uppdaterings läget](#update-existing-cluster-system-and-user-node-pools).
 * Läget för en Node-pool är en obligatorisk egenskap och måste anges explicit när du använder ARM-mallar eller direkta API-anrop.
 
 ## <a name="system-and-user-node-pools"></a>Pooler för system-och användar-noder
 
-Noder i noden system har etiketten **Kubernetes.Azure.com/mode: system**. Varje AKS-kluster innehåller minst en adresspool för systemet. Systemnode-pooler har följande begränsningar:
+För en AKS tilldelas automatiskt etiketten **Kubernetes.Azure.com/mode: system** till dess noder. Detta gör att AKS föredrar schemaläggning av system-poddar på nodkonfigurationer som innehåller den här etiketten. Den här etiketten förhindrar inte att du schemalägger program-poddar på system-Node-pooler. Vi rekommenderar dock att du isolerar viktiga system poddar från ditt program poddar för att förhindra felkonfigurerade eller otillåtna program poddar från oavsiktligt avlivning av system poddar. Du kan använda det här beteendet genom att skapa en dedikerad systemnode-pool. Använd den `CriticalAddonsOnly=true:NoSchedule` här bismaken för att förhindra att Application poddar schemaläggs på system-nodkonfigurationer.
+
+Systemnode-pooler har följande begränsningar:
 
 * OsType för system pooler måste vara Linux.
 * OsType för användar-noder kan vara Linux eller Windows.
@@ -46,6 +48,7 @@ Noder i noden system har etiketten **Kubernetes.Azure.com/mode: system**. Varje 
 
 Du kan utföra följande åtgärder med Node-pooler:
 
+* Skapa en dedikerad system Node-pool (föredra schemaläggning av system-poddar till Node `mode:system` -pooler)
 * Ändra en adresspool till en adresspool, förutsatt att du har en annan adresspool som tar sitt ställe i AKS-klustret.
 * Ändra en pool för användar-Node så att den är en system Node-pool.
 * Ta bort pooler för användar-noder.
@@ -55,7 +58,7 @@ Du kan utföra följande åtgärder med Node-pooler:
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Skapa ett nytt AKS-kluster med en pool för system-Node
 
-När du skapar ett nytt AKS-kluster skapar du automatiskt en adresspool med en enda nod. Den inledande nodens standardpool är som standard ett läge av typen system. När du skapar nya Node-pooler med AZ AKS nodepool Add, är de noderna för användar-noden, såvida du inte uttryckligen anger läges parametern.
+När du skapar ett nytt AKS-kluster skapar du automatiskt en adresspool med en enda nod. Den inledande nodens standardpool är som standard ett läge av typen system. När du skapar nya Node-pooler med `az aks nodepool add` , är dessa resurspooler för användare, såvida du inte uttryckligen anger läges parametern.
 
 I följande exempel skapas en resurs grupp med namnet *myResourceGroup* i regionen *östra* .
 
@@ -63,54 +66,73 @@ I följande exempel skapas en resurs grupp med namnet *myResourceGroup* i region
 az group create --name myResourceGroup --location eastus
 ```
 
-Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* med en mediepool som innehåller en nod. Se till att du använder system-nodkonfigurationer med minst tre noder för dina produktions arbets belastningar. Den här åtgärden kan ta flera minuter att slutföra.
+Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* med en dedicerad mediepool som innehåller en nod. Se till att du använder system-nodkonfigurationer med minst tre noder för dina produktions arbets belastningar. Den här åtgärden kan ta flera minuter att slutföra.
 
 ```azurecli-interactive
+# Create a new AKS cluster with a single system pool
 az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-## <a name="add-a-system-node-pool-to-an-existing-aks-cluster"></a>Lägga till en pool för system-Node i ett befintligt AKS-kluster
+## <a name="add-a-dedicated-system-node-pool-to-an-existing-aks-cluster"></a>Lägga till en dedikerad adresspool i ett befintligt AKS-kluster
 
-Du kan lägga till en eller flera språknode-pooler i befintliga AKS-kluster. Följande kommando lägger till en Node-pool av läges typ system med ett standard antal tre noder.
+> [!Important]
+> Du kan inte ändra nodens smakar genom CLI efter att Node-poolen har skapats.
+
+Du kan lägga till en eller flera språknode-pooler i befintliga AKS-kluster. Vi rekommenderar att du schemalägger program-poddar på användarens noder i pooler och dedikerar systemets nodkonfigurationer till endast kritiska system poddar. Detta förhindrar att falska program poddar oavsiktligt dödande system poddar. Använd den här funktionen med `CriticalAddonsOnly=true:NoSchedule` [bismaken][aks-taints] för dina system Node-pooler. 
+
+Följande kommando lägger till en dedikerad Node-pool av läges typ system med standard antalet tre noder.
 
 ```azurecli-interactive
-az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name systempool \
+    --node-count 3 \
+    --node-taints CriticalAddonsOnly=true:NoSchedule \
+    --mode system
 ```
 ## <a name="show-details-for-your-node-pool"></a>Visa information om Node-poolen
 
 Du kan kontrol lera informationen om Node-poolen med följande kommando.  
 
 ```azurecli-interactive
-az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
+az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
 ```
 
-Ett läge av typen **system** har definierats för system-nodkonfigurationer och ett läge av typen **användare** definieras för användar-noder i pooler.
+Ett läge av typen **system** har definierats för system-nodkonfigurationer och ett läge av typen **användare** definieras för användar-noder i pooler. För en systempool kontrollerar du att bismaken är inställd på `CriticalAddonsOnly=true:NoSchedule` , vilket hindrar att Application poddar schemaläggs för den här noden.
 
 ```output
 {
   "agentPoolType": "VirtualMachineScaleSets",
   "availabilityZones": null,
-  "count": 3,
+  "count": 1,
   "enableAutoScaling": null,
   "enableNodePublicIp": false,
-  "id": "/subscriptions/666d66d8-1e43-4136-be25-f25bb5de5883/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/mynodepool",
+  "id": "/subscriptions/yourSubscriptionId/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/systempool",
   "maxCount": null,
   "maxPods": 110,
   "minCount": null,
   "mode": "System",
-  "name": "mynodepool",
+  "name": "systempool",
+  "nodeImageVersion": "AKSUbuntu-1604-2020.06.30",
   "nodeLabels": {},
-  "nodeTaints": null,
-  "orchestratorVersion": "1.15.10",
-  "osDiskSizeGb": 100,
+  "nodeTaints": [
+    "CriticalAddonsOnly=true:NoSchedule"
+  ],
+  "orchestratorVersion": "1.16.10",
+  "osDiskSizeGb": 128,
   "osType": "Linux",
-  "provisioningState": "Succeeded",
+  "provisioningState": "Failed",
+  "proximityPlacementGroupId": null,
   "resourceGroup": "myResourceGroup",
   "scaleSetEvictionPolicy": null,
   "scaleSetPriority": null,
   "spotMaxPrice": null,
   "tags": null,
   "type": "Microsoft.ContainerService/managedClusters/agentPools",
+  "upgradeSettings": {
+    "maxSurge": null
+  },
   "vmSize": "Standard_DS2_v2",
   "vnetSubnetId": null
 }
@@ -146,6 +168,16 @@ Tidigare kunde du inte ta bort noden system Node, som var den första standardno
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill ta bort klustret använder du kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen AKS:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig hur du skapar och hanterar system-nodkonfigurationer i ett AKS-kluster. Mer information om hur du använder flera Node-pooler finns i [använda flera noder][use-multiple-node-pools].
@@ -159,6 +191,7 @@ I den här artikeln har du lärt dig hur du skapar och hanterar system-nodkonfig
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
+[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create

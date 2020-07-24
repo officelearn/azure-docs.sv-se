@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 909e4638b3b0919919320a09cbfa0e8d9ac92f2e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8279a32ece16209c1dd5bca13d08e22b283677ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007012"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio & .NET Core – Azure dev Spaces
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig hur du:
 
 Med Azure dev Spaces kan du också felsöka och iterera med:
 - [Java och Visual Studio Code](quickstart-java.md)
-- [Node. js och Visual Studio Code](quickstart-nodejs.md)
+- [Node.js och Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core och Visual Studio Code](quickstart-netcore.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -34,7 +34,7 @@ Med Azure dev Spaces kan du också felsöka och iterera med:
 - Visual Studio 2019 på Windows med arbets belastningen Azure Development installerad. Om du inte har Visual Studio installerat kan du ladda ned det [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes Service-kluster
 
 Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
@@ -84,15 +84,15 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 I projektet väljer du **Azure dev Spaces** från List rutan Start inställningar enligt nedan.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![Skärm bild av Visual Studio-ANVÄNDARGRÄNSSNITTET med alternativet IIS Express markerat och markerat och alternativet Azure dev Spaces markerat.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 I dialog rutan Azure dev Spaces väljer du din *prenumeration* och *Azure Kubernetes-kluster*. Lämna *utrymme* inställt på *standard* och aktivera kryss rutan *offentligt tillgänglig* . Klicka på *OK*.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
+![Skärm bild av dialog rutan Azure dev Spaces.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
 Den här processen distribuerar tjänsten till *standard* dev-utrymmet med en offentligt tillgänglig URL. Om du väljer ett kluster som inte har konfigurerats för användning med Azure Dev Spaces tillfrågas du om du vill konfigurera det. Klicka på *OK*.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![Skärm bild av dialog rutan Lägg till Azure-Spaces-resurs.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Den offentliga URL: en för tjänsten som körs i *standard* dev-utrymmet visas i fönstret *utdata* :
 

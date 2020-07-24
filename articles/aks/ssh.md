@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en SSH-anslutning med AKS-klusternoder (Azur
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a52584618e505aa2ae7bd9ed7e0a9f6bc330a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82207164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015620"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till AKS-klusternoder (Azure Kubernetes Service) vid underhåll eller felsökning
 
@@ -141,13 +141,15 @@ Om du vill skapa en SSH-anslutning till en AKS-nod kör du en hjälp-Pod i ditt 
 1. Kör en `debian` behållar avbildning och koppla en terminalsession till den. Den här behållaren kan användas för att skapa en SSH-session med en nod i AKS-klustret:
 
     ```console
-    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
     > Om du använder Windows Server-noder lägger du till en Node-selektor till kommandot för att schemalägga behållaren Debian på en Linux-nod:
     >
-    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
+    > ```console
+    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > ```
 
 1. När Terminal-sessionen är ansluten till behållaren installerar du en SSH-klient med hjälp av `apt-get` :
 

@@ -3,21 +3,28 @@ title: Skapa ett privat Azure Kubernetes service-kluster
 description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster (AKS)
 services: container-service
 ms.topic: article
-ms.date: 6/18/2020
-ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/17/2020
+ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015657"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
-I ett privat kluster har kontroll planet eller API-servern interna IP-adresser som definieras i [RFC1918 för privata Internet](https://tools.ietf.org/html/rfc1918) dokument. Genom att använda ett privat kluster kan du se till att nätverks trafiken mellan API-servern och noderna i pooler fortfarande finns i det privata nätverket.
+I ett privat kluster har kontroll planet eller API-servern interna IP-adresser som definieras i [RFC1918 för privata Internet](https://tools.ietf.org/html/rfc1918) dokument. Genom att använda ett privat kluster kan du se till att nätverks trafiken mellan API-servern och noderna i pooler fortfarande finns kvar i det privata nätverket.
 
 Kontroll planet eller API-servern finns i en Azure Kubernetes service (AKS)-hanterad Azure-prenumeration. En kunds kluster eller Node-pool är i kundens prenumeration. Servern och klustret eller noden kan kommunicera med varandra via [tjänsten Azure Private Link][private-link-service] i det virtuella nätverkets API-Server och en privat slut punkt som exponeras i under nätet för KUNDEns AKS-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="region-availability"></a>Regional tillgänglighet
+
+Privat kluster är tillgängligt i offentliga regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Kina 21Vianet stöds inte för närvarande.
+* US Gov, Texas stöds för närvarande inte på grund av att det saknas stöd för privata länkar.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure CLI-version 2.2.0 eller senare
 
@@ -69,13 +76,13 @@ Att skapa en virtuell dator i samma VNET som AKS-klustret är det enklaste alter
 
 ## <a name="virtual-network-peering"></a>Peering för virtuella nätverk
 
-Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du vill använda VNet-peering måste du konfigurera en länk mellan det virtuella nätverket och den privata DNS-zonen.
+Som nämnts är virtuell nätverks-peering ett sätt att komma åt ditt privata kluster. Om du vill använda peering för virtuella nätverk måste du konfigurera en länk mellan det virtuella nätverket och den privata DNS-zonen.
     
 1. Gå till resurs gruppen för noden i Azure Portal.  
 2. Välj den privata DNS-zonen.   
 3. I det vänstra fönstret väljer du länken **virtuellt nätverk** .  
 4. Skapa en ny länk för att lägga till det virtuella nätverket för den virtuella datorn i den privata DNS-zonen. Det tar några minuter för DNS-zon-länken att bli tillgänglig.  
-5. I Azure Portal navigerar du till resurs gruppen som innehåller klustrets VNet.  
+5. I Azure Portal navigerar du till resurs gruppen som innehåller klustrets virtuella nätverk.  
 6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet- \* *.  
 7. Välj **peering**i det vänstra fönstret.  
 8. Välj **Lägg till**, Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  

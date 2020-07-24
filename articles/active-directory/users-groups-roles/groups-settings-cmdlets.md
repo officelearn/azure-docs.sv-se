@@ -14,11 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91eb361d4bcae304734817ee7f57141d6f06415
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd060972e562759fcc1071f2c6549578bd3d4ed9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727865"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015722"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 
@@ -31,7 +32,7 @@ Mer information om hur du hindrar icke-administratörer från att skapa säkerhe
 
 Inställningarna för Office 365-grupper konfigureras med ett inställnings objekt och ett SettingsTemplate-objekt. Inlednings vis ser du inte några inställnings objekt i katalogen, eftersom din katalog är konfigurerad med standardinställningarna. Om du vill ändra standardinställningarna måste du skapa ett nytt inställnings objekt med hjälp av en mall för inställningar. Inställningar mallar definieras av Microsoft. Det finns flera olika inställnings mallar. Om du vill konfigurera inställningar för Office 365-grupper för din katalog använder du mallen "Group. Unified". Om du vill konfigurera inställningar för Office 365-grupper i en enskild grupp använder du mallen "Group. Unified. Guest". Den här mallen används för att hantera gäst åtkomst till en Office 365-grupp. 
 
-Cmdletarna är en del av modulen Azure Active Directory PowerShell V2. Instruktioner för hur du hämtar och installerar modulen på datorn finns i artikeln [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/azuread/). Du kan installera version 2 av modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/).
+Cmdletarna är en del av modulen Azure Active Directory PowerShell V2. Instruktioner för hur du hämtar och installerar modulen på datorn finns i artikeln [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/azure/active-directory/overview). Du kan installera version 2 av modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="install-powershell-cmdlets"></a>Installera PowerShell-cmdletar
 
@@ -318,9 +319,9 @@ Det här steget tar bort inställningar på katalog nivå, som gäller för alla
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet-syntax-referens
-Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/install-adv2?view=azureadps-2.0).
+Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
-## <a name="additional-reading"></a>Ytterligare läsning
+## <a name="additional-reading"></a>Mer att läsa
 
 * [Hantera åtkomst till resurser med Azure Active Directory grupper](../fundamentals/active-directory-manage-groups.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

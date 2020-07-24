@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 338fdcb6ee2ebad98972bead7e16c9bc5944f2b3
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117059"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Felsöka problem med Log Analytics-agenten för Windows 
 
@@ -34,11 +34,12 @@ Kontrol lera att brand väggen eller proxyservern har kon figurer ATS för att t
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Utgående|Ja |  
-|*.oms.opinsights.azure.com |Port 443 |Utgående|Ja |  
-|*.blob.core.windows.net |Port 443 |Utgående|Ja |  
+|*.ods.opinsights.azure.com |Port 443 |Utgående|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Utgående|Yes |  
+|*.blob.core.windows.net |Port 443 |Utgående|Yes |  
+|*. agentsvc.azure-automation.net |Port 443 |Utgående|Yes |  
 
-För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Om du planerar att använda Azure Automation Hybrid Runbook Worker för att ansluta till och registrera med Automation-tjänsten för att använda Runbooks eller hanterings lösningar i din miljö, måste den ha åtkomst till port numret och de URL: er som beskrivs i [Konfigurera ditt nätverk för Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). Om du planerar att använda Azure Automation Hybrid Runbook Worker för att ansluta till och registrera med Automation-tjänsten för att använda Runbooks eller hanterings lösningar i din miljö, måste den ha åtkomst till port numret och de URL: er som beskrivs i [Konfigurera ditt nätverk för Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Det finns flera sätt som du kan kontrol lera om agenten lyckas kommunicera med Azure Monitor.
 
@@ -103,4 +104,3 @@ Om frågan returnerar resultat måste du bestämma om en viss datatyp inte samla
     |8000 |HealthService |Den här händelsen anger om ett arbets flöde som rör prestanda, händelse eller annan insamlad datatyp inte kan vidarebefordra till tjänsten för inmatning till arbets ytan. | Händelse-ID 2136 från käll-HealthService skrivs tillsammans med den här händelsen och kan tyda på att agenten inte kan kommunicera med tjänsten, eventuellt på grund av felaktig konfiguration av proxy-och autentiseringsinställningar, nätverks avbrott eller nätverks brand vägg/proxy tillåter inte TCP-trafik från datorn till tjänsten.| 
     |10102 och 10103 |Hälsotjänst moduler |Det gick inte att matcha data källan i arbets flödet. |Detta kan inträffa om den angivna prestanda räknaren eller instansen inte finns på datorn eller felaktigt har definierats i data inställningarna för arbets ytan. Om det här är en användardefinierad [prestanda räknare](data-sources-performance-counters.md#configuring-performance-counters)kontrollerar du att den angivna informationen följer rätt format och finns på mål datorerna. |
     |26002 |Hälsotjänst moduler |Det gick inte att matcha data källan i arbets flödet. |Detta kan inträffa om den angivna Windows-händelseloggen inte finns på datorn. Det här felet kan ignoreras om datorn inte förväntas ha den här händelse loggen registrerad, annars om det är en användardefinierad [händelse logg](data-sources-windows-events.md#configuring-windows-event-logs)kontrollerar du att den angivna informationen är korrekt. |
-

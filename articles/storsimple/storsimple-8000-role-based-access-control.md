@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec98060a09a1fad4f851689daff3f4b578c164f5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514648"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124110"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Rollbaserad Access Control för StorSimple
 
-Den här artikeln innehåller en kort beskrivning av hur du kan använda RBAC (Azure Role-based Access Control) för din StorSimple-enhet. RBAC har detaljerad åtkomst hantering för Azure. Använd RBAC för att bevilja enbart rätt åtkomst till StorSimple-användare för att utföra sina jobb i stället för att ge alla obegränsad åtkomst. Mer information om grunderna i åtkomst hantering i Azure finns i [komma igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
+Den här artikeln innehåller en kort beskrivning av hur Azure-rollbaserad åtkomst kontroll (Azure RBAC) kan användas för din StorSimple-enhet. RBAC har detaljerad åtkomst hantering för Azure. Använd RBAC för att bevilja enbart rätt åtkomst till StorSimple-användare för att utföra sina jobb i stället för att ge alla obegränsad åtkomst. Mer information om grunderna i åtkomst hantering i Azure finns i [komma igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
 
 Den här artikeln gäller för enheter med StorSimple 8000-serien som kör uppdatering 3,0 eller senare i Azure Portal.
 
@@ -34,7 +35,7 @@ RBAC kan tilldelas baserat på roller. Rollerna säkerställer vissa behörighet
 
 * **Inbyggda roller** – de inbyggda rollerna kan vara ägare, deltagare, läsare eller användar åtkomst administratör. Mer information finns i [inbyggda roller för Azure Role-baserade Access Control](../role-based-access-control/built-in-roles.md).
 
-* **Anpassade roller** – om de inbyggda rollerna inte passar dina behov kan du skapa anpassade RBAC-roller för StorSimple. Om du vill skapa en anpassad RBAC-roll börjar du med en inbyggd roll, redigerar den och importerar den sedan i miljön igen. Hämtning och uppladdning av rollen hanteras med hjälp av antingen Azure PowerShell eller Azure CLI. Mer information finns i [skapa anpassade roller för rollbaserad Access Control](../role-based-access-control/custom-roles.md).
+* **Anpassade roller** – om de inbyggda rollerna inte passar dina behov kan du skapa Azure-anpassade roller för StorSimple. Om du vill skapa en anpassad Azure-roll börjar du med en inbyggd roll, redigerar den och importerar den sedan igen i-miljön. Hämtning och uppladdning av rollen hanteras med hjälp av antingen Azure PowerShell eller Azure CLI. Mer information finns i [skapa anpassade roller för rollbaserad Access Control](../role-based-access-control/custom-roles.md).
 
 Om du vill visa de olika rollerna som är tillgängliga för en StorSimple enhets användare i Azure Portal går du till StorSimple Enhetshanteraren-tjänsten och går sedan till **åtkomst kontroll (IAM) > roller**.
 
@@ -101,7 +102,7 @@ I följande exempel börjar vi med den inbyggda roll **läsaren** som gör att a
     }
     ```
 
-6. Importera den anpassade RBAC-rollen tillbaka till miljön.
+6. Importera den anpassade Azure-rollen till miljön igen.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 

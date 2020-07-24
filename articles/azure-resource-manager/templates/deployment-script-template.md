@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117054"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -138,7 +138,7 @@ Information om egenskaps värde:
 - **Identitet**: distributions skript tjänsten använder en användardefinierad hanterad identitet för att köra skripten. För närvarande stöds endast användardefinierad hanterad identitet.
 - **typ**: ange typ av skript. Azure PowerShell-och Azure CLI-skript stöds för närvarande. Värdena är **AzurePowerShell** och **AzureCLI**.
 - **forceUpdateTag**: om du ändrar det här värdet mellan mallens distributioner tvingas distributions skriptet att köras igen. Använd funktionen newGuid () eller utcNow () som måste anges som defaultValue för en parameter. Mer information finns i [Kör skript mer än en gång](#run-script-more-than-once).
-- **containerSettings**: Ange inställningarna för att anpassa Azure Container instance.  **containerGroupName** används för att ange behållar gruppens namn.  Om det inte anges skapas grupp namnet automatiskt.
+- **containerSettings**: Ange inställningarna för att anpassa Azure Container instance.  **containerGroupName** används för att ange behållar gruppens namn.  Om inget anges skapas grupp namnet automatiskt.
 - **storageAccountSettings**: Ange inställningarna för att använda ett befintligt lagrings konto. Om inget anges skapas ett lagrings konto automatiskt. Se [Använd ett befintligt lagrings konto](#use-existing-storage-account).
 - **azPowerShellVersion** / **azCliVersion**: Ange den version av modulen som ska användas. En lista över PowerShell-och CLI-versioner som stöds finns i [krav](#prerequisites).
 - **argument**: ange parameter värden. Värdena avgränsas med blank steg.
@@ -147,7 +147,7 @@ Information om egenskaps värde:
 
     Om argumenten innehåller Escaped tecken, använder du [JsonEscaper](https://www.jsonescaper.com/) för att dubbla escape-tecknen. Klistra in den ursprungliga undantagna strängen i verktyget och välj sedan **Escape**.  Verktyget matar ut en dubbelt undantagen sträng. I föregående exempel-mall är argumentet till exempel **-Name \\ "John Dole \\ "**.  Den undantagna strängen är **-Name \\ \\ \\ "John Dole \\ \\ \\ "**.
 
-    Om du vill skicka en arm-mallparameter av typen Object som ett argument konverterar du objektet till en sträng med hjälp av funktionen [String ()](./template-functions-string.md#string) och använder sedan funktionen [replace ()](./template-functions-string.md#replace) för att ersätta alla ** \\ "** i ** \\ \\ \\ "**. Ett exempel:
+    Om du vill skicka en arm-mallparameter av typen Object som ett argument konverterar du objektet till en sträng med hjälp av funktionen [String ()](./template-functions-string.md#string) och använder sedan funktionen [replace ()](./template-functions-string.md#replace) för att ersätta alla ** \\ "** i ** \\ \\ \\ "**. Exempel:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -203,7 +203,7 @@ De utdata som returneras ser ut så här:
 
 ## <a name="use-external-scripts"></a>Använd externa skript
 
-Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Ett exempel:
+Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Exempel:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -288,7 +288,7 @@ Om du vill ange ett befintligt lagrings konto lägger du till följande JSON til
 ```
 
 - **storageAccountName**: Ange namnet på lagrings kontot.
-- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Ett exempel:
+- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Exempel:
 
     ```json
     "storageAccountSettings": {
@@ -600,6 +600,34 @@ Du måste också konfigurera fildelning för att montera katalogen som innehåll
     ![Resource Manager-mall distribution skript Docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
 När skriptet har testats kan du använda det som ett distributions skript i mallarna.
+
+## <a name="deployment-script-error-codes"></a>Fel koder för distributions skript
+
+| Felkod | Beskrivning |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | Resurs definitionen för distributions skriptet i mallen innehåller ogiltiga egenskaps namn. |
+| DeploymentScriptResourceConflict | Det går inte att ta bort en distributions skript resurs som är i icke-terminal-tillstånd och körningen har inte överskridit 1 timme. Eller kan inte köra samma distributions skript igen med samma resurs-ID (samma prenumeration, resurs grupp namn och resurs namn), men olika skript innehåll på samma gång. |
+| DeploymentScriptOperationFailed | Distributions skript åtgärden misslyckades internt. Kontakta Microsoft-supporten. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | Åtkomst nyckeln har inte angetts för det befintliga lagrings kontot.|
+| DeploymentScriptContainerGroupContainsInvalidContainers | En behållar grupp som skapats av distributions skript tjänsten har ändrats externt och ogiltiga behållare lades till. |
+| DeploymentScriptContainerGroupInNonterminalState | Minst två distributions skript resurser använder samma instans namn för Azure Container i samma resurs grupp och en av dem har inte slutfört körningen ännu. |
+| DeploymentScriptStorageAccountInvalidKind | Det befintliga lagrings kontot för BlobBlobStorage-eller BlobStorage-typen stöder inte fil resurser och kan inte användas. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | Det befintliga lagrings kontot har inte stöd för fil resurser. En lista över typer av lagrings konton som stöds finns i [Använd befintligt lagrings konto](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountNotFound | Lagrings kontot finns inte eller har tagits bort av en extern process eller ett verktyg. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | Det angivna lagrings kontot har en tjänst slut punkt. Det finns inte stöd för ett lagrings konto med en tjänst slut punkt. |
+| DeploymentScriptStorageAccountInvalidAccessKey | En ogiltig åtkomst nyckel har angetts för det befintliga lagrings kontot. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Ogiltigt nyckel format för lagrings konto. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md). |
+| DeploymentScriptExceededMaxAllowedTime | Körnings tiden för distributions skriptet överskred det timeout-värde som angavs i resurs definitionen för distributions skriptet. |
+| DeploymentScriptInvalidOutputs | Utdata från distributions skriptet är inte ett giltigt JSON-objekt. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | Den tilldelade hanterade identiteten kunde inte logga in efter 10 försök med ett intervall på 1 minut. |
+| DeploymentScriptContainerGroupNotFound | En behållar grupp som skapats av distributions skript tjänsten togs bort av ett externt verktyg eller en process. |
+| DeploymentScriptDownloadFailure | Det gick inte att hämta ett stöd skript. Se [använda stöd skript](#use-supporting-scripts).|
+| DeploymentScriptError | Ett fel inträffade i användar skriptet. |
+| DeploymentScriptBootstrapScriptExecutionFailed | Ett fel inträffade i bootstrap-skriptet. Bootstrap-skript är det system skript som dirigerar distributionen av skript. |
+| DeploymentScriptExecutionFailed | Ett okänt fel inträffade under körningen av distributions skriptet. |
+| DeploymentScriptContainerInstancesServiceUnavailable | När du skapar Azure Container Instance (ACI) utlöste ACI ett otillgängligt tjänst fel. |
+| DeploymentScriptContainerGroupInNonterminalState | När du skapar Azure Container Instance (ACI) använder ett annat distributions skript samma ACI-namn i samma omfång (samma prenumeration, resurs grupp namn och resurs namn). |
+| DeploymentScriptContainerGroupNameInvalid | Det angivna Azure Container instance-namnet (ACI) uppfyller inte kraven för ACI. Se [Felsöka vanliga problem i Azure Container instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
 ## <a name="next-steps"></a>Nästa steg
 

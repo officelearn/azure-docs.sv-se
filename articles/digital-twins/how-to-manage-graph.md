@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258111"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125540"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
 Hjärtat i Azure Digitals flätas är det [dubbla diagrammet](concepts-twins-graph.md) som representerar hela miljön. Den dubbla grafen består av enskilda digitala dubbla anslutningar via **relationer**.
 
-När du har en fungerande [Azure Digital-instans](how-to-set-up-instance.md) och har konfigurerat [autentisering](how-to-authenticate-client.md) för din klient app, kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md) för att skapa, ändra och ta bort digitala dubbla och deras relationer i en Azure Digital-instans. Du kan också använda [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md).
+När du har en fungerande [Azure Digital-instansen](how-to-set-up-instance-scripted.md) och har konfigurerat [autentiserings](how-to-authenticate-client.md) kod i din klient app, kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md) för att skapa, ändra och ta bort digitala dubbla och deras relationer i en digital Azure-instans. Du kan också använda [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md).
 
-Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet. information om hur du arbetar med enskilda digitala dubbla, finns i [så här gör du: hantera digitala dubbla](how-to-manage-twin.md).
+Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet. information om hur du arbetar med enskilda digitala dubbla, finns i [*så här gör du: hantera digitala dubbla*](how-to-manage-twin.md).
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -62,7 +62,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Mer information om hjälp klassen `BasicRelationship` finns i [How-to: använda Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md).
+Mer information om hjälp klassen `BasicRelationship` finns i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
 
 ## <a name="list-relationships"></a>List relationer
 
@@ -108,7 +108,7 @@ Azure Digitals dubbla är också ett API för att hitta alla inkommande relation
 
 Föregående kod exempel fokuserar på att hitta utgående relationer. Följande exempel är liknande, men hittar inkommande relationer i stället. Det tar också bort dem när de har hittats.
 
-Observera att IncomingRelationship-anropen inte returnerar fullständig
+Observera att `IncomingRelationship` anropen inte returnerar hela bröd texten i relationen.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
@@ -301,10 +301,10 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## <a name="manage-relationships-with-cli"></a>Hantera relationer med CLI
 
-Dubbla och deras relationer kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [anvisningar: använda Azure Digitals flätade CLI](how-to-use-cli.md).
+Dubbla och deras relationer kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om att skicka frågor till en Azure Digitals dubbla graf:
-* [Begrepp: frågespråk](concepts-query-language.md)
-* [Anvisningar: fråga det dubbla diagrammet](how-to-query-graph.md)
+* [*Begrepp: frågespråk*](concepts-query-language.md)
+* [*Anvisningar: fråga det dubbla diagrammet*](how-to-query-graph.md)

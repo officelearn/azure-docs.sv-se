@@ -3,19 +3,17 @@ title: Metadata med GenerateAnswer-API – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Med QnA Maker kan du lägga till metadata, i form av nyckel/värde-par, till dina fråge-/svars par. Du kan filtrera resultat till användar frågor och lagra ytterligare information som kan användas i uppföljnings konversationer.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: diberry
-ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.openlocfilehash: 863143cb2ec1085bf03b070c225f2be5e8e4393d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993515"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126184"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
@@ -146,7 +144,7 @@ var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnCont
 
 Föregående JSON begärde bara svar som är 30% eller högre än tröskel poängen.
 
-## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Använda QnA Maker med en robot i Node. js
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Använda QnA Maker med en robot i Node.js
 
 Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
@@ -184,13 +182,40 @@ Eftersom resultat endast krävs för restaurang "Paradise" kan du ange ett filte
 {
     "question": "When does this hotel close?",
     "top": 1,
-    "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
+
+### <a name="logical-and-by-default"></a>Logiskt och som standard
+
+Om du vill kombinera flera metadata filter i frågan lägger du till de ytterligare metadata-filtren i matrisen för `strictFilters` egenskapen. Som standard kombineras värdena logiskt (och). En logisk kombination kräver att alla filter matchar QnA-par i ordning för att paret ska returneras i svaret.
+
+Detta motsvarar att använda `strictFiltersCompoundOperationType` egenskapen med värdet `AND` .
+
+### <a name="logical-or-using-strictfilterscompoundoperationtype-property"></a>Logiska eller använda strictFiltersCompoundOperationType-egenskapen
+
+När du kombinerar flera filter för metadata, om du bara är bekymrad med en eller några av filtren som matchar, använder du `strictFiltersCompoundOperationType` egenskapen med värdet `OR` .
+
+Detta gör att din kunskaps bas kan returnera svar när något filter matchar men inte returnerar svar som saknar metadata.
+
+```json
+{
+    "question": "When do facilities in this hotel close?",
+    "top": 1,
+    "strictFilters": [
+      { "name": "type","value": "restaurant"},
+      { "name": "type", "value": "bar"},
+      { "name": "type", "value": "poolbar"}
+    ],
+    "strictFiltersCompoundOperationType": "OR"
+}
+```
+
+### <a name="metadata-examples-in-quickstarts"></a>Metadata exempel i snabb starter
+
+Läs mer om metadata i snabb starten för QnA Maker Portal för metadata:
+* [Redigering – Lägg till metadata i QnA-paret](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Fråga förutsägelse – filtrera svar efter metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
 

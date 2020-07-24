@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du konfigurerar real tids visningen
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116702"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Så här ställer du in funktionen Live data (för hands version)
 
@@ -42,7 +42,7 @@ Azure Portal uppmanas du att verifiera dina inloggnings uppgifter för ett Azure
 >Auktorisering till klustret hanteras av Kubernetes och säkerhets modellen som den har kon figurer ATS med. Användare som har åtkomst till den här funktionen kräver behörighet att ladda ned Kubernetes-konfigurationen (*kubeconfig*), ungefär som att köras `az aks get-credentials -n {your cluster name} -g {your resource group}` . Den här konfigurations filen innehåller auktoriserings-och autentiseringstoken för **användar rollen Azure Kubernetes service-kluster**, om Azure RBAC-aktiverade och AKS-kluster utan RBAC-auktorisering har Aktiver ATS. Den innehåller information om Azure AD-och klient registrerings information när AKS har Aktiver ATS med Azure Active Directory (AD) SAML-baserad enkel inloggning.
 
 >[!IMPORTANT]
->Användare av de här funktionerna kräver [användar rollen Azure Kubernetes-kluster](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) i klustret för att kunna hämta `kubeconfig` och använda den här funktionen. Användare behöver **inte** deltagar åtkomst till klustret för att använda den här funktionen.
+>Användare av de här funktionerna kräver [användar rollen Azure Kubernetes-kluster](../../role-based-access-control/built-in-roles.md) i klustret för att kunna hämta `kubeconfig` och använda den här funktionen. Användare behöver **inte** deltagar åtkomst till klustret för att använda den här funktionen.
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Använda clusterMonitoringUser med RBAC-aktiverade kluster
 

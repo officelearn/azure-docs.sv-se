@@ -5,14 +5,14 @@ services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: aa77ac3652d8646a3354cb137ba7cf4240e58e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9a8b44cc6e78eda4a3e0b18d59d2372e7129c05
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482895"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124193"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -20,7 +20,7 @@ ms.locfileid: "85482895"
 
 Azure Networking MSP är en specialiserad uppsättning leverantörer av hanterade tjänster som hanterar företagets moln nätverks behov och utmaningar i alla aspekter av molnet och hybrid nätverk. De hanterade nätverks tjänsterna innehåller en eller flera av följande tjänster: nätverks arkitektur, planering, distribution, åtgärder, underhåll och optimering.
 
-![MSP][0]
+:::image type="content" source="./media/networking-partners-msp/msp.jpg" alt-text="partner":::
 
 Kunder kan köpa MSP-hanterade tjänster i Azure Marketplace eller direkt från MSP. MSP kan distribuera och hantera Azure nätverks resurser i kundernas prenumerationer och resurs grupper med hjälp av [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
@@ -32,6 +32,7 @@ Använd länkarna i det här avsnittet för mer information om hanterade moln n�
 | ---| ---| ---| ---| ---|
 |[ANS-grupp Storbritannien](https://www.ans.co.uk/)|[Azure Managed SVC + 10wk-implementering för ANS-glas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|[ExpressRoute & anslutning: utvärdering av 2 veckor](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.ans_er)|[Azure Virtual WAN + Fortinet: 2 veckors bedömning](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.ans_vw)|||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Azure Virtual WAN](https://azuremarketplace.microsoft.com/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview) | | |
+|[AXESDN](https://www.axesdn.com/en/azure-msp.html)||[AXESDN hanterade Azure-ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_expressroute?tab=Overview)|[AXESDN hanterade Azure Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_virtualwan?tab=Overview) | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Konsult tjänster för nätverks omvandling: 1 – personal bedömning](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting); [BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure-ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure-VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
 |[CenturyLink](https://www.centurylink.com/business.html)||[ExpressRoute Consulting SVC: 8-veckor-implementering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/centurylink2362604-2362604.centurylink_consultingservicesforexpressroute)||||
 |[Samutvecklande](https://www.coevolve.com/services/azure-networking-services/)|||[Hanterad virtuell WAN-gräns för VMware SD – WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
@@ -53,7 +54,7 @@ Använd länkarna i det här avsnittet för mer information om hanterade moln n�
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure Health-kontroll: 5 dagars utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5 dagars implementering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis-hanterad ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis hanterade VWAN som drivs av Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis-hanterad VWAN som drivs av Palo--nätverk](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-Azure Marketplace-erbjudanden inklusive nya hanterade säkerhets tjänster och hanterade MEC-tjänster från följande Azure-nätverk MSP-partner finns i vår översikt: [Amdocs](https://www.amdocs.com/); [AXESDN](https://www.axesdn.com/en/azure-msp.html); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Tyska telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX räckvidd](https://www.ixreach.com/services/sdn-cloud-connect/);  Mellan [moln](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [Federerad trådlös](https://www.federatedwireless.com/caas/)
+Azure Marketplace-erbjudanden för hanterade ExpressRoute-, virtuella WAN-, säkerhets tjänster och tjänster för privata Edge-zoner från följande Azure-nätverk MSP-partner finns i vår plan: [Amdocs](https://www.amdocs.com/);  [Tyska telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX räckvidd](https://www.ixreach.com/services/sdn-cloud-connect/);  Mellan [moln](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [Federerad trådlös](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>ExpressRoute-partner
 
@@ -62,6 +63,3 @@ Information om partner finns i [ExpressRoute partners och platser](../expressrou
 ## <a name="virtual-wan-partners"></a><a name="vwan"></a>Virtuella WAN-partner
 
 För information om partners, se [virtuella WAN-partners och leverantörer](../virtual-wan/virtual-wan-locations-partners.md).
-
-<!--Image References-->
-[0]: ./media/networking-partners-msp/msp.png "Beskrivning av MSP-program"

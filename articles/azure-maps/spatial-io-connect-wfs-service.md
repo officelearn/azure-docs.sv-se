@@ -1,19 +1,19 @@
 ---
 title: Ansluta till en tjänst för webb funktions tjänsten (WFS) | Microsoft Azure Maps
 description: Lär dig hur du ansluter till en WFS-tjänst och frågar WFS-tjänsten med hjälp av Azure Maps Web SDK och den spatiala IO-modulen.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b511395eb61e8845aaa11e5ca7a490dc461424d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42e8356dabc8172ddb75595dc63b01aaf4244958
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334209"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124671"
 ---
 # <a name="connect-to-a-wfs-service"></a>Ansluta till en WFS-tjänst
 
@@ -26,7 +26,7 @@ Följande funktioner stöds av `WfsClient` klassen:
 - Begär Anden görs `HTTP GET` endast med.
 - Åtgärder som stöds:
 
-    | | |
+    | Åtgärd | Beskrivning |
     | :-- | :-- |
     | GetCapabilities | Genererar ett Metadatadokumentet med giltiga WFS-åtgärder och-parametrar |
     | GetFeature | Returnerar ett urval av funktioner från en data Källa |

@@ -3,14 +3,14 @@ title: GEO-replikera ett register
 description: Kom igång med att skapa och hantera ett geo-replikerat Azure Container Registry, vilket gör att registret kan betjäna flera regioner med regionala repliker med flera huvud servrar. Geo-replikering är en funktion i Premium service-nivån.
 author: stevelas
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116799"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -95,7 +95,7 @@ ACR börjar synkronisera avbildningar mellan de konfigurerade replikerna. När d
 * När du push-överför eller hämtar bilder från ett geo-replikerat register skickar Azure Traffic Manager i bakgrunden begäran till registret i den region som är närmast dig vad gäller nätverks fördröjning.
 * När du har push-överfört en avbildning eller tagga till den närmaste regionen tar det lite tid för Azure Container Registry att replikera manifest och lager till de återstående regioner som du har valt. Större bilder tar längre tid att replikera än de mindre. Bilder och taggar synkroniseras i de replikerade regionerna med en eventuell konsekvens modell.
 * För att hantera arbets flöden som är beroende av push-uppdateringar till ett geo-replikerat register, rekommenderar vi att du konfigurerar [Webhooks](container-registry-webhook.md) så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
-* Azure Container Registry använder data slut punkter för att hantera blobbar som representerar innehålls lager. Du kan aktivera [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) för ditt register i var och en av dina registers geo-replikerade regioner. Med dessa slut punkter kan du konfigurera regler för att begränsa brand Väggs åtkomst.
+* Azure Container Registry använder data slut punkter för att hantera blobbar som representerar innehålls lager. Du kan aktivera [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) för ditt register i var och en av dina registers geo-replikerade regioner. Med dessa slut punkter kan du konfigurera regler för att begränsa brand Väggs åtkomst. I fel söknings syfte kan du välja [att inaktivera routning till en replikering samtidigt som](#temporarily-disable-routing-to-replication) du behåller replikerade data.
 * Om du konfigurerar en [privat länk](container-registry-private-link.md) för registret med privata slut punkter i ett virtuellt nätverk, aktive ras dedikerade data slut punkter i varje geo-replikerad region som standard. 
 
 ## <a name="delete-a-replica"></a>Ta bort en replik
@@ -127,9 +127,36 @@ Om det här problemet uppstår är en lösning att tillämpa en DNS-cache på kl
 
 Om du vill optimera DNS-matchningen till den närmaste repliken när du skickar avbildningar konfigurerar du ett geo-replikerat register i samma Azure-regioner som källan till push-åtgärderna eller den närmaste regionen när du arbetar utanför Azure.
 
+### <a name="temporarily-disable-routing-to-replication"></a>Inaktivera routning till replikering tillfälligt
+
+Om du vill felsöka åtgärder med ett geo-replikerat register kan du tillfälligt inaktivera Traffic Manager routning till en eller flera replikeringar. Från och med Azure CLI version 2,8 kan du konfigurera ett `--region-endpoint-enabled` alternativ (förhands granskning) när du skapar eller uppdaterar en replikerad region. När du ställer in en replikerings `--region-endpoint-enabled` alternativ för `false` , Traffic Manager inte längre dirigerar Docker push-eller pull-begäranden till den regionen. Som standard aktive ras routning till alla replikeringar och datasynkronisering över alla replikeringar sker oavsett om routning är aktiverat eller inaktiverat.
+
+Om du vill inaktivera routning till en befintlig replikering ska du först köra [AZ ACR-replikeringsgruppen][az-acr-replication-list] för att visa en lista över replikeringarna i registret. Kör sedan [AZ ACR Replication Update][az-acr-replication-update] och Ställ in `--region-endpoint-enabled false` för en speciell replikering. Om du till exempel vill konfigurera inställningen för den *västra* replikeringen i *registret*:
+
+```azurecli
+# Show names of existing replications
+az acr replication list --registry --output table
+
+# Disable routing to replication
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled false
+```
+
+Så här återställer du routning till en replikering:
+
+```azurecli
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled true
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs självstudieserien i tre delar, [Geo-replikering i Azure Container Registry](container-registry-tutorial-prepare-registry.md). Gå igenom att skapa ett geo-replikerat register samt skapa en container och sedan distribuera den med ett enda `docker push`-kommando till flera regionala Web Apps for Containers-instanser.
 
 > [!div class="nextstepaction"]
 > [Geo-replikering i Azure Container Registry](container-registry-tutorial-prepare-registry.md)
+
+[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
+[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update

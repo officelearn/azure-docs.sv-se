@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115926"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du använder portalen för att skapa tjänstens huvu
 > I stället för att skapa ett huvud namn för tjänsten bör du överväga att använda hanterade identiteter för Azure-resurser för din program identitet. Om din kod körs på en tjänst som har stöd för hanterade identiteter och åtkomst till resurser som stöder Azure AD-autentisering, är hanterade identiteter ett bättre alternativ. Mer information om hanterade identiteter för Azure-resurser, inklusive vilka tjänster som för närvarande stöder det, finns i [Vad är Managed identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Registrera appar, app-objekt och tjänstens huvud namn
-Det finns inget sätt att direkt skapa ett huvud namn för tjänsten med hjälp av Azure Portal.  När du registrerar ett program via Azure Portal skapas automatiskt en hem katalog eller klient organisation av ett program objekt och tjänstens huvud namn.  För ytterligare information om relationen mellan app-registrering, program objekt och tjänst huvud namn, Läs [program-och tjänst huvud objekt i Azure Active Directory](app-objects-and-service-principals.md).
+Det finns inget sätt att direkt skapa ett huvud namn för tjänsten med hjälp av Azure Portal.  När du registrerar ett program via Azure Portal skapas automatiskt ett program objekt och tjänstens huvud namn i din hem katalog eller klient organisation.  För ytterligare information om relationen mellan app-registrering, program objekt och tjänst huvud namn, Läs [program-och tjänst huvud objekt i Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Behörigheter som krävs för att registrera en app
 
@@ -55,7 +55,7 @@ Så här kontrollerar du dina prenumerations behörigheter:
 
 1. Sök efter och välj **prenumerationer**eller Välj **prenumerationer** på **Start** sidan.
 
-   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Sök](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Välj den prenumeration som du vill skapa tjänstens huvud namn i.
 
@@ -178,7 +178,7 @@ Om du väljer att inte använda ett certifikat kan du skapa en ny program hemlig
    ![Kopiera det hemliga värdet eftersom du inte kan hämta det senare](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Konfigurera åtkomst principer för resurser
-Kom ihåg att du kan behöva konfigurera tilläggs behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.  
+Kom ihåg att du kan behöva konfigurera ytterligare behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.  
 
 1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt nyckel valv och väljer **åtkomst principer**.  
 1. Välj **Lägg till åtkomst princip**och välj sedan de nyckel-, hemlighet-och certifikat behörigheter som du vill ge ditt program.  Välj tjänstens huvud namn som du skapade tidigare.

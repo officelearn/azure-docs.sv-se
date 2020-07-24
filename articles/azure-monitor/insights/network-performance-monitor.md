@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498975"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117199"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -56,7 +56,7 @@ NPM kan övervaka anslutningar mellan nätverk och program i valfri del av värl
 * Södra Storbritannien
 * Asien, östra
 * Sydkorea, centrala
-* Central India
+* Indien, centrala
 * AMERIKANSKA myndigheter i Virginia
 * Kina, östra 2
 
@@ -65,6 +65,9 @@ Listan över regioner som stöds för ExpressRoute-övervakaren finns i [dokumen
 
 
 ## <a name="set-up-and-configure"></a>Konfigurera och konfigurera
+
+> [!NOTE]
+> Du kan också se Log Analytics-agenten som kallas Microsoft Monitoring Agent (MMA) eller OMS Linux-agenten.
 
 ### <a name="install-and-configure-agents"></a>Installera och konfigurera agenter 
 

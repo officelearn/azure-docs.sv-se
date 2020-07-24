@@ -1,19 +1,20 @@
 ---
 title: Lägg till en HTML-markör till kartan | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du lägger till en HTML-markör till en karta med hjälp av Microsoft Azure Maps-webbsdk.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 30d9cf9848a8d99505bf9f9c97bef5aaa31065ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fae7c2e24eb10ffb2a36a0af1052be2694b0693c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83119281"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126337"
 ---
 # <a name="add-html-markers-to-the-map"></a>Lägg till HTML-markörer i kartan
 

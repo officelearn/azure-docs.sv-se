@@ -1,19 +1,19 @@
 ---
 title: Kärn-i/o-åtgärder | Microsoft Azure Maps
 description: Lär dig hur du effektivt läser och skriver XML och avgränsade data med hjälp av kärn bibliotek från den spatiala IO-modulen.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e142fe348a339e4903d692cad569015edb69f75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371445"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124484"
 ---
 # <a name="core-io-operations"></a>Kärn-i/o-åtgärder
 
@@ -30,7 +30,7 @@ Förutom att tillhandahålla verktyg för att läsa spatialdata för spatialdata
 
 Som standard använder läsaren kommatecknet som avgränsare. Avgränsaren kan dock ändras till ett enskilt tecken eller anges till `'auto'` . När den är inställd på `'auto'` analyserar läsaren den första text raden i strängen. Sedan väljer den det vanligaste specialtecknet från tabellen nedan för att användas som avgränsare.
 
-| | |
+| Avgränsare | Tecken |
 | :-- | :-- |
 | Komma | `,` |
 | Flik | `\t` |

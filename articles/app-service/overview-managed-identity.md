@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116911"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -84,7 +84,7 @@ Följande steg vägleder dig genom att skapa en app och tilldela den en identite
 
 #### <a name="using-azure-powershell-for-a-web-app"></a>Använda Azure PowerShell för en webbapp
 
-1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
+1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
 
 2. Skapa ett webb program med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med App Service finns i [App Service PowerShell-exempel](../app-service/samples-powershell.md):
 
@@ -107,7 +107,7 @@ Följande steg vägleder dig genom att skapa en app och tilldela den en identite
 
 #### <a name="using-azure-powershell-for-a-function-app"></a>Använda Azure PowerShell för en Function-app
 
-1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
+1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
 
 2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
@@ -208,7 +208,7 @@ Följande steg vägleder dig genom att skapa en app och tilldela den en identite
 > [!NOTE]
 > Den aktuella versionen av Azure PowerShell-cmdletarna för Azure App Service stöder inte användarspecifika identiteter. Anvisningarna nedan är för Azure Functions.
 
-1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
+1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
 
 2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [referensen AZ. Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). Skriptet nedan använder också det `New-AzUserAssignedIdentity` som måste installeras separat som per [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -316,7 +316,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Söka i data  | Azure AD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.    |
 > | api-version       | Söka i data  | Den version av token API som ska användas. Använd "2019-08-01" eller senare.                                                                                                                                                                                                                                                                 |
-> | X-IDENTITY-HEADER | Sidhuvud | Värdet för IDENTITY_HEADER-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).                                                                                                                                                                                                    |
+> | X-IDENTITY-HEADER | Huvud | Värdet för IDENTITY_HEADER-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).                                                                                                                                                                                                    |
 > | client_id         | Söka i data  | Valfritt Klient-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `mi_res_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                             |
 > | principal_id      | Söka i data  | Valfritt Ägar-ID för den användar tilldelnings identitet som ska användas. `object_id`är ett alias som kan användas i stället. Kan inte användas på en begäran som innehåller client_id, mi_res_id eller object_id. Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten. |
 > | mi_res_id         | Söka i data  | Valfritt Azure-resurs-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `client_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                      |
@@ -431,7 +431,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="using-the-microsoftazureservicesappauthentication-library-for-net"></a><a name="asal"></a>Använda Microsoft. Azure. Services. AppAuthentication-biblioteket för .NET
 
-För .NET-program och-funktioner är det enklaste sättet att arbeta med en hanterad identitet via paketet Microsoft. Azure. Services. AppAuthentication. Med det här biblioteket kan du också testa din kod lokalt på din utvecklings dator med ditt användar konto från Visual Studio, [Azure CLI](/cli/azure)eller Active Directory integrerad autentisering. Mer information om lokala utvecklings alternativ med det här biblioteket finns i [referens för Microsoft. Azure. Services. AppAuthentication]. Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
+För .NET-program och-funktioner är det enklaste sättet att arbeta med en hanterad identitet via paketet Microsoft. Azure. Services. AppAuthentication. Med det här biblioteket kan du också testa din kod lokalt på din utvecklings dator med ditt användar konto från Visual Studio, [Azure CLI](/cli/azure)eller Active Directory integrerad autentisering. När den finns i molnet används en tilldelad identitet, men du kan anpassa det här beteendet med en miljö variabel för anslutnings sträng som refererar till klient-ID: t för en användardefinierad identitet. Mer information om utvecklings alternativ i det här biblioteket finns i [referens för Microsoft. Azure. Services. AppAuthentication]. Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
 
 1. Lägg till referenser till [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och andra nödvändiga NuGet-paket till ditt program. I exemplet nedan används även [Microsoft. Azure. nyckel valv](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
@@ -447,7 +447,17 @@ För .NET-program och-funktioner är det enklaste sättet att arbeta med en hant
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-Mer information om Microsoft. Azure. Services. AppAuthentication och de åtgärder den visar finns i [referensen Microsoft. Azure. Services. AppAuthentication] och [app service-och nyckel VALVET med MSI .net-exemplet](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Om du vill använda en användardefinierad hanterad identitet kan du ange `AzureServicesAuthConnectionString` program inställningen till `RunAs=App;AppId=<clientId-guid>` . Ersätt `<clientId-guid>` med klient-ID: t för den identitet som du vill använda. Du kan definiera flera sådana anslutnings strängar genom att använda anpassade program inställningar och skicka värdena till AzureServiceTokenProvider-konstruktorn.
+
+```csharp
+    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
+    
+    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
+```
+
+Mer information om hur du konfigurerar AzureServiceTokenProvider och vilka åtgärder den visar finns i [referensen för Microsoft. Azure. Services. AppAuthentication] och [app service-och nyckel VALVET med MSI .net-exemplet](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-azure-sdk-for-java"></a>Använda Azure SDK för Java
 

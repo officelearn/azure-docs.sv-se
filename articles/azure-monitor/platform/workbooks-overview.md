@@ -6,14 +6,14 @@ manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116962"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor arbets böcker
 
@@ -42,7 +42,7 @@ Arbets böcker ger en omfattande uppsättning funktioner för visualisering av d
 * [Text](workbooks-visualizations.md#text)
 * [Diagram](workbooks-visualizations.md#charts)
 * [Rutnät](workbooks-visualizations.md#grids)
-* [Ikoner](workbooks-visualizations.md#tiles)
+* [Ordnar](workbooks-visualizations.md#tiles)
 * [Träd](workbooks-visualizations.md#trees)
 * [Diagram](workbooks-visualizations.md#graphs)
 
@@ -52,9 +52,9 @@ Arbets böcker ger en omfattande uppsättning funktioner för visualisering av d
 
 För att utforska arbets bokens upplevelse går du först till Azure Monitors tjänsten. Detta kan göras genom att skriva **Monitor** i sökrutan i Azure Portal.
 
-Välj sedan **arbets böcker (förhands granskning)**.
+Välj sedan **arbets böcker**.
 
-![Skärm bild av knappen för hands version av arbets böcker markerade i en röd ruta](./media/workbooks-overview/workbooks-preview.png)
+![Skärm bild av knappen arbets böcker markerad i en röd ruta](./media/workbooks-overview/workbooks.png)
 
 ### <a name="gallery"></a>Galleri
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505349"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124739"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -38,7 +38,7 @@ Det finns vissa lösningar för att tillåta att en icke-ägare skapar ett AVERT
 |----------|--------|-------|
 | Resurs grupps administratören skapar vFXT | Virtuella nätverk, kluster styrenheter och klusternoder måste skapas i resurs gruppen. | [Användarens åtkomst administratör](../role-based-access-control/built-in-roles.md#user-access-administrator) och [deltagar](../role-based-access-control/built-in-roles.md#contributor) roller, båda är begränsade till mål resurs gruppen. |
 | Använd ett befintligt, externt virtuellt nätverk | Kluster styrenheten och klusternoderna skapas i resurs gruppen vFXT, men använder ett befintligt virtuellt nätverk i en annan resurs grupp. | (1) [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) och [deltagar](../role-based-access-control/built-in-roles.md#contributor) roller som är begränsade till resurs gruppen vFXT och (2) [virtuell dator deltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [användar åtkomst administratör](../role-based-access-control/built-in-roles.md#user-access-administrator)och [AVERT deltagar](../role-based-access-control/built-in-roles.md#avere-contributor) roller som är begränsade till det virtuella nätverkets resurs grupp. |
-| Anpassad roll för kluster skapare | Inga begränsningar för resurs placering. Den här metoden ger icke-ägare betydande privilegier. | Prenumerationens ägare skapar en anpassad RBAC-roll enligt beskrivningen i [den här artikeln](avere-vfxt-non-owner.md). |
+| Anpassad roll för kluster skapare | Inga begränsningar för resurs placering. Den här metoden ger icke-ägare betydande privilegier. | Prenumerationens ägare skapar en anpassad Azure-roll enligt beskrivningen i [den här artikeln](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Kvot för vFXT-klustret
 

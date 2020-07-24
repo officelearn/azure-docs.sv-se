@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eb23f1e703c2e447c484ccb366914cb4b23c5bf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536562"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125198"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
@@ -55,7 +55,7 @@ När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa nytt** och ange **myResourceGroupLB** i text rutan.|
-    | Name                   | Ange **myLoadBalancer**                                   |
+    | Namn                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard** |
@@ -111,7 +111,7 @@ Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka 
     | Tröskelvärde för ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
     | | |
 
-3. Välj **OK**.
+3. Lämna resten av standardinställningarna och välj **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
@@ -140,7 +140,7 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
     | Serverdelsport | Ange **80**. |
     | Serverdelspool | Välj **myBackendPool**.|
     | Hälsoavsökning | Välj **myHealthProbe**. |
-    | Skapa implicit utgående regler | Välj **Ja**. </br> Mer information och avancerad regel konfiguration för utgående trafik finns i: </br> [Utgående anslutningar i Azure](load-balancer-outbound-connections.md) </br> [Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med hjälp av Azure Portal](configure-load-balancer-outbound-portal.md)
+    | Skapa implicit utgående regler | Välj **Nej**.
 
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
 
@@ -194,7 +194,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | lösenordsinställning | Ange ett lösen ord |
+    | Lösenord | Ange ett lösen ord |
     | Bekräfta lösenord | Ange lösen ordet igen |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
@@ -233,10 +233,53 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
     | Inställning | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Namn |  **myVM2** |**myVM3**|
     | Tillgänglighetszon | **2** |**3**|
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**| Välj den befintliga **myNSG**|
 
+## <a name="create-outbound-rule-configuration"></a>Skapa utgående regel konfiguration
+Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för virtuella datorer i backend-poolen. 
+
+Mer information om utgående anslutningar finns i [utgående anslutningar i Azure](load-balancer-outbound-connections.md).
+
+### <a name="create-outbound-rule"></a>Skapa utgående regel
+
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+
+2. Välj **utgående regler**under **Inställningar**och välj sedan **Lägg till**.
+
+3. Använd de här värdena för att konfigurera de utgående reglerna:
+
+    | Inställning | Värde |
+    | ------- | ----- |
+    | Namn | Ange **myOutboundRule**. |
+    | IP-adress för klient del | Välj **Skapa ny**. </br> I **namn**anger du **LoadBalancerFrontEndOutbound**. </br> Välj **IP-adress** eller **IP-prefix**. </br> Välj **Skapa ny** under **offentlig IP-adress** eller **offentlig IP-prefix**. </br> Som namn anger du **myPublicIPOutbound** eller **myPublicIPPrefixOutbound**. </br> Välj **OK**. </br> Välj **Lägg till**.|
+    | Tids gräns för inaktivitet (minuter) | Flytta skjutreglaget till **15 minuter**.|
+    | TCP-återställning | Välj **Aktiverad**.|
+    | Serverdelspool | Välj **Skapa ny**. </br> Ange **myBackendPoolOutbound** i **namn**. </br> Välj **Lägg till**. |
+    | Port tilldelning – > port tilldelning | Välj **manuellt Välj antalet utgående portar** |
+    | Utgående portar-> Välj efter | Välj **portar per instans** |
+    | Utgående portar-> portar per instans | Ange **10000**. |
+
+4. Välj **Lägg till**.
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>Lägg till virtuella datorer i utgående pool
+
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+
+2. Under **Inställningar**väljer du **backend-pooler**.
+
+3. Välj **myBackendPoolOutbound**.
+
+4. I **virtuellt nätverk**väljer du **myVNet**.
+
+5. I **virtuella datorer**väljer du **+ Lägg till**.
+
+6. Markera kryss rutorna bredvid **myVM1**, **myVM2**och **myVM3**. 
+
+7. Välj **Lägg till**.
+
+8. Välj **Spara**.
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[Alternativ 2: skapa en belastningsutjämnare (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
@@ -257,7 +300,7 @@ När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupLB** i text rutan.|
-    | Name                   | Ange **myLoadBalancer**                                   |
+    | Namn                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **grundläggande** |
@@ -404,7 +447,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | lösenordsinställning | Ange ett lösen ord |
+    | Lösenord | Ange ett lösen ord |
     | Bekräfta lösenord | Ange lösen ordet igen |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
@@ -438,12 +481,13 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
     | Inställning | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Namn |  **myVM2** |**myVM3**|
     | Tillgänglighetsuppsättning| Välj **myAvailabilitySet** | Välj **myAvailabilitySet**|
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**| Välj den befintliga **myNSG**|
+
 ---
 
-### <a name="install-iis"></a>Installera IIS
+## <a name="install-iis"></a>Installera IIS
 
 1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM1** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
 

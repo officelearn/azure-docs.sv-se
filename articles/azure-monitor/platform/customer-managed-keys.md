@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117373"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -80,7 +80,7 @@ Proceduren stöds inte i Azure Portal och etableringen utförs via PowerShell el
 > [!IMPORTANT]
 > Alla REST-begäranden måste innehålla en token Authorization-token i begär ande huvudet.
 
-Till exempel:
+Exempel:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -194,7 +194,7 @@ De här inställningarna kan uppdateras via CLI och PowerShell:
 
 Den här resursen används som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har tillåtits, skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns.
 
-Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivå över 2 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . [Läs mer](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1000 till 3000 GB per dag och du kan uppdatera den i steg om 100. Om du behöver kapacitets reservations nivå över 3000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . [Läs mer](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 Egenskapen *billingType* bestämmer fakturerings behörigheten för *kluster* resursen och dess data:
 - *Kluster* (standard)--kapacitets reservationens kostnader för klustret är attribut till *kluster* resursen.
@@ -467,9 +467,9 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 Frågespråket som används i Log Analytics är lättfattliga programspecifika och kan innehålla känslig information i kommentarer som du lägger till i frågor eller i frågesyntaxen. Vissa organisationer kräver att sådan information hålls skyddad som en del av CMK-principen och du måste spara dina frågor krypterade med din nyckel. Med Azure Monitor kan du lagra *sparade sökningar* och *Logga aviserings* frågor som är krypterade med din nyckel i ditt eget lagrings konto när du är ansluten till din arbets yta. 
 
 > [!NOTE]
-> CMK för frågor som används i arbets böcker och Azure-instrumentpaneler stöds inte än. Dessa frågor förblir krypterade med Microsoft Key.  
+> Log Analytics frågor kan sparas i olika butiker beroende på vilket scenario som används. Frågorna förblir krypterade med Microsoft Key (MMK) i följande scenarier, oavsett CMK-konfiguration: arbets böcker i Azure Monitor, Azure-instrumentpaneler, Azure Logic app, Azure Notebooks och Automation-runbooks.
 
-När du tar [med ditt eget lagrings utrymme](./private-storage.md) (BYOS) och associerar det till din arbets yta överförs frågor till ditt lagrings konto via tjänsten för *sparade sökningar* och *logg aviseringar* . Det innebär att du styr lagrings kontot och [principen för kryptering vid vila](../../storage/common/encryption-customer-managed-keys.md) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
+När du tar med ditt eget lagrings utrymme (BYOS) och associerar det till din arbets yta överförs frågor till ditt lagrings konto via tjänsten för *sparade sökningar* och *logg aviseringar* . Det innebär att du styr lagrings kontot och [principen för kryptering vid vila](../../storage/common/encryption-customer-managed-keys.md) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
 
 **Att tänka på innan du ställer in CMK för frågor**
 * Du måste ha Skriv behörighet till både din arbets yta och ditt lagrings konto
@@ -599,7 +599,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
 
 - **Uppdatera *kapacitets reservationen* i *kluster* resursen**
 
-  När data volymen till dina associerade arbets ytor ändras med tiden och du vill uppdatera kapacitets reservations nivån korrekt. Följ [uppdaterings *kluster* resursen](#update-cluster-resource-with-key-identifier-details) och ange ditt nya kapacitets värde. Det kan vara mellan 1 000 och 2 000 GB per dag och i steg om 100. För högre nivå än 2 000 GB per dag når du din Microsoft-kontakt för att aktivera den. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla SKU: n:
+  När data volymen till dina associerade arbets ytor ändras med tiden och du vill uppdatera kapacitets reservations nivån korrekt. Följ [uppdaterings *kluster* resursen](#update-cluster-resource-with-key-identifier-details) och ange ditt nya kapacitets värde. Det kan vara mellan 1000 och 3000 GB per dag och i steg om 100. För högre nivå än 3000 GB per dag når du din Microsoft-kontakt för att aktivera den. Observera att du inte behöver ange en fullständig REST-begäran, men bör inkludera SKU: n:
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"

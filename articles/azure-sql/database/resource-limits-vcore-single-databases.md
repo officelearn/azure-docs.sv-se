@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/21/2020
+ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117035"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Resurs gränser för enskilda databaser med vCore inköps modell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -225,7 +225,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 
 \*Förutom lokal SSD i/o kommer arbets belastningarna att använda [fjärrsidas serverns](service-tier-hyperscale.md#page-server) IO. Effektiv IOPS är beroende av arbets belastning. Mer information finns i [data IO-styrning](resource-limits-logical-server.md#resource-governance)och [data-i/o i statistik över resursutnyttjande](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
-#### <a name="notes"></a>Anteckningar
+#### <a name="notes"></a>Kommentarer
 
 **Anmärkning 1**: storskalig är en arkitektur med flera nivåer med separata beräknings-och lagrings komponenter: [storskalig arkitektur för tjänst nivå](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -340,29 +340,55 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Allmänt syfte – etablerad beräkning – Fsv2-serien
 
-### <a name="fsv2-series-compute-generation-preview"></a>Fsv2-seriens beräknings generation (för hands version)
+### <a name="fsv2-series-compute-generation-part-1"></a>Fsv2-seriens beräknings generation (del 1)
 
-|Beräknings storlek (tjänst mål)|GP_Fsv2_72|
-|:--- | --: |
-|Beräknings generation|Fsv2-serien|
-|Virtuella kärnor|72|
-|Minne (GB)|136,2|
-|Columnstore-stöd|Ja|
-|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|
-|Maximal data storlek (GB)|4096|
-|Största logg storlek (GB)|1024|
-|Maximal data storlek för TempDB (GB)|333|
-|Lagringstyp|Fjärr-SSD|
-|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
-|Max data IOPS *|12 800|
-|Högsta logg frekvens (Mbit/s)|30|
-|Maximalt antal samtidiga arbetare (begär Anden)|3600|
-|Maximalt antal samtidiga inloggningar|3600|
-|Maximalt antal samtidiga sessioner|30 000|
-|Antal repliker|1|
-|Multi-AZ|Ej tillämpligt|
-|Lässkalning|Ej tillämpligt|
-|Inkluderad säkerhets kopierings lagring|1X DB-storlek|
+|Beräknings storlek (tjänst mål)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Beräknings generation|Fsv2-serien|Fsv2-serien|Fsv2-serien|Fsv2-serien|Fsv2-serien|
+|Virtuella kärnor|8|10|12|14|16|
+|Minne (GB)|15,1|18,9|22,7|26,5|30,2|
+|Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|
+|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Maximal data storlek (GB)|1024|1024|1024|1024|1536|
+|Största logg storlek (GB)|336|336|336|336|512|
+|Maximal data storlek för TempDB (GB)|333|333|333|333|333|
+|Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
+|Max data IOPS *|2560|3200|3840|4480|5120|
+|Högsta logg frekvens (Mbit/s)|30|30|30|30|30|
+|Maximalt antal samtidiga arbetare (begär Anden)|400|500|600|700|800|
+|Maximalt antal samtidiga inloggningar|800|1000|1200|1400|1600|
+|Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|
+|Antal repliker|1|1|1|1|1|
+|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
+
+\*Det maximala värdet för IO-storlekar mellan 8 KB och 64 KB. Faktisk IOPS är arbets belastnings beroende. Mer information finns i [data IO-styrning](resource-limits-logical-server.md#resource-governance).
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Fsv2-seriens beräknings generation (del 2)
+
+|Beräknings storlek (tjänst mål)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Beräknings generation|Fsv2-serien|Fsv2-serien|Fsv2-serien|Fsv2-serien|Fsv2-serien|Fsv2-serien|
+|Virtuella kärnor|18|20|24|32|36|72|
+|Minne (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
+|Minnes intern OLTP-lagring (GB)|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Maximal data storlek (GB)|1536|1536|1536|3072|3072|4096|
+|Största logg storlek (GB)|512|512|512|1024|1024|1024|
+|Maximal data storlek för TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
+|Max data IOPS *|5760|6400|7680|10240|11520|23040|
+|Högsta logg frekvens (Mbit/s)|30|30|30|30|30|30|
+|Maximalt antal samtidiga arbetare (begär Anden)|900|1000|1200|1600|1800|3600|
+|Maximalt antal samtidiga inloggningar|1800|2000|2400|3200|3600|7200|
+|Maximalt antal samtidiga sessioner|30 000|30 000|30 000|30 000|30 000|30 000|
+|Antal repliker|1|1|1|1|1|1|
+|Multi-AZ|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Lässkalning|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|Ej tillämpligt|
+|Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 \*Det maximala värdet för IO-storlekar mellan 8 KB och 64 KB. Faktisk IOPS är arbets belastnings beroende. Mer information finns i [data IO-styrning](resource-limits-logical-server.md#resource-governance).
 
@@ -479,34 +505,65 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Verksamhets kritiskt allokerad beräkning – M-serien
 
-### <a name="m-series-compute-generation-preview"></a>Beräknings generation i M-serien (för hands version)
+### <a name="m-series-compute-generation-part-1"></a>Beräknings generation i M-serien (del 1)
 
-|Beräknings storlek (tjänst mål)|BC_M_128|
-|:--- | --: |
-|Beräknings generation|M-serien|
-|Virtuella kärnor|128|
-|Minne (GB)|3767,1|
-|Columnstore-stöd|Ja|
-|Minnes intern OLTP-lagring (GB)|1768|
-|Maximal data storlek (GB)|4096|
-|Största logg storlek (GB)|2048|
-|Maximal data storlek för TempDB (GB)|4096|
-|Lagringstyp|Lokal SSD|
-|I/o-latens (ungefärligt)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
-|Max data IOPS *|160 000|
-|Högsta logg frekvens (Mbit/s)|264|
-|Maximalt antal samtidiga arbetare (begär Anden)|12 800|
-|Maximalt antal samtidiga inloggningar|12 800|
-|Maximalt antal samtidiga sessioner|30000|
-|Antal repliker|4|
-|Multi-AZ|Ja|
-|Lässkalning|Ja|
-|Inkluderad säkerhets kopierings lagring|1X DB-storlek|
+|Beräknings storlek (tjänst mål)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Beräknings generation|M-serien|M-serien|M-serien|M-serien|M-serien|M-serien|
+|Virtuella kärnor|8|10|12|14|16|18|
+|Minne (GB)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
+|Minnes intern OLTP-lagring (GB)|64|80|96|112|128|150|
+|Maximal data storlek (GB)|512|640|768|896|1024|1152|
+|Största logg storlek (GB)|171|213|256|299|341|384|
+|Maximal data storlek för TempDB (GB)|256|320|384|448|512|576|
+|Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
+|I/o-latens (ungefärligt)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
+|Max data IOPS *|12 499|15 624|18 748|21 873|24 998|28 123|
+|Högsta logg frekvens (Mbit/s)|48|60|72|84|96|108|
+|Maximalt antal samtidiga arbetare (begär Anden)|800|1 000|1 200|1400|1600|1800|
+|Maximalt antal samtidiga inloggningar|800|1 000|1 200|1400|1600|1800|
+|Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
+|Antal repliker|4|4|4|4|4|4|
+|Multi-AZ|Inga|Inga|Inga|Inga|Inga|Inga|
+|Lässkalning|Ja|Ja|Ja|Ja|Ja|Ja|
+|Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 \*Det maximala värdet för IO-storlekar mellan 8 KB och 64 KB. Faktisk IOPS är arbets belastnings beroende. Mer information finns i [data IO-styrning](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](file-space-manage.md).
+
+### <a name="m-series-compute-generation-part-2"></a>Beräknings generation i M-serien (del 2)
+
+|Beräknings storlek (tjänst mål)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Beräknings generation|M-serien|M-serien|M-serien|M-serien|M-serien|
+|Virtuella kärnor|20|24|32|64|128|
+|Minne (GB)|588,6|706,3|941,8|1883,5|3767,0|
+|Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|
+|Minnes intern OLTP-lagring (GB)|172|216|304|704|1768|
+|Maximal data storlek (GB)|1280|1536|2048|4096|4096|
+|Största logg storlek (GB)|427|512|683|1024|1024|
+|Maximal data storlek för TempDB (GB)|4096|2048|1024|768|640|
+|Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
+|I/o-latens (ungefärligt)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
+|Max data IOPS *|31 248|37 497|49 996|99 993|160 000|
+|Högsta logg frekvens (Mbit/s)|120|144|192|264|264|
+|Maximalt antal samtidiga arbetare (begär Anden)|2 000|2 400|3 200|6 400|12 800|
+|Maximalt antal samtidiga inloggningar|2 000|2 400|3 200|6 400|12 800|
+|Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|
+|Antal repliker|4|4|4|4|4|
+|Multi-AZ|Inga|Inga|Inga|Inga|Inga|
+|Lässkalning|Ja|Ja|Ja|Ja|Ja|
+|Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
+
+\*Det maximala värdet för IO-storlekar mellan 8 KB och 64 KB. Faktisk IOPS är arbets belastnings beroende. Mer information finns i [data IO-styrning](resource-limits-logical-server.md#resource-governance).
+
+> [!IMPORTANT]
+> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](file-space-manage.md).
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

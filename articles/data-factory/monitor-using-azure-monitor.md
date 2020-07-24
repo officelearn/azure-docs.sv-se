@@ -10,12 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 2c9bb4bbf52c968afe267bfa3e2b8d6dae980833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801629"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124937"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Övervaka och varna Data Factory med Azure Monitor
 
@@ -27,14 +28,14 @@ Azure Monitor tillhandahåller infrastruktur mått och loggar på bas nivå för
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
-Mer information finns i [Azure Monitor översikt](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
+Mer information finns i [Översikt av Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
 
 ## <a name="keeping-azure-data-factory-metrics-and-pipeline-run-data"></a>Behåll Azure Data Factory Mät värden och pipelinen – kör data
 
 Data Factory lagrar pipelinen – kör data endast i 45 dagar. Använd Azure Monitor om du vill behålla dessa data under en längre tid. Med övervakaren kan du vidarebefordra diagnostikloggar för analys till flera olika mål.
 
 * **Lagrings konto**: Spara dina diagnostikloggar till ett lagrings konto för granskning eller manuell kontroll. Du kan använda diagnostikinställningar för att ange Retentions tiden i dagar.
-* **Event Hub**: strömma loggarna till Azure Event Hubs. Loggarna blir inmatade i en partner tjänst eller till en anpassad analys lösning som Power BI.
+* **Event Hub**: strömma loggarna till Azure Event Hubs. Loggarna blir inmatade i en partner tjänst/anpassad analys lösning som Power BI.
 * **Log Analytics**: analysera loggarna med Log Analytics. Data Factory-integration med Azure Monitor är användbar i följande scenarier:
   * Du vill skriva komplexa frågor på en omfattande uppsättning mått som publiceras av Data Factory som ska övervakas. Du kan skapa anpassade aviseringar för dessa frågor via övervakaren.
   * Du vill övervaka över data fabriker. Du kan dirigera data från flera data fabriker till en arbets yta för en övervakare.
@@ -61,11 +62,20 @@ Skapa eller Lägg till diagnostikinställningar för din data fabrik.
 
     * I _Azure-diagnostik-_ läge flödar diagnostikloggar till _AzureDiagnostics_ -tabellen.
 
-    * I _resursvyer_ läge loggar diagnostikloggar från Azure Data Factory flödet i _ADFActivityRun_, _ADFPipelineRun_, _ADFTriggerRun_, _ADFSSISIntegrationRuntimeLogs_, _ADFSSISPackageEventMessageContext_, _ADFSSISPackageEventMessages_, _ADFSSISPackageExecutableStatistics_, _ADFSSISPackageExecutionComponentPhases_och _ADFSSISPackageExecutionDataStatistics_ tabeller.
+    * I _resurs särskilt_ läge loggar diagnostikloggar från Azure Data Factory flödet i följande tabeller:
+      - _ADFActivityRun_
+      - _ADFPipelineRun_
+      - _ADFTriggerRun_
+      - _ADFSSISIntegrationRuntimeLogs_
+      - _ADFSSISPackageEventMessageContext_
+      - _ADFSSISPackageEventMessages_
+      - _ADFSSISPackageExecutableStatistics_
+      - _ADFSSISPackageExecutionComponentPhases_
+      - _ADFSSISPackageExecutionDataStatistics_
 
-      Du kan välja olika loggar som är relevanta för dina arbets belastningar att skicka till Log Analytics tabeller. Om du till exempel inte använder SQL Server Integration Services (SSIS) alls, behöver du inte välja några SSIS-loggar. Om du vill logga SSIS Integration Runtime (IR) åtgärder för start/stopp/underhåll kan du välja SSIS IR-loggar. Om du anropar SSIS-paketen med hjälp av T-SQL kan du bara välja SSIS-paket loggar. Om du anropar SSIS-paket körningar via kör SSIS-paket aktiviteter i ADF-pipeline kan du välja alla loggar.
+      Du kan välja olika loggar som är relevanta för dina arbets belastningar att skicka till Log Analytics tabeller. Om du till exempel inte använder SQL Server Integration Services (SSIS) alls, behöver du inte välja några SSIS-loggar. Om du vill logga SSIS Integration Runtime (IR) åtgärder för start/stopp/underhåll kan du välja SSIS IR-loggar. Om du anropar SSIS-paket med hjälp av T-SQL på SQL Server Management Studio (SSMS), SQL Server Agent eller andra särskilda verktyg, kan du välja SSIS paket loggar. Om du anropar SSIS-paket körningar via kör SSIS-paket aktiviteter i ADF-pipeline kan du välja alla loggar.
 
-    * Om du väljer _AllMetrics_görs måtten för antal enheter för ADF/storlek, aktivitet/pipeline/utlösare, integration Runtime (IR) processor belastning/minne/antal noder/kö, samt för SSIS-paket körningar och SSIS IR-som ska övervakas/upphöjas.
+    * Om du väljer _AllMetrics_görs olika ADF-mått som du kan använda för att övervaka eller utlösa aviseringar, inklusive mått för ADF-aktivitet, pipeline och utlösare, samt för SSIS IR-åtgärder och körning av SSIS-paket.
 
    ![Namnge dina inställningar och välj en arbets yta för Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -98,7 +108,7 @@ Den här lösningen ger dig en översikt över övergripande hälso tillstånd f
 
 ### <a name="monitor-data-factory-metrics"></a>Övervaka Data Factory mått
 
-När du installerar Azure Data Factory Analytics skapas en standard uppsättning vyer i avsnittet arbets böcker i den valda Log Analytics arbets ytan. Detta resulterar i att följande mått blir aktiverade:
+Genom att installera den här lösningen skapas en standard uppsättning vyer i avsnittet arbets böcker i den valda Log Analytics-arbetsytan. Resultatet blir att följande mått aktive ras:
 
 * ADF-körningar-1) pipeline körs med Data Factory
 * ADF-körningar-2) aktivitets körningar per data faktor
@@ -125,30 +135,30 @@ Med övervakaren kan du få insyn i prestanda och hälsa för dina Azure-arbetsb
 
 Här följer några av de mått som har spridits av Azure Data Factory version 2:
 
-| **Mått**                           | **Mått visnings namn**                  | **Processor** | **Sammansättningstyp** | **Beskrivning**                |
+| **Mått**                           | **Mått visnings namn**                  | **Enhet** | **Sammansättningstyp** | **Beskrivning**                |
 |--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| ActivityCanceledRuns                 | Avbrutna aktiviteter kör mått           | Antal    | Totalt                | Det totala antalet aktivitets körningar som har avbrutits inom en minut period. |
+| ActivityCancelledRuns                 | Avbrutna aktiviteter kör mått           | Antal    | Totalt                | Det totala antalet aktivitets körningar som avbrutits inom en minut period. |
 | ActivityFailedRuns                   | Misslyckad aktivitet kör mått             | Antal    | Totalt                | Det totala antalet aktivitets körningar som misslyckades inom en minut period. |
 | ActivitySucceededRuns                | Genomförd aktivitet kör mått          | Antal    | Totalt                | Det totala antalet aktivitets körningar som lyckades inom ett minut fönster. |
-| PipelineCanceledRuns                 | Avbruten pipeline kör mått           | Antal    | Totalt                | Det totala antalet pipeline-körningar som avbrutits inom en minut period. |
+| PipelineCancelledRuns                 | Avbruten pipeline kör mått           | Antal    | Totalt                | Det totala antalet pipelines körningar som avbrutits inom en minut period. |
 | PipelineFailedRuns                   | Misslyckad pipeline kör mått             | Antal    | Totalt                | Det totala antalet pipelines körningar som misslyckats inom ett minut fönster. |
 | PipelineSucceededRuns                | Slutförd pipeline kör mått          | Antal    | Totalt                | Det totala antalet pipeline-körningar som lyckades inom ett minut fönster. |
-| TriggerCanceledRuns                  | Avbrutna utlösare kör mått            | Antal    | Totalt                | Det totala antalet Utlös ande körningar som avbrutits inom en minut period. |
+| TriggerCancelledRuns                  | Avbrutna utlösare kör mått            | Antal    | Totalt                | Det totala antalet Utlös ande körningar som avbrutits inom en minut period. |
 | TriggerFailedRuns                    | Misslyckad utlösare kör mått              | Antal    | Totalt                | Det totala antalet Utlös ande körningar som misslyckats inom en minut period. |
 | TriggerSucceededRuns                 | Lyckade utlösare kör mått           | Antal    | Totalt                | Det totala antalet Utlös ande körningar som lyckades inom en minut period. |
-| SSISIntegrationRuntimeStartCanceled  | Avbrutna SSIS IR-startmått           | Antal    | Totalt                | Det totala antalet SSIS IR-starter som avbröts inom en minut period. |
+| SSISIntegrationRuntimeStartCancelled  | Avbrutna SSIS IR-startmått           | Antal    | Totalt                | Det totala antalet SSIS IR-starter som avbröts inom en minut period. |
 | SSISIntegrationRuntimeStartFailed    | Det gick inte att SSIS IR-startmått             | Antal    | Totalt                | Det totala antalet SSIS IR-starter som misslyckades inom en minut period. |
 | SSISIntegrationRuntimeStartSucceeded | Lyckade SSIS IR-startmått          | Antal    | Totalt                | Det totala antalet SSIS IR-starter som lyckades inom ett minut fönster. |
 | SSISIntegrationRuntimeStopStuck      | Låsta SSIS IR-stopp-mått               | Antal    | Totalt                | Det totala antalet SSIS IR-stopp som har fastnat i ett minut fönster. |
 | SSISIntegrationRuntimeStopSucceeded  | Lyckade SSIS IR-stopp-mått           | Antal    | Totalt                | Det totala antalet SSIS IR-stopp som har lyckats inom ett minut fönster. |
-| SSISPackageExecutionCanceled         | Avbrutna mått för körning av SSIS-paket  | Antal    | Totalt                | Totalt antal körningar av SSIS-paket som avbrutits inom en minut period. |
+| SSISPackageExecutionCancelled         | Mät värden för körning av SSIS-paket  | Antal    | Totalt                | Det totala antalet körningar av SSIS-paket som avbrutits inom en minut period. |
 | SSISPackageExecutionFailed           | Det gick inte att köra Mät värden för SSIS-paket    | Antal    | Totalt                | Totalt antal körningar av SSIS-paket som misslyckades inom en minuts period. |
 | SSISPackageExecutionSucceeded        | SSIS-paketets körnings mått har slutförts | Antal    | Totalt                | Det totala antalet körningar av SSIS-paketet som lyckades inom en minut period. |
 
 Följ anvisningarna i [Azure Monitor data plattform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)för att få åtkomst till måtten.
 
 > [!NOTE]
-> Endast slutförd, utlöst aktivitet och pipelines kör händelser genereras. Pågår och sandbox-/debug-körningar genereras **inte** . Å andra sidan genereras alla händelser från SSIS-paket, inklusive de som är slutförda, pågår och anropas via T-SQL på SSMS/SQL Server Agent/andra angivna verktyg eller som utlösta/sandbox-/fel söknings körningar av kör SSIS-paket aktiviteter i ADF-pipeline.
+> Endast händelser från slutförd, utlöst aktivitet och pipeline-körningar genereras. Pågår och fel söknings körningar genereras **inte** . Å andra sidan genereras händelser från **alla** SSIS-paket, inklusive de som slutförs och pågår, oavsett deras anrops metoder. Du kan till exempel aktivera paket körningar på Azure-aktiverade SQL Server Data Tools (SSDT), via T-SQL på SSMS, SQL Server Agent eller andra angivna verktyg och som Utlös ande eller fel söknings körning av kör SSIS-paket aktiviteter i ADF-pipeliner.
 
 ## <a name="data-factory-alerts"></a>Data Factory aviseringar
 
@@ -185,7 +195,7 @@ Logga in på Azure Portal och välj **övervaka**  >  **aviseringar** för att s
 
     ![Konfigurera e-post, SMS, push och röst](media/monitor-using-azure-monitor/alerts_image11.png)
 
-    ![Definiera en åtgärds grupp](media/monitor-using-azure-monitor/alerts_image12.png)
+    ![Definiera en åtgärdsgrupp](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Konfigurera diagnostikloggar via Azure Monitor REST API
 
@@ -204,14 +214,14 @@ Använd diagnostikinställningar för att konfigurera diagnostikloggar för resu
 
 #### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Skapa eller uppdatera en diagnostisk inställning i övervakaren REST API
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 
 ```
 PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Rubriker
+##### <a name="headers"></a>Sidhuvuden
 
 * Ersätt `{api-version}` med `2016-09-01`.
 * Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -272,7 +282,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | **Retention Policy**| Komplex typ| Beskriver bevarande principen för en mått-eller logg kategori. Den här egenskapen används endast för lagrings konton. |
 |**antalet**| Int| Antalet dagar att behålla måtten eller loggarna. Om egenskap svärdet är 0 sparas loggarna alltid. Den här egenskapen används endast för lagrings konton. |
 
-##### <a name="response"></a>Svar
+##### <a name="response"></a>Svarsåtgärder
 
 200 OK.
 
@@ -324,21 +334,21 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 #### <a name="get-information-about-diagnostics-settings-in-the-monitor-rest-api"></a>Hämta information om diagnostikinställningar i övervakaren REST API
 
-##### <a name="request"></a>Förfrågan
+##### <a name="request"></a>Begäran
 
 ```
 GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Rubriker
+##### <a name="headers"></a>Sidhuvuden
 
 * Ersätt `{api-version}` med `2016-09-01`.
 * Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Ange `Content-Type` sidhuvudet till `application/json` .
 * Ange Authorization-huvudet till en JSON-webbtoken som du fick från Azure AD. Mer information finns i [autentisera begär Anden](../active-directory/develop/authentication-scenarios.md).
 
-##### <a name="response"></a>Svar
+##### <a name="response"></a>Svarsåtgärder
 
 200 OK.
 
@@ -445,7 +455,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**operationName**| Sträng | Namnet på aktiviteten med dess status. Om aktiviteten är start pulsslaget är egenskap svärdet `MyActivity -` . Om aktiviteten är slut pulsslaget är egenskap svärdet `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
 |**activityName**| Sträng | Aktivitetens namn. | `MyActivity` |
-|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Pipeline-kör logg-attribut
@@ -489,7 +499,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**nivå**| Sträng | Nivån för diagnostikloggar. Ange egenskapens värde till `Informational` . | `Informational` |
 |**operationName**| Sträng | Namnet på pipelinen tillsammans med dess status. När pipeline-körningen är färdig är egenskap svärdet `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
-|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
+|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
 |**statusfältet**| Sträng | Slut status för pipeline-körningen. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
@@ -534,12 +544,12 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**triggerName**| Sträng | Namnet på utlösaren. | `MyTrigger` |
 |**triggerType**| Sträng | Typ av utlösare. Möjliga egenskaps värden är `Manual Trigger` och `Schedule Trigger` . | `ScheduleTrigger` |
 |**triggerEvent**| Sträng | Händelse av utlösaren. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**har**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**start**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**statusfältet**| Sträng | Slutgiltig status visar om utlösaren har utlösts. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>SSIS för integration runtime
 
-Detta är de attribut/egenskaper för SSIS Integration Runtime (IR) som startar/stoppa/underhåll.
+Här följer SSIS för IR-åtgärder för start/stopp/underhåll.
 
 ```json
 {
@@ -573,7 +583,7 @@ Detta är de attribut/egenskaper för SSIS Integration Runtime (IR) som startar/
 
 #### <a name="ssis-event-message-context-log-attributes"></a>SSIS för händelse meddelandets kontext
 
-Detta är loggens attribut/egenskaper för villkor som rör händelse meddelanden som genereras av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSIS Catalog (SSISDB) händelse meddelande kontext tabell/vy](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) som visar körnings värden för många SSIS-paket egenskaper. De genereras när du väljer `Basic/Verbose` loggnings nivå och användbart för fel sökning/kompatibilitetskontroll.
+Här är de loggnings attributen för villkor som rör händelse meddelanden som genereras av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSIS-katalog (SSISDB) händelse meddelande kontext tabell eller vy](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) som visar körnings värden för många SSIS-paket egenskaper. De genereras när du väljer `Basic/Verbose` loggnings nivå och användbart för fel sökning/kompatibilitetskontroll.
 
 ```json
 {
@@ -607,7 +617,7 @@ Detta är loggens attribut/egenskaper för villkor som rör händelse meddelande
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                                 | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                             | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                         | `Informational` |
-| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB          | `1`(1 betyder åtgärder relaterade till paket som inte lagras i SSISDB) |
+| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB          | `1`(1 betyder åtgärder relaterade till paket som **inte** lagras i SSISDB/anropas via T-SQL) |
 | **contextDepth**           | Sträng | Djupet i händelse meddelande kontexten                              | `0`(0 anger kontexten innan paket körningen börjar, 1 anger kontexten när ett fel inträffar, och det ökar när kontexten är ytterligare från felet) |
 | **packagePath**            | Sträng | Sökvägen till paket objekt som händelse meddelandets kontext källa      | `\Package` |
 | **contextType**            | Sträng | Typ av paket objekt som kontext källa för händelse meddelande      | `60`(se [fler kontext typer](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
@@ -619,7 +629,7 @@ Detta är loggens attribut/egenskaper för villkor som rör händelse meddelande
 
 #### <a name="ssis-event-messages-log-attributes"></a>SSIS Event Messages log attribut
 
-Detta är logg-attributen/egenskaperna för händelse meddelanden som genereras av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSISDB för händelse meddelanden i tabellen/vyn](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) som visar detaljerad text/metadata för händelse meddelanden. De genereras på alla loggnings nivåer utom `None` .
+Här är de logg-attribut för händelse meddelanden som genereras av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSISDB händelse meddelande tabell eller vy](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) som visar detaljerad text/metadata för händelse meddelanden. De genereras på alla loggnings nivåer utom `None` .
 
 ```json
 {
@@ -657,7 +667,7 @@ Detta är logg-attributen/egenskaperna för händelse meddelanden som genereras 
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                               | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                           | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                       | `Informational` |
-| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB        | `1`(1 betyder åtgärder relaterade till paket som inte lagras i SSISDB) |
+| **operationId**            | Sträng | Unikt ID för att spåra en viss åtgärd i SSISDB        | `1`(1 betyder åtgärder relaterade till paket som **inte** lagras i SSISDB/anropas via T-SQL) |
 | **messageTime**            | Sträng | Tiden då ditt händelse meddelande skapas i UTC-format          | `2017-06-28T21:00:27.3534352Z` |
 | **messageType**            | Sträng | Typ av händelse meddelande                                     | `70`(se [fler meddelande typer](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
 | **messageSourceType**      | Sträng | Typ av händelse meddelande källa                              | `20`(se [fler typer av meddelande källor](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
@@ -673,7 +683,7 @@ Detta är logg-attributen/egenskaperna för händelse meddelanden som genereras 
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>SSIS körbar statistik logg attribut
 
-Detta är log-attributen/egenskaperna för den körbara statistik som genereras av SSIS-paket körningar på din SSIS IR, där körbara filer är behållare/uppgifter i paket kontroll flöden. De förmedlar liknande information som [SSISDB-körbar statistik tabell/vy](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) som visar en rad för varje körbar fil som körs, inklusive dess iterationer. De genereras på loggnings nivå förutom `None` och är användbara för att identifiera Flask halsar/haverier på uppgifts nivå.
+Här är de loggfiler för körbar statistik som genereras av SSIS-paket körningar på din SSIS IR, där körbara filer är behållare eller uppgifter i paketets kontroll flöde. De förmedlar liknande information som [SSISDB-körbara statistik tabell eller vy](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) som visar en rad för varje körbar fil som körs, inklusive dess iterationer. De genereras på loggnings nivå förutom `None` och är användbara för att identifiera Flask halsar/haverier på uppgifts nivå.
 
 ```json
 {
@@ -706,7 +716,7 @@ Detta är log-attributen/egenskaperna för den körbara statistik som genereras 
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                             | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                         | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                     | `Informational` |
-| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB      | `1`(1 indikerar körningar relaterade till paket som inte lagras i SSISDB) |
+| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB      | `1`(1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
 | **executionPath**          | Sträng | Den fullständiga sökvägen från det överordnade paketet till komponenten som körs          | `\Transformation\Data Flow Task`(Den här sökvägen fångar även komponent iterationer) |
 | **startTime**              | Sträng | Tiden då den körbara filen går in i UTC-format  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | Sträng | Tiden då den körbara filen anges efter körning i UTC-format | `2017-06-28T21:00:27.3534352Z` |
@@ -717,7 +727,7 @@ Detta är log-attributen/egenskaperna för den körbara statistik som genereras 
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>SSIS för komponent faser för körning
 
-Detta är logg-attributen/egenskaperna för körnings statistik för data flödes komponenter som genereras av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSISDB-komponentens faser i tabellen/vyn](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) som visar den tid som data flödes komponenter har använt i alla körnings faser. De genereras när du väljer `Performance/Verbose` loggnings nivå och användbart för att hämta statistik för körning av data flöden.
+Här följer logg attributen för körnings statistik för data flödes komponenter som genereras av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSISDB i faser eller vyer för körnings komponenter](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) som visar den tid som data flödes komponenterna ägnat i alla körnings faser. De genereras när du väljer `Performance/Verbose` loggnings nivå och användbart för att hämta statistik för körning av data flöden.
 
 ```json
 {
@@ -751,7 +761,7 @@ Detta är logg-attributen/egenskaperna för körnings statistik för data flöde
 | **dataFactoryName**        | Sträng | Namnet på din ADF                                                | `MyADFv2` |
 | **integrationRuntimeName** | Sträng | Namnet på din SSIS-IR                                            | `MySSISIR` |
 | **nivå**                  | Sträng | Nivån för diagnostikloggar                                        | `Informational` |
-| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB         | `1`(1 indikerar körningar relaterade till paket som inte lagras i SSISDB) |
+| **executionId frågeparameter**            | Sträng | Unikt ID för att spåra en viss körning i SSISDB         | `1`(1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
 | **packageName**            | Sträng | Namnet på den körda paket filen                              | `MyPackage.dtsx` |
 | **/TN**               | Sträng | Namnet på uppgiften körd data flöde                                 | `Data Flow Task` |
 | **subcomponentName**       | Sträng | Namnet på data flödes komponenten                                     | `Derived Column` |
@@ -763,7 +773,7 @@ Detta är logg-attributen/egenskaperna för körnings statistik för data flöde
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>SSIS för körnings data statistik
 
-Detta är de attribut/egenskaper som används vid data förflyttning genom varje steg i pipeline för data flöden, från överström till efterföljande komponenter, genererade av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSISDB för körnings data statistik tabell/vy](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) som visar rad antal data som flyttats genom data flödes aktiviteter. De genereras när du väljer `Verbose` loggnings nivå och användbart för data flödes data flöde.
+Här följer de Säkerhetsattributen för data förflyttningar genom varje steg i pipeline för data flöden, från överordnade till efterföljande komponenter, som genereras av SSIS-paket körningar på din SSIS IR. De förmedlar liknande information som [SSISDB för körnings data statistik eller vy](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) som visar rad antal data som flyttats genom data flödes aktiviteter. De genereras när du väljer `Verbose` loggnings nivå och användbart för data flödes data flöde.
 
 ```json
 {
@@ -799,7 +809,7 @@ Detta är de attribut/egenskaper som används vid data förflyttning genom varje
 | **dataFactoryName**          | Sträng | Namnet på din ADF                                               | `MyADFv2` |
 | **integrationRuntimeName**   | Sträng | Namnet på din SSIS-IR                                           | `MySSISIR` |
 | **nivå**                    | Sträng | Nivån för diagnostikloggar                                       | `Informational` |
-| **executionId frågeparameter**              | Sträng | Unikt ID för att spåra en viss körning i SSISDB        | `1`(1 indikerar körningar relaterade till paket som inte lagras i SSISDB) |
+| **executionId frågeparameter**              | Sträng | Unikt ID för att spåra en viss körning i SSISDB        | `1`(1 indikerar körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL) |
 | **packageName**              | Sträng | Namnet på den körda paket filen                             | `MyPackage.dtsx` |
 | **/TN**                 | Sträng | Namnet på uppgiften körd data flöde                                | `Data Flow Task` |
 | **dataflowPathIdString**     | Sträng | Unikt ID för spårning av data flödes Sök väg                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
@@ -835,24 +845,24 @@ Log Analytics ärver schemat från övervakaren med följande undantag:
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>Övervaka SSIS-åtgärder med Azure Monitor
 
-Om du vill lyfta & flytta dina arbets belastningar för SQL Server Integration Services (SSIS) kan du [etablera SSIS integration Runtime (IR) i Azure Data Factory (ADF)](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) som stöder:
+Om du vill lyfta & flytta dina SSIS-arbetsbelastningar kan du [etablera SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) som stöder:
 
 - Köra paket som distribuerats i SSIS-katalogen (SSISDB) som hanteras av Azure SQL Database Server/hanterad instans (projekt distributions modell)
 - Köra paket som distribuerats i fil systemet, Azure Files eller SQL Server databas (MSDB) som hanteras av Azure SQL-hanterad instans (paket distributions modell)
 
-När du har allokerat kan du [kontrol lera SSIS IR-drift status med Azure PowerShell eller på **Monitor** Hub på ADF-portalen](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). Med projekt distributions modell lagras SSIS-paket körnings loggar i SSISDB interna tabeller/vyer, så att de kan frågas, analyseras och visuellt presenteras med hjälp av angivna verktyg som SQL Server Management Studio (SSMS). Med paket distributions modellen kan SSIS-paketets körnings loggar lagras i fil systemet/Azure Files som CSV-filer som fortfarande behöver parsas och bearbetas med andra angivna verktyg innan de kan frågas, analyseras och visuellt presenteras.
+När du har allokerat kan du [kontrol lera SSIS IR-drift status med Azure PowerShell eller på **Monitor** Hub på ADF-portalen](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). Med projekt distributions modell lagras SSIS-paket körnings loggar i SSISDB interna tabeller eller vyer, så att du kan fråga, analysera och visuellt presentera dem med hjälp av angivna verktyg som SSMS. Med paket distributions modell kan SSIS-paketets körnings loggar lagras i fil systemet eller Azure Files som CSV-filer som du fortfarande behöver parsa och bearbeta med andra angivna verktyg innan du kan fråga, analysera och visuellt presentera dem.
 
-Nu med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) -integrering kan alla mått och loggar som genereras från SSIS IR-åtgärder och SSIS-programpaket frågas, analyseras och visuellt presenteras på Azure Portal, medan aviseringar också kan aktive ras på dem.
+Nu med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) -integrering kan du fråga, analysera och visuellt presentera alla mått och loggar som genereras från SSIS IR-åtgärder och SSIS-paket körningar på Azure Portal. Dessutom kan du också generera aviseringar på dem.
 
 ### <a name="configure-diagnostic-settings-and-workspace-for-ssis-operations"></a>Konfigurera diagnostikinställningar och arbets yta för SSIS-åtgärder
 
-Om du vill skicka alla mått och loggar som genereras från SSIS IR-åtgärder och SSIS-paket körningar till Azure Monitor, följer du de stegvisa anvisningarna för att [Konfigurera diagnostikinställningar och arbets yta för din ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
+Om du vill skicka alla mått och loggar som genereras från SSIS IR-åtgärder och SSIS-paket körningar till Azure Monitor måste du [Konfigurera diagnostikinställningar och arbets yta för din ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
 
 ### <a name="ssis-operational-metrics"></a>SSIS drifts mått
 
-SSIS drifts [mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) är prestanda räknare/numeriska värden som beskriver STATUSEN för IR-start/stopp-åtgärder i SSIS och SSIS paket körningar vid en viss tidpunkt. De är en del av [ADF-mått i Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics), inklusive de som gäller för ADF-antal/storlek, aktivitet/pipeline/utlösare, samt IR-processor belastning/minne/antal noder/kö.
+SSIS drifts [mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) är prestanda räknare eller numeriska värden som beskriver STATUSEN för IR-start och stopp åtgärder i SSIS, samt SSIS-programpaket vid en viss tidpunkt. De är en del av [ADF-mått i Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics).
 
-När du konfigurerar diagnostikinställningar och arbets yta för din ADF på Azure Monitor, kan du markera kryss rutan _AllMetrics_ om du vill att SSIS operativa måtten ska vara tillgängliga för [interaktiv analys med Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started), [presentation på Azure Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)och [nära real tids aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
+När du konfigurerar diagnostikinställningar och arbets yta för din ADF på Azure Monitor, kan du markera kryss rutan _AllMetrics_ om du vill att SSIS operativa måtten ska vara tillgängliga för [interaktiv analys med Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started), [presentation på Azure Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)och [nästan real tids aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
 
 ![Namnge dina inställningar och välj en arbets yta för Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -868,13 +878,13 @@ Om du vill generera aviseringar för SSIS-operativa mått från Azure Portal, [v
 
 ### <a name="ssis-operational-logs"></a>SSIS operativa loggar
 
-SSIS-operativa [loggar](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) är händelser som genereras av SSIS IR-åtgärder och körningar av SSIS-paket som ger tillräckligt med kontext/information om identifierade problem och är användbara för rotor Saks analys. 
+SSIS operativa [loggar](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) är händelser som genereras av SSIS IR-åtgärder och körningar av SSIS-paket som ger tillräckligt med kontext på identifierade problem och är användbara för rotor Saks analys. 
 
-När du konfigurerar diagnostikinställningar och arbets yta för din ADF på Azure Monitor, kan du välja relevanta SSIS-operativa loggar och skicka dem till Log Analytics som baseras på Azure Datautforskaren, där de kommer att göras tillgängliga för [analys med hjälp av RTF-frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), [presentation på Azure-instrumentpanelen](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards)och [nära real tids aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+När du konfigurerar diagnostikinställningar och arbets yta för din ADF på Azure Monitor, kan du välja relevanta SSIS-operativa loggar och skicka dem till Log Analytics som baseras på Azure Datautforskaren. I där kommer de att göras tillgängliga för [analys med hjälp av omfattande frågespråk](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), [presentation på Azure-instrumentpanelen och i](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards) [nära real tid](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
 ![Namnge dina inställningar och välj en arbets yta för Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
-Scheman och innehållet i körnings loggarna för SSIS-paket i Azure Monitor och Log Analytics liknar dem i SSISDB interna tabeller/vyer.
+Scheman och innehåll för körnings loggar för SSIS-paket i Azure Monitor och Log Analytics liknar scheman för SSISDB interna tabeller eller vyer.
 
 | Azure Monitor logg kategorier          | Log Analytics tabeller                     | SSISDB interna tabeller/vyer              |
 | ------------------------------------- | ---------------------------------------- | ----------------------------------------- |
@@ -887,11 +897,15 @@ Scheman och innehållet i körnings loggarna för SSIS-paket i Azure Monitor och
 
 Mer information om SSIS-attribut/egenskaper för drifts loggning finns i [Azure Monitor och Log Analytics scheman för ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
 
-De valda SSIS-paketets körnings loggar skickas alltid till Log Analytics oavsett dina anrops metoder, till exempel på Azure-aktiverade SQL Server Data Tools (SSDT), via T-SQL på SSMS/SQL Server Agent/andra angivna verktyg, eller som utlösta/sandbox-/fel söknings körningar av EXECUTE SSIS-paket aktiviteter i ADF-pipeline.
+De valda SSIS-paketets körnings loggar skickas alltid till Log Analytics oavsett vilka metoder som anropas. Du kan till exempel aktivera paket körningar på Azure-aktiverade SSDT, via T-SQL på SSMS, SQL Server Agent eller andra angivna verktyg och som Utlös ande eller fel söknings körning av kör SSIS-paket aktiviteter i ADF-pipeline.
 
-När du frågar efter SSIS-paketets körnings loggar i loggar analyser kan du koppla dem med hjälp av egenskaperna OperationId/executionId frågeparameter/CorrelationId. OperationId/executionId frågeparameter är alltid inställt på 1 för alla åtgärder/körningar relaterade till paket som **inte** lagras i SSISDB.
+När du frågar efter SSIS IR-åtgärd i loggar analyser kan du använda **OperationName** -och **ResultType** -egenskaper som är inställda på respektive `Start/Stop/Maintenance` `Started/InProgress/Succeeded/Failed` . 
 
-![Fråga om körnings loggar för SSIS-paket på Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+![Frågar efter SSIS IR-åtgärds loggar på Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+
+När du frågar efter SSIS-paketets körnings loggar i loggar analyser kan du koppla dem med hjälp av **OperationId** / **executionId frågeparameter** / **correlationId** -egenskaper. **OperationId** / **ExecutionId frågeparameter** är alltid inställda på `1` för alla åtgärder/körningar relaterade till paket som **inte** lagras i SSISDB/som anropas via T-SQL.
+
+![Fråga om körnings loggar för SSIS-paket på Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Övervaka och hantera pipelines program mässigt](monitor-programmatically.md)

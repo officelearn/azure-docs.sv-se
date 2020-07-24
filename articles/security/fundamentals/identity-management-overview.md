@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1440bf2b8af85b81355dbc43b695a85994e4b8d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565901"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124144"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
@@ -90,10 +91,15 @@ Läs mer:
 
 RBAC är ett auktoriseringssystem som bygger på Azure Resource Manager som ger detaljerad åtkomsthantering av resurser i Azure. Med RBAC kan du styra den åtkomst nivå som användarna har. Du kan till exempel begränsa en användare till att endast hantera virtuella nätverk och en annan användare för att hantera alla resurser i en resurs grupp. Azure innehåller flera inbyggda roller som du kan använda. Följande listar fyra grundläggande inbyggda roller. De första tre gäller för alla resurstyper.
 
+- [Owner](/azure/role-based-access-control/built-in-roles.md#owner) -har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra. 
+- [Deltagare](/azure/role-based-access-control/built-in-roles.md#contributor) – kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.
+- [Reader](/azure/role-based-access-control/built-in-roles.md#reader) – kan visa befintliga Azure-resurser.
+- [Administratör för användar åtkomst](/azure/role-based-access-control/built-in-roles.md#administrator) – låter dig hantera användar åtkomst till Azure-resurser.
+
 Läs mer:
 
-* [Vad är rollbaserad åtkomstkontroll (RBAC)?](/azure/role-based-access-control/overview)
-* [Inbyggda roller för Azure-resurser](/azure/role-based-access-control/built-in-roles)
+* [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 

@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725910"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124314"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -77,7 +78,7 @@ Det här är din grundläggande Azure-funktion.
 
 Nu kan du kompilera och köra funktionen. Azure Functions är i slut ändan avsedda att köras i molnet, men du kan också köra och felsöka Azure Functions lokalt.
 
-Mer information om detta finns i [felsöka Event Grid utlösare lokalt](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Mer information om detta finns i [*felsöka Event Grid utlösare lokalt*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Lägg till Azures digitala dubbla SDK i Azure Function-appen
 
@@ -162,9 +163,9 @@ Använd värdet *principalId* i följande kommando för att tilldela Function-ap
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Mer information om hanterad identitet finns i [använda hanterade identiteter för app service och Azure Functions](../app-service/overview-managed-identity.md).
+Mer information om hanterad identitet finns i [*använda hanterade identiteter för app service och Azure Functions*](../app-service/overview-managed-identity.md).
 
-Slutligen kan du göra webb adressen till din Azure Digital-instansen tillgänglig för din funktion genom att ange en miljö variabel. Mer information finns i [miljövariabler](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
+Slutligen kan du göra webb adressen till din Azure Digital-instansen tillgänglig för din funktion genom att ange en miljö variabel. Mer information finns i [*miljövariabler*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
 > [!TIP]
 > URL: en för Azure Digitals dubbla instanser görs genom att lägga till *https://* i början av *värd namnet*för Azure Digital-instansen. Om du vill se värd namnet, tillsammans med alla egenskaper för din instans, kan du köra `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -208,7 +209,7 @@ Observera också det **objekt-ID** som visas på den här sidan, eftersom det ko
 
 ### <a name="assign-access-roles"></a>Tilldela åtkomst roller
 
-Eftersom Azure Digitals flätar använder rollbaserad åtkomst kontroll för att hantera åtkomst (se [begrepp: säkerhet för Azure Digitals dubbla lösningar](concepts-security.md) för mer information om detta) måste du också lägga till en roll för varje Function-app som du vill ge åtkomst till Azure Digital-objekt.
+Eftersom Azure Digitals flätar använder rollbaserad åtkomst kontroll för att hantera åtkomst (se [*begrepp: säkerhet för Azure Digitals dubbla lösningar*](concepts-security.md) för mer information om detta) måste du också lägga till en roll för varje Function-app som du vill ge åtkomst till Azure Digital-objekt.
 
 Om du vill tilldela en roll behöver du **resurs-ID** för den Azure Digital-instans som du har skapat. Om du inte har använt den tidigare när du skapade din instans kan du hämta den med hjälp av följande kommando:
 
@@ -231,4 +232,4 @@ I den här artikeln har du följt stegen för att ställa in en Azure-funktion f
 * En Event Grid-slutpunkt tar emot meddelanden från andra tjänster
 
 Sedan kan du se hur du bygger på din grundläggande Azure-funktion för att mata in IoT Hub data i Azure Digitals:
-* [How-to: intag av telemetri från IoT Hub](how-to-ingest-iot-hub-data.md)
+* [*How-to: intag av telemetri från IoT Hub*](how-to-ingest-iot-hub-data.md)

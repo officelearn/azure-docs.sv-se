@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f5ad0b493f925ce34ffe19892fa432322995a9c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258010"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125215"
 ---
 # <a name="what-is-azure-digital-twins"></a>Vad är Azure Digital Twins?
 
@@ -44,7 +44,7 @@ DTDL används för data modeller i andra Azure IoT-tjänster, inklusive [IoT plu
 
 Digitala modeller i digitala Azure-sändningar är Live, uppdaterade representationer av den verkliga världen. Med hjälp av relationerna i dina anpassade DTDL-modeller kan du ansluta dubbla till en **levande graf** som representerar din miljö.
 
-Du kan visa en visualisering av ditt Azure Digitals-diagram genom att använda ett exempel program, en [**Azure Digital-Utforskare**](https://github.com/Azure-Samples/digital-twins-explorer).
+Du kan visa en visualisering av ditt Azure Digitals-diagram genom att använda ett exempel program, en [**Azure Digital-Utforskare**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Så här ser exempel visualiseringen ut:
 
@@ -94,16 +94,16 @@ Följande diagram visar var Azure Digitals dubbla är i sammanhanget för en st�
 
 > [!IMPORTANT]
 > Azure Digital-dubbla finns för närvarande i en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i kompletterande användnings [*villkor för Microsoft Azure för hands*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
-En lista över Azure Digitals dubbla gränser-gränser under den offentliga för hands versionen finns i [referens: offentliga begränsningar för för hands versions tjänsten](reference-service-limits.md).
+En lista över Azure Digitals dubbla gränser-gränser under den offentliga för hands versionen finns i [*referens: offentliga begränsningar för för hands versions tjänsten*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du har arbetat med den tidigare för hands versionen av Azure Digitals, lär du dig vad som har ändrats:
-* [Översikt: skillnader jämfört med tidigare version](overview-differences.md)
+* [*Översikt: skillnader jämfört med tidigare version*](overview-differences.md)
 
 Eller så kan du gå vidare och komma igång med Azure Digitals dubbla med den första självstudien:
 
 > [!div class="nextstepaction"]
-> [Självstudie: koda en klient app](tutorial-code.md)
+> [*Självstudie: koda en klient app*](tutorial-code.md)

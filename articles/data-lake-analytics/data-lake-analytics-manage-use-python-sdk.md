@@ -3,19 +3,17 @@ title: Hantera Azure Data Lake Analytics med python
 description: Den här artikeln beskriver hur du använder python för att hantera Data Lake Analytics-konton, data källor, användare & jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: matt1883
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 23c2560d44dfeaa871c88d40175d60b3b29dc1b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d107a94fde7627188bcd040a5c647fc32c163d1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121273"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125589"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics med python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

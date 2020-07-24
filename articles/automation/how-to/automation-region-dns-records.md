@@ -3,14 +3,14 @@ title: Azure datacenter DNS-poster som används av Azure Automation | Microsoft 
 description: Den här artikeln innehåller de DNS-poster som krävs av Azure Automation funktioner vid begränsning av kommunikation till en speciell Azure-region som är värd för Automation-kontot.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44d70db195850b3f87806c69755095b521078b2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117178"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>DNS-poster för Azure-regioner som används av Azure Automation
 
@@ -30,7 +30,7 @@ Följande tabell innehåller DNS-posten för varje region.
 >[!NOTE]
 >Även om listan över automatiserings-DNS-poster som anges här har dragits tillbaka, är de fortfarande funktionella, så att du kan migrera till de nya poster som visas under [stöd för privat länk](#support-for-private-link) och förhindra problem med automatiserings processerna.
 
-| **Nationella** | **DNS-post** |
+| **Region** | **DNS-post** |
 | --- | --- |
 | Australien, centrala |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
 | Australien, östra |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
@@ -39,7 +39,7 @@ Följande tabell innehåller DNS-posten för varje region.
 | Indien, centrala |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Japan, östra |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| Europa, norra |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| Norra Europa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | Sydostasien |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
@@ -52,19 +52,19 @@ Följande tabell innehåller DNS-posten för varje region.
 
 För att stödja [privat länk](../../private-link/private-link-overview.md) i Azure Automation har DNS-posterna för alla data Center som stöds uppdaterats. I stället för landsspecifika URL: er är URL: erna ett Automation-konto.
 
-| **Nationella** | **DNS-post** |
+| **Region** | **DNS-post** |
 | --- | --- |
 | USA, västra centrala |`https://<accountId>.webhook.wcus.azure-automation.net`<br>`https://<accountId>.agentsvc.wcus.azure-automation.net`<br>`https://<accountId>.jrds.wcus.azure-automation.net` |
 | USA, västra |`https://<accountId>.webhook.wus.azure-automation.net`<br>`https://<accountId>.agentsvc.wus.azure-automation.net`<br>`https://<accountId>.jrds.wus.azure-automation.net` |
 | USA, västra 2 |`https://<accountId>.webhook.wus2.azure-automation.net`<br>`https://<accountId>.agentsvc.wus2.azure-automation.net`<br>`https://<accountId>.jrds.wus2.azure-automation.net` |
-| USA, centrala |`https://<accountId>.webhook.cus.azure-automation.net`<br>`https://<accountId>.agentsvc.cus.azure-automation.net`<br>`https://<accountId>.jrds.cus.azure-automation.net` |
+| Central US |`https://<accountId>.webhook.cus.azure-automation.net`<br>`https://<accountId>.agentsvc.cus.azure-automation.net`<br>`https://<accountId>.jrds.cus.azure-automation.net` |
 | USA, södra centrala |`https://<accountId>.webhook.scus.azure-automation.net`<br>`https://<accountId>.agentsvc.scus.azure-automation.net`<br>`https://<accountId>.jrds.scus.azure-automation.net` |
 | USA, norra centrala |`https://<accountId>.webhook.ncus.azure-automation.net`<br>`https://<accountId>.agentsvc.ncus.azure-automation.net`<br>`https://<accountId>.jrds.ncus.azure-automation.net` |
-| USA, östra |`https://<accountId>.webhook.eus.azure-automation.net`<br>`https://<accountId>.agentsvc.eus.azure-automation.net`<br>`https://<accountId>.jrds.eus.azure-automation.net` |
+| East US |`https://<accountId>.webhook.eus.azure-automation.net`<br>`https://<accountId>.agentsvc.eus.azure-automation.net`<br>`https://<accountId>.jrds.eus.azure-automation.net` |
 | USA, östra 2 |`https://<accountId>.webhook.eus2.azure-automation.net`<br>`https://<accountId>.agentsvc.eus2.azure-automation.net`<br>`https://<accountId>.jrds.eus2.azure-automation.net` |
 | Kanada, centrala |`https://<accountId>.webhook.cc.azure-automation.net`<br>`https://<accountId>.agentsvc.cc.azure-automation.net`<br>`https://<accountId>.jrds.cc.azure-automation.net` |
 | Europa, västra |`https://<accountId>.webhook.we.azure-automation.net`<br>`https://<accountId>.agentsvc.we.azure-automation.net`<br>`https://<accountId>.jrds.we.azure-automation.net` |
-| Europa, norra |`https://<accountId>.webhook.ne.azure-automation.net`<br>`https://<accountId>.agentsvc.ne.azure-automation.net`<br>`https://<accountId>.jrds.ne.azure-automation.net` |
+| Norra Europa |`https://<accountId>.webhook.ne.azure-automation.net`<br>`https://<accountId>.agentsvc.ne.azure-automation.net`<br>`https://<accountId>.jrds.ne.azure-automation.net` |
 | Sydostasien |`https://<accountId>.webhook.sea.azure-automation.net`<br>`https://<accountId>.agentsvc.sea.azure-automation.net`<br>`https://<accountId>.jrds.sea.azure-automation.net` |
 | Asien, östra |`https://<accountId>.webhook.ea.azure-automation.net`<br>`https://<accountId>.agentsvc.ea.azure-automation.net`<br>`https://<accountId>.jrds.ea.azure-automation.net` |
 | Indien, centrala |`https://<accountId>.webhook.cid.azure-automation.net`<br>`https://<accountId>.agentsvc.cid.azure-automation.net`<br>`https://<accountId>.jrds.cid.azure-automation.net` |
@@ -83,6 +83,12 @@ För att stödja [privat länk](../../private-link/private-link-overview.md) i A
 | US Gov, Virginia |`https://<accountId>.webhook.usge.azure-automation.us`<br>`https://<accountId>.agentsvc.usge.azure-automation.us`<br>`https://<accountId>.jrds.usge.azure-automation.us` |
 | US Gov, Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov, Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
+
+Ersätt `<accountId>` i DNS-posten med GUID som representerar ditt Automation-konto-ID från värde- **URL**: en. Du kan hämta det ID som krävs från **nycklar** under **konto inställningar** i Azure Portal.
+
+![Primär nyckel sida för Automation-konto](./media/automation-region-dns-records/automation-account-keys.png)
+
+Kopiera värdet efter *konton/* från **URL** -fältet –`https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
 
 Vi rekommenderar att du använder de adresser som anges när du definierar [undantag](../automation-runbook-execution.md#exceptions). Om du vill ha en lista över regions-IP-adresser i stället för region namn kan du hämta JSON-filen från Microsoft Download Center för följande moln miljöer:
 

@@ -3,20 +3,18 @@ title: Lägga till en CHI2TEST-chatt till en QnA Maker kunskaps bas
 titleSuffix: Azure Cognitive Services
 description: Om du lägger till en personlig CHI2TEST i din robot blir det mer samtal och engagerande när du skapar en KB. Med QnA Maker kan du enkelt lägga till en i förväg ifylld uppsättning av den främsta CHI2TEST i din KB.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e06cad8e8ca62330b09e173cf6058905b49f19e4
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 0aca072a9e659d242dec9dd45a12f9568d419599
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992920"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124433"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Lägga till en Chi2test-chatt i en kunskaps bas
 
@@ -74,7 +72,7 @@ Om du vill visa metadata väljer du **visnings alternativ** i verktygsfältet oc
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Lägg till fler frågor och svar om CHI2TEST
 Du kan lägga till ett nytt QnA-par för CHI2TEST som inte finns i den fördefinierade data uppsättningen. Se till att du inte duplicerar ett QnA-par som redan ingår i uppsättningen CHI2TEST. När du lägger till nya QnA i CHI2TEST läggs den till i din **redigerings** källa. För att se till att rangordningen förstår att detta är CHI2TEST, Lägg till nyckel/värde-paret "redaktionell: ChitChat", som visas i följande bild:
 
-![! [Lägg till CHI2TEST kring] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![! [Lägg till CHI2TEST kring] (.. /Media/qnamaker-How-to-Chit-Chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Ta bort CHI2TEST från en befintlig KB
 Välj din KB och gå till sidan **Inställningar** . Din aktuella CHI2TEST-Chat-källa visas som en fil med det valda personliga namnet. Du kan ta bort den som en käll fil.

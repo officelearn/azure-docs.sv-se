@@ -1,5 +1,5 @@
 ---
-title: Virtuella Linux-datorer säkerhets bas linje för Azures säkerhets prestanda
+title: Azures säkerhets bas linje för Virtuella Linux-datorer
 description: Virtuella Linux-datorer säkerhets bas linje ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d8c4d67ed9b268bae55711fae8c4def33b967fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532007"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124722"
 ---
-# <a name="linux-virtual-machines-security-baseline-for-azure-security-benchmark"></a>Virtuella Linux-datorer säkerhets bas linje för Azures säkerhets prestanda
+# <a name="azure-security-baseline-for-linux-virtual-machines"></a>Azures säkerhets bas linje för Virtuella Linux-datorer
 
 Azures säkerhets bas linje för Virtuella Linux-datorer innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 
@@ -568,7 +568,7 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 * [Rollbaserad åtkomstkontroll (RBAC) för Azure-resurser](../../role-based-access-control/overview.md)
 
-* [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Azure Security Center övervakning**: inte tillgänglig
 

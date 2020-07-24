@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539864"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117382"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Konfigurera ta med din egen lagring (BYOS) för Application Insights Profiler och Snapshot Debugger
 
@@ -63,7 +63,7 @@ _ ![ Figur 1,1](media/profiler-bring-your-own-storage/figure-11.png)_
 Om du också använder en privat länk krävs en ytterligare konfiguration för att tillåta anslutning till vår betrodda Microsoft-tjänst från din Virtual Network. Läs dokumentationen om [lagrings nätverks säkerhet](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Länka ditt lagrings konto till din Application Insights-resurs
-Om du vill konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning) finns det två alternativ:
+Det finns tre alternativ för att konfigurera BYOS för kod på kod nivå (profilerings-/fel sökning):
 
 * Använda Azure PowerShell-cmdletar
 * Använda kommando rads gränssnittet i Azure (CLI)

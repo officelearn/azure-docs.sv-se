@@ -3,13 +3,12 @@ title: Fel sökning – Personanpassare
 description: Den här artikeln innehåller svar på vanliga fel söknings frågor om Personanpassare.
 ms.topic: troubleshooting
 ms.date: 02/26/2020
-ms.author: diberry
-ms.openlocfilehash: ca19fbfc505e3e46338a0930773b1879dce788c1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 55b9068dbd7bfbb3ea3972c3381fda6d9cde5076
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586260"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126116"
 ---
 # <a name="personalizer-troubleshooting"></a>Fel sökning av personanpassa
 
@@ -77,7 +76,7 @@ Detta beror vanligt vis på tidsstämpel, användar-ID: n eller andra detaljerad
 
 Offline-utvärderingen använder de tränade modell data från händelserna under den tids perioden. Om du inte skickade några data under tids perioden mellan start-och slut tiden för utvärderingen, slutförs det utan några resultat. Skicka en ny offline-utvärdering genom att välja ett tidsintervall med händelser som du vet har skickats till Personanpassaren.
 
-## <a name="learning-policy"></a>Utbildnings princip
+## <a name="learning-policy"></a>Utbildningsprincip
 
 ### <a name="how-do-i-import-a-learning-policy"></a>Hur gör jag för att importera en utbildnings princip?
 

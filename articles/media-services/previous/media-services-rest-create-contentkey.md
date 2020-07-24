@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 373b863441eb21b52a18bbaece10779260eaeb7a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 76717c580136d23030565c5476f8b282897784a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166204"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000422"
 ---
 # <a name="create-content-keys-with-rest"></a>Skapa innehålls nycklar med REST
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Följande är allmänna steg för att skapa innehålls nycklar som du associerar
 1. Generera en 16-byte AES-nyckel (för common-och kuvert kryptering) eller en 32-byte AES-nyckel (för lagrings kryptering). 
    
     Det här är innehålls nyckeln för din till gång, vilket innebär att alla filer som är kopplade till till gången måste använda samma innehålls nyckel under dekrypteringen. 
-2. Anropa metoderna [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) för att hämta rätt X. 509-certifikat som måste användas för att kryptera din innehålls nyckel.
+2. Anropa metoderna [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) för att hämta rätt X. 509-certifikat som måste användas för att kryptera din innehålls nyckel.
 3. Kryptera din innehålls nyckel med den offentliga nyckeln för X. 509-certifikatet. 
    
    Media Services .NET SDK använder RSA med OAEP när krypteringen utförs.  Du kan se ett exempel i [funktionen EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -187,7 +187,7 @@ public enum ContentKeyType
 
 I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** som är inställd för lagrings kryptering ("1") och **ProtectionKeyType** har angetts till "0" för att INDIKERA att skydds nyckelns ID är X. 509-certifikatets tumavtryck.  
 
-Förfrågan
+Begäran
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1
@@ -268,4 +268,3 @@ HTTP/1.1 204 No Content
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

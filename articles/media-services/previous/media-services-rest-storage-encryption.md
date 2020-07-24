@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: abf9610dd67c82af0da9a629245ea792bd5a3402
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000168"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera ditt innehåll med lagrings kryptering 
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att genomföra kursen. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Du behöver ett Azure-konto för att genomföra kursen. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 Vi rekommenderar starkt att du krypterar ditt innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterat i vila.
@@ -49,8 +49,8 @@ När du använder entiteter i Media Services måste du ange vissa huvud fält oc
 |Krypterings alternativ|Beskrivning|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services lagrings kryptering|AES-256-kryptering, nyckel som hanteras av Media Services|Stöds<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
-|[Kryptering för lagringstjänst för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden|Stöds|Stöds|
-|[Kryptering av lagring på klient Sidan](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|Stöds inte|
+|[Kryptering för lagringstjänst för vilande data](../../storage/common/storage-service-encryption.md)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden|Stöds|Stöds|
+|[Kryptering av lagring på klient Sidan](../../storage/common/storage-client-side-encryption.md)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|Stöds inte|
 
 <sup>1</sup> medan Media Services stöder hantering av innehåll i Clear/utan någon form av kryptering. Detta rekommenderas inte.
 
@@ -75,7 +75,7 @@ Följande är allmänna steg för att skapa innehålls nycklar som du associerar
 1. För lagrings kryptering ska du slumpmässigt generera en AES-nyckel på 32 byte. 
    
     AES-nyckeln 32-byte är innehålls nyckeln för din till gång, vilket innebär att alla filer som är kopplade till till gången måste använda samma innehålls nyckel under dekrypteringen. 
-2. Anropa metoderna [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) för att hämta rätt X. 509-certifikat som måste användas för att kryptera din innehålls nyckel.
+2. Anropa metoderna [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) för att hämta rätt X. 509-certifikat som måste användas för att kryptera din innehålls nyckel.
 3. Kryptera din innehålls nyckel med den offentliga nyckeln för X. 509-certifikatet. 
    
    Media Services .NET SDK använder RSA med OAEP när krypteringen utförs.  Du kan se ett .NET-exempel i [EncryptSymmetricKeyData-funktionen](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -203,7 +203,7 @@ Ett av värdena som du måste ange när du skapar innehålls nyckeln är typen. 
 
 I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** som är inställd för lagrings kryptering ("1") och **ProtectionKeyType** har angetts till "0" för att INDIKERA att skydds nyckelns ID är X. 509-certifikatets tumavtryck.  
 
-Förfrågan
+Begäran
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1
@@ -331,7 +331,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="create-an-assetfile"></a>Skapa en AssetFile
-Entiteten [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representerar en video-eller ljudfil som lagras i en BLOB-behållare. En till gångs fil är alltid kopplad till en till gång och en till gång kan innehålla en eller flera till gångs filer. Media Services Encoder-aktiviteten Miss lyckas om ett till gångs fil objekt inte är associerat med en digital fil i en BLOB-behållare.
+Entiteten [AssetFile](/rest/api/media/operations/assetfile) representerar en video-eller ljudfil som lagras i en BLOB-behållare. En till gångs fil är alltid kopplad till en till gång och en till gång kan innehålla en eller flera till gångs filer. Media Services Encoder-aktiviteten Miss lyckas om ett till gångs fil objekt inte är associerat med en digital fil i en BLOB-behållare.
 
 **AssetFile** -instansen och den faktiska medie filen är två distinkta objekt. AssetFile-instansen innehåller metadata om medie filen, medan medie filen innehåller det faktiska medie innehållet.
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 258d91e763bd8e1507492109f9c01010f95b94c0
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000150"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 I den här snabb starten får du stegvisa anvisningar för hur du implementerar ett leverans program för video på begäran (VoD) med hjälp av Azure Media Services (AMS) REST-API: er.
 
@@ -56,7 +56,7 @@ Följande aktiviteter visas i den här snabb starten.
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte uppladdas). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
-Mer information om AMS REST-enheter som används i den här artikeln finns [Azure Media Services REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Se även [Azure Media Services begrepp](media-services-concepts.md).
+Mer information om AMS REST-enheter som används i den här artikeln finns [Azure Media Services REST API referens](/rest/api/media/operations/azure-media-services-rest-api-reference). Se även [Azure Media Services begrepp](media-services-concepts.md).
 
 >[!NOTE]
 >När du använder entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
@@ -153,7 +153,7 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ```
 
 ### <a name="create-an-assetfile"></a>Skapa en AssetFile
-Entiteten [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representerar en video-eller ljudfil som lagras i en BLOB-behållare. En till gångs fil är alltid kopplad till en till gång och en till gång kan innehålla en eller flera AssetFiles. Media Services Encoder-aktiviteten Miss lyckas om ett till gångs fil objekt inte är associerat med en digital fil i en BLOB-behållare.
+Entiteten [AssetFile](/rest/api/media/operations/assetfile) representerar en video-eller ljudfil som lagras i en BLOB-behållare. En till gångs fil är alltid kopplad till en till gång och en till gång kan innehålla en eller flera AssetFiles. Media Services Encoder-aktiviteten Miss lyckas om ett till gångs fil objekt inte är associerat med en digital fil i en BLOB-behållare.
 
 När du har överfört din digitala mediefil till en BLOB-behållare använder du kommandot **slå samman** http för att uppdatera AssetFile med information om medie filen (som visas senare i avsnittet).
 
@@ -217,7 +217,7 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ```
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Skapa Access policy med Skriv behörighet
-Innan du överför filer till Blob Storage anger du åtkomst princip rättigheter för skrivning till en till gång. Det gör du genom att skicka en HTTP-begäran till enhets uppsättningen AccessPolicies. Definiera ett DurationInMinutes-värde när du skapar eller så får du ett internt 500-server fel meddelande i svaret. Mer information om AccessPolicies finns i [Access policy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Innan du överför filer till Blob Storage anger du åtkomst princip rättigheter för skrivning till en till gång. Det gör du genom att skicka en HTTP-begäran till enhets uppsättningen AccessPolicies. Definiera ett DurationInMinutes-värde när du skapar eller så får du ett internt 500-server fel meddelande i svaret. Mer information om AccessPolicies finns i [Access policy](/rest/api/media/operations/accesspolicy).
 
 I följande exempel visas hur du skapar en Access policy:
 
@@ -270,7 +270,7 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 
 ### <a name="get-the-upload-url"></a>Hämta överförings-URL: en
 
-Skapa en SAS-lokaliserare för att få den faktiska uppladdnings-URL: en. Lokaliserare definierar start tiden och typen av anslutnings slut punkt för klienter som vill komma åt filer i en till gång. Du kan skapa flera lokaliserade entiteter för en specifik Access policy och till gångs par för att hantera olika klient begär Anden och behov. Var och en av dessa positionerare använder StartTime-värdet plus DurationInMinutes-värdet för Access policy för att bestämma hur lång tid en URL kan användas. Mer information finns i [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+Skapa en SAS-lokaliserare för att få den faktiska uppladdnings-URL: en. Lokaliserare definierar start tiden och typen av anslutnings slut punkt för klienter som vill komma åt filer i en till gång. Du kan skapa flera lokaliserade entiteter för en specifik Access policy och till gångs par för att hantera olika klient begär Anden och behov. Var och en av dessa positionerare använder StartTime-värdet plus DurationInMinutes-värdet för Access policy för att bestämma hur lång tid en URL kan användas. Mer information finns i [Locator](/rest/api/media/operations/locator).
 
 En SAS-URL har följande format:
 
@@ -280,7 +280,7 @@ Vissa förutsättningar gäller:
 
 * Du kan inte ha fler än fem unika positionerare kopplade till en specifik till gång på samma gång. 
 * Om du behöver ladda upp dina filer direkt ska du ställa in StartTime-värdet på fem minuter före den aktuella tiden. Detta beror på att det kan finnas en klock skevning mellan klient datorn och Media Services. StartTime-värdet måste också vara i följande DateTime-format: ÅÅÅÅ-MM-DDTHH: mm: ssZ (till exempel "2014-05-23T17:53:50Z").    
-* Det kan finnas en fördröjning på 30-40 sekunder efter att en positionerare har skapats till när den är tillgänglig för användning. Det här problemet gäller både [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) och ursprungs positionerare.
+* Det kan finnas en fördröjning på 30-40 sekunder efter att en positionerare har skapats till när den är tillgänglig för användning. Det här problemet gäller både [SAS-URL](../../storage/common/storage-sas-overview.md) och ursprungs positionerare.
 
 I följande exempel visas hur du skapar en SAS-URL Locator, som definieras av type-egenskapen i begär ande texten ("1" för en SAS-lokaliserare och "2" för en käll plats på begäran). **Sök vägs** egenskapen som returnerade innehåller den URL som du måste använda för att ladda upp filen.
 
@@ -344,11 +344,11 @@ Date: Mon, 19 Jan 2015 03:01:29 GMT
 När du har angett Access policy och lokaliseraren laddas den faktiska filen upp till en Azure Blob Storage-behållare med hjälp av Azure Storage REST-API: er. Du måste överföra filerna som block-blobbar. Page blobbar stöds inte av Azure Media Services.  
 
 > [!NOTE]
-> Du måste lägga till fil namnet för den fil som du vill överföra till värdet för sökvägen till lokaliserings **Sök vägen** som togs emot i föregående avsnitt. Ett exempel är `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
+> Du måste lägga till fil namnet för den fil som du vill överföra till värdet för sökvägen till lokaliserings **Sök vägen** som togs emot i föregående avsnitt. Till exempel `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
-Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
 ### <a name="update-the-assetfile"></a>Uppdatera AssetFile
 Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Exempel:
@@ -429,7 +429,7 @@ HTTP/1.1 204 No Content
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Koda käll filen till en uppsättning MP4-filer med anpassningsbar bit hastighet
 
-När du har matat in till gångar i Media Services kan Media kodas, transmux, vattenstämplas och så vidare innan de levereras till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. Dessa aktiviteter kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i till gångs filen (mer information finns i [jobb](https://docs.microsoft.com/rest/api/media/operations/job), [aktivitets](https://docs.microsoft.com/rest/api/media/operations/task) beskrivningar).
+När du har matat in till gångar i Media Services kan Media kodas, transmux, vattenstämplas och så vidare innan de levereras till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. Dessa aktiviteter kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i till gångs filen (mer information finns i [jobb](/rest/api/media/operations/job), [aktivitets](/rest/api/media/operations/task) beskrivningar).
 
 Som tidigare nämnts kan du när du arbetar med Azure Media Services ett av de vanligaste scenarierna leverera strömning med anpassad bit hastighet till dina klienter. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bit hastighet i något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG-streck.
 
@@ -487,7 +487,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>Skapa ett jobb
 Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning du vill utföra. Du kan skapa jobb och deras relaterade uppgifter på ett av två sätt med hjälp av REST API: aktiviteter kan definieras infogade via aktiviteternas navigerings egenskap på jobb enheter eller genom OData batch-bearbetning. Media Services SDK använder batchbearbetning. För läsning av kod exemplen i den här artikeln definieras dock uppgifter som infogas. Information om batchbearbetning finns i batch- [bearbetning för Open data Protocol (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-I följande exempel visas hur du skapar och publicerar ett jobb med en aktivitets uppsättning för att koda en video med en angiven upplösning och kvalitet. Följande dokumentations avsnitt innehåller en lista över alla [aktivitets för inställningar](https://msdn.microsoft.com/library/mt269960) som stöds av Media Encoder Standard-processorn.  
+I följande exempel visas hur du skapar och publicerar ett jobb med en aktivitets uppsättning för att koda en video med en angiven upplösning och kvalitet. Följande dokumentations avsnitt innehåller en lista över alla [aktivitets för inställningar](/azure/media-services/previous/media-services-mes-presets-overview) som stöds av Media Encoder Standard-processorn.  
 
 **HTTP-begäran**
 
@@ -768,7 +768,7 @@ Det här avsnittet visar hur du utför följande uppgifter som krävs för att p
 * Skapa en ursprunglig URL för strömmande innehåll
 
 ### <a name="creating-the-accesspolicy-with-read-permission"></a>Skapa Access policy med Läs behörighet
-Innan du hämtar eller strömma media innehåll måste du först definiera en Access policy med Läs behörighet och skapa lämplig enhet för lokaliserare som anger vilken typ av leverans mekanism du vill aktivera för dina klienter. Mer information om tillgängliga egenskaper finns i egenskaper för [Access policy-entitet](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
+Innan du hämtar eller strömma media innehåll måste du först definiera en Access policy med Läs behörighet och skapa lämplig enhet för lokaliserare som anger vilken typ av leverans mekanism du vill aktivera för dina klienter. Mer information om tillgängliga egenskaper finns i egenskaper för [Access policy-entitet](/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
 I följande exempel visas hur du anger Access policy för Läs behörighet för en specifik till gång.
 
@@ -869,7 +869,7 @@ När du har angett Access policy och lokaliseraren kan du hämta filer med hjäl
 > [!NOTE]
 > Du måste lägga till fil namnet för den fil som du vill ladda ned till värdet för sökvägen till lokaliserings **Sök vägen** som togs emot i föregående avsnitt. Till exempel `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
 
-Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
 Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Exempel:    
 

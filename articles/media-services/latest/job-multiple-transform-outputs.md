@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
-ms.openlocfilehash: dbbeeb33ee46b37ec920fe598483c332d3439689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c39b133773cbe35d78e04c4e40de9d62c4eba18
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77563146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001119"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Skapa ett jobb med flera transformera utdata
 
@@ -130,7 +131,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 ```
 ## <a name="job-error-codes"></a>Jobbfelkoder
 
-Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Se [Felkoder](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Nästa steg
 

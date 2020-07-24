@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
-ms.openlocfilehash: ff4822b513ed2aea6a18ba45bffc1d060ee2410e
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a843a42de6fc1e6cd8ef788552ab4a8ac17b4e25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999062"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>VHD stöds inte när du skapar en virtuell dator i Azure
 
@@ -48,21 +48,21 @@ Det här problemet uppstår av någon av följande orsaker:
 
 Lös problemet genom att ändra storlek på disken för att följa 1 MB-justering:
 
-- Lös problemet i Windows med hjälp av [PowerShell-cmdleten för att ändra storlek på VHD](https://docs.microsoft.com/powershell/module/hyper-v/resize-vhd). Observera att **ändra storlek – VHD** är inte en Azure PowerShell-cmdlet.
+- Lös problemet i Windows med hjälp av [PowerShell-cmdleten för att ändra storlek på VHD](/powershell/module/hyper-v/resize-vhd). Observera att **ändra storlek – VHD** är inte en Azure PowerShell-cmdlet.
 
-  1. [Installera Hyper-V-rollen på Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
-  1. [Konvertera den virtuella disken till en virtuell hård disk med fast storlek](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#convert-the-virtual-disk-to-a-fixed-size-vhd)
+  1. [Installera Hyper-V-rollen på Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+  1. [Konvertera den virtuella disken till en virtuell hård disk med fast storlek](../windows/prepare-for-upload-vhd-image.md#convert-the-virtual-disk-to-a-fixed-size-vhd)
 
-- Använd [kommandot qemu-img](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)för att lösa problemet i Linux.
+- Använd [kommandot qemu-img](../linux/create-upload-generic.md)för att lösa problemet i Linux.
 
 Mer information om hur du skapar och laddar upp en virtuell hård disk för att skapa en virtuell Azure-dator finns i följande artiklar:
 
-- [Ladda upp och skapa en virtuell Linux-dator från en anpassad disk avbildning med hjälp av Azure CLI 1,0](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
-- [Skapa och överför en Windows Server VHD till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
+- [Ladda upp och skapa en virtuell Linux-dator från en anpassad disk avbildning med hjälp av Azure CLI 1,0](../linux/upload-vhd.md)
+- [Skapa och överför en Windows Server VHD till Azure](../windows/upload-generalized-managed.md)
 
 Fortsatta problem kan tyda på en skadad virtuell hård disk. I den här situationen rekommenderar vi att du bygger upp den virtuella hård disken från grunden.
 
 Mer information finns i följande artiklar:
 
-- [Om Windows VHD](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#about-vhds)
-- [Om Linux VHD](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds#about-vhds)
+- [Om Windows VHD](../windows/managed-disks-overview.md)
+- [Om Linux VHD](../linux/managed-disks-overview.md)

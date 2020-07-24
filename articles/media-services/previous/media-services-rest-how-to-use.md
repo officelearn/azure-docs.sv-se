@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000055"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-REST-API: et **Media Services Operations** används för att skapa jobb, till gångar, direktsända kanaler och andra resurser i ett Media Services konto. Mer information finns i [Media Services åtgärder REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+REST-API: et **Media Services Operations** används för att skapa jobb, till gångar, direktsända kanaler och andra resurser i ett Media Services konto. Mer information finns i [Media Services åtgärder REST API referens](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Media Services tillhandahåller en REST API som accepterar både JSON-eller Atom + pub XML-format. Media Services REST API kräver vissa HTTP-huvuden som varje klient måste skicka när de ansluter till Media Services, samt en uppsättning valfria huvuden. I följande avsnitt beskrivs de huvuden och HTTP-verb som du kan använda när du skapar förfrågningar och tar emot svar från Media Services.
 
@@ -130,4 +130,3 @@ Information om hur du använder Azure AD-autentisering med Media Services REST A
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

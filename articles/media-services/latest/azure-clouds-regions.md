@@ -12,11 +12,12 @@ ms.topic: article
 ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001357"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
 
@@ -26,9 +27,9 @@ Azure Media Services v3 är tillgängligt via Azure Resource Manager manifest i 
 
 | Funktion|Globala Azure-regioner | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgängligt |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgängligt |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgängligt |
 | [StandardEncoderPreset](encoding-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
 | [LiveEvents](live-streaming-overview.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
 | [Strömnings slut punkter](streaming-endpoint-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
@@ -39,9 +40,9 @@ Azure Media Services v3 är tillgängligt via Azure Resource Manager manifest i 
 
 - Sydostasien
 - Europa, västra
-- Europa, norra
-- USA, östra
-- USA, centrala
+- Norra Europa
+- East US
+- Central US
 - USA, södra centrala
 - USA, västra 2
 - Brasilien, södra
@@ -52,7 +53,7 @@ Azure Media Services v3 är tillgängligt via Azure Resource Manager manifest i 
 
 ### <a name="region-code-name"></a>Region kod namn
 
-När du behöver ange **plats** parametern måste du ange regions kod namnet som **plats** värde. Om du vill hämta kod namnet för den region där ditt konto finns och att ditt anrop ska dirigeras till kan du köra följande rad i [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+När du behöver ange **plats** parametern måste du ange regions kod namnet som **plats** värde. Om du vill hämta kod namnet för den region där ditt konto finns och att ditt anrop ska dirigeras till kan du köra följande rad i [Azure CLI](/cli/azure/?view=azure-cli-latest)
 
 ```azurecli-interactive
 az account list-locations
@@ -79,32 +80,32 @@ Följande slut punkter är viktiga att känna till när du ansluter till Media S
 
 ### <a name="global-azure"></a>Global Azure
 
-|Slutpunkter||
-| --- | --- |
+| Tjänst | Slutpunkt |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Autentisering | `https://login.microsoftonline.com/` |
 | Token-Audience | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
-|Slutpunkter||
-| --- | --- |
+| Tjänst | Slutpunkt |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autentisering | `https://login.microsoftonline.us/` |
 | Token-Audience | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Tyskland
 
-| Slutpunkter ||
-| --- | --- |  
+| Tjänst | Slutpunkt |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autentisering | `https://login.microsoftonline.de/` |
 | Token-Audience | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure Kina 21Vianet
 
-|Slutpunkter||
-| --- | --- |
+| Tjänst | Slutpunkt |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autentisering | `https://login.chinacloudapi.cn/` |
 | Token-Audience |  `https://management.core.chinacloudapi.cn/` |

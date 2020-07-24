@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
-ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f86c157652f6219afdf1df1da9b8ad385f059aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000959"
 ---
 # <a name="media-services-live-event-error-codes"></a>Fel koder för Media Services Live-händelse
 
@@ -26,7 +26,7 @@ Tabellerna i det här avsnittet visar fel koderna för [direkt händelser](live-
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-När du prenumererar på [Event Grid](https://docs.microsoft.com/azure/event-grid/) händelser för en Live-händelse kan du se något av följande fel från händelsen [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
+När du prenumererar på [Event Grid](../../event-grid/index.yml) händelser för en Live-händelse kan du se något av följande fel från händelsen [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
 
 | Resultatkod | Beskrivning |
 | ----------- | ----------- |

@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2225633e5621c51067b64af2968a0dc0f5da87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75428713"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001425"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Anropa eller utlös Logi Kap par genom att använda Azure Functions och Azure Service Bus
 
 Du kan använda [Azure Functions](../azure-functions/functions-overview.md) för att utlösa en Logic app när du behöver distribuera en långvarig lyssnare eller uppgift. Du kan till exempel skapa en Azure-funktion som lyssnar i i en [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) -kö och direkt utlöser en Logic app som en push-utlösare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -118,11 +119,11 @@ Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 
    * I det här exemplet används `application/json` meddelandets innehålls typ, men du kan ändra den här typen efter behov.
    
-   * På grund av möjlig körning av funktioner, höga volymer eller tung belastning, Undvik att instansiera [klassen HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) med `using` instruktionen och direkt skapa HTTPClient-instanser per begäran. Mer information finns i [använda HttpClientFactory för att implementera elastiska HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   * På grund av möjlig körning av funktioner, höga volymer eller tung belastning, Undvik att instansiera [klassen HTTPClient](/dotnet/api/system.net.http.httpclient) med `using` instruktionen och direkt skapa HTTPClient-instanser per begäran. Mer information finns i [använda HttpClientFactory för att implementera elastiska HTTP-begäranden](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
    
    * Återanvänd om möjligt instansen av HTTP-klienter. Mer information finns i [hantera anslutningar i Azure Functions](../azure-functions/manage-connections.md).
 
-   I det här exemplet används [ `Task.Run` metoden](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) i [asynkront](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) läge. Mer information finns i [asynkron programmering med async och await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
+   I det här exemplet används [ `Task.Run` metoden](/dotnet/api/system.threading.tasks.task.run) i [asynkront](/dotnet/csharp/language-reference/keywords/async) läge. Mer information finns i [asynkron programmering med async och await](/dotnet/csharp/programming-guide/concepts/async/).
 
    ```csharp
    using System;

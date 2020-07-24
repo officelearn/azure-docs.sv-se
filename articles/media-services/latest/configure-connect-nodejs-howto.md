@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac82687cb28344f682c58a132f04d71184d5d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896107"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001204"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ansluta till Media Services v3 API – Node.js
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3-node.js SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Installera [Node.js](https://nodejs.org/en/download/).
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
+- [Skapa ett Media Services-konto](./create-account-howto.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
 
 > [!IMPORTANT]
 > Granska [namngivnings konventioner](media-services-apis-overview.md#naming-conventions).
@@ -69,7 +70,7 @@ npm install azure-arm-mediaservices
 
 1. Skapa en. js-fil med hjälp av din favorit redigerare.
 1. Öppna filen och klistra in följande kod.
-1. Ange värdena i avsnittet "Endpoint config" till värden som du har fått från [åtkomst till API: er](access-api-cli-how-to.md).
+1. Ange värdena i avsnittet "Endpoint config" till värden som du har fått från [åtkomst till API: er](./access-api-howto.md).
 
 ```js
 'use strict';
@@ -113,7 +114,7 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 });
 ```
 
-## <a name="run-your-app"></a>Köra appen
+## <a name="run-your-app"></a>Kör appen
 
 Öppna en kommandotolk. Bläddra till exempel katalogen och kör följande kommandon:
 
@@ -130,4 +131,3 @@ node index.js
 ## <a name="next-steps"></a>Nästa steg
 
 Utforska Media Services [Node.js-referensdokumentationen](/javascript/api/overview/azure/mediaservices/management) och titta på de [exempel](https://github.com/Azure-Samples/media-services-v3-node-tutorials) som visar hur du använder Media Services API med node.js.
-

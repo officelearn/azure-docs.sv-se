@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: bb7b641a7169c6577320f07a964d278ac1727b1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999113"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Felsöka OS-start – Windows Update installations kapacitet
 
@@ -48,7 +49,7 @@ I den här situationen kan operativ systemet (OS) inte slutföra en Windows Upda
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) för att förbereda en reparations-VM.
 1. Anslut till den virtuella reparations datorn med hjälp av Anslutning till fjärrskrivbord.
 
 ### <a name="free-up-space-on-the-disk"></a>Frigör utrymme på disken
@@ -59,10 +60,10 @@ Så här löser du problemet:
 - Utför en disk rensning.
 - Defragmentera enheten.
 
-1. Kontrol lera att disken är full. Om disk storleken är under 1 TB expanderar du upp till maximalt 1 TB [med hjälp av PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Kontrol lera att disken är full. Om disk storleken är under 1 TB expanderar du upp till maximalt 1 TB [med hjälp av PowerShell](../windows/expand-os-disk.md).
 1. Om disken redan är 1 TB måste du utföra en disk rensning.
-   1. Koppla bort data disken [från den brutna virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-   1. Koppla data disken [till en fungerande virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+   1. Koppla bort data disken [från den brutna virtuella datorn](../windows/detach-disk.md).
+   1. Koppla data disken [till en fungerande virtuell dator](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Använd [disk rensnings verktyget](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) för att frigöra utrymme.
 1. När storleks ändringen och rensningen är klar, defragmenteras enheten med följande kommando:
 
@@ -122,4 +123,4 @@ Det kan ta flera timmar beroende på Fragmenteringens nivå.
    
 ### <a name="rebuild-the-vm"></a>Återskapa den virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att återskapa den virtuella datorn.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att återskapa den virtuella datorn.

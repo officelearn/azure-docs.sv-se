@@ -4,13 +4,13 @@ description: Den här artikeln beskriver pris-, fakturerings-, fakturerings-och 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 29fa4126d8d0b4f3419c729ee3a73ae315b13122
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001374"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
@@ -95,7 +95,7 @@ I det här scenariot faktureras Microsoft $1,14 per timme för användning av de
 |Microsoft håller 100% av Azures användnings kostnad | $0,14 per timme |
 ||
 
-**Ta med din egen licens (BYOL)**
+**Bring Your Own License (BYOL)**
 
 BYOL har följande kostnads struktur:
 
@@ -134,7 +134,7 @@ I det här scenariot fakturerar Microsoft $100,00 för din program varu licens o
 |Microsoft betalar 80% av din licens kostnad <br> \*Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \*$90,00 per månad    |
 |Microsoft behåller 20% av din licens kostnad <br> \*Microsoft behåller 10% av din licens kostnad för alla kvalificerade SaaS-appar.  |  $20,00 per månad <br> \*$10,00     |
 
-För vissa SaaS-produkter som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin **service avgift för Marketplace** från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat måste minst ett av dina erbjudanden utses av Microsoft som IP-samförsäljnings klar eller prioriterad IP-adress för samtidig försäljning. För att få den här minskade service avgiften för Marketplace för den månaden måste berättigande vara minst fem arbets dagar före slutet av föregående kalender månad. Minskad service avgift för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via den kommersiella marknads platsen. Denna reducerade avgift kommer att vara tillgänglig för kvalificerade erbjudanden, med licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020. Efter den tiden återgår avgiften till dess normala belopp.
+För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-incetivized. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade-SaaS, virtuella datorer, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella Marketplace.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Kund fakturering, betalning, fakturering och samlingar
 
@@ -180,7 +180,7 @@ Mer information om hur du konfigurerar dessa konton finns i [Hantera ditt kommer
 
 Alternativet för att använda Transact-publicering är bara tillgängligt för användning med följande Marketplace-erbjudande typer:
 
-- **Virtuell dator** – Välj från kostnads fri, egen licens, eller betala per användning – pris modeller och presentera som SKU: er definierade på erbjudande nivån. På kundens Azure-faktura presenterar Microsoft utgivarens licens avgifter separat från de underliggande avgifterna för Azure-infrastrukturen. Avgifterna för Azure-infrastrukturen styrs av användningen av utgivarens program vara.
+- **Virtuell dator** – Välj från kostnads fri, egen licens, eller betala per användning – pris modeller och som finns som planer definierade på erbjudande nivån. På kundens Azure-faktura presenterar Microsoft utgivarens licens avgifter separat från de underliggande avgifterna för Azure-infrastrukturen. Avgifterna för Azure-infrastrukturen styrs av användningen av utgivarens program vara.
 
 - **Azure-program: lösnings mal len eller hanterad app** – du måste etablera en eller flera virtuella datorer och hämta genom summan av priserna för den virtuella datorn. För hanterade appar i en enda plan kan en månatlig månatlig prenumeration väljas som pris modell i stället för prissättningen för den virtuella datorn. I vissa fall skickas Azure Infrastructure användnings avgifter till kunden separat från licens avgifter för program vara, men på samma fakturerings instruktion. Men om du konfigurerar ett hanterat program erbjudande för ISV-infrastruktur debiteras Azure-resurserna för utgivaren och kunden får en fast avgift som omfattar kostnaden för infrastruktur, program varu licenser och hanterings tjänster.
 

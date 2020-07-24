@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ac35fde59479ffc13c17f8e63d6fccf65c3be27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83714584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001714"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure-funktioner från Azure Logic Apps
 
@@ -25,7 +26,7 @@ Om du vill köra kodfragment utan att skapa Azure Functions, lär du dig hur du 
 > [!NOTE]
 > Integreringen mellan Logic Apps och Azure Functions fungerar för närvarande inte med aktiverade platser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -126,7 +127,7 @@ Innan du kan skapa en Azure-funktion måste du dock redan ha en Azure Function-a
 
    1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts. När du är färdig väljer du **Skapa**.
 
-   Ett exempel:
+   Exempel:
 
    ![Definiera din funktion](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
@@ -256,7 +257,7 @@ Innan du startar den här uppgiften kan du söka efter och ställa in dessa vär
 
 * Katalog-ID för din klient i Azure Active Directory (Azure AD)
 
-  Du kan köra PowerShell-kommandot för att hämta klientens katalog-ID [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) . Eller så följer du de här stegen i Azure Portal:
+  Du kan köra PowerShell-kommandot för att hämta klientens katalog-ID [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) . Eller så följer du de här stegen i Azure Portal:
 
   1. Leta upp och välj din Function-app i [Azure Portal](https://portal.azure.com).
 

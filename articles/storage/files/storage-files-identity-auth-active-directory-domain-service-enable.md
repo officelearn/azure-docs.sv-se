@@ -7,24 +7,24 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2d9f7eccae6b87923b52119ded90ced5e4206d7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2bbc1d6f42819354f48812a34371a49e5acbac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999640"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering på Azure Files
 
-[!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
+[Azure Files](storage-files-introduction.md)   stöder identitets-baserad autentisering över Server Message Block (SMB) via två typer av domän tjänster: lokala Active Directory Domain Services (AD DS) och Azure Active Directory Domain Services (Azure AD DS). Vi rekommenderar starkt att du läser [avsnittet hur det fungerar](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) för att välja rätt domän tjänst för authentcation. Installationen skiljer sig beroende på vilken domän tjänst du väljer. De här artiklarna fokuserar på att aktivera och konfigurera Azure AD DS för autentisering med Azure-filresurser.
 
-En översikt över Azure AD-autentisering över SMB för Azure-filresurser finns i [Översikt över Azure Active Directory autentisering över SMB för Azure Files](storage-files-active-directory-overview.md). Den här artikeln fokuserar på hur du aktiverar autentisering med Azure Active Directory Domain Services (Azure AD DS) på Azure Files.
+Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [planerings guide](storage-files-planning.md) innan du läser följande serie artiklar.
 
 > [!NOTE]
 > Azure Files stöder Kerberos-autentisering med Azure AD DS med RC4-HMAC-kryptering. AES Kerberos-kryptering stöds inte ännu.
 > Azure Files stöder autentisering för Azure AD DS med fullständig synkronisering med Azure AD. Om du har aktiverat begränsad synkronisering i Azure AD DS som bara synkroniserar en begränsad uppsättning identiteter från Azure AD, stöds inte autentisering och auktorisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du aktiverar Azure AD över SMB för Azure-filresurser måste du kontrol lera att du har slutfört följande krav:
 
@@ -81,7 +81,7 @@ Om du vill aktivera Azure AD DS-autentisering över SMB för Azure Files kan du 
 
 Tänk på att du bara kan aktivera Azure AD DS-autentisering över SMB när du har distribuerat Azure AD DS till Azure AD-klienten. Mer information finns i [krav](#prerequisites).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Följ dessa steg om du vill aktivera Azure AD DS-autentisering över SMB med [Azure Portal](https://portal.azure.com):
 

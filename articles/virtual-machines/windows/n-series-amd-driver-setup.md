@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 4693ad8b168ce1ddd7c07afe650a89fc1888ccd7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999011"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -23,7 +23,7 @@ Om du väljer att installera AMD GPU-drivrutiner manuellt, innehåller den här 
 
 Endast GPU-drivrutiner som publicerats av Microsoft stöds på virtuella NVv4-datorer. Installera inte GPU-drivrutiner från någon annan källa.
 
-Grundläggande specifikationer, lagrings kapacitet och disk information finns i storlekar för [GPU Windows VM](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Grundläggande specifikationer, lagrings kapacitet och disk information finns i storlekar för [GPU Windows VM](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json).
 
 
 
@@ -57,5 +57,3 @@ Du kan använda dxdiag för att kontrol lera GPU-bildskärms egenskaper inklusiv
 Om du kör Windows 10 version 1903 eller senare kommer dxdiag inte att visa någon information på fliken "Visa". Använd alternativet "Spara all information" längst ned och utdatafilen visar information om AMD MI25 GPU.
 
 ![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag-details.png)
-
-

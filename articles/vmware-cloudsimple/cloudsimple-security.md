@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7310c037511fdf1a7d6f3763fd61d292078ea83e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998908"
 ---
 # <a name="cloudsimple-security-overview"></a>CloudSimple säkerhets översikt
 
@@ -29,7 +29,7 @@ Säkerhets överväganden för Azure-infrastruktur omfattar data Center och utru
 
 ### <a name="datacenter-security"></a>Data Center säkerhet
 
-Microsoft har en hel avdelning för att utforma, skapa och driva fysiska anläggningar som stöder Azure. Det här teamet investeras i att underhålla den avancerade fysiska säkerheten. Mer information om fysisk säkerhet finns i [Azure-anläggningar, lokal och fysisk säkerhet](../security/azure-physical-security.md).
+Microsoft har en hel avdelning för att utforma, skapa och driva fysiska anläggningar som stöder Azure. Det här teamet investeras i att underhålla den avancerade fysiska säkerheten. Mer information om fysisk säkerhet finns i [Azure-anläggningar, lokal och fysisk säkerhet](../security/fundamentals/physical-security.md).
 
 ### <a name="equipment-location"></a>Utrustnings plats
 

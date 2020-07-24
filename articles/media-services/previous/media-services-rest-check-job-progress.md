@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d5f3382965d9166fabf99ac650e707e29c38a72
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a8ada16bbfff66c60a1400542742396b667160dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000524"
 ---
 # <a name="how-to-check-job-progress"></a>Gör så här: kontrol lera jobb förloppet
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-När du kör jobb krävs ofta ett sätt att spåra jobbets förlopp. Du kan ta reda på jobbets status genom att använda jobbets egenskap State. Mer information om egenskapen state finns i egenskaper för [jobb enheter](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+När du kör jobb krävs ofta ett sätt att spåra jobbets förlopp. Du kan ta reda på jobbets status genom att använda jobbets egenskap State. Mer information om egenskapen state finns i egenskaper för [jobb enheter](/rest/api/media/operations/job#job_entity_properties).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 

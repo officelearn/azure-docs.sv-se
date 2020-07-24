@@ -9,31 +9,28 @@ ms.subservice: ''
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: b02c3627cea5e441739c77d1882505c6b82489bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad6761466cc958235557609e929e641a0311ee43
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999207"
 ---
-# <a name="analyze-complex-data-types-in-synapse"></a>Analysera komplexa data typer i Synapse
+# <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analysera komplexa data typer i Azure Synapse Analytics
 
-Den här artikeln är relevant för Parquet-filer och behållare i **Azure Synapse-länken för Azure Cosmos DB**. Det förklarar hur användare kan använda Spark eller SQL för att läsa eller transformera data med ett komplext schema, till exempel matriser eller kapslade strukturer. Exemplet nedan görs med ett enda dokument, men kan enkelt skala till miljarder dokument med Spark eller SQL. I koden nedan används PySpark (python).
+Den här artikeln är relevant för Parquet-filer och behållare i [Synapse-länken för Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Det förklarar hur användare kan använda Spark eller SQL för att läsa eller transformera data med komplexa scheman, till exempel matriser eller kapslade strukturer. Följande exempel har slutförts med ett enda dokument, men kan enkelt skala till miljarder dokument med Spark eller SQL. Koden som ingår i den här artikeln använder PySpark (python).
 
-## <a name="use-case"></a>Användnings fall
+## <a name="use-case"></a>Användningsfall
 
-Med moderna data typer är komplexa data typer ofta vanliga för att hantera och representera en utmaning för data tekniker. Analys av nästlat schema och matriser innehåller några utmaningar:
-* Komplex för att skriva SQL-frågor
-* Svårt att byta namn/Cast-datatype för kapslade kolumner
-* Träffa prestanda problem med djupt kapslade objekt
+Komplexa data typer är allt vanligare och representerar en utmaning för data tekniker som analyserar nästlat schema och matriser tenderar att ta med tids krävande och komplexa SQL-frågor. Dessutom kan det vara svårt att byta namn på eller omvandla data typen kapslade kolumner. Prestanda problem uppstår också när du arbetar med djupt kapslade objekt.
 
-Data tekniker måste förstå hur man effektivt bearbetar dessa data typer och gör dem lättillgängliga för alla.
+Data tekniker måste förstå hur man effektivt bearbetar komplexa data typer och gör dem lättillgängliga för alla.
 
-I exemplet nedan används Synapse Spark för att läsa och transformera objekt via data ramar till en planad struktur. Synapse SQL Server-lös används för att fråga direkt sådana objekt och returnera resultaten som en vanlig tabell.
+I följande exempel används Synapse Spark för att läsa och transformera objekt till en platt struktur genom data ramar. Synapse SQL Server-lös används för att fråga sådana objekt direkt och returnera resultaten som en vanlig tabell.
 
 ## <a name="what-are-arrays-and-nested-structures"></a>Vad är matriser och kapslade strukturer?
 
-Följande objekt kommer från appens insikter. I det här objektet finns det kapslade strukturer, men även matriser som innehåller kapslade strukturer.
+Följande objekt kommer från [appens insikter](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). I det här objektet finns kapslade strukturer och matriser som innehåller kapslade strukturer.
 
 ```json
 {
@@ -73,24 +70,24 @@ Följande objekt kommer från appens insikter. I det här objektet finns det kap
 ```
 
 ### <a name="schema-example-of-arrays-and-nested-structures"></a>Schema exempel på matriser och kapslade strukturer
-När du skriver ut schemat för data ramen i objektet (kallas **DF**) med kommandot **DF. printschema**, ser vi följande åter givning:
+När du skriver ut schemat för objektets data ram (som kallas **DF**) med kommandot `df.printschema` visas följande åter givning:
 
-* den gula färgen representerar kapslad struktur
-* den gröna färgen representerar en matris med två element
+* Gul färg representerar kapslad struktur
+* Grön färg representerar en matris med två element
 
 [![Schema ursprung](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
-_rid, _ts och _etag har lagts till i systemet när dokumentet skrevs in i Azure Cosmos DB transaktions lager.
+**_rid**, **_ts**och **_etag** har lagts till i systemet när det skrevs in i Azure Cosmos DB transaktions lager.
 
 Data ramen ovan räknas bara för 5 kolumner och 1 rad. Efter omvandling har den granskade data ramen 13 kolumner och 2 rader i tabell format.
 
 ## <a name="flatten-nested-structures-and-explode-arrays-with-apache-spark"></a>Förenkla inkapslade strukturer och expandera matriser med Apache Spark
 
-Med Synapse Spark är det enkelt att omvandla kapslade strukturer i kolumner och array-element till flera rader. Stegen nedan kan användas av alla för sin egen implementering.
+Med Synapse Spark är det enkelt att transformera kapslade strukturer i kolumner och array-element till flera rader. Följande steg kan användas för implementering.
 
-[![Steg för Spark-omvandling](./media/how-to-complex-schema/spark-transfo-steps.png)](./media/how-to-complex-schema/spark-transfo-steps.png#lightbox)
+[![Steg för Spark-omvandling](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
-**Steg 1**: definiera en funktion för att förenkla det kapslade schemat. Den här funktionen kan användas utan ändring. Skapa en cell i en Pyspark-anteckningsbok med den funktionen:
+**Steg 1**: definiera en funktion för att förenkla det kapslade schemat. Den här funktionen kan användas utan ändring. Skapa en cell i en [PySpark-anteckningsbok](quickstart-apache-spark-notebook.md) med följande funktion:
 
 ```python
 from pyspark.sql.functions import col
@@ -123,7 +120,7 @@ def flatten_df(nested_df):
     return nested_df.select(columns)
 ```
 
-**Steg 2**: Använd funktionen för att förenkla det kapslade schemat i data ramen **DF** till en ny data Rams **df_flat**:
+**Steg 2**: Använd funktionen för att förenkla det kapslade schemat för data ramen (**DF**) till en ny data ram `df_flat` :
 
 ```python
 from pyspark.sql.types import StringType, StructField, StructType
@@ -133,7 +130,7 @@ display(df_flat.limit(10))
 
 Funktionen display ska returnera 10 kolumner och 1 rad. Matrisen och dess kapslade element finns fortfarande där.
 
-**Steg 3**: omvandla nu matrisen **context_custom_dimensions** i data ramen **df_flat** till en ny dataframe- **df_flat_explode**. I koden nedan definierar vi även vilken kolumn vi väljer:
+**Steg 3**: transformera matrisen `context_custom_dimensions` i data ramen `df_flat` till en ny dataframe `df_flat_explode` . I följande kod definierar vi även vilken kolumn som ska väljas:
 
 ```python
 from pyspark.sql.functions import explode
@@ -145,25 +142,25 @@ display(df_flat_explode.limit(10))
 
 ```
 
-Funktionen display ska returnera följande resultat: 10 kolumner och 2 rader. Nästa steg är att förenkla inkapslade scheman med funktionen som definieras i steg 1.
+Funktionen display ska returnera 10 kolumner och 2 rader. Nästa steg är att förenkla inkapslade scheman med funktionen som definieras i steg 1.
 
-**Steg 4**: Använd funktionen för att förenkla det kapslade schemat för data ramen **df_flat_explode** till en ny data ram **df_flat_explode_flat**:
+**Steg 4**: Använd funktionen för att förenkla det kapslade schemat för data ramen `df_flat_explode` till en ny data ram `df_flat_explode_flat` :
 ```python
 df_flat_explode_flat = flatten_df(df_flat_explode)
 display(df_flat_explode_flat.limit(10))
 ```
 
-Funktionen display ska Visa 13 kolumner och 2 rader:
+Funktionen display ska Visa 13 kolumner och 2 rader.
 
-PrintSchema för data ramen df_flat_explode_flat returnerar följande resultat:
+`printSchema`Data ramens funktion `df_flat_explode_flat` returnerar följande resultat:
 
 [![Schema slut](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
 ## <a name="read-arrays-and-nested-structures-directly-with-sql-serverless"></a>Läs matriser och kapslade strukturer direkt med SQL Server-lös
 
-Att fråga, skapa vyer och tabeller över sådana objekt är möjligt med SQL Server-lös.
+Det går att fråga och skapa vyer och tabeller över sådana objekt med SQL Server lös.
 
-Först, beroende på hur data har lagrats, bör användarna använda följande taxonomi. Allting VERSALer är speciellt för ditt användnings fall:
+För det första, beroende på hur data har lagrats, ska användarna använda följande taxonomi. Allting som visas i VERSALer är särskilt för ditt användnings fall:
 
 | Mass              | FORMAT |
 | -------------------- | --- |
@@ -171,12 +168,12 @@ Först, beroende på hur data har lagrats, bör användarna använda följande t
 | N'endpoint = https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/ ; konto = ACCOUNTNAME; databas = databasename; samling = samlings namn; region = REGIONTOQUERY, Secret = ' YOURSECRET ' |' CosmosDB ' (Synapse länk)|
 
 
+> [!NOTE]
+> SQL Server stöder länkad tjänst för Synapse-länk för Azure Cosmos och AAD-genomströmning. Kapaciteten är för närvarande underhåller för hands versionen av Synapse-länken.
 
-**SQL Server** stöder länkad tjänst för Azure Synapse-länkar för Azure Cosmos DB och AAD-genomströmning. Kapaciteten är för närvarande underhåller för hands versionen av Synapse-länken.
-
-Ersätt nedan:
-* "Din BULK över" av anslutnings strängen för den data källa som du ansluter till
-* "Din typ ovanför" med det format som du använder för att ansluta till källan
+Ersätt varje fält enligt följande:
+* "Din samling över" = anslutnings strängen för den data källa som du ansluter till
+* "Din typ ovan" = det format som du använder för att ansluta till källan
 
 ```sql
 select *
@@ -201,25 +198,24 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
     )
 ```
 
-Det finns två olika typer av åtgärder gjorda:
-* Kodraden nedan definierar kolumnen med namnet contextdataeventTime som refererar till det kapslade elementet: context. data. eventTime
+Det finns två olika typer av åtgärder:
+
+Den första åtgärds typen anges i följande kodrad, som definierar den kolumn `contextdataeventTime` som kallas som refererar till det kapslade elementet: context. data. eventTime 
 ```sql
 contextdataeventTime varchar(50) '$.context.data.eventTime'
 ```
 
 Den här raden definierar kolumnen med namnet contextdataeventTime som refererar till kapslings elementet: kontext>data>eventTime
 
-* **kors Apply** används för att skapa nya rader för varje element under matrisen och sedan med definierar varje kapslat objekt som liknar den första punktens punkt: 
+Den andra åtgärds typen använder `cross apply` för att skapa nya rader för varje element under matrisen och sedan med definierar varje kapslat objekt som liknar den första punkten: 
 ```sql
 cross apply openjson (contextcustomdimensions) 
 with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
 ```
 
-Om matrisen hade 5 element med 4 kapslade strukturer, returnerar SQL Server, 5 rader och 4 kolumner.
-
-SQL Server-funktionen kan fråga på plats, mappa matrisen i 2 rader och Visa alla kapslade strukturer i kolumner.
+Om matrisen hade 5 element med 4 kapslade strukturer, returnerar SQL Server, 5 rader och 4 kolumner. SQL Server-funktionen kan fråga på plats, mappa matrisen i 2 rader och Visa alla kapslade strukturer i kolumner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att fråga Azure Synapse-länken för Azure Cosmos DB med Spark](./synapse-link/how-to-query-analytical-store-spark.md)
+* [Lär dig hur du frågar Synapse-länk för Azure Cosmos DB med Spark](./synapse-link/how-to-query-analytical-store-spark.md)
 * [Fråga Parquet kapslade typer](./sql/query-parquet-nested-types.md) 

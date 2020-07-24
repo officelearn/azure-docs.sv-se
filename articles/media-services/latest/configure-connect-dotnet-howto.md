@@ -14,19 +14,20 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c91b71b952bb68761015325a00ff6926c62dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001323"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3 API-.NET
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK med inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att spara resurs gruppens namn och Media Services konto namnet
+- [Skapa ett Media Services-konto](./create-account-howto.md). Kom ihåg att spara resurs gruppens namn och Media Services konto namnet
 - Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C#](https://code.visualstudio.com/docs/languages/csharp). Eller så kan du använda en annan kod redigerare.
 
 > [!IMPORTANT]
@@ -38,7 +39,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK me
 1. Från menyn **Arkiv** klickar du på **nytt**  >  **projekt**. 
 1. Skapa ett **.net Core** -konsolprogram.
 
-Exempel programmet i det här avsnittet är mål `netcoreapp2.0` . Koden använder async Main, som är tillgänglig från och med C# 7,1. Mer information finns i den här [bloggen](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
+Exempel programmet i det här avsnittet är mål `netcoreapp2.0` . Koden använder async Main, som är tillgänglig från och med C# 7,1. Mer information finns i den här [bloggen](/archive/blogs/benwilli/async-main-is-available-but-hidden) .
 
 ## <a name="add-required-nuget-packages"></a>Lägg till nödvändiga NuGet-paket
 
@@ -63,7 +64,7 @@ Exempel programmet i det här avsnittet är mål `netcoreapp2.0` . Koden använd
 
 ### <a name="set-values-in-appsettingsjson"></a>Ange värden i appsettings.jspå
 
-Kör `az ams account sp create` kommandot enligt beskrivningen i [API: er för åtkomst](access-api-cli-how-to.md). Kommandot returnerar JSON som du bör kopiera till din "appsettings.js".
+Kör `az ams account sp create` kommandot enligt beskrivningen i [API: er för åtkomst](./access-api-howto.md). Kommandot returnerar JSON som du bör kopiera till din "appsettings.js".
  
 ## <a name="add-configuration-file"></a>Lägga till en konfigurationsfil
 
@@ -242,5 +243,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Se även
 
-* [.NET-referens](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET-referens](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Fler kod exempel finns i [.NET SDK-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet) lagrings platsen.

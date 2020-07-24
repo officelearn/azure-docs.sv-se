@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037519"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999414"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics-lösningsmönster
 
@@ -21,7 +22,7 @@ Precis som många andra tjänster i Azure används Stream Analytics bäst med an
 
 Med Azure Stream Analytics kan du snabbt hitta instrument paneler och aviseringar i real tid. En enkel lösning matar in händelser från Event Hubs eller IoT Hub och [feeds Power BI instrument panelen med en strömmande data uppsättning](/power-bi/service-real-time-streaming). Mer information finns i den detaljerade självstudien [analysera Telefonsamtals data med Stream Analytics och visualisera resultat i Power BI instrument panel](stream-analytics-manage-job.md).
 
-![ASA Power BI instrument panel](media/stream-analytics-solution-patterns/pbidashboard.png)
+![ASA Power BI instrument panel](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 
 Den här lösningen kan skapas på bara några minuter från Azure Portal. Det finns ingen omfattande kod och SQL-språket används för att uttrycka affärs logiken.
 
@@ -31,7 +32,7 @@ Det här lösnings mönstret ger den lägsta svars tiden från händelse källan
 
 Power BI instrument panelen har låg latens, men kan inte användas för att skapa fullständiga fullfjädrade Power BI-rapporter. Ett gemensamt rapporterings mönster är att mata ut dina data till SQL Database först. Använd sedan Power BI SQL-anslutning för att fråga SQL efter den senaste informationen.
 
-![SQL-instrumentpanel för ASA](media/stream-analytics-solution-patterns/sqldashboard.png)
+![SQL-instrumentpanel för ASA](media/stream-analytics-solution-patterns/sql-dashboard.png)
 
 Om du använder SQL Database får du mer flexibilitet, men på kostnaden för en något högre latens. Den här lösningen är optimal för jobb med latens krav som är större än en sekund. Med den här metoden kan du maximera Power BI-funktioner för att ytterligare segmentera och tärninga data för rapporter och mycket fler visualiserings alternativ. Du får också flexibiliteten att använda andra instrument panels lösningar, till exempel Tableau.
 
@@ -43,7 +44,7 @@ Den andra populäraste användningen av Stream Analytics är att generera aviser
 
 Konsument logiken för underordnade händelser måste implementeras för att generera aviseringar i ditt befintliga affärs arbets flöde. Eftersom du kan implementera anpassad logik i Azure Functions är Azure Functions det snabbaste sättet som du kan utföra den här integrationen. En själv studie kurs om hur du använder Azure Function som utdata för ett Stream Analytics jobb finns i [kör Azure Functions från Azure Stream Analytics-jobb](stream-analytics-with-azure-functions.md). Azure Functions stöder också olika typer av meddelanden, inklusive text och e-post. Logic app kan också användas för sådan integrering, med Event Hubs mellan Stream Analytics-och Logic-appen.
 
-![ASA Event Messaging-appen](media/stream-analytics-solution-patterns/eventmessagingapp.png)
+![ASA Event Messaging-appen](media/stream-analytics-solution-patterns/event-messaging-app.png)
 
 Event Hubs erbjuder å andra sidan den mest flexibla integrations punkten. Många andra tjänster, t. ex. Azure Datautforskaren och Time Series Insights kan använda händelser från Event Hubs. Tjänster kan vara direkt anslutna till Event Hubs mottagare från Azure Stream Analytics för att slutföra lösningen. Event Hubs är också den högsta tillgängliga meddelande utströmnings tjänsten på Azure för sådana integrerings scenarier.
 
@@ -51,7 +52,7 @@ Event Hubs erbjuder å andra sidan den mest flexibla integrations punkten. Mång
 
 Du kan skapa anpassade visualiseringar i real tid, till exempel instrument panel eller kart visualisering, med hjälp av Azure Stream Analytics-och Azure SignalR-tjänsten. Med hjälp av SignalR kan webb klienter uppdateras och Visa dynamiskt innehåll i real tid.
 
-![ASA dynamisk app](media/stream-analytics-solution-patterns/dynamicapp.png)
+![ASA dynamisk app](media/stream-analytics-solution-patterns/dynamic-app.png)
 
 ## <a name="incorporate-real-time-insights-into-your-application-through-data-stores"></a>Införliva insikter i ditt program i real tid via data lager
 
@@ -59,13 +60,13 @@ De flesta webb tjänster och webb program använder idag ett fråge-/svars möns
 
 Hög data volym skapar ofta prestanda Flask halsar i ett CRUD-baserat system. [Lösnings mönstret för händelse källor](/azure/architecture/patterns/event-sourcing) används för att åtgärda prestanda Flask halsar. Temporala mönster och insikter är också svåra och ineffektiva att extrahera från ett traditionellt data lager. Moderna data drivna program med hög volym använder ofta en data flödes-baserad arkitektur. Azure Stream Analytics som beräknings motor för data i rörelse är en grundbult i den arkitekturen.
 
-![ASA-appen för händelse källa](media/stream-analytics-solution-patterns/eventsourcingapp.png)
+![ASA-appen för händelse källa](media/stream-analytics-solution-patterns/event-sourcing-app.png)
 
 I det här lösnings mönstret bearbetas händelser och sammanställs i data lager med Azure Stream Analytics. Program lagret interagerar med data lager med hjälp av det traditionella mönstret för begäran/svar. På grund av Stream Analyticss möjlighet att bearbeta ett stort antal händelser i real tid, är programmet mycket skalbart utan att du behöver skapa data lager skiktet. Data lager lagret är i grunden en materialiserad vy i systemet. [Azure Stream Analytics utdata till Azure Cosmos DB](stream-analytics-documentdb-output.md) beskriver hur Cosmos DB används som en Stream Analytics utdata.
 
 I verkliga program där bearbetnings logiken är komplex och det finns behov av att uppgradera vissa delar av logiken oberoende av varandra kan flera Stream Analytics jobb sammanställas tillsammans med Event Hubs som händelse koordinator för den förmedlande tjänsten.
 
-![ASA komplex händelse källa, app](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
+![ASA komplex händelse källa, app](media/stream-analytics-solution-patterns/event-sourcing-app-complex.png)
 
 Det här mönstret förbättrar systemets återhämtning och hanterbarhet. Men även om Stream Analytics garanterar exakt en gång efter bearbetningen, finns det en liten chans att dubbletter av händelser kan hamna i den mellanliggande Event Hubs. Det är viktigt att det underordnade Stream Analytics jobbet avduplicerar händelser med hjälp av logik nycklar i ett lookback-fönster. Mer information om händelse leverans finns i referens för [händelse leverans garantier](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) .
 
@@ -75,7 +76,7 @@ Funktionen Azure Stream Analytics referens data har utformats specifikt för anp
 
 Det här mönstret kan också användas för att implementera en regel motor där regelns tröskelvärden definieras från referens data. Mer information om regler finns [i processen konfigurations bara tröskel-baserade regler i Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
-![ASA-referens data program](media/stream-analytics-solution-patterns/refdataapp.png)
+![ASA-referens data program](media/stream-analytics-solution-patterns/reference-data-app.png)
 
 ## <a name="add-machine-learning-to-your-real-time-insights"></a>Lägg till Machine Learning i real tids insikter
 
@@ -83,37 +84,39 @@ Azure Stream Analytics inbyggd [avvikelse identifierings modell](stream-analytic
 
 För avancerade användare som vill införliva onlineutbildning och värdera till samma Stream Analytics pipeline, se det här exemplet på hur gör det med [linjär regression](stream-analytics-high-frequency-trading.md).
 
-![ASA Machine Learning app](media/stream-analytics-solution-patterns/mlapp.png)
+![ASA Machine Learning app](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
 ## <a name="near-real-time-data-warehousing"></a>Nära data lager hantering i real tid
 
 Ett annat vanligt mönster är data lager i real tid, även kallat strömnings informations lager. Förutom händelser som anländer till Event Hubs och IoT Hub från ditt program kan [Azure Stream Analytics som körs på IoT Edge](stream-analytics-edge.md) användas för att uppfylla data rengöring, data reducering och data lagring och vidarebefordran. Stream Analytics som körs på IoT Edge kan hantera bandbredds begränsning och anslutnings problem på ett smidigt sätt i systemet. SQL-utmatnings kortet kan användas för att mata ut till SQL Data Warehouse. det maximala data flödet är dock begränsat till 10 MB/s.
 
-![Data lager hantering för ASA](media/stream-analytics-solution-patterns/datawarehousing.png)
+![Data lager hantering för ASA](media/stream-analytics-solution-patterns/data-warehousing.png)
 
 Ett sätt att förbättra data flödet med viss latens kompromisser är att arkivera händelserna i Azure Blob Storage och sedan [importera dem till SQL Data Warehouse med PolyBase](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Du måste manuellt häfta ihop utdata från Stream Analytics till Blob Storage och indata från Blob Storage till SQL Data Warehouse genom att [arkivera data efter tidsstämpel](stream-analytics-custom-path-patterns-blob-storage-output.md) och importera regelbundet.
 
 I det här användnings mönstret används Azure Stream Analytics som en nära real tids ETL-motor. Nyligen ingångna händelser omvandlas kontinuerligt och lagras för förbrukning av underordnad analys tjänst.
 
-![ASA data lager hantering med hög data flöde](media/stream-analytics-solution-patterns/datawarehousing2.png)
+![ASA data lager hantering med hög data flöde](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>Arkivera real tids data för analys
 
 De flesta data vetenskaps-och analys aktiviteter sker fortfarande offline. Data kan arkiveras genom att Azure Stream Analytics via Azure Data Lake Store Gen2 utdata och Parquet. Den här funktionen tar bort friktionen för att mata in data direkt i Azure Data Lake Analytics, Azure Databricks och Azure HDInsight. Azure Stream Analytics används som en nära real tids ETL-motor i den här lösningen. Du kan utforska arkiverade data i Data Lake med olika beräknings motorer.
 
-![ASA offline Analytics](media/stream-analytics-solution-patterns/offlineanalytics.png)
+> [!div class="mx-imgBorder"]
+> ![ASA offline Analytics](media/stream-analytics-solution-patterns/offline-analytics.png)
 
 ## <a name="use-reference-data-for-enrichment"></a>Använd referens data för berikning
 
 Data berikning är ofta ett krav för ETL-motorer. Azure Stream Analytics stöder data anrikning med [referens data](stream-analytics-use-reference-data.md) från både SQL Database och Azure Blob Storage. Data-anrikning kan göras för data landning i både Azure Data Lake och SQL Data Warehouse.
 
-![ASA offline Analytics med data anrikning](media/stream-analytics-solution-patterns/offlineanalytics.png)
+
+![ASA offline Analytics med data anrikning](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
 
 ## <a name="operationalize-insights-from-archived-data"></a>Operationalisera insikter från arkiverade data
 
 Om du kombinerar offline Analytics-mönstret med nära real tids program mönster, kan du skapa en feedback-slinga. Med feedback-slingan kan programmet justeras automatiskt för att ändra mönster i data. Den här feedback-slingan kan vara så enkel som att ändra tröskelvärdet för avisering, eller så komplex som att träna Machine Learning modeller. Samma lösnings arkitektur kan tillämpas på båda ASA-jobben som körs i molnet och på IoT Edge.
 
-![ASA Insights driftsättning](media/stream-analytics-solution-patterns/insightsoperationalization.png)
+![ASA Insights driftsättning](media/stream-analytics-solution-patterns/insights-operationalization.png)
 
 ## <a name="how-to-monitor-asa-jobs"></a>Så här övervakar du ASA-jobb
 
@@ -162,7 +165,7 @@ I det extrema scenario som inkommande händelser är fördröjt, [är det möjli
 
 Lyckligt vis kan tidigare data Arkiv mönster användas för att bearbeta dessa sena händelser på ett smidigt sätt. Idén är att arkiverings jobbet bearbetar inkommande händelser vid tiden och arkiverar händelser i rätt tidsgrupp i Azure Blob eller Azure Data Lake Store med händelse tiden. Det spelar ingen roll hur sent en händelse kommer till. den tas aldrig bort. Den hamnar alltid inom rätt tidsgrupp. Under återställningen är det möjligt att bearbeta arkiverade händelser och fylla resultaten till valfri butik. Detta liknar hur lambda-mönster implementeras.
 
-![ASA-fyllning](media/stream-analytics-solution-patterns/backfill.png)
+![ASA-fyllning](media/stream-analytics-solution-patterns/back-fill.png)
 
 Den här processen måste göras med ett system för offline-batchbearbetning, som förmodligen har en annan programmerings modell än Azure Stream Analytics. Det innebär att du måste implementera hela bearbetnings logiken igen.
 

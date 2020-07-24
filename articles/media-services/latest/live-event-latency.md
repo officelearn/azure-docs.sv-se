@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 24eb5f8691c94c1f319820f3133b66065504ace3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000899"
 ---
 # <a name="live-event-low-latency-settings"></a>Inställningar för låg latens för live event
 
-Den här artikeln visar hur du ställer in låg latens för en [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents). Den diskuterar också vanliga resultat som visas när du använder inställningarna för låg latens i olika spelare. Resultaten varierar beroende på CDN och nätverks svars tid.
+Den här artikeln visar hur du ställer in låg latens för en [Live-händelse](/rest/api/media/liveevents). Den diskuterar också vanliga resultat som visas när du använder inställningarna för låg latens i olika spelare. Resultaten varierar beroende på CDN och nätverks svars tid.
 
-Om du vill använda den nya **LowLatency** -funktionen ställer du in **StreamOptionsFlag** på **LowLatency** på **LiveEvent**. När du skapar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) för HLS-uppspelning ställer du in [LiveOutput. HLS. fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) på 1. När strömmen är igång kan du använda [Azure Media Player](https://ampdemo.azureedge.net/) (amp demo-sidan) och ange uppspelnings alternativen för att använda heuristiks profilen för "låg latens".
+Om du vill använda den nya **LowLatency** -funktionen ställer du in **StreamOptionsFlag** på **LowLatency** på **LiveEvent**. När du skapar [LiveOutput](/rest/api/media/liveoutputs) för HLS-uppspelning ställer du in [LiveOutput. HLS. fragmentsPerTsSegment](/rest/api/media/liveoutputs/create#hls) på 1. När strömmen är igång kan du använda [Azure Media Player](https://ampdemo.azureedge.net/) (amp demo-sidan) och ange uppspelnings alternativen för att använda heuristiks profilen för "låg latens".
 
 > [!NOTE]
 > För närvarande är LowLatency-HeuristicProfile i Azure Media Player utformad för att spela upp strömmar i MPEG-streck-protokollet, med antingen CSF eller CMAF format (till exempel `format=mdp-time-csf` eller `format=mdp-time-cmaf` ). 
@@ -79,4 +79,3 @@ Följande tabeller visar typiska resultat för latens (när LowLatency-flaggan �
 
 - [Översikt över direkt uppspelning](live-streaming-overview.md)
 - [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)
-

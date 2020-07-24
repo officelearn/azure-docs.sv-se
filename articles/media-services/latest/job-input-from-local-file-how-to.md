@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80345911"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001136"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Skapa ett jobb indata från en lokal fil
 
@@ -24,7 +24,7 @@ När du skickar in jobb för att bearbeta videor i Media Services v3 måste du i
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-* [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+* [Skapa ett Media Services-konto](./create-account-howto.md).
 * Granska [Hantera till gångar](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>.NET-exempel
@@ -32,7 +32,7 @@ När du skickar in jobb för att bearbeta videor i Media Services v3 måste du i
 Följande kod visar hur du skapar en inmatad till gång och använder den som inmatad för jobbet. Funktionen CreateInputAsset utför följande åtgärder:
 
 * Skapar till gången
-* Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till till gångens [behållare i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Hämtar en skrivbar [SAS-URL](../../storage/common/storage-sas-overview.md) till till gångens [behållare i lagringen](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Laddar upp filen till containern i lagringen med hjälp av SAS-URL:en
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -47,7 +47,7 @@ Följande kodfragment skickar ett kodnings jobb:
 
 ## <a name="job-error-codes"></a>Jobbfelkoder
 
-Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Se [Felkoder](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Nästa steg
 

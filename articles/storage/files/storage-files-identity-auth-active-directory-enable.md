@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 0f2f0def9a23437dff57dda2d1a57950cef86275
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999589"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Översikt – lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
-[Azure Files](storage-files-introduction.md)   stöder identitets-baserad autentisering över Server Message Block (SMB) via två typer av domän tjänster: Azure Active Directory Domain Services (Azure AD DS) och lokala Active Directory Domain Services (AD DS). Med hjälp av identitetsbaserade autentiseringsmetoder kan du integrera processen för att komma åt dina Azure-filresurser med din befintliga identitetsbaserade autentiseringsprocess, i stället för att behöva hantera den separat. Den här serien med artiklar fokuserar på att aktivera och konfigurera lokala AD DS för autentisering med Azure-filresurser.
+[Azure Files](storage-files-introduction.md)   stöder identitets-baserad autentisering över Server Message Block (SMB) via två typer av domän tjänster: lokala Active Directory Domain Services (AD DS) och Azure Active Directory Domain Services (Azure AD DS). Vi rekommenderar starkt att du läser [avsnittet hur det fungerar](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) för att välja rätt domän tjänst för authentcation. Installationen skiljer sig beroende på vilken domän tjänst du väljer. Den här serien med artiklar fokuserar på att aktivera och konfigurera lokala AD DS för autentisering med Azure-filresurser.
 
 Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [planerings guide](storage-files-planning.md) innan du läser följande serie artiklar.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d776362b0447b148c0b2bdedba1287fa56058b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000201"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Ladda upp filer till ett Media Services-konto med REST  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "86170793"
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-I Media Services överför du dina digitala filer till en tillgång. [Till gångs](https://docs.microsoft.com/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.)  När filerna har laddats upp till till gången lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning. 
+I Media Services överför du dina digitala filer till en tillgång. [Till gångs](/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.)  När filerna har laddats upp till till gången lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning. 
 
 I den här självstudien får du lära dig hur du laddar upp en fil och annan åtgärd som är kopplad till den:
 
@@ -42,10 +42,10 @@ I den här självstudien får du lära dig hur du laddar upp en fil och annan å
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
 - Läs artikeln om att [komma åt Azure Media Services API med AAD-autentisering](media-services-use-aad-auth-to-access-ams-api.md) .
-- Mer information hittar du i [använda Azure AD-autentisering för att komma åt Media Services-API med rest](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) -artikel.
+- Mer information hittar du i [använda Azure AD-autentisering för att komma åt Media Services-API med rest](./media-services-rest-connect-with-aad.md) -artikel.
 - Konfigurera **Postman** enligt beskrivningen i [Konfigurera postman för Media Services REST API samtal](media-rest-apis-with-postman.md).
 
 ## <a name="considerations"></a>Överväganden
@@ -106,7 +106,7 @@ Anvisningar om hur du konfigurerar Postman för den här självstudien finns i [
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
-Innan du överför filer till Blob Storage anger du åtkomst princip rättigheter för skrivning till en till gång. Det gör du genom att skicka en HTTP-begäran till enhets uppsättningen AccessPolicies. Definiera ett DurationInMinutes-värde när du skapar eller så får du ett internt 500-server fel meddelande i svaret. Mer information om AccessPolicies finns i [Access policy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Innan du överför filer till Blob Storage anger du åtkomst princip rättigheter för skrivning till en till gång. Det gör du genom att skicka en HTTP-begäran till enhets uppsättningen AccessPolicies. Definiera ett DurationInMinutes-värde när du skapar eller så får du ett internt 500-server fel meddelande i svaret. Mer information om AccessPolicies finns i [Access policy](/rest/api/media/operations/accesspolicy).
 
 ### <a name="create-an-access-policy"></a>Skapa en åtkomst princip
 
@@ -121,7 +121,7 @@ Innan du överför filer till Blob Storage anger du åtkomst princip rättighete
 
 ### <a name="overview"></a>Översikt
 
-En [till gång](https://docs.microsoft.com/rest/api/media/operations/asset) är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning. När du skapar en till gång i REST API måste du skicka POST-begäran till Media Services och placera all egenskaps information om din till gång i begär ande texten.
+En [till gång](/rest/api/media/operations/asset) är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning. När du skapar en till gång i REST API måste du skicka POST-begäran till Media Services och placera all egenskaps information om din till gång i begär ande texten.
 
 En av de egenskaper som du kan lägga till när du skapar en till gång är **alternativ**. Du kan ange något av följande krypterings alternativ: **ingen** (standard, ingen kryptering används), **StorageEncrypted** (för innehåll som har krypterats med lagrings kryptering på klient sidan), **CommonEncryptionProtected**eller **EnvelopeEncryptionProtected**. När du har en krypterad till gång måste du konfigurera en leverans princip. Mer information finns i [Konfigurera till gångs leverans principer](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -144,9 +144,9 @@ I det här exemplet skapar vi en okrypterad till gång.
 
 När du har angett Access policy och lokaliseraren laddas den faktiska filen upp till en Azure Blob Storage-behållare med hjälp av Azure Storage REST-API: er. Du måste överföra filerna som block-blobbar. Page blobbar stöds inte av Azure Media Services.  
 
-Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
-Skapa en SAS-positionerare (se nedan) för att ta emot den faktiska uppladdnings-URL: en. Lokaliserare definierar start tiden och typen av anslutnings slut punkt för klienter som vill komma åt filer i en till gång. Du kan skapa flera lokaliserade entiteter för en specifik Access policy och till gångs par för att hantera olika klient begär Anden och behov. Var och en av dessa positionerare använder StartTime-värdet plus DurationInMinutes-värdet för Access policy för att bestämma hur lång tid en URL kan användas. Mer information finns i [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+Skapa en SAS-positionerare (se nedan) för att ta emot den faktiska uppladdnings-URL: en. Lokaliserare definierar start tiden och typen av anslutnings slut punkt för klienter som vill komma åt filer i en till gång. Du kan skapa flera lokaliserade entiteter för en specifik Access policy och till gångs par för att hantera olika klient begär Anden och behov. Var och en av dessa positionerare använder StartTime-värdet plus DurationInMinutes-värdet för Access policy för att bestämma hur lång tid en URL kan användas. Mer information finns i [Locator](/rest/api/media/operations/locator).
 
 En SAS-URL har följande format:
 
@@ -175,9 +175,9 @@ Vissa förutsättningar gäller:
 
 Nu när du har uppladdnings-URL: en måste du skriva kod med hjälp av Azure Blob-API: er direkt för att överföra filen till SAS-behållaren. Mer information finns i följande artiklar:
 
-- [Använda Azure Storage REST API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Lägg till BLOB](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Ladda upp blobar till Blob Storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Använda Azure Storage REST API](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Lägg till BLOB](/rest/api/storageservices/put-blob)
+- [Ladda upp blobar till Blob Storage](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Ladda upp en fil med Postman
 
@@ -209,7 +209,7 @@ Filen ska laddas upp och dess metadata har angetts.
 
 ## <a name="validate"></a>Verifiera
 
-För att kontrol lera att filen har laddats upp kan du vilja fråga [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) och jämföra **ContentFileSize** (eller annan information) till det du förväntar dig att se i den nya till gången. 
+För att kontrol lera att filen har laddats upp kan du vilja fråga [AssetFile](/rest/api/media/operations/assetfile) och jämföra **ContentFileSize** (eller annan information) till det du förväntar dig att se i den nya till gången. 
 
 Följande **Get** -åtgärd hämtar till exempel fildata för din till gångs fil (i eller fall BigBuckBunny.mp4-filen). Frågan använder de [miljövariabler](postman-environment.md) som du anger tidigare.
 
@@ -229,4 +229,3 @@ Svaret kommer att innehålla storlek, namn och annan information.
 Du kan nu koda överförda tillgångar. Mer information finns i [Koda tillgångar](media-services-portal-encode.md).
 
 Du kan också använda Azure Functions för att utlösa ett kodningsjobb baserat på en fil som skickas till den konfigurerade containern. Mer information finns i [det här exemplet](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-

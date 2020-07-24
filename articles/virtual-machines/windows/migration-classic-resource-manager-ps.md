@@ -8,16 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 314d7a4725709f00ba5cdbf54595857502bc5805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b869556e1bd49018b2afce27e732a3109b9fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81865949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999137"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av PowerShell
 
 > [!IMPORTANT]
-> Idag, cirka 90% av virtuella IaaS-datorer använder [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Från och med den 28 februari 2020 har klassiska virtuella datorer föråldrats och kommer att dras tillbaka den 1 mars 2023. [Läs mer]( https://aka.ms/classicvmretirement) om den här utfasningen och [hur den påverkar dig](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Idag, cirka 90% av virtuella IaaS-datorer använder [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Från och med den 28 februari 2020 har klassiska virtuella datorer föråldrats och kommer att dras tillbaka den 1 mars 2023. [Läs mer]( https://aka.ms/classicvmretirement) om den här utfasningen och [hur den påverkar dig](../classic-vm-deprecation.md#how-does-this-affect-me).
 
 De här stegen visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell.
 
@@ -48,7 +49,7 @@ Här följer några bra metoder som vi rekommenderar när du utvärderar om du v
 ## <a name="step-2-install-the-latest-version-of-powershell"></a>Steg 2: installera den senaste versionen av PowerShell
 Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI tar emot månatliga uppdateringar. PowerShell-galleriet tar emot uppdateringar regelbundet. Den här artikeln baseras på Azure PowerShell version 2.1.0.
 
-Installations anvisningar finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Installations anvisningar finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Steg 3: kontrol lera att du är administratör för prenumerationen
 För att utföra den här migreringen måste du läggas till som en medadministratör för prenumerationen i [Azure Portal](https://portal.azure.com).
@@ -220,7 +221,7 @@ Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräf
 
 Om du vill migrera virtuella datorer i ett virtuellt nätverk migrerar du det virtuella nätverket. De virtuella datorerna migreras automatiskt till det virtuella nätverket. Välj det virtuella nätverk som du vill migrera.
 > [!NOTE]
-> [Migrera en enskild virtuell dator](migrate-single-classic-to-resource-manager.md) som skapats med den klassiska distributions modellen genom att skapa en ny virtuell Resource Manager-dator med Managed disks med hjälp av VHD-filerna (OS och data) för den virtuella datorn.
+> [Migrera en enskild virtuell dator](./create-vm-specialized-portal.md) som skapats med den klassiska distributions modellen genom att skapa en ny virtuell Resource Manager-dator med Managed disks med hjälp av VHD-filerna (OS och data) för den virtuella datorn.
 <br>
 
 > [!NOTE]

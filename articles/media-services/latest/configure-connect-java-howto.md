@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2337a7543f84d7eba5f565d875129cf22e8b27ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74888503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001221"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ansluta till Media Services v3 API-Java
 
@@ -25,7 +26,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 Java SDK me
 
 I den här artikeln används Visual Studio Code för att utveckla exempel appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Följ [Skriv Java med Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) för att installera:
 
@@ -33,8 +34,8 @@ I den här artikeln används Visual Studio Code för att utveckla exempel appen.
    - Apache maven
    - Java Extension Pack
 - Se till att ställa in `JAVA_HOME` och `PATH` miljövariabler.
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
-- Följ stegen i avsnittet [åtkomst-API: er](access-api-cli-how-to.md) . Registrera prenumerations-ID, program-ID (klient-ID), den autentiseringsnyckel (hemlighet) och klient-ID som du behöver i ett senare steg.
+- [Skapa ett Media Services-konto](./create-account-howto.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
+- Följ stegen i avsnittet [åtkomst-API: er](./access-api-howto.md) . Registrera prenumerations-ID, program-ID (klient-ID), den autentiseringsnyckel (hemlighet) och klient-ID som du behöver i ett senare steg.
 
 Granska även:
 
@@ -93,7 +94,7 @@ När du kör kommandot `pom.xml` `App.java` skapas,, och andra filer.
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-1. Om du vill skapa de Active Directory autentiseringsuppgifter som du behöver för att göra förfrågningar lägger du till följande kod till main-metoden i klassen app och anger de värden som du har fått från [åtkomst till API: er](access-api-cli-how-to.md):
+1. Om du vill skapa de Active Directory autentiseringsuppgifter som du behöver för att göra förfrågningar lägger du till följande kod till main-metoden i klassen app och anger de värden som du har fått från [åtkomst till API: er](./access-api-howto.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -129,4 +130,4 @@ När du kör kommandot `pom.xml` `App.java` skapas,, och andra filer.
 
 Nu kan du ta med `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` och börja ändra entiteter.
 
-Fler kod exempel finns i [Java SDK-exempel](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) lagrings platsen.
+Fler kod exempel finns i [Java SDK-exempel](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) lagrings platsen.

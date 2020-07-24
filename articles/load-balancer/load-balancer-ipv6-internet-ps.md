@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 8553c54b60d1d4e60e28bcb3006bcc804dbc39ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43203a756bcb42c7d00de9c11e9223f1d8b9e2a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001595"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Kom igång med att skapa en belastningsutjämnare mot Internet med IPv6 med hjälp av PowerShell för Resource Manager
 
@@ -67,7 +67,7 @@ Mer information finns i [Azure Load Balancer-komponenter](./components.md).
 
 Kontrol lera att du har den senaste produktions versionen av Azure Resource Manager-modulen för PowerShell.
 
-1. Logga in i Azure
+1. Logga in på Azure
 
     ```azurepowershell-interactive
     Connect-AzAccount
@@ -199,7 +199,7 @@ I det här exemplet skapas följande objekt:
 
 ## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Skapa virtuella datorer och tilldela de nyligen skapade nätverkskorten
 
-Mer information om hur du skapar en virtuell dator finns i [skapa och förkonfigurera en virtuell Windows-dator med Resource Manager och Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+Mer information om hur du skapar en virtuell dator finns i [skapa och förkonfigurera en virtuell Windows-dator med Resource Manager och Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
 1. Skapa en tillgänglighets uppsättning och ett lagrings konto
 

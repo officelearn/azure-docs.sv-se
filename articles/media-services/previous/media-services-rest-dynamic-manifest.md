@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 8166a85d1c3421d95ac2b818e51b6b60e7663165
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9bc351f72f5dac38ebfc1983a7b918d46f5fc8ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000320"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Skapa filter med Azure Media Services REST API 
 > [!div class="op_single_selector"]
@@ -38,10 +38,10 @@ Den här artikeln visar hur du använder REST-API: er för att skapa, uppdatera 
 ## <a name="types-used-to-create-filters"></a>Typer som används för att skapa filter
 Följande typer används när du skapar filter:  
 
-* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* [FilterTrackSelect och FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* [Filter](/rest/api/media/operations/filter)
+* [AssetFilter](/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect och FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > 
@@ -217,7 +217,7 @@ x-ms-client-request-id: 00000000
 ```
 
 ## <a name="update-filters"></a>Uppdatera filter
-Använd korrigering, Lägg eller sammanfoga för att uppdatera ett filter med nya egenskaps värden.  Mer information om de här åtgärderna finns i [korrigering, Lägg, slå samman](https://msdn.microsoft.com/library/dd541276.aspx).
+Använd korrigering, Lägg eller sammanfoga för att uppdatera ett filter med nya egenskaps värden.  Mer information om de här åtgärderna finns i [korrigering, Lägg, slå samman](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 Om du uppdaterar ett filter kan det ta upp till två minuter för strömnings slut punkten att uppdatera reglerna. Om innehållet har betjänats med det här filtret (och cachelagrats i proxyservrar och CDN-cacheminnen), kan uppdatering av det här filtret leda till Player-problem. Rensa cacheminnet när du har uppdaterat filtret. Om det här alternativet inte är möjligt bör du överväga att använda ett annat filter.  
 
@@ -371,4 +371,3 @@ I följande exempel visas hur du lägger till filter till dina strömmande URL: 
 
 ## <a name="see-also"></a>Se även
 [Översikt över dynamiska manifest](media-services-dynamic-manifest-overview.md)
-

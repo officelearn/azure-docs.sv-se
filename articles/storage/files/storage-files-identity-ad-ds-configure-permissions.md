@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 38168db9706bd168b3edc2e740eaea40b23d4b0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999623"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 
@@ -51,7 +51,16 @@ Följande behörigheter ingår i rot katalogen för en fil resurs:
 Använd Windows- `net use` kommandot för att montera Azure-filresursen. Kom ihåg att ersätta plats hållarnas värden i följande exempel med dina egna värden. Mer information om hur du monterar fil resurser finns i [använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md). 
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+  net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+} 
+else 
+{
+  Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN,   Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Vi ger också [vägledning](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) för att lösa scenarier när port 445 är blockerad. 

@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288939"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998943"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Flytta stordator beräkning till Azure
 
@@ -93,13 +94,13 @@ Metoden är att migrera LPARs till enskilda virtuella datorer. Sedan skalar Azur
 
 En av fördelarna med en Azure-baserad lösning är möjligheten att skala ut. Skalning gör nästan obegränsad beräknings kapacitet tillgänglig för ett program. Azure stöder flera metoder för att skala ut beräknings kraften:
 
-- **Belastnings utjämning i ett kluster.** I det här scenariot kan ett program använda en [belastningsutjämnare](/azure/load-balancer/load-balancer-overview) eller Resource Manager för att sprida arbets belastningen mellan flera virtuella datorer i ett kluster. Om du behöver mer beräknings kapacitet läggs ytterligare virtuella datorer till i klustret.
+- **Belastnings utjämning i ett kluster.** I det här scenariot kan ett program använda en [belastningsutjämnare](../../../../load-balancer/load-balancer-overview.md) eller Resource Manager för att sprida arbets belastningen mellan flera virtuella datorer i ett kluster. Om du behöver mer beräknings kapacitet läggs ytterligare virtuella datorer till i klustret.
 
-- **Skalnings uppsättningar för virtuella datorer.** I det här burst-scenariot kan ett program skalas till ytterligare [beräknings resurser](/azure/virtual-machine-scale-sets/overview) baserat på användningen av virtuella datorer. När efter frågan finns kan antalet virtuella datorer i en skalnings uppsättning också gå nedåt, vilket garanterar en effektiv användning av data bearbetnings kraften.
+- **Skalnings uppsättningar för virtuella datorer.** I det här burst-scenariot kan ett program skalas till ytterligare [beräknings resurser](../../../../virtual-machine-scale-sets/overview.md) baserat på användningen av virtuella datorer. När efter frågan finns kan antalet virtuella datorer i en skalnings uppsättning också gå nedåt, vilket garanterar en effektiv användning av data bearbetnings kraften.
 
-- **PaaS-skalning.** Azure PaaS-erbjudanden skalar beräknings resurser. [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) allokerar till exempel beräknings resurser för att möta ökningen av antalet begär Anden.
+- **PaaS-skalning.** Azure PaaS-erbjudanden skalar beräknings resurser. [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) allokerar till exempel beräknings resurser för att möta ökningen av antalet begär Anden.
 
-- **Kubernetes-kluster.** Program på Azure kan använda [Kubernetes-kluster](/azure/aks/concepts-clusters-workloads) för beräknings tjänster för angivna resurser. Azure Kubernetes service (AKS) är en hanterad tjänst som dirigerar Kubernetes noder, pooler och kluster i Azure.
+- **Kubernetes-kluster.** Program på Azure kan använda [Kubernetes-kluster](../../../../aks/concepts-clusters-workloads.md) för beräknings tjänster för angivna resurser. Azure Kubernetes service (AKS) är en hanterad tjänst som dirigerar Kubernetes noder, pooler och kluster i Azure.
 
 Om du vill välja rätt metod för att skala ut beräknings resurser är det viktigt att förstå hur Azure och stordatorer skiljer sig. Nyckeln är hur – eller om – data delas av beräknings resurser. I Azure delas data (som standard) vanligt vis inte av flera virtuella datorer. Om data delning krävs av flera virtuella datorer i ett skalbart beräknings kluster, måste delade data finnas i en resurs som har stöd för den här funktionen. På Azure omfattar data delningen lagrings utrymme som beskrivs i följande avsnitt.
 
@@ -114,7 +115,7 @@ Varje nivå kan också tillhandahålla lämplig katastrof återställnings tjän
 ## <a name="next-steps"></a>Nästa steg
 
 - [Stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Revärdering av stordatorer på Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Revärdering av stordatorer på Azure Virtual Machines](../overview.md)
 - [Flytta stordator lagring till Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>IBM-resurser

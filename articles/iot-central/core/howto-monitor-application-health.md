@@ -7,13 +7,17 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 664819b209aeb09093ce8711456b86ff4d3e8949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d246adbf8e87d5503bc19bcd497dd00370c0a867
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84249580"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001930"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Övervaka den övergripande hälsan hos enheter som är anslutna till ett IoT Central program
+
+> [!NOTE]
+> Mått är bara tillgängliga för version 3 IoT Central-program. Information om hur du kontrollerar program versionen finns i [om ditt program](./howto-get-app-info.md).
 
 *Den här artikeln gäller för operatörer och administratörer.*
 
@@ -34,25 +38,15 @@ Visa IoT Central mått i portalen:
 1. Navigera till din IoT Central program resurs i portalen. IoT Central-resurser finns som standard i en resurs grupp med namnet **IOTC**.
 1. Om du vill skapa ett diagram från ditt programs mått väljer du **mått** i avsnittet **övervakning** .
 
+![Azure-mått](media/howto-monitor-application-health/metrics.png)
+
 ### <a name="azure-portal-permissions"></a>Azure Portal behörigheter
 
 Åtkomst till mått i Azure Portal hanteras av rollbaserad [åtkomst kontroll i Azure](../../role-based-access-control/overview.md). Använd Azure Portal för att lägga till användare i IoT Central program/resurs grupp/prenumeration för att ge åtkomst till dem. Du måste lägga till en användare i portalen även om de redan har lagts till i IoT Central programmet. Använd [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) för att få bättre kornig åtkomst kontroll.
 
 ## <a name="iot-central-metrics"></a>IoT Central mått
 
-I följande tabell beskrivs de mått som för närvarande är tillgängliga för IoT Central:
-
-| Mått | Mått visnings namn | Enhet | Sammansättningstyp | Beskrivning |
-|--------|---------------------|------|------------------|-------------|
-| connectedDeviceCount         | Totalt antal anslutna enheter                              | Antal  | Totalt             | Antal enheter som är anslutna till IoT Central                               |
-| C2D. Property. Read. lyckades    | Lyckad enhets egenskaps läsning från IoT Central    | Antal  | Totalt             | Antalet lyckade egenskaps läsningar som initierats från IoT Central    |
-| C2D. Property. Read. Failure    | Det gick inte att läsa enhets egenskapen från IoT Central        | Antal  | Totalt             | Antal misslyckade egenskaps läsningar som initierats från IoT Central        |
-| D2C. Property. Read. lyckades    | Lyckad enhets egenskap läser från enheter        | Antal  | Totalt             | Antalet lyckade egenskaps läsningar som initierats från enheter        |
-| D2C. Property. Read. Failure    | Det gick inte att läsa enhets egenskapen från enheterna            | Antal  | Totalt             | Antalet misslyckade egenskaps läsningar som initierats från enheter            |
-| C2D. Property. Update. lyckades  | Lyckade uppdateringar av enhets egenskapen från IoT Central  | Antal  | Totalt             | Antalet lyckade egenskaps uppdateringar som initierats från IoT Central  |
-| C2D. Property. Update. Failure  | Det gick inte att uppdatera enhets egenskapen från IoT Central      | Antal  | Totalt             | Antalet misslyckade egenskaps uppdateringar som initierats från IoT Central      |
-| D2C. Property. Update. lyckades  | Lyckade uppdateringar av enhets egenskapen från enheter      | Antal  | Totalt             | Antalet lyckade egenskaps uppdateringar som initierats från enheter      |
-| D2C. Property. Update. Failure  | Misslyckade uppdateringar av enhets egenskapen från enheter          | Antal  | Totalt             | Antalet misslyckade egenskaps uppdateringar som initierats från enheter          |
+En lista över de mått som för närvarande är tillgängliga för IoT Central finns i mått som [stöds med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
 
 ### <a name="metrics-and-invoices"></a>Mått och fakturor
 

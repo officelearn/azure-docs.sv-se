@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2bcd5f0e6229c4130dddb48c1a20de1c711c6fcf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001153"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Koda med en anpassad transformering – .NET
 
@@ -32,7 +32,7 @@ När du skapar anpassade för inställningar gäller följande aspekter:
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-[Skapa ett Media Services-konto](create-account-cli-how-to.md)
+[Skapa ett Media Services-konto](./create-account-howto.md)
 
 ## <a name="download-the-sample"></a>Ladda ned exemplet
 
@@ -46,9 +46,9 @@ Det anpassade för inställnings exemplet finns i [EncodeCustomTransform](https:
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Skapa en transformering med en anpassad för inställning 
 
-När du skapar en ny [transformering](https://docs.microsoft.com/rest/api/media/transforms)måste du ange vad du vill att den ska producera som utdata. Den obligatoriska parametern är objektet [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) som visas i koden nedan. Varje **TransformOutput** innehåller en **Förinställning**. För **inställningen** beskrivs de stegvisa instruktionerna för video-och/eller ljud bearbetnings åtgärder som ska användas för att generera önskad **TransformOutput**. Följande **TransformOutput** skapar anpassade inställningar för codec-och lager-utdata.
+När du skapar en ny [transformering](/rest/api/media/transforms)måste du ange vad du vill att den ska producera som utdata. Den obligatoriska parametern är objektet [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput) som visas i koden nedan. Varje **TransformOutput** innehåller en **Förinställning**. För **inställningen** beskrivs de stegvisa instruktionerna för video-och/eller ljud bearbetnings åtgärder som ska användas för att generera önskad **TransformOutput**. Följande **TransformOutput** skapar anpassade inställningar för codec-och lager-utdata.
 
-När du skapar en [Transformering](https://docs.microsoft.com/rest/api/media/transforms) bör du först kontrollera om det redan finns en. Det gör du med metoden **Get** som visas i koden nedan. I Media Services v3 kan du **Hämta** metoder i entiteter returnerar **Null** om entiteten inte finns (en Skift läges okänslig kontroll av namnet).
+När du skapar en [Transformering](/rest/api/media/transforms) bör du först kontrollera om det redan finns en. Det gör du med metoden **Get** som visas i koden nedan. I Media Services v3 kan du **Hämta** metoder i entiteter returnerar **Null** om entiteten inte finns (en Skift läges okänslig kontroll av namnet).
 
 ### <a name="example"></a>Exempel
 

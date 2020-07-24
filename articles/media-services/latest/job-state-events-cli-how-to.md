@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 276cb3e6078fec915f266c5eb9aa557f92973dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71937291"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001170"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Skapa och övervaka Media Services händelser med Event Grid med Azure CLI
 
@@ -31,7 +31,7 @@ I den här artikeln använder du Azure CLI för att prenumerera på händelser f
 
     För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+- [Skapa ett Media Services-konto](./create-account-howto.md).
 
     Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
 
@@ -69,7 +69,7 @@ Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenum
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    Till exempel:
+    Exempel:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenum
     --endpoint <endpoint_URL>
     ```
 
-    Till exempel:
+    Exempel:
 
     ```
     az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
@@ -109,4 +109,3 @@ Visa ditt webbprogram igen och observera att en händelse för verifieringen av 
 ## <a name="next-steps"></a>Nästa steg
 
 [Ladda upp, koda och strömma](stream-files-tutorial-with-api.md)
-

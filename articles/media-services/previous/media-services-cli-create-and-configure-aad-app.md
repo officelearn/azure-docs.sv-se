@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: f136fb666e93adc0fe92aee014e3da9a37bbd6aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82d5c605baf6f95df7fee62379772ce13d696ac6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70035802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000813"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Använd Azure CLI för att skapa en Azure AD-App och konfigurera den för åtkomst till Media Services-API 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Det här avsnittet visar hur du använder Azure CLI för att skapa ett Azure Active Directory (Azure AD)-program och tjänstens huvud namn för att få åtkomst till Azure Media Services resurser. 
 
@@ -49,7 +49,7 @@ az ad sp create-for-rbac --name <appName>
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
-Till exempel:
+Exempel:
 
 ```azurecli
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash
@@ -63,7 +63,7 @@ Det kan till exempel vara någon av följande nivåer:
 * **Resurs grupps** nivå.
 * **Resurs** nivån (till exempel ett medie konto).
 
-Mer information finns i [skapa ett huvud namn för Azure-tjänsten med Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+Mer information finns i [skapa ett huvud namn för Azure-tjänsten med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Se även [Hantera rollbaserade Access Control med kommando rads gränssnittet i Azure](../../role-based-access-control/role-assignments-cli.md). 
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b8a22ff36f85f25bb6a4b22617029fe3858660
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098330"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998875"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en virtuell Windows-dator från en Resource Manager-mall
 
@@ -56,7 +56,7 @@ I föregående exempel angav du en mall som lagrats i GitHub. Du kan också häm
 
 Här följer några ytterligare resurser:
 
-- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](/azure/azure-resource-manager/).
+- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](../../azure-resource-manager/index.yml).
 - Information om Azures virtuella dator scheman finns i [referens för Azure-mallar](/azure/templates/microsoft.compute/allversions).
 - För att se fler exempel på mallar för virtuella datorer, se [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
@@ -66,7 +66,7 @@ Det sista PowerShell-kommandot från det föregående skriptet visar namnet på 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om det uppstod problem med distributionen kan du ta en titt på [Felsök vanliga fel i Azure-distribution med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Om det uppstod problem med distributionen kan du ta en titt på [Felsök vanliga fel i Azure-distribution med Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 - Lär dig hur du skapar och hanterar en virtuell dator i [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Om du vill veta mer om hur du skapar mallar kan du Visa JSON-syntaxen och egenskaperna för de resurs typer som du har distribuerat:

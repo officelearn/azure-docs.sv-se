@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631774"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998484"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Verifiera VPN-dataflöde till ett virtuellt nätverk
 
@@ -43,11 +43,11 @@ Följande diagram visar den logiska anslutningen för ett lokalt nätverk till e
 
 1. Fastställ programmets krav på data flödes flöden.
 1. Fastställ dina data flödes gränser för Azure VPN-gatewayen. Mer information finns i avsnittet om Gateway-SKU: er i [om VPN gateway](vpn-gateway-about-vpngateways.md#gwsku).
-1. Fastställ [vägledning för Azure VM-dataflöde](../virtual-machines/virtual-machines-windows-sizes.md) för din VM-storlek.
+1. Fastställ [vägledning för Azure VM-dataflöde](../virtual-machines/sizes.md) för din VM-storlek.
 1. Fastställ din Internet leverantörs bandbredd (ISP).
 1. Beräkna det förväntade data flödet genom att ta den minsta bandbredden för antingen den virtuella datorn, VPN Gateway eller Internet leverantören. som mäts i megabit per sekund (/) dividerat med åtta (8).
 
-Om det beräknade data flödet inte uppfyller programmets krav på data flöde för original vara måste du öka bandbredden för den resurs som du har identifierat som Flask hals. Om du vill ändra storlek på en Azure-VPN Gateway, se [ändra en gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Om du vill ändra storlek på en virtuell dator kan du läsa [ändra storlek på en](../virtual-machines/virtual-machines-windows-resize-vm.md)virtuell dator. Om du inte har den förväntade Internet bandbredden kan du också kontakta din Internet leverantör.
+Om det beräknade data flödet inte uppfyller programmets krav på data flöde för original vara måste du öka bandbredden för den resurs som du har identifierat som Flask hals. Om du vill ändra storlek på en Azure-VPN Gateway, se [ändra en gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Om du vill ändra storlek på en virtuell dator kan du läsa [ändra storlek på en](../virtual-machines/windows/resize-vm.md)virtuell dator. Om du inte har den förväntade Internet bandbredden kan du också kontakta din Internet leverantör.
 
 > [!NOTE]
 > VPN Gateway data flöde är en mängd olika Site-to-Site\VNET-to-VNET, eller punkt-till-plats-anslutningar.

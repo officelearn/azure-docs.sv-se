@@ -3,11 +3,12 @@ title: Exempel på klass typer på Azure Lab Services | Microsoft Docs
 description: Tillhandahåller vissa typer av klasser som du kan använda för att ställa in labb med Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8564f5ece9d6df7db852c5ac16f00f1455d013ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21159aacfcd87bb929eaeaf9884b0275c7005e1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001631"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Översikt över klass typer – Azure Lab Services
 
@@ -45,12 +46,7 @@ Du kan konfigurera en mall på Azure Lab Services med de verktyg som behövs fö
 
 Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker](class-type-jupyter-notebook.md).
 
-## <a name="mobile-app-development-with-android-studio"></a>Mobilapputveckling med Android Studio
-Du kan ställa in ett labb i Azure Lab Services för att lära en introduktion till en introduktions utvecklings klass för mobil program. Den här klassen fokuserar på mobila Android-program som kan publiceras till [Google Play Butik](https://play.google.com/store/apps).  Eleverna lär dig hur du använder [Android Studio](https://developer.android.com/studio) för att bygga program.  [Visual Studio-emulator för Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) används för att testa programmet lokalt.
-
-Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära mobil program utveckling med Android Studio](class-type-mobile-dev-android-studio.md).
-
-## <a name="big-data-analytics"></a>Stordataanalyser
+## <a name="big-data-analytics"></a>Stordataanalys
 Du kan ställa in ett GPU-labb för att lära en stor data analys klass. Med den här typen av klass kan studenter lära sig att hantera stora mängder data och använda algoritmer för maskin-och statistiska inlärning för att härleda data insikter. Ett viktigt mål för studenter är att lära sig att använda verktyg för data analys som Apache Hadoop programmets program varu paket med öppen källkod som innehåller verktyg för att lagra, hantera och bearbeta Big data. 
 
 Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för Big data Analytics med Docker-distribution av HortonWorks Data Platform](class-type-big-data-analytics.md).

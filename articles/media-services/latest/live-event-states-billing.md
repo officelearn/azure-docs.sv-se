@@ -13,17 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: juliako
-ms.openlocfilehash: e4eee3b9f3f97bf7cd7a7b61425ec5c9a3a198ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd63152776e0268b8f9e3e0ce116fea897cdf4e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76543083"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000881"
 ---
 # <a name="live-event-states-and-billing"></a>Live händelse tillstånd och fakturering
 
 I Azure Media Services börjar en Live-händelse att faktureras så fort dess tillstånds över gångar **körs**. Du debiteras även om det inte finns någon video som går igenom tjänsten. Om du vill stoppa direkt sändningen från fakturering måste du stoppa Live-händelsen. Direkt avskrift debiteras på samma sätt som direkt sändningen.
 
-När **LiveEventEncodingType** på din [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) är inställt på Standard eller Premium1080p stänger Media Services automatiskt av alla aktiva händelser som fortfarande är i **körnings** tillstånd 12 timmar efter att inmatnings flödet förloras och det inte finns någon **Live-utdata**som körs. Men du kommer fortfarande att faktureras för den tidpunkt då Live-händelsen var i **körnings** tillstånd.
+När **LiveEventEncodingType** på din [Live-händelse](/rest/api/media/liveevents) är inställt på Standard eller Premium1080p stänger Media Services automatiskt av alla aktiva händelser som fortfarande är i **körnings** tillstånd 12 timmar efter att inmatnings flödet förloras och det inte finns någon **Live-utdata**som körs. Men du kommer fortfarande att faktureras för den tidpunkt då Live-händelsen var i **körnings** tillstånd.
 
 > [!NOTE]
 > Direkt sändnings händelser stängs inte av automatiskt och måste stoppas explicit genom API: et för att undvika överdriven fakturering. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 8f1273f1476ea7da03eb44b700519482deac3284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8fedad40c18818932bf37dfe93c1b236357c30b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809176"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001613"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Belastnings utjämning på flera IP-konfigurationer med PowerShell
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver hur du använder Azure Load Balancer med flera IP-ad
 
 Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln:
 
-1. Installera Azure PowerShell. Se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
+1. Installera Azure PowerShell. Se [Installera och konfigurera Azure PowerShell](/powershell/azure/) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
 2. Skapa en resurs grupp med följande inställningar:
 
     ```powershell
@@ -46,7 +46,7 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
     $myResourceGroup = "contosofabrikam"
     ```
 
-    Mer information finns i steg 2 i [skapa en resurs grupp](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Mer information finns i steg 2 i [skapa en resurs grupp](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 3. [Skapa en tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) som innehåller dina virtuella datorer. I det här scenariot använder du följande kommando:
 
@@ -54,14 +54,14 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Följ anvisningarna steg 3 till 5 i [skapa en artikel i Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) för att förbereda skapandet av en virtuell dator med ett enda nätverkskort. Kör steg 6,1 och Använd följande i stället för steg 6,2:
+4. Följ anvisningarna steg 3 till 5 i [skapa en artikel i Windows VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) för att förbereda skapandet av en virtuell dator med ett enda nätverkskort. Kör steg 6,1 och Använd följande i stället för steg 6,2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Slutför sedan [skapa en Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) -steg 6,3 till 6,8.
+    Slutför sedan [skapa en Windows VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) -steg 6,3 till 6,8.
 
 5. Lägg till en andra IP-konfiguration till var och en av de virtuella datorerna. Följ anvisningarna i artikeln [tilldela flera IP-adresser till virtuella datorer](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) . Använd följande konfigurations inställningar:
 

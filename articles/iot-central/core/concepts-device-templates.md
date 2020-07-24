@@ -7,11 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418801"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002360"
 ---
 # <a name="what-are-device-templates"></a>Vad är enhetsmallar?
 
@@ -28,7 +29,7 @@ En enhets mall innehåller följande avsnitt:
 - _Anpassningar_. Den här delen av enhets mal len gör att lösningen-utvecklare kan åsidosätta några av definitionerna i DCM. Anpassningar är användbara om lösnings utvecklaren vill förfina hur programmet hanterar ett värde, t. ex. ändra visnings namnet för en egenskap eller färgen som används för att visa ett telemetri-värde. Anpassningar påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
 - _Vyer_. Den här delen av enhets mal len gör att lösnings utvecklaren kan definiera visualiseringar för att visa data från enheten och formulär för att hantera och kontrol lera en enhet. Vyerna använder DCM, moln egenskaper och anpassningar. Vyer påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
 
-## <a name="device-capability-models"></a>Enhets kapacitets modeller
+## <a name="device-capability-models"></a>Modeller för enhetskapacitet
 
 I DCM definieras hur en enhet interagerar med ditt IoT Central-program. Enhets utvecklaren måste se till att enheten implementerar de beteenden som definierats i DCM så att IoT Central kan övervaka och hantera enheten. Ett DCM-gränssnitt består av ett eller flera _gränssnitt_, och varje gränssnitt kan definiera en samling typer av _telemetri_ , _enhets egenskaper_och _kommandon_. En lösnings utvecklare kan importera en JSON-fil som definierar DCM till en enhets mall eller använda webb gränssnittet i IoT Central för att skapa eller redigera ett DCM. Ändringar i ett DCM-dokument som skapats med webb gränssnittet kräver att [enhets mal len har versions hantering](./howto-version-device-template.md).
 
@@ -193,7 +194,7 @@ Använd asynkrona kommandon för långvariga åtgärder. Enheten skickar förlop
  `iothub-interface-name`: instans namnet för det här gränssnittet, till exempel `myAssetTracker` .
 - `iothub-command-statuscode`: status koden som returnerades från enheten, till exempel `202` .
 
-## <a name="cloud-properties"></a>Moln egenskaper
+## <a name="cloud-properties"></a>Molnegenskaper
 
 Moln egenskaper tillhör enhets mal len, men är inte en del av DCM. Moln egenskaper gör att lösnings utvecklaren anger alla metadata för enheten som ska lagras i IoT Central-programmet. Moln egenskaper påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
 
@@ -220,6 +221,6 @@ Telemetri, egenskaper och kommandon som du kan lägga till i en vy bestäms av D
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som enhets utvecklare är det nu viktigt att du har lärt dig mer om enhets mallar genom att [IoT Central](./concepts-get-connected.md) läsa mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
+Som enhets utvecklare är det nu viktigt att du har lärt dig om enhets mallar, ett förslag till nästa steg är att läsa för [telemetri, egenskaper och kommando nytto laster](./concepts-telemetry-properties-commands.md) för att lära dig mer om de data som en enhet utbyter med IoT Central.
 
 Som en lösnings utvecklare är ett förslag till nästa steg att läsa [definiera en ny IoT-enhets typ i ditt Azure IoT Central-program](./howto-set-up-template.md) för att lära dig mer om hur du skapar en enhets mall.

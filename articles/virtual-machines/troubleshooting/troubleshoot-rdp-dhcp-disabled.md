@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 278d976f044deb8a7387763306cf07f8b6b55d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 945f8896a844e7a73107df44d03abc7290f4e3fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087800"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999146"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Det går inte att RDP till Azure Virtual Machines eftersom DHCP-klienttjänsten är inaktive rad
 
@@ -204,7 +204,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-portal-windows.md).
 2. Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn. Kontrol lera att den anslutna disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som är kopplad till den anslutna OS-disken.
 3.  Öppna en upphöjd kommando tolks instans (**Kör som administratör**). Kör sedan följande skript. Det här skriptet förutsätter att den enhets beteckning som är kopplad till den anslutna OS-disken är **F**. Ersätt bokstaven efter behov med värdet i den virtuella datorn.
 
@@ -222,7 +222,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
     reg unload HKLM\BROKENSYSTEM
     ```
 
-4. [Koppla från OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
+4. [Koppla från OS-disken och återskapa den virtuella datorn](./troubleshoot-recovery-disks-portal-windows.md). Kontrol lera sedan om problemet är löst.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5dfcb4abc7a6859955bc36fad2cee893a78c79cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dccfebed26c8064db697413e7417ae08d69a3ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998992"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Windows 
 
@@ -22,7 +23,7 @@ Om du vill dra nytta av GPU-funktionerna i Azure N-seriens virtuella datorer som
 
 Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, innehåller den här artikeln stöd för operativ system, driv rutiner och installations-och verifierings steg. Det finns även information om manuell konfiguration av driv rutiner för [virtuella Linux-datorer](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Grundläggande specifikationer, lagrings kapacitet och disk information finns i storlekar för [GPU Windows VM](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Grundläggande specifikationer, lagrings kapacitet och disk information finns i storlekar för [GPU Windows VM](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json). 
 
 [!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
@@ -52,19 +53,17 @@ Kör kommando rads verktyget [NVIDIA-SMI](https://developer.nvidia.com/nvidia-sy
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en skalnings uppsättning för virtuella datorer. HpcVmDrivers-tillägget måste läggas till för att installera Windows nätverks enhets driv rutiner som aktiverar RDMA-anslutning. Om du vill lägga till VM-tillägget till en virtuell dator med RDMA-serien använder du [Azure PowerShell](/powershell/azure/overview) -cmdletar för Azure Resource Manager.
+RDMA-nätverksanslutning kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en skalnings uppsättning för virtuella datorer. HpcVmDrivers-tillägget måste läggas till för att installera Windows nätverks enhets driv rutiner som aktiverar RDMA-anslutning. Om du vill lägga till VM-tillägget till en virtuell dator med RDMA-serien använder du [Azure PowerShell](/powershell/azure/) -cmdletar för Azure Resource Manager.
 
 Så här installerar du det senaste version 1,1 HpcVMDrivers-tillägget på en befintlig RDMA-kompatibel virtuell dator med namnet myVM i regionen Västra USA:
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Mer information finns i [tillägg och funktioner för virtuella datorer för Windows](extensions-features.md).
+  Mer information finns i [tillägg och funktioner för virtuella datorer för Windows](../extensions/features-windows.md).
 
-RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) eller Intel MPI 5. x. 
+RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med [Microsoft MPI](/message-passing-interface/microsoft-mpi) eller Intel MPI 5. x. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Utvecklare som skapar GPU-accelererade program för NVIDIA Tesla-GPU: er kan också hämta och installera det senaste [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Mer information finns i [installations guiden för CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
-
-

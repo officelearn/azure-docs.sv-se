@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dabcadea96f4ced5bdf73a35ef533e6d290595c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77023760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001884"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktioner för begäranden om kunddata
+# <a name="azure-iot-central-customer-data-request-features"></a>Azure IoT Central funktioner för kund data förfrågan
 
 Azure IoT Central är en fullständigt hanterad Sakernas Internet-som-tjänst-lösning (IoT) som gör det enkelt att ansluta, övervaka och hantera dina IoT-tillgångar i skala, skapa djupgående insikter från dina IoT-data och vidta välgrundade åtgärder.
 

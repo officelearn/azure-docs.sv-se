@@ -9,17 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 628824a3d303184e199452b0974c7f99d99a4933
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870474"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998960"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalera behörigheter för privat moln vCenter från CloudSimple-portalen
 
 För administrativ åtkomst till ditt privata moln vCenter kan du tillfälligt eskalera dina CloudSimple-privilegier.  Med utökade privilegier kan du installera VMware-lösningar, lägga till identitets källor och hantera användare.
 
-Nya användare kan skapas i vCenter SSO-domänen och tilldelas åtkomst till vCenter.  När du skapar nya användare lägger du till dem i CloudSimple-Builtin-grupperna för åtkomst till vCenter.  Mer information finns i [behörighets modellen för CloudSimple-privata moln i VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
+Nya användare kan skapas i vCenter SSO-domänen och tilldelas åtkomst till vCenter.  När du skapar nya användare lägger du till dem i CloudSimple-Builtin-grupperna för åtkomst till vCenter.  Mer information finns i [behörighets modellen för CloudSimple-privata moln i VMware vCenter](./learn-private-cloud-permissions.md).
 
 > [!CAUTION]
 > Gör inga konfigurations ändringar för hanterings komponenter. Åtgärder som vidtas under det eskalerade privilegierade läget kan påverka systemet negativt eller kan orsaka att systemet blir otillgängligt.
@@ -87,5 +88,5 @@ När dina administrativa uppgifter har slutförts bör du eskalera dina privileg
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera vCenter-identitets källor som ska använda Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
-* Installera säkerhets kopierings lösning för [säkerhets kopiering av virtuella datorer i arbets belastning](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)
+* [Konfigurera vCenter-identitets källor som ska använda Active Directory](./set-vcenter-identity.md)
+* Installera säkerhets kopierings lösning för [säkerhets kopiering av virtuella datorer i arbets belastning](./backup-workloads-veeam.md)

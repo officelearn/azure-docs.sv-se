@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998907"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Åtkomst till din CloudSimple privata moln miljö och program från lokala platser
 
@@ -34,7 +35,7 @@ För att få åtkomst till ditt privata moln vCenter-och NSX-chef måste portarn
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portar som krävs för att använda lokala Active Directory som identitets källa
 
-Om du vill konfigurera lokal Active Directory som identitets källa i privat moln-vCenter, måste portarna som definierats i tabellen öppnas.  Se [använda Azure AD som identitets leverantör för vCenter på CloudSimple privata moln](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) för konfigurations steg.
+Om du vill konfigurera lokal Active Directory som identitets källa i privat moln-vCenter, måste portarna som definierats i tabellen öppnas.  Se [använda Azure AD som identitets leverantör för vCenter på CloudSimple privata moln](./azure-ad.md) för konfigurations steg.
 
 | Port         | Källa                           | Mål                                         | Syfte                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -59,6 +60,6 @@ Om du vill konfigurera lokal Active Directory som identitets källa i privat mol
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa och hantera VLAN och undernät](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
-* [Ansluta till ett lokalt nätverk med hjälp av Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
-* [Konfigurera plats-till-plats-VPN från lokal plats](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)
+* [Skapa och hantera VLAN och undernät](./create-vlan-subnet.md)
+* [Ansluta till ett lokalt nätverk med hjälp av Azure ExpressRoute](./on-premises-connection.md)
+* [Konfigurera plats-till-plats-VPN från lokal plats](./vpn-gateway.md)

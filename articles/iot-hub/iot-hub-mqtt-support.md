@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2f1f059f3abfd04ae78d9a2a19cff2929e84b8a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 72c012ba9ce28c0ca5dd5a315cf94b8895558a0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001697"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -41,7 +41,7 @@ MQTT-porten (8883) är blockerad i många företags-och miljö nätverks miljöe
 
 ## <a name="using-the-device-sdks"></a>Använda enhets-SDK: er
 
-[Enhets-SDK](https://github.com/Azure/azure-iot-sdks) : er som stöder MQTT-protokollet är tillgängligt för Java, Node.js, C, C# och python. Enhets-SDK: erna använder standard IoT Hub anslutnings sträng för att upprätta en anslutning till en IoT-hubb. Om du vill använda MQTT-protokollet måste klient protokoll parametern vara inställd på **MQTT**. Du kan också ange MQTT över Web Sockets i parametern client Protocol. Som standard ansluter enhets-SDK: erna till en IoT Hub med flaggan **CleanSession** inställd på **0** och använder **QoS 1** för meddelande utbyte med IoT Hub.
+[Enhets-SDK](https://github.com/Azure/azure-iot-sdks) : er som stöder MQTT-protokollet är tillgängligt för Java, Node.js, C, C# och python. Enhets-SDK: erna använder standard IoT Hub anslutnings sträng för att upprätta en anslutning till en IoT-hubb. Om du vill använda MQTT-protokollet måste klient protokoll parametern vara inställd på **MQTT**. Du kan också ange MQTT över Web Sockets i parametern client Protocol. Som standard ansluter enhets-SDK: erna till en IoT Hub med flaggan **CleanSession** inställd på **0** och använder **QoS 1** för meddelande utbyte med IoT Hub. Även om det är möjligt att konfigurera **QoS 0** för snabbare utbyte av meddelanden, bör du tänka på att leveransen inte är garanterad eller bekräftad. Därför kallas **QoS 0** ofta som "Fire and glömma".
 
 När en enhet är ansluten till en IoT-hubb ger enhets-SDK metoder som gör det möjligt för enheten att utbyta meddelanden med en IoT-hubb.
 
@@ -76,11 +76,11 @@ För att säkerställa att en klient-IoT Hub anslutning förblir aktiv skickar b
 
 |Språk  |Standard intervall för Keep-Alive  |Konfigurerbar  |
 |---------|---------|---------|
-|Node.js     |   180 sekunder      |     Nej    |
-|Java     |    230 sekunder     |     Nej    |
+|Node.js     |   180 sekunder      |     No    |
+|Java     |    230 sekunder     |     No    |
 |C     | 240 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (v2)   | 60 sekunder |  Nej   |
+|Python (v2)   | 60 sekunder |  No   |
 
 I följande [MQTT-spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)är IoT Hub Keep-Alive-intervallet 1,5 gånger klienten Keep-Alive-värde. IoT Hub begränsar dock den maximala tids gränsen på Server sidan till 29,45 minuter (1767 sekunder) eftersom alla Azure-tjänster är kopplade till Azure Load Balancer TCP timeout för inaktivitet, som är 29,45 minuter. 
 
@@ -279,7 +279,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Skicka meddelanden från enhet till moln
 
-När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som ett **ämnes namn**. - `{property_bag}` Elementet gör att enheten kan skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Till exempel:
+När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som ett **ämnes namn**. - `{property_bag}` Elementet gör att enheten kan skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Exempel:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -348,7 +348,7 @@ Möjliga status koder är:
 
 |Status | Beskrivning |
 | ----- | ----------- |
-| 200 | Success |
+| 200 | Klart |
 | 429 | För många begär Anden (begränsas) enligt [IoT Hub begränsning](iot-hub-devguide-quotas-throttling.md) |
 | 5 * * | Serverfel |
 
@@ -366,7 +366,7 @@ I följande sekvens beskrivs hur en enhet uppdaterar de rapporter som rapportera
 
 3. Tjänsten skickar sedan ett svarsmeddelande som innehåller det nya ETag-värdet för den rapporterade egenskaps samlingen i avsnittet `$iothub/twin/res/{status}/?$rid={request id}` . Det här svarsmeddelandet använder samma **ID för begäran** som begäran.
 
-Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning till `null` tar bort medlemmen från objektet som innehåller. Till exempel:
+Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning till `null` tar bort medlemmen från objektet som innehåller. Exempel:
 
 ```json
 {
@@ -404,7 +404,7 @@ Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-t
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Tar emot önskade egenskaper uppdatera meddelanden
 
-När en enhet är ansluten skickar IoT Hub meddelanden till ämnet `$iothub/twin/PATCH/properties/desired/?$version={new version}` , som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Till exempel:
+När en enhet är ansluten skickar IoT Hub meddelanden till ämnet `$iothub/twin/PATCH/properties/desired/?$version={new version}` , som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Exempel:
 
 ```json
 {

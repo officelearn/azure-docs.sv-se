@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 618803e8e94f96a63e0c39c27b40a933acac7cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eee718627f35154c878c717e02febe0ea7958fe6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995529"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000558"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay-direktuppspelning offline för iOS 
 
@@ -28,7 +29,7 @@ ms.locfileid: "82995529"
 > * [Version 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services tillhandahåller en uppsättning välkända [innehålls skydds tjänster](https://azure.microsoft.com/services/media-services/content-protection/) som omfattar:
 
@@ -53,7 +54,7 @@ Innan du implementerar offline DRM för FairPlay på en iOS 10 +-enhet:
 * Bekanta dig med innehålls skyddet online för FairPlay. Mer information finns i följande artiklar och exempel:
 
     - [Apple FairPlay streaming för Azure Media Services är allmänt tillgänglig](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
-    - [Skydda ditt HLS-innehåll med Apple FairPlay eller Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
+    - [Skydda ditt HLS-innehåll med Apple FairPlay eller Microsoft PlayReady](./media-services-protect-hls-with-fairplay.md)
     - [Ett exempel för strömning online i FPS](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
 
 * Hämta SDK: n för FPS från Apple Developer Network. SDK: n för FPS innehåller två komponenter:
@@ -200,7 +201,7 @@ Tre test exempel i Media Services som tar upp följande tre scenarier:
 Du hittar dessa exempel på [den här demo webbplatsen](https://aka.ms/poc#22), med motsvarande program certifikat som finns i en Azure-webbapp.
 Med version 3 eller version 4-exemplet på Server-SDK: n för FPS, om en Master-spelnings lista innehåller alternativ ljud, i offlineläge spelar den bara ljud. Därför måste du randig det alternativa ljudet. De andra och tredje exemplen som listas tidigare fungerar med andra ord i onlineläge och offline-läge. Exemplet som visas först spelar bara ljud i offlineläge, medan direkt uppspelningen fungerar som den ska.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 Följande vanliga frågor ger hjälp med fel sökning:
 
 - **Varför spelas bara ljud upp men inte video i offlineläge?** Det här beteendet verkar vara avsiktligt av exempel appen. När ett alternativt ljud spår finns (vilket är fallet för HLS) under offlineläge, är både iOS 10 och iOS 11 standardvärdet för det alternativa ljud spåret. För att kompensera det här beteendet för offline-läge för FPS tar du bort det alternativa ljud spåret från data strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifest filtret "ljud-Only = false". Med andra ord slutar en HLS-URL med. ISM/manifest (format = M3U8-AAPL, endast ljud = falskt). 
@@ -210,7 +211,7 @@ Följande vanliga frågor ger hjälp med fel sökning:
 - **Vad står den sista parametern för i följande API för offline-läge för FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Dokumentationen för detta API finns i [metoden FairPlayConfiguration. CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametern representerar varaktigheten för offline-hyran, med en sekund som är enheten.
+    Dokumentationen för detta API finns i [metoden FairPlayConfiguration. CreateSerializedFairPlayOptionConfiguration](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration?view=azure-dotnet). Parametern representerar varaktigheten för offline-hyran, med en sekund som är enheten.
 - **Vad är den nedladdade/offline-filstrukturen på iOS-enheter?** Den nedladdade fil strukturen på en iOS-enhet ser ut som på följande skärm bild. `_keys`Mappen lagrar hämtade fps-licenser med en lagrings fil för varje licens tjänst värd. `.movpkg`Mappen lagrar ljud-och video innehåll. Den första mappen med ett namn som slutar med ett streck följt av ett numeriskt objekt innehåller video innehåll. Det numeriska värdet är PeakBandwidth för video åter givningarna. Den andra mappen med ett namn som slutar med ett bindestreck följt av 0 innehåller ljud innehåll. Den tredje mappen med namnet "data" innehåller huvud spelnings listan för innehållet i FPS. Slutligen boot.xml ger en fullständig beskrivning av innehållet i `.movpkg` mappen. 
 
 ![FairPlay iOS-exempel fil struktur](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

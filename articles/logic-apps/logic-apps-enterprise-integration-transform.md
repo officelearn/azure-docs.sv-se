@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072427"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Skapa kartor som transformerar XML mellan format i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -29,7 +30,7 @@ När du har överfört transformeringen/kartan till ditt integrations konto kan 
 
 **Här följer stegen för att använda en transformering**:
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett integrations konto och Lägg till en karta  
 
@@ -37,11 +38,11 @@ Nu när du har vidtagit kraven är det dags att skapa din Logic app:
 
 1. Skapa en Logic-app och [länka den till ditt integrations konto](../logic-apps/logic-apps-enterprise-integration-accounts.md "Lär dig att länka ett integrations konto till en Logic app") som innehåller kartan.
 2. Lägg till en **begär** ande utlösare till din Logic app  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
+   ![Skärm bild av list rutan "Visa Microsoft-hanterade API: er" med begär ande utlösare vald. List rutan finns i en Logic-app som skapats med hjälp av Visual Studio Enterprise-integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Lägg till **transformerings-XML-** åtgärden genom att först välja **Lägg till en åtgärd**   
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
+   ![Skärm bild som visar knappen "Lägg till en åtgärd" vald på skärmen begär utlösare.](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. Ange ordet *Transform* i sökrutan för att filtrera alla åtgärder till den som du vill använda  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
+   ![Skärm bild som visar hur du söker efter åtgärden transformera XML i list rutan "Visa Microsoft Managed APIs" så att den kan läggas till i begär ande utlösaren.](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Välj åtgärden **TRANSFORMERA XML**   
 6. Lägg till det XML- **innehåll** som du transformerar. Du kan använda alla XML-data som du får i HTTP-begäran som **innehåll**. I det här exemplet väljer du innehållet i HTTP-begäran som utlöste Logic-appen.
 
@@ -50,9 +51,9 @@ Nu när du har vidtagit kraven är det dags att skapa din Logic app:
  
 
 7. Välj namnet på den **karta** som du vill använda för att utföra omvandlingen. Kartan måste redan finnas i ditt integrations konto. I ett tidigare steg gav du redan till gång till din Logic app-åtkomst till ditt integrations konto som innehåller din karta.      
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
+   ![Skärm bild som visar fälten innehåll och mappa i transformerings-XML-skärmen för begär ande utlösaren.](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Spara ditt arbete  
-    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+    ![Skärm bild som visar knappen Spara i Logic Apps designer.](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 Nu är du färdig med konfigurationen av kartan. I ett verkligt världs program kanske du vill lagra transformerade data i ett LOB-program, till exempel SalesForce. Du kan enkelt som en åtgärd skicka utdata från transformeringen till Salesforce. 
 
@@ -132,7 +133,7 @@ Som standard börjar svaret från transformationen med byte ordnings tecknet (BO
 
 
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 * [Läs mer om Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket")  
 * [Läs mer om Maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Lär dig mer om Enterprise integration Maps")  
 

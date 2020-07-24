@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: df0541802dfc331ffc94e95be112ea7e005960b5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071627"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Så här integrerar du RabbitMQ med Azure Service Bus
 
@@ -90,7 +90,7 @@ Innan du kan använda den anslutnings strängen måste du konvertera den till Ra
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Konvertera anslutnings sträng":::
 
-Öppna RabbitMQ Management-plugin-programmet i webbläsaren [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) och gå till `Admin -> Shovel Management` , där du kan lägga till nya Shovel som tar hand om att skicka meddelanden från en rabbitmq-kö till din Azure Service Bus-kö.
+Öppna RabbitMQ Management-plugin-programmet i webbläsaren `http://localhost:15672/#/dynamic-shovels` och gå till `Admin -> Shovel Management` , där du kan lägga till nya Shovel som tar hand om att skicka meddelanden från en rabbitmq-kö till din Azure Service Bus-kö.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Lägg till RabbitMQ Shovel":::
 
@@ -98,7 +98,7 @@ Här anropar du Shovel `azure` och väljer `AMQP 0.9.1` som käll protokoll. I s
 
 På kö-sidan av saker kan du använda `azure` som namn på din kö. Om kön inte finns skapar RabbitMQ den åt dig. Du kan också välja namnet på en kö som redan finns. Du kan lämna de andra alternativen som standard.
 
-`destination`Välj sedan som protokoll på sidan av saker `AMQP 1.0` . I `URI` fältet anger du den anslutnings sträng som du fick från föregående steg, konverterade du Azure-anslutningssträngen till rabbitmq-formatet. Det bör se ut så här:
+`destination`Välj sedan som protokoll på sidan av saker `AMQP 1.0` . I `URI` fältet anger du den anslutnings sträng som du fick från föregående steg, konverterade du Azure-anslutningssträngen till rabbitmq-formatet. Den bör se ut så här:
 
 ```
 amqps://rabbitmq-shovel:StringOfRandomChars@rabbitmq.servicebus.windows.net:5671/?sasl=plain
@@ -122,7 +122,7 @@ Men vi ser till att meddelandet är det som du skickade från RabbitMQ. Välj `P
 
 ## <a name="lets-recap"></a>Låt oss Sammanfattning
 
-Gratulerar! Du har uppnått ett parti! Du har hanterat för att hämta dina meddelanden från RabbitMQ till Azure Service Bus, så vi Sammanfattning stegen:
+Grattis! Du har uppnått ett parti! Du har hanterat för att hämta dina meddelanden från RabbitMQ till Azure Service Bus, så vi Sammanfattning stegen:
 
 1. Skapa ett Azure Service Bus-namnområde
 2. Lägg till en kö i namn området

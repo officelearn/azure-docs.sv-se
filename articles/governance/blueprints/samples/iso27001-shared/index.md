@@ -1,14 +1,14 @@
 ---
 title: Exempel på ISO 27001-skiss för delade tjänster – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 Delade tjänster. Det här skissexemplet hjälper kunderna att utvärdera specifika ISO 27001-kontroller.
-ms.date: 04/15/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "81458462"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072870"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 Delade tjänster
 

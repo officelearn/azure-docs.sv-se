@@ -3,16 +3,16 @@ title: Hantera säkerhets kopiering av Azure-filresurs med REST API
 description: Lär dig hur du använder REST API för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073251"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Hantera säkerhets kopiering av Azure-filresurs med REST API
 
-Den här artikeln förklarar hur du utför uppgifter för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+Den här artikeln förklarar hur du utför uppgifter för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av [Azure Backup](./backup-overview.md).
 
 ## <a name="monitor-jobs"></a>Övervaka jobb
 
@@ -38,7 +38,7 @@ Till exempel är det slutliga svaret på en [säkerhets kopierings REST API](bac
 }
 ```
 
-Säkerhets kopierings jobbet för Azure-filresursen identifieras av **jobId** -fältet och kan spåras på det sätt som anges [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med en get-begäran.
+Säkerhets kopierings jobbet för Azure-filresursen identifieras av **jobId** -fältet och kan spåras på det sätt som anges [här](/rest/api/backup/jobdetails/) med en get-begäran.
 
 ### <a name="tracking-the-job"></a>Spåra jobbet
 
@@ -52,9 +52,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
-Name  | Typ  |  Beskrivning
+Namn  | Typ  |  Beskrivning
 --- | --- | ----
 200 OK |  JobResource  | OK
 
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Stoppa skyddet och ta bort data
 
-Ta bort skyddet på en skyddad fil resurs och ta bort säkerhetskopierade data också genom att utföra en borttagnings åtgärd som beskrivs [här](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Ta bort skyddet på en skyddad fil resurs och ta bort säkerhetskopierade data också genom att utföra en borttagnings åtgärd som beskrivs [här](/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

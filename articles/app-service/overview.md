@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7db55a420a9789ef15a5296a6b0200d6b8910ec6
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: f4b42f2ed43da68daabb3bd334a362071202be42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073721"
 ---
 # <a name="app-service-overview"></a>Översikt över App Service
 
@@ -18,7 +18,7 @@ ms.locfileid: "82597866"
 
 App Services lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan också dra nytta av dess DevOps-funktioner, till exempel kontinuerlig distribution från Azure DevOps, GitHub, Docker Hub och andra källor, paket hantering, mellanlagrings miljöer, anpassad domän och TLS/SSL-certifikat. 
 
-Med App Service betalar du för de Azure-beräkningsresurer du använder. De beräkningsresurser du använder fastställs av den _App Service-plan_ som du använder för att köra appar på. Mer information finns i [Översikt över Azure App Service planer](overview-hosting-plans.md).
+Med App Service betalar du för de Azure-beräkningsresurer du använder. De beräknings resurser som du använder bestäms av _App Service plan_ som du kör apparna på. Mer information finns i [Översikt över Azure App Service planer](overview-hosting-plans.md).
 
 ## <a name="why-use-app-service"></a>Varför använda Azure Apptjänst?
 
@@ -26,7 +26,7 @@ Här följer några funktioner i App Service:
 
 * **Flera språk och ramverk** – App Service har förstklassigt stöd för ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP och Python. Du kan också köra [PowerShell och andra skript och körbara filer](webjobs-create.md) som bakgrundstjänster.
 * **Hanterad produktions miljö** – App Service automatiskt [korrigering och underhåll av operativ system-och språk ramverk](overview-patch-os-runtime.md) . Ägna tid åt att skriva Fantastiska appar och låta Azure bekymra dig om plattformen.
-* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](deploy-continuous-deployment.md) med Azure DevOps, GitHub, BitBucket, Docker Hub eller Azure Container Registry. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](deploy-staging-slots.md). Hantera dina appar i App Service med [Azure PowerShell](/powershell/azureps-cmdlets-docs) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](/cli/azure/install-azure-cli).
+* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](deploy-continuous-deployment.md) med Azure DevOps, GitHub, BitBucket, Docker Hub eller Azure Container Registry. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](deploy-staging-slots.md). Hantera dina appar i App Service med [Azure PowerShell](/powershell/azure/) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](/cli/azure/install-azure-cli).
 * **Global skala med hög tillgänglighet** – skala [upp](manage-scale-up.md) och [ned](../monitoring-and-diagnostics/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
 * **Anslutningar till SaaS-plattformar och lokala data** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP), SaaS-tjänster (till exempel Salesforce) och internettjänster (till exempel Facebook). Åtkomst till lokala data via [hybridanslutningar ](app-service-hybrid-connections.md) och [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Säkerhet och efterlevnad** – App Service [uppfyller ISO, SOC och PCI](https://www.microsoft.com/en-us/trustcenter). Autentisera användare med [Azure Active Directory](configure-authentication-provider-aad.md) eller med social inloggning ([Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) och [Microsoft](configure-authentication-provider-microsoft.md)). Skapa [IP-adressbegränsningar](app-service-ip-restrictions.md) och [hantera tjänstidentiteter](overview-managed-identity.md).
@@ -63,4 +63,4 @@ Skapa din första webbapp.
 > [Python (på Linux)](containers/quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [-](app-service-web-get-started-html.md)
+> [HTML](app-service-web-get-started-html.md)

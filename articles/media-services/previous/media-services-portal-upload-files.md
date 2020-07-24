@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73e92fa505a994cc5cc2fdb3a297dfd653a596a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071815"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Ladda upp filer till ett Media Services-konto på Azure-portalen 
 
@@ -30,7 +30,7 @@ ms.locfileid: "84982569"
 > 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. Information om hur du överför filer med portalen finns i [använda portalen för att ladda upp, koda och strömma innehåll](../latest/manage-assets-quickstart.md).<br/>Kolla också: [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. Information om hur du överför filer med portalen finns i [använda portalen för att ladda upp, koda och strömma innehåll](../latest/manage-assets-quickstart.md).<br/>Kolla också: [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 I Azure Media Services laddar du upp digitala filer till en tillgång. Tillgången kan innehålla video, ljud, bilder, samlingar med miniatyrbilder, textspår och filer med dold textning (samt metadata för dessa filer). När filerna har laddats upp lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
@@ -65,5 +65,3 @@ När uppladdningen är klar visas den nya tillgången i fönstret **Tillgångar*
 * Lär dig hur du [kodar dina uppladdade tillgångar](media-services-portal-encode.md).
 
 * Du kan också använda Azure Functions om du vill att ett kodningsjobb ska köras automatiskt när den konfigurerade containern tar emot en fil. Mer information finns i exemplet i [Media Services: Integrera Azure Media Services med Azure Functions och Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
-
-

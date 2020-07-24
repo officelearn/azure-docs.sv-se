@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071901"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Så här skapar du ett Smooth Streaming Windows Store-program  
 
@@ -32,7 +32,7 @@ Den här självstudien innehåller fyra lektioner:
 3. Välj Smooth Streaming strömmar
 4. Välj Smooth Streaming spår
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!NOTE]
 > Windows Store-projekt version 8,1 och tidigare stöds inte i Visual Studio 2017.  Mer information finns i [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Visual Studio 2017 – målplattform och plattformskompatibilitet).
 
@@ -53,7 +53,7 @@ I den här lektionen ska du skapa ett Windows Store-program med en media element
 
 ![Smooth Streaming Windows Store-programexempel][PlayerApplication]
 
-Mer information om hur du utvecklar Windows Store-program finns i [utveckla fantastiska appar för Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). Den här lektionen innehåller följande procedurer:
+Mer information om hur du utvecklar Windows Store-program finns i [utveckla fantastiska appar för Windows 8](https://developer.microsoft.com/en-us/windows/). Den här lektionen innehåller följande procedurer:
 
 1. Skapa ett Windows Store-projekt
 2. Utforma användar gränssnittet (XAML)
@@ -66,12 +66,12 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla fant
 1. Från menyn **Arkiv** klickar du på **nytt**och sedan på **projekt**.
 1. I dialog rutan nytt projekt skriver eller väljer du följande värden:
 
-    | Name | Värde |
+    | Namn | Värde |
     | --- | --- |
     | Mallgrupp |Installerat/templates/Visual C#/Windows Store |
     | Mall |Tom app (XAML) |
-    | Name |SSPlayer |
-    | Location |C:\SSTutorials |
+    | Namn |SSPlayer |
+    | Plats |C:\SSTutorials |
     | Namn på lösning |SSPlayer |
     | Skapa katalog för lösning |välja |
 
@@ -82,7 +82,7 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla fant
 1. Från Solution Explorer högerklickar du på **SSPlayer**och klickar sedan på **Lägg till referens**.
 1. Ange eller välj följande värden:
 
-    | Name | Värde |
+    | Namn | Värde |
     | --- | --- |
     | Referens grupp |Windows/tillägg |
     | Referens |Välj Microsoft Smooth Streaming client SDK för Windows 8 och Microsoft Visual C++ runtime-paketet |
@@ -516,7 +516,7 @@ Samma händelser är tillgängliga på den anpassade käll hanterings nivån och
    ```
 
    > [!NOTE]
-   > CoreDispatcher används för att göra ändringar i UI-tråden från en icke-UI-tråd. När det gäller Flask halsar i dispatcher-tråden kan utvecklaren välja att använda dispatcher som tillhandahålls av UI-elementet som de vill uppdatera.  Ett exempel:
+   > CoreDispatcher används för att göra ändringar i UI-tråden från en icke-UI-tråd. När det gäller Flask halsar i dispatcher-tråden kan utvecklaren välja att använda dispatcher som tillhandahålls av UI-elementet som de vill uppdatera.  Exempel:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -1045,4 +1045,3 @@ Du har slutfört lektion 4.  I den här lektionen lägger du till funktioner fö
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

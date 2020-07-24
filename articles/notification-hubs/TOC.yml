@@ -54,8 +54,6 @@
               href: ios-sdk-300.md
             - name: Objective-C (version 2.0.4)
               href: ios-sdk-204.md
-            - name: Swift
-              href: ios-sdk-swift-rest.md
         - name: Skicka push-meddelanden till specifika enheter
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Skicka push-meddelanden till specifika användare
@@ -64,16 +62,6 @@
           href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
         - name: Skicka push-meddelanden till iOS-enheter
           href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Plattformsoberoende
-      items:
-        - name: Skicka push-meddelanden via en serverdelstjänst
-          items:
-            - name: Xamarin.Forms
-              href: notification-hubs-backend-service-xamarin-forms.md
-            - name: Flutter
-              href: notification-hubs-backend-service-flutter.md
-            - name: React Native
-              href: notification-hubs-backend-service-react-native.md
     - name: Windows Phone
       items:
         - name: Skicka push-meddelanden till appar
@@ -188,7 +176,7 @@
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/notification-hubs/'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-notification-hubs.html'
+      href: /answers/topics/azure-notification-hubs.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-notificationhub'
     - name: Begär en funktion

@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: 3ab4b1729ea380671b72a9bb01740930a186d5c3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-java
+ms.openlocfilehash: 7057138709f97c2eba2b2301d8363e2524a2042a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79470802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071111"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Snabb start: starta ditt våren Cloud-program från käll koden
 
@@ -28,7 +29,7 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 >[!Note]
 > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) .
@@ -119,7 +120,7 @@ az spring-cloud app deployment create --app <app-name> -n <deployment-name> --ja
 Azure våren Cloud använder [kpack](https://github.com/pivotal/kpack) för att bygga projektet.  Du kan använda Azure CLI för att ladda upp din källkod, bygga projektet med kpack och distribuera det till mål programmet.
 
 > [!WARNING]
-> Projektet måste bara producera en JAR-fil med en `main-class` post i `MANIFEST.MF` `target` (för maven-distributioner eller `build/libs` (för Gradle-distributioner).  Om du har flera `main-class` jar-filer med poster går det inte att distribuera.
+> Projektet måste bara producera en JAR-fil med en `main-class` post i `MANIFEST.MF` `target` (för maven-distributioner eller `build/libs` (för Gradle-distributioner).  Om du har flera JAR-filer med `main-class` poster går det inte att distribuera.
 
 För en modul maven/Gradle-projekt:
 

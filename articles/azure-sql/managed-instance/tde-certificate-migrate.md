@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
-ms.date: 04/25/2019
-ms.openlocfilehash: c9a9b42d6f6d8c89847b03f5eda858c75d198c58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: ba2dd167cdf49b5f1a4b4f2dcd0edd48ea969fae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073331"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrera ett certifikat för en TDE-skyddad databas till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +34,7 @@ Ett alternativt alternativ som använder en fullständigt hanterad tjänst för 
 > [!IMPORTANT]
 > Ett migrerat certifikat används endast för återställning av den TDE-skyddade databasen. Snart när återställningen är färdig ersätts det migrerade certifikatet av ett annat skydd, antingen ett tjänst hanterat certifikat eller en asymmetrisk nyckel från nyckel valvet, beroende på vilken typ av TDE som du har angett på instansen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
@@ -148,7 +149,7 @@ Om certifikatet sparas i den SQL Server lokala datorns certifikat Arkiv, kan det
 2. När alla förberedelse steg har utförts kör du följande kommandon för att ladda upp det Base-64-kodade certifikatet till den hanterade mål instansen:
 
    ```azurepowershell
-   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
+   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -AsByteStream
    $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "<password>"

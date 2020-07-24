@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072147"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -36,6 +36,20 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 >
 > Mer information finns i: [Azure Portal begränsningar för Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="july-2020"></a>Juli 2020
+
+### <a name="live-transcriptions"></a>Direkt avskrifter
+
+Direkt avskrifter stöder nu 19 språk och åtta regioner.
+
+## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Skydda ditt innehåll med Media Services och Azure AD
+
+Vi har publicerat en självstudie [som kallas slut punkt till slut punkt för innehålls skydd med hjälp av Azure AD](./azure-ad-content-protection.md).
+
+### <a name="high-availablity"></a>Hög tillgänglighet
+
+Vi har publicerat en hög tillgänglighet med Media Services-och VOD- [Översikt](./media-services-high-availability-encoding.md) och- [exempel](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+
 ## <a name="june-2020"></a>Juni 2020
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Video analys i real tid för IoT Edge för hands version
@@ -43,16 +57,6 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 För hands versionen av video analys på IoT Edge gick att publicera. Mer information finns i [versions anteckningar](../live-video-analytics-edge/release-notes.md).
 
 Live video analys på IoT Edge är en expansion till medie tjänst familjen. Det gör att du kan analysera direktsänd video med AI-modeller som du väljer på dina egna gräns enheter och eventuellt fånga och spela in videon. Nu kan du skapa appar med video analys i real tid utan att bekymra dig om komplexiteten med att bygga och driva en live video-pipeline.
-
-### <a name="search-by-topics"></a>Sök efter ämnen
-
-Du kan nu använda Sök-API: et för att söka efter videor med specifika ämnen (endast API).
-
-Ämnen läggs till som en del av `textScope` (valfri parameter). Se [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) för mer information.  
-
-### <a name="labels-enhancement"></a>Etiketter förbättring
-
-Etiketten tagger har uppgraderats och innehåller nu fler visuella etiketter som kan identifieras.
 
 ## <a name="may-2020"></a>Maj 2020
 
@@ -137,7 +141,7 @@ Media Services v3 presenterar för hands versionen av 24 timmar x 365 dagar av d
 
 #### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
-Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. Information om datum för indragning finns i avsnittet om [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medie processorer.
+Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. Information om datum för indragning finns i avsnittet om [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter dessa äldre medie processorer.
 
 Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -171,9 +175,9 @@ Från och med juli var för hands versions funktionen bara tillgänglig i USA, C
 
 ### <a name="video-subclipping"></a>Video under Urklipp
 
-Nu kan du trimma eller under klipp en video när du kodar den med ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). 
+Nu kan du trimma eller under klipp en video när du kodar den med ett [jobb](/rest/api/media/jobs). 
 
-Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar. 
+Den här funktionen fungerar med alla [transformeringar](/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar. 
 
 Se exempel:
 
@@ -212,8 +216,8 @@ Nya uppdateringar som omfattar Media Services prestanda förbättringar.
 
 ### <a name="new-presets"></a>Nya för inställningar
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) har lagts till i de inbyggda för hands inställningarna i Analyzer.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) har lagts till i de inbyggda kodare-för inställningarna. Mer information finns i [Content medveten encoding](content-aware-encoding.md). 
+* [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) har lagts till i de inbyggda för hands inställningarna i Analyzer.
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) har lagts till i de inbyggda kodare-för inställningarna. Mer information finns i [Content medveten encoding](content-aware-encoding.md). 
 
 ## <a name="march-2019"></a>Mars 2019
 
@@ -246,21 +250,21 @@ Uppdateringar från GA-versionen av v3-API: et är:
 
 ## <a name="november-2018"></a>November 2018
 
-Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
 
 ### <a name="new-commands"></a>Nya kommandon
 
-- [AZ AMS-konto](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [AZ AMS-konto – filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [AZ AMS-till gång](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [AZ AMS Asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [AZ AMS-innehåll – nyckel-princip](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [AZ AMS-jobb](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ AMS live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [AZ AMS Live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [AZ AMS-direktuppspelning – slut punkt](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [AZ AMS streaming-Locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [AZ AMS Account MRU](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) – gör att du kan hantera enheter som är reserverade för media. Mer information finns i [skala medie reserverade enheter](media-reserved-units-cli-how-to.md).
+- [AZ AMS-konto](/cli/azure/ams/account?view=azure-cli-latest)
+- [AZ AMS-konto – filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [AZ AMS-till gång](/cli/azure/ams/asset?view=azure-cli-latest)
+- [AZ AMS Asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [AZ AMS-innehåll – nyckel-princip](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [AZ AMS-jobb](/cli/azure/ams/job?view=azure-cli-latest)
+- [AZ AMS live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
+- [AZ AMS Live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
+- [AZ AMS-direktuppspelning – slut punkt](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [AZ AMS streaming-Locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [AZ AMS Account MRU](/cli/azure/ams/account/mru?view=azure-cli-latest) – gör att du kan hantera enheter som är reserverade för media. Mer information finns i [skala medie reserverade enheter](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nya funktioner och större ändringar
 
@@ -351,7 +355,7 @@ Krypterings stöd för CMAF och CBCS för Apple HLS (iOS 11 +) och MPEG-STRECKs 
 
 ### <a name="video-indexer"></a>Video Indexer
 
-Video Indexer GA-versionen presenterades i augusti. För ny information om funktioner som stöds för närvarande, se [Vad är video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
+Video Indexer GA-versionen presenterades i augusti. För ny information om funktioner som stöds för närvarande, se [Vad är video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 
 ### <a name="plans-for-changes"></a>Planer för ändringar
 

@@ -1,14 +1,14 @@
 ---
 title: Övervaka delegerade resurser i stor skala
 description: Lär dig hur du effektivt använder Azure Monitor loggar på ett skalbart sätt över de kund innehavare som du hanterar.
-ms.date: 07/07/2020
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 758437fdc7a32fd5937434ce10f16a8c792423d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072725"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Övervaka delegerade resurser i stor skala
 
@@ -34,10 +34,11 @@ När du har bestämt vilka principer som ska distribueras kan du [distribuera de
 
 ## <a name="analyze-the-gathered-data"></a>Analysera insamlade data
 
-När du har distribuerat dina principer kommer data att loggas i Log Analytics arbets ytor som du har skapat i varje kund klient organisation. För att få insikter över alla hanterade kunder kan du använda verktyg som [Azure Monitor arbets böcker](../../azure-monitor/platform/workbooks-overview.md) för att samla in och analysera information från flera data källor.
+När du har distribuerat dina principer kommer data att loggas i Log Analytics arbets ytor som du har skapat i varje kund klient organisation. För att få insikter över alla hanterade kunder kan du använda verktyg som [Azure Monitor arbets böcker](../../azure-monitor/platform/workbooks-overview.md) för att samla in och analysera information från flera data källor. 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Utforska den här [MVP-skapade exempel arbets boken](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), som spårar patch-rapportering genom att [skicka frågor till uppdateringshantering loggar](../../automation/automation-update-management-query-logs.md) över flera Log Analytics arbets ytor. 
 - Läs mer om [Azure Monitor](../../azure-monitor/index.yml).
 - Lär dig mer om [Azure Monitor loggar](../../azure-monitor/platform/data-platform-logs.md).
 - Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).

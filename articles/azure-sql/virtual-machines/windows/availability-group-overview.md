@@ -14,11 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3c7009e5ecb43a809b9a3f703fc5ba289a2fd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669281"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073274"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines
 
@@ -40,10 +41,9 @@ För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server d
 
 |  | Windows Server-version | SQL Server version | SQL Servers utgåva | Konfiguration av WSFC-kvorum | DR med flera regioner | Stöd för flera undernät | Stöd för en befintlig AD | DR med samma region med flera zoner | Dist-AG-stöd utan AD-domän | Förd-AG-stöd utan kluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [SQL VM CLI](availability-group-az-cli-configure.md) | 2016 | 2017 </br>2016   | ENT | Molnvittne | No | Ja | Ja | Ja | Nej | Nej |
-| [Snabb starts mallar](availability-group-quickstart-template-configure.md) | 2016 | 2017</br>2016  | ENT | Molnvittne | No | Ja | Ja | Ja | Nej | Nej |
-| [Manuell](availability-group-manually-configure-prerequisites-tutorial.md) | Alla | Alla | Alla | Alla | Ja | Ja | Ja | Ja | Ja | Ja |
-| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | ENT | Molnvittne | No | Ja | Ja | Ja | Inga | Inga |
+| **[Snabb starts mallar](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | ENT | Molnvittne | No | Ja | Ja | Ja | Inga | Inga |
+| **[Manuell](availability-group-manually-configure-prerequisites-tutorial.md)** | Alla | Alla | Alla | Alla | Ja | Ja | Ja | Ja | Ja | Ja |
 
 Mallen **SQL Server AlwaysOn-kluster (för hands version)** har tagits bort från Azure Marketplace och är inte längre tillgänglig. 
 

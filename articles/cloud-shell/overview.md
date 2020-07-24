@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cfd428e1bd380d17049cbc229bb8850793056e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073030"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloud Shell
 Azure Cloud Shell är ett interaktivt, autentiserat skal för hantering av Azure-resurser via webbläsare.
@@ -60,14 +61,14 @@ Cloud Shell erbjuder en integrerad grafisk text redigerare som baseras på redig
 
 ### <a name="integrated-with-docsmicrosoftcom"></a>Integrerat med docs.microsoft.com
 
-Du kan använda Cloud Shell direkt från dokumentationen som finns på [docs.Microsoft.com](https://docs.microsoft.com). Den är integrerad i [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure POWERSHELL](https://docs.microsoft.com/powershell/azure/overview) och [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure) – Klicka på knappen "testa" i ett kodfragment för att öppna den fördjupade Shell-upplevelsen. 
+Du kan använda Cloud Shell direkt från dokumentationen som finns på [docs.Microsoft.com](https://docs.microsoft.com). Den är integrerad i [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure POWERSHELL](https://docs.microsoft.com/powershell/azure/) och [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure) – Klicka på knappen "testa" i ett kodfragment för att öppna den fördjupade Shell-upplevelsen. 
 
-### <a name="multiple-access-points"></a>Flera åtkomst punkter
+### <a name="multiple-access-points"></a>Flera åtkomstpunkter
 Cloud Shell är ett flexibelt verktyg som kan användas från:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure)
-* [Azure PowerShell-dokumentation](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell-dokumentation](https://docs.microsoft.com/powershell/azure/)
 * [Azure-mobilapp](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Tillägg för Visual Studio Code Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

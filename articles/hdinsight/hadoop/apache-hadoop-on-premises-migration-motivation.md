@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: b975ee8cebdac3855c3fca88b20c01145d11baeb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072793"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – motivation och fördelar
 
@@ -101,7 +101,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Konfiguration av huvud nod|d/y, CPU, disk osv.|
 |Konfiguration av datanoder|d/y, CPU, disk osv.|
 |Konfiguration av Edge-noder|d/y, CPU, disk osv.|
-|HDFS-kryptering|Ja|
+|HDFS-kryptering|Yes|
 |Hög tillgänglighet|HDFS HA, Metaarkiv HA|
 |Haveri beredskap/säkerhets kopiering|Säkerhetskopiera kluster?|  
 |System som är beroende av kluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -163,12 +163,12 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 
 ### <a name="azure-requirements-questionnaire"></a>Enkät för Azure-krav
 
-|**Ämne**: **infrastruktur** |||
-|---|---|---|
 |**Fråga**|**Exempel**|**Svar**|
+|---|---|---|
+|**Ämne**: **infrastruktur** |||
 | Önskad region|USA, Östra||
-|Virtuellt nätverk?|Ja||
-|Krävs/DR?|Ja||
+|Virtuellt nätverk?|Yes||
+|Krävs/DR?|Yes||
 |Integrering med andra moln tjänster?|ADF, CosmosDB||
 |**Ämne**: **data förflyttning**  |||
 |Första inläsnings inställning|DistCp, data Box, ADF, WANDisco||
@@ -177,25 +177,25 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |**Ämne**: **övervaka & avisering** |||
 |Använda Azure Monitoring & varningar vs integrera övervakning från tredje part|Använda Azure Monitoring &-avisering||
 |**Ämne**: **säkerhets inställningar** |||
-|Privat och skyddad datapipeline?|Ja||
-|Domänanslutna kluster (ESP)?|     Ja||
-|Lokalt AD Sync till molnet?|     Ja||
+|Privat och skyddad datapipeline?|Yes||
+|Domänanslutna kluster (ESP)?|     Yes||
+|Lokalt AD Sync till molnet?|     Yes||
 |Antal AD-användare som ska synkroniseras?|          100||
-|OK för att synkronisera lösen ord till molnet?|    Ja||
-|Endast moln användare?|                 Ja||
+|OK för att synkronisera lösen ord till molnet?|    Yes||
+|Endast moln användare?|                 Yes||
 |MFA krävs?|                       No|| 
-|Krav för data auktorisation?|  Ja||
-|Rollbaserad Access Control?|        Ja||
-|Krävs granskning?|                  Ja||
-|Data kryptering i vila?|          Ja||
-|Data kryptering under överföring?|       Ja||
+|Krav för data auktorisation?|  Yes||
+|Rollbaserad Access Control?|        Yes||
+|Krävs granskning?|                  Yes||
+|Data kryptering i vila?|          Yes||
+|Data kryptering under överföring?|       Yes||
 |**Ämne**: **åter arkitektur inställningar** |||
 |Enstaka kluster och vissa kluster typer|Vissa kluster typer||
 |Samplacerad lagring jämfört med Fjärrlagring?|Fjärrlagring||
 |Mindre kluster storlek när data lagras via fjärr anslutning?|Mindre kluster storlek||
 |Använd flera mindre kluster i stället för ett enda stort kluster?|Använd flera mindre kluster||
-|Använd en fjärran sluten metaarkiv?|Ja||
-|Vill du dela metastores mellan olika kluster?|Ja||
+|Använd en fjärran sluten metaarkiv?|Yes||
+|Vill du dela metastores mellan olika kluster?|Yes||
 |Vill du skapa arbets belastningar?|Ersätt Hive-jobb med Spark-jobb||
 |Använd ADF för data dirigering?|Nej||
 

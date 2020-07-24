@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81867968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073917"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snabb start – konfigurera en privat moln miljö
 
@@ -113,7 +114,7 @@ VPN-klienten krävs för att ansluta till CloudSimple från din dator.  Ladda ne
 1. Starta CloudSimple-portalen och välj **nätverk**.
 2. Välj **VPN gateway**.
 3. I listan med VPN-gatewayer klickar du på punkt-till-plats-VPN-gatewayen.
-4. Välj **användare**.
+4. Välj **Användare**.
 5. Klicka på **Hämta min VPN-konfiguration**.
 
     ![Ladda ned VPN-konfiguration](media/download-p2s-vpn-configuration.png)
@@ -147,7 +148,7 @@ VLAN/undernät kommer att skapas.  Du kan nu använda detta VLAN-ID för att ska
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Ansluta din miljö till ett virtuellt Azure-nätverk
 
-CloudSimple tillhandahåller en ExpressRoute-krets för ditt privata moln. Du kan ansluta ditt virtuella nätverk på Azure till ExpressRoute-kretsen. Om du vill ha fullständig information om hur du konfigurerar anslutningen följer du stegen i [Azure Virtual Network-anslutning med ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection).
+CloudSimple tillhandahåller en ExpressRoute-krets för ditt privata moln. Du kan ansluta ditt virtuella nätverk på Azure till ExpressRoute-kretsen. Om du vill ha fullständig information om hur du konfigurerar anslutningen följer du stegen i [Azure Virtual Network-anslutning med ExpressRoute](./cloudsimple-azure-network-connection.md).
 
 ## <a name="sign-in-to-vcenter"></a>Logga in på vCenter
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 1d1ac838befc905c3c2b860551b26928f5114e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8142ef5e2aaaf5831c01215d28eecf8d06e1d8ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071915"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utför avancerad kodning genom att anpassa inställningarna för efter var 
 
@@ -29,7 +30,7 @@ I det här avsnittet visas hur du anpassar Media Encoder Standard för inställn
 Om du använder en XML-förinställning, se till att bevara element ordningen, som visas i XML-exempel nedan (till exempel KeyFrameInterval ska föregå SceneChangeDetection).
 
 > [!NOTE] 
-> Många av de avancerade Media Services v2-funktionerna i Media Encoder Standard är för närvarande inte tillgängliga i v3. Mer information finns i [funktions luckor](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
+> Många av de avancerade Media Services v2-funktionerna i Media Encoder Standard är för närvarande inte tillgängliga i v3. Mer information finns i [funktions luckor](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Stöd för relativa storlekar
 
@@ -240,7 +241,7 @@ Se till att gå igenom avsnittet [överväganden](#considerations) .
 </Preset>
 ```
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 Följande gäller:
 

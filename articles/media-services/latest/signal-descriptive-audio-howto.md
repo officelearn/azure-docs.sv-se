@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99e0a78ea1aed0ecf08618c919e7949c5645de5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72392194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072083"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Signals beskrivande ljud spår
 
@@ -27,14 +27,14 @@ Den här artikeln visar hur du kodar en video, laddar upp en ljudfil med enbart 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
-- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
+- [Skapa ett Media Services-konto](./create-account-howto.md).
+- Följ stegen i [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
 - Granska [dynamisk paketering](dynamic-packaging-overview.md).
 - Läs själv studie kursen [Ladda upp, koda och strömma videor](stream-files-tutorial-with-api.md) .
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Skapa en indatatillgång och ladda upp en lokal fil till den 
 
-Funktionen **CreateInputAsset** skapar en ny indata [till gång](https://docs.microsoft.com/rest/api/media/assets) och laddar upp den angivna lokala video filen i den. Den här **till gången** används som inmatad till ditt kodnings jobb. I Media Services v3 kan indata till ett **jobb** antingen vara en **tillgång** eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. 
+Funktionen **CreateInputAsset** skapar en ny indata [till gång](/rest/api/media/assets) och laddar upp den angivna lokala video filen i den. Den här **till gången** används som inmatad till ditt kodnings jobb. I Media Services v3 kan indata till ett **jobb** antingen vara en **tillgång** eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. 
 
 Om du vill lära dig hur du kodar från en HTTPS-URL, se [den här artikeln](job-input-from-http-how-to.md) .  
 
@@ -43,7 +43,7 @@ I Media Services v3 använder du Azure Storage-API:er till att ladda upp filer. 
 Den här funktionen utför följande åtgärder:
 
 * Skapar en **tillgång** 
-* Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till tillgångens [container i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Hämtar en skrivbar [SAS-URL](../../storage/common/storage-sas-overview.md) till tillgångens [container i lagringen](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Laddar upp filen till containern i lagringen med hjälp av SAS-URL:en
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -52,7 +52,7 @@ Om du behöver skicka namnet på den skapade Indatakällan till andra metoder, s
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Skapa en utgående till gång för att lagra resultatet av kodnings jobbet
 
-Utmatnings [till gången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt kodnings jobb. Följande funktion visar hur du skapar en utmatnings till gång.
+Utmatnings [till gången](/rest/api/media/assets) lagrar resultatet av ditt kodnings jobb. Följande funktion visar hur du skapar en utmatnings till gång.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
@@ -62,7 +62,7 @@ När det gäller den här artikeln skickar du `outputAsset.Name` värdet till- `
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Skapa en transformering och ett jobb som kodar den överförda filen
 
-När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
+När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](./transforms-jobs-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
 
 I följande exempel skapas en transformering (om det inte finns någon).
 
@@ -202,14 +202,14 @@ När ditt kodnings jobb är färdigt innehåller utmatnings till gången de file
 
 ## <a name="get-a-streaming-locator"></a>Hämta en utströmnings Locator
 
-När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du kan göra detta i två steg: Först skapar du en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
+När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du kan göra detta i två steg: Först skapar du en [positionerare för direktuppspelning](/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
 
 Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
-När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-Clear (eller icke-krypterat innehåll), så att den fördefinierade rensa streaming-principen (**PredefinedStreamingPolicy. ClearStreamingOnly**) används.
+När du skapar en [StreamingLocator](/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-Clear (eller icke-krypterat innehåll), så att den fördefinierade rensa streaming-principen (**PredefinedStreamingPolicy. ClearStreamingOnly**) används.
 
 > [!IMPORTANT]
-> Om du använder en anpassad [strömningsprincip](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. Media Service-kontot har en kvot för antalet strömningsprincipposter. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
+> Om du använder en anpassad [strömningsprincip](/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. Media Service-kontot har en kvot för antalet strömningsprincipposter. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
 
 Följande kod förutsätter att du anropar funktionen med ett unikt locatorName.
 
@@ -219,7 +219,7 @@ Följande kod förutsätter att du anropar funktionen med ett unikt locatorName.
 
 ### <a name="get-streaming-urls"></a>Hämta strömnings-URL:er
 
-Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelnings-URL:erna, som du ser i **GetStreamingURLs**. För att skapa en webbadress måste du sammanfoga [strömningsslutpunktens](https://docs.microsoft.com/rest/api/media/streamingendpoints) värdnamn och sökvägen för **positioneraren för direktuppspelning**. I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde för * **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
+Nu när [positioneraren för direktuppspelning](/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelnings-URL:erna, som du ser i **GetStreamingURLs**. För att skapa en webbadress måste du sammanfoga [strömningsslutpunktens](/rest/api/media/streamingendpoints) värdnamn och sökvägen för **positioneraren för direktuppspelning**. I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde för * **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
 
 > [!NOTE]
 > I den här metoden behöver du det locatorName som användes när du skapade **positioneraren för direktuppspelning** för utdatatillgången.

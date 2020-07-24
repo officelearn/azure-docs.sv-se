@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e1432cf74dc741a6e2f5d561e9dc203df95007c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072681"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 
@@ -20,7 +21,7 @@ När du skapar en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virt
 
 Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyckel som ska användas när du skapar din ISE med hjälp av Logic Apps REST API. De allmänna stegen för att skapa en ISE genom Logic Apps REST API finns i [skapa en integrerings tjänst miljö (ISE) med hjälp av Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md).
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 * För närvarande är kundhanterad nyckel support för en ISE endast tillgänglig i dessa Azure-regioner: USA, västra 2, östra USA och södra centrala USA
 
@@ -32,13 +33,13 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Inom *30 minuter* efter att du skickat https-begäran som skapar din ISE måste du [ge nyckel valv åtkomst till din ISES systemtilldelade identitet](#identity-access-to-key-vault). Annars Miss lyckas ISE-skapande och genererar ett behörighets fel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Samma krav [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att ge åtkomst till din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure Portal
 
 * Ett Azure Key Vault som har den **mjuka borttagningen** och **inte rensa** egenskaper aktiverat
 
-  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/overview-soft-delete.md) och [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Om du inte har använt Azure Key Vault kan du lära dig [hur du skapar ett nyckel valv](../key-vault/secrets/quick-create-portal.md#create-a-vault) med hjälp av Azure Portal eller genom att använda kommandot Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/overview-soft-delete.md) och [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Om du inte har använt Azure Key Vault kan du lära dig [hur du skapar ett nyckel valv](../key-vault/secrets/quick-create-portal.md#create-a-vault) med hjälp av Azure Portal eller genom att använda kommandot Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * I ditt nyckel valv är en nyckel som skapas med följande egenskaps värden:
 
@@ -46,12 +47,12 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
   |----------|-------|
   | **Nyckel typ** | RSA |
   | **Nyckel storlek för RSA** | 2048 |
-  | **Aktiverad** | Ja |
+  | **Aktiverad** | Yes |
   |||
 
   ![Skapa din kund hanterade krypterings nyckel](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  Mer information finns i [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) eller Azure PowerShell kommandot [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
+  Mer information finns i [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) eller Azure PowerShell kommandot [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * Ett verktyg som du kan använda för att skapa din ISE genom att anropa Logic Apps REST API med en begäran om HTTPS-begäran. Du kan till exempel använda [Postman](https://www.getpostman.com/downloads/), eller så kan du bygga en logisk app som utför den här uppgiften.
 
@@ -198,7 +199,7 @@ Den här exempel texten visar exempel värden:
 
 Inom *30 minuter* efter att du skickat http-begäran för att skapa din ISE måste du lägga till en åtkomst princip i nyckel valvet för din ISE: s systemtilldelade identitet. Annars Miss lyckas skapande av ISE och du får ett behörighets fel. 
 
-För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) , eller så kan du följa de här stegen i Azure Portal:
+För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) , eller så kan du följa de här stegen i Azure Portal:
 
 1. Öppna Azure Key Vault i [Azure Portal](https://portal.azure.com).
 
@@ -210,7 +211,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
    1. Välj följande alternativ:
 
-      | Inställningen | Värden |
+      | Inställning | Värden |
       |---------|--------|
       | **Konfigurera från mall (valfritt) lista** | Nyckel hantering |
       | **Nyckel behörigheter** | - **Nyckel hanterings åtgärder**: Hämta, lista <p><p>- **Kryptografiska åtgärder**: unwrap Key, wrap Key |

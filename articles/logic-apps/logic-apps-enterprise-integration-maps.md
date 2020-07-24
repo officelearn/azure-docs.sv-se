@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072648"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med kartor i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -22,7 +23,7 @@ Anta till exempel att du regelbundet tar emot B2B-order eller fakturor från en 
 
 För begränsningar som rör integrations konton och artefakter som Maps, se [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -42,7 +43,7 @@ För begränsningar som rör integrations konton och artefakter som Maps, se [gr
     | [Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Med det här verktyget kan du enklare hantera lagrings konton och blob-behållare. Om du vill använda Storage Explorer [laddar du ned och installerar Azure Storage Explorer](https://www.storageexplorer.com/). Anslut sedan Storage Explorer till ditt lagrings konto genom att följa stegen i [komma igång med Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Mer information finns i [snabb start: skapa en BLOB i objekt lagring med Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Du kan också söka efter och välja ditt lagrings konto i Azure Portal. Från menyn lagrings konto väljer du **Storage Explorer**. |
     |||
 
-  * För Maps kan du för närvarande lägga till större kartor genom att använda [Azure Logic Apps REST API-Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * För Maps kan du för närvarande lägga till större kartor genom att använda [Azure Logic Apps REST API-Maps](/rest/api/logic/maps/createorupdate).
 
 Du behöver inte en logisk app när du skapar och lägger till Maps. Men om du vill använda en karta måste din Logic app länka till ett integrations konto där du lagrar kartan. Lär dig [hur du länkar Logic Apps till integrations konton](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Om du inte redan har en Logic app kan du läsa om [hur du skapar](../logic-apps/quickstart-create-first-logic-app-workflow.md)Logi Kap par.
 
@@ -219,7 +220,7 @@ När du har laddat upp sammansättningar som kartan refererar till kan du ladda 
 
 ### <a name="add-maps-more-than-2-mb"></a>Lägg till kartor över 2 MB
 
-För närvarande, för att lägga till större Maps, använder du [Azure Logic Apps REST API-Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+För närvarande, för att lägga till större Maps, använder du [Azure Logic Apps REST API-Maps](/rest/api/logic/maps/createorupdate).
 
 <!--
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d7ca3e37b107dce3f832499db45e0506c3fa64
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80350063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074019"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide
 
@@ -91,7 +91,7 @@ Innan du börjar, se följande SAP-anteckningar och dokument först:
 
 De virtuella datorerna som ingår i klustret måste ha en storlek för att kunna köra alla resurser, om redundans inträffar. Varje SAP-SID kan växlas över oberoende av varandra i kluster med hög tillgänglighet för flera-SID.  Om du använder SBD staket kan SBD-enheterna delas mellan flera kluster.  
 
-För att uppnå hög tillgänglighet kräver SAP-NetWeaver hög tillgängliga NFS-resurser. I det här exemplet antar vi att SAP NFS-resurserna finns på en [fil Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)med hög tillgänglighet som kan användas av flera SAP-system. Eller resurserna distribueras på [Azure NETAPP Files NFS-volymer](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+För att uppnå hög tillgänglighet kräver SAP-NetWeaver hög tillgängliga NFS-resurser. I det här exemplet antar vi att SAP NFS-resurserna finns på en [fil Server](./high-availability-guide-suse-nfs.md)med hög tillgänglighet som kan användas av flera SAP-system. Eller resurserna distribueras på [Azure NETAPP Files NFS-volymer](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
 ![Översikt över SAP NetWeaver-hög tillgänglighet](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
@@ -101,7 +101,7 @@ För att uppnå hög tillgänglighet kräver SAP-NetWeaver hög tillgängliga NF
 > [!TIP]
 > Multi-SID-klustring av SAP ASCS/ERS är en lösning med bättre komplexitet. Det är mer komplicerat att implementera. Det innebär också en högre administrativ ansträngning vid körning av underhålls aktiviteter (t. ex. operativ system uppdatering). Innan du börjar den faktiska implementeringen tar du tid att planera distributionen och alla komponenter som virtuella datorer, NFS monterar, VIP, konfigurationer för belastnings utjämning och så vidare.  
 
-NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database använder virtuella värdnamn och virtuella IP-adresser. I Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. Vi rekommenderar att du använder [standard belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal).  
+NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database använder virtuella värdnamn och virtuella IP-adresser. I Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. Vi rekommenderar att du använder [standard belastnings utjämning](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnaren för det här kluster exemplet med flera säkerhets identifierare med tre SAP-system. Du behöver separata IP-adresser för klient del, hälso avsökningar och regler för belastnings utjämning för varje ASCS-och ERS-instans för varje säkerhets-ID. Tilldela alla virtuella datorer som är en del av ASCS/ASCS-klustret till en backend-pool.  
 
@@ -147,23 +147,23 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
 
 
 > [!Note]
-> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ## <a name="sap-nfs-shares"></a>SAP NFS-resurser
 
 SAP NetWeaver kräver delad lagring för transport-, profil katalogen och så vidare. För SAP-system med hög tillgänglighet är det viktigt att ha hög tillgängliga NFS-resurser. Du måste bestämma arkitekturen för dina SAP NFS-resurser. Ett alternativ är att bygga [mycket tillgängligt NFS-kluster på virtuella Azure-datorer på SUSE Linux Enterprise Server][nfs-ha], som kan delas mellan flera SAP-system. 
 
-Ett annat alternativ är att distribuera resurserna på [Azure NETAPP Files NFS-volymer](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  Med Azure NetApp Files får du inbyggd hög tillgänglighet för SAP NFS-resurserna.
+Ett annat alternativ är att distribuera resurserna på [Azure NETAPP Files NFS-volymer](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  Med Azure NetApp Files får du inbyggd hög tillgänglighet för SAP NFS-resurserna.
 
 ## <a name="deploy-the-first-sap-system-in-the-cluster"></a>Distribuera det första SAP-systemet i klustret
 
 Nu när du har bestämt dig för arkitekturen för SAP NFS-resurserna distribuerar du det första SAP-systemet i klustret enligt motsvarande dokumentation.
 
-* Om du använder en NFS-server med hög tillgänglighet följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
-* Om du använder Azure NetApp Files NFS-volymer följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* Om du använder en NFS-server med hög tillgänglighet följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](./high-availability-guide-suse.md).  
+* Om du använder Azure NetApp Files NFS-volymer följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](./high-availability-guide-suse-netapp-files.md)
 
 Dokumenten som anges ovan vägleder dig genom stegen för att förbereda nödvändiga infrastrukturer, skapa klustret, förbereda operativ systemet för att köra SAP-programmet.  
 
@@ -189,7 +189,7 @@ Den här dokumentationen förutsätter att:
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Förbered för SAP NetWeaver-installation
 
-1. Lägg till konfiguration för det nyligen distribuerade systemet (det vill säga **NW2**, **NW3**) till den befintliga Azure Load Balancer genom att följa anvisningarna [Distribuera Azure Load Balancer manuellt via Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#deploy-azure-load-balancer-manually-via-azure-portal). Justera IP-adresserna, hälso avsöknings portarna, belastnings Utjämnings regler för din konfiguration.  
+1. Lägg till konfiguration för det nyligen distribuerade systemet (det vill säga **NW2**, **NW3**) till den befintliga Azure Load Balancer genom att följa anvisningarna [Distribuera Azure Load Balancer manuellt via Azure Portal](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal). Justera IP-adresserna, hälso avsöknings portarna, belastnings Utjämnings regler för din konfiguration.  
 
 2. **[A]** konfigurera namn matchning för ytterligare SAP-system. Du kan antingen använda DNS-servern eller ändra `/etc/hosts` på alla noder. Det här exemplet visar hur du använder `/etc/hosts` filen.  Anpassa IP-adresserna och värd namnen till din miljö. 
 
@@ -236,8 +236,8 @@ Den här dokumentationen förutsätter att:
 
    Uppdatera filen `/etc/auto.direct` med fil systemen för de ytterligare SAP-system som du distribuerar till klustret.  
 
-   * Om du använder NFS-filservern följer du anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#prepare-for-sap-netweaver-installation)
-   * Om du använder Azure NetApp Files följer du anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#prepare-for-sap-netweaver-installation) 
+   * Om du använder NFS-filservern följer du anvisningarna [här](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation)
+   * Om du använder Azure NetApp Files följer du anvisningarna [här](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) 
 
    Du måste starta om `autofs` tjänsten för att montera de nyligen tillagda resurserna.  
 
@@ -561,17 +561,17 @@ Den här dokumentationen förutsätter att:
 
 Slutför din SAP-installation genom att:
 
-* [Förbereda dina SAP NetWeaver-programservrar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#2d6008b0-685d-426c-b59e-6cd281fd45d7)
-* [Installera en DBMS-instans](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#install-database)
-* [Installera en primär SAP-Programserver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#sap-netweaver-application-server-installation)
+* [Förbereda dina SAP NetWeaver-programservrar](./high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)
+* [Installera en DBMS-instans](./high-availability-guide-suse.md#install-database)
+* [Installera en primär SAP-Programserver](./high-availability-guide-suse.md#sap-netweaver-application-server-installation)
 * Installera en eller flera ytterligare SAP-programinstanser
 
 ## <a name="test-the-multi-sid-cluster-setup"></a>Testa installationen av multi-SID-kluster
 
 Följande test är en del av test fallen i Best Practices-handböcker för SUSE. De ingår för din bekvämlighet. För en fullständig lista över kluster test, referera till följande dokumentation:
 
-* Om du använder en NFS-server med hög tillgänglighet följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).  
-* Om du använder Azure NetApp Files NFS-volymer följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* Om du använder en NFS-server med hög tillgänglighet följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](./high-availability-guide-suse.md).  
+* Om du använder Azure NetApp Files NFS-volymer följer du [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](./high-availability-guide-suse-netapp-files.md)
 
 Läs alltid de bästa tipsen för SUSE och utför alla ytterligare tester som kan ha lagts till.  
 De tester som presenteras finns i två noder, multi-SID-kluster med tre SAP-system installerade.  

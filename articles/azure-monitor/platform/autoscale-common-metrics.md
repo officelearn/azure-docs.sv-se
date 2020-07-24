@@ -4,11 +4,12 @@ description: Lär dig vilka mått som används ofta för automatisk skalning av 
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57bffede3b6c6c137da2feea32ad467a13f71a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073523"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor vanliga mått för autoskalning
 
@@ -16,7 +17,7 @@ ms.locfileid: "76845576"
 
 Med Azure Monitor autoskalning kan du skala upp eller ned antalet instanser som körs, baserat på telemetridata (mått). Det här dokumentet beskriver vanliga mått som du kanske vill använda. I Azure Portal kan du välja måttet för den resurs som ska skalas efter. Du kan dock också välja mått från en annan resurs som ska skalas efter.
 
-Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Andra Azure-tjänster använder olika skalnings metoder.
+Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](../../api-management/api-management-key-concepts.md). Andra Azure-tjänster använder olika skalnings metoder.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Beräknings mått för Resource Manager-baserade virtuella datorer
 Som standard, Resource Manager-baserad Virtual Machines och Virtual Machine Scale Sets genererar grundläggande mått (värdnivå). När du konfigurerar diagnostik-datainsamling för en virtuell Azure-dator och VMSS, genererar dessutom Azure Diagnostic-tillägget även gäst-OS-prestandaräknare (kallas vanligt vis "gäst-OS-mått").  Du kan använda alla dessa mått i regler för autoskalning.
@@ -185,4 +186,3 @@ För VM Scale-uppsättningar kan du uppdatera inställningen för autoskalning i
 > För Service Bus finns inte det här konceptet för resurs grupp, men Azure Resource Manager skapar en standard resurs grupp per region. Resurs gruppen är vanligt vis i formatet default-Service Bus-[region]. Till exempel "default-Service Bus-öster", "default-Service Bus-väst", "default-Service Bus-AustraliaEast" osv.
 >
 >
-

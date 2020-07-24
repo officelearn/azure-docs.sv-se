@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: c41e14490842068895aea383d384007f308e9e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49748b3d77d097e655ee6ec5777022c038841a6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073135"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Hantera förfallo datum för Azure Blob Storage i Azure CDN
 > [!div class="op_single_selector"]
@@ -91,9 +91,9 @@ Den bästa metoden för att ställa in en BLOB- `Cache-Control` rubrik är att a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/overview) är ett av de snabbaste och mest kraftfulla sätten att administrera dina Azure-tjänster. Använd `Get-AzStorageBlob` cmdleten för att hämta en referens till bloben och ange sedan `.ICloudBlob.Properties.CacheControl` egenskapen. 
+[Azure PowerShell](/powershell/azure/) är ett av de snabbaste och mest kraftfulla sätten att administrera dina Azure-tjänster. Använd `Get-AzStorageBlob` cmdleten för att hämta en referens till bloben och ange sedan `.ICloudBlob.Properties.CacheControl` egenskapen. 
 
-Ett exempel:
+Exempel:
 
 ```powershell
 # Create a storage context
@@ -117,7 +117,7 @@ $blob.ICloudBlob.SetProperties()
 ## <a name="setting-cache-control-headers-by-using-net"></a>Ange Cache-Control-huvuden med hjälp av .NET
 Om du vill ange en BLOB `Cache-Control` -rubrik med hjälp av .NET-kod använder du [Azure Storage klient biblioteket för .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md) för att ange egenskapen [CloudBlob. Properties. CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol) .
 
-Ett exempel:
+Exempel:
 
 ```csharp
 class Program

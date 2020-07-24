@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 833e2a6f64301c39ba2b9e7959585c3edeab9445
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072581"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Exchange RosettaNet-meddelanden för B2B Enterprise-integration i Azure Logic Apps
 
@@ -50,7 +51,7 @@ Här följer några begrepp och termer som är unika för RosettaNet-specifikati
 
   För en enda åtgärd-kärna är det enda svaret ett bekräftelse meddelande. För en PIP med dubbel åtgärd tar initieraren emot ett svarsmeddelande och svarar med en bekräftelse förutom meddelande flödet med en åtgärd.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -80,9 +81,9 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Ja | Ditt PIP-namn |
-   | **PIP-kod** | Ja | PIP-tresiffrig kod. Mer information finns i [RosettaNet PIPs](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
-   | **PIP-version** | Ja | PIP-versions numret, som är tillgängligt baserat på din valda PIP kod |
+   | **Namn** | Yes | Ditt PIP-namn |
+   | **PIP-kod** | Yes | PIP-tresiffrig kod. Mer information finns i [RosettaNet PIPs](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **PIP-version** | Yes | PIP-versions numret, som är tillgängligt baserat på din valda PIP kod |
    ||||
 
    Mer information om dessa PIP-egenskaper finns på [RosettaNet-webbplatsen](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
@@ -111,15 +112,15 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Ja | Namnet på avtalet |
-   | **Avtals typ** | Ja | Välj **RosettaNet**. |
-   | **Värd partner** | Ja | Ett avtal kräver både värd-och gäst partner. Värd partnern representerar den organisation som konfigurerar avtalet. |
-   | **Värd identitet** | Ja | En identifierare för värd partnern |
-   | **Gäst partner** | Ja | Ett avtal kräver både värd-och gäst partner. Gäst partnern representerar den organisation som gör affärer med värd partnern. |
-   | **Gäst identitet** | Ja | En identifierare för gäst partnern |
+   | **Namn** | Yes | Namnet på avtalet |
+   | **Avtals typ** | Yes | Välj **RosettaNet**. |
+   | **Värd partner** | Yes | Ett avtal kräver både värd-och gäst partner. Värd partnern representerar den organisation som konfigurerar avtalet. |
+   | **Värd identitet** | Yes | En identifierare för värd partnern |
+   | **Gäst partner** | Yes | Ett avtal kräver både värd-och gäst partner. Gäst partnern representerar den organisation som gör affärer med värd partnern. |
+   | **Gäst identitet** | Yes | En identifierare för gäst partnern |
    | **Ta emot inställningar** | Det varierar | Dessa egenskaper gäller för alla meddelanden som tas emot av värd partnern |
    | **Skicka inställningar** | Det varierar | Dessa egenskaper gäller för alla meddelanden som skickas av värd partnern |  
-   | **RosettaNet PIP-referenser** | Ja | PIP-referenser för avtalet. Alla RosettaNet-meddelanden kräver PIP-konfigurationer. |
+   | **RosettaNet PIP-referenser** | Yes | PIP-referenser för avtalet. Alla RosettaNet-meddelanden kräver PIP-konfigurationer. |
    ||||
 
 1. Om du vill konfigurera ditt avtal för att ta emot inkommande meddelanden från gäst partner väljer du **ta emot inställningar**.
@@ -158,8 +159,8 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Åtgärds-URL** |  Ja | Den URL som ska användas för att skicka åtgärds meddelanden. URL: en är ett obligatoriskt fält för både synkrona och asynkrona meddelanden. |
-      | **Bekräftelse-URL** | Ja | Den URL som ska användas för att skicka bekräftelse meddelanden. URL: en är ett obligatoriskt fält för asynkrona meddelanden. |
+      | **Åtgärds-URL** |  Yes | Den URL som ska användas för att skicka åtgärds meddelanden. URL: en är ett obligatoriskt fält för både synkrona och asynkrona meddelanden. |
+      | **Bekräftelse-URL** | Yes | Den URL som ska användas för att skicka bekräftelse meddelanden. URL: en är ett obligatoriskt fält för asynkrona meddelanden. |
       ||||
 
 1. Om du vill konfigurera ditt avtal med RosettaNet PIP-referenser för partner väljer du **ROSETTANET pip-referenser**. Under **pip namn**väljer du namnet på din tidigare skapade pip.
@@ -200,9 +201,9 @@ För att påskynda utvecklingen och rekommendera integrations mönster kan du an
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Meddelande** | Ja | RosettaNet-meddelandet att avkoda  |
-   | **Rubriker** | Ja | HTTP-huvuden som innehåller värdena för-versionen, som är RNIF-versionen och svars typen, som anger kommunikations typen mellan partnerna och kan vara synkron eller asynkron |
-   | **Role** | Ja | Rollen som värd partner i PIP |
+   | **Meddelande** | Yes | RosettaNet-meddelandet att avkoda  |
+   | **Sidhuvuden** | Yes | HTTP-huvuden som innehåller värdena för-versionen, som är RNIF-versionen och svars typen, som anger kommunikations typen mellan partnerna och kan vara synkron eller asynkron |
+   | **Role** | Yes | Rollen som värd partner i PIP |
    ||||
 
    Från RosettaNet avkodnings åtgärd inkluderar utdata, tillsammans med andra egenskaper, **utgående signal**, som du kan välja att koda och returnera tillbaka till partnern, eller vidta andra åtgärder på dessa utdata.
@@ -229,14 +230,14 @@ För att påskynda utvecklingen och rekommendera integrations mönster kan du an
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Meddelande** | Ja | RosettaNet-meddelandet som ska kodas  |
-   | **Värd partner** | Ja | Värd partner namnet |
-   | **Gäst partner** | Ja | Namnet på gäst partnern |
-   | **PIP-kod** | Ja | PIP-koden |
-   | **PIP-version** | Ja | PIP-versionen |  
-   | **PIP-instans identitet** | Ja | Den unika identifieraren för det här PIP-meddelandet |  
-   | **Meddelandetyp** | Ja | Typ av meddelande som ska kodas |  
-   | **Role** | Ja | Värd partnerns roll |
+   | **Meddelande** | Yes | RosettaNet-meddelandet som ska kodas  |
+   | **Värd partner** | Yes | Värd partner namnet |
+   | **Gäst partner** | Yes | Namnet på gäst partnern |
+   | **PIP-kod** | Yes | PIP-koden |
+   | **PIP-version** | Yes | PIP-versionen |  
+   | **PIP-instans identitet** | Yes | Den unika identifieraren för det här PIP-meddelandet |  
+   | **Meddelandetyp** | Yes | Typ av meddelande som ska kodas |  
+   | **Role** | Yes | Värd partnerns roll |
    ||||
 
    Det kodade meddelandet är nu klart att skickas till partnern.

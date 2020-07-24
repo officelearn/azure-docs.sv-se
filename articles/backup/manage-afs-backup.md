@@ -3,15 +3,16 @@ title: Hantera säkerhetskopior av Azure-filresurser
 description: I den här artikeln beskrivs vanliga uppgifter för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av Azure Backup.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073292"
 ---
 # <a name="manage-azure-file-share-backups"></a>Hantera säkerhetskopior av Azure-filresurser
 
-I den här artikeln beskrivs vanliga uppgifter för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Du lär dig hur du utför hanterings uppgifter i Recovery Services valvet.
+I den här artikeln beskrivs vanliga uppgifter för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av [Azure Backup](./backup-overview.md). Du lär dig hur du utför hanterings uppgifter i Recovery Services valvet.
 
 ## <a name="monitor-jobs"></a>Övervaka jobb
 
@@ -164,4 +165,4 @@ Så här avregistrerar du lagrings kontot:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Felsöka säkerhets kopiering av Azure-filresurser](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).
+Mer information finns i [Felsöka säkerhets kopiering av Azure-filresurser](./troubleshoot-azure-files.md).

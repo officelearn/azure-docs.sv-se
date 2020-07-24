@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 39a92dbdc0bdcd0fdd2bb06efe3fbd4bfe33069d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071194"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid misslyckade virtuella VMware-datorer eller fysiska datorer till Azure
 
@@ -54,9 +54,11 @@ Om du vill ändra start typen för driv rutiner manuellt för **Windows gäst op
 
     Det ger följande resultat om hydrering krävs:
 
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system doesn't meet no-hydration requirement.
+    This system doesn't meet no-hydration requirement.
+    ```
 
     Om den virtuella datorn uppfyller hydrering-kravet ger skriptet resultatet "det här systemet uppfyller inga krav för hydrering". I det här fallet är alla driv rutiner och tjänster i det tillstånd som krävs av Azure och hydrering på den virtuella datorn inte obligatoriska.
 
@@ -65,12 +67,14 @@ Om du vill ändra start typen för driv rutiner manuellt för **Windows gäst op
     `.\Script-no-hydration.ps1 -set`
     
     Detta konverterar driv Rutinens starttyp och ger resultatet som nedan:
-    
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
-        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system is now no-hydration compatible. 
+    Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0
+
+    This system is now no-hydration compatible.
+    ```
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Det går inte att ansluta/RDP/SSH till den misslyckade över virtuella datorn på grund av en nedtonad anslutnings knapp på den virtuella datorn
 
@@ -116,11 +120,15 @@ Om du kan ansluta till datorn med RDP men inte kan öppna en serie konsol följe
 
 * Om datorns operativ system är Red Hat eller Oracle Linux 7. */8.0 kör du följande kommando på den virtuella Azure-datorn med rot behörigheter. Starta om den virtuella datorn efter kommandot.
 
-        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```
 
 * Om datorns operativ system är CentOS 7. * kör du följande kommando på den virtuella Azure-datorn med rot behörigheter. Starta om den virtuella datorn efter kommandot.
 
-        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```
 
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>Oväntat avslutnings meddelande (händelse-ID 6008)
 

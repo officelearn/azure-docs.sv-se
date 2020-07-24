@@ -3,15 +3,16 @@ title: Produktions beredskap och bästa praxis – Azure
 description: Den här artikeln innehåller rikt linjer för hur du konfigurerar och distribuerar live video analys på IoT Edge modul i produktions miljöer.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071932"
 ---
 # <a name="production-readiness-and-best-practices"></a>Produktionsberedskap och bästa praxis
 
-Den här artikeln innehåller rikt linjer för hur du konfigurerar och distribuerar live video analys på IoT Edge modul i produktions miljöer. Du bör också läsa [förbereda för att distribuera din IoT Edge-lösning i produktions](https://docs.microsoft.com/azure/iot-edge/production-checklist) artikeln om hur du förbereder din IoT Edge-lösning. 
+Den här artikeln innehåller rikt linjer för hur du konfigurerar och distribuerar live video analys på IoT Edge modul i produktions miljöer. Du bör också läsa [förbereda för att distribuera din IoT Edge-lösning i produktions](../../iot-edge/production-checklist.md) artikeln om hur du förbereder din IoT Edge-lösning. 
 
 > [!NOTE]
 > Du bör kontakta organisationernas IT-avdelningar om aspekter som rör säkerhet.

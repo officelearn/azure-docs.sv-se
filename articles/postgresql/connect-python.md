@@ -8,16 +8,20 @@ ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9bb94ee63873dea321af252a4380a7aab10df6ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071484"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
 I den här snabb starten arbetar du med en Azure Database for PostgreSQL med python på macOS, Ubuntu Linux eller Windows. Snabb starten visar hur du ansluter till databasen och använder SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Artikeln förutsätter att du är bekant med python, men att du inte har arbetat med Azure Database for PostgreSQL.
+
+> [!TIP]
+> Om du vill bygga ett django-program med PostgreSQL kan du checka in självstudien, [distribuera en django-webbapp med en postgresql-](../app-service/containers/tutorial-python-postgresql-app.md) självstudie.
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -60,7 +64,7 @@ För varje kod exempel i den här artikeln:
 1. Om du vill köra filen ändrar du till projektmappen i ett kommando rads gränssnitt och skriver `python` följt av fil namnet, till exempel `python postgres-insert.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Skapa en tabell och infoga data
-Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen med hjälp av funktionen [psycopg2. Connect](http://initd.org/psycopg/docs/connection.html) och läser in data med en SQL **insert** -instruktion. Funktionen [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) kör SQL-frågan mot databasen. 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen med hjälp av funktionen [psycopg2. Connect](http://initd.org/psycopg/docs/connection.html) och läser in data med en SQL **insert** -instruktion. Funktionen [cursor.exesöta](http://initd.org/psycopg/docs/cursor.html#execute) kör SQL-frågan mot databasen. 
 
 ```Python
 import psycopg2
@@ -104,7 +108,7 @@ När koden körs skapas följande utdata:
 ![Kommandoradsutdata](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Läsa data
-Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) with SQL **Select** -instruktionen för att läsa data. Den här funktionen accepterar en fråga och returnerar en resultat uppsättning att iterera över med hjälp av [cursor. fetchall ()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor.exesöta](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **Select** -instruktionen för att läsa data. Den här funktionen accepterar en fråga och returnerar en resultat uppsättning att iterera över med hjälp av [cursor. fetchall ()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
 
 ```Python
 import psycopg2
@@ -138,7 +142,7 @@ conn.close()
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **Update** -instruktionen för att uppdatera data. 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor.exesöta](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **Update** -instruktionen för att uppdatera data. 
 
 ```Python
 import psycopg2
@@ -168,7 +172,7 @@ conn.close()
 ```
 
 ## <a name="delete-data"></a>Ta bort data
-Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) with SQL **Delete** -instruktionen för att ta bort ett lager objekt som du har infogat tidigare. 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor.exesöta](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **Delete** -instruktionen för att ta bort ett lager objekt som du har infogat tidigare. 
 
 ```Python
 import psycopg2

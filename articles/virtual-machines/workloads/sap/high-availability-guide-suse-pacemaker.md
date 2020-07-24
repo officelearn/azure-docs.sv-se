@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28e53c5ca53f5be4aafc685445e67dcf4d558773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368266"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073998"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -41,7 +41,7 @@ Azure-stängsel-agenten behöver inte distribuera ytterligare virtuell (a) dator
 ![Pacemaker på SLES-översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> När du planerar och distribuerar Linux-pacemaker klustrade noder och SBD-enheter är det viktigt att den övergripande tillförlitligheten för den fullständiga kluster konfigurationen som vidarebefordrar mellan de virtuella DATORerna som är värd för SBD-enheter inte passerar några andra enheter som [NVA](https://azure.microsoft.com/solutions/network-appliances/). Annars kan problem och underhålls händelser med NVA ha en negativ inverkan på stabiliteten och tillförlitligheten hos den övergripande kluster konfigurationen. För att undvika sådana hinder definierar du inte routningsregler i NVA eller [användardefinierade routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) som dirigerar trafik mellan klustrade noder och SBD enheter via NVA och liknande enheter vid planering och distribution av Linux pacemaker-klustrade noder och SBD-enheter. 
+> När du planerar och distribuerar Linux-pacemaker klustrade noder och SBD-enheter är det viktigt att den övergripande tillförlitligheten för den fullständiga kluster konfigurationen som vidarebefordrar mellan de virtuella DATORerna som är värd för SBD-enheter inte passerar några andra enheter som [NVA](https://azure.microsoft.com/solutions/network-appliances/). Annars kan problem och underhålls händelser med NVA ha en negativ inverkan på stabiliteten och tillförlitligheten hos den övergripande kluster konfigurationen. För att undvika sådana hinder definierar du inte routningsregler i NVA eller [användardefinierade routningsregler](../../../virtual-network/virtual-networks-udr-overview.md) som dirigerar trafik mellan klustrade noder och SBD enheter via NVA och liknande enheter vid planering och distribution av Linux pacemaker-klustrade noder och SBD-enheter. 
 >
 
 ## <a name="sbd-fencing"></a>SBD staket
@@ -583,7 +583,7 @@ STONITH-enheten använder ett huvud namn för tjänsten för att auktorisera mot
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** skapa en anpassad roll för stängsel-agenten
 
-Tjänstens huvud namn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (frigöra) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
+Tjänstens huvud namn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (frigöra) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen kan du skapa den med hjälp av [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) eller [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
 Använd följande innehåll för indatafilen. Du måste anpassa innehållet till dina prenumerationer, ersätta c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: t för din prenumeration. Om du bara har en prenumeration tar du bort den andra posten i AssignableScopes.
 
@@ -616,7 +616,7 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehållet till
 
 Tilldela rollen för den anpassade rollen "Linux-stängsel" som skapades i det sista kapitlet till tjänstens huvud namn. Använd inte ägar rollen längre!
 
-1. Gå till[https://portal.azure.com](https://portal.azure.com)
+1. Gå till [https://portal.azure.com](https://portal.azure.com)
 1. Öppna bladet alla resurser
 1. Välj den virtuella datorn för den första klusternoden
 1. Klicka på åtkomst kontroll (IAM)
@@ -647,11 +647,11 @@ sudo crm configure property stonith-timeout=900
 > De här övervaknings-och avgränsnings åtgärderna deserialiseras. Det innebär att om det finns längre en övervaknings åtgärd och en samtidig avgränsnings händelse, sker ingen fördröjning för klustrets redundans, på grund av den redan pågående övervaknings åtgärden.
 
 > [!TIP]
->Azure stängsel-agenten kräver utgående anslutning till offentliga slut punkter som dokumenteras, tillsammans med möjliga lösningar, i den [offentliga slut punkts anslutningen för virtuella datorer med standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>Azure stängsel-agenten kräver utgående anslutning till offentliga slut punkter som dokumenteras, tillsammans med möjliga lösningar, i den [offentliga slut punkts anslutningen för virtuella datorer med standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker-konfiguration för schemalagda Azure-händelser
 
-Azure erbjuder [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Schemalagda händelser tillhandahålls via meta-data-tjänsten och ger tid för programmet att förbereda för händelser som avstängning av virtuella datorer, omdistribution av virtuella datorer osv. Resurs agent **[Azure – händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda Azure-händelser. Om händelser identifieras försöker agenten stoppa alla resurser på den virtuella datorn som påverkas och flytta dem till en annan nod i klustret. För att uppnå att ytterligare pacemaker-resurser måste konfigureras. 
+Azure erbjuder [schemalagda händelser](../../linux/scheduled-events.md). Schemalagda händelser tillhandahålls via meta-data-tjänsten och ger tid för programmet att förbereda för händelser som avstängning av virtuella datorer, omdistribution av virtuella datorer osv. Resurs agent **[Azure – händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda Azure-händelser. Om händelser identifieras försöker agenten stoppa alla resurser på den virtuella datorn som påverkas och flytta dem till en annan nod i klustret. För att uppnå att ytterligare pacemaker-resurser måste konfigureras. 
 
 1. **[A]** kontrol lera att paketet för **Azure-Events-** agenten redan är installerat och uppdaterat. 
 

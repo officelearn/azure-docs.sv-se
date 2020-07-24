@@ -4,16 +4,17 @@ description: Autoskala i Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4403c2957cb2d2d9d4af98d64cdb5177ae3d0726
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073488"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Översikt över autoskalning i Microsoft Azure
 Den här artikeln beskriver vad Microsoft Azure autoskalning är, dess fördelar och hur du kommer igång med det.  
 
-Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [app service-Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)och [Azure datautforskaren-kluster](https://docs.microsoft.com/azure/data-explorer/).
+Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [app service-Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management-tjänster](../../api-management/api-management-key-concepts.md)och [Azure datautforskaren-kluster](/azure/data-explorer/).
 
 > [!NOTE]
 > Azure har två metoder för autoskalning. En äldre version av autoskalning gäller för Virtual Machines (tillgänglighets uppsättningar). Den här funktionen har begränsad support och vi rekommenderar att du migrerar till skalnings uppsättningar för virtuella datorer för snabbare och mer tillförlitligt stöd för autoskalning. En länk till hur du använder den äldre tekniken finns i den här artikeln.  
@@ -73,12 +74,12 @@ Använd följande terminologi och struktur för autoskalning.
 
 ![Azures skalnings inställning, profil och regel struktur](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-Den fullständiga listan över konfigurerbara fält och beskrivningar finns i REST API för [autoskalning](https://msdn.microsoft.com/library/dn931928.aspx).
+Den fullständiga listan över konfigurerbara fält och beskrivningar finns i REST API för [autoskalning](/rest/api/monitor/autoscalesettings).
 
 Kod exempel finns i
 
 * [Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](autoscale-virtual-machine-scale-sets.md)  
-* [Skala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Skala REST API](/rest/api/monitor/autoscalesettings)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Horisontell vs vertikal skalning
 Autoskalning skalas bara vågrätt, vilket är en ökning ("out") eller minskning ("i") i antalet VM-instanser.  Horisontellt är mer flexibelt i en moln situation eftersom det gör att du kan köra potentiellt tusentals virtuella datorer för att hantera belastningen.
@@ -88,30 +89,29 @@ Den lodräta skalningen är däremot annorlunda. Det behåller samma antal virtu
 ## <a name="methods-of-access"></a>Åtkomst metoder
 Du kan ställa in autoskalning via
 
-* [Azure Portal](autoscale-get-started.md)
-* [PowerShell](powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+* [Azure-portalen](autoscale-get-started.md)
+* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 * [Plattformsoberoende kommandoradsgränssnitt (CLI):](../samples/cli-samples.md#autoscale)
-* [REST-API:et för Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [REST-API:et för Azure Monitor](/rest/api/monitor/autoscalesettings)
 
 ## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
 | Tjänst | Schema & dokument |
 | --- | --- |
 | Web Apps |[Skalnings Web Apps](autoscale-get-started.md) |
 | Cloud Services |[Autoskala en moln tjänst](../../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Virtual Machines: klassisk |[Skala klassiska tillgänglighets uppsättningar för virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Virtual Machines: klassisk |[Skala klassiska tillgänglighets uppsättningar för virtuella datorer](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Virtual Machines: Windows Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: Linux Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows-exempel |[Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](autoscale-virtual-machine-scale-sets.md) |
-| API Management tjänst|[Skala en Azure API Management-instans automatiskt](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
-| Azure Datautforskaren-kluster|[Hantera skalning av Azure Datautforskaren-kluster för att hantera ändring efter frågan](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Skala upp en app i Azure App-tjänsten](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
-| Logic Apps |[Lägga till integrerings tjänst miljö (ISE)-kapacitet](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
+| API Management tjänst|[Skala en Azure API Management-instans automatiskt](../../api-management/api-management-howto-autoscale.md)
+| Azure Datautforskaren-kluster|[Hantera skalning av Azure Datautforskaren-kluster för att hantera ändring efter frågan](/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Azure App Service |[Skala upp en app i Azure App-tjänsten](../../app-service/manage-scale-up.md)|
+| Logic Apps |[Lägga till integrerings tjänst miljö (ISE)-kapacitet](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om autoskalning använder du genom gången av autoskalning som listas tidigare eller hänvisar till följande resurser:
 
 * [Azure Monitor vanliga mått för autoskalning](autoscale-common-metrics.md)
 * [Metodtips för autoskalning i Azure Monitor](autoscale-best-practices.md)
 * [Använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook](autoscale-webhook-email.md)
-* [Skala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Skala REST API](/rest/api/monitor/autoscalesettings)
 * [Felsöka Virtual Machine Scale Sets autoskalning](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

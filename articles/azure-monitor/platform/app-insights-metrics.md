@@ -7,17 +7,18 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664923"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073577"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights log-baserade mått
 
 Med Application Insights loggbaserade mått kan du analysera hälso tillståndet för dina övervakade appar, skapa kraftfulla instrument paneler och konfigurera aviseringar. Det finns två typer av mått:
 
-* [Loggbaserade mått](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) bakom scenen översätts till Kusto- [frågor](https://docs.microsoft.com/azure/kusto/query/) från lagrade händelser.
+* [Loggbaserade mått](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) bakom scenen översätts till Kusto- [frågor](/azure/kusto/query/) från lagrade händelser.
 * [Standard mått](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) lagras som församlade tids serier.
 
 Eftersom *standard mått* är församlade under samlingen har de bättre prestanda vid tidpunkten för frågan. Detta gör dem till ett bättre alternativ för instrument paneler och i real tids aviseringar. De *loggbaserade måtten* har fler dimensioner, vilket gör dem till det överordnade alternativet för data analys och ad hoc-diagnostik. Använd [namn områdes väljaren](metrics-getting-started.md#create-your-first-metric-chart) för att växla mellan log-baserade och standard mått i [Metrics Explorer](metrics-getting-started.md).
@@ -48,7 +49,7 @@ Mått i kategorin tillgänglighet gör att du kan se hälso tillståndet för di
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Procent|Medel|Körnings plats, test namn|
+|Procent|Medelvärde|Körnings plats, test namn|
 
 ```Kusto
 availabilityResults 
@@ -181,7 +182,7 @@ Måtten i **fel** visar problem med bearbetnings begär Anden, beroende anrop oc
 
 Det här måttet visar antalet utlösta undantag från din program kod som körs i webbläsaren. Endast undantag som spåras med ett ```trackException()``` Application Insights API-anrop ingår i måttet.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
 |---|---|---|---|
 |Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
@@ -196,7 +197,7 @@ exceptions
 
 Antalet misslyckade beroende anrop.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
 |---|---|---|---|
 |Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
@@ -211,7 +212,7 @@ dependencies
 
 Varje gång du loggar ett undantag till Application Insights finns det ett anrop till [trackException ()-metoden](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) i SDK: n. Undantags måttet visar antalet loggade undantag.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
 |---|---|---|---|
 |Antal|Antal|Moln roll namn, moln roll instans, enhets typ|Log-baserad version använder **Summa** agg regering|
 
@@ -225,7 +226,7 @@ exceptions
 
 Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen *lyckades* för objektet begär telemetri i en [anpassad telemetri-initierare](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
 |---|---|---|---|
 |Antal|Antal|Moln roll instans, moln roll namn, verklig eller syntetisk trafik, prestanda för begäran, svarskod|Log-baserad version använder **Summa** agg regering|
 
@@ -240,7 +241,7 @@ requests
 
 Det här måttet visar antalet Server undantag.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
 |---|---|---|---|
 |Antal|Antal|Moln roll namn, moln roll instans|Log-baserad version använder **Summa** agg regering|
 

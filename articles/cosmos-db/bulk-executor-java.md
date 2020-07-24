@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5158bbb32635ebf030879f4d0290a1feba0ec93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072925"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
 
@@ -24,7 +24,7 @@ För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL AP
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
 
 * Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med `https://localhost:8081` slut punkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).  
 
@@ -43,7 +43,7 @@ För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL AP
 
 Nu ska vi växla till att arbeta med kod genom att hämta ett exempel-Java-program från GitHub. Det här programmet utför Mass åtgärder på Azure Cosmos DB data. Du kan klona programmet genom att öppna en kommando tolk och navigera till den katalog där du vill kopiera programmet och köra följande kommando:
 
-```
+```bash
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
@@ -123,13 +123,13 @@ Den klonade lagrings platsen innehåller två exempel: "bulkimport" och "bulkupd
 
 5. När du har Mass import applikationen klar skapar du kommando rads verktyget från källan genom att använda kommandot "mvn Clean Package". Det här kommandot genererar en jar-fil i målmappen:  
 
-   ```java
+   ```bash
    mvn clean package
    ```
 
 6. När mål beroendena har genererats kan du anropa Mass import programmet med hjälp av följande kommando:  
 
-   ```java
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
@@ -186,13 +186,13 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
 
 3. När du har Mass uppdaterings applikationen klar skapar du kommando rads verktyget från källan genom att använda kommandot "mvn Clean Package". Det här kommandot genererar en jar-fil i målmappen:  
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 4. När mål beroendena har genererats kan du anropa Mass uppdaterings programmet med hjälp av följande kommando:
 
-   ```
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 

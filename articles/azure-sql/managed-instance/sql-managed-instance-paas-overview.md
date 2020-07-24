@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: 43fad6249d5c6f528353a819e03dd7401440e05d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073346"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -53,15 +53,15 @@ Huvud funktionerna i SQL-hanterad instans visas i följande tabell:
 |Funktion | Beskrivning|
 |---|---|
 | SQL Server version/build | SQL Server databas motor (senaste stabila) |
-| Hanterade automatiserade säkerhets kopieringar | Ja |
-| Inbyggd instans och databas övervakning och mått | Ja |
-| Automatisk uppdatering av program vara | Ja |
-| De senaste databas motor funktionerna | Ja |
+| Hanterade automatiserade säkerhets kopieringar | Yes |
+| Inbyggd instans och databas övervakning och mått | Yes |
+| Automatisk uppdatering av program vara | Yes |
+| De senaste databas motor funktionerna | Yes |
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
-| VNet – Azure Resource Manager distribution | Ja |
+| VNet – Azure Resource Manager distribution | Yes |
 | VNet – klassisk distributions modell | No |
-| Portal stöd | Ja|
+| Portal stöd | Yes|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Inbyggd repor ting service (SSRS) | Använd [Power BI sid färdiga rapporter](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) i stället för att vara värd för SSRS på en virtuell Azure-dator. SQL-hanterad instans kan inte köra SSRS som en tjänst, men kan vara värd för [SSRS-katalog databaser](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) för en rapport server som är installerad på en virtuell Azure-dator med hjälp av SQL Server autentisering. |
@@ -115,111 +115,13 @@ Hitta mer information om skillnaderna mellan tjänst nivåer i [resurs gränser 
 
 ## <a name="management-operations"></a>Hanterings åtgärder
 
-Azure SQL-hanterad instans tillhandahåller hanterings åtgärder som du kan använda för att automatiskt distribuera nya hanterade instanser, uppdatera instans egenskaper och ta bort instanser när de inte längre behövs. Det här avsnittet innehåller information om hanterings åtgärder och deras normala varaktighet.
-
-För att stödja [distributioner i virtuella Azure-nätverk](../../virtual-network/virtual-network-for-azure-services.md) och tillhandahålla isolering och säkerhet för kunder förlitar sig SQL-hanterade instanser på [virtuella kluster](connectivity-architecture-overview.md#high-level-connectivity-architecture), som representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät. Varje distribution av hanterade instanser i ett tomt undernät resulterar i grunden i en ny version av det virtuella klustret.
-
-Efterföljande åtgärder på distribuerade hanterade instanser kan också ha effekter på det underliggande virtuella klustret. Detta påverkar varaktigheten för hanterings åtgärder, eftersom distribution av ytterligare virtuella datorer levereras med en kostnad som måste beaktas när du planerar nya distributioner eller uppdateringar till befintliga hanterade instanser.
-
-Alla hanteringsåtgärder kan kategoriseras på följande sätt:
-
-- Instans distribution (ny instans skapas).
-- Instans uppdatering (ändring av instans egenskaper, till exempel virtuella kärnor eller reserverad lagring.
-- Borttagning av instans.
-
-Åtgärder i virtuella kluster tar vanligt vis längst. Varaktigheten för åtgärder i virtuella kluster varierar – nedan visas de värden som du normalt förväntar dig, baserat på befintliga telemetridata för tjänsten:
-
-- **Skapa virtuellt kluster**: det här är ett synkront steg i instans hanterings åtgärder. **90% av åtgärderna har slutförts på 4 timmar**.
-- **Storleks ändring av virtuellt kluster (expandering eller krympning)**: utökning är ett synkront steg, medan krympningen utförs asynkront (utan inverkan på instans hanterings åtgärdernas varaktighet). **90% av kluster utökningar slutförs på mindre än 2,5 timmar**.
-- **Borttagning av virtuellt kluster**: borttagning är ett asynkront steg, men det kan också [initieras manuellt](virtual-cluster-delete.md) på ett tomt virtuellt kluster, i vilket fall det körs synkront. **90% av de virtuella kluster borttagningarna slutförs om 1,5 timmar**.
-
-Dessutom kan hantering av instanser också innehålla en av åtgärderna på värdbaserade databaser, vilket leder till längre varaktigheter:
-
-- **Bifoga databasfiler från Azure Storage**: det här är ett synkront steg, till exempel Compute (vCore) eller lagrings skala upp eller ned i generell användning tjänst nivå. **90% av dessa åtgärder har slutförts på 5 minuter**.
-- **Always on-tillgänglighets grupp seeding**: det här är ett synkront steg, till exempel Compute (vCore) eller lagrings skalning på affärskritisk tjänst nivå samt i ändra tjänst nivån från Generell användning till affärskritisk (eller vice versa). Den här åtgärdens varaktighet är proportionerlig till den totala databas storleken samt den aktuella databas aktiviteten (antal aktiva transaktioner). Databas aktivitet vid uppdatering av en instans kan medföra betydande varianser för den totala varaktigheten. **90% av dessa åtgärder körs vid 220 GB/timme eller högre**.
-
-I följande tabell sammanfattas åtgärder och typiska övergripande varaktigheter:
-
-|Kategori  |Åtgärd  |Tids krävande segment  |Uppskattad varaktighet  |
-|---------|---------|---------|---------|
-|**Distribution** |Första instansen i ett tomt undernät|Skapa virtuellt kluster|90% av åtgärderna har slutförts på 4 timmar.|
-|Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar.|
-|Distribution |Första instans skapandet av 4 virtuella kärnor, i ett tomt eller icke-tomt undernät|Skapa virtuellt kluster * *|90% av åtgärderna har slutförts på 4 timmar.|
-|Distribution |Efterföljande instans skapas i det icke-tomma under nätet (andra, tredje osv.)|Storleks ändring av virtuellt kluster|90% av åtgärderna har slutförts om 2,5 timmar.|
-|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, Azure AD-inloggning, Azure Hybrid-förmån flagga)|E.t.|Upp till 1 minut.|
-|Uppdatera |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter.|
-|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts i 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme).|
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar.|
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts i 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme).|
-|Uppdatera |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Bifoga databasfiler|90% av åtgärderna har slutförts på 4 h 5 min. * *|
-|Uppdatera |Instans skala ned till 4 virtuella kärnor (Affärskritisk)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs på 4 timmar + tid för att dirigera alla databaser (220 GB/timme).|
-|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts i 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme).|
-|**Borttagning**|Borttagning av instans|Logg säkerhets kopiering för alla databaser|90% åtgärder har slutförts på upp till 1 minut.<br>OBS! om den sista instansen i under nätet tas bort, kommer den här åtgärden att schemalägga borttagning av virtuellt kluster efter 12 timmar. * * *|
-|Borttagning|Borttagning av virtuellt kluster (som användarinitierad åtgärd)|Borttagning av virtuellt kluster|90% av åtgärderna har slutförts på upp till 1,5 timmar.|
-
-\*Det virtuella klustret skapas per maskin varu generation.
-
-\*\*Alternativet 4-virtuella kärnor släpptes i juni 2019 och kräver en ny virtuell kluster version. Om du har instanser i mål under nätet som alla skapades före 12 juni, distribueras ett nytt virtuellt kluster automatiskt till värd 4 vCore-instanser.
-
-\*\*\*12 timmar är den aktuella konfigurationen men som kan ändras i framtiden, så ta inte ett hårt beroende av den. Om du behöver ta bort ett virtuellt kluster tidigare (till exempel för att frigöra under nätet) kan du se [ta bort ett undernät när du har tagit bort en hanterad instans](virtual-cluster-delete.md).
-
-### <a name="instance-availability-during-management-operations"></a>Tillgänglighet för instanser under hanterings åtgärder
-
-SQL-hanterad instans **är tillgänglig under uppdaterings åtgärder**, förutom ett kort stillestånd som orsakas av redundansväxlingen som inträffar i slutet av uppdateringen. Det tar vanligt vis upp till 10 sekunder, även om tids krävande transaktioner har avbrutits, tack vare den [påskyndade databas återställningen](../accelerated-database-recovery.md).
-
-> [!IMPORTANT]
-> Det rekommenderas inte att skala beräkning eller lagring av Azure SQL-hanterade instanser eller ändra tjänst nivån samtidigt med tids krävande transaktioner (data import, data bearbetnings jobb, index återuppbyggnad osv.). Redundansväxling av databasen som utförs i slutet av åtgärden avbryter alla pågående transaktioner.
-
-SQL-hanterad instans är inte tillgänglig för klient program under distributions-och borttagnings åtgärder.
-
-### <a name="management-operations-cross-impact"></a>Hanterings åtgärder över-påverkan
-
-Hanterings åtgärder på en hanterad instans kan påverka andra hanterings åtgärder för de instanser som placeras inuti samma virtuella kluster. Detta omfattar följande:
-
-- **Långvariga återställnings åtgärder** i ett virtuellt kluster sätter igång andra instanser av att skapa eller skala i samma undernät.<br/>**Exempel:** Om det finns en tids krävande återställnings åtgärd och det finns en begäran om att skapa eller skala i samma undernät, tar det längre tid att slutföra den här begäran eftersom den väntar på att återställningen ska slutföras innan den fortsätter.
-    
-- **En efterföljande instans skapas eller skalnings** åtgärd spärras av en tidigare initierad instans eller instans skala som initierade storleken på det virtuella klustret.<br/>**Exempel:** Om det finns flera skapa-och/eller skalnings begär anden i samma undernät under samma virtuella kluster, och en av dem initierar en storlek för virtuella kluster, så kommer alla begär Anden som har skickats 5 + minuter efter den som krävde storleken på det virtuella klustret att ändra storlek längre än förväntat, eftersom dessa begär Anden måste vänta på att storleken ska slutföras innan den återupptas
-
-- **Create/Scale-åtgärder som skickas i en 5-minuters period** kommer att grupperas och köras parallellt.<br/>**Exempel:** Det går bara att ändra storlek på ett virtuellt kluster för alla åtgärder som skickas i ett fönster med 5 minuter (mätning från tidpunkten för att köra den första åtgärden). Om en annan begäran skickas mer än 5 minuter efter att den första har skickats, väntar det att det virtuella klustrets storlek ska slutföras innan körningen påbörjas.
-
-> [!IMPORTANT]
-> Hanterings åtgärder som spärras på grund av att en annan åtgärd pågår kommer att återupptas automatiskt när villkoren för att fortsätta är uppfyllda. Det krävs ingen användar åtgärd för att återuppta tillfälligt pausade hanterings åtgärder.
-
-### <a name="canceling-management-operations"></a>Avbryta hanterings åtgärder
-
-I följande tabell sammanfattas möjligheten att avbryta vissa hanterings åtgärder och typiska övergripande varaktigheter:
-
-Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
-|---------|---------|---------|---------|
-|Distribution |Skapa instans |No |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |No |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Ta bort |Borttagning av instans |No |  |
-|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |No |  |
-
-Om du vill avbryta hanterings åtgärden går du till bladet översikt och klickar på meddelande rutan för den pågående åtgärden. På den högra sidan visas en skärm med den pågående åtgärden och det kommer att finnas en knapp för att avbryta åtgärden. Efter den första klickningen uppmanas du att klicka igen och bekräfta att du vill avbryta åtgärden.
-
-[![Avbryt åtgärd](./media/sql-managed-instance-paas-overview/canceling-operation.png)](./media/sql-managed-instance-paas-overview/canceling-operation.png#lightbox)
-
-När en Cancel-begäran har skickats och bearbetats får du ett meddelande om att sändningen har slutförts eller inte.
-
-Om åtgärden avbryts lyckas avbryts hanterings åtgärden på några minuter, vilket resulterar i ett haveri.
-
-![Avbryter åtgärds resultat](./media/sql-managed-instance-paas-overview/canceling-operation-result.png)
-
-Om Cancel-begäran Miss lyckas eller om Avbryt-knappen inte är aktiv, innebär det att hanterings åtgärden har angett ett icke-avbrotts tillstånd och att det kan slutföras på några minuter. Hanterings åtgärden fortsätter att köras tills den har slutförts.
-
-> [!IMPORTANT]
-> Det finns för närvarande endast stöd för att avbryta åtgärder i portalen.
+Azure SQL-hanterad instans tillhandahåller hanterings åtgärder som du kan använda för att automatiskt distribuera nya hanterade instanser, uppdatera instans egenskaper och ta bort instanser när de inte längre behövs. Detaljerad förklaring av hanterings åtgärder finns på [översikts sidan hanterade instans hanterings åtgärder](management-operations-overview.md) .
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad
 
 SQL-hanterad instans levereras med avancerade säkerhetsfunktioner från Azure-plattformen och SQL Server databas motorn.
 
-### <a name="security-isolation"></a>Säkerhets isolering
+### <a name="security-isolation"></a>Säkerhetsisolering
 
 SQL-hanterad instans ger ytterligare säkerhets isolering från andra klienter på Azure-plattformen. Säkerhets isolering innehåller:
 

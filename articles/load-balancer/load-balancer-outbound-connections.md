@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: b22ce64e7058f093a102aebec8b00842c8a41cb5
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: a2292dc789938b8bde709728f5bbffe661529cc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849405"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072635"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -70,7 +70,7 @@ Att ändra storleken på din backend-pool kan påverka vissa av dina upprättade
 | 2. offentlig Load Balancer associerad med en virtuell dator (ingen offentlig IP-adress på den virtuella datorn/instansen) | SNAT med port maskerad (PAT) med hjälp av Load Balancer-frontend | TCP, UDP | I det här scenariot måste Load Balancer-resursen konfigureras med en belastnings Utjämnings regel för att skapa en länk mellan den offentliga IP-frontend-poolen med backend-poolen. Om du inte slutför den här regel konfigurationen är beteendet som beskrivs i scenario 3. Det är inte nödvändigt att regeln har en fungerande lyssnare i backend-poolen för att hälso avsökningen ska lyckas. När en virtuell dator skapar ett utgående flöde översätter Azure den privata käll-IP-adressen för det utgående flödet till den offentliga IP-adressen för den offentliga Load Balancer-frontend-tjänsten via SNAT. Tillfälliga portar för belastningsutjämnarens offentliga IP-adress för klient delen används för att särskilja enskilda flöden från den virtuella datorn. SNAT använder dynamiskt [förallokerade portar](#preallocatedports) när utgående flöden skapas. I det här sammanhanget kallas de tillfälliga portarna som används för SNAT som SNAT-portar. SNAT-portar är förallokerade enligt beskrivningen i [standardvärdet för den allokerade SNAT-porten](#snatporttable). |
 | 3. virtuell dator (inga Load Balancer, ingen offentlig IP-adress) eller virtuell dator som är associerad med Basic Internal Load Balancer | SNAT med port maskerad (PAT) | TCP, UDP | När den virtuella datorn skapar ett utgående flöde översätter Azure den privata käll-IP-adressen för det utgående flödet till en offentlig käll-IP-adress. Den här offentliga IP-adressen kan **inte konfigureras**, kan inte reserveras och räknas inte mot prenumerationens offentliga IP-adressresurs. Om du distribuerar om den virtuella datorn eller tillgänglighets uppsättningen eller den virtuella datorns skalnings uppsättning frigörs den här offentliga IP-adressen och en ny offentlig IP-adress begärs. Använd inte det här scenariot för vit listning IP-adresser. Använd i stället scenario 1 eller 2 där du explicit deklarerar utgående beteende. SNAT-portar är fördelade enligt beskrivningen i [standardvärdet för den allokerade SNAT-porten](#snatporttable).
 
-## <a name="outbound-rules"></a><a name="outboundrules"></a>Utgående regler
+## <a name="outbound-rules"></a><a name="outboundrules"></a>Regler för utgående trafik
 
  Utgående regler gör det enkelt att konfigurera offentliga [standard load BALANCERS](load-balancer-standard-overview.md)utgående Network Address Translation.  Du har fullständig deklarativ kontroll över utgående anslutning för att skala och finjustera den här funktionen för dina behov. I det här avsnittet expanderar du scenario 2 (B) enligt beskrivningen ovan.
 

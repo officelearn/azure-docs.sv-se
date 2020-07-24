@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cd050c88fbc954a211c3a75cdabcb557ae998c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073921"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med PowerShell
 
@@ -33,7 +34,7 @@ Den här artikeln beskriver hur du skapar en virtuell dator (VM) via Azure Resou
 
 Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera IP-adresser, enligt beskrivningen i scenariot. Ändra de variabel värden som krävs för din implementering.
 
-1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enkel PowerShell-session. Om du inte redan har PowerShell installerat och konfigurerat slutför du stegen i artikeln [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) .
+1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enkel PowerShell-session. Om du inte redan har PowerShell installerat och konfigurerat slutför du stegen i artikeln [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/) .
 2. Logga in på ditt konto med `Connect-AzAccount` kommandot.
 3. Ersätt *myResourceGroup* och *väst* med ett namn och en plats där du väljer. Skapa en resursgrupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
@@ -195,7 +196,7 @@ Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera
 
 Du kan lägga till privata och offentliga IP-adresser i Azure-nätverks gränssnittet genom att följa anvisningarna nedan. I exemplen i följande avsnitt förutsätts att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i [scenariot](#scenario) i den här artikeln, men du behöver inte göra det.
 
-1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enkel PowerShell-session. Om du inte redan har PowerShell installerat och konfigurerat slutför du stegen i artikeln [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) .
+1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enkel PowerShell-session. Om du inte redan har PowerShell installerat och konfigurerat slutför du stegen i artikeln [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/) .
 2. Ändra "värden" för följande $Variables till namnet på det nätverkskort som du vill lägga till IP-adressen till och resurs gruppen och platsen som NÄTVERKSKORTet finns i:
 
    ```powershell

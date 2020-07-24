@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072815"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -35,9 +35,8 @@ Innan du kan använda gäst konfiguration måste du registrera resurs leverantö
 Om du vill granska inställningarna i en dator är ett [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) aktiverat och datorn måste ha en Systemhanterad identitet. Tillägget hämtar tillämplig princip tilldelning och motsvarande konfigurations definition. Identiteten används för att autentisera datorn när den läser och skriver till gäst konfigurations tjänsten. Tillägget krävs inte för Arc-anslutna datorer eftersom det ingår i Arc Connected Machine agent.
 
 > [!IMPORTANT]
-> Gäst konfigurations tillägget krävs för att utföra granskningar på virtuella Azure-datorer. Tilldela följande princip definitioner för att distribuera tillägget i skala: 
->  - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->  - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Linux-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> Gäst konfigurations tillägget och en hanterad identitet krävs för att granska virtuella Azure-datorer. För att > måste gäst konfigurations tillägget utföra granskningar på virtuella Azure-datorer. För att distribuera tillägget i skala tilldelar du följande princip initiativ: > distribuera tillägget i skala tilldelar du följande princip definitioner: 
+>  - [Distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Begränsningar som angetts för tillägget
 
@@ -49,7 +48,7 @@ I datorn använder gäst konfigurations klienten lokala verktyg för att köra g
 
 I följande tabell visas en lista över de lokala verktyg som används på varje operativ system som stöds. För inbyggt innehåll hanterar gäst konfigurationen inläsning av dessa verktyg automatiskt.
 
-|Operativsystem|Validerings verktyg|Obs!|
+|Operativsystem|Validerings verktyg|Kommentarer|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Sidan har lästs in till en mapp som endast används av Azure Policy. Är inte i konflikt med Windows PowerShell DSC. PowerShell-kärnan har inte lagts till i System Sök vägen.|
 |Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Installerar chefs inspecens version 2.2.61 på standard platsen och läggs till i System Sök vägen. Beroenden för INSPEC-paketet inklusive ruby och python installeras också. |
@@ -63,7 +62,7 @@ Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. N�
 Konfigurations principer för gäster är inklusive nya versioner. Äldre versioner av operativ system som är tillgängliga på Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel.
 I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
 
-|Publisher|Name|Versioner|
+|Publisher|Namn|Versioner|
 |-|-|-|
 |Canonical|Ubuntu Server|14,04 och senare|
 |Credativ|Debian|8 och senare|
@@ -81,10 +80,11 @@ För att kunna kommunicera med resurs leverantören för gäst konfiguration i A
 
 ## <a name="managed-identity-requirements"></a>Krav för hanterade identiteter
 
-**DeployIfNotExists** -principerna som lägger till tillägget på virtuella datorer aktiverar också en systemtilldelad hanterad identitet, om det inte finns någon.
+Principer i initiativet för att [distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) möjliggör en systemtilldelad hanterad identitet om den inte finns. Det finns två princip definitioner i det initiativ som hanterar skapandet av identitet. OM villkoren i princip definitionerna säkerställer rätt beteende baserat på dator resursens aktuella tillstånd i Azure.
 
-> [!WARNING]
-> Undvik att aktivera användare som tilldelats hanterad identitet till virtuella datorer inom omfånget för principer som aktiverar systemtilldelad hanterad identitet. Användarens tilldelade identitet ersätts och datorn slutar svara.
+Om datorn inte har några hanterade identiteter är den effektiva principen: för [ \[ hands version \] : Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer utan identiteter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+
+Om datorn för närvarande har en användardefinierad system identitet kommer den gällande principen att vara: för [ \[ hands version \] : Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer med en tilldelad identitet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Krav för konfigurations definition för gäst
 

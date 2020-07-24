@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: ba67ea9455c8d7f077eae87f582f05b5c2672735
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7ad3034ff3730cdadcfd55765af01c97df78028
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887618"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073067"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Hantera Azure CDN med PowerShell
 PowerShell tillhandahåller en av de mest flexibla metoderna för att hantera dina Azure CDN profiler och slut punkter.  Du kan använda PowerShell interaktivt eller genom att skriva skript för att automatisera hanterings uppgifter.  Den här självstudien visar flera av de vanligaste uppgifterna som du kan utföra med PowerShell för att hantera dina Azure CDN profiler och slut punkter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill använda PowerShell för att hantera dina Azure CDN profiler och slut punkter måste du ha installerat modulen Azure PowerShell.  Information om hur du installerar Azure PowerShell och ansluter till Azure med hjälp av `Connect-AzAccount` -cmdleten finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Om du vill använda PowerShell för att hantera dina Azure CDN profiler och slut punkter måste du ha installerat modulen Azure PowerShell.  Information om hur du installerar Azure PowerShell och ansluter till Azure med hjälp av `Connect-AzAccount` -cmdleten finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > Du måste logga in med `Connect-AzAccount` innan du kan köra Azure PowerShell-cmdletar.

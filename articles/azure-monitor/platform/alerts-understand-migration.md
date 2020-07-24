@@ -6,11 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073625"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
 
@@ -63,7 +64,7 @@ Alla klassiska aviseringar för lagrings konton kan migreras utom aviseringar f�
 - SASThrottlingError
 - ThrottlingError
 
-Klassiska varnings regler för procent mått måste migreras baserat på [mappningen mellan gamla och nya lagrings mått](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Tröskelvärden måste ändras på lämpligt sätt eftersom det nya måttet är ett absolut värde.
+Klassiska varnings regler för procent mått måste migreras baserat på [mappningen mellan gamla och nya lagrings mått](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Tröskelvärden måste ändras på lämpligt sätt eftersom det nya måttet är ett absolut värde.
 
 Klassiska varnings regler för AnonymousThrottlingError, SASThrottlingError och ThrottlingError måste delas upp i två nya aviseringar eftersom det inte finns något kombinerat mått som ger samma funktion. Tröskelvärden måste anpassas på lämpligt sätt.
 

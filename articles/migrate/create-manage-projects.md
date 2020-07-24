@@ -2,13 +2,13 @@
 title: Skapa och hantera Azure Migrate-projekt
 description: Hitta, skapa, hantera och ta bort projekt i Azure Migrate.
 ms.topic: how-to
-ms.date: 04/19/2020
-ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071801"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Skapa och hantera Azure Migrate-projekt
 
@@ -65,7 +65,6 @@ Ta bort enligt följande:
     - Resurs typen är **Microsoft. Migrate/migrateprojects**.
     - Om resurs gruppen uteslutande används av Azure Migrate-projektet kan du ta bort hela resurs gruppen.
 
-
 Tänk på följande:
 
 - När du tar bort raderas både projektet och metadata om identifierade datorer.
@@ -73,6 +72,7 @@ Tänk på följande:
 - Om du använder beroende analys med en Azure Log Analytics-arbetsyta:
     - Om du har kopplat en Log Analytics arbets yta till Server Assessment-verktyget tas arbets ytan bort automatiskt. Samma Log Analytics arbets yta kan användas för flera scenarier.
     - Om du vill ta bort arbets ytan Log Analytics gör du det manuellt.
+- Borttagningen av projektet går inte att ångra. Det går inte att återställa borttagna objekt.
 
 ### <a name="delete-a-workspace-manually"></a>Ta bort en arbets yta manuellt
 

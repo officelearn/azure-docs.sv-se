@@ -5,14 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/17/2019
+ms.date: 07/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24e754a583125c962e67f849edcec8f8609746a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abf4cb33fa953ec9a257397551b3d17752fe67f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070728"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Skapa eller ta bort en behållare i Azure Storage med .NET
 
@@ -24,7 +25,7 @@ Ett behållar namn måste vara ett giltigt DNS-namn, som det utgör en del av de
 
 - Behållarens namn kan vara mellan 3 och 63 tecken långt.
 - Behållar namn måste börja med en bokstav eller en siffra och får bara innehålla gemena bokstäver, siffror och bindestreck (-).
-- Två eller fler bindestreck i följd tillåts inte i behållar namn.
+- Två eller fler bindestreck i följd är inte tillåtna i behållar namn.
 
 URI: n för en behållare har följande format:
 
@@ -34,18 +35,34 @@ URI: n för en behållare har följande format:
 
 Anropa en av följande metoder för att skapa en behållare:
 
+# <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+- [Skapa](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
+- [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
+- [CreateIfNotExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
+- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+
+# <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
+
 - [Skapa](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
+---
 
 Metoderna **create** och **CreateAsync** genererar ett undantag om det redan finns en behållare med samma namn.
 
-Metoderna **CreateIfNotExists** och **CreateIfNotExistsAsync** returnerar ett booleskt värde som anger om behållaren har skapats. Om det redan finns en behållare med samma namn, returnerar dessa metoder **falskt** för att indikera att en ny behållare inte har skapats.
+Metoderna **CreateIfNotExists** och **CreateIfNotExistsAsync** returnerar ett booleskt värde som anger om behållaren har skapats. Om det redan finns en behållare med samma namn, returnerar dessa metoder **falskt** för att ange att en ny behållare inte skapades.
 
 Behållare skapas direkt under lagrings kontot. Det går inte att kapsla en behållare under en annan.
 
 I följande exempel skapas en behållare asynkront:
+
+# <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateSampleContainerAsync":::
+
+# <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
@@ -77,16 +94,23 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
     return container;
 }
 ```
+---
 
 ## <a name="create-the-root-container"></a>Skapa rot behållaren
 
-En rot behållare fungerar som en standard behållare för ditt lagrings konto. Varje lagrings konto kan ha en rot behållare, som måste ha namnet *$root.*. Du måste explicit skapa eller ta bort rot behållaren.
+En rot behållare fungerar som en standard behållare för ditt lagrings konto. Varje lagrings konto kan ha en rot behållare, som måste ha namnet *$root*. Rot behållaren måste skapas eller tas bort explicit.
 
 Du kan referera till en blob som lagras i rot behållaren utan att inkludera rot behållar namnet. Med rot behållaren kan du referera till en BLOB på den högsta nivån i lagrings kontots hierarki. Du kan till exempel referera till en blob som finns i rot behållaren på följande sätt:
 
 `https://myaccount.blob.core.windows.net/default.html`
 
 I följande exempel skapas en rot behållare synkront:
+
+# <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateRootContainer":::
+
+# <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -113,23 +137,40 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
     }
 }
 ```
+---
 
 ## <a name="delete-a-container"></a>Ta bort en container
 
 Använd någon av följande metoder för att ta bort en behållare i .NET:
 
+# <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+- [Ta bort](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
+- [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
+- [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
+
+# <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
+
 - [Ta bort](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
+---
 
 Metoderna **Delete** och **DeleteAsync** genererar ett undantag om behållaren inte finns.
 
 Metoderna **DeleteIfExists** och **DeleteIfExistsAsync** returnerar ett booleskt värde som anger om containern har tagits bort. Om den angivna behållaren inte finns, returnerar dessa metoder **falskt** för att indikera att behållaren inte har tagits bort.
 
-När du har tagit bort en behållare kan du inte skapa en behållare med samma namn i minst 30 sekunder och eventuellt längre. När behållaren tas bort kommer ett försök att skapa en behållare med samma namn att Miss lyckas med HTTP-felkoden 409 (konflikt). Andra åtgärder på behållaren eller blobar som den innehåller kommer att Miss förväntas med HTTP-felkoden 404 (hittades inte) medan behållaren tas bort.
+När du har tagit bort en behållare kan du inte skapa en behållare med samma namn i *minst* 30 sekunder. Försök att skapa en behållare med samma namn kommer att Miss lyckas med HTTP-felkoden 409 (konflikt). Andra åtgärder på behållaren eller blobar som den innehåller kommer att Miss Missing med HTTP-felkoden 404 (hittades inte).
 
 I följande exempel tar bort den angivna behållaren och hanterar undantaget om behållaren inte finns:
+
+# <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteSampleContainerAsync":::
+
+# <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient, string containerName)
@@ -151,8 +192,15 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
     }
 }
 ```
+---
 
-I följande exempel visas hur du tar bort alla behållare som börjar med ett angivet prefix. I exemplet bryts lånet om det finns ett befintligt lån på behållaren.
+I följande exempel visas hur du tar bort alla behållare som börjar med ett angivet prefix.
+
+# <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteContainersWithPrefixAsync":::
+
+# <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
@@ -163,11 +211,6 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
         foreach (var container in blobClient.ListContainers(prefix))
         {
             Console.WriteLine("\tContainer:" + container.Name);
-            if (container.Properties.LeaseState == LeaseState.Leased)
-            {
-                await container.BreakLeaseAsync(null);
-            }
-
             await container.DeleteAsync();
         }
 
@@ -181,6 +224,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
     }
 }
 ```
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

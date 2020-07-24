@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073686"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Agent data källor i Azure Monitor
 De data som Azure Monitor samlar in från agenter definieras av de data källor som du konfigurerar.  Data från agenter lagras som [loggdata](data-platform-logs.md) med en uppsättning poster.  Varje data källa skapar poster av en viss typ med varje typ som har en egen uppsättning egenskaper.
@@ -46,7 +47,7 @@ Du konfigurerar data källor från **data** -menyn i **Avancerade inställningar
 ## <a name="data-collection"></a>Datainsamling
 Konfigurationer för data källa levereras till agenter som är direkt anslutna till Azure Monitor inom några minuter.  Angivna data samlas in från agenten och levereras direkt till Azure Monitor med intervall som är specifika för varje data källa.  Se dokumentationen för varje data källa för dessa uppgifter.
 
-För System Center Operations Manager agenter i en ansluten hanterings grupp översätts data källans konfigurationer till hanterings paket och levereras till hanterings gruppen var femte minut som standard.  Agenten laddar ned hanterings paketet som alla andra och samlar in angivna data. Beroende på data källan skickas data antingen till en hanterings server som vidarebefordrar data till Azure Monitor eller så skickar agenten data till Azure Monitor utan att gå igenom hanterings servern. Mer information finns i information om [data insamling för övervakning av lösningar i Azure](../insights/solutions-inventory.md) .  Du kan läsa mer om att ansluta Operations Manager och Azure Monitor och ändra den frekvens som konfigurationen levereras i [Konfigurera integration med System Center Operations Manager](om-agents.md).
+För System Center Operations Manager agenter i en ansluten hanterings grupp översätts data källans konfigurationer till hanterings paket och levereras till hanterings gruppen var femte minut som standard.  Agenten laddar ned hanterings paketet som alla andra och samlar in angivna data. Beroende på data källan skickas data antingen till en hanterings server som vidarebefordrar data till Azure Monitor eller så skickar agenten data till Azure Monitor utan att gå igenom hanterings servern. Mer information finns i information om [data insamling för övervakning av lösningar i Azure](../monitor-reference.md) .  Du kan läsa mer om att ansluta Operations Manager och Azure Monitor och ändra den frekvens som konfigurationen levereras i [Konfigurera integration med System Center Operations Manager](om-agents.md).
 
 Om agenten inte kan ansluta till Azure Monitor eller Operations Manager fortsätter den att samla in data som den kommer att leverera när en anslutning upprättas.  Data kan gå förlorade om mängden data når den maximala cache-storleken för klienten, eller om agenten inte kan upprätta en anslutning inom 24 timmar.
 

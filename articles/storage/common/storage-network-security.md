@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e8857da1410ca68a695a9d7995aeb375fb154cd2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070656"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
@@ -60,7 +60,7 @@ Som standard godkänner lagringskonton anslutningar från klienter i alla nätve
 
 Du kan hantera standard regler för nätverks åtkomst för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -144,7 +144,7 @@ Lagrings kontot och de virtuella nätverk som beviljats åtkomst kan finnas i ol
 
 Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -268,7 +268,7 @@ Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lo
 
 Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -388,6 +388,7 @@ Inställningen **Tillåt betrodda Microsoft-tjänster...** tillåter också att 
 
 | Tjänst                        | Namn på resurs leverantör                 | Syfte            |
 | :----------------------------- | :------------------------------------- | :----------------- |
+| Azure API Management           | Microsoft.ApiManagement/service        | Aktiverar API Management-tjänstens åtkomst till lagrings konton bakom brand väggen med hjälp av principer. [Läs mer](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft. search/searchServices        | Ger Kognitiv sökning-tjänster åtkomst till lagrings konton för indexering, bearbetning och frågor. |
 | Azure Container Registry Tasks | Microsoft. ContainerRegistry/register | ACR-aktiviteter kan komma åt lagrings konton när du skapar behållar avbildningar. |
 | Azure Data Factory             | Microsoft. DataFactory/fabriker        | Ger åtkomst till lagrings konton via ADF-körningen. |
@@ -409,7 +410,7 @@ I vissa fall krävs åtkomst till läsa resurs loggar och mät värden utanför 
 
 Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure CLI v2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 

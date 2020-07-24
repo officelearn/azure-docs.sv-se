@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d50a9a064e6fa279d65f196c0f031e60081d86bf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073318"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funktioner för flera modeller i Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -96,10 +96,7 @@ Dokument modeller kan användas i stället för Relations modeller i vissa olika
 
 Spatialdata representerar information om den fysiska platsen och formen på geometriska objekt. Dessa objekt kan vara plats platser eller mer komplexa objekt, till exempel länder/regioner, vägar eller sjöar.
 
-Med produkter i Azure SQL-serien kan du analysera och fråga data som representeras i JavaScript Object Notation [(JSON)](https://www.json.org/) -format och exportera Relations data som JSON-text.
-
-
- De två två avstånds data typerna som stöds: 
+ De två avstånds data typerna som stöds: 
 
 - Geometri typen representerar data i ett Euclidean (flat)-koordinatsystem.
 - Geografi typen representerar data i ett system för Round-jordens koordinater.

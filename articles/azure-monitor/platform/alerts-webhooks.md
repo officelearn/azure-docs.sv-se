@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073583"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Anropa en webhook med en klassisk mått avisering i Azure Monitor
 
@@ -25,7 +26,7 @@ Om du vill lägga till eller uppdatera webhook-URI: n går du till **Skapa/uppda
 
 ![Fönstret Lägg till en varnings regel](./media/alerts-webhooks/Alertwebhook.png)
 
-Du kan också konfigurera en avisering för att publicera till en webhook-URI genom att använda [Azure PowerShell cmdlets](../samples/powershell-samples.md#create-metric-alerts), ett [plattforms oberoende CLI](../samples/cli-samples.md#work-with-alerts)eller [Azure Monitor REST-API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Du kan också konfigurera en avisering för att publicera till en webhook-URI genom att använda [Azure PowerShell cmdlets](../samples/powershell-samples.md#create-metric-alerts), ett [plattforms oberoende CLI](../samples/cli-samples.md#work-with-alerts)eller [Azure Monitor REST-API: er](/rest/api/monitor/alertrules).
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
 Webhooken kan autentiseras med hjälp av token-baserad auktorisering. Webhook-URI: n sparas med ett token-ID. Exempel: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -67,7 +68,7 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 ```
 
 
-| Fält | Obligatorisk | Fast värde uppsättning | Obs! |
+| Fält | Obligatorisk | Fast värde uppsättning | Kommentarer |
 |:--- |:--- |:--- |:--- |
 | status |Y |Aktive rad, löst |Status för aviseringen baserat på de villkor du anger. |
 | Edit |Y | |Aviserings kontexten. |
@@ -78,11 +79,11 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 | conditionType |Y |Mått, händelse |Två typer av aviseringar stöds: Metric och event. Mått varningar baseras på ett mått villkor. Händelse aviseringar baseras på en händelse i aktivitets loggen. Använd det här värdet för att kontrol lera om aviseringen baseras på ett mått eller en händelse. |
 | moduletype |Y | |De speciella fälten som ska kontrol leras baserat på **conditionType** -värdet. |
 | metricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |
-| metricUnit |För mått varningar |Byte, BytesPerSecond, antal, CountPerSecond, procent, sekunder |Enheten som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |För mått varningar |Byte, BytesPerSecond, antal, CountPerSecond, procent, sekunder |Enheten som tillåts i måttet. Se [tillåtna värden](/previous-versions/azure/reference/dn802430(v=azure.100)). |
 | metricValue |För mått varningar | |Det faktiska värdet för det mått som orsakade aviseringen. |
 | fastställd |För mått varningar | |Tröskelvärdet då aviseringen aktive ras. |
 | windowSize |För mått varningar | |Den tids period som används för att övervaka aviserings aktiviteten baserat på tröskelvärdet. Värdet måste vara mellan 5 minuter och 1 dag. Värdet måste vara i formatet ISO 8601-varaktighet. |
-| timeAggregation |För mått varningar |Genomsnitt, senaste, högsta, minimum, none, total |Hur data som samlas in ska kombineras över tid. Standardvärdet är Average. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| timeAggregation |För mått varningar |Genomsnitt, senaste, högsta, minimum, none, total |Hur data som samlas in ska kombineras över tid. Standardvärdet är Average. Se [tillåtna värden](/previous-versions/azure/reference/dn802410(v=azure.100)). |
 | operator |För mått varningar | |Den operator som används för att jämföra aktuella mått data med angivet tröskelvärde. |
 | subscriptionId |Y | |ID för Azure-prenumerationen. |
 | resourceGroupName |Y | |Namnet på resurs gruppen för den berörda resursen. |
@@ -94,7 +95,7 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 | properties |N |Valfritt |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. Egenskaps fältet är valfritt. Användare kan ange nyckel/värde-par som kan skickas via nytto lasten i ett anpassat användar gränssnitt eller logiskt app-baserat arbets flöde. Ett annat sätt att skicka anpassade egenskaper tillbaka till webhooken är via webhook-URI: n (som frågeparametrar). |
 
 > [!NOTE]
-> Du kan bara ange fältet **Egenskaper** genom att använda [Azure Monitor REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> Du kan bara ange fältet **Egenskaper** genom att använda [Azure Monitor REST API: er](/rest/api/monitor/alertrules).
 >
 >
 
@@ -104,4 +105,3 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 * Lär dig hur du [använder en Logic app för att skicka ett SMS-meddelande via Twilio från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Lär dig hur du [använder en Logic app för att skicka ett slack-meddelande från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Lär dig hur du [använder en Logic app för att skicka ett meddelande till en Azure-kö från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

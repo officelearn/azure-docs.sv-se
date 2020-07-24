@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073633"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-anslutningsprogram hanterings lösning (inaktuell)
 
@@ -46,9 +47,9 @@ Till skillnad från de flesta andra Log Analytics lösningar samlas data inte in
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | No | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanterings grupp](../../azure-monitor/platform/om-agents.md) | No | Lösningen samlar inte in information från agenter i en ansluten SCOM Management Group. |
-| [Azure Storage-konto](collect-azure-metrics-logs.md) | No | Lösningen samlar inte in information från Azure Storage. |
+| [Azure Storage-konto](./resource-logs.md#send-to-log-analytics-workspace) | No | Lösningen samlar inte in information från Azure Storage. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha en Azure-prenumeration för att få åtkomst till Application Insights-anslutningsprogram information
 - Du måste ha minst en konfigurerad Application Insights-resurs.
@@ -186,7 +187,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | Kontinent | Kontinent där begäran har sitt ursprung |
 | Land | Land/region där begäran har sitt ursprung |
 | Region | Provins, delstat eller nationella inställningar där begäran kommer |
-| Ort | Ort eller stad där begäran har sitt ursprung |
+| Stad | Ort eller stad där begäran har sitt ursprung |
 | isSynthetic | Indikerar om begäran har skapats av en användare eller en automatiserad metod. Sant = automatisk metod eller falskt = genererad användare |
 | SamplingRate | Procent andel telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Till exempel 4 = &gt; 25% |
@@ -244,7 +245,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | Egenskap | Beskrivning |
 | --- | --- |
 | Typ | ApplicationInsights |
-| TelemetryType | Förfrågan |
+| TelemetryType | Begäran |
 | ResponseCode | HTTP-svar som skickats till klienten |
 | RequestSuccess | Visar att åtgärden lyckades eller misslyckades. Sant eller falskt. |
 | RequestID | ID för att unikt identifiera begäran |
@@ -303,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Det här skriptet kräver en Bearer-autentiseringstoken för autentisering mot Azure Active Directory. Ett sätt att hämta denna token använder en artikel i [REST API dokumentations webbplats](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Klicka på **testa** och logga in på din Azure-prenumeration. Du kan kopiera Bearer-token från **förfrågnings förhands granskningen** enligt följande bild.
+Det här skriptet kräver en Bearer-autentiseringstoken för autentisering mot Azure Active Directory. Ett sätt att hämta denna token använder en artikel i [REST API dokumentations webbplats](/rest/api/loganalytics/datasources/createorupdate). Klicka på **testa** och logga in på din Azure-prenumeration. Du kan kopiera Bearer-token från **förfrågnings förhands granskningen** enligt följande bild.
 
 
 ![Bearer-token](media/app-insights-connector/bearer-token.png)

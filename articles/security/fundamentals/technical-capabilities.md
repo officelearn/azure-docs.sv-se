@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071596"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -152,7 +152,7 @@ Med Azure AD Privileged Identity Management kan du:
 
 Prenumerationer har också en Association med en katalog. Katalogen definierar en uppsättning användare. Det kan vara användare från arbets plats eller skola som skapade katalogen, eller så kan de vara externa användare (dvs. Microsoft-konton). Prenumerationer är tillgängliga med en delmängd av de katalog användare som har tilldelats antingen tjänst administratör (SA) eller medadministratör (CA). Det enda undantaget är att Microsoft-konton (tidigare Windows Live ID) kan tilldelas som SA eller CA utan att finnas i katalogen, av äldre skäl.
 
-Säkerhetsorienterade företag bör fokuseras på att ge anställda de exakta behörigheter de behöver. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. [Azure rollbaserad Access Control (RBAC)](../../role-based-access-control/overview.md) hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure.
+Säkerhetsorienterade företag bör fokuseras på att ge anställda de exakta behörigheter de behöver. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure.
 
 ![Skyddad resurs åtkomst](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -444,6 +444,6 @@ Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhets
 
 - [Identitets- och åtkomsthantering](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
-- [Nätverks säkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Nätverkssäkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Hothantering](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

@@ -10,11 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072215"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
@@ -32,7 +33,7 @@ I den här artikeln kan du se hur du:
 > * Rensa resurser med DELETE-begäranden 
 > * Använd nyckelbaserad auktorisering för att ange distribuerade modeller
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
 - En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -47,7 +48,7 @@ Administrativa REST-begäranden autentiseras med ett OAuth2 implicit flöde. Det
 - Ditt klient-ID (som ska associeras med den skapade token)
 - Din klient hemlighet (som du bör skydda)
 
-Du bör ha dessa värden från svaret på skapandet av tjänstens huvud namn enligt beskrivningen i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Om du använder din företags prenumeration kanske du inte har behörighet att skapa ett huvud namn för tjänsten. I så fall bör du använda antingen en [kostnads fri eller betald personlig prenumeration](https://aka.ms/AMLFree).
+Du bör ha dessa värden från svaret på skapandet av tjänstens huvud namn. Att hämta dessa värden beskrivs i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Om du använder din företags prenumeration kanske du inte har behörighet att skapa ett huvud namn för tjänsten. I så fall bör du använda antingen en [kostnads fri eller betald personlig prenumeration](https://aka.ms/AMLFree).
 
 Hämta en token:
 
@@ -199,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Observera att om du vill visa en lista över experiment börjar sökvägen med `history/v1.0` när du ska lista modeller `modelmanagement/v1.0` . REST API delas upp i flera operativa grupper, var och en med en distinkt sökväg. I API Reference-dokumenten på länkarna nedan visas åtgärderna, parametrarna och svars koderna för de olika åtgärderna.
+Observera att om du vill visa en lista över experiment börjar sökvägen med `history/v1.0` när du ska lista modeller `modelmanagement/v1.0` . REST API delas upp i flera operativa grupper, var och en med en distinkt sökväg. 
 
-|Område|Sökväg|Referens|
-|-|-|-|
-|Artifacts|artefakt/v 2.0/|[REST API referens](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Datalager|data lager/v 1.0/|[REST API referens](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Finjustering av hyperparametrar|HyperDrive/v 1.0/|[REST API referens](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modeller|modelmanagement/v 1.0/|[REST API referens](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Körningshistorik|körning/v 1.0/och historik/v 1.0/|[REST API referens](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Område|Sökväg|
+|-|-|
+|Artifacts|artefakt/v 2.0/|
+|Datalager|data lager/v 1.0/|
+|Finjustering av hyperparametrar|HyperDrive/v 1.0/|
+|Modeller|modelmanagement/v 1.0/|
+|Körningshistorik|körning/v 1.0/och historik/v 1.0/|
 
 Du kan utforska REST API med det allmänna mönstret för:
 

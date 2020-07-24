@@ -7,25 +7,25 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d7085f54634ab1175fc0f916e24b7f03dc1bc9b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945366"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073669"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs aktivitets logg kategorier och schemat för var och en. 
 
 Schemat kan variera beroende på hur du kommer åt loggen:
  
-- De scheman som beskrivs i den här artikeln är när du öppnar aktivitets loggen från [REST API](https://docs.microsoft.com/rest/api/monitor/activitylogs). Detta är även det schema som används när du väljer **JSON** -alternativet när du visar en händelse i Azure Portal.
+- De scheman som beskrivs i den här artikeln är när du öppnar aktivitets loggen från [REST API](/rest/api/monitor/activitylogs). Detta är även det schema som används när du väljer **JSON** -alternativet när du visar en händelse i Azure Portal.
 - Se det sista avsnittets [schema från lagrings konto och händelse nav](#schema-from-storage-account-and-event-hubs) för schemat när du använder en [diagnostisk inställning](diagnostic-settings.md) för att skicka aktivitets loggen till Azure Storage eller Azure Event Hubs.
-- Se [Azure Monitor data referens](https://docs.microsoft.com/azure/azure-monitor/reference/) för schemat när du använder en [diagnostisk inställning](diagnostic-settings.md) för att skicka aktivitets loggen till en Log Analytics arbets yta.
+- Se [Azure Monitor data referens](/azure/azure-monitor/reference/) för schemat när du använder en [diagnostisk inställning](diagnostic-settings.md) för att skicka aktivitets loggen till en Log Analytics arbets yta.
 
 
 ## <a name="categories"></a>Kategorier
-Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följande tabell. I avsnitten nedan finns mer information om varje kategori och dess schema när du öppnar aktivitets loggen från portalen, PowerShell, CLI och REST API. Schemat skiljer sig när du [strömmar aktivitets loggen till lagrings-eller Event Hubs](resource-logs-stream-event-hubs.md). En mappning av egenskaperna till schemat för [resurs loggar](diagnostic-logs-schema.md) finns i det sista avsnittet i artikeln.
+Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följande tabell. I avsnitten nedan finns mer information om varje kategori och dess schema när du öppnar aktivitets loggen från portalen, PowerShell, CLI och REST API. Schemat skiljer sig när du [strömmar aktivitets loggen till lagrings-eller Event Hubs](./resource-logs.md#send-to-azure-event-hubs). En mappning av egenskaperna till schemat för [resurs loggar](./resource-logs-schema.md) finns i det sista avsnittet i artikeln.
 
 | Kategori | Beskrivning |
 |:---|:---|
@@ -214,7 +214,7 @@ Den här kategorin innehåller posten för eventuella service Health-incidenter 
   }
 }
 ```
-Information om värdena i egenskaperna hittar du i artikeln [tjänst hälso aviseringar](./../../azure-monitor/platform/service-notifications.md) .
+Information om värdena i egenskaperna hittar du i artikeln [tjänst hälso aviseringar](../../service-health/service-notifications.md) .
 
 ## <a name="resource-health-category"></a>Resurs hälso kategori
 Den här kategorin innehåller posten för eventuella resurs hälso händelser som har inträffat på dina Azure-resurser. Ett exempel på vilken typ av händelse som visas i den här kategorin är "statusen för den virtuella datorns hälso status har ändrats till ej tillgänglig". Resurs hälso händelser kan representera en av fyra hälso status: tillgänglig, otillgänglig, degraderad och okänd. Dessutom kan resurs hälso händelser kategoriseras som påbörjad som plattform eller initieras av användaren.
@@ -793,13 +793,13 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Schema från lagrings konto och händelse nav
-När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händelsehubben, följer data [schemat för resurs loggen](diagnostic-logs-schema.md). Tabellen nedan innehåller en mappning av egenskaper från ovanstående scheman till resursens loggar schema.
+När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händelsehubben, följer data [schemat för resurs loggen](./resource-logs-schema.md). Tabellen nedan innehåller en mappning av egenskaper från ovanstående scheman till resursens loggar schema.
 
 > [!IMPORTANT]
-> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](diagnostic-logs-append-blobs.md) för information om det här formatet.
+> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](./resource-logs-append-blobs.md) för information om det här formatet.
 
 
-| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Obs! |
+| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Kommentarer |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName är härledda från resourceId. |
@@ -808,12 +808,12 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 | resultType | status. Value | |
 | resultSignature | under status. värde | |
 | resultDescription | description |  |
-| durationMs | E.t. | Alltid 0 |
+| durationMs | Ej tillämpligt | Alltid 0 |
 | callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | anspråk och egenskaper för auktorisering |  |
 | Nivå | Nivå |  |
-| location | E.t. | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
+| location | Ej tillämpligt | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
 | Egenskaper | egenskaper. eventProperties |  |
 | egenskaper. eventCategory | category | Om Properties. eventCategory inte finns är kategorin "administrativ" |
 | egenskaper. eventName | eventName |  |
@@ -885,4 +885,3 @@ Följande är ett exempel på en händelse som använder det här schemat..
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aktivitets loggen](platform-logs-overview.md)
 * [Skapa en diagnostisk inställning för att skicka aktivitets loggen till Log Analytics arbets yta, Azure Storage eller Event Hub](diagnostic-settings.md)
-

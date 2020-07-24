@@ -2,12 +2,13 @@
 title: Fel söknings guide för Azure Service Bus | Microsoft Docs
 description: Den här artikeln innehåller en lista över Azure Service Bus meddelande undantag och föreslagna åtgärder som vidtas när undantaget inträffar.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b2759916e1f9ef0cec660157f577ff54cd39928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071313"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Fel söknings guide för Azure Service Bus
 Den här artikeln innehåller fel söknings tips och rekommendationer för några problem som kan uppstå när du använder Azure Service Bus. 
@@ -15,7 +16,7 @@ Den här artikeln innehåller fel söknings tips och rekommendationer för någr
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problem med anslutning, certifikat eller tids gräns
 Följande steg kan hjälpa dig med fel sökning av problem med anslutning/certifikat/tids gräns för alla tjänster under *. servicebus.windows.net. 
 
-- Bläddra till eller [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Det hjälper till med att kontrol lera om du har problem med IP-filtrering eller problem med virtuella nätverk eller certifikat kedjan (vanligt vis när du använder Java SDK).
+- Bläddra till eller [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Det hjälper till med att kontrol lera om du har problem med IP-filtrering eller virtuella nätverks-eller certifikat kedjan, som är vanliga när du använder Java SDK.
 
     Ett exempel på ett slutfört meddelande:
     
@@ -53,25 +54,48 @@ Följande steg kan hjälpa dig med fel sökning av problem med anslutning/certif
 - Få en nätverks spårning om föregående steg inte hjälper och analyseras med verktyg som [wireshark](https://www.wireshark.org/). Kontakta [Microsoft Support](https://support.microsoft.com/) om det behövs. 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problem som kan uppstå med tjänst uppgraderingar/omstarter
-Uppgraderingar och omstarter av backend-tjänsten kan orsaka följande påverkan på dina program:
 
+### <a name="symptoms"></a>Symtom
 - Begär Anden kan begränsas tillfälligt.
 - Det kan finnas en minskning av inkommande meddelanden/begär Anden.
 - Logg filen kan innehålla fel meddelanden.
 - Programmen kan vara frånkopplade från tjänsten under några sekunder.
 
+### <a name="cause"></a>Orsak
+Uppgraderingar och omstarter av backend-tjänsten kan orsaka problemen i dina program.
+
+### <a name="resolution"></a>Lösning
 Om program koden använder SDK är principen för återförsök redan inbyggd och aktiv. Programmet återansluter utan betydande påverkan på programmet/arbets flödet.
 
 ## <a name="unauthorized-access-send-claims-are-required"></a>Obehörig åtkomst: skicka anspråk krävs
+
+### <a name="symptoms"></a>Symtom 
 Du kanske ser det här felet när du försöker komma åt ett Service Bus ämne från Visual Studio på en lokal dator med hjälp av en användardefinierad hanterad identitet med Send-behörighet.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
+### <a name="cause"></a>Orsak
+Identiteten har inte behörighet att komma åt Service Bus avsnittet. 
+
+### <a name="resolution"></a>Lösning
 Lös problemet genom att installera biblioteket [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Mer information finns i [lokal utvecklings autentisering](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
 
 Information om hur du tilldelar behörigheter till roller finns i [autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser](service-bus-managed-service-identity.md).
+
+## <a name="service-bus-exception-put-token-failed"></a>Service Bus undantag: det gick inte att skicka token
+
+### <a name="symptoms"></a>Symtom
+När du försöker skicka fler än 1000 meddelanden med samma Service Bus anslutning får du följande fel meddelande: 
+
+`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+
+### <a name="cause"></a>Orsak
+Det finns en gräns för antalet tokens som används för att skicka och ta emot meddelanden med en enda anslutning till ett Service Bus-namnområde. Det är 1000. 
+
+### <a name="resolution"></a>Lösning
+Öppna en ny anslutning till Service Bus namn området om du vill skicka fler meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 

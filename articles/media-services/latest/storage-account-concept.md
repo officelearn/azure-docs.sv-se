@@ -1,5 +1,5 @@
 ---
-title: Azure-lagringskonton
+title: Azure Storage-konton
 titleSuffix: Azure Media Services
 description: Lär dig hur du skapar ett Azure Storage-konto som ska användas med Azure Media Services.
 services: media-services
@@ -12,11 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071998"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage-konton
 
@@ -31,7 +32,7 @@ Vi rekommenderar att du använder GPv2 så att du kan dra nytta av de senaste fu
 > [!NOTE]
 > Endast frekvent åtkomst nivå stöds för användning med Azure Media Services, även om de andra åtkomst nivåerna kan användas för att minska lagrings kostnaderna för innehåll som inte används aktivt.
 
-Det finns olika SKU: er som du kan välja för ditt lagrings konto. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS` , som tillhandahåller geografisk replikering för affärs kontinuitet.
+Det finns olika SKU: er som du kan välja för ditt lagrings konto. Mer information finns i [lagringskonton](/cli/azure/storage/account?view=azure-cli-latest). Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS` , som tillhandahåller geografisk replikering för affärs kontinuitet.
 
 ## <a name="assets-in-a-storage-account"></a>Till gångar i ett lagrings konto
 
@@ -47,8 +48,8 @@ För att skydda dina till gångar i vila bör till gångarna krypteras med krypt
 |Krypterings alternativ|Beskrivning|Media Services v3|
 |---|---|---|
 |Media Services lagrings kryptering| AES-256-kryptering, nyckel som hanteras av Media Services. |Stöds inte. <sup>(1)</sup>|
-|[Lagrings tjänst kryptering för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden.|Stöds.|
-|[Kryptering av lagring på klient Sidan](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault.|Stöds inte.|
+|[Lagrings tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden.|Stöds.|
+|[Kryptering av lagring på klient Sidan](../../storage/common/storage-client-side-encryption.md)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault.|Stöds ej.|
 
 <sup>1</sup> i Media Services v3 stöds inte lagrings kryptering (AES-256-kryptering) för bakåtkompatibilitet när dina till gångar skapades med Media Services v2, vilket innebär att v3 fungerar med befintliga lagrings krypterade till gångar men inte tillåter att nya skapas.
 
@@ -65,8 +66,8 @@ Följande är de primära scenarier som kan leda till ett Media Services-konto s
 
 ## <a name="azure-storage-firewall"></a>Azure Storage brand vägg
 
-Azure Media Services stöder inte lagrings konton med Azure Storage brand väggen eller [privata slut punkter](https://docs.microsoft.com/azure/storage/common/storage-network-security) aktiverade.
+Azure Media Services stöder inte lagrings konton med Azure Storage brand väggen eller [privata slut punkter](../../storage/common/storage-network-security.md) aktiverade.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du ansluter ett lagrings konto till ditt Media Services-konto finns i [skapa ett konto](create-account-cli-quickstart.md).
+Information om hur du ansluter ett lagrings konto till ditt Media Services-konto finns i [skapa ett konto](./create-account-howto.md).

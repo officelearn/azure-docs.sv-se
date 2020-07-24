@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072022"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Design av ett innehålls skydds system med åtkomst kontroll med Azure Media Services 
 
@@ -153,8 +153,8 @@ I följande tabell visas mappningen.
 | **Säkerhetstokentjänst (STS)** |Azure AD |
 | **Arbets flöde för DRM-skydd** |Media Services dynamiskt skydd |
 | **DRM-licensleverans** |* Media Services licens leverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licens Server <br/>* Anpassad PlayReady-licensserver |
-| **Ursprung** |Slut punkt för Media Services strömning |
-| **Nyckelhantering** |Krävs inte för referens implementering |
+| **Kommer** |Slut punkt för Media Services strömning |
+| **Nyckel hantering** |Krävs inte för referens implementering |
 | **Innehållshantering** |Ett C#-konsol program |
 
 Med andra ord används både IDP och STS med Azure AD. [Azure Media Player-API](https://amp.azure.net/libs/amp/latest/docs/) : t används för spelaren. Både Media Services och Media Player stöd för bindestreck och CENC med multi-DRM.
@@ -227,7 +227,7 @@ Mer information finns i [JWT token-autentisering i Azure Media Services och dyna
 För information om Azure AD:
 
 * Du kan hitta information om utvecklare i [Azure Active Directory Developer ' s guide](../../active-directory/azuread-dev/v1-overview.md).
-* Du kan hitta administratörs information i [administrera din Azure AD-klient katalog](../../active-directory/fundamentals/active-directory-administer.md).
+* Du kan hitta administratörs information i [administrera din Azure AD-klient katalog](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Några problem i implementeringen
 Använd följande felsöknings information för att få hjälp med implementerings problem.
@@ -296,7 +296,7 @@ Förnyelse av signerings nyckel är en viktig punkt för att ta hänsyn till i d
 
 Azure AD använder bransch standarder för att upprätta förtroende mellan sig och program som använder Azure AD. Mer specifikt använder Azure AD en signerings nyckel som består av ett offentligt och privat nyckel par. När Azure AD skapar en säkerhetstoken som innehåller information om användaren, signeras den av Azure AD med en privat nyckel innan den skickas tillbaka till programmet. För att verifiera att token är giltig och kommer från Azure AD måste programmet validera token signatur. Programmet använder den offentliga nyckel som exponeras av Azure AD och som finns i klientens dokumentmetadata för federationsmetadata. Den här offentliga nyckeln och den signerings nyckel som den härleds till är samma som används för alla klienter i Azure AD.
 
-Mer information om förnyelse av Azure AD Key finns i [viktig information om förnyelse av signerings nyckel i Azure AD](../../active-directory/active-directory-signing-key-rollover.md).
+Mer information om förnyelse av Azure AD Key finns i [viktig information om förnyelse av signerings nyckel i Azure AD](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Mellan det [offentliga privata nyckel paret](https://login.microsoftonline.com/common/discovery/keys/):
 
@@ -329,7 +329,7 @@ Om du tittar på hur en webbapp anropar en API-app under [program identitet med 
 * Azure AD autentiserar programmet och returnerar en JWT-åtkomsttoken som används för att anropa webb-API: et.
 * Via HTTPS använder webb programmet den returnerade JWT-åtkomsttoken för att lägga till JWT-strängen med beteckningen "Bearer" i rubriken "Authorization" i begäran till webb-API: et. Webb-API: et validerar sedan JWT. Om verifieringen lyckas, returneras önskad resurs.
 
-I det här programmets identitets flöde är webb-API: er som autentiserats för webb programmet. Därför kallas det här mönstret ett betrott under system. [Diagrammet Flow-flöde](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) beskriver hur ett flöde för auktoriserings kod tilldelning fungerar.
+I det här programmets identitets flöde är webb-API: er som autentiserats för webb programmet. Därför kallas det här mönstret ett betrott under system. [Diagrammet Flow-flöde](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) beskriver hur ett flöde för auktoriserings kod tilldelning fungerar.
 
 Licens förvärv med token-begränsning följer samma betrott under Systems mönster. Licens leverans tjänsten i Media Services är webb-API-resursen eller "backend-resursen" som ett webb program behöver åtkomst till. Så var är åtkomsttoken?
 

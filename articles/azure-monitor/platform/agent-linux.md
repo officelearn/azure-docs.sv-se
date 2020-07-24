@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073654"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Anslut Linux-datorer till Azure Monitor
 
@@ -92,7 +93,7 @@ Log Analytics agenten för Linux finns i ett självextraherande och installerbar
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Om autentisering krävs måste du ange användar namn och lösen ord. Ett exempel: 
+    Om autentisering krävs måste du ange användar namn och lösen ord. Exempel: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -154,6 +155,18 @@ Om autentisering krävs i båda fallen måste du ange användar namn och lösen 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
+
+## <a name="supported-linux-hardening"></a>Linux-härdning som stöds
+OMS-agenten har begränsat anpassnings stöd för Linux. 
+
+Följande stöds för närvarande: 
+- FIPs
+
+Följande planeras men stöds ännu inte:
+- CIS-SELINUX
+
+Andra härdnings-och anpassnings metoder stöds inte eller planeras inte för OMS-agenten.  
+
 
 ## <a name="upgrade-from-a-previous-release"></a>Uppgradera från en tidigare version
 

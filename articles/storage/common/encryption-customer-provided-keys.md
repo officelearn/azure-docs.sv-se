@@ -1,25 +1,25 @@
 ---
 title: Ange en krypterings nyckel för en begäran till Blob Storage
 titleSuffix: Azure Storage
-description: Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel per begäran (för hands version). Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder.
+description: Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel per begäran. Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec3d760450fb5cc20deed14dac03f58f23c2b4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805322"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029747"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Ange en krypterings nyckel för en begäran till Blob Storage (för hands version)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Ange en krypterings nyckel för en begäran till Blob Storage
 
-Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel per begäran (för hands version). Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder. Kundspecifika nycklar kan lagras i Azure Key Vault eller i en annan nyckel lagrings plats.
+Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel per begäran. Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder. Kundspecifika nycklar kan lagras i Azure Key Vault eller i en annan nyckel lagrings plats.
 
 ## <a name="encrypting-read-and-write-operations"></a>Kryptera Läs-och skriv åtgärder
 

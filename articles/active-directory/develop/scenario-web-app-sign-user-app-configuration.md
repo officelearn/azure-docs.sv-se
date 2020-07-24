@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 72168c54bd7968ce9c0315d3f3e47bae09e45004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cc846d8d330459587745795edf21c5ac04f2291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026347"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Webbapp som loggar in användare: kod konfiguration
 
@@ -28,7 +29,7 @@ De bibliotek som används för att skydda en webbapp (och ett webb-API) är:
 
 | Plattform | Bibliotek | Beskrivning |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_NET.png) | [Identitets modells tillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Som används direkt av ASP.NET och ASP.NET Core föreslår Microsoft Identity Model-tillägg för .NET en uppsättning dll: er som körs på både .NET Framework och .NET Core. Från en ASP.NET-eller ASP.NET Core-webbapp kan du kontrol lera token-verifieringen med hjälp av **TokenValidationParameters** -klassen (särskilt i vissa partner scenarier). |
+| ![.NET](media/sample-v2-code/logo_NET.png) | [Identitets modells tillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Som används direkt av ASP.NET och ASP.NET Core föreslår Microsoft Identity Model-tillägg för .NET en uppsättning dll: er som körs på både .NET Framework och .NET Core. Från en ASP.NET-eller ASP.NET Core-webbapp kan du kontrol lera token-verifieringen med hjälp av **TokenValidationParameters** -klassen (särskilt i vissa partner scenarier). I praktiken kapslas komplexiteten in i biblioteket [Microsoft. Identity. Web](https://aka.ms/ms-identity-web) |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Stöd för Java-webbprogram |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Stöd för python-webbprogram |
 
@@ -62,7 +63,7 @@ Du kanske vill referera till det här exemplet för fullständig implementerings
 
 ## <a name="configuration-files"></a>Konfigurationsfiler
 
-Webb program som loggar in användare med hjälp av Microsoft Identity Platform konfigureras vanligt vis via konfigurationsfiler. De inställningar som du behöver fylla i är:
+Webb program som loggar in användare med hjälp av Microsoft Identity Platform konfigureras via konfigurationsfiler. De inställningar som du behöver fylla i är:
 
 - Moln instansen ( `Instance` ) om du vill att din app ska köras i nationella moln, till exempel
 - Mål gruppen i klient-ID: t ( `TenantId` )
@@ -210,13 +211,21 @@ I ASP.NET Core Web Apps (och webb-API: er) skyddas programmet eftersom du har et
 Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare Azure AD v 2.0) måste du lägga till följande kod. Kommentarerna i koden bör vara själv för klar Ande.
 
 > [!NOTE]
-> Om du startar ditt projekt med standard ASP.NET Core-webbprojektet i Visual Studio eller med `dotnet new mvc --auth SingleAuth` eller `dotnet new webapp --auth SingleAuth` , ser du kod som följande: `services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options => Configuration.Bind("AzureAd", options));` .
-> 
+> Om du vill börja direkt med de nya ASP.NET Core-mallarna för Microsoft Identity Platform, som utnyttjar Microsoft. Identity. Web, kan du hämta ett för hands versions paket som innehåller projektmallar för .NET Core 3,1 och .NET 5,0. Sedan kan du direkt instansiera ASP.NET Core webb program (MVC eller blixt) när du har installerat. Mer information finns i [Microsoft. Identity. Web webbapp Project templates](https://aka.ms/ms-id-web/webapp-project-templates) . Detta är det enklaste sättet att utföra stegen nedan.
+>
+> Om du föredrar att starta projektet med det aktuella standard ASP.NET Core-webbprojektet i Visual Studio eller genom `dotnet new mvc --auth SingleAuth` att använda eller `dotnet new webapp --auth SingleAuth` kan du se kod som följande:
+>
+>```c#
+>  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
+>          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+> ```
+>
 > Den här koden använder det bakåtkompatibla NuGet-paketet **Microsoft. AspNetCore. Authentication. AzureAD. UI** som används för att skapa ett Azure AD v 1.0-program. Den här artikeln beskriver hur du skapar ett Microsoft Identity Platform-program (Azure AD v 2.0) som ersätter koden.
+>
 
 1. Lägg till NuGet-paketen [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) och [Microsoft. Identity. Web. UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) i projektet. Ta bort paketet Microsoft. AspNetCore. Authentication. AzureAD. UI NuGet om det finns.
 
-2. Uppdatera koden i `ConfigureServices` så att den använder- `AddSignIn` och- `AddMicrosoftIdentityUI` metoderna.
+2. Uppdatera koden i `ConfigureServices` så att den använder- `AddMicrosoftWebAppAuthentication` och- `AddMicrosoftIdentityUI` metoderna.
 
    ```c#
    public class Startup
@@ -225,7 +234,7 @@ Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare A
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddSignIn(Configuration, "AzureAd");
+     services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -250,18 +259,23 @@ Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare A
    ```
 
 I koden ovan:
-- `AddSignIn`Tilläggs metoden definieras i **Microsoft. Identity. Web**. Företaget
+- `AddMicrosoftWebAppAuthentication`Tilläggs metoden definieras i **Microsoft. Identity. Web**. Företaget
   - Lägger till Autentiseringstjänsten.
   - Konfigurerar alternativ för att läsa konfigurations filen (här från avsnittet "AzureAD")
   - Konfigurerar anslutnings alternativen för OpenID så att utfärdaren är Microsoft Identity Platform-slutpunkten.
   - Verifierar utfärdaren av token.
   - Säkerställer att de anspråk som motsvarar namnet mappas från `preferred_username` anspråket i ID-token.
 
-- Förutom konfigurationsobjektet kan du ange namnet på konfigurations avsnittet när du anropar `AddSignIn` . Som standard är det `AzureAd` .
+- Förutom konfigurationsobjektet kan du ange namnet på konfigurations avsnittet när du anropar `AddMicrosoftWebAppAuthentication` . Som standard är det `AzureAd` .
 
-- `AddSignIn`har andra parametrar för avancerade scenarier. Till exempel kan spårning av OpenID ansluta mellanprogram händelser hjälpa dig att felsöka ditt webb program om autentiseringen inte fungerar. Om du anger den valfria parametern `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` till `true` visas hur information bearbetas med en uppsättning ASP.net Core mellanprogram när den fortskrider från http-svaret till användarens identitet i `HttpContext.User` .
+- `AddMicrosoftWebAppAuthentication`har andra parametrar för avancerade scenarier. Till exempel kan spårning av OpenID ansluta mellanprogram händelser hjälpa dig att felsöka ditt webb program om autentiseringen inte fungerar. Om du anger den valfria parametern `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` till `true` visas hur information bearbetas med en uppsättning ASP.net Core mellanprogram när den fortskrider från http-svaret till användarens identitet i `HttpContext.User` .
 
-- `AddMicrosoftIdentityUI`Tilläggs metoden definieras i **Microsoft. Identity. Web. UI**. Den tillhandahåller en standardkontrollant som hanterar utloggning.
+- `AddMicrosoftIdentityUI`Tilläggs metoden definieras i **Microsoft. Identity. Web. UI**. Den tillhandahåller en standardkontrollant för att hantera inloggning och utloggning.
+
+Du hittar mer information om hur Microsoft. Identity. Web ger dig möjlighet att skapa webbappar i<https://aka.ms/ms-id-web/webapp>
+
+> [!WARNING]
+> För närvarande stöder inte Microsoft. Identity. Web scenariot för **enskilda användar konton** (som lagrar användar konton i appen) när du använder Azure AD som och extern inloggnings leverantör. Mer information finns i: [AzureAD/Microsoft-Identity-Web # 133](https://github.com/AzureAD/microsoft-identity-web/issues/133)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

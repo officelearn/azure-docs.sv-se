@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028251"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Felsöka specifika RDP-felmeddelanden till en virtuell Windows-dator i Azure
 Du kan få ett särskilt fel meddelande när du använder fjärr skrivbords anslutning till en virtuell Windows-dator i Azure. I den här artikeln beskrivs några av de vanligaste fel meddelandena, tillsammans med fel söknings steg för att lösa dem. Om du har problem med att ansluta till din virtuella dator med hjälp av RDP men inte stöter på ett fel meddelande, se [fel söknings guiden för fjärr skrivbord](troubleshoot-rdp-connection.md).
@@ -46,7 +46,7 @@ mstsc <File name>.RDP /admin
 
 Om du inte behöver mer än två samtidiga fjärr skrivbords anslutningar till den virtuella datorn kan du använda Serverhanteraren för att ta bort rollen fjärr skrivbords server.
 
-Mer information finns i blogg inlägget [Azure VM Miss lyckas med "inga fjärr skrivbords licens servrar är tillgängliga"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
+Mer information finns i blogg inlägget [Azure VM Miss lyckas med "inga fjärr skrivbords licens servrar är tillgängliga"](/archive/blogs/mast/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available).
 
 <a id="rdpname"></a>
 
@@ -111,6 +111,5 @@ Kontrol lera att det konto som du använder för att ansluta med har inloggnings
 ## <a name="next-steps"></a>Nästa steg
 Om ingen av dessa fel uppstår och du har problem med att ansluta via RDP kan du läsa [fel söknings guiden för fjärr skrivbord](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Fel söknings steg för att komma åt program som körs på en virtuell dator finns i [Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Om du har problem med att använda SSH (Secure Shell) för att ansluta till en virtuell Linux-dator i Azure läser du [FELSÖKA SSH-anslutningar till en virtuell Linux-dator i Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+* Fel söknings steg för att komma åt program som körs på en virtuell dator finns i [Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+* Om du har problem med att använda SSH (Secure Shell) för att ansluta till en virtuell Linux-dator i Azure läser du [FELSÖKA SSH-anslutningar till en virtuell Linux-dator i Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

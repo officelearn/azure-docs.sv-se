@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 66cda98f272e7353b620059a731972714db585ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c7b6ee73513c7e51e3bb18c3835a1d395a4c516
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75374140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028269"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure PowerShell
 Om din virtuella Windows-dator (VM) i Azure påträffar ett start-eller disk fel kan du behöva utföra fel söknings stegen på själva disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure PowerShell för att ansluta disken till en annan virtuell Windows-dator för att åtgärda eventuella fel och sedan reparera den ursprungliga virtuella datorn. 
@@ -41,7 +42,7 @@ Så här ser felsökningsprocessen ut:
 
 Du kan automatisera steg 1, 2, 3, 4, 6 och 7 genom att använda kommandona för reparation av virtuella datorer. Mer dokumentation och instruktioner finns i [Reparera en virtuell Windows-dator med hjälp av reparations kommandona för virtuella Azure-datorer](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Kontrol lera att du har [den senaste Azure PowerShell](/powershell/azure/overview) installerat och loggat in på din prenumeration:
+Kontrol lera att du har [den senaste Azure PowerShell](/powershell/azure/) installerat och loggat in på din prenumeration:
 
 ```powershell
 Connect-AzAccount

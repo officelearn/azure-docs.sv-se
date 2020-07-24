@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3204de6ea497666108ce63b1a3cfa77c6faa6b59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028659"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -46,7 +47,7 @@ New-AzResourceGroup `
    -Name myMaintenanceRG
 ```
 
-Använd [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) för att skapa en underhålls konfiguration. I det här exemplet skapas en underhålls konfiguration med namnet *unconfig* som är begränsad till värden. 
+Använd [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) för att skapa en underhålls konfiguration. I det här exemplet skapas en underhålls konfiguration med namnet *unconfig* som är begränsad till värden. 
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -60,7 +61,7 @@ Med `-MaintenanceScope host` ser du till att underhålls konfigurationen använd
 
 Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din prenumeration.
 
-Du kan fråga efter tillgängliga underhålls konfigurationer med [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
+Du kan fråga efter tillgängliga underhålls konfigurationer med [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
@@ -68,7 +69,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## <a name="assign-the-configuration"></a>Tilldela konfigurationen
 
-Använd [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) för att tilldela konfigurationen till den isolerade virtuella datorn eller den dedikerade Azure-värden.
+Använd [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) för att tilldela konfigurationen till den isolerade virtuella datorn eller den dedikerade Azure-värden.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -105,7 +106,7 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>Sök efter väntande uppdateringar
 
-Använd [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) för att se om det finns väntande uppdateringar. Använd `-subscription` för att ange Azure-prenumerationen för den virtuella datorn om den skiljer sig från den som du är inloggad på.
+Använd [Get-AzMaintenanceUpdate](/powershell/module/az.maintenance/get-azmaintenanceupdate) för att se om det finns väntande uppdateringar. Använd `-subscription` för att ange Azure-prenumerationen för den virtuella datorn om den skiljer sig från den som du är inloggad på.
 
 Om det inte finns några uppdateringar att Visa kommer det här kommandot att returnera ingenting. Annars returneras ett PSApplyUpdate-objekt:
 
@@ -151,7 +152,7 @@ Get-AzMaintenanceUpdate `
 
 ## <a name="apply-updates"></a>Tillämpa uppdateringar
 
-Använd [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) för att tillämpa väntande uppdateringar.
+Använd [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) för att tillämpa väntande uppdateringar.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -182,7 +183,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>Kontrol lera uppdaterings status
-Använd [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) för att kontrol lera status för en uppdatering. De kommandon som visas nedan visar status för den senaste uppdateringen med hjälp av `default` för- `-ApplyUpdateName` parametern. Du kan ersätta namnet på uppdateringen (som returneras av kommandot [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) för att hämta status för en speciell uppdatering.
+Använd [Get-AzApplyUpdate](/powershell/module/az.maintenance/get-azapplyupdate) för att kontrol lera status för en uppdatering. De kommandon som visas nedan visar status för den senaste uppdateringen med hjälp av `default` för- `-ApplyUpdateName` parametern. Du kan ersätta namnet på uppdateringen (som returneras av kommandot [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) ) för att hämta status för en speciell uppdatering.
 
 ```text
 Status         : Completed
@@ -226,7 +227,7 @@ Get-AzApplyUpdate `
 
 ## <a name="remove-a-maintenance-configuration"></a>Ta bort en underhålls konfiguration
 
-Använd [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) om du vill ta bort en underhålls konfiguration.
+Använd [Remove-AzMaintenanceConfiguration](/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) om du vill ta bort en underhålls konfiguration.
 
 ```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025089"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -29,6 +29,9 @@ I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterad
 ![API Management Developer-portalen](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a>Den nya Developer-portalen är inte kompatibel med den äldre Developer-portalen och automatisk migrering är inte möjlig. Du måste manuellt återskapa innehållet (sidor, text, mediefiler) och anpassa utseendet på den nya portalen. I [självstudien för Developer-portalen](api-management-howto-developer-portal-customize.md) hittar du vägledning.
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Hanterade och egen värdbaserade versioner
 
@@ -82,19 +85,13 @@ Om du inte vill återställa portalens innehåll kan du överväga att använda 
 
 Om portalen etablerades efter det allmänna tillgänglighets meddelandet bör den redan ha det nya standard innehållet. Ingen åtgärd krävs från din sida.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Hur kan jag migrera från den gamla Developer-portalen till Developer-portalen?
-
-Portalerna är inkompatibla och du måste migrera innehållet manuellt.
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>Har portalen alla funktioner från den gamla portalen?
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Har portalen alla funktioner i den äldre portalen?
 
 Developer-portalen stöder inte längre *program* och *problem*.
 
-Autentisering med OAuth i den interaktiva Developer-konsolen stöds inte ännu. Du kan följa förloppet genom [GitHub-problemet](https://github.com/Azure/api-management-developer-portal/issues/208).
+### <a name="has-the-legacy-portal-been-deprecated"></a>Har den äldre portalen föråldrats?
 
-### <a name="has-the-old-portal-been-deprecated"></a>Har den gamla portalen föråldrats?
-
-De gamla portarna för utvecklare och utgivare är nu *äldre* funktioner – de kommer endast att ta emot säkerhets uppdateringar. Nya funktioner kommer endast att implementeras i den nya Developer-portalen.
+De äldre funktionerna för utvecklare och utgivare är nu *äldre* funktioner – de kommer endast att ta emot säkerhets uppdateringar. Nya funktioner kommer endast att implementeras i den nya Developer-portalen.
 
 Utfasningen av äldre portaler kommer att meddelas separat. Om du har frågor, rör eller kommentarer kan du höja dem [i ett dedikerat GitHub-problem](https://github.com/Azure/api-management-developer-portal/issues/121).
 

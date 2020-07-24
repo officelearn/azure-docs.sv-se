@@ -9,19 +9,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 511c3aa65bf0a10e42d7a54c98662cc388a5d711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028232"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Använd D:-enheten som en data enhet på en virtuell Windows-dator
 Om ditt program behöver använda D-enheten för att lagra data, följer du dessa instruktioner för att använda en annan enhets beteckning för den tillfälliga disken. Använd aldrig den temporära disken för att lagra data som du behöver behålla.
 
 Om du ändrar storlek på eller **stoppar (frigör)** en virtuell dator kan detta utlösa placeringen av den virtuella datorn till en ny hypervisor. En planerad eller oplanerad underhålls händelse kan också utlösa denna placering. I det här scenariot omtilldelas den temporära disken till den första tillgängliga enhets beteckningen. Om du har ett program som specifikt kräver D: Drive måste du följa de här stegen för att tillfälligt flytta pagefile.sys, koppla en ny datadisk och pagefile.sys tilldela den till den temporära enheten. När den är klar kommer Azure inte att ta tillbaka D: om den virtuella datorn flyttas till en annan hypervisor.
 
-Mer information om hur Azure använder den temporära disken finns i [förstå den temporära enheten på Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Mer information om hur Azure använder den temporära disken finns i [förstå den temporära enheten på Microsoft Azure Virtual Machines](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ## <a name="attach-the-data-disk"></a>Koppla data disken
 Först måste du koppla data disken till den virtuella datorn. Information om hur du gör detta med hjälp av portalen finns i [så här ansluter du en hanterad datadisk i Azure Portal](attach-managed-disk-portal.md).
@@ -59,4 +59,3 @@ Först måste du koppla data disken till den virtuella datorn. Information om hu
 
 ## <a name="next-steps"></a>Nästa steg
 * Du kan öka lagrings utrymmet som är tillgängligt för den virtuella datorn genom att [koppla ytterligare en data disk](attach-managed-disk-portal.md).
-

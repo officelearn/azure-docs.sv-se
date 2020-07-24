@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f56427dabdee715412596557fa075c5eb4df500
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027316"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -56,7 +56,7 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 
 | NameID-format | Beskrivning |
 |---------------|-------------|
-| **Default** | Standardvärdet för käll formatet används i Azure AD. |
+| **Standard** | Standardvärdet för käll formatet används i Azure AD. |
 | **Permanent** | Azure AD kommer att använda beständigt som NameID-format. |
 | **EmailAddress** | Azure AD kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerat** | Azure AD kommer att använda ospecificerat som NameID-format. |
@@ -68,7 +68,7 @@ En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och 
 
 Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan välja bland följande alternativ.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | E-post | Användarens e-postadress |
 | userprincipalName | Användarens huvud namn (UPN) |
@@ -164,7 +164,7 @@ Så här lägger du till ett anspråks villkor:
 
 1. I **Hantera anspråk**expanderar du anspråks villkoren.
 2. Välj användar typ.
-3. Välj de grupper som användaren ska tillhöra. Du kan välja upp till 10 unika grupper i alla anspråk för ett angivet program. 
+3. Välj de grupper som användaren ska tillhöra. Du kan välja upp till 50 unika grupper i alla anspråk för ett angivet program. 
 4. Välj **källan** där anspråket ska hämta sitt värde. Du kan välja ett användarattribut från List rutan källattribut eller tillämpa en omvandling till användarattribut innan du avger det som ett anspråk.
 
 Den ordning som du lägger till villkoren i är viktiga. Azure AD utvärderar villkoren från uppifrån och ned för att bestämma vilket värde som ska ställas in i anspråket. 

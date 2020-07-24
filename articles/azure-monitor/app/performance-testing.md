@@ -4,16 +4,17 @@ description: Konfigurera prestanda-och belastnings test med Azure Application In
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8885a2e511c11317f593706255437e52819adcae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669870"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024358"
 ---
 # <a name="performance-testing"></a>Prestandatestning
 
 > [!NOTE]
-> Den molnbaserade belastnings test tjänsten är föråldrad. Mer information om utfasningen, tillgänglighet för tjänsten och alternativa tjänster finns [här](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> Den molnbaserade belastnings test tjänsten är föråldrad. Mer information om utfasningen, tillgänglighet för tjänsten och alternativa tjänster finns [här](/azure/devops/test/load-test/overview?view=azure-devops).
 
 Med Application Insights kan du generera belastnings test för dina webbplatser. Som [tillgänglighets test](monitor-web-app-availability.md)kan du skicka antingen grundläggande förfrågningar eller [flera steg](availability-multistep.md) från Azure test agenter runtom i världen. Med prestandatester kan du simulera upp till 20 000 samtidiga användare i upp till 60 minuter.
 
@@ -33,7 +34,7 @@ Under **Konfigurera**går du till **prestanda testning** och klickar på **ny** 
 
 Om du vill skapa ett grundläggande prestandatest väljer du en test typ för **manuellt test** och fyller i önskade inställningar för ditt test.
 
-|Inställningen| Maxvärde
+|Inställning| Maxvärde
 |----------|------------|
 | Användar belastning | 20 000 |
 | Varaktighet (minuter)  | 60 |  

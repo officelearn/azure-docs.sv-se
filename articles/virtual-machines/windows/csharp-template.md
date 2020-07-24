@@ -8,18 +8,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25d8dc467ce8f7e34faaeaa2c61fd0c5da1da4e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082925"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027962"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en virtuell Azure-dator med C# och en Resource Manager-mall
 
 Den här artikeln visar hur du distribuerar en Azure Resource Manager-mall med C#. Mallen som du skapar distribuerar en enskild virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
 
-En detaljerad beskrivning av den virtuella dator resursen finns [i virtuella datorer i en Azure Resource Manager mall](template-description.md). Mer information om alla resurser i en mall finns i [genom gång av Azure Resource Manager mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+En detaljerad beskrivning av den virtuella dator resursen finns [i virtuella datorer i en Azure Resource Manager mall](template-description.md). Mer information om alla resurser i en mall finns i [genom gång av Azure Resource Manager mall](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 Det tar cirka 10 minuter att utföra dessa steg.
 
@@ -27,7 +27,7 @@ Det tar cirka 10 minuter att utföra dessa steg.
 
 I det här steget ser du till att Visual Studio är installerat och du skapar ett konsol program som används för att distribuera mallen.
 
-1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
+1. Om du inte redan har gjort det installerar du [Visual Studio](/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
 2. I Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt**.
 3. I **mallar**  >  **Visual C#** väljer du **konsol program (.NET Framework)**, anger *myDotnetProject* som namn på projektet, väljer projektets plats och klickar sedan på **OK**.
 
@@ -325,5 +325,5 @@ Det bör ta ungefär fem minuter för konsol programmet att köras helt från b�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om det uppstod problem med distributionen är ett nästa steg att titta på [Felsök vanliga problem med Azure-distribution med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+* Om det uppstod problem med distributionen är ett nästa steg att titta på [Felsök vanliga problem med Azure-distribution med Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 * Lär dig hur du distribuerar en virtuell dator och dess stöd resurser genom att granska [distribuera en virtuell Azure-dator med C#](csharp.md).

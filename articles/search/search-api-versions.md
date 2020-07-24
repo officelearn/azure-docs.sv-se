@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
-ms.openlocfilehash: 2cdac18ed20c90861fe23f0a9ccbd02680d380af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: 5be50453dff9acaf4a9876eec1d95b56abebf745
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029849"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -24,7 +24,7 @@ Som regel publicerar Azure Kognitiv sökning-teamet nya versioner endast när de
 Samma regel gäller för SDK-uppdateringar. Azure Kognitiv sökning SDK följer reglerna för [semantisk version](https://semver.org/) , vilket innebär att dess version har tre delar: Major, mindre och build-nummer (till exempel 1.1.0). En ny huvud version av SDK släpps bara för ändringar som bryter mot bakåtkompatibilitet. Icke-brytande funktions uppdateringar kommer att öka den lägre versionen, och fel korrigeringarna ökar bara versions versionen.
 
 > [!Important]
-> Azure-SDK: er för .NET, Java, python och Java Script tar bort nya klient bibliotek för Azure Kognitiv sökning. För närvarande har inget av Azure SDK-biblioteken stöd för de senaste Sök REST-API: erna (2020-06-30) eller hantering REST API: er (2020-03-13), men detta kommer att ändras med tiden. Du kan regelbundet kontrol lera den här sidan eller [vad som är nytt](whats-new.md) för meddelanden om funktionella förbättringar. 
+> Azure-SDK: er för .NET, Java, python och Java Script tar bort nya klient bibliotek för Azure Kognitiv sökning. För närvarande har inget av Azure SDK-biblioteken fullständigt stöd för de senaste Sök REST-API: erna (2020-06-30) eller hantering REST API: er (2020-03-13), men det kommer att ändras med tiden. Du kan regelbundet kontrol lera den här sidan eller [vad som är nytt](whats-new.md) för meddelanden om funktionella förbättringar. 
 
 ## <a name="rest-apis"></a>REST API:er
 
@@ -69,7 +69,7 @@ Paket versions historik finns på NuGet.org. Den här tabellen innehåller länk
 
 | SDK-version | Status | Beskrivning |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11,0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Mål för search REST API-version = 2019-05-06. |
+| [Azure.Search.Documents 11,0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Rikta in the search REST API-version = 2020-06-30 REST API men ännu inte stöder, geo-filter eller [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
 | [Microsoft. Azure. search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Lanserad maj 2019. Mål för search REST API-version = 2019-05-06.|
 | [Microsoft. Azure. search 8,0 – för hands version](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Förhandsgranskning | lanserad 2019 april. Riktar in the search REST API-version = 2019-05 -06 – Preview.|
 | [Microsoft. Azure. Management. search 3.0.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Rikta in the Management REST API-version = 2015-08-19.  |

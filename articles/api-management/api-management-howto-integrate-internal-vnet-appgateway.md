@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 08e718739971283418d151bef9ad75333e313d85
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025123"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt VNET med Application Gateway
 
@@ -35,7 +35,7 @@ Om du kombinerar API Management som har skapats i ett internt virtuellt nätverk
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,6 +88,11 @@ I den här guiden kommer vi också att exponera **utvecklings portalen** för ex
 
 > [!WARNING]
 > Om du vill förhindra att Application Gateway WAF avbryter hämtningen av OpenAPI-specifikationen i Developer-portalen måste du inaktivera brand Väggs regeln `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
+> 
+> Application Gateway WAF-regler, som kan bryta portalens funktioner:
+> 
+> - `920330`,,,,,,, `931130` `942100` `942110` `942180` `942200` `942260` `942370` `949110` `980130` för administrations läge
+> - `942200`,,, `942260` `942370` `942430` , `942440` för den publicerade portalen
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027503"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure MFA per användare för att skydda inloggningshändelser
 
@@ -38,7 +38,7 @@ Användar konton i Azure Multi-Factor Authentication har följande tre distinkta
 
 | Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Nej | Nej | Nej |
+| Inaktiverad | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Inga | Inga | Inga |
 | Enabled | Användaren har registrerats i Azure Multi-Factor Authentication men inte registrerat autentiseringsmetoder. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure Multi-Factor Authentication registrering.| Ja. När åtkomsttoken har upphört att gälla krävs Azure Multi-Factor Authentication registrering. |
 | Enforced | Användaren har registrerats och slutfört registrerings processen för Azure Multi-Factor Authentication. | Ja. Appar kräver applösenord. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. |
 
@@ -78,11 +78,11 @@ När du har aktiverat användarna ska du meddela dem via e-post. Berätta för a
 
 ## <a name="change-state-using-powershell"></a>Ändra tillstånd med PowerShell
 
-Om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powershell/azure/overview)ändrar du `$st.State` parametern för ett användar konto. Det finns tre möjliga tillstånd för ett användar konto:
+Om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powershell/azure/)ändrar du `$st.State` parametern för ett användar konto. Det finns tre möjliga tillstånd för ett användar konto:
 
 * *Aktiverad*
 * *Enforced*
-* *Inaktiverad*  
+* *Disabled* (Inaktiverat)  
 
 Flytta inte användare direkt till *framtvingat* tillstånd. Om du gör det upphör icke-webbläsarbaserade appar att fungera eftersom användaren inte har gått igenom Azure Multi-Factor Authentication registrering och fått ett [applösenord](howto-mfa-app-passwords.md).
 
@@ -177,12 +177,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Vi har nyligen ändrat beteendet och det här PowerShell-skriptet. Tidigare har skriptet sparat av MFA-metoderna, inaktiverat MFA och återställt metoderna. Detta behövs inte längre nu när standard beteendet för inaktivera inte tar bort metoderna.
->
 > Om MFA återaktiveras på ett användar objekt som redan har registrerings information, till exempel telefon eller e-post, måste administratörerna ha den användaren omregistrera MFA via Azure Portal eller PowerShell. Om användaren inte omregistreras, övergår inte MFA-statusen över från *aktive rad* till *tvingande* i MFA management UI.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar Azure Multi-Factor Authentication inställningar som tillförlitliga IP-adresser, anpassade röst meddelanden och bedrägeri aviseringar finns i [Konfigurera inställningar för azure Multi-Factor Authentication](howto-mfa-mfasettings.md). Information om hur du hanterar användar inställningar för Azure Multi-Factor Authentication finns i [hantera användar inställningar med azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
+Information om hur du konfigurerar inställningar för Azure-Multi-Factor Authentication finns i [Konfigurera inställningar för azure Multi-Factor Authentication](howto-mfa-mfasettings.md).
+
+Information om hur du hanterar användar inställningar för Azure Multi-Factor Authentication finns i [hantera användar inställningar med azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
 Mer information om varför en användare uppmanas att göra MFA finns i [Azure Multi-Factor Authentication-rapporter](howto-mfa-reporting.md).

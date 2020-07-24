@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: fc8304fb068152c800d7b71f77fb601956fb6510
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698308"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023407"
 ---
 # <a name="changelog"></a>Ändringslogg #
 
@@ -72,7 +72,7 @@ ms.locfileid: "83698308"
 
 ### <a name="changes"></a>Något ###
 
-- Ändrade [Direkt textning] API-namnet för CEA-textning har ändrats från 608 till 708. Mer information finns i [Inställningar för CEA708-textning](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- Ändrade [Direkt textning] API-namnet för CEA-textning har ändrats från 608 till 708. Mer information finns i [Inställningar för CEA708-textning](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (officiell utgåva) ##
 
@@ -448,7 +448,7 @@ ms.locfileid: "83698308"
 
 ### <a name="features-160"></a>Funktioner 1.6.0 ###
 
-- [Funktion] 33% storleks minskning av azuremediaplayer. min. js
+- [Funktion] 33% storleks minskning av azuremediaplayer.min.js
 - Zoomfunktionen [AzureHtml5JS | Edge] [avtestat] stöd för DD + ljud strömmar i Edge (ingen codec-växel efter det första valet). Appen måste välja rätt ljud ström för tillfället.
 - Zoomfunktionen Snabb tangents kontroller (se dokument för mer information)
 - Zoomfunktionen Förlopps indikator för förlopps fördröjning för korrekt sökning

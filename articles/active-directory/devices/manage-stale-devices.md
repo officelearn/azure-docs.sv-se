@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 292ba1d52b107acd164408767747e5a33cb0c67d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025648"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
@@ -56,7 +57,7 @@ Du har två alternativ för att hämta aktivitetsstämpelns värde:
 
     ![Aktivitetstidsstämpel](./media/manage-stale-devices/01.png)
 
-- Cmdleten [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+- Cmdleten [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
     ![Aktivitetstidsstämpel](./media/manage-stale-devices/02.png)
 
@@ -88,7 +89,7 @@ Om din enhet kontrolleras av Intune eller någon annan MDM-lösning fasar du ut 
 
 ### <a name="system-managed-devices"></a>Systemhanterade enheter
 
-Ta inte bort systemhanterade enheter. Detta är vanligt vis enheter som autopilot. De här enheterna kan inte reserveras när de har tagits bort. Den nya cmdleten `get-msoldevice` exkluderar systemhanterade enheter som standard. 
+Ta inte bort systemhanterade enheter. Detta är vanligt vis enheter som autopilot. De här enheterna kan inte reserveras när de har tagits bort. Den nya cmdleten `Get-AzureADDevice` exkluderar systemhanterade enheter som standard. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
@@ -128,26 +129,25 @@ Du kan rensa inaktuella enheter i Azure-portalen men det är effektivare att han
 
 En typisk rutin består av följande steg:
 
-1. Ansluta till Azure Active Directory med hjälp av cmdleten [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
+1. Ansluta till Azure Active Directory med cmdleten [Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 1. Hämta listan över enheter
-1. Inaktivera enheten med hjälp av cmdleten [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
+1. Inaktivera enheten med cmdleten [set-AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) (inaktivera med alternativet-AccountEnabled). 
 1. Vänta på respitperioden för det angivna antalet dagar innan du tar bort enheten.
-1. Ta bort enheten med hjälp av cmdleten [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+1. Ta bort enheten med cmdleten [Remove-AzureADDevice](/powershell/module/azuread/Remove-AzureADDevice) .
 
 ### <a name="get-the-list-of-devices"></a>Hämta listan över enheter
 
 Hämta alla enheter och lagra returnerade data i en CSV-fil:
 
 ```PowerShell
-Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
-mateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
 Om du har ett stort antal enheter i katalogen använder du filtret tidsstämpel för att begränsa antalet returnerade enheter. Hämta alla enheter med en äldre tidsstämpel än ett visst datum och lagra returnerade data i en CSV-fil: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>Det här bör du veta

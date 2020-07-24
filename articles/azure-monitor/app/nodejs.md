@@ -3,11 +3,12 @@ title: Övervaka din Node.js-tjänster med Azure Application Insights | Microsof
 description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309772"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024392"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -23,12 +24,12 @@ Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare 
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
-[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
 ### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Konfigurera en Application Insights resurs
 
@@ -372,7 +373,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Du kan skapa flera Application Insights-resurser och skicka olika data till var och en genom att använda deras respektive instrument knappar ("iKey").
 
- Ett exempel:
+ Exempel:
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -419,4 +420,4 @@ De här egenskaperna är klient särskilda, så du kan konfigurera `appInsights.
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
+[FAQ]: ../faq.md

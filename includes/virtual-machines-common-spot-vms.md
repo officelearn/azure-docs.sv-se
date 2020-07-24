@@ -1,35 +1,31 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df78133f602466681da64d2666a311e1649c598f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506061"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028811"
 ---
 Med hjälp av virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
 
 Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid och dag. När du distribuerar virtuella datorer, allokerar Azure de virtuella datorerna om det finns tillgänglig kapacitet, men det finns inget service avtal för dessa virtuella datorer. En VM-VM ger inga garantier för hög tillgänglighet. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella platser med 30 sekunders varsel. 
 
 
-## <a name="eviction-policy"></a>Borttagnings princip
+## <a name="eviction-policy"></a>Avlägsnandeprincip
 
 Virtuella datorer kan avlägsnas baserat på kapacitet eller det högsta pris som du har angett. När du skapar en virtuell dator för virtuella datorer kan du ange att principen ska *avallokeras* eller *tas bort*. 
 
 Principen *frigör* flyttar den virtuella datorn till statusen stoppad-frigjord, så att du kan distribuera den igen senare. Det finns dock ingen garanti för att allokeringen ska lyckas. De friallokerade virtuella datorerna räknas av mot kvoten och du debiteras lagrings kostnaderna för de underliggande diskarna. 
 
 Om du vill att den virtuella datorn ska tas bort när den tas bort kan du ange vilken borttagnings princip som ska *tas bort*. De avlägsnade virtuella datorerna tas bort tillsammans med deras underliggande diskar, så du kan inte fortsätta att debiteras för lagringen. 
-
-> [!NOTE]
->
-> Portalen stöder för närvarande inte `Delete` borttagnings alternativ, du kan bara ange `Delete` POWERSHELL, CLI och mallar.
 
 Du kan välja att ta emot meddelanden i virtuella datorer via [Azure schemalagda händelser](../articles/virtual-machines/linux/scheduled-events.md). Detta meddelar dig om dina virtuella datorer avlägsnas och du har 30 sekunder på dig att slutföra jobben och utföra avstängnings uppgifter innan avlägsnandet. 
 
@@ -54,19 +50,14 @@ Följande VM-storlekar stöds inte för virtuella datorer på platsen:
 
 Virtuella datorer kan distribueras till vilken region som helst, förutom Microsoft Azure Kina 21Vianet.
 
-Vissa prenumerations kanaler stöds inte:
-
 <a name="channel"></a>
 
-| Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
-|------------------------------|-----------------------------------|
-| Enterprise-avtal         | Ja                               |
-| Betala per användning                | Ja                               |
-| Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Fördelar                     | Inte tillgänglig                     |
-| Sponsrat                    | Ja                               |
-| Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
+Följande [typer av erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) stöds för närvarande:
 
+-   Enterprise-avtal
+-   Betala per användning
+-   Sponsrat
+- För Cloud Service Provider (CSP) kontaktar du din partner
 
 
 ## <a name="pricing"></a>Prissättning

@@ -3,15 +3,16 @@ title: Övervaka prestanda på virtuella Azure-datorer – Azure Application ins
 description: Övervakning av program prestanda för virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77661336"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024640"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Distribuera Azure Monitor Application Insights-agenten på virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer
 
-Nu är det enklare än någonsin att aktivera övervakning av .NET-baserade webb program som körs på [virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/) och [skalnings uppsättningar för virtuella Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) -datorer. Få alla fördelar med att använda Application Insights utan att ändra koden.
+Nu är det enklare än någonsin att aktivera övervakning av .NET-baserade webb program som körs på [virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/) och [skalnings uppsättningar för virtuella Azure](../../virtual-machine-scale-sets/index.yml) -datorer. Få alla fördelar med att använda Application Insights utan att ändra koden.
 
 Den här artikeln vägleder dig genom att aktivera Application Insights övervakning med hjälp av Application Insights agent och ger preliminär vägledning för att automatisera processen för storskalig distribution.
 
@@ -29,15 +30,15 @@ Det finns två sätt att aktivera program övervakning för virtuella Azure-dato
 
     * För virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer rekommenderar vi att du minst aktiverar den här övervaknings nivån. Efter det, baserat på ditt speciella scenario, kan du utvärdera om du behöver manuell Instrumentation.
 
-    * Application Insights agenten automatiskt samlar in samma beroende signaler som är färdiga som .NET SDK. Mer information finns i [beroende automatisk insamling](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) .
+    * Application Insights agenten automatiskt samlar in samma beroende signaler som är färdiga som .NET SDK. Mer information finns i [beroende automatisk insamling](./auto-collect-dependencies.md#net) .
         > [!NOTE]
         > För närvarande stöds endast .NET IIS-värdbaserade program. Använd ett SDK för att instrumentera ASP.NET Core-, Java-och Node.js-program som finns på en virtuell Azure-dator och skalnings uppsättningar för virtuella datorer.
 
 * **Kod baserad** via SDK
 
-    * Den här metoden är mycket mer anpassningsbar, men kräver [att du lägger till ett beroende på Application Insights SDK NuGet-paket](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Den här metoden innebär också att du måste hantera uppdateringarna till den senaste versionen av paketen själv.
+    * Den här metoden är mycket mer anpassningsbar, men kräver [att du lägger till ett beroende på Application Insights SDK NuGet-paket](./asp-net.md). Den här metoden innebär också att du måste hantera uppdateringarna till den senaste versionen av paketen själv.
 
-    * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte har registrerats som standard med en agent-baserad övervakning, behöver du använda den här metoden. Mer information finns i [artikeln om API för anpassade händelser och mått](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) .
+    * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte har registrerats som standard med en agent-baserad övervakning, behöver du använda den här metoden. Mer information finns i [artikeln om API för anpassade händelser och mått](./api-custom-events-metrics.md) .
 
 > [!NOTE]
 > Om både agentbaserade övervakning och manuellt SDK-baserad Instrumentation identifieras, kommer de manuella Instrumentation inställningarna att påverkas. Detta är för att förhindra att duplicerade data skickas. Mer information om det här finns i [fel söknings avsnittet](#troubleshooting) nedan.
@@ -45,10 +46,10 @@ Det finns två sätt att aktivera program övervakning för virtuella Azure-dato
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Hantera Application Insights agent för .NET-program på virtuella Azure-datorer med PowerShell
 
 > [!NOTE]
-> Innan du installerar Application Insights agent behöver du en anslutnings sträng. [Skapa en ny Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) eller kopiera anslutnings strängen från en befintlig Application Insights-resurs.
+> Innan du installerar Application Insights agent behöver du en anslutnings sträng. [Skapa en ny Application Insights resurs](./create-new-resource.md) eller kopiera anslutnings strängen från en befintlig Application Insights-resurs.
 
 > [!NOTE]
-> Ny till PowerShell? Kolla in [guiden kom igång](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> Ny till PowerShell? Kolla in [guiden kom igång](/powershell/azure/get-started-azureps?view=azps-2.5.0).
 
 Installera eller uppdatera Application Insights agenten som ett tillägg för virtuella Azure-datorer
 ```powershell
@@ -98,7 +99,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-Du kan också Visa installerade tillägg i [bladet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) i portalen.
+Du kan också Visa installerade tillägg i [bladet för virtuella Azure-datorer](../../virtual-machines/extensions/overview.md) i portalen.
 
 > [!NOTE]
 > Verifiera installationen genom att klicka på Live Metrics Stream i den Application Insights resurs som är associerad med den anslutnings sträng som du använde för att distribuera Application Insights agent tillägget. Om du skickar data från flera Virtual Machines väljer du de virtuella Azure-datorerna under Server namn. Det kan ta upp till en minut innan data börjar flöda.

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682394"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026517"
 ---
 # <a name="single-page-application-app-registration"></a>Program med en sida: app-registrering
 
@@ -28,7 +29,7 @@ Börja med att utföra följande steg för att skapa den första appens registre
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Om ditt konto har åtkomst till flera klienter väljer du filtret **katalog + prenumeration** på den översta menyn och väljer sedan den klient som ska innehålla den app-registrering som du håller på att skapa.
 1. Sök efter och välj **Azure Active Directory**.
-1. Under **Hantera**väljer du **Appregistreringar**.
+1. Välj **Appregistreringar** under **Hantera**.
 1. Välj **ny registrering**, ange ett **namn** för programmet och välj de **konto typer som stöds** för programmet. Ange **ingen** **omdirigerings-URI**. En beskrivning av de olika konto typerna finns i [Registrera ett nytt program med hjälp av Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 1. Välj **Registrera** för att skapa appens registrering.
 
@@ -37,7 +38,7 @@ Konfigurera sedan appens registrering med en **omdirigerings-URI** för att ange
 - [MSAL.js 2,0 med auth Code Flow](#redirect-uri-msaljs-20-with-auth-code-flow) (rekommenderas)
 - [MSAL.js 1,0 med implicit flöde](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Omdirigerings-URI: MSAL.js 2,0 med auth Code Flow
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Omdirigerings-URI: [MSAL.js 2,0 med auth Code Flow](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 Följ dessa steg om du vill lägga till en omdirigerings-URI för en app som använder MSAL.js 2,0 eller senare. MSAL.js 2.0 + stöder auktoriseringskod-flödet med PKCE och CORS som svar på [webb läsar begränsningar från tredje part](reference-third-party-cookies-spas.md). Det implicita tilldelnings flödet stöds inte i MSAL.js 2.0 +.
 
@@ -49,7 +50,9 @@ Följ dessa steg om du vill lägga till en omdirigerings-URI för en app som anv
 
 Du har nu slutfört registreringen av ett enda webb program (SPA) och konfigurerat en omdirigerings-URI som klienten ska omdirigeras till och eventuella säkerhetstoken kommer att skickas. Genom att konfigurera omdirigerings-URI: n med hjälp av program panelen på en **sida** i fönstret **Lägg till en plattform** konfigureras program registreringen för att stödja AUKTORISERINGSKOD med PKCE och CORS.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Omdirigerings-URI: MSAL.js 1,0 med implicit flöde
+Följ [själv studie kursen](tutorial-v2-javascript-auth-code.md) för ytterligare vägledning.
+
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Omdirigerings-URI: [MSAL.js 1,0 med implicit flöde](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 Följ dessa steg om du vill lägga till en omdirigerings-URI för en app med en enda sida som använder MSAL.js 1,3 eller tidigare och det implicita tilldelnings flödet. Program som använder MSAL.js 1,3 eller tidigare stöder inte auth Code Flow.
 
@@ -63,6 +66,8 @@ Följ dessa steg om du vill lägga till en omdirigerings-URI för en app med en 
 1. Välj **Konfigurera** för att slutföra tillägg av omdirigerings-URI.
 
 Du har nu slutfört registreringen av ett enda webb program (SPA) och konfigurerat en omdirigerings-URI som klienten ska omdirigeras till och eventuella säkerhetstoken kommer att skickas. Genom att välja en eller båda av **ID-tokens** och **åtkomsttoken**har du aktiverat det implicita tilldelnings flödet.
+
+Följ [själv studie kursen](tutorial-v2-javascript-spa.md) för ytterligare vägledning. 
 
 ## <a name="note-about-authorization-flows"></a>Information om auktoriserings flöden
 

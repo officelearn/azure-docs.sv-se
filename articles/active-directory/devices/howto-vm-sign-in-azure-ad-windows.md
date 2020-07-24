@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025854"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
-Organisationer kan nu använda Azure Active Directory (AD)-autentisering för sina virtuella Azure-datorer (VM) som kör **Windows Server 2019 Data Center Edition** eller **Windows 10 1809** och senare. Genom att använda Azure AD för att autentisera till virtuella datorer får du ett sätt att centralt styra och tillämpa principer. Med verktyg som Azure rollbaserad Access Control (RBAC) och villkorlig åtkomst i Azure AD kan du kontrol lera vem som har åtkomst till en virtuell dator. Den här artikeln visar hur du skapar och konfigurerar en virtuell Windows Server 2019-dator för att använda Azure AD-autentisering.
+Organisationer kan nu använda Azure Active Directory (AD)-autentisering för sina virtuella Azure-datorer (VM) som kör **Windows Server 2019 Data Center Edition** eller **Windows 10 1809** och senare. Genom att använda Azure AD för att autentisera till virtuella datorer får du ett sätt att centralt styra och tillämpa principer. Verktyg som rollbaserad åtkomst kontroll i Azure (Azure RBAC) och Azure AD villkorlig åtkomst gör det möjligt att kontrol lera vem som har åtkomst till en virtuell dator. Den här artikeln visar hur du skapar och konfigurerar en virtuell Windows Server 2019-dator för att använda Azure AD-autentisering.
 
 > [!NOTE]
 > Azure AD-inloggning för virtuella Azure Windows-datorer är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -84,7 +84,7 @@ Så här skapar du en Windows Server 2019 datacenter-VM i Azure med Azure AD-inl
 1. Logga in på [Azure Portal](https://portal.azure.com)med ett konto som har åtkomst till att skapa virtuella datorer och välj **+ skapa en resurs**.
 1. Skriv **Windows Server** i Sök i Sök fältet i Marketplace.
    1. Klicka på **Windows Server** och välj **Windows Server 2019 Data Center** i list rutan Välj en program varu plan.
-   1. Klicka på **Skapa**.
+   1. Klicka på **skapa**.
 1. På fliken "hantering" aktiverar du alternativet att **Logga in med AAD-autentiseringsuppgifter (för hands version)** under avsnittet Azure Active Directory från till **på**.
 1. Se till att **systemtilldelad hanterad identitet** under avsnittet identitet är inställt **på on**. Den här åtgärden ska ske automatiskt när du aktiverar inloggning med autentiseringsuppgifter för Azure AD.
 1. Gå igenom resten av upplevelsen med att skapa en virtuell dator. Under för hands versionen måste du skapa ett administratörs användar namn och lösen ord för den virtuella datorn.
@@ -202,6 +202,9 @@ Du kan tillämpa principer för villkorlig åtkomst, till exempel Multi-Factor A
 > [!NOTE]
 > Om du använder "Kräv Multi-Factor Authentication" som en beviljande åtkomst kontroll för att begära åtkomst till appen "Azure Windows VM-inloggning" måste du ange Multi-Factor Authentication-anspråk som en del av klienten som initierar RDP-sessionen till den virtuella Windows-datorn i Azure. Det enda sättet att åstadkomma detta på en Windows 10-klient är att använda Windows Hello för företag-PIN-kod eller bio metrisk autentisering med RDP-klienten. Stöd för bio metrisk autentisering har lagts till i RDP-klienten i Windows 10 version 1809. Fjärr skrivbord med Windows Hello för företag-autentisering är bara tillgängligt för distributioner som använder certifikat förtroende modell och som för närvarande inte är tillgängligt för nyckel förtroende modell.
 
+> [!WARNING]
+> Per användare aktive rad/Tvingad Azure-Multi-Factor Authentication stöds inte för VM-inloggning.
+
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logga in med autentiseringsuppgifter för Azure AD till en virtuell Windows-dator
 
 > [!IMPORTANT]
@@ -211,7 +214,7 @@ Logga in på din virtuella Windows Server 2019-dator med hjälp av Azure AD:
 
 1. Gå till översikts sidan för den virtuella dator som har Aktiver ATS med Azure AD-inloggning.
 1. Välj **Anslut** för att öppna bladet Anslut till virtuell dator.
-1. Välj **Ladda ned RDP-fil**.
+1. Välj **Hämta RDP-fil**.
 1. Välj **Öppna** för att starta anslutning till fjärrskrivbord-klienten.
 1. Välj **Anslut** för att starta dialog rutan Windows-inloggning.
 1. Logga in med dina autentiseringsuppgifter för Azure AD.

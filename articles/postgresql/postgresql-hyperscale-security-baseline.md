@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL-storskalig säkerhets bas linje för Azures säkerhets benchmark
+title: Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig
 description: Säkerhets bas linjen Azure Database for PostgreSQL-storskalig ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca08ac30c5d8e925197a0df1d327bf9a0923b046
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd6d3ef6f610dcbdc511297e459cc5856bebe033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030053"
 ---
-# <a name="azure-database-for-postgresql---hyperscale-security-baseline-for-azure-security-benchmark"></a>Azure Database for PostgreSQL-storskalig säkerhets bas linje för Azures säkerhets benchmark
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig
 
 Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 

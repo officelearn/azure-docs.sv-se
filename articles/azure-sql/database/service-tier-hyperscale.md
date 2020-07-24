@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024001"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -181,11 +181,11 @@ Aktiverade regioner:
 - Australien, centrala
 - Brasilien, södra
 - Kanada, centrala
-- USA, centrala
+- Central US
 - Kina, östra 2
 - Kina, norra 2
 - Asien, östra
-- USA, östra
+- East US
 - USA, östra 2
 - Frankrike, centrala
 - Tyskland, västra centrala
@@ -194,7 +194,7 @@ Aktiverade regioner:
 - Sydkorea, centrala
 - Sydkorea, södra
 - USA, norra centrala
-- Europa, norra
+- Norra Europa
 - Östra Norge
 - Norge, väst
 - Sydafrika, norra
@@ -218,7 +218,7 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 
 | Problem | Beskrivning |
 | :---- | :--------- |
-| I fönstret hantera säkerhets kopior för en server visas inte storskaliga databaser. De kommer att filtreras från vyn.  | Den storskaliga metoden för att hantera säkerhets kopieringar har en separat metod för att hantera säkerhets kopior, så den långsiktiga kvarhållning och inställningarna för kvarhållning av säkerhets kopior av tidpunkt gäller inte. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering.|
+| I fönstret hantera säkerhets kopior för en server visas inte storskaliga databaser. De kommer att filtreras från vyn.  | Den storskaliga metoden för att hantera säkerhets kopieringar har en separat metod för att hantera säkerhets kopior, så den långsiktiga kvarhållning och inställningarna för kvarhållning av säkerhets kopior av tidpunkt gäller inte. Därför visas inte storskaliga databaser i fönstret hantera säkerhets kopiering.<br><br>För databaser som har migrerats till storskaligheten från andra Azure SQL Database tjänst nivåer behålls säkerhets kopiorna innan migreringen [backup retention](automated-backups-overview.md#backup-retention) för käll databasens varaktighet. Dessa säkerhets kopior kan användas för att [återställa](recovery-using-backups.md#programmatic-recovery-using-automated-backups) käll databasen till en tidpunkt innan migreringen.|
 | Återställning från tidpunkt | En databas som inte är storskalig kan inte återställas som en storskalig databas och en storskalig databas kan inte återställas som en databas som inte är storskalig. För en icke-storskalig databas som har migrerats till storskalig genom att ändra dess tjänst nivå återställer du till en tidpunkt innan migreringen och inom lagrings perioden för säkerhets kopior av databasen är möjlig [program mässigt](recovery-using-backups.md#programmatic-recovery-using-automated-backups). Den återställda databasen får inte skalas. |
 | Om en databas har en eller flera datafiler som är större än 1 TB, Miss lyckas migreringen | I vissa fall kan det vara möjligt att undvika det här problemet genom att minska de stora filerna till mindre än 1 TB. Om du migrerar en databas som används under migreringsprocessen ser du till att ingen fil får större än 1 TB. Använd följande fråga för att fastställa storleken på databasfilerna. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL-hanterad instans | Azure SQL Managed instance stöds för närvarande inte med storskaliga databaser. |

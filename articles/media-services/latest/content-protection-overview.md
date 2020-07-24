@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023270"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Skydda ditt innehåll med Media Services dynamisk kryptering
 
@@ -185,7 +186,7 @@ När du konfigurerar den token-begränsade principen måste du ange primär veri
 
 Funktionen för att *förhindra repetition av token* tillåter Media Services kunder att ange en gräns för hur många gånger samma token kan användas för att begära en nyckel eller en licens. Kunden kan lägga till ett anspråk av typen `urn:microsoft:azure:mediaservices:maxuses` i token, där värdet är antalet gånger som token kan användas för att hämta en licens eller nyckel. Alla efterföljande förfrågningar med samma token till nyckel leverans returnerar ett obehörigt svar. Se hur du lägger till anspråk i [DRM-exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
-#### <a name="considerations"></a>Att tänka på
+#### <a name="considerations"></a>Överväganden
 
 * Kunder måste ha kontroll över genereringen av token. Anspråket måste placeras i själva token.
 * När du använder den här funktionen avvisas begär Anden med token vars utgångs tid är mer än en timme från den tidpunkt då begäran tas emot avvisas med ett obehörigt svar.
@@ -235,7 +236,7 @@ Använd följande mallar om du vill ange en annan licens-/nyckel leverans tjäns
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Samma som föregående mall, endast för Widevine. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Samma som föregående mall, endast för FairPlay.  
 
-Ett exempel:
+Exempel:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -243,7 +244,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId`har ett värde för den begärda nyckeln. Du kan använda `AlternativeMediaId` om du vill mappa begäran till en entitet på din sida. Kan till exempel `AlternativeMediaId` användas för att söka efter behörigheter.
 
-För REST-exempel som använder anpassade URL: er för licens-/nyckel hämtning, se [strömmande principer-skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+För REST-exempel som använder anpassade URL: er för licens-/nyckel hämtning, se [strömmande principer-skapa](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
@@ -265,4 +266,4 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 * [Designa multi-DRM innehålls skydds system med åtkomst kontroll](design-multi-drm-system-with-access-control.md)
 * [Kryptering på lagrings Sidan](storage-account-concept.md#storage-side-encryption)
 * [Vanliga frågor och svar](frequently-asked-questions.md)
-* [JSON Web Token hanterare](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [JSON Web Token hanterare](/dotnet/framework/security/json-web-token-handler)

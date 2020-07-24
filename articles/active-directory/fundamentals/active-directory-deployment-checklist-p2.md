@@ -3,21 +3,22 @@ title: Checklista för Azure AD-distribution
 description: Check lista för Azure Active Directory funktions distribution
 services: active-directory
 ms.service: active-directory
-ms.subservice: ''
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 082e4a35582e9fe643aefc13c0c46a1c75f443e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025395"
 ---
-# <a name="azure-active-directory-feature-deployment-guide"></a>Distributions guide för Azure Active Directory funktion
+# <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktion
 
 Det kan verka avskräckande för att distribuera Azure Active Directory (Azure AD) för din organisation och hålla den säker. I den här artikeln beskrivs vanliga uppgifter som kunder kan få hjälp av i faser, under den 30, 60, 90 dagar eller mer, för att förbättra sina säkerhets position. Även organisationer som redan har distribuerat Azure AD kan använda den här guiden för att se till att de får ut mesta möjliga av sina investeringar.
 
@@ -25,7 +26,7 @@ En välplanerad och utförd identitets infrastruktur paves det sätt för säker
 
 Dessutom kan kunderna kontrol lera sina [identiteter](identity-secure-score.md) för att se hur justerade de är till Microsofts bästa praxis. Kontrol lera dina säkra poäng innan och efter att du har implementerat rekommendationerna för att se hur väl du jämför med andra i din bransch och andra organisationer av din storlek.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Många av rekommendationerna i den här hand boken kan implementeras med Azure AD Free eller ingen licens alls. Om licenserna krävs får vi tillstånd för vilken licens som krävs för att utföra uppgiften minst.
 
@@ -52,10 +53,11 @@ I den här fasen aktiverar administratörer grundläggande säkerhets funktioner
 | [Inaktivera regelbunden återställning av lösen ord för molnbaserade användar konton](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Regelbundna lösen ords återställning uppmanar användarna att öka sina befintliga lösen ord. Använd rikt linjerna i Microsofts rikt linjer för lösen Ords vägledning och spegla din lokala princip till endast molnbaserade användare. | Azure AD Kostnadsfri |
 | [Anpassa Azure Active Directory Smart utelåsning](../authentication/howto-password-smart-lockout.md) | Stoppa utelåsning från molnbaserade användare från att replikeras till lokala Active Directory användare | |
 | [Aktivera smart utelåsning för extra nät för AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS extra näts utelåsning skyddar mot brute force lösen ords gissning, samtidigt som giltiga AD FS användare fortsätter att använda sina konton. | |
+| [Blockera äldre autentisering till Azure AD med villkorlig åtkomst](../conditional-access/block-legacy-authentication.md) | Blockera äldre autentiseringsprotokoll som POP, SMTP, IMAP och MAPI som inte kan genomdriva Multi-Factor Authentication, vilket gör dem till en önskad start punkt för angripare. | Azure AD Premium P1 |
 | [Distribuera Azure AD Multi-Factor Authentication att använda principer för villkorlig åtkomst](../authentication/howto-mfa-getstarted.md) | Kräv att användarna utför tvåstegsverifiering vid åtkomst till känsliga program med hjälp av principer för villkorlig åtkomst. | Azure AD Premium P1 |
 | [Aktivera Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Aktivera spårning av riskfyllda inloggningar och komprometterade autentiseringsuppgifter för användare i din organisation. | Azure AD Premium P2 |
 | [Använda risk identifieringar för att utlösa Multi-Factor Authentication-och lösen ords ändringar](../authentication/tutorial-risk-based-sspr-mfa.md) | Aktivera automatisering som kan utlösa händelser, till exempel Multi-Factor Authentication, återställning av lösen ord och blockering av inloggningar baserat på risk. | Azure AD Premium P2 |
-| [Aktivera konvergerad registrering för lösen ords återställning via självbetjäning och Azure AD Multi-Factor Authentication (för hands version)](../authentication/concept-registration-mfa-sspr-converged.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. | Azure AD Premium P1 |
+| [Aktivera kombinerad registrering för självbetjäning för återställning av lösen ord och Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fas 2: importera användare, aktivera synkronisering och hantera enheter
 

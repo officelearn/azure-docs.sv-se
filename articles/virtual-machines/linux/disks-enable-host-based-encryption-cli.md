@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0773515809ffdc50167a3cba1f767ac8635bcee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f61835887c26e41b3338286065df4ca9d05f513
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502579"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029016"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-cli"></a>Aktivera kryptering från slut punkt till slut punkt med kryptering på värd-Azure CLI
 
@@ -43,34 +43,144 @@ När funktionen är aktive rad måste du konfigurera en Azure Key Vault och en D
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
-## <a name="enable-encryption-at-host-for-disks-attached-to-vm-and-virtual-machine-scale-sets"></a>Aktivera kryptering på värd för diskar som är anslutna till VM och skalnings uppsättningar för virtuella datorer
+## <a name="examples"></a>Exempel
 
-Du kan aktivera kryptering på värden genom att ange en ny egenskap EncryptionAtHost under securityProfile för virtuella datorer eller skalnings uppsättningar för virtuella datorer med hjälp av API-version **2020-06-01** och senare.
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Skapa en virtuell dator med kryptering på värden som är aktiverade med Kundhanterade nycklar. 
 
-`"securityProfile": { "encryptionAtHost": "true" }`
-
-## <a name="example-scripts"></a>Exempel skript
-
-### <a name="enable-encryption-at-host-for-disks-attached-to-a-vm-with-customer-managed-keys"></a>Aktivera kryptering på värd för diskar som är anslutna till en virtuell dator med Kundhanterade nycklar
-
-Skapa en virtuell dator med hanterade diskar med hjälp av resurs-URI för den DiskEncryptionSet som skapades tidigare.
-
-Ersätt,,,,, `<yourPassword>` `<yourVMName>` `<yourVMSize>` `<yourDESName>` `<yoursubscriptionID>` `<yourResourceGroupName>` och `<yourRegion>` kör sedan skriptet.
+Skapa en virtuell dator med hanterade diskar med hjälp av resurs-URI: n för DiskEncryptionSet som skapades tidigare för att kryptera cacheminnet för operativ system och data diskar med Kundhanterade nycklar. Temporära diskar är krypterade med plattforms hanterade nycklar. 
 
 ```azurecli
-az group deployment create -g <yourResourceGroupName> \
---template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithCMK.json" \
---parameters "virtualMachineName=<yourVMName>" "adminPassword=<yourPassword>" "vmSize=<yourVMSize>" "diskEncryptionSetId=/subscriptions/<yoursubscriptionID>/resourceGroups/<yourResourceGroupName>/providers/Microsoft.Compute/diskEncryptionSets/<yourDESName>" "region=<yourRegion>"
+rgName=yourRGName
+vmName=yourVMName
+location=eastus
+vmSize=Standard_DS2_v2
+image=UbuntuLTS 
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+
+az vm create -g $rgName \
+-n $vmName \
+-l $location \
+--encryption-at-host \
+--image $image \
+--size $vmSize \
+--generate-ssh-keys \
+--os-disk-encryption-set $diskEncryptionSetId \
+--data-disk-sizes-gb 128 128 \
+--data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
-### <a name="enable-encryption-at-host-for-disks-attached-to-a-vm-with-platform-managed-keys"></a>Aktivera kryptering på värd för diskar som är anslutna till en virtuell dator med plattforms hanterade nycklar
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Skapa en virtuell dator med kryptering på värden som är aktiverade med plattforms hanterade nycklar. 
 
-Ersätt `<yourPassword>` ,,, `<yourVMName>` `<yourVMSize>` `<yourResourceGroupName>` och `<yourRegion>` kör sedan skriptet.
+Skapa en virtuell dator med kryptering på värden som är aktive rad för att kryptera cacheminnet för OS/data diskar och temporära diskar med plattforms hanterade nycklar. 
 
 ```azurecli
-az group deployment create -g <yourResourceGroupName> \
---template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithPMK.json" \
---parameters "virtualMachineName=<yourVMName>" "adminPassword=<yourPassword>" "vmSize=<yourVMSize>" "region=<yourRegion>"
+rgName=yourRGName
+vmName=yourVMName
+location=eastus
+vmSize=Standard_DS2_v2
+image=UbuntuLTS 
+
+az vm create -g $rgName \
+-n $vmName \
+-l $location \
+--encryption-at-host \
+--image $image \
+--size $vmSize \
+--generate-ssh-keys \
+--data-disk-sizes-gb 128 128 \
+```
+
+### <a name="update-a-vm-to-enable-encryption-at-host"></a>Uppdatera en virtuell dator för att aktivera kryptering på värden. 
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm update -n $vmName \
+-g $rgName \
+--set securityProfile.encryptionAtHost=true
+```
+
+### <a name="check-the-status-of-encryption-at-host-for-a-vm"></a>Kontrol lera statusen för kryptering på värd för en virtuell dator
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm show -n $vmName \
+-g $rgName \
+--query [securityProfile.encryptionAtHost] -o tsv
+```
+
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Skapa en skalnings uppsättning för virtuella datorer med kryptering på värden som är aktiverade med Kundhanterade nycklar. 
+
+Skapa en skalnings uppsättning för virtuella datorer med hanterade diskar med hjälp av resurs-URI för DiskEncryptionSet som skapades tidigare för att kryptera cacheminnet för OS-och data diskar med Kundhanterade nycklar. Temporära diskar är krypterade med plattforms hanterade nycklar. 
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMSSName
+location=westus2
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+
+az vmss create -g $rgName \
+-n $vmssName \
+--encryption-at-host \
+--image UbuntuLTS \
+--upgrade-policy automatic \
+--admin-username azureuser \
+--generate-ssh-keys \
+--os-disk-encryption-set $diskEncryptionSetId \
+--data-disk-sizes-gb 64 128 \
+--data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+```
+
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Skapa en skalnings uppsättning för virtuella datorer med kryptering på värden som är aktiverade med plattforms hanterade nycklar. 
+
+Skapa en skalnings uppsättning för virtuell dator med kryptering på värddatorn som är aktive rad för att kryptera cacheminnet för OS/data diskar och temporära diskar med plattforms hanterade nycklar 
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMSSName
+location=westus2
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+
+az vmss create -g $rgName \
+-n $vmssName \
+--encryption-at-host \
+--image UbuntuLTS \
+--upgrade-policy automatic \
+--admin-username azureuser \
+--generate-ssh-keys \
+--data-disk-sizes-gb 64 128 \
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-enable-encryption-at-host"></a>Uppdatera en skalnings uppsättning för virtuella datorer för att aktivera kryptering på värden. 
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss update -n $vmssName \
+-g $rgName \
+--set virtualMachineProfile.securityProfile.encryptionAtHost=true
+```
+
+### <a name="check-the-status-of-encryption-at-host-for-a-virtual-machine-scale-set"></a>Kontrol lera statusen för kryptering på värden för en skalnings uppsättning för virtuella datorer
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss show -n $vmssName \
+-g $rgName \
+--query [virtualMachineProfile.securityProfile.encryptionAtHost] -o tsv
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>Söker efter VM-storlekar som stöds

@@ -12,14 +12,14 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024868"
 ---
-# <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
+# <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Konfigurera ett anpassat domän namn för Azure API Management-instansen
 
 När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en under domän till `azure-api.net` (till exempel `apim-service-name.azure-api.net` ). Du kan dock exponera API Management-slutpunkter med ditt eget anpassade domän namn, till exempel **contoso.com**. Den här självstudien visar hur du mappar ett befintligt anpassat DNS-namn till slut punkter som exponeras av en API Management instans.
 
@@ -29,7 +29,7 @@ När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en und
 > [!WARNING]
 > Kunder som vill använda certifikat låsning för att förbättra säkerheten för sina program måste använda ett anpassat domän namn och certifikat som de hanterar, inte standard certifikatet. Kunder som fäster standard certifikatet i stället kommer att ta ett hårt beroende på egenskaperna för certifikatet som de inte styr, vilket inte är en rekommenderad metod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -64,7 +64,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 1. Välj den slut punkt som du vill uppdatera.
 1. I fönstret till höger klickar du på **anpassad**.
 
-    - I det **anpassade domän namnet**anger du det namn som du vill använda. Ett exempel är `api.contoso.com`.
+    - I det **anpassade domän namnet**anger du det namn som du vill använda. Till exempel `api.contoso.com`.
     - I **certifikatet**väljer du ett certifikat från Key Vault. Du kan också ladda upp en giltig. PFX-fil och ange **lösen ord**, om certifikatet är skyddat med ett lösen ord.
 
     > [!NOTE]

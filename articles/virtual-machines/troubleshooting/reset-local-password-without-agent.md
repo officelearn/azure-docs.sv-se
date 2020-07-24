@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 11d1a4743f9aaf70d96e6cfd1f22ff31def440f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021270"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028676"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa det lokala Windows-lösenordet för en frånkopplad virtuell Azure-dator
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av [Azure Portal eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) förutsatt att Azures gästa Gent är installerad. Den här metoden är det primära sättet att återställa ett lösen ord för en virtuell Azure-dator. Om du stöter på problem med att Azures gästa Gent inte svarar eller om du inte vill installera efter att du har laddat upp en anpassad avbildning kan du manuellt återställa ett Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt konto lösen ord genom att koppla den virtuella käll operativ system disken till en annan virtuell dator. De steg som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
@@ -106,7 +107,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 > [!NOTE]
 > Stegen gäller inte för Windows-domänkontrollanter. Den fungerar bara på fristående server eller en server som är medlem i en domän.
 
-Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal eller Azure PowerShell](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) innan du provar följande steg. Kontrol lera att du har en säkerhets kopia av den virtuella datorn innan du börjar. 
+Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal eller Azure PowerShell](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) innan du provar följande steg. Kontrol lera att du har en säkerhets kopia av den virtuella datorn innan du börjar. 
 
 1. Ta bort den virtuella datorn som påverkas i Azure Portal. Att ta bort den virtuella datorn tar bara bort metadata, referens för den virtuella datorn i Azure. De virtuella diskarna bevaras när den virtuella datorn tas bort:
    

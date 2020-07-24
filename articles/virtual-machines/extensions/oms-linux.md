@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 905a42c5a9bc297e2c27408a58a5b3019755fdef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029101"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics-tillägg för virtuella datorer för Linux
 
@@ -32,7 +32,7 @@ Azure Monitor-loggar tillhandahåller funktioner för övervakning, avisering oc
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -104,7 +104,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel |
+| Namn | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | utgivare | Microsoft. EnterpriseCloud. Monitoring |
@@ -204,7 +204,7 @@ Utökning av utdata loggas i följande fil:
 
 | Felkod | Innebörd | Möjlig åtgärd |
 | :---: | --- | --- |
-| 9 | Aktivera anropad för tidigt | [Uppdatera Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
+| 9 | Aktivera anropad för tidigt | [Uppdatera Azure Linux-agenten](./update-linux-agent.md) till den senaste tillgängliga versionen. |
 | 10 | Den virtuella datorn är redan ansluten till en Log Analytics-arbetsyta | Om du vill ansluta den virtuella datorn till arbets ytan som anges i tilläggs schemat anger du stopOnMultipleConnections till falskt i offentliga inställningar eller tar bort den här egenskapen. Den här virtuella datorn debiteras en gång för varje arbets yta som den är ansluten till. |
 | 11 | Ogiltig konfiguration angavs för tillägget | Följ de föregående exemplen för att ange alla egenskaps värden som krävs för distribution. |
 | 17 | Installations problem för Log Analytics-paket | 

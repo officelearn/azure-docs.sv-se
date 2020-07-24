@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024035"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -204,7 +204,9 @@ Ja. Data sidorna som är kopplade till en specifik tabell kan ingå i flera data
 
 ### <a name="can-i-move-my-existing-databases-in-azure-sql-database-to-the-hyperscale-service-tier"></a>Kan jag flytta mina befintliga databaser i Azure SQL Database till den storskaliga tjänst nivån
 
-Ja. Du kan flytta dina befintliga databaser i Azure SQL Database till skalning. Det här är en enkelriktad migrering. Du kan inte flytta databaser från storskalig till en annan tjänst nivå. För Proofing of Concept (POC) rekommenderar vi att du gör en kopia av databasen och migrerar kopian till storskalig skalning.
+Ja. Du kan flytta dina befintliga databaser i Azure SQL Database till skalning. Det här är en enkelriktad migrering. Du kan inte flytta databaser från storskalig till en annan tjänst nivå. För Proofing of Concept (POC) rekommenderar vi att du gör en kopia av databasen och migrerar kopian till storskalig skalning. 
+
+Tiden som krävs för att flytta en befintlig databas till skalan består av tiden för att kopiera data och tiden för att spela upp de ändringar som gjorts i käll databasen när data kopieras. Data kopierings tiden är proportionell till data storleken. Tiden för att spela upp ändringar blir kortare om flytten görs under en period med låg Skriv aktivitet.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Kan jag flytta mina storskaliga databaser till andra tjänst nivåer
 

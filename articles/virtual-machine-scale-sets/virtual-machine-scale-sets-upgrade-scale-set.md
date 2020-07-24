@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121022"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029305"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
@@ -319,13 +320,13 @@ Det finns en typ av ändring i globala skalnings uppsättnings egenskaper som in
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell med [set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
+- Azure PowerShell med [set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI med [AZ VMSS-avbildning](https://docs.microsoft.com/cli/azure/vmss):
+- Azure CLI med [AZ VMSS-avbildning](/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -368,12 +369,12 @@ Om ett program distribueras till en skalnings uppsättning via tillägg, gör en
 Det är också vanligt att program distribueras via en anpassad avbildning. Det här scenariot beskrivs i följande avsnitt.
 
 ### <a name="os-updates"></a>OS-uppdateringar
-Om du använder Azure Platform-avbildningar kan du uppdatera avbildningen genom att ändra *imageReference* (mer information finns i [dokumentationen för REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Om du använder Azure Platform-avbildningar kan du uppdatera avbildningen genom att ändra *imageReference* (mer information finns i [dokumentationen för REST API](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > Med plattforms avbildningar är det vanligt att ange "senaste" för avbildnings referens versionen. När du skapar, skalar ut och återskapar en avbildning skapas virtuella datorer med den senaste tillgängliga versionen. Det innebär dock **inte** att operativ system avbildningen uppdateras automatiskt med tiden när nya avbildnings versioner släpps. En separat funktion är för närvarande en för hands version som ger automatiska OS-uppgraderingar. Mer information finns i dokumentationen om [automatiska operativ system uppgraderingar](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Om du använder anpassade avbildningar kan du uppdatera avbildningen genom att uppdatera *imageReference* -ID: t (mer information finns i [dokumentationen för REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Om du använder anpassade avbildningar kan du uppdatera avbildningen genom att uppdatera *imageReference* -ID: t (mer information finns i [dokumentationen för REST API](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Exempel
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e2bf63558b4bbd55262aa16f70bfba934a42c3ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024970"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser till Azure Event Hubs i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Event Hubs fungerar som "Front dörren" för händelse pipelinen och när data samlas in i en händelsehubben kan den transformeras och lagras med hjälp av en analys av real tids analys eller batch-/minnes kort. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -66,6 +66,9 @@ Ersätt `logger-id` med värdet som du använde för `{loggerId}` i URL: en för
 Du kan använda alla uttryck som returnerar en sträng som värde för `log-to-eventhub` elementet. I det här exemplet loggas en sträng i JSON-format som innehåller datum och tid, tjänst namn, ID för begäran, begär ande-IP-adress och åtgärds namn.
 
 Klicka på **Spara** för att spara den uppdaterade princip konfigurationen. Så snart den har sparats är principen aktiv och händelserna loggas i den angivna Händelsehubben.
+
+> [!NOTE]
+> Den största meddelande storlek som kan skickas till en händelsehubben från den här API Managements principen är 200 KB. Om ett meddelande som skickas till en händelsehubben är större än 200 KB trunkeras det automatiskt och det trunkerade meddelandet överförs till Event Hub.
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Förhandsgranska loggen i Event Hubs med Azure Stream Analytics
 

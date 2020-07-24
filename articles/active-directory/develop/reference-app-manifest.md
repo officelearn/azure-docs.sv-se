@@ -1,5 +1,6 @@
 ---
 title: Förstå Azure Active Directory app-manifestet
+titleSuffix: Microsoft identity platform
 description: Detaljerad täckning av Azure Active Directory app-manifestet som representerar ett programs identitets konfiguration i en Azure AD-klient och används för att under lätta OAuth-auktorisering, medgivande upplevelse och mycket annat.
 services: active-directory
 author: rwike77
@@ -12,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479257"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026755"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifest
 
-Applikations manifestet innehåller en definition av alla attribut för ett program objekt i Microsoft Identity Platform. Den fungerar också som en mekanism för att uppdatera programobjektet. Mer information om programentiteten och dess schema finns i dokumentationen för [Graph API application Entity](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
+Applikations manifestet innehåller en definition av alla attribut för ett program objekt i Microsoft Identity Platform. Den fungerar också som en mekanism för att uppdatera programobjektet. Mer information om programentiteten och dess schema finns i dokumentationen för [Graph API application Entity](/graph/api/resources/application).
 
-Du kan konfigurera en Apps attribut via Azure Portal eller program mässigt med hjälp av [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) eller [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Det finns dock vissa scenarier där du måste redigera appens manifest för att konfigurera appens attribut. Några vanliga scenarier:
+Du kan konfigurera en Apps attribut via Azure Portal eller program mässigt med hjälp av [REST API](/graph/api/resources/application) eller [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Det finns dock vissa scenarier där du måste redigera appens manifest för att konfigurera appens attribut. Några vanliga scenarier:
 
 * Om du har registrerat appen som Azure AD-konto för flera klienter och personliga Microsoft-konton kan du inte ändra de Microsoft-konton som stöds i användar gränssnittet. I stället måste du använda program manifest redigeraren för att ändra den konto typ som stöds.
 * Om du behöver definiera behörigheter och roller som appen stöder måste du ändra applikations manifestet.
@@ -32,7 +33,7 @@ Du kan konfigurera en Apps attribut via Azure Portal eller program mässigt med 
 
 Så här konfigurerar du applikations manifestet:
 
-1. Gå till [Azure Portal](https://portal.azure.com). Sök efter och välj tjänsten **Azure Active Directory** .
+1. Öppna [Azure-portalen](https://portal.azure.com). Sök efter och välj tjänsten **Azure Active Directory** .
 1. Välj **Appregistreringar**.
 1. Välj den app som du vill konfigurera.
 1. På appens **översiktssida** väljer du avsnittet **Manifest**. En webbaserad manifest redigerare öppnas, så att du kan redigera manifestet i portalen. Alternativt kan du välja **Ladda ned** för att redigera manifestet lokalt och sedan använda **upload** för att tillämpa det igen på ditt program.
@@ -43,7 +44,7 @@ I det här avsnittet beskrivs de attribut som finns i applikations manifestet.
 
 ### <a name="id-attribute"></a>ID-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | id | Sträng |
 
@@ -57,7 +58,7 @@ Exempel:
 
 ### <a name="accesstokenacceptedversion-attribute"></a>accessTokenAcceptedVersion-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | accessTokenAcceptedVersion | Nullable Int32 |
 
@@ -77,7 +78,7 @@ Exempel:
 
 ### <a name="addins-attribute"></a>Addins-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | Tillägg | Samling |
 
@@ -102,7 +103,7 @@ Exempel:
 
 ### <a name="allowpublicclient-attribute"></a>allowPublicClient-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | allowPublicClient | Boolesk |
 
@@ -116,7 +117,7 @@ Exempel:
 
 ### <a name="availabletoothertenants-attribute"></a>availableToOtherTenants-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | availableToOtherTenants | Boolesk |
 
@@ -127,7 +128,7 @@ Ange som sant om programmet delas med andra klienter. annars FALSE.
 
 ### <a name="appid-attribute"></a>appId-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | appId | Sträng |
 
@@ -141,7 +142,7 @@ Exempel:
 
 ### <a name="approles-attribute"></a>appRoles-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | appRoles | Samling |
 
@@ -166,7 +167,7 @@ Exempel:
 
 ### <a name="displayname-attribute"></a>displayName-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | displayName | Sträng |
 
@@ -177,7 +178,7 @@ Appens visnings namn.
 
 ### <a name="errorurl-attribute"></a>errorUrl-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | errorUrl | Sträng |
 
@@ -185,7 +186,7 @@ Som inte stöds.
 
 ### <a name="groupmembershipclaims-attribute"></a>groupMembershipClaims-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 |groupMembershipClaims | Sträng |
 
@@ -203,7 +204,7 @@ Exempel:
 
 ### <a name="homepage-attribute"></a>Start sidans attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | Start |Sträng |
 
@@ -214,7 +215,7 @@ URL: en till programmets start sida.
 
 ### <a name="objectid-attribute"></a>objectId-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 |objectId | Sträng |
 
@@ -230,7 +231,7 @@ Exempel:
 
 ### <a name="optionalclaims-attribute"></a>optionalClaims-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | optionalClaims | Sträng |
 
@@ -248,7 +249,7 @@ Exempel:
 
 ### <a name="identifieruris-attribute"></a>identifierUris-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | identifierUris | Sträng mat ris |
 
@@ -262,7 +263,7 @@ Exempel:
 
 ### <a name="informationalurls-attribute"></a>informationalUrls-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | informationalUrls | Sträng |
 
@@ -281,7 +282,7 @@ Exempel:
 
 ### <a name="keycredentials-attribute"></a>attribut för autentiseringsuppgifter
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | keyCredentials | Samling |
 
@@ -305,7 +306,7 @@ Exempel:
 
 ### <a name="knownclientapplications-attribute"></a>knownClientApplications-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | knownClientApplications | Sträng mat ris |
 
@@ -319,7 +320,7 @@ Exempel:
 
 ### <a name="logourl-attribute"></a>logoUrl-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | logoUrl | Sträng |
 
@@ -333,7 +334,7 @@ Exempel:
 
 ### <a name="logouturl-attribute"></a>logoutUrl-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | logoutUrl | Sträng |
 
@@ -347,7 +348,7 @@ Exempel:
 
 ### <a name="name-attribute"></a>namnattribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | name | Sträng |
 
@@ -361,7 +362,7 @@ Exempel:
 
 ### <a name="oauth2allowimplicitflow-attribute"></a>oauth2AllowImplicitFlow-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | oauth2AllowImplicitFlow | Boolesk |
 
@@ -375,7 +376,7 @@ Exempel:
 
 ### <a name="oauth2allowidtokenimplicitflow-attribute"></a>oauth2AllowIdTokenImplicitFlow-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | oauth2AllowIdTokenImplicitFlow | Boolesk |
 
@@ -389,7 +390,7 @@ Exempel:
 
 ### <a name="oauth2permissions-attribute"></a>oauth2Permissions-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | oauth2Permissions | Samling |
 
@@ -414,7 +415,7 @@ Exempel:
 
 ### <a name="oauth2requiredpostresponse-attribute"></a>oauth2RequiredPostResponse-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | oauth2RequiredPostResponse | Boolesk |
 
@@ -428,12 +429,12 @@ Exempel:
 
 ### <a name="parentalcontrolsettings-attribute"></a>parentalControlSettings-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | parentalControlSettings | Sträng |
 
 - `countriesBlockedForMinors`anger de länder/regioner där appen blockeras för minderåriga.
-- `legalAgeGroupRule`anger den juridiska ålders grupps regel som gäller för användare av appen. Kan ställas in på,,, `Allow` `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` eller `BlockMinors` .  
+- `legalAgeGroupRule`anger den juridiska ålders grupps regel som gäller för användare av appen. Kan ställas in på,,, `Allow` `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` eller `BlockMinors` .
 
 Exempel:
 
@@ -446,7 +447,7 @@ Exempel:
 
 ### <a name="passwordcredentials-attribute"></a>passwordCredentials-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | passwordCredentials | Samling |
 
@@ -468,7 +469,7 @@ Exempel:
 
 ### <a name="preauthorizedapplications-attribute"></a>preAuthorizedApplications-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | preAuthorizedApplications | Samling |
 
@@ -489,17 +490,17 @@ Exempel:
 
 ### <a name="publicclient-attribute"></a>publicClient-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | publicClient | Boolesk|
 
-Anger om det här programmet är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). 
+Anger om det här programmet är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet).
 
 Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)** . Ersätts av `allowPublicClient` i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="publisherdomain-attribute"></a>publisherDomain-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | publisherDomain | Sträng |
 
@@ -513,7 +514,7 @@ Exempel:
 
 ### <a name="replyurls-attribute"></a>replyUrls-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | replyUrls | Strängmatris |
 
@@ -523,7 +524,7 @@ Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)**
 
 ### <a name="replyurlswithtype-attribute"></a>replyUrlsWithType-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | replyUrlsWithType | Samling |
 
@@ -547,7 +548,7 @@ Exempel:
 
 ### <a name="requiredresourceaccess-attribute"></a>requiredResourceAccess-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | requiredResourceAccess | Samling |
 
@@ -574,7 +575,7 @@ Exempel:
 
 ### <a name="samlmetadataurl-attribute"></a>samlMetadataUrl-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | samlMetadataUrl | Sträng |
 
@@ -588,7 +589,7 @@ Exempel:
 
 ### <a name="signinurl-attribute"></a>signInUrl-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | signInUrl | Sträng |
 
@@ -602,7 +603,7 @@ Exempel:
 
 ### <a name="signinaudience-attribute"></a>signInAudience-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | signInAudience | Sträng |
 
@@ -620,7 +621,7 @@ Exempel:
 
 ### <a name="tags-attribute"></a>Tags-attribut
 
-| Tangent | Värdetyp |
+| Nyckel | Värdetyp |
 | :--- | :--- |
 | tags | Sträng mat ris  |
 
@@ -669,7 +670,7 @@ När du försöker överföra ett tidigare nedladdat manifest kan du se något a
 
 När du ser något av dessa fel rekommenderar vi följande åtgärder:
 
-1. Redigera attributen individuellt i manifest redigeraren i stället för att ladda upp ett tidigare nedladdat manifest. Använd referens tabellen i [manifestet](#manifest-reference) för att förstå syntaxen och semantiken för gamla och nya attribut så att du kan redigera de attribut som du är intresse rad av. 
+1. Redigera attributen individuellt i manifest redigeraren i stället för att ladda upp ett tidigare nedladdat manifest. Använd referens tabellen i [manifestet](#manifest-reference) för att förstå syntaxen och semantiken för gamla och nya attribut så att du kan redigera de attribut som du är intresse rad av.
 1. Om arbets flödet kräver att du sparar manifesten på käll lagrings platsen för att använda senare, rekommenderar vi att du bygger in de sparade manifesten i din lagrings plats med den som visas i **Appregistreringars** upplevelsen.
 
 ## <a name="next-steps"></a>Nästa steg

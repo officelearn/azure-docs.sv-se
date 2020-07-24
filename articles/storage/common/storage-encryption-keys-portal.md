@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 4af70a4e2a698bd280c8c41018bc5aaa1bfa27f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029606"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure Portal
 
@@ -45,9 +45,26 @@ Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
 
 ## <a name="specify-a-key"></a>Ange en nyckel
 
-När du har aktiverat Kundhanterade nycklar har du möjlighet att ange en nyckel som ska associeras med lagrings kontot.
+När du har aktiverat Kundhanterade nycklar har du möjlighet att ange en nyckel som ska associeras med lagrings kontot. Du kan också ange om Azure Storage automatiskt ska rotera den Kundhanterade nyckeln eller om du vill rotera nyckeln manuellt.
+
+### <a name="specify-a-key-from-a-key-vault"></a>Ange en nyckel från ett nyckel valv
+
+När du väljer en kundhanterad nyckel från ett nyckel valv, aktive ras automatiskt rotation av nyckeln. Om du vill hantera nyckel versionen manuellt anger du nyckel-URI i stället och inkluderar nyckel versionen. Mer information finns i [Ange en nyckel som en URI](#specify-a-key-as-a-uri).
+
+Följ dessa steg om du vill ange en nyckel från ett nyckel valv:
+
+1. Välj alternativet **Välj från Key Vault** .
+1. Välj **Välj ett nyckel valv och nyckel**.
+1. Välj det nyckel valv som innehåller den nyckel som du vill använda.
+1. Välj nyckeln från nyckel valvet.
+
+   ![Skärm bild som visar hur du väljer Key Vault och Key](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+
+1. Spara ändringarna.
 
 ### <a name="specify-a-key-as-a-uri"></a>Ange en nyckel som en URI
+
+När du anger nyckel-URI: n, utelämna nyckel versionen för att aktivera automatisk rotation av den Kundhanterade nyckeln. Om du inkluderar nyckel versionen i nyckel-URI: n, är automatisk rotation inte aktiverat och du måste hantera nyckel versionen själv. Mer information om hur du uppdaterar nyckel versionen finns i [Uppdatera nyckel versionen manuellt](#manually-update-the-key-version).
 
 Följ dessa steg om du vill ange en nyckel som en URI:
 
@@ -56,35 +73,29 @@ Följ dessa steg om du vill ange en nyckel som en URI:
 
     ![Skärm bild som visar Key Vault Key-URI](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
-1. I **krypterings** inställningarna för ditt lagrings konto väljer du alternativet för att **Ange nyckel-URI** .
-1. Klistra in den URI som du kopierade i fältet **nyckel-URI** .
+1. I **krypterings nyckel** inställningarna för ditt lagrings konto väljer du alternativet för att **Ange nyckel-URI** .
+1. Klistra in den URI som du kopierade i fältet **nyckel-URI** . Om du vill aktivera automatisk rotation utelämnar du nyckel versionen från URI.
 
    ![Skärm bild som visar hur du anger nyckel-URI](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Ange den prenumeration som innehåller nyckel valvet.
 1. Spara ändringarna.
 
-### <a name="specify-a-key-from-a-key-vault"></a>Ange en nyckel från ett nyckel valv
+När du har angett nyckeln anger Azure Portal om automatisk nyckel rotation är aktive rad och visar den nyckel version som används för kryptering.
 
-Om du vill ange en nyckel från ett nyckel valv måste du först kontrol lera att du har ett nyckel valv som innehåller en nyckel. Följ dessa steg om du vill ange en nyckel från ett nyckel valv:
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Skärm bild som visar automatisk rotation av Kundhanterade nycklar aktiverade":::
 
-1. Välj alternativet **Välj från Key Vault** .
-1. Välj det nyckel valv som innehåller den nyckel som du vill använda.
-1. Välj nyckeln från nyckel valvet.
+## <a name="manually-update-the-key-version"></a>Uppdatera nyckel versionen manuellt
 
-   ![Skärm bild som visar kundhanterad nyckel alternativ](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+Som standard roterar Azure Storage automatiskt Kundhanterade nycklar åt dig, enligt beskrivningen i föregående avsnitt. Om du väljer att hantera nyckel versionen själv måste du uppdatera den nyckel version som anges för lagrings kontot varje gången du skapar en ny version av nyckeln.
 
-1. Spara ändringarna.
-
-## <a name="update-the-key-version"></a>Uppdatera nyckel versionen
-
-Uppdatera lagrings kontot för att använda den nya versionen när du skapar en ny version av en nyckel. Följ de här stegen:
+Följ dessa steg om du vill uppdatera lagrings kontot för att använda den nya nyckel versionen:
 
 1. Navigera till ditt lagrings konto och visa **krypterings** inställningarna.
 1. Ange URI för den nya nyckel versionen. Alternativt kan du välja nyckel valvet och nyckeln igen för att uppdatera versionen.
 1. Spara ändringarna.
 
-## <a name="use-a-different-key"></a>Använd en annan nyckel
+## <a name="switch-to-a-different-key"></a>Växla till en annan nyckel
 
 Följ dessa steg om du vill ändra den nyckel som används för Azure Storage kryptering:
 

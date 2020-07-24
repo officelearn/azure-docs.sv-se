@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Hybrid Runbook Worker
 description: Den här artikeln innehåller en översikt över Hybrid Runbook Worker som du kan använda för att köra Runbooks på datorer i ditt lokala data Center eller en moln leverantör.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186256"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024834"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -42,7 +42,7 @@ Processen för att installera en Hybrid Runbook Worker är beroende av operativ 
 
 Den rekommenderade installations metoden är att använda en Azure Automation Runbook för att helt automatisera processen med att konfigurera en Windows-dator. Om det inte är möjligt kan du följa en steg-för-steg-procedur för att manuellt installera och konfigurera rollen. För Linux-datorer kör du ett Python-skript för att installera agenten på datorn.
 
-## <a name="network-planning"></a><a name="network-planning"></a>Planera för nätverk
+## <a name="network-planning"></a><a name="network-planning"></a>Nätverks planering
 
 För att Hybrid Runbook Worker ska kunna ansluta till och registrera med Azure Automation måste den ha åtkomst till port numret och URL-adresserna som beskrivs i det här avsnittet. Arbets tagaren måste också ha åtkomst till de [portar och URL: er som krävs för att Log Analytics agenten](../azure-monitor/platform/agent-windows.md) ska kunna ansluta till Azure Monitor Log Analytics-arbetsytan.
 
@@ -77,6 +77,17 @@ Service Tag-numret för Azure Automation-tjänsten tillhandahåller endast IP-ad
 >[!NOTE]
 >Service tag- **GuestAndHybridManagement** har för närvarande inte stöd för körning av Runbook-jobb i en Azure-sandbox, bara direkt på en hybrid Runbook Worker.
 
+## <a name="support-for-impact-level-5-il5"></a>Stöd för påverkan på nivå 5 (IL5)
+
+Azure Automation Hybrid Runbook Worker kan användas i Azure Government för att stödja påverkan på nivå 5 i någon av följande två konfigurationer:
+
+* [Isolerad virtuell dator](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). När de distribueras använder de hela den fysiska värden för den virtuella datorn som tillhandahåller den nödvändiga isolerings nivån som krävs för att stödja IL5-arbetsbelastningar.
+
+* [Dedikerade Azure-värdar](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), som tillhandahåller fysiska servrar som kan vara värdar för en eller flera virtuella datorer, dedikerade till en Azure-prenumeration.
+
+>[!NOTE]
+>Beräknings isolering med Hybrid Runbook Worker-rollen är tillgänglig för moln för kommersiella och amerikanska myndigheter i Azure. 
+
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Uppdateringshantering på Hybrid Runbook Worker
 
 När Azure Automation [uppdateringshantering](automation-update-management.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker. Varje arbets tagare kan stödja Runbooks riktade mot hantering av uppdateringar.
@@ -85,13 +96,7 @@ En dator som har kon figurer ATS på det här sättet är inte registrerad med H
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Uppdateringshantering adresser för Hybrid Runbook Worker
 
-Utöver de standard adresser och portar som krävs i Hybrid Runbook Worker behöver Uppdateringshantering adresserna i nästa tabell. Kommunikationen med de här adresserna använder port 443.
-
-|Azure, offentlig  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+Utöver de standard adresser och portar som krävs för Hybrid Runbook Worker har Uppdateringshantering ytterligare krav på nätverks konfiguration som beskrivs i avsnittet [nätverks planering](automation-update-management.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation tillstånds konfiguration på en Hybrid Runbook Worker
 
@@ -114,4 +119,5 @@ Eftersom de använder icke-Azure-resurser kan Runbooks som körs på en Hybrid R
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller någon annan moln miljö finns i [köra Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
 * Information om hur du felsöker dina hybrid Runbook Worker finns i [felsöka hybrid Runbook Worker problem](troubleshoot/hybrid-runbook-worker.md#general).

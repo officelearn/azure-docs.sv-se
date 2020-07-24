@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025707"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -30,7 +30,7 @@ När du börjar använda dina enheter med Azure Active Directory maximerar du an
 
 Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
 
@@ -92,12 +92,12 @@ Som första planerings steg bör du granska din miljö och avgöra om du behöve
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Hantera enheter med registrerade Azure AD-tillstånd
 Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview.md#getting-devices-in-azure-ad) till din klient organisation, kan det leda till ett dubbelt tillstånd med hybrid Azure AD-anslutna och en registrerad Azure AD-enhet. Vi rekommenderar att du uppgraderar till Windows 10 1803 (med KB4489894 installerat) eller senare för att automatiskt hantera det här scenariot. I pre-1803-versioner måste du ta bort Azure AD-registrerat tillstånd manuellt innan du aktiverar hybrid Azure AD Join. I 1803 och senare versioner har följande ändringar gjorts för att undvika detta dubbla tillstånd:
 
-- Alla befintliga Azure AD-registrerade tillstånd för en användare tas bort automatiskt <i>när enheten är hybrid-Azure AD-ansluten och samma användare loggar in</i>. Om användaren till exempel hade ett registrerat Azure AD-tillstånd på enheten rensas det dubbla läget för användare A endast när användaren loggar in på enheten. om det finns flera användare på samma enhet rensas det dubbla läget individuellt när användarna loggar in.
+- Alla befintliga Azure AD-registrerade tillstånd för en användare tas bort automatiskt <i>när enheten är hybrid-Azure AD-ansluten och samma användare loggar in</i>. Om användaren till exempel hade ett registrerat Azure AD-tillstånd på enheten rensas det dubbla läget för användare A endast när användaren loggar in på enheten. Om det finns flera användare på samma enhet rensas det dubbla läget individuellt när användarna loggar in. Förutom att ta bort det registrerade Azure AD-läget avregistrerar Windows 10 även enheten från Intune eller andra MDM, om registreringen skedde som en del av Azure AD-registreringen via automatisk registrering.
 - Du kan förhindra att din domänanslutna enhet är registrerad i Azure AD genom att lägga till följande register värde i HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - Om du har konfigurerat Windows Hello för företag i Windows 10 1803 måste användaren konfigurera Windows Hello för företag igen när dubbelt tillstånd rensas. Det här problemet har åtgärd ATS med KB4512509
 
 > [!NOTE]
-> Den registrerade Azure AD-enheten tas inte bort automatiskt om den hanteras av Intune.
+> Även om Windows 10 automatiskt tar bort Azure AD-registrerade tillstånd lokalt, raderas inte enhets objekt i Azure AD omedelbart om det hanteras av Intune. Du kan verifiera borttagning av Azure AD-registrerat tillstånd genom att köra dsregcmd/status och se till att enheten inte är registrerad som Azure AD baserat på den.
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 - Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
@@ -163,8 +163,8 @@ Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windo
 | ----- | ----- | ----- | ----- |
 | Dirigera | Federerade | Från 1703-version | Allmänt tillgänglig |
 | Ej dirigerbart | Federerade | Från 1803-version | Allmänt tillgänglig |
-| Dirigera | Hanterad | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
-| Ej dirigerbart | Hanterad | Stöds inte | |
+| Dirigera | Hanterade | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
+| Ej dirigerbart | Hanterade | Stöds inte | |
 
 ## <a name="next-steps"></a>Nästa steg
 

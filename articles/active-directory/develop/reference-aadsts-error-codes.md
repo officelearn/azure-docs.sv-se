@@ -12,13 +12,14 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026772"
 ---
-# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Fel koder för Azure AD-autentisering och-auktorisering
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Felkoder för Azure AD-autentisering och -auktorisering
 
 Letar du efter information om de AADSTS-felkoder som returneras från Azure Active Directory (Azure AD) Security Token Service (STS)? Läs det här dokumentet för att hitta AADSTS fel beskrivningar, korrigeringar och vissa föreslagna lösningar.
 
@@ -93,7 +94,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError – det är problem med din federerade identitets leverantör. Kontakta din IDP för att lösa problemet. |
 | AADSTS50000 | TokenIssuanceError – det finns ett problem med inloggnings tjänsten. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att lösa problemet. |
 | AADSTS50001 | InvalidResource-resursen är inaktive rad eller finns inte. Kontrol lera appens kod för att se till att du har angett den exakta resurs-URL: en för resursen som du försöker få åtkomst till.  |
-| AADSTS50002 | NotAllowedTenant-inloggningen misslyckades på grund av en begränsad proxy-åtkomst på klienten. Om det är din egen klient princip kan du ändra inställningarna för den begränsade klient organisationen för att åtgärda problemet. |
+| AADSTS50002 | NotAllowedTenant-inloggningen misslyckades på grund av en begränsad proxy-åtkomst på klienten. Om det är din egen klientprincip kan du åtgärda problemet genom att ändra inställningarna för den begränsade klientorganisationen. |
 | AADSTS50003 | MissingSigningKey-inloggningen misslyckades på grund av en saknad signerings nyckel eller certifikat. Det kan bero på att ingen signerings nyckel har kon figurer ATS i appen. Kolla in de lösningar som beskrivs i [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Kontakta appens ägare eller en app-administratör om problemen fortfarande visas. |
 | AADSTS50005 | DevicePolicyError – användaren försökte logga in på en enhet från en plattform som för närvarande inte stöds via principen för villkorlig åtkomst. |
 | AADSTS50006 | InvalidSignature-signaturverifieringen misslyckades på grund av en ogiltig signatur. |
@@ -263,6 +264,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS90093 | GraphUserUnauthorized-Graph returnerade en otillåten felkod för begäran. |
 | AADSTS90094 | AdminConsentRequired-administratörs medgivande krävs. |
 | AADSTS900382 | Konfidentiell klient stöds inte i en begäran mellan moln. |
+| AADSTS90099 | Programmet {appId} ({appName}) har inte auktoriserats i klient organisationen {Tenant}. Program måste ha behörighet att få åtkomst till kund innehavaren innan administratörer kan använda dem. Ge ett för hands godkännande eller kör lämpligt Partner Center-API för att auktorisera programmet. |
 | AADSTS90100 | InvalidRequestParameter-parametern är tom eller ogiltig. |
 | AADSTS901002 | AADSTS901002: parametern resurs begär ande stöds inte. |
 | AADSTS90101 | InvalidEmailAddress – de angivna data är inte en giltig e-postadress. E-postadressen måste anges i formatet `someone@example.com` . |

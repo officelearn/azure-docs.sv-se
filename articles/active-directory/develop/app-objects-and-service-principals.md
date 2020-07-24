@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027274"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objekt för program och tjänstens huvudnamn i Azure Active Directory
 
@@ -26,6 +26,8 @@ Den här artikeln beskriver program registrering, program objekt och tjänst huv
 
 ## <a name="application-registration"></a>Programregistrering
 För att kunna delegera identitets-och åtkomst hanterings funktioner till Azure AD måste ett program registreras med en Azure AD- [klient](developer-glossary.md#tenant). När du registrerar ditt program med Azure AD skapar du en identitets konfiguration för ditt program som gör det möjligt att integrera med Azure AD. När du registrerar en app i [Azure Portal][AZURE-Portal]väljer du om det är en enskild klient (endast tillgänglig i din klient) eller flera innehavare (tillgänglig för i andra klienter) och om du vill kan du ange en omdirigerings-URI (där åtkomsttoken skickas till).
+
+![Appregistrering](./media/app-objects-and-service-principals/app-registration.png)
 
 När du har slutfört registreringen av appen har du en globalt unik instans av appen (programobjektet) som finns i din hem klient eller katalog.  Du har också ett globalt unikt ID för din app (appen eller klient-ID: t).  I portalen kan du sedan lägga till hemligheter eller certifikat och omfattningar för att din app ska fungera, anpassa appens anpassning i dialog rutan för inloggning med mera.
 
@@ -38,16 +40,20 @@ Programobjektet beskriver tre aspekter av ett program: hur tjänsten kan utfärd
 
 Bladet **Appregistreringar** i [Azure Portal][AZURE-Portal] används för att visa och hantera program objekt i din hem klient organisation.
 
+![Appregistreringar bladet](./media/app-objects-and-service-principals/app-registrations-blade.png)
+
 [Entiteten Microsoft Graph program][MS-Graph-App-Entity] definierar schemat för ett program objekts egenskaper.
 
 ## <a name="service-principal-object"></a>Tjänstens huvud namns objekt
-För att få åtkomst till resurser som skyddas av en Azure AD-klient måste den entitet som kräver åtkomst representeras av ett säkerhets objekt. Detta gäller både för användare (användarens huvud namn) och program (tjänstens huvud namn). Säkerhets principen definierar åtkomst principen och behörigheter för användaren/programmet i Azure AD-klienten. Detta möjliggör kärn funktioner som autentisering av användaren/programmet vid inloggning och auktorisering under resurs åtkomst.
+För att få åtkomst till resurser som skyddas av en Azure AD-klient måste den entitet som kräver åtkomst representeras av ett säkerhets objekt. Detta krav gäller både för både användare (användarens huvud namn) och program (tjänstens huvud namn). Säkerhets principen definierar åtkomst principen och behörigheter för användaren/programmet i Azure AD-klienten. Detta möjliggör kärn funktioner som autentisering av användaren/programmet vid inloggning och auktorisering under resurs åtkomst.
 
 Ett huvud namn för tjänsten är den lokala representationen eller program instansen för ett globalt program objekt i en enda klient eller katalog. Ett huvud namn för tjänsten är en konkret instans som skapas från programobjektet och ärver vissa egenskaper från det program objektet.  Ett huvud namn för tjänsten skapas i varje klient där programmet används och refererar till det globalt unika app-objektet.  Tjänstens huvud objekt definierar vad appen faktiskt kan göra i den angivna klienten, vem som har åtkomst till appen och vilka resurser appen kan komma åt. 
 
 När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. Du kan också skapa tjänstens huvud namns objekt i en klient med hjälp av [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]och andra verktyg.  När du använder portalen skapas ett huvud namn för tjänsten automatiskt när du registrerar ett program.
 
 Bladet **företags program** i portalen används för att visa och hantera tjänstens huvud namn i en klient organisation. Du kan se tjänstens huvud namn, användare som har skickat behörigheter, vilka användare som har gjort detta medgivande, logga in information med mera.
+
+![Bladet företags program](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
 
 [Entiteten Microsoft Graph ServicePrincipal][MS-Graph-Sp-Entity] definierar schemat för ett tjänst huvud objekts egenskaper.
 
@@ -85,8 +91,8 @@ I det här exempel scenariot:
 ## <a name="next-steps"></a>Nästa steg
 
 - Du kan använda [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) för att fråga både program-och tjänst huvud objekt.
-- Du kan komma åt ett programs program objekt med hjälp av Microsoft Graph API, [Azure Portals][AZURE-Portal] program manifest redigeraren eller [Azure AD PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData- [programentitet][MS-Graph-App-Entity].
-- Du kan komma åt ett programs huvud objekt för tjänsten via Microsoft Graph API eller [Azure AD PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal-entitet][MS-Graph-Sp-Entity].
+- Du kan komma åt ett programs program objekt med hjälp av Microsoft Graph API, [Azure Portals][AZURE-Portal] program manifest redigeraren eller [Azure AD PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), som representeras av dess OData- [programentitet][MS-Graph-App-Entity].
+- Du kan komma åt ett programs huvud objekt för tjänsten via Microsoft Graph API eller [Azure AD PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal-entitet][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 

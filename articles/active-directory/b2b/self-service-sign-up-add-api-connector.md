@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027520"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Om ett anspråk att skicka inte har något värde när API-slutpunkten anropas s
 Du kan skapa anpassade attribut för användaren med hjälp av **extension_ \<extensions-app-id> _AttributeName** format. Ditt API bör förvänta sig att ta emot anspråk i samma serialiserade format. Ditt API kan returnera anspråk med eller utan `<extensions-app-id>` . Mer information om anpassade attribut finns i [definiera anpassade attribut för](user-flow-add-custom-attributes.md)självbetjänings registrerings flöden.
 
 > [!TIP] 
-> [**identiteter ("identiteter")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) och anspråk för **e-postadressen (email_address)** kan användas för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med ett Google eller Facebook och "email_address" alltid skickas.
+> [**identiteter (' Identities ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) och e- **postadressen (e-post)** kan användas för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med ett Google eller Facebook och "e-post" alltid skickas.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Förväntade svars typer från webb-API: et
 
@@ -135,16 +135,16 @@ Content-type: application/json
 
 | Parameter                                          | Typ              | Obligatorisk | Beskrivning                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
-| åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
+| version                                            | Sträng            | Yes      | API-versionen.                                                                                                                                                                                                                                                                |
+| åtgärd                                             | Sträng            | Yes      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | Det returnerade anspråket kan eventuellt inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
 
 ### <a name="blocking-response"></a>Blockerar svar
 
 Ett blockerande svar avslutar användar flödet. Det kan användas av API: et för att stoppa användar flödet genom att visa en blockera-sida för användaren. Sidan blockera visar den `userMessage` som tillhandahålls av API: et.
 
-Följande är ett exempel på blockerings svaret:
+Exempel på spärrnings svar:
 
 ```http
 HTTP/1.1 200 OK
@@ -161,9 +161,9 @@ Content-type: application/json
 
 | Parameter   | Typ   | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng | Ja      | API-versionen.                                                    |
-| åtgärd      | Sträng | Ja      | Värdet måste vara`ShowBlockPage`                                              |
-| userMessage | Sträng | Ja      | Meddelande som ska visas för användaren.                                            |
+| version     | Sträng | Yes      | API-versionen.                                                    |
+| åtgärd      | Sträng | Yes      | Värdet måste vara`ShowBlockPage`                                              |
+| userMessage | Sträng | Yes      | Meddelande som ska visas för användaren.                                            |
 | kod        | Sträng | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Slut användar upplevelse med ett blockerande svar
@@ -191,10 +191,10 @@ Content-type: application/json
 
 | Parameter   | Typ    | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng  | Ja      | API-versionen.                                                    |
-| åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
-| status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
-| userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
+| version     | Sträng  | Yes      | API-versionen.                                                    |
+| åtgärd      | Sträng  | Yes      | Värdet måste vara `ValidationError` .                                           |
+| status      | Heltal | Yes      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
+| userMessage | Sträng  | Yes      | Meddelande som ska visas för användaren.                                            |
 | kod        | Sträng  | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Slut användar upplevelse med ett verifierings fel svar

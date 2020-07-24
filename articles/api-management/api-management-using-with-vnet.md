@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025021"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -32,7 +32,7 @@ Azure API Management kan distribueras inuti det virtuella nätverket (VNET), så
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -119,7 +119,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 | */5671, 5672, 443          | Utgående           | TCP                | VIRTUAL_NETWORK/EventHub            | Beroende för [logg till Event Hub-princip](api-management-howto-log-event-hubs.md) och övervaknings agent | Externt & internt  |
 | */445                      | Utgående           | TCP                | VIRTUAL_NETWORK/lagring             | Beroende av Azure-filresurs för [git](api-management-configuration-repository-git.md)                      | Externt & internt  |
 | */443                     | Utgående           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Hälso-och övervaknings tillägg         | Externt & internt  |
-| */1886, 443                     | Utgående           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicera diagnostikloggar [och mått](api-management-howto-use-azure-monitor.md) och [Resource Health](../service-health/resource-health-overview.md)                     | Externt & internt  |
+| */1886, 443                     | Utgående           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicera diagnostikloggar [och mått](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) och [Application Insights](api-management-howto-app-insights.md)                   | Externt & internt  |
 | */25, 587, 25028                       | Utgående           | TCP                | VIRTUAL_NETWORK/INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externt & internt  |
 | */6381-6383              | Inkommande & utgående | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Åtkomst till Redis-tjänsten för [cache](api-management-caching-policies.md) -principer mellan datorer         | Externt & internt  |
 | */4290              | Inkommande & utgående | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Synkronisering av räknare för principer för [hastighets begränsning](api-management-access-restriction-policies.md#LimitCallRateByKey) mellan datorer         | Externt & internt  |
@@ -152,6 +152,8 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 + **Azure Portal diagnostik**: om du vill aktivera flödet av diagnostikloggar från Azure Portal när du använder API Management tillägget inifrån en Virtual Network, krävs utgående åtkomst till `dc.services.visualstudio.com` på port 443. Detta hjälper till att felsöka problem som kan uppstå när du använder tillägget.
 
 + **Azure Load Balancer**: Tillåt inkommande begäran från service tag `AZURE_LOAD_BALANCER` är inte ett krav för `Developer` SKU, eftersom vi bara distribuerar en beräknings enhet bakom den. Men inkommande från [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) blir kritiska när du skalar till högre SKU `Premium` , som fel vid hälso avsökning från Load Balancer, Miss lyckas en distribution.
+
++ **Application Insights**: om [Azure Application Insights](api-management-howto-app-insights.md) -övervakning är aktiverat på API Management måste vi tillåta utgående anslutning till [telemetri-slutpunkten](/azure/azure-monitor/app/ip-addresses#outgoing-ports) från Virtual Network. 
 
 + **Tvinga tunnel trafik till lokal brand vägg med hjälp av Express Route eller virtuell nätverks**installation: en vanlig kund konfiguration är att definiera sin egen standard väg (0.0.0.0/0) som tvingar all trafik från det API Management delegerade under nätet att flöda genom en lokal brand vägg eller till en virtuell nätverks installation. Detta trafikflöde avbryter anslutningen till Azure API Management eftersom utgående trafik antingen blockeras lokalt eller NAT till en okänd uppsättning adresser som inte längre fungerar med olika Azure-slutpunkter. Lösningen kräver att du gör några saker:
 
@@ -237,7 +239,7 @@ IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkomm
 | Azure, offentlig| Centrala USA-EUAP| 52.253.159.160|
 | Azure, offentlig| USA, södra centrala| 20.188.77.119|
 | Azure, offentlig| USA, östra 2| 20.44.72.3|
-| Azure, offentlig| Europa, norra| 52.142.95.35|
+| Azure, offentlig| Norra Europa| 52.142.95.35|
 | Azure, offentlig| Asien, östra| 52.139.152.27|
 | Azure, offentlig| Frankrike, södra| 20.39.80.2|
 | Azure, offentlig| Schweiz, västra| 51.107.96.8|

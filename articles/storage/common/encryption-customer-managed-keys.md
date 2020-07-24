@@ -5,17 +5,17 @@ description: Du kan använda din egen krypterings nyckel för att skydda data i 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515400"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029798"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering
 
@@ -47,13 +47,13 @@ Data i BLOB-och fil tjänsterna skyddas alltid av Kundhanterade nycklar när Kun
 
 ## <a name="enable-customer-managed-keys-for-a-storage-account"></a>Aktivera Kundhanterade nycklar för ett lagrings konto
 
-Kundhanterade nycklar kan bara aktive ras på befintliga lagrings konton. Nyckel valvet måste vara etablerad med åtkomst principer som beviljar nyckel behörigheter till den hanterade identitet som är kopplad till lagrings kontot. Den hanterade identiteten är bara tillgänglig när lagrings kontot har skapats.
-
 När du konfigurerar en kundhanterad nyckel omsluts Azure Storage data krypterings nyckeln för kontot med den Kundhanterade nyckeln i det associerade nyckel valvet. Att aktivera Kundhanterade nycklar påverkar inte prestanda och börjar gälla omedelbart.
 
-När du ändrar den nyckel som används för Azure Storage kryptering genom att aktivera eller inaktivera Kundhanterade nycklar, uppdatera nyckel versionen eller ange en annan nyckel ändras krypteringen av rot nyckeln, men data i ditt Azure Storage-konto behöver inte krypteras igen.
-
 När du aktiverar eller inaktiverar Kundhanterade nycklar, eller när du ändrar nyckeln eller nyckel versionen, ändras skyddet av rot krypterings nyckeln, men data i Azure Storage-kontot behöver inte krypteras igen.
+
+Kundhanterade nycklar kan bara aktive ras på befintliga lagrings konton. Nyckel valvet måste konfigureras med åtkomst principer som beviljar behörigheter till den hanterade identitet som är kopplad till lagrings kontot. Den hanterade identiteten är bara tillgänglig när lagrings kontot har skapats.
+
+Du kan när som helst växla mellan Kundhanterade nycklar och Microsoft-hanterade nycklar. Mer information om Microsoft-hanterade nycklar finns i [om hantering av krypterings nycklar](storage-service-encryption.md#about-encryption-key-management).
 
 Information om hur du använder Kundhanterade nycklar med Azure Key Vault för Azure Storage kryptering finns i någon av följande artiklar:
 
@@ -66,15 +66,22 @@ Information om hur du använder Kundhanterade nycklar med Azure Key Vault för A
 
 ## <a name="store-customer-managed-keys-in-azure-key-vault"></a>Lagra Kundhanterade nycklar i Azure Key Vault
 
-Om du vill aktivera Kundhanterade nycklar på ett lagrings konto måste du använda en Azure Key Vault för att lagra dina nycklar. Du måste aktivera både den **mjuka borttagningen** och **Rensa inte** egenskaperna i nyckel valvet.
+Om du vill aktivera Kundhanterade nycklar på ett lagrings konto måste du använda ett Azure Key Vault för att lagra dina nycklar. Du måste aktivera både den **mjuka borttagningen** och **Rensa inte** egenskaperna i nyckel valvet.
 
 Azure Storage-kryptering stöder RSA-och RSA-HSM-nycklar i storlekarna 2048, 3072 och 4096. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
+Att använda Azure Key Vault har tillhör ande kostnader. Mer information finns i [Key Vault prissättning](/pricing/details/key-vault/).
+
 ## <a name="rotate-customer-managed-keys"></a>Rotera Kundhanterade nycklar
 
-Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt efterlevnadsprinciper. När nyckeln roteras måste du uppdatera lagrings kontot för att använda den nya nyckel versions-URI: n. Information om hur du uppdaterar lagrings kontot för att använda en ny version av nyckeln i Azure Portal finns i avsnittet **Uppdatera nyckel versionen** i [Konfigurera kund hanterade nycklar för Azure Storage med hjälp av Azure Portal](storage-encryption-keys-portal.md).
+Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt efterlevnadsprinciper. Det finns två alternativ för att rotera en kundhanterad nyckel:
 
-Rotation av nyckeln utlöser inte Omkryptering av data i lagrings kontot. Det krävs ingen ytterligare åtgärd från användaren.
+- **Automatisk rotation:** Om du vill konfigurera automatisk rotation av Kundhanterade nycklar, utelämnar du nyckel versionen när du aktiverar kryptering med Kundhanterade nycklar för lagrings kontot. Om nyckelversionen utelämnas gör Azure Storage en kontroll av Azure Key Vault dagligen för en ny version av en kundhanterad nyckel. Om en ny nyckelversion är tillgänglig använder Azure Storage automatiskt den senaste versionen av nyckeln.
+- **Manuell rotation:** Om du vill använda en viss nyckel version för Azure Storage kryptering anger du den nyckel versionen när du aktiverar kryptering med Kundhanterade nycklar för lagrings kontot. Om du anger nyckel versionen använder Azure Storage den versionen för kryptering tills du uppdaterar nyckel versionen manuellt.
+
+    När nyckeln roteras manuellt måste du uppdatera lagrings kontot så att det använder den nya nyckel versions-URI: n. Information om hur du uppdaterar lagrings kontot för att använda en ny version av nyckeln i Azure Portal finns i [Uppdatera nyckel versionen manuellt](storage-encryption-keys-portal.md#manually-update-the-key-version).
+
+Att rotera en kundhanterad nyckel utlöser inte Omkryptering av data på lagrings kontot. Det krävs ingen ytterligare åtgärd från användaren.
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Återkalla åtkomst till Kundhanterade nycklar
 

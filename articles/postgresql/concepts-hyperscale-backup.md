@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515448"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030087"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-storskalig (citus)
 
@@ -32,7 +32,11 @@ För nuvarande prissättning för lagring av säkerhets kopior, se [prissättnin
 
 ## <a name="restore"></a>Återställ
 
-I Azure Database for PostgreSQL skapar återställer ett citus-kluster ett nytt kluster från de ursprungliga nodernas säkerhets kopior.
+I Azure Database for PostgreSQL skapar återställer ett citus-kluster ett nytt kluster från de ursprungliga nodernas säkerhets kopior. 
+
+> [!IMPORTANT]
+>Du kan bara återställa det storskaliga klustret i samma prenumeration och resurs grupp, och med ett annat kluster namn.
+
 
 > [!IMPORTANT]
 > Det går inte att återställa citus-kluster (borttagna storskaliga). Om du tar bort klustret tas alla noder som tillhör klustret bort och kan inte återställas. För att skydda kluster resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](/azure/azure-resource-manager/management/lock-resources).

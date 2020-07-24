@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 03/26/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025599"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -45,9 +45,9 @@ För att få en enhet i Azure AD har du flera alternativ:
 - **Azure AD-ansluten**
    - Enheter som är Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns bara i molnet.
       - Windows 10 
-      - [Windows Server 2019 Virtual Machines som körs i Azure] (./howto-vm-sign-in-azure-ad-windows.md) (Server Core stöds inte)
+      - [Windows Server 2019 Virtual Machines som körs i Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core stöds inte)
 - **Hybrid Azure AD-ansluten**
-   - Enheter som är hybrid Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns i molnet och lokalt.
+   - Enheter som är hybrid Azure AD-anslutna ägs av en organisation och är inloggade med ett Active Directory Domain Services konto som hör till organisationen. De finns i molnet och lokalt.
       - Windows 7, 8,1 eller 10
       - Windows Server 2008 eller senare
 
@@ -74,12 +74,12 @@ Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna fördelar från
 ## <a name="device-security"></a>Enhetssäkerhet
 
 - **Registrerade Azure AD-enheter** använder ett konto som hanteras av slutanvändaren. det här kontot är antingen en Microsoft-konto eller en annan lokalt hanterad autentiseringsuppgift som skyddas med ett eller flera av följande.
-   - lösenordsinställning
+   - Lösenord
    - PIN-KOD
    - Mönster
    - Windows Hello
 - **Azure AD-anslutna eller hybrid Azure AD-anslutna enheter** använder ett organisations konto i Azure AD som skyddas med en eller flera av följande.
-   - lösenordsinställning
+   - Lösenord
    - Windows Hello för företag
 
 ## <a name="provisioning"></a>Etablering

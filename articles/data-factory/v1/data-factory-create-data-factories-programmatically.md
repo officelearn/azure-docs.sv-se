@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 7e8a70955b36f11727019fe430f62e84d4f0c93c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d00801ccf67ff82dd0c00bf8aec616aa531668f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023491"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
@@ -28,13 +28,13 @@ Du kan skapa, övervaka och hantera Azure-datafabriker via programmering med Dat
 > [!NOTE]
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Läs [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) för omfattande dokumentation om .net api för Data Factory. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012, 2013 eller 2015
 * Hämta och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
+* Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för programmet och tilldela det rollen som **Data Factory-deltagare**.

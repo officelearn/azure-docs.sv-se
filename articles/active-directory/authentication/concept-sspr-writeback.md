@@ -5,21 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83639790"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027605"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory?
 
 Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord (SSPR) gör det möjligt för användare att återställa sina lösen ord i molnet, men de flesta företag har också en lokal Active Directory Domain Services (AD DS)-miljö där deras användare finns. Tillbakaskrivning av lösen ord är en funktion som aktive ras med [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) som gör att lösen ords ändringar i molnet kan skrivas tillbaka till en befintlig lokal katalog i real tid. I den här konfigurationen, när användare ändrar eller återställer sina lösen ord med SSPR i molnet, skrivs även de uppdaterade lösen orden tillbaka till den lokala AD DS-miljön
+
+> [!IMPORTANT]
+> I den här konceptuella artikeln förklaras en administratör hur tillbakaskrivning av lösen ord för återställning av lösen ord fungerar. Om du är en slutanvändare som redan är registrerad för lösen ords återställning via självbetjäning och behöver gå tillbaka till ditt konto, går du till https://aka.ms/sspr .
+>
+> Om IT-teamet inte har aktiverat möjligheten att återställa ditt eget lösen ord kan du kontakta supportavdelningen för ytterligare hjälp.
 
 Tillbakaskrivning av lösen ord stöds i miljöer som använder följande hybrid identitets modeller:
 
@@ -36,7 +42,12 @@ Tillbakaskrivning av lösen ord innehåller följande funktioner:
 * **Kräver inte några inkommande brand Väggs regler**: tillbakaskrivning av lösen ord använder ett Azure Service Bus relä som en underliggande kommunikations kanal. All kommunikation har utgående trafik via port 443.
 
 > [!NOTE]
-> Administratörs konton som finns i skyddade grupper i lokala AD kan användas med tillbakaskrivning av lösen ord. Administratörer kan ändra sitt lösen ord i molnet, men kan inte använda lösen ords återställning för att återställa ett bortglömt lösen ord. Mer information om skyddade grupper finns [i skyddade konton och grupper i Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> Administratörs konton som finns i skyddade grupper i lokala AD kan användas med tillbakaskrivning av lösen ord. Administratörer kan ändra sitt lösen ord i molnet, men kan inte använda lösen ords återställning för att återställa ett bortglömt lösen ord. Mer information om skyddade grupper finns i [skyddade konton och grupper i AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+
+Kom igång med SSPR tillbakaskrivning genom att följa de här självstudierna:
+
+> [!div class="nextstepaction"]
+> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](tutorial-enable-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Så fungerar tillbakaskrivning av lösenord
 
@@ -52,14 +63,14 @@ När en federerad eller lösenordsskyddad hash-användare försöker återställ
 1. När meddelandet når Service Bus aktive ras slut punkten för lösen ords återställning automatiskt och ser att den har en återställnings förfrågan väntar.
 1. Tjänsten söker sedan efter användaren med hjälp av molnets Anchor-attribut. För att sökningen ska lyckas måste följande villkor vara uppfyllda:
 
-   * Användarobjektet måste finnas i Active Directory kopplings utrymme.
+   * Användarobjektet måste finnas i AD DS Connector-utrymmet.
    * Användarobjektet måste vara länkat till motsvarande metaversum-objekt (MV).
-   * Objektet User måste vara länkat till motsvarande Azure Active Directory kopplings objekt.
-   * Länken från Active Directory Connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken.
+   * Användarobjektet måste vara länkat till motsvarande Azure AD Connector-objekt.
+   * Länken från AD DS Connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken.
 
-   När anropet kommer från molnet använder Synkroniseringsmotorn attributet **cloudAnchor** för att söka efter Azure Active Directory anslutnings utrymmes objekt. Sedan följer länken tillbaka till MV-objektet och följer sedan länken tillbaka till Active Directory-objektet. Eftersom det kan finnas flera Active Directory objekt (flera skogar) för samma användare, använder Synkroniseringsmotorn-motorn på `Microsoft.InfromADUserAccountEnabled.xxx` länken för att välja rätt.
+   När anropet kommer från molnet använder Synkroniseringsmotorn attributet **cloudAnchor** för att leta upp Azure AD Connector Space-objektet. Sedan följer länken tillbaka till MV-objektet och följer sedan länken tillbaka till AD DS-objektet. Eftersom det kan finnas flera AD DS-objekt (flera skogar) för samma användare, är Synkroniseringsmotorn beroende av `Microsoft.InfromADUserAccountEnabled.xxx` länken för att välja rätt.
 
-1. När användar kontot har hittats görs ett försök att återställa lösen ordet direkt i rätt Active Directory skog.
+1. När användar kontot har hittats görs ett försök att återställa lösen ordet direkt i rätt AD DS-skog.
 1. Om åtgärden för lösen ords uppsättning lyckas, uppmanas användaren att lösen ordet har ändrats.
 
    > [!NOTE]
@@ -68,7 +79,7 @@ När en federerad eller lösenordsskyddad hash-användare försöker återställ
 1. Om lösen ords uppsättnings åtgärden Miss lyckas visas ett fel meddelande om att användaren försöker igen. Åtgärden kan Miss Miss av följande orsaker:
     * Tjänsten var avstängd.
     * Det lösen ord som de har valt uppfyller inte organisationens principer.
-    * Det gick inte att hitta användaren i den lokala Active Directory.
+    * Det gick inte att hitta användaren i den lokala AD DS-miljön.
 
    Fel meddelandena ger vägledning för användarna så att de kan försöka lösa utan att administratören behöver göra något.
 
@@ -85,7 +96,7 @@ Tillbakaskrivning av lösen ord är en mycket säker tjänst. För att se till a
    1. Det krypterade lösen ordet placeras i ett HTTPS-meddelande som skickas via en krypterad kanal genom att använda Microsoft TLS/SSL-certifikat till Service Bus-reläet.
    1. När meddelandet tas emot i Service Bus-tjänsten aktive ras och autentiseras den lokala agenten med hjälp av det starka lösen ord som genererades tidigare.
    1. Den lokala agenten hämtar det krypterade meddelandet och dekrypterar det med hjälp av den privata nyckeln.
-   1. Den lokala agenten försöker ange lösen ordet via AD DS SetPassword-API: et. Det här steget är det som tillåter tvång av din Active Directory lokala lösen ords princip (till exempel komplexitet, ålder, historik och filter) i molnet.
+   1. Den lokala agenten försöker ange lösen ordet via AD DS SetPassword-API: et. Det här steget är vad som tillåter att din lokala lösen ords princip för AD DS används (till exempel komplexitet, ålder, historik och filter) i molnet.
 * **Principer för förfallo datum för meddelande**
    * Om meddelandet finns i Service Bus, eftersom den lokala tjänsten är nere, tids gränsen uppnåddes och tas bort efter några minuter. Timeout och borttagning av meddelandet ökar säkerheten ytterligare.
 
@@ -94,9 +105,9 @@ Tillbakaskrivning av lösen ord är en mycket säker tjänst. För att se till a
 När en användare har skickat en lösen ords återställning går återställnings förfrågan igenom flera krypterings steg innan den tas emot i din lokala miljö. Dessa krypterings steg säkerställer maximal tillförlitlighet och säkerhet för tjänsten. De beskrivs på följande sätt:
 
 1. **Lösen ords kryptering med 2048-bitars RSA-nyckel**: när en användare skickar in ett lösen ord som ska skrivas tillbaka till lokalt, krypteras det skickade lösen ordet med en 2048-bitars RSA-nyckel.
-1. **Kryptering på paket nivå med AES-GCM**: hela paketet, lösen ordet plus de metadata som krävs, krypteras med hjälp av AES-GCM. Den här krypteringen förhindrar att någon har direkt åtkomst till den underliggande Service Bus-kanalen från att visa eller manipulera innehållet.
+1. **Kryptering på paket nivå med AES-GCM**: hela paketet, lösen ordet plus de metadata som krävs, krypteras med hjälp av AES-GCM. Den här krypteringen förhindrar att någon har direkt åtkomst till den underliggande Service Bus kanalen från att visa eller manipulera innehållet.
 1. **All kommunikation sker över TLS/SSL**: all kommunikation med Service Bus sker i en SSL/TLS-kanal. Den här krypteringen skyddar innehållet från icke-auktoriserade tredje parter.
-1. **Automatisk nyckel rulle under var sjätte**månad: alla nycklar slås över var sjätte månad, eller varje gång en tillbakaskrivning av lösen ord inaktive ras och sedan aktive ras på Azure AD Connect, för att säkerställa maximal tjänst säkerhet och säkerhet.
+1. **Automatisk nyckel förnyelse var sjätte**månad: alla nycklar slås över var sjätte månad, eller varje gång en tillbakaskrivning av lösen ord inaktive ras och sedan aktive ras på Azure AD Connect, för att säkerställa maximal tjänst säkerhet och säkerhet.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Bandbredds användning för tillbakaskrivning av lösen ord
 

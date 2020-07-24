@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7393b0f3d3004c28e0d6befe2fdbbeda7f9a592
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558926"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026160"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Webbapp som loggar in användare: inloggning och utloggning
 
@@ -334,7 +335,7 @@ I tidigare versioner av ASP.NET Core-mallarna `Account` har kontrollanten bädda
 - Anrop `Signout()` , som låter OpenID ansluta mellanprogram kontakta Microsoft Identity Platform- `logout` slutpunkten. Slut punkten sedan:
 
   - Tar bort sessions-cookien från webbläsaren.
-  - Anropar utloggnings-URL: en. Som standard visar utloggnings-URL: en sidan för inloggad vy [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Den här sidan tillhandahålls också som en del av MIcrosoft. Identity. Web.
+  - Anropar utloggnings-URL: en. Som standard visar utloggnings-URL: en [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs)på sidan för inloggad vy. Den här sidan tillhandahålls också som en del av MIcrosoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

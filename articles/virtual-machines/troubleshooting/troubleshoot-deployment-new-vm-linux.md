@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: daberry
-ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f48963a4d18e80cb67bfbbdc532d34f89b8b5d8a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83118234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028455"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Felsök distributions problem i Resource Manager med att skapa en ny Linux-virtuell dator i Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -35,7 +36,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 [Visa distributionsåtgärder](../../azure-resource-manager/templates/deployment-history.md)
 
-[Visa aktivitets loggar för att hantera Azure-resurser](../../resource-group-audit.md)
+[Visa aktivitets loggar för att hantera Azure-resurser](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -87,5 +88,4 @@ Det här felet uppstår i situationer när den nya VM-begäran fästs i ett klus
   * Lägg till den nya virtuella datorn i samma virtuella nätverk.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du får problem när du startar en virtuell Linux-dator som har stoppats eller ändrar storlek på en befintlig virtuell Linux-dator i Azure läser du [Felsöka distributions problem med Resource Manager med att starta om eller ändra storlek på en befintlig virtuell Linux-dator i Azure](../linux/restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+Om du får problem när du startar en virtuell Linux-dator som har stoppats eller ändrar storlek på en befintlig virtuell Linux-dator i Azure läser du [Felsöka distributions problem med Resource Manager med att starta om eller ändra storlek på en befintlig virtuell Linux-dator i Azure](./troubleshoot-deploy-vm-linux.md?toc=/azure/virtual-machines/linux/toc.json).

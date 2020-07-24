@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315038"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023894"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Den här artikeln utforskar vanliga fel söknings metoder för integration runtime med egen värd i Azure Data Factory.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Samla in integrerings körnings loggar med egen värd från Azure Data Factory
+
+Azure Data Factory stöder visning och överföring av fel loggar för misslyckade aktiviteter som körs på IR/delad IR/delad IR. Du kan följa stegen nedan för att hämta fel rapportens ID och sedan skriva in rapport-ID: t för att hitta relaterade kända problem.
+
+1. Gå till sidan **aktivitets körningar** .
+
+1. Under kolumnen **fel** klickar du på knappen nedan.
+
+    ![Sidan aktivitets körningar](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. Du kommer att se relaterade loggar för körningen av misslyckad aktivitet. Klicka på **skicka loggar** om du vill ha mer hjälp.
+
+    ![Skicka loggar](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. Du kan välja vilka loggar du vill skicka. För *IR med egen värd*kan du överföra loggar relaterade till misslyckad aktivitet eller alla loggar på IR-noden med egen värd. För *delad IR*kan du bara ladda upp loggar som är relaterade till misslyckad aktivitet.
+
+    ![Välj loggar](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. När loggarna laddas upp ska du behålla en post med rapport-ID om du behöver hjälp med att lösa problemet.
+
+    ![Ladda upp loggar](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> Logg visning och uppladdning av begär Anden körs på alla online-IR-instanser online. Kontrol lera att alla egna IR-instanser är online om det finns saknade loggar som saknas. 
+
 
 ## <a name="common-errors-and-resolutions"></a>Vanliga fel och lösningar
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553660"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026092"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
 
@@ -159,7 +159,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | krävs   | `{tenant}`Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är `common` , `organizations` , `consumers` och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | krävs  | Det program-ID (klient) som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan som har tilldelats till din app. |
 | `grant_type` | krävs   | Måste vara `authorization_code` för flöde för auktoriseringskod.   |
-| `scope`      | krävs   | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det första benet. Omfattningarna måste allt från en enda resurs, tillsammans med OIDC-scope ( `profile` , `openid` , `email` ). En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
+| `scope`      | valfri   | En blankstegsavgränsad lista över omfång. Omfattningarna måste allt från en enda resurs, tillsammans med OIDC-scope ( `profile` , `openid` , `email` ). En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). Detta är ett Microsoft-tillägg till Authorization Code Flow, som är avsett att tillåta appar att deklarera den resurs som de vill ha token för under token inlösen.|
 | `code`          | krävs  | Authorization_code som du har köpt i den första delen av flödet. |
 | `redirect_uri`  | krävs  | Samma redirect_uri värde som användes för att hämta authorization_code. |
 | `client_secret` | krävs för konfidentiella webbappar | Den program hemlighet som du skapade i appens registrerings Portal för din app. Du bör inte använda program hemligheten i en inbyggd app eller en app på en enskild sida eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter eller på webb sidor. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan.  Klient hemligheten måste vara URL-kodad innan den kan skickas. Mer information om URI-kodning finns i [specifikation för URI-generisk syntax](https://tools.ietf.org/html/rfc3986#page-12). |

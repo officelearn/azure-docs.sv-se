@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023474"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ord lista för IoT Hub villkor
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller några av de vanliga termer som används i IoT Hub
 
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) är ett av de meddelande protokoll som [IoT Hub](#iot-hub) stöder för att kommunicera med enheter. Mer information om de meddelande protokoll som IoT Hub stöder finns i [skicka och ta emot meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="automatic-device-management"></a>Automatisk enhets hantering
+## <a name="automatic-device-management"></a>Automatisk enhetshantering
 
 Automatisk enhets hantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna i hanteringen av stora enhets flottor över hela livs cykeln. Med automatisk enhets hantering kan du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och låta IoT Hub uppdatera enheter när de kommer till omfånget.  Består av [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) och [IoT Edge automatiska distributioner](../iot-edge/how-to-deploy-at-scale.md).
 
@@ -58,13 +58,13 @@ Det finns _tjänst-SDK_ : er för flera språk som gör att du kan skapa [backen
 
 [Azure IoT-verktygen](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) är ett plattforms oberoende Visual Studio Code-tillägg med öppen källkod som hjälper dig att hantera Azure-IoT Hub och enheter i vs Code. Med Azure IoT-verktyg kan IoT-utvecklare utveckla IoT-projekt i VS Code enkelt.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure-portalen
 
 [Microsoft Azure-portalen](https://portal.azure.com) är en central plats där du kan etablera och hantera dina Azure-resurser. Den ordnar sitt innehåll med hjälp av _blad_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview) är en samling cmdlets som du kan använda för att hantera Azure med Windows PowerShell. Du kan använda cmdletarna för att skapa, testa, distribuera och hantera lösningar och tjänster som levereras via Azure-plattformen.
+[Azure PowerShell](/powershell/azure/) är en samling cmdlets som du kan använda för att hantera Azure med Windows PowerShell. Du kan använda cmdletarna för att skapa, testa, distribuera och hantera lösningar och tjänster som levereras via Azure-plattformen.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -294,7 +294,7 @@ I kontexten för en [enhet](iot-hub-devguide-device-twins.md), är rapporterade 
 
 Du använder en princip för återförsök för att hantera [tillfälliga fel](/azure/architecture/best-practices/transient-faults) när du ansluter till en moln tjänst.
 
-## <a name="routing-rules"></a>Dirigeringsregler
+## <a name="routing-rules"></a>Hanteringsregler
 
 Du konfigurerar [regler för routning](iot-hub-devguide-messages-read-custom.md) i IoT-hubben så att de dirigerar enhets-till-moln-meddelanden till en [inbyggd slut punkt](#built-in-endpoints) eller [anpassade slut punkter](#custom-endpoints) för bearbetning av Server delen av lösningen.
 

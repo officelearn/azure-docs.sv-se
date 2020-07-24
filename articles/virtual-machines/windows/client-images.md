@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 51e4862fe55428f112841ef7176cdb916653de0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0853b08ced0b9ca328d5e7f506ca54299aebeee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083282"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028200"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda en Windows-klient i Azure för dev/test-scenarier
 Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure för utveckling/testning-scenarier förutsatt att du har en lämplig Visual Studio-prenumeration (tidigare MSDN). Den här artikeln beskriver behörighets kraven för att köra Windows 7, Windows 8,1, Windows 10 Enterprise i Azure och använda följande Azure Gallery-avbildningar.
@@ -58,5 +58,4 @@ Du kan också Visa erbjudande-ID: t från [fliken prenumerationer](https://accou
 ![Erbjud ID-information från Azure-konto portalen](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu kan du distribuera dina virtuella datorer med hjälp av [PowerShell](quick-create-powershell.md), [Resource Manager-mallar](ps-template.md)eller [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
+Nu kan du distribuera dina virtuella datorer med hjälp av [PowerShell](quick-create-powershell.md), [Resource Manager-mallar](ps-template.md)eller [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

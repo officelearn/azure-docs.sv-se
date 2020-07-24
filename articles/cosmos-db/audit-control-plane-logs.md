@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414202"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023695"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Granska Azure Cosmos DB kontroll Plans åtgärder
 
@@ -26,9 +27,9 @@ Här följer några exempel på scenarier där gransknings kontroll Plans åtgä
 
 ## <a name="disable-key-based-metadata-write-access"></a>Inaktivera nyckelbaserade metadata skriv åtkomst
 
-Innan du granskar kontroll Plans åtgärderna i Azure Cosmos DB inaktiverar du den nyckelbaserade metadata-Skriv åtkomsten på ditt konto. När Key-baserade metadata skriv åtkomst är inaktive rad förhindras klienter som ansluter till Azure Cosmos-kontot via konto nycklar från åtkomst till kontot. Du kan inaktivera skriv åtkomst genom att ställa in `disableKeyBasedMetadataWriteAccess` egenskapen på True. När du har angett den här egenskapen kan ändringar i alla resurser ske från en användare med en korrekt rollbaserad åtkomst kontroll (RBAC) roll och autentiseringsuppgifter. Mer information om hur du ställer in den här egenskapen finns i artikeln [förhindra ändringar från SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) : er. 
+Innan du granskar kontroll Plans åtgärderna i Azure Cosmos DB inaktiverar du den nyckelbaserade metadata-Skriv åtkomsten på ditt konto. När Key-baserade metadata skriv åtkomst är inaktive rad förhindras klienter som ansluter till Azure Cosmos-kontot via konto nycklar från åtkomst till kontot. Du kan inaktivera skriv åtkomst genom att ställa in `disableKeyBasedMetadataWriteAccess` egenskapen på True. När du har angett den här egenskapen kan ändringar i alla resurser ske från en användare med en korrekt rollbaserad åtkomst kontroll (RBAC) roll och autentiseringsuppgifter. Mer information om hur du ställer in den här egenskapen finns i artikeln [förhindra ändringar från SDK](role-based-access-control.md#prevent-sdk-changes) : er. 
 
-När `disableKeyBasedMetadataWriteAccess` är aktive rad, om SDK-baserade klienter kör Create eller Update-åtgärder, så *tillåts inte "ÅTGÄRDs post" på resursen "ContainerNameorDatabaseName" via Azure Cosmos DB slut punkten* returneras. Du måste aktivera åtkomst till sådana åtgärder för ditt konto eller utföra åtgärderna skapa/uppdatera via Azure Resource Manager, Azure CLI eller Azure PowerShell. Om du vill växla tillbaka anger du disableKeyBasedMetadataWriteAccess till **falskt** med hjälp av Azure CLI enligt beskrivningen i artikeln [förhindra ändringar från Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Se till att ändra värdet `disableKeyBasedMetadataWriteAccess` till falskt i stället för sant.
+När `disableKeyBasedMetadataWriteAccess` är aktive rad, om SDK-baserade klienter kör Create eller Update-åtgärder, så *tillåts inte "ÅTGÄRDs post" på resursen "ContainerNameorDatabaseName" via Azure Cosmos DB slut punkten* returneras. Du måste aktivera åtkomst till sådana åtgärder för ditt konto eller utföra åtgärderna skapa/uppdatera via Azure Resource Manager, Azure CLI eller Azure PowerShell. Om du vill växla tillbaka anger du disableKeyBasedMetadataWriteAccess till **falskt** med hjälp av Azure CLI enligt beskrivningen i artikeln [förhindra ändringar från Cosmos SDK](role-based-access-control.md#prevent-sdk-changes) . Se till att ändra värdet `disableKeyBasedMetadataWriteAccess` till falskt i stället för sant.
 
 Tänk på följande när du inaktiverar skriv åtkomst till metadata:
 

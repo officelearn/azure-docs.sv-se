@@ -7,12 +7,12 @@ ms.date: 06/17/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: c8a5e1b1324ca49d8b540998a82ebf125b3c5364
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5be21eea9dbb9ea0925ac014fce6272ce8c32a0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028167"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>För hands version: skapa en virtuell Windows-dator med Azure Image Builder med PowerShell
 
@@ -21,11 +21,11 @@ Den här artikeln visar hur du kan skapa en anpassad Windows-avbildning med hjä
 > [!CAUTION]
 > Azure Image Builder är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal. Det rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Även om PowerShell-modulerna **AZ. ImageBuilder** och **AZ. ManagedServiceIdentity** finns i för hands version, måste du installera dem separat med hjälp av `Install-Module` cmdleten med `AllowPrerelease` parametern. När de här PowerShell-modulerna blir allmänt tillgängliga blir de en del av framtida versioner av AZ PowerShell-modulen och är tillgängliga internt inifrån Azure Cloud Shell.
@@ -36,7 +36,7 @@ Om du väljer att använda PowerShell lokalt kräver den här artikeln att du in
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Om du har flera Azure-prenumerationer väljer du lämplig prenumeration där resurserna ska faktureras. Välj en speciell prenumeration med cmdleten [set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) .
+Om du har flera Azure-prenumerationer väljer du lämplig prenumeration där resurserna ska faktureras. Välj en speciell prenumeration med cmdleten [set-AzContext](/powershell/module/az.accounts/set-azcontext) .
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -100,7 +100,7 @@ Write-Output $subscriptionID
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med cmdlet: en [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp.
+Skapa en [Azure-resurs grupp](../../azure-resource-manager/management/overview.md) med cmdlet: en [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp.
 
 I följande exempel skapas en resurs grupp baserat på namnet i `$imageResourceGroup` variabeln i den region som anges i `$location` variabeln. Den här resurs gruppen används för att lagra bild konfigurations mal len artefakt och avbildningen.
 
@@ -168,7 +168,7 @@ New-AzRoleAssignment @RoleAssignParams
 ```
 
 > [!NOTE]
-> Om du får felet: "_New-AzRoleDefinition: roll definitions gränsen har överskridits. Det går inte att skapa fler roll definitioner._ mer information finns i [FELSÖKA Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting).
+> Om du får felet: "_New-AzRoleDefinition: roll definitions gränsen har överskridits. Det går inte att skapa fler roll definitioner._ mer information finns i [FELSÖKA Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 ## <a name="create-a-shared-image-gallery"></a>Skapa ett Shared Image Gallery
 
@@ -200,7 +200,7 @@ New-AzGalleryImageDefinition @GalleryParams
 
 ## <a name="create-an-image"></a>Skapa en avbildning
 
-Skapa ett käll objekt för Azure Image Builder. Se [hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) för giltiga parameter värden.
+Skapa ett käll objekt för Azure Image Builder. Se [hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell](./cli-ps-findimage.md) för giltiga parameter värden.
 
 ```azurepowershell-interactive
 $SrcObjParams = @{

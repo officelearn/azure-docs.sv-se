@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026466"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Ett webb-API som anropar webb-API: er: Hämta en token för appen
 
@@ -26,46 +27,38 @@ När du har skapat ett klient program objekt kan du använda det för att hämta
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Här är ett exempel på kod som anropas i API-styrenhetens åtgärder. Den anropar ett underordnat API med namnet *ToDoList*.
+Här är ett exempel på kod som använder Microsoft. identitet. Web som anropas i API-styrenhetens åtgärder. Den anropar ett underordnat API med namnet *ToDoList*. Om du vill hämta en token för att anropa det underordnade API: t ska du injicera `ITokenAcquisition` tjänsten med beroende inmatning i Controller-konstruktorn (eller din sidlayout om du använder blixt), och du använder den i styrenhets åtgärderna, hämtar en token för användaren ( `GetAccessTokenForUserAsync` ) eller för själva programmet ( `GetAccessTokenForAppAsync` ) i händelse av ett bakgrunds scenario.
 
 ```csharp
-private async Task GetTodoList(bool isAppStarting)
+[Authorize]
+public class MyApiController : Controller
 {
- ...
- //
- // Get an access token to call the To Do service.
- //
- AuthenticationResult result = null;
- try
- {
-  app = BuildConfidentialClient(HttpContext, HttpContext.User);
-  result = await app.AcquireTokenSilent(Scopes, account)
-                     .ExecuteAsync()
-                     .ConfigureAwait(false);
- }
-...
+    /// <summary>
+    /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
+    /// this API.
+    /// </summary>
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+
+     static readonly string[] scopesToAccessDownstreamApi = new string[] { "api://MyTodolistService/access_as_user" };
+
+    private readonly ITokenAcquisition _tokenAcquisition;
+
+    public MyApiController(ITokenAcquisition tokenAcquisition)
+    {
+        _tokenAcquisition = tokenAcquisition;
+    }
+
+    public IActionResult Index()
+    {
+        HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+
+        string accessToken = _tokenAcquisition.GetAccessTokenForUserAsync(scopesToAccessDownstreamApi);
+        return await callTodoListService(accessToken);
+    }
 }
 ```
 
-`BuildConfidentialClient()`liknar scenariot i [ett webb-API som anropar webb-API: er: app-konfiguration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()`instansierar `IConfidentialClientApplication` med en cache som bara innehåller information för ett enda konto. Kontot anges av- `GetAccountIdentifier` metoden.
-
-`GetAccountIdentifier`Metoden använder de anspråk som är associerade med identiteten för den användare som webb-API: et fick JSON Web token (JWT):
-
-```csharp
-public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
-{
- string userObjectId = GetObjectId(claimsPrincipal);
- string tenantId = GetTenantId(claimsPrincipal);
-
- if (    !string.IsNullOrWhiteSpace(userObjectId)
-      && !string.IsNullOrWhiteSpace(tenantId))
- {
-  return $"{userObjectId}.{tenantId}";
- }
-
- return null;
-}
-```
+Mer information om- `callTodoListService` metoden finns i [ett webb-API som anropar webb-API: er: anropa ett API](scenario-web-api-call-api-call-api.md).
 
 # <a name="java"></a>[Java](#tab/java)
 Här är ett exempel på kod som anropas i API-styrenhetens åtgärder. Den anropar underordnad API-Microsoft Graph.

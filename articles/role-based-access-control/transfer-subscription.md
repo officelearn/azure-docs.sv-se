@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230850"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029985"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)
 
@@ -66,24 +66,24 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 
 | Tjänst eller resurs | Påverkas | Återställnings bara | Påverkas du? | Det här kan du göra |
 | --------- | --------- | --------- | --------- | --------- |
-| Rolltilldelningar | Ja | Ja | [Visa lista över rolltilldelningar](#save-all-role-assignments) | Alla roll tilldelningar tas bort permanent. Du måste mappa användare, grupper och tjänstens huvud namn till motsvarande objekt i mål katalogen. Du måste återskapa roll tilldelningarna. |
-| Anpassade roller | Ja | Ja | [Lista anpassade roller](#save-custom-roles) | Alla anpassade roller tas bort permanent. Du måste återskapa de anpassade rollerna och eventuella roll tilldelningar. |
-| Systemtilldelade hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
-| Användare som tilldelats hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
-| Azure Key Vault | Ja | Ja | [Visa lista Key Vault åtkomst principer](#list-other-known-resources) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
-| Azure SQL-databaser med Azure AD-autentisering | Ja | Nej | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-other-known-resources) |  |  |
-| Azure Storage och Azure Data Lake Storage Gen2 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
+| Rolltilldelningar | Ja | Yes | [Visa lista över rolltilldelningar](#save-all-role-assignments) | Alla roll tilldelningar tas bort permanent. Du måste mappa användare, grupper och tjänstens huvud namn till motsvarande objekt i mål katalogen. Du måste återskapa roll tilldelningarna. |
+| Anpassade roller | Ja | Yes | [Lista anpassade roller](#save-custom-roles) | Alla anpassade roller tas bort permanent. Du måste återskapa de anpassade rollerna och eventuella roll tilldelningar. |
+| Systemtilldelade hanterade identiteter | Ja | Yes | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
+| Användare som tilldelats hanterade identiteter | Ja | Yes | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
+| Azure Key Vault | Ja | Yes | [Visa lista Key Vault åtkomst principer](#list-other-known-resources) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
+| Azure SQL-databaser med Azure AD-autentisering | Yes | Inga | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-other-known-resources) |  |  |
+| Azure Storage och Azure Data Lake Storage Gen2 | Ja | Yes |  | Du måste återskapa alla ACL: er. |
 | Azure Data Lake Storage Gen1 | Ja |  |  | Du måste återskapa alla ACL: er. |
-| Azure Files | Ja | Ja |  | Du måste återskapa alla ACL: er. |
-| Azure File Sync | Ja | Ja |  |  |
-| Azure Managed Disks | Ja | Ej tillämpligt |  |  |
-| Azure Container Services för Kubernetes | Ja | Ja |  |  |
-| Azure Active Directory Domain Services | Ja | Nej |  |  |
+| Azure Files | Ja | Yes |  | Du måste återskapa alla ACL: er. |
+| Azure File Sync | Ja | Yes |  |  |
+| Azure Managed Disks | Yes | Ej tillämpligt |  |  |
+| Azure Container Services för Kubernetes | Ja | Yes |  |  |
+| Azure Active Directory Domain Services | Yes | Inga |  |  |
 | Appregistreringar | Ja | Ja |  |  |
 
 Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som inte finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra de här stegen:
 
@@ -145,7 +145,7 @@ Du behöver följande för att slutföra de här stegen:
 
 ### <a name="save-custom-roles"></a>Spara anpassade roller
 
-1. Använd den [AZ roll definitions listan](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) för att visa en lista över dina anpassade roller. Mer information finns i [skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av Azure CLI](custom-roles-cli.md).
+1. Använd den [AZ roll definitions listan](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) för att visa en lista över dina anpassade roller. Mer information finns i [skapa eller uppdatera anpassade Azure-roller med hjälp av Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ Hanterade identiteter uppdateras inte när en prenumeration överförs till en a
 
 ### <a name="list-key-vaults"></a>Visa en lista över nyckel valv
 
-När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active Directory klient-ID: t för den prenumeration som den skapas i. Alla åtkomstprincipposter knyts också till detta klient-ID. Mer information finns i [flytta en Azure Key Vault till en annan prenumeration](../key-vault/general/keyvault-move-subscription.md).
+När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active Directory klient-ID: t för den prenumeration som den skapas i. Alla åtkomstprincipposter knyts också till detta klient-ID. Mer information finns i [flytta en Azure Key Vault till en annan prenumeration](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som inte finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
@@ -291,7 +291,7 @@ I det här steget överför du fakturerings ägarskapet för prenumerationen fr�
 
 ### <a name="create-custom-roles"></a>Skapa anpassade roller
         
-- Använd [AZ roll definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) för att skapa varje anpassad roll från de filer som du skapade tidigare. Mer information finns i [skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av Azure CLI](custom-roles-cli.md).
+- Använd [AZ roll definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) för att skapa varje anpassad roll från de filer som du skapade tidigare. Mer information finns i [skapa eller uppdatera anpassade Azure-roller med hjälp av Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -339,7 +339,7 @@ I det här steget överför du fakturerings ägarskapet för prenumerationen fr�
 
 ### <a name="update-key-vaults"></a>Uppdatera nyckel valv
 
-I det här avsnittet beskrivs de grundläggande stegen för att uppdatera nyckel valven. Mer information finns i [flytta en Azure Key Vault till en annan prenumeration](../key-vault/general/keyvault-move-subscription.md).
+I det här avsnittet beskrivs de grundläggande stegen för att uppdatera nyckel valven. Mer information finns i [flytta en Azure Key Vault till en annan prenumeration](../key-vault/general/move-subscription.md).
 
 1. Uppdatera klient-ID: t som är associerat med alla befintliga nyckel valv i prenumerationen till mål katalogen.
 

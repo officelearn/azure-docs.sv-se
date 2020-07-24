@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ecfd6bf9d20309619155bf35c87bdb4c08665f73
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3b2684122e7de97282b1054fa9ad0390469b0f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169552"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030274"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Använda Notification Hubs från Java
 
@@ -30,7 +30,7 @@ ms.locfileid: "86169552"
 I det här avsnittet beskrivs viktiga funktioner i det nya fullt stödda officiella Azure Notification Hub Java SDK.
 Projektet är ett projekt med öppen källkod och du kan visa hela SDK-koden i [Java SDK].
 
-I allmänhet kan du komma åt alla Notification Hubs-funktioner från en Java/PHP/python/ruby-slutpunkt med hjälp av REST-gränssnittet i Notification Hub, enligt beskrivningen i MSDN-avsnittet [Notification HUBS REST-API: er](https://msdn.microsoft.com/library/dn223264.aspx). Java SDK är en tunn omslutning över dessa REST-gränssnitt i Java.
+I allmänhet kan du komma åt alla Notification Hubs-funktioner från en Java/PHP/python/ruby-slutpunkt med hjälp av REST-gränssnittet i Notification Hub, enligt beskrivningen i MSDN-avsnittet [Notification HUBS REST-API: er](/previous-versions/azure/reference/dn223264(v=azure.100)). Java SDK är en tunn omslutning över dessa REST-gränssnitt i Java.
 
 SDK stöder för närvarande:
 
@@ -387,7 +387,7 @@ I det här avsnittet visas hur du skapar en enkel Java REST-klient för Notifica
   * [Skicka meddelanden mellan plattformar till autentiserade användare]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get started tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Kom igång med Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Skicka de senaste nyheterna]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Skicka lokaliserade brytnings nyheter]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md

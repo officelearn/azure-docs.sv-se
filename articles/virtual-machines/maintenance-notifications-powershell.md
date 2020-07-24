@@ -7,17 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028593"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Hantera planerat underhåll med PowerShell
 
 **Den här artikeln gäller för virtuella datorer som kör både Linux och Windows.**
 
-Du kan använda Azure PowerShell för att se när virtuella datorer är schemalagda för [Underhåll](maintenance-notifications.md). Information om planerat underhåll är tillgänglig från cmdleten [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) när du använder- `-status` parametern.
+Du kan använda Azure PowerShell för att se när virtuella datorer är schemalagda för [Underhåll](maintenance-notifications.md). Information om planerat underhåll är tillgänglig från cmdleten [Get-AzVM](/powershell/module/az.compute/get-azvm) när du använder- `-status` parametern.
   
 Underhålls information returneras endast om underhållet är planerat. Om inget underhåll har schemalagts som påverkar den virtuella datorn returnerar cmdleten ingen underhålls information. 
 
@@ -39,7 +40,7 @@ Följande egenskaper returneras under MaintenanceRedeployStatus:
 
 
 
-Du kan också hämta underhålls status för alla virtuella datorer i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) och inte ange en virtuell dator.
+Du kan också hämta underhålls status för alla virtuella datorer i en resurs grupp med hjälp av [Get-AzVM](/powershell/module/az.compute/get-azvm) och inte ange en virtuell dator.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status

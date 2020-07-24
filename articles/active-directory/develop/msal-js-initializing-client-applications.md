@@ -9,135 +9,153 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fbd700c787a844fa7538ed198f76ed5c06af2c28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027044"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med hjälp av MSAL.js
-I den här artikeln beskrivs hur du initierar Microsoft Authentication Library för Java Script (MSAL.js) med en instans av ett användar agent program. Användar agent programmet är en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig. Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
 
-## <a name="prerequisites"></a>Krav
-Innan du initierar ett program måste du först [registrera det med Azure Portal](scenario-spa-app-registration.md) så att din app kan integreras med Microsoft Identity Platform. Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
+I den här artikeln beskrivs hur du initierar Microsoft Authentication Library för Java Script (MSAL.js) med en instans av ett användar agent program.
 
-- Klient-ID (en sträng som representerar ett GUID för ditt program)
-- Identitets leverantörens URL (kallas instansen) och inloggnings gruppen för ditt program. Dessa två parametrar kallas gemensamt för utfärdaren.
-- Klient-ID: t om du skriver ett affärs program enbart för din organisation (även kallat program med en enda klient).
-- För Web Apps måste du också ange redirectUri där identitetsprovider ska återgå till ditt program med säkerhetstoken.
+Användar agent programmet är en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare. Sådana klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig.
 
-## <a name="initializing-applications"></a>Initierar program
+Mer information om klient program typer och program konfigurations alternativ finns i [offentliga och konfidentiella klient program i MSAL](msal-client-applications.md).
 
-Du kan använda MSAL.js på följande sätt i ett oformaterat JavaScript/typescript-program. Initiera kontexten för MSAL-autentisering genom att instansiera `UserAgentApplication` med ett konfigurations objekt. Den minsta konfiguration som krävs för att initiera MSAL.js är clientID för ditt program som du bör hämta från program registrerings portalen.
+## <a name="prerequisites"></a>Förutsättningar
 
-För autentiseringsmetoder med omdirigerings flöden ( `loginRedirect` och `acquireTokenRedirect` ), i MSAL.js 1.2. x eller tidigare, måste du explicit registrera ett återanrop för lyckad eller fel via `handleRedirectCallback()` metoden. Detta krävs eftersom omdirigerings flöden inte returnerar löfte som metoder med en popup-upplevelse. Detta blev valfritt i MSAL.js version 1.3.0.
+Innan du initierar ett program måste du först [registrera det med Azure Portal](scenario-spa-app-registration.md)och upprätta en förtroende relation mellan ditt program och Microsoft Identity Platform.
+
+När du har registrerat din app behöver du några eller alla följande värden som finns i Azure Portal.
+
+| Värde | Krävs | Beskrivning |
+|:----- | :------: | :---------- |
+| Program-ID (klient) | Obligatorisk | Ett GUID som unikt identifierar ditt program i Microsoft Identity Platform. |
+| Myndighet | Valfritt | Identitets leverantörens URL ( *instansen*) och *inloggnings mål gruppen* för ditt program. Instansen och inloggnings mål gruppen, när de sammanfogas, utgör *utfärdaren*. |
+| Katalog-ID (klient) | Valfritt | Ange detta om du skapar ett branschspecifika program enbart för din organisation, vilket ofta kallas ett program för en *klient*. |
+| Omdirigerings-URI | Valfritt | Om du skapar en webbapp anger i vilken `redirectUri` identitet leverantören (Microsoft Identity Platform) ska returnera de säkerhetstoken som den har utfärdat. |
+
+## <a name="initialize-msaljs-2x-apps"></a>Initiera MSAL.js 2. x-appar
+
+Initiera kontexten för MSAL-autentisering genom att instansiera en [PublicClientApplication][msal-js-publicclientapplication] med ett [konfigurations][msal-js-configuration] objekt. Den minsta konfigurations egenskapen som krävs är `clientID` av ditt program, som visas som **program-ID** på sidan **Översikt** i appens registrering i Azure Portal.
+
+Här är ett exempel på ett konfigurations objekt och en instansiering av en `PublicClientApplication` :
+
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: "11111111-1111-1111-111111111111",
+        authority: "https://login.microsoftonline.com/common",
+        knownAuthorities: [],
+        redirectUri: "https://localhost:3001",
+        postLogoutRedirectUri: "https://localhost:3001/logout",
+        navigateToLoginRequestUrl: true
+    },
+    cache: {
+        cacheLocation: "sessionStorage",
+        storeAuthStateInCookie: false
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback: (level: LogLevel, message: string, containsPii: boolean): void => {
+                if (containsPii) {
+                    return;
+                }
+                switch (level) {
+                    case LogLevel.Error:
+                        console.error(message);
+                        return;
+                    case LogLevel.Info:
+                        console.info(message);
+                        return;
+                    case LogLevel.Verbose:
+                        console.debug(message);
+                        return;
+                    case LogLevel.Warning:
+                        console.warn(message);
+                        return;
+                }
+            },
+            piiLoggingEnabled: false
+        },
+        windowHashTimeout: 60000,
+        iframeHashTimeout: 6000,
+        loadFrameTimeout: 0
+    }
+};
+
+// Create an instance of PublicClientApplication
+const msalInstance = new PublicClientApplication(msalConfig);
+
+// Handle the redirect flows
+msalInstance.handleRedirectPromise().then((tokenResponse) => {
+    // Handle redirect response
+}).catch((error) => {
+    // Handle redirect error
+});
+```
+
+### `handleRedirectPromise`
+
+Anropa [handleRedirectPromise][msal-js-handleredirectpromise] när ditt program använder omdirigerings flöden. När du använder omdirigerings flöden `handleRedirectPromise` ska köras på alla sid inläsningar.
+
+Det finns tre möjliga resultat från löftet:
+
+- `.then`anropas och `tokenResponse` är truthy: programmet returneras från en omdirigering som lyckades.
+- `.then`anropas och `tokenResponse` är falskt ( `null` ): programmet returneras inte från en omdirigering.
+- `.catch`anropas: programmet returneras från en omdirigering och ett fel uppstod.
+
+## <a name="initialize-msaljs-1x-apps"></a>Initiera MSAL.js 1. x-appar
+
+Initiera MSAL 1. x-autentisering genom att instansiera en [UserAgentApplication][msal-js-useragentapplication] med ett konfigurations objekt. Den minsta konfigurations egenskapen som krävs är `clientID` av ditt program, som visas som **program-ID** på sidan **Översikt** i appens registrering i Azure Portal.
+
+För autentiseringsmetoder med omdirigerings flöden ([loginRedirect][msal-js-loginredirect] och [acquireTokenRedirect][msal-js-acquiretokenredirect]) i MSAL.js 1.2. x eller tidigare måste du explicit registrera ett återanrop för lyckad eller fel genom `handleRedirectCallback()` metoden. Det krävs explicit att motringningen registreras i MSAL.js 1.2. x och tidigare eftersom omdirigerings flöden inte returnerar löfte som metoder med en popup-upplevelse. Att registrera återanropet är *valfritt* i MSAL.js version 1.3. x och senare.
 
 ```javascript
 // Configuration object constructed
-const config = {
+const msalConfig = {
     auth: {
-        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
+        clientId: "11111111-1111-1111-111111111111"
     }
 }
 
-// create UserAgentApplication instance
-const myMSALObj = new UserAgentApplication(config);
+// Create UserAgentApplication instance
+const msalInstance = new UserAgentApplication(msalConfig);
 
 function authCallback(error, response) {
-    //handle redirect response
+    // Handle redirect response
 }
 
-// (optional when using redirect methods) register redirect call back for Success or Error
-myMSALObj.handleRedirectCallback(authCallback);
+// Register a redirect callback for Success or Error (when using redirect methods)
+// **REQUIRED** in MSAL.js 1.2.x and earlier
+// **OPTIONAL** in MSAL.js 1.3.x and later
+msalInstance.handleRedirectCallback(authCallback);
 ```
 
-MSAL.js har utformats för att ha en enda instans och konfiguration av `UserAgentApplication` som representerar en enda autentiserings kontext. Flera instanser rekommenderas inte eftersom de orsakar en motstridig cache-poster och beteende i webbläsaren.
+## <a name="single-instance-and-configuration"></a>Enskild instans och konfiguration
 
-## <a name="configuration-options"></a>Konfigurationsalternativ
+Både MSAL.js 1. x och 2. x är utformade för att ha en enda instans och konfiguration av `UserAgentApplication` respektive, `PublicClientApplication` för att representera en enda autentiserings kontext.
 
-MSAL.js har ett konfigurations objekt som visas nedan och som ger en gruppering av konfigurerbara alternativ som är tillgängliga för att skapa en instans av `UserAgentApplication` .
+Flera instanser av `UserAgentApplication` eller `PublicClientApplication` rekommenderas inte eftersom de orsakar en motstridig cache-poster och beteende i webbläsaren.
 
-```javascript
-type storage = "localStorage" | "sessionStorage";
+## <a name="next-steps"></a>Nästa steg
 
-// Protocol Support
-export type AuthOptions = {
-    clientId: string;
-    authority?: string;
-    validateAuthority?: boolean;
-    redirectUri?: string | (() => string);
-    postLogoutRedirectUri?: string | (() => string);
-    navigateToLoginRequestUrl?: boolean;
-};
+Det här MSAL.js 2. x-kod exemplet på GitHub demonstrerar instansiering av en [PublicClientApplication][msal-js-publicclientapplication] med ett [konfigurations][msal-js-configuration] objekt:
 
-// Cache Support
-export type CacheOptions = {
-    cacheLocation?: CacheLocation;
-    storeAuthStateInCookie?: boolean;
-};
+[Azure-samples/MS-Identity-JavaScript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2)
 
-// Library support
-export type SystemOptions = {
-    logger?: Logger;
-    loadFrameTimeout?: number;
-    tokenRenewalOffsetSeconds?: number;
-    navigateFrameWait?: number;
-};
-
-// Developer App Environment Support
-export type FrameworkOptions = {
-    isAngular?: boolean;
-    unprotectedResources?: Array<string>;
-    protectedResourceMap?: Map<string, Array<string>>;
-};
-
-// Configuration Object
-export type Configuration = {
-    auth: AuthOptions,
-    cache?: CacheOptions,
-    system?: SystemOptions,
-    framework?: FrameworkOptions
-};
-```
-
-Nedan visas den totala uppsättningen konfigurerbara alternativ som stöds för närvarande i konfigurationsobjektet konfiguration:
-
-- **clientID**: krävs. ClientID för ditt program, du bör hämta detta från program registrerings portalen.
-
-- **auktoritet**: valfritt. En URL som anger en katalog som MSAL kan begära token från. Standardvärdet är: `https://login.microsoftonline.com/common` .
-    * I Azure AD är det av formen https:// &lt; instance &gt; / &lt; &gt; , där &lt; instance &gt; är en identitets leverantörs domän (till exempel `https://login.microsoftonline.com` ) och &lt; mål grupp &gt; är en identifierare som representerar inloggnings mål gruppen. Detta kan vara följande värden:
-        * `https://login.microsoftonline.com/<tenant>`-Tenant är en domän som är kopplad till klienten, till exempel contoso.onmicrosoft.com eller GUID som representerar `TenantID` egenskapen för katalogen som används för att logga in användare av en speciell organisation.
-        * `https://login.microsoftonline.com/common`– Används för att logga in användare med arbets-och skol konton eller ett personligt Microsoft-konto.
-        * `https://login.microsoftonline.com/organizations/`– Används för att logga in användare med arbets-och skol konton.
-        * `https://login.microsoftonline.com/consumers/`– Används för att logga in användare med endast personlig Microsoft-konto (Live).
-    * I Azure AD B2C är det ett formulär `https://<instance>/tfp/<tenant>/<policyName>/` där instansen är den Azure AD B2C domänen, t. ex. {your-Tenant-Name}. b2clogin. com är klienten namnet på den Azure AD B2C klienten, t. ex. {your-Tenant-Name}. onmicrosoft. com, policyName är namnet på B2C-principen som ska tillämpas.
-
-
-- **validateAuthority**: valfritt.  Verifiera utfärdaren av tokens. Standardvärdet är `true`. För B2C-program, eftersom auktoritets värdet är känt och kan skilja sig åt per princip, så fungerar inte auktoritets verifieringen och måste ställas in på `false` .
-
-- **redirectUri**: valfritt.  Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen. Standardvärdet är `window.location.href` .
-
-- **postLogoutRedirectUri**: valfritt.  Omdirigerar användaren till `postLogoutRedirectUri` efter utloggning. Standardvärdet är `redirectUri` .
-
-- **navigateToLoginRequestUrl**: valfritt. Möjlighet att inaktivera standard navigering till start sidan efter inloggningen. Standardvärdet är true. Detta används endast för omdirigerings flöden.
-
-- **cacheLocation**: valfritt.  Anger webb läsar lagring till antingen `localStorage` eller `sessionStorage` . Standardvärdet är `sessionStorage`.
-
-- **storeAuthStateInCookie**: valfritt.  Den här flaggan introducerades i MSAL.js v-0.2.2 som en korrigering för [problem med autentiserings-loopen](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) i Microsoft Internet Explorer och Microsoft Edge. Aktivera flaggan `storeAuthStateInCookie` till true för att dra nytta av den här korrigeringen. När detta är aktiverat kommer MSAL.js att lagra status för auth-begäran som krävs för verifiering av auth-flöden i webbläsarens cookies. Som standard är den här flaggan inställd på `false` .
-
-- **loggning**: valfritt.  Ett logg objekt med en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Information om hur du skickar logg objekt finns i [Logga med msal.js](msal-logging.md).
-
-- **loadFrameTimeout**: valfritt.  Antalet millisekunder av inaktivitet innan ett svar på förnyelse av en token från Azure AD bör anses vara tids gränsen. Standardvärdet är 6 sekunder.
-
-- **tokenRenewalOffsetSeconds**: valfritt. Antalet millisekunder som anger det fönster som offset krävde för att förnya token innan det går ut. Standardvärdet är 300 millisekunder.
-
-- **navigateFrameWait**: valfritt. Antalet millisekunder som anger vänte tiden innan dolda iframes navigerar till sitt mål. Standardvärdet är 500 millisekunder.
-
-Dessa kan endast användas för att skickas ned från MSAL-biblioteket:
-- **unprotectedResources**: valfritt.  Matris med URI: er som är oskyddade resurser. MSAL kommer inte att koppla en token till utgående begär Anden som har dessa URI: er. Standardvärdet är `null` .
-
-- **protectedResourceMap**: valfritt.  Detta är mappning av resurser till omfattningar som används av MSAL för att automatiskt koppla åtkomsttoken i webb-API-anrop. En enda åtkomsttoken hämtas för resursen. Så du kan mappa en viss resurs Sök väg enligt följande: {" https://graph.microsoft.com/v1.0/me ", ["User. Read"]} eller App-URL: en för resursen som {" https://graph.microsoft.com/ ", ["User. Read", "mail. send"]}. Detta krävs för CORS-anrop. Standardvärdet är `null` .
+<!-- LINKS - External -->
+[msal-browser]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/
+[msal-core]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/
+[msal-js-acquiretokenredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/classes/_useragentapplication_.useragentapplication.html#acquiretokenredirect
+[msal-js-configuration]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_configuration_.html
+[msal-js-handleredirectpromise]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html#handleredirectpromise
+[msal-js-loginredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/classes/_useragentapplication_.useragentapplication.html#loginredirect
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html
+[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html

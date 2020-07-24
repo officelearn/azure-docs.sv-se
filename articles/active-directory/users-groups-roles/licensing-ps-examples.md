@@ -14,15 +14,16 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025225"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-och Graph-exempel för gruppbaserad licensiering i Azure AD
 
-Fullständig funktionalitet för gruppbaserad licensiering är tillgänglig via [Azure Portal](https://portal.azure.com), och för närvarande är PowerShell-och Microsoft Graph-supporten begränsad till skrivskyddade åtgärder. Det finns dock några användbara uppgifter som kan utföras med hjälp av de befintliga [MSOnline PowerShell-cmdletarna](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) och Microsoft Graph. Det här dokumentet innehåller exempel på vad som är möjligt.
+Fullständig funktionalitet för gruppbaserad licensiering är tillgänglig via [Azure Portal](https://portal.azure.com), och för närvarande är PowerShell-och Microsoft Graph-supporten begränsad till skrivskyddade åtgärder. Det finns dock några användbara uppgifter som kan utföras med hjälp av de befintliga [MSOnline PowerShell-cmdletarna](/powershell/module/msonline) och Microsoft Graph. Det här dokumentet innehåller exempel på vad som är möjligt.
 
 > [!NOTE]
 > Innan du börjar köra cmdlets måste du först ansluta till din organisation genom att köra `Connect-MsolService`   cmdleten.

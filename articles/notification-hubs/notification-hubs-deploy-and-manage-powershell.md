@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d45b98f291a7524dac2927fc74c5dc52400209f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f000251009bda730b15458f3ab4d8b7d6ca1db6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030308"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera Notification Hub med PowerShell
 
@@ -159,8 +159,8 @@ Vissa färdiga skript är också tillgängliga för nedladdning:
 [Köp alternativ]: https://azure.microsoft.com/pricing/purchase-options/
 [Medlems erbjudanden]: https://azure.microsoft.com/pricing/member-offers/
 [Kostnadsfri utvärdering]: https://azure.microsoft.com/pricing/free-trial/
-[Installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Installera och konfigurera Azure PowerShell]: /powershell/azure/
 [.NET API för Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure.service/get-azuresbauthorizationrule

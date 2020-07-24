@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023236"
 ---
 # <a name="filters"></a>Filter
 
@@ -25,7 +26,7 @@ När du levererar ditt innehåll till kunder (direkt uppspelnings händelser ell
 
 Filter är regler på Server sidan som gör det möjligt för dina kunder att göra saker som: 
 
-- Spela bara upp en del av en video (i stället för att spela upp hela videon). Ett exempel:
+- Spela bara upp en del av en video (i stället för att spela upp hela videon). Exempel:
   - Minska manifestet för att visa ett under klipp av en live event ("under klipps filtrering") eller
   - Trimma början på en video ("trimma en video").
 - Leverera endast de angivna åter givningarna och/eller angivna språk spår som stöds av enheten som används för att spela upp innehållet ("åter givnings filtrering"). 
@@ -37,8 +38,8 @@ Med Media Services kan du skapa **konto filter** och **till gångs filter** för
 
 Det finns två typer av filter: 
 
-* [Konto filter](https://docs.microsoft.com/rest/api/media/accountfilters) (global) – kan användas för alla till gångar i Azure Media Services kontot, ha en livstid för kontot.
-* [Till gångs filter](https://docs.microsoft.com/rest/api/media/assetfilters) (lokal) – kan bara användas för en till gång som filtret var associerat med när det skapades, har en livs längd för till gången. 
+* [Konto filter](/rest/api/media/accountfilters) (global) – kan användas för alla till gångar i Azure Media Services kontot, ha en livstid för kontot.
+* [Till gångs filter](/rest/api/media/assetfilters) (lokal) – kan bara användas för en till gång som filtret var associerat med när det skapades, har en livs längd för till gången. 
 
 **Konto filter** och typer av **till gångs filter** har exakt samma egenskaper för att definiera/beskriva filtret. Förutom när du skapar **till gångs filtret**måste du ange namnet på den till gång som du vill koppla filtret till.
 
@@ -46,7 +47,7 @@ Beroende på ditt scenario bestämmer du vilken typ av filter som är lämpligar
 
 Du kan använda följande egenskaper för att beskriva filtren. 
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |firstQuality|Den första kvalitets bit hastigheten för filtret.|
 |presentationTimeRange|Tids området för presentationen. Den här egenskapen används för att filtrera manifest start-/slut punkter, presentations fönster längd och start position. <br/>Mer information finns i [PresentationTimeRange](#presentationtimerange).|
@@ -56,7 +57,7 @@ Du kan använda följande egenskaper för att beskriva filtren.
 
 Använd den här egenskapen med **till gångs filter**. Vi rekommenderar inte att du anger egenskapen med **konto filter**.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |**endTimestamp**|Gäller för video på begäran (VoD).<br/>För direkt uppspelnings presentationen ignoreras den tyst och tillämpas när presentationen slutar och strömmen blir VoD.<br/>Detta är ett långt värde som representerar en absolut slut punkt i presentationen, avrundat till närmaste nästa GOP-start. Enheten är tids skala, så en endTimestamp på 1800000000 skulle vara i 3 minuter.<br/>Använd startTimestamp och endTimestamp för att trimma de fragment som ska finnas i spelnings listan (manifest).<br/>Exempel: startTimestamp = 40000000 och endTimestamp = 100000000 med standard tids skalan genererar en spelnings lista som innehåller fragment från mellan 4 och 10 sekunder i VoD-presentationen. Om ett fragment följer gränserna tas hela fragmentet med i manifestet.|
 |**forceEndTimestamp**|Gäller endast för direktsänd strömning.<br/>Anger om egenskapen endTimestamp måste finnas. Om värdet är true måste endTimestamp anges eller så returneras en felaktig kod för begäran.<br/>Tillåtna värden: falskt, sant.|
@@ -71,7 +72,7 @@ Du anger en lista med villkor för filtrerings spårning (FilterTrackPropertyCon
 
 Filtrera egenskaper för spåra egenskaper Beskriv spår typer, värden (beskrivs i följande tabell) och åtgärder (lika med, NotEqual). 
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |**Hastigheten**|Använd bit hastigheten för spårningen för filtrering.<br/><br/>Det rekommenderade värdet är ett intervall med bit hastigheter, i bitar per sekund. Till exempel "0-2427000".<br/><br/>Obs! även om du kan använda ett visst bit hastighets värde, t. ex. 250000 (bitar per sekund), rekommenderas inte den här metoden eftersom de exakta bit hastigheterna kan variera från en till gång till en annan.|
 |**FourCC**|Använd FourCC-värdet för spårningen för filtrering.<br/><br/>Värdet är det första elementet i codec-formatet, enligt vad som anges i [RFC 6381](https://tools.ietf.org/html/rfc6381). För närvarande stöds följande codecenheter: <br/>För video: "avc1", "hev1", "hvc1"<br/>För ljud: "MP4A", "EC-3"<br/><br/>Hämta och granska manifest filen för att fastställa FourCC-värden för spår i en till gång.|
@@ -138,7 +139,7 @@ I följande exempel definieras ett filter för direkt uppspelning:
 
 ## <a name="associating-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
-Du kan ange en lista över [till gångs-eller konto filter](filters-concept.md) på din [Utströmnings positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamiska Paketeraren](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i URL + filter som du anger på den strömmande lokaliseraren. 
+Du kan ange en lista över [till gångs-eller konto filter](filters-concept.md) på din [Utströmnings positionerare](/rest/api/media/streaminglocators/create#request-body). Den [dynamiska Paketeraren](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i URL + filter som du anger på den strömmande lokaliseraren. 
 
 Se följande exempel:
 
@@ -160,4 +161,3 @@ Följande artiklar visar hur du skapar filter program mässigt.
 - [Skapa filter med REST API: er](filters-dynamic-manifest-rest-howto.md)
 - [Skapa filter med .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Skapa filter med CLI](filters-dynamic-manifest-cli-howto.md)
-

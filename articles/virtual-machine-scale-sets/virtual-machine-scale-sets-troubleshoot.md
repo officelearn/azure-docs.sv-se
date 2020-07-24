@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 915b6430378cfff2a847e31de26950fcb9de6ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029441"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka automatisk skalning med VM-skalningsuppsättningar
 **Problem** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager att använda skalnings uppsättningar för virtuella datorer, t. ex. genom att distribuera en mall som den här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har definierat dina skalnings regler och den fungerar utmärkt, förutom oavsett hur mycket belastning du lägger till på de virtuella datorerna, skalas den inte.
@@ -73,7 +73,7 @@ Några saker att tänka på är:
     Om data inte finns där innebär det att problemet är löst med diagnostiskt tillägg som körs i de virtuella datorerna. Om data finns där betyder det att det är problem med dina skalnings regler eller med tjänsten Insights. Kontrol lera [Azure-status](https://azure.microsoft.com/status/).
     
     När du har gått igenom de här stegen kan du prova följande resurser om du fortfarande har problem med autoskalning: 
-    * Läs forumen på [Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Läs forumen på [Microsoft Q&en fråge sida](/answers/topics/azure-virtual-machines.html)eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Logga ett support samtal. Var beredd på att dela mallen och Visa prestanda data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

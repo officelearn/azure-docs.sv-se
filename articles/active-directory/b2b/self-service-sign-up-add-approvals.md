@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027469"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering
 
@@ -61,11 +61,11 @@ Du måste registrera ditt godkännande system som ett program i din Azure AD-kli
 
 Härnäst ska du [skapa API-kopplingarna](self-service-sign-up-add-api-connector.md#create-an-api-connector) för ditt självbetjänings registrerings användar flöde. Ditt system-API för godkännande kräver två kopplingar och motsvarande slut punkter, precis som exemplen som visas nedan. Dessa API-kopplingar gör följande:
 
-- **Kontrol lera godkännande statusen**. Skicka ett anrop till godkännande systemet omedelbart efter att en användare loggar in med en identitets leverantör för att kontrol lera om användaren har en befintlig godkännandebegäran eller om den redan har nekats. Om ditt godkännande system endast har automatiska godkännande beslut kanske denna API-anslutning inte behövs. Följande är ett exempel på API-anslutningen "kontrol lera godkännande status".
+- **Kontrol lera godkännande statusen**. Skicka ett anrop till godkännande systemet omedelbart efter att en användare loggar in med en identitets leverantör för att kontrol lera om användaren har en befintlig godkännandebegäran eller om den redan har nekats. Om ditt godkännande system endast har automatiska godkännande beslut kanske denna API-anslutning inte behövs. Exempel på API-anslutning "kontrol lera godkännande status".
 
   ![Kontrol lera godkännande status API Connector-konfiguration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Begär godkännande** – skicka ett anrop till godkännande systemet när en användare har slutfört sidan för attribut samling, men innan användar kontot skapas för att begära godkännande. Begäran om godkännande kan beviljas automatiskt eller granskas manuellt. Följande är ett exempel på en API-anslutning med "begär godkännande". Välj eventuella **anspråk som ska skickas** till godkännande systemet för att fatta ett godkännande beslut.
+- **Begär godkännande** – skicka ett anrop till godkännande systemet när en användare har slutfört sidan för attribut samling, men innan användar kontot skapas för att begära godkännande. Begäran om godkännande kan beviljas automatiskt eller granskas manuellt. Exempel på en API-anslutning med "begär godkännande". Välj eventuella **anspråk som ska skickas** till godkännande systemet för att fatta ett godkännande beslut.
 
   ![Begär konfiguration av API-koppling för begäran](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -94,14 +94,14 @@ Ditt godkännande system kan använda [API-svars typerna](self-service-sign-up-a
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Begäran och svar för API-anslutningen "kontrol lera godkännande status"
 
-Följande är ett exempel på den begäran som tagits emot av API: t från API-anslutningen "kontrol lera godkännande status":
+Exempel på begäran som tagits emot av API: t från API-anslutningen "kontrol lera godkännande status":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -119,7 +119,7 @@ API-slutpunkten **kontrol lera godkännande status** bör returnera ett fortsät
 
 - Användaren har inte begärt ett godkännande tidigare.
 
-Följande är ett exempel på ett fortsättnings svar:
+Exempel på fortsättnings svar:
 
 ```http
 HTTP/1.1 200 OK
@@ -166,14 +166,14 @@ Content-type: application/json
 
 ### <a name="request-and-responses-for-the-request-approval-api-connector"></a>Begäran och svar för API-kopplingen "begär godkännande"
 
-Följande är ett exempel på en HTTP-begäran som tagits emot av API: et från API-anslutningen "begär godkännande":
+Exempel på en HTTP-begäran som tagits emot av API: et från API-anslutningen "begär godkännande":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -194,7 +194,7 @@ API-slutpunkten för **begär ande godkännande** bör returnera ett fortsättni
 
 - Användaren kan **_godkännas automatiskt_**.
 
-Följande är ett exempel på ett fortsättnings svar:
+Exempel på fortsättnings svar:
 
 ```http
 HTTP/1.1 200 OK
@@ -257,14 +257,14 @@ När du har fått manuellt godkännande skapar det anpassade godkännande system
 
 Om användaren har loggat in med ett Google-eller Facebook-konto kan du använda API: et för att [skapa användare](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. Godkännande systemet använder tar emot HTTP-begäran från användar flödet.
+1. Godkännande systemet tar emot HTTP-begäran från användar flödet.
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -305,11 +305,11 @@ Content-type: application/json
 
 | Parameter                                           | Krävs | Beskrivning                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Ja      | Kan genereras genom att ta emot `email_address` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled                                      | Ja      | Måste anges till `true` .                                                                                                                                                 |
-| e-post                                                | Ja      | Motsvarar det `email_address` anspråk som skickas till API: et.                                                                                                               |
-| userType                                            | Ja      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
-| identiteter                                          | Ja      | Federerad identitets information.                                                                                                                                    |
+| userPrincipalName                                   | Yes      | Kan genereras genom att ta emot `email` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Yes      | Måste anges till `true` .                                                                                                                                                 |
+| e-post                                                | Yes      | Motsvarar det `email` anspråk som skickas till API: et.                                                                                                               |
+| userType                                            | Yes      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
+| identiteter                                          | Yes      | Federerad identitets information.                                                                                                                                    |
 | \<otherBuiltInAttribute>                            | No       | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                                                            |
 
@@ -324,7 +324,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
  "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
@@ -332,7 +332,7 @@ Content-type: application/json
 }
 ```
 
-2. Godkännande systemet skapar inbjudan med hjälp av `email_address` API-anslutningen.
+2. Godkännande systemet skapar inbjudan med hjälp av `email` API-anslutningen.
 
 ```http
 POST https://graph.microsoft.com/v1.0/invitations
@@ -344,7 +344,7 @@ Content-type: application/json
 }
 ```
 
-Följande är ett exempel på svaret:
+Exempel på svar:
 
 ```http
 HTTP/1.1 201 OK

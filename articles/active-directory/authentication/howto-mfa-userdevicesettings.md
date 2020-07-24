@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027537"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Hantera användar inställningar för Azure Multi-Factor Authentication
 
@@ -26,7 +27,7 @@ För att hjälpa till att hantera Azure-Multi-Factor Authentication kan du kräv
 Om du har tilldelats rollen som *administratör för autentisering* kan du kräva att användarna återställer sina lösen ord, omregistrerar sig för MFA eller återkalla befintliga MFA-sessioner från sina användar objekt. Utför följande steg för att hantera användar inställningar:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Azure Active Directory**  >  **användare**  >  **alla användare**till vänster.
+1. Till vänster väljer du **Azure Active Directory** > **Användare** > **Alla användare**.
 1. Välj den användare som du vill utföra en åtgärd på och välj **autentiseringsmetoder**. Överst i fönstret väljer du något av följande alternativ för användaren:
    - **Återställ lösen ord** återställer användarens lösen ord och tilldelar ett tillfälligt lösen ord som måste ändras vid nästa inloggning.
    - **Kräv omregistrering av MFA** gör det så att när användaren loggar in nästa gång uppmanas de att ställa in en ny MFA-autentiseringsmetod.
@@ -53,6 +54,6 @@ För att ta bort en användares applösenord, utför följande steg:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln hjälpte dig att konfigurera enskilda användar inställningar. Information om hur du konfigurerar inställningar för Azure Multi-Factor Authentication-tjänsten finns i [Konfigurera inställningar för azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
+I den här artikeln visar vi hur du konfigurerar enskilda användar inställningar. Information om hur du konfigurerar övergripande inställningar för Azure Multi-Factor Authentication-tjänsten finns i [Konfigurera inställningar för azure Multi-Factor Authentication](howto-mfa-mfasettings.md).
 
-Om användarna behöver hjälp kan du läsa [användar handboken för Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md).
+Om användarna behöver hjälp kan du läsa [användar handboken för Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bfd5b9ff3626593916533f27c5c2755cebcb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71153578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028489"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Återställa lokala Linux-lösenord i virtuella Azure-datorer
 
@@ -109,4 +109,4 @@ Du kan inte logga in på den virtuella datorn och du får ett meddelande som ang
 
 * [Felsöka virtuell Azure-dator genom att koppla OS-disk till en annan virtuell Azure-dator](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI: så här tar du bort och distribuerar om en virtuell dator från en virtuell hård disk](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: så här tar du bort och distribuerar om en virtuell dator från en virtuell hård disk](/archive/blogs/linuxonazure/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd)

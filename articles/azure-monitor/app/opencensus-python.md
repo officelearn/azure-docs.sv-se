@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: e1a866799a62c457c2734524c58bb848b8f067e6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107452"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024375"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
@@ -32,12 +32,12 @@ Installera Azure Monitor-exportörer för Open-räkning:
 python -m pip install opencensus-ext-azure
 ```
 
-En fullständig lista över paket och integreringar finns i [openräkning-paket](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
+En fullständig lista över paket och integreringar finns i [openräkning-paket](./nuget.md#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure`Kommandot förutsätter att du har en `PATH` miljö variabel uppsättning för python-installationen. Om du inte har konfigurerat den här variabeln måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns. Resultatet är ett kommando som detta: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure` .
 
-SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor. De är spårning, mått och loggar. Mer information om dessa typer av telemetri finns i [Översikt över data plattformen](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Använd följande instruktioner för att skicka dessa typer av telemetri via de tre exportörerna.
+SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor. De är spårning, mått och loggar. Mer information om dessa typer av telemetri finns i [Översikt över data plattformen](../platform/data-platform.md). Använd följande instruktioner för att skicka dessa typer av telemetri via de tre exportörerna.
 
 ## <a name="telemetry-type-mappings"></a>Typ mappningar för telemetri
 
@@ -111,7 +111,7 @@ Här är de exportörer som openräkning ger mappat till de typer av telemetri s
 1. Export verktyget skickar loggdata till Azure Monitor. Du kan hitta data under `traces` . 
 
     > [!NOTE]
-    > I det här sammanhanget är `traces` inte samma som `tracing` . Här `traces` refererar till den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . Men `tracing` avser ett koncept i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+    > I det här sammanhanget är `traces` inte samma som `tracing` . Här `traces` refererar till den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . Men `tracing` avser ett koncept i openräkning och relaterar till [distribuerad spårning](./distributed-tracing.md).
 
     > [!NOTE]
     > Rot loggaren har kon figurer ATS med VARNINGs nivån. Det innebär att alla loggar som du skickar som har mindre av allvarlighets graden ignoreras och i sin tur inte skickas till Azure Monitor. Mer information finns i [dokumentationen](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
@@ -216,11 +216,11 @@ Om du vill ha mer information om sampling i openinventering kan du titta på [sa
 
 #### <a name="log-correlation"></a>Loggkorrelation
 
-Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
+Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](./correlation.md#log-correlation).
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
-Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](./api-filtering-sampling.md#opencensus-python-telemetry-processors).
 
 
 ### <a name="metrics"></a>Mått
@@ -347,16 +347,16 @@ Dessa prestanda räknare skickas för närvarande:
 - Processor användning för processor (procent andel)
 - Privata byte för process (byte)
 
-Du bör kunna se dessa mått i `performanceCounters` . Mer information finns i [prestanda räknare](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+Du bör kunna se dessa mått i `performanceCounters` . Mer information finns i [prestanda räknare](./performance-counters.md).
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
-Information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python telemetri- [processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+Information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python telemetri- [processorer](./api-filtering-sampling.md#opencensus-python-telemetry-processors).
 
 ### <a name="tracing"></a>Spårning
 
 > [!NOTE]
-> I Open-inventering, `tracing` avser [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter`Skickar `requests` och `dependency` telemetri till Azure Monitor.
+> I Open-inventering, `tracing` avser [distribuerad spårning](./distributed-tracing.md). `AzureExporter`Skickar `requests` och `dependency` telemetri till Azure Monitor.
 
 1. Först ska vi generera vissa spårnings data lokalt. I python-inaktivitet, eller valfritt redigerings program, anger du följande kod:
 
@@ -420,8 +420,8 @@ Information om hur du ändrar spårad telemetri innan det skickas till Azure Mon
         main()
     ```
 
-1. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Det skapade `SpanData` skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies` . Mer information om utgående begär Anden finns i openräkningar python- [beroenden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
-Mer information om inkommande begär Anden finns i openräkningar python- [begäranden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request).
+1. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Det skapade `SpanData` skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies` . Mer information om utgående begär Anden finns i openräkningar python- [beroenden](./opencensus-python-dependency.md).
+Mer information om inkommande begär Anden finns i openräkningar python- [begäranden](./opencensus-python-request.md).
 
 #### <a name="sampling"></a>Samling
 
@@ -429,11 +429,11 @@ Om du vill ha mer information om sampling i openinventering kan du titta på [sa
 
 #### <a name="trace-correlation"></a>Spåra korrelation
 
-För mer information om telemetri-korrelation i dina spårnings data, ta en titt på python- [korrelationen](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)för openräkning.
+För mer information om telemetri-korrelation i dina spårnings data, ta en titt på python- [korrelationen](./correlation.md#telemetry-correlation-in-opencensus-python)för openräkning.
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
-Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python telemetri- [processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python telemetri- [processorer](./api-filtering-sampling.md#opencensus-python-telemetry-processors).
 
 ## <a name="configure-azure-monitor-exporters"></a>Konfigurera Azure Monitor exportörer
 
@@ -442,7 +442,7 @@ Som det visas finns det tre olika Azure Monitor exportörer som stöder openräk
 Varje exportör accepterar samma argument för konfiguration, som skickas genom konstruktörerna. Du kan se information om var och en:
 
 - `connection_string`: Anslutnings strängen som används för att ansluta till din Azure Monitor-resurs. Prioriteras `instrumentation_key` .
-- `enable_standard_metrics`: Används för `AzureMetricsExporter` . Signalerar export verktyget att skicka [prestanda räknar](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) mått automatiskt till Azure Monitor. Standardvärdet är `True` .
+- `enable_standard_metrics`: Används för `AzureMetricsExporter` . Signalerar export verktyget att skicka [prestanda räknar](../platform/app-insights-metrics.md#performance-counters) mått automatiskt till Azure Monitor. Standardvärdet är `True` .
 - `export_interval`: Används för att ange frekvensen i sekunder för exporten.
 - `instrumentation_key`: Instrumentation-nyckeln som används för att ansluta till din Azure Monitor-resurs.
 - `logging_sampling_rate`: Används för `AzureLogHandler` . Innehåller en samplings frekvens [0, 1.0] för att exportera loggar. Standardvärdet är 1,0.
@@ -462,7 +462,7 @@ I listan under **Active**:
 - För telemetri som skickas med Azure Monitor Metrics-exporten visas de skickade måtten under `customMetrics` .
 - För telemetri som skickas med Azure Monitor loggar exportör visas loggar under `traces` . Undantag visas under `exceptions` .
 
-Mer detaljerad information om hur du använder frågor och loggar finns [i loggar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Mer detaljerad information om hur du använder frågor och loggar finns [i loggar i Azure Monitor](../platform/data-platform-logs.md).
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Läs mer om openräkning för python
 

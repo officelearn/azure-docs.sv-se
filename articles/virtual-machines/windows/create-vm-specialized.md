@@ -7,13 +7,14 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49554c053af0ceecf2b7f0b1162b7212694239db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028098"
 ---
-# <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en särskild disk med PowerShell
+# <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en specialiserad disk med PowerShell
 
 Skapa en ny virtuell dator genom att koppla en specialiserad hanterad disk som operativ system disk. En specialiserad disk är en kopia av en virtuell hård disk (VHD) från en befintlig virtuell dator som innehåller användar konton, program och andra tillstånds data från den ursprungliga virtuella datorn. 
 
@@ -32,7 +33,7 @@ Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virt
 
 ## <a name="option-1-use-an-existing-disk"></a>Alternativ 1: Använd en befintlig disk
 
-Om du har en virtuell dator som du har tagit bort och du vill återanvända OS-disken för att skapa en ny virtuell dator, använder du [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+Om du har en virtuell dator som du har tagit bort och du vill återanvända OS-disken för att skapa en ny virtuell dator, använder du [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -67,7 +68,7 @@ Om du vill kopiera en befintlig virtuell dator till en annan region kanske du vi
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicks bild av OS-disken
 
-Du kan ta en ögonblicks bild av en hel virtuell dator (inklusive alla diskar) eller bara en enskild disk. Följande steg visar hur du tar en ögonblicks bild av bara OS-disken för den virtuella datorn med cmdleten [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+Du kan ta en ögonblicks bild av en hel virtuell dator (inklusive alla diskar) eller bara en enskild disk. Följande steg visar hur du tar en ögonblicks bild av bara OS-disken för den virtuella datorn med cmdleten [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) . 
 
 Ange först några parametrar. 
 
@@ -115,7 +116,7 @@ Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicks bilden
 
-Skapa en hanterad disk från ögonblicks bilden med hjälp av [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). I det här exemplet används *myOSDisk* som disk namn.
+Skapa en hanterad disk från ögonblicks bilden med hjälp av [New-AzDisk](/powershell/module/az.compute/new-azdisk). I det här exemplet används *myOSDisk* som disk namn.
 
 Skapa en ny resurs grupp för den nya virtuella datorn.
 
@@ -235,7 +236,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="add-the-os-disk"></a>Lägg till OS-disken 
 
-Lägg till OS-disken i konfigurationen genom att använda [set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). I det här exemplet anges storleken på disken till *128 GB* och den hanterade disken kopplas som en *Windows* OS-disk.
+Lägg till OS-disken i konfigurationen genom att använda [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). I det här exemplet anges storleken på disken till *128 GB* och den hanterade disken kopplas som en *Windows* OS-disk.
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -244,7 +245,7 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### <a name="complete-the-vm"></a>Slutför den virtuella datorn 
 
-Skapa den virtuella datorn med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) med de konfigurationer som vi nyss skapade.
+Skapa den virtuella datorn med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm) med de konfigurationer som vi nyss skapade.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -269,4 +270,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Nästa steg
 Logga in på den nya virtuella datorn. Mer information finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](connect-logon.md).
-

@@ -6,17 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c0838c06207435934e36d421b2cafc12ee39bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029033"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Vanliga Azure CLI-kommandon för att hantera Azure-resurser
 
 Med Azure CLI kan du skapa och hantera dina Azure-resurser på macOS, Linux och Windows. I den här artikeln beskrivs några av de vanligaste kommandona för att skapa och hantera virtuella datorer (VM).
 
-Den här artikeln kräver Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Du kan också använda [Cloud Shell](/azure/cloud-shell/quickstart) från din webbläsare.
+Den här artikeln kräver Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Du kan också använda [Cloud Shell](../../cloud-shell/quickstart.md) från din webbläsare.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Grundläggande Azure Resource Manager-kommandon i Azure CLI
 Om du vill ha mer detaljerad hjälp med specifika kommando rads växlar och alternativ kan du använda direkt hjälp och alternativ för kommandot genom att skriva `az <command> <subcommand> --help` .
@@ -59,6 +60,3 @@ Om du vill ha mer detaljerad hjälp med specifika kommando rads växlar och alte
 
 ## <a name="next-steps"></a>Nästa steg
 Fler exempel på CLI-kommandon finns i själv studie kursen [skapa och hantera virtuella Linux-datorer med Azure CLI](tutorial-manage-vm.md) .
-
-
-

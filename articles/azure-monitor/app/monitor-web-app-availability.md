@@ -4,11 +4,12 @@ description: Konfigurera webbtester i Application Insights. Få aviseringar om e
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6daa2e4abb1b6580fd70f104e85f3a917f47dcdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024596"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Övervaka tillgängligheten för en webbplats
 
@@ -22,7 +23,7 @@ Det finns tre typer av tillgänglighets test:
 
 * [URL-pingtest](#create-a-url-ping-test): Ett enkelt test som du kan skapa på Azure-portalen.
 * [Webb test för flera steg](availability-multistep.md): en inspelning av en sekvens med webb förfrågningar, som kan spelas upp för att testa mer komplexa scenarier. Webbtester med flera steg skapas i Visual Studio Enterprise och överförs till portalen för körning.
-* [Tillgänglighets test för anpassad spårning](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): om du väljer att skapa ett anpassat program för att köra tillgänglighets test, `TrackAvailability()` kan metoden användas för att skicka resultaten till Application Insights.
+* [Tillgänglighets test för anpassad spårning](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): om du väljer att skapa ett anpassat program för att köra tillgänglighets test, `TrackAvailability()` kan metoden användas för att skicka resultaten till Application Insights.
 
 **Du kan skapa upp till 100 tillgänglighets test per Application Insights resurs.**
 
@@ -42,7 +43,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="create-a-test"></a>Skapa ett test
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 |**URL** |  URL: en kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL: en kan innehålla en frågesträng. Du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.|
 |**Parsa beroende begär Anden**| Testbegäran-bilder, skript, formatfiler och andra filer som ingår i webb sidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet Miss lyckas om någon av dessa resurser inte kan laddas ned inom tids gränsen för hela testet. Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet. Att aktivera det här alternativet resulterar i en striktare kontroll. Det kan hända att testet Miss lyckas för fall, vilket inte kan märkas när du bläddrar på platsen manuellt.
@@ -50,14 +51,14 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 |**Test frekvens**| Anger hur ofta testet körs från varje test plats. Med en standardfrekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.|
 |**Test platser**| Är platser där våra servrar skickar webb förfrågningar till din URL. Det **minsta antalet rekommenderade test platser är fem** för att försäkra dig om att du kan särskilja problem på din webbplats från nätverks problem. Du kan välja upp till 16 platser.
 
-**Om din URL inte är synlig från det offentliga Internet kan du välja att selektivt öppna brand väggen för att endast tillåta test transaktionerna genom**. Mer information om brand Väggs undantag för våra tillgänglighets test agenter finns i [IP-adress guiden](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**Om din URL inte är synlig från det offentliga Internet kan du välja att selektivt öppna brand väggen för att endast tillåta test transaktionerna genom**. Mer information om brand Väggs undantag för våra tillgänglighets test agenter finns i [IP-adress guiden](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > Vi rekommenderar starkt att du testar från flera platser med **minst fem platser**. Detta är för att förhindra falska larm som kan resultera i tillfälliga problem med en angiven plats. Vi har också funnit att den optimala konfigurationen är att **antalet test platser ska vara lika med tröskelvärdet för aviserings plats + 2**.
 
 ### <a name="success-criteria"></a>Lyckade kriterier
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 | **Timeout för test** |Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Parsa beroende begäranden** måste alla bilder, formatfiler, skript och andra beroende resurser ha tagits emot inom denna period.|
 | **HTTP-svar** | Den returnerade status koden som räknas som lyckad. 200 är koden som anger att en normal webbsida har returnerats.|
@@ -65,7 +66,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="alerts"></a>Aviseringar
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
@@ -112,7 +113,7 @@ Klicka på raden undantag om du vill se information om det undantag på Server s
 
 ![Diagnostik på Server Sidan](./media/monitor-web-app-availability/open-instance-4.png)
 
-Förutom de råa resultaten kan du också visa två nyckel tillgänglighets mått i [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
+Förutom de råa resultaten kan du också visa två nyckel tillgänglighets mått i [Metrics Explorer](../platform/metrics-getting-started.md):
 
 1. Tillgänglighet: antal procent av testerna som lyckades av alla testkörningar.
 2. Testets varaktighet: genomsnittlig tid för alla testkörningar.
@@ -130,5 +131,3 @@ Dedikerad [fel söknings artikel](troubleshoot-availability.md).
 
 * [Tillgänglighets varningar](availability-alerts.md)
 * [Webbtester med flera steg](availability-multistep.md)
-
-

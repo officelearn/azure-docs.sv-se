@@ -3,11 +3,12 @@ title: Övervaka med webbtester med flera steg – Azure Application insikter
 description: Konfigurera webb program med flera steg för att övervaka dina webb program med Azure Application insikter
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83873355"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024784"
 ---
 # <a name="multi-step-web-tests"></a>Webbtester med flera steg
 
@@ -16,7 +17,7 @@ Du kan övervaka en inspelad sekvens av webb adresser och interaktioner med en w
 > [!NOTE]
 > Webbtester med flera steg är beroende av Visual Studio webtest-filer. Det [meddelade](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) att Visual Studio 2019 är den senaste versionen med webbtest-funktioner. Det är viktigt att förstå att även om inga nya funktioner läggs till, så stöds inte webbtest-funktioner i Visual Studio 2019 och kommer fortfarande att stödjas under produktens support livs cykel. Azure Monitor produkt teamet har fått frågor om framtida tillgänglighets test för flera steg [här](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 > </br>
-> Webbtester med flera steg **stöds inte** i [Azure Government](https://docs.microsoft.com/azure/azure-government/) molnet.
+> Webbtester med flera steg **stöds inte** i [Azure Government](../../azure-government/index.yml) molnet.
 
 
 ## <a name="pre-requisites"></a>Förutsättningar
@@ -36,7 +37,7 @@ För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Insta
 > [!WARNING]
 > Vi rekommenderar inte att du använder flera stegs inspelningar. Inspelaren har utvecklats för statiska HTML-sidor med grundläggande interaktioner och ger ingen funktions upplevelse för moderna webb sidor.
 
-Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Visual studio 2019-dokumentationen](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Visual studio 2019-dokumentationen](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Ladda upp webb testet
 
@@ -46,14 +47,14 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 
 ### <a name="frequency--location"></a>Frekvens & plats
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 |**Test frekvens**| Anger hur ofta testet körs från varje test plats. Med en standardfrekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.|
 |**Test platser**| Är platser där våra servrar skickar webb förfrågningar till din URL. Det **minsta antalet rekommenderade test platser är fem** för att försäkra dig om att du kan särskilja problem på din webbplats från nätverks problem. Du kan välja upp till 16 platser.
 
 ### <a name="success-criteria"></a>Lyckade kriterier
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 | **Timeout för test** |Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Parsa beroende begäranden** måste alla bilder, formatfiler, skript och andra beroende resurser ha tagits emot inom denna period.|
 | **HTTP-svar** | Den returnerade status koden som räknas som lyckad. 200 är koden som anger att en normal webbsida har returnerats.|
@@ -61,7 +62,7 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 
 ### <a name="alerts"></a>Aviseringar
 
-|Inställningen| Förklaring
+|Inställning| Förklaring
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|

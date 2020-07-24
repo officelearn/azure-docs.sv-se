@@ -12,16 +12,16 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477251"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026738"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering?
 
->Få meddelanden om uppdateringar på den här sidan. Lägg bara till [den här URL: en](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) i din RSS-feed läsare.
+> Få ett meddelande om uppdateringar till den här sidan genom att klistra in URL: en i din RSS-feed läsare:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
 Autentiserings systemet ändrar och lägger till funktioner kontinuerligt för att förbättra kompatibiliteten för säkerhet och standarder. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om följande uppgifter:
 

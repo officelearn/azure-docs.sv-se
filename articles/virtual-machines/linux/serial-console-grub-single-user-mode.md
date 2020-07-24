@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d594f4d8019a7c23da79506cd702adbe9f25038d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758501"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028949"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använda seriekonsolen för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified-startprogrammet. Från GRUB kan du ändra start konfigurationen till att starta i enanvändarläge, bland annat.
@@ -77,7 +78,7 @@ Om du har konfigurerat GRUB och rot åtkomst med instruktionerna ovan kan du ang
 1. Tryck på CTRL + X för att avsluta och starta om med de tillämpade inställningarna
 1. Du uppmanas att ange administratörs lösen ord innan du kan ange enanvändarläge. det här är samma lösen ord som du skapade i anvisningarna ovan    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Animerad bild som visar ett kommando rads gränssnitt. Användaren väljer en server, letar upp slutet på kernel-raden och anger sedan den angivna texten.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Ange ett enskilt användarläge utan att rot kontot har Aktiver ATS i RHEL
 Om du inte går igenom stegen ovan för att aktivera rot användaren kan du fortfarande återställa rot lösen ordet. Använd följande instruktioner:
@@ -94,7 +95,7 @@ Om du inte går igenom stegen ovan för att aktivera rot användaren kan du fort
 1. När du startar i enanvändarläge skriver du in `chroot /sysroot` för att växla till `sysroot` jailbrokad
 1. Du är nu rot. Du kan återställa rot lösen ordet med `passwd` och sedan använda anvisningarna ovan för att ange enanvändarläge. Skriv `reboot -f` för att starta om när du är klar.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Animerad bild som visar ett kommando rads gränssnitt. Användaren väljer en server, letar upp slutet på kernel-raden och anger de angivna kommandona.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Obs! genom att följa anvisningarna ovan går du till nödsamtal, så att du kan utföra uppgifter som till exempel redigering `fstab` . Men det allmänt accepterade förslaget är att återställa rot lösen ordet och använda det för att ange enanvändarläge. 
 
@@ -119,7 +120,7 @@ Som standard kommer Ubuntu-bilder inte att Visa GRUB-skärmen automatiskt. Detta
 1. Ändra `GRUB_TIMEOUT` värdet till ett värde som inte är noll
 1. Öppna `/etc/default/grub` i valfri text redigerare
 1. Kommentera ut `GRUB_HIDDEN_TIMEOUT=1` raden
-1. Kör `sudo update-grub`
+1. Jag kör `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Läge för enkel användare i Ubuntu
 Ubuntu kommer att släppa dig i enanvändarläge automatiskt om det inte går att starta normalt. Använd följande instruktioner för att manuellt ange enanvändarläge:
@@ -156,7 +157,7 @@ GRUB-åtkomst i SLES kräver att Start programmet konfigureras via YaST. Det gö
 1. Om du vill ange GRUB startar du om den virtuella datorn och trycker på valfri tangent under startsekvensen för att göra GRUB kvar på skärmen
     - Standard tids gränsen för GRUB är 1. Du kan ändra detta genom att ändra `GRUB_TIMEOUT` variabeln i`/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![Animerad bild som visar ett kommando rads gränssnitt. Användaren anger den angivna texten, väljer det angivna alternativet och sparar inställningarna.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Läge för enkel användare i SUSE SLES
 Du kommer automatiskt att tas bort från nödfall om SLES inte kan starta normalt. Använd följande instruktioner för att manuellt ange ett larm gränssnitt:
@@ -177,7 +178,7 @@ Oracle Linux levereras med GRUB aktive rad. Om du vill ange GRUB startar du om d
 Följ anvisningarna för RHEL ovan för att aktivera enanvändarläge i Oracle Linux.
 
 ## <a name="next-steps"></a>Nästa steg
-* Sidan med information om Linux-dokumentation för den viktigaste konsolen finns [här](serial-console.md).
+* Sidan med information om Linux-dokumentation för den viktigaste konsolen finns [här](../troubleshooting/serial-console-linux.md).
 * Använda en serie konsol för [NMI-och SysRq-anrop](serial-console-nmi-sysrq.md)
-* Serie konsolen är också tillgänglig för virtuella [Windows](../windows/serial-console.md) -datorer
-* Läs mer om [startdiagnostik](boot-diagnostics.md)
+* Serie konsolen är också tillgänglig för virtuella [Windows](../troubleshooting/serial-console-windows.md) -datorer
+* Läs mer om [startdiagnostik](../troubleshooting/boot-diagnostics.md)

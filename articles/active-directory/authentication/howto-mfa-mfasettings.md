@@ -12,15 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3c16724dc3eb99549b692df93ee6cd5f1fc0bf30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027707"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
-Om du vill anpassa slutanvändarens upplevelse för Azure Multi-Factor Authentication kan du konfigurera alternativ för inställningar som tröskelvärden för konto utelåsning eller bedrägerier och aviseringar. Vissa inställningar är direkt i Azure Portal för Azure Active Directory (Azure AD) och vissa i en separat Azure Multi-Factor Authentication-Portal.]
+Om du vill anpassa slutanvändarens upplevelse för Azure Multi-Factor Authentication kan du konfigurera alternativ för inställningar som tröskelvärden för konto utelåsning eller bedrägerier och aviseringar. Vissa inställningar är direkt i Azure Portal för Azure Active Directory (Azure AD) och vissa i en separat Azure Multi-Factor Authentication-Portal.
 
 Följande Azure Multi-Factor Authentication-inställningar är tillgängliga i Azure Portal:
 
@@ -243,7 +244,7 @@ Om din organisation distribuerar NPS-tillägget för att tillhandahålla MFA til
 
 | Typ av Azure AD-klient | Alternativ för betrodda IP-funktioner |
 |:--- |:--- |
-| Hanterad |Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras.|
+| Hanterade |Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras.|
 | Federerade |**Alla federerade användare**: alla federerade användare som loggar in från i organisationen kan kringgå tvåstegsverifiering. Användarna kringgår verifieringen genom att använda ett anspråk som utfärdats av Active Directory Federation Services (AD FS) (AD FS).<br/>Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. |
 
 Överanvändning av betrodda IP-arbeten är bara inifrån företagets intranät. Om du väljer alternativet **alla federerade användare** och en användare loggar in utanför företagets intranät, måste användaren autentisera med hjälp av tvåstegsverifiering. Processen är densamma även om användaren presenterar ett AD FS-anspråk.

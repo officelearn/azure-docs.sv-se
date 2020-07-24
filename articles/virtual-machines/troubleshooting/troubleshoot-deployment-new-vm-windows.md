@@ -15,11 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2f21cab4740013eb2de1d69f558c95461c493e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028404"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Felsöka distributions problem när du skapar en ny virtuell Windows-dator i Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -36,7 +37,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 [Visa distributionsåtgärder](../../azure-resource-manager/templates/deployment-history.md)
 
-[Visa aktivitets loggar för att hantera Azure-resurser](../../resource-group-audit.md)
+[Visa aktivitets loggar för att hantera Azure-resurser](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -52,7 +53,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 **Upplösning**
 
-För att lösa de här felen använder du [Add-AzVhd för att överföra den ursprungliga virtuella hård disken](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), som är tillgänglig lokalt, med samma inställning som för operativ systemet (generaliserad/specialiserad). Kom ihåg att köra Sysprep först för att ladda upp som generaliserad.
+För att lösa de här felen använder du [Add-AzVhd för att överföra den ursprungliga virtuella hård disken](/powershell/module/az.compute/add-azvhd), som är tillgänglig lokalt, med samma inställning som för operativ systemet (generaliserad/specialiserad). Kom ihåg att köra Sysprep först för att ladda upp som generaliserad.
 
 **Infångnings fel:**
 
@@ -89,5 +90,3 @@ Det här felet uppstår i situationer när den nya VM-begäran fästs i ett klus
 
 ## <a name="next-steps"></a>Nästa steg
 Om du får problem när du startar en virtuell Windows-dator som har stoppats eller ändrat storlek på en befintlig virtuell Windows-dator i Azure läser du [Felsöka distributions problem i Resource Manager med att starta om eller ändra storlek på en befintlig virtuell Windows-dator i Azure](restart-resize-error-troubleshooting.md).
-
-

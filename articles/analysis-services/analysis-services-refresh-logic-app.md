@@ -6,11 +6,13 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 9d8c3c7668da939227b3e8aaef002b4292c7d962
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79127045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025327"
 ---
 # <a name="refresh-with-logic-apps"></a>Uppdatera med Logic Apps
 
@@ -27,7 +29,7 @@ Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth
 > [!IMPORTANT]
 > I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i Azure Analysis Services brand väggen. Mer information om Azure Logic Apps IP-adressintervall per region finns i [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 #### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 
@@ -65,10 +67,10 @@ Konfigurera HTTP-aktiviteten enligt följande:
 |---------|---------|
 |**Metod**     |POST         |
 |**URI**     | https://*Your Server region*/servers/*AAS Server Name*/Models/*ditt databas namn*/refreshes <br /> <br /> Till exempel: https: \/ /westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/refreshes|
-|**Rubriker**     |   Innehålls typ, Application/JSON <br /> <br />  ![Rubriker](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Sidhuvuden**     |   Innehålls typ, Application/JSON <br /> <br />  ![Sidhuvuden](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Brödtext**     |   Mer information om hur du skapar begär ande texten finns i [asynkron uppdatering med REST API-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autentisering**     |Active Directory OAuth         |
-|**Klient**     |Fyll i din Azure Active Directory TenantId         |
+|**Klientorganisation**     |Fyll i din Azure Active Directory TenantId         |
 |**Målgrupp**     |https://*., Azure. Windows. net         |
 |**Klient-ID**     |Ange tjänstens huvud namn ClientID         |
 |**Autentiseringstyp**     |Hemlighet         |

@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026275"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Webbapp som loggar in användare: app-registrering
 
@@ -40,9 +41,9 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
 > Vilken portal som ska användas är olika beroende på om ditt program körs i Microsoft Azure offentliga molnet eller i ett nationellt eller suveränt moln. Mer information finns i [nationella moln](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto. Du kan också logga in på Azure Portal val för det nationella molnet.
-1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet. Ange sedan din portal-session till önskad Azure Active Directory-klient (Azure AD).
-1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**  >  **ny registrering**.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto. Du kan också logga in på [Azure Portal val](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) för det nationella molnet.
+2. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet. Ange sedan din portal-session till önskad Azure Active Directory-klient (Azure AD).
+3. I den vänstra rutan väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**  >  **ny registrering**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -50,12 +51,14 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
    1. Välj de konto typer som stöds för programmet. (Se [konto typer som stöds](./v2-supported-account-types.md).)
    1. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användare av appen. Ange till exempel **AspNetCore-webapp**.
    1. För **omdirigerings-URI**lägger du till den typ av program och URI-destination som accepterar returnerade token-svar efter lyckad autentisering. Ange till exempel **https://localhost:44321** . Välj sedan **Registrera**.
+   ![register](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Välj menyn **Autentisering** och lägg sedan till följande information:
    1. För **svars-URL**, Lägg till **https://localhost:44321/signin-oidc** typ **webb**.
    1. I avsnittet **Avancerade inställningar** anger du **utloggnings-URL** till **https://localhost:44321/signout-oidc** .
    1. Under **Implicit beviljande** väljer du **ID-token**.
    1. Välj **Spara**.
-
+  ![register](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+ 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. När **sidan Registrera ett program** visas anger du programmets registrerings information:
@@ -116,7 +119,7 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
 > - MyOrg (endast konton i den här organisatoriska katalogen)
 > - AnyOrg (konton i valfri organisations katalog)
 >
-> Du kan skapa ett program som loggar in användare med sina personliga Microsoft-konton (till exempel Skype, Xbox eller Outlook.com). Börja med att skapa ett program med flera innehavare. Konto typer som stöds är konton i valfri organisations katalog. Ändra sedan `signInAudience` egenskapen i applikations manifestet från Azure Portal. Mer information finns i [steg 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) i självstudierna för ASP.net Core. Du kan generalisera det här steget till Web Apps på valfritt språk.
+> Du kan skapa ett program som loggar in användare med sina personliga Microsoft-konton (till exempel Skype, Xbox eller Outlook.com). Börja med att skapa ett program med flera innehavare. Konto typer som stöds är konton i valfri organisations katalog. Ändra sedan [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) egenskapen till **2** och [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) egenskapen till `AzureADandPersonalMicrosoftAccount` i [applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) från Azure Portal. Mer information finns i [steg 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) i självstudierna för ASP.net Core. Du kan generalisera det här steget till Web Apps på valfritt språk.
 
 ## <a name="next-steps"></a>Nästa steg
 

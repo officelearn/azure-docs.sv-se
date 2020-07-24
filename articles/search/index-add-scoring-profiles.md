@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565365"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029951"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Lägga till rankningsprofiler i ett Azure Cognitive Search-index
 
@@ -254,7 +254,7 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Ange interpolation  
  Med interpolation kan du ange formen på den lutning som används för poängsättning. Eftersom poängsättningen är hög till låg, minskar lutningen alltid, men interpolation anger kurvan för den nedåtriktade lutningen. Följande interpolation kan användas:  
 
-|||  
+| Interpol | Beskrivning |  
 |-|-|  
 |`linear`|För objekt som ligger inom max-och min-intervallet görs ökningen som tillämpas på objektet i ett konstant minsknings belopp. Linjär är standard-interpolation för en bedömnings profil.|  
 |`constant`|För objekt som ligger inom start-och Slutintervallet används en konstant förstärkning för ranknings resultatet.|  
@@ -281,6 +281,6 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
 ## <a name="see-also"></a>Se även  
 
-+ [REST API referens](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Referens för REST API](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
 + [Azure Kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

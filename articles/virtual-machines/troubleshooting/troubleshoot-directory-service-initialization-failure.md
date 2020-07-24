@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 909481964f8aa3272715e235fa011562225a9422
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83665140"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028370"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Felsöka Windows stoppfel – katalog tjänst initierings fel
 
@@ -26,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där en Active Directo
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn, visar skärm bilden att den virtuella datorn måste startas om på grund av ett fel och visar stopp koden **0XC00002E1** i Windows Server 2008 R2 eller **0xC00002E2** i Windows Server 2012 eller senare.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn, visar skärm bilden att den virtuella datorn måste startas om på grund av ett fel och visar stopp koden **0XC00002E1** i Windows Server 2008 R2 eller **0xC00002E2** i Windows Server 2012 eller senare.
 
 ![Start skärms tillstånd för Windows Server 2012 "din dator stötte på ett problem och måste startas om. Vi samlar bara in fel information och startar sedan om. ".](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -61,7 +62,7 @@ Det här felet kan orsakas av något av följande villkor:
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att förbereda en reparations-VM.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att förbereda en reparations-VM.
 1. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
 ### <a name="free-up-space-on-disk"></a>Frigör utrymme på disken
@@ -69,11 +70,11 @@ Det här felet kan orsakas av något av följande villkor:
 Eftersom disken nu är ansluten till en virtuell reparations dator kontrollerar du att disken som innehåller den Active Directory interna databasen har tillräckligt med utrymme för att utföra korrekt.
 
 1. Kontrol lera om disken är full genom att högerklicka på enheten och välja **Egenskaper**.
-1. Om disken har mindre än 300 MB ledigt utrymme [expanderar du den till maximalt 1 TB med hjälp av PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Om disken har mindre än 300 MB ledigt utrymme [expanderar du den till maximalt 1 TB med hjälp av PowerShell](../windows/expand-os-disk.md).
 1. Om disken har uppnått 1 TB använt utrymme utför du en disk rensning.
 
-   1. Använd PowerShell för att [Koppla bort data disken](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) från den brutna virtuella datorn.
-   1. [Koppla bort data disken](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) till en fungerande virtuell dator när den är frånkopplad från den brutna virtuella datorn.
+   1. Använd PowerShell för att [Koppla bort data disken](../windows/detach-disk.md#detach-a-data-disk-using-powershell) från den brutna virtuella datorn.
+   1. [Koppla bort data disken](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm) till en fungerande virtuell dator när den är frånkopplad från den brutna virtuella datorn.
    1. Använd [disk rensnings verktyget](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) för att frigöra ytterligare utrymme.
 
 1. **Valfritt** – om mer utrymme behövs öppnar du en cmd-instans och anger `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` kommandot för att utföra en avfragmentering på enheten:
@@ -182,7 +183,7 @@ Om du vill aktivera samling av minnes dum par och seriell konsol kör du följan
 
 ### <a name="rebuild-the-vm"></a>Återskapa den virtuella datorn
 
-1. Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.
+1. Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att bygga upp den virtuella datorn igen.
 
 ### <a name="reconfigure-the-storage-area-network-policy"></a>Konfigurera om nätverks principen för lagrings utrymme
 

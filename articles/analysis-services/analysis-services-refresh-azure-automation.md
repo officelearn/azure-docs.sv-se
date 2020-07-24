@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5314c933b01a1fb9c4ea9902a6fbb698c104d195
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025412"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
@@ -23,7 +23,7 @@ Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](https://do
 
 Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  Exemplet i den här artikeln använder ett huvud namn för tjänsten (SPN) för att autentisera till Azure Analysis Services. Läs mer i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
 > I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om en brand vägg är aktive rad måste den offentliga IP-adressen för begär ande initieraren ingå i en brand Väggs regel.
@@ -64,7 +64,10 @@ Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet
 
     ![Importera Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Bläddra till **Refresh-Model.ps1** -filen, ange ett **namn** och en **Beskrivning**och klicka sedan på **skapa**.
+4. Bläddra till [Refresh-Model.ps1](#sample-powershell-runbook) -filen, ange ett **namn** och en **Beskrivning**och klicka sedan på **skapa**.
+
+    > [!NOTE]
+    > Använd skript från [exemplet PowerShell-Runbook](#sample-powershell-runbook) längst ned i det här dokumentet för att skapa en fil med namnet Refresh-Model.ps1 och spara till en lokal dator som ska importeras till Runbook.
 
     ![Importera Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 

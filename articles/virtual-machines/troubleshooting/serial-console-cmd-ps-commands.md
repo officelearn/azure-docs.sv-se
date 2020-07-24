@@ -13,17 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028472"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-kommandon – CMD och PowerShell
 
 Det här avsnittet innehåller exempel kommandon för att utföra vanliga uppgifter i scenarier där du kan behöva använda SAC för att få åtkomst till din virtuella Windows-dator, till exempel när du behöver felsöka RDP-anslutningsfel.
 
-SAC har inkluderats i alla versioner av Windows sedan Windows Server 2003 men är inaktiverat som standard. SAC förlitar sig på `sacdrv.sys` kernel-drivrutinen, `Special Administration Console Helper` tjänsten ( `sacsvr` ) och `sacsess.exe` processen. Mer information finns i [verktyg och inställningar för Emergency Management Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC har inkluderats i alla versioner av Windows sedan Windows Server 2003 men är inaktiverat som standard. SAC förlitar sig på `sacdrv.sys` kernel-drivrutinen, `Special Administration Console Helper` tjänsten ( `sacsvr` ) och `sacsess.exe` processen. Mer information finns i [verktyg och inställningar för Emergency Management Services](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 Med SAC kan du ansluta till ditt operativ system via en seriell port. När du startar CMD från SAC `sacsess.exe` startar du `cmd.exe` i det operativ system som körs. Du kan se att i aktivitets hanteraren om du använder RDP till den virtuella datorn på samma gång som du är ansluten till SAC via funktionen serie konsol. CMD som du kommer åt via SAC är samma `cmd.exe` som du använder när du är ansluten via RDP. Alla samma kommandon och verktyg är tillgängliga, inklusive möjligheten att starta PowerShell från den CMD-instansen. Det är en stor skillnad mellan SAC och Windows återställnings miljö (WinRE) i den SAC som låter dig hantera ditt drift operativ system, där WinRE startar i ett annat, minimalt operativ system. Virtuella Azure-datorer har inte stöd för möjligheten att komma åt WinRE, med funktionen för serie konsol, och virtuella Azure-datorer kan hanteras via SAC.
 
@@ -90,7 +91,7 @@ eller
 ### <a name="set-nic-to-use-dhcp"></a>Ange NIC för att använda DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-`netsh` [Klicka här](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts)om du vill ha mer information om.
+`netsh` [Klicka här](/windows-server/networking/technologies/netsh/netsh-contexts)om du vill ha mer information om.
 
 Virtuella Azure-datorer måste alltid konfigureras i gäst operativ systemet för att använda DHCP för att hämta en IP-adress. Den statiska IP-inställningen i Azure använder fortfarande DHCP för att ge den statiska IP-adressen till den virtuella datorn.
 ### <a name="ping"></a>Pinga
@@ -182,11 +183,11 @@ Det här exemplet returnerar fil versionen av den virtuella nätverkskort driv r
 ### <a name="scan-for-system-file-corruption"></a>Söker efter skadad system fil
 `sfc /scannow`
 
-Se även [Reparera en Windows-avbildning](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Se även [Reparera en Windows-avbildning](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### <a name="scan-for-system-file-corruption"></a>Söker efter skadad system fil
 `dism /online /cleanup-image /scanhealth`
 
-Se även [Reparera en Windows-avbildning](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Se även [Reparera en Windows-avbildning](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### <a name="export-file-permissions-to-text-file"></a>Exportera fil behörigheter till textfil
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 ### <a name="save-file-permissions-to-acl-file"></a>Spara fil behörigheter till ACL-filen
@@ -435,7 +436,7 @@ Du kan fråga Azure instance metadata från din virtuella Azure-dator om du vill
 
 Frågor om instansen av instansen kräver en felfri gäst nätverks anslutning, eftersom det gör ett REST-anrop via Azure-värden till instansens metadatatjänst. Så om du kan fråga efter instansen metadata så att gästen kan kommunicera via nätverket till en Azure-värdbaserad tjänst.
 
-Mer information finns i [Azure instance metadata service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
+Mer information finns i [Azure instance metadata service](../windows/instance-metadata-service.md).
 
 ### <a name="instance-metadata"></a>Metadata för instans
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

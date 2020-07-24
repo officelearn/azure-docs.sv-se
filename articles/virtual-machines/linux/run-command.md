@@ -8,11 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a14fafde8ecea0370c74cdbfd39a85d8dfb15612
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0210b3bf13bc852e2ace0e8b490b3ddf952dc288
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83651080"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028982"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Kör Shell-skript i din virtuella Linux-dator med kommandot kör
 
@@ -64,7 +65,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 > [!NOTE]
 > Ange ett användar konto för att köra kommandon som en annan användare `sudo -u` .
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure-portalen
 
 Gå till en virtuell dator i [Azure Portal](https://portal.azure.com) och välj **Kör kommando** under **åtgärder**. Du ser en lista över tillgängliga kommandon som ska köras på den virtuella datorn.
 
@@ -81,7 +82,7 @@ När du har valt kommandot väljer du **Kör** för att köra skriptet. När skr
 
 ### <a name="powershell"></a>PowerShell
 
-I följande exempel används cmdleten [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) för att köra ett PowerShell-skript på en virtuell Azure-dator. Cmdleten förväntar sig att skriptet som refereras till i `-ScriptPath` parametern ska vara lokalt till den plats där cmdleten körs.
+I följande exempel används cmdleten [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) för att köra ett PowerShell-skript på en virtuell Azure-dator. Cmdleten förväntar sig att skriptet som refereras till i `-ScriptPath` parametern ska vara lokalt till den plats där cmdleten körs.
 
 ```powershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}

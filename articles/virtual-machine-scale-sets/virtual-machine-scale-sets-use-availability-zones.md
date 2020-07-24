@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029322"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalnings uppsättning för virtuell dator som använder Tillgänglighetszoner
 
@@ -38,7 +39,7 @@ När du distribuerar en skalnings uppsättning kan du också välja att distribu
 
 ### <a name="zone-balancing"></a>Zon utjämning
 
-Slutligen, för skalnings uppsättningar som distribueras över flera zoner, kan du också välja "bästa möjliga zon balans" eller "strikt zon balans". En skalnings uppsättning betraktas som "bal anse rad" om varje zon har samma antal virtuella datorer eller + \\ -1 virtuell dator i alla andra zoner för skalnings uppsättningen. Ett exempel:
+Slutligen, för skalnings uppsättningar som distribueras över flera zoner, kan du också välja "bästa möjliga zon balans" eller "strikt zon balans". En skalnings uppsättning betraktas som "bal anse rad" om varje zon har samma antal virtuella datorer eller + \\ -1 virtuell dator i alla andra zoner för skalnings uppsättningen. Exempel:
 
 - En skalnings uppsättning med 2 virtuella datorer i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 betraktas som balanserade. Det finns bara en zon med ett annat antal virtuella datorer och den är bara 1 mindre än de andra zonerna. 
 - En skalnings uppsättning med 1 virtuell dator i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 betraktas som obalanser. Zon 1 har 2 färre virtuella datorer än zon 2 och 3.
@@ -57,10 +58,10 @@ När du skapar en skalnings uppsättning i en enda zon, styr du vilken zon alla 
 
 Om du vill använda Tillgänglighetszoner måste din skalnings uppsättning skapas i en [Azure-region som stöds](../availability-zones/az-region.md). Du kan skapa en skalnings uppsättning som använder Tillgänglighetszoner med någon av följande metoder:
 
-- [Azure Portal](#use-the-azure-portal)
+- [Azure-portalen](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
-- [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
+- [Azure Resource Manager mallar](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
@@ -91,7 +92,7 @@ Ett fullständigt exempel på en skalnings uppsättning för en zon och nätverk
 
 ### <a name="zone-redundant-scale-set"></a>Zon – redundant skalnings uppsättning
 
-Om du vill skapa en zon – redundant skalnings uppsättning använder du en offentlig IP-adress och en belastningsutjämnare med *standard* -SKU. För förbättrad redundans skapar *standard* -SKU: n de zoner som är redundanta nätverks resurser. Mer information finns i [Azure Load Balancer standard – översikt](../load-balancer/load-balancer-standard-overview.md) och [standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
+Om du vill skapa en zon – redundant skalnings uppsättning använder du en offentlig IP-adress och en belastningsutjämnare med *standard* -SKU. För förbättrad redundans skapar *standard* -SKU: n de zoner som är redundanta nätverks resurser. Mer information finns i [Azure Load Balancer standard – översikt](../load-balancer/load-balancer-overview.md) och [standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Om du vill skapa en zon – redundant skalnings uppsättning anger du flera zoner med `--zones` parametern. I följande exempel skapas en zon – redundant skalnings uppsättning med namnet *myScaleSet* över zon *1, 2, 3*:
 
@@ -208,7 +209,7 @@ Om du vill skapa en zon – redundant skalnings uppsättning anger du flera vär
 }
 ```
 
-Om du skapar en offentlig IP-adress eller en belastningsutjämnare anger du *"SKU": {"name": "standard"} "* egenskapen för att skapa zoner som är redundanta nätverks resurser. Du måste också skapa en nätverks säkerhets grupp och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer standard – översikt](../load-balancer/load-balancer-standard-overview.md) och [standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
+Om du skapar en offentlig IP-adress eller en belastningsutjämnare anger du *"SKU": {"name": "standard"} "* egenskapen för att skapa zoner som är redundanta nätverks resurser. Du måste också skapa en nätverks säkerhets grupp och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer standard – översikt](../load-balancer/load-balancer-overview.md) och [standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Ett fullständigt exempel på en zon – redundant skalnings uppsättning och nätverks resurser finns i [den här exempel på en Resource Manager-mall](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

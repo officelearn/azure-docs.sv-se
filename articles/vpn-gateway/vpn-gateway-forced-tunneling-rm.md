@@ -8,11 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: bd1022079b382353591857eacdedff344ed49f63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 028ac730396c71549bfc338d3496109c98dfdc73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984158"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027843"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
 
@@ -61,7 +62,7 @@ Procedur stegen anger "DefaultSiteHQ" som standard plats anslutning för Tvingad
 
 ## <a name="before-you-begin"></a><a name="before"></a>Innan du börjar
 
-Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > Du måste installera den senaste versionen av PowerShell-cmdletar. Annars kan du få verifierings fel när du kör några av cmdletarna.

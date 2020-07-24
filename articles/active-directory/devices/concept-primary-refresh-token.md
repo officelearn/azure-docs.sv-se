@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83771204"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025888"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdateringstoken?
 
@@ -64,7 +65,7 @@ PRT utfärdas vid användarautentisering på en Windows 10-enhet i två situatio
 I Azure AD-registrerade enhets scenarier är Azure AD WAM-plugin-programmet den primära utfärdaren för PRT eftersom Windows-inloggning inte sker med det här Azure AD-kontot.
 
 > [!NOTE]
-> identitets leverantörer från tredje part måste stödja WS-Trust-protokollet för att aktivera PRT-utfärdande på Windows 10-enheter. Utan WS-Trust kan PRT inte utfärdas till användare på Hybrid Azure AD-anslutna eller Azure AD-anslutna enheter
+> identitets leverantörer från tredje part måste stödja WS-Trust-protokollet för att aktivera PRT-utfärdande på Windows 10-enheter. Utan WS-Trust kan PRT inte utfärdas till användare på Hybrid Azure AD-anslutna eller Azure AD-anslutna enheter. Endast usernamemixed-slutpunkter i ADFS måste anges. Både ADFS/tjänster/Trust/2005/windowstransport och ADFS/Services/Trust/13/windowstransport ska aktive ras som enbart intranät riktade slut punkter och **får inte visas** som extra näts slut punkter via Webbprogramproxy
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Vilken är livs längden för en PRT?
 
@@ -166,6 +167,9 @@ Följande diagram illustrerar underliggande information när du utfärdar, förn
 | E | CloudAP-plugin-programmet konstruerar autentiseringsbegäran med användarens autentiseringsuppgifter, nonce och den befintliga PRT, signerar begäran med sessionsnyckeln och skickar den till Azure AD. I en federerad miljö använder CloudAP-pluginprogrammet SAML-token som returnerades av Federations leverantören i stället för användarens autentiseringsuppgifter. |
 | F | Azure AD validerar signaturens sessionsnyckel genom att jämföra den mot sessionsnyckeln som är inbäddad i PRT, validerar nonce och verifierar att enheten är giltig i klienten och utfärdar en ny PRT. Som tidigare setts tidigare åtföljs PRT igen med sessionsnyckeln som krypteras av transport nyckeln (tkpub). |
 | G | CloudAP-plugin-programmet skickar den krypterade PRT och sessionsnyckeln till CloudAP. CloudAP begär TPM: en att dekryptera sessionsnyckeln med transport nyckeln (tkpriv) och kryptera den igen med hjälp av TPM: s egna nyckel. CloudAP lagrar den krypterade sessionsnyckeln i cacheminnet tillsammans med PRT. |
+
+> [!NOTE]
+> En PRT kan förnyas externt utan att en VPN-anslutning behövs när usernamemixed-slutpunkter aktive ras externt.
 
 ### <a name="prt-usage-during-app-token-requests"></a>PRT-användning vid begäran om app-token
 

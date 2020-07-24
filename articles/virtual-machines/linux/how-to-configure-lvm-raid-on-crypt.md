@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be8863d86fd1525e6f64b46ddf5ca3c702ecdea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029237"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Konfigurera LVM och RAID på krypterade enheter
 
@@ -40,15 +41,15 @@ De fysiska volymerna (PVs) skapas ovanpå det krypterade skiktet. De fysiska vol
 
 På ett liknande sätt skapas RAID-enheten ovanpå det krypterade skiktet på diskarna. Ett fil system skapas ovanpå RAID-enheten och läggs till i/etc/fstab som en vanlig enhet.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Vi rekommenderar att du använder LVM-on-Encryption. RAID är ett alternativ när LVM inte kan användas på grund av specifika program-eller miljö begränsningar.
 
-Du använder alternativet **EncryptFormatAll** . Mer information om det här alternativet finns i [använda funktionen EncryptFormatAll för data diskar på virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Du använder alternativet **EncryptFormatAll** . Mer information om det här alternativet finns i [använda funktionen EncryptFormatAll för data diskar på virtuella Linux-datorer](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Även om du kan använda den här metoden när du också krypterar operativ systemet, krypterar vi bara data enheter här.
 
-Procedurerna förutsätter att du redan har granskat kraven i [Azure Disk Encryption scenarier på virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) och [snabb start: skapa och kryptera en virtuell Linux-dator med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
+Procedurerna förutsätter att du redan har granskat kraven i [Azure Disk Encryption scenarier på virtuella Linux-datorer](./disk-encryption-linux.md) och [snabb start: skapa och kryptera en virtuell Linux-dator med Azure CLI](./disk-encryption-cli-quickstart.md).
 
 Azure Disk Encryption Dual-pass-versionen är på en utgångs väg och bör inte längre användas för nya krypteringar.
 
@@ -459,4 +460,3 @@ df -h
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsökning för Azure Disk Encryption](disk-encryption-troubleshooting.md)
-

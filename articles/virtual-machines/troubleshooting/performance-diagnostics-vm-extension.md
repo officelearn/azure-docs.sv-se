@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 763e948f58dfc76c3aa7ba67f461438fc752c689
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135280"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028557"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azures VM-tillägg för prestandadiagnostik för Windows
 
@@ -71,7 +71,7 @@ Följande JSON visar schemat för Azure Performance Diagnostics VM-tillägget. D
 |apiVersion|2015-06-15|API-versionen.
 |utgivare|Microsoft. Azure. Performance. Diagnostics|Utgivarens namn område för tillägget.
 |typ|AzurePerformanceDiagnostics|Typ av VM-tillägg.
-|typeHandlerVersion|1.0|Tilläggs hanterarens version.
+|typeHandlerVersion|1,0|Tilläggs hanterarens version.
 |performanceScenario|frö|Det prestanda scenario som data ska samlas in för. Giltiga värden är: **Basic**, **vmslow**, **migreringsåtgärden**och **Custom**.
 |traceDurationInSeconds|300|Spårens varaktighet, om något av spårnings alternativen är markerat.
 |perfCounterTrace|P|Alternativ för att aktivera spårning av prestanda räknare. Giltiga värden är **p** eller ett tomt värde. Lämna värdet tomt om du inte vill avbilda den här spårningen.
@@ -233,7 +233,7 @@ PerfInsights-verktyget samlar in olika loggar, konfigurations-och diagnostikdata
 
 ## <a name="view-and-share-the-results"></a>Visa och dela resultaten
 
-Utdata från tillägget finns i en zip-fil som överförts till det lagrings konto som angavs under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här zip-filen innehåller diagnostikloggar och en rapport med undersöknings resultat och rekommendationer. En SAS-länk till zip-filen för utdata finns i en textfil med namnet *zipfilename*_saslink.txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Alla som har den här länken kan hämta zip-filen.
+Utdata från tillägget finns i en zip-fil som överförts till det lagrings konto som angavs under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-sas-overview.md). Den här zip-filen innehåller diagnostikloggar och en rapport med undersöknings resultat och rekommendationer. En SAS-länk till zip-filen för utdata finns i en textfil med namnet *zipfilename*_saslink.txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Alla som har den här länken kan hämta zip-filen.
 
 För att hjälpa Support teknikern att arbeta med ditt support ärende kan Microsoft använda SAS-länken för att hämta diagnostikdata.
 

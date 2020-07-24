@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024201"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till SQL-hanterad instans i en failover-grupp
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +35,7 @@ Lägg till hanterade instanser av den hanterade Azure SQL-instansen i en redunda
   > - Hanterade instanser som ingår i en failover-grupp kräver antingen [Azure-ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller två anslutna VPN-gatewayer. Den här självstudien innehåller steg för att skapa och ansluta VPN-gatewayer. Hoppa över de här stegen om du redan har konfigurerat ExpressRoute. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
@@ -46,7 +47,7 @@ För att kunna följa den här självstudien måste du ha:
 Kontrol lera att du har följande objekt för att slutföra självstudien:
 
 - En Azure-prenumeration. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har ett.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 ---
 
@@ -383,14 +384,14 @@ Skapa din resurs grupp och den primära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. | 
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Hämtar ett undernät i ett virtuellt nätverk. | 
-| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Skapar en nätverkssäkerhetsgrupp. | 
+| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | skapa en nätverkssäkerhetsgrupp | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | Skapar en routningstabell. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | Uppdaterar en under näts konfiguration för ett virtuellt nätverk.  |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Uppdaterar ett virtuellt nätverk.  |
@@ -425,13 +426,13 @@ Följ dessa steg om du vill skapa ett virtuellt nätverk:
 
    Följande tabell visar de värden som krävs för det sekundära virtuella nätverket:
 
-    | **Field** | Värde |
+    | **Fält** | Värde |
     | --- | --- |
     | **Namn** |  Namnet på det virtuella nätverk som ska användas av den sekundära hanterade instansen, till exempel `vnet-sql-mi-secondary` . |
     | **Adressutrymme** | Adress utrymmet för det virtuella nätverket, till exempel `10.128.0.0/16` . | 
     | **Prenumeration** | Den prenumeration där den primära hanterade instansen och resurs gruppen finns. |
-    | **Nationella** | Den plats där du ska distribuera den sekundära hanterade instansen. |
-    | **Delnät** | Namnet på under nätet. `default`tillhandahålls som standard. |
+    | **Region** | Den plats där du ska distribuera den sekundära hanterade instansen. |
+    | **Undernät** | Namnet på under nätet. `default`tillhandahålls som standard. |
     | **Adressintervall**| Adress intervallet för ditt undernät. Detta måste vara ett annat än det under näts adress intervall som används av den primära hanterade instansens virtuella nätverk, till exempel `10.128.0.0/24` .  |
     | &nbsp; | &nbsp; |
 
@@ -464,12 +465,12 @@ Skapa den sekundära hanterade instansen med hjälp av Azure Portal.
 
    Följande tabell visar de värden som krävs för den sekundära hanterade instansen:
  
-    | **Field** | Värde |
+    | **Fält** | Värde |
     | --- | --- |
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Resursgrupp**| Resurs gruppen där den primära hanterade instansen finns. |
     | **SQL-hanterad instans namn** | Namnet på den nya sekundära hanterade instansen, till exempel `sql-mi-secondary` .  | 
-    | **Nationella**| Platsen för den sekundära hanterade instansen.  |
+    | **Region**| Platsen för den sekundära hanterade instansen.  |
     | **Administratörs inloggning för SQL-hanterad instans** | Den inloggning som du vill använda för den nya sekundära hanterade instansen, till exempel `azureuser` . |
     | **Lösenord** | Ett komplext lösen ord som ska användas av administratörs inloggningen för den nya sekundära hanterade instansen.  |
     | &nbsp; | &nbsp; |
@@ -713,14 +714,14 @@ Skapa den sekundära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. | 
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Hämtar ett undernät i ett virtuellt nätverk. | 
-| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Skapar en nätverkssäkerhetsgrupp. | 
+| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | skapa en nätverkssäkerhetsgrupp | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | Skapar en routningstabell. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | Uppdaterar en under näts konfiguration för ett virtuellt nätverk.  |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Uppdaterar ett virtuellt nätverk.  |
@@ -758,15 +759,15 @@ Skapa gatewayen för det virtuella nätverket för den primära hanterade instan
 
    I följande tabell visas de värden som krävs för gatewayen för den primära hanterade instansen:
  
-    | **Field** | Värde |
+    | **Fält** | Värde |
     | --- | --- |
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `primary-mi-gateway` . | 
-    | **Nationella** | Den region där din primära hanterade instans är. |
+    | **Region** | Den region där din primära hanterade instans är. |
     | **Typ av Gateway** | Välj **VPN**. |
     | **VPN-typ** | Välj **Routningsbaserad**. |
     | **SKU**| Lämna standardvärdet `VpnGw1` . |
-    | **Position**| Den plats där din primära hanterade instans och det primära virtuella nätverket finns.   |
+    | **Plats**| Den plats där din primära hanterade instans och det primära virtuella nätverket finns.   |
     | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-primary` . |
     | **Offentlig IP-adress**| Välj **Skapa ny**. |
     | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `primary-gateway-IP` . |
@@ -816,7 +817,7 @@ Skapa gatewayen för det virtuella nätverket för den primära hanterade instan
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -840,15 +841,15 @@ Använd Azure Portal och upprepa stegen i föregående avsnitt för att skapa de
 
    I följande tabell visas de värden som krävs för gatewayen för den sekundära hanterade instansen:
 
-   | **Field** | Värde |
+   | **Fält** | Värde |
    | --- | --- |
    | **Prenumeration** |  Prenumerationen där den sekundära hanterade instansen är. |
    | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `secondary-mi-gateway` . | 
-   | **Nationella** | Den region där den sekundära hanterade instansen är. |
+   | **Region** | Den region där den sekundära hanterade instansen är. |
    | **Typ av Gateway** | Välj **VPN**. |
    | **VPN-typ** | Välj **Routningsbaserad**. |
    | **SKU**| Lämna standardvärdet `VpnGw1` . |
-   | **Position**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket finns.   |
+   | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket finns.   |
    | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-secondary` . |
    | **Offentlig IP-adress**| Välj **Skapa ny**. |
    | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `secondary-gateway-IP` . |
@@ -897,7 +898,7 @@ Skapa gatewayen för det virtuella nätverket för den sekundära hanterade inst
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -962,7 +963,7 @@ Anslut de två gatewayerna med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Skapar en anslutning mellan de två virtuella Nätverksgatewayen.   |
 
@@ -1004,7 +1005,7 @@ Skapa gruppen för växling vid fel med hjälp av PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Skapar en ny failover-grupp för Azure SQL-hanterad instans.  |
 
@@ -1070,7 +1071,7 @@ Testa redundans med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Hämtar eller listar redundans grupper för SQL-hanterade instanser.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Kör en redundansväxling av en failover-grupp med SQL-hanterad instans. | 
@@ -1102,7 +1103,7 @@ Write-host "Removing residual resources and resource group..."
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp. |
 
@@ -1115,14 +1116,14 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. | 
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Hämtar ett undernät i ett virtuellt nätverk. | 
-| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Skapar en nätverkssäkerhetsgrupp. | 
+| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | skapa en nätverkssäkerhetsgrupp | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | Skapar en routningstabell. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | Uppdaterar en under näts konfiguration för ett virtuellt nätverk.  |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Uppdaterar ett virtuellt nätverk.  |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6902e69ecfd0738a74e6d492b8ed4d2b2d525eaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026891"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET Core webbapp kan logga in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -62,10 +62,10 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Steg 2: Ladda ned ditt ASP.NET Core-projekt
 
 > [!div renderon="docs"]
-> [Ladda ned Visual Studio 2019-lösningen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+> [Ladda ned ASP.NET Core-lösningen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Kör projektet med Visual Studio 2019.
+> Kör projektet.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
@@ -76,9 +76,9 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
-> #### <a name="step-3-run-your-visual-studio-project"></a>Steg 3: köra Visual Studio-projektet
+> #### <a name="step-3-run-your-aspnet-core-project"></a>Steg 3: kör ASP.NET Core-projektet
 > 1. Extrahera zip-filen i en lokal mapp i rotkatalogen, till exempel **C:\Azure-Samples**
-> 1. Öppna lösningen i Visual Studio
+> 1. Öppna lösningen i din IDE
 > 1. Redigera filen **appsettings.json**. Hitta `ClientId` och uppdatera värdet för `ClientId` med **programmets (klient) ID-** värdet för det program som du har registrerat.
 >
 >    ```json
@@ -145,7 +145,7 @@ Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till cookie-b
 
 Raden som innehåller `.AddAzureAd` lägger till Microsoft Identity Platform-autentisering till ditt program. Den konfigureras sedan att logga in med hjälp av Microsoft Identity Platform-slutpunkten.
 
-> |Var | Description |
+> |Var | Beskrivning |
 > |---------|---------|
 > | ClientId  | Program-ID (klient) från appen som registrerats i Azure-portalen. |
 > | Myndighet | STS-slutpunkten för autentisering av användaren. Vanligtvis <https://login.microsoftonline.com/{tenant}/v2.0> för offentligt moln, där {tenant} är namnet på din klientorganisation eller ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |

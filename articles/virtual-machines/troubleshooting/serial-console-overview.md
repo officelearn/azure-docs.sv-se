@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656481"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074331"
 ---
 # <a name="azure-serial-console"></a>Azures serie konsol
 
@@ -33,7 +34,7 @@ Serie konsolen fungerar på samma sätt för virtuella datorer och instanser av 
 Du behöver följande för att få åtkomst till serie konsolen på den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans:
 
 - Startdiagnostik måste vara aktiverat för den virtuella datorn
-- Ett användar konto som använder lösenordsautentisering måste finnas i den virtuella datorn. Du kan skapa en lösenordsbaserad användare med funktionen [Återställ lösen ord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för VM Access-tillägget. Välj **Återställ lösen ord** i avsnittet **support och fel sökning** .
+- Ett användar konto som använder lösenordsautentisering måste finnas i den virtuella datorn. Du kan skapa en lösenordsbaserad användare med funktionen [Återställ lösen ord](../extensions/vmaccess.md#reset-password) för VM Access-tillägget. Välj **Återställ lösen ord** i avsnittet **support och fel sökning** .
 - Azure-kontot som använder serie konsolen måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för både den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
 
 > [!NOTE]
@@ -44,7 +45,7 @@ Serie konsolen för virtuella datorer och skalnings uppsättningen för virtuell
 
 ### <a name="serial-console-for-virtual-machines"></a>Serie konsol för Virtual Machines
 Serie konsolen för virtuella datorer är lika enkel som att klicka på **seriell konsol** i avsnittet **support och fel sökning** i Azure Portal.
-  1. Öppna [Azure Portal](https://portal.azure.com).
+  1. Öppna [Azure-portalen](https://portal.azure.com).
 
   1. Gå till **alla resurser** och välj en virtuell dator. Översikts sidan för den virtuella datorn öppnas.
 
@@ -54,7 +55,7 @@ Serie konsolen för virtuella datorer är lika enkel som att klicka på **seriel
 
 ### <a name="serial-console-for-virtual-machine-scale-sets"></a>Serie konsol för Virtual Machine Scale Sets
 Serie konsolen är tillgänglig för skalnings uppsättningar för virtuella datorer, tillgängliga på varje instans i skalnings uppsättningen. Du måste gå till den enskilda instansen av en skalnings uppsättning för virtuella datorer innan du ser knappen **seriell konsol** . Om den virtuella datorns skalnings uppsättning inte har startdiagnostik aktive rad, se till att du uppdaterar modell för skalnings uppsättning för virtuella datorer för att aktivera startdiagnostik, och uppgradera sedan alla instanser till den nya modellen för att få åtkomst till serie konsolen.
-  1. Öppna [Azure Portal](https://portal.azure.com).
+  1. Öppna [Azure-portalen](https://portal.azure.com).
 
   1. Gå till **alla resurser** och välj en skalnings uppsättning för virtuell dator. Översikts sidan för skalnings uppsättningen för den virtuella datorn öppnas.
 
@@ -68,7 +69,7 @@ Serie konsolen är tillgänglig för skalnings uppsättningar för virtuella dat
 
 
 ### <a name="tls-12-in-serial-console"></a>TLS 1,2 i serie konsol
-Serie konsolen använder TLS 1,2 från slut punkt till slut punkt för att skydda all kommunikation inom tjänsten. Serie konsolen har ett beroende av ett användar hanterat lagrings konto för startdiagnostik och TLS 1,2 måste konfigureras separat för lagrings kontot. Instruktioner finns [här](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
+Serie konsolen använder TLS 1,2 från slut punkt till slut punkt för att skydda all kommunikation inom tjänsten. Serie konsolen har ett beroende av ett användar hanterat lagrings konto för startdiagnostik och TLS 1,2 måste konfigureras separat för lagrings kontot. Instruktioner finns [här](../../storage/common/transport-layer-security-configure-minimum-version.md).
 
 ## <a name="advanced-uses-for-serial-console"></a>Avancerade användnings områden för serie konsolen
 Förutom konsol åtkomst till den virtuella datorn kan du också använda Azures serie konsol för följande:

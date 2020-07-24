@@ -14,18 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: a7357ef3b0151096746e37bddd235f0db53baed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7fbe46d378d45f49a8510f9fdd01a9cae665d0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074390"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Linux-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
 Om din virtuella Linux-dator (VM) i Azure påträffar ett start-eller diskfel kan du behöva åtgärda problemet på själva disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder reparations kommandon för virtuella Azure-datorer för att ansluta disken till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
 
 > [!IMPORTANT]
-> * Skripten i den här artikeln gäller bara för de virtuella datorer som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Skripten i den här artikeln gäller bara för de virtuella datorer som använder [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 > * Utgående anslutningar från den virtuella datorn (port 443) krävs för att skriptet ska kunna köras.
 > * Det går bara att köra ett skript i taget.
 > * Ett skript som körs kan inte avbrytas.
@@ -44,7 +45,7 @@ Följ dessa steg för att felsöka problemet med den virtuella datorn:
 4. Utför åtgärder för minskning
 5. Kör AZ VM Repair Restore
 
-Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair).
+Mer dokumentation och instruktioner finns i [AZ VM Repair](/cli/azure/ext/vm-repair/vm/repair).
 
 ## <a name="repair-process-example"></a>Exempel på reparations processen
 
@@ -56,9 +57,9 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
 
    Välj **Kopiera** för att kopiera kod blocken, klistra in koden i Cloud Shell och välj **RETUR** för att köra den.
 
-   Om du föredrar att installera och använda detta CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare. Kör ``az --version`` för att hitta versionen. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Om du föredrar att installera och använda detta CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare. Kör ``az --version`` för att hitta versionen. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
    
-   Om du behöver logga in på Cloud Shell med ett annat konto än vad du för närvarande är inloggad på Azure-portalen med kan du använda ``az login`` [AZ-inloggnings referens](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  Om du vill växla mellan prenumerationer som är kopplade till ditt konto kan du använda ``az account set --subscription`` [AZ konto uppsättnings referens](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Om du behöver logga in på Cloud Shell med ett annat konto än vad du för närvarande är inloggad på Azure-portalen med kan du använda ``az login`` [AZ-inloggnings referens](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Om du vill växla mellan prenumerationer som är kopplade till ditt konto kan du använda ``az account set --subscription`` [AZ konto uppsättnings referens](/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. Om detta är första gången du har använt `az vm repair` kommandona, lägger du till tillägget VM-Repair cli.
 
@@ -98,6 +99,6 @@ az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGro
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
-* Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).
-* Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+* Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](./troubleshoot-rdp-connection.md).
+* Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på virtuella datorer i Azure](./troubleshoot-app-connection.md).
+* Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).

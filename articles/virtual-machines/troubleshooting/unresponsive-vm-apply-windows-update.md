@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80633962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074303"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Den virtuella datorn svarar inte på "C01A001D"-fel vid tillämpning av Windows Update
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där Windows Update (K
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn visas den Windows Update (KB) som pågår, men den Miss lyckas med felkoden: ' C01A001D '.
+När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn visas den Windows Update (KB) som pågår, men den Miss lyckas med felkoden: ' C01A001D '.
 
 ![svarar inte Windows Update](./media/unresponsive-vm-apply-windows-update/unresponsive-windows-update.png)
 
@@ -49,17 +49,17 @@ Det går inte att skapa en kärn fil i fil systemet. Operativ systemet kan inte 
 
 ### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Förbered en virtuell reparations dator genom att följa [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) .
+1. Förbered en virtuell reparations dator genom att följa [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) .
 2. Anslut till den reparerade virtuella datorn med Anslutning till fjärrskrivbord.
 
 ### <a name="free-up-space-on-the-hard-disk"></a>Frigör utrymme på hård disken
 
 Om disken inte är redan 1 TB måste du ändra storlek på den. När disken är 1 TB utför du en disk rensning och en defragmentering av enheten.
 
-1. Kontrol lera att disken är full. Om disken är under 1 TB [expanderar du den till högst 1 TB med hjälp av PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Kontrol lera att disken är full. Om disken är under 1 TB [expanderar du den till högst 1 TB med hjälp av PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 2. När disken är 1 TB utför du en disk rensning.
-    - [Koppla bort data disken från den brutna virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-    - [Koppla data disken till en fungerande virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+    - [Koppla bort data disken från den brutna virtuella datorn](../windows/detach-disk.md).
+    - [Koppla data disken till en fungerande virtuell dator](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
     - Använd [disk rensnings verktyget](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) för att frigöra utrymme.
 3. När du har ändrat storlek och rensat, defragmentera enheten:
 
@@ -115,4 +115,4 @@ Om disken inte är redan 1 TB måste du ändra storlek på den. När disken är 
 
 ### <a name="rebuild-the-vm"></a>Återskapa den virtuella datorn
 
-Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) för att bygga upp den virtuella datorn igen.

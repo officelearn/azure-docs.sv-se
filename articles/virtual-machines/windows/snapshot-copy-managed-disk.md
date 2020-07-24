@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074128"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -37,7 +37,7 @@ Utför följande steg för att skapa en ögonblicks bild:
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Följande steg visar hur du kopierar VHD-disken och skapar ögonblicks bilds konfigurationen. Du kan sedan ta en ögonblicks bild av disken med hjälp av cmdleten [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+Följande steg visar hur du kopierar VHD-disken och skapar ögonblicks bilds konfigurationen. Du kan sedan ta en ögonblicks bild av disken med hjälp av cmdleten [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) . 
 
  
 
@@ -53,18 +53,18 @@ Följande steg visar hur du kopierar VHD-disken och skapar ögonblicks bilds kon
 2. Hämta den virtuella datorn:
 
    ```azurepowershell-interactive
-   $vm = get-azvm `
-   -ResourceGroupName $resourceGroupName 
-   -Name $vmName
+   $vm = Get-AzVM `
+       -ResourceGroupName $resourceGroupName `
+       -Name $vmName
    ```
 
 3. Skapa ögonblicks bilds konfigurationen. I det här exemplet är ögonblicks bilden av OS-disken:
 
    ```azurepowershell-interactive
-   $snapshot =  New-AzSnapshotConfig 
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
-   -Location $location 
-   -CreateOption copy
+   $snapshot =  New-AzSnapshotConfig `
+       -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Location $location `
+       -CreateOption copy
    ```
    
    > [!NOTE]
@@ -73,10 +73,10 @@ Följande steg visar hur du kopierar VHD-disken och skapar ögonblicks bilds kon
 4. Ta ögonblicks bilden:
 
    ```azurepowershell-interactive
-   New-AzSnapshot 
-   -Snapshot $snapshot 
-   -SnapshotName $snapshotName 
-   -ResourceGroupName $resourceGroupName 
+   New-AzSnapshot `
+       -Snapshot $snapshot `
+       -SnapshotName $snapshotName `
+       -ResourceGroupName $resourceGroupName 
    ```
 
 

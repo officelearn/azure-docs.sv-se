@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 545399e1d7941351ce861ac98d995d5e57006ea1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250093"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074374"
 ---
-# <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använda seriekonsolen för SysRq- och NMI-anrop
+# <a name="use-the-azure-serial-console-for-sysrq-and-nmi-calls"></a>Använda Azures serie konsol för SysRq-och NMI-anrop
 
 ## <a name="system-request-sysrq"></a>System förfrågan (SysRq)
 En SysRq är en sekvens med nycklar som förstås av Linux-operativ systemets kernel, som kan utlösa en uppsättning fördefinierade åtgärder. Dessa kommandon används ofta när fel sökning eller återställning av virtuella datorer inte kan utföras via traditionell administration (till exempel om den virtuella datorn inte svarar). Genom att använda funktionen SysRq i Azures serie konsol kommer du att efterlikna hur du trycker på den SysRq nyckeln och de tecken som anges på ett fysiskt tangent bord.
@@ -28,11 +29,11 @@ När SysRq-sekvensen har levererats styr kernel-konfigurationen hur systemet sva
 
 Du kan använda Azures serie konsol för att skicka en SysRq till en virtuell Azure-dator med hjälp av tangent bords ikonen i kommando fältet som visas nedan.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Skärm bild av Azures serie konsol. Tangent bords ikonen är markerad och dess meny är synlig. Menyn innehåller ett kommando objekt för att skicka SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Om du väljer "skicka SysRq kommando" öppnas en dialog ruta som tillhandahåller vanliga alternativ för SysRq eller accepterar en sekvens med SysRq-kommandon som anges i dialog rutan.  Detta gör att serier med SysRq kan utföra en hög nivå åtgärd, till exempel en säker omstart med hjälp av: `REISUB` .
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Skärm bild av dialog rutan Skicka SysRq kommando till gäst. Alternativet för att ange kommandon är markerat och kommando rutan innehåller REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Det går inte att använda kommandot SysRq på virtuella datorer som har stoppats eller vars kernel inte är i ett tillstånd som inte svarar. (till exempel en kernel-panik).
 
@@ -101,7 +102,7 @@ Ett icke-maskbart avbrott (NMI) är utformat för att skapa en signal som progra
 
 Du kan använda serie konsolen för att skicka en NMI till en virtuell Azure-dator med hjälp av tangent bords ikonen i kommando fältet som visas nedan. När NMI har levererats kontrollerar konfigurationen för den virtuella datorn hur systemet svarar.  Linux-operativsystem kan konfigureras för att krascha och skapa en minnesdump operativ systemet tar emot en NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Skärm bild av serie konsolen. Tangent bords ikonen är markerad och dess meny är synlig. Menyn innehåller ett avbrotts objekt som inte går att maskera.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 ### <a name="enable-nmi"></a>Aktivera NMI
 För Linux-system som stöder sysctl för att konfigurera kernel-parametrar kan du aktivera en panik när du tar emot den här NMI genom att använda följande:

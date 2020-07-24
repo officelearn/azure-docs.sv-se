@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074250"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Så här aktiverar du kapslad virtualisering i en virtuell Azure-dator
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du aktiverar Hyper-V på en virtuell Azure-dator
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Skapa en kapslad Azure VM-kompatibel dator
 
-Skapa en ny Windows Server 2016 Azure VM. En fullständig lista över virtuella dator storlekar som stöder kapsling finns i [artikeln om Azure Compute Unit](acu.md).
+Skapa en ny Windows Server 2016 Azure VM. En fullständig lista över virtuella dator storlekar som stöder kapsling finns i [artikeln om Azure Compute Unit](../acu.md).
 
 Kom ihåg att välja en VM-storlek som är tillräckligt stor för att stödja kraven hos en virtuell gäst dator. I det här exemplet använder vi en D3_v3 storlek för virtuell Azure-dator. 
 
@@ -30,7 +30,7 @@ Du kan visa den regionala tillgängligheten för dv3-eller Ev3-seriens virtuella
 
 >[!NOTE]
 >
->Detaljerade anvisningar om hur du skapar en ny virtuell dator finns i [skapa och hantera virtuella Windows-datorer med modulen Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>Detaljerade anvisningar om hur du skapar en ny virtuell dator finns i [skapa och hantera virtuella Windows-datorer med modulen Azure PowerShell](./tutorial-manage-vm.md)
     
 ## <a name="connect-to-your-azure-vm"></a>Anslut till din virtuella Azure-dator
 
@@ -181,4 +181,4 @@ I det här exemplet ska du använda en adress i intervallet 192.168.0.0/24.
 Öppna webbläsaren i den virtuella gäst datorn och navigera till en webb sida.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-Instruktioner för hur du aktiverar transparent anslutning mellan virtuella gäst datorer och virtuella Azure-datorer finns i [det här dokumentet](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
+Instruktioner för hur du aktiverar transparent anslutning mellan virtuella gäst datorer och virtuella Azure-datorer finns i [det här dokumentet](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

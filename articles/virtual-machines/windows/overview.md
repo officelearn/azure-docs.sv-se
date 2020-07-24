@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf1e3abc1d4fceaa6547f63346ecd64e1128eac2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4868db7df6209c620c5ae1bd9b1207072214ad35
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074214"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Virtuella Windows-datorer i Azure
 
@@ -30,7 +30,7 @@ Virtuella datorer i Azure kan användas på olika sätt. Några exempel är:
 Antalet virtuella datorer som programmet använder kan skalas upp och ned beroende på vilka behov du har.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Vad behöver jag tänka på innan jag skapar en virtuell dator?
-Det finns alltid en rad [överväganden vid utformning](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
+Det finns alltid en rad [överväganden vid utformning](/azure/architecture/reference-architectures/n-tier/windows-vm) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
 
 * Programresursernas namn
 * Lagringsplatsen för resurserna
@@ -45,12 +45,12 @@ Alla resurser som skapats i Azure fördelas på flera [geografiska områden](htt
 
 I den här tabellen finns några exempel på hur du kan hämta en lista över tillgängliga platser.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | --- | --- |
-| Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
-| Azure PowerShell |Använd kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| REST-API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
-| Azure CLI |Använd åtgärden [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
+| Azure-portalen |Välj en plats i listan när du skapar en virtuell dator. |
+| Azure PowerShell |Använd kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
+| REST-API |Använd åtgärden [List locations](/rest/api/resources/subscriptions) (Listplatser). |
+| Azure CLI |Använd åtgärden [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Tillgänglighet
 Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtuella datorer med en instans, förutsatt att du distribuerar den virtuella datorn med premiumlagring för alla diskar.  För att distributionen ska kunna omfattas av standardserviceavtalet på 99,95 % för virtuella datorer behöver du fortfarande distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en tillgänglighetsuppsättning. En tillgänglighetsuppsättning säkerställer att dina virtuella datorer distribueras via flera feldomäner i Azure-datacentren och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -71,23 +71,23 @@ Azure tillhandahåller många [Marketplace-avbildningar](https://azuremarketplac
 
 I den här tabellen hittar du några olika sätt för att hitta informationen om en avbildning.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | --- | --- |
-| Azure Portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
-| Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
-| REST API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[AZ VM Image List-Publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[AZ VM Image List-erbjudanden](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --Publisher *publisherName*<BR>[AZ VM Image List-SKU](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --Publisher *publisherName* --erbjudande *offerName*|
+| Azure-portalen |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
+| Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
+| REST API:er |[Lista över avbildningsutgivare](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[AZ VM Image List-Publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[AZ VM Image List-erbjudanden](/cli/azure/vm/image?view=azure-cli-latest) --location *location* --Publisher *publisherName*<BR>[AZ VM Image List-SKU](/cli/azure/vm?view=azure-cli-latest) --location *location* --Publisher *publisherName* --erbjudande *offerName*|
 
 Du kan välja att [ladda upp och använda en egen avbildning](upload-generalized-managed.md). Om du gör det används inte utgivarnamn, erbjudande och sku.
 
 ### <a name="extensions"></a>Tillägg
-[Tillägg](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för virtuella datorer ger din virtuella dator fler funktioner genom konfiguration efter distribution och automatiserade uppgifter.
+[Tillägg](../extensions/features-windows.md?toc=/azure/virtual-machines/windows/toc.json) för virtuella datorer ger din virtuella dator fler funktioner genom konfiguration efter distribution och automatiserade uppgifter.
 
 Dessa vanliga uppgifter kan utföras med hjälp av tillägg:
 
-* **Köra anpassade skript** – [Tillägget för anpassat skript](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) hjälper dig att konfigurera arbetsbelastningar på den virtuella datorn genom att köra skriptet när den virtuella datorn har etablerats.
-* **Distribuera och hantera konfigurationer** – Med [PowerShell-tillägget för önskad tillståndskonfiguration (DSC)](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kan du konfigurera DSC på en virtuell dator så att du kan hantera konfigurationer och miljöer.
-* **Samla in diagnostikdata** – Med [Azure Diagnostics-tillägget](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kan du konfigurera den virtuella datorn så att den samlar in diagnostikdata som kan användas för att övervaka hälsotillståndet för programmet.
+* **Köra anpassade skript** – [Tillägget för anpassat skript](../extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json) hjälper dig att konfigurera arbetsbelastningar på den virtuella datorn genom att köra skriptet när den virtuella datorn har etablerats.
+* **Distribuera och hantera konfigurationer** – Med [PowerShell-tillägget för önskad tillståndskonfiguration (DSC)](../extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json) kan du konfigurera DSC på en virtuell dator så att du kan hantera konfigurationer och miljöer.
+* **Samla in diagnostikdata** – Med [Azure Diagnostics-tillägget](../extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json) kan du konfigurera den virtuella datorn så att den samlar in diagnostikdata som kan användas för att övervaka hälsotillståndet för programmet.
 
 ### <a name="related-resources"></a>Relaterade resurser
 Resurserna i den här tabellen används av den virtuella datorn och måste finnas eller skapas när den virtuella datorn skapas.
@@ -95,10 +95,10 @@ Resurserna i den här tabellen används av den virtuella datorn och måste finna
 | Resurs | Krävs | Beskrivning |
 | --- | --- | --- |
 | [Resursgrupp](../../azure-resource-manager/management/overview.md) |Yes |Den virtuella datorn måste ingå i en resursgrupp. |
-| [Lagringskonto](../../storage/common/storage-create-storage-account.md) |Yes |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
+| [Lagringskonto](../../storage/common/storage-account-create.md) |Yes |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
 | [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Yes |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
 | [Offentlig IP-adress](../../virtual-network/public-ip-addresses.md) |No |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
-| [Nätverks gränssnitt](../../virtual-network/virtual-network-network-interface.md) |Yes |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
+| [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Yes |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
 | [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
 
 ## <a name="next-steps"></a>Nästa steg
@@ -108,4 +108,3 @@ Skapa din första virtuella dator!
 - [Portal](quick-create-portal.md)
 - [PowerShell](quick-create-powershell.md)
 - [Azure CLI](quick-create-cli.md)
-

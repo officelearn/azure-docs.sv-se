@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 36af0eeb43fb209ed65f950576f2dc9e97ec3633
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afbea39a080e1dd768a14d6e0eacda1bad23c5a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074426"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Distribuera om en virtuell Windows-dator till en ny Azure-nod
 Om du har problem med att felsöka fjärr skrivbords anslutning (RDP) eller program åtkomst till Windows-baserad virtuell Azure-dator (VM) kan det hjälpa att distribuera om den virtuella datorn. När du distribuerar om en virtuell dator stänger Azure av den virtuella datorn, flyttar den virtuella datorn till en ny nod i Azure-infrastrukturen och slår sedan på den igen och behåller alla konfigurations alternativ och tillhör ande resurser. Den här artikeln visar hur du distribuerar om en virtuell dator med hjälp av Azure PowerShell eller Azure Portal.
@@ -28,7 +28,7 @@ Om du har problem med att felsöka fjärr skrivbords anslutning (RDP) eller prog
 
 
 ## <a name="using-azure-powershell"></a>Använda Azure PowerShell
-Kontrol lera att du har det senaste Azure PowerShell 1. x installerat på datorn. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+Kontrol lera att du har det senaste Azure PowerShell 1. x installerat på datorn. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/).
 
 I följande exempel distribueras den virtuella datorn `myVM` i resurs gruppen med namnet `myResourceGroup` :
 
@@ -39,5 +39,4 @@ Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har problem med att ansluta till din virtuella dator kan du hitta information om hur du [felsöker RDP-anslutningar](troubleshoot-rdp-connection.md) eller [detaljerade RDP-felsöknings steg](detailed-troubleshoot-rdp.md). Om du inte kan komma åt ett program som körs på den virtuella datorn kan du också läsa [fel söknings problem i programmet](../windows/troubleshoot-app-connection.md).
-
+Om du har problem med att ansluta till din virtuella dator kan du hitta information om hur du [felsöker RDP-anslutningar](troubleshoot-rdp-connection.md) eller [detaljerade RDP-felsöknings steg](detailed-troubleshoot-rdp.md). Om du inte kan komma åt ett program som körs på den virtuella datorn kan du också läsa [fel söknings problem i programmet](./troubleshoot-app-connection.md).

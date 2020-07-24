@@ -3,12 +3,12 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074450"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
@@ -18,10 +18,10 @@ Den här artikeln innehåller de steg som hjälper dig att distribuera video ana
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Linux-dator som uppfyller kraven för maskin vara/SW för video analys i real tid
-* Azure-prenumeration som du har [ägar behörighet](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) till
-* [Skapa och konfigurera IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* [Registrera IoT Edge enhet](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
-* [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
+* [Skapa och konfigurera IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* [Registrera IoT Edge enhet](../../iot-edge/how-to-register-device.md)
+* [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Skapa ett Azure Media Services-konto](../latest/create-account-howto.md)
     * Använd något av följande regioner: USA, östra 2, centrala USA, norra centrala USA, Östra Japan, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike Central, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
     * Vi rekommenderar att du använder GPv2-lagrings konton (General-Purpose v2)
@@ -225,7 +225,7 @@ När du har skapat distributionen återgår du till IoT Edge sida i IoT Hub.
 2.  I enhets informationen kontrollerar du att Blob Storage-modulen anges som båda **anges i distributionen och rapporteras av enheten**.
 
 Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
-Status kod: 200 – OK innebär att [den IoT Edge körningen](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) är felfri och fungerar bra.
+Status kod: 200 – OK innebär att [den IoT Edge körningen](../../iot-edge/iot-edge-runtime.md) är felfri och fungerar bra.
 
 ![Status](./media/deploy-iot-edge-device/status.png)
 

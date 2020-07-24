@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 07/17/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 6e7723a437e90807063e3c3b7af2bf068dca5b9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee2ff7119c229b8a0fd94be3b85863fcb1108f58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100659"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074151"
 ---
 # <a name="deploy-spot-vms-using-the-azure-portal"></a>Distribuera virtuella datorer med hjälp av Azure Portal
 
@@ -22,6 +22,8 @@ Med hjälp av [virtuella datorer](spot-vms.md) kan du dra nytta av vår outnyttj
 Priser för virtuella datorer i virtuella datorer är varierande, baserat på region och SKU. Mer information finns i prissättning för virtuella datorer för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Mer information om hur du ställer in högsta pris finns i [VM-priser för virtuella datorer](spot-vms.md#pricing).
 
 Du har möjlighet att ange ett högsta pris som du är villig att betala per timme för den virtuella datorn. Det maximala priset för en VM-VM kan anges i USD (USD) med upp till 5 decimaler. Värdet skulle till exempel `0.05701` vara ett max pris på $0,05701 USD per timme. Om du anger det högsta priset så `-1` kommer den virtuella datorn inte att avlägsnas baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
+
+När den virtuella datorn avlägsnas har du möjlighet att antingen ta bort den virtuella datorn och den underliggande disken eller frigöra den virtuella datorn så att den kan startas om senare.
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn

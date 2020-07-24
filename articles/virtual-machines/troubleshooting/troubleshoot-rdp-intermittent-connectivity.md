@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: eec52fb2342ee85932a6e24aa4cb292496beccad
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 60be7c234a0166331c35eb6528eae11bfbbf518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087307"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074318"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Fjärrskrivbord kopplar ofta från på den virtuella Azure-datorn
 
@@ -95,7 +95,7 @@ Du kan felsöka det här problemet genom att använda seriell kontroll eller [re
 
 ### <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline
 
-1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-portal-windows.md).
 2. När OS-disken är ansluten till den virtuella återställnings datorn kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som tilldelas till den anslutna OS-disken.
 3. Gå till mappen **\Windows\System32\Config** på den OS-disk som du har bifogat. Kopiera alla filer i den här mappen som en säkerhets kopia, om det krävs en återställning.
 4. Starta Registereditorn (regedit.exe).
@@ -184,8 +184,3 @@ Du kan felsöka det här problemet genom att använda seriell kontroll eller [re
 
 ## <a name="need-help"></a>Behöver du hjälp? 
 Kontakta supporten. Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) så får du hjälp att lösa problemet snabbt.
-
-
-
-
-

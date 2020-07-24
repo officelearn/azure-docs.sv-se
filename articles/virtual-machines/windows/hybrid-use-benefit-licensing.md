@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074267"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går igenom stegen för att distribuera nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server-licensiering och kostnads besparingar finns på [sidan för Azure Hybrid-förmån för Windows Server-licensiering](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -65,7 +66,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Mall
-I dina Resource Manager-mallar måste du ange ytterligare en parameter `licenseType` . Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md)
+I dina Resource Manager-mallar måste du ange ytterligare en parameter `licenseType` . Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -189,7 +190,7 @@ Du kan också lära dig mer om hur du [ändrar en skalnings uppsättning för vi
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [hur du sparar pengar med Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Läs mer om [vanliga frågor och svar om Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Läs mer om [Azure Hybrid-förmån för Windows Server-licensiering detaljerad vägledning](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Läs mer om [Azure Hybrid-förmån för Windows Server-licensiering detaljerad vägledning](/windows-server/get-started/azure-hybrid-benefit)
 - Läs mer om [Azure Hybrid-förmån för Windows Server och Azure Site Recovery gör migreringen av program till Azure ännu mer kostnads effektiv](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Läs mer om [Windows 10 på Azure med värd för flera innehavare](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Läs mer om [Windows 10 på Azure med värd för flera innehavare](./windows-desktop-multitenant-hosting-deployment.md)
 - Lär dig mer om att [använda Resource Manager-mallar](../../azure-resource-manager/management/overview.md)

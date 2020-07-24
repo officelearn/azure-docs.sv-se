@@ -3,12 +3,12 @@ title: Identifiera rörelse, spela in video till Azure Media Services
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse i en video ström i real tid och spela in videoklipp i Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817324"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074406"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Snabb start: identifiera rörelse, spela in video till Media Services
 
@@ -16,7 +16,7 @@ Den här artikeln beskriver steg för steg hur du använder video analys i real 
 
 Den här artikeln bygger ovanpå [komma igång snabb start](get-started-detect-motion-emit-events-quickstart.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) på din dator med [Azure IoT tools-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
@@ -475,7 +475,7 @@ Anropa nu metoden GraphInstanceSet Direct med följande nytto last:
 }
 ```
 
-. Tänk på följande:
+Observera följande:
 
 * I nytto lasten ovan anges grafens Topology-namn (EVRtoAssetsOnMotionDetecion) som graf-instansen måste skapas för.
 * Nytto lasten innehåller parametervärdet för "rtspUrl", som inte har något standardvärde i topologins nytto Last.
@@ -655,7 +655,7 @@ Graf-instansen som du skapade och aktiverade ovan använder noden motion-identif
 
 Observera följande egenskaper i ovanstående meddelanden
 
-* Varje meddelande innehåller avsnittet "Body" och "applicationProperties". För att förstå vad dessa avsnitt representerar kan du läsa artikeln [skapa och läsa IoT Hub meddelande](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Varje meddelande innehåller avsnittet "Body" och "applicationProperties". För att förstå vad dessa avsnitt representerar kan du läsa artikeln [skapa och läsa IoT Hub meddelande](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * Det första meddelandet är en diagnostisk händelse, MediaSessionEstablished, som anger att RTSP-Källnoden (subject) kunde upprätta en anslutning till RTSP-simulatorn och börja ta emot en (simulerad) live-feed.
 * "Subject" i applicationProperties refererar till noden i den graf-topologi som meddelandet genererades från. I det här fallet kommer meddelandet från noden RTSP-källa.
 * "eventType" i applicationProperties anger att det är en diagnostisk händelse.

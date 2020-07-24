@@ -9,11 +9,12 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: fc2e2ff0edc09e613b1da0a503eff9d53ebcf7a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d340e37cf64961971c03af8d08a669c27d758116
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074202"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Överför en generaliserad virtuell hård disk till Azure för att skapa en ny virtuell dator
 
@@ -33,9 +34,9 @@ En generaliserad virtuell hård disk har haft all personlig konto information bo
   * Generalisera den virtuella datorn med Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalisera en virtuell Windows-dator med Sysprep
-Det här avsnittet visar hur du generaliserar din virtuella Windows-dator för användning som en avbildning. Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
+Det här avsnittet visar hur du generaliserar din virtuella Windows-dator för användning som en avbildning. Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)) (Använda Sysprep: En introduktion).
 
-Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Om du kör Sysprep innan du laddar upp din virtuella hård disk till Azure för första gången, måste du se till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) datorn innan du kör Sysprep. 
@@ -62,7 +63,7 @@ Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer in
 Överför den virtuella hård disken till ett Azure Storage-konto.
 
 ### <a name="log-in-to-azure"></a>Logga in på Azure
-Om du inte redan har PowerShell version 1,4 eller senare installerat läser [du så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Om du inte redan har PowerShell version 1,4 eller senare installerat läser [du så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 1. Öppna Azure PowerShell och logga in på ditt Azure-konto. Ett popup-fönster öppnas där du kan ange dina autentiseringsuppgifter för Azure-kontot.
    
@@ -105,7 +106,7 @@ Följ dessa steg om du behöver skapa ett lagrings konto:
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Skapa ett lagrings konto med namnet **mystorageaccount** i den här resurs gruppen genom att använda cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) :
+2. Skapa ett lagrings konto med namnet **mystorageaccount** i den här resurs gruppen genom att använda cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) :
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -114,7 +115,7 @@ Följ dessa steg om du behöver skapa ett lagrings konto:
  
 ### <a name="start-the-upload"></a>Starta överföringen 
 
-Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **Mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
+Använd cmdleten [Add-AzVhd](/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **Mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -284,5 +285,3 @@ När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal
 
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du hanterar din nya virtuella dator med Azure PowerShell finns i [Hantera virtuella datorer med Azure Resource Manager och PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

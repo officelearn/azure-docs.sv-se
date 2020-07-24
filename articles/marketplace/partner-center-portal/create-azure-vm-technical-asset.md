@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: dannyevers
 ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053573"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för din virtuella Azure-dator
 
@@ -43,13 +43,13 @@ Att utforma, skapa och testa dessa till gångar tar tid och kräver teknisk kuns
 
 Överväg att använda någon av följande skript miljöer för att hantera virtuella datorer och virtuella hård diskar:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://code.visualstudio.com/)
 
 Överväg dessutom att lägga till följande verktyg i utvecklings miljön:
 
 * [Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Visuell Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
   * Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   * Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
   * Tillägg: [PRETTIFY JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
@@ -125,7 +125,7 @@ Den här artikeln beskriver hur du använder det inbyggda Windows RDP-stödet f�
 
 Om du vill ansluta till en Linux-baserad virtuell dator behöver du en SSH-klient (Secure Shell Protocol). I följande steg används den kostnads fria SHH-terminalen för [SparaTillFil](https://www.ssh.com/ssh/putty/) .
 
-1. Gå till [Azure Portal](https://ms.portal.azure.com/).
+1. Öppna [Azure-portalen](https://ms.portal.azure.com/).
 2. Sök efter och välj **virtuella datorer**.
 3. Välj den virtuella dator som du vill ansluta till.
 4. Starta den virtuella datorn om den inte redan körs.
@@ -180,9 +180,9 @@ Skapa din avbildning med antingen Azure Portal eller Azure PowerShell.
     | DNS-namn för offentlig IP | DNS-namn för offentlig IP. Definiera DNS-namnet för den offentliga IP-adressen i Azure Portal när erbjudandet har distribuerats. |
     | Administratörens användar namn | Administratörs kontots användar namn för ny virtuell dator |
     | Adminlösenord | Administratörs kontots lösen ord för ny virtuell dator |
-    | OS-typ | Operativ system för virtuell dator: Windows eller Linux |
+    | Typ av operativsystem | Operativ system för virtuell dator: Windows eller Linux |
     | Prenumerations-ID:t | Identifierare för den valda prenumerationen |
-    | Location | Distributionens geografiska plats |
+    | Plats | Distributionens geografiska plats |
     | Storlek på virtuell dator | [Storlek på virtuell Azure-dator](../../virtual-machines/windows/sizes.md), till exempel Standard_A2 |
     | Namn på offentlig IP-adress | Namn på din offentliga IP-adress |
     | Namn på virtuell dator | Namn på den nya virtuella datorn |

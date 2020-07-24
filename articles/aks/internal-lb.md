@@ -5,12 +5,12 @@ description: Lär dig hur du skapar och använder en intern belastningsutjämnar
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 0789a866ebda270f3e5e8b150e072c7aedea7f04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58aadc4fadb93a4f6eb47214f580f7a2bebdf49c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056817"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure Kubernetes service (AKS)
 
@@ -65,7 +65,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Ange en IP-adress
 
-Om du vill använda en speciell IP-adress med den interna belastningsutjämnaren lägger du till egenskapen *loadBalancerIP* i yaml-manifestet för belastningsutjämnaren. Den angivna IP-adressen måste finnas i samma undernät som AKS-klustret och får inte redan tilldelas till en resurs.
+Om du vill använda en speciell IP-adress med den interna belastningsutjämnaren lägger du till egenskapen *loadBalancerIP* i yaml-manifestet för belastningsutjämnaren. Den angivna IP-adressen måste finnas i samma undernät som AKS-klustret och får inte redan tilldelas till en resurs. Du bör till exempel inte använda en IP-adress i intervallet som anges för Kubernetes-undernätet.
 
 ```yaml
 apiVersion: v1

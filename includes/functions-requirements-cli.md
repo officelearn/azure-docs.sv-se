@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 9e9f9c71701ceb1c76bc162f22e166b4565e731b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3f5c7021461b407e90d61ed045c112aab3c1c4e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86062690"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055997"
 ---
 ## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
 
@@ -44,10 +44,12 @@ Innan du börjar måste du ha följande:
 + [.Net Core SDK 2.2 +](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
++ [Java Developer Kit](https://aka.ms/azure-jdks), version 8. 
+
+    > [!IMPORTANT]
+    > + Funktions stöd för Java 11 är för närvarande en för hands version och maven-archetype skapar en Java 8-distribution som standard. Om du i stället vill köra din Function-app i Java 11 måste du manuellt uppdatera pom.xml-filen med Java 11-värden. Mer information finns i [Java-versioner](../articles/azure-functions/functions-reference-java.md#java-versions). 
+    > + `JAVA_HOME`Miljövariabeln måste anges till installations platsen för rätt version av JDK för att slutföra den här snabb starten.
 
 + [Apache maven](https://maven.apache.org), version 3,0 eller senare.
 
-> [!IMPORTANT]
-> Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
 ::: zone-end

@@ -3,12 +3,12 @@ title: Återställa SQL Server-databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 5d7fc52aaaca0bf99955919c954cc22ab0d9d3d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538455"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054586"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
 
@@ -127,7 +127,7 @@ Om du vill återställa säkerhets kopierings data som. bak-filer i stället fö
     >   - Kör `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Verifiera åtkomst med`dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Starta en återställning som filer från säkerhets kopierings valvet till `\\<storageacct>.file.core.windows.net\<filesharename>` som sökväg<BR>
-    Du kan ladda ned PsExec via<https://docs.microsoft.com/sysinternals/downloads/psexec>
+    Du kan ladda ned PsExec från [Sysinternals](/sysinternals/downloads/psexec) -sidan.
 
 1. Välj **OK**.
 

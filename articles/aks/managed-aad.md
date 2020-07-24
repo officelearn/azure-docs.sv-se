@@ -3,21 +3,17 @@ title: Använda Azure AD i Azure Kubernetes-tjänsten
 description: Lär dig hur du använder Azure AD i Azure Kubernetes service (AKS)
 services: container-service
 manager: gwallace
-author: TomGeske
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: b30c5b0e81f4748d5e94c05d016be83163c1e78e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 06a97126df449b77bf3fcc48bd23231512c9dff2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056648"
 ---
-# <a name="aks-managed-azure-active-directory-integration-preview"></a>AKS-hanterad Azure Active Directory-integration (för hands version)
-
-> [!NOTE]
-> Befintliga AKS-kluster (Azure Kubernetes service) med Azure Active Directory (Azure AD)-integration påverkas inte av den nya AKS-hanterade Azure AD-upplevelsen.
+# <a name="aks-managed-azure-active-directory-integration"></a>AKS-hanterad Azure Active Directory-integrering
 
 AKS-hanterad Azure AD-integrering är utformad för att förenkla Azure AD-integration, där användare tidigare behövde skapa en klient app, en server app och krävde att Azure AD-klienten ska bevilja Läs behörighet för katalogen. I den nya versionen hanterar AKS Resource Provider klient-och Server apparna åt dig.
 
@@ -27,60 +23,72 @@ Kluster administratörer kan konfigurera Kubernetes-rollbaserad åtkomst kontrol
 
 Läs mer om AAD-integrerings flödet i [dokumentationen för Azure Active Directory integrations begrepp](concepts-identity.md#azure-active-directory-integration).
 
+## <a name="region-availability"></a>Regional tillgänglighet
+
+AKS-hanterad Azure Active Directory-integrering är tillgänglig i offentliga regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government stöds inte för närvarande.
+* Azure Kina 21Vianet stöds inte för närvarande.
+
+## <a name="limitations"></a>Begränsningar 
+
+* AKS-hanterad Azure AD-integrering kan inte inaktive ras
+* icke-RBAC-aktiverade kluster stöds inte för AKS AAD-integrering
+* Det finns inte stöd för att ändra Azure AD-klienten som är associerad med AKS AAD-integration
+
 > [!IMPORTANT]
-> AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
->
-> - [Support principer för AKS](support-policies.md)
+> AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar: 
+> - [Support principer för AKS](support-policies.md) 
 > - [Vanliga frågor och svar om support för Azure](faq.md)
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
-* Leta upp ditt Azure-kontos klient-ID genom att gå till Azure Portal och välja Azure Active Directory > egenskaper > katalog-ID
+* Azure CLI-version 2.9.0 eller senare
+* Kubectl med en lägsta version av [1,18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
 
 > [!Important]
 > Du måste använda Kubectl med en lägsta version av 1,18
 
-Du måste ha följande resurser installerade:
-
-- Azure CLI, version 2.5.1 eller senare
-- Tillägget AKS-Preview 0.4.38
-- Kubectl med en lägsta version av [1,18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
-
-Använd följande Azure CLI-kommandon om du vill installera/uppdatera AKS-förhands gransknings tillägget eller senare:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli
-az extension update --name aks-preview
-az extension list
-```
-
 Om du vill installera kubectl använder du följande kommandon:
 
-```azurecli
+```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
 ```
 
 Använd [de här anvisningarna](https://kubernetes.io/docs/tasks/tools/install-kubectl/) för andra operativ system.
 
+```azurecli-interactive 
+az feature register --name AAD-V2 --namespace Microsoft.ContainerService    
+``` 
+
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) : 
+
+```azurecli-interactive 
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"    
+``` 
+
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:    
+
+```azurecli-interactive 
+az provider register --namespace Microsoft.ContainerService 
+``` 
+
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+För ditt kluster behöver du en Azure AD-grupp. Den här gruppen krävs som administratörs grupp för klustret för att ge kluster administratörs behörighet. Du kan använda en befintlig Azure AD-grupp eller skapa en ny. Registrera objekt-ID för din Azure AD-grupp.
+
 ```azurecli-interactive
-az feature register --name AAD-V2 --namespace Microsoft.ContainerService
+# List existing groups in the directory
+az ad group list --filter "displayname eq '<group-name>'" -o table
 ```
 
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Om du vill skapa en ny Azure AD-grupp för kluster administratörerna använder du följande kommando:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
-```
-
-När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
+# Create an Azure AD group
+az ad group create --display-name myAKSAdminGroup --mail-nickname myAKSAdminGroup
 ```
 
 ## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Skapa ett AKS-kluster med Azure AD aktiverat
@@ -94,31 +102,19 @@ Skapa en Azure-resurs grupp:
 az group create --name myResourceGroup --location centralus
 ```
 
-Du kan använda en befintlig Azure AD-grupp eller skapa en ny. Du behöver objekt-ID för din Azure AD-grupp.
-
-```azurecli-interactive
-# List existing groups in the directory
-az ad group list
-```
-
-Om du vill skapa en ny Azure AD-grupp för kluster administratörerna använder du följande kommando:
-
-```azurecli-interactive
-# Create an Azure AD group
-az ad group create --display-name MyDisplay --mail-nickname MyDisplay
-```
-
 Skapa ett AKS-kluster och aktivera administrations åtkomst för din Azure AD-grupp
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
+az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
 ```
 
 En lyckad skapande av ett AKS Azure AD-kluster har följande avsnitt i svars texten
-```
+```output
 "AADProfile": {
-    "adminGroupObjectIds": null,
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
     "clientAppId": null,
     "managed": true,
     "serverAppId": null,
@@ -127,7 +123,7 @@ En lyckad skapande av ett AKS Azure AD-kluster har följande avsnitt i svars tex
   }
 ```
 
-Klustret skapas inom några minuter.
+När klustret har skapats kan du börja komma åt det.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Åtkomst till ett Azure AD-aktiverat kluster
 
@@ -136,7 +132,7 @@ Du behöver den inbyggda rollen [Azure Kubernetes service Cluster-användare](..
 Hämta användarautentiseringsuppgifter för att få åtkomst till klustret:
  
 ```azurecli-interactive
- az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 Följ anvisningarna för att logga in.
 
@@ -162,8 +158,33 @@ Om du är permanent blockerad genom att inte ha åtkomst till en giltig Azure AD
 För att utföra de här stegen måste du ha till gång till den inbyggda rollen [Azure Kubernetes service Cluster admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) .
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
+
+## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>Uppgradera till AKS-hanterad Azure AD-integrering
+
+Om klustret använder äldre Azure AD-integrering kan du uppgradera till AKS-hanterad Azure AD-integrering.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
+```
+
+En lyckad migrering av ett AKS-hanterat Azure AD-kluster har följande avsnitt i svars texten
+
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+Följ stegen [nedan][access-cluster]om du vill ha åtkomst till klustret.
 
 ## <a name="non-interactive-sign-in-with-kubelogin"></a>Icke-interaktiv inloggning med kubelogin
 
@@ -195,3 +216,5 @@ Det finns vissa icke-interaktiva scenarier, t. ex. kontinuerliga integrerings pi
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [azure-ad-cli]: azure-ad-integration-cli.md
+[access-cluster]: #access-an-azure-ad-enabled-cluster
+[aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration

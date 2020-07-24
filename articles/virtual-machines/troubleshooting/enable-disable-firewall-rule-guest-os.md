@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058759"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Aktivera eller inaktivera en brandväggsregel i gästoperativsystemet på en virtuell Azure-dator
 
@@ -77,7 +77,7 @@ Om den virtuella datorn är online och kan nås på en annan virtuell dator i sa
 
 Om den virtuella datorn är online och kan nås på en annan virtuell dator i samma virtuella nätverk kan du utföra följande åtgärder med hjälp av den andra virtuella datorn.
 
-1.  Hämta [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)på den virtuella datorn för fel sökning.
+1.  Hämta [PSTools](/sysinternals/downloads/pstools)på den virtuella datorn för fel sökning.
 
 2.  Öppna en CMD-instans och få åtkomst till den virtuella datorn via dess interna IP (DIP). 
 

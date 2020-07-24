@@ -1,25 +1,21 @@
 ---
-title: Leverera innehåll till kunder | Microsoft Docs
+title: Leverera innehåll till kunder
 description: Det här avsnittet ger en översikt över vad som ingår i att leverera ditt innehåll med Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 60d75a23609e962547c8c753086e9bef1d4c84eb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060362"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
 När du levererar ditt material för strömning eller video på begäran till kunder, är ditt mål att leverera video med hög kvalitet till olika enheter under olika nätverks förhållanden.
@@ -55,7 +51,7 @@ Du kan definiera filter för dina till gångar med Media Services. Dessa filter 
 
 Mer information finns i [filter och dynamiska manifest](media-services-dynamic-manifest-overview.md).
 
-## <a name="locators"></a><a id="locators"/>Positionerare
+## <a name="locators"></a><a name="locators"></a>Positionerare
 För att ge din användare en URL som kan användas för att strömma eller hämta ditt innehåll måste du först publicera din till gång genom att skapa en positionerare. En positionerare ger en start punkt för att komma åt filerna som finns i en till gång. Media Services stöder två typer av lokaliserare:
 
 * OnDemandOrigin-positionerare. Dessa används för att strömma media (till exempel MPEG-streck, HLS eller Smooth Streaming) eller hämta filer progressivt.
@@ -70,9 +66,9 @@ Positionerare har förfallo datum. Azure Portal anger ett förfallo datum 100 å
 > 
 > 
 
-Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator)- eller [.NET](https://go.microsoft.com/fwlink/?LinkID=533259)-API:er. Observera att URL:en ändras när du uppdaterar en SAS-lokaliserare.
+Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](/rest/api/media/operations/locator#update_a_locator)- eller [.NET](https://go.microsoft.com/fwlink/?LinkID=533259)-API:er. Observera att URL:en ändras när du uppdaterar en SAS-lokaliserare.
 
-Lokaliserare är inte utformade för att hantera åtkomst kontroll per användare. Du kan ge olika åtkomst rättigheter till enskilda användare med hjälp av DRM-lösningar (Digital Rights Management). Mer information finns i [skydda Media](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+Lokaliserare är inte utformade för att hantera åtkomst kontroll per användare. Du kan ge olika åtkomst rättigheter till enskilda användare med hjälp av DRM-lösningar (Digital Rights Management). Mer information finns i [skydda Media](/previous-versions/azure/dn282272(v=azure.100)).
 
 När du skapar en positionerare kan det finnas en fördröjning på 30 sekunder på grund av nödvändiga lagrings-och spridnings processer i Azure Storage.
 
@@ -87,7 +83,7 @@ För att ge användare med direkt uppspelnings-URL: er måste du först skapa en
 
 Du kan bara strömma över TLS om den strömmande slut punkten från vilken du levererar ditt innehåll har skapats efter den 10 september 2014. Om dina strömnings-URL: er baseras på de slut punkter för direkt uppspelning som skapats efter den 10 september 2014 innehåller URL: en "streaming.mediaservices.windows.net". Strömnings-URL: er som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte TLS. Om din URL är i det gamla formatet och du vill kunna strömma över TLS, skapar du en ny slut punkt för direkt uppspelning. Använd URL: er baserat på den nya slut punkten för direkt uppspelning för att strömma ditt innehåll över TLS.
 
-## <a name="streaming-url-formats"></a><a id="URLs"/>Strömmande URL-format
+## <a name="streaming-url-formats"></a><a name="URLs"></a>Strömmande URL-format
 
 ### <a name="mpeg-dash-format"></a>MPEG-format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
@@ -155,7 +151,7 @@ En slut punkt för direkt uppspelning representerar en strömmande tjänst som k
 
 ## <a name="known-issues"></a>Kända problem
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Ändringar av Smooth Streaming manifest version
-Innan den 2016 Service Release – när till gångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller tidigare Azure Media Encoder strömmas med hjälp av dynamisk paketering--Smooth Streaming manifestet som returnerades uppfyller version 2,0. I version 2,0 använder Fragmentets varaktighet inte den så kallade REPEAT-Taggar (r). Ett exempel:
+Innan den 2016 Service Release – när till gångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller tidigare Azure Media Encoder strömmas med hjälp av dynamisk paketering--Smooth Streaming manifestet som returnerades uppfyller version 2,0. I version 2,0 använder Fragmentets varaktighet inte den så kallade REPEAT-Taggar (r). Exempel:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -170,7 +166,7 @@ Innan den 2016 Service Release – när till gångar som produceras av Media Enc
 </SmoothStreamingMedia>
 ```
 
-I 2016-versionen från juli är det genererade Smooth Streaming manifestet som överensstämmer med version 2,2, med fragmenterade varaktigheter med hjälp av upprepade taggar. Ett exempel:
+I 2016-versionen från juli är det genererade Smooth Streaming manifestet som överensstämmer med version 2,2, med fragmenterade varaktigheter med hjälp av upprepade taggar. Exempel:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -192,4 +188,3 @@ Några av de äldre Smooth Streaming-klienterna kanske inte stöder upprepnings 
 
 ## <a name="related-topics"></a>Relaterade ämnen
 [Uppdatera Media Services positionerare efter nycklar för rullande lagring](media-services-roll-storage-access-keys.md)
-

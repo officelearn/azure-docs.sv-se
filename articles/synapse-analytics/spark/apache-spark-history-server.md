@@ -1,5 +1,5 @@
 ---
-title: Använd den utökade Spark historik servern för att felsöka appar – Apache Spark i Azure Synapse
+title: Använd den utökade Spark historik servern för att felsöka appar
 description: Använd den utökade Spark historik servern för att felsöka och diagnostisera Spark-program i Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85195002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059987"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökad Apache Spark historik Server för att felsöka och diagnostisera Apache Spark program
 
@@ -122,11 +122,11 @@ Om du vill spela upp jobbet väljer du **uppspelning**. Du kan välja **stoppa**
 
 |Färg|Innebörd|
 |-|-|
-|Grön|Lyckades: jobbet har slutförts.|
+|Green|Lyckades: jobbet har slutförts.|
 |Orange|Nytt försök: instanser av aktiviteter som misslyckats men inte påverkar jobbets slut resultat. De här uppgifterna hade dubbla eller nya försök för instanser som kan lyckas senare.|
-|Blå|Körs: aktiviteten körs.|
-|Vit|Väntar eller hoppas över: aktiviteten väntar på att köras eller så har fasen hoppats över.|
-|Röd|Misslyckades: aktiviteten har misslyckats.|
+|Blue|Körs: aktiviteten körs.|
+|Vita|Väntar eller hoppas över: aktiviteten väntar på att köras eller så har fasen hoppats över.|
+|Red|Misslyckades: aktiviteten har misslyckats.|
 
 Följande bild visar status färgerna grön, orange och blå.
 

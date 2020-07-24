@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fd2e5a4d057e1074c6cce0f374846bc9e0a64950
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ea178655646f7f130476acaffc35c60181968ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058713"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Få åtkomst till VMware-lösningen från CloudSimple-portalen från Azure Portal
 
@@ -23,7 +23,7 @@ Enkel inloggning stöds för åtkomst till CloudSimple-portalen. När du har log
 
 Användare med rollen fördefinierad **ägare** och **deltagare** har åtkomst till CloudSimple-portalen.  Rollerna måste konfigureras i resurs gruppen där CloudSimple-tjänsten har distribuerats.  Rollerna kan också konfigureras för CloudSimple-serviceobjektet.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](../role-based-access-control/check-access.md) . Endast användare med inbyggda **ägare** och **deltagar** roller kan komma åt CloudSimple-portalen.  Rollerna måste konfigureras för prenumerationen.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](../role-based-access-control/check-access.md) .
 
-Om du använder anpassade roller bör rollen ha någon av följande åtgärder under ```Actions``` .  Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).  Om någon av åtgärderna är en del av ```NotActions``` , kan användaren inte komma åt CloudSimple-portalen.
+Om du använder anpassade roller bör rollen ha någon av följande åtgärder under ```Actions``` .  Mer information om anpassade roller finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).  Om någon av åtgärderna är en del av ```NotActions``` , kan användaren inte komma åt CloudSimple-portalen.
 
 ```
 Microsoft.VMwareCloudSimple/*

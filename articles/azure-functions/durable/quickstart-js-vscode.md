@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 7c6c105a2ef5fff2e05dd3ed37a0e7650626621a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056319"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du använder Azure Functions-tillägge
 
 ![Köra beständiga funktioner i Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -48,11 +48,11 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj ett språk för ditt projekt för Function-appen | JavaScript | Skapa ett projekt med en lokal Node.js functions. |
     | Välj en version | Azure Functions v3 | Du ser bara det här alternativet när kärn verktygen inte redan har installerats. I det här fallet installeras kärn verktyg första gången du kör appen. |
-    | Välj en mall för projektets första funktion | Hoppa över nu | |
+    | Välj en mall för projektets första funktion | Hoppa över så länge | |
     | Välj hur du vill öppna projektet | Öppna i aktuellt fönster | Öppnar VS-kod i den mapp som du har valt. |
 
 Visual Studio Code installerar Azure Functions Core Tools, om det behövs. Det skapar också ett app-projekt i en mapp. Det här projektet innehåller [host.js](../functions-host-json.md) och [local.settings.jsi](../functions-run-local.md#local-settings-file) konfigurationsfiler.
@@ -83,7 +83,7 @@ Du använder en mall för att skapa en hållbar funktions kod i projektet.
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en mall för din funktion | Durable Functions Orchestrator | Skapa ett Durable Functions Orchestration |
     | Ange ett funktions namn | HelloOrchestrator | Namnet på den varaktiga funktionen |
@@ -98,7 +98,7 @@ Sedan lägger du till funktionen refererad `Hello` aktivitet.
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en mall för din funktion | Durable Functions aktivitet | Skapa en aktivitets funktion |
     | Ange ett funktions namn | Hello | Namn på din aktivitets funktion |
@@ -113,11 +113,11 @@ Slutligen lägger du till en HTTP-utlöst funktion som startar dirigeringen.
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en mall för din funktion | Durable Functions HTTP-startstarter | Skapa en HTTP-startfunktion |
     | Ange ett funktions namn | DurableFunctionsHttpStart | Namn på din aktivitets funktion |
-    | Auktorisationsnivå | Anonym | I demonstrations syfte tillåter du att funktionen anropas utan autentisering |
+    | Auktoriseringsnivå | Anonym | I demonstrations syfte tillåter du att funktionen anropas utan autentisering |
 
 Du har lagt till en HTTP-utlöst funktion som startar ett dirigering. Öppna *DurableFunctionsHttpStart/index.js* för att se att den använder `client.startNew` för att starta ett nytt dirigering. Sedan använder den `client.createCheckStatusResponse` för att returnera ett HTTP-svar som innehåller URL: er som kan användas för att övervaka och hantera den nya dirigeringen.
 
@@ -138,7 +138,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
 1. Följ instruktionerna och ange följande information för att skapa ett nytt lagrings konto i Azure.
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en prenumeration | *namnet på din prenumeration* | Välj din Azure-prenumeration |
     | Välj ett lagrings konto | Skapa ett nytt lagringskonto |  |
@@ -185,7 +185,7 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:`http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:`http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. Du bör få samma statussvar som förut när du använder den publicerade appen.
 

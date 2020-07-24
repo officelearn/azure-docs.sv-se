@@ -13,11 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057901"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Massredigera användare i Azure Active Directory
 
@@ -47,6 +48,7 @@ Raderna i en Hämtad CSV-mall är följande:
 - De obligatoriska kolumnerna visas först.
 - Vi rekommenderar inte att du lägger till nya kolumner i mallen. Eventuella ytterligare kolumner som du lägger till ignoreras och bearbetas inte.
 - Vi rekommenderar att du laddar ned den senaste versionen av CSV-mallen så ofta som möjligt.
+- Kontrol lera att det inte finns något oavsiktligt blank steg före/efter ett fält. För **användarens huvud namn**skulle ett sådant blank steg orsaka import fel.
 
 ## <a name="to-create-users-in-bulk"></a>Så här skapar du användare i grupp
 

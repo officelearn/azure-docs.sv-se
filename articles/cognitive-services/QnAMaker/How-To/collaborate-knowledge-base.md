@@ -2,13 +2,13 @@
 title: Samar beta på kunskaps bas – QnA Maker
 description: QnA Maker gör det möjligt för flera personer att samar beta i en kunskaps bas. Den här funktionen tillhandahålls med Azure-rollbaserade Access Control.
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 1a2908b4b65017f427682627ce5d83b186956a58
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 07/13/2020
+ms.openlocfilehash: 4c550a36dd045873df4bc4a382e1c884466f95ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054092"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Samarbete med författare och redigerare
 
@@ -30,15 +30,15 @@ Följande steg använder rollen medarbetare men någon av [rollerna](../referenc
 
 1. Logga in på [Azure](https://portal.azure.com/) Portal och gå till din QNA Maker-resurs.
 
-    ![QnA Maker resurs lista](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
+    ![QnA Maker resurs lista](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.png)
 
 1. Gå till fliken **Access Control (IAM)** .
 
-    ![QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
+    ![QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.png)
 
 1. Välj **Lägg till**.
 
-    ![QnA Maker IAM-tillägg](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
+    ![QnA Maker IAM-tillägg](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.png)
 
 1. Välj en roll i följande lista:
 
@@ -46,17 +46,23 @@ Följande steg använder rollen medarbetare men någon av [rollerna](../referenc
     |--|
     |Ägare|
     |Deltagare|
-    |QnA Maker läsare|
-    |QnA Maker redigerare|
+    |Cognitive Services QnA Maker läsare|
+    |Cognitive Services QnA Maker redigeraren|
     |Cognitive Services användare|
 
-    ![QnA Maker IAM Lägg till roll](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
+    :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-add-role-iam.png" alt-text="QnA Maker IAM-Lägg till roll.":::
 
 1. Ange användarens e-postadress och tryck på **Spara**.
 
-    ![QnA Maker IAM Lägg till e-post](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
+    ![QnA Maker IAM Lägg till e-post](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.png)
+
+### <a name="view-qna-maker-knowledge-bases"></a>Visa QnA Maker kunskaps baser
 
 När personen som du delar din QnA Maker-tjänst med loggar i [QNA Maker-portalen](https://qnamaker.ai)kan de Se alla kunskaps banker i den tjänsten baserat på deras roll.
+
+När de väljer en kunskaps bas visas den aktuella rollen på den QnA Maker resursen bredvid kunskaps bas namnet.
+
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Skärm bild av kunskaps bas i redigerings läge med roll namn inom parentes bredvid kunskaps bas namnet i det övre vänstra hörnet på webb sidan.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

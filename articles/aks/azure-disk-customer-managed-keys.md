@@ -3,20 +3,17 @@ title: Använd en kundhanterad nyckel för att kryptera Azure-diskar i Azure Kub
 description: Ta med dina egna nycklar (BYOK) för att kryptera AKS OS-och data diskar.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
-ms.openlocfilehash: 6452facc999456c35aa5d1c3bfe6b2f59141b7c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057302"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ta med dina egna nycklar (BYOK) med Azure-diskar i Azure Kubernetes service (AKS)
 
 Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange [Kundhanterade nycklar][customer-managed-keys] som ska användas för kryptering i vila för både operativ systemet och data diskarna för dina AKS-kluster.
-
-> [!NOTE]
-> BYOK Linux-och Windows-baserade AKS-kluster är tillgängliga i [Azure-regioner][supported-regions] som stöder kryptering på Server sidan av Azure Managed disks.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -164,7 +161,6 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Begränsningar
 
-* BYOK är för närvarande endast tillgängligt i GA och för hands versionen i vissa [Azure-regioner][supported-regions]
 * Data disk kryptering som stöds med Kubernetes version 1,17 och senare   
 * Endast tillgängligt i regioner där BYOK stöds
 * Kryptering med Kundhanterade nycklar för närvarande endast för nya AKS-kluster, går det inte att uppgradera befintliga kluster

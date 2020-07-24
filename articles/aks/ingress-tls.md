@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du installerar och konfigurerar en NGINX ingångs hanterare som använder kryptera för att skapa TLS-certifikat i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: 9536d8ee6c1cab0d3ebd2648200683d454843760
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: b25c431c7771e3c72280e936b2275f2fd10165b0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056837"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingress-styrenhet på Azure Kubernetes service (AKS)
 
@@ -18,7 +18,7 @@ En ingress-kontrollant är en del av programvaran som tillhandahåller omvänd p
 
 Den här artikeln visar hur du distribuerar [nginx ingress-kontrollanten][nginx-ingress] i ett Azure Kubernetes service-kluster (AKS). [Cert Manager-][cert-manager] projektet används för att automatiskt generera och konfigurera att [kryptera][lets-encrypt] certifikat. Slutligen körs två program i AKS-klustret, som var och en är tillgänglig över en enskild IP-adress.
 
-Du kan också:
+Du kan även:
 
 - [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
 - [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]
@@ -268,7 +268,7 @@ I följande exempel, trafik till adressen *Hello-World-ingress. MY_CUSTOM_DOMAIN
 Skapa en fil med namnet `hello-world-ingress.yaml` med hjälp av nedanstående exempel yaml. Uppdatera *värdarna* och *värden* till det DNS-namn som du skapade i föregående steg.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -294,7 +294,7 @@ spec:
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
@@ -406,7 +406,7 @@ I den här artikeln ingår några externa komponenter i AKS. Mer information om 
 - [NGINX ingress-styrenhet][nginx-ingress]
 - [cert-manager][cert-manager]
 
-Du kan också:
+Du kan även:
 
 - [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
 - [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]

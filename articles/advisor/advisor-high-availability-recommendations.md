@@ -3,12 +3,12 @@ title: Förbättra tillförlitligheten för ditt program med Advisor
 description: Använd Azure Advisor för att säkerställa och förbättra tillförlitligheten i affärs kritiska Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124630"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057676"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Förbättra tillförlitligheten för ditt program genom att använda Azure Advisor
 
@@ -59,7 +59,7 @@ Om en Traffic Manager profil har kon figurer ATS för geografisk routning dirige
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Använd mjuk borttagning på ditt Azure Storage-konto för att spara och återställa data efter oavsiktlig överskrivning eller borttagning
 
-Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) på ditt lagrings konto så att borttagna blobar övergår till ett mjukt borttaget tillstånd i stället för att tas bort permanent. När data skrivs över skapas en mjukt borttagen ögonblicksbild för att spara läget för den överskrivna informationen. Med hjälp av mjuk borttagning kan du återställa från oavsiktliga borttagningar eller Skriv över. Advisor identifierar Azure Storage-konton som inte har mjuk borttagning aktiverat och föreslår att du aktiverar det.
+Aktivera [mjuk borttagning](../storage/blobs/soft-delete-overview.md) på ditt lagrings konto så att borttagna blobar övergår till ett mjukt borttaget tillstånd i stället för att tas bort permanent. När data skrivs över skapas en mjukt borttagen ögonblicksbild för att spara läget för den överskrivna informationen. Med hjälp av mjuk borttagning kan du återställa från oavsiktliga borttagningar eller Skriv över. Advisor identifierar Azure Storage-konton som inte har mjuk borttagning aktiverat och föreslår att du aktiverar det.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Konfigurera din VPN-gateway till aktiv-aktiv för anslutnings återhämtning
 
@@ -107,7 +107,7 @@ Från den 1 juli 2020 kommer du inte att kunna skapa nya Kafka-kluster med hjäl
 Från den 1 juli 2020 kommer du inte att kunna skapa nya Spark-kluster med Spark 2,1 eller 2,2 på HDInsight 3,6. Du kan inte skapa nya Spark-kluster med Spark 2,3 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan stöd från Microsoft. 
 
 ## <a name="enable-virtual-machine-replication"></a>Aktivera replikering av virtuell dator
-Virtuella datorer som inte har någon replikering aktive rad till en annan region är inte flexibla till regionala avbrott. Att replikera virtuella datorer minskar eventuell negativ inverkan på verksamheten under drifts avbrott i Azure. Advisor identifierar virtuella datorer där replikering inte är aktiverat och rekommenderar att du aktiverar den. Om du aktiverar replikering kan du snabbt ta fram dina virtuella datorer i en fjärran sluten Azure-region om det uppstår ett avbrott. [Läs mer om replikering av virtuella datorer.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Virtuella datorer som inte har någon replikering aktive rad till en annan region är inte flexibla till regionala avbrott. Att replikera virtuella datorer minskar eventuell negativ inverkan på verksamheten under drifts avbrott i Azure. Advisor identifierar virtuella datorer där replikering inte är aktiverat och rekommenderar att du aktiverar den. Om du aktiverar replikering kan du snabbt ta fram dina virtuella datorer i en fjärran sluten Azure-region om det uppstår ett avbrott. [Läs mer om replikering av virtuella datorer.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Få åtkomst till rekommendationer för hög tillgänglighet i Advisor
 

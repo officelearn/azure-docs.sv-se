@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 2e2a7f09ac6ff3be119a07ed0a2162525801ceef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061859"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
 
-Just nu är det enda publicerade data planet SDK för att interagera med Azure Digitals API: er för digital dubbla API: er för .NET (C#). Du kan läsa om .NET SDK och API: erna i allmänhet i [How-to: använda Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar din egen SDK på valfritt språk, med hjälp av AutoRest.
+Just nu är det enda publicerade data planet SDK för att interagera med Azure Digitals API: er för digital dubbla API: er för .NET (C#). Du kan läsa om .NET SDK och API: erna i allmänhet i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar din egen SDK på valfritt språk, med hjälp av AutoRest.
 
 ## <a name="set-up-your-machine"></a>Konfigurera din dator
 
@@ -37,23 +37,23 @@ npm install -g autorest@2.0.4413
 Följ dessa steg om du vill köra AutoRest mot Azure Digitals Swagger-filen:
 1. Kopiera Azure Digitals Swagger-fil och dess tillhör ande mapp med exempel till en arbets katalog.
 2. Använd ett kommando tolks fönster för att växla till den arbets katalogen.
-3. Kör AutoRest med följande kommando. Ersätt `<language>` plats hållaren med önskat språk: `--python` ,, `--java` `--go` osv. (du hittar den fullständiga listan med alternativ i Readme-filen för [AutoRest](https://github.com/Azure/autorest).)
+3. Kör AutoRest med följande kommando. Ersätt `<language>` plats hållaren med önskat språk: `--python` ,, `--java` `--go` och så vidare. (Du hittar den fullständiga listan med alternativ i README- [filen för AutoRest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
 autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi*, som du kommer att fortsätta använda genom resten av användnings exemplen i den här artikeln.
+Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi*. Du kommer att fortsätta att använda det namn området genom resten av användnings exemplen i den här artikeln.
 
 AutoRest har stöd för en mängd olika språk kods generatorer.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Lägg till SDK i ett Visual Studio-projekt
 
-Du kan inkludera de filer som genereras av AutoRest direkt i en .NET-lösning. Men eftersom du troligt vis kommer att behöva Azure Digitals inbyggda SDK i flera olika projekt (dina klient program, Azure Functions appar och så vidare), kan det vara praktiskt att skapa ett separat projekt (ett .NET-klass bibliotek) från de genererade filerna. Du kan sedan ta med detta klass biblioteks projekt i flera lösningar som en projekt referens.
+Du kan inkludera de filer som genereras av AutoRest direkt i en .NET-lösning. Det är dock troligt att du vill lägga till Azure Digitals-SDK: n i flera separata projekt (dina klient program, Azure Functions appar och så vidare). Därför kan det vara praktiskt att skapa ett separat projekt (ett .NET-klass bibliotek) från de genererade filerna. Sedan kan du inkludera detta klass biblioteks projekt i flera lösningar som en projekt referens.
 
 Det här avsnittet innehåller anvisningar om hur du skapar SDK som ett klass bibliotek, vilket är ett eget projekt och kan ingå i andra projekt. De här stegen är beroende av **Visual Studio** (du kan installera den senaste versionen [härifrån).](https://visualstudio.microsoft.com/downloads/)
 
-Gör så här:
+Här är stegen:
 
 1. Skapa en ny Visual Studio-lösning för ett klass bibliotek
 2. Använd *ADTApi* som projekt namn
@@ -73,7 +73,7 @@ Om du vill lägga till dessa öppnar du *verktyg > NuGet Package Manager > hante
 
 1. I panelen kontrollerar du att fliken *Bläddra* är markerad
 2. Sök efter *Microsoft. rest*
-3. Välj *ClientRuntime* -och *ClientRuntime. Azure* -paket och Lägg till dem i din lösning
+3. Välj `ClientRuntime` `ClientRuntime.Azure` paketen och Lägg till dem i din lösning
 
 Nu kan du skapa projektet och inkludera det som en projekt referens i Azure Digitals dubbla program som du skriver.
 
@@ -115,7 +115,7 @@ AutoRest genererar två typer av sid indelnings mönster för SDK:
 
 I växlings mönstret som inte är fråga finns det två versioner av varje anrop:
 * En version som gör det första anropet (till exempel `DigitalTwins.ListEdges()` )
-* En version för att hämta efterföljande sidor, med suffixet "Next" (till exempel `DigitalTwins.ListEdgesNext()` )
+* En version för att hämta följande sidor. Dessa anrop har suffixet "Next" (t. ex. `DigitalTwins.ListEdgesNext()` )
 
 Här är ett kodfragment som visar hur du hämtar en växlad lista över utgående relationer från Azure Digitals:
 ```csharp
@@ -188,4 +188,4 @@ try
 ## <a name="next-steps"></a>Nästa steg
 
 Gå igenom stegen för att skapa en klient-app där du kan använda ditt SDK:
-* [Självstudie: koda en klient app](tutorial-code.md)
+* [*Självstudie: koda en klient app*](tutorial-code.md)

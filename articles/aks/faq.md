@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/21/2020
+ms.openlocfilehash: 4d93a4f3b58fc38710184f345fd467b2beb32b1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275724"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057204"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -79,7 +79,7 @@ När du arbetar med resurs gruppen för noden bör du tänka på att du inte kan
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Kan jag ändra Taggar och andra egenskaper för AKS-resurserna i nodens resurs grupp?
 
-Om du ändrar eller tar bort Azure-skapade Taggar och andra resurs egenskaper i resurs gruppen resurs kan du få oväntade resultat som skalning och uppgradering av fel. Med AKS kan du skapa och ändra anpassade taggar som skapats av slutanvändare. Du kanske vill skapa eller ändra anpassade taggar, till exempel för att tilldela en affär senhet eller ett kostnads ställe. Detta kan uppnås genom att skapa Azure-principer med ett omfång i den hanterade resurs gruppen.
+Om du ändrar eller tar bort Azure-skapade Taggar och andra resurs egenskaper i resurs gruppen resurs kan du få oväntade resultat som skalning och uppgradering av fel. Med AKS kan du skapa och ändra anpassade taggar som skapats av slutanvändare och du kan lägga till dessa taggar när du [skapar en Node-pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Du kanske vill skapa eller ändra anpassade taggar, till exempel för att tilldela en affär senhet eller ett kostnads ställe. Detta kan också uppnås genom att du skapar Azure-principer med ett omfång i den hanterade resurs gruppen.
 
 Att ändra alla **Azure-skapade Taggar** för resurser under nodens resurs grupp i AKS-klustret är dock en åtgärd som inte stöds och som bryter service nivå målet (service nivå mål). Mer information finns i [AKS erbjuder ett service nivå avtal?](#does-aks-offer-a-service-level-agreement)
 
@@ -137,7 +137,7 @@ AKS agent-noder faktureras som standard virtuella Azure-datorer, så om du har k
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Kan jag flytta/migrera mitt kluster mellan Azure-klienter?
 
-`az aks update-credentials`Kommandot kan användas för att flytta ett AKS-kluster mellan Azure-klienter. Följ anvisningarna i [Välj för att uppdatera eller skapa ett huvud namn för tjänsten](./update-credentials.md) och [uppdatera sedan AKS-kluster med nya autentiseringsuppgifter](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Det finns för närvarande inte stöd för att flytta AKS-kluster mellan klient organisationer.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Kan jag flytta/migrera mitt kluster mellan prenumerationer?
 

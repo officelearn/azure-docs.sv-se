@@ -4,11 +4,12 @@ description: I den här artikeln får du lära dig mer om övervaknings-och avis
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054545"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
@@ -27,7 +28,7 @@ Jobb från följande Azure Backup lösningar visas här:
 - Säkerhetskopiering av virtuell Azure-dator
 - Säkerhets kopiering av Azure-filer
 - Azure-arbetsbelastningar, till exempel SQL och SAP HANA
-- Azure Backup-agent (MAB)
+- Microsoft Azure Recovery Services (MARS) Agent
 
 Jobb från System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) visas inte.
 
@@ -43,7 +44,7 @@ Aviseringar är främst scenarier där användare meddelas så att de kan vidta 
 Följande scenarier definieras av service som aviserings bara scenarier.
 
 - Fel vid säkerhetskopiering/återställning
-- Säkerhetskopieringen slutfördes med varningar för Azure Backup Agent (MAB)
+- Säkerhets kopieringen har slutförts med varningar för Microsoft Azure Recovery Services (MARS) Agent
 - Stoppa skyddet med Behåll data/stoppa skydd med ta bort data
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aviseringar från följande Azure Backup lösningar visas här
@@ -51,7 +52,7 @@ Följande scenarier definieras av service som aviserings bara scenarier.
 - Säkerhetskopior av virtuella Azure-datorer
 - Säkerhetskopior av Azure-fil
 - Azure-arbetsbelastnings säkerhets kopior som SQL, SAP HANA
-- Azure Backup-agent (MAB)
+- Microsoft Azure Recovery Services (MARS) Agent 
 
 > [!NOTE]
 > Aviseringar från System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) visas inte här.

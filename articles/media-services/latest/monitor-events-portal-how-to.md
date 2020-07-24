@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92a97ddbd9497954b35efa33de7c2f843d4dd934
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76509231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060678"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Skapa och övervaka Media Services-händelser med Event Grid med hjälp av Azure-portalen
 
@@ -29,10 +30,10 @@ I den här artikeln använder du Azure Portal för att prenumerera på händelse
 
 När du är klar kan se du att händelsedata som har skickats till webbappen.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 * Ha en aktiv Azure-prenumeration.
-* Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](create-account-cli-quickstart.md).
+* Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](./create-account-howto.md).
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 

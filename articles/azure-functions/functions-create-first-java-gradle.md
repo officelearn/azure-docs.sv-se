@@ -5,20 +5,21 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a366a199338539ba8e599bd5f406838f4e7bd21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 906f3d45edef6180557c54f0ff29cd11a1c96fa3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996659"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055670"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Använd Java och Gradle för att skapa och publicera en funktion i Azure
 
 Den här artikeln visar hur du skapar och publicerar ett Java-Function-projekt för att Azure Functions med kommando rads verktyget Gradle. När du är klar körs funktions koden i Azure i en [värd plan utan server](functions-scale.md#consumption-plan) och utlöses av en http-begäran. 
 
 > [!NOTE]
-> Om Gradle inte är ditt fördelaktiga utvecklingsverktyg kan du ta en titt på våra liknande själv studie kurser för Java-utvecklare med [maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ-idé](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och vs- [kod](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Om Gradle inte är ditt fördelaktiga utvecklingsverktyg kan du ta en titt på våra liknande själv studie kurser för Java-utvecklare med [maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ-idé](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och vs- [kod](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
@@ -61,7 +62,7 @@ azurefunctions {
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 Kör följande kommando för att skapa och sedan köra-funktions projektet:
 
@@ -174,4 +175,4 @@ Du har skapat ett Java Functions-projekt med en HTTP-utlöst funktion, kört den
 
 
 [Azure CLI]: /cli/azure
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

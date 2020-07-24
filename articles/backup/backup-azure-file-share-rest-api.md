@@ -3,17 +3,18 @@ title: Säkerhetskopiera Azure-filresurser med REST API
 description: Lär dig hur du använder REST API för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055027"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Säkerhetskopiera Azure-filresurs med Azure Backup via REST API
 
 Den här artikeln beskriver hur du säkerhetskopierar en Azure-filresurs med hjälp av Azure Backup via REST API.
 
-Den här artikeln förutsätter att du redan har skapat ett Recovery Services-valv och en princip för att konfigurera säkerhets kopiering för din fil resurs. Om du inte har det kan du läsa avsnittet [skapa valv](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) och [Skapa princip](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) REST API själv studie kurser för att skapa nya valv och principer.
+Den här artikeln förutsätter att du redan har skapat ett Recovery Services-valv och en princip för att konfigurera säkerhets kopiering för din fil resurs. Om du inte har det kan du läsa avsnittet [skapa valv](./backup-azure-arm-userestapi-createorupdatevault.md) och [Skapa princip](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API själv studie kurser för att skapa nya valv och principer.
 
 I den här artikeln använder vi följande resurser:
 
@@ -31,7 +32,7 @@ I den här artikeln använder vi följande resurser:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Identifiera lagrings konton med oskyddade Azure-filresurser
 
-Valvet måste identifiera alla Azure Storage-konton i prenumerationen med fil resurser som kan säkerhets kopie ras till Recovery Services valvet. Detta utlöses med hjälp av [uppdaterings åtgärden](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Det är en asynkron *post* -åtgärd som garanterar att valvet får den senaste listan över alla oskyddade Azure-filresurser i den aktuella prenumerationen och cachelagrar dem. När fil resursen är "cachelagrad" kan återställnings tjänsten komma åt fil resursen och skydda den.
+Valvet måste identifiera alla Azure Storage-konton i prenumerationen med fil resurser som kan säkerhets kopie ras till Recovery Services valvet. Detta utlöses med hjälp av [uppdaterings åtgärden](/rest/api/backup/protectioncontainers/refresh). Det är en asynkron *post* -åtgärd som garanterar att valvet får den senaste listan över alla oskyddade Azure-filresurser i den aktuella prenumerationen och cachelagrar dem. När fil resursen är "cachelagrad" kan återställnings tjänsten komma åt fil resursen och skydda den.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -55,7 +56,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Svar
 
-Åtgärden Uppdatera är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
+Åtgärden Uppdatera är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 200 (OK) när åtgärden har slutförts.
 
@@ -107,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Hämta en lista över lagrings konton som kan skyddas med Recovery Services Vault
 
-För att bekräfta att "cachelagring" görs, lista alla skydds bara lagrings konton under prenumerationen. Leta sedan reda på det önskade lagrings kontot i svaret. Detta görs med hjälp av åtgärden [Get ProtectableContainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) .
+För att bekräfta att "cachelagring" görs, lista alla skydds bara lagrings konton under prenumerationen. Leta sedan reda på det önskade lagrings kontot i svaret. Detta görs med hjälp av åtgärden [Get ProtectableContainers](/rest/api/backup/protectablecontainers/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -159,7 +160,7 @@ Eftersom vi kan hitta *testvault2* lagrings konto i svars texten med det egna na
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Registrera lagrings konto med Recovery Services Vault
 
-Det här steget behövs bara om du inte registrerade lagrings kontot med valvet tidigare. Du kan registrera valvet via [åtgärden ProtectionContainers-register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
+Det här steget behövs bara om du inte registrerade lagrings kontot med valvet tidigare. Du kan registrera valvet via [åtgärden ProtectionContainers-register](/rest/api/backup/protectioncontainers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -208,7 +209,7 @@ Texten för att skapa begäran är följande:
  }
 ```
 
-En fullständig lista över definitioner av begär ande texten och annan information finns i [ProtectionContainers-register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+En fullständig lista över definitioner av begär ande texten och annan information finns i [ProtectionContainers-register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
 
 Detta är en asynkron åtgärd och returnerar två svar: "202 accepterad" när åtgärden godkänns och "200 OK" när åtgärden har slutförts.  Om du vill spåra åtgärdens status använder du plats rubriken för att hämta den senaste statusen för åtgärden.
 
@@ -240,7 +241,7 @@ Du kan kontrol lera om registreringen lyckades från värdet för parametern *re
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Fråga alla oskyddade fil resurser under ett lagrings konto
 
-Du kan fråga om skydds bara objekt i ett lagrings konto med hjälp av [skydds behållare – fråga](https://docs.microsoft.com/rest/api/backup/protectioncontainers/inquire) åtgärd. Det är en asynkron åtgärd och resultaten bör spåras med hjälp av plats rubriken.
+Du kan fråga om skydds bara objekt i ett lagrings konto med hjälp av [skydds behållare – fråga](/rest/api/backup/protectioncontainers/inquire) åtgärd. Det är en asynkron åtgärd och resultaten bör spåras med hjälp av plats rubriken.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -275,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>Välj den fil resurs som du vill säkerhetskopiera
 
-Du kan visa en lista över alla objekt som kan skyddas under prenumerationen och hitta önskad fil resurs som ska säkerhets kopie ras med hjälp av åtgärden [Hämta backupprotectableItems](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) .
+Du kan visa en lista över alla objekt som kan skyddas under prenumerationen och hitta önskad fil resurs som ska säkerhets kopie ras med hjälp av åtgärden [Hämta backupprotectableItems](/rest/api/backup/backupprotectableitems/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -350,7 +351,7 @@ Svaret innehåller en lista över alla oskyddade fil resurser och innehåller al
 
 ### <a name="enable-backup-for-the-file-share"></a>Aktivera säkerhets kopiering för fil resursen
 
-När den relevanta fil resursen har identifierats med det egna namnet väljer du den princip som du vill skydda. Mer information om befintliga principer i valvet finns i [lista över princip-API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Välj sedan den [aktuella principen](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) genom att referera till princip namnet. Information om hur du skapar principer finns i [själv studie kursen skapa princip](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy).
+När den relevanta fil resursen har identifierats med det egna namnet väljer du den princip som du vill skydda. Mer information om befintliga principer i valvet finns i [lista över princip-API](/rest/api/backup/backuppolicies/list). Välj sedan den [aktuella principen](/rest/api/backup/protectionpolicies/get) genom att referera till princip namnet. Information om hur du skapar principer finns i [själv studie kursen skapa princip](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 Aktivering av skydd är en *asynkron åtgärd* som skapar ett "skyddat objekt".
 
@@ -466,11 +467,11 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Om du vill utlösa en säkerhets kopiering på begäran, följer du komponenterna i begär ande texten.
 
-| Name       | Typ                       | Beskrivning                       |
+| Namn       | Typ                       | Beskrivning                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Egenskaper | AzurefilesharebackupReques | Egenskaper för BackupRequestResource |
 
-En fullständig lista över definitioner av begär ande texten och annan information finns i [Utlös säkerhets kopiering för skyddade objekt REST API dokument](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+En fullständig lista över definitioner av begär ande texten och annan information finns i [Utlös säkerhets kopiering för skyddade objekt REST API dokument](/rest/api/backup/backups/trigger#request-body).
 
 Exempel på begär ande text
 
@@ -488,7 +489,7 @@ Exempel på begär ande text
 
 ### <a name="responses"></a>Svar
 
-Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
+Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 200 (OK) när åtgärden har slutförts.
 
@@ -539,7 +540,7 @@ När åtgärden har slutförts returneras 200 (OK) med ID: t för det resulteran
 }
 ```
 
-Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd måste det spåras enligt beskrivningen i [övervaknings jobben med REST API-dokument](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd måste det spåras enligt beskrivningen i [övervaknings jobben med REST API-dokument](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Nästa steg
 

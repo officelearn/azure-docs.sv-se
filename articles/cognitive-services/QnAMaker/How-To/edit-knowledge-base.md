@@ -2,13 +2,13 @@
 title: Redigera en kunskaps bas – QnA Maker
 description: Med QnA Maker kan du hantera innehållet i kunskaps basen genom att tillhandahålla en användarvänlig redigerings upplevelse.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 07/16/2020
+ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054024"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Redigera QnA-par i kunskaps basen
 
@@ -57,7 +57,7 @@ Text redigering av svars texten ger dig markdown format från ett enkelt verktyg
     |Funktioner i Rich-Text-redigeraren|Kortkommando|
     |--|--|
     |Växla mellan Rich-Text Editor och markdown. `</>`|CTRL+M|
-    |Breda. **B**|Prod + LB|
+    |Breda. **T**|Prod + LB|
     |Kursiv stil, visas med kursivt ** _i_**|CTRL + I|
     |Osorterad lista||
     |Ordnad lista||
@@ -111,6 +111,10 @@ Du kan inte länka QnA-par i svarets metadata.
 ## <a name="add-metadata"></a>Lägg till metadata
 
 Lägg till metadata-par genom att först välja **visnings alternativ**och sedan välja **Visa metadata**. Kolumnen metadata visas. Sedan väljer du **+** tecknet för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
+
+Läs mer om metadata i snabb starten för QnA Maker Portal för metadata:
+* [Redigering – Lägg till metadata i QnA-paret](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Fråga förutsägelse – filtrera svar efter metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Spara ändringar i QnA-par
 

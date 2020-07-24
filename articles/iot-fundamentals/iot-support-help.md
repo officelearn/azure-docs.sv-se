@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 6/10/2020
-ms.openlocfilehash: 3ba7e4b73fb0ac8d6318b7bfee73300800d5b7ee
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: b41e3d729fa6e5b0be9a55cc45de38f81bed494b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061143"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Support och hjälp för Azure IoT
 
@@ -26,7 +26,7 @@ Här är några förslag på var du kan få hjälp när du utvecklar dina Azure 
 
 Utforska [support alternativen för Azure och välj den plan](https://azure.microsoft.com/support/plans) som passar bäst, oavsett om du är en utvecklare som bara startar din moln resa eller en stor organisation som distribuerar affärs kritiska, strategiska program. Azure-kunder kan skapa och hantera support förfrågningar i Azure Portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal för USA myndigheter](https://portal.azure.us)
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Publicera en fråga på Microsoft Q&A
@@ -77,7 +77,7 @@ Om du vill begära nya funktioner kan du publicera dem på Azure feedback. Dela 
 
 | Tjänst                       | Feedback-URL för Azure |
 |-------------------------------|---------------|
-| Azure IoT Hub                    | https://feedback.azure.com/forums/321918-azure-iot |
+| Azure IoT (hubb, DPS, SDK: er)                    | https://feedback.azure.com/forums/321918-azure-iot |
 | Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
 | Katalog för Azure IoT-enheter      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
 | Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058093"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
@@ -29,11 +29,12 @@ Azure AD Join är avsett för organisationer som bara vill vara molnbaserade ell
 |   | Gäller för alla användare i en organisation |
 | **Äganderätt till enhet** | Organisation |
 | **Operativ system** | Alla Windows 10-enheter |
+|   | [Windows Server 2019 Virtual Machines som körs i Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core stöds inte) |
 | **Etablering** | Självbetjäning: Windows OOBE eller inställningar |
 |   | Massregistrering |
 |   | Windows Autopilot |
 | **Alternativ för enhets inloggning** | Organisations konton med: |
-|   | lösenordsinställning |
+|   | Lösenord |
 |   | Windows Hello för företag |
 |   | FIDO 2.0-säkerhets nycklar (för hands version) |
 | **Enhetshantering** | Hantering av mobila enheter (exempel: Microsoft Intune) |
@@ -82,5 +83,5 @@ Azure AD Join kan distribueras på något av följande sätt:
 
 - [Planera implementeringen av Azure AD-anslutningen](azureadjoin-plan.md)
 - [Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter](assign-local-admin.md)
-- [Hantera enhets identiteter med hjälp av Azure Portal](device-management-azure-portal.md)
+- [Hantera enhetsidentiteter med hjälp av Azure-portalen](device-management-azure-portal.md)
 - [Hantera inaktuella enheter i Azure AD](manage-stale-devices.md)

@@ -4,26 +4,27 @@ description: Lär dig hur du använder närhets placerings grupper för att mins
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 06/22/2020
-ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/10/2020
+author: jluk
+ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244080"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056590"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Minska latens med närhets placerings grupper (förhands granskning)
 
 > [!Note]
-> När du använder närhets placerings grupper med AKS gäller samplaceringen endast för agent-noderna. Noden till noden och motsvarande värdbaserade Pod till Pod-fördröjningen har förbättrats. Samplaceringen påverkar inte placeringen av ett klusters kontroll plan.
+> När du använder närhets placerings grupper på AKS gäller samplaceringen endast för agent-noderna. Noden till noden och motsvarande värdbaserade Pod till Pod-fördröjningen har förbättrats. Samplaceringen påverkar inte placeringen av ett klusters kontroll plan.
 
-När du distribuerar ditt program i Azure skapar spridning av virtuella datorer i regioner och tillgänglighets zoner nätverks svars tid, vilket kan påverka programmets övergripande prestanda. En närhets placerings grupp är en logisk gruppering som används för att se till att Azure Compute-resurser är fysiskt placerade nära varandra. Vissa program som spel, teknik simuleringar och handel med hög frekvens (HFT) kräver låg latens och uppgifter som slutförs snabbt. För högpresterande data behandlings scenarier (HPC), till exempel dessa, bör du överväga att använda [närhets placerings grupper](../virtual-machines/linux/co-location.md#proximity-placement-groups) för ditt klusters Node-pooler.
+När du distribuerar ditt program i Azure skapar spridning av virtuella datorer i regioner och tillgänglighets zoner nätverks svars tid, vilket kan påverka programmets övergripande prestanda. En närhets placerings grupp är en logisk gruppering som används för att se till att Azure Compute-resurser är fysiskt placerade nära varandra. Vissa program som spel, teknik simuleringar och handel med hög frekvens (HFT) kräver låg latens och uppgifter som slutförs snabbt. För högpresterande data behandlings scenarier (HPC), till exempel dessa, bör du överväga att använda [närhets placerings grupper](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) för klustrets noder.
 
 ## <a name="limitations"></a>Begränsningar
 
-* Placerings gruppen närhet sträcker sig över en enda tillgänglighets zon.
-* Det finns inget aktuellt stöd för AKS-kluster som använder tillgänglighets uppsättningar för virtuella datorer.
-* Du kan inte ändra befintliga noder för att använda en närhets placerings grupp.
+* En närhets placerings grupp kan mappas till högst en tillgänglighets zon.
+* En Node-pool måste använda Virtual Machine Scale Sets för att associera en närhets placerings grupp.
+* En Node-pool kan bara associera en närhets placerings grupp i nodens skapande tid.
 
 > [!IMPORTANT]
 > AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
@@ -40,7 +41,7 @@ Du måste ha följande resurser installerade:
 ### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Konfigurera för hands versions funktionen för närhet av placerings grupper
 
 > [!IMPORTANT]
-> När du använder närhets placerings grupper med AKS gäller samplaceringen endast för agent-noderna. Noden till noden och motsvarande värdbaserade Pod till Pod-fördröjningen har förbättrats. Samplaceringen påverkar inte placeringen av ett klusters kontroll plan.
+> När du använder närhets placerings grupper med AKS-noder, gäller samplaceringen endast för agent-noderna. Noden till noden och motsvarande värdbaserade Pod till Pod-fördröjningen har förbättrats. Samplaceringen påverkar inte placeringen av ett klusters kontroll plan.
 
 ```azurecli-interactive
 # register the preview feature
@@ -63,6 +64,7 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
 ## <a name="node-pools-and-proximity-placement-groups"></a>Placerings grupper för resurspooler och närhet
 
 Den första resurs som du distribuerar med en närhets placerings grupp kopplas till ett Data Center. Ytterligare resurser som distribueras med samma närhets placerings grupp finns i samma data Center. När alla resurser som använder närhets placerings gruppen har stoppats (frigjorts) eller tagits bort är den inte längre ansluten.
@@ -70,13 +72,23 @@ Den första resurs som du distribuerar med en närhets placerings grupp kopplas 
 * Många noder i pooler kan associeras med en enda närhets placerings grupp.
 * En Node-pool kan bara associeras med en enda närhets placerings grupp.
 
+### <a name="configure-proximity-placement-groups-with-availability-zones"></a>Konfigurera närhets placerings grupper med tillgänglighets zoner
+
+> [!NOTE]
+> Även om placerings grupper för närhet kräver att en Node-pool används i de flesta en tillgänglighets zon, gäller [bas linjen för Azure VM-SLA på 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) fortfarande för virtuella datorer i en enda zon.
+
+Placerings grupper för närhet är ett koncept för Node-pool och associeras med varje enskild Node-pool. Användning av en PPG-resurs påverkar inte tillgängligheten för AKS kontroll plan. Detta kan påverka hur ett kluster ska utformas med zoner. Följande design rekommenderas för att säkerställa att ett kluster sprids över flera zoner.
+
+* Etablera ett kluster med den första mediepoolen med tre zoner och ingen närhets placerings grupp kopplad. Detta säkerställer att systemet poddar land i en dedikerad Node-pool som kommer att spridas över flera zoner.
+* Lägg till ytterligare resurspooler för användare med en unik zon och närhets placerings grupp kopplad till varje pool. Ett exempel är nodepool1 i zon 1 och PPG1, nodepool2 i zon 2 och PPG2, nodepool3 i zon 3 med PPG3. På så sätt kan noderna spridas över flera zoner och varje enskild Node-pool befinner sig i den angivna zonen med en dedikerad PPG-resurs.
+
 ## <a name="create-a-new-aks-cluster-with-a-proximity-placement-group"></a>Skapa ett nytt AKS-kluster med en närhets placerings grupp
 
-I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i den *centrala* regionen. Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . 
+I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i den *centrala* regionen. Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] .
 
 Accelererat nätverk förbättrar nätverks prestandan för virtuella datorer avsevärt. Vi rekommenderar att du använder närhets placerings grupper tillsammans med accelererat nätverk. Som standard använder AKS accelererat nätverk på [virtuella dator instanser som stöds](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), som inkluderar de flesta virtuella Azure-datorer med två eller flera virtuella processorer.
 
-Skapa ett nytt AKS-kluster med en närhets placerings grupp:
+Skapa ett nytt AKS-kluster med en närhets placerings grupp kopplad till den första noden i systemet:
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -110,7 +122,7 @@ Kommandot ger utdata som innehåller det *ID-* värde du behöver för kommande 
 Använd resurs-ID för närhets placerings grupp för värdet *myPPGResourceID* i nedanstående kommando:
 
 ```azurecli-interactive
-# Create an AKS cluster that uses a proximity placement group for the initial node pool
+# Create an AKS cluster that uses a proximity placement group for the initial system node pool only. The PPG has no effect on the cluster control plane.
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \

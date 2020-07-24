@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du installerar och konfigurerar en NGINX ingress-kontrollant som använder dina egna certifikat i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: b3e844c0c4d4861f7a0a0e12c4ae9d59e23c24e2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: 7588614f615e7aa7dee00fa7553ad986f2e26b37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056964"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en inkommande styrenhet för HTTPS och använd dina egna TLS-certifikat på Azure Kubernetes Service (AKS)
 
@@ -18,7 +18,7 @@ En ingress-kontrollant är en del av programvaran som tillhandahåller omvänd p
 
 Den här artikeln visar hur du distribuerar [nginx ingress-kontrollanten][nginx-ingress] i ett Azure Kubernetes service-kluster (AKS). Du genererar dina egna certifikat och skapar en Kubernetes-hemlighet för användning med ingångs vägen. Slutligen körs två program i AKS-klustret, som var och en är tillgänglig över en enskild IP-adress.
 
-Du kan också:
+Du kan även:
 
 - [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
 - [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]
@@ -211,7 +211,7 @@ Avsnittet *TLS* instruerar ingångs vägen att använda hemligheten med namnet *
 Skapa en fil med namnet `hello-world-ingress.yaml` och kopiera i följande exempel yaml.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -257,13 +257,13 @@ ingress.extensions/hello-world-ingress created
 Om du vill testa certifikaten med vår falska *demo.Azure.com* -värd, använder `curl` du och anger parametern *--* parameter. Med den här parametern kan du mappa *demo.Azure.com* -namnet till den offentliga IP-adressen för din ingångs kontroll. Ange den offentliga IP-adressen för din egen ingångs kontroll, som du ser i följande exempel:
 
 ```
-curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 ```
 
 Ingen ytterligare sökväg tillhandahölls med adressen, så ingångs styrenhetens standardinställning för */* vägen. Det första demo programmet returneras, som du ser i följande komprimerade exempel utdata:
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 
 [...]
 <!DOCTYPE html>
@@ -290,7 +290,7 @@ Parametern *-v* i vårt `curl` kommando matar utförlig information, inklusive d
 Lägg nu till */Hello-World-Two* sökväg till adressen, till exempel `https://demo.azure.com/hello-world-two` . Det andra demonstrations programmet med den anpassade rubriken returneras, som du ser i följande komprimerade exempel utdata:
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hello-world-two
 
 [...]
 <!DOCTYPE html>
@@ -376,7 +376,7 @@ I den här artikeln ingår några externa komponenter i AKS. Mer information om 
 - [Helm CLI][helm-cli]
 - [NGINX ingress-styrenhet][nginx-ingress]
 
-Du kan också:
+Du kan även:
 
 - [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
 - [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]

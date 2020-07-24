@@ -3,15 +3,17 @@ title: Oavsiktligt borttagnings skydd för Azure-filresurser
 description: Lär dig hur du kan använda mjuk borttagning för att skydda dina Azure-filresurser från oavsiktlig borttagning.
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 09d74a135fc43a7758004d77af2ec4c478345a2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84122411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054382"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Oavsiktligt borttagnings skydd för Azure-filresurser med hjälp av Azure Backup
 
-För att skydda mot cyberattacker eller oavsiktlig borttagning aktive ras [mjuk borttagning](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) för alla fil resurser i ett lagrings konto när du konfigurerar säkerhets kopiering för alla fil resurser i respektive lagrings konto. Med mjuk borttagning, även om en skadlig aktör tar bort fil resursen, behålls fil resursens innehåll och återställnings punkter (ögonblicks bilder) i minst 14 ytterligare dagar, vilket gör det möjligt att återställa fil resurser utan data förlust.  
+För att skydda mot cyberattacker eller oavsiktlig borttagning aktive ras [mjuk borttagning](../storage/files/storage-files-prevent-file-share-deletion.md) för alla fil resurser i ett lagrings konto när du konfigurerar säkerhets kopiering för alla fil resurser i respektive lagrings konto. Med mjuk borttagning, även om en skadlig aktör tar bort fil resursen, behålls fil resursens innehåll och återställnings punkter (ögonblicks bilder) i minst 14 ytterligare dagar, vilket gör det möjligt att återställa fil resurser utan data förlust.  
 
 Mjuk borttagning stöds endast för standard-och Premium lagrings konton och aktive ras från Azure Backup sidan i [dessa regioner](azure-file-share-support-matrix.md).
 
@@ -27,7 +29,7 @@ När du konfigurerar säkerhets kopiering för första gången för en fil resur
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-snapshots-and-restore-points-will-be-retained-in-soft-deleted-state-after-i-delete-the-file-share"></a>Kan jag konfigurera antalet dagar för vilka mina ögonblicks bilder och återställnings punkter ska behållas i läget "tyst borttaget" när jag har tagit bort fil resursen?
 
-Ja, du kan ställa in kvarhållningsperioden enligt dina krav. [Det här dokumentet](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal) förklarar hur du konfigurerar kvarhållningsperioden. För lagrings konton med säkerhetskopierade fil resurser bör inställningen för minsta kvarhållning vara 14 dagar.
+Ja, du kan ställa in kvarhållningsperioden enligt dina krav. [Det här dokumentet](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal) förklarar hur du konfigurerar kvarhållningsperioden. För lagrings konton med säkerhetskopierade fil resurser bör inställningen för minsta kvarhållning vara 14 dagar.
 
 ### <a name="does-azure-backup-reset-my-retention-setting-because-i-configured-it-to-less-than-14-days"></a>Har Azure Backup Återställ inställningen för kvarhållning eftersom jag har konfigurerat den till mindre än 14 dagar?
 
@@ -39,14 +41,14 @@ Under den avbrotts bara borttagnings perioden förblir den skyddade instansen ko
 
 ### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-deleted-state"></a>Kan jag utföra en återställnings åtgärd när mina data är i tyst borttaget läge?
 
-Du måste först ta bort den mjuk borttagna fil resursen för att utföra återställnings åtgärder. Åtgärden ta bort tar fil resursen i det säkerhetskopierade tillstånd där du kan återställa till en viss tidpunkt. Om du vill veta hur du tar bort en fil resurs kan du gå till [den här länken](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) eller Visa [skriptet ta bort fil resurs](./scripts/backup-powershell-script-undelete-file-share.md).
+Du måste först ta bort den mjuk borttagna fil resursen för att utföra återställnings åtgärder. Åtgärden ta bort tar fil resursen i det säkerhetskopierade tillstånd där du kan återställa till en viss tidpunkt. Om du vill veta hur du tar bort en fil resurs kan du gå till [den här länken](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) eller Visa [skriptet ta bort fil resurs](./scripts/backup-powershell-script-undelete-file-share.md).
 
 ### <a name="how-can-i-purge-the-data-of-a-file-share-in-a-storage-account-that-has-at-least-one-protected-file-share"></a>Hur kan jag rensa data i en fil resurs i ett lagrings konto som har minst en skyddad fil resurs?
 
 Om du har minst en skyddad fil resurs i ett lagrings konto innebär det att mjuk borttagning är aktiverat för alla fil resurser i det kontot och att dina data bevaras i 14 dagar efter borttagnings åtgärden. Men om du vill rensa data omedelbart och inte vill att de ska behållas följer du dessa steg:
 
-1. Om du redan har tagit bort fil resursen samtidigt som du har aktiverat mjuk borttagning, tar du först bort fil resursen från fil [portalen](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) eller genom att använda [skriptet ta bort fil resurs](./scripts/backup-powershell-script-undelete-file-share.md).
-2. Inaktivera mjuk borttagning för fil resurser i ditt lagrings konto genom att följa de steg som beskrivs i [det här dokumentet](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#disable-soft-delete).
+1. Om du redan har tagit bort fil resursen samtidigt som du har aktiverat mjuk borttagning, tar du först bort fil resursen från fil [portalen](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) eller genom att använda [skriptet ta bort fil resurs](./scripts/backup-powershell-script-undelete-file-share.md).
+2. Inaktivera mjuk borttagning för fil resurser i ditt lagrings konto genom att följa de steg som beskrivs i [det här dokumentet](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#disable-soft-delete).
 3. Ta nu bort fil resursen vars innehåll du vill rensa omedelbart.
 
 >[!NOTE]
@@ -57,7 +59,7 @@ Om du har minst en skyddad fil resurs i ett lagrings konto innebär det att mjuk
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>Vilka ändringar Azure Backup när jag avregistrerar ett lagrings konto i kontexten för en fil resurss inställning för mjuk borttagning?
 
-Vid avregistreringen kontrollerar Azure Backup kvarhållningsperioden för fil resurser och om den är större än 14 dagar eller mindre än 14 dagar, så lämnar den kvarhållning som den är. Men om kvarhållning är 14 dagar, anser vi att det har Aktiver ATS av Azure Backup och inaktiverar sedan den mjuka borttagningen under Avregistrerings processen. Om du vill avregistrera lagrings kontot samtidigt som du behåller inställningen kvarhållning aktiverar du det igen från fönstret lagrings konto när du har slutfört avregistreringen. Du kan referera till [den här länken](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) för konfigurations stegen.
+Vid avregistreringen kontrollerar Azure Backup kvarhållningsperioden för fil resurser och om den är större än 14 dagar eller mindre än 14 dagar, så lämnar den kvarhållning som den är. Men om kvarhållning är 14 dagar, anser vi att det har Aktiver ATS av Azure Backup och inaktiverar sedan den mjuka borttagningen under Avregistrerings processen. Om du vill avregistrera lagrings kontot samtidigt som du behåller inställningen kvarhållning aktiverar du det igen från fönstret lagrings konto när du har slutfört avregistreringen. Du kan referera till [den här länken](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) för konfigurations stegen.
 
 ## <a name="next-steps"></a>Nästa steg
 

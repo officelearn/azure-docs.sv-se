@@ -4,12 +4,12 @@ description: Skapa frågor för Advisor-data i Azure Resource Graph
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057772"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Fråga efter Advisor-data i resurs diagram Utforskaren (Azure Resource Graph)
 
@@ -24,7 +24,7 @@ Advisor-resurser registreras nu i [Azure Resource Graph](https://azure.microsoft
 
 ## <a name="advisor-resource-types-in-azure-graph"></a>Advisor-resurs typer i Azure Graph
 
-Tillgängliga Advisor-resurs typer i [resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/): det finns 3 resurs typer som är tillgängliga för frågor under Advisor-resurser. Här är en lista över de resurser som nu är tillgängliga för frågor i resurs diagram.
+Tillgängliga Advisor-resurs typer i [resurs diagram](../governance/resource-graph/index.yml): det finns 3 resurs typer som är tillgängliga för frågor under Advisor-resurser. Här är en lista över de resurser som nu är tillgängliga för frågor i resurs diagram.
 * Microsoft. Advisor/konfigurationer
 * Microsoft. Advisor/rekommendationer
 * Microsoft. Advisor/undertrycker
@@ -42,4 +42,4 @@ Mer information om Advisor-rekommendationer finns i:
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

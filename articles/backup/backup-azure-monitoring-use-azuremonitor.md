@@ -4,11 +4,12 @@ description: Övervaka Azure Backup arbets belastningar och skapa anpassade avis
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83714839"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054611"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -55,7 +56,7 @@ Använd en åtgärds grupp för att ange en meddelande kanal. Om du vill se till
 
 Du kan uppfylla alla varnings-och övervaknings krav från Log Analytics ensamma, eller så kan du använda Log Analytics för att komplettera inbyggda meddelanden.
 
-Mer information finns i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) och [skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Mer information finns i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](../azure-monitor/platform/alerts-log.md) och [skapa och hantera åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md).
 
 ### <a name="sample-kusto-queries"></a>Exempel på Kusto-frågor
 
@@ -179,7 +180,7 @@ Identifiera lämplig logg och skapa en avisering:
 
 2. Välj ett åtgärds namn för att se relevant information.
 3. Välj **ny varnings regel** för att öppna sidan **Skapa regel** .
-4. Skapa en avisering genom att följa stegen i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+4. Skapa en avisering genom att följa stegen i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](../azure-monitor/platform/alerts-activity-log.md).
 
    ![Ny varnings regel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -192,8 +193,8 @@ Du kan visa alla aviseringar som skapats från aktivitets loggar och Log Analyti
 Även om du kan få aviseringar via aktivitets loggar rekommenderar vi starkt att du använder Log Analytics snarare än aktivitets loggar för övervakning i stor skala. Skälet är följande:
 
 - **Begränsade scenarier**: meddelanden via aktivitets loggar gäller endast för virtuella Azure-säkerhetskopieringar. Meddelandena måste konfigureras för varje Recovery Services valv.
-- **Definitions passning**: den schemalagda säkerhets kopierings aktiviteten passar inte med den senaste definitionen av aktivitets loggarna. I stället justeras det med [resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Den här justeringen orsakar oväntade effekter när de data som flödar genom aktivitets loggs kanalen ändras.
-- **Problem med aktivitets logg kanalen**: i Recovery Services valv följer aktivitets loggar som pumpas från Azure Backup en ny modell. Den här ändringen påverkar tyvärr genereringen av aktivitets loggar i Azure Government, Azure Germany och Azure Kina 21Vianet. Om användarna av dessa moln tjänster skapar eller konfigurerar aviseringar från aktivitets loggar i Azure Monitor utlöses inte aviseringarna. I alla offentliga Azure-regioner visas även dessa loggar om en användare [samlar in Recovery Services aktivitets loggar till en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs).
+- **Definitions passning**: den schemalagda säkerhets kopierings aktiviteten passar inte med den senaste definitionen av aktivitets loggarna. I stället justeras det med [resurs loggar](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Den här justeringen orsakar oväntade effekter när de data som flödar genom aktivitets loggs kanalen ändras.
+- **Problem med aktivitets logg kanalen**: i Recovery Services valv följer aktivitets loggar som pumpas från Azure Backup en ny modell. Den här ändringen påverkar tyvärr genereringen av aktivitets loggar i Azure Government, Azure Germany och Azure Kina 21Vianet. Om användarna av dessa moln tjänster skapar eller konfigurerar aviseringar från aktivitets loggar i Azure Monitor utlöses inte aviseringarna. I alla offentliga Azure-regioner visas även dessa loggar om en användare [samlar in Recovery Services aktivitets loggar till en Log Analytics arbets yta](../azure-monitor/platform/activity-log.md).
 
 Använd en Log Analytics arbets yta för övervakning och avisering i skala för alla arbets belastningar som skyddas av Azure Backup.
 

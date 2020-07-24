@@ -4,13 +4,14 @@ description: Skapa programkonsekventa säkerhets kopieringar av dina virtuella L
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173008"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054852"
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekventa säkerhetskopior av virtuella Linux-datorer på Azure
 
 När du tar ögonblicks bilder av dina virtuella datorer innebär applikations konsekvens att dina program startar när VM-starten startas efter att ha återställts. Som du kan föreställa dig är programmets konsekvens mycket viktigt. För att se till att dina virtuella Linux-datorer är konsekventa kan du använda Linux pre-script och post-script för att ta programkonsekventa säkerhets kopieringar. För skript och efter skript stöder Azure Resource Manager distribuerade virtuella Linux-datorer. Skript för program konsekvens stöder inte Service Manager-distribuerade virtuella datorer eller virtuella Windows-datorer.
 
@@ -64,7 +65,7 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
 
     - **ScriptsExecutionPollTimeSeconds**: Ange tiden som tillägget måste försättas i vilo läge mellan varje pollning till skript körningen. Om värdet till exempel är 2, kontrollerar tillägget om körningen av skript har slutförts var 2: e sekund. Det lägsta och högsta värdet kan ta 1 respektive 5. Värdet ska vara ett heltal.
 
-6. Skript ramverket har nu kon figurer ATS. Om säkerhets kopieringen av den virtuella datorn redan har kon figurer ATS anropar nästa säkerhets kopiering skripten och utlöser programkonsekvent säkerhets kopiering. Om säkerhets kopian av den virtuella datorn inte har kon figurer ATS konfigurerar du den med hjälp av [säkerhetskopiera virtuella Azure-datorer till Recovery Services valv.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. Skript ramverket har nu kon figurer ATS. Om säkerhets kopieringen av den virtuella datorn redan har kon figurer ATS anropar nästa säkerhets kopiering skripten och utlöser programkonsekvent säkerhets kopiering. Om säkerhets kopian av den virtuella datorn inte har kon figurer ATS konfigurerar du den med hjälp av [säkerhetskopiera virtuella Azure-datorer till Recovery Services valv.](./backup-azure-vms-first-look-arm.md)
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -85,4 +86,4 @@ Se till att du lägger till lämplig loggning när du skriver ditt för skript o
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera VM-säkerhetskopiering till ett Recovery Services-valv](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Konfigurera VM-säkerhetskopiering till ett Recovery Services-valv](./backup-azure-vms-first-look-arm.md)

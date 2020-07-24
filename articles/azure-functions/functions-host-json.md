@@ -3,14 +3,14 @@ title: host.jssom referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions host.jsi filen med v2-körningen.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055299"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jssom referens för Azure Functions 2. x och senare 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.json-referens för Azure Functions 2.x och senare 
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
 > * [Version 1](functions-host-json-v1.md)
@@ -145,7 +145,7 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 > [!NOTE]
 > Logg sampling kan orsaka att vissa körningar inte visas på bladet Application Insights övervakning. Om du vill undvika logg sampling lägger `excludedTypes: "Request"` du till `samplingSettings` värdet.
 
-| Egenskap | Default | Beskrivning |
+| Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
 | samplingSettings | saknas | Se [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Aktiverar insamling av Live-mått. |
@@ -157,23 +157,23 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
 | isEnabled | true | Aktiverar eller inaktiverar sampling. | 
 | maxTelemetryItemsPerSecond | 20 | Mål antalet för telemetri som loggats per sekund på varje server värd. Om din app körs på många värdar kan du minska det här värdet så att det ligger kvar i den övergripande trafik hastigheten. | 
 | evaluationInterval | 01:00:00 | Intervallet då den aktuella takten för telemetri utvärderas igen. Utvärderingen utförs som ett glidande medelvärde. Du kanske vill förkorta det här intervallet om din telemetri är ansvarig för plötsliga burst-överföring. |
-| initialSamplingPercentage| 1.0 | Den första samplings procenten som används i början av samplings processen för att dynamiskt variera procent andelen. Minska inte värdet när du felsöker. |
+| initialSamplingPercentage| 1,0 | Den första samplings procenten som används i början av samplings processen för att dynamiskt variera procent andelen. Minska inte värdet när du felsöker. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | När värdet för samplings procent ändras avgör den här egenskapen hur snart efteråt Application Insights tillåts att öka samplings procenten igen för att samla in mer data. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | När värdet för samplings procenten ändras avgör den här egenskapen hur snart efteråt Application Insights tillåts att sänka samplings procenten igen för att samla in mindre data. |
 | minSamplingPercentage | 0.1 | När samplings procenten varierar avgör den här egenskapen den lägsta tillåtna samplings procenten. |
 | maxSamplingPercentage | 0.1 | När samplings procenten varierar, fastställer den här egenskapen Maximalt antal tillåtna samplings procent. |
-| movingAverageRatio | 1.0 | Vid beräkningen av det glidande medelvärdet har vikten tilldelats det senaste värdet. Använd ett värde som är lika med eller mindre än 1. Lägre värden gör algoritmen mindre aktiv till plötsliga ändringar. |
+| movingAverageRatio | 1,0 | Vid beräkningen av det glidande medelvärdet har vikten tilldelats det senaste värdet. Använd ett värde som är lika med eller mindre än 1. Lägre värden gör algoritmen mindre aktiv till plötsliga ändringar. |
 | excludedTypes | null | En semikolonavgränsad lista med typer som du inte vill ska samplas. Godkända typer är: `Dependency` , `Event` ,,, `Exception` `PageView` `Request` och `Trace` . Alla instanser av de angivna typerna överförs. de typer som inte har angetts är samplade. |
 | includedTypes | null | En semikolonavgränsad lista med typer som du vill ska samplas om. en tom lista förutsätter alla typer. Typ som anges i `excludedTypes` listan över åsidosättningar här. Godkända typer är: `Dependency` , `Event` ,,, `Exception` `PageView` `Request` och `Trace` . Instanser av de angivna typerna samplas. de typer som inte anges eller underförstådda överförs utan sampling. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Aktiverar eller inaktiverar utökad HTTP-begäran om HTTP-utlösare: inkommande begäran korrelations rubriker, stöd för flera instrument nycklar, HTTP-metod, sökväg och svar. |
 | enableW3CDistributedTracing | true | Aktiverar eller inaktiverar stöd för W3C Distributed tracing Protocol (och aktiverar ett äldre korrelations schema). Aktive ras som standard om `enableHttpTriggerExtendedInfoCollection` är sant. Om `enableHttpTriggerExtendedInfoCollection` är False gäller den här flaggan enbart utgående begär Anden, inte inkommande begär Anden. |
@@ -181,12 +181,12 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
-Mer information om ögonblicks bilder finns i [fel sökning av ögonblicks bilder av undantag i .net-appar](/azure/azure-monitor/app/snapshot-debugger) och [Felsöka problem som aktiverar Application Insights Snapshot debugger eller visning av ögonblicks bilder](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Mer information om ögonblicks bilder finns i [fel sökning av ögonblicks bilder av undantag i .net-appar](../azure-monitor/app/snapshot-debugger.md) och [Felsöka problem som aktiverar Application Insights Snapshot debugger eller visning av ögonblicks bilder](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Slut punkten som används för att ansluta till tjänsten Application Insights Snapshot Debugger. Om värdet är null används en standard slut punkt. |
-| captureSnapshotMemoryWeight | 0,5 | Vikten som ges till den aktuella processens minnes storlek vid kontroll om det finns tillräckligt med minne för att ta en ögonblicks bild. Det förväntade värdet är ett större än 0-bråk (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0.5 | Vikten som ges till den aktuella processens minnes storlek vid kontroll om det finns tillräckligt med minne för att ta en ögonblicks bild. Det förväntade värdet är ett större än 0-bråk (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Gränsen för antalet misslyckade förfrågningar för att begära ögonblicks bilder innan telemetri-processorn har inaktiverats.|
 | handleUntrackedExceptions | true | Aktiverar eller inaktiverar spårning av undantag som inte spåras av Application Insights telemetri. |
 | isEnabled | true | Aktiverar eller inaktiverar ögonblicks bild samling | 
@@ -244,7 +244,7 @@ En lista med funktioner som jobb värden kör. En tom matris innebär att köra 
 
 Anger varaktigheten för alla funktioner. Det följer sträng formatet TimeSpan. 
 
-| Typ av plan | Standard (min) | Maximalt (min) |
+| Plantyp | Standard (min) | Maximalt (min) |
 | -- | -- | -- |
 | Förbrukning | 5 | 10 |
 | Premium<sup>1</sup> | 30 | -1 (ej bindande)<sup>2</sup> |
@@ -275,7 +275,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |enabled|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
@@ -307,10 +307,10 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never` , `always` , `debugOnly` . |
-|logLevel|saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
+|logLevel|saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
 |konsol|saknas| Loggnings inställningen för [konsolen](#console) . |
 |applicationInsights|saknas| Inställningen [applicationInsights](#applicationinsights) . |
 
@@ -330,7 +330,7 @@ Den här inställningen är underordnad [loggning](#logging). Den styr konsol lo
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|falskt|Aktiverar eller inaktiverar konsol loggning.| 
 
@@ -374,7 +374,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Den period som funktions nivå lås utförs för. Lås automatisk förnyelse.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 

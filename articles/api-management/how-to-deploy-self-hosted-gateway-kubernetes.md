@@ -9,18 +9,18 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056383"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuera en gateway med egen värd till Kubernetes
 
 Den här artikeln beskriver stegen för att distribuera den lokala gateway-komponenten i Azure API Management till ett Kubernetes-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 - Skapa ett Kubernetes-kluster.
@@ -35,7 +35,7 @@ Den här artikeln beskriver stegen för att distribuera den lokala gateway-kompo
 3. Välj **distribution**.
 4. En åtkomsttoken i text rutan **token** genererades automatiskt åt dig, baserat på standardvärden för **förfallo datum** och **hemlig nyckel** . Om det behövs väljer du värden i någon av eller båda kontrollerna för att generera en ny token.
 5. Välj fliken **Kubernetes** under **distributions skript**.
-6. Välj fil länken **<Gateway-name>. yml** och ladda ned yaml-filen.
+6. Välj länk för ** \<gateway-name\> . yml** -filen och ladda ned yaml-filen.
 7. Välj **kopierings** ikonen **i det nedre** högra hörnet i text rutan för att spara `kubectl` kommandona i Urklipp.
 8. Klistra in kommandon i terminalfönstret (eller kommando fönstret). Det första kommandot skapar en Kubernetes-hemlighet som innehåller den åtkomsttoken som genererades i steg 4. Det andra kommandot tillämpar konfigurations filen som hämtades i steg 6 till Kubernetes-klustret och förväntar sig att filen är i den aktuella katalogen.
 9. Kör kommandona för att skapa de nödvändiga Kubernetes-objekten i [standard namn området](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) och starta poddar för egen värd från [behållar avbildningen](https://aka.ms/apim/sputnik/dhub) som hämtats från Microsoft container Registry.
@@ -106,6 +106,12 @@ DNS-namnmatchning spelar en viktig roll i en lokal gateways möjlighet att anslu
 YAML-filen som tillhandahölls i Azure Portal tillämpar standard principen för [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) . Den här principen gör att namn matchnings begär Anden som inte matchas av kluster-DNS kan vidarebefordras till den överordnade DNS-server som har ärvts från noden.
 
 Mer information om namn matchning i Kubernetes finns på [Kubernetes-webbplatsen](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Överväg att anpassa [DNS-principen](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) eller [DNS-konfigurationen](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) efter behov.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>Anpassade domän namn och SSL-certifikat
+
+Om du använder anpassade domän namn för API Management slut punkter, särskilt om du använder ett anpassat domän namn för hanterings slut punkten, kan du behöva uppdatera värdet `config.service.endpoint` i ** \<gateway-name\> . yaml** -filen för att ersätta standard domän namnet med det anpassade domän namnet. Se till att hanterings slut punkten kan nås från POD för den egen värdbaserade gatewayen i Kubernetes-klustret.
+
+I det här scenariot, om SSL-certifikatet som används av hanterings slut punkten inte har signerats av ett välkänt CA-certifikat, måste du se till att CA-certifikatet är betrott av Pod för den egna värdbaserade gatewayen.
 
 ### <a name="configuration-backup"></a>Säkerhets kopiering av konfiguration
 Om du vill veta mer om Gateway-beteende med egen värd i närvaro av ett tillfälligt Azure-anslutningsfel, se [Översikt över egen värd-Gateway](self-hosted-gateway-overview.md#connectivity-to-azure).

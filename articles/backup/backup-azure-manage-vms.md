@@ -4,11 +4,12 @@ description: Lär dig att hantera och övervaka virtuella Azure-säkerhetskopier
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054752"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -53,6 +54,17 @@ Visa virtuella datorer på valv-instrument panelen:
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Hantera säkerhets kopierings princip för en virtuell dator
 
+### <a name="modify-backup-policy"></a>Ändra säkerhets kopierings princip
+
+Så här ändrar du en befintlig säkerhets kopierings princip:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/). Öppna instrument panelen för valvet.
+2. Välj säkerhets kopierings policyn för den virtuella Azure-datorns typ i **Hantera principer för > säkerhets kopiering**.
+3.  Klicka på ändra och ändra inställningarna.
+
+
+### <a name="switch-backup-policy"></a>Växla princip för säkerhets kopiering 
+
 Så här hanterar du en säkerhets kopierings princip:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/). Öppna instrument panelen för valvet.
@@ -77,6 +89,9 @@ Du kan köra en säkerhets kopiering på begäran av en virtuell dator efter att
 * Om den första säkerhets kopieringen väntar, skapar säkerhets kopiering på begäran en fullständig kopia av den virtuella datorn i Recovery Services valvet.
 * Om den första säkerhets kopieringen är klar kommer en säkerhets kopiering på begäran endast att skicka ändringar från den tidigare ögonblicks bilden till Recovery Services valvet. Det innebär att senare säkerhets kopieringar alltid är stegvisa.
 * Kvarhållningsintervallet för en säkerhets kopiering på begäran är det kvarhållningsintervall som du anger när du utlöser säkerhets kopieringen.
+
+> [!NOTE]
+> Azure Backups tjänsten har stöd för upp till nio säkerhets kopieringar på begäran per dag, men Microsoft rekommenderar högst fyra dagliga säkerhets kopieringar på begäran för att säkerställa bästa prestanda.
 
 Så här utlöser du en säkerhets kopiering på begäran:
 
@@ -125,6 +140,9 @@ Stoppa skyddet och ta bort data för en virtuell dator:
 
     ![Ta bort säkerhetskopieringsdata](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
+> [!NOTE]
+> När du har slutfört borttagnings åtgärden bevaras de säkerhetskopierade data i 14 dagar i [läget Soft Deleted](./soft-delete-virtual-machines.md). <br>Dessutom kan du också [Aktivera eller inaktivera mjuk borttagning](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+
 ## <a name="resume-protection-of-a-vm"></a>Återuppta skyddet av en virtuell dator
 
 Om du väljer alternativet [stoppa skydd och behåll säkerhets kopierings data](#stop-protection-and-retain-backup-data) under stoppa VM-skyddet kan du använda **återuppta säkerhets kopiering**. Det här alternativet är inte tillgängligt om du väljer alternativet [stoppa skydd och ta bort säkerhets kopierings](#stop-protection-and-delete-backup-data) data eller [tar bort säkerhetskopierade data](#delete-backup-data).
@@ -157,7 +175,7 @@ Det finns två sätt att ta bort en virtuell dators säkerhets kopierings data:
 
   * Om du vill ta bort säkerhetskopierade data för objektet väljer du **ta bort**. Ett meddelande visas där du vet att säkerhets kopierings data har tagits bort.
 
-För att skydda dina data innehåller Azure Backup funktionen för mjuk borttagning. Med mjuk borttagning, även efter att säkerhets kopieringen (alla återställnings punkter) för en virtuell dator har tagits bort, behålls säkerhets kopierings data i ytterligare 14 dagar. Mer information finns i [dokumentationen om mjuk borttagning](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+För att skydda dina data innehåller Azure Backup funktionen för mjuk borttagning. Med mjuk borttagning, även efter att säkerhets kopieringen (alla återställnings punkter) för en virtuell dator har tagits bort, behålls säkerhets kopierings data i ytterligare 14 dagar. Mer information finns i [dokumentationen om mjuk borttagning](./backup-azure-security-feature-cloud.md).
 
   > [!NOTE]
   > När du tar bort säkerhetskopierade data tar du bort alla tillhör ande återställnings punkter. Du kan inte välja vissa återställnings punkter att ta bort.
@@ -172,4 +190,4 @@ För att skydda dina data innehåller Azure Backup funktionen för mjuk borttagn
 
 * Lär dig hur du [säkerhetskopierar virtuella Azure-datorer från inställningarna för den virtuella datorn](backup-azure-vms-first-look-arm.md).
 * Lär dig hur du [återställer virtuella datorer](backup-azure-arm-restore-vms.md).
-* Lär dig hur du [övervakar säkerhets kopior av virtuella Azure-datorer](backup-azure-monitor-vms.md).
+* Lär dig hur du [övervakar säkerhets kopior av virtuella Azure-datorer](./backup-azure-monitoring-built-in-monitor.md).

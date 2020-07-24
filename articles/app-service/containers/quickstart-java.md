@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e06d7d73230b17710d8c667ab89d5ead522e6de1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0c872865cec4dbea75a9adfee62c26e7c4d40763
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056418"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabb start: skapa en Java-app på Azure App Service på Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "85254267"
 
 > [!NOTE]
 >
-> Samma sak kan också göras med populära IDE: er som IntelliJ, Sol förmörkelse och VS Code. Ta en titt på våra liknande dokument i [Azure Toolkit for IntelliJ snabb start](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit for Eclipse snabb start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) eller [vs Code snabb start](https://code.visualstudio.com/docs/java/java-webapp).
+> Samma sak kan också göras med populära IDE: er som IntelliJ, Sol förmörkelse och VS Code. Ta en titt på våra liknande dokument i [Azure Toolkit for IntelliJ snabb start](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app), [Azure Toolkit for Eclipse snabb start](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app) eller [vs Code snabb start](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![Exempel app som körs i Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 

@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e05c7a8388b662731c04ac4098d6eecb1d89fe4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060154"
 ---
-# <a name="configure-a-content-key-authorization-policy"></a>Konfigurera en auktoriseringsprincip för innehålls nycklar
+# <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Konfigurera en auktoriseringsprincip för innehålls nycklar med hjälp av Media Services .NET SDK
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
@@ -33,7 +34,7 @@ Om du vill Media Services kryptera en till gång måste du associera en krypteri
 
 När en data ström begärs av en spelare, använder Media Services den angivna nyckeln för att dynamiskt Kryptera ditt innehåll med hjälp av AES eller DRM-kryptering. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren har behörighet att hämta nyckeln utvärderar tjänsten de Auktoriseringsprinciper som du har angett för nyckeln.
 
-Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Auktoriseringsprincipen för innehålls nyckeln kan ha en eller flera begränsningar för auktorisering. Alternativen är Open eller token-begränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i formatet simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) och JSON Web token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)).
+Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Auktoriseringsprincipen för innehålls nyckeln kan ha en eller flera begränsningar för auktorisering. Alternativen är Open eller token-begränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i formatet simple web token ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) och JSON Web token ([JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3)).
 
 Media Services tillhandahåller inte STS. Du kan skapa en anpassad STS eller använda Azure Access Control Service för att utfärda token. STS måste konfigureras för att skapa en token som signerats med den angivna nyckeln och utfärda anspråk som du angav i konfigurationen för token-begränsning (enligt beskrivningen i den här artikeln). Om token är giltig och anspråk i token matchar de som kon figurer ATS för innehålls nyckeln, returnerar tjänsten Media Services Key Delivery krypterings nyckeln till klienten.
 
@@ -438,4 +439,3 @@ Information om hur du hämtar en testtoken baserat på den token-begränsning so
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat innehålls nyckelns auktoriseringsprincip, se [Konfigurera en till gångs leverans princip](media-services-dotnet-configure-asset-delivery-policy.md).
-

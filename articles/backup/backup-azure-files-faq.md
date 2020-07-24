@@ -3,15 +3,16 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 134d9520a3c2348b23ec27c6e14eb56468f2002d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488706"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054970"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
-Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också skicka frågor om tjänsten Azure Backup på [sidan Microsoft Q&en fråga för diskussion](https://docs.microsoft.com/answers/topics/azure-backup.html).
+Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också skicka frågor om tjänsten Azure Backup på [sidan Microsoft Q&en fråga för diskussion](/answers/topics/azure-backup.html).
 
 Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkarna till höger, under **Innehåll i artikeln**.
 
@@ -55,7 +56,7 @@ Du kan ha upp till 200 ögonblicksbilder för en filresurs vid varje tidpunkt. G
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Kan jag återställa från en borttagen Azure-filresurs?
 
-Om fil resursen är i läget tyst Borttagning måste du först ta bort fil resursen för att utföra återställnings åtgärden. Åtgärden ta bort tar fil resursen i det aktiva läge där du kan återställa till en viss tidpunkt. Om du vill veta hur du tar bort en fil resurs kan du gå till [den här länken](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) eller Visa [skriptet ta bort fil resurs](./scripts/backup-powershell-script-undelete-file-share.md). Om fil resursen tas bort permanent kan du inte återställa innehållet och ögonblicks bilderna.
+Om fil resursen är i läget tyst Borttagning måste du först ta bort fil resursen för att utföra återställnings åtgärden. Åtgärden ta bort tar fil resursen i det aktiva läge där du kan återställa till en viss tidpunkt. Om du vill veta hur du tar bort en fil resurs kan du gå till [den här länken](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) eller Visa [skriptet ta bort fil resurs](./scripts/backup-powershell-script-undelete-file-share.md). Om fil resursen tas bort permanent kan du inte återställa innehållet och ögonblicks bilderna.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Kan jag återställa från säkerhetskopior om jag har stoppat skyddet på en Azure-filresurs?
 
@@ -104,7 +105,7 @@ Här är ett exempel på hur det fungerar:
 | -------------- | ------------------------------ | --------- |
 | Varje dag          | Varje dag kl. 9 PM              | 50 dagar   |
 | Varje vecka         | På söndag till 9 PM              | 3 veckor   |
-| Månadsvis        | Den senaste måndagen vid 9 PM         | 1 månad   |
+| Varje månad        | Den senaste måndagen vid 9 PM         | 1 månad   |
 | Varje år         | I Jan den tredje söndagen med 9 PM | 4 år   |
 
 #### <a name="impact"></a>Påverkan
@@ -139,7 +140,7 @@ Här är ett exempel på hur det fungerar:
 | -------------- | ---------------------- | --------- |
 | Varje dag          | Varje dag kl. 9 PM     | 10 dagar   |
 | Varje vecka         | På måndag till 9 PM      | 2 veckor   |
-| Månadsvis        | Den senaste måndagen vid 9 PM | 2 månader  |
+| Varje månad        | Den senaste måndagen vid 9 PM | 2 månader  |
 
 #### <a name="impact-of-change"></a>Effekt av ändring
 

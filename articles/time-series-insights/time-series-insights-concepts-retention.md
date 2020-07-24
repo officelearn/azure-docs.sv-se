@@ -5,26 +5,26 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81380694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059422"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå data kvarhållning i Azure Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Förstå data kvarhållning i Azure Time Series Insights gen1
 
 I den här artikeln beskrivs två primära inställningar som påverkar datakvarhållning i Azure Time Series Insightss miljön.
 
 ## <a name="video"></a>Video
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Följande video sammanfattar Time Series Insights datakvarhållning och hur du planerar för den.</br>
+### <a name="the-following-video-summarizes-azure-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Följande video sammanfattar Azure Time Series Insights datakvarhållning och hur du planerar för den.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -36,15 +36,15 @@ Dessutom har Azure Time Series Insights miljön en gräns för **lagrings gräns
 - **Pausa ingress**
 
 > [!NOTE]
-> Som standard konfigureras kvarhållning för att **Rensa gamla data**när du skapar en ny miljö. Den här inställningen kan växlas efter behov efter att du skapat den Azure Portal, på sidan **Konfigurera** i Time Series Insightss miljön.
-> * Information om hur du konfigurerar bevarande principer finns [i Konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).
+> Som standard konfigureras kvarhållning för att **Rensa gamla data**när du skapar en ny miljö. Den här inställningen kan växlas efter behov efter att du skapat den Azure Portal, på sidan **Konfigurera** i Azure Time Series Insightss miljön.
+> * Information om hur du konfigurerar bevarande principer finns [i Konfigurera kvarhållning i Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Båda principerna för data lagring beskrivs mer detaljerat nedan.
 
 ## <a name="purge-old-data"></a>Rensa gamla data
 
 - **Rensa gamla data** är standardinställningen för Azure Time Series Insights miljöer.  
-- **Rensa gamla data** rekommenderas om användarna alltid vill ha sina *senaste data* i sin Time Series Insightss miljö.
+- **Rensa gamla data** rekommenderas om användarna alltid vill ha sina *senaste data* i sin Azure Time Series Insightss miljö.
 - Inställningen **Rensa gammal data** *rensar* data när miljöns gränser (kvarhållning, storlek eller antal, beroende på vad som kommer först) har nåtts. Kvarhållning är inställt på 30 dagar som standard.
 - De äldsta inmatade data rensas först (metoden "först in först ut").
 
@@ -69,7 +69,7 @@ När den här miljöns dagliga ingångs hastighet överskrider 0,166 GB per dag,
 - Det hjälper dig att skydda dig mot data förlust, men du kan skapa en möjlighet att förlora dina senaste data om ingressen pausas bortom händelse källans kvarhållningsperiod.
 - När en Miljös maximala kapacitet har nåtts pausar dock miljön data ingångs tiden tills följande ytterligare åtgärder inträffar:
 
-   - Du ökar miljöns maximala kapacitet för att lägga till fler skalnings enheter enligt beskrivningen i [så här skalar du Time Series Insightss miljön](time-series-insights-how-to-scale-your-environment.md).
+   - Du ökar miljöns maximala kapacitet för att lägga till fler skalnings enheter enligt beskrivningen i [så här skalar du Azure Time Series Insightss miljön](time-series-insights-how-to-scale-your-environment.md).
    - Data lagrings perioden har nåtts och data rensas, vilket gör miljön lägre än den maximala kapaciteten.
 
 ### <a name="example-three"></a>Exempel tre
@@ -86,16 +86,16 @@ När ingress återupptas:
 > [!IMPORTANT]
 > Du bör ange aviseringar för att meddela att du undviker ingångs avbrott. Data förlust är möjlig eftersom standard kvarhållning är 1 dag för Azures händelse källor. När ingångarna har pausats förlorar du förmodligen de senaste data om inte ytterligare åtgärder vidtas. Du måste öka kapacitets-eller växel beteendet för att **Rensa gamla data** för att undvika risken för data förlust.
 
-I den påverkade Event Hubs bör du överväga att justera egenskapen för **kvarhållning av meddelanden** för att minimera data förlust när paus inträffar i Time Series Insights.
+I den påverkade Event Hubs bör du överväga att justera egenskapen för **kvarhållning av meddelanden** för att minimera data förlust när paus inträffar i Azure Time Series Insights.
 
 [![Kvarhållning av Event Hub-meddelande.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Om inga egenskaper har kon figurer ATS på händelse källan ( `timeStampPropertyName` ) Time Series Insights standardvärdet för tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelserna parsas.
+Om inga egenskaper har kon figurer ATS på händelse källan ( `timeStampPropertyName` ) Azure Time Series Insights standardvärdet för tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelserna parsas.
 
-Läs [hur du skalar din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md) för att skala din miljö för att hantera ytterligare kapacitet eller öka längden på kvarhållning.
+Läs [hur du skalar din Azure Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md) för att skala din miljö för att hantera ytterligare kapacitet eller öka längden på kvarhållning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du konfigurerar eller ändrar inställningar för datakvarhållning finns [i Konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Information om hur du konfigurerar eller ändrar inställningar för datakvarhållning finns [i Konfigurera kvarhållning i Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Läs mer om hur du [minimerar svars tiden i Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

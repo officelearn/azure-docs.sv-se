@@ -3,15 +3,16 @@ title: Hantera Azure Recovery Services-valv och-servrar
 description: I den här artikeln lär du dig hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b3cc317b8a26b16bbeda9793f87d089f2fbc59f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234599"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054898"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
-I den här artikeln förklaras hur du använder **översikts** instrument panelen för Recovery Services valv för att övervaka och hantera dina Recovery Services-valv. När du öppnar ett Recovery Services valv i listan öppnas **översikts** instrument panelen för det valda valvet. Instrument panelen innehåller olika detaljer om valvet. Det finns *paneler* som visar: status för kritiska varningar och varnings aviseringar, pågående och misslyckade säkerhets kopierings jobb samt mängden lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS) som används. Om du säkerhetskopierar virtuella Azure-datorer till valvet [visas kritiska eller varnings objekt i status panelen för **säkerhets kopiering** ](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). Följande bild är **översikts** instrument panelen för **contoso-valvet**. På panelen **säkerhets kopierings objekt** visas nio objekt som registrerats för valvet.
+I den här artikeln förklaras hur du använder **översikts** instrument panelen för Recovery Services valv för att övervaka och hantera dina Recovery Services-valv. När du öppnar ett Recovery Services valv i listan öppnas **översikts** instrument panelen för det valda valvet. Instrument panelen innehåller olika detaljer om valvet. Det finns *paneler* som visar: status för kritiska varningar och varnings aviseringar, pågående och misslyckade säkerhets kopierings jobb samt mängden lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS) som används. Om du säkerhetskopierar virtuella Azure-datorer till valvet [visas kritiska eller varnings objekt i status panelen för **säkerhets kopiering** ](#backup-pre-check-status). Följande bild är **översikts** instrument panelen för **contoso-valvet**. På panelen **säkerhets kopierings objekt** visas nio objekt som registrerats för valvet.
 
 ![instrument panel för Recovery Services-valv](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -177,7 +178,7 @@ Om du vill utforska en speciell typ av skyddad instans klickar du på objektet i
 
 ![lista över säkerhets kopierings typ](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-Listan över virtuella datorer har användbara data: den associerade resurs gruppen, föregående [säkerhets kopierings kontroll](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status), status för senaste säkerhets kopiering och datumet för den senaste återställnings punkten. Ellipsen i den sista kolumnen öppnar menyn för att utlösa vanliga uppgifter. De användbara data som finns i kolumner är olika för varje säkerhets kopierings typ.
+Listan över virtuella datorer har användbara data: den associerade resurs gruppen, föregående [säkerhets kopierings kontroll](#backup-pre-check-status), status för senaste säkerhets kopiering och datumet för den senaste återställnings punkten. Ellipsen i den sista kolumnen öppnar menyn för att utlösa vanliga uppgifter. De användbara data som finns i kolumner är olika för varje säkerhets kopierings typ.
 
 ![lista över säkerhets kopierings typ](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -242,9 +243,9 @@ Du kan visa en åtgärd eller alla åtgärder. Det går inte att välja två ell
 Du kan visa all status eller en. Du kan inte välja två eller tre status värden. Tillgängliga statusar är:
 
 * Alla status
-* Slutförd
+* Slutfört
 * Pågår
-* Misslyckades
+* Misslyckad
 * Avbrutna
 * Slutfört med varningar
 
@@ -286,4 +287,4 @@ Panelen lagring av säkerhets kopior på instrument panelen visar förbrukad lag
 ## <a name="next-steps"></a>Nästa steg
 
 * [Återställa Windows Server eller Windows-klient från Azure](backup-azure-restore-windows-server.md)
-* Mer information om Azure Backup finns i [Azure Backup översikt](backup-introduction-to-azure-backup.md)
+* Mer information om Azure Backup finns i [Azure Backup översikt](./backup-overview.md)

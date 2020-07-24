@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056737"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
 
@@ -31,18 +31,18 @@ Möjligheten att hantera RBAC för Kubernetes-resurser från Azure ger dig möjl
 > - [Support principer för AKS](support-policies.md)
 > - [Vanliga frågor och svar om support för Azure](faq.md)
 
-### <a name="prerequisites"></a>Krav 
+### <a name="prerequisites"></a>Förutsättningar 
 - Registrera dig för för hands versionen <https://aka.ms/aad-rbac-sign-up-form> .
 - Se till att `EnableAzureRBACPreview` funktions flaggan är aktive rad.
 - Se till att `AAD-V2` funktions flaggan är aktive rad.
-- Se till att du har `aks-preview` CLI-tillägget v 0.4.55 eller senare installerat
+- Se till att du har `aks-preview` [CLI-tillägget][az-extension-add] v 0.4.55 eller senare installerat
 - Se till att du har installerat [kubectl v-1.18.3 +][az-aks-install-cli].
 
 #### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>Registrera `EnableAzureRBACPreview` och `AAD-V2` Förhandsgranska funktioner
 
 Om du vill skapa ett AKS-kluster som använder Azure RBAC för Kubernetes-auktorisering måste du aktivera- `EnableAzureRBACPreview` och- `AAD-V2` funktions flaggorna i din prenumeration.
 
-Registrera `EnableAzureRBACPreview` funktions flaggan med hjälp av kommandot [AZ Feature register][az-feature-register] som visas i följande exempel:
+Registrera- `EnableAzureRBACPreview` och- `AAD-V2` funktions flaggorna med hjälp av kommandot [AZ Feature register][az-feature-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
@@ -64,9 +64,9 @@ När du är klar uppdaterar du registreringen av resurs leverantören för *Micr
 az provider register --namespace Microsoft.ContainerService
 ```
 
-#### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
+#### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägget aks-preview
 
-Om du vill skapa ett AKS-kluster som använder Azure RBAC behöver du *AKS-Preview CLI-* tillägget version 0.4.55 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+Om du vill skapa ett AKS-kluster som använder Azure RBAC behöver du *AKS-Preview CLI-* tillägget version 0.4.55 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] eller installera alla tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension

@@ -4,11 +4,12 @@ description: Lär dig hur du hanterar och övervakar säkerhets kopior av Micros
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057831"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054984"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services (MARS) med hjälp av tjänsten Azure Backup
 
@@ -48,7 +49,7 @@ När du ändrar säkerhets kopierings policyn kan du lägga till nya objekt, ta 
 
     ![Välj objekten](./media/backup-azure-manage-mars/select-item.png)
 
-6. Slutför åtgärden genom att slutföra de efterföljande stegen och klicka på **Slutför** .
+6. Slutför åtgärden genom att slutföra nästa steg och klicka på **Slutför** .
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>Lägg till undantags regler i befintlig princip
 
@@ -70,7 +71,7 @@ Du kan lägga till undantags regler för att hoppa över filer och mappar som du
 
     ![Välj objekten](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. Slutför åtgärden genom att slutföra de efterföljande stegen och klicka på **Slutför** .
+5. Slutför åtgärden genom att slutföra nästa steg och klicka på **Slutför** .
 
 ### <a name="remove-items-from-existing-policy"></a>Ta bort objekt från befintlig princip
 
@@ -81,7 +82,7 @@ Du kan lägga till undantags regler för att hoppa över filer och mappar som du
     > [!NOTE]
     > Fortsätt med försiktighet när du tar bort en volym från principen helt.  Om du behöver lägga till den igen kommer den att behandlas som en ny volym. Nästa schemalagda säkerhets kopiering kommer att utföra en första säkerhets kopiering (fullständig säkerhets kopiering) i stället för stegvis säkerhets kopiering. Om du tillfälligt behöver ta bort och lägga till objekt senare, rekommenderar vi att du använder **undantags inställningar** i stället för att **ta bort objekt** för att säkerställa stegvis säkerhets kopiering i stället för fullständig säkerhets kopiering.
 
-2. Slutför åtgärden genom att slutföra de efterföljande stegen och klicka på **Slutför** .
+2. Slutför åtgärden genom att slutföra nästa steg och klicka på **Slutför** .
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>Sluta skydda filer och mappar
 
@@ -94,7 +95,7 @@ Det finns två sätt att sluta skydda säkerhets kopior av filer och mappar:
   - Om du väljer att återuppta skyddet kan du använda alternativet *återaktivera säkerhets kopierings schema* . Därefter behålls data baserat på den nya bevarande principen.
 - **Stoppa skyddet och ta bort säkerhetskopierade data**.
   - Med det här alternativet stoppas alla framtida säkerhets kopierings jobb för att skydda dina data och ta bort alla återställnings punkter.
-  - Du får ett e-postmeddelande om att säkerhetskopiera data för säkerhets kopiering med ett meddelande *om att dina data för säkerhets kopierings objekt har tagits bort. Dessa data är tillfälligt tillgängliga i 14 dagar, och den kommer att tas bort permanent* och den rekommenderade åtgärden *skyddar säkerhets kopierings objekt inom 14 dagar för att återställa dina data.*
+  - Du får ett e-postmeddelande med en varning *om att data för säkerhets kopierings objekt har tagits bort. Dessa data är tillfälligt tillgängliga i 14 dagar, och den kommer att tas bort permanent* och den rekommenderade åtgärden *skyddar säkerhets kopierings objekt inom 14 dagar för att återställa dina data.*
   - Om du vill återuppta skyddet kan du återaktivera skyddet inom 14 dagar från borttagnings åtgärden.
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Stoppa skyddet och behåll säkerhets kopierings data
@@ -108,10 +109,10 @@ Det finns två sätt att sluta skydda säkerhets kopior av filer och mappar:
 1. På sidan **ändra eller stoppa en schemalagd säkerhets kopiering** väljer du **sluta använda detta schema för säkerhets kopiering, men Behåll de lagrade säkerhets kopiorna tills ett schema aktive ras igen**. Välj sedan **Nästa**.
 
     ![Ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. I **pausa schemalagd säkerhets kopiering** granskar du informationen och klickar på **Slutför**.
+1. I **pausa schemalagd säkerhets kopiering**granskar du informationen och klickar på **Slutför**.
 
     ![Ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. I **ändra säkerhets kopierings process** kontrollerar du att säkerhets kopieringen har pausats. Klicka på **Stäng** för att slutföra.
+1. I **ändra säkerhets kopierings process**kontrollerar du att säkerhets kopieringen har pausats. Klicka på **Stäng** för att slutföra.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Stoppa skyddet och ta bort säkerhets kopierings data
 
@@ -155,17 +156,18 @@ Om du har stoppat skyddet och bevarar data och valt att återuppta skyddet kan d
 
 En lösen fras används för att kryptera och dekryptera data vid säkerhets kopiering eller återställning av den lokala eller lokala datorn med hjälp av MARS-agenten till eller från Azure. Om du har förlorat eller glömt lösen frasen kan du återskapa lösen frasen (förutsatt att datorn fortfarande är registrerad i Recovery Services valvet och säkerhets kopian har kon figurer ATS) genom att följa dessa steg:
 
-- Från mars agent-konsolen går du till **Åtgärds fönstret**  >  **ändra egenskaper** >. Gå sedan till **fliken kryptering**.<br>
-- Markera kryss rutan **ändra lösen fras** .<br>
-- Ange en ny lösen fras eller klicka på **generera lösen fras**.
-- Klicka på **Bläddra** för att spara den nya lösen frasen.
+1. Från mars agent-konsolen går du till **Åtgärds fönstret**  >  **ändra egenskaper** >. Gå sedan till **fliken kryptering**.<br>
+1. Markera kryss rutan **ändra lösen fras** .<br>
+1. Ange en ny lösen fras eller klicka på **generera lösen fras**.
+1. Klicka på **Bläddra** för att spara den nya lösen frasen.
 
     ![Generera lösen fras.](./media/backup-azure-manage-mars/passphrase.png)
-- Klicka på **OK** för att tillämpa ändringarna.  Om [säkerhets funktionen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) är aktive rad på Azure Portal för Recovery Servicess valvet uppmanas du att ange säkerhets koden. Följ anvisningarna i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)om du vill ta emot PIN-koden.<br>
-- Klistra in säkerhets-PIN-koden från portalen och klicka på **OK** för att tillämpa ändringarna.<br>
+
+1. Klicka på **OK** för att tillämpa ändringarna.  Om [säkerhets funktionen](./backup-azure-security-feature.md#enable-security-features) är aktive rad på Azure Portal för Recovery Servicess valvet uppmanas du att ange säkerhets koden. Följ anvisningarna i den här [artikeln](./backup-azure-security-feature.md#authentication-to-perform-critical-operations)om du vill ta emot PIN-koden.<br>
+1. Klistra in säkerhets-PIN-koden från portalen och klicka på **OK** för att tillämpa ändringarna.<br>
 
     ![Generera lösen fras.](./media/backup-azure-manage-mars/passphrase2.png)
-- Se till att lösen frasen sparas på ett säkert sätt på en annan plats (förutom käll datorn), helst i Azure Key Vault. Håll koll på alla lösen fraser om du har flera datorer som säkerhets kopie ras med MARS-agenterna.
+1. Se till att lösen frasen sparas på ett säkert sätt på en annan plats (förutom käll datorn), helst i Azure Key Vault. Håll koll på alla lösen fraser om du har flera datorer som säkerhets kopie ras med MARS-agenterna.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Hantera säkerhets kopierings data för datorer som inte är tillgängliga
 
@@ -182,13 +184,14 @@ För de här datorerna säkerställer Azure Backup tjänsten att den senaste åt
 Hantering av säkerhets kopierings principen för MARS görs via MARS-konsolen och inte via portalen. Om du behöver utöka inställningarna för kvarhållning för befintliga återställnings punkter innan de går ut måste du återställa datorn, installera MARS-konsolen och utöka principen.
 
 - Utför följande steg för att återställa datorn:
-  - [Återställa den virtuella datorn till en annan måldator](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Skapa mål datorn på nytt med samma värdnamn som käll datorn
-  - Installera agenten och registrera den på nytt i samma valv och med samma lösen fras
-  - Starta MARS-klienten för att förlänga Retentions tiden enligt dina krav
+  1. [Återställa den virtuella datorn till en annan måldator](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Skapa mål datorn på nytt med samma värdnamn som käll datorn
+  1. Installera agenten och registrera den på nytt i samma valv och med samma lösen fras
+  1. Starta MARS-klienten för att förlänga Retentions tiden enligt dina krav
 - Den nyligen återställda datorn, som skyddas med MARS, fortsätter att ta säkerhets kopior.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om vilka scenarier och begränsningar som stöds finns i [support mat ris för mars-agenten](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Information om vilka scenarier och begränsningar som stöds finns i [support mat ris för mars-agenten](./backup-support-matrix-mars-agent.md).
 - Lär dig mer om hur du [säkerhetskopierar princip på begäran](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Fler vanliga frågor finns i vanliga frågor och [svar om mars-agenten](backup-azure-file-folder-backup-faq.md).

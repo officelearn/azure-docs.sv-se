@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563114"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055201"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -27,7 +27,7 @@ Om du försöker ta bort valvet utan att ta bort beroenden, uppstår något av f
 
 - Det går inte att ta bort valvet eftersom det finns befintliga resurser i valvet. Se till att det inte finns några säkerhets kopierings objekt, skyddade servrar eller säkerhets kopierings hanterings servrar kopplade till det här valvet. Avregistrera följande behållare som är kopplade till valvet innan du fortsätter för borttagning.
 
-- Recovery Services-valvet kan inte tas bort eftersom det finns säkerhetskopieringsobjekt i mjuk borttagning i valvet. De mjuka borttagna objekten tas bort permanent efter 14 dagars borttagnings åtgärd. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och att det inte finns något objekt i läget Soft Deleted kvar i valvet. Mer information finns i [mjuk borttagning för Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+- Recovery Services-valvet kan inte tas bort eftersom det finns säkerhetskopieringsobjekt i mjuk borttagning i valvet. De mjuka borttagna objekten tas bort permanent efter 14 dagars borttagnings åtgärd. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och att det inte finns något objekt i läget Soft Deleted kvar i valvet. Mer information finns i [mjuk borttagning för Azure Backup](./backup-azure-security-feature-cloud.md).
 
 ## <a name="proper-way-to-delete-a-vault"></a>Korrekt sätt att ta bort ett valv
 
@@ -36,9 +36,9 @@ Om du försöker ta bort valvet utan att ta bort beroenden, uppstår något av f
 
 Om du vill ta bort ett valv korrekt måste du följa stegen i den här ordningen:
 
-- **Steg 1**: inaktivera funktionen för mjuk borttagning. Mer information om hur du inaktiverar mjuk borttagning [finns här](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) .
+- **Steg 1**: inaktivera funktionen för mjuk borttagning. Mer information om hur du inaktiverar mjuk borttagning [finns här](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) .
 
-- **Steg 2**: när du har inaktiverat mjuk borttagning kontrollerar du om det finns några objekt som tidigare har tagits bort i läget Soft Deleted. Om det finns objekt i läget tyst Borttagning måste du ångra *borttagningen* och *ta bort* dem igen. [Följ de här stegen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) för att hitta mjuka borttagnings objekt och ta bort dem permanent.
+- **Steg 2**: när du har inaktiverat mjuk borttagning kontrollerar du om det finns några objekt som tidigare har tagits bort i läget Soft Deleted. Om det finns objekt i läget tyst Borttagning måste du ångra *borttagningen* och *ta bort* dem igen. [Följ de här stegen](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) för att hitta mjuka borttagnings objekt och ta bort dem permanent.
 
 - **Steg 3**: du måste kontrol lera alla följande tre platser för att kontrol lera om det finns några skyddade objekt:
 
@@ -209,7 +209,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
            [<CommonParameters>]
     ```
 
-  [Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) om hur du inaktiverar skydd för ett Azure Backup-skyddat objekt.
+  [Läs mer](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) om hur du inaktiverar skydd för ett Azure Backup-skyddat objekt.
 
 - Stoppa skyddet och ta bort data för alla skyddade objekt i molnet (till exempel: IaaS VM, Azure-filresurs osv.):
 
@@ -225,7 +225,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
        [<CommonParameters>]
     ```
 
-    [Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)   om inaktiverar skydd för ett skyddat objekt med säkerhets kopiering.
+    [Läs mer](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection)   om inaktiverar skydd för ett skyddat objekt med säkerhets kopiering.
 
 - För lokala filer och mappar som skyddas med hjälp av Azure Backup Agent (MARS) säkerhetskopiera till Azure använder du följande PowerShell-kommando för att ta bort säkerhetskopierade data från varje MARS PowerShell-modul:
 
@@ -263,7 +263,7 @@ När du har tagit bort säkerhetskopierade data avregistrerar du alla lokala beh
               [<CommonParameters>]
     ```
 
-    [Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) om att avregistrera en Windows-Server eller annan behållare från valvet.
+    [Läs mer](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) om att avregistrera en Windows-Server eller annan behållare från valvet.
 
 - För lokala datorer som skyddas med MABS (Microsoft Azure Backup Server) eller DPM till Azure (System Center Data Protection hantera:
 
@@ -278,7 +278,7 @@ När du har tagit bort säkerhetskopierade data avregistrerar du alla lokala beh
           [<CommonParameters>]
     ```
 
-    [Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) om att avregistrera en behållare för säkerhets kopierings hantering från valvet.
+    [Läs mer](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) om att avregistrera en behållare för säkerhets kopierings hantering från valvet.
 
 När du har tagit bort säkerhetskopierade data permanent och avregistrerat alla behållare fortsätter du att ta bort valvet.
 
@@ -293,7 +293,7 @@ Ta bort ett Recovery Services-valv:
       [<CommonParameters>]
    ```
 
-[Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) om att ta bort ett Recovery Services-valv.
+[Läs mer](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) om att ta bort ett Recovery Services-valv.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Ta bort Recovery Services valvet med CLI
 
@@ -330,7 +330,7 @@ Utför följande om du vill ta bort det befintliga Recovery Services-valvet:
                        [--yes]
     ```
 
-    Mer information finns i den här [artikeln](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest)
+    Mer information finns i den här [artikeln](/cli/azure/backup/vault?view=azure-cli-latest)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Ta bort Recovery Services valvet med Azure Resource Manager
 

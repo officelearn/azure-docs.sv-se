@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059142"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Felsöka fjärr skrivbords klienten
 
@@ -61,7 +62,7 @@ Om webbläsaren startar eller slutar fungera när du använder webb klienten fö
 
 ## <a name="web-client-does-not-show-my-resources"></a>Webb klienten visar inte mina resurser
 
-Börja med att kontrol lera Azure Active Directory kontot som du använder. Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Winodws virtuellt skriv bord, bör du antingen signera vårt eller använda ett privat webbläsarfönster.
+Börja med att kontrol lera Azure Active Directory kontot som du använder. Om du redan har loggat in med ett annat Azure Active Directory konto än det som du vill använda för det virtuella Windows-skrivbordet, måste du antingen signera vårt eller använda ett privat webbläsarfönster.
 
 Om du använder Windows Virtual Desktop hösten 2019-versionen använder du länken webb klient i [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md) för att ansluta till dina resurser.
 

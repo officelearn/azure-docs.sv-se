@@ -3,12 +3,12 @@ title: Gör resurser säkrare med Azure Advisor
 description: Använd Azure Advisor för att förbättra säkerheten för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f130135ed53dc2ba87f46cbf6f9faf0f07cc0654
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113865"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057650"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Gör resurser säkrare med Azure Advisor
 
@@ -16,7 +16,7 @@ Azure Advisor ger dig en enhetlig, sammanslagen översikt över rekommendationer
 
 Med hjälp av Security Center kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Den analyserar regelbundet säkerhets läget för dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Rekommendationerna vägleder dig genom processen att konfigurera de kontroller du behöver. 
 
-Mer information om säkerhets rekommendationer finns [i hantera säkerhets rekommendationer i Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
+Mer information om säkerhets rekommendationer finns [i hantera säkerhets rekommendationer i Azure Security Center](../security-center/security-center-recommendations.md).
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Så här kommer du åt säkerhets rekommendationer i Azure Advisor
 
@@ -33,5 +33,5 @@ Mer information om Advisor-rekommendationer finns i:
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)
  

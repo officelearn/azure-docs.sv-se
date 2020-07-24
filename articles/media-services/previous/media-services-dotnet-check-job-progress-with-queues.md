@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 533990ef0ea88be7f1f06021d7aa398e89f6390b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060325"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Queue Storage för att övervaka Media Services jobb meddelanden med .NET 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-När du kör kodnings jobb kräver du ofta ett sätt att spåra jobb förloppet. Du kan konfigurera Media Services att leverera meddelanden till [Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md). Du kan övervaka jobb förloppet genom att hämta meddelanden från kön lagring. 
+När du kör kodnings jobb kräver du ofta ett sätt att spåra jobb förloppet. Du kan konfigurera Media Services att leverera meddelanden till [Azure Queue Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md). Du kan övervaka jobb förloppet genom att hämta meddelanden från kön lagring. 
 
 Meddelanden som levereras till Queue Storage kan nås från var som helst i världen. Kön lagrings meddelande arkitektur är tillförlitlig och mycket skalbar. Att söka i kö lagring för meddelanden rekommenderas över andra metoder.
 
@@ -34,13 +34,13 @@ Ett vanligt scenario för att lyssna på Media Services-meddelanden är om du ut
 
 Den här artikeln visar hur du hämtar meddelanden från Queue Storage.  
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 Tänk på följande när du utvecklar Media Services program som använder Queue Storage:
 
-* Queue Storage ger ingen garanti för den beställda leveransen först in-First (FIFO). Mer information finns i [Azure-köer och Azure Service Bus köer jämförs och skiljer](https://msdn.microsoft.com/library/azure/hh767287.aspx)sig åt.
+* Queue Storage ger ingen garanti för den beställda leveransen först in-First (FIFO). Mer information finns i [Azure-köer och Azure Service Bus köer jämförs och skiljer](/previous-versions/azure/hh767287(v=azure.100))sig åt.
 * Queue Storage är inte en push-tjänst. Du måste avsöka kön.
-* Du kan ha valfritt antal köer. Mer information finns i [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
-* Queue Storage har vissa begränsningar och information att vara medveten om. Dessa beskrivs i [Azure-köer och Azure Service Bus köer jämförs och skiljer](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)sig åt.
+* Du kan ha valfritt antal köer. Mer information finns i [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api).
+* Queue Storage har vissa begränsningar och information att vara medveten om. Dessa beskrivs i [Azure-köer och Azure Service Bus köer jämförs och skiljer](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)sig åt.
 
 ## <a name="net-code-example"></a>Exempel på .NET-kod
 

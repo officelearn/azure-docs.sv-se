@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab8a3ce0718cac3135bfdac67088d36fcd4f184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060617"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Självstudie: använda DRM dynamisk kryptering och licens leverans tjänst
 
 > [!NOTE]
-> Även om den här självstudien använder [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exemplen är de allmänna stegen desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> Även om den här självstudien använder [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exemplen är de allmänna stegen desamma för [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 Du kan använda Azure Media Services till att leverera strömmar som krypterats med Microsoft PlayReady, Google Widevine eller Apple FairPlay-licenser. För djupgående förklaringar, se [innehålls skydd med dynamisk kryptering](content-protection-overview.md).
 
@@ -55,8 +55,8 @@ Följande krävs för att kunna genomföra vägledningen:
 * Gå igenom artikeln med [översikten om innehållsskydd](content-protection-overview.md).
 * Granska [innehålls skydds systemet design multi-DRM med åtkomst kontroll](design-multi-drm-system-with-access-control.md).
 * Installera Visual Studio Code eller Visual Studio.
-* Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](create-account-cli-quickstart.md).
-* Hämta autentiseringsuppgifter som krävs för att använda API:er för Media Services med hjälp av [åtkomst till API:er](access-api-cli-how-to.md)
+* Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](./create-account-howto.md).
+* Hämta autentiseringsuppgifter som krävs för att använda API:er för Media Services med hjälp av [åtkomst till API:er](./access-api-howto.md)
 * Ange lämpliga värden i appens konfigurations fil (appsettings.jspå).
 
 ## <a name="download-code"></a>Ladda ned kod
@@ -144,7 +144,7 @@ När du skapar en **strömmande positionerare**måste du ange önskad `Streaming
 
 ## <a name="get-a-test-token"></a>Hämta en testtoken
 
-I den här självstudien anger vi att innehållsnyckelprincipen ska ha en tokenbegränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) -format och det är det som vi konfigurerar i exemplet.
+I den här självstudien anger vi att innehållsnyckelprincipen ska ha en tokenbegränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) -format och det är det som vi konfigurerar i exemplet.
 
 ContentKeyIdentifierClaim används i ContentKeyPolicy, vilket innebär att den token som presenteras för nyckelleveranstjänst måste innehålla identifieraren för ContentKey. I exemplet anger vi inte en innehålls nyckel när du skapar en strömmande lokaliserare. systemet skapar en slumpmässig en för oss. För att generera testtoken måste vi få ContentKeyId att placera i ContentKeyIdentifierClaim-anspråket.
 
@@ -152,7 +152,7 @@ ContentKeyIdentifierClaim används i ContentKeyPolicy, vilket innebär att den t
 
 ## <a name="build-a-streaming-url"></a>Bygg en strömmande URL
 
-Nu när [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna. Om du vill bygga en URL måste du sammanfoga [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) -värdnamnet och sökvägen för **strömmande lokalisering** . I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde för * **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
+Nu när [StreamingLocator](/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna. Om du vill bygga en URL måste du sammanfoga [StreamingEndpoint](/rest/api/media/streamingendpoints) -värdnamnet och sökvägen för **strömmande lokalisering** . I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde för * **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 

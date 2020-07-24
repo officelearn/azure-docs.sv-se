@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 11f8442f188ea6ce7ee1de5a093362279da4594c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056802"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en offentlig Standard Load Balancer i Azure Kubernetes service (AKS)
 
@@ -167,7 +167,7 @@ az aks update \
 
 #### <a name="create-the-cluster-with-your-own-public-ip-or-prefixes"></a>Skapa klustret med din egen offentliga IP-adress eller prefix
 
-Du kanske vill ta med dina egna IP-adresser eller IP-prefix för utgående trafik när klustret skapas för att ge stöd för scenarier som vit listning utgående slut punkter. Lägg till samma parametrar som visas ovan i steget Skapa kluster för att definiera egna offentliga IP-adresser och IP-prefix i början av ett klusters livs cykel.
+Du kanske vill ta med dina egna IP-adresser eller IP-prefix för utgående trafik när klustret skapas för att ge stöd för scenarier som att lägga till utgående slut punkter i en lista över tillåtna. Lägg till samma parametrar som visas ovan i steget Skapa kluster för att definiera egna offentliga IP-adresser och IP-prefix i början av ett klusters livs cykel.
 
 Använd kommandot *AZ AKS Create* med parametern *Load-Balancer-utgående-IP* för att skapa ett nytt kluster med dina offentliga IP-adresser vid start.
 
@@ -291,6 +291,24 @@ spec:
     app: azure-vote-front
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
+```
+
+## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Behåll klientens IP på inkommande anslutningar
+
+Som standard behåller en tjänst av typen `LoadBalancer` [i Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) och i AKS inte klientens IP-adress på anslutningen till pod. Käll-IP: en för det paket som levereras till pod är den privata IP-adressen för noden. Om du vill underhålla klientens IP-adress måste du ange `service.spec.externalTrafficPolicy` som `local` i tjänst definitionen. Följande manifest visar ett exempel:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
 ```
 
 ## <a name="additional-customizations-via-kubernetes-annotations"></a>Ytterligare anpassningar via Kubernetes-anteckningar

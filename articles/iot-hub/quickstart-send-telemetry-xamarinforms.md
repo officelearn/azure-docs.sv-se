@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Skicka telemetri till Azure IoT Hub | Microsoft Docs
-description: I den här snabb starten kör du ett exempel på Xamarin. Forms-program för att skicka simulerad telemetri till en IoT-hubb och läsa telemetri från IoT Hub för bearbetning i molnet.
+title: Skicka telemetri till Azure IoT Hub snabb start (Xamarin. Forms)
+description: Kör ett exempel på Xamarin. Forms-program för att skicka simulerad telemetri till en IoT-hubb och för att läsa telemetri från IoT Hub för bearbetning i molnet.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 ms.date: 07/01/2020
-ms.openlocfilehash: 4178ee38ca179f179824a13130121b997f4f5f14
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 962dd35bd07e3ab542bdb8616b1cc2fda1441b36
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807832"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061532"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarinforms"></a>Snabb start: skicka telemetri från en enhet till en IoT Hub (Xamarin. Forms)
 
@@ -39,7 +39,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 - Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-- Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+- Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till kommandon specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -47,7 +47,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
    [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -73,7 +73,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myXamarinDevice --output table
    ```
 
-   Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
+   Anteckna enhetens anslutningssträng, som ser ut så här:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=myXamarinDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -96,7 +96,7 @@ Exempel programmet körs på Windows – via en UWP-app – en iOS-enhet eller S
 
 Följande skärm bild visar ett exempel på utdata när programmet skickar simulerad telemetri till IoT Hub: ![ kör den simulerade enheten](media/quickstart-send-telemetry-xamarinforms/view-d2c.png)
 
-## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
+## <a name="read-the-telemetry-from-your-hub"></a>Läs telemetrin från din hubb
 
 Exempelappen du körde i XCode-emulatorn visar data om meddelanden som skickas från enheten. Du kan också visa data via din IoT-hubb när de tas emot. CLI-tillägget för IoT Hub kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT Hub. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 

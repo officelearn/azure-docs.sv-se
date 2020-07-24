@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fc50934b4c301b4eea509ecc22e00c62ca091d75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056558"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -139,7 +139,7 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 
 **Vad händer när en användare uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 
-Om du använder *n-3-* versionen eller äldre, innebär det att du inte har stöd för och att du kommer att bli ombedd att uppgradera. När uppgraderingen från version n-3 till n-2 lyckas, är du tillbaka i våra support principer. Till exempel:
+Om du använder *n-3-* versionen eller äldre, innebär det att du inte har stöd för och att du kommer att bli ombedd att uppgradera. När uppgraderingen från version n-3 till n-2 lyckas, är du tillbaka i våra support principer. Exempel:
 
 - Om den äldsta AKS-versionen som stöds är *1.15. a* och du är på *1.14. b* eller äldre är du utanför supporten.
 - När du har uppgraderat från *1.14. b* till *1.15. en* eller fler lyckas är du tillbaka i våra support principer.
@@ -162,13 +162,13 @@ Om ett kluster har stöd för fler än tre (3) lägre versioner och har befunnit
 
 Kontroll planet måste vara inom ett fönster med versioner från alla noder i pooler. Mer information om hur du uppgraderar kontroll planet eller Node-pooler finns i dokumentationen om hur du [uppgraderar Node-pooler](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
-**Kan jag hoppa över en version vid uppgradering?**
+**Kan jag hoppa över flera AKS-versioner under kluster uppgraderingen?**
 
-Nej, efter Kubernetes bästa praxis, tillåter AKS endast uppgraderingar till omedelbar nästa korrigering eller lägre version. Azure Portal visar bara de versioner du kan uppgradera till, och i CLI kan du `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` Se tillgängliga uppgraderingar från den aktuella versionen.
+När du uppgraderar ett AKS-kluster som stöds kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.12. x*  ->  *1.13. x* eller *1.13. x*  ->  *1.14. x* , men *1.12.* x  ->  *1.14. x* är inte.
 
-**Hur kan jag uppgradera till en version som stöds om jag har flera versioner bakom den senaste versionen som stöds?**
+Uppgradera från *1.12. x*  ->  *1.14. x*genom att först uppgradera från *1.12.* x  ->  *1.13. x*och sedan uppgradera från *1.13. x*  ->  *1.14. x*.
 
-Om du är i det här fallet måste du undvika att falla över flera versioner från listan över stödda, men om du är i det här fallet kommer AKS alltid att tillåta uppgraderingen till den lägsta version som stöds.
+Det går bara att hoppa över flera versioner när du uppgraderar från en version som inte stöds tillbaka till en version som stöds. Du kan t. ex. uppgradera från en *1.10. x* --> en 1.15 som stöds *. x* kan slutföras.
 
 ## <a name="next-steps"></a>Nästa steg
 

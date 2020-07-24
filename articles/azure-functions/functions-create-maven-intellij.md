@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1eb430f94ef545fa74ed225c427a121a47f7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055786"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Skapa din första Azure-funktion med Java och IntelliJ
 
@@ -44,7 +44,7 @@ Om du vill utveckla en funktion med Java och IntelliJ installerar du följande p
 2. Logga in på Azure-kontot genom att öppna **Azure Explorer** i sidofältet och sedan klicka på ikonen **Azure Sign In** (Azure-inloggning) i fältet högst upp (eller på IDEA-menyn **Tools/Azure/Azure Sign in** (Verktyg/Azure/Azure-inloggning)).
     ![Kommandot för Azure-inloggning i IntelliJ][intellij-azure-login]
 
-3. I fönstret **Azure Sign In** (Azure-inloggning) väljer du **Device Login** (Enhetsinloggning) och klickar sedan på **Sign in** (Logga in) ([fler inloggningsalternativ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. I fönstret **Azure Sign In** (Azure-inloggning) väljer du **Device Login** (Enhetsinloggning) och klickar sedan på **Sign in** (Logga in) ([fler inloggningsalternativ](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![Azure-inloggningsfönstret med enhetsinloggning markerat][intellij-azure-popup]
 
@@ -156,7 +156,7 @@ I det här avsnittet använder du Azure Toolkit for IntelliJ för att skapa ett 
 Du har skapat ett Java Functions-projekt med en HTTP-utlöst funktion, kört den på din lokala dator och distribuerat den till Azure. Nu kan du utöka din funktion efter...
 
 > [!div class="nextstepaction"]
-> [Lägga till en Azure Storage utgående bindning för kö](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Lägga till en Azure Storage utgående bindning för kö](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

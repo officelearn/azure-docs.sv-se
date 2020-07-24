@@ -66,6 +66,9 @@
       items:
         - name: Översikt
           href: best-practices.md
+        - name: Baslinjearkitektur för ett AKS-kluster
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          maintainContext: true
         - name: För klusteroperatörer
           items:
             - name: Flera innehavare och isolering av kluster

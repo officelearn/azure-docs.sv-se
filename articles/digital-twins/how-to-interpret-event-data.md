@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 34624358a26fbd52db5832cf3531a6f1d3b91e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142444"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061752"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
 
@@ -107,7 +107,7 @@ Här är fälten i bröd texten i ett meddelande om livs cykel.
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse. |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | 1,0 |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID för den digitala dubbla |
@@ -193,7 +193,7 @@ Här är fälten i bröd texten för en Edge Change-avisering.
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse |
 | `source` | Namnet på den digitala Azure-instansen, till exempel *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | 1,0 |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID för relationen, t. ex.`<twinID>/relationships/<relationshipID>` |
@@ -249,7 +249,7 @@ Här är fälten i bröd texten i ett digitalt meddelande om ändring av dubbla 
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | 1.0 |
+| `specversion` | 1,0 |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID för den digitala dubbla |
@@ -300,7 +300,7 @@ Motsvarande meddelande (om synkront utförd av tjänsten, t. ex. Azure Digitals,
 ## <a name="next-steps"></a>Nästa steg
 
 Se så här skapar du slut punkter och vägar för att leverera händelser:
-* [Anvisningar: hantera slut punkter och vägar](how-to-manage-routes.md)
+* [*Anvisningar: hantera slut punkter och vägar*](how-to-manage-routes.md)
 
 Du kan också läsa mer om Azure Digitals dubbla API: er och SDK-alternativ:
-* [Anvisningar: använda Azures digitala dubbla API: er och SDK: er](how-to-use-apis-sdks.md)
+* [*Anvisningar: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md)

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 551fb0cb9f3745a62d5d84f2c4878bbbbe5ad9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37b3e5eff0baee736fc05760e19c31fdc513e23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79137330"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060383"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalerar Timed metadata i Live Streaming 
 
@@ -79,8 +80,8 @@ Följande dokument innehåller bestämmelser, som till följd av referens i denn
 | [MPEGDASH]        | Informations teknik – dynamisk anpassningsbar strömning via HTTP (bindestreck)--del 1: Beskrivning av medie presentation och segment format. Maj 2014. Delade. ADRESSERhttps://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | Information Technology – multimedie program format (MPEG-A)--del 19: common Media program format (CMAF) för segmenterade medier. 2018 januari. Delade. ADRESSERhttps://www.iso.org/standard/71975.html |
 | [MPEGCENC]        | Information Technology – MPEG Systems Technologies – del 7: common Encryption in fil format i ISO Base-filer. Februari 2016. Delade. ADRESSERhttps://www.iso.org/standard/68042.html                   |
-| [MS-SSTR]         | ["Microsoft Smooth Streaming-protokollet", 15 maj 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
-| [MS-SSTR-intag]  | [Azure Media Services-specifikation för fragmenterad MP4 Live](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)                                                      |
+| [MS-SSTR]         | ["Microsoft Smooth Streaming-protokollet", 15 maj 2014](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
+| [MS-SSTR-intag]  | [Azure Media Services-specifikation för fragmenterad MP4 Live](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, ED. W. maj. HTTP Live Streaming. 2017 augusti. Informations. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
 | [RFC4648]         | Data kodningarna Base16, Base32 och base64 –[https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
 | RTMP            | ["Adobes real tids meddelande protokoll", den 21 december 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
@@ -293,7 +294,7 @@ Meddelande typen "onCuePoint" definieras i [Adobe-Flash-AS] och har följande ny
 | name       | Namnet måste vara '**scte35**' av typen grundämne Live.                                                                                                                                                                              |
 | time       | Tiden i sekunder då referens punkten inträffade i video filen under tids linjen                                                                                                                                           |
 | typ       | Typen av referens punkt ska anges till "**Event**".                                                                                                                                                                             |
-| parameters | En associativ array med namn/värde-par strängar som innehåller information från SCTE-35-meddelandet, inklusive ID och varaktighet. Dessa värden analyseras av Azure Media Services och ingår i dekorations tag gen för manifestet. |
+| parametrar | En associativ array med namn/värde-par strängar som innehåller information från SCTE-35-meddelandet, inklusive ID och varaktighet. Dessa värden analyseras av Azure Media Services och ingår i dekorations tag gen för manifestet. |
 
 
 När det här läget för AD-markör används liknar HLS-Manifestets utdata samma som i Adobe "Simple"-läge.
@@ -764,7 +765,7 @@ Taggen "Legacy" EXT-X-CUE definieras enligt nedan och kan också vara normativ s
 | **Attributnamn** | **Typ**                      | **Kunna?**                             | **Beskrivning**                                                                                                                                                                                                                                                                          |
 | ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | UTLÖSARE                | Citerad sträng                 | Obligatorisk                                  | Meddelandet kodas som en Base64-kodad sträng enligt beskrivningen i [RFC4648]. För [SCTE-35]-meddelanden är detta den base64-kodade splice_info_section ().                                                                                                                                      |
-| TYPE               | Citerad sträng                 | Obligatorisk                                  | En URN eller URL som identifierar meddelande schemat. För [SCTE-35]-meddelanden använder typen det särskilda värdet "scte35".                                                                                                                                                                          |
+| TYP               | Citerad sträng                 | Obligatorisk                                  | En URN eller URL som identifierar meddelande schemat. För [SCTE-35]-meddelanden använder typen det särskilda värdet "scte35".                                                                                                                                                                          |
 | ID                 | Citerad sträng                 | Obligatorisk                                  | En unik identifierare för händelsen. Om ID: t inte anges när meddelandet matas in kommer Azure Media Services att generera ett unikt ID.                                                                                                                                              |
 | GILTIGHET           | decimalt flytt ALS nummer | Obligatorisk                                  | Händelsens varaktighet. Om detta är okänt **ska** värdet vara 0. Enheter är factional sekunder.                                                                                                                                                                                           |
 | Förfluten            | decimalt flytt ALS nummer | Valfritt, men krävs för glidande fönster | När signalen upprepas för att stödja ett glidande presentations fönster **måste** det här fältet vara den mängd av presentationen som har förflutit sedan händelsen började. Enheter är bråkiska sekunder. Det här värdet kan överskrida den ursprungliga angivna varaktigheten för en splice eller ett segment. |

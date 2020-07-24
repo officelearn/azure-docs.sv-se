@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du installerar och konfigurerar en NGINX ingress Controller för ett internt, privat nätverk i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: eecf34c6ad622c374e6f43670972279e297662a9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: a20ef3155e41a438aed7cea7e7d9814b3add4d14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056981"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll för ett internt virtuellt nätverk i Azure Kubernetes service (AKS)
 
@@ -18,7 +18,7 @@ En ingress-kontrollant är en del av programvaran som tillhandahåller omvänd p
 
 Den här artikeln visar hur du distribuerar [nginx ingress-kontrollanten][nginx-ingress] i ett Azure Kubernetes service-kluster (AKS). Ingångs styrenheten är konfigurerad på ett internt, privat virtuellt nätverk och IP-adress. Ingen extern åtkomst tillåts. Två program körs sedan i AKS-klustret, som var och en är tillgänglig över den enskilda IP-adressen.
 
-Du kan också:
+Du kan även:
 
 - [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
 - [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]
@@ -35,7 +35,7 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller sena
 
 Som standard skapas en NGINX ingångs kontroll med en dynamisk offentlig IP-adresstilldelning. Ett vanligt konfigurations krav är att använda ett internt, privat nätverk och IP-adress. Med den här metoden kan du begränsa åtkomsten till dina tjänster till interna användare utan någon extern åtkomst.
 
-Skapa en fil med namnet *Internal-ingress. yaml* med hjälp av följande exempel manifest fil. I det här exemplet tilldelas *10.240.0.42* till *loadBalancerIP* -resursen. Ange din egna interna IP-adress för användning med ingångs styrenheten. Kontrol lera att den här IP-adressen inte redan används i det virtuella nätverket.
+Skapa en fil med namnet *Internal-ingress. yaml* med hjälp av följande exempel manifest fil. I det här exemplet tilldelas *10.240.0.42* till *loadBalancerIP* -resursen. Ange din egna interna IP-adress för användning med ingångs styrenheten. Kontrol lera att den här IP-adressen inte redan används i det virtuella nätverket. Om du använder ett befintligt virtuellt nätverk och undernät måste du också konfigurera ditt AKS-kluster med rätt behörigheter för att hantera det virtuella nätverket och under nätet. Mer information finns i [använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)][aks-configure-kubenet-networking] eller [Konfigurera Azure cni-nätverk i Azure KUBERNETES service (AKS)][aks-configure-advanced-networking] .
 
 ```yaml
 controller:
@@ -185,7 +185,7 @@ I följande exempel dirigeras trafik till adressen `http://10.240.0.42/` till tj
 Skapa en fil med namnet `hello-world-ingress.yaml` och kopiera i följande exempel yaml.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -337,7 +337,7 @@ I den här artikeln ingår några externa komponenter i AKS. Mer information om 
 - [Helm CLI][helm-cli]
 - [NGINX ingress-styrenhet][nginx-ingress]
 
-Du kan också:
+Du kan även:
 
 - [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
 - [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]
@@ -358,3 +358,5 @@ Du kan också:
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md

@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker installation
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b810b5abfb15a39d19a0571b6ac36a6c86bf0b4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054645"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -75,6 +75,12 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 | Fel  | Möjlig orsak | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
 | <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg**  >  **Internet alternativ**  >  **säkerhet**  >  **Internet**. Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **Aktivera**.<p>Du kan också behöva lägga till [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterat till .NET Framework). Det finns ett CSC.exe för varje .NET Framework-version som är installerad på servern. Undanta CSC.exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
+
+## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Det går inte att använda den angivna autentiseringsuppgiften för valvet eftersom den inte har laddats ned från valvet som är associerat med den här servern
+
+| Fel  | Möjlig orsak | Rekommenderade åtgärder |
+| ---     | ---     | ---    |
+| Det går inte att använda den angivna autentiseringsuppgiften för valvet eftersom den inte har laddats ned från valvet som är kopplat till den här servern. (ID: 100110) Ange lämpliga autentiseringsuppgifter för valvet. | Valv filen med autentiseringsuppgifter är från ett annat valv än den som servern redan är registrerad på. | Se till att mål datorn och käll datorn är registrerade på samma Recovery Services-valv. Om mål servern redan har registrerats till ett annat valv använder du alternativet **Registrera Server** för att registrera dig på rätt valv.  
 
 ## <a name="backup-jobs-completed-with-warning"></a>Säkerhets kopierings jobb slutfördes med varning
 

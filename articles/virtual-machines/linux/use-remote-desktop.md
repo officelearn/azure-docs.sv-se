@@ -13,17 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc442886c4c4c26db5f5cde908ea647e2ee2f1bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059019"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure
 Virtuella Linux-datorer (VM: ar) i Azure hanteras vanligt vis från kommando raden med hjälp av en SSH-anslutning (Secure Shell). När du har använt New to Linux eller för snabb fel söknings scenarier kan det vara enklare att använda fjärr skrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skriv bords miljö ([xfce](https://www.xfce.org)) och fjärr skrivbord ([xrdp](http://xrdp.org)) för din virtuella Linux-dator med hjälp av distributions modellen för Resource Manager.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln kräver en befintlig Ubuntu 18,04 LTS-VM i Azure. Om du behöver skapa en virtuell dator kan du använda någon av följande metoder:
 
 - [Azure CLI](quick-create-cli.md)
@@ -132,11 +133,10 @@ tail -f /var/log/syslog
 
 Andra Linux-distributioner som Red Hat Enterprise Linux och SUSE kan ha olika sätt att starta om tjänster och alternativa logg fils platser att granska.
 
-Om du inte får några svar på fjärr skrivbords klienten och inte ser några händelser i system loggen visar det här beteendet att fjärr skrivbords trafik inte kan komma åt den virtuella datorn. Granska reglerna för nätverks säkerhets gruppen så att du har en regel för att tillåta TCP på port 3389. Mer information finns i [Felsöka problem med program anslutningen](../windows/troubleshoot-app-connection.md).
+Om du inte får några svar på fjärr skrivbords klienten och inte ser några händelser i system loggen visar det här beteendet att fjärr skrivbords trafik inte kan komma åt den virtuella datorn. Granska reglerna för nätverks säkerhets gruppen så att du har en regel för att tillåta TCP på port 3389. Mer information finns i [Felsöka problem med program anslutningen](../troubleshooting/troubleshoot-app-connection.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du skapar och använder SSH-nycklar med virtuella Linux-datorer finns i [skapa SSH-nycklar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md).
 
 Information om hur du använder SSH från Windows finns i [så här använder du SSH-nycklar med Windows](ssh-from-windows.md).
-

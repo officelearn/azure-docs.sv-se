@@ -4,14 +4,15 @@ description: Beskriver Azure HPC cache, en lösning för fil åtkomst Accelerato
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 05/29/2020
+ms.date: 07/16/2020
 ms.author: v-erkel
-ms.openlocfilehash: c0d32beeedba61bc2ecdc444685f7e81073459be
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: references_regions
+ms.openlocfilehash: 8c8223872ec3ef1d875e10ead8f327db01a924c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053673"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC Cache?
 
@@ -53,22 +54,16 @@ En Azure HPC cache-distribution kan hjälpa dig att påskynda kvantitativa analy
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Azure HPC-cache är tillgängligt i följande Azure-regioner:
+Besök sidan [Azures globala infrastruktur produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) för att lära dig var Azure HPC cache är tillgängligt.
 
-| Nordamerika      | Europa         | Asien            | Australien      |
-|--------------------|----------------|-----------------|----------------|
-| USA, östra            | Europa, norra   | Sydkorea, centrala   | Australien, östra |
-| USA, östra 2          | Europa, västra    | Sydostasien  |               |
-| USA, södra centrala | | | |
-| USA, västra 2        | | | |
+[Funktionen Kundhanterade nycklar](customer-keys.md) stöds bara i följande Azure-regioner:
 
-[Funktionen Kundhanterade nycklar](customer-keys.md) stöds bara i följande regioner:
-
-* USA, östra
+* East US
 * USA, södra centrala
 * USA, västra 2
-
-På [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) finns den senaste tillgängliga informationen.
+* Europa, västra
+* US Gov, Arizona
+* US Gov, Virginia
 
 ## <a name="service-availability"></a>Tjänst tillgänglighet
 
@@ -79,5 +74,5 @@ Begär åtkomst genom att fylla i [det här formuläret](https://aka.ms/onboard-
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om funktionerna i [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache)
-* Läs om produkt [krav](hpc-cache-prereqs.md)
+* Läs om produkt [krav](hpc-cache-prerequisites.md)
 * [Skapa en Azure HPC-cache](hpc-cache-create.md) från Azure Portal

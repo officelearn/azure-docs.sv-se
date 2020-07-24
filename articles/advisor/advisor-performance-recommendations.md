@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure Apps med Advisor
 description: Använd prestanda rekommendationer i Azure Advisor för att förbättra hastighet och svars tider för affärs kritiska program.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 45fb1f8844067cb34b415c3897db3b1233ab5c7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057575"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Förbättra prestanda för Azure-program med hjälp av Azure Advisor
 
@@ -16,7 +16,7 @@ Prestanda rekommendationerna i Azure Advisor kan hjälpa till att förbättra ha
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Minska DNS-tiden till Live i Traffic Managers profilen för att växla över till felfria slut punkter snabbare
 
-Du kan använda [Inställningar för TTL (Time-to-Live)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) på din Azure Traffic Manager-profil för att ange hur snabbt ska byta slut punkter om en specifik slut punkt slutar svara på frågor. Om du minskar TTL-värdena kommer klienterna att dirigeras till fungerande slut punkter snabbare.
+Du kan använda [Inställningar för TTL (Time-to-Live)](../traffic-manager/traffic-manager-performance-considerations.md) på din Azure Traffic Manager-profil för att ange hur snabbt ska byta slut punkter om en specifik slut punkt slutar svara på frågor. Om du minskar TTL-värdena kommer klienterna att dirigeras till fungerande slut punkter snabbare.
 
 Azure Advisor identifierar Traffic Manager profiler som har ett längre TTL-värde konfigurerat. Vi rekommenderar att du konfigurerar TTL till antingen 20 sekunder eller 60 sekunder, beroende på om profilen har kon figurer ATS för [snabb redundans](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
@@ -27,7 +27,7 @@ Azure Advisor ger en enhetlig, sammanslagen översikt över rekommendationer fö
 > [!NOTE]
 > Innan du kan få rekommendationer måste databasen användas i ungefär en vecka och inom den veckan måste det vara en konsekvent aktivitet. SQL Database Advisor kan optimeras enklare för konsekventa fråge mönster än för slumpmässiga aktiviteter.
 
-Mer information finns i [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+Mer information finns i [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
 
 ## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Uppgradera ditt lagrings klient bibliotek till den senaste versionen för bättre tillförlitlighet och prestanda
 
@@ -39,7 +39,7 @@ Azure Advisor integrerar rekommendationer för att förbättra din App Service u
 * Identifiering av instanser där minnes-eller processor resurser förbrukas av app-runtime, med alternativ för att minska.
 * Identifiering av instanser där samplacering av resurser som webbappar och databaser kan förbättra prestanda och minska kostnaderna.
 
-Mer information finns i [metod tips för Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
+Mer information finns i [metod tips för Azure App Service](../app-service/app-service-best-practices.md).
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Använd Managed disks för att förhindra disk-I/O-begränsning
 
@@ -53,11 +53,11 @@ Azure Premium Storage levererar stöd för hög prestanda, låg latens disk för
 
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Ta bort data skevningen i SQL Data Warehouse tabeller för att öka prestandan för frågor
 
-Data skevning kan orsaka onödig data förflyttning eller Flask halsar i resurser när du kör arbets belastningen. Advisor identifierar fördelnings data skevning på mer än 15%. Vi rekommenderar att du distribuerar om dina data och återgår till dina val av tabell distributions nyckel. Mer information om hur du identifierar och tar bort skevning finns i [Felsöka skevning](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Data skevning kan orsaka onödig data förflyttning eller Flask halsar i resurser när du kör arbets belastningen. Advisor identifierar fördelnings data skevning på mer än 15%. Vi rekommenderar att du distribuerar om dina data och återgår till dina val av tabell distributions nyckel. Mer information om hur du identifierar och tar bort skevning finns i [Felsöka skevning](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
 ## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skapa eller uppdatera gammal tabell statistik i SQL Data Warehouse tabeller för att öka prestanda för frågor
 
-Advisor identifierar tabeller som inte har aktuell [tabell statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) och rekommenderar att du skapar eller uppdaterar statistiken. Frågans optimering i Azure SQL Data Warehouse använder uppdaterad statistik för att beräkna kardinalitet eller antal rader i frågeresultat. Dessa uppskattningar gör det möjligt för Query Optimering att skapa en frågeplan för att ge snabbast prestanda.
+Advisor identifierar tabeller som inte har aktuell [tabell statistik](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) och rekommenderar att du skapar eller uppdaterar statistiken. Frågans optimering i Azure SQL Data Warehouse använder uppdaterad statistik för att beräkna kardinalitet eller antal rader i frågeresultat. Dessa uppskattningar gör det möjligt för Query Optimering att skapa en frågeplan för att ge snabbast prestanda.
 
 ## <a name="improve-mysql-connection-management"></a>Förbättra hanteringen av MySQL-anslutningar
 
@@ -76,7 +76,7 @@ Advisor identifierar tabeller som inte är replikerade tabeller, men som skulle 
 - Tabell distributions typen. 
 - Antalet partitioner i SQL Data Warehouses tabellen. 
 
-Ytterligare heuristik kan ges i rekommendationen för Context. Mer information om hur den här rekommendationen fastställs finns [SQL Data Warehouse rekommendationer](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Ytterligare heuristik kan ges i rekommendationen för Context. Mer information om hur den här rekommendationen fastställs finns [SQL Data Warehouse rekommendationer](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Migrera ditt lagrings konto till Azure Resource Manager för att få de senaste Azure-funktionerna
 
@@ -88,7 +88,7 @@ Migrera lagrings kontots distributions modell till Azure Resource Manager för a
 Advisor identifierar alla fristående lagrings konton som använder den klassiska distributions modellen och rekommenderar att du migrerar till distributions modellen för Resource Manager.
 
 > [!NOTE]
-> Klassiska varningar i Azure Monitor drogs tillbaka i augusti 2019. Vi rekommenderar att du uppgraderar det klassiska lagrings kontot så att du kan använda Resource Manager för att behålla aviserings funktionen med den nya plattformen. Mer information finns i [indragningen av klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
+> Klassiska varningar i Azure Monitor drogs tillbaka i augusti 2019. Vi rekommenderar att du uppgraderar det klassiska lagrings kontot så att du kan använda Resource Manager för att behålla aviserings funktionen med den nya plattformen. Mer information finns i [indragningen av klassiska aviseringar](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Utforma dina lagrings konton för att förhindra att den maximala prenumerations gränsen uppnås
 
@@ -120,17 +120,17 @@ Advisor identifierar versioner av Kubernetes som inte stöds.
 Hög användning av processorn under en längre period kan orsaka långsamma prestanda för frågor för din arbets belastning. Att öka processor storleken bidrar till att optimera körningen av databas frågorna och förbättra den övergripande prestandan. Advisor identifierar servrar med hög processor användning som troligen kör CPU-begränsade arbets belastningar och rekommenderar att du skalar beräkningen.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Minska minnes begränsningar på Azure Database for MySQL, Azure Database for PostgreSQL och Azure Database for MariaDB servrar eller flytta till en Minnesoptimerade SKU
-Ett lågt cacheträffar kan resultera i sämre prestanda för frågor och ökad IOPS. Det här tillståndet kan orsakas av en dålig frågeplan eller en minnes intensiv arbets belastning. Om du korrigerar en frågeplan eller [ökar minnet](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) för Azure Database for PostgreSQL, Azure Database for MySQL eller Azure Database for MariaDB servern kan du optimera körningen av databasens arbets belastning. Azure Advisor identifierar servrar som påverkas av den här omsättningen för den stora bufferten. Vi rekommenderar att du vidtar följande åtgärder: 
+Ett lågt cacheträffar kan resultera i sämre prestanda för frågor och ökad IOPS. Det här tillståndet kan orsakas av en dålig frågeplan eller en minnes intensiv arbets belastning. Om du korrigerar en frågeplan eller [ökar minnet](../postgresql/concepts-pricing-tiers.md) för Azure Database for PostgreSQL, Azure Database for MySQL eller Azure Database for MariaDB servern kan du optimera körningen av databasens arbets belastning. Azure Advisor identifierar servrar som påverkas av den här omsättningen för den stora bufferten. Vi rekommenderar att du vidtar följande åtgärder: 
 - Åtgärda frågeuttrycket
 - Flytta till en SKU som har mer minne 
 - Öka lagrings utrymmet för att få mer IOPS.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Använd en Azure Database for MySQL eller Azure Database for PostgreSQL Läs replik för att skala upp läsningar för Läs intensiva arbets belastningar
-Advisor använder arbetsbaserade heuristik som förhållandet mellan läsningar och skrivningar på servern under de senaste sju dagarna för att identifiera Läs intensiva arbets belastningar. En Azure Database for PostgreSQL-eller Azure Database for MySQL resurs med högt Läs/skriv-förhållande kan leda till processor-eller minnes innehåll och leda till långsam frågans prestanda. Om du lägger till en [replik](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) kan du skala upp läsningar till replik servern och förhindra processor-eller minnes begränsningar på den primära servern. Advisor identifierar servrar med Läs intensiva arbets belastningar och rekommenderar att du lägger till en [Läs replik](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)   för att avlasta några av de Läs arbets belastningarna.
+Advisor använder arbetsbaserade heuristik som förhållandet mellan läsningar och skrivningar på servern under de senaste sju dagarna för att identifiera Läs intensiva arbets belastningar. En Azure Database for PostgreSQL-eller Azure Database for MySQL resurs med högt Läs/skriv-förhållande kan leda till processor-eller minnes innehåll och leda till långsam frågans prestanda. Om du lägger till en [replik](../postgresql/howto-read-replicas-portal.md) kan du skala upp läsningar till replik servern och förhindra processor-eller minnes begränsningar på den primära servern. Advisor identifierar servrar med Läs intensiva arbets belastningar och rekommenderar att du lägger till en [Läs replik](../postgresql/concepts-read-replicas.md)   för att avlasta några av de Läs arbets belastningarna.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skala din Azure Database for MySQL, Azure Database for PostgreSQL eller Azure Database for MariaDB server till en högre SKU för att förhindra anslutnings begränsningar
-Varje ny anslutning till databas servern upptar minne. Databas serverns prestanda försämras om anslutningar till servern inte kan utföras på grund av en [övre gräns](https://docs.microsoft.com/azure/postgresql/concepts-limits) i minnet. Azure Advisor identifierar servrar som kör med många anslutnings problem. Vi rekommenderar att du uppgraderar serverns anslutnings gränser för att ge mer minne till servern genom att vidta någon av följande åtgärder:
+Varje ny anslutning till databas servern upptar minne. Databas serverns prestanda försämras om anslutningar till servern inte kan utföras på grund av en [övre gräns](../postgresql/concepts-limits.md) i minnet. Azure Advisor identifierar servrar som kör med många anslutnings problem. Vi rekommenderar att du uppgraderar serverns anslutnings gränser för att ge mer minne till servern genom att vidta någon av följande åtgärder:
 - Skala upp beräkning. 
 - Använd Minnesoptimerade SKU: er, som har mer data bearbetning per kärna.
 
@@ -168,4 +168,4 @@ Mer information om Advisor-rekommendationer finns i:
 * [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

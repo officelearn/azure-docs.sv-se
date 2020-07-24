@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82613276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061216"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -61,8 +61,14 @@ Följ de här stegen:
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Kör följande kommando. Detta ansluter ett autentiserat konto som ska användas för Azure AD-begäranden
 
-6. Kör följande kommando. Detta laddar ned ett skript till din Hem Katalog.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Kör följande kommando. Detta laddar ned ett skript till din Hem Katalog.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ Följ de här stegen:
 
     ```
 
-7. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory**  >  **Översikt** .
+8. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory**  >  **Översikt** .
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ Följ de här stegen:
 
     ```
 
-8. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
+9. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Skapa metadata för enhet eller sensor
@@ -102,16 +108,16 @@ Följ de här stegen:
 |          Tillverkare            |         Tillverkarens namn    |
 |  ProductCode                    |  Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800.  |
 |            Portar          |     Port namn och-typ, som är digital eller analog.
-|     Name                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
+|     Namn                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
       Beskrivning     | Ange en meningsfull beskrivning av modellen.
 |    Egenskaper          |    Ytterligare egenskaper från tillverkaren.   |
 |    **Enhet**             |                      |
 |   DeviceModelId     |     ID för associerad enhets modell.  |
 |  HardwareId          | Unikt ID för enheten, till exempel MAC-adressen.
 |  ReportingInterval        |   Rapport intervall i sekunder.
-|  Location            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
+|  Plats            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
 |ParentDeviceId       |    ID för den överordnade enhet som enheten är ansluten till. Till exempel en nod som är ansluten till en gateway. En nod har parentDeviceId som gateway.  |
-|    Name            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
+|    Namn            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
 |     Beskrivning       |      Ange en meningsfull beskrivning. |
 |     Egenskaper    |  Ytterligare egenskaper från tillverkaren.
 |     **SensorModel**        |          |
@@ -123,16 +129,16 @@ Följ de här stegen:
 |    SensorMeasures > typ    |Typ av mått för sensorer för telemetri. Systemdefinierade typer är AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.|
 |        SensorMeasures > enhet              | Enhet för data för sensor telemetri. Systemdefinierade enheter är nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, kvicksilver, PSI, MilliMeter, CentiMeter, meter, tum, fot, mil, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, examen, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, liter, DeciSiemensPerMeter, Seconds KiloPascal, VolumetricIonContent, MilliLiter och Lägg till mer finns i UnixTimestamp-API: et.|
 |    SensorMeasures > AggregationType    |  Värdena kan vara ingen, genomsnitt, högsta, lägsta eller StandardDeviation.  |
-|          Name            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
+|          Namn            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
 |    Beskrivning        | Ange en meningsfull beskrivning av modellen.|
 |   Egenskaper       |  Ytterligare egenskaper från tillverkaren.|
 |    **Mäta**      |          |
 | HardwareId          |   Unikt ID för sensorn som anges av tillverkaren.|
 |  SensorModelId     |    ID för associerad sensor modell.|
-| Location          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
+| Plats          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
 |   Port > namn        |  Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som det definieras i enhets modellen.|
 |    DeviceID  |    ID för den enhet som sensorn är ansluten till. |
-| Name            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
+| Namn            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
 |    Beskrivning      | Ange en meningsfull beskrivning.|
 |    Egenskaper        |Ytterligare egenskaper från tillverkaren.|
 

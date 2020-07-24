@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187038"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058626"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -76,7 +76,7 @@ I följande exempel visas den `appRoles` som du kan tilldela till `users` .
 > [!NOTE]
 >`displayName`Får inte innehålla blank steg.
 
-Du kan definiera app-roller som mål `users` , `applications` eller båda. När det är tillgängligt för `applications` visas app-roller som program behörigheter på bladet **nödvändiga behörigheter** . I följande exempel visas en app-roll som är riktad mot en `Application` .
+Du kan definiera app-roller som mål `users` , `applications` eller båda. När det är tillgängligt för `applications` visas app-roller som program behörigheter under **hantera** avsnitt > **API-behörigheter > lägg till en behörighet > mina API: er > Välj en API > program behörigheter**. I följande exempel visas en app-roll som är riktad mot en `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -118,6 +118,10 @@ När du har lagt till app-roller i ditt program kan du tilldela de här rollerna
 1. Välj en roll och klicka på knappen **Välj** .
 1. Tryck på knappen **tilldela** längst ned för att slutföra tilldelningen av användare och grupper till appen.
 1. Bekräfta att de användare och grupper som du har lagt till visas i listan uppdaterade **användare och grupper** .
+
+### <a name="receive-roles-in-tokens"></a>Ta emot roller i token
+
+När de användare som är tilldelade till de olika app-rollerna loggar in i programmet kommer deras token att ha sina tilldelade roller i `roles` anspråket.
 
 ## <a name="more-information"></a>Mer information
 

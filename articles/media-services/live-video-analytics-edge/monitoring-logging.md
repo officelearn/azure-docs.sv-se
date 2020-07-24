@@ -3,11 +3,12 @@ title: Övervakning och loggning – Azure
 description: Den här artikeln innehåller en översikt över video analys på IoT Edge övervakning och loggning.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060449"
 ---
 # <a name="monitoring-and-logging"></a>Övervakning och loggning
 
@@ -97,7 +98,7 @@ Real tids analys på IoT Edge avger händelser eller telemetridata enligt följa
      }
    }
    ```
-De händelser som genereras av modulen skickas till [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)och därifrån kan de dirigeras till andra mål. 
+De händelser som genereras av modulen skickas till [IoT Edge Hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)och därifrån kan de dirigeras till andra mål. 
 
 ## <a name="controlling-events"></a>Kontrollera händelser
 
@@ -109,7 +110,7 @@ Du kan använda följande modul dubbla egenskaper, enligt beskrivningen i [modul
    
 Analytics-händelserna genereras av noder som rörelse identifierings processor, eller HTTP-tilläggsbegäranden, och IoT Hub-mottagaren används för att skicka dem till IoT Edge Hub. 
 
-Du kan styra [operationsföljden för alla ovanstående händelser](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) via en önskad egenskap i $edgeHub modul, dubbla (i distributions manifestet):
+Du kan styra [operationsföljden för alla ovanstående händelser](../../iot-edge/module-composition.md#declare-routes) via en önskad egenskap i $edgeHub modul, dubbla (i distributions manifestet):
 
 ```
  "$edgeHub": {
@@ -125,14 +126,14 @@ Du kan styra [operationsföljden för alla ovanstående händelser](https://docs
  }
 ```
 
-I det här exemplet är lvaEdge namnet på den direktsända video analysen i IoT Edge modul, och regeln för routning följer schemat som definierats i [deklarerar vägar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+I det här exemplet är lvaEdge namnet på den direktsända video analysen i IoT Edge modul, och regeln för routning följer schemat som definierats i [deklarerar vägar](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
 > För att säkerställa att Analytics-händelser når IoT Edge hubben måste det finnas en IoT Hub-nod för en nod för avkänning av rörelse avkänning och/eller valfri HTTP-tilläggsprovider.
 
 ## <a name="event-schema"></a>Händelseschema
 
-Händelser kommer från gräns enheten och kan förbrukas på gränsen eller i molnet. Händelser som genereras av real tids analys på IoT Edge överensstämmer med det [mönster för strömnings meddelande](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) som upprättats av Azure IoT Hub, med system egenskaper, program egenskaper och en brödtext.
+Händelser kommer från gräns enheten och kan förbrukas på gränsen eller i molnet. Händelser som genereras av real tids analys på IoT Edge överensstämmer med det [mönster för strömnings meddelande](../../iot-hub/iot-hub-devguide-messages-construct.md) som upprättats av Azure IoT Hub, med system egenskaper, program egenskaper och en brödtext.
 
 ### <a name="summary"></a>Sammanfattning
 
@@ -142,7 +143,7 @@ Varje händelse, vid observation via IoT Hub, har en uppsättning gemensamma ege
 |---|---|---|---|
 |meddelande-ID |säker |guid|  Unikt händelse-ID.|
 |ämne| applicationProperty |sträng|    Azure Resource Manager sökväg för Media Servicess kontot.|
-|motiv|   applicationProperty |sträng|    Under Sök väg till den enhet som avger händelsen.|
+|Ämne|   applicationProperty |sträng|    Under Sök väg till den enhet som avger händelsen.|
 |Händelsetid| applicationProperty|    sträng| Tiden då händelsen skapades.|
 |Händelsetyp| applicationProperty |sträng|    Händelse typ identifierare (se nedan).|
 |body|body  |objekt|    Specifika händelse data.|
@@ -160,7 +161,7 @@ Representerar Azure Media Service-kontot som är associerat med grafen.
 
 `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/mediaServices/{accountName}`
 
-#### <a name="subject"></a>motiv
+#### <a name="subject"></a>Ämne
 
 Enhet som avger händelsen:
 
@@ -181,7 +182,7 @@ Händelse typer tilldelas en namnrymd enligt följande schema:
 
 |Klassnamn|Beskrivning|
 |---|---|
-|Analys  |Händelser som genereras som en del av innehålls analysen.|
+|Analytics  |Händelser som genereras som en del av innehålls analysen.|
 |Diagnostik    |Händelser som är till hjälp vid diagnostik av problem och prestanda.|
 |Verksamhetsrelaterade    |Händelser som genererats som en del av resurs åtgärden.|
 
@@ -199,7 +200,7 @@ Händelse tiden beskrivs i ISO8601-strängen och den tidpunkt då händelsen int
 
 ## <a name="logging"></a>Loggning
 
-Precis som med andra IoT Edge moduler kan du också [Granska behållar loggarna](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) på gräns enheten. Informationen som skrivs till loggarna kan styras av [Följande modul, dubbla](module-twin-configuration-schema.md) egenskaper:
+Precis som med andra IoT Edge moduler kan du också [Granska behållar loggarna](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) på gräns enheten. Informationen som skrivs till loggarna kan styras av [Följande modul, dubbla](module-twin-configuration-schema.md) egenskaper:
 
 * logLevel
 
@@ -221,7 +222,7 @@ Precis som med andra IoT Edge moduler kan du också [Granska behållar loggarna]
 
 I vissa fall kan du behöva generera mer detaljerade loggar än de som beskrivs ovan, för att hjälpa Azure-supporten att lösa ett problem. Det finns två steg för att göra detta.
 
-Först länkar du [modulens lagring till enhets lagringen](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) via createOptions. Om du undersöker en [mall för distributions manifest](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) från snabb starterna visas:
+Först länkar du [modulens lagring till enhets lagringen](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) via createOptions. Om du undersöker en [mall för distributions manifest](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) från snabb starterna visas:
 
 ```
 "createOptions": {
@@ -238,7 +239,7 @@ Ovan kan Edge-modulen skriva loggar till lagrings Sök vägen för (enhet) "/var
 
 Sedan skriver modulen fel söknings loggar i binärformat till lagrings Sök vägen (enhet)/var/Local/MediaServices/debuglogs/, som du kan dela med Azure-supporten.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 [Vanliga frågor och svar](faq.md#monitoring-and-metrics)
 

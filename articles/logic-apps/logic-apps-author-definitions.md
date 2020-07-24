@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060672"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för logikappars definitioner av arbetsflöden i Azure Logic Apps
 
 När du skapar lösningar för företags integrering med automatiserade arbets flöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande Logic app-definitionerna enkla och deklarativ JavaScript Object Notation (JSON) tillsammans med [WDL-schemat (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och verifiering. De här formaten gör att Logic app-definitioner blir lättare att läsa och förstå utan att veta mer om kod.
 När du vill automatisera skapandet och distributionen av logi Kap par kan du inkludera Logic app-definitioner som [Azure-resurser](../azure-resource-manager/management/overview.md) inuti [Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md).
-För att skapa, hantera och distribuera Logi Kap par kan du sedan använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)eller [Azure Logic Apps REST-API: er](https://docs.microsoft.com/rest/api/logic/).
+För att skapa, hantera och distribuera Logi Kap par kan du sedan använda [Azure PowerShell](/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)eller [Azure Logic Apps REST-API: er](/rest/api/logic/).
 
 Om du vill arbeta med Logic app-definitioner i JSON öppnar du kodvyn när du arbetar i Azure Portal eller i Visual Studio eller kopierar definitionen till valfritt redigerings program.
 Om du inte har använt Logic Apps igen kan du läsa [hur du skapar din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).

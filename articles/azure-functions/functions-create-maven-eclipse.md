@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6f521cccdc8814fad8605460bf87c0d0fca20378
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054737"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055611"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Skapa din första funktion med Java och Sol förmörkelse 
 
@@ -28,7 +28,7 @@ Om du vill utveckla en Functions-app med Java och Sol förmörkelse måste du ha
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Apache maven](https://maven.apache.org), version 3,0 eller senare.
 -  [Sol förmörkelse](https://www.eclipse.org/downloads/packages/), med stöd för Java och Maven.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+-  [Azure CLI](/cli/azure)
 
 > [!IMPORTANT] 
 > Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
@@ -43,7 +43,7 @@ Vi rekommenderar också att du installerar [Azure Functions Core tools, version 
 1. Var noga med att fylla i värden för alla fält, inklusive `resourceGroup` , `appName` och `appRegion` (Använd ett annat APPNAME än **fabrikam-Function-20170920120101928**) och slutligen **Avsluta**.
     ![Sol förmörkelse maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genererade koden i projektet är en enkel [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som upprepar texten i den Utlös ande http-begäran.
+Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genererade koden i projektet är en enkel [http-utlöst](./functions-bindings-http-webhook.md) funktion som upprepar texten i den Utlös ande http-begäran.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Köra funktioner lokalt i IDE
 

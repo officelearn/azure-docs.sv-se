@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9e4c3615d16834a0517b46f1be7221eef28c602c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143923"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058738"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
@@ -110,7 +110,7 @@ Det virtuella WAN-nätverket ger avancerade förbättringar av routningen. Möjl
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Global VNet-peering
 
-Global VNet-peering är en mekanism för att ansluta två virtuella nätverk i olika regioner. I virtuella WAN-nätverk ansluter virtuella nätverks anslutningar virtuella nätverk till virtuella nav. Användaren behöver inte konfigurera global VNet-peering explicit. Virtuella nätverk som är anslutna till det virtuella navet är samma region som debiteras för VNet-peering. Virtuella nätverk som är anslutna till en virtuell hubb i en annan region ådrar sig globala VNet-peering-kostnader.
+Global VNet-peering är en mekanism för att ansluta två virtuella nätverk i olika regioner. I virtuella WAN-nätverk ansluter virtuella nätverks anslutningar virtuella nätverk till virtuella nav. Användaren behöver inte konfigurera global VNet-peering explicit. Virtuella nätverk som är anslutna till virtuella hubbar i samma region ådrar sig VNet-peering-kostnader. Virtuella nätverk som är anslutna till en virtuell hubb i en annan region ådrar sig globala VNet-peering-kostnader.
 
 ### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Kryptering av ExpressRoute-trafik
 
@@ -128,7 +128,7 @@ Routningstabeller har nu funktioner för Association och spridning. En fördefin
 
 * **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna i en routningstabell väntar du tills veckan på den tredje för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>ASSURANCE
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

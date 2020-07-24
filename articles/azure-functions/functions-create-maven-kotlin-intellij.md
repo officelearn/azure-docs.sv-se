@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: 2eb1a016e04a4150a76112c68683926810f5c66d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa834e3ac4946c4f617e857342f850445eebfd30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80674099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055452"
 ---
 # <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>Snabb start: skapa din första HTTP-utlöst funktion med Kotlin och IntelliJ
 
@@ -26,7 +26,7 @@ Om du vill utveckla en funktion med Kotlin och IntelliJ installerar du följande
 - [Java Developer Kit](https://aka.ms/azure-jdks) (JDK), version 8
 - [Apache maven](https://maven.apache.org), version 3,0 eller senare
 - [INTELLIJ idé](https://www.jetbrains.com/idea/download), community-eller Ultimate-versioner med maven
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Version 2. x](functions-run-local.md#v2) av Azure Functions Core tools. Det ger en lokal utvecklings miljö för att skriva, köra och felsöka Azure Functions.
 
 > [!IMPORTANT]
@@ -40,12 +40,12 @@ Om du vill utveckla en funktion med Kotlin och IntelliJ installerar du följande
 1. I fönstret **Lägg till archetype** fyller du i fälten enligt följande:
     - _Multiport: com_. Microsoft. Azure
     - _ArtifactId_: Azure-Functions-Kotlin-archetype
-    - _Version_: Använd den senaste versionen från [den centrala databasen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-kotlin-archetype)
-    ![skapa ett Maven-projekt från archetype i IntelliJ-idén](media/functions-create-first-kotlin-intellij/functions-create-intellij.png)  
+    - _Version_: Använd den senaste versionen från [den centrala databasen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-kotlin-archetype) 
+     ![ skapa ett Maven-projekt från archetype i IntelliJ-idén](media/functions-create-first-kotlin-intellij/functions-create-intellij.png)  
 1. Välj **OK**och välj sedan **Nästa**.
 1. Ange information om det aktuella projektet och välj **Slutför**.
 
-Maven skapar projektfilerna i en ny mapp med samma namn som _ArtifactId_ -värdet. Projektets genererade kod är en enkel [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som upprepar texten i den Utlös ande http-begäran.
+Maven skapar projektfilerna i en ny mapp med samma namn som _ArtifactId_ -värdet. Projektets genererade kod är en enkel [http-utlöst](./functions-bindings-http-webhook.md) funktion som upprepar texten i den Utlös ande http-begäran.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Köra funktioner lokalt i IDE
 
@@ -55,7 +55,7 @@ Maven skapar projektfilerna i en ny mapp med samma namn som _ArtifactId_ -värde
 1. Importera ändringar manuellt eller aktivera [automatisk import](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html).
 1. Öppna verktygsfältet **Maven-projekt** .
 1. Expandera **livs cykel**och öppna sedan **paket**. Lösningen har skapats och paketerats i en nyligen skapad mål katalog.
-1. Expandera **plugin** > -program**Azure-Functions** och öppna **Azure-Functions: kör** för att starta Azure Functions lokala körnings miljön.  
+1. Expandera **plugin**-program  >  **Azure-Functions** och öppna **Azure-Functions: kör** för att starta Azure Functions lokala körnings miljön.  
   ![Maven-verktygsfält för Azure Functions](media/functions-create-first-kotlin-intellij/functions-intellij-kotlin-maven-toolbar.png)  
 
 1. Stäng dialog rutan Kör när du är klar med att testa din funktion. Endast en funktions värd kan vara aktiv och köras lokalt i taget.

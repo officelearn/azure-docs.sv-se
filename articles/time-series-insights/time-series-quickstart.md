@@ -5,38 +5,38 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/13/2020
-ms.openlocfilehash: 5bc160076e6a06c7ddcc99d989eb6d9c7fb3fe0f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 06/30/2020
+ms.openlocfilehash: 2140cbbc43af7f80c0c5fc2d7cea85cb31bd7bfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042296"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059362"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
+# <a name="quickstart-explore-azure-time-series-insights-gen1"></a>Snabb start: utforska Azure Time Series Insights gen1
 
-Den här Azure Time Series Insights Explorer-snabb starten hjälper dig att komma igång med Time Series Insights i en kostnads fri demonstrations miljö. I den här snabb starten får du lära dig hur du använder webbläsaren för att visualisera stora mängder IoT-data och upptäckter som är allmänt tillgängliga nu.
+Den här Azure Time Series Insights Explorer-snabb starten hjälper dig att komma igång med Azure Time Series Insights i en kostnads fri demonstrations miljö. I den här snabb starten får du lära dig hur du använder webbläsaren för att visualisera stora mängder IoT-data och upptäckter som är allmänt tillgängliga nu.
 
 Azure Time Series Insights är en helt hanterad tjänst för analys, lagring och visualisering som gör det enklare att utforska och analysera miljarder IoT-händelser samtidigt. Du får en global vy över dina data så att du snabbt kan verifiera din IoT-lösning och undvika kostsamma drift stopp för verksamhets kritiska enheter. Azure Time Series Insights hjälper dig att identifiera dolda trender, upptäcka avvikelser och utföra rotor Saks analyser i nära real tid.
 
 För ytterligare flexibilitet kan du lägga till Azure Time Series Insights i ett befintligt program via dess kraftfulla [REST-API: er](./concepts-query-overview.md) och [klient-SDK](https://github.com/microsoft/tsiclient). Du kan använda API: er för att lagra, fråga och använda Time Series-data i ett valfritt klient program. Du kan också använda klient-SDK: n för att lägga till UI-komponenter i ditt befintliga program.
 
-Den här snabb starten i Time Series Insights Explorer innehåller en guidad genom gång av funktioner som är allmänt tillgängliga.
+Den här snabb starten i Azure Time Series Insights Explorer innehåller en guidad genom gång av funktioner.
 
 > [!IMPORTANT]
 > Skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) om du inte har skapat något redan.
 
 ## <a name="prepare-the-demo-environment"></a>Förbered demo miljön
 
-1. Gå till [demonstrationen allmän tillgänglighet](https://insights.timeseries.azure.com/demo)i webbläsaren.
+1. I webbläsaren går du till gen1- [demon](https://insights.timeseries.azure.com/demo).
 
-1. Om du uppmanas till det loggar du in på Time Series Insights Explorer med dina autentiseringsuppgifter för Azure-kontot.
+1. Om du uppmanas till det loggar du in på Azure Time Series Insights Explorer med dina autentiseringsuppgifter för Azure-kontot.
 
-1. Sidan Time Series Insights guidad visning visas. Välj **Nästa** för att starta den guidade visningen.
+1. Sidan Azure Time Series Insights guidad visning visas. Välj **Nästa** för att starta den guidade visningen.
 
    [![Välkommen till snabb start – Välj nästa](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
@@ -50,7 +50,7 @@ Den här snabb starten i Time Series Insights Explorer innehåller en guidad gen
 
    [![Välj en tidsram](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
-   Time Series Insights visar en diagramvisualisering för den tidsram du angav. Du kan utföra olika åtgärder i linje diagrammet. Du kan till exempel filtrera, fästa, sortera och stapla.
+   Azure Time Series Insights visar en diagram visualisering för den tidsram som du har angett. Du kan utföra olika åtgärder i linje diagrammet. Du kan till exempel filtrera, fästa, sortera och stapla.
 
    Gå tillbaka till **panelen för val av tid**genom att välja nedåtpilen som visas:
 
@@ -91,6 +91,4 @@ Nu när du har slutfört självstudien rensar du de resurser som du har skapat:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du är redo att skapa din egen Time Series Insightss miljö:
-> [!div class="nextstepaction"]
-> [Planera din Time Series Insightss miljö](time-series-insights-environment-planning.md)
+* Du är redo att skapa din egen Azure Time Series Insightss miljö. Läs [Planera din Azure Time Series Insightss miljö](time-series-insights-environment-planning.md).

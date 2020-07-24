@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060595"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Offline PlayReady streaming för Windows 10 med Media Services v3
 
@@ -44,7 +44,7 @@ Utmanings läget för att implementera offline-läge är följande:
 * MP4 stöds av många spelare, Encoder-verktyg, men det finns ingen bindning mellan MP4-behållaren och DRM.
 * På lång sikt är CFF med CENC ett sätt att gå. Men idag är support eko systemet för tools/Player inte det där. Vi behöver en lösning, idag.
  
-Idén är: fil formatet för smidig strömning ([Piff](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) med H264,/AAC har en bindning med PLAYREADY (AES-128-/maskin). En enskild smidig strömmande. ISMV-fil (förutsatt att ljudet är Muxed i video) är en fMP4 och kan användas för uppspelning. Om ett smidigt strömmande innehåll går via PlayReady-kryptering blir varje. ISMV-fil en PlayReady-skyddad fragmenterad MP4. Vi kan välja en. ISMV-fil med önskad bit hastighet och byta namn på den som. mp4 för nedladdning.
+Idén är: fil formatet för smidig strömning ([Piff](/iis/media/smooth-streaming/protected-interoperable-file-format)) med H264,/AAC har en bindning med PLAYREADY (AES-128-/maskin). En enskild smidig strömmande. ISMV-fil (förutsatt att ljudet är Muxed i video) är en fMP4 och kan användas för uppspelning. Om ett smidigt strömmande innehåll går via PlayReady-kryptering blir varje. ISMV-fil en PlayReady-skyddad fragmenterad MP4. Vi kan välja en. ISMV-fil med önskad bit hastighet och byta namn på den som. mp4 för nedladdning.
 
 Det finns två alternativ för att vara värd för PlayReady Protected MP4 för progressiv nedladdning:
 

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e37c680f6bf9e296230232c0d4e0fab5f50ad3cd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061595"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
 Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
 
-Den här artikeln fokuserar på att hantera digitala dubbla, information om hur du arbetar med relationer och det [dubbla diagrammet](concepts-twins-graph.md) som helhet finns i [instruktion: hantera den dubbla grafen med relationer](how-to-manage-graph.md).
+Den här artikeln fokuserar på att hantera digitala dubbla, information om hur du arbetar med relationer och det [dubbla diagrammet](concepts-twins-graph.md) som helhet finns i [*instruktion: hantera den dubbla grafen med relationer*](how-to-manage-graph.md).
 
 > [!TIP]
 > Alla SDK-funktioner ingår i synkrona och asynkrona versioner.
@@ -44,7 +44,7 @@ Värdena modell och initial egenskap anges via `initData` parametern, som är en
 
 ### <a name="initialize-properties"></a>Initiera egenskaper
 
-Det dubbla skapande-API: et accepterar ett objekt som kan serialiseras till en giltig JSON-Beskrivning av de dubbla egenskaperna. Se [begrepp: digitala garn och den dubbla grafen](concepts-twins-graph.md) för en beskrivning av JSON-formatet för en dubbel.
+Det dubbla skapande-API: et accepterar ett objekt som kan serialiseras till en giltig JSON-Beskrivning av de dubbla egenskaperna. Se [*begrepp: digitala garn och den dubbla grafen*](concepts-twins-graph.md) för en beskrivning av JSON-formatet för en dubbel.
 
 Du kan skapa ett parameter objekt antingen manuellt eller med hjälp av en angiven hjälp klass. Här är ett exempel på var och en.
 
@@ -91,7 +91,7 @@ object result = await client.GetDigitalTwin(id);
 
 Anropet returnerar dubbla data som en JSON-sträng. 
 
-Om du vill hämta flera multiplar med ett enda API-anrop, se fråge-API-exemplen i [How-to: fråga det dubbla diagrammet](how-to-query-graph.md).
+Om du vill hämta flera multiplar med ett enda API-anrop, se fråge-API-exemplen i [*How-to: fråga det dubbla diagrammet*](how-to-query-graph.md).
 
 Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) som definierar en *måne*:
 
@@ -148,7 +148,7 @@ Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync(
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern
-* Andra egenskaper i ett `$metadata` avsnitt. Exempel:
+* Andra egenskaper i ett `$metadata` avsnitt. Exempel på dessa är:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
@@ -168,7 +168,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-Du kan läsa mer om serialiserings hjälp klasser i [How-to: använda Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md).
+Du kan läsa mer om serialiserings hjälp klasser i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
 
 ## <a name="update-a-digital-twin"></a>Uppdatera en digital delad
 
@@ -337,13 +337,13 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### <a name="delete-all-digital-twins"></a>Ta bort alla digitala dubbla
 
-Ett exempel på hur du tar bort alla dubbla på en gång finns i den exempel app som används i [självstudien: utforska grunderna med ett exempel på ett klient program](tutorial-command-line-app.md). *CommandLoop.cs* -filen gör detta i en `CommandDeleteAllTwins` funktion.
+Ett exempel på hur du tar bort alla dubbla på en gång finns i den exempel app som används i [*självstudien: utforska grunderna med ett exempel på ett klient program*](tutorial-command-line-app.md). *CommandLoop.cs* -filen gör detta i en `CommandDeleteAllTwins` funktion.
 
 ## <a name="manage-twins-with-cli"></a>Hantera dubbla med CLI
 
-Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [anvisningar: använda Azure Digitals flätade CLI](how-to-use-cli.md).
+Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se hur du skapar och hanterar relationer mellan digitala dubbla:
-* [Anvisningar: hantera den dubbla grafen med relationer](how-to-manage-graph.md)
+* [*Anvisningar: hantera den dubbla grafen med relationer*](how-to-manage-graph.md)

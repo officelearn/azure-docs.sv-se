@@ -3,12 +3,12 @@ title: Introduktion till Azure Advisor
 description: Använd Azure Advisor för att optimera dina Azure-distributioner.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057697"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -51,13 +51,13 @@ Du kan också Visa Advisor-rekommendationer via den virtuella datorns resurs gr�
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Vilka behörigheter behöver jag för att få åtkomst till Advisor?
  
-Du kan komma åt Advisor-rekommendationer som *ägare*, *deltagare*eller *läsare* av en prenumeration.
+Du kan komma åt Advisor-rekommendationer som *ägare*, *deltagare*eller *läsare* av en prenumeration, resurs grupp eller resurs.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Vilka resurser ger Advisor rekommendationer för?
 
 Advisor ger rekommendationer för Application Gateway, App Services, tillgänglighets uppsättningar, Azure cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, offentliga Azure-IP-adresser, SQL Data Warehouse, SQL-servrar, lagrings konton, Traffic Manager profiler och virtuella datorer.
 
-Azure Advisor innehåller även rekommendationer från [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) som kan innehålla rekommendationer för ytterligare resurs typer.
+Azure Advisor innehåller även rekommendationer från [Azure Security Center](../security-center/security-center-recommendations.md) som kan innehålla rekommendationer för ytterligare resurs typer.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Kan jag skjuta upp eller stänga av en rekommendation?
 

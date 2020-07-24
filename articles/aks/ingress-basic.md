@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du installerar och konfigurerar en grundläggande NGINX ingress-kontrollant i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: bb7ac1d76e93a95fedc1dfdbfd67d2b057db60e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: d96118e8f9de37432874a9864fc5c35faeb95a5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499825"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057221"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollant i Azure Kubernetes service (AKS)
 
@@ -163,10 +163,10 @@ Båda programmen körs nu på ditt Kubernetes-kluster. Skapa en Kubernetes ingre
 
 I följande exempel dirigeras trafik till *EXTERNAL_IP* till tjänsten med namnet `aks-helloworld-one` . Trafik till *EXTERNAL_IP/Hello-World-Two* dirigeras till `aks-helloworld-two` tjänsten. Trafik till *EXTERNAL_IP/static* dirigeras till tjänsten med namnet `aks-helloworld-one` för statiska till gångar.
 
-Skapa en fil med namnet `hello-world-ingress.yaml` och kopiera i följande exempel yaml.
+Skapa en fil med namnet *Hello-World-ingress. yaml* och kopiera i följande exempel yaml.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -188,7 +188,7 @@ spec:
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static

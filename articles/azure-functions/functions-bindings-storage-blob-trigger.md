@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056043"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
 
@@ -300,7 +301,7 @@ Få åtkomst till BLOB-data med `context.bindings.<NAME>` var `<NAME>` matchar v
 
 # <a name="python"></a>[Python](#tab/python)
 
-Få åtkomst till BLOB-data via parametern som anges som [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Mer information finns i [utlösnings exemplet](#example) .
+Få åtkomst till BLOB-data via parametern som anges som [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Mer information finns i [utlösnings exemplet](#example) .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -411,9 +412,9 @@ BLOB-utlösaren använder en kö internt, så det maximala antalet samtidiga fun
 
 [Förbruknings planen](functions-scale.md#how-the-consumption-and-premium-plans-work) begränsar en Function-app på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje intern körning av funktions instansen och av Functions-körningen. Om en BLOB-utlöst funktion läser in hela blobben i minnet är den maximala mängd minne som används av den funktionen bara för blobbar 24 * maximal BLOB-storlek. Till exempel skulle en Function-app med tre BLOB-utlöst funktioner och standardinställningarna ha ett maximalt antal per VM-concurrency på 3 * 24 = 72 funktions anrop.
 
-Java Script-och Java-funktioner läser in hela blobben i minnet och C#-funktionerna gör det om du binder till `string` , `Byte[]` eller Poco.
+Java Script-och Java-funktioner läser in hela blobben i minnet och C#-funktioner gör att om du binder till `string` eller `Byte[]` .
 
-## <a name="polling"></a>Avsöknings
+## <a name="polling"></a>Avsökning
 
 Avsökning fungerar som en hybrid mellan att inspektera loggar och köra regelbundna behållar genomsökningar. Blobbar genomsöks i grupper om 10 000 i taget med en fortsättnings-token som används mellan intervall.
 
